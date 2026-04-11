@@ -1,0 +1,55 @@
+/**
+ * UX4G Input Component Styles
+ * Imports base input styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/forms.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-input {
+  display: inline-block;
+}
+
+.ux4g-input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ux4g-input-wrapper--full-width {
+  width: 100%;
+}
+
+.ux4g-input-wrapper--full-width .ux4g-input {
+  width: 100%;
+}
+
+/**
+ * Icon positioning
+ */
+.ux4g-input__icon {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ux4g-semantic-color-text-secondary, #525252);
+  pointer-events: none;
+}
+
+.ux4g-input__icon--before {
+  left: var(--ux4g-spacing-3, 0.75rem);
+}
+
+.ux4g-input__icon--after {
+  right: var(--ux4g-spacing-3, 0.75rem);
+}
+
+.ux4g-input-wrapper--with-icon-before .ux4g-input {
+  padding-left: calc(var(--ux4g-spacing-4, 1rem) + var(--ux4g-spacing-8, 2rem));
+}
+
+.ux4g-input-wrapper--with-icon-after .ux4g-input {
+  padding-right: calc(var(--ux4g-spacing-4, 1rem) + var(--ux4g-spacing-8, 2rem));
+}

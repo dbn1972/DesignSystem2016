@@ -1,0 +1,161 @@
+/**
+ * UX4G Toast Component Styles
+ * Imports base toast styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/toast.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-toast-container {
+  display: contents;
+}
+
+.ux4g-toast-container {
+  position: fixed;
+  top: var(--ux4g-spacing-4, 1rem);
+  right: var(--ux4g-spacing-4, 1rem);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.ux4g-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+  padding: var(--ux4g-spacing-4, 1rem);
+  background-color: var(--ux4g-color-background, #fff);
+  border-radius: var(--ux4g-radius-lg, 0.5rem);
+  box-shadow: var(--ux4g-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05));
+  pointer-events: all;
+  animation: slideIn 0.3s ease-out;
+}
+
+/**
+ * Variant colors
+ */
+.ux4g-toast--info {
+  border-left: 4px solid var(--ux4g-color-info, #3b82f6);
+}
+
+.ux4g-toast--info .ux4g-toast__icon {
+  color: var(--ux4g-color-info, #3b82f6);
+}
+
+.ux4g-toast--success {
+  border-left: 4px solid var(--ux4g-color-success, #138808);
+}
+
+.ux4g-toast--success .ux4g-toast__icon {
+  color: var(--ux4g-color-success, #138808);
+}
+
+.ux4g-toast--warning {
+  border-left: 4px solid var(--ux4g-color-warning, #f59e0b);
+}
+
+.ux4g-toast--warning .ux4g-toast__icon {
+  color: var(--ux4g-color-warning, #f59e0b);
+}
+
+.ux4g-toast--error {
+  border-left: 4px solid var(--ux4g-color-error, #dc2626);
+}
+
+.ux4g-toast--error .ux4g-toast__icon {
+  color: var(--ux4g-color-error, #dc2626);
+}
+
+/**
+ * Icon
+ */
+.ux4g-toast__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/**
+ * Content
+ */
+.ux4g-toast__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ux4g-toast__title {
+  font-size: var(--ux4g-font-size-base, 1rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: var(--ux4g-color-text, #1f2937);
+  margin-bottom: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-toast__message {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  line-height: 1.4;
+}
+
+/**
+ * Close button
+ */
+.ux4g-toast__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  flex-shrink: 0;
+}
+
+.ux4g-toast__close:hover {
+  background-color: var(--ux4g-color-gray-100, #f3f4f6);
+  color: var(--ux4g-color-text, #1f2937);
+}
+
+.ux4g-toast__close:focus {
+  outline: 2px solid var(--ux4g-color-focus, #3b82f6);
+  outline-offset: 2px;
+}
+
+/**
+ * Animation
+ */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/**
+ * Responsive
+ */
+@media (max-width: 640px) {
+  .ux4g-toast-container {
+    top: auto;
+    bottom: var(--ux4g-spacing-4, 1rem);
+    left: var(--ux4g-spacing-4, 1rem);
+    right: var(--ux4g-spacing-4, 1rem);
+    max-width: none;
+  }
+}

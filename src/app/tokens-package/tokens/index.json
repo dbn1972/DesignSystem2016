@@ -1,0 +1,19 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "version": "1.0.0",
+    "description": "UX4G Design Tokens - Indian Government Design System",
+    "base": {
+      "colors": "./base/colors.json",
+      "typography": "./base/typography.json",
+      "spacing": "./base/spacing.json",
+      "sizing": "./base/sizing.json",
+      "radius": "./base/radius.json",
+      "shadows": "./base/shadows.json",
+      "opacity": "./base/opacity.json",
+      "motion": "./base/motion.json",
+      "zIndex": "./base/z-index.json"
+    },
+    "semantic": "./semantic.json"
+  }
+}

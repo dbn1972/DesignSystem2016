@@ -1,0 +1,102 @@
+/**
+ * UX4G Stack Component Styles
+ */
+
+ux4g-stack {
+  display: block;
+}
+
+.ux4g-stack {
+  display: flex;
+}
+
+/**
+ * Direction
+ */
+.ux4g-stack--vertical {
+  flex-direction: column;
+}
+
+.ux4g-stack--horizontal {
+  flex-direction: row;
+}
+
+/**
+ * Spacing (gap)
+ */
+.ux4g-stack--spacing-none {
+  gap: 0;
+}
+
+.ux4g-stack--spacing-xs {
+  gap: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-stack--spacing-sm {
+  gap: var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-stack--spacing-md {
+  gap: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-stack--spacing-lg {
+  gap: var(--ux4g-spacing-6, 1.5rem);
+}
+
+.ux4g-stack--spacing-xl {
+  gap: var(--ux4g-spacing-8, 2rem);
+}
+
+/**
+ * Align items (cross axis)
+ */
+.ux4g-stack--align-start {
+  align-items: flex-start;
+}
+
+.ux4g-stack--align-center {
+  align-items: center;
+}
+
+.ux4g-stack--align-end {
+  align-items: flex-end;
+}
+
+.ux4g-stack--align-stretch {
+  align-items: stretch;
+}
+
+/**
+ * Justify content (main axis)
+ */
+.ux4g-stack--justify-start {
+  justify-content: flex-start;
+}
+
+.ux4g-stack--justify-center {
+  justify-content: center;
+}
+
+.ux4g-stack--justify-end {
+  justify-content: flex-end;
+}
+
+.ux4g-stack--justify-between {
+  justify-content: space-between;
+}
+
+.ux4g-stack--justify-around {
+  justify-content: space-around;
+}
+
+.ux4g-stack--justify-evenly {
+  justify-content: space-evenly;
+}
+
+/**
+ * Wrap
+ */
+.ux4g-stack--wrap {
+  flex-wrap: wrap;
+}

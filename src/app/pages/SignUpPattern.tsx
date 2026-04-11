@@ -1,0 +1,1843 @@
+import { Link } from "react-router";
+import { UserPlus, Shield, CheckCircle, AlertCircle, Info, XCircle, Eye, EyeOff, Mail, Phone, User, Users, Lock, AlertTriangle, ArrowRight, Smartphone, FileText, Globe, Code, Settings, HelpCircle, ChevronRight, Database, Check, X, Key } from "lucide-react";
+
+export default function SignUpPattern() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white border-b-2 border-gray-300">
+        <div className="max-w-[1600px] mx-auto px-12 py-8">
+          <div className="flex items-start justify-between">
+            <div className="max-w-4xl">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
+                  <UserPlus size={32} className="text-[#000080]" />
+                </div>
+                <div>
+                  <div className="text-sm text-gray-600 mb-1">UX4G Identity & Access Pattern</div>
+                  <h1 className="text-3xl font-bold text-gray-900">Sign Up</h1>
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Standard account creation pattern for new users to register on government digital services. 
+                Includes progressive disclosure, validation, duplicate detection, password security, 
+                and OTP verification integration for trustworthy, accessible onboarding.
+              </p>
+              <div className="flex items-center gap-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-009-03</span></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+                STABLE
+              </div>
+              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+                Conformance<br/>Mandatory
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Navigation */}
+      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+        <div className="max-w-[1600px] mx-auto px-12">
+          <div className="flex items-center gap-1 py-3 overflow-x-auto">
+            {[
+              { id: "overview", label: "Overview" },
+              { id: "flow", label: "Flow Diagram" },
+              { id: "screens", label: "Example Screens" },
+              { id: "fields", label: "Fields & Content" },
+              { id: "password", label: "Password Guidance" },
+              { id: "validation", label: "Validation Rules" },
+              { id: "errors", label: "Error States" },
+              { id: "accessibility", label: "Accessibility" },
+              { id: "implementation", label: "Implementation" },
+              { id: "governance", label: "Governance" }
+            ].map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Content */}
+      <main className="max-w-[1600px] mx-auto px-12 py-12">
+        <div className="grid grid-cols-12 gap-8">
+          
+          {/* Main Content - 9 columns */}
+          <div className="col-span-9 space-y-16">
+            <OverviewSection />
+            <FlowDiagram />
+            <ExampleScreens />
+            <FieldsAndContent />
+            <PasswordGuidance />
+            <ValidationRules />
+            <ErrorStates />
+            <AccessibilitySection />
+            <ImplementationSection />
+            <GovernanceSection />
+          </div>
+
+          {/* Sidebar - 3 columns */}
+          <aside className="col-span-3 space-y-6 sticky top-24 self-start">
+            <QuickReference />
+            <InteractivePrototype />
+            <RelatedPatterns />
+            <Resources />
+          </aside>
+
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+        <div className="max-w-[1600px] mx-auto px-12 py-8">
+          <div className="flex items-center justify-between text-sm text-gray-600">
+            <div>UX4G Design System Platform • Sign Up Pattern</div>
+            <div>Government of India • Digital India Initiative</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// ==================== OVERVIEW SECTION ====================
+
+function OverviewSection() {
+  return (
+    <section id="overview" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Pattern Overview</h2>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        {/* Purpose */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Purpose</h3>
+          </div>
+          <div className="p-6">
+            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+              Enable new users to create accounts on government digital services with minimal friction, 
+              clear guidance, and strong security. Sign Up ensures data quality, prevents duplicate accounts, 
+              and seamlessly connects to verification flows.
+            </p>
+            <div className="space-y-2">
+              <PurposeItem text="Create secure accounts for new users" />
+              <PurposeItem text="Collect essential information with minimal fields" />
+              <PurposeItem text="Validate data quality in real-time" />
+              <PurposeItem text="Prevent duplicate account creation" />
+              <PurposeItem text="Guide users to identity verification (OTP)" />
+            </div>
+          </div>
+        </div>
+
+        {/* When to Use */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">When to Use</h3>
+          </div>
+          <div className="p-6">
+            <div className="space-y-3 text-sm">
+              <UseItem 
+                type="yes" 
+                text="Services requiring personalized access and saved data" 
+              />
+              <UseItem 
+                type="yes" 
+                text="Application tracking and multi-visit workflows" 
+              />
+              <UseItem 
+                type="yes" 
+                text="Services with eligibility criteria or user profiles" 
+              />
+              <UseItem 
+                type="yes" 
+                text="Multi-channel services (web, mobile, assisted)" 
+              />
+              <UseItem 
+                type="yes" 
+                text="Services requiring identity verification" 
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* When NOT to Use */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">When NOT to Use</h3>
+          </div>
+          <div className="p-6">
+            <div className="space-y-3 text-sm">
+              <UseItem 
+                type="no" 
+                text="Single-visit, no-account-needed information services" 
+              />
+              <UseItem 
+                type="no" 
+                text="Services that can use Aadhaar or federated identity" 
+              />
+              <UseItem 
+                type="no" 
+                text="Offline-first or walk-in services with no digital profile" 
+              />
+              <UseItem 
+                type="no" 
+                text="Anonymous feedback or grievance portals" 
+              />
+              <UseItem 
+                type="no" 
+                text="Emergency services requiring immediate access" 
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* User Goals */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">User Goals</h3>
+          </div>
+          <div className="p-6">
+            <div className="space-y-3 text-sm">
+              <GoalItem 
+                icon={<User size={16} />}
+                text="Create an account quickly without confusion" 
+              />
+              <GoalItem 
+                icon={<Shield size={16} />}
+                text="Understand what information is needed and why" 
+              />
+              <GoalItem 
+                icon={<AlertCircle size={16} />}
+                text="Get immediate feedback on errors" 
+              />
+              <GoalItem 
+                icon={<CheckCircle size={16} />}
+                text="Know if I already have an account" 
+              />
+              <GoalItem 
+                icon={<Lock size={16} />}
+                text="Create a secure password with clear requirements" 
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PurposeItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-2">
+      <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+      <span className="text-sm text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+function UseItem({ type, text }: { type: "yes" | "no"; text: string }) {
+  return (
+    <div className="flex items-start gap-2">
+      {type === "yes" ? (
+        <Check size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+      ) : (
+        <X size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
+      )}
+      <span className="text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+function GoalItem({ icon, text }: { icon: React.ReactNode; text: string }) {
+  return (
+    <div className="flex items-start gap-3">
+      <div className="text-[#000080] mt-0.5">{icon}</div>
+      <span className="text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+// ==================== FLOW DIAGRAM ====================
+
+function FlowDiagram() {
+  return (
+    <section id="flow" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">End-to-End Flow Diagram</h2>
+      </div>
+
+      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+        <div className="space-y-4">
+          {/* Flow Steps */}
+          <FlowStep 
+            number="1"
+            title="Entry Point"
+            description="User arrives at service landing page or login screen"
+            action="Clicks 'Create Account' or 'Sign Up'"
+            color="gray"
+          />
+          
+          <FlowConnector />
+          
+          <FlowStep 
+            number="2"
+            title="Sign Up Form"
+            description="User enters basic account information"
+            action="Full name, email or mobile number, password (optional)"
+            color="blue"
+          />
+          
+          <FlowConnector />
+          
+          <FlowStep 
+            number="3"
+            title="Real-Time Validation"
+            description="System validates input as user types or on blur"
+            action="Email format, mobile format, password strength"
+            color="blue"
+          />
+          
+          <FlowConnector label="Validation Passes" />
+          
+          <FlowStep 
+            number="4"
+            title="Duplicate Check"
+            description="System checks if account already exists"
+            action="Query database by email/mobile number"
+            color="blue"
+          />
+          
+          <FlowBranch 
+            condition="Account Exists?"
+            yesPath="Redirect to Sign In with message"
+            noPath="Continue registration"
+          />
+          
+          <FlowStep 
+            number="5"
+            title="Account Creation"
+            description="System creates user record (unverified state)"
+            action="Generate user ID, hash password, save data"
+            color="green"
+          />
+          
+          <FlowConnector />
+          
+          <FlowStep 
+            number="6"
+            title="OTP Verification Trigger"
+            description="System initiates verification process"
+            action="Send OTP via SMS or email, redirect to verification screen"
+            color="green"
+          />
+          
+          <FlowConnector />
+          
+          <FlowStep 
+            number="7"
+            title="Success State"
+            description="Account created, awaiting verification"
+            action="Show success message, guide user to next step"
+            color="green"
+          />
+        </div>
+
+        {/* Flow Legend */}
+        <div className="mt-8 pt-6 border-t-2 border-gray-200">
+          <div className="flex items-center gap-8 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-gray-400 rounded-sm"></div>
+              <span className="text-gray-600">Entry Point</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-[#000080] rounded-sm"></div>
+              <span className="text-gray-600">User Action</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-green-600 rounded-sm"></div>
+              <span className="text-gray-600">System Response</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <AlertTriangle size={14} className="text-orange-600" />
+              <span className="text-gray-600">Decision Point</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FlowStep({ number, title, description, action, color }: { 
+  number: string; 
+  title: string; 
+  description: string; 
+  action: string;
+  color: "gray" | "blue" | "green";
+}) {
+  const bgColor = color === "gray" ? "bg-gray-100" : color === "blue" ? "bg-blue-50" : "bg-green-50";
+  const borderColor = color === "gray" ? "border-gray-300" : color === "blue" ? "border-[#000080]" : "border-green-600";
+  const textColor = color === "gray" ? "text-gray-700" : color === "blue" ? "text-[#000080]" : "text-green-700";
+
+  return (
+    <div className={`${bgColor} border-2 ${borderColor} rounded-lg p-4`}>
+      <div className="flex items-start gap-4">
+        <div className={`w-8 h-8 rounded-full ${borderColor.replace('border-', 'bg-')} text-white flex items-center justify-center font-bold text-sm flex-shrink-0`}>
+          {number}
+        </div>
+        <div className="flex-1">
+          <h4 className={`font-bold ${textColor} mb-1`}>{title}</h4>
+          <p className="text-sm text-gray-700 mb-2">{description}</p>
+          <div className="text-xs text-gray-600 italic">→ {action}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FlowConnector({ label }: { label?: string }) {
+  return (
+    <div className="flex items-center justify-center py-2">
+      <div className="flex flex-col items-center">
+        <ArrowRight size={24} className="text-gray-400 rotate-90" />
+        {label && <span className="text-xs text-gray-600 mt-1">{label}</span>}
+      </div>
+    </div>
+  );
+}
+
+function FlowBranch({ condition, yesPath, noPath }: { condition: string; yesPath: string; noPath: string }) {
+  return (
+    <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4">
+      <div className="flex items-start gap-3">
+        <AlertTriangle size={20} className="text-orange-600 flex-shrink-0 mt-1" />
+        <div className="flex-1">
+          <h4 className="font-bold text-orange-800 mb-3">{condition}</h4>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-white border border-orange-200 rounded p-3">
+              <div className="text-xs font-bold text-orange-700 mb-1">YES</div>
+              <div className="text-sm text-gray-700">{yesPath}</div>
+            </div>
+            <div className="bg-white border border-orange-200 rounded p-3">
+              <div className="text-xs font-bold text-green-700 mb-1">NO</div>
+              <div className="text-sm text-gray-700">{noPath}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== EXAMPLE SCREENS ====================
+
+function ExampleScreens() {
+  return (
+    <section id="screens" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Example Screens</h2>
+        <p className="text-gray-600 mt-2">Representative states showing validation, error handling, and success flows</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        {/* Default State */}
+        <ExampleScreen
+          title="Default Sign Up Form"
+          state="Initial state, empty fields"
+          stateColor="gray"
+        >
+          <SignUpFormExample state="default" />
+        </ExampleScreen>
+
+        {/* Invalid Email */}
+        <ExampleScreen
+          title="Invalid Email Address"
+          state="Real-time validation error"
+          stateColor="red"
+        >
+          <SignUpFormExample state="invalid-email" />
+        </ExampleScreen>
+
+        {/* Invalid Mobile */}
+        <ExampleScreen
+          title="Invalid Mobile Number"
+          state="Format validation error"
+          stateColor="red"
+        >
+          <SignUpFormExample state="invalid-mobile" />
+        </ExampleScreen>
+
+        {/* Weak Password */}
+        <ExampleScreen
+          title="Weak Password"
+          state="Password strength indicator"
+          stateColor="orange"
+        >
+          <SignUpFormExample state="weak-password" />
+        </ExampleScreen>
+
+        {/* Password Mismatch */}
+        <ExampleScreen
+          title="Password Mismatch"
+          state="Confirmation field error"
+          stateColor="red"
+        >
+          <SignUpFormExample state="password-mismatch" />
+        </ExampleScreen>
+
+        {/* Duplicate Account */}
+        <ExampleScreen
+          title="Duplicate Account Detected"
+          state="Account already exists"
+          stateColor="orange"
+        >
+          <SignUpFormExample state="duplicate-account" />
+        </ExampleScreen>
+
+        {/* Success State */}
+        <ExampleScreen
+          title="Account Created Successfully"
+          state="Success with next steps"
+          stateColor="green"
+        >
+          <SignUpFormExample state="success" />
+        </ExampleScreen>
+
+        {/* OTP Verification */}
+        <ExampleScreen
+          title="OTP Verification Required"
+          state="Redirect to verification"
+          stateColor="blue"
+        >
+          <SignUpFormExample state="otp-verification" />
+        </ExampleScreen>
+      </div>
+    </section>
+  );
+}
+
+function ExampleScreen({ 
+  title, 
+  state, 
+  stateColor, 
+  children 
+}: { 
+  title: string; 
+  state: string; 
+  stateColor: "gray" | "red" | "orange" | "green" | "blue";
+  children: React.ReactNode;
+}) {
+  const colorMap = {
+    gray: "bg-gray-100 text-gray-700",
+    red: "bg-red-100 text-red-700",
+    orange: "bg-orange-100 text-orange-700",
+    green: "bg-green-100 text-green-700",
+    blue: "bg-blue-100 text-blue-700"
+  };
+
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
+        <h3 className="font-bold text-gray-900 text-sm mb-1">{title}</h3>
+        <div className={`inline-block px-2 py-1 rounded text-xs font-bold ${colorMap[stateColor]}`}>
+          {state}
+        </div>
+      </div>
+      <div className="p-6 bg-gray-50">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function SignUpFormExample({ state }: { state: string }) {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 max-w-md mx-auto">
+      {/* Header */}
+      <div className="text-center mb-6">
+        <div className="w-12 h-12 bg-[#000080] rounded mx-auto mb-3 flex items-center justify-center">
+          <UserPlus size={24} className="text-white" />
+        </div>
+        <h3 className="font-bold text-gray-900 text-lg">Create Account</h3>
+        <p className="text-sm text-gray-600 mt-1">Sign up to access government services</p>
+      </div>
+
+      {state === "success" ? (
+        <div className="text-center py-6">
+          <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <CheckCircle size={32} className="text-green-600" />
+          </div>
+          <h4 className="font-bold text-gray-900 mb-2">Account Created Successfully</h4>
+          <p className="text-sm text-gray-600 mb-4">
+            Please verify your email address to continue
+          </p>
+          <button className="w-full px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm">
+            Verify Email Address
+          </button>
+        </div>
+      ) : state === "otp-verification" ? (
+        <div className="text-center py-6">
+          <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <Smartphone size={32} className="text-blue-600" />
+          </div>
+          <h4 className="font-bold text-gray-900 mb-2">Verify Your Mobile Number</h4>
+          <p className="text-sm text-gray-600 mb-4">
+            We have sent a 6-digit OTP to<br />
+            <span className="font-bold">+91 98765 43210</span>
+          </p>
+          <div className="flex justify-center gap-2 mb-4">
+            {[1, 2, 3, 4, 5, 6].map(i => (
+              <input 
+                key={i}
+                type="text" 
+                maxLength={1}
+                className="w-10 h-10 border-2 border-gray-300 rounded text-center font-bold"
+                placeholder="0"
+              />
+            ))}
+          </div>
+          <button className="w-full px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm">
+            Verify OTP
+          </button>
+        </div>
+      ) : state === "duplicate-account" ? (
+        <>
+          <div className="bg-orange-50 border-2 border-orange-300 rounded p-4 mb-4">
+            <div className="flex items-start gap-3">
+              <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="font-bold text-orange-800 text-sm mb-1">Account Already Exists</h4>
+                <p className="text-sm text-gray-700">
+                  An account with this email address already exists. Please sign in instead.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-3">
+            <button className="w-full px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm">
+              Go to Sign In
+            </button>
+            <button className="w-full px-4 py-2 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm">
+              Forgot Password?
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Full Name */}
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
+              Full Name <span className="text-red-600">*</span>
+            </label>
+            <input 
+              type="text" 
+              className="w-full px-3 py-2 border-2 border-gray-300 rounded text-sm focus:border-[#000080] focus:outline-none"
+              placeholder="Enter your full name"
+              defaultValue={state !== "default" ? "Rajesh Kumar" : ""}
+            />
+          </div>
+
+          {/* Email */}
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
+              Email Address <span className="text-red-600">*</span>
+            </label>
+            <input 
+              type="email" 
+              className={`w-full px-3 py-2 border-2 rounded text-sm focus:outline-none ${
+                state === "invalid-email" ? "border-red-500" : "border-gray-300 focus:border-[#000080]"
+              }`}
+              placeholder="example@email.com"
+              defaultValue={state === "invalid-email" ? "rajesh@invalid" : state !== "default" ? "rajesh.kumar@example.com" : ""}
+            />
+            {state === "invalid-email" && (
+              <div className="flex items-start gap-2 mt-2">
+                <XCircle size={14} className="text-red-600 flex-shrink-0 mt-0.5" />
+                <span className="text-xs text-red-600">Please enter a valid email address</span>
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Number */}
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
+              Mobile Number <span className="text-red-600">*</span>
+            </label>
+            <div className="flex gap-2">
+              <select className="px-2 py-2 border-2 border-gray-300 rounded text-sm bg-white">
+                <option>+91</option>
+              </select>
+              <input 
+                type="tel" 
+                className={`flex-1 px-3 py-2 border-2 rounded text-sm focus:outline-none ${
+                  state === "invalid-mobile" ? "border-red-500" : "border-gray-300 focus:border-[#000080]"
+                }`}
+                placeholder="10-digit mobile number"
+                defaultValue={state === "invalid-mobile" ? "123" : state !== "default" ? "9876543210" : ""}
+              />
+            </div>
+            {state === "invalid-mobile" && (
+              <div className="flex items-start gap-2 mt-2">
+                <XCircle size={14} className="text-red-600 flex-shrink-0 mt-0.5" />
+                <span className="text-xs text-red-600">Mobile number must be 10 digits</span>
+              </div>
+            )}
+          </div>
+
+          {/* Password */}
+          <div className="mb-4">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
+              Password <span className="text-red-600">*</span>
+            </label>
+            <input 
+              type="password" 
+              className={`w-full px-3 py-2 border-2 rounded text-sm focus:outline-none ${
+                state === "weak-password" ? "border-orange-500" : "border-gray-300 focus:border-[#000080]"
+              }`}
+              placeholder="Create a strong password"
+              defaultValue={state === "weak-password" ? "123" : state !== "default" ? "SecurePass123!" : ""}
+            />
+            {state === "weak-password" && (
+              <>
+                <div className="flex items-start gap-2 mt-2">
+                  <AlertCircle size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-xs text-orange-600">Password is too weak</span>
+                </div>
+                <div className="mt-2 flex items-center gap-1">
+                  <div className="h-1 flex-1 bg-orange-300 rounded"></div>
+                  <div className="h-1 flex-1 bg-gray-200 rounded"></div>
+                  <div className="h-1 flex-1 bg-gray-200 rounded"></div>
+                  <div className="h-1 flex-1 bg-gray-200 rounded"></div>
+                </div>
+              </>
+            )}
+            {state !== "weak-password" && state !== "default" && state !== "password-mismatch" && state !== "invalid-email" && state !== "invalid-mobile" && (
+              <div className="mt-2 flex items-center gap-1">
+                <div className="h-1 flex-1 bg-green-500 rounded"></div>
+                <div className="h-1 flex-1 bg-green-500 rounded"></div>
+                <div className="h-1 flex-1 bg-green-500 rounded"></div>
+                <div className="h-1 flex-1 bg-green-500 rounded"></div>
+              </div>
+            )}
+          </div>
+
+          {/* Confirm Password */}
+          <div className="mb-6">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
+              Confirm Password <span className="text-red-600">*</span>
+            </label>
+            <input 
+              type="password" 
+              className={`w-full px-3 py-2 border-2 rounded text-sm focus:outline-none ${
+                state === "password-mismatch" ? "border-red-500" : "border-gray-300 focus:border-[#000080]"
+              }`}
+              placeholder="Re-enter password"
+              defaultValue={state === "password-mismatch" ? "DifferentPass123!" : state !== "default" && state !== "weak-password" ? "SecurePass123!" : ""}
+            />
+            {state === "password-mismatch" && (
+              <div className="flex items-start gap-2 mt-2">
+                <XCircle size={14} className="text-red-600 flex-shrink-0 mt-0.5" />
+                <span className="text-xs text-red-600">Passwords do not match</span>
+              </div>
+            )}
+          </div>
+
+          {/* Submit Button */}
+          <button 
+            className={`w-full px-4 py-2 font-bold rounded text-sm ${
+              state === "default" || state === "invalid-email" || state === "invalid-mobile" || state === "weak-password" || state === "password-mismatch"
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-[#000080] text-white"
+            }`}
+            disabled={state === "default" || state === "invalid-email" || state === "invalid-mobile" || state === "weak-password" || state === "password-mismatch"}
+          >
+            Create Account
+          </button>
+
+          {/* Sign In Link */}
+          <div className="text-center mt-4">
+            <span className="text-sm text-gray-600">Already have an account? </span>
+            <a href="#" className="text-sm text-[#000080] font-bold hover:underline">Sign In</a>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+// ==================== FIELDS & CONTENT ====================
+
+function FieldsAndContent() {
+  return (
+    <section id="fields" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Fields & Content Guidance</h2>
+        <p className="text-gray-600 mt-2">Required fields, labels, placeholders, and help text for sign-up forms</p>
+      </div>
+
+      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <table className="w-full">
+          <thead>
+            <tr className="bg-gray-100 border-b-2 border-gray-300">
+              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Field Name</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Required</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Label Text</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Placeholder</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Help Text</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            <FieldRow 
+              field="Full Name"
+              required={true}
+              label="Full Name"
+              placeholder="Enter your full name"
+              help="As per government ID (Aadhaar, PAN, etc.)"
+            />
+            <FieldRow 
+              field="Email Address"
+              required={true}
+              label="Email Address"
+              placeholder="example@email.com"
+              help="You will receive verification link at this email"
+            />
+            <FieldRow 
+              field="Mobile Number"
+              required={true}
+              label="Mobile Number"
+              placeholder="10-digit mobile number"
+              help="Required for OTP verification and service updates"
+            />
+            <FieldRow 
+              field="Password"
+              required={true}
+              label="Password"
+              placeholder="Create a strong password"
+              help="Minimum 8 characters with letters, numbers, and symbols"
+            />
+            <FieldRow 
+              field="Confirm Password"
+              required={true}
+              label="Confirm Password"
+              placeholder="Re-enter password"
+              help="Must match the password entered above"
+            />
+            <FieldRow 
+              field="Date of Birth"
+              required={false}
+              label="Date of Birth (Optional)"
+              placeholder="DD/MM/YYYY"
+              help="Required for age-restricted services"
+            />
+            <FieldRow 
+              field="Terms & Conditions"
+              required={true}
+              label="I agree to the Terms and Conditions"
+              placeholder="—"
+              help="Checkbox with link to terms document"
+            />
+          </tbody>
+        </table>
+      </div>
+
+      {/* Content Guidelines */}
+      <div className="grid grid-cols-2 gap-6">
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Page Title</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <div>
+              <span className="font-bold text-gray-900">Heading:</span>
+              <span className="text-gray-700 ml-2">&quot;Create Account&quot; or &quot;Sign Up&quot;</span>
+            </div>
+            <div>
+              <span className="font-bold text-gray-900">Subheading:</span>
+              <span className="text-gray-700 ml-2">&quot;Sign up to access [Service Name]&quot;</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Button Labels</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <div>
+              <span className="font-bold text-gray-900">Primary CTA:</span>
+              <span className="text-gray-700 ml-2">&quot;Create Account&quot; or &quot;Sign Up&quot;</span>
+            </div>
+            <div>
+              <span className="font-bold text-gray-900">Secondary Link:</span>
+              <span className="text-gray-700 ml-2">&quot;Already have an account? Sign In&quot;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FieldRow({ field, required, label, placeholder, help }: {
+  field: string;
+  required: boolean;
+  label: string;
+  placeholder: string;
+  help: string;
+}) {
+  return (
+    <tr>
+      <td className="px-6 py-4 text-sm text-gray-900 font-medium">{field}</td>
+      <td className="px-6 py-4 text-sm">
+        {required ? (
+          <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded">YES</span>
+        ) : (
+          <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded">NO</span>
+        )}
+      </td>
+      <td className="px-6 py-4 text-sm text-gray-700">{label}</td>
+      <td className="px-6 py-4 text-sm text-gray-600 italic">{placeholder}</td>
+      <td className="px-6 py-4 text-sm text-gray-600">{help}</td>
+    </tr>
+  );
+}
+
+// ==================== PASSWORD GUIDANCE ====================
+
+function PasswordGuidance() {
+  return (
+    <section id="password" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Password Guidance</h2>
+        <p className="text-gray-600 mt-2">Security requirements, strength indicators, and user guidance for password creation</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        {/* Password Requirements */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Password Requirements</h3>
+          </div>
+          <div className="p-6">
+            <div className="space-y-3">
+              <RequirementItem text="Minimum 8 characters" met={true} />
+              <RequirementItem text="At least one uppercase letter (A-Z)" met={true} />
+              <RequirementItem text="At least one lowercase letter (a-z)" met={true} />
+              <RequirementItem text="At least one number (0-9)" met={true} />
+              <RequirementItem text="At least one special character (!@#$%^&*)" met={false} />
+              <RequirementItem text="Cannot contain your name or email" met={true} />
+            </div>
+          </div>
+        </div>
+
+        {/* Strength Indicator */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Strength Indicator</h3>
+          </div>
+          <div className="p-6 space-y-4">
+            <StrengthLevel 
+              level="Weak"
+              color="red"
+              bars={1}
+              description="Does not meet minimum requirements"
+            />
+            <StrengthLevel 
+              level="Fair"
+              color="orange"
+              bars={2}
+              description="Meets basic requirements but can be stronger"
+            />
+            <StrengthLevel 
+              level="Good"
+              color="yellow"
+              bars={3}
+              description="Meets most requirements, add special characters"
+            />
+            <StrengthLevel 
+              level="Strong"
+              color="green"
+              bars={4}
+              description="Meets all requirements and is highly secure"
+            />
+          </div>
+        </div>
+
+        {/* Best Practices */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Password Best Practices</h3>
+          </div>
+          <div className="p-6">
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-bold text-green-700 mb-3 flex items-center gap-2">
+                  <Check size={16} />
+                  DO
+                </h4>
+                <div className="space-y-2 text-sm text-gray-700">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Use a mix of uppercase, lowercase, numbers, and symbols</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Make it at least 8 characters long</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Use a unique password for each account</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
+                    <span>Consider using a passphrase (e.g., &quot;Blue$Sky2026!&quot;)</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-bold text-red-700 mb-3 flex items-center gap-2">
+                  <X size={16} />
+                  DON&apos;T
+                </h4>
+                <div className="space-y-2 text-sm text-gray-700">
+                  <div className="flex items-start gap-2">
+                    <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
+                    <span>Use common words or patterns (e.g., &quot;password123&quot;)</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
+                    <span>Include personal information (name, birthdate, phone)</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
+                    <span>Reuse passwords from other accounts</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
+                    <span>Share your password with anyone</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function RequirementItem({ text, met }: { text: string; met: boolean }) {
+  return (
+    <div className="flex items-start gap-2">
+      {met ? (
+        <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+      ) : (
+        <XCircle size={16} className="text-gray-400 mt-0.5 flex-shrink-0" />
+      )}
+      <span className={`text-sm ${met ? 'text-gray-700' : 'text-gray-500'}`}>{text}</span>
+    </div>
+  );
+}
+
+function StrengthLevel({ level, color, bars, description }: {
+  level: string;
+  color: string;
+  bars: number;
+  description: string;
+}) {
+  const colorMap: { [key: string]: { bg: string; text: string } } = {
+    red: { bg: "bg-red-500", text: "text-red-700" },
+    orange: { bg: "bg-orange-500", text: "text-orange-700" },
+    yellow: { bg: "bg-yellow-500", text: "text-yellow-700" },
+    green: { bg: "bg-green-500", text: "text-green-700" }
+  };
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-2">
+        <span className={`text-sm font-bold ${colorMap[color].text}`}>{level}</span>
+        <div className="flex items-center gap-1">
+          {[1, 2, 3, 4].map(i => (
+            <div 
+              key={i}
+              className={`w-8 h-1 rounded ${i <= bars ? colorMap[color].bg : 'bg-gray-200'}`}
+            ></div>
+          ))}
+        </div>
+      </div>
+      <p className="text-xs text-gray-600">{description}</p>
+    </div>
+  );
+}
+
+// ==================== VALIDATION RULES ====================
+
+function ValidationRules() {
+  return (
+    <section id="validation" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Validation Rules</h2>
+        <p className="text-gray-600 mt-2">Field-level and form-level validation requirements</p>
+      </div>
+
+      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <table className="w-full">
+          <thead>
+            <tr className="bg-gray-100 border-b-2 border-gray-300">
+              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Field</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Validation Rule</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Error Message</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Timing</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            <ValidationRow 
+              field="Full Name"
+              rule="Must contain at least 2 characters, letters only"
+              error="Please enter your full name (minimum 2 characters)"
+              timing="On blur"
+            />
+            <ValidationRow 
+              field="Email Address"
+              rule="Must match email format: name@domain.extension"
+              error="Please enter a valid email address"
+              timing="On blur"
+            />
+            <ValidationRow 
+              field="Email (Duplicate)"
+              rule="Email must not already exist in system"
+              error="This email is already registered. Please sign in or use a different email."
+              timing="On submit"
+            />
+            <ValidationRow 
+              field="Mobile Number"
+              rule="Must be exactly 10 digits, numeric only"
+              error="Mobile number must be 10 digits"
+              timing="On blur"
+            />
+            <ValidationRow 
+              field="Mobile (Duplicate)"
+              rule="Mobile must not already exist in system"
+              error="This mobile number is already registered. Please sign in or use a different number."
+              timing="On submit"
+            />
+            <ValidationRow 
+              field="Password"
+              rule="Min 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character"
+              error="Password must meet all security requirements"
+              timing="Real-time"
+            />
+            <ValidationRow 
+              field="Confirm Password"
+              rule="Must exactly match Password field"
+              error="Passwords do not match"
+              timing="On blur"
+            />
+            <ValidationRow 
+              field="Terms & Conditions"
+              rule="Checkbox must be checked"
+              error="You must agree to the Terms and Conditions to continue"
+              timing="On submit"
+            />
+          </tbody>
+        </table>
+      </div>
+
+      {/* Duplicate Account Handling */}
+      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+          <h3 className="font-bold text-gray-900">Duplicate Account Handling</h3>
+        </div>
+        <div className="p-6 space-y-4">
+          <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4">
+            <div className="flex items-start gap-3">
+              <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <h4 className="font-bold text-orange-800 mb-2">When Duplicate Detected</h4>
+                <div className="space-y-2 text-sm text-gray-700">
+                  <div className="flex items-start gap-2">
+                    <ChevronRight size={14} className="mt-0.5 flex-shrink-0" />
+                    <span>Check email/mobile against existing accounts before creating user record</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <ChevronRight size={14} className="mt-0.5 flex-shrink-0" />
+                    <span>Show clear message: &quot;An account with this [email/mobile] already exists&quot;</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <ChevronRight size={14} className="mt-0.5 flex-shrink-0" />
+                    <span>Provide primary action: &quot;Go to Sign In&quot;</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <ChevronRight size={14} className="mt-0.5 flex-shrink-0" />
+                    <span>Provide secondary action: &quot;Forgot Password?&quot; for account recovery</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <ChevronRight size={14} className="mt-0.5 flex-shrink-0" />
+                    <span>Do not reveal account details for security (timing attack protection)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ValidationRow({ field, rule, error, timing }: {
+  field: string;
+  rule: string;
+  error: string;
+  timing: string;
+}) {
+  return (
+    <tr>
+      <td className="px-6 py-4 text-sm text-gray-900 font-medium">{field}</td>
+      <td className="px-6 py-4 text-sm text-gray-700">{rule}</td>
+      <td className="px-6 py-4 text-sm text-red-600 italic">&quot;{error}&quot;</td>
+      <td className="px-6 py-4 text-sm">
+        <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded">{timing}</span>
+      </td>
+    </tr>
+  );
+}
+
+// ==================== ERROR STATES ====================
+
+function ErrorStates() {
+  return (
+    <section id="errors" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Error States & Recovery</h2>
+        <p className="text-gray-600 mt-2">Common error scenarios and user recovery paths</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        {/* Field Validation Error */}
+        <ErrorCard 
+          title="Field Validation Error"
+          severity="medium"
+          trigger="User enters invalid data format"
+          behavior={[
+            "Show inline error message below field",
+            "Change field border to red",
+            "Display error icon next to field",
+            "Keep user on same screen to fix error"
+          ]}
+          example='Invalid email: "rajesh@invalid"'
+        />
+
+        {/* Duplicate Account */}
+        <ErrorCard 
+          title="Duplicate Account Detected"
+          severity="medium"
+          trigger="Email or mobile already registered"
+          behavior={[
+            "Show alert banner at top of form",
+            "Provide 'Sign In' and 'Forgot Password' options",
+            "Do not reveal full account details",
+            "Allow user to try different email/mobile"
+          ]}
+          example="Account already exists for this email"
+        />
+
+        {/* Weak Password */}
+        <ErrorCard 
+          title="Weak Password"
+          severity="low"
+          trigger="Password does not meet strength requirements"
+          behavior={[
+            "Show orange/yellow alert message",
+            "Display which requirements are not met",
+            "Update strength indicator in real-time",
+            "Allow submit only when all requirements met"
+          ]}
+          example="Password must include special characters"
+        />
+
+        {/* Password Mismatch */}
+        <ErrorCard 
+          title="Password Mismatch"
+          severity="medium"
+          trigger="Confirm password does not match original"
+          behavior={[
+            "Show error on 'Confirm Password' field",
+            "Compare on blur or real-time after typing",
+            "Clear confirmation field if mismatch persists",
+            "Disable submit until passwords match"
+          ]}
+          example="Passwords do not match"
+        />
+
+        {/* Network Error */}
+        <ErrorCard 
+          title="Network/Server Error"
+          severity="high"
+          trigger="API failure or connectivity issue"
+          behavior={[
+            "Show error banner with retry option",
+            "Preserve form data (do not clear)",
+            "Log error for debugging",
+            "Provide support contact information"
+          ]}
+          example="Unable to create account. Please try again."
+        />
+
+        {/* Terms Not Accepted */}
+        <ErrorCard 
+          title="Terms Not Accepted"
+          severity="low"
+          trigger="User submits without accepting terms"
+          behavior={[
+            "Highlight checkbox with error state",
+            "Scroll to terms checkbox",
+            "Show inline message",
+            "Block form submission"
+          ]}
+          example="You must accept Terms & Conditions"
+        />
+      </div>
+    </section>
+  );
+}
+
+function ErrorCard({ title, severity, trigger, behavior, example }: {
+  title: string;
+  severity: "low" | "medium" | "high";
+  trigger: string;
+  behavior: string[];
+  example: string;
+}) {
+  const severityMap = {
+    low: { bg: "bg-yellow-100", text: "text-yellow-700", border: "border-yellow-300" },
+    medium: { bg: "bg-orange-100", text: "text-orange-700", border: "border-orange-300" },
+    high: { bg: "bg-red-100", text: "text-red-700", border: "border-red-300" }
+  };
+
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+        <div className="flex items-center justify-between">
+          <h3 className="font-bold text-gray-900">{title}</h3>
+          <span className={`px-2 py-1 ${severityMap[severity].bg} ${severityMap[severity].text} text-xs font-bold rounded uppercase`}>
+            {severity}
+          </span>
+        </div>
+      </div>
+      <div className="p-6 space-y-4">
+        <div>
+          <h4 className="text-sm font-bold text-gray-900 mb-1">Trigger</h4>
+          <p className="text-sm text-gray-700">{trigger}</p>
+        </div>
+        <div>
+          <h4 className="text-sm font-bold text-gray-900 mb-2">Behavior</h4>
+          <div className="space-y-1">
+            {behavior.map((item, i) => (
+              <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                <ChevronRight size={14} className="mt-0.5 flex-shrink-0 text-gray-400" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={`${severityMap[severity].bg} border-2 ${severityMap[severity].border} rounded p-3`}>
+          <div className="text-xs font-bold text-gray-600 mb-1">EXAMPLE MESSAGE</div>
+          <div className={`text-sm font-medium ${severityMap[severity].text}`}>&quot;{example}&quot;</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== ACCESSIBILITY SECTION ====================
+
+function AccessibilitySection() {
+  return (
+    <section id="accessibility" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Accessibility Requirements</h2>
+        <p className="text-gray-600 mt-2">WCAG 2.1 Level AA compliance for sign-up patterns</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        {/* Keyboard Navigation */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Keyboard Navigation</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <AccessibilityItem text="Tab key moves through all form fields in logical order" />
+            <AccessibilityItem text="Enter key submits form when focus is on submit button" />
+            <AccessibilityItem text="Escape key clears focused field (optional enhancement)" />
+            <AccessibilityItem text="Visible focus indicators on all interactive elements" />
+            <AccessibilityItem text="No keyboard traps or navigation dead ends" />
+          </div>
+        </div>
+
+        {/* Screen Reader Support */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Screen Reader Support</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <AccessibilityItem text="All fields have associated <label> elements" />
+            <AccessibilityItem text="Required fields marked with aria-required='true'" />
+            <AccessibilityItem text="Error messages linked via aria-describedby" />
+            <AccessibilityItem text="Form landmarks and regions properly labeled" />
+            <AccessibilityItem text="Status messages announced via aria-live regions" />
+          </div>
+        </div>
+
+        {/* Color & Contrast */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Color & Contrast</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <AccessibilityItem text="Minimum 4.5:1 contrast for normal text" />
+            <AccessibilityItem text="Minimum 3:1 contrast for large text and UI components" />
+            <AccessibilityItem text="Error states use icons + color, not color alone" />
+            <AccessibilityItem text="Password strength indicated by text + visual bars" />
+            <AccessibilityItem text="Links and buttons distinguishable without color" />
+          </div>
+        </div>
+
+        {/* Error Handling */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Error Handling</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <AccessibilityItem text="Error summary at top of form when multiple errors" />
+            <AccessibilityItem text="Errors announced to screen readers immediately" />
+            <AccessibilityItem text="Clear, actionable error messages in plain language" />
+            <AccessibilityItem text="Focus moved to first error field on submit" />
+            <AccessibilityItem text="Errors persist until user corrects them" />
+          </div>
+        </div>
+
+        {/* Form Labels & Help Text */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Form Labels & Help Text</h3>
+          </div>
+          <div className="p-6">
+            <div className="grid grid-cols-2 gap-6">
+              <div className="space-y-3 text-sm">
+                <AccessibilityItem text="Labels always visible (not placeholder-only)" />
+                <AccessibilityItem text="Help text associated with aria-describedby" />
+                <AccessibilityItem text="Required indicator (* or 'Required' text)" />
+              </div>
+              <div className="space-y-3 text-sm">
+                <AccessibilityItem text="Autocomplete attributes for known field types" />
+                <AccessibilityItem text="Input types match data (email, tel, password)" />
+                <AccessibilityItem text="Password reveal toggle clearly labeled" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AccessibilityItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-2">
+      <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+      <span className="text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+// ==================== IMPLEMENTATION SECTION ====================
+
+function ImplementationSection() {
+  return (
+    <section id="implementation" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Implementation Notes</h2>
+        <p className="text-gray-600 mt-2">Technical guidance for developers implementing sign-up patterns</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        {/* Frontend Implementation */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+              <Code size={18} />
+              Frontend Implementation
+            </h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <ImplementationItem text="Use HTML5 form validation attributes (required, pattern, minlength)" />
+            <ImplementationItem text="Implement client-side validation before API call" />
+            <ImplementationItem text="Debounce real-time validation (300ms delay)" />
+            <ImplementationItem text="Disable submit button during API call (prevent double submission)" />
+            <ImplementationItem text="Store form state locally to prevent data loss on errors" />
+            <ImplementationItem text="Use autocomplete attributes: name, email, tel, new-password" />
+          </div>
+        </div>
+
+        {/* Backend/API Implementation */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+              <Database size={18} />
+              Backend/API Implementation
+            </h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <ImplementationItem text="Hash passwords using bcrypt or Argon2 (never store plain text)" />
+            <ImplementationItem text="Check for duplicate email/mobile before creating record" />
+            <ImplementationItem text="Create user in 'unverified' state until OTP confirmation" />
+            <ImplementationItem text="Rate limit registration endpoint (prevent spam)" />
+            <ImplementationItem text="Generate secure random user IDs (UUID v4)" />
+            <ImplementationItem text="Return consistent timing for duplicate checks (prevent enumeration)" />
+          </div>
+        </div>
+
+        {/* Security Considerations */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
+          <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
+            <h3 className="font-bold text-red-900 flex items-center gap-2">
+              <Shield size={18} />
+              Security Considerations
+            </h3>
+          </div>
+          <div className="p-6">
+            <div className="grid grid-cols-2 gap-6">
+              <div className="space-y-3 text-sm">
+                <ImplementationItem text="Implement CAPTCHA after 3 failed attempts" />
+                <ImplementationItem text="Use HTTPS for all registration traffic" />
+                <ImplementationItem text="Implement CSRF protection on form submission" />
+                <ImplementationItem text="Sanitize all user inputs (prevent XSS)" />
+              </div>
+              <div className="space-y-3 text-sm">
+                <ImplementationItem text="Rate limit by IP and email (prevent brute force)" />
+                <ImplementationItem text="Log registration attempts for security monitoring" />
+                <ImplementationItem text="Do not reveal whether email/mobile exists (timing attacks)" />
+                <ImplementationItem text="Expire verification tokens after 24 hours" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Code Example */}
+        <div className="bg-gray-900 border-2 border-gray-700 rounded-lg overflow-hidden col-span-2">
+          <div className="bg-gray-800 border-b-2 border-gray-700 px-6 py-4">
+            <h3 className="font-bold text-white flex items-center gap-2">
+              <FileText size={18} />
+              Sample API Response (Success)
+            </h3>
+          </div>
+          <div className="p-6">
+            <pre className="text-green-400 text-sm font-mono overflow-x-auto">
+{`{
+  "status": "success",
+  "message": "Account created successfully",
+  "data": {
+    "userId": "usr_a1b2c3d4e5f6",
+    "email": "rajesh.kumar@example.com",
+    "mobile": "+919876543210",
+    "verified": false,
+    "verificationSent": true,
+    "verificationMethod": "EMAIL_OTP",
+    "nextStep": "/verify-otp"
+  }
+}`}
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ImplementationItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-2">
+      <ChevronRight size={14} className="text-[#000080] mt-0.5 flex-shrink-0" />
+      <span className="text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+// ==================== GOVERNANCE SECTION ====================
+
+function GovernanceSection() {
+  return (
+    <section id="governance" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Governance & Compliance</h2>
+        <p className="text-gray-600 mt-2">Conformance requirements and quality assurance guidance</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        {/* Conformance Status */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Conformance Status</h3>
+          </div>
+          <div className="p-6">
+            <div className="bg-red-100 border-2 border-red-300 rounded-lg p-4 mb-4">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-red-800 mb-2">MANDATORY</div>
+                <p className="text-sm text-gray-700">
+                  All government services requiring user accounts MUST implement this pattern
+                </p>
+              </div>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-start gap-2">
+                <AlertTriangle size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-700">Non-compliance may result in service certification delays</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <AlertTriangle size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-700">Required for UX4G conformance badge</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Lifecycle Status */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-green-50 border-b-2 border-green-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Lifecycle Status</h3>
+          </div>
+          <div className="p-6">
+            <div className="bg-green-100 border-2 border-green-300 rounded-lg p-4 mb-4">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-800 mb-2">STABLE</div>
+                <p className="text-sm text-gray-700">
+                  Production-ready, fully documented, breaking changes unlikely
+                </p>
+              </div>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                <span className="text-gray-700">Version: <span className="font-bold">1.0.0</span></span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                <span className="text-gray-700">Last Updated: <span className="font-bold">April 2026</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Required Checks */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Pre-Launch Checklist</h3>
+          </div>
+          <div className="p-6">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <ChecklistItem text="All required fields implemented" />
+                <ChecklistItem text="Real-time validation working" />
+                <ChecklistItem text="Duplicate account detection active" />
+                <ChecklistItem text="Password strength indicator present" />
+                <ChecklistItem text="OTP verification flow integrated" />
+                <ChecklistItem text="Error messages clear and actionable" />
+              </div>
+              <div className="space-y-2">
+                <ChecklistItem text="WCAG 2.1 AA compliance verified" />
+                <ChecklistItem text="Keyboard navigation tested" />
+                <ChecklistItem text="Screen reader compatibility confirmed" />
+                <ChecklistItem text="Mobile responsive design validated" />
+                <ChecklistItem text="Security audit completed" />
+                <ChecklistItem text="Load testing performed" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Support & Escalation */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
+          <div className="bg-blue-50 border-b-2 border-blue-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+              <HelpCircle size={18} />
+              Support & Escalation
+            </h3>
+          </div>
+          <div className="p-6">
+            <div className="grid grid-cols-3 gap-6 text-sm">
+              <div>
+                <h4 className="font-bold text-gray-900 mb-2">Pattern Questions</h4>
+                <p className="text-gray-700 mb-2">For design and implementation guidance</p>
+                <a href="#" className="text-[#000080] font-bold hover:underline">ux4g-support@gov.in</a>
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 mb-2">Technical Issues</h4>
+                <p className="text-gray-700 mb-2">For API or integration problems</p>
+                <a href="#" className="text-[#000080] font-bold hover:underline">tech-support@digitalindia.gov.in</a>
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 mb-2">Conformance Review</h4>
+                <p className="text-gray-700 mb-2">For certification and audits</p>
+                <a href="#" className="text-[#000080] font-bold hover:underline">conformance@ux4g.gov.in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ChecklistItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-2 text-sm">
+      <div className="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+        <Check size={12} className="text-gray-400" />
+      </div>
+      <span className="text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+// ==================== SIDEBAR COMPONENTS ====================
+
+function QuickReference() {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-[#000080] text-white px-4 py-3">
+        <h3 className="font-bold text-sm">Quick Reference</h3>
+      </div>
+      <div className="p-4 space-y-3 text-sm">
+        <div>
+          <div className="font-bold text-gray-900 mb-1">Pattern Type</div>
+          <div className="text-gray-700">Identity & Access</div>
+        </div>
+        <div className="border-t border-gray-200 pt-3">
+          <div className="font-bold text-gray-900 mb-1">Complexity</div>
+          <div className="text-gray-700">Medium</div>
+        </div>
+        <div className="border-t border-gray-200 pt-3">
+          <div className="font-bold text-gray-900 mb-1">Est. Implementation</div>
+          <div className="text-gray-700">3-5 days</div>
+        </div>
+        <div className="border-t border-gray-200 pt-3">
+          <div className="font-bold text-gray-900 mb-1">Dependencies</div>
+          <div className="text-gray-700">OTP Verification, Email Service</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InteractivePrototype() {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
+        <h3 className="font-bold text-sm text-gray-900">Interactive Prototype</h3>
+      </div>
+      <div className="p-4">
+        <a 
+          href="#" 
+          className="block w-full px-4 py-3 bg-[#000080] text-white text-center font-bold text-sm rounded hover:bg-blue-900 transition-colors"
+        >
+          View Live Demo
+        </a>
+        <p className="text-xs text-gray-600 mt-3 text-center">
+          Test all states and interactions
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function RelatedPatterns() {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
+        <h3 className="font-bold text-sm text-gray-900">Related Patterns</h3>
+      </div>
+      <div className="p-4 space-y-2">
+        <Link 
+          to="/patterns/identity/sign-in"
+          className="block px-3 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 rounded text-sm text-gray-900 transition-colors"
+        >
+          <div className="font-bold">Sign In</div>
+          <div className="text-xs text-gray-600">User authentication</div>
+        </Link>
+        <Link 
+          to="/patterns/identity/otp-verification"
+          className="block px-3 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 rounded text-sm text-gray-900 transition-colors"
+        >
+          <div className="font-bold">Email OTP</div>
+          <div className="text-xs text-gray-600">Email verification</div>
+        </Link>
+        <Link 
+          to="/patterns/identity/mobile-otp"
+          className="block px-3 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 rounded text-sm text-gray-900 transition-colors"
+        >
+          <div className="font-bold">Mobile OTP</div>
+          <div className="text-xs text-gray-600">SMS verification</div>
+        </Link>
+        <Link 
+          to="/patterns/identity/forgot-password"
+          className="block px-3 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 rounded text-sm text-gray-900 transition-colors"
+        >
+          <div className="font-bold">Forgot Password</div>
+          <div className="text-xs text-gray-600">Account recovery</div>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function Resources() {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
+        <h3 className="font-bold text-sm text-gray-900">Resources</h3>
+      </div>
+      <div className="p-4 space-y-3">
+        <a href="#" className="flex items-center gap-2 text-sm text-[#000080] hover:underline">
+          <FileText size={16} />
+          <span>Figma Component</span>
+        </a>
+        <a href="#" className="flex items-center gap-2 text-sm text-[#000080] hover:underline">
+          <Code size={16} />
+          <span>Code Snippets</span>
+        </a>
+        <a href="#" className="flex items-center gap-2 text-sm text-[#000080] hover:underline">
+          <Globe size={16} />
+          <span>API Documentation</span>
+        </a>
+        <a href="#" className="flex items-center gap-2 text-sm text-[#000080] hover:underline">
+          <Settings size={16} />
+          <span>Implementation Guide</span>
+        </a>
+      </div>
+    </div>
+  );
+}

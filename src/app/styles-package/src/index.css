@@ -1,0 +1,26 @@
+/**
+ * UX4G Styles
+ * Complete style system for Indian Government Design System
+ *
+ * Import @ux4g/tokens first to access design tokens
+ * Usage:
+ *   @import '@ux4g/tokens/css';
+ *   @import '@ux4g/styles';
+ *
+ * Or import specific layers:
+ *   @import '@ux4g/styles/base';
+ *   @import '@ux4g/styles/utilities';
+ *   @import '@ux4g/styles/components';
+ */
+
+/* Import design tokens from @ux4g/tokens */
+@import '@ux4g/tokens/css';
+
+/* Base foundation styles */
+@import './base/index.css';
+
+/* Utility classes */
+@import './utilities/index.css';
+
+/* Component baseline styles */
+@import './components/index.css';

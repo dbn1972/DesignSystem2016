@@ -1,0 +1,113 @@
+/**
+ * UX4G Card Component Styles
+ * Imports base card styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/card.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-card {
+  display: block;
+}
+
+.ux4g-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ux4g-color-background, #fff);
+  border-radius: var(--ux4g-radius-lg, 0.5rem);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.ux4g-card--elevated {
+  box-shadow: var(--ux4g-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06));
+}
+
+.ux4g-card--bordered {
+  border: 1px solid var(--ux4g-color-border, #e5e7eb);
+}
+
+.ux4g-card--hoverable:hover {
+  box-shadow: var(--ux4g-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05));
+  transform: translateY(-2px);
+}
+
+.ux4g-card--clickable {
+  cursor: pointer;
+}
+
+.ux4g-card--clickable:active {
+  transform: translateY(0);
+}
+
+/**
+ * Padding variants
+ */
+.ux4g-card--padding-none {
+  padding: 0;
+}
+
+.ux4g-card--padding-sm {
+  padding: var(--ux4g-spacing-3, 0.75rem);
+}
+
+.ux4g-card--padding-md {
+  padding: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-card--padding-lg {
+  padding: var(--ux4g-spacing-6, 1.5rem);
+}
+
+/**
+ * Card sections
+ */
+ux4g-card-header,
+ux4g-card-content,
+ux4g-card-footer {
+  display: block;
+}
+
+.ux4g-card__header {
+  padding: var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-3, 0.75rem);
+  border-bottom: 1px solid var(--ux4g-color-border, #e5e7eb);
+}
+
+.ux4g-card__content {
+  padding: var(--ux4g-spacing-4, 1rem);
+  flex: 1;
+}
+
+.ux4g-card__footer {
+  padding: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-4, 1rem);
+  border-top: 1px solid var(--ux4g-color-border, #e5e7eb);
+  background-color: var(--ux4g-color-gray-50, #f9fafb);
+}
+
+/**
+ * When card has padding='none', remove padding from sections
+ */
+.ux4g-card--padding-none .ux4g-card__header {
+  padding: var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-3, 0.75rem);
+}
+
+.ux4g-card--padding-none .ux4g-card__content {
+  padding: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-card--padding-none .ux4g-card__footer {
+  padding: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-4, 1rem);
+}
+
+/**
+ * First/last child adjustments
+ */
+.ux4g-card > *:first-child {
+  margin-top: 0;
+}
+
+.ux4g-card > *:last-child {
+  margin-bottom: 0;
+}

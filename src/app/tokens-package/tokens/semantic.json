@@ -1,0 +1,84 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "semantic": {
+      "color": {
+        "$type": "color",
+        "brand": {
+          "primary": { "value": "{ux4g.color.base.navy.500}", "description": "Primary brand color" },
+          "secondary": { "value": "{ux4g.color.base.saffron.500}", "description": "Secondary brand color" },
+          "tertiary": { "value": "{ux4g.color.base.green.600}", "description": "Tertiary brand color" }
+        },
+        "text": {
+          "primary": { "value": "{ux4g.color.base.neutral.900}", "description": "Primary text - high contrast" },
+          "secondary": { "value": "{ux4g.color.base.neutral.600}", "description": "Secondary text - medium emphasis" },
+          "tertiary": { "value": "{ux4g.color.base.neutral.500}", "description": "Tertiary text - low emphasis" },
+          "disabled": { "value": "{ux4g.color.base.neutral.400}", "description": "Disabled text" },
+          "inverse": { "value": "{ux4g.color.base.neutral.0}", "description": "Inverse text - on dark backgrounds" },
+          "link": { "value": "{ux4g.color.base.navy.500}", "description": "Link text - WCAG AA" },
+          "link-hover": { "value": "{ux4g.color.base.navy.700}", "description": "Link hover" }
+        },
+        "background": {
+          "primary": { "value": "{ux4g.color.base.neutral.0}", "description": "Primary background" },
+          "secondary": { "value": "{ux4g.color.base.neutral.50}", "description": "Secondary background" },
+          "tertiary": { "value": "{ux4g.color.base.neutral.100}", "description": "Tertiary background" },
+          "inverse": { "value": "{ux4g.color.base.neutral.900}", "description": "Inverse background" }
+        },
+        "border": {
+          "default": { "value": "{ux4g.color.base.neutral.200}", "description": "Default border" },
+          "hover": { "value": "{ux4g.color.base.neutral.400}", "description": "Hover border" },
+          "focus": { "value": "{ux4g.color.base.navy.500}", "description": "Focus border - WCAG 2.4.7" }
+        },
+        "interactive": {
+          "default": { "value": "{ux4g.color.base.navy.500}", "description": "Default interactive" },
+          "hover": { "value": "{ux4g.color.base.navy.600}", "description": "Hover state" },
+          "active": { "value": "{ux4g.color.base.navy.700}", "description": "Active state" },
+          "disabled": { "value": "{ux4g.color.base.neutral.300}", "description": "Disabled state" }
+        },
+        "success": { "value": "{ux4g.color.base.green.600}", "description": "Success state - WCAG AA" },
+        "warning": { "value": "{ux4g.color.base.saffron.600}", "description": "Warning state - WCAG AA" },
+        "error": { "value": "{ux4g.color.base.semantic.error.DEFAULT}", "description": "Error state - WCAG AA" },
+        "info": { "value": "{ux4g.color.base.navy.500}", "description": "Info state - WCAG AAA" }
+      },
+      "space": {
+        "$type": "dimension",
+        "button": {
+          "padding-x": { "value": "{ux4g.spacing.4}", "description": "Button horizontal padding" },
+          "padding-y": { "value": "{ux4g.spacing.2}", "description": "Button vertical padding" },
+          "gap": { "value": "{ux4g.spacing.2}", "description": "Icon-to-text gap" }
+        },
+        "input": {
+          "padding-x": { "value": "{ux4g.spacing.3}", "description": "Input horizontal padding" },
+          "padding-y": { "value": "{ux4g.spacing.2-5}", "description": "Input vertical padding" }
+        },
+        "card": {
+          "padding": { "value": "{ux4g.spacing.6}", "description": "Card padding" },
+          "gap": { "value": "{ux4g.spacing.4}", "description": "Card content gap" }
+        }
+      },
+      "typography": {
+        "heading": {
+          "h1": {
+            "size": { "value": "{ux4g.typography.fontSize.4xl}", "$type": "dimension" },
+            "weight": { "value": "{ux4g.typography.fontWeight.bold}", "$type": "fontWeight" },
+            "lineHeight": { "value": "{ux4g.typography.lineHeight.tight}", "$type": "number" }
+          },
+          "h2": {
+            "size": { "value": "{ux4g.typography.fontSize.3xl}", "$type": "dimension" },
+            "weight": { "value": "{ux4g.typography.fontWeight.semibold}", "$type": "fontWeight" },
+            "lineHeight": { "value": "{ux4g.typography.lineHeight.tight}", "$type": "number" }
+          },
+          "h3": {
+            "size": { "value": "{ux4g.typography.fontSize.2xl}", "$type": "dimension" },
+            "weight": { "value": "{ux4g.typography.fontWeight.semibold}", "$type": "fontWeight" },
+            "lineHeight": { "value": "{ux4g.typography.lineHeight.snug}", "$type": "number" }
+          }
+        },
+        "body": {
+          "size": { "value": "{ux4g.typography.fontSize.base}", "$type": "dimension" },
+          "lineHeight": { "value": "{ux4g.typography.lineHeight.normal}", "$type": "number" }
+        }
+      }
+    }
+  }
+}

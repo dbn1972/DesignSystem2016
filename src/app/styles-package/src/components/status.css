@@ -1,0 +1,322 @@
+/**
+ * UX4G Status & Feedback Styles
+ * Status indicators, alerts, badges, and feedback components
+ *
+ * WCAG compliance:
+ * - 1.4.1: Use of color (not color alone)
+ * - 4.1.3: Status messages (aria-live)
+ *
+ * Token consumption:
+ * Status colors, semantic colors, spacing, typography
+ */
+
+/* Alert component */
+.ux4g-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+  padding: var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-5, 1.25rem);
+  border: 1px solid;
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  line-height: var(--ux4g-line-height-relaxed, 1.625);
+}
+
+.ux4g-alert-info {
+  background-color: var(--ux4g-color-surface-info, #DBEAFE);
+  border-color: var(--ux4g-color-info, #3B82F6);
+  color: var(--ux4g-color-text-info, #1E40AF);
+}
+
+.ux4g-alert-success {
+  background-color: var(--ux4g-color-surface-success, #D1FAE5);
+  border-color: var(--ux4g-color-success, #10B981);
+  color: var(--ux4g-color-text-success, #065F46);
+}
+
+.ux4g-alert-warning {
+  background-color: var(--ux4g-color-surface-warning, #FEF3C7);
+  border-color: var(--ux4g-color-warning, #F59E0B);
+  color: var(--ux4g-color-text-warning, #92400E);
+}
+
+.ux4g-alert-error {
+  background-color: var(--ux4g-color-surface-error, #FEE2E2);
+  border-color: var(--ux4g-color-error, #DC2626);
+  color: var(--ux4g-color-text-error, #991B1B);
+}
+
+.ux4g-alert-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.ux4g-alert-content {
+  flex: 1;
+}
+
+.ux4g-alert-title {
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  margin-bottom: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-alert-description {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+}
+
+/* Badge component */
+.ux4g-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ux4g-spacing-1, 0.25rem) var(--ux4g-spacing-2, 0.5rem);
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  line-height: 1;
+  border-radius: var(--ux4g-radius-full, 9999px);
+  white-space: nowrap;
+}
+
+.ux4g-badge-default {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+}
+
+.ux4g-badge-primary {
+  background-color: var(--ux4g-color-primary, #005A9C);
+  color: var(--ux4g-color-text-on-brand, #FFFFFF);
+}
+
+.ux4g-badge-success {
+  background-color: var(--ux4g-color-success, #10B981);
+  color: var(--ux4g-color-text-on-success, #FFFFFF);
+}
+
+.ux4g-badge-warning {
+  background-color: var(--ux4g-color-warning, #F59E0B);
+  color: var(--ux4g-color-text-on-warning, #1C1C1C);
+}
+
+.ux4g-badge-error {
+  background-color: var(--ux4g-color-error, #DC2626);
+  color: var(--ux4g-color-text-on-error, #FFFFFF);
+}
+
+.ux4g-badge-info {
+  background-color: var(--ux4g-color-info, #3B82F6);
+  color: var(--ux4g-color-text-on-info, #FFFFFF);
+}
+
+/* Badge with dot indicator */
+.ux4g-badge-dot::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  margin-right: var(--ux4g-spacing-1, 0.25rem);
+}
+
+/* Status indicator (dot only) */
+.ux4g-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+}
+
+.ux4g-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ux4g-status-dot-active {
+  background-color: var(--ux4g-color-success, #10B981);
+  box-shadow: 0 0 0 2px var(--ux4g-color-success-light, rgba(16, 185, 129, 0.2));
+}
+
+.ux4g-status-dot-inactive {
+  background-color: var(--ux4g-color-text-tertiary, #999999);
+}
+
+.ux4g-status-dot-error {
+  background-color: var(--ux4g-color-error, #DC2626);
+  box-shadow: 0 0 0 2px var(--ux4g-color-error-light, rgba(220, 38, 38, 0.2));
+}
+
+.ux4g-status-dot-warning {
+  background-color: var(--ux4g-color-warning, #F59E0B);
+}
+
+/* Banner (full-width alert) */
+.ux4g-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ux4g-spacing-4, 1rem);
+  padding: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-6, 1.5rem);
+  border-bottom: 2px solid;
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+}
+
+.ux4g-banner-info {
+  background-color: var(--ux4g-color-surface-info, #DBEAFE);
+  border-color: var(--ux4g-color-info, #3B82F6);
+  color: var(--ux4g-color-text-info, #1E40AF);
+}
+
+.ux4g-banner-success {
+  background-color: var(--ux4g-color-surface-success, #D1FAE5);
+  border-color: var(--ux4g-color-success, #10B981);
+  color: var(--ux4g-color-text-success, #065F46);
+}
+
+.ux4g-banner-warning {
+  background-color: var(--ux4g-color-surface-warning, #FEF3C7);
+  border-color: var(--ux4g-color-warning, #F59E0B);
+  color: var(--ux4g-color-text-warning, #92400E);
+}
+
+.ux4g-banner-error {
+  background-color: var(--ux4g-color-surface-error, #FEE2E2);
+  border-color: var(--ux4g-color-error, #DC2626);
+  color: var(--ux4g-color-text-error, #991B1B);
+}
+
+/* Toast notification (for positioning) */
+.ux4g-toast {
+  position: fixed;
+  z-index: var(--ux4g-z-popover, 1400);
+  max-width: 420px;
+  background-color: var(--ux4g-color-surface-primary, #FFFFFF);
+  border: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-lg, 0.5rem);
+  box-shadow: var(--ux4g-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+  padding: var(--ux4g-spacing-4, 1rem);
+  animation: ux4g-toast-slide-in 200ms ease-out;
+}
+
+.ux4g-toast-top-right {
+  top: var(--ux4g-spacing-4, 1rem);
+  right: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-toast-top-center {
+  top: var(--ux4g-spacing-4, 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ux4g-toast-bottom-right {
+  bottom: var(--ux4g-spacing-4, 1rem);
+  right: var(--ux4g-spacing-4, 1rem);
+}
+
+@keyframes ux4g-toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Progress indicator */
+.ux4g-progress {
+  width: 100%;
+  height: 8px;
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+  border-radius: var(--ux4g-radius-full, 9999px);
+  overflow: hidden;
+}
+
+.ux4g-progress-bar {
+  height: 100%;
+  background-color: var(--ux4g-color-primary, #005A9C);
+  border-radius: var(--ux4g-radius-full, 9999px);
+  transition: width 300ms ease;
+}
+
+.ux4g-progress-success .ux4g-progress-bar {
+  background-color: var(--ux4g-color-success, #10B981);
+}
+
+.ux4g-progress-warning .ux4g-progress-bar {
+  background-color: var(--ux4g-color-warning, #F59E0B);
+}
+
+.ux4g-progress-error .ux4g-progress-bar {
+  background-color: var(--ux4g-color-error, #DC2626);
+}
+
+/* Spinner/Loading indicator */
+.ux4g-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--ux4g-color-border-subtle, #E5E7EB);
+  border-top-color: var(--ux4g-color-primary, #005A9C);
+  border-radius: 50%;
+  animation: ux4g-spin 600ms linear infinite;
+}
+
+@keyframes ux4g-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ux4g-spinner-sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.ux4g-spinner-lg {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
+}
+
+/* Skeleton loader */
+.ux4g-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--ux4g-color-surface-tertiary, #F3F4F6) 0%,
+    var(--ux4g-color-surface-secondary, #F9FAFB) 50%,
+    var(--ux4g-color-surface-tertiary, #F3F4F6) 100%
+  );
+  background-size: 200% 100%;
+  animation: ux4g-skeleton-pulse 1.5s ease-in-out infinite;
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+}
+
+@keyframes ux4g-skeleton-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.ux4g-skeleton-text {
+  height: 1rem;
+  width: 100%;
+}
+
+.ux4g-skeleton-heading {
+  height: 2rem;
+  width: 60%;
+}
+
+.ux4g-skeleton-circle {
+  border-radius: 50%;
+}

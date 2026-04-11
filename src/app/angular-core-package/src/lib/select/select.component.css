@@ -1,0 +1,174 @@
+/**
+ * UX4G Select Component Styles
+ * Imports base select styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/select.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-select {
+  display: block;
+}
+
+.ux4g-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-select-wrapper--full-width {
+  width: 100%;
+}
+
+/**
+ * Label
+ */
+.ux4g-select__label {
+  display: block;
+  color: var(--ux4g-color-text, #1f2937);
+  font-size: var(--ux4g-font-size-base, 1rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  line-height: var(--ux4g-line-height-base, 1.5);
+}
+
+.ux4g-select__label--disabled {
+  opacity: 0.5;
+}
+
+.ux4g-select__required {
+  color: var(--ux4g-color-error, #dc2626);
+  margin-left: 0.25rem;
+}
+
+/**
+ * Control wrapper
+ */
+.ux4g-select__control {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+/**
+ * Select input
+ */
+.ux4g-select {
+  width: 100%;
+  padding: 0.625rem 2.5rem 0.625rem 0.875rem;
+  font-size: var(--ux4g-font-size-base, 1rem);
+  line-height: 1.5;
+  color: var(--ux4g-color-text, #1f2937);
+  background-color: var(--ux4g-color-background, #fff);
+  border: 2px solid var(--ux4g-color-border, #d1d5db);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.ux4g-select:focus {
+  outline: none;
+  border-color: var(--ux4g-color-primary, #000080);
+  box-shadow: 0 0 0 3px rgba(0, 0, 128, 0.1);
+}
+
+.ux4g-select:hover:not(:disabled) {
+  border-color: var(--ux4g-color-primary, #000080);
+}
+
+.ux4g-select--error {
+  border-color: var(--ux4g-color-error, #dc2626);
+}
+
+.ux4g-select--error:focus {
+  border-color: var(--ux4g-color-error, #dc2626);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.ux4g-select--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: var(--ux4g-color-gray-100, #f3f4f6);
+}
+
+/**
+ * Size variants
+ */
+.ux4g-select--sm {
+  padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+}
+
+.ux4g-select--md {
+  padding: 0.625rem 2.5rem 0.625rem 0.875rem;
+  font-size: var(--ux4g-font-size-base, 1rem);
+}
+
+.ux4g-select--lg {
+  padding: 0.75rem 2.75rem 0.75rem 1rem;
+  font-size: var(--ux4g-font-size-lg, 1.125rem);
+}
+
+/**
+ * Dropdown icon
+ */
+.ux4g-select__icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ux4g-select-wrapper--disabled .ux4g-select__icon {
+  opacity: 0.5;
+}
+
+/**
+ * Placeholder option
+ */
+.ux4g-select option[disabled] {
+  color: var(--ux4g-color-text-placeholder, #9ca3af);
+}
+
+/**
+ * Option groups
+ */
+.ux4g-select optgroup {
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: var(--ux4g-color-text, #1f2937);
+}
+
+.ux4g-select option {
+  padding: 0.5rem;
+}
+
+/**
+ * Helper text
+ */
+.ux4g-select__helper-text {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  line-height: 1.4;
+}
+
+/**
+ * Error text
+ */
+.ux4g-select__error-text {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-error, #dc2626);
+  line-height: 1.4;
+}
+
+.ux4g-select-wrapper--error .ux4g-select__label {
+  color: var(--ux4g-color-error, #dc2626);
+}

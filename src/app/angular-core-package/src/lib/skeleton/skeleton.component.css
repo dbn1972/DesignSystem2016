@@ -1,0 +1,65 @@
+/**
+ * UX4G Skeleton Component Styles
+ */
+
+ux4g-skeleton {
+  display: block;
+}
+
+.ux4g-skeleton {
+  background-color: var(--ux4g-color-gray-200, #e5e7eb);
+  overflow: hidden;
+}
+
+/**
+ * Variants
+ */
+.ux4g-skeleton--text {
+  width: 100%;
+  height: 1rem;
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+}
+
+.ux4g-skeleton--circular {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--ux4g-radius-full, 9999px);
+}
+
+.ux4g-skeleton--rectangular {
+  width: 100%;
+  height: 8rem;
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+}
+
+/**
+ * Animation
+ */
+.ux4g-skeleton--animated {
+  position: relative;
+}
+
+.ux4g-skeleton--animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

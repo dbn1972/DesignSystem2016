@@ -1,0 +1,130 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "input": {
+        "base": {
+          "$type": "dimension",
+          "height": {
+            "sm": { "value": "32px", "description": "Small input height" },
+            "md": { "value": "40px", "description": "Medium input height - default" },
+            "lg": { "value": "48px", "description": "Large input height" }
+          },
+          "padding": {
+            "horizontal": {
+              "sm": { "value": "8px", "description": "Small horizontal padding" },
+              "md": { "value": "12px", "description": "Medium horizontal padding" },
+              "lg": { "value": "16px", "description": "Large horizontal padding" }
+            },
+            "vertical": {
+              "sm": { "value": "6px", "description": "Small vertical padding" },
+              "md": { "value": "10px", "description": "Medium vertical padding" },
+              "lg": { "value": "12px", "description": "Large vertical padding" }
+            }
+          },
+          "borderWidth": {
+            "default": { "value": "1px", "description": "Default border width" },
+            "focus": { "value": "2px", "description": "Focus state border width" },
+            "error": { "value": "2px", "description": "Error state border width" }
+          },
+          "borderRadius": {
+            "value": "4px",
+            "description": "Input border radius"
+          },
+          "fontSize": {
+            "sm": { "value": "14px", "description": "Small input font size" },
+            "md": { "value": "16px", "description": "Medium input font size" },
+            "lg": { "value": "18px", "description": "Large input font size" }
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Input line height"
+          },
+          "transition": {
+            "duration": { "value": "150ms", "description": "Input transition duration" },
+            "timing": { "value": "ease-in-out", "description": "Input transition timing function" }
+          }
+        },
+        "state": {
+          "default": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Default input background - White" },
+            "text": { "value": "#171717", "description": "Default input text - Neutral 900" },
+            "border": { "value": "#d4d4d4", "description": "Default input border - Neutral 300" },
+            "placeholder": { "value": "#737373", "description": "Placeholder text - Neutral 500" }
+          },
+          "hover": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Hover input background - White" },
+            "border": { "value": "#a3a3a3", "description": "Hover input border - Neutral 400" }
+          },
+          "focus": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Focus input background - White" },
+            "border": { "value": "#005196", "description": "Focus input border - Navy 500" },
+            "ring": { "value": "#005196", "description": "Focus ring color - Navy 500" },
+            "ringOpacity": { "value": "0.2", "description": "Focus ring opacity" }
+          },
+          "disabled": {
+            "$type": "color",
+            "background": { "value": "#fafafa", "description": "Disabled input background - Neutral 50" },
+            "text": { "value": "#a3a3a3", "description": "Disabled input text - Neutral 400" },
+            "border": { "value": "#e5e5e5", "description": "Disabled input border - Neutral 200" },
+            "cursor": { "value": "not-allowed", "description": "Disabled cursor style" }
+          },
+          "error": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Error input background - White" },
+            "text": { "value": "#171717", "description": "Error input text - Neutral 900" },
+            "border": { "value": "#dc2626", "description": "Error input border - Error DEFAULT" },
+            "ring": { "value": "#dc2626", "description": "Error focus ring - Error DEFAULT" },
+            "ringOpacity": { "value": "0.2", "description": "Error ring opacity" }
+          },
+          "success": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Success input background - White" },
+            "text": { "value": "#171717", "description": "Success input text - Neutral 900" },
+            "border": { "value": "#008800", "description": "Success input border - Green 600" },
+            "ring": { "value": "#008800", "description": "Success focus ring - Green 600" },
+            "ringOpacity": { "value": "0.2", "description": "Success ring opacity" }
+          },
+          "readonly": {
+            "$type": "color",
+            "background": { "value": "#f5f5f5", "description": "Readonly input background - Neutral 100" },
+            "text": { "value": "#525252", "description": "Readonly input text - Neutral 600" },
+            "border": { "value": "#d4d4d4", "description": "Readonly input border - Neutral 300" }
+          }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minHeight": {
+            "value": "44px",
+            "description": "Minimum touch target size per WCAG 2.5.5"
+          },
+          "focusRingWidth": {
+            "value": "2px",
+            "description": "Focus ring width for accessibility"
+          },
+          "focusRingOffset": {
+            "value": "0px",
+            "description": "Focus ring offset from input edge"
+          }
+        },
+        "addon": {
+          "$type": "color",
+          "background": {
+            "default": { "value": "#f5f5f5", "description": "Input addon background - Neutral 100" },
+            "disabled": { "value": "#fafafa", "description": "Disabled addon background - Neutral 50" }
+          },
+          "text": {
+            "default": { "value": "#525252", "description": "Input addon text - Neutral 600" },
+            "disabled": { "value": "#a3a3a3", "description": "Disabled addon text - Neutral 400" }
+          },
+          "border": {
+            "default": { "value": "#d4d4d4", "description": "Input addon border - Neutral 300" }
+          }
+        }
+      }
+    }
+  }
+}

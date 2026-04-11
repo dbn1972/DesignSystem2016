@@ -1,0 +1,182 @@
+/**
+ * UX4G Typography Layer
+ * Consumes tokens from @ux4g/tokens
+ *
+ * Token consumption pattern:
+ * var(--ux4g-font-family-{variant})
+ * var(--ux4g-font-size-{scale})
+ * var(--ux4g-font-weight-{weight})
+ * var(--ux4g-line-height-{scale})
+ * var(--ux4g-letter-spacing-{scale})
+ */
+
+/* Font family declarations */
+body {
+  font-family: var(--ux4g-font-family-base, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif);
+  font-weight: var(--ux4g-font-weight-regular, 400);
+  font-size: var(--ux4g-font-size-base, 1rem);
+  line-height: var(--ux4g-line-height-base, 1.5);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ux4g-font-family-heading, inherit);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  line-height: var(--ux4g-line-height-tight, 1.25);
+  color: var(--ux4g-color-text-heading, #1C1C1C);
+}
+
+h1 {
+  font-size: var(--ux4g-font-size-5xl, 3rem);
+  letter-spacing: var(--ux4g-letter-spacing-tight, -0.02em);
+}
+
+h2 {
+  font-size: var(--ux4g-font-size-4xl, 2.25rem);
+  letter-spacing: var(--ux4g-letter-spacing-tight, -0.02em);
+}
+
+h3 {
+  font-size: var(--ux4g-font-size-3xl, 1.875rem);
+  letter-spacing: var(--ux4g-letter-spacing-normal, 0);
+}
+
+h4 {
+  font-size: var(--ux4g-font-size-2xl, 1.5rem);
+  letter-spacing: var(--ux4g-letter-spacing-normal, 0);
+}
+
+h5 {
+  font-size: var(--ux4g-font-size-xl, 1.25rem);
+  letter-spacing: var(--ux4g-letter-spacing-normal, 0);
+}
+
+h6 {
+  font-size: var(--ux4g-font-size-lg, 1.125rem);
+  letter-spacing: var(--ux4g-letter-spacing-normal, 0);
+}
+
+/* Paragraph and body text */
+p {
+  font-size: var(--ux4g-font-size-base, 1rem);
+  line-height: var(--ux4g-line-height-relaxed, 1.625);
+  color: var(--ux4g-color-text-body, #404040);
+}
+
+/* Small text */
+small {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  line-height: var(--ux4g-line-height-base, 1.5);
+  color: var(--ux4g-color-text-secondary, #666666);
+}
+
+/* Code and monospace */
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--ux4g-font-family-mono, 'Courier New', monospace);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+}
+
+pre {
+  line-height: var(--ux4g-line-height-base, 1.5);
+  overflow-x: auto;
+}
+
+/* Emphasis and strong */
+em {
+  font-style: italic;
+}
+
+strong,
+b {
+  font-weight: var(--ux4g-font-weight-bold, 700);
+}
+
+/* Links */
+a {
+  color: var(--ux4g-color-text-link, #005A9C);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--ux4g-color-text-link-hover, #003D6B);
+  text-decoration-thickness: 2px;
+}
+
+a:active {
+  color: var(--ux4g-color-text-link-active, #002847);
+}
+
+/* Lists */
+ul,
+ol {
+  padding-left: var(--ux4g-spacing-6, 1.5rem);
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  line-height: var(--ux4g-line-height-relaxed, 1.625);
+  margin-bottom: var(--ux4g-spacing-2, 0.5rem);
+}
+
+/* Blockquote */
+blockquote {
+  border-left: 4px solid var(--ux4g-color-border-emphasis, #138808);
+  padding-left: var(--ux4g-spacing-4, 1rem);
+  margin-left: 0;
+  font-style: italic;
+  color: var(--ux4g-color-text-secondary, #666666);
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  margin: var(--ux4g-spacing-8, 2rem) 0;
+}
+
+/* Caption and label text */
+caption,
+.ux4g-label {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  color: var(--ux4g-color-text-secondary, #666666);
+}
+
+/* Lead text for introductions */
+.ux4g-lead {
+  font-size: var(--ux4g-font-size-lg, 1.125rem);
+  line-height: var(--ux4g-line-height-relaxed, 1.625);
+  color: var(--ux4g-color-text-body, #404040);
+}
+
+/* Helper text */
+.ux4g-helper-text {
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+  line-height: var(--ux4g-line-height-base, 1.5);
+  color: var(--ux4g-color-text-tertiary, #999999);
+}
+
+/* Truncate text with ellipsis */
+.ux4g-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

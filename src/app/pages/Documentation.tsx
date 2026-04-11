@@ -1,0 +1,598 @@
+import {
+  Book,
+  Code,
+  Layout,
+  Boxes,
+  FileText,
+  GitBranch,
+  Users,
+  HelpCircle,
+  Palette,
+  Rocket,
+  Search,
+  ChevronRight,
+  Sparkles,
+  AlertCircle,
+  ExternalLink,
+  BookOpen,
+  Zap,
+  Shield,
+  Globe,
+  Download,
+  TrendingUp
+} from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router";
+
+export default function Documentation() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Main documentation sections
+  const mainSections = [
+    {
+      icon: Rocket,
+      title: "Getting Started",
+      description: "Quick start guide, installation instructions, and setup for UX4G Design System",
+      href: "/installation-guide",
+      color: "bg-[#FF9933]",
+      badge: "Start Here"
+    },
+    {
+      icon: Palette,
+      title: "Foundations",
+      description: "Colors, typography, spacing, accessibility principles, and design tokens",
+      href: "/foundations-detailed",
+      color: "bg-[#000080]",
+      badge: "Essential"
+    },
+    {
+      icon: Boxes,
+      title: "Components Library",
+      description: "Comprehensive library of UI components with code examples and guidelines",
+      href: "/core-components",
+      color: "bg-[#138808]",
+      badge: "100+ Components"
+    },
+    {
+      icon: Layout,
+      title: "Patterns Library",
+      description: "Service patterns, user flows, and best practices for government services",
+      href: "/patterns",
+      color: "bg-[#FF9933]",
+      badge: "50+ Patterns"
+    },
+    {
+      icon: Code,
+      title: "API Reference",
+      description: "Complete API documentation, component props, methods, and interfaces",
+      href: "/api-reference",
+      color: "bg-[#000080]",
+      badge: "Technical"
+    },
+    {
+      icon: GitBranch,
+      title: "Migration Guides",
+      description: "Version migration guides, breaking changes, and upgrade instructions",
+      href: "/migration-guides",
+      color: "bg-[#138808]",
+      badge: null
+    },
+    {
+      icon: Users,
+      title: "Contribution Guidelines",
+      description: "How to contribute components, patterns, and improvements to UX4G",
+      href: "/contribution-guidelines",
+      color: "bg-[#FF9933]",
+      badge: null
+    },
+    {
+      icon: FileText,
+      title: "Changelog",
+      description: "Release notes, version history, and what's new in each release",
+      href: "/changelog",
+      color: "bg-[#000080]",
+      badge: "v2.4.0"
+    }
+  ];
+
+  // Quick links
+  const quickLinks = [
+    {
+      icon: BookOpen,
+      title: "Installation Guide",
+      href: "/installation-guide"
+    },
+    {
+      icon: Shield,
+      title: "Accessibility",
+      href: "/accessibility"
+    },
+    {
+      icon: Zap,
+      title: "Design Tokens",
+      href: "/design-tokens"
+    },
+    {
+      icon: Globe,
+      title: "Localization",
+      href: "/localization-patterns"
+    },
+    {
+      icon: Download,
+      title: "Figma Library",
+      href: "/figma-design-system"
+    },
+    {
+      icon: TrendingUp,
+      title: "Analytics",
+      href: "/service-analytics"
+    }
+  ];
+
+  // What's New section
+  const recentUpdates = [
+    {
+      date: "April 2026",
+      version: "v2.4.0",
+      title: "Enhanced Form Intelligence System",
+      description: "New auto-save, smart validation, and progress indicators for complex forms",
+      type: "Feature",
+      href: "/changelog#v2.4.0"
+    },
+    {
+      date: "March 2026",
+      version: "v2.3.5",
+      title: "Improved Accessibility Features",
+      description: "WCAG 2.2 compliance updates and enhanced screen reader support",
+      type: "Enhancement",
+      href: "/changelog#v2.3.5"
+    },
+    {
+      date: "March 2026",
+      version: "v2.3.0",
+      title: "New Digital Signature Component",
+      description: "Secure digital signature capture and verification component",
+      type: "Feature",
+      href: "/changelog#v2.3.0"
+    }
+  ];
+
+  // Popular resources
+  const popularResources = [
+    {
+      category: "Components",
+      items: [
+        { name: "Aadhaar Input", href: "/component-aadhaar-input" },
+        { name: "OTP Input", href: "/component-otp-input" },
+        { name: "Form Builder", href: "/component-form-builder" },
+        { name: "Calendar Scheduler", href: "/component-calendar-scheduler" }
+      ]
+    },
+    {
+      category: "Patterns",
+      items: [
+        { name: "Application Submission", href: "/application-submission-pattern" },
+        { name: "Aadhaar Authentication", href: "/aadhaar-authentication-pattern" },
+        { name: "Status Tracking", href: "/high-volume-status-tracking-pattern" },
+        { name: "Payment Flow", href: "/payment-gateway-page" }
+      ]
+    }
+  ];
+
+  // FAQs
+  const faqs = [
+    {
+      question: "How do I get started with UX4G?",
+      answer: "Begin with the Installation Guide to set up the design system, then explore Foundations to understand the core principles."
+    },
+    {
+      question: "Is UX4G accessible?",
+      answer: "Yes, all components meet WCAG 2.1 AA standards. We provide detailed accessibility guidelines for each component."
+    },
+    {
+      question: "Can I use UX4G with existing projects?",
+      answer: "Absolutely! UX4G is designed to integrate with existing React projects. Check our Migration Guides for details."
+    },
+    {
+      question: "How do I contribute to UX4G?",
+      answer: "Review our Contribution Guidelines for the process, coding standards, and how to submit pull requests."
+    }
+  ];
+
+  return (
+    <div className="bg-white min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-[#000080] via-[#000060] to-[#000080] text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Book size={40} className="text-[#FF9933]" />
+              <h1 className="text-4xl lg:text-5xl font-bold">Documentation Hub</h1>
+            </div>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              Complete documentation for the UX4G Design System - Everything you need to build
+              accessible, consistent government digital services
+            </p>
+          </div>
+
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search documentation... (e.g., 'button component', 'accessibility')"
+                className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:border-[#FF9933] focus:bg-white/20 transition-all"
+                aria-label="Search documentation"
+              />
+            </div>
+            <p className="text-sm text-blue-200 mt-2 text-center">
+              Press / to focus search • Try searching for components, patterns, or guidelines
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Documentation Sections */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Explore Documentation</h2>
+            <p className="text-lg text-gray-600">
+              Navigate through comprehensive guides, references, and resources
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {mainSections.map((section, index) => (
+              <Link
+                key={index}
+                to={section.href}
+                className="group bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-[#000080] hover:shadow-xl transition-all duration-200"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`w-14 h-14 ${section.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                    <section.icon className="text-white" size={28} />
+                  </div>
+                  {section.badge && (
+                    <span className="px-3 py-1 bg-[#FF9933]/10 text-[#FF9933] text-xs font-semibold rounded-full">
+                      {section.badge}
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#000080] transition-colors">
+                  {section.title}
+                </h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  {section.description}
+                </p>
+
+                <div className="flex items-center text-[#000080] font-semibold group-hover:gap-2 transition-all">
+                  <span>Explore</span>
+                  <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+
+            {/* FAQ Card */}
+            <Link
+              to="/faq"
+              className="group bg-gradient-to-br from-[#138808] to-[#0d6006] text-white rounded-xl p-6 hover:shadow-xl transition-all duration-200"
+            >
+              <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <HelpCircle className="text-white" size={28} />
+              </div>
+
+              <h3 className="text-xl font-bold mb-2">
+                Frequently Asked Questions
+              </h3>
+              <p className="text-white/90 mb-4 leading-relaxed">
+                Find quick answers to common questions about UX4G Design System
+              </p>
+
+              <div className="flex items-center font-semibold group-hover:gap-2 transition-all">
+                <span>View FAQs</span>
+                <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* What's New Section */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-8">
+            <Sparkles className="text-[#FF9933]" size={32} />
+            <h2 className="text-3xl font-bold text-gray-900">What's New</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {recentUpdates.map((update, index) => (
+              <Link
+                key={index}
+                to={update.href}
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#000080] hover:shadow-lg transition-all group"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-sm text-gray-500">{update.date}</span>
+                  <span className={`px-2 py-1 rounded text-xs font-semibold ${
+                    update.type === "Feature"
+                      ? "bg-[#138808]/10 text-[#138808]"
+                      : "bg-[#FF9933]/10 text-[#FF9933]"
+                  }`}>
+                    {update.type}
+                  </span>
+                </div>
+
+                <div className="mb-2">
+                  <span className="inline-block px-2 py-0.5 bg-[#000080] text-white text-xs font-mono rounded mb-2">
+                    {update.version}
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#000080] transition-colors">
+                  {update.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {update.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              to="/changelog"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#000080] text-white font-semibold rounded-lg hover:bg-[#000060] transition-colors"
+            >
+              View Full Changelog
+              <ExternalLink size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Links Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Quick Access</h2>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {quickLinks.map((link, index) => (
+              <Link
+                key={index}
+                to={link.href}
+                className="flex flex-col items-center justify-center p-6 bg-white border border-gray-200 rounded-xl hover:border-[#FF9933] hover:shadow-md transition-all group"
+              >
+                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#FF9933]/10 transition-colors">
+                  <link.icon className="text-gray-700 group-hover:text-[#FF9933] transition-colors" size={24} />
+                </div>
+                <span className="text-sm font-medium text-gray-900 text-center">
+                  {link.title}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Resources */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Popular Resources</h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {popularResources.map((section, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 border border-gray-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-[#FF9933] rounded-full"></div>
+                  {section.category}
+                </h3>
+                <ul className="space-y-3">
+                  {section.items.map((item, itemIndex) => (
+                    <li key={itemIndex}>
+                      <Link
+                        to={item.href}
+                        className="flex items-center gap-2 text-gray-700 hover:text-[#000080] transition-colors group"
+                      >
+                        <ChevronRight size={16} className="text-gray-400 group-hover:text-[#000080] group-hover:translate-x-1 transition-all" />
+                        <span className="font-medium">{item.name}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Preview */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">Frequently Asked Questions</h2>
+              <p className="text-gray-600">Quick answers to common questions</p>
+            </div>
+            <Link
+              to="/faq"
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-[#000080] font-semibold hover:bg-blue-50 rounded-lg transition-colors"
+            >
+              View All FAQs
+              <ChevronRight size={18} />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#000080] transition-colors"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-[#FF9933]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <HelpCircle className="text-[#FF9933]" size={14} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">
+                      {faq.question}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center md:hidden">
+            <Link
+              to="/faq"
+              className="inline-flex items-center gap-2 px-6 py-3 text-[#000080] font-semibold border-2 border-[#000080] rounded-lg hover:bg-[#000080] hover:text-white transition-colors"
+            >
+              View All FAQs
+              <ChevronRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Need Help Section */}
+      <section className="py-16 bg-gradient-to-br from-[#000080] to-[#000060]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <AlertCircle className="mx-auto mb-4 text-[#FF9933]" size={48} />
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Need Additional Help?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Can't find what you're looking for? Our team is here to support you
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                to="/contact-support-overview"
+                className="px-8 py-3 bg-[#FF9933] text-white font-semibold rounded-lg hover:bg-[#e68a2e] transition-colors inline-flex items-center gap-2"
+              >
+                <Users size={20} />
+                Contact Support
+              </Link>
+              <Link
+                to="/contribution-guidelines"
+                className="px-8 py-3 bg-white text-[#000080] font-semibold rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-2"
+              >
+                <GitBranch size={20} />
+                Contribute
+              </Link>
+              <a
+                href="https://github.com/ux4g"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors inline-flex items-center gap-2"
+              >
+                <ExternalLink size={20} />
+                GitHub Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Navigation */}
+      <section className="py-12 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="font-bold text-gray-900 mb-4">Getting Started</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/installation-guide" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Installation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/ux4g-starter-kit" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Starter Kit
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/adoption" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Adoption Guide
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-gray-900 mb-4">Design</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/foundations-detailed" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Foundations
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/core-components" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Components
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/patterns" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Patterns
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-gray-900 mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/accessibility" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Accessibility
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/figma-design-system" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Figma Library
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/governance" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Governance
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-gray-900 mb-4">Community</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/contribution-guidelines" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Contributing
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/changelog" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Changelog
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact-support-overview" className="text-gray-600 hover:text-[#000080] transition-colors">
+                    Support
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

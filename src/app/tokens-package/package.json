@@ -1,0 +1,34 @@
+{
+  "name": "@ux4g/tokens",
+  "version": "1.0.0",
+  "description": "Design tokens for UX4G - Indian Government Design System",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "tokens"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./css": "./dist/tokens.css",
+    "./tokens": "./tokens/index.json"
+  },
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "ux4g",
+    "indian-government",
+    "accessibility",
+    "wcag"
+  ],
+  "author": "UX4G Team",
+  "license": "MIT"
+}

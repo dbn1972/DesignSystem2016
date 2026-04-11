@@ -1,0 +1,52 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "shadow": {
+      "$type": "shadow",
+      "none": {
+        "value": "none",
+        "description": "No shadow"
+      },
+      "sm": {
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "description": "Subtle shadow - hover states"
+      },
+      "base": {
+        "value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "description": "Base shadow - cards, dropdowns"
+      },
+      "md": {
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "description": "Medium shadow - elevated cards"
+      },
+      "lg": {
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "description": "Large shadow - modals, popovers"
+      },
+      "xl": {
+        "value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+        "description": "XL shadow - overlays"
+      },
+      "2xl": {
+        "value": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+        "description": "2XL shadow - drawers, dialogs"
+      },
+      "inner": {
+        "value": "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+        "description": "Inner shadow - pressed states, inputs"
+      },
+      "focus": {
+        "value": "0 0 0 3px rgba(0, 81, 150, 0.3)",
+        "description": "Focus ring shadow - WCAG 2.4.7 keyboard focus"
+      },
+      "focus-error": {
+        "value": "0 0 0 3px rgba(220, 38, 38, 0.3)",
+        "description": "Error focus ring"
+      },
+      "focus-success": {
+        "value": "0 0 0 3px rgba(0, 136, 0, 0.3)",
+        "description": "Success focus ring"
+      }
+    }
+  }
+}

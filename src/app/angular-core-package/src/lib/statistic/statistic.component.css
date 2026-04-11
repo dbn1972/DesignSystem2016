@@ -1,0 +1,82 @@
+/**
+ * UX4G Statistic Component Styles
+ */
+
+ux4g-statistic {
+  display: block;
+}
+
+.ux4g-statistic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+}
+
+/**
+ * Label
+ */
+.ux4g-statistic__label {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+}
+
+/**
+ * Value wrapper
+ */
+.ux4g-statistic__value-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+}
+
+/**
+ * Value
+ */
+.ux4g-statistic__value {
+  font-size: var(--ux4g-font-size-3xl, 1.875rem);
+  font-weight: var(--ux4g-font-weight-bold, 700);
+  color: var(--ux4g-color-text, #1f2937);
+  line-height: 1.2;
+}
+
+/**
+ * Prefix & Suffix
+ */
+.ux4g-statistic__prefix,
+.ux4g-statistic__suffix {
+  font-size: var(--ux4g-font-size-xl, 1.25rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+}
+
+/**
+ * Trend
+ */
+.ux4g-statistic__trend {
+  display: flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+}
+
+.ux4g-statistic__trend--up {
+  color: var(--ux4g-color-success, #138808);
+}
+
+.ux4g-statistic__trend--down {
+  color: var(--ux4g-color-error, #dc2626);
+}
+
+.ux4g-statistic__trend--neutral {
+  color: var(--ux4g-color-gray-600, #4b5563);
+}
+
+/**
+ * Trend icon
+ */
+.ux4g-statistic__trend-icon {
+  font-size: 1em;
+  font-weight: var(--ux4g-font-weight-bold, 700);
+}

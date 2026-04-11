@@ -1,0 +1,17 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "zIndex": {
+      "$type": "number",
+      "base": { "value": "0", "description": "Base layer - default content" },
+      "dropdown": { "value": "1000", "description": "Dropdown menus" },
+      "sticky": { "value": "1100", "description": "Sticky headers and footers" },
+      "fixed": { "value": "1200", "description": "Fixed positioned elements" },
+      "overlay": { "value": "1300", "description": "Background overlays" },
+      "modal": { "value": "1400", "description": "Modal dialogs" },
+      "popover": { "value": "1500", "description": "Popovers and tooltips" },
+      "toast": { "value": "1600", "description": "Toast notifications" },
+      "tooltip": { "value": "1700", "description": "Tooltips (top layer)" }
+    }
+  }
+}

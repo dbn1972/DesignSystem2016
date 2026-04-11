@@ -1,0 +1,90 @@
+{
+  "name": "@ux4g/angular-patterns",
+  "version": "1.0.0",
+  "description": "Reusable Angular patterns for common government service flows in the UX4G Design System",
+  "keywords": [
+    "ux4g",
+    "angular",
+    "patterns",
+    "government",
+    "india",
+    "design-system",
+    "authentication",
+    "forms",
+    "flows"
+  ],
+  "author": "UX4G Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ux4g/angular-patterns"
+  },
+  "main": "dist/bundles/ux4g-angular-patterns.umd.js",
+  "module": "dist/fesm2022/ux4g-angular-patterns.mjs",
+  "es2022": "dist/fesm2022/ux4g-angular-patterns.mjs",
+  "esm2022": "dist/esm2022/ux4g-angular-patterns.mjs",
+  "fesm2022": "dist/fesm2022/ux4g-angular-patterns.mjs",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "esm2022": "./dist/esm2022/ux4g-angular-patterns.mjs",
+      "es2022": "./dist/fesm2022/ux4g-angular-patterns.mjs",
+      "default": "./dist/fesm2022/ux4g-angular-patterns.mjs"
+    },
+    "./authentication": {
+      "types": "./dist/authentication/index.d.ts",
+      "esm2022": "./dist/esm2022/authentication/index.mjs",
+      "es2022": "./dist/fesm2022/authentication.mjs",
+      "default": "./dist/fesm2022/authentication.mjs"
+    },
+    "./forms": {
+      "types": "./dist/forms/index.d.ts",
+      "esm2022": "./dist/esm2022/forms/index.mjs",
+      "es2022": "./dist/fesm2022/forms.mjs",
+      "default": "./dist/fesm2022/forms.mjs"
+    },
+    "./submission": {
+      "types": "./dist/submission/index.d.ts",
+      "esm2022": "./dist/esm2022/submission/index.mjs",
+      "es2022": "./dist/fesm2022/submission.mjs",
+      "default": "./dist/fesm2022/submission.mjs"
+    },
+    "./tracking": {
+      "types": "./dist/tracking/index.d.ts",
+      "esm2022": "./dist/esm2022/tracking/index.mjs",
+      "es2022": "./dist/fesm2022/tracking.mjs",
+      "default": "./dist/fesm2022/tracking.mjs"
+    },
+    "./payment": {
+      "types": "./dist/payment/index.d.ts",
+      "esm2022": "./dist/esm2022/payment/index.mjs",
+      "es2022": "./dist/fesm2022/payment.mjs",
+      "default": "./dist/fesm2022/payment.mjs"
+    }
+  },
+  "peerDependencies": {
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0"
+  },
+  "dependencies": {
+    "@ux4g/angular-core": "^1.0.0",
+    "@ux4g/tokens": "^1.0.0",
+    "@ux4g/styles": "^1.0.0",
+    "tslib": "^2.6.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.0.0",
+    "@angular/cli": "^18.0.0",
+    "@angular/compiler-cli": "^18.0.0",
+    "ng-packagr": "^18.0.0",
+    "typescript": "~5.4.0"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

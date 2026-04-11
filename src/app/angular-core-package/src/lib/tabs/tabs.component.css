@@ -1,0 +1,195 @@
+/**
+ * UX4G Tabs Component Styles
+ * Imports base tabs styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/tabs.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-tabs {
+  display: block;
+}
+
+ux4g-tab-panel {
+  display: contents;
+}
+
+.ux4g-tabs {
+  display: flex;
+}
+
+.ux4g-tabs--horizontal {
+  flex-direction: column;
+}
+
+.ux4g-tabs--vertical {
+  flex-direction: row;
+  gap: var(--ux4g-spacing-4, 1rem);
+}
+
+/**
+ * Tab list
+ */
+.ux4g-tabs__list {
+  display: flex;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-tabs__list--horizontal {
+  flex-direction: row;
+  border-bottom: 2px solid var(--ux4g-color-border, #e5e7eb);
+}
+
+.ux4g-tabs__list--vertical {
+  flex-direction: column;
+  border-right: 2px solid var(--ux4g-color-border, #e5e7eb);
+  min-width: 200px;
+}
+
+.ux4g-tabs__list--full-width .ux4g-tabs__tab {
+  flex: 1;
+}
+
+/**
+ * Tab button - Default variant
+ */
+.ux4g-tabs__tab {
+  position: relative;
+  padding: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-4, 1rem);
+  background: none;
+  border: none;
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  font-size: var(--ux4g-font-size-base, 1rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  white-space: nowrap;
+}
+
+.ux4g-tabs__tab:hover:not(:disabled) {
+  color: var(--ux4g-color-text, #1f2937);
+  background-color: var(--ux4g-color-gray-50, #f9fafb);
+}
+
+.ux4g-tabs__tab:focus {
+  outline: 2px solid var(--ux4g-color-focus, #3b82f6);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.ux4g-tabs__tab--active {
+  color: var(--ux4g-color-primary, #000080);
+}
+
+.ux4g-tabs__list--horizontal .ux4g-tabs__tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--ux4g-color-primary, #000080);
+}
+
+.ux4g-tabs__list--vertical .ux4g-tabs__tab--active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -2px;
+  width: 2px;
+  background-color: var(--ux4g-color-primary, #000080);
+}
+
+.ux4g-tabs__tab--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/**
+ * Bordered variant
+ */
+.ux4g-tabs__list--bordered {
+  background-color: var(--ux4g-color-gray-50, #f9fafb);
+  padding: var(--ux4g-spacing-1, 0.25rem);
+  border-radius: var(--ux4g-radius-lg, 0.5rem);
+  border: 1px solid var(--ux4g-color-border, #e5e7eb);
+}
+
+.ux4g-tabs__list--bordered.ux4g-tabs__list--horizontal {
+  border-bottom: 1px solid var(--ux4g-color-border, #e5e7eb);
+}
+
+.ux4g-tabs__list--bordered.ux4g-tabs__list--vertical {
+  border-right: 1px solid var(--ux4g-color-border, #e5e7eb);
+}
+
+.ux4g-tabs__list--bordered .ux4g-tabs__tab {
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+}
+
+.ux4g-tabs__list--bordered .ux4g-tabs__tab--active {
+  background-color: var(--ux4g-color-background, #fff);
+  box-shadow: var(--ux4g-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+}
+
+.ux4g-tabs__list--bordered .ux4g-tabs__tab--active::after {
+  display: none;
+}
+
+/**
+ * Pills variant
+ */
+.ux4g-tabs__list--pills {
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  border: none;
+}
+
+.ux4g-tabs__list--pills .ux4g-tabs__tab {
+  border-radius: var(--ux4g-radius-full, 9999px);
+  padding: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-tabs__list--pills .ux4g-tabs__tab--active {
+  background-color: var(--ux4g-color-primary, #000080);
+  color: var(--ux4g-color-white, #fff);
+}
+
+.ux4g-tabs__list--pills .ux4g-tabs__tab--active:hover {
+  background-color: var(--ux4g-color-primary-dark, #000060);
+  color: var(--ux4g-color-white, #fff);
+}
+
+.ux4g-tabs__list--pills .ux4g-tabs__tab--active::after {
+  display: none;
+}
+
+/**
+ * Panels container
+ */
+.ux4g-tabs__panels {
+  flex: 1;
+  padding: var(--ux4g-spacing-4, 1rem) 0;
+}
+
+.ux4g-tabs--vertical .ux4g-tabs__panels {
+  padding: 0;
+}
+
+/**
+ * Tab panel
+ */
+.ux4g-tab-panel {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

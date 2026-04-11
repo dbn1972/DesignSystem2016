@@ -1,0 +1,956 @@
+import { Link, useLocation } from "react-router";
+import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, Moon, Sun } from "lucide-react";
+import { useState } from "react";
+import { useDarkMode } from '../contexts/DarkModeContext';
+
+export default function NavigationHeader() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const location = useLocation();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(href);
+  };
+
+  const isSectionActive = (section: string) => {
+    const sectionMap: Record<string, string[]> = {
+      foundations: ["/foundations", "/accessibility", "/content-system"],
+      components: ["/components"],
+      patterns: ["/patterns", "/pattern-library"],
+      archetypes: ["/archetypes"],
+      systems: ["/systems"],
+      "reference-services": ["/reference-service"],
+      resources: ["/resources"],
+      governance: ["/governance"]
+    };
+
+    return sectionMap[section]?.some(path => location.pathname.startsWith(path)) || false;
+  };
+
+  return (
+    <header className="bg-white dark:bg-gray-900 border-b-2 border-gray-300 dark:border-gray-700 sticky top-0 z-50 transition-colors">
+      {/* Tricolor Band */}
+      <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 h-1"></div>
+
+      <div className="max-w-[1600px] mx-auto">
+        {/* Top Bar */}
+        <div className="px-6 py-4 flex items-center justify-between border-b border-gray-200 dark:border-gray-700">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-[#000080] dark:bg-blue-600 rounded flex items-center justify-center">
+              <span className="text-white font-bold text-sm">UX4G</span>
+            </div>
+            <div>
+              <div className="font-bold text-gray-900 dark:text-gray-100 text-lg">Design System Platform</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Government of India</div>
+            </div>
+          </Link>
+
+          {/* Utility Nav */}
+          <div className="hidden md:flex items-center gap-4">
+            <button className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-gray-700 rounded">
+              <Search size={20} />
+            </button>
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <a href="https://github.com" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 border-2 border-gray-300 rounded hover:bg-gray-50 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
+              GitHub
+            </a>
+            <Link to="/resources/getting-started" className="px-4 py-2 text-sm font-medium text-white bg-[#000080] rounded hover:bg-[#000060] dark:bg-blue-600 dark:hover:bg-blue-700">
+              Get Started
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Primary Navigation */}
+        <nav className="hidden md:block" onMouseLeave={() => setActiveDropdown(null)}>
+          <div className="flex items-center px-6">
+            <NavItem
+              label="Foundations"
+              href="/foundations"
+              active={isSectionActive('foundations')}
+              onMouseEnter={() => setActiveDropdown('foundations')}
+            />
+            <NavItem
+              label="Components"
+              href="/components"
+              active={isSectionActive('components')}
+              onMouseEnter={() => setActiveDropdown('components')}
+            />
+            <NavItem
+              label="Patterns"
+              href="/patterns"
+              active={isSectionActive('patterns')}
+              hasDropdown
+              dropdownOpen={activeDropdown === 'patterns'}
+              onMouseEnter={() => setActiveDropdown('patterns')}
+            />
+            <NavItem
+              label="Archetypes"
+              href="/archetypes"
+              active={isSectionActive('archetypes')}
+              hasDropdown
+              dropdownOpen={activeDropdown === 'archetypes'}
+              onMouseEnter={() => setActiveDropdown('archetypes')}
+            />
+            <NavItem
+              label="Systems"
+              href="/systems/multilingual"
+              active={isSectionActive('systems')}
+              onMouseEnter={() => setActiveDropdown('systems')}
+            />
+            <NavItem
+              label="Services"
+              href="/reference-service/overview"
+              active={isSectionActive('reference-services')}
+              onMouseEnter={() => setActiveDropdown('reference-services')}
+            />
+            <NavItem
+              label="Resources"
+              href="/resources"
+              active={isSectionActive('resources')}
+              onMouseEnter={() => setActiveDropdown('resources')}
+            />
+            <NavItem
+              label="Governance"
+              href="/governance"
+              active={isSectionActive('governance')}
+              onMouseEnter={() => setActiveDropdown('governance')}
+            />
+          </div>
+
+          {/* Mega Menu Dropdowns */}
+          {activeDropdown === 'foundations' && (
+            <FoundationsMegaMenu onClose={() => setActiveDropdown(null)} />
+          )}
+          {activeDropdown === 'components' && (
+            <ComponentsMegaMenu onClose={() => setActiveDropdown(null)} />
+          )}
+          {activeDropdown === 'patterns' && (
+            <PatternsMegaMenu onClose={() => setActiveDropdown(null)} />
+          )}
+          {activeDropdown === 'archetypes' && (
+            <ArchetypesMegaMenu onClose={() => setActiveDropdown(null)} />
+          )}
+          {activeDropdown === 'systems' && (
+            <SystemsMegaMenu onClose={() => setActiveDropdown(null)} />
+          )}
+          {activeDropdown === 'reference-services' && (
+            <ReferenceServicesMegaMenu onClose={() => setActiveDropdown(null)} />
+          )}
+          {activeDropdown === 'resources' && (
+            <ResourcesMegaMenu onClose={() => setActiveDropdown(null)} />
+          )}
+          {activeDropdown === 'governance' && (
+            <GovernanceMegaMenu onClose={() => setActiveDropdown(null)} />
+          )}
+        </nav>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <MobileNavigation onClose={() => setMobileMenuOpen(false)} />
+        )}
+      </div>
+    </header>
+  );
+}
+
+// ==================== NAV ITEM ====================
+
+interface NavItemProps {
+  label: string;
+  href: string;
+  active: boolean;
+  hasDropdown?: boolean;
+  dropdownOpen?: boolean;
+  onMouseEnter: () => void;
+}
+
+function NavItem({ label, href, active, hasDropdown, dropdownOpen, onMouseEnter }: NavItemProps) {
+  return (
+    <div onMouseEnter={onMouseEnter} className="relative">
+      <Link
+        to={href}
+        className={`flex items-center gap-2 px-6 py-4 text-sm font-medium border-b-4 transition-colors ${
+          active
+            ? 'border-[#000080] text-[#000080] bg-blue-50'
+            : 'border-transparent text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+        }`}
+      >
+        {label}
+        {hasDropdown && (
+          <ChevronDown size={16} className={`transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+        )}
+      </Link>
+    </div>
+  );
+}
+
+// ==================== FOUNDATIONS MEGA MENU ====================
+
+function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="absolute left-0 right-0 bg-gray-50 border-b-2 border-gray-300 shadow-lg"
+    >
+      <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="grid grid-cols-4 gap-8">
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Design Foundations
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem icon={<Palette size={14} className="text-blue-600" />} label="Foundations Overview" href="/foundations" />
+              <MegaMenuItem icon={<Accessibility size={14} className="text-teal-600" />} label="Accessibility Guidelines" href="/accessibility" />
+              <MegaMenuItem icon={<Type size={14} className="text-purple-600" />} label="Content Design System" href="/content-system" />
+            </div>
+          </div>
+
+          <div className="col-span-2 bg-white border-2 border-gray-300 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-4">Foundation Topics</div>
+            <div className="grid grid-cols-2 gap-4 text-xs">
+              <Link to="/foundations" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Design Tokens</div>
+                <div className="text-gray-600">Color, typography, spacing, and more</div>
+              </Link>
+              <Link to="/accessibility" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Accessibility</div>
+                <div className="text-gray-600">WCAG 2.1 Level AA compliance</div>
+              </Link>
+              <Link to="/content-system" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Content Guidelines</div>
+                <div className="text-gray-600">Voice, tone, and writing principles</div>
+              </Link>
+              <Link to="/foundations" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Responsive Design</div>
+                <div className="text-gray-600">Mobile-first approach</div>
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-2">Design System Foundations</div>
+            <p className="text-xs text-gray-700 mb-4">
+              Learn the foundational principles of the UX4G Design System
+            </p>
+            <Link to="/foundations" className="text-xs font-bold text-[#000080] hover:underline">
+              View Foundations Guide →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== COMPONENTS MEGA MENU ====================
+
+function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="absolute left-0 right-0 bg-gray-50 border-b-2 border-gray-300 shadow-lg"
+    >
+      <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="grid grid-cols-4 gap-8">
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Component Library
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem icon={<Box size={14} className="text-blue-600" />} label="Components Overview" href="/components" />
+              <MegaMenuItem icon={<Code size={14} className="text-green-600" />} label="Framework Support" href="/framework-status" />
+            </div>
+          </div>
+
+          <div className="col-span-2 bg-white border-2 border-gray-300 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-4">Component Categories</div>
+            <div className="grid grid-cols-2 gap-4 text-xs">
+              <Link to="/components" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Form Components</div>
+                <div className="text-gray-600">Input, Select, Checkbox, Radio, Textarea</div>
+              </Link>
+              <Link to="/components" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Navigation</div>
+                <div className="text-gray-600">Header, Footer, Breadcrumb, Tabs</div>
+              </Link>
+              <Link to="/components" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Feedback</div>
+                <div className="text-gray-600">Alert, Toast, Modal, Tooltip</div>
+              </Link>
+              <Link to="/components" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Data Display</div>
+                <div className="text-gray-600">Table, Card, Badge, Tag</div>
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-2">73 React Components</div>
+            <p className="text-xs text-gray-700 mb-4">
+              Production-ready, accessible components. Angular version in development.
+            </p>
+            <Link to="/framework-status" className="text-xs font-bold text-green-700 hover:underline">
+              View Framework Status →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== PATTERNS MEGA MENU ====================
+
+function PatternsMegaMenu({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="absolute left-0 right-0 bg-gray-50 border-b-2 border-gray-300 shadow-lg"
+    >
+      <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="grid grid-cols-4 gap-8">
+          {/* Column 1: Overview */}
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Overview
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem icon={<Layout size={14} className="text-gray-600" />} label="Patterns Overview" href="/patterns" />
+              <MegaMenuItem icon={<Grid size={14} className="text-blue-600" />} label="Pattern Library" href="/pattern-library" />
+            </div>
+          </div>
+
+          {/* Column 2: Identity & Access */}
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Identity & Access
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem
+                icon={<Users size={14} className="text-blue-600" />}
+                label="Identity Patterns"
+                href="/patterns/identity"
+              />
+              <MegaMenuItem
+                icon={<CheckCircle size={14} className="text-green-600" />}
+                label="Consent & Declaration"
+                href="/patterns/consent"
+              />
+            </div>
+          </div>
+
+          {/* Column 3: Service Patterns */}
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Service Patterns
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem
+                icon={<Search size={14} className="text-purple-600" />}
+                label="Search & Discovery"
+                href="/patterns/search-discovery"
+              />
+              <MegaMenuItem
+                icon={<Layout size={14} className="text-orange-600" />}
+                label="Dashboard & Tasks"
+                href="/patterns/dashboard"
+              />
+              <MegaMenuItem
+                icon={<RefreshCw size={14} className="text-teal-600" />}
+                label="Status & Lifecycle"
+                href="/patterns/status-lifecycle"
+              />
+              <MegaMenuItem
+                icon={<AlertCircle size={14} className="text-indigo-600" />}
+                label="Notifications"
+                href="/patterns/notifications"
+              />
+              <MegaMenuItem
+                icon={<Phone size={14} className="text-pink-600" />}
+                label="Contact & Support"
+                href="/patterns/contact-support"
+              />
+              <MegaMenuItem
+                icon={<MessageSquare size={14} className="text-purple-600" />}
+                label="Feedback & Rating"
+                href="/patterns/feedback"
+              />
+            </div>
+          </div>
+
+          {/* Column 4: Advanced Patterns */}
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Advanced Patterns
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem
+                icon={<FileText size={14} className="text-blue-600" />}
+                label="Form Intelligence"
+                href="/patterns/forms"
+              />
+              <MegaMenuItem
+                icon={<RefreshCw size={14} className="text-green-600" />}
+                label="State Resilience"
+                href="/patterns/resilience"
+              />
+              <MegaMenuItem
+                icon={<Globe2 size={14} className="text-purple-600" />}
+                label="Payment Patterns"
+                href="/patterns/payment"
+              />
+              <MegaMenuItem
+                icon={<Globe size={14} className="text-indigo-600" />}
+                label="Localization & i18n"
+                href="/patterns/localization"
+              />
+              <MegaMenuItem
+                icon={<FileText size={14} className="text-cyan-600" />}
+                label="Data Input Beyond Forms"
+                href="/patterns/data-input"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== SERVICE ARCHETYPES MEGA MENU ====================
+
+function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
+  const location = useLocation();
+
+  return (
+    <div
+      className="absolute left-0 right-0 bg-gray-50 border-b-2 border-gray-300 shadow-lg"
+    >
+      <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="grid grid-cols-4 gap-8">
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Overview
+            </div>
+            <MegaMenuItem icon={<Layers size={14} className="text-gray-600" />} label="Service Archetypes" href="/archetypes" />
+          </div>
+
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Application Archetypes
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem
+                icon={<FileText size={14} className="text-blue-600" />}
+                label="Application Submission"
+                href="/archetypes/application"
+              />
+              <MegaMenuItem
+                icon={<CheckCircle size={14} className="text-green-600" />}
+                label="Eligibility Screening"
+                href="/archetypes/eligibility"
+              />
+              <MegaMenuItem
+                icon={<RefreshCw size={14} className="text-purple-600" />}
+                label="Renewal"
+                href="/archetypes/renewal"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Support Archetypes
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem
+                icon={<AlertCircle size={14} className="text-orange-600" />}
+                label="Correction & Resubmission"
+                href="/archetypes/correction"
+              />
+              <MegaMenuItem
+                icon={<Phone size={14} className="text-teal-600" />}
+                label="Complaint & Escalation"
+                href="/archetypes/complaint"
+              />
+              <MegaMenuItem
+                icon={<Users size={14} className="text-indigo-600" />}
+                label="Assisted Services"
+                href="/archetypes/assisted"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Processing Archetypes
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem
+                icon={<CheckCircle size={14} className="text-green-600" />}
+                label="Approval & Issuance"
+                href="/archetypes/approval"
+              />
+              <MegaMenuItem
+                icon={<Eye size={14} className="text-purple-600" />}
+                label="Status Tracking"
+                href="/archetypes/tracking"
+              />
+              <MegaMenuItem
+                icon={<Globe2 size={14} className="text-blue-600" />}
+                label="Appointment Booking"
+                href="/archetypes/appointment"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== SYSTEMS MEGA MENU ====================
+
+function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="absolute left-0 right-0 bg-gray-50 border-b-2 border-gray-300 shadow-lg"
+    >
+      <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="grid grid-cols-4 gap-8">
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Cross-Cutting Systems
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem icon={<Globe size={14} className="text-blue-600" />} label="Multilingual Guidance" href="/systems/multilingual" />
+              <MegaMenuItem icon={<FileText size={14} className="text-green-600" />} label="Form Intelligence" href="/systems/form-intelligence" />
+              <MegaMenuItem icon={<RefreshCw size={14} className="text-purple-600" />} label="State Resilience" href="/systems/state-resilience" />
+            </div>
+          </div>
+
+          <div className="col-span-2 bg-white border-2 border-gray-300 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-4">About Systems</div>
+            <p className="text-xs text-gray-700 mb-4">
+              Systems are cross-cutting capabilities that work across multiple patterns and service archetypes. They provide foundational functionality for complex government services.
+            </p>
+            <div className="grid grid-cols-2 gap-4 text-xs">
+              <Link to="/systems/multilingual" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Multilingual</div>
+                <div className="text-gray-600">22 official languages support</div>
+              </Link>
+              <Link to="/systems/form-intelligence" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Form Intelligence</div>
+                <div className="text-gray-600">Smart form features and validation</div>
+              </Link>
+              <Link to="/systems/state-resilience" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors col-span-2">
+                <div className="font-bold text-gray-700">State Resilience</div>
+                <div className="text-gray-600">Save progress and offline support</div>
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-2">System Capabilities</div>
+            <p className="text-xs text-gray-700 mb-4">
+              Explore advanced system capabilities for complex services
+            </p>
+            <Link to="/systems/form-intelligence" className="text-xs font-bold text-purple-700 hover:underline">
+              View Systems →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== REFERENCE SERVICES MEGA MENU ====================
+
+function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="absolute left-0 right-0 bg-gray-50 border-b-2 border-gray-300 shadow-lg"
+    >
+      <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="grid grid-cols-4 gap-8">
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Services
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem icon={<Map size={14} className="text-blue-600" />} label="Service Blueprint" href="/reference-service/overview" />
+              <MegaMenuItem icon={<Box size={14} className="text-green-600" />} label="Certificate Service Demo" href="/reference-service/demo" />
+            </div>
+          </div>
+
+          <div className="col-span-2 bg-white border-2 border-gray-300 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-4">Certificate Service Implementation</div>
+            <p className="text-xs text-gray-700 mb-4">
+              A complete end-to-end reference implementation showing:
+            </p>
+            <div className="grid grid-cols-2 gap-4 text-xs">
+              <Link to="/reference-service/certificate/sign-in" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Authentication Flow</div>
+                <div className="text-gray-600">Sign in, sign up, OTP verification</div>
+              </Link>
+              <Link to="/reference-service/certificate/form/personal" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Application Process</div>
+                <div className="text-gray-600">Multi-step forms with validation</div>
+              </Link>
+              <Link to="/reference-service/certificate/payment-summary" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Payment Integration</div>
+                <div className="text-gray-600">Fee summary and receipt</div>
+              </Link>
+              <Link to="/reference-service/certificate/officer/dashboard" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Officer Dashboard</div>
+                <div className="text-gray-600">Review and approval workflow</div>
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-2">Live Demo</div>
+            <p className="text-xs text-gray-700 mb-4">
+              Explore a fully functional certificate service implementation
+            </p>
+            <Link to="/reference-service/demo" className="text-xs font-bold text-orange-700 hover:underline">
+              Try Demo Service →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== RESOURCES MEGA MENU ====================
+
+function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="absolute left-0 right-0 bg-gray-50 border-b-2 border-gray-300 shadow-lg"
+    >
+      <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="grid grid-cols-4 gap-8">
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Documentation
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem icon={<BookOpen size={14} className="text-blue-600" />} label="Resources Hub" href="/resources" />
+              <MegaMenuItem icon={<Download size={14} className="text-green-600" />} label="Getting Started" href="/resources/getting-started" />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Developer Tools
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem icon={<Code size={14} className="text-purple-600" />} label="Starter Kit" href="/resources/starter-kit" />
+              <MegaMenuItem icon={<FileText size={14} className="text-orange-600" />} label="Component Specs" href="/resources/component-specs" />
+              <MegaMenuItem icon={<GitBranch size={14} className="text-indigo-600" />} label="Figma Integration" href="/resources/figma" />
+            </div>
+          </div>
+
+          <div className="col-span-2 bg-white border-2 border-gray-300 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-4">Developer Resources</div>
+            <div className="grid grid-cols-2 gap-4 text-xs mb-4">
+              <Link to="/resources/starter-kit" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">React Starter</div>
+                <div className="text-gray-600">Pre-configured React + TypeScript template</div>
+              </Link>
+              <Link to="/resources/starter-kit" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Angular Starter</div>
+                <div className="text-gray-600">Angular standalone components setup</div>
+              </Link>
+              <Link to="/resources/getting-started" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">NPM Packages</div>
+                <div className="text-gray-600">@ux4g/tokens, styles, core, patterns</div>
+              </Link>
+              <Link to="/resources/figma" className="space-y-2 p-3 border border-gray-200 rounded hover:border-[#000080] hover:bg-blue-50 transition-colors">
+                <div className="font-bold text-gray-700">Figma Libraries</div>
+                <div className="text-gray-600">Design tokens and components</div>
+              </Link>
+            </div>
+            <div className="pt-4 border-t border-gray-200">
+              <Link to="/resources/getting-started" className="text-xs font-bold text-[#000080] hover:underline">
+                View Complete Installation Guide →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== GOVERNANCE MEGA MENU ====================
+
+function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="absolute left-0 right-0 bg-gray-50 border-b-2 border-gray-300 shadow-lg"
+    >
+      <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="grid grid-cols-4 gap-8">
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Governance Framework
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem icon={<Building2 size={14} className="text-blue-600" />} label="Governance Overview" href="/governance" />
+              <MegaMenuItem icon={<BarChart3 size={14} className="text-green-600" />} label="Adoption Tracking" href="/governance/adoption" />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Compliance & Reporting
+            </div>
+            <div className="space-y-1">
+              <MegaMenuItem icon={<CheckCircle size={14} className="text-purple-600" />} label="Conformance Dashboard" href="/governance/conformance" />
+              <MegaMenuItem icon={<Gauge size={14} className="text-orange-600" />} label="Service Analytics" href="/governance/analytics" />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+              Departments & Vendors
+            </div>
+            <div className="text-xs text-gray-700 space-y-2">
+              <div className="flex items-center gap-2">
+                <Building2 size={12} className="text-blue-600" />
+                <span>47 Departments</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users size={12} className="text-green-600" />
+                <span>34 Vendors</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle size={12} className="text-purple-600" />
+                <span>89% Conformance Rate</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+            <div className="font-bold text-sm text-gray-900 mb-2">Mandatory Compliance</div>
+            <p className="text-xs text-gray-700 mb-4">
+              All government digital services must conform to UX4G standards
+            </p>
+            <Link to="/governance" className="text-xs font-bold text-red-700 hover:underline">
+              View Requirements →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==================== MEGA MENU COMPONENTS ====================
+
+function MegaMenuItem({ icon, label, href }: { icon: React.ReactNode; label: string; href: string }) {
+  return (
+    <Link
+      to={href}
+      className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-white hover:text-[#000080] rounded transition-colors"
+    >
+      {icon}
+      <span>{label}</span>
+    </Link>
+  );
+}
+
+function ArchetypeMenuItem({ label, href, active }: { label: string; href: string; active: boolean }) {
+  return (
+    <Link
+      to={href}
+      className={`block px-4 py-2 text-sm rounded transition-colors ${
+        active
+          ? 'bg-blue-100 text-[#000080] font-medium border-l-2 border-[#000080]'
+          : 'text-gray-700 hover:bg-white hover:text-[#000080]'
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}
+
+// ==================== MOBILE NAVIGATION ====================
+
+function MobileNavigation({ onClose }: { onClose: () => void }) {
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+
+  const toggleSection = (section: string) => {
+    setExpandedSection(expandedSection === section ? null : section);
+  };
+
+  return (
+    <div className="md:hidden border-t-2 border-gray-300 bg-white max-h-[600px] overflow-y-auto">
+      <nav className="p-4 space-y-4">
+        {/* Foundations */}
+        <MobileSection
+          title="Foundations"
+          expanded={expandedSection === 'foundations'}
+          onToggle={() => toggleSection('foundations')}
+        >
+          <MobileLink label="Foundations Overview" href="/foundations" onClose={onClose} />
+          <MobileLink label="Accessibility" href="/accessibility" onClose={onClose} />
+          <MobileLink label="Content Design System" href="/content-system" onClose={onClose} />
+        </MobileSection>
+
+        {/* Components */}
+        <MobileSection
+          title="Components"
+          expanded={expandedSection === 'components'}
+          onToggle={() => toggleSection('components')}
+        >
+          <MobileLink label="Components Overview" href="/components" onClose={onClose} />
+        </MobileSection>
+
+        {/* Patterns */}
+        <MobileSection
+          title="Patterns"
+          expanded={expandedSection === 'patterns'}
+          onToggle={() => toggleSection('patterns')}
+        >
+          <MobileLink label="Patterns Overview" href="/patterns" onClose={onClose} />
+          <MobileLink label="Pattern Library" href="/pattern-library" onClose={onClose} />
+          <MobileLink label="Identity & Access" href="/patterns/identity" onClose={onClose} small />
+          <MobileLink label="Consent & Declaration" href="/patterns/consent" onClose={onClose} small />
+          <MobileLink label="Search & Discovery" href="/patterns/search-discovery" onClose={onClose} small />
+          <MobileLink label="Dashboard & Tasks" href="/patterns/dashboard" onClose={onClose} small />
+          <MobileLink label="Status & Lifecycle" href="/patterns/status-lifecycle" onClose={onClose} small />
+          <MobileLink label="Notifications" href="/patterns/notifications" onClose={onClose} small />
+          <MobileLink label="Contact & Support" href="/patterns/contact-support" onClose={onClose} small />
+          <MobileLink label="Payment Patterns" href="/patterns/payment" onClose={onClose} small />
+        </MobileSection>
+
+        {/* Service Archetypes */}
+        <MobileSection
+          title="Service Archetypes"
+          expanded={expandedSection === 'archetypes'}
+          onToggle={() => toggleSection('archetypes')}
+        >
+          <MobileLink label="Archetypes Overview" href="/archetypes" onClose={onClose} />
+          <MobileLink label="Application Submission" href="/archetypes/application" onClose={onClose} small />
+          <MobileLink label="Eligibility Screening" href="/archetypes/eligibility" onClose={onClose} small />
+          <MobileLink label="Renewal" href="/archetypes/renewal" onClose={onClose} small />
+          <MobileLink label="Correction & Resubmission" href="/archetypes/correction" onClose={onClose} small />
+          <MobileLink label="Complaint & Escalation" href="/archetypes/complaint" onClose={onClose} small />
+          <MobileLink label="Approval & Issuance" href="/archetypes/approval" onClose={onClose} small />
+          <MobileLink label="Assisted Services" href="/archetypes/assisted" onClose={onClose} small />
+          <MobileLink label="Status Tracking" href="/archetypes/tracking" onClose={onClose} small />
+          <MobileLink label="Appointment Booking" href="/archetypes/appointment" onClose={onClose} small />
+        </MobileSection>
+
+        {/* Systems */}
+        <MobileSection
+          title="Systems"
+          expanded={expandedSection === 'systems'}
+          onToggle={() => toggleSection('systems')}
+        >
+          <MobileLink label="Multilingual Guidance" href="/systems/multilingual" onClose={onClose} />
+          <MobileLink label="Form Intelligence" href="/systems/form-intelligence" onClose={onClose} />
+          <MobileLink label="State Resilience" href="/systems/state-resilience" onClose={onClose} />
+        </MobileSection>
+
+        {/* Services */}
+        <MobileSection
+          title="Services"
+          expanded={expandedSection === 'reference-services'}
+          onToggle={() => toggleSection('reference-services')}
+        >
+          <MobileLink label="Service Blueprint" href="/reference-service/overview" onClose={onClose} />
+          <MobileLink label="Certificate Service Demo" href="/reference-service/demo" onClose={onClose} />
+        </MobileSection>
+
+        {/* Resources */}
+        <MobileSection
+          title="Resources"
+          expanded={expandedSection === 'resources'}
+          onToggle={() => toggleSection('resources')}
+        >
+          <MobileLink label="Resources Hub" href="/resources" onClose={onClose} />
+          <MobileLink label="Getting Started" href="/resources/getting-started" onClose={onClose} />
+          <MobileLink label="Starter Kit" href="/resources/starter-kit" onClose={onClose} />
+          <MobileLink label="Component Specs" href="/resources/component-specs" onClose={onClose} />
+          <MobileLink label="Figma Integration" href="/resources/figma" onClose={onClose} />
+        </MobileSection>
+
+        {/* Governance */}
+        <MobileSection
+          title="Governance"
+          expanded={expandedSection === 'governance'}
+          onToggle={() => toggleSection('governance')}
+        >
+          <MobileLink label="Governance Overview" href="/governance" onClose={onClose} />
+          <MobileLink label="Adoption Tracking" href="/governance/adoption" onClose={onClose} />
+          <MobileLink label="Conformance Dashboard" href="/governance/conformance" onClose={onClose} />
+          <MobileLink label="Service Analytics" href="/governance/analytics" onClose={onClose} />
+        </MobileSection>
+      </nav>
+    </div>
+  );
+}
+
+function MobileSection({ title, expanded, onToggle, children, active }: any) {
+  return (
+    <div>
+      <button
+        onClick={onToggle}
+        className={`w-full flex items-center justify-between px-4 py-3 border-2 rounded font-bold ${
+          active
+            ? 'bg-blue-50 border-blue-300 text-[#000080]'
+            : 'bg-gray-100 border-gray-300 text-gray-900 hover:bg-gray-200'
+        }`}
+      >
+        <span>{title}</span>
+        <ChevronDown size={18} className={`transition-transform ${expanded ? 'rotate-180' : ''}`} />
+      </button>
+      {expanded && (
+        <div className="mt-2 ml-4 border-l-2 border-gray-300 pl-4 space-y-1">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MobileLink({ label, href, onClose, small }: any) {
+  const location = useLocation();
+  const active = location.pathname === href;
+
+  return (
+    <Link
+      to={href}
+      onClick={onClose}
+      className={`block px-3 py-2 rounded ${small ? 'text-xs' : 'text-sm'} ${
+        active
+          ? 'bg-blue-100 text-[#000080] font-medium border-l-2 border-[#000080]'
+          : 'text-gray-700 hover:bg-gray-100'
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}

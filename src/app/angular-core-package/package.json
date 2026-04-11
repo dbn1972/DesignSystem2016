@@ -1,0 +1,100 @@
+{
+  "name": "@ux4g/angular-core",
+  "version": "1.0.0",
+  "description": "Angular component library for the UX4G Indian Government Design System",
+  "keywords": [
+    "ux4g",
+    "angular",
+    "components",
+    "design-system",
+    "government",
+    "india",
+    "accessibility",
+    "wcag"
+  ],
+  "author": "UX4G Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ux4g/angular-core"
+  },
+  "main": "dist/bundles/ux4g-angular-core.umd.js",
+  "module": "dist/fesm2022/ux4g-angular-core.mjs",
+  "es2022": "dist/fesm2022/ux4g-angular-core.mjs",
+  "esm2022": "dist/esm2022/ux4g-angular-core.mjs",
+  "fesm2022": "dist/fesm2022/ux4g-angular-core.mjs",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "esm2022": "./dist/esm2022/ux4g-angular-core.mjs",
+      "es2022": "./dist/fesm2022/ux4g-angular-core.mjs",
+      "default": "./dist/fesm2022/ux4g-angular-core.mjs"
+    },
+    "./button": {
+      "types": "./dist/button/index.d.ts",
+      "esm2022": "./dist/esm2022/button/index.mjs",
+      "es2022": "./dist/fesm2022/button.mjs",
+      "default": "./dist/fesm2022/button.mjs"
+    },
+    "./input": {
+      "types": "./dist/input/index.d.ts",
+      "esm2022": "./dist/esm2022/input/index.mjs",
+      "es2022": "./dist/fesm2022/input.mjs",
+      "default": "./dist/fesm2022/input.mjs"
+    },
+    "./forms": {
+      "types": "./dist/forms/index.d.ts",
+      "esm2022": "./dist/esm2022/forms/index.mjs",
+      "es2022": "./dist/fesm2022/forms.mjs",
+      "default": "./dist/fesm2022/forms.mjs"
+    },
+    "./feedback": {
+      "types": "./dist/feedback/index.d.ts",
+      "esm2022": "./dist/esm2022/feedback/index.mjs",
+      "es2022": "./dist/fesm2022/feedback.mjs",
+      "default": "./dist/fesm2022/feedback.mjs"
+    },
+    "./navigation": {
+      "types": "./dist/navigation/index.d.ts",
+      "esm2022": "./dist/esm2022/navigation/index.mjs",
+      "es2022": "./dist/fesm2022/navigation.mjs",
+      "default": "./dist/fesm2022/navigation.mjs"
+    },
+    "./layout": {
+      "types": "./dist/layout/index.d.ts",
+      "esm2022": "./dist/esm2022/layout/index.mjs",
+      "es2022": "./dist/fesm2022/layout.mjs",
+      "default": "./dist/fesm2022/layout.mjs"
+    },
+    "./overlay": {
+      "types": "./dist/overlay/index.d.ts",
+      "esm2022": "./dist/esm2022/overlay/index.mjs",
+      "es2022": "./dist/fesm2022/overlay.mjs",
+      "default": "./dist/fesm2022/overlay.mjs"
+    }
+  },
+  "peerDependencies": {
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0"
+  },
+  "dependencies": {
+    "@ux4g/tokens": "^1.0.0",
+    "@ux4g/styles": "^1.0.0",
+    "tslib": "^2.6.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.0.0",
+    "@angular/cli": "^18.0.0",
+    "@angular/compiler-cli": "^18.0.0",
+    "ng-packagr": "^18.0.0",
+    "typescript": "~5.4.0"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

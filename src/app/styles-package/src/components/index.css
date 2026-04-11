@@ -1,0 +1,8 @@
+/**
+ * UX4G Component Baseline Styles
+ * Forms, status indicators, and navigation patterns
+ */
+
+@import './forms.css';
+@import './status.css';
+@import './navigation.css';

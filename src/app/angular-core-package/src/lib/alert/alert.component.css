@@ -1,0 +1,51 @@
+/**
+ * UX4G Alert Component Styles
+ * Imports base alert styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/feedback.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-alert {
+  display: block;
+}
+
+.ux4g-alert {
+  /* Base styles inherited from @ux4g/styles */
+}
+
+.ux4g-alert__close {
+  position: absolute;
+  top: var(--ux4g-spacing-3, 0.75rem);
+  right: var(--ux4g-spacing-3, 0.75rem);
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: currentColor;
+  cursor: pointer;
+  padding: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity var(--ux4g-transition-fast, 150ms ease);
+}
+
+.ux4g-alert__close:hover {
+  opacity: 1;
+}
+
+.ux4g-alert__close:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+.ux4g-alert--dismissible {
+  padding-right: var(--ux4g-spacing-10, 2.5rem);
+}

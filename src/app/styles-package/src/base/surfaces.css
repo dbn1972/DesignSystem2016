@@ -1,0 +1,169 @@
+/**
+ * UX4G Surfaces & Elevation
+ * Surface backgrounds and elevation system for depth and hierarchy
+ *
+ * Token consumption:
+ * var(--ux4g-color-surface-{variant})
+ * var(--ux4g-shadow-{level})
+ * var(--ux4g-radius-{size})
+ */
+
+/* Base surfaces */
+.ux4g-surface {
+  background-color: var(--ux4g-color-surface-default, #FFFFFF);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+}
+
+.ux4g-surface-primary {
+  background-color: var(--ux4g-color-surface-primary, #FFFFFF);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+}
+
+.ux4g-surface-secondary {
+  background-color: var(--ux4g-color-surface-secondary, #F9FAFB);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+}
+
+.ux4g-surface-tertiary {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+}
+
+/* Brand surfaces - Indian tricolor theme */
+.ux4g-surface-saffron {
+  background-color: var(--ux4g-color-saffron, #FF9933);
+  color: var(--ux4g-color-text-on-brand, #1C1C1C);
+}
+
+.ux4g-surface-white {
+  background-color: var(--ux4g-color-white, #FFFFFF);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+}
+
+.ux4g-surface-green {
+  background-color: var(--ux4g-color-green, #138808);
+  color: var(--ux4g-color-text-on-brand, #FFFFFF);
+}
+
+.ux4g-surface-navy {
+  background-color: var(--ux4g-color-navy, #000080);
+  color: var(--ux4g-color-text-on-brand, #FFFFFF);
+}
+
+/* Inverse surface for dark backgrounds */
+.ux4g-surface-inverse {
+  background-color: var(--ux4g-color-surface-inverse, #1C1C1C);
+  color: var(--ux4g-color-text-inverse, #FFFFFF);
+}
+
+/* Status surfaces */
+.ux4g-surface-success {
+  background-color: var(--ux4g-color-surface-success, #D1FAE5);
+  color: var(--ux4g-color-text-success, #065F46);
+}
+
+.ux4g-surface-warning {
+  background-color: var(--ux4g-color-surface-warning, #FEF3C7);
+  color: var(--ux4g-color-text-warning, #92400E);
+}
+
+.ux4g-surface-error {
+  background-color: var(--ux4g-color-surface-error, #FEE2E2);
+  color: var(--ux4g-color-text-error, #991B1B);
+}
+
+.ux4g-surface-info {
+  background-color: var(--ux4g-color-surface-info, #DBEAFE);
+  color: var(--ux4g-color-text-info, #1E40AF);
+}
+
+/* Elevation levels */
+.ux4g-elevation-0 {
+  box-shadow: none;
+}
+
+.ux4g-elevation-1 {
+  box-shadow: var(--ux4g-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+}
+
+.ux4g-elevation-2 {
+  box-shadow: var(--ux4g-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06));
+}
+
+.ux4g-elevation-3 {
+  box-shadow: var(--ux4g-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05));
+}
+
+.ux4g-elevation-4 {
+  box-shadow: var(--ux4g-shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04));
+}
+
+.ux4g-elevation-5 {
+  box-shadow: var(--ux4g-shadow-2xl, 0 25px 50px -12px rgba(0, 0, 0, 0.25));
+}
+
+/* Card component */
+.ux4g-card {
+  background-color: var(--ux4g-color-surface-primary, #FFFFFF);
+  border: 1px solid var(--ux4g-color-border-subtle, #E5E7EB);
+  border-radius: var(--ux4g-card-border-radius);
+  padding: var(--ux4g-card-padding);
+  box-shadow: var(--ux4g-card-shadow);
+}
+
+.ux4g-card-flat {
+  box-shadow: none;
+}
+
+.ux4g-card-elevated {
+  box-shadow: var(--ux4g-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06));
+  border: none;
+}
+
+/* Panel component */
+.ux4g-panel {
+  background-color: var(--ux4g-color-surface-secondary, #F9FAFB);
+  border: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-lg, 0.5rem);
+  padding: var(--ux4g-spacing-8, 2rem);
+}
+
+/* Container with subtle background */
+.ux4g-container-subtle {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  padding: var(--ux4g-spacing-4, 1rem);
+}
+
+/* Well for grouped content */
+.ux4g-well {
+  background-color: var(--ux4g-color-surface-secondary, #F9FAFB);
+  border: 1px solid var(--ux4g-color-border-subtle, #E5E7EB);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  padding: var(--ux4g-spacing-5, 1.25rem);
+}
+
+/* Border radius utilities */
+.ux4g-rounded-none {
+  border-radius: 0;
+}
+
+.ux4g-rounded-sm {
+  border-radius: var(--ux4g-radius-sm, 0.125rem);
+}
+
+.ux4g-rounded {
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+}
+
+.ux4g-rounded-lg {
+  border-radius: var(--ux4g-radius-lg, 0.5rem);
+}
+
+.ux4g-rounded-xl {
+  border-radius: var(--ux4g-radius-xl, 0.75rem);
+}
+
+.ux4g-rounded-full {
+  border-radius: var(--ux4g-radius-full, 9999px);
+}

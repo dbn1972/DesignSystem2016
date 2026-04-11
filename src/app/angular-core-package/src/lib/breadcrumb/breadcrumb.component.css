@@ -1,0 +1,104 @@
+/**
+ * UX4G Breadcrumb Component Styles
+ * Imports base breadcrumb styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/breadcrumb.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-breadcrumb {
+  display: block;
+}
+
+.ux4g-breadcrumb {
+  display: block;
+}
+
+/**
+ * List
+ */
+.ux4g-breadcrumb__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Item
+ */
+.ux4g-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+}
+
+.ux4g-breadcrumb__item--current {
+  color: var(--ux4g-color-text, #1f2937);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+}
+
+/**
+ * Home icon
+ */
+.ux4g-breadcrumb__home-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ux4g-color-text-secondary, #6b7280);
+}
+
+/**
+ * Link
+ */
+.ux4g-breadcrumb__link {
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+.ux4g-breadcrumb__link:hover {
+  color: var(--ux4g-color-primary, #000080);
+  text-decoration: underline;
+}
+
+.ux4g-breadcrumb__link:focus {
+  outline: 2px solid var(--ux4g-color-focus, #3b82f6);
+  outline-offset: 2px;
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+}
+
+/**
+ * Current item
+ */
+.ux4g-breadcrumb__current {
+  color: var(--ux4g-color-text, #1f2937);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+}
+
+/**
+ * Separator
+ */
+.ux4g-breadcrumb__separator {
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  user-select: none;
+}
+
+/**
+ * Responsive
+ */
+@media (max-width: 640px) {
+  .ux4g-breadcrumb__list {
+    gap: var(--ux4g-spacing-1, 0.25rem);
+  }
+
+  .ux4g-breadcrumb__item {
+    font-size: var(--ux4g-font-size-xs, 0.75rem);
+  }
+}

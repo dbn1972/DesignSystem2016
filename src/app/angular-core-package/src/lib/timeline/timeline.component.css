@@ -1,0 +1,140 @@
+/**
+ * UX4G Timeline Component Styles
+ */
+
+ux4g-timeline {
+  display: block;
+}
+
+.ux4g-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+ * Timeline item
+ */
+.ux4g-timeline__item {
+  display: flex;
+  gap: var(--ux4g-spacing-4, 1rem);
+  position: relative;
+}
+
+.ux4g-timeline__item:not(:last-child) {
+  padding-bottom: var(--ux4g-spacing-6, 1.5rem);
+}
+
+/**
+ * Dot wrapper
+ */
+.ux4g-timeline__dot-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/**
+ * Dot
+ */
+.ux4g-timeline__dot {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--ux4g-radius-full, 9999px);
+  background-color: var(--ux4g-color-primary, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ux4g-color-white, #ffffff);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  border: 3px solid var(--ux4g-color-white, #ffffff);
+  box-shadow: 0 0 0 1px var(--ux4g-color-gray-300, #d1d5db);
+  flex-shrink: 0;
+}
+
+/**
+ * Dot colors
+ */
+.ux4g-timeline__dot--default {
+  background-color: var(--ux4g-color-gray-500, #6b7280);
+}
+
+.ux4g-timeline__dot--primary {
+  background-color: var(--ux4g-color-primary, #3b82f6);
+}
+
+.ux4g-timeline__dot--success {
+  background-color: var(--ux4g-color-success, #138808);
+}
+
+.ux4g-timeline__dot--warning {
+  background-color: var(--ux4g-color-warning, #f59e0b);
+}
+
+.ux4g-timeline__dot--error {
+  background-color: var(--ux4g-color-error, #dc2626);
+}
+
+.ux4g-timeline__dot--info {
+  background-color: var(--ux4g-color-info, #3b82f6);
+}
+
+/**
+ * Icon
+ */
+.ux4g-timeline__icon {
+  line-height: 1;
+}
+
+/**
+ * Line
+ */
+.ux4g-timeline__line {
+  flex: 1;
+  width: 2px;
+  background-color: var(--ux4g-color-gray-300, #d1d5db);
+  margin-top: var(--ux4g-spacing-2, 0.5rem);
+}
+
+/**
+ * Content
+ */
+.ux4g-timeline__content {
+  flex: 1;
+  padding-top: 0.25rem;
+}
+
+.ux4g-timeline__timestamp {
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  margin-bottom: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-timeline__title {
+  font-size: var(--ux4g-font-size-base, 1rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: var(--ux4g-color-text, #1f2937);
+  margin-bottom: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-timeline__description {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  line-height: 1.5;
+}
+
+/**
+ * Right mode
+ */
+.ux4g-timeline--right .ux4g-timeline__item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/**
+ * Alternate mode
+ */
+.ux4g-timeline--alternate .ux4g-timeline__item--right {
+  flex-direction: row-reverse;
+  text-align: right;
+}

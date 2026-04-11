@@ -1,0 +1,128 @@
+/**
+ * UX4G Divider Component Styles
+ * Imports base divider styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/divider.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-divider {
+  display: block;
+}
+
+.ux4g-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/**
+ * Horizontal orientation
+ */
+.ux4g-divider--horizontal {
+  flex-direction: row;
+}
+
+.ux4g-divider--horizontal .ux4g-divider__line {
+  flex: 1;
+  height: 1px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: var(--ux4g-color-gray-300, #d1d5db);
+}
+
+/**
+ * Vertical orientation
+ */
+.ux4g-divider--vertical {
+  flex-direction: column;
+  align-self: stretch;
+  height: auto;
+  min-height: 100%;
+  width: auto;
+}
+
+.ux4g-divider--vertical .ux4g-divider__line {
+  flex: 1;
+  width: 1px;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: var(--ux4g-color-gray-300, #d1d5db);
+}
+
+/**
+ * Line variants
+ */
+.ux4g-divider__line--solid {
+  border-style: solid;
+}
+
+.ux4g-divider__line--dashed {
+  border-style: dashed;
+}
+
+.ux4g-divider__line--dotted {
+  border-style: dotted;
+}
+
+/**
+ * Label
+ */
+.ux4g-divider__label {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  white-space: nowrap;
+  padding: 0 var(--ux4g-spacing-3, 0.75rem);
+}
+
+/**
+ * Label positions (for horizontal dividers)
+ */
+.ux4g-divider--with-label.ux4g-divider--label-left .ux4g-divider__line:first-child {
+  flex: 0 0 2rem;
+}
+
+.ux4g-divider--with-label.ux4g-divider--label-center .ux4g-divider__line {
+  flex: 1;
+}
+
+.ux4g-divider--with-label.ux4g-divider--label-right .ux4g-divider__line:last-child {
+  flex: 0 0 2rem;
+}
+
+/**
+ * Spacing
+ */
+.ux4g-divider--horizontal.ux4g-divider--spacing-none {
+  margin: 0;
+}
+
+.ux4g-divider--horizontal.ux4g-divider--spacing-sm {
+  margin: var(--ux4g-spacing-2, 0.5rem) 0;
+}
+
+.ux4g-divider--horizontal.ux4g-divider--spacing-md {
+  margin: var(--ux4g-spacing-4, 1rem) 0;
+}
+
+.ux4g-divider--horizontal.ux4g-divider--spacing-lg {
+  margin: var(--ux4g-spacing-6, 1.5rem) 0;
+}
+
+.ux4g-divider--vertical.ux4g-divider--spacing-none {
+  margin: 0;
+}
+
+.ux4g-divider--vertical.ux4g-divider--spacing-sm {
+  margin: 0 var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-divider--vertical.ux4g-divider--spacing-md {
+  margin: 0 var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-divider--vertical.ux4g-divider--spacing-lg {
+  margin: 0 var(--ux4g-spacing-6, 1.5rem);
+}

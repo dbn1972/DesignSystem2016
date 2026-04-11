@@ -1,0 +1,83 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "color": {
+      "base": {
+        "$type": "color",
+        "saffron": {
+          "50": { "value": "#fff4e6", "description": "Lightest saffron tint" },
+          "100": { "value": "#ffe4cc", "description": "Very light saffron" },
+          "200": { "value": "#ffc999", "description": "Light saffron" },
+          "300": { "value": "#ffad66", "description": "Medium-light saffron" },
+          "400": { "value": "#ff9233", "description": "Medium saffron" },
+          "500": { "value": "#ff7700", "description": "Base saffron - Indian tricolor", "a11y": "Passes AA on white for large text" },
+          "600": { "value": "#cc5f00", "description": "Dark saffron", "a11y": "Passes AA on white" },
+          "700": { "value": "#994700", "description": "Darker saffron", "a11y": "Passes AAA on white" },
+          "800": { "value": "#663000", "description": "Very dark saffron" },
+          "900": { "value": "#331800", "description": "Darkest saffron" }
+        },
+        "green": {
+          "50": { "value": "#e6f7e6", "description": "Lightest green tint" },
+          "100": { "value": "#cceecc", "description": "Very light green" },
+          "200": { "value": "#99dd99", "description": "Light green" },
+          "300": { "value": "#66cc66", "description": "Medium-light green" },
+          "400": { "value": "#33bb33", "description": "Medium green" },
+          "500": { "value": "#00aa00", "description": "Base green - Indian tricolor" },
+          "600": { "value": "#008800", "description": "Dark green", "a11y": "Passes AA on white" },
+          "700": { "value": "#006600", "description": "Darker green", "a11y": "Passes AAA on white" },
+          "800": { "value": "#004400", "description": "Very dark green" },
+          "900": { "value": "#002200", "description": "Darkest green" }
+        },
+        "navy": {
+          "50": { "value": "#e6eef5", "description": "Lightest navy tint" },
+          "100": { "value": "#ccdcea", "description": "Very light navy" },
+          "200": { "value": "#99b9d5", "description": "Light navy" },
+          "300": { "value": "#6697c0", "description": "Medium-light navy" },
+          "400": { "value": "#3374ab", "description": "Medium navy" },
+          "500": { "value": "#005196", "description": "Base navy - Government primary", "a11y": "Passes AAA on white" },
+          "600": { "value": "#004178", "description": "Dark navy" },
+          "700": { "value": "#00315a", "description": "Darker navy" },
+          "800": { "value": "#00203c", "description": "Very dark navy" },
+          "900": { "value": "#00101e", "description": "Darkest navy" }
+        },
+        "neutral": {
+          "0": { "value": "#ffffff", "description": "Pure white" },
+          "50": { "value": "#fafafa", "description": "Lightest gray" },
+          "100": { "value": "#f5f5f5", "description": "Very light gray" },
+          "200": { "value": "#e5e5e5", "description": "Light gray" },
+          "300": { "value": "#d4d4d4", "description": "Medium-light gray" },
+          "400": { "value": "#a3a3a3", "description": "Medium gray" },
+          "500": { "value": "#737373", "description": "Base gray" },
+          "600": { "value": "#525252", "description": "Dark gray", "a11y": "Passes AAA on white" },
+          "700": { "value": "#404040", "description": "Darker gray" },
+          "800": { "value": "#262626", "description": "Very dark gray" },
+          "900": { "value": "#171717", "description": "Darkest gray" },
+          "950": { "value": "#0a0a0a", "description": "Near black" },
+          "1000": { "value": "#000000", "description": "Pure black" }
+        },
+        "semantic": {
+          "success": {
+            "light": { "value": "#00aa00", "description": "Success state - aligned with tricolor green" },
+            "DEFAULT": { "value": "#008800", "description": "Default success" },
+            "dark": { "value": "#006600", "description": "Dark success" }
+          },
+          "warning": {
+            "light": { "value": "#ff9233", "description": "Warning state" },
+            "DEFAULT": { "value": "#ff7700", "description": "Default warning - aligned with saffron" },
+            "dark": { "value": "#cc5f00", "description": "Dark warning" }
+          },
+          "error": {
+            "light": { "value": "#ef4444", "description": "Error state light" },
+            "DEFAULT": { "value": "#dc2626", "description": "Default error", "a11y": "Passes AA on white" },
+            "dark": { "value": "#991b1b", "description": "Dark error", "a11y": "Passes AAA on white" }
+          },
+          "info": {
+            "light": { "value": "#3374ab", "description": "Info state light" },
+            "DEFAULT": { "value": "#005196", "description": "Default info - aligned with navy" },
+            "dark": { "value": "#004178", "description": "Dark info" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "button": {
+        "base": {
+          "$type": "dimension",
+          "height": {
+            "sm": { "value": "32px", "description": "Small button height - for compact spaces" },
+            "md": { "value": "40px", "description": "Medium button height - default size" },
+            "lg": { "value": "48px", "description": "Large button height - for emphasis" }
+          },
+          "padding": {
+            "horizontal": {
+              "sm": { "value": "12px", "description": "Small horizontal padding" },
+              "md": { "value": "16px", "description": "Medium horizontal padding" },
+              "lg": { "value": "24px", "description": "Large horizontal padding" }
+            },
+            "vertical": {
+              "sm": { "value": "6px", "description": "Small vertical padding" },
+              "md": { "value": "10px", "description": "Medium vertical padding" },
+              "lg": { "value": "12px", "description": "Large vertical padding" }
+            }
+          },
+          "gap": {
+            "sm": { "value": "6px", "description": "Gap between icon and text - small" },
+            "md": { "value": "8px", "description": "Gap between icon and text - medium" },
+            "lg": { "value": "10px", "description": "Gap between icon and text - large" }
+          },
+          "borderWidth": {
+            "value": "1px",
+            "description": "Button border width"
+          },
+          "borderRadius": {
+            "value": "4px",
+            "description": "Button border radius - aligned with design system"
+          },
+          "fontSize": {
+            "sm": { "value": "14px", "description": "Small button font size" },
+            "md": { "value": "16px", "description": "Medium button font size" },
+            "lg": { "value": "18px", "description": "Large button font size" }
+          },
+          "fontWeight": {
+            "value": "500",
+            "description": "Button font weight - medium for readability"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Button line height"
+          },
+          "minWidth": {
+            "value": "80px",
+            "description": "Minimum button width for accessibility"
+          },
+          "transition": {
+            "duration": { "value": "150ms", "description": "Button transition duration" },
+            "timing": { "value": "ease-in-out", "description": "Button transition timing function" }
+          }
+        },
+        "variant": {
+          "primary": {
+            "$type": "color",
+            "background": {
+              "default": { "value": "#005196", "description": "Primary button background - Navy 500" },
+              "hover": { "value": "#004178", "description": "Primary button hover - Navy 600" },
+              "active": { "value": "#00315a", "description": "Primary button active - Navy 700" },
+              "disabled": { "value": "#d4d4d4", "description": "Primary button disabled - Neutral 300" }
+            },
+            "text": {
+              "default": { "value": "#ffffff", "description": "Primary button text - White" },
+              "disabled": { "value": "#a3a3a3", "description": "Primary button disabled text - Neutral 400" }
+            },
+            "border": {
+              "default": { "value": "#005196", "description": "Primary button border - Navy 500" },
+              "hover": { "value": "#004178", "description": "Primary button hover border - Navy 600" },
+              "active": { "value": "#00315a", "description": "Primary button active border - Navy 700" },
+              "disabled": { "value": "#d4d4d4", "description": "Primary button disabled border - Neutral 300" }
+            },
+            "focus": {
+              "ring": { "value": "#005196", "description": "Primary button focus ring - Navy 500" },
+              "ringOffset": { "value": "#ffffff", "description": "Focus ring offset - White" }
+            }
+          },
+          "secondary": {
+            "$type": "color",
+            "background": {
+              "default": { "value": "#ffffff", "description": "Secondary button background - White" },
+              "hover": { "value": "#f5f5f5", "description": "Secondary button hover - Neutral 100" },
+              "active": { "value": "#e5e5e5", "description": "Secondary button active - Neutral 200" },
+              "disabled": { "value": "#fafafa", "description": "Secondary button disabled - Neutral 50" }
+            },
+            "text": {
+              "default": { "value": "#005196", "description": "Secondary button text - Navy 500" },
+              "disabled": { "value": "#a3a3a3", "description": "Secondary button disabled text - Neutral 400" }
+            },
+            "border": {
+              "default": { "value": "#005196", "description": "Secondary button border - Navy 500" },
+              "hover": { "value": "#004178", "description": "Secondary button hover border - Navy 600" },
+              "active": { "value": "#00315a", "description": "Secondary button active border - Navy 700" },
+              "disabled": { "value": "#d4d4d4", "description": "Secondary button disabled border - Neutral 300" }
+            },
+            "focus": {
+              "ring": { "value": "#005196", "description": "Secondary button focus ring - Navy 500" },
+              "ringOffset": { "value": "#ffffff", "description": "Focus ring offset - White" }
+            }
+          },
+          "tertiary": {
+            "$type": "color",
+            "background": {
+              "default": { "value": "transparent", "description": "Tertiary button background - Transparent" },
+              "hover": { "value": "#f5f5f5", "description": "Tertiary button hover - Neutral 100" },
+              "active": { "value": "#e5e5e5", "description": "Tertiary button active - Neutral 200" },
+              "disabled": { "value": "transparent", "description": "Tertiary button disabled - Transparent" }
+            },
+            "text": {
+              "default": { "value": "#005196", "description": "Tertiary button text - Navy 500" },
+              "disabled": { "value": "#a3a3a3", "description": "Tertiary button disabled text - Neutral 400" }
+            },
+            "border": {
+              "default": { "value": "transparent", "description": "Tertiary button border - Transparent" },
+              "hover": { "value": "transparent", "description": "Tertiary button hover border - Transparent" },
+              "active": { "value": "transparent", "description": "Tertiary button active border - Transparent" },
+              "disabled": { "value": "transparent", "description": "Tertiary button disabled border - Transparent" }
+            },
+            "focus": {
+              "ring": { "value": "#005196", "description": "Tertiary button focus ring - Navy 500" },
+              "ringOffset": { "value": "#ffffff", "description": "Focus ring offset - White" }
+            }
+          },
+          "danger": {
+            "$type": "color",
+            "background": {
+              "default": { "value": "#dc2626", "description": "Danger button background - Error DEFAULT" },
+              "hover": { "value": "#991b1b", "description": "Danger button hover - Error dark" },
+              "active": { "value": "#7f1d1d", "description": "Danger button active - Darker error" },
+              "disabled": { "value": "#d4d4d4", "description": "Danger button disabled - Neutral 300" }
+            },
+            "text": {
+              "default": { "value": "#ffffff", "description": "Danger button text - White" },
+              "disabled": { "value": "#a3a3a3", "description": "Danger button disabled text - Neutral 400" }
+            },
+            "border": {
+              "default": { "value": "#dc2626", "description": "Danger button border - Error DEFAULT" },
+              "hover": { "value": "#991b1b", "description": "Danger button hover border - Error dark" },
+              "active": { "value": "#7f1d1d", "description": "Danger button active border - Darker error" },
+              "disabled": { "value": "#d4d4d4", "description": "Danger button disabled border - Neutral 300" }
+            },
+            "focus": {
+              "ring": { "value": "#dc2626", "description": "Danger button focus ring - Error DEFAULT" },
+              "ringOffset": { "value": "#ffffff", "description": "Focus ring offset - White" }
+            }
+          },
+          "success": {
+            "$type": "color",
+            "background": {
+              "default": { "value": "#008800", "description": "Success button background - Green 600" },
+              "hover": { "value": "#006600", "description": "Success button hover - Green 700" },
+              "active": { "value": "#004400", "description": "Success button active - Green 800" },
+              "disabled": { "value": "#d4d4d4", "description": "Success button disabled - Neutral 300" }
+            },
+            "text": {
+              "default": { "value": "#ffffff", "description": "Success button text - White" },
+              "disabled": { "value": "#a3a3a3", "description": "Success button disabled text - Neutral 400" }
+            },
+            "border": {
+              "default": { "value": "#008800", "description": "Success button border - Green 600" },
+              "hover": { "value": "#006600", "description": "Success button hover border - Green 700" },
+              "active": { "value": "#004400", "description": "Success button active border - Green 800" },
+              "disabled": { "value": "#d4d4d4", "description": "Success button disabled border - Neutral 300" }
+            },
+            "focus": {
+              "ring": { "value": "#008800", "description": "Success button focus ring - Green 600" },
+              "ringOffset": { "value": "#ffffff", "description": "Focus ring offset - White" }
+            }
+          }
+        },
+        "loading": {
+          "$type": "color",
+          "spinner": {
+            "primary": { "value": "#ffffff", "description": "Spinner color for primary buttons" },
+            "secondary": { "value": "#005196", "description": "Spinner color for secondary buttons" }
+          }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minTouchTarget": {
+            "value": "44px",
+            "description": "Minimum touch target size per WCAG 2.5.5"
+          },
+          "focusRingWidth": {
+            "value": "2px",
+            "description": "Focus ring width for accessibility"
+          },
+          "focusRingOffset": {
+            "value": "2px",
+            "description": "Focus ring offset from button edge"
+          }
+        }
+      }
+    }
+  }
+}

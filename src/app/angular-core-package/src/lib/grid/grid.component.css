@@ -1,0 +1,126 @@
+/**
+ * UX4G Grid Component Styles
+ */
+
+ux4g-grid {
+  display: block;
+}
+
+.ux4g-grid {
+  display: grid;
+}
+
+/**
+ * Base columns
+ */
+.ux4g-grid--cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.ux4g-grid--cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ux4g-grid--cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ux4g-grid--cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ux4g-grid--cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.ux4g-grid--cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.ux4g-grid--cols-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.ux4g-grid--cols-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.ux4g-grid--cols-9 { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+.ux4g-grid--cols-10 { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+.ux4g-grid--cols-11 { grid-template-columns: repeat(11, minmax(0, 1fr)); }
+.ux4g-grid--cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+/**
+ * Small breakpoint (≥640px)
+ */
+@media (min-width: 640px) {
+  .ux4g-grid--cols-sm-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-9 { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-10 { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-11 { grid-template-columns: repeat(11, minmax(0, 1fr)); }
+  .ux4g-grid--cols-sm-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}
+
+/**
+ * Medium breakpoint (≥768px)
+ */
+@media (min-width: 768px) {
+  .ux4g-grid--cols-md-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-9 { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-10 { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-11 { grid-template-columns: repeat(11, minmax(0, 1fr)); }
+  .ux4g-grid--cols-md-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}
+
+/**
+ * Large breakpoint (≥1024px)
+ */
+@media (min-width: 1024px) {
+  .ux4g-grid--cols-lg-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-9 { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-10 { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-11 { grid-template-columns: repeat(11, minmax(0, 1fr)); }
+  .ux4g-grid--cols-lg-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}
+
+/**
+ * Extra large breakpoint (≥1280px)
+ */
+@media (min-width: 1280px) {
+  .ux4g-grid--cols-xl-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-9 { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-10 { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-11 { grid-template-columns: repeat(11, minmax(0, 1fr)); }
+  .ux4g-grid--cols-xl-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}
+
+/**
+ * Gap
+ */
+.ux4g-grid--gap-none {
+  gap: 0;
+}
+
+.ux4g-grid--gap-xs {
+  gap: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-grid--gap-sm {
+  gap: var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-grid--gap-md {
+  gap: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-grid--gap-lg {
+  gap: var(--ux4g-spacing-6, 1.5rem);
+}
+
+.ux4g-grid--gap-xl {
+  gap: var(--ux4g-spacing-8, 2rem);
+}

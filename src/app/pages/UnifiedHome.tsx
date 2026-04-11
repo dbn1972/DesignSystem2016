@@ -1,0 +1,850 @@
+import { Link } from "react-router";
+import {
+  BookOpen, Box, Layers, Settings, Building2, FileText,
+  ArrowRight, CheckCircle, Download, Code, Users, Palette,
+  GitBranch, BarChart3, AlertCircle, Globe, Shield, Zap
+} from "lucide-react";
+
+export default function UnifiedHome() {
+  return (
+    <div className="min-h-screen bg-white">
+
+      {/* ==================== HERO SECTION ==================== */}
+      <section className="bg-gradient-to-b from-gray-50 to-white border-b-2 border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-8 py-16">
+          <div className="max-w-4xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#000080] text-white rounded mb-6">
+              <Shield size={16} />
+              <span className="text-sm font-bold">Government of India • Digital India Initiative</span>
+            </div>
+
+            {/* Heading */}
+            <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              UX4G Design System Platform
+            </h1>
+
+            {/* Subheading */}
+            <p className="text-xl text-gray-700 mb-4 leading-relaxed">
+              Official design system for building consistent, accessible, and user-centered
+              government digital services across India.
+            </p>
+
+            <p className="text-lg text-gray-600 mb-8">
+              Production-ready foundations, components, patterns, and complete service implementations
+              with built-in accessibility, multilingual support, and compliance standards.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-4 mb-12">
+              <Link
+                to="/resources/getting-started"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#000080] hover:bg-[#000066] text-white font-bold rounded transition-colors"
+              >
+                <Download size={20} />
+                Get Started
+              </Link>
+              <Link
+                to="/components"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-gray-300 hover:border-[#000080] text-gray-900 font-bold rounded transition-colors"
+              >
+                <Box size={20} />
+                Browse Components
+              </Link>
+              <Link
+                to="/reference-service/demo"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-gray-300 hover:border-[#000080] text-gray-900 font-bold rounded transition-colors"
+              >
+                <FileText size={20} />
+                View Demo Service
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-4 gap-6 pt-6 border-t-2 border-gray-200">
+              <StatItem number="28+" label="Core Components" />
+              <StatItem number="109" label="Pattern Examples" />
+              <StatItem number="47" label="Gov Departments" />
+              <StatItem number="22" label="Languages" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== QUICK START BY ROLE ==================== */}
+      <section className="bg-white border-b-2 border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-8 py-16">
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Quick Start by Role</h2>
+            <p className="text-lg text-gray-600">Choose your role to get started with the right resources</p>
+          </div>
+
+          <div className="grid grid-cols-4 gap-6">
+            <RoleCard
+              icon={<Palette size={32} />}
+              role="Designer"
+              description="Design tokens, component specs, and Figma libraries"
+              links={[
+                { label: "Foundations", path: "/foundations" },
+                { label: "Component Library", path: "/components" },
+                { label: "Figma Resources", path: "/resources/figma" }
+              ]}
+            />
+
+            <RoleCard
+              icon={<Code size={32} />}
+              role="Developer"
+              description="NPM packages, starter kits, and API documentation"
+              links={[
+                { label: "Installation Guide", path: "/resources/getting-started" },
+                { label: "Starter Kits", path: "/resources/starter-kit" },
+                { label: "Component Specs", path: "/resources/component-specs" }
+              ]}
+            />
+
+            <RoleCard
+              icon={<Users size={32} />}
+              role="Product Manager"
+              description="Service archetypes, patterns, and governance"
+              links={[
+                { label: "Service Archetypes", path: "/archetypes" },
+                { label: "Pattern Library", path: "/pattern-library" },
+                { label: "Governance", path: "/governance" }
+              ]}
+            />
+
+            <RoleCard
+              icon={<FileText size={32} />}
+              role="Service Designer"
+              description="Complete flows, patterns, and reference services"
+              links={[
+                { label: "Pattern Library", path: "/pattern-library" },
+                { label: "Reference Service", path: "/reference-service/overview" },
+                { label: "Service Archetypes", path: "/archetypes" }
+              ]}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== CORE PLATFORM LAYERS ==================== */}
+      <section className="bg-gray-50 border-b-2 border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-8 py-16">
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Platform Architecture</h2>
+            <p className="text-lg text-gray-600">Eight foundational layers that power government digital services</p>
+          </div>
+
+          <div className="space-y-4">
+            <LayerCard
+              number="1"
+              title="Foundations"
+              description="Design tokens, typography, color systems, spacing, and accessibility guidelines"
+              path="/foundations"
+              color="blue"
+              items={["Design Tokens", "Typography", "Color System", "Spacing", "Accessibility"]}
+            />
+
+            <LayerCard
+              number="2"
+              title="Components"
+              description="28+ production-ready, accessible UI components for React and Angular"
+              path="/components"
+              color="green"
+              items={["Buttons", "Forms", "Navigation", "Feedback", "Data Display"]}
+            />
+
+            <LayerCard
+              number="3"
+              title="Patterns"
+              description="Reusable interaction patterns for common government service workflows"
+              path="/patterns"
+              color="purple"
+              items={["Identity & Access", "Consent", "Payment", "Search", "Dashboard", "Notifications"]}
+            />
+
+            <LayerCard
+              number="4"
+              title="Service Archetypes"
+              description="High-level service workflow templates for common government service types"
+              path="/archetypes"
+              color="orange"
+              items={["Application Submission", "Renewal", "Approval & Issuance", "Status Tracking"]}
+            />
+
+            <LayerCard
+              number="5"
+              title="Systems"
+              description="Cross-cutting capabilities that work across patterns and services"
+              path="/systems/multilingual"
+              color="teal"
+              items={["Multilingual Support", "Form Intelligence", "State Resilience"]}
+            />
+
+            <LayerCard
+              number="6"
+              title="Reference Services"
+              description="Complete end-to-end service implementations as reference examples"
+              path="/reference-service/overview"
+              color="indigo"
+              items={["Certificate Service (31 pages)", "Authentication Flow", "Payment Integration"]}
+            />
+
+            <LayerCard
+              number="7"
+              title="Resources"
+              description="Developer tools, starter kits, documentation, and implementation guides"
+              path="/resources"
+              color="pink"
+              items={["Getting Started", "React/Angular Starters", "Component Specs", "Figma Integration"]}
+            />
+
+            <LayerCard
+              number="8"
+              title="Governance"
+              description="Adoption tracking, compliance monitoring, and analytics dashboard"
+              path="/governance"
+              color="red"
+              items={["Adoption Dashboard", "Conformance Metrics", "Service Analytics"]}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== FEATURED PATTERNS & REFERENCE SERVICES ==================== */}
+      <section className="bg-white border-b-2 border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-8 py-16">
+          <div className="grid grid-cols-2 gap-8">
+
+            {/* Featured Patterns */}
+            <div>
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-3">Featured Patterns</h2>
+                <p className="text-lg text-gray-600">Common interaction patterns used across government services</p>
+              </div>
+
+              <div className="space-y-4">
+                <PatternItem
+                  title="Identity & Access Patterns"
+                  description="Sign in, sign up, OTP verification, Aadhaar authentication, session management"
+                  path="/patterns/identity"
+                  count="13 patterns"
+                />
+                <PatternItem
+                  title="Consent & Declaration"
+                  description="Legal consent capture, privacy notices, guardian consent, data sharing"
+                  path="/patterns/consent"
+                  count="8 patterns"
+                />
+                <PatternItem
+                  title="Search & Discovery"
+                  description="Global search, search results, filters, no results handling"
+                  path="/patterns/search-discovery"
+                  count="4 patterns"
+                />
+                <PatternItem
+                  title="Dashboard & Tasks"
+                  description="Citizen dashboard, task lists, personalized views"
+                  path="/patterns/dashboard"
+                  count="3 patterns"
+                />
+                <PatternItem
+                  title="Status & Lifecycle"
+                  description="Timeline views, step progress, application tracking"
+                  path="/patterns/status-lifecycle"
+                  count="3 patterns"
+                />
+              </div>
+
+              <Link
+                to="/pattern-library"
+                className="inline-flex items-center gap-2 mt-6 text-[#000080] font-bold hover:underline"
+              >
+                Browse All Patterns <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            {/* Reference Service */}
+            <div>
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-3">Reference Service</h2>
+                <p className="text-lg text-gray-600">Complete certificate service implementation with 31 pages</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-gray-300 rounded-lg p-8 mb-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Certificate Application Service</h3>
+                <p className="text-gray-700 mb-6">
+                  A complete end-to-end reference implementation demonstrating best practices
+                  for a government certificate application service.
+                </p>
+
+                <div className="space-y-3 mb-6">
+                  <ServiceFlowItem label="Pre-Application" count="5 pages" />
+                  <ServiceFlowItem label="Authentication Flow" count="5 pages" />
+                  <ServiceFlowItem label="Application Process" count="8 pages" />
+                  <ServiceFlowItem label="Payment Integration" count="2 pages" />
+                  <ServiceFlowItem label="Post-Submission" count="4 pages" />
+                  <ServiceFlowItem label="Outcomes & Appeals" count="6 pages" />
+                  <ServiceFlowItem label="Officer Dashboard" count="3 pages" />
+                </div>
+
+                <div className="flex gap-3">
+                  <Link
+                    to="/reference-service/overview"
+                    className="flex-1 px-4 py-3 bg-white border-2 border-gray-300 hover:border-[#000080] text-center font-bold rounded transition-colors"
+                  >
+                    View Blueprint
+                  </Link>
+                  <Link
+                    to="/reference-service/demo"
+                    className="flex-1 px-4 py-3 bg-[#000080] hover:bg-[#000066] text-white text-center font-bold rounded transition-colors"
+                  >
+                    Try Demo
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== IMPLEMENTATION & DOCUMENTATION ==================== */}
+      <section className="bg-gray-50 border-b-2 border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-8 py-16">
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Implementation & Documentation</h2>
+            <p className="text-lg text-gray-600">Everything you need to build with UX4G</p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-6">
+            <ImplementationCard
+              icon={<Download size={32} />}
+              title="NPM Packages"
+              description="Install production-ready packages for React or Angular"
+              items={[
+                "@ux4g/tokens",
+                "@ux4g/styles",
+                "@ux4g/react-core",
+                "@ux4g/angular-core",
+                "@ux4g/react-patterns",
+                "@ux4g/angular-patterns"
+              ]}
+              cta={{ label: "Installation Guide", path: "/resources/getting-started" }}
+            />
+
+            <ImplementationCard
+              icon={<Code size={32} />}
+              title="Starter Kits"
+              description="Pre-configured templates to jumpstart your project"
+              items={[
+                "React Starter Template",
+                "Angular Starter Template",
+                "Pre-configured routing",
+                "Theme setup included",
+                "Example implementations",
+                "Mock services ready"
+              ]}
+              cta={{ label: "Download Starters", path: "/resources/starter-kit" }}
+            />
+
+            <ImplementationCard
+              icon={<BookOpen size={32} />}
+              title="Documentation"
+              description="Comprehensive guides and API references"
+              items={[
+                "Component API Reference",
+                "Pattern Usage Guide",
+                "Accessibility Guidelines",
+                "Content Design System",
+                "Figma Integration",
+                "Best Practices"
+              ]}
+              cta={{ label: "View Docs", path: "/resources" }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== GOVERNANCE & ADOPTION ==================== */}
+      <section className="bg-white border-b-2 border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-8 py-16">
+          <div className="grid grid-cols-2 gap-12">
+
+            {/* Governance */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Governance & Compliance</h2>
+              <p className="text-lg text-gray-600 mb-8">
+                All government digital services must conform to UX4G standards
+              </p>
+
+              <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6 mb-6">
+                <div className="flex items-start gap-3 mb-4">
+                  <AlertCircle size={24} className="text-red-600 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2">Mandatory Compliance</h3>
+                    <p className="text-sm text-gray-700">
+                      As per government directives, all new digital services must use UX4G
+                      design system components and patterns.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <GovernanceItem
+                  label="Conformance Dashboard"
+                  description="Track design system compliance across departments"
+                  path="/governance/conformance"
+                />
+                <GovernanceItem
+                  label="Adoption Metrics"
+                  description="Monitor adoption rates and usage statistics"
+                  path="/governance/adoption"
+                />
+                <GovernanceItem
+                  label="Service Analytics"
+                  description="Analyze service performance and user behavior"
+                  path="/governance/analytics"
+                />
+              </div>
+            </div>
+
+            {/* Adoption Stats */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Adoption Status</h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Current adoption across government departments and vendors
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <AdoptionStat number="47" label="Government Departments" />
+                <AdoptionStat number="34" label="Registered Vendors" />
+                <AdoptionStat number="89%" label="Conformance Rate" />
+                <AdoptionStat number="156" label="Active Services" />
+              </div>
+
+              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+                <h3 className="font-bold text-gray-900 mb-4">Key Benefits Realized</h3>
+                <div className="space-y-3">
+                  <BenefitItem text="32% reduction in development time" />
+                  <BenefitItem text="95% accessibility compliance achieved" />
+                  <BenefitItem text="Consistent experience across 156 services" />
+                  <BenefitItem text="87% positive citizen feedback" />
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== LATEST UPDATES ==================== */}
+      <section className="bg-gray-50 border-b-2 border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-8 py-16">
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Latest Updates</h2>
+            <p className="text-lg text-gray-600">Recent releases and announcements</p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-6">
+            <UpdateCard
+              date="April 2026"
+              title="IA Reorganization Complete"
+              description="Reorganized entire platform into clean 8-tier architecture with 109 active pages and zero duplication."
+              badge="Platform Update"
+              badgeColor="blue"
+            />
+
+            <UpdateCard
+              date="March 2026"
+              title="Pattern Packages Released"
+              description="@ux4g/react-patterns and @ux4g/angular-patterns now available with 14 high-priority patterns."
+              badge="New Release"
+              badgeColor="green"
+            />
+
+            <UpdateCard
+              date="February 2026"
+              title="Angular Core Components"
+              description="Complete parity with React components. All 28 components now available for Angular with ControlValueAccessor support."
+              badge="Framework Support"
+              badgeColor="purple"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== SUPPORT & CONTACT ==================== */}
+      <section className="bg-white border-b-2 border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-8 py-16">
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Support & Contact</h2>
+            <p className="text-lg text-gray-600">Get help and connect with the UX4G team</p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-6">
+            <SupportCard
+              icon={<BookOpen size={32} />}
+              title="Documentation"
+              description="Browse comprehensive documentation, guides, and API references"
+              link={{ label: "View Documentation", path: "/resources" }}
+            />
+
+            <SupportCard
+              icon={<GitBranch size={32} />}
+              title="GitHub Repository"
+              description="Access source code, report issues, and contribute to the project"
+              link={{ label: "Visit GitHub", path: "https://github.com", external: true }}
+            />
+
+            <SupportCard
+              icon={<Users size={32} />}
+              title="Contact Team"
+              description="Reach out to the UX4G team for support and guidance"
+              link={{ label: "ux4g@gov.in", path: "mailto:ux4g@gov.in", external: true }}
+            />
+          </div>
+
+          <div className="mt-12 bg-blue-50 border-2 border-blue-200 rounded-lg p-8">
+            <div className="grid grid-cols-2 gap-8">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-4">For Departments</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Government departments implementing UX4G should contact the platform team
+                  for onboarding support, training, and compliance guidance.
+                </p>
+                <a href="mailto:departments@ux4g.gov.in" className="text-[#000080] font-bold hover:underline">
+                  departments@ux4g.gov.in
+                </a>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-4">For Vendors</h3>
+                <p className="text-sm text-gray-700 mb-4">
+                  Vendors building government services must register and demonstrate UX4G
+                  conformance. Contact the vendor relations team to get started.
+                </p>
+                <a href="mailto:vendors@ux4g.gov.in" className="text-[#000080] font-bold hover:underline">
+                  vendors@ux4g.gov.in
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== FOOTER ==================== */}
+      <footer className="bg-[#000080] text-white">
+        <div className="max-w-[1400px] mx-auto px-8 py-12">
+          <div className="grid grid-cols-5 gap-8 mb-12">
+
+            {/* Column 1: About */}
+            <div>
+              <h3 className="font-bold mb-4 text-white">UX4G Platform</h3>
+              <p className="text-sm text-blue-100 mb-4">
+                Official design system for Government of India digital services
+              </p>
+              <div className="flex items-center gap-2 text-sm text-blue-100">
+                <Shield size={16} />
+                <span>Digital India Initiative</span>
+              </div>
+            </div>
+
+            {/* Column 2: Design System */}
+            <div>
+              <h3 className="font-bold mb-4 text-white">Design System</h3>
+              <ul className="space-y-2 text-sm text-blue-100">
+                <li><Link to="/foundations" className="hover:text-white hover:underline">Foundations</Link></li>
+                <li><Link to="/components" className="hover:text-white hover:underline">Components</Link></li>
+                <li><Link to="/patterns" className="hover:text-white hover:underline">Patterns</Link></li>
+                <li><Link to="/accessibility" className="hover:text-white hover:underline">Accessibility</Link></li>
+                <li><Link to="/content-system" className="hover:text-white hover:underline">Content System</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Platform */}
+            <div>
+              <h3 className="font-bold mb-4 text-white">Platform</h3>
+              <ul className="space-y-2 text-sm text-blue-100">
+                <li><Link to="/archetypes" className="hover:text-white hover:underline">Service Archetypes</Link></li>
+                <li><Link to="/systems/multilingual" className="hover:text-white hover:underline">Systems</Link></li>
+                <li><Link to="/reference-service/overview" className="hover:text-white hover:underline">Reference Services</Link></li>
+                <li><Link to="/pattern-library" className="hover:text-white hover:underline">Pattern Library</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Resources */}
+            <div>
+              <h3 className="font-bold mb-4 text-white">Resources</h3>
+              <ul className="space-y-2 text-sm text-blue-100">
+                <li><Link to="/resources/getting-started" className="hover:text-white hover:underline">Getting Started</Link></li>
+                <li><Link to="/resources/starter-kit" className="hover:text-white hover:underline">Starter Kits</Link></li>
+                <li><Link to="/resources/component-specs" className="hover:text-white hover:underline">Component Specs</Link></li>
+                <li><Link to="/resources/figma" className="hover:text-white hover:underline">Figma Integration</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 5: Governance */}
+            <div>
+              <h3 className="font-bold mb-4 text-white">Governance</h3>
+              <ul className="space-y-2 text-sm text-blue-100">
+                <li><Link to="/governance" className="hover:text-white hover:underline">Overview</Link></li>
+                <li><Link to="/governance/adoption" className="hover:text-white hover:underline">Adoption Tracking</Link></li>
+                <li><Link to="/governance/conformance" className="hover:text-white hover:underline">Conformance</Link></li>
+                <li><Link to="/governance/analytics" className="hover:text-white hover:underline">Analytics</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-white/20 pt-8">
+            <div className="flex items-center justify-between text-sm text-blue-100">
+              <div>
+                © 2026 Government of India. All rights reserved.
+              </div>
+              <div className="flex items-center gap-6">
+                <a href="#" className="hover:text-white hover:underline">Privacy Policy</a>
+                <a href="#" className="hover:text-white hover:underline">Terms of Use</a>
+                <a href="#" className="hover:text-white hover:underline">Accessibility Statement</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  );
+}
+
+// ==================== COMPONENTS ====================
+
+function StatItem({ number, label }: { number: string; label: string }) {
+  return (
+    <div>
+      <div className="text-2xl font-bold text-[#000080] mb-1">{number}</div>
+      <div className="text-sm text-gray-600">{label}</div>
+    </div>
+  );
+}
+
+function RoleCard({ icon, role, description, links }: {
+  icon: React.ReactNode;
+  role: string;
+  description: string;
+  links: Array<{ label: string; path: string }>;
+}) {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-[#000080] transition-colors">
+      <div className="text-[#000080] mb-4">{icon}</div>
+      <h3 className="text-xl font-bold text-gray-900 mb-2">{role}</h3>
+      <p className="text-sm text-gray-600 mb-4">{description}</p>
+      <div className="space-y-2">
+        {links.map((link, i) => (
+          <Link
+            key={i}
+            to={link.path}
+            className="flex items-center gap-2 text-sm text-[#000080] font-medium hover:underline"
+          >
+            <ArrowRight size={14} />
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LayerCard({ number, title, description, path, color, items }: {
+  number: string;
+  title: string;
+  description: string;
+  path: string;
+  color: string;
+  items: string[];
+}) {
+  const colorClasses = {
+    blue: 'bg-blue-600',
+    green: 'bg-green-600',
+    purple: 'bg-purple-600',
+    orange: 'bg-orange-600',
+    teal: 'bg-teal-600',
+    indigo: 'bg-indigo-600',
+    pink: 'bg-pink-600',
+    red: 'bg-red-600'
+  };
+
+  return (
+    <Link
+      to={path}
+      className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-[#000080] transition-colors group"
+    >
+      <div className="flex items-start gap-4">
+        <div className={`flex-shrink-0 w-10 h-10 ${colorClasses[color as keyof typeof colorClasses]} text-white rounded flex items-center justify-center font-bold`}>
+          {number}
+        </div>
+        <div className="flex-1">
+          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#000080]">{title}</h3>
+          <p className="text-sm text-gray-600 mb-3">{description}</p>
+          <div className="flex flex-wrap gap-2">
+            {items.map((item, i) => (
+              <span key={i} className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+        <ArrowRight size={20} className="text-gray-400 group-hover:text-[#000080] flex-shrink-0" />
+      </div>
+    </Link>
+  );
+}
+
+function PatternItem({ title, description, path, count }: {
+  title: string;
+  description: string;
+  path: string;
+  count: string;
+}) {
+  return (
+    <Link
+      to={path}
+      className="block bg-white border-2 border-gray-300 rounded-lg p-4 hover:border-[#000080] transition-colors group"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1">
+          <h4 className="font-bold text-gray-900 mb-1 group-hover:text-[#000080]">{title}</h4>
+          <p className="text-sm text-gray-600 mb-2">{description}</p>
+          <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded font-medium">{count}</span>
+        </div>
+        <ArrowRight size={16} className="text-gray-400 group-hover:text-[#000080] flex-shrink-0 mt-1" />
+      </div>
+    </Link>
+  );
+}
+
+function ServiceFlowItem({ label, count }: { label: string; count: string }) {
+  return (
+    <div className="flex items-center justify-between py-2 border-b border-gray-200 last:border-0">
+      <span className="text-sm font-medium text-gray-900">{label}</span>
+      <span className="text-xs px-2 py-1 bg-white text-gray-700 rounded">{count}</span>
+    </div>
+  );
+}
+
+function ImplementationCard({ icon, title, description, items, cta }: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  items: string[];
+  cta: { label: string; path: string };
+}) {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+      <div className="text-[#000080] mb-4">{icon}</div>
+      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
+      <p className="text-sm text-gray-600 mb-4">{description}</p>
+      <ul className="space-y-2 mb-6">
+        {items.map((item, i) => (
+          <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+            <CheckCircle size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
+            {item}
+          </li>
+        ))}
+      </ul>
+      <Link
+        to={cta.path}
+        className="inline-flex items-center gap-2 text-[#000080] font-bold hover:underline"
+      >
+        {cta.label} <ArrowRight size={16} />
+      </Link>
+    </div>
+  );
+}
+
+function GovernanceItem({ label, description, path }: {
+  label: string;
+  description: string;
+  path: string;
+}) {
+  return (
+    <Link
+      to={path}
+      className="flex items-start gap-3 p-4 bg-white border-2 border-gray-300 rounded-lg hover:border-[#000080] transition-colors group"
+    >
+      <div className="flex-1">
+        <h4 className="font-bold text-gray-900 mb-1 group-hover:text-[#000080]">{label}</h4>
+        <p className="text-sm text-gray-600">{description}</p>
+      </div>
+      <ArrowRight size={16} className="text-gray-400 group-hover:text-[#000080] flex-shrink-0 mt-1" />
+    </Link>
+  );
+}
+
+function AdoptionStat({ number, label }: { number: string; label: string }) {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg p-4 text-center">
+      <div className="text-3xl font-bold text-[#000080] mb-1">{number}</div>
+      <div className="text-sm text-gray-600">{label}</div>
+    </div>
+  );
+}
+
+function BenefitItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-2">
+      <CheckCircle size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
+      <span className="text-sm text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+function UpdateCard({ date, title, description, badge, badgeColor }: {
+  date: string;
+  title: string;
+  description: string;
+  badge: string;
+  badgeColor: string;
+}) {
+  const badgeColors = {
+    blue: 'bg-blue-100 text-blue-700',
+    green: 'bg-green-100 text-green-700',
+    purple: 'bg-purple-100 text-purple-700'
+  };
+
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+      <div className="flex items-center gap-2 mb-3">
+        <span className={`text-xs px-2 py-1 ${badgeColors[badgeColor as keyof typeof badgeColors]} rounded font-bold`}>
+          {badge}
+        </span>
+        <span className="text-xs text-gray-500">{date}</span>
+      </div>
+      <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+      <p className="text-sm text-gray-600">{description}</p>
+    </div>
+  );
+}
+
+function SupportCard({ icon, title, description, link }: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  link: { label: string; path: string; external?: boolean };
+}) {
+  const Component = link.external ? 'a' : Link;
+  const props = link.external ? { href: link.path } : { to: link.path };
+
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+      <div className="text-[#000080] mb-4">{icon}</div>
+      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
+      <p className="text-sm text-gray-600 mb-4">{description}</p>
+      <Component
+        {...props}
+        className="inline-flex items-center gap-2 text-[#000080] font-bold hover:underline"
+      >
+        {link.label} <ArrowRight size={16} />
+      </Component>
+    </div>
+  );
+}

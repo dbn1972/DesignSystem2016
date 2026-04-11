@@ -1,0 +1,82 @@
+/**
+ * UX4G Radio Group Component Styles
+ */
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-radio-group {
+  display: block;
+}
+
+.ux4g-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+}
+
+/**
+ * Group label
+ */
+.ux4g-radio-group__label {
+  display: block;
+  color: var(--ux4g-color-text, #1f2937);
+  font-size: var(--ux4g-font-size-base, 1rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  line-height: var(--ux4g-line-height-base, 1.5);
+  margin-bottom: var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-radio-group__label--disabled {
+  opacity: 0.5;
+}
+
+.ux4g-radio-group__required {
+  color: var(--ux4g-color-error, #dc2626);
+  margin-left: 0.25rem;
+}
+
+/**
+ * Radio container
+ */
+.ux4g-radio-group__radios {
+  display: flex;
+}
+
+.ux4g-radio-group__radios--vertical {
+  flex-direction: column;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+}
+
+.ux4g-radio-group__radios--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--ux4g-spacing-4, 1rem);
+}
+
+/**
+ * Helper text
+ */
+.ux4g-radio-group__helper-text {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  line-height: 1.4;
+}
+
+/**
+ * Error text
+ */
+.ux4g-radio-group__error-text {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-error, #dc2626);
+  line-height: 1.4;
+}
+
+.ux4g-radio-group--error .ux4g-radio-group__label {
+  color: var(--ux4g-color-error, #dc2626);
+}
+
+.ux4g-radio-group--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

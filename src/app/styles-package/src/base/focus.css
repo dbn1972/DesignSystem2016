@@ -1,0 +1,159 @@
+/**
+ * UX4G Focus Styles
+ * Accessible focus indicators for keyboard navigation
+ *
+ * WCAG 2.4.7 Level AA: Focus Visible
+ * Ensures all interactive elements have clear focus indicators
+ *
+ * Token consumption:
+ * var(--ux4g-color-focus-ring)
+ * var(--ux4g-spacing-{scale}) for offset
+ */
+
+/* Default focus ring */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+  border-radius: var(--ux4g-radius-sm, 0.125rem);
+}
+
+/* Focus within (when any child element has focus) */
+:focus-within {
+  /* Container styles when child has focus */
+}
+
+/* Interactive elements focus states */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[role="link"]:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* Inset focus for form controls */
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="password"]:focus-visible,
+input[type="number"]:focus-visible,
+input[type="tel"]:focus-visible,
+input[type="url"]:focus-visible,
+input[type="search"]:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: -2px; /* Inset for form controls */
+  border-color: var(--ux4g-color-focus-ring, #005A9C);
+}
+
+/* Checkbox and radio focus */
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* Button variants focus */
+.ux4g-button:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--ux4g-color-focus-ring-shadow, rgba(0, 90, 156, 0.1));
+}
+
+/* Card and interactive container focus */
+.ux4g-card[tabindex]:focus-visible,
+.ux4g-interactive:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 4px;
+}
+
+/* Link focus within text */
+a:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+  border-radius: var(--ux4g-radius-sm, 0.125rem);
+  background-color: var(--ux4g-color-focus-background, rgba(0, 90, 156, 0.05));
+}
+
+/* Skip link focus (accessibility) */
+.ux4g-skip-link:focus-visible {
+  position: fixed;
+  top: var(--ux4g-spacing-4, 1rem);
+  left: var(--ux4g-spacing-4, 1rem);
+  z-index: 9999;
+  padding: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-4, 1rem);
+  background-color: var(--ux4g-color-surface-primary, #FFFFFF);
+  color: var(--ux4g-color-text-link, #005A9C);
+  border: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  text-decoration: none;
+  box-shadow: var(--ux4g-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+}
+
+/* Navigation focus */
+nav a:focus-visible,
+.ux4g-nav-item:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: -2px;
+  background-color: var(--ux4g-color-focus-background, rgba(0, 90, 156, 0.05));
+}
+
+/* Menu and dropdown focus */
+.ux4g-menu-item:focus-visible,
+[role="menuitem"]:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: -2px;
+  background-color: var(--ux4g-color-focus-background, rgba(0, 90, 156, 0.05));
+}
+
+/* Tab focus */
+.ux4g-tab:focus-visible,
+[role="tab"]:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+/* Error state focus - higher contrast */
+.ux4g-error:focus-visible,
+[aria-invalid="true"]:focus-visible {
+  outline: 2px solid var(--ux4g-color-error-dark, #DC2626);
+  outline-offset: 2px;
+  border-color: var(--ux4g-color-error-dark, #DC2626);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :focus-visible {
+    outline-width: 3px;
+    outline-offset: 3px;
+  }
+}
+
+/* Focus utility classes */
+.ux4g-focus-ring {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+.ux4g-focus-ring-inset {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: -2px;
+}
+
+.ux4g-focus-ring-offset-4 {
+  outline-offset: 4px;
+}
+
+/* Remove focus for mouse users, preserve for keyboard */
+.ux4g-no-mouse-focus:focus:not(:focus-visible) {
+  outline: none;
+}

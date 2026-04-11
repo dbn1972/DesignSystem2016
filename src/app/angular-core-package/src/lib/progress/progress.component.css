@@ -1,0 +1,175 @@
+/**
+ * UX4G Progress Component Styles
+ * Imports base progress styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/progress.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-progress {
+  display: contents;
+}
+
+.ux4g-progress-wrapper {
+  width: 100%;
+}
+
+/**
+ * Label container
+ */
+.ux4g-progress__label-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-progress__label {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  color: var(--ux4g-color-text, #1f2937);
+}
+
+.ux4g-progress__value {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+}
+
+/**
+ * Progress track
+ */
+.ux4g-progress {
+  position: relative;
+  width: 100%;
+  background-color: var(--ux4g-color-gray-200, #e5e7eb);
+  border-radius: var(--ux4g-radius-full, 9999px);
+  overflow: hidden;
+}
+
+.ux4g-progress--sm {
+  height: 0.5rem;
+}
+
+.ux4g-progress--md {
+  height: 0.75rem;
+}
+
+.ux4g-progress--lg {
+  height: 1rem;
+}
+
+/**
+ * Progress bar
+ */
+.ux4g-progress__bar {
+  height: 100%;
+  border-radius: var(--ux4g-radius-full, 9999px);
+  transition: width 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: var(--ux4g-spacing-2, 0.5rem);
+}
+
+/**
+ * Inline value
+ */
+.ux4g-progress__value-inline {
+  font-size: 0.625rem;
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: white;
+  white-space: nowrap;
+}
+
+/**
+ * Variants
+ */
+.ux4g-progress__bar--info {
+  background-color: var(--ux4g-color-info, #3b82f6);
+}
+
+.ux4g-progress__bar--success {
+  background-color: var(--ux4g-color-success, #138808);
+}
+
+.ux4g-progress__bar--warning {
+  background-color: var(--ux4g-color-warning, #f59e0b);
+}
+
+.ux4g-progress__bar--error {
+  background-color: var(--ux4g-color-error, #dc2626);
+}
+
+/**
+ * Striped pattern
+ */
+.ux4g-progress__bar--striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/**
+ * Animated stripes
+ */
+.ux4g-progress__bar--animated {
+  animation: progress-stripes 1s linear infinite;
+}
+
+@keyframes progress-stripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1rem 0;
+  }
+}
+
+/**
+ * Indeterminate state
+ */
+.ux4g-progress__bar--indeterminate {
+  width: 100% !important;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 25%,
+    currentColor 50%,
+    transparent 75%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/**
+ * Accessibility
+ */
+.ux4g-progress[role="progressbar"] {
+  outline: none;
+}
+
+.ux4g-progress[role="progressbar"]:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus, #3b82f6);
+  outline-offset: 2px;
+}

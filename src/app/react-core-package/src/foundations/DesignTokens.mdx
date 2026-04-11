@@ -1,0 +1,321 @@
+import { Meta, ColorPalette, ColorItem, Typeset } from '@storybook/blocks';
+
+<Meta title="Foundations/Design Tokens" />
+
+# Design Tokens
+
+UX4G uses a comprehensive design token system to ensure consistency across all components and applications. These tokens are CSS custom properties that can be used throughout your application.
+
+## Installation
+
+```bash
+npm install @ux4g/styles @ux4g/tokens
+```
+
+## Usage
+
+Import the styles in your application entry point:
+
+```typescript
+import '@ux4g/styles';
+```
+
+## Color Tokens
+
+### Semantic Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="Main brand color for primary actions"
+    colors={{
+      'Primary': '#030213',
+      'Primary Foreground': '#FFFFFF',
+    }}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="Secondary actions and emphasis"
+    colors={{
+      'Secondary': '#ECECF0',
+      'Secondary Foreground': '#030213',
+    }}
+  />
+  <ColorItem
+    title="Accent"
+    subtitle="Highlighted elements"
+    colors={{
+      'Accent': '#E9EBEF',
+      'Accent Foreground': '#030213',
+    }}
+  />
+  <ColorItem
+    title="Destructive"
+    subtitle="Error states and destructive actions"
+    colors={{
+      'Destructive': '#D4183D',
+      'Destructive Foreground': '#FFFFFF',
+    }}
+  />
+</ColorPalette>
+
+### Surface Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Background"
+    subtitle="Page background"
+    colors={{
+      'Background': '#FFFFFF',
+      'Foreground': '#030213',
+    }}
+  />
+  <ColorItem
+    title="Card"
+    subtitle="Card backgrounds"
+    colors={{
+      'Card': '#FFFFFF',
+      'Card Foreground': '#030213',
+    }}
+  />
+  <ColorItem
+    title="Muted"
+    subtitle="Subdued backgrounds"
+    colors={{
+      'Muted': '#ECECF0',
+      'Muted Foreground': '#717182',
+    }}
+  />
+</ColorPalette>
+
+### Border & Input Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Interactive"
+    subtitle="Borders, inputs, and focus rings"
+    colors={{
+      'Border': 'rgba(0, 0, 0, 0.1)',
+      'Input Background': '#F3F3F5',
+      'Ring': '#B3B3B3',
+    }}
+  />
+</ColorPalette>
+
+### Chart Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Data Visualization"
+    subtitle="Colors for charts and graphs"
+    colors={{
+      'Chart 1': '#FF9F40',
+      'Chart 2': '#4BC0C0',
+      'Chart 3': '#36A2EB',
+      'Chart 4': '#FFD700',
+      'Chart 5': '#FF6384',
+    }}
+  />
+</ColorPalette>
+
+## Typography
+
+### Font Sizes
+
+<Typeset
+  fontSizes={[
+    '0.75rem',    // xs
+    '0.875rem',   // sm
+    '1rem',       // base
+    '1.125rem',   // lg
+    '1.25rem',    // xl
+    '1.5rem',     // 2xl
+    '1.875rem',   // 3xl
+    '2.25rem',    // 4xl
+  ]}
+  fontWeight={400}
+  sampleText="The quick brown fox jumps over the lazy dog"
+/>
+
+### Font Weights
+
+- **Normal**: 400 - Body text
+- **Medium**: 500 - Headings, labels, buttons
+
+### Type Scale
+
+```css
+/* Headings */
+h1 { font-size: var(--text-2xl); font-weight: var(--font-weight-medium); }
+h2 { font-size: var(--text-xl); font-weight: var(--font-weight-medium); }
+h3 { font-size: var(--text-lg); font-weight: var(--font-weight-medium); }
+h4 { font-size: var(--text-base); font-weight: var(--font-weight-medium); }
+
+/* Body */
+p { font-size: var(--text-base); font-weight: var(--font-weight-normal); }
+
+/* Small text */
+small { font-size: var(--text-sm); }
+```
+
+## Spacing Scale
+
+UX4G uses a consistent 4px base spacing scale:
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ux4g-spacing-1` | 0.25rem (4px) | Tight spacing |
+| `--ux4g-spacing-2` | 0.5rem (8px) | Small gaps |
+| `--ux4g-spacing-3` | 0.75rem (12px) | Input padding (vertical) |
+| `--ux4g-spacing-4` | 1rem (16px) | Input padding (horizontal) |
+| `--ux4g-spacing-5` | 1.25rem (20px) | Medium spacing |
+| `--ux4g-spacing-6` | 1.5rem (24px) | Card padding |
+| `--ux4g-spacing-8` | 2rem (32px) | Section spacing |
+| `--ux4g-spacing-10` | 2.5rem (40px) | Large spacing |
+| `--ux4g-spacing-12` | 3rem (48px) | Extra large spacing |
+
+## Border Radius
+
+Consistent corner rounding for components:
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--radius-sm` | 0.225rem | Small elements |
+| `--radius-md` | 0.425rem | Most components |
+| `--radius-lg` | 0.625rem | Cards, dialogs |
+| `--radius-xl` | 1.025rem | Large surfaces |
+
+## Shadows
+
+Elevation system for depth:
+
+```css
+--ux4g-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+--ux4g-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+--ux4g-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+--ux4g-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+```
+
+## Transitions
+
+Consistent animation timing:
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ux4g-transition-fast` | 150ms ease | Quick interactions |
+| `--ux4g-transition-base` | 200ms ease | Standard transitions |
+| `--ux4g-transition-slow` | 300ms ease | Deliberate animations |
+
+## Focus Ring
+
+Consistent focus indicator for accessibility:
+
+```css
+--ux4g-focus-ring-width: 2px;
+--ux4g-focus-ring-offset: 2px;
+--ux4g-focus-ring-color: #005A9C;
+```
+
+## Component Tokens
+
+### Input Controls
+
+```css
+--ux4g-input-padding-y: 0.75rem;
+--ux4g-input-padding-x: 1rem;
+--ux4g-input-border-width: 1px;
+--ux4g-input-border-color: #D1D5DB;
+--ux4g-input-border-radius: 0.375rem;
+--ux4g-input-bg: #FFFFFF;
+--ux4g-input-color: #1C1C1C;
+```
+
+### Cards
+
+```css
+--ux4g-card-padding: 1.5rem;
+--ux4g-card-border-radius: 0.375rem;
+--ux4g-card-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+```
+
+### Interactive States
+
+```css
+--ux4g-hover-opacity: 0.8;
+--ux4g-disabled-opacity: 0.6;
+```
+
+## Dark Mode
+
+All color tokens automatically adapt to dark mode when the `.dark` class is applied to a parent element:
+
+```html
+<html class="dark">
+  <!-- All components will use dark mode colors -->
+</html>
+```
+
+Dark mode colors:
+- Background: `#252525`
+- Foreground: `#FCFCFC`
+- Card: `#252525`
+- Muted: `#454545`
+- Border: `#454545`
+
+## Usage Examples
+
+### Using Tokens in CSS
+
+```css
+.my-component {
+  padding: var(--ux4g-spacing-4);
+  background: var(--color-card);
+  color: var(--color-card-foreground);
+  border-radius: var(--radius-md);
+  box-shadow: var(--ux4g-shadow-sm);
+  transition: all var(--ux4g-transition-base);
+}
+
+.my-component:hover {
+  opacity: var(--ux4g-hover-opacity);
+}
+
+.my-component:focus {
+  outline: var(--ux4g-focus-ring-width) solid var(--ux4g-focus-ring-color);
+  outline-offset: var(--ux4g-focus-ring-offset);
+}
+```
+
+### Using Tokens with Tailwind
+
+All tokens are available as Tailwind utilities:
+
+```jsx
+<div className="p-4 bg-card text-card-foreground rounded-md shadow-sm">
+  Content
+</div>
+```
+
+## Government-Specific Considerations
+
+### High Contrast
+
+All color combinations meet WCAG 2.1 Level AA contrast requirements (4.5:1 for normal text, 3:1 for large text).
+
+### Color Blindness
+
+The design system uses patterns, icons, and text labels in addition to color to convey information.
+
+### Regional Variations
+
+Color meanings can vary by culture. The UX4G system uses internationally recognized color conventions:
+- Red/Destructive: Errors, warnings
+- Green/Success: Confirmations, success states
+- Blue/Primary: Primary actions, links
+- Yellow/Warning: Caution, important notices
+
+## Resources
+
+- [CSS Custom Properties (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+- [WCAG 2.1 Color Contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
+- [Design Tokens Community Group](https://www.w3.org/community/design-tokens/)

@@ -1,0 +1,42 @@
+/**
+ * UX4G CSS Custom Properties
+ * Extends design tokens with component-specific variables for reuse
+ *
+ * These are computed values derived from base tokens,
+ * making it easier to maintain consistent patterns
+ */
+
+:root {
+  /* Input controls - reusable across all form elements */
+  --ux4g-input-padding-y: var(--ux4g-spacing-3, 0.75rem);
+  --ux4g-input-padding-x: var(--ux4g-spacing-4, 1rem);
+  --ux4g-input-border-width: 1px;
+  --ux4g-input-border-color: var(--ux4g-color-border-default, #D1D5DB);
+  --ux4g-input-border-radius: var(--ux4g-radius-md, 0.375rem);
+  --ux4g-input-bg: var(--ux4g-color-surface-primary, #FFFFFF);
+  --ux4g-input-color: var(--ux4g-color-text-primary, #1C1C1C);
+
+  /* Focus ring - consistent across all interactive elements */
+  --ux4g-focus-ring-width: 2px;
+  --ux4g-focus-ring-offset: 2px;
+  --ux4g-focus-ring-color: var(--ux4g-color-focus-ring, #005A9C);
+
+  /* Transitions - consistent timing */
+  --ux4g-transition-fast: 150ms ease;
+  --ux4g-transition-base: 200ms ease;
+  --ux4g-transition-slow: 300ms ease;
+
+  /* Component spacing - consistent internal spacing */
+  --ux4g-component-padding-sm: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-3, 0.75rem);
+  --ux4g-component-padding-md: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-4, 1rem);
+  --ux4g-component-padding-lg: var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-5, 1.25rem);
+
+  /* Card defaults */
+  --ux4g-card-padding: var(--ux4g-spacing-6, 1.5rem);
+  --ux4g-card-border-radius: var(--ux4g-radius-md, 0.375rem);
+  --ux4g-card-shadow: var(--ux4g-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+
+  /* Interactive states */
+  --ux4g-hover-opacity: 0.8;
+  --ux4g-disabled-opacity: 0.6;
+}

@@ -1,0 +1,133 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# UX4G Design System
+
+Welcome to the **UX4G Design System** - A comprehensive component library for Indian Government applications.
+
+## About UX4G
+
+UX4G (User Experience for Government) is a modern, accessible, and production-ready design system built specifically for Indian government digital services. It provides a consistent user experience across all government applications while meeting WCAG 2.1 AA accessibility standards.
+
+## Features
+
+✅ **73 Production-Ready Components** - Comprehensive component library  
+✅ **Dual Framework Support** - React & Angular implementations  
+✅ **Accessibility First** - WCAG 2.1 Level AA compliant  
+✅ **Government-Specific** - Aadhaar, PAN, DigiLocker integration patterns  
+✅ **Design Tokens** - Systematic design language with tokens  
+✅ **TypeScript** - Full type safety  
+✅ **Responsive** - Mobile-first design approach  
+✅ **Multi-language** - Hindi, English, and regional language support
+
+## Getting Started
+
+### Installation
+
+```bash
+npm install @ux4g/react-core @ux4g/tokens @ux4g/styles
+```
+
+### Basic Usage
+
+```tsx
+import { Button, Input, Card } from '@ux4g/react-core';
+import '@ux4g/styles';
+
+function App() {
+  return (
+    <Card>
+      <Input label="Email" type="email" />
+      <Button variant="primary">Submit</Button>
+    </Card>
+  );
+}
+```
+
+## Component Categories
+
+### Form Components
+Essential form elements with validation and accessibility built-in.
+- Button, Input, Checkbox, Radio, Select, Textarea, Switch, OTP Input, and more
+
+### Feedback Components
+User feedback and status indicators.
+- Alert, Badge, Toast, Progress, Spinner, Status Tag
+
+### Navigation Components
+Navigation and wayfinding components.
+- Breadcrumb, Pagination, Tabs, Menu, Drawer, Stepper
+
+### Data Display
+Components for displaying information and data.
+- Avatar, Tag, Statistic, Timeline, Card, Table
+
+### Layout Components
+Layout and structure components.
+- Container, Stack, Grid, Divider, Skeleton
+
+### Overlay Components
+Modal and overlay components.
+- Dialog, Tooltip
+
+## Design Principles
+
+### 1. Accessibility First
+Every component is built with accessibility in mind:
+- WCAG 2.1 AA compliance
+- Keyboard navigation
+- Screen reader support
+- Proper ARIA attributes
+- Focus management
+
+### 2. Government Context
+Designed specifically for Indian government services:
+- Aadhaar integration patterns
+- PAN card validation
+- DigiLocker connectivity
+- Multi-language support
+- GIGW compliance
+
+### 3. Developer Experience
+Modern tooling and great DX:
+- TypeScript support
+- Comprehensive documentation
+- Interactive examples
+- Code snippets
+- Auto-complete in IDEs
+
+### 4. Performance
+Optimized for production:
+- Tree-shakeable
+- Minimal bundle size
+- Lazy loading support
+- No runtime dependencies
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## Resources
+
+- [GitHub Repository](https://github.com/ux4g/react-core)
+- [NPM Package](https://www.npmjs.com/package/@ux4g/react-core)
+- [Design Tokens](https://github.com/ux4g/tokens)
+- [Contribution Guide](https://github.com/ux4g/react-core/blob/main/CONTRIBUTING.md)
+
+## Support
+
+For questions, issues, or contributions:
+- 📧 Email: support@ux4g.gov.in
+- 🐛 Issues: [GitHub Issues](https://github.com/ux4g/react-core/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/ux4g/react-core/discussions)
+
+---
+
+**Version:** 1.0.0  
+**License:** MIT  
+**Maintained by:** UX4G Team

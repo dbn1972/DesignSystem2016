@@ -1,0 +1,67 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "motion": {
+      "duration": {
+        "$type": "duration",
+        "instant": { "value": "0ms", "description": "Instant - no animation" },
+        "fast": { "value": "100ms", "description": "Fast - micro interactions" },
+        "base": { "value": "200ms", "description": "Base - standard transitions" },
+        "moderate": { "value": "300ms", "description": "Moderate - component state changes" },
+        "slow": { "value": "500ms", "description": "Slow - complex animations" },
+        "slower": { "value": "700ms", "description": "Slower - page transitions" },
+        "slowest": { "value": "1000ms", "description": "Slowest - emphasis animations" }
+      },
+      "easing": {
+        "$type": "cubicBezier",
+        "linear": {
+          "value": [0, 0, 1, 1],
+          "description": "Linear easing - constant speed",
+          "cssValue": "linear"
+        },
+        "ease": {
+          "value": [0.25, 0.1, 0.25, 1],
+          "description": "Default ease - subtle acceleration",
+          "cssValue": "ease"
+        },
+        "ease-in": {
+          "value": [0.42, 0, 1, 1],
+          "description": "Ease in - accelerating entrance",
+          "cssValue": "ease-in"
+        },
+        "ease-out": {
+          "value": [0, 0, 0.58, 1],
+          "description": "Ease out - decelerating exit",
+          "cssValue": "ease-out"
+        },
+        "ease-in-out": {
+          "value": [0.42, 0, 0.58, 1],
+          "description": "Ease in-out - smooth both ends",
+          "cssValue": "ease-in-out"
+        },
+        "spring": {
+          "value": [0.34, 1.56, 0.64, 1],
+          "description": "Spring - bouncy animation",
+          "cssValue": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        },
+        "smooth": {
+          "value": [0.4, 0, 0.2, 1],
+          "description": "Smooth - Material Design standard",
+          "cssValue": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "snappy": {
+          "value": [0.4, 0, 0.6, 1],
+          "description": "Snappy - quick response",
+          "cssValue": "cubic-bezier(0.4, 0, 0.6, 1)"
+        }
+      },
+      "delay": {
+        "$type": "duration",
+        "none": { "value": "0ms", "description": "No delay" },
+        "short": { "value": "100ms", "description": "Short delay - stagger start" },
+        "base": { "value": "200ms", "description": "Base delay" },
+        "long": { "value": "500ms", "description": "Long delay - sequential animations" }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+/**
+ * UX4G Container Component Styles
+ */
+
+ux4g-container {
+  display: block;
+}
+
+.ux4g-container {
+  width: 100%;
+}
+
+/**
+ * Sizes (max-width breakpoints)
+ */
+.ux4g-container--sm {
+  max-width: 40rem; /* 640px */
+}
+
+.ux4g-container--md {
+  max-width: 48rem; /* 768px */
+}
+
+.ux4g-container--lg {
+  max-width: 64rem; /* 1024px */
+}
+
+.ux4g-container--xl {
+  max-width: 80rem; /* 1280px */
+}
+
+.ux4g-container--full {
+  max-width: 100%;
+}
+
+/**
+ * Center alignment
+ */
+.ux4g-container--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Padding
+ */
+.ux4g-container--padding {
+  padding-left: var(--ux4g-spacing-4, 1rem);
+  padding-right: var(--ux4g-spacing-4, 1rem);
+}
+
+@media (min-width: 640px) {
+  .ux4g-container--padding {
+    padding-left: var(--ux4g-spacing-6, 1.5rem);
+    padding-right: var(--ux4g-spacing-6, 1.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ux4g-container--padding {
+    padding-left: var(--ux4g-spacing-8, 2rem);
+    padding-right: var(--ux4g-spacing-8, 2rem);
+  }
+}

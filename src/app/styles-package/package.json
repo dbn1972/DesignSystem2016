@@ -1,0 +1,57 @@
+{
+  "name": "@ux4g/styles",
+  "version": "1.0.0",
+  "description": "Foundational CSS styles for UX4G - Indian Government Design System",
+  "main": "./dist/index.css",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": "./dist/index.css",
+    "./base": "./dist/base.css",
+    "./utilities": "./dist/utilities.css",
+    "./components": "./dist/components.css",
+    "./reset": "./dist/base/reset.css",
+    "./typography": "./dist/base/typography.css",
+    "./spacing": "./dist/utilities/spacing.css",
+    "./layout": "./dist/utilities/layout.css",
+    "./accessibility": "./dist/utilities/accessibility.css",
+    "./surfaces": "./dist/base/surfaces.css",
+    "./elevation": "./dist/base/elevation.css",
+    "./focus": "./dist/base/focus.css",
+    "./forms": "./dist/components/forms.css",
+    "./status": "./dist/components/status.css",
+    "./navigation": "./dist/components/navigation.css"
+  },
+  "scripts": {
+    "build": "postcss src/index.css -o dist/index.css && npm run build:layers && npm run build:individual",
+    "build:layers": "postcss src/base/index.css -o dist/base.css && postcss src/utilities/index.css -o dist/utilities.css && postcss src/components/index.css -o dist/components.css",
+    "build:individual": "npm run build:base && npm run build:utilities && npm run build:components",
+    "build:base": "mkdir -p dist/base && postcss src/base/reset.css -o dist/base/reset.css && postcss src/base/typography.css -o dist/base/typography.css && postcss src/base/surfaces.css -o dist/base/surfaces.css && postcss src/base/focus.css -o dist/base/focus.css",
+    "build:utilities": "mkdir -p dist/utilities && postcss src/utilities/spacing.css -o dist/utilities/spacing.css && postcss src/utilities/layout.css -o dist/utilities/layout.css && postcss src/utilities/accessibility.css -o dist/utilities/accessibility.css",
+    "build:components": "mkdir -p dist/components && postcss src/components/forms.css -o dist/components/forms.css && postcss src/components/status.css -o dist/components/status.css && postcss src/components/navigation.css -o dist/components/navigation.css",
+    "watch": "postcss src/index.css -o dist/index.css --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@ux4g/tokens": "^1.0.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.38",
+    "postcss-import": "^16.1.0",
+    "postcss-nesting": "^12.1.2",
+    "autoprefixer": "^10.4.19"
+  },
+  "keywords": [
+    "css",
+    "styles",
+    "design-system",
+    "ux4g",
+    "indian-government",
+    "accessibility",
+    "wcag"
+  ],
+  "author": "UX4G Team",
+  "license": "MIT"
+}

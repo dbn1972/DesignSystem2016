@@ -1,0 +1,135 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "alert": {
+        "base": {
+          "$type": "dimension",
+          "padding": {
+            "vertical": { "value": "12px", "description": "Alert vertical padding" },
+            "horizontal": { "value": "16px", "description": "Alert horizontal padding" }
+          },
+          "gap": {
+            "icon": { "value": "12px", "description": "Gap between icon and content" },
+            "action": { "value": "12px", "description": "Gap between content and action" }
+          },
+          "borderWidth": {
+            "value": "1px",
+            "description": "Alert border width"
+          },
+          "borderLeftWidth": {
+            "value": "4px",
+            "description": "Alert left accent border width"
+          },
+          "borderRadius": {
+            "value": "4px",
+            "description": "Alert border radius"
+          },
+          "fontSize": {
+            "value": "14px",
+            "description": "Alert font size"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Alert line height"
+          },
+          "iconSize": {
+            "value": "20px",
+            "description": "Alert icon size"
+          }
+        },
+        "variant": {
+          "info": {
+            "$type": "color",
+            "background": { "value": "#e6eef5", "description": "Info alert background - Navy 50" },
+            "text": { "value": "#00203c", "description": "Info alert text - Navy 800" },
+            "border": { "value": "#99b9d5", "description": "Info alert border - Navy 200" },
+            "borderAccent": { "value": "#005196", "description": "Info alert accent - Navy 500" },
+            "icon": { "value": "#005196", "description": "Info alert icon - Navy 500" },
+            "link": {
+              "default": { "value": "#005196", "description": "Info alert link - Navy 500" },
+              "hover": { "value": "#004178", "description": "Info alert link hover - Navy 600" }
+            }
+          },
+          "success": {
+            "$type": "color",
+            "background": { "value": "#e6f7e6", "description": "Success alert background - Green 50" },
+            "text": { "value": "#004400", "description": "Success alert text - Green 800" },
+            "border": { "value": "#99dd99", "description": "Success alert border - Green 200" },
+            "borderAccent": { "value": "#008800", "description": "Success alert accent - Green 600" },
+            "icon": { "value": "#008800", "description": "Success alert icon - Green 600" },
+            "link": {
+              "default": { "value": "#006600", "description": "Success alert link - Green 700" },
+              "hover": { "value": "#004400", "description": "Success alert link hover - Green 800" }
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "background": { "value": "#fff4e6", "description": "Warning alert background - Saffron 50" },
+            "text": { "value": "#663000", "description": "Warning alert text - Saffron 800" },
+            "border": { "value": "#ffc999", "description": "Warning alert border - Saffron 200" },
+            "borderAccent": { "value": "#ff7700", "description": "Warning alert accent - Saffron 500" },
+            "icon": { "value": "#cc5f00", "description": "Warning alert icon - Saffron 600" },
+            "link": {
+              "default": { "value": "#cc5f00", "description": "Warning alert link - Saffron 600" },
+              "hover": { "value": "#994700", "description": "Warning alert link hover - Saffron 700" }
+            }
+          },
+          "error": {
+            "$type": "color",
+            "background": { "value": "#fef2f2", "description": "Error alert background - Red 50" },
+            "text": { "value": "#7f1d1d", "description": "Error alert text - Red 900" },
+            "border": { "value": "#fecaca", "description": "Error alert border - Red 200" },
+            "borderAccent": { "value": "#dc2626", "description": "Error alert accent - Error DEFAULT" },
+            "icon": { "value": "#dc2626", "description": "Error alert icon - Error DEFAULT" },
+            "link": {
+              "default": { "value": "#991b1b", "description": "Error alert link - Error dark" },
+              "hover": { "value": "#7f1d1d", "description": "Error alert link hover - Red 900" }
+            }
+          }
+        },
+        "title": {
+          "$type": "dimension",
+          "fontSize": {
+            "value": "16px",
+            "description": "Alert title font size"
+          },
+          "fontWeight": {
+            "value": "600",
+            "description": "Alert title font weight"
+          },
+          "marginBottom": {
+            "value": "4px",
+            "description": "Alert title bottom margin"
+          }
+        },
+        "close": {
+          "$type": "dimension",
+          "size": {
+            "value": "20px",
+            "description": "Close button size"
+          },
+          "padding": {
+            "value": "4px",
+            "description": "Close button padding"
+          },
+          "$type": "color",
+          "icon": {
+            "default": { "value": "#525252", "description": "Close icon - Neutral 600" },
+            "hover": { "value": "#171717", "description": "Close icon hover - Neutral 900" }
+          },
+          "background": {
+            "hover": { "value": "rgba(0, 0, 0, 0.05)", "description": "Close button hover background" }
+          }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minHeight": {
+            "value": "48px",
+            "description": "Minimum alert height for readability"
+          }
+        }
+      }
+    }
+  }
+}

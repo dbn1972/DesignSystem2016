@@ -1,0 +1,68 @@
+/**
+ * UX4G Button Component Styles
+ * Imports base button styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/buttons.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-button {
+  display: inline-block;
+}
+
+.ux4g-button {
+  /* Base styles inherited from @ux4g/styles */
+}
+
+.ux4g-button--full-width {
+  width: 100%;
+}
+
+/**
+ * Icon positioning
+ */
+.ux4g-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ux4g-button__icon--before {
+  margin-right: var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-button__icon--after {
+  margin-left: var(--ux4g-spacing-2, 0.5rem);
+}
+
+/**
+ * Spinner for loading state
+ */
+.ux4g-button__spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: var(--ux4g-spacing-2, 0.5rem);
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ux4g-spinner-rotate 0.6s linear infinite;
+}
+
+@keyframes ux4g-spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/**
+ * Loading state adjustments
+ */
+.ux4g-button--loading {
+  pointer-events: none;
+}

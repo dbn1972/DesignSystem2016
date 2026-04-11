@@ -1,0 +1,70 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "sizing": {
+      "width": {
+        "$type": "dimension",
+        "xs": { "value": "20rem", "description": "320px - Extra small width" },
+        "sm": { "value": "24rem", "description": "384px - Small width" },
+        "md": { "value": "28rem", "description": "448px - Medium width" },
+        "lg": { "value": "32rem", "description": "512px - Large width" },
+        "xl": { "value": "36rem", "description": "576px - XL width" },
+        "2xl": { "value": "42rem", "description": "672px - 2XL width" },
+        "3xl": { "value": "48rem", "description": "768px - 3XL width" },
+        "4xl": { "value": "56rem", "description": "896px - 4XL width" },
+        "5xl": { "value": "64rem", "description": "1024px - 5XL width" },
+        "6xl": { "value": "72rem", "description": "1152px - 6XL width" },
+        "7xl": { "value": "80rem", "description": "1280px - 7XL width" },
+        "full": { "value": "100%", "description": "Full width" },
+        "screen": { "value": "100vw", "description": "Screen width" },
+        "min": { "value": "min-content", "description": "Minimum content width" },
+        "max": { "value": "max-content", "description": "Maximum content width" },
+        "fit": { "value": "fit-content", "description": "Fit content width" }
+      },
+      "height": {
+        "$type": "dimension",
+        "xs": { "value": "20rem", "description": "320px - Extra small height" },
+        "sm": { "value": "24rem", "description": "384px - Small height" },
+        "md": { "value": "28rem", "description": "448px - Medium height" },
+        "lg": { "value": "32rem", "description": "512px - Large height" },
+        "xl": { "value": "36rem", "description": "576px - XL height" },
+        "2xl": { "value": "42rem", "description": "672px - 2XL height" },
+        "3xl": { "value": "48rem", "description": "768px - 3XL height" },
+        "4xl": { "value": "56rem", "description": "896px - 4XL height" },
+        "5xl": { "value": "64rem", "description": "1024px - 5XL height" },
+        "full": { "value": "100%", "description": "Full height" },
+        "screen": { "value": "100vh", "description": "Screen height" },
+        "min": { "value": "min-content", "description": "Minimum content height" },
+        "max": { "value": "max-content", "description": "Maximum content height" },
+        "fit": { "value": "fit-content", "description": "Fit content height" }
+      },
+      "container": {
+        "$type": "dimension",
+        "description": "Standard container widths for layouts",
+        "sm": { "value": "640px", "description": "Small container" },
+        "md": { "value": "768px", "description": "Medium container" },
+        "lg": { "value": "1024px", "description": "Large container" },
+        "xl": { "value": "1280px", "description": "XL container - content max-width" },
+        "2xl": { "value": "1536px", "description": "2XL container - wide layouts" }
+      },
+      "icon": {
+        "$type": "dimension",
+        "description": "Standard icon sizes",
+        "xs": { "value": "0.75rem", "description": "12px - Extra small icon" },
+        "sm": { "value": "1rem", "description": "16px - Small icon" },
+        "base": { "value": "1.25rem", "description": "20px - Base icon" },
+        "md": { "value": "1.5rem", "description": "24px - Medium icon (WCAG touch target min)" },
+        "lg": { "value": "2rem", "description": "32px - Large icon" },
+        "xl": { "value": "2.5rem", "description": "40px - XL icon" },
+        "2xl": { "value": "3rem", "description": "48px - 2XL icon (WCAG touch target recommended)" }
+      },
+      "touch": {
+        "$type": "dimension",
+        "description": "Touch target sizes (WCAG 2.5.5)",
+        "min": { "value": "24px", "description": "WCAG minimum touch target" },
+        "recommended": { "value": "44px", "description": "WCAG recommended touch target" },
+        "comfortable": { "value": "48px", "description": "Comfortable touch target" }
+      }
+    }
+  }
+}

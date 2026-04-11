@@ -1,0 +1,79 @@
+/**
+ * UX4G Field Component Styles
+ */
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-field {
+  display: block;
+}
+
+.ux4g-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  margin-bottom: var(--ux4g-spacing-4, 1rem);
+}
+
+/**
+ * Label
+ */
+.ux4g-field__label {
+  display: block;
+  color: var(--ux4g-color-text, #1f2937);
+  font-size: var(--ux4g-font-size-base, 1rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  line-height: var(--ux4g-line-height-base, 1.5);
+}
+
+.ux4g-field__label--disabled {
+  opacity: 0.5;
+}
+
+.ux4g-field__required {
+  color: var(--ux4g-color-error, #dc2626);
+  margin-left: 0.25rem;
+}
+
+.ux4g-field__optional {
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  margin-left: 0.5rem;
+  font-size: 0.875em;
+  font-weight: var(--ux4g-font-weight-normal, 400);
+}
+
+/**
+ * Control wrapper
+ */
+.ux4g-field__control {
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+ * Helper text
+ */
+.ux4g-field__helper-text {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  line-height: 1.4;
+}
+
+/**
+ * Error text
+ */
+.ux4g-field__error-text {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-error, #dc2626);
+  line-height: 1.4;
+}
+
+.ux4g-field--error .ux4g-field__label {
+  color: var(--ux4g-color-error, #dc2626);
+}
+
+.ux4g-field--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

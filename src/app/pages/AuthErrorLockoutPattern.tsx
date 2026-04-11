@@ -1,0 +1,1753 @@
+import { Link } from "react-router";
+import { AlertTriangle, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, Lock, HelpCircle, Check, X, Phone, Mail, RefreshCw, Eye } from "lucide-react";
+
+export default function AuthErrorLockoutPattern() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white border-b-2 border-gray-300">
+        <div className="max-w-[1600px] mx-auto px-12 py-8">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+            <Link to="/patterns/identity" className="hover:text-[#000080]">
+              Identity & Access Patterns
+            </Link>
+            <ChevronRight size={16} />
+            <span className="text-gray-900 font-medium">Authentication Errors & Lockout</span>
+          </div>
+
+          <div className="flex items-start justify-between">
+            <div className="max-w-4xl">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-16 h-16 bg-red-100 border-2 border-red-300 rounded flex items-center justify-center">
+                  <AlertTriangle size={32} className="text-[#000080]" />
+                </div>
+                <div>
+                  <div className="text-sm text-gray-600 mb-1">UX4G Identity & Access Pattern</div>
+                  <h1 className="text-3xl font-bold text-gray-900">Authentication Errors & Lockout</h1>
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Comprehensive error handling and lockout strategy for authentication failures. Balances 
+                security protection with clear user communication, helpful recovery paths, and support 
+                escalation for government digital services.
+              </p>
+              <div className="flex items-center gap-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-002-09</span></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+                STABLE
+              </div>
+              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+                Security<br/>Critical
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Navigation */}
+      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+        <div className="max-w-[1600px] mx-auto px-12">
+          <div className="flex items-center gap-1 py-3 overflow-x-auto">
+            {[
+              { id: "overview", label: "Overview" },
+              { id: "error-types", label: "Error Types" },
+              { id: "flow", label: "Flow Diagram" },
+              { id: "screens", label: "Example Screens" },
+              { id: "lockout-policy", label: "Lockout Policy" },
+              { id: "recovery", label: "Recovery Paths" },
+              { id: "accessibility", label: "Accessibility" },
+              { id: "implementation", label: "Implementation" },
+              { id: "governance", label: "Governance" }
+            ].map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Content */}
+      <main className="max-w-[1600px] mx-auto px-12 py-12">
+        <div className="grid grid-cols-12 gap-8">
+          
+          {/* Main Content - 9 columns */}
+          <div className="col-span-9 space-y-16">
+            <OverviewSection />
+            <ErrorTypesSection />
+            <FlowDiagram />
+            <ExampleScreens />
+            <LockoutPolicySection />
+            <RecoveryPathsSection />
+            <AccessibilitySection />
+            <ImplementationSection />
+            <GovernanceSection />
+          </div>
+
+          {/* Sidebar - 3 columns */}
+          <aside className="col-span-3 space-y-6 sticky top-24 self-start">
+            <QuickReference />
+            <RelatedPatterns />
+            <InteractiveDemo />
+            <Resources />
+          </aside>
+
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+        <div className="max-w-[1600px] mx-auto px-12 py-8">
+          <div className="flex items-center justify-between text-sm text-gray-600">
+            <div>UX4G Design System Platform • Authentication Errors & Lockout Pattern</div>
+            <div>Government of India • Digital India Initiative</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// ==================== OVERVIEW SECTION ====================
+
+function OverviewSection() {
+  return (
+    <section id="overview" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Pattern Overview</h2>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        {/* Purpose */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Purpose</h3>
+          </div>
+          <div className="p-6">
+            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+              Protect accounts from unauthorized access while helping legitimate users recover from 
+              authentication failures. Communicate errors clearly, provide actionable recovery paths, 
+              and prevent brute-force attacks through intelligent lockout policies.
+            </p>
+            <div className="space-y-2">
+              <InfoItem icon={<Shield size={16} className="text-[#000080]" />} text="Prevent unauthorized access attempts" />
+              <InfoItem icon={<Info size={16} className="text-blue-600" />} text="Communicate errors in plain language" />
+              <InfoItem icon={<RefreshCw size={16} className="text-green-600" />} text="Offer clear recovery options" />
+              <InfoItem icon={<HelpCircle size={16} className="text-[#000080]" />} text="Provide escalation to human support" />
+            </div>
+          </div>
+        </div>
+
+        {/* User Goals */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">User Goals</h3>
+          </div>
+          <div className="p-6 space-y-2">
+            <GoalItem text="Understand what went wrong" />
+            <GoalItem text="Know how to fix the error" />
+            <GoalItem text="Recover access quickly" />
+            <GoalItem text="Get help when needed" />
+            <GoalItem text="Avoid permanent lockout" />
+          </div>
+        </div>
+
+        {/* When to Use */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+              <Check size={18} className="text-green-600" />
+              When to Use
+            </h3>
+          </div>
+          <div className="p-6 space-y-2 text-sm">
+            <WhenItem text="Any authentication failure (password, OTP, etc.)" />
+            <WhenItem text="Multiple failed login attempts" />
+            <WhenItem text="Suspicious activity detection" />
+            <WhenItem text="Account locked/disabled states" />
+            <WhenItem text="Service availability issues" />
+            <WhenItem text="Temporary or permanent blocks" />
+          </div>
+        </div>
+
+        {/* When Not to Use */}
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+              <X size={18} className="text-red-600" />
+              When Not to Use
+            </h3>
+          </div>
+          <div className="p-6 space-y-2 text-sm">
+            <WhenNotItem text="Network/connectivity errors (separate pattern)" />
+            <WhenNotItem text="Form validation errors (use field-level validation)" />
+            <WhenNotItem text="Generic system errors (use error pattern)" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== ERROR TYPES SECTION ====================
+
+function ErrorTypesSection() {
+  return (
+    <section id="error-types" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Common Authentication Error Types</h2>
+      </div>
+
+      <div className="grid grid-cols-3 gap-6">
+        <ErrorType 
+          title="Wrong Credentials"
+          severity="Low"
+          examples={[
+            "Incorrect password entered",
+            "Username not found",
+            "Email not registered"
+          ]}
+          userMessage="The password you entered is incorrect. Please try again."
+          nextSteps={[
+            "Allow retry",
+            "Show 'Forgot password' link",
+            "Count attempts toward lockout"
+          ]}
+        />
+        <ErrorType 
+          title="Wrong OTP"
+          severity="Medium"
+          examples={[
+            "Incorrect OTP code",
+            "OTP doesn't match",
+            "Invalid verification code"
+          ]}
+          userMessage="The code you entered is incorrect. Please check and try again."
+          nextSteps={[
+            "Allow retry (limited attempts)",
+            "Offer to resend code",
+            "Show expiry time remaining"
+          ]}
+        />
+        <ErrorType 
+          title="Expired OTP"
+          severity="Low"
+          examples={[
+            "OTP validity period ended",
+            "Code expired (>5 minutes)",
+            "Verification window closed"
+          ]}
+          userMessage="This code has expired. Request a new code to continue."
+          nextSteps={[
+            "Offer to resend new code",
+            "Clear expired code from input",
+            "Reset OTP attempt counter"
+          ]}
+        />
+        <ErrorType 
+          title="Too Many Attempts"
+          severity="High"
+          examples={[
+            "3+ wrong passwords",
+            "5+ wrong OTP attempts",
+            "Rapid-fire login tries"
+          ]}
+          userMessage="Too many incorrect attempts. Your account is temporarily locked."
+          nextSteps={[
+            "Trigger temporary lockout",
+            "Show lockout duration",
+            "Offer account recovery path"
+          ]}
+        />
+        <ErrorType 
+          title="Temporary Lockout"
+          severity="High"
+          examples={[
+            "15-minute cooldown active",
+            "Account locked for security",
+            "Time-based restriction"
+          ]}
+          userMessage="Your account is locked for 15 minutes after multiple failed attempts."
+          nextSteps={[
+            "Show countdown timer",
+            "Explain reason clearly",
+            "Offer recovery options"
+          ]}
+        />
+        <ErrorType 
+          title="Suspicious Activity"
+          severity="Critical"
+          examples={[
+            "Login from new location",
+            "Unusual access pattern",
+            "Multiple device attempts"
+          ]}
+          userMessage="We detected unusual activity. Please verify your identity."
+          nextSteps={[
+            "Require additional verification",
+            "Send email/SMS notification",
+            "Offer to contact support"
+          ]}
+        />
+        <ErrorType 
+          title="Account Unavailable"
+          severity="Critical"
+          examples={[
+            "Account disabled by admin",
+            "Compliance suspension",
+            "Terms violation"
+          ]}
+          userMessage="This account is currently unavailable. Please contact support."
+          nextSteps={[
+            "Provide support contact",
+            "Explain appeal process",
+            "Do not reveal specific reason"
+          ]}
+        />
+        <ErrorType 
+          title="Service Unavailable"
+          severity="Medium"
+          examples={[
+            "Authentication server down",
+            "Maintenance in progress",
+            "System overload"
+          ]}
+          userMessage="Authentication service temporarily unavailable. Please try again shortly."
+          nextSteps={[
+            "Show estimated downtime",
+            "Offer status page link",
+            "Provide alternative contact"
+          ]}
+        />
+        <ErrorType 
+          title="Session Conflict"
+          severity="Medium"
+          examples={[
+            "Already logged in elsewhere",
+            "Concurrent session limit",
+            "Active session on another device"
+          ]}
+          userMessage="You're already signed in on another device. Sign out there or continue here."
+          nextSteps={[
+            "Show active device info",
+            "Allow force logout",
+            "Security notification sent"
+          ]}
+        />
+      </div>
+    </section>
+  );
+}
+
+// ==================== FLOW DIAGRAM ====================
+
+function FlowDiagram() {
+  return (
+    <section id="flow" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Error Handling Flow Diagram</h2>
+      </div>
+
+      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+        <div className="space-y-4">
+          <FlowStep 
+            number={1}
+            title="User Attempts Authentication"
+            description="User enters credentials (password, OTP, etc.) and submits"
+            state="User Action"
+          />
+          <FlowStep 
+            number={2}
+            title="Verify Credentials"
+            description="System validates against stored credentials/tokens"
+            state="Verification"
+            branches={true}
+          />
+          
+          {/* Success Path */}
+          <div className="ml-12 pl-6 border-l-4 border-green-500 space-y-4">
+            <FlowStep 
+              number="2a"
+              title="Credentials Valid"
+              description="Authentication successful; create session"
+              state="Success"
+              variant="success"
+            />
+            <FlowStep 
+              number={3}
+              title="Grant Access"
+              description="User signed in; redirect to intended destination"
+              state="Authenticated"
+              variant="success"
+            />
+          </div>
+
+          {/* Failure Path - First Attempt */}
+          <div className="ml-12 pl-6 border-l-4 border-orange-500 space-y-4">
+            <FlowStep 
+              number="2b"
+              title="Credentials Invalid"
+              description="Authentication failed; check failure count"
+              state="Failed"
+              variant="warning"
+            />
+            <FlowStep 
+              number={4}
+              title="Check Attempt Count"
+              description="How many failures for this account/IP in time window?"
+              state="Security Check"
+              variant="warning"
+              branches={true}
+            />
+          </div>
+
+          {/* Below Threshold */}
+          <div className="ml-24 pl-6 border-l-4 border-yellow-500 space-y-4">
+            <FlowStep 
+              number="4a"
+              title="Below Threshold (1-2 attempts)"
+              description="Show generic error; allow retry"
+              state="Allow Retry"
+              variant="warning"
+            />
+            <FlowStep 
+              number={5}
+              title="Display Error + Recovery Options"
+              description="'Incorrect password' + Forgot password link + Try again"
+              state="User Feedback"
+              variant="warning"
+            />
+          </div>
+
+          {/* At Threshold */}
+          <div className="ml-24 pl-6 border-l-4 border-red-500 space-y-4">
+            <FlowStep 
+              number="4b"
+              title="At Threshold (3+ attempts)"
+              description="Trigger temporary lockout for security"
+              state="Lockout"
+              variant="error"
+            />
+            <FlowStep 
+              number={6}
+              title="Enforce Lockout Period"
+              description="Block auth attempts for 15 minutes; send alert email/SMS"
+              state="Locked"
+              variant="error"
+            />
+            <FlowStep 
+              number={7}
+              title="Show Lockout Message + Support"
+              description="Explain lockout; show countdown; offer account recovery"
+              state="User Support"
+              variant="error"
+            />
+          </div>
+
+          {/* Suspicious Activity */}
+          <div className="ml-24 pl-6 border-l-4 border-purple-500 space-y-4">
+            <FlowStep 
+              number="4c"
+              title="Suspicious Pattern Detected"
+              description="Multiple IPs, rapid attempts, unusual location, etc."
+              state="Security Alert"
+              variant="error"
+            />
+            <FlowStep 
+              number={8}
+              title="Require Additional Verification"
+              description="Email verification link, SMS code, security questions"
+              state="Enhanced Auth"
+              variant="error"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== EXAMPLE SCREENS ====================
+
+function ExampleScreens() {
+  return (
+    <section id="screens" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Example Screens</h2>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        {/* Wrong Password */}
+        <ScreenExample
+          title="Wrong Password (1st Attempt)"
+          variant="error"
+        >
+          <div className="space-y-4">
+            <div className="text-center">
+              <XCircle size={40} className="text-red-600 mx-auto mb-3" />
+              <h4 className="font-bold text-gray-900 mb-2">Incorrect Password</h4>
+              <p className="text-sm text-gray-600">
+                The password you entered is not correct
+              </p>
+            </div>
+            <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-gray-700">
+              <p className="mb-2"><strong>What you can do:</strong></p>
+              <ul className="space-y-1 ml-4">
+                <li>• Check if Caps Lock is on</li>
+                <li>• Try entering your password again</li>
+                <li>• Use "Forgot password" if you can't remember it</li>
+              </ul>
+            </div>
+            <div>
+              <label className="block text-sm font-bold text-gray-900 mb-2">Password</label>
+              <input 
+                type="password" 
+                placeholder="Enter your password"
+                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
+              />
+            </div>
+            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+              Try Again
+            </button>
+            <div className="text-center">
+              <a href="#" className="text-sm text-[#000080] hover:underline font-bold">
+                Forgot password?
+              </a>
+            </div>
+          </div>
+        </ScreenExample>
+
+        {/* Wrong OTP */}
+        <ScreenExample
+          title="Wrong OTP Code"
+          variant="error"
+        >
+          <div className="space-y-4">
+            <div className="text-center">
+              <XCircle size={40} className="text-red-600 mx-auto mb-3" />
+              <h4 className="font-bold text-gray-900 mb-2">Incorrect Code</h4>
+              <p className="text-sm text-gray-600">
+                The verification code you entered<br/>
+                is not correct
+              </p>
+            </div>
+            <div className="flex gap-2 justify-center">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50"></div>
+              ))}
+            </div>
+            <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-red-800 text-center">
+              <XCircle size={14} className="inline mr-2" />
+              <strong>2 attempts remaining</strong> before lockout
+            </div>
+            <div className="space-y-2">
+              <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+                Try Again
+              </button>
+              <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded">
+                Resend Code
+              </button>
+            </div>
+          </div>
+        </ScreenExample>
+
+        {/* Expired OTP */}
+        <ScreenExample
+          title="Expired OTP Code"
+          variant="warning"
+        >
+          <div className="space-y-4">
+            <div className="text-center">
+              <AlertTriangle size={40} className="text-orange-600 mx-auto mb-3" />
+              <h4 className="font-bold text-gray-900 mb-2">Code Expired</h4>
+              <p className="text-sm text-gray-600">
+                This verification code has expired.<br/>
+                Codes are valid for 5 minutes only.
+              </p>
+            </div>
+            <div className="bg-orange-50 border border-orange-300 rounded p-3 text-sm text-gray-700">
+              <Info size={14} className="inline mr-2 text-orange-600" />
+              For your security, verification codes expire after 5 minutes.
+            </div>
+            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+              Send New Code
+            </button>
+          </div>
+        </ScreenExample>
+
+        {/* Too Many Attempts */}
+        <ScreenExample
+          title="Too Many Failed Attempts"
+          variant="error"
+        >
+          <div className="space-y-4">
+            <div className="text-center">
+              <Lock size={40} className="text-red-600 mx-auto mb-3" />
+              <h4 className="font-bold text-gray-900 mb-2">Too Many Attempts</h4>
+              <p className="text-sm text-gray-600">
+                You've entered incorrect credentials<br/>
+                multiple times
+              </p>
+            </div>
+            <div className="bg-red-50 border-2 border-red-300 rounded p-4 text-sm text-gray-700">
+              <p className="font-bold text-red-800 mb-2">For your security:</p>
+              <p>Your account has been temporarily locked after 3 incorrect password attempts.</p>
+              <p className="mt-2">You can try again in <strong className="text-red-800">15 minutes</strong>, or reset your password now.</p>
+            </div>
+            <div className="space-y-2">
+              <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+                Reset Password Now
+              </button>
+              <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded">
+                Contact Support
+              </button>
+            </div>
+          </div>
+        </ScreenExample>
+
+        {/* Temporary Lockout */}
+        <ScreenExample
+          title="Temporary Lockout (Countdown)"
+          variant="error"
+        >
+          <div className="space-y-4">
+            <div className="text-center">
+              <Lock size={40} className="text-red-600 mx-auto mb-3" />
+              <h4 className="font-bold text-gray-900 mb-2">Account Temporarily Locked</h4>
+              <p className="text-sm text-gray-600">
+                Multiple failed sign-in attempts detected
+              </p>
+            </div>
+            <div className="bg-orange-50 border-2 border-orange-300 rounded p-4 text-center">
+              <p className="text-sm text-gray-700 mb-2">You can try again in:</p>
+              <p className="text-4xl font-bold text-[#000080]">12:34</p>
+              <p className="text-xs text-gray-600 mt-1">minutes:seconds</p>
+            </div>
+            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm text-gray-700">
+              <Info size={14} className="inline mr-2" />
+              <strong>Why this happened:</strong> After 3 incorrect password attempts, we lock accounts for 15 minutes to protect your information.
+            </div>
+            <div className="space-y-2">
+              <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+                Reset Password Instead
+              </button>
+              <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded">
+                Need Help?
+              </button>
+            </div>
+          </div>
+        </ScreenExample>
+
+        {/* Suspicious Activity */}
+        <ScreenExample
+          title="Suspicious Activity Check"
+          variant="warning"
+        >
+          <div className="space-y-4">
+            <div className="text-center">
+              <Shield size={40} className="text-orange-600 mx-auto mb-3" />
+              <h4 className="font-bold text-gray-900 mb-2">Unusual Activity Detected</h4>
+              <p className="text-sm text-gray-600">
+                We noticed a sign-in attempt from<br/>
+                a location or device you don't usually use
+              </p>
+            </div>
+            <div className="bg-orange-50 border border-orange-300 rounded p-3 text-sm text-gray-700">
+              <p className="font-bold text-gray-900 mb-2">Sign-in attempt details:</p>
+              <ul className="space-y-1 ml-4">
+                <li>• Location: Mumbai, Maharashtra</li>
+                <li>• Device: Windows PC, Chrome browser</li>
+                <li>• Date/Time: April 10, 2026 at 2:30 PM</li>
+              </ul>
+            </div>
+            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm text-gray-700">
+              <p className="font-bold text-gray-900 mb-1">To verify it's you:</p>
+              <p>We've sent a verification code to your registered email ending in ***@gmail.com</p>
+            </div>
+            <div>
+              <label className="block text-sm font-bold text-gray-900 mb-2">Enter verification code</label>
+              <input 
+                type="text" 
+                placeholder="6-digit code"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded"
+              />
+            </div>
+            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+              Verify
+            </button>
+          </div>
+        </ScreenExample>
+
+        {/* Account Unavailable */}
+        <ScreenExample
+          title="Account Unavailable"
+          variant="error"
+        >
+          <div className="space-y-4">
+            <div className="text-center">
+              <XCircle size={40} className="text-red-600 mx-auto mb-3" />
+              <h4 className="font-bold text-gray-900 mb-2">Account Unavailable</h4>
+              <p className="text-sm text-gray-600">
+                This account is currently unavailable
+              </p>
+            </div>
+            <div className="bg-red-50 border border-red-300 rounded p-4 text-sm text-gray-700">
+              <p className="mb-2">Your account has been temporarily disabled. This may be due to:</p>
+              <ul className="space-y-1 ml-4">
+                <li>• Security review in progress</li>
+                <li>• Compliance verification required</li>
+                <li>• Administrative action</li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 border border-gray-300 rounded p-3 text-sm">
+              <p className="font-bold text-gray-900 mb-2">What you can do:</p>
+              <p className="text-gray-700">Contact our support team for assistance with your account.</p>
+            </div>
+            <div className="space-y-2">
+              <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+                Contact Support
+              </button>
+              <div className="text-center text-sm text-gray-600">
+                <p>Helpline: 1800-XXX-YYYY</p>
+                <p>Email: support@service.gov.in</p>
+              </div>
+            </div>
+          </div>
+        </ScreenExample>
+
+        {/* Service Unavailable */}
+        <ScreenExample
+          title="Service Unavailable"
+          variant="warning"
+        >
+          <div className="space-y-4">
+            <div className="text-center">
+              <AlertTriangle size={40} className="text-orange-600 mx-auto mb-3" />
+              <h4 className="font-bold text-gray-900 mb-2">Service Temporarily Unavailable</h4>
+              <p className="text-sm text-gray-600">
+                Authentication service is currently<br/>
+                experiencing issues
+              </p>
+            </div>
+            <div className="bg-orange-50 border border-orange-300 rounded p-3 text-sm text-gray-700">
+              <p><strong>What's happening:</strong></p>
+              <p className="mt-1">We're experiencing technical difficulties with our sign-in system. Our team is working to resolve this.</p>
+            </div>
+            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm text-gray-700">
+              <Info size={14} className="inline mr-2" />
+              <strong>Estimated resolution:</strong> Within 30 minutes
+            </div>
+            <div className="space-y-2">
+              <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+                Try Again
+              </button>
+              <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded">
+                Check Service Status
+              </button>
+            </div>
+          </div>
+        </ScreenExample>
+
+        {/* Help / Support State */}
+        <ScreenExample
+          title="Help & Support"
+          variant="info"
+        >
+          <div className="space-y-4">
+            <div className="text-center">
+              <HelpCircle size={40} className="text-[#000080] mx-auto mb-3" />
+              <h4 className="font-bold text-gray-900 mb-2">Sign-In Help</h4>
+            </div>
+            <div className="space-y-3 text-sm">
+              <div className="bg-blue-50 border border-blue-300 rounded p-3">
+                <p className="font-bold text-gray-900 mb-2">Common Issues:</p>
+                <ul className="ml-4 space-y-2 text-gray-700">
+                  <li>
+                    <strong>• Forgot password?</strong><br/>
+                    <a href="#" className="text-[#000080] hover:underline">Reset your password →</a>
+                  </li>
+                  <li>
+                    <strong>• Account locked?</strong><br/>
+                    Wait 15 minutes or reset password to unlock immediately
+                  </li>
+                  <li>
+                    <strong>• Not receiving OTP?</strong><br/>
+                    Check spam folder or try alternative contact method
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-gray-50 border border-gray-300 rounded p-3">
+                <p className="font-bold text-gray-900 mb-2">Contact Support:</p>
+                <p className="text-gray-700 mb-1">Helpline: 1800-XXX-YYYY (Toll-free)</p>
+                <p className="text-gray-700 mb-1">Email: auth-support@service.gov.in</p>
+                <p className="text-gray-700">Hours: 24/7 for authentication issues</p>
+              </div>
+            </div>
+            <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded">
+              Back to Sign In
+            </button>
+          </div>
+        </ScreenExample>
+      </div>
+    </section>
+  );
+}
+
+// ==================== LOCKOUT POLICY SECTION ====================
+
+function LockoutPolicySection() {
+  return (
+    <section id="lockout-policy" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Lockout Policy Configuration</h2>
+      </div>
+
+      <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
+        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <Shield size={20} className="text-red-600" />
+          Security vs. Usability Balance
+        </h3>
+        <p className="text-sm text-gray-700">
+          Lockout policies must balance protection against brute-force attacks with legitimate user access. 
+          Too strict = frustrated users; too lenient = security risk. Follow these evidence-based guidelines 
+          for government services.
+        </p>
+      </div>
+
+      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+          <h3 className="font-bold text-gray-900">Recommended Lockout Thresholds</h3>
+        </div>
+        <div className="p-6">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b-2 border-gray-300">
+                <th className="text-left py-3 px-4 font-bold text-gray-900">Auth Method</th>
+                <th className="text-left py-3 px-4 font-bold text-gray-900">Max Attempts</th>
+                <th className="text-left py-3 px-4 font-bold text-gray-900">Lockout Duration</th>
+                <th className="text-left py-3 px-4 font-bold text-gray-900">Rationale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-gray-300">
+                <td className="py-3 px-4 font-medium text-gray-900">Password</td>
+                <td className="py-3 px-4 text-gray-700">3 attempts</td>
+                <td className="py-3 px-4 text-gray-700">15 minutes</td>
+                <td className="py-3 px-4 text-gray-700">Standard security practice; prevents brute-force</td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="py-3 px-4 font-medium text-gray-900">OTP (Email/SMS)</td>
+                <td className="py-3 px-4 text-gray-700">5 attempts</td>
+                <td className="py-3 px-4 text-gray-700">10 minutes</td>
+                <td className="py-3 px-4 text-gray-700">Higher threshold; users may misread code</td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="py-3 px-4 font-medium text-gray-900">Security Questions</td>
+                <td className="py-3 px-4 text-gray-700">3 attempts</td>
+                <td className="py-3 px-4 text-gray-700">30 minutes</td>
+                <td className="py-3 px-4 text-gray-700">Lower attack surface; longer lockout acceptable</td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="py-3 px-4 font-medium text-gray-900">Biometric (if used)</td>
+                <td className="py-3 px-4 text-gray-700">5 attempts</td>
+                <td className="py-3 px-4 text-gray-700">No lockout</td>
+                <td className="py-3 px-4 text-gray-700">Fallback to password; sensor errors common</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-4 font-medium text-gray-900">Account Recovery</td>
+                <td className="py-3 px-4 text-gray-700">3 attempts</td>
+                <td className="py-3 px-4 text-gray-700">24 hours</td>
+                <td className="py-3 px-4 text-gray-700">High-risk operation; strict controls needed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Progressive Delays</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <DelayRule 
+              attempt="1st failure"
+              action="Instant retry allowed"
+              delay="0 seconds"
+            />
+            <DelayRule 
+              attempt="2nd failure"
+              action="Brief warning shown"
+              delay="0 seconds (no delay yet)"
+            />
+            <DelayRule 
+              attempt="3rd failure"
+              action="Trigger lockout"
+              delay="15 minutes"
+            />
+            <DelayRule 
+              attempt="4th failure (after unlock)"
+              action="Extended lockout"
+              delay="60 minutes"
+            />
+            <DelayRule 
+              attempt="5th failure (persistent)"
+              action="Manual review required"
+              delay="24 hours + support contact"
+            />
+          </div>
+        </div>
+
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Tracking Scope</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <TrackingRule 
+              scope="Per Account"
+              description="Count failures for specific username/email regardless of IP"
+              recommended={true}
+            />
+            <TrackingRule 
+              scope="Per IP Address"
+              description="Track attempts from same IP (catches distributed attacks)"
+              recommended={true}
+            />
+            <TrackingRule 
+              scope="Per Session"
+              description="Reset counter on successful auth or explicit timeout"
+              recommended={true}
+            />
+            <TrackingRule 
+              scope="Per Device/Browser"
+              description="Use fingerprinting to identify suspicious patterns"
+              recommended={false}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== RECOVERY PATHS SECTION ====================
+
+function RecoveryPathsSection() {
+  return (
+    <section id="recovery" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Recovery & Escalation Paths</h2>
+      </div>
+
+      <div className="grid grid-cols-3 gap-6">
+        <RecoveryPath 
+          title="Immediate Recovery"
+          icon={<RefreshCw className="text-green-600" />}
+          options={[
+            "Password reset (email link)",
+            "Resend OTP to alternate contact",
+            "Try different auth method",
+            "Use recovery email/mobile"
+          ]}
+          timeline="Immediate - 5 minutes"
+        />
+        <RecoveryPath 
+          title="Assisted Recovery"
+          icon={<HelpCircle className="text-blue-600" />}
+          options={[
+            "Contact helpline (24/7)",
+            "Submit support ticket",
+            "Live chat with agent",
+            "Visit service center"
+          ]}
+          timeline="Minutes - 24 hours"
+        />
+        <RecoveryPath 
+          title="Manual Review"
+          icon={<Shield className="text-orange-600" />}
+          options={[
+            "Identity verification required",
+            "Document submission",
+            "Security team review",
+            "Account restoration appeal"
+          ]}
+          timeline="1-5 business days"
+        />
+      </div>
+
+      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <Info size={20} className="text-yellow-600" />
+          Always Provide Escalation Path
+        </h3>
+        <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
+          <div>
+            <p className="font-bold text-gray-900 mb-1">Never Dead-End Users</p>
+            <p>Every error state must have at least one recovery option. Even if account is disabled, provide support contact.</p>
+          </div>
+          <div>
+            <p className="font-bold text-gray-900 mb-1">Multiple Paths</p>
+            <p>Offer 2-3 recovery options: self-service (password reset), assisted (phone), and manual (support ticket)</p>
+          </div>
+          <div>
+            <p className="font-bold text-gray-900 mb-1">Clear Next Steps</p>
+            <p>Tell users exactly what to do: "Click 'Reset Password'" not "You may need to take action"</p>
+          </div>
+          <div>
+            <p className="font-bold text-gray-900 mb-1">Set Expectations</p>
+            <p>Provide realistic timelines: "Support responds within 4 hours" builds trust</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== ACCESSIBILITY SECTION ====================
+
+function AccessibilitySection() {
+  return (
+    <section id="accessibility" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Accessibility Guidelines</h2>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Error Communication</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <AccessibilityItem 
+              label="Plain Language"
+              description="'Incorrect password' not 'Authentication failure 401' - use words everyone understands"
+            />
+            <AccessibilityItem 
+              label="Don't Rely on Color"
+              description="Use icons + text: ❌ 'Incorrect password' not just red border"
+            />
+            <AccessibilityItem 
+              label="Screen Reader Announcements"
+              description="aria-live='assertive' for errors: 'Error: Incorrect password. Try again.'"
+            />
+            <AccessibilityItem 
+              label="Focus Management"
+              description="After error, move focus to error message or first error field"
+            />
+          </div>
+        </div>
+
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Lockout Countdown</h3>
+          </div>
+          <div className="p-6 space-y-3 text-sm">
+            <AccessibilityItem 
+              label="Large, High-Contrast Timer"
+              description="Use 3rem+ font size; minimum 4.5:1 contrast ratio for countdown"
+            />
+            <AccessibilityItem 
+              label="Descriptive Label"
+              description="'You can try again in: 12 minutes 34 seconds' - explicit context"
+            />
+            <AccessibilityItem 
+              label="Periodic Announcements"
+              description="Announce time remaining every 5 minutes for screen readers"
+            />
+            <AccessibilityItem 
+              label="Completion Notification"
+              description="When timer ends: 'Lockout period ended. You can now try again.'"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
+        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <Info size={20} className="text-purple-600" />
+          WCAG 3.3.1 Error Identification & 3.3.3 Error Suggestion
+        </h3>
+        <div className="space-y-2 text-sm text-gray-700">
+          <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Identify errors in text: 'Password is incorrect' (not just red border)" />
+          <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Suggest fixes: 'Try again or use Forgot Password to reset' (actionable guidance)" />
+          <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Don't block user completely: Always provide recovery path (phone, email, support)" />
+          <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Use clear, specific language: 'Account locked for 15 minutes' (not 'Access denied')" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== IMPLEMENTATION SECTION ====================
+
+function ImplementationSection() {
+  return (
+    <section id="implementation" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Implementation Notes</h2>
+      </div>
+
+      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+          <h3 className="font-bold text-gray-900">Technical Requirements</h3>
+        </div>
+        <div className="p-6 space-y-4 text-sm">
+          <ImplementationItem 
+            category="Failure Tracking"
+            requirements={[
+              "Store failed attempt count in database (keyed by account ID + IP)",
+              "Include timestamp of each failure for time-window calculations",
+              "Reset counter to 0 on successful authentication",
+              "Expire old failures after 24 hours (sliding window)",
+              "Track both per-account and per-IP to catch distributed attacks",
+              "Log all auth failures for security monitoring and incident response"
+            ]}
+          />
+          <ImplementationItem 
+            category="Lockout Enforcement"
+            requirements={[
+              "Check failure count before processing auth attempt",
+              "Return 429 Too Many Requests status code when locked",
+              "Include Retry-After header with seconds until unlock",
+              "Store lockout expiry timestamp in cache (Redis) for fast lookup",
+              "Send email/SMS notification on lockout trigger",
+              "Allow password reset to bypass lockout immediately"
+            ]}
+          />
+          <ImplementationItem 
+            category="Error Messaging"
+            requirements={[
+              "Never reveal whether username exists ('Invalid credentials' not 'User not found')",
+              "Use generic messages for security: 'Incorrect password' not 'No match for user@example.com'",
+              "Include attempt count: '2 attempts remaining' for user awareness",
+              "Provide clear next steps: 'Reset password' or 'Try again in 15 min'",
+              "Localize all error messages for regional languages",
+              "Log detailed error internally but show simplified version to user"
+            ]}
+          />
+          <ImplementationItem 
+            category="Security Logging & Alerts"
+            requirements={[
+              "Log every auth failure with: username, IP, timestamp, user-agent, failure reason",
+              "Alert security team on 10+ failures for same account in 1 hour",
+              "Monitor for distributed attacks: many IPs targeting same account",
+              "Track successful login after lockout (possible compromised account)",
+              "Integrate with SIEM for centralized security monitoring",
+              "Generate daily reports on lockout rate and top failed accounts"
+            ]}
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6">
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Code Example: Failure Tracking</h3>
+          </div>
+          <div className="p-6">
+            <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
+{`// Track auth failures
+async function recordFailure(
+  accountId, 
+  ipAddress
+) {
+  const key = \`auth_fail:\${accountId}\`;
+  
+  // Increment failure count
+  const failures = await redis.incr(key);
+  
+  // Set expiry (24 hour window)
+  if (failures === 1) {
+    await redis.expire(key, 86400);
+  }
+  
+  // Check lockout threshold
+  if (failures >= MAX_ATTEMPTS) {
+    const lockoutKey = 
+      \`lockout:\${accountId}\`;
+    const lockoutExpiry = 
+      LOCKOUT_MINUTES * 60;
+    
+    await redis.setex(
+      lockoutKey, 
+      lockoutExpiry, 
+      'locked'
+    );
+    
+    // Send notification
+    await sendLockoutAlert(
+      accountId, 
+      lockoutExpiry
+    );
+    
+    return { 
+      locked: true, 
+      retryAfter: lockoutExpiry 
+    };
+  }
+  
+  return { 
+    locked: false, 
+    attemptsRemaining: 
+      MAX_ATTEMPTS - failures 
+  };
+}`}
+            </pre>
+          </div>
+        </div>
+
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Code Example: Lockout Check</h3>
+          </div>
+          <div className="p-6">
+            <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
+{`// Check if account is locked
+async function isAccountLocked(
+  accountId
+) {
+  const lockoutKey = 
+    \`lockout:\${accountId}\`;
+  
+  const ttl = await redis.ttl(
+    lockoutKey
+  );
+  
+  if (ttl > 0) {
+    return {
+      locked: true,
+      retryAfterSeconds: ttl,
+      retryAfterMinutes: 
+        Math.ceil(ttl / 60),
+      message: 
+        'Account temporarily locked' +
+        ' after multiple failed ' +
+        'attempts. Try again in ' +
+        Math.ceil(ttl / 60) + 
+        ' minutes or reset ' +
+        'your password.'
+    };
+  }
+  
+  return { locked: false };
+}
+
+// API endpoint
+app.post('/api/auth/login', 
+  async (req, res) => {
+    const lockStatus = 
+      await isAccountLocked(
+        req.body.username
+      );
+    
+    if (lockStatus.locked) {
+      return res.status(429).json({
+        error: lockStatus.message,
+        retryAfter: 
+          lockStatus.retryAfterSeconds
+      });
+    }
+    
+    // Proceed with auth...
+  }
+);`}
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== GOVERNANCE SECTION ====================
+
+function GovernanceSection() {
+  return (
+    <section id="governance" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-[#000080] pl-4">
+        <h2 className="text-2xl font-bold text-gray-900">Governance & Lifecycle</h2>
+      </div>
+
+      <div className="grid grid-cols-3 gap-6">
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Lifecycle Status</h3>
+          </div>
+          <div className="p-6">
+            <div className="text-center mb-4">
+              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 font-bold">
+                STABLE
+              </div>
+            </div>
+            <div className="text-sm space-y-2">
+              <p className="text-gray-700"><strong>Version:</strong> 1.0.0</p>
+              <p className="text-gray-700"><strong>Released:</strong> April 2026</p>
+              <p className="text-gray-700"><strong>Last Updated:</strong> April 2026</p>
+              <p className="text-gray-700"><strong>Next Review:</strong> October 2026</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Security Level</h3>
+          </div>
+          <div className="p-6">
+            <div className="text-center mb-4">
+              <div className="inline-block px-6 py-3 bg-red-100 border-2 border-red-300 rounded text-red-800 font-bold text-sm">
+                SECURITY CRITICAL
+              </div>
+            </div>
+            <div className="text-sm space-y-2 text-gray-700">
+              <p>Error handling is a security control. Policy changes require security review and approval.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+            <h3 className="font-bold text-gray-900">Pattern Owner</h3>
+          </div>
+          <div className="p-6 text-sm space-y-3">
+            <div>
+              <p className="font-bold text-gray-900">Team:</p>
+              <p className="text-gray-700">Security & Identity</p>
+            </div>
+            <div>
+              <p className="font-bold text-gray-900">Contact:</p>
+              <p className="text-gray-700">auth-errors@ux4g.gov.in</p>
+            </div>
+            <div>
+              <p className="font-bold text-gray-900">Review Cycle:</p>
+              <p className="text-gray-700">Bi-annual</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <Info size={20} className="text-yellow-600" />
+          Implementation Checklist
+        </h3>
+        <div className="grid grid-cols-2 gap-6 text-sm">
+          <div>
+            <p className="font-bold text-gray-900 mb-2">Before Launch:</p>
+            <ul className="space-y-1 text-gray-700 ml-4">
+              <li>☐ Lockout thresholds configured and security-approved</li>
+              <li>☐ Failure tracking implemented (per-account + per-IP)</li>
+              <li>☐ Error messages use plain language and provide next steps</li>
+              <li>☐ Recovery paths available for all error states</li>
+              <li>☐ Support contact info displayed on lockout screens</li>
+              <li>☐ Logging and alerting configured for security team</li>
+              <li>☐ WCAG 3.3.1 and 3.3.3 compliance validated</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-bold text-gray-900 mb-2">Ongoing Monitoring:</p>
+            <ul className="space-y-1 text-gray-700 ml-4">
+              <li>☐ Track lockout rate and user impact metrics</li>
+              <li>☐ Monitor support tickets related to auth errors</li>
+              <li>☐ Review security logs for attack patterns weekly</li>
+              <li>☐ Analyze false-positive lockouts (legit users blocked)</li>
+              <li>☐ Test error states on different devices/browsers</li>
+              <li>☐ Quarterly security review of lockout effectiveness</li>
+              <li>☐ Update thresholds based on threat landscape</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <HelpCircle size={20} className="text-blue-600" />
+          Support & Escalation
+        </h3>
+        <div className="grid grid-cols-2 gap-6 text-sm">
+          <div>
+            <p className="font-bold text-gray-900 mb-2">For Technical Implementation:</p>
+            <ul className="space-y-1 text-gray-700 ml-4">
+              <li>• Email: auth-tech@ux4g.gov.in</li>
+              <li>• Slack: #auth-error-support</li>
+              <li>• Response: 4 hours (business hours)</li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-bold text-gray-900 mb-2">For Security Review:</p>
+            <ul className="space-y-1 text-gray-700 ml-4">
+              <li>• Email: security@ux4g.gov.in</li>
+              <li>• Security approval required for policy changes</li>
+              <li>• Response: 48 hours</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==================== SIDEBAR COMPONENTS ====================
+
+function QuickReference() {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+      </div>
+      <div className="p-4 text-xs space-y-3">
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Max Password Attempts</p>
+          <p className="text-gray-700">3 failures</p>
+        </div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Lockout Duration</p>
+          <p className="text-gray-700">15 minutes</p>
+        </div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Max OTP Attempts</p>
+          <p className="text-gray-700">5 failures</p>
+        </div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Generic Error Message</p>
+          <p className="text-gray-700">"Invalid credentials"</p>
+        </div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">WCAG Compliance</p>
+          <p className="text-gray-700">3.3.1, 3.3.3 (Level A)</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RelatedPatterns() {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+      </div>
+      <div className="p-4 space-y-2 text-xs">
+        <RelatedPatternLink to="/patterns/identity/sign-in" text="Sign In Pattern" />
+        <RelatedPatternLink to="/patterns/identity/forgot-password" text="Forgot Password" />
+        <RelatedPatternLink to="/patterns/identity/otp-verification" text="OTP Verification" />
+        <RelatedPatternLink to="/patterns/identity/account-recovery" text="Account Recovery" />
+        <RelatedPatternLink to="/patterns/identity/session-timeout" text="Session Timeout" />
+      </div>
+    </div>
+  );
+}
+
+function InteractiveDemo() {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+        <h3 className="font-bold text-gray-900 text-sm">Interactive Demo</h3>
+      </div>
+      <div className="p-4">
+        <Link 
+          to="/patterns/identity/auth-error"
+          className="block p-3 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+        >
+          <div className="flex items-center gap-2 mb-1">
+            <Eye size={16} className="text-[#000080]" />
+            <span className="font-bold text-sm text-gray-900">View Live Demo</span>
+          </div>
+          <p className="text-xs text-gray-600">Error & lockout states</p>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function Resources() {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+        <h3 className="font-bold text-gray-900 text-sm">Resources</h3>
+      </div>
+      <div className="p-4 space-y-2 text-xs">
+        <ResourceLink text="OWASP Auth Security Guide" />
+        <ResourceLink text="WCAG 3.3 Error Handling" />
+        <ResourceLink text="Brute-Force Protection" />
+        <ResourceLink text="Security Logging Best Practices" />
+        <ResourceLink text="User Testing: Error Messages" />
+      </div>
+    </div>
+  );
+}
+
+// ==================== HELPER COMPONENTS ====================
+
+function InfoItem({ icon, text }: { icon: React.ReactNode; text: string }) {
+  return (
+    <div className="flex items-start gap-2">
+      {icon}
+      <span className="text-xs text-gray-700 flex-1">{text}</span>
+    </div>
+  );
+}
+
+function GoalItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-2">
+      <CheckCircle size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
+      <span className="text-sm text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+function WhenItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-2">
+      <ChevronRight size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
+      <span className="text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+function WhenNotItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-2">
+      <ChevronRight size={14} className="text-red-600 flex-shrink-0 mt-0.5" />
+      <span className="text-gray-700">{text}</span>
+    </div>
+  );
+}
+
+function ErrorType({ title, severity, examples, userMessage, nextSteps }: {
+  title: string;
+  severity: string;
+  examples: string[];
+  userMessage: string;
+  nextSteps: string[];
+}) {
+  const severityColor = severity === 'Critical' ? 'bg-red-100 text-red-800 border-red-300' :
+                        severity === 'High' ? 'bg-orange-100 text-orange-800 border-orange-300' :
+                        severity === 'Medium' ? 'bg-yellow-100 text-yellow-800 border-yellow-300' :
+                        'bg-blue-100 text-blue-800 border-blue-300';
+  
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
+        <div className="flex items-center justify-between mb-2">
+          <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
+          <span className={`text-xs px-2 py-1 border rounded font-bold ${severityColor}`}>
+            {severity}
+          </span>
+        </div>
+      </div>
+      <div className="p-4 text-xs space-y-3">
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Examples:</p>
+          <ul className="space-y-1 text-gray-700 ml-4">
+            {examples.map((ex, i) => (
+              <li key={i}>• {ex}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="bg-blue-50 border border-blue-200 rounded p-2">
+          <p className="font-bold text-gray-900 mb-1">User Message:</p>
+          <p className="text-gray-700 italic">"{userMessage}"</p>
+        </div>
+        <div>
+          <p className="font-bold text-gray-900 mb-1">Next Steps:</p>
+          <ul className="space-y-1 text-gray-700 ml-4">
+            {nextSteps.map((step, i) => (
+              <li key={i}>• {step}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FlowStep({ number, title, description, state, branches, variant }: { 
+  number: number | string; 
+  title: string; 
+  description: string; 
+  state: string;
+  branches?: boolean;
+  variant?: 'success' | 'error' | 'warning';
+}) {
+  const bgColor = variant === 'success' ? 'bg-green-50' : 
+                  variant === 'error' ? 'bg-red-50' :
+                  variant === 'warning' ? 'bg-orange-50' : 'bg-gray-50';
+  const borderColor = variant === 'success' ? 'border-green-300' : 
+                      variant === 'error' ? 'border-red-300' :
+                      variant === 'warning' ? 'border-orange-300' : 'border-gray-300';
+  
+  return (
+    <div className={`${bgColor} border-2 ${borderColor} rounded-lg p-4`}>
+      <div className="flex items-start gap-4">
+        <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
+          {number}
+        </div>
+        <div className="flex-1">
+          <div className="flex items-center justify-between mb-2">
+            <h4 className="font-bold text-gray-900">{title}</h4>
+            <span className="text-xs font-bold text-gray-600 px-2 py-1 bg-white border border-gray-300 rounded">
+              {state}
+            </span>
+          </div>
+          <p className="text-sm text-gray-700">{description}</p>
+          {branches && (
+            <div className="mt-2 text-xs text-gray-600 flex items-center gap-2">
+              <ArrowRight size={14} />
+              <span>Branches based on result</span>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ScreenExample({ title, variant, children }: { 
+  title: string;
+  variant: 'default' | 'error' | 'warning' | 'success' | 'info';
+  children: React.ReactNode;
+}) {
+  const headerColor = variant === 'error' ? 'bg-red-50 border-red-200' :
+                      variant === 'warning' ? 'bg-yellow-50 border-yellow-200' :
+                      variant === 'success' ? 'bg-green-50 border-green-200' :
+                      variant === 'info' ? 'bg-blue-50 border-blue-200' :
+                      'bg-blue-50 border-blue-200';
+  
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className={`${headerColor} border-b-2 px-6 py-4`}>
+        <h3 className="font-bold text-gray-900">{title}</h3>
+      </div>
+      <div className="p-6">
+        <div className="bg-gray-50 border-2 border-gray-300 rounded p-6">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DelayRule({ attempt, action, delay }: { attempt: string; action: string; delay: string }) {
+  return (
+    <div className="flex items-center justify-between border-b border-gray-300 pb-2">
+      <div className="flex-1">
+        <p className="font-bold text-gray-900">{attempt}</p>
+        <p className="text-gray-700">{action}</p>
+      </div>
+      <span className="text-[#000080] font-bold">{delay}</span>
+    </div>
+  );
+}
+
+function TrackingRule({ scope, description, recommended }: { scope: string; description: string; recommended: boolean }) {
+  return (
+    <div className="flex items-start gap-2">
+      {recommended ? (
+        <CheckCircle size={16} className="text-green-600 mt-0.5" />
+      ) : (
+        <Info size={16} className="text-gray-400 mt-0.5" />
+      )}
+      <div className="flex-1">
+        <p className="font-bold text-gray-900">{scope}</p>
+        <p className="text-gray-700">{description}</p>
+      </div>
+    </div>
+  );
+}
+
+function RecoveryPath({ title, icon, options, timeline }: { 
+  title: string; 
+  icon: React.ReactNode; 
+  options: string[];
+  timeline: string;
+}) {
+  return (
+    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+        <div className="flex items-center gap-2 mb-1">
+          {icon}
+          <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
+        </div>
+      </div>
+      <div className="p-4">
+        <ul className="space-y-2 text-xs text-gray-700 mb-3">
+          {options.map((option, i) => (
+            <li key={i} className="flex items-start gap-2">
+              <ArrowRight size={12} className="text-[#000080] mt-0.5" />
+              <span>{option}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="pt-3 border-t border-gray-300 text-xs text-gray-600">
+          <p><strong>Timeline:</strong> {timeline}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AccessibilityItem({ label, description }: { label: string; description: string }) {
+  return (
+    <div>
+      <p className="font-bold text-gray-900 mb-1">{label}</p>
+      <p className="text-gray-700">{description}</p>
+    </div>
+  );
+}
+
+function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
+  return (
+    <div>
+      <h4 className="font-bold text-gray-900 mb-2">{category}</h4>
+      <ul className="space-y-1 ml-4">
+        {requirements.map((req, index) => (
+          <li key={index} className="text-gray-700 flex items-start gap-2">
+            <span className="text-[#000080] font-bold">•</span>
+            <span>{req}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function RelatedPatternLink({ to, text }: { to: string; text: string }) {
+  return (
+    <Link to={to} className="block p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+      <div className="flex items-center gap-2">
+        <ArrowRight size={12} className="text-[#000080]" />
+        <span className="text-gray-900">{text}</span>
+      </div>
+    </Link>
+  );
+}
+
+function ResourceLink({ text }: { text: string }) {
+  return (
+    <a href="#" className="flex items-center gap-2 p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-gray-900">
+      <ArrowRight size={12} className="text-[#000080]" />
+      <span className="text-xs">{text}</span>
+    </a>
+  );
+}

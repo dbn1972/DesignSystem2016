@@ -1,0 +1,209 @@
+/**
+ * UX4G Dialog Component Styles
+ * Imports base dialog styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/dialog.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-dialog {
+  display: contents;
+}
+
+ux4g-dialog-content,
+ux4g-dialog-footer {
+  display: block;
+}
+
+/**
+ * Overlay
+ */
+.ux4g-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: var(--ux4g-spacing-4, 1rem);
+  overflow-y: auto;
+}
+
+.ux4g-dialog-overlay--no-backdrop {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.ux4g-dialog-overlay--no-backdrop .ux4g-dialog {
+  pointer-events: all;
+}
+
+/**
+ * Dialog
+ */
+.ux4g-dialog {
+  position: relative;
+  background-color: var(--ux4g-color-background, #fff);
+  border-radius: var(--ux4g-radius-lg, 0.5rem);
+  box-shadow: var(--ux4g-shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04));
+  max-height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/**
+ * Size variants
+ */
+.ux4g-dialog--sm {
+  width: 100%;
+  max-width: 400px;
+}
+
+.ux4g-dialog--md {
+  width: 100%;
+  max-width: 600px;
+}
+
+.ux4g-dialog--lg {
+  width: 100%;
+  max-width: 800px;
+}
+
+/**
+ * Header
+ */
+.ux4g-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ux4g-spacing-6, 1.5rem);
+  border-bottom: 1px solid var(--ux4g-color-border, #e5e7eb);
+  flex-shrink: 0;
+}
+
+.ux4g-dialog__title {
+  margin: 0;
+  font-size: var(--ux4g-font-size-xl, 1.25rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: var(--ux4g-color-text, #1f2937);
+  line-height: var(--ux4g-line-height-tight, 1.25);
+}
+
+.ux4g-dialog__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  flex-shrink: 0;
+  margin-left: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-dialog__close:hover {
+  background-color: var(--ux4g-color-gray-100, #f3f4f6);
+  color: var(--ux4g-color-text, #1f2937);
+}
+
+.ux4g-dialog__close:focus {
+  outline: 2px solid var(--ux4g-color-focus, #3b82f6);
+  outline-offset: 2px;
+}
+
+/**
+ * Body
+ */
+.ux4g-dialog__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--ux4g-spacing-6, 1.5rem);
+}
+
+/**
+ * Content section
+ */
+.ux4g-dialog__content {
+  color: var(--ux4g-color-text, #1f2937);
+  font-size: var(--ux4g-font-size-base, 1rem);
+  line-height: var(--ux4g-line-height-base, 1.5);
+}
+
+/**
+ * Footer section
+ */
+.ux4g-dialog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+  padding: var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-6, 1.5rem);
+  border-top: 1px solid var(--ux4g-color-border, #e5e7eb);
+  background-color: var(--ux4g-color-gray-50, #f9fafb);
+  flex-shrink: 0;
+}
+
+/**
+ * Animations
+ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ux4g-dialog-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.ux4g-dialog {
+  animation: slideIn 0.2s ease-out;
+}
+
+/**
+ * Responsive
+ */
+@media (max-width: 640px) {
+  .ux4g-dialog {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .ux4g-dialog--sm,
+  .ux4g-dialog--md,
+  .ux4g-dialog--lg {
+    max-width: 100%;
+  }
+
+  .ux4g-dialog-overlay {
+    padding: 0;
+  }
+}

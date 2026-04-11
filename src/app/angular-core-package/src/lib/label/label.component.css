@@ -1,0 +1,58 @@
+/**
+ * UX4G Label Component Styles
+ */
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-label {
+  display: inline-block;
+}
+
+.ux4g-label {
+  display: inline-block;
+  color: var(--ux4g-color-text, #1f2937);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  line-height: var(--ux4g-line-height-base, 1.5);
+  margin-bottom: var(--ux4g-spacing-1, 0.25rem);
+  cursor: pointer;
+}
+
+.ux4g-label--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/**
+ * Size variants
+ */
+.ux4g-label--sm {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+}
+
+.ux4g-label--md {
+  font-size: var(--ux4g-font-size-base, 1rem);
+}
+
+.ux4g-label--lg {
+  font-size: var(--ux4g-font-size-lg, 1.125rem);
+}
+
+/**
+ * Required indicator
+ */
+.ux4g-label__required {
+  color: var(--ux4g-color-error, #dc2626);
+  margin-left: 0.25rem;
+  font-weight: var(--ux4g-font-weight-normal, 400);
+}
+
+/**
+ * Optional indicator
+ */
+.ux4g-label__optional {
+  color: var(--ux4g-color-text-secondary, #6b7280);
+  margin-left: 0.5rem;
+  font-size: 0.875em;
+  font-weight: var(--ux4g-font-weight-normal, 400);
+}

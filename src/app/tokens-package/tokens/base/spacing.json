@@ -1,0 +1,70 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "spacing": {
+      "$type": "dimension",
+      "0": { "value": "0px", "description": "Zero spacing" },
+      "px": { "value": "1px", "description": "1px hairline" },
+      "0.5": { "value": "0.125rem", "description": "2px - Micro spacing" },
+      "1": { "value": "0.25rem", "description": "4px - Extra tight" },
+      "1.5": { "value": "0.375rem", "description": "6px - Tight" },
+      "2": { "value": "0.5rem", "description": "8px - Base tight spacing" },
+      "2.5": { "value": "0.625rem", "description": "10px" },
+      "3": { "value": "0.75rem", "description": "12px - Small spacing" },
+      "3.5": { "value": "0.875rem", "description": "14px" },
+      "4": { "value": "1rem", "description": "16px - Base spacing unit" },
+      "5": { "value": "1.25rem", "description": "20px" },
+      "6": { "value": "1.5rem", "description": "24px - Medium spacing" },
+      "7": { "value": "1.75rem", "description": "28px" },
+      "8": { "value": "2rem", "description": "32px - Large spacing" },
+      "9": { "value": "2.25rem", "description": "36px" },
+      "10": { "value": "2.5rem", "description": "40px" },
+      "11": { "value": "2.75rem", "description": "44px" },
+      "12": { "value": "3rem", "description": "48px - XL spacing" },
+      "14": { "value": "3.5rem", "description": "56px" },
+      "16": { "value": "4rem", "description": "64px - XXL spacing" },
+      "20": { "value": "5rem", "description": "80px - Section spacing" },
+      "24": { "value": "6rem", "description": "96px" },
+      "28": { "value": "7rem", "description": "112px" },
+      "32": { "value": "8rem", "description": "128px - Large section" },
+      "36": { "value": "9rem", "description": "144px" },
+      "40": { "value": "10rem", "description": "160px" },
+      "44": { "value": "11rem", "description": "176px" },
+      "48": { "value": "12rem", "description": "192px - Page section" },
+      "52": { "value": "13rem", "description": "208px" },
+      "56": { "value": "14rem", "description": "224px" },
+      "60": { "value": "15rem", "description": "240px" },
+      "64": { "value": "16rem", "description": "256px - Hero section" },
+      "72": { "value": "18rem", "description": "288px" },
+      "80": { "value": "20rem", "description": "320px" },
+      "96": { "value": "24rem", "description": "384px - Extra large section" }
+    },
+    "inset": {
+      "$type": "dimension",
+      "description": "Consistent padding for containers and components",
+      "xs": { "value": "0.5rem", "description": "8px - Extra small inset" },
+      "sm": { "value": "0.75rem", "description": "12px - Small inset" },
+      "base": { "value": "1rem", "description": "16px - Base inset" },
+      "md": { "value": "1.5rem", "description": "24px - Medium inset" },
+      "lg": { "value": "2rem", "description": "32px - Large inset" },
+      "xl": { "value": "3rem", "description": "48px - XL inset" },
+      "2xl": { "value": "4rem", "description": "64px - XXL inset" }
+    },
+    "stack": {
+      "$type": "dimension",
+      "description": "Vertical rhythm for stacked elements",
+      "tight": { "value": "0.5rem", "description": "8px - Tight stack" },
+      "base": { "value": "1rem", "description": "16px - Base stack" },
+      "relaxed": { "value": "1.5rem", "description": "24px - Relaxed stack" },
+      "loose": { "value": "2rem", "description": "32px - Loose stack" }
+    },
+    "inline": {
+      "$type": "dimension",
+      "description": "Horizontal spacing for inline elements",
+      "tight": { "value": "0.5rem", "description": "8px - Tight inline" },
+      "base": { "value": "1rem", "description": "16px - Base inline" },
+      "relaxed": { "value": "1.5rem", "description": "24px - Relaxed inline" },
+      "loose": { "value": "2rem", "description": "32px - Loose inline" }
+    }
+  }
+}

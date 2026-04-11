@@ -1,0 +1,153 @@
+/**
+ * UX4G Status Tag Component Styles
+ * Imports base status-tag styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/status-tag.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-status-tag {
+  display: inline-flex;
+}
+
+.ux4g-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-1-5, 0.375rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+/**
+ * Sizes
+ */
+.ux4g-status-tag--sm {
+  padding: 0.125rem 0.5rem;
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+  line-height: 1.25rem;
+}
+
+.ux4g-status-tag--md {
+  padding: 0.25rem 0.75rem;
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  line-height: 1.25rem;
+}
+
+.ux4g-status-tag--lg {
+  padding: 0.375rem 0.875rem;
+  font-size: var(--ux4g-font-size-base, 1rem);
+  line-height: 1.5rem;
+}
+
+/**
+ * Status colors
+ */
+.ux4g-status-tag--active {
+  background-color: var(--ux4g-color-success-50, #f0fdf4);
+  color: var(--ux4g-color-success-700, #15803d);
+  border-color: var(--ux4g-color-success-200, #bbf7d0);
+}
+
+.ux4g-status-tag--inactive {
+  background-color: var(--ux4g-color-gray-100, #f3f4f6);
+  color: var(--ux4g-color-gray-700, #374151);
+  border-color: var(--ux4g-color-gray-300, #d1d5db);
+}
+
+.ux4g-status-tag--pending {
+  background-color: var(--ux4g-color-warning-50, #fffbeb);
+  color: var(--ux4g-color-warning-700, #b45309);
+  border-color: var(--ux4g-color-warning-200, #fde68a);
+}
+
+.ux4g-status-tag--approved {
+  background-color: var(--ux4g-color-success-50, #f0fdf4);
+  color: var(--ux4g-color-success-700, #15803d);
+  border-color: var(--ux4g-color-success-200, #bbf7d0);
+}
+
+.ux4g-status-tag--rejected {
+  background-color: var(--ux4g-color-error-50, #fef2f2);
+  color: var(--ux4g-color-error-700, #b91c1c);
+  border-color: var(--ux4g-color-error-200, #fecaca);
+}
+
+.ux4g-status-tag--draft {
+  background-color: var(--ux4g-color-gray-100, #f3f4f6);
+  color: var(--ux4g-color-gray-600, #4b5563);
+  border-color: var(--ux4g-color-gray-300, #d1d5db);
+}
+
+.ux4g-status-tag--published {
+  background-color: var(--ux4g-color-primary-50, #eff6ff);
+  color: var(--ux4g-color-primary-700, #1d4ed8);
+  border-color: var(--ux4g-color-primary-200, #bfdbfe);
+}
+
+.ux4g-status-tag--archived {
+  background-color: var(--ux4g-color-gray-100, #f3f4f6);
+  color: var(--ux4g-color-gray-500, #6b7280);
+  border-color: var(--ux4g-color-gray-300, #d1d5db);
+}
+
+.ux4g-status-tag--processing {
+  background-color: var(--ux4g-color-info-50, #eff6ff);
+  color: var(--ux4g-color-info-700, #1d4ed8);
+  border-color: var(--ux4g-color-info-200, #bfdbfe);
+}
+
+.ux4g-status-tag--completed {
+  background-color: var(--ux4g-color-success-50, #f0fdf4);
+  color: var(--ux4g-color-success-700, #15803d);
+  border-color: var(--ux4g-color-success-200, #bbf7d0);
+}
+
+.ux4g-status-tag--failed {
+  background-color: var(--ux4g-color-error-50, #fef2f2);
+  color: var(--ux4g-color-error-700, #b91c1c);
+  border-color: var(--ux4g-color-error-200, #fecaca);
+}
+
+.ux4g-status-tag--cancelled {
+  background-color: var(--ux4g-color-gray-100, #f3f4f6);
+  color: var(--ux4g-color-gray-600, #4b5563);
+  border-color: var(--ux4g-color-gray-300, #d1d5db);
+}
+
+/**
+ * Dot variant
+ */
+.ux4g-status-tag__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--ux4g-radius-full, 9999px);
+  background-color: currentColor;
+}
+
+.ux4g-status-tag--sm .ux4g-status-tag__dot {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+.ux4g-status-tag--lg .ux4g-status-tag__dot {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+/**
+ * Pill variant
+ */
+.ux4g-status-tag--pill {
+  border-radius: var(--ux4g-radius-full, 9999px);
+}
+
+/**
+ * Label
+ */
+.ux4g-status-tag__label {
+  line-height: 1;
+}

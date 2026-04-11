@@ -1,0 +1,86 @@
+{
+  "name": "@ux4g/react-patterns",
+  "version": "1.0.0",
+  "description": "Reusable React patterns for common government service flows in the UX4G Design System",
+  "keywords": [
+    "ux4g",
+    "react",
+    "patterns",
+    "government",
+    "india",
+    "design-system",
+    "authentication",
+    "forms",
+    "flows"
+  ],
+  "author": "UX4G Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ux4g/react-patterns"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./authentication": {
+      "types": "./dist/authentication/index.d.ts",
+      "import": "./dist/authentication/index.mjs",
+      "require": "./dist/authentication/index.js"
+    },
+    "./forms": {
+      "types": "./dist/forms/index.d.ts",
+      "import": "./dist/forms/index.mjs",
+      "require": "./dist/forms/index.js"
+    },
+    "./submission": {
+      "types": "./dist/submission/index.d.ts",
+      "import": "./dist/submission/index.mjs",
+      "require": "./dist/submission/index.js"
+    },
+    "./tracking": {
+      "types": "./dist/tracking/index.d.ts",
+      "import": "./dist/tracking/index.mjs",
+      "require": "./dist/tracking/index.js"
+    },
+    "./payment": {
+      "types": "./dist/payment/index.d.ts",
+      "import": "./dist/payment/index.mjs",
+      "require": "./dist/payment/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@ux4g/react-core": "^1.0.0",
+    "@ux4g/tokens": "^1.0.0",
+    "@ux4g/styles": "^1.0.0",
+    "clsx": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.4.0",
+    "tsup": "^8.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -1,0 +1,84 @@
+/**
+ * CSS Examples using @ux4g/tokens
+ * Import: @import '@ux4g/tokens/css';
+ */
+
+/* Button Components */
+.btn {
+  padding: var(--ux4g-semantic-space-button-padding-y) 
+           var(--ux4g-semantic-space-button-padding-x);
+  border-radius: var(--ux4g-radius-base);
+  font-weight: var(--ux4g-typography-fontWeight-semibold);
+  font-size: var(--ux4g-typography-fontSize-base);
+  border: none;
+  cursor: pointer;
+  transition: all var(--ux4g-motion-duration-base);
+}
+
+.btn-primary {
+  background: var(--ux4g-semantic-color-interactive-default);
+  color: var(--ux4g-semantic-color-text-inverse);
+}
+
+.btn-primary:hover {
+  background: var(--ux4g-semantic-color-interactive-hover);
+}
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: var(--ux4g-shadow-focus);
+}
+
+/* Card Component */
+.card {
+  background: var(--ux4g-semantic-color-background-primary);
+  border: 1px solid var(--ux4g-semantic-color-border-default);
+  border-radius: var(--ux4g-radius-lg);
+  padding: var(--ux4g-semantic-space-card-padding);
+  box-shadow: var(--ux4g-shadow-base);
+}
+
+.card-title {
+  font-size: var(--ux4g-semantic-typography-heading-h3-size);
+  font-weight: var(--ux4g-semantic-typography-heading-h3-weight);
+  margin-bottom: var(--ux4g-semantic-space-card-gap);
+}
+
+/* Input Component */
+.input {
+  padding: var(--ux4g-semantic-space-input-padding-y) 
+           var(--ux4g-semantic-space-input-padding-x);
+  border: 1px solid var(--ux4g-semantic-color-border-default);
+  border-radius: var(--ux4g-radius-base);
+  font-size: var(--ux4g-typography-fontSize-base);
+  transition: border-color var(--ux4g-motion-duration-fast);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--ux4g-semantic-color-border-focus);
+  box-shadow: var(--ux4g-shadow-focus);
+}
+
+.input.error {
+  border-color: var(--ux4g-semantic-color-error);
+}
+
+/* Alert Component */
+.alert {
+  padding: var(--ux4g-spacing-4);
+  border-radius: var(--ux4g-radius-base);
+  border-left: 4px solid;
+}
+
+.alert-success {
+  background: var(--ux4g-color-base-green-50);
+  border-color: var(--ux4g-semantic-color-success);
+  color: var(--ux4g-color-base-green-700);
+}
+
+.alert-error {
+  background: #fef2f2;
+  border-color: var(--ux4g-semantic-color-error);
+  color: var(--ux4g-semantic-color-error);
+}

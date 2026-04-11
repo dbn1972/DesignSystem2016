@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "./dist",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "flatModuleFile": "ux4g-angular-core",
+    "umdModuleIds": {
+      "@ux4g/tokens": "@ux4g/tokens",
+      "@ux4g/styles": "@ux4g/styles"
+    }
+  },
+  "allowedNonPeerDependencies": [
+    "@ux4g/tokens",
+    "@ux4g/styles",
+    "tslib"
+  ]
+}

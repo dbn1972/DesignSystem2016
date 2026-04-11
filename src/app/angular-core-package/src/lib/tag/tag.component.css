@@ -1,0 +1,171 @@
+/**
+ * UX4G Tag Component Styles
+ * Imports base tag styles from @ux4g/styles
+ */
+
+@import '@ux4g/styles/components/tag.css';
+
+/**
+ * Angular-specific adjustments
+ */
+ux4g-tag {
+  display: inline-flex;
+}
+
+.ux4g-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+/**
+ * Sizes
+ */
+.ux4g-tag--sm {
+  padding: 0.125rem 0.5rem;
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+  line-height: 1.25rem;
+}
+
+.ux4g-tag--md {
+  padding: 0.25rem 0.75rem;
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  line-height: 1.25rem;
+}
+
+.ux4g-tag--lg {
+  padding: 0.375rem 0.875rem;
+  font-size: var(--ux4g-font-size-base, 1rem);
+  line-height: 1.5rem;
+}
+
+/**
+ * Variants
+ */
+.ux4g-tag--default {
+  background-color: var(--ux4g-color-gray-100, #f3f4f6);
+  color: var(--ux4g-color-gray-800, #1f2937);
+  border-color: var(--ux4g-color-gray-300, #d1d5db);
+}
+
+.ux4g-tag--primary {
+  background-color: var(--ux4g-color-primary-50, #eff6ff);
+  color: var(--ux4g-color-primary-700, #1d4ed8);
+  border-color: var(--ux4g-color-primary-200, #bfdbfe);
+}
+
+.ux4g-tag--success {
+  background-color: var(--ux4g-color-success-50, #f0fdf4);
+  color: var(--ux4g-color-success-700, #15803d);
+  border-color: var(--ux4g-color-success-200, #bbf7d0);
+}
+
+.ux4g-tag--warning {
+  background-color: var(--ux4g-color-warning-50, #fffbeb);
+  color: var(--ux4g-color-warning-700, #b45309);
+  border-color: var(--ux4g-color-warning-200, #fde68a);
+}
+
+.ux4g-tag--error {
+  background-color: var(--ux4g-color-error-50, #fef2f2);
+  color: var(--ux4g-color-error-700, #b91c1c);
+  border-color: var(--ux4g-color-error-200, #fecaca);
+}
+
+.ux4g-tag--info {
+  background-color: var(--ux4g-color-info-50, #eff6ff);
+  color: var(--ux4g-color-info-700, #1d4ed8);
+  border-color: var(--ux4g-color-info-200, #bfdbfe);
+}
+
+/**
+ * Icon
+ */
+.ux4g-tag__icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1em;
+}
+
+/**
+ * Content
+ */
+.ux4g-tag__content {
+  line-height: 1;
+}
+
+/**
+ * Remove button
+ */
+.ux4g-tag__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-left: var(--ux4g-spacing-1, 0.25rem);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: currentColor;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+}
+
+.ux4g-tag__remove:hover {
+  opacity: 1;
+}
+
+.ux4g-tag__remove:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+.ux4g-tag__remove svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.ux4g-tag--sm .ux4g-tag__remove svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.ux4g-tag--lg .ux4g-tag__remove svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/**
+ * Disabled state
+ */
+.ux4g-tag--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ux4g-tag--disabled .ux4g-tag__remove {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/**
+ * Removable state
+ */
+.ux4g-tag--removable {
+  padding-right: 0.375rem;
+}
+
+.ux4g-tag--removable.ux4g-tag--sm {
+  padding-right: 0.25rem;
+}
+
+.ux4g-tag--removable.ux4g-tag--lg {
+  padding-right: 0.5rem;
+}
