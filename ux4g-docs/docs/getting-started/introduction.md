@@ -119,9 +119,9 @@ Ready to get started? Here's what to do next:
 
 1. [Install UX4G](/getting-started/installation) in your project
 2. Follow the [Quick Start Guide](/getting-started/quick-start)
-3. Explore [Components](/components) and [Patterns](/patterns)
-4. Check out the [Storybook](/storybook) for live examples
+3. Explore [Components](https://ux4g.gov.in/components) and [Patterns](https://ux4g.gov.in/patterns)
+4. Check out the [Storybook](https://ux4g.gov.in/storybook) for live examples
 
 ---
 
-**Questions?** Check our [FAQs](/resources/faqs) or [open an issue on GitHub](https://github.com/ux4g/ux4g/issues).
+**Questions?** Check our [FAQs](https://ux4g.gov.in/resources/faqs) or [open an issue on GitHub](https://github.com/ux4g/ux4g/issues).

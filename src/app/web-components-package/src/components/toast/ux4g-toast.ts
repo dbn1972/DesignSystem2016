@@ -3,13 +3,14 @@
  * 
  * @element ux4g-toast
  * 
- * @attr {string} variant - Toast variant: info, success, warning, danger
+ * @attr {string} variant - Toast variant: info, success, warning, error
  * @attr {string} position - Toast position: top-left, top-center, top-right, bottom-left, bottom-center, bottom-right
  * @attr {number} duration - Auto-dismiss duration in milliseconds (0 = no auto-dismiss)
  * @attr {boolean} dismissible - Show close button
  * @attr {string} title - Toast title
  * 
- * @fires ux4g-toast-close - Fired when toast is closed
+ * @fires ux4g-dismiss - Fired when toast is dismissed
+ * @fires ux4g-toast-close - Deprecated legacy alias for ux4g-dismiss
  * 
  * @example
  * ```html
@@ -20,6 +21,10 @@
  */
 
 import { UX4GElement } from '../../base/UX4GElement';
+import {
+  COMPONENT_EVENTS,
+  normalizeStatusVariant
+} from '../../component-contract';
 
 export class UX4GToast extends UX4GElement {
   static get observedAttributes() {
@@ -44,7 +49,7 @@ export class UX4GToast extends UX4GElement {
   }
 
   protected render(): void {
-    const variant = this.getAttributeOrDefault('variant', 'info');
+    const variant = normalizeStatusVariant(this.getAttribute('variant'));
     const position = this.getAttributeOrDefault('position', 'top-right');
     const dismissible = this.getBooleanAttribute('dismissible');
     const title = this.getAttribute('title');
@@ -62,7 +67,7 @@ export class UX4GToast extends UX4GElement {
     ].filter(Boolean));
 
     toast.setAttribute('role', 'alert');
-    toast.setAttribute('aria-live', variant === 'danger' ? 'assertive' : 'polite');
+    toast.setAttribute('aria-live', variant === 'error' ? 'assertive' : 'polite');
 
     // Icon
     const icon = this.createElement('div', ['ux4g-toast-icon']);
@@ -102,7 +107,7 @@ export class UX4GToast extends UX4GElement {
     const icons: Record<string, string> = {
       success: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>',
       warning: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>',
-      danger: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>',
+      error: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>',
       info: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>',
     };
     return icons[variant] || icons.info;
@@ -139,6 +144,7 @@ export class UX4GToast extends UX4GElement {
   close(): void {
     this.setBooleanAttribute('visible', false);
     this.clearDismissTimer();
+    this.dispatchCustomEvent(COMPONENT_EVENTS.dismiss);
     this.dispatchCustomEvent('ux4g-toast-close');
   }
 
@@ -150,7 +156,7 @@ export class UX4GToast extends UX4GElement {
   }
 
   get variant(): string {
-    return this.getAttributeOrDefault('variant', 'info');
+    return normalizeStatusVariant(this.getAttribute('variant'));
   }
 }
 

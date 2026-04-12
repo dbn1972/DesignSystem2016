@@ -15,6 +15,15 @@
 import React, { forwardRef, useEffect, useRef } from 'react';
 import { cn } from '../../utils/cn';
 import { CheckboxProps } from './Checkbox.types';
+import { useFieldContext } from '../Field/Field.context';
+
+function mergeDescribedBy(...values: Array<string | undefined>): string | undefined {
+  const merged = values
+    .flatMap((value) => (value ? value.split(' ') : []))
+    .filter(Boolean);
+
+  return merged.length > 0 ? Array.from(new Set(merged)).join(' ') : undefined;
+}
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
@@ -25,8 +34,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       children,
       className,
       disabled = false,
-      required = false,
-      error = false,
+      required,
+      error,
       checked,
       defaultChecked,
       indeterminate = false,
@@ -39,7 +48,13 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     },
     ref
   ) => {
+    const field = useFieldContext();
     const inputRef = useRef<HTMLInputElement | null>(null);
+    const resolvedId = id ?? field?.inputId;
+    const resolvedDisabled = disabled || field?.disabled || false;
+    const resolvedRequired = required ?? field?.required ?? false;
+    const resolvedError = error ?? field?.invalid ?? false;
+    const resolvedDescribedBy = mergeDescribedBy(ariaDescribedBy, field?.describedBy);
 
     // Handle indeterminate state (can't be set via HTML attribute)
     useEffect(() => {
@@ -72,28 +87,28 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         <input
           ref={setRefs}
           type="checkbox"
-          id={id}
+          id={resolvedId}
           name={name}
           className="ux4g-checkbox"
-          disabled={disabled}
-          required={required}
+          disabled={resolvedDisabled}
+          required={resolvedRequired}
           checked={checked}
           defaultChecked={defaultChecked}
           onChange={onChange}
           aria-label={ariaLabel || (typeof labelText === 'string' ? labelText : undefined)}
           aria-labelledby={ariaLabelledBy}
-          aria-describedby={ariaDescribedBy}
-          aria-invalid={ariaInvalid || error}
-          aria-required={required}
+          aria-describedby={resolvedDescribedBy}
+          aria-invalid={ariaInvalid ?? resolvedError}
+          aria-required={resolvedRequired}
           {...props}
         />
         {labelText && (
           <label
-            htmlFor={id}
+            htmlFor={resolvedId}
             className={cn(
               'ux4g-checkbox-label',
-              disabled && 'ux4g-checkbox-label-disabled',
-              error && 'ux4g-checkbox-label-error'
+              resolvedDisabled && 'ux4g-checkbox-label-disabled',
+              resolvedError && 'ux4g-checkbox-label-error'
             )}
           >
             {labelText}

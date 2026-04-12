@@ -429,11 +429,11 @@ const handleChange = (e) => {
 
 Now that you've built your first form:
 
-1. Explore [all components](/components) available in UX4G
-2. Learn about [form validation patterns](/patterns/form-validation)
-3. Check out [government ID patterns](/patterns/government-ids)
-4. See [live examples in Storybook](/storybook)
+1. Explore [all components](https://ux4g.gov.in/components) available in UX4G
+2. Learn about [form validation patterns](https://ux4g.gov.in/patterns)
+3. Check out [government ID patterns](https://ux4g.gov.in/patterns)
+4. See [live examples in Storybook](https://ux4g.gov.in/storybook)
 
 ---
 
-**Questions?** Check our [FAQs](/resources/faqs) or [join the community](https://github.com/ux4g/ux4g/discussions).
+**Questions?** Check our [FAQs](https://ux4g.gov.in/resources/faqs) or [join the community](https://github.com/ux4g/ux4g/discussions).

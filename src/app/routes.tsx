@@ -1,3 +1,4 @@
+import { lazy } from "react";
 import { createBrowserRouter, Navigate } from "react-router";
 
 // ============================================================================
@@ -11,288 +12,288 @@ import { createBrowserRouter, Navigate } from "react-router";
 // ========================================
 // CORE PAGES
 // ========================================
-import UnifiedHome from "./pages/UnifiedHome";
-import NotFound from "./pages/NotFound";
+const UnifiedHome = lazy(() => import("./pages/UnifiedHome"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // ========================================
 // 1. FOUNDATIONS
 // ========================================
-import Foundations from "./pages/Foundations";
-import Accessibility from "./pages/Accessibility";
-import ContentDesignSystem from "./pages/ContentDesignSystem";
+const Foundations = lazy(() => import("./pages/Foundations"));
+const Accessibility = lazy(() => import("./pages/Accessibility"));
+const ContentDesignSystem = lazy(() => import("./pages/ContentDesignSystem"));
 
 // ========================================
 // 2. COMPONENTS
 // ========================================
-import Components from "./pages/Components";
-import FrameworkStatus from "./pages/FrameworkStatus";
-import WebComponentsDemo from "./pages/WebComponentsDemo";
-import ComponentButtonPage from "./pages/ComponentButtonPage";
-import ComponentInputPage from "./pages/ComponentInputPage";
-import ComponentCheckboxPage from "./pages/ComponentCheckboxPage";
-import ComponentSelectPage from "./pages/ComponentSelectPage";
-import ComponentTextareaPage from "./pages/ComponentTextareaPage";
-import ComponentSwitchPage from "./pages/ComponentSwitchPage";
-import ComponentRadioPage from "./pages/ComponentRadioPage";
-import ComponentBreadcrumbPage from "./pages/ComponentBreadcrumbPage";
-import ComponentAlertPage from "./pages/ComponentAlertPage";
-import ComponentBadgePage from "./pages/ComponentBadgePage";
-import ComponentModalPage from "./pages/ComponentModalPage";
-import ComponentCardPage from "./pages/ComponentCardPage";
-import ComponentTablePage from "./pages/ComponentTablePage";
-import ComponentAccordionPage from "./pages/ComponentAccordionPage";
-import ComponentListPage from "./pages/ComponentListPage";
-import ComponentContainerPage from "./pages/ComponentContainerPage";
-import ComponentGridPage from "./pages/ComponentGridPage";
-import ComponentStackPage from "./pages/ComponentStackPage";
-import ComponentDividerPage from "./pages/ComponentDividerPage";
-import ComponentSpacerPage from "./pages/ComponentSpacerPage";
-import ComponentDatePickerPage from "./pages/ComponentDatePickerPage";
-import ComponentFileUploadPage from "./pages/ComponentFileUploadPage";
-import ComponentStepperPage from "./pages/ComponentStepperPage";
-import ComponentOTPInputPage from "./pages/ComponentOTPInputPage";
-import ComponentApplicationTrackerPage from "./pages/ComponentApplicationTrackerPage";
-import ComponentDataGridPage from "./pages/ComponentDataGridPage";
-import ComponentAadhaarInputPage from "./pages/ComponentAadhaarInputPage";
-import ComponentHeaderPage from "./pages/ComponentHeaderPage";
-import ComponentFooterPage from "./pages/ComponentFooterPage";
-import ComponentTabsPage from "./pages/ComponentTabsPage";
-import ComponentPaginationPage from "./pages/ComponentPaginationPage";
-import ComponentMenuPage from "./pages/ComponentMenuPage";
-import ComponentToastPage from "./pages/ComponentToastPage";
-import ComponentProgressPage from "./pages/ComponentProgressPage";
-import ComponentSpinnerPage from "./pages/ComponentSpinnerPage";
-import ComponentTooltipPage from "./pages/ComponentTooltipPage";
-import ComponentAvatarPage from "./pages/ComponentAvatarPage";
-import ComponentDocumentViewerPage from "./pages/ComponentDocumentViewerPage";
-import ComponentDigitalSignaturePage from "./pages/ComponentDigitalSignaturePage";
-import ComponentMapLocationPickerPage from "./pages/ComponentMapLocationPickerPage";
-import ComponentQRCodePage from "./pages/ComponentQRCodePage";
-import ComponentLanguageSelectorPage from "./pages/ComponentLanguageSelectorPage";
-import ComponentPaymentGatewayPage from "./pages/ComponentPaymentGatewayPage";
-import ComponentChatbotPage from "./pages/ComponentChatbotPage";
-import ComponentRichTextEditorPage from "./pages/ComponentRichTextEditorPage";
-import ComponentChartLibraryPage from "./pages/ComponentChartLibraryPage";
-import ComponentCalendarSchedulerPage from "./pages/ComponentCalendarSchedulerPage";
-import ComponentAddressAutocompleteIndiaPage from "./pages/ComponentAddressAutocompleteIndiaPage";
-import ComponentPANCardInputPage from "./pages/ComponentPANCardInputPage";
-import ComponentFeedbackRatingWidgetPage from "./pages/ComponentFeedbackRatingWidgetPage";
-import ComponentCaptchaPage from "./pages/ComponentCaptchaPage";
-import ComponentVideoPlayerPage from "./pages/ComponentVideoPlayerPage";
-import ComponentFormBuilderPage from "./pages/ComponentFormBuilderPage";
-import ComponentFlexPage from "./pages/ComponentFlexPage";
-import ComponentCenterPage from "./pages/ComponentCenterPage";
-import ComponentAspectRatioPage from "./pages/ComponentAspectRatioPage";
-import ComponentShowHidePage from "./pages/ComponentShowHidePage";
-import ComponentSectionPage from "./pages/ComponentSectionPage";
-import ComponentTagPage from "./pages/ComponentTagPage";
-import ComponentTimelinePage from "./pages/ComponentTimelinePage";
-import ComponentStatisticPage from "./pages/ComponentStatisticPage";
-import ComponentDescriptionListPage from "./pages/ComponentDescriptionListPage";
-import ComponentEmptyStatePage from "./pages/ComponentEmptyStatePage";
-import ComponentDrawerPage from "./pages/ComponentDrawerPage";
-import ComponentSkeletonPage from "./pages/ComponentSkeletonPage";
-import ComponentAutocompletePage from "./pages/ComponentAutocompletePage";
-import ComponentDialogPage from "./pages/ComponentDialogPage";
-import ComponentPopoverPage from "./pages/ComponentPopoverPage";
-import ComponentDropdownPage from "./pages/ComponentDropdownPage";
-import ComponentCodeBlockPage from "./pages/ComponentCodeBlockPage";
-import ComponentSegmentedControlPage from "./pages/ComponentSegmentedControlPage";
-import ComponentTreeViewPage from "./pages/ComponentTreeViewPage";
-import ComponentBackToTopPage from "./pages/ComponentBackToTopPage";
-import ComponentFieldPage from "./pages/ComponentFieldPage";
-import ComponentLabelPage from "./pages/ComponentLabelPage";
-import ComponentHintTextPage from "./pages/ComponentHintTextPage";
-import ComponentErrorTextPage from "./pages/ComponentErrorTextPage";
+const Components = lazy(() => import("./pages/Components"));
+const FrameworkStatus = lazy(() => import("./pages/FrameworkStatus"));
+const WebComponentsDemo = lazy(() => import("./pages/WebComponentsDemo"));
+const ComponentButtonPage = lazy(() => import("./pages/ComponentButtonPage"));
+const ComponentInputPage = lazy(() => import("./pages/ComponentInputPage"));
+const ComponentCheckboxPage = lazy(() => import("./pages/ComponentCheckboxPage"));
+const ComponentSelectPage = lazy(() => import("./pages/ComponentSelectPage"));
+const ComponentTextareaPage = lazy(() => import("./pages/ComponentTextareaPage"));
+const ComponentSwitchPage = lazy(() => import("./pages/ComponentSwitchPage"));
+const ComponentRadioPage = lazy(() => import("./pages/ComponentRadioPage"));
+const ComponentBreadcrumbPage = lazy(() => import("./pages/ComponentBreadcrumbPage"));
+const ComponentAlertPage = lazy(() => import("./pages/ComponentAlertPage"));
+const ComponentBadgePage = lazy(() => import("./pages/ComponentBadgePage"));
+const ComponentModalPage = lazy(() => import("./pages/ComponentModalPage"));
+const ComponentCardPage = lazy(() => import("./pages/ComponentCardPage"));
+const ComponentTablePage = lazy(() => import("./pages/ComponentTablePage"));
+const ComponentAccordionPage = lazy(() => import("./pages/ComponentAccordionPage"));
+const ComponentListPage = lazy(() => import("./pages/ComponentListPage"));
+const ComponentContainerPage = lazy(() => import("./pages/ComponentContainerPage"));
+const ComponentGridPage = lazy(() => import("./pages/ComponentGridPage"));
+const ComponentStackPage = lazy(() => import("./pages/ComponentStackPage"));
+const ComponentDividerPage = lazy(() => import("./pages/ComponentDividerPage"));
+const ComponentSpacerPage = lazy(() => import("./pages/ComponentSpacerPage"));
+const ComponentDatePickerPage = lazy(() => import("./pages/ComponentDatePickerPage"));
+const ComponentFileUploadPage = lazy(() => import("./pages/ComponentFileUploadPage"));
+const ComponentStepperPage = lazy(() => import("./pages/ComponentStepperPage"));
+const ComponentOTPInputPage = lazy(() => import("./pages/ComponentOTPInputPage"));
+const ComponentApplicationTrackerPage = lazy(() => import("./pages/ComponentApplicationTrackerPage"));
+const ComponentDataGridPage = lazy(() => import("./pages/ComponentDataGridPage"));
+const ComponentAadhaarInputPage = lazy(() => import("./pages/ComponentAadhaarInputPage"));
+const ComponentHeaderPage = lazy(() => import("./pages/ComponentHeaderPage"));
+const ComponentFooterPage = lazy(() => import("./pages/ComponentFooterPage"));
+const ComponentTabsPage = lazy(() => import("./pages/ComponentTabsPage"));
+const ComponentPaginationPage = lazy(() => import("./pages/ComponentPaginationPage"));
+const ComponentMenuPage = lazy(() => import("./pages/ComponentMenuPage"));
+const ComponentToastPage = lazy(() => import("./pages/ComponentToastPage"));
+const ComponentProgressPage = lazy(() => import("./pages/ComponentProgressPage"));
+const ComponentSpinnerPage = lazy(() => import("./pages/ComponentSpinnerPage"));
+const ComponentTooltipPage = lazy(() => import("./pages/ComponentTooltipPage"));
+const ComponentAvatarPage = lazy(() => import("./pages/ComponentAvatarPage"));
+const ComponentDocumentViewerPage = lazy(() => import("./pages/ComponentDocumentViewerPage"));
+const ComponentDigitalSignaturePage = lazy(() => import("./pages/ComponentDigitalSignaturePage"));
+const ComponentMapLocationPickerPage = lazy(() => import("./pages/ComponentMapLocationPickerPage"));
+const ComponentQRCodePage = lazy(() => import("./pages/ComponentQRCodePage"));
+const ComponentLanguageSelectorPage = lazy(() => import("./pages/ComponentLanguageSelectorPage"));
+const ComponentPaymentGatewayPage = lazy(() => import("./pages/ComponentPaymentGatewayPage"));
+const ComponentChatbotPage = lazy(() => import("./pages/ComponentChatbotPage"));
+const ComponentRichTextEditorPage = lazy(() => import("./pages/ComponentRichTextEditorPage"));
+const ComponentChartLibraryPage = lazy(() => import("./pages/ComponentChartLibraryPage"));
+const ComponentCalendarSchedulerPage = lazy(() => import("./pages/ComponentCalendarSchedulerPage"));
+const ComponentAddressAutocompleteIndiaPage = lazy(() => import("./pages/ComponentAddressAutocompleteIndiaPage"));
+const ComponentPANCardInputPage = lazy(() => import("./pages/ComponentPANCardInputPage"));
+const ComponentFeedbackRatingWidgetPage = lazy(() => import("./pages/ComponentFeedbackRatingWidgetPage"));
+const ComponentCaptchaPage = lazy(() => import("./pages/ComponentCaptchaPage"));
+const ComponentVideoPlayerPage = lazy(() => import("./pages/ComponentVideoPlayerPage"));
+const ComponentFormBuilderPage = lazy(() => import("./pages/ComponentFormBuilderPage"));
+const ComponentFlexPage = lazy(() => import("./pages/ComponentFlexPage"));
+const ComponentCenterPage = lazy(() => import("./pages/ComponentCenterPage"));
+const ComponentAspectRatioPage = lazy(() => import("./pages/ComponentAspectRatioPage"));
+const ComponentShowHidePage = lazy(() => import("./pages/ComponentShowHidePage"));
+const ComponentSectionPage = lazy(() => import("./pages/ComponentSectionPage"));
+const ComponentTagPage = lazy(() => import("./pages/ComponentTagPage"));
+const ComponentTimelinePage = lazy(() => import("./pages/ComponentTimelinePage"));
+const ComponentStatisticPage = lazy(() => import("./pages/ComponentStatisticPage"));
+const ComponentDescriptionListPage = lazy(() => import("./pages/ComponentDescriptionListPage"));
+const ComponentEmptyStatePage = lazy(() => import("./pages/ComponentEmptyStatePage"));
+const ComponentDrawerPage = lazy(() => import("./pages/ComponentDrawerPage"));
+const ComponentSkeletonPage = lazy(() => import("./pages/ComponentSkeletonPage"));
+const ComponentAutocompletePage = lazy(() => import("./pages/ComponentAutocompletePage"));
+const ComponentDialogPage = lazy(() => import("./pages/ComponentDialogPage"));
+const ComponentPopoverPage = lazy(() => import("./pages/ComponentPopoverPage"));
+const ComponentDropdownPage = lazy(() => import("./pages/ComponentDropdownPage"));
+const ComponentCodeBlockPage = lazy(() => import("./pages/ComponentCodeBlockPage"));
+const ComponentSegmentedControlPage = lazy(() => import("./pages/ComponentSegmentedControlPage"));
+const ComponentTreeViewPage = lazy(() => import("./pages/ComponentTreeViewPage"));
+const ComponentBackToTopPage = lazy(() => import("./pages/ComponentBackToTopPage"));
+const ComponentFieldPage = lazy(() => import("./pages/ComponentFieldPage"));
+const ComponentLabelPage = lazy(() => import("./pages/ComponentLabelPage"));
+const ComponentHintTextPage = lazy(() => import("./pages/ComponentHintTextPage"));
+const ComponentErrorTextPage = lazy(() => import("./pages/ComponentErrorTextPage"));
 
 // ========================================
 // 3. PATTERNS
 // ========================================
-import PatternLibraryHub from "./pages/PatternLibraryHub";
-import Patterns from "./pages/Patterns";
+const PatternLibraryHub = lazy(() => import("./pages/PatternLibraryHub"));
+const Patterns = lazy(() => import("./pages/Patterns"));
 
 // Identity & Access Patterns
-import IdentityAccessPatterns from "./pages/IdentityAccessPatterns";
-import SignInPattern from "./pages/SignInPattern";
-import SignUpPattern from "./pages/SignUpPattern";
-import OTPVerificationPattern from "./pages/OTPVerificationPattern";
-import MobileOTPPattern from "./pages/MobileOTPPattern";
-import ForgotPasswordPattern from "./pages/ForgotPasswordPattern";
-import AccountRecoveryPattern from "./pages/AccountRecoveryPattern";
-import AadhaarAuthenticationPattern from "./pages/AadhaarAuthenticationPattern";
-import SessionTimeoutPattern from "./pages/SessionTimeoutPattern";
-import AuthErrorLockoutPattern from "./pages/AuthErrorLockoutPattern";
-import OfflineVideoKYCPattern from "./pages/OfflineVideoKYCPattern";
-import OnlineVideoKYCPattern from "./pages/OnlineVideoKYCPattern";
-import AadhaarVideoKYCPattern from "./pages/AadhaarVideoKYCPattern";
+const IdentityAccessPatterns = lazy(() => import("./pages/IdentityAccessPatterns"));
+const SignInPattern = lazy(() => import("./pages/SignInPattern"));
+const SignUpPattern = lazy(() => import("./pages/SignUpPattern"));
+const OTPVerificationPattern = lazy(() => import("./pages/OTPVerificationPattern"));
+const MobileOTPPattern = lazy(() => import("./pages/MobileOTPPattern"));
+const ForgotPasswordPattern = lazy(() => import("./pages/ForgotPasswordPattern"));
+const AccountRecoveryPattern = lazy(() => import("./pages/AccountRecoveryPattern"));
+const AadhaarAuthenticationPattern = lazy(() => import("./pages/AadhaarAuthenticationPattern"));
+const SessionTimeoutPattern = lazy(() => import("./pages/SessionTimeoutPattern"));
+const AuthErrorLockoutPattern = lazy(() => import("./pages/AuthErrorLockoutPattern"));
+const OfflineVideoKYCPattern = lazy(() => import("./pages/OfflineVideoKYCPattern"));
+const OnlineVideoKYCPattern = lazy(() => import("./pages/OnlineVideoKYCPattern"));
+const AadhaarVideoKYCPattern = lazy(() => import("./pages/AadhaarVideoKYCPattern"));
 
 // Consent & Declaration Patterns
-import ConsentDeclarationPatterns from "./pages/ConsentDeclarationPatterns";
-import ConsentCapturePattern from "./pages/ConsentCapturePattern";
-import ConsentCapturePatternCode from "./pages/patterns/ConsentCapturePatternCode";
-import ConsentCaptureDemo from "./pages/ConsentCaptureDemo";
-import GuardianProxyConsentDemo from "./pages/GuardianProxyConsentDemo";
-import ConsentWithdrawalDemo from "./pages/ConsentWithdrawalDemo";
-import DataSharingConsentDemo from "./pages/DataSharingConsentDemo";
-import PrivacyNoticeDemo from "./pages/PrivacyNoticeDemo";
-import TermsAcceptanceDemo from "./pages/TermsAcceptanceDemo";
-import DeclarationBeforeSubmissionDemo from "./pages/DeclarationBeforeSubmissionDemo";
+const ConsentDeclarationPatterns = lazy(() => import("./pages/ConsentDeclarationPatterns"));
+const ConsentCapturePattern = lazy(() => import("./pages/ConsentCapturePattern"));
+const ConsentCapturePatternCode = lazy(() => import("./pages/patterns/ConsentCapturePatternCode"));
+const ConsentCaptureDemo = lazy(() => import("./pages/ConsentCaptureDemo"));
+const GuardianProxyConsentDemo = lazy(() => import("./pages/GuardianProxyConsentDemo"));
+const ConsentWithdrawalDemo = lazy(() => import("./pages/ConsentWithdrawalDemo"));
+const DataSharingConsentDemo = lazy(() => import("./pages/DataSharingConsentDemo"));
+const PrivacyNoticeDemo = lazy(() => import("./pages/PrivacyNoticeDemo"));
+const TermsAcceptanceDemo = lazy(() => import("./pages/TermsAcceptanceDemo"));
+const DeclarationBeforeSubmissionDemo = lazy(() => import("./pages/DeclarationBeforeSubmissionDemo"));
 
 // Payment Patterns
-import FeePaymentDemo from "./pages/FeePaymentDemo";
-import PaymentFailureRetryDemo from "./pages/PaymentFailureRetryDemo";
+const FeePaymentDemo = lazy(() => import("./pages/FeePaymentDemo"));
+const PaymentFailureRetryDemo = lazy(() => import("./pages/PaymentFailureRetryDemo"));
 
 // Form & State Patterns
-import FormIntelligenceSystem from "./pages/FormIntelligenceSystem";
-import StateResilienceSystem from "./pages/StateResilienceSystem";
+const FormIntelligenceSystem = lazy(() => import("./pages/FormIntelligenceSystem"));
+const StateResilienceSystem = lazy(() => import("./pages/StateResilienceSystem"));
 
 // Search & Discovery Patterns
-import SearchDiscoveryPatterns from "./pages/SearchDiscoveryPatterns";
-import SearchDiscoveryOverview from "./pages/SearchDiscoveryOverview";
-import GlobalSearchPattern from "./pages/GlobalSearchPattern";
-import SearchResultsPattern from "./pages/SearchResultsPattern";
-import NoResultsPattern from "./pages/NoResultsPattern";
+const SearchDiscoveryPatterns = lazy(() => import("./pages/SearchDiscoveryPatterns"));
+const SearchDiscoveryOverview = lazy(() => import("./pages/SearchDiscoveryOverview"));
+const GlobalSearchPattern = lazy(() => import("./pages/GlobalSearchPattern"));
+const SearchResultsPattern = lazy(() => import("./pages/SearchResultsPattern"));
+const NoResultsPattern = lazy(() => import("./pages/NoResultsPattern"));
 
 // Dashboard & Personalization Patterns
-import DashboardPatterns from "./pages/DashboardPatterns";
-import DashboardOverview from "./pages/DashboardOverview";
-import CitizenDashboardPattern from "./pages/CitizenDashboardPattern";
-import TaskListPattern from "./pages/TaskListPattern";
+const DashboardPatterns = lazy(() => import("./pages/DashboardPatterns"));
+const DashboardOverview = lazy(() => import("./pages/DashboardOverview"));
+const CitizenDashboardPattern = lazy(() => import("./pages/CitizenDashboardPattern"));
+const TaskListPattern = lazy(() => import("./pages/TaskListPattern"));
 
 // Status & Lifecycle Patterns
-import StatusLifecyclePatterns from "./pages/StatusLifecyclePatterns";
-import StatusLifecycleOverview from "./pages/StatusLifecycleOverview";
-import TimelineViewPattern from "./pages/TimelineViewPattern";
-import StepProgressPattern from "./pages/StepProgressPattern";
+const StatusLifecyclePatterns = lazy(() => import("./pages/StatusLifecyclePatterns"));
+const StatusLifecycleOverview = lazy(() => import("./pages/StatusLifecycleOverview"));
+const TimelineViewPattern = lazy(() => import("./pages/TimelineViewPattern"));
+const StepProgressPattern = lazy(() => import("./pages/StepProgressPattern"));
 
 // Notification Patterns
-import NotificationPatterns from "./pages/NotificationPatterns";
-import NotificationOverview from "./pages/NotificationOverview";
-import NotificationCenterPattern from "./pages/NotificationCenterPattern";
-import ActionableNotificationsPattern from "./pages/ActionableNotificationsPattern";
+const NotificationPatterns = lazy(() => import("./pages/NotificationPatterns"));
+const NotificationOverview = lazy(() => import("./pages/NotificationOverview"));
+const NotificationCenterPattern = lazy(() => import("./pages/NotificationCenterPattern"));
+const ActionableNotificationsPattern = lazy(() => import("./pages/ActionableNotificationsPattern"));
 
 // Contact & Support Patterns
-import ContactSupportPatterns from "./pages/ContactSupportPatterns";
-import ContactSupportOverview from "./pages/ContactSupportOverview";
-import GeneralContactPattern from "./pages/GeneralContactPattern";
-import ServiceSupportPattern from "./pages/ServiceSupportPattern";
+const ContactSupportPatterns = lazy(() => import("./pages/ContactSupportPatterns"));
+const ContactSupportOverview = lazy(() => import("./pages/ContactSupportOverview"));
+const GeneralContactPattern = lazy(() => import("./pages/GeneralContactPattern"));
+const ServiceSupportPattern = lazy(() => import("./pages/ServiceSupportPattern"));
 
 // Feedback & Rating Patterns
-import FeedbackRatingPatterns from "./pages/FeedbackRatingPatterns";
-import RateServicePattern from "./pages/RateServicePattern";
-import PostCompletionFeedbackPattern from "./pages/PostCompletionFeedbackPattern";
-import IssueReportingPattern from "./pages/IssueReportingPattern";
-import SuggestImprovementPattern from "./pages/SuggestImprovementPattern";
-import FeedbackAcknowledgmentPattern from "./pages/FeedbackAcknowledgmentPattern";
+const FeedbackRatingPatterns = lazy(() => import("./pages/FeedbackRatingPatterns"));
+const RateServicePattern = lazy(() => import("./pages/RateServicePattern"));
+const PostCompletionFeedbackPattern = lazy(() => import("./pages/PostCompletionFeedbackPattern"));
+const IssueReportingPattern = lazy(() => import("./pages/IssueReportingPattern"));
+const SuggestImprovementPattern = lazy(() => import("./pages/SuggestImprovementPattern"));
+const FeedbackAcknowledgmentPattern = lazy(() => import("./pages/FeedbackAcknowledgmentPattern"));
 
 // Localization & Multilingual Patterns
-import LocalizationPatterns from "./pages/LocalizationPatterns";
-import LanguageSwitcherPattern from "./pages/LanguageSwitcherPattern";
-import MixedLanguageFallbackPattern from "./pages/MixedLanguageFallbackPattern";
-import ContentExpansionPattern from "./pages/ContentExpansionPattern";
-import ScriptLayoutPattern from "./pages/ScriptLayoutPattern";
-import TranslationConfidencePattern from "./pages/TranslationConfidencePattern";
+const LocalizationPatterns = lazy(() => import("./pages/LocalizationPatterns"));
+const LanguageSwitcherPattern = lazy(() => import("./pages/LanguageSwitcherPattern"));
+const MixedLanguageFallbackPattern = lazy(() => import("./pages/MixedLanguageFallbackPattern"));
+const ContentExpansionPattern = lazy(() => import("./pages/ContentExpansionPattern"));
+const ScriptLayoutPattern = lazy(() => import("./pages/ScriptLayoutPattern"));
+const TranslationConfidencePattern = lazy(() => import("./pages/TranslationConfidencePattern"));
 
 // Data Input Patterns
-import DataInputPatterns from "./pages/DataInputPatterns";
-import AddressLookupPattern from "./pages/AddressLookupPattern";
-import AutofillPattern from "./pages/AutofillPattern";
-import SmartSuggestionsPattern from "./pages/SmartSuggestionsPattern";
-import UploadExtractPattern from "./pages/UploadExtractPattern";
-import MapInputPattern from "./pages/MapInputPattern";
-import BulkDataEntryPattern from "./pages/BulkDataEntryPattern";
-import RepeatableSectionsPattern from "./pages/RepeatableSectionsPattern";
+const DataInputPatterns = lazy(() => import("./pages/DataInputPatterns"));
+const AddressLookupPattern = lazy(() => import("./pages/AddressLookupPattern"));
+const AutofillPattern = lazy(() => import("./pages/AutofillPattern"));
+const SmartSuggestionsPattern = lazy(() => import("./pages/SmartSuggestionsPattern"));
+const UploadExtractPattern = lazy(() => import("./pages/UploadExtractPattern"));
+const MapInputPattern = lazy(() => import("./pages/MapInputPattern"));
+const BulkDataEntryPattern = lazy(() => import("./pages/BulkDataEntryPattern"));
+const RepeatableSectionsPattern = lazy(() => import("./pages/RepeatableSectionsPattern"));
 
 // Operational Service Patterns
-import OperationalServicePatterns from "./pages/OperationalServicePatterns";
+const OperationalServicePatterns = lazy(() => import("./pages/OperationalServicePatterns"));
 
 // ========================================
 // 4. SERVICE ARCHETYPES
 // ========================================
-import ServicePatternLibraries from "./pages/ServicePatternLibraries";
-import ApplicationSubmissionPattern from "./pages/ApplicationSubmissionPattern";
-import EligibilityScreeningPattern from "./pages/EligibilityScreeningPattern";
-import RenewalPattern from "./pages/RenewalPattern";
-import CorrectionResubmissionPattern from "./pages/CorrectionResubmissionPattern";
-import ComplaintEscalationPattern from "./pages/ComplaintEscalationPattern";
-import ApprovalIssuancePattern from "./pages/ApprovalIssuancePattern";
-import AssistedOfflineOnlinePattern from "./pages/AssistedOfflineOnlinePattern";
-import HighVolumeStatusTrackingPattern from "./pages/HighVolumeStatusTrackingPattern";
-import AppointmentBookingPattern from "./pages/AppointmentBookingPattern";
+const ServicePatternLibraries = lazy(() => import("./pages/ServicePatternLibraries"));
+const ApplicationSubmissionPattern = lazy(() => import("./pages/ApplicationSubmissionPattern"));
+const EligibilityScreeningPattern = lazy(() => import("./pages/EligibilityScreeningPattern"));
+const RenewalPattern = lazy(() => import("./pages/RenewalPattern"));
+const CorrectionResubmissionPattern = lazy(() => import("./pages/CorrectionResubmissionPattern"));
+const ComplaintEscalationPattern = lazy(() => import("./pages/ComplaintEscalationPattern"));
+const ApprovalIssuancePattern = lazy(() => import("./pages/ApprovalIssuancePattern"));
+const AssistedOfflineOnlinePattern = lazy(() => import("./pages/AssistedOfflineOnlinePattern"));
+const HighVolumeStatusTrackingPattern = lazy(() => import("./pages/HighVolumeStatusTrackingPattern"));
+const AppointmentBookingPattern = lazy(() => import("./pages/AppointmentBookingPattern"));
 
 // ========================================
 // 5. SYSTEMS
 // ========================================
-import MultilingualGuidance from "./pages/MultilingualGuidance";
+const MultilingualGuidance = lazy(() => import("./pages/MultilingualGuidance"));
 
 // ========================================
 // 6. REFERENCE SERVICES
 // ========================================
-import ReferenceServiceBlueprint from "./pages/ReferenceServiceBlueprint";
-import CertificateService from "./pages/CertificateService";
+const ReferenceServiceBlueprint = lazy(() => import("./pages/ReferenceServiceBlueprint"));
+const CertificateService = lazy(() => import("./pages/CertificateService"));
 
 // Certificate Service - Complete Flow (44 pages)
-import CertificateStart from "./pages/CertificateStart";
-import CertificateEligibility from "./pages/CertificateEligibility";
-import CertificateHelp from "./pages/CertificateHelp";
-import CertificateDocumentGuidelines from "./pages/CertificateDocumentGuidelines";
-import CertificatePrivacyPolicy from "./pages/CertificatePrivacyPolicy";
-import CertificateSignIn from "./pages/CertificateSignIn";
-import CertificateSignUp from "./pages/CertificateSignUp";
-import CertificateVerifyOTP from "./pages/CertificateVerifyOTP";
-import CertificateForgotPassword from "./pages/CertificateForgotPassword";
-import CertificateSessionTimeout from "./pages/CertificateSessionTimeout";
-import CertificateUserProfile from "./pages/CertificateUserProfile";
-import CertificateFormPersonal from "./pages/CertificateFormPersonal";
-import CertificateFormAddress from "./pages/CertificateFormAddress";
-import CertificateFormAdditional from "./pages/CertificateFormAdditional";
-import CertificateFormReview from "./pages/CertificateFormReview";
-import CertificateDocumentUpload from "./pages/CertificateDocumentUpload";
-import CertificateReviewSummary from "./pages/CertificateReviewSummary";
-import CertificateDeclaration from "./pages/CertificateDeclaration";
-import CertificatePaymentSummary from "./pages/CertificatePaymentSummary";
-import CertificatePaymentReceipt from "./pages/CertificatePaymentReceipt";
-import CertificateSubmissionSuccess from "./pages/CertificateSubmissionSuccess";
-import CertificateStatusTracker from "./pages/CertificateStatusTracker";
-import CertificateNotifications from "./pages/CertificateNotifications";
-import CertificateMyApplications from "./pages/CertificateMyApplications";
-import CertificateIssued from "./pages/CertificateIssued";
-import CertificateFeedback from "./pages/CertificateFeedback";
-import CertificateVerification from "./pages/CertificateVerification";
-import CertificateCorrectionRequest from "./pages/CertificateCorrectionRequest";
-import CertificateRejected from "./pages/CertificateRejected";
-import CertificateAppeal from "./pages/CertificateAppeal";
-import CertificateOfficerDashboard from "./pages/CertificateOfficerDashboard";
-import CertificateOfficerCases from "./pages/CertificateOfficerCases";
-import CertificateOfficerReview from "./pages/CertificateOfficerReview";
+const CertificateStart = lazy(() => import("./pages/CertificateStart"));
+const CertificateEligibility = lazy(() => import("./pages/CertificateEligibility"));
+const CertificateHelp = lazy(() => import("./pages/CertificateHelp"));
+const CertificateDocumentGuidelines = lazy(() => import("./pages/CertificateDocumentGuidelines"));
+const CertificatePrivacyPolicy = lazy(() => import("./pages/CertificatePrivacyPolicy"));
+const CertificateSignIn = lazy(() => import("./pages/CertificateSignIn"));
+const CertificateSignUp = lazy(() => import("./pages/CertificateSignUp"));
+const CertificateVerifyOTP = lazy(() => import("./pages/CertificateVerifyOTP"));
+const CertificateForgotPassword = lazy(() => import("./pages/CertificateForgotPassword"));
+const CertificateSessionTimeout = lazy(() => import("./pages/CertificateSessionTimeout"));
+const CertificateUserProfile = lazy(() => import("./pages/CertificateUserProfile"));
+const CertificateFormPersonal = lazy(() => import("./pages/CertificateFormPersonal"));
+const CertificateFormAddress = lazy(() => import("./pages/CertificateFormAddress"));
+const CertificateFormAdditional = lazy(() => import("./pages/CertificateFormAdditional"));
+const CertificateFormReview = lazy(() => import("./pages/CertificateFormReview"));
+const CertificateDocumentUpload = lazy(() => import("./pages/CertificateDocumentUpload"));
+const CertificateReviewSummary = lazy(() => import("./pages/CertificateReviewSummary"));
+const CertificateDeclaration = lazy(() => import("./pages/CertificateDeclaration"));
+const CertificatePaymentSummary = lazy(() => import("./pages/CertificatePaymentSummary"));
+const CertificatePaymentReceipt = lazy(() => import("./pages/CertificatePaymentReceipt"));
+const CertificateSubmissionSuccess = lazy(() => import("./pages/CertificateSubmissionSuccess"));
+const CertificateStatusTracker = lazy(() => import("./pages/CertificateStatusTracker"));
+const CertificateNotifications = lazy(() => import("./pages/CertificateNotifications"));
+const CertificateMyApplications = lazy(() => import("./pages/CertificateMyApplications"));
+const CertificateIssued = lazy(() => import("./pages/CertificateIssued"));
+const CertificateFeedback = lazy(() => import("./pages/CertificateFeedback"));
+const CertificateVerification = lazy(() => import("./pages/CertificateVerification"));
+const CertificateCorrectionRequest = lazy(() => import("./pages/CertificateCorrectionRequest"));
+const CertificateRejected = lazy(() => import("./pages/CertificateRejected"));
+const CertificateAppeal = lazy(() => import("./pages/CertificateAppeal"));
+const CertificateOfficerDashboard = lazy(() => import("./pages/CertificateOfficerDashboard"));
+const CertificateOfficerCases = lazy(() => import("./pages/CertificateOfficerCases"));
+const CertificateOfficerReview = lazy(() => import("./pages/CertificateOfficerReview"));
 
 // ========================================
 // 7. RESOURCES
 // ========================================
-import ResourcesHub from "./pages/ResourcesHub";
-import Documentation from "./pages/Documentation";
-import InstallationGuide from "./pages/InstallationGuide";
-import UX4GStarterKit from "./pages/UX4GStarterKit";
-import ComponentCodeMapping from "./pages/ComponentCodeMapping";
-import FigmaDesignSystem from "./pages/FigmaDesignSystem";
-import MigrationGuides from "./pages/MigrationGuides";
-import MigrationMaterialUI from "./pages/MigrationMaterialUI";
+const ResourcesHub = lazy(() => import("./pages/ResourcesHub"));
+const Documentation = lazy(() => import("./pages/Documentation"));
+const InstallationGuide = lazy(() => import("./pages/InstallationGuide"));
+const UX4GStarterKit = lazy(() => import("./pages/UX4GStarterKit"));
+const ComponentCodeMapping = lazy(() => import("./pages/ComponentCodeMapping"));
+const FigmaDesignSystem = lazy(() => import("./pages/FigmaDesignSystem"));
+const MigrationGuides = lazy(() => import("./pages/MigrationGuides"));
+const MigrationMaterialUI = lazy(() => import("./pages/MigrationMaterialUI"));
 
 // ========================================
 // 8. GOVERNANCE
 // ========================================
-import Governance from "./pages/Governance";
-import Adoption from "./pages/Adoption";
-import ConformanceDashboard from "./pages/ConformanceDashboard";
-import ServiceAnalytics from "./pages/ServiceAnalytics";
-import SecurityPolicy from "./pages/SecurityPolicy";
-import CodeOfConduct from "./pages/CodeOfConduct";
-import Contributing from "./pages/Contributing";
-import Copyright from "./pages/Copyright";
-import Disclaimer from "./pages/Disclaimer";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfUse from "./pages/TermsOfUse";
-import Contact from "./pages/Contact";
+const Governance = lazy(() => import("./pages/Governance"));
+const Adoption = lazy(() => import("./pages/Adoption"));
+const ConformanceDashboard = lazy(() => import("./pages/ConformanceDashboard"));
+const ServiceAnalytics = lazy(() => import("./pages/ServiceAnalytics"));
+const SecurityPolicy = lazy(() => import("./pages/SecurityPolicy"));
+const CodeOfConduct = lazy(() => import("./pages/CodeOfConduct"));
+const Contributing = lazy(() => import("./pages/Contributing"));
+const Copyright = lazy(() => import("./pages/Copyright"));
+const Disclaimer = lazy(() => import("./pages/Disclaimer"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 // ========================================
 // LAYOUT
@@ -522,6 +523,7 @@ export const router = createBrowserRouter([
       // ======================================================================
       // 5. SYSTEMS
       // ======================================================================
+      { path: "systems", element: <Navigate to="/systems/multilingual" replace /> },
       { path: "systems/multilingual", Component: MultilingualGuidance },
       { path: "systems/form-intelligence", Component: FormIntelligenceSystem },
       { path: "systems/state-resilience", Component: StateResilienceSystem },

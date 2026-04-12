@@ -590,10 +590,10 @@ All patterns are WCAG 2.1 Level AA compliant:
 
 ## Documentation
 
-- [Pattern Catalog](./PATTERN_CATALOG.md) - Complete pattern specifications
-- [API Reference](./API_REFERENCE.md) - Input/Output documentation
-- [Examples](./examples/) - Real-world usage examples
-- [Migration Guide](./MIGRATION.md) - Upgrading from older versions
+- [Pattern Catalog](https://ux4g.gov.in/patterns) - Complete pattern specifications
+- [API Reference](https://ux4g.gov.in/patterns) - Input/Output documentation
+- [Package README](./README.md) - Real-world usage examples
+- [Migration Guide](https://ux4g.gov.in/patterns) - Upgrading from older versions
 
 ---
 
@@ -608,7 +608,7 @@ All patterns are WCAG 2.1 Level AA compliant:
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for development setup and contribution guidelines.
+See [CONTRIBUTING_GUIDELINES_FEATURE.md](../../../CONTRIBUTING_GUIDELINES_FEATURE.md) for development setup and contribution guidelines.
 
 ---
 

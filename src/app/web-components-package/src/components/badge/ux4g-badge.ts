@@ -3,7 +3,7 @@
  * 
  * @element ux4g-badge
  * 
- * @attr {string} variant - Badge variant: primary, secondary, success, warning, danger, info
+ * @attr {string} variant - Badge variant: neutral, info, success, warning, error
  * @attr {string} size - Badge size: sm, md, lg
  * @attr {boolean} dot - Display as a dot badge
  * @attr {boolean} pill - Display as a pill shape
@@ -11,11 +11,12 @@
  * @example
  * ```html
  * <ux4g-badge variant="success">Active</ux4g-badge>
- * <ux4g-badge variant="danger" dot>3</ux4g-badge>
+ * <ux4g-badge variant="error" dot>3</ux4g-badge>
  * ```
  */
 
 import { UX4GElement } from '../../base/UX4GElement';
+import { normalizeStatusVariant } from '../../component-contract';
 
 export class UX4GBadge extends UX4GElement {
   static get observedAttributes() {
@@ -33,7 +34,7 @@ export class UX4GBadge extends UX4GElement {
   }
 
   protected render(): void {
-    const variant = this.getAttributeOrDefault('variant', 'primary');
+    const variant = normalizeStatusVariant(this.getAttribute('variant'));
     const size = this.getAttributeOrDefault('size', 'md');
     const dot = this.getBooleanAttribute('dot');
     const pill = this.getBooleanAttribute('pill');
@@ -65,7 +66,7 @@ export class UX4GBadge extends UX4GElement {
   }
 
   get variant(): string {
-    return this.getAttributeOrDefault('variant', 'primary');
+    return normalizeStatusVariant(this.getAttribute('variant'));
   }
 
   /**

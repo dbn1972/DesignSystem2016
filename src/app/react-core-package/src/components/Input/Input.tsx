@@ -18,17 +18,27 @@
 import React, { forwardRef, useState } from 'react';
 import { cn } from '../../utils/cn';
 import { InputProps } from './Input.types';
+import { useFieldContext } from '../Field/Field.context';
+
+function mergeDescribedBy(...values: Array<string | undefined>): string | undefined {
+  const merged = values
+    .flatMap((value) => (value ? value.split(' ') : []))
+    .filter(Boolean);
+
+  return merged.length > 0 ? Array.from(new Set(merged)).join(' ') : undefined;
+}
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
+      id,
       className,
       size = 'md',
       type = 'text',
-      disabled = false,
+      disabled,
       readOnly = false,
-      required = false,
-      error = false,
+      required,
+      error,
       fullWidth = false,
       iconBefore,
       iconAfter,
@@ -41,9 +51,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    const field = useFieldContext();
     const [internalValue, setInternalValue] = useState(defaultValue ?? '');
     const isControlled = value !== undefined;
     const currentValue = isControlled ? value : internalValue;
+    const resolvedId = id ?? field?.inputId;
+    const resolvedDisabled = disabled ?? field?.disabled ?? false;
+    const resolvedRequired = required ?? field?.required ?? false;
+    const resolvedError = error ?? field?.invalid ?? false;
+    const resolvedDescribedBy = mergeDescribedBy(props['aria-describedby'], field?.describedBy);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = event.target.value;
@@ -72,12 +88,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         <input
           ref={ref}
+          id={resolvedId}
           type={type}
           className={cn(
             'ux4g-input',
             `ux4g-input-${size}`,
-            error && 'ux4g-input-error',
-            disabled && 'ux4g-input-disabled',
+            resolvedError && 'ux4g-input-error',
+            resolvedDisabled && 'ux4g-input-disabled',
             readOnly && 'ux4g-input-readonly',
             iconBefore && 'ux4g-input-has-icon-before',
             iconAfter && 'ux4g-input-has-icon-after',
@@ -85,11 +102,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
           value={currentValue}
           onChange={handleChange}
-          disabled={disabled}
+          disabled={resolvedDisabled}
           readOnly={readOnly}
-          required={required}
-          aria-invalid={ariaInvalid ?? error}
-          aria-required={ariaRequired ?? required}
+          required={resolvedRequired}
+          aria-describedby={resolvedDescribedBy}
+          aria-invalid={ariaInvalid ?? resolvedError}
+          aria-required={ariaRequired ?? resolvedRequired}
           {...props}
         />
         {iconAfter && (

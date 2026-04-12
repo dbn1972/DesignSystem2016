@@ -194,7 +194,7 @@ export default function CertificateSignIn() {
                     Don't have an account?
                   </p>
                   <Link
-                    to="/reference-service/certificate/signup"
+                    to="/reference-service/certificate/sign-up"
                     className="inline-block px-6 py-3 border-2 border-[#000080] bg-white text-[#000080] font-bold rounded text-sm hover:bg-blue-50 transition-colors"
                   >
                     Create New Account

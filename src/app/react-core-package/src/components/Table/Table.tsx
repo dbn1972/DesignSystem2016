@@ -16,7 +16,7 @@
  * ```
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { ReactNode, useState, useMemo } from 'react';
 import { cn } from '../../utils/cn';
 import { TableProps, SortState, TableColumn } from './Table.types';
 
@@ -170,10 +170,19 @@ export function Table<T = any>({
 
   const containerStyle = maxHeight ? { maxHeight, overflow: 'auto' } : undefined;
 
+  const getAriaSort = (column: TableColumn<T>) => {
+    if (!column.sortable) return undefined;
+    if (sortState.columnKey !== column.key || !sortState.direction) {
+      return 'none';
+    }
+    return sortState.direction === 'asc' ? 'ascending' : 'descending';
+  };
+
   return (
     <div
       className={cn('ux4g-table-container', className)}
       style={containerStyle}
+      aria-busy={loading || undefined}
       {...props}
     >
       <table
@@ -201,6 +210,7 @@ export function Table<T = any>({
             {columns.map((column) => (
               <th
                 key={column.key}
+                scope="col"
                 className={cn(
                   'ux4g-table-header-cell',
                   column.sortable && 'ux4g-table-header-sortable',
@@ -208,30 +218,36 @@ export function Table<T = any>({
                   sortState.columnKey === column.key && 'ux4g-table-header-sorted'
                 )}
                 style={column.width ? { width: column.width } : undefined}
-                onClick={() => column.sortable && handleSort(column)}
-                aria-sort={
-                  sortState.columnKey === column.key && sortState.direction
-                    ? sortState.direction === 'asc'
-                      ? 'ascending'
-                      : 'descending'
-                    : undefined
-                }
+                aria-sort={getAriaSort(column)}
                 {...column.headerProps}
               >
-                <div className="ux4g-table-header-content">
-                  {column.header}
-                  {column.sortable && (
-                    <span className="ux4g-table-sort-icon" aria-hidden="true">
-                      {sortState.columnKey === column.key
-                        ? sortState.direction === 'asc'
-                          ? '↑'
-                          : sortState.direction === 'desc'
-                          ? '↓'
-                          : '↕'
-                        : '↕'}
+                {column.sortable ? (
+                  <button
+                    type="button"
+                    className="ux4g-table-header-button"
+                    onClick={() => handleSort(column)}
+                  >
+                    <span className="ux4g-table-header-content">
+                      {column.header}
+                      <span className="ux4g-table-sort-icon" aria-hidden="true">
+                        {sortState.columnKey === column.key
+                          ? sortState.direction === 'asc'
+                            ? '↑'
+                            : sortState.direction === 'desc'
+                            ? '↓'
+                            : '↕'
+                          : '↕'}
+                      </span>
                     </span>
-                  )}
-                </div>
+                    <span className="sr-only">
+                      {sortState.columnKey === column.key && sortState.direction
+                        ? `Sorted ${sortState.direction === 'asc' ? 'ascending' : 'descending'}`
+                        : 'Not sorted'}
+                    </span>
+                  </button>
+                ) : (
+                  <div className="ux4g-table-header-content">{column.header}</div>
+                )}
               </th>
             ))}
           </tr>
@@ -250,6 +266,14 @@ export function Table<T = any>({
                   onRowClick && 'ux4g-table-row-clickable'
                 )}
                 onClick={() => onRowClick?.(row, index)}
+                onKeyDown={(event) => {
+                  if (!onRowClick) return;
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    onRowClick(row, index);
+                  }
+                }}
+                tabIndex={onRowClick ? 0 : undefined}
               >
                 {columns.map((column) => (
                   <td

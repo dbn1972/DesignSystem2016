@@ -24,6 +24,7 @@ const opacity = require('../tokens/base/opacity.json');
 const motion = require('../tokens/base/motion.json');
 const zIndex = require('../tokens/base/z-index.json');
 const semantic = require('../tokens/semantic.json');
+const semanticThemes = require('../tokens/semantic-themes.json');
 
 /**
  * Flatten nested token object into dot notation
@@ -65,55 +66,152 @@ function resolveReferences(value, tokens) {
     : resolved;
 }
 
+function isTokenLeaf(value) {
+  return Boolean(value && typeof value === 'object' && value.value !== undefined);
+}
+
+function collectTokenEntries(obj, path = [], result = []) {
+  for (const [key, value] of Object.entries(obj)) {
+    if (key.startsWith('$') || key === 'description' || key === 'a11y') continue;
+
+    if (isTokenLeaf(value)) {
+      result.push({ path: [...path, key], value: value.value });
+    } else if (value && typeof value === 'object') {
+      collectTokenEntries(value, [...path, key], result);
+    }
+  }
+
+  return result;
+}
+
+function normalizeCssValue(value) {
+  if (typeof value === 'number') return String(value);
+  return value;
+}
+
+function toCssVarName(pathSegments) {
+  return `--ux4g-${pathSegments.join('-')}`;
+}
+
+function appendCssEntries(lines, entries, tokenTree, transformPath = (path) => path) {
+  for (const entry of entries) {
+    const cssVar = toCssVarName(transformPath(entry.path));
+    const resolvedValue = normalizeCssValue(resolveReferences(entry.value, tokenTree));
+    lines.push(`  ${cssVar}: ${resolvedValue};`);
+  }
+}
+
+function normalizeStateAliasPath(pathSegments) {
+  if (pathSegments[pathSegments.length - 1] === 'DEFAULT') {
+    return pathSegments.slice(0, -1);
+  }
+  return pathSegments;
+}
+
 /**
  * Generate CSS variables
  */
 function generateCSS() {
-  const allTokens = {
-    ...colors,
-    ...typography,
-    ...spacing,
-    ...sizing,
-    ...radius,
-    ...shadows,
-    ...opacity,
-    ...motion,
-    ...zIndex,
-    ...semantic
+  const tokenTree = {
+    ux4g: {
+      color: colors.ux4g.color,
+      typography: typography.ux4g.typography,
+      spacing: spacing.ux4g.spacing,
+      sizing: sizing.ux4g.sizing,
+      radius: radius.ux4g.radius,
+      shadow: shadows.ux4g.shadow,
+      opacity: opacity.ux4g.opacity,
+      motion: motion.ux4g.motion,
+      zIndex: zIndex.ux4g.zIndex,
+      semantic: semantic.ux4g.semantic,
+      theme: semanticThemes.ux4g.theme
+    }
   };
 
-  let css = `/**
+  const cssLines = [`/**
  * UX4G Design Tokens - CSS Custom Properties
  * @ux4g/tokens v1.0.0
  * Auto-generated - Do not edit directly
  */
+`,
+  '/* Base tokens */',
+  ':root {'];
 
-:root {
-`;
+  // Historical runtime aliases that the app and component packages already use.
+  appendCssEntries(
+    cssLines,
+    collectTokenEntries(colors.ux4g.color.base),
+    tokenTree,
+    (path) => ['color', ...path]
+  );
+  appendCssEntries(cssLines, collectTokenEntries(spacing.ux4g.spacing), tokenTree, (path) => ['spacing', ...path]);
+  appendCssEntries(cssLines, collectTokenEntries(sizing.ux4g.sizing), tokenTree, (path) => ['sizing', ...path]);
+  appendCssEntries(cssLines, collectTokenEntries(radius.ux4g.radius), tokenTree, (path) => ['radius', ...path]);
+  appendCssEntries(cssLines, collectTokenEntries(shadows.ux4g.shadow), tokenTree, (path) => ['shadow', ...path]);
+  appendCssEntries(cssLines, collectTokenEntries(opacity.ux4g.opacity), tokenTree, (path) => ['opacity', ...path]);
+  appendCssEntries(cssLines, collectTokenEntries(motion.ux4g.motion), tokenTree, (path) => ['motion', ...path]);
+  appendCssEntries(cssLines, collectTokenEntries(zIndex.ux4g.zIndex), tokenTree, (path) => ['z-index', ...path]);
+  appendCssEntries(
+    cssLines,
+    collectTokenEntries(typography.ux4g.typography),
+    tokenTree,
+    (path) => ['typography', ...path]
+  );
 
-  function tokenToCSS(obj, prefix = '--ux4g') {
-    let output = '';
-    for (const [key, value] of Object.entries(obj)) {
-      if (key.startsWith('$') || key === 'description' || key === 'a11y') continue;
-      
-      if (value && typeof value === 'object') {
-        if (value.value !== undefined) {
-          const cssValue = value.value.startsWith('{') 
-            ? `var(${value.value.slice(1, -1).split('.').slice(1).join('-').replace(/\./g, '-')})`
-            : value.value;
-          output += `  ${prefix}-${key}: ${cssValue};\n`;
-        } else {
-          output += tokenToCSS(value, `${prefix}-${key}`);
-        }
-      }
-    }
-    return output;
-  }
+  // Extra compatibility aliases used by existing package CSS.
+  appendCssEntries(
+    cssLines,
+    collectTokenEntries(colors.ux4g.color.base.semantic.error),
+    tokenTree,
+    (path) => ['color', ...normalizeStateAliasPath(['error', ...path])]
+  );
+  appendCssEntries(
+    cssLines,
+    collectTokenEntries(colors.ux4g.color.base.semantic.success),
+    tokenTree,
+    (path) => ['color', ...normalizeStateAliasPath(['success', ...path])]
+  );
+  appendCssEntries(
+    cssLines,
+    collectTokenEntries(colors.ux4g.color.base.semantic.warning),
+    tokenTree,
+    (path) => ['color', ...normalizeStateAliasPath(['warning', ...path])]
+  );
+  appendCssEntries(
+    cssLines,
+    collectTokenEntries(colors.ux4g.color.base.semantic.info),
+    tokenTree,
+    (path) => ['color', ...normalizeStateAliasPath(['info', ...path])]
+  );
 
-  css += tokenToCSS(allTokens.ux4g);
-  css += '}\n';
+  cssLines.push('}');
+  cssLines.push('');
+  cssLines.push('/* Theme tokens (light/default) */');
+  cssLines.push(':root {');
 
-  fs.writeFileSync(path.join(distDir, 'tokens.css'), css);
+  appendCssEntries(
+    cssLines,
+    collectTokenEntries(semanticThemes.ux4g.theme.light.color),
+    tokenTree,
+    (path) => ['color', ...path]
+  );
+
+  cssLines.push('}');
+  cssLines.push('');
+  cssLines.push('/* Theme tokens (dark) */');
+  cssLines.push('.dark {');
+
+  appendCssEntries(
+    cssLines,
+    collectTokenEntries(semanticThemes.ux4g.theme.dark.color),
+    tokenTree,
+    (path) => ['color', ...path]
+  );
+
+  cssLines.push('}');
+  cssLines.push('');
+
+  fs.writeFileSync(path.join(distDir, 'tokens.css'), `${cssLines.join('\n')}\n`);
   console.log('✅ Generated tokens.css');
 }
 

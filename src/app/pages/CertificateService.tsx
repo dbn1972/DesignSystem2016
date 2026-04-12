@@ -265,7 +265,7 @@ export default function CertificateService() {
             </p>
             <div className="flex items-center justify-center gap-4">
               <Link
-                to="/reference-service/certificate/signin"
+                to="/reference-service/certificate/sign-in"
                 className="px-8 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 transition-colors flex items-center gap-2"
               >
                 <Shield size={18} />

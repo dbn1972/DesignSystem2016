@@ -5,17 +5,63 @@
 /**
  * Standard component sizes
  */
+export const COMPONENT_SIZES = ['sm', 'md', 'lg'] as const;
 export type ComponentSize = 'sm' | 'md' | 'lg';
+export type ComponentMaturity = 'stable' | 'beta' | 'experimental';
 
 /**
  * Button and interactive component variants
  */
+export const COMPONENT_VARIANTS = ['primary', 'secondary', 'tertiary', 'ghost', 'destructive'] as const;
 export type ComponentVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'destructive';
 
 /**
  * Status and feedback variants
  */
-export type StatusVariant = 'info' | 'success' | 'warning' | 'error';
+export const STATUS_VARIANTS = ['neutral', 'info', 'success', 'warning', 'error'] as const;
+export type StatusVariant = 'neutral' | 'info' | 'success' | 'warning' | 'error';
+
+/**
+ * Canonical state names shared across UX4G components.
+ */
+export type ComponentState =
+  | 'disabled'
+  | 'loading'
+  | 'readonly'
+  | 'required'
+  | 'invalid'
+  | 'selected'
+  | 'checked'
+  | 'open'
+  | 'active';
+
+/**
+ * Canonical event semantics shared across frameworks.
+ */
+export type ComponentEventName =
+  | 'activate'
+  | 'change'
+  | 'openChange'
+  | 'selectionChange'
+  | 'dismiss'
+  | 'submit'
+  | 'valueCommit';
+
+/**
+ * Shared conceptual content regions for projected content.
+ */
+export type ComponentSlotName =
+  | 'default'
+  | 'label'
+  | 'description'
+  | 'hint'
+  | 'error'
+  | 'icon-leading'
+  | 'icon-trailing'
+  | 'actions'
+  | 'header'
+  | 'footer'
+  | 'empty';
 
 /**
  * Alignment options

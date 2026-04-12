@@ -2,49 +2,36 @@
 
 Angular component library for the UX4G Indian Government Design System.
 
+Canonical API vocabulary for all UX4G packages lives in [../COMPONENT_CONTRACT.md](/Users/debabratanayak_1/Documents/DesignSystem_211/src/app/COMPONENT_CONTRACT.md).
+
+Current stabilization priority lives in [../CORE_10_HARDENING_PLAN.md](/Users/debabratanayak_1/Documents/DesignSystem_211/src/app/CORE_10_HARDENING_PLAN.md). The core 10 components are the default hardening target before broader surface-area expansion.
+
 [![npm version](https://img.shields.io/npm/v/@ux4g/angular-core.svg)](https://www.npmjs.com/package/@ux4g/angular-core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
 ---
 
-## 📊 Development Status
+## Maturity Labels
 
-| Framework | Status | Components | Version |
-|-----------|--------|------------|---------|
-| **React** | ✅ **Complete!** 🏆 | **73/73 (100%)** | v1.0.0 |
-| **Angular** | ✅ **Complete!** 🎉 | **73/73 (100%)** | v1.0.0 |
+- `stable`: recommended for broad production use
+- `beta`: suitable for production with active hardening and tighter review
+- `experimental`: available for evaluation, but not yet a default recommendation
 
-**Latest:** 🎉 **PARITY ACHIEVED!** All 73 components complete!  
-**Progress:** Added final 9 components - Data Grid, QR Code, Application Tracker, Document Viewer, Charts, Calendar, Feedback Rating, Digital Signature, Language Selector
+Angular maturity is exported as `ANGULAR_COMPONENT_MATURITY` so consuming teams can gate adoption in code.
 
-**✅ ALL BATCHES COMPLETED (73 Components)** 🎉
+### Current Angular status
 
-**Batch 1:** Button, Input, Checkbox, Radio, RadioGroup, Select  
-**Batch 2:** Textarea, Label, Field, Alert, Badge, Card  
-**Batch 3:** Table, Dialog, Tabs, Pagination, Breadcrumb  
-**Batch 4:** Switch, Toast, Progress, Spinner, Tooltip  
-**Batch 5:** Avatar, Tag, Divider, Status Tag, Menu  
-**Batch 6:** Container, Stack, Skeleton, Statistic  
-**Batch 7:** Timeline, Grid, Drawer, OTP Input, Stepper  
-**Batch 8:** HintText, ErrorText, Rating, SearchBar, Accordion, Popover, DatePicker, FileUpload, Autocomplete  
-**Batch 9:** Segmented Control, Aadhaar Input, PAN Input, Address Autocomplete India, CAPTCHA  
-**Batch 10:** Header, Footer, Dropdown, Back to Top, Spacer  
-**Batch 11:** List, Description List, Empty State, Code Block, Tree View  
-**Batch 12:** Flex, Center, Aspect Ratio, Show/Hide, Section  
-**Batch 13-14:** ✅ Data Grid, QR Code, Application Tracker, Document Viewer, Chart Library, Calendar Scheduler, Feedback Rating, Digital Signature, Language Selector
+| Maturity | Components |
+| --- | --- |
+| `stable` | none designated yet |
+| `beta` | `ButtonComponent`, `InputComponent`, `SelectComponent`, `CheckboxComponent`, `RadioComponent`, `RadioGroupComponent`, `TextareaComponent`, `FieldComponent`, `LabelComponent`, `HintTextComponent`, `ErrorTextComponent`, `AlertComponent`, `BadgeComponent`, `ProgressComponent`, `SpinnerComponent`, `CardComponent`, `TableComponent`, `BreadcrumbComponent`, `PaginationComponent`, `TabsComponent`, `DialogComponent`, `AutocompleteComponent` |
+| `experimental` | all other Angular exports |
 
-**🎉 MISSION ACCOMPLISHED: 73/73 components - Full parity with React!**
-
-**Next Batches:**
-- Layout components (10): Container, Grid, Stack, Divider, etc.
-- Government forms (6): Aadhaar Input, PAN Input, etc.
-- Advanced features (13): Digital Signature, Payment Gateway, etc.
-
-> **Note**: 🎉 **BOTH FRAMEWORKS ARE COMPLETE!** React and Angular both have all 73/73 components (100%)! Full feature parity achieved with comprehensive documentation and working examples. Angular core library now has 73 production-ready reusable components matching React's complete set.
+This package has breadth, but not all exported components should be treated as equally production-ready.
 
 ## Features
 
-✅ **73 Production-Ready Components** - Complete library with Button, Input, Alert, Table, Dialog, Switch, Toast, Avatar, Menu, Stack, Timeline, Grid, Drawer, Rating, Autocomplete, DatePicker, FileUpload, SearchBar, Accordion, Popover, Aadhaar Input, PAN Input, Segmented Control, CAPTCHA, Header, Footer, Dropdown, Back to Top, Spacer, List, Description List, Empty State, Code Block, Tree View, Flex, Center, Aspect Ratio, Show/Hide, Section, Data Grid, QR Code, Application Tracker, Document Viewer, Charts, Calendar, Feedback Rating, Digital Signature, Language Selector, and more!  
+✅ **Broad Component Coverage** - Angular exports a large surface area, with a smaller beta subset currently recommended for shared production use  
 ✅ **Standalone Architecture** - Modern Angular 18+ standalone components  
 ✅ **Angular Forms Integration** - Full support for Reactive and Template-driven forms  
 ✅ **Token-Based Styling** - Built on @ux4g/tokens design system  
@@ -130,6 +117,8 @@ export class AppModule { }
 
 ### Form Components
 
+`Beta-focused imports`
+
 ```typescript
 import {
   ButtonComponent,
@@ -143,22 +132,26 @@ import {
   HintTextComponent,
   ErrorTextComponent,
   FileUploadComponent,
-  DateInputComponent,
+  DatePickerComponent,
 } from '@ux4g/angular-core';
 ```
 
 ### Feedback Components
+
+`Mixed maturity imports`
 
 ```typescript
 import {
   AlertComponent,
   BadgeComponent,
   StatusTagComponent,
-  ToastComponent,
+  ToastContainerComponent,
 } from '@ux4g/angular-core';
 ```
 
 ### Navigation Components
+
+`Mixed maturity imports`
 
 ```typescript
 import {
@@ -166,8 +159,6 @@ import {
   PaginationComponent,
   TabsComponent,
   AccordionComponent,
-  TopNavComponent,
-  SideNavComponent,
   HeaderComponent,
   StepperComponent,
 } from '@ux4g/angular-core';
@@ -196,6 +187,8 @@ import {
 ## Usage Examples
 
 ### Forms
+
+`Beta example`
 
 #### Reactive Forms
 
@@ -356,6 +349,8 @@ export class NotificationsComponent {
 
 ### Dialogs
 
+`Beta example`
+
 ```typescript
 import { Component } from '@angular/core';
 import { DialogComponent, ButtonComponent } from '@ux4g/angular-core';
@@ -406,6 +401,8 @@ export class ExampleComponent {
 ```
 
 ### Tables
+
+`Beta example`
 
 ```typescript
 import { Component } from '@angular/core';
@@ -527,13 +524,13 @@ const status: StatusVariant = 'success';
 - [Component Patterns](./COMPONENT_PATTERNS.md) - Design patterns and best practices
 - [Framework Comparison](./FRAMEWORK_COMPARISON.md) - React vs Angular comparison guide
 - [Implementation Roadmap](./ROADMAP.md) - Detailed development timeline
-- [Changelog](./CHANGELOG.md) - Version history and migration guides
+- [Tokens Changelog](../tokens-package/CHANGELOG.md) - Version history and migration guides
 
 ---
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for development setup and contribution guidelines.
+See [CONTRIBUTING_GUIDELINES_FEATURE.md](../../../CONTRIBUTING_GUIDELINES_FEATURE.md) for development setup and contribution guidelines.
 
 ---
 

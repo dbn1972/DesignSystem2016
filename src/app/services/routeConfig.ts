@@ -45,8 +45,8 @@ export const ROUTES = {
   
   // Governance
   GOVERNANCE: "/governance",
-  ADOPTION: "/adoption",
-  CONFORMANCE: "/conformance-dashboard",
+  ADOPTION: "/governance/adoption",
+  CONFORMANCE: "/governance/conformance",
   
   // Service Pattern Libraries
   SERVICE_PATTERNS: "/service-pattern-libraries",
@@ -56,60 +56,60 @@ export const ROUTES = {
   // Certificate Service Routes
   CERTIFICATE: {
     // Discovery
-    SERVICE: "/certificate-service",
-    ELIGIBILITY: "/certificate-eligibility",
-    HELP: "/certificate-help",
-    DOCUMENT_GUIDELINES: "/certificate-document-guidelines",
-    PRIVACY_POLICY: "/certificate-privacy-policy",
+    SERVICE: "/reference-service/demo",
+    ELIGIBILITY: "/reference-service/certificate/eligibility",
+    HELP: "/reference-service/certificate/help",
+    DOCUMENT_GUIDELINES: "/reference-service/certificate/document-guidelines",
+    PRIVACY_POLICY: "/reference-service/certificate/privacy-policy",
     
     // Authentication
-    SIGN_UP: "/certificate-signup",
-    SIGN_IN: "/certificate-signin",
-    SIGN_IN_UPDATED: "/certificate-signin-updated",
-    VERIFY_OTP: "/certificate-verify-otp",
-    FORGOT_PASSWORD: "/certificate-forgot-password",
-    SESSION_TIMEOUT: "/certificate-session-timeout",
-    USER_PROFILE: "/certificate-user-profile",
+    SIGN_UP: "/reference-service/certificate/sign-up",
+    SIGN_IN: "/reference-service/certificate/sign-in",
+    SIGN_IN_UPDATED: "/reference-service/certificate/sign-in",
+    VERIFY_OTP: "/reference-service/certificate/verify-otp",
+    FORGOT_PASSWORD: "/reference-service/certificate/forgot-password",
+    SESSION_TIMEOUT: "/reference-service/certificate/session-timeout",
+    USER_PROFILE: "/reference-service/certificate/user-profile",
     
     // Application Flow
-    START: "/certificate-start",
-    FORM_PERSONAL: "/certificate-form-personal",
-    FORM_PERSONAL_UPDATED: "/certificate-form-personal-updated",
-    FORM_ADDRESS: "/certificate-form-address",
-    FORM_ADDITIONAL: "/certificate-form-additional",
-    FORM_REVIEW: "/certificate-form-review",
-    DOCUMENT_UPLOAD: "/certificate-document-upload",
-    REVIEW_SUMMARY: "/certificate-review-summary",
-    DECLARATION: "/certificate-declaration",
+    START: "/reference-service/certificate/start",
+    FORM_PERSONAL: "/reference-service/certificate/form/personal",
+    FORM_PERSONAL_UPDATED: "/reference-service/certificate/form/personal",
+    FORM_ADDRESS: "/reference-service/certificate/form/address",
+    FORM_ADDITIONAL: "/reference-service/certificate/form/additional",
+    FORM_REVIEW: "/reference-service/certificate/form/review",
+    DOCUMENT_UPLOAD: "/reference-service/certificate/document-upload",
+    REVIEW_SUMMARY: "/reference-service/certificate/review-summary",
+    DECLARATION: "/reference-service/certificate/declaration",
     
     // Payment
-    PAYMENT_SUMMARY: "/certificate-payment-summary",
-    PAYMENT_RECEIPT: "/certificate-payment-receipt",
+    PAYMENT_SUMMARY: "/reference-service/certificate/payment-summary",
+    PAYMENT_RECEIPT: "/reference-service/certificate/payment-receipt",
     
     // Post-Submission
-    SUBMISSION_SUCCESS: "/certificate-submission-success",
-    STATUS_TRACKER: "/certificate-status-tracker",
-    NOTIFICATIONS: "/certificate-notifications",
+    SUBMISSION_SUCCESS: "/reference-service/certificate/submission-success",
+    STATUS_TRACKER: "/reference-service/certificate/status-tracker",
+    NOTIFICATIONS: "/reference-service/certificate/notifications",
     
     // Issuance
-    ISSUED: "/certificate-issued",
-    FEEDBACK: "/certificate-feedback",
+    ISSUED: "/reference-service/certificate/issued",
+    FEEDBACK: "/reference-service/certificate/feedback",
     
     // Recovery
-    CORRECTION_REQUEST: "/certificate-correction-request",
-    REJECTED: "/certificate-rejected",
-    APPEAL: "/certificate-appeal",
+    CORRECTION_REQUEST: "/reference-service/certificate/correction-request",
+    REJECTED: "/reference-service/certificate/rejected",
+    APPEAL: "/reference-service/certificate/appeal",
     
     // Officer
-    OFFICER_DASHBOARD: "/certificate-officer-dashboard",
-    OFFICER_CASES: "/certificate-officer-cases",
-    OFFICER_REVIEW: "/certificate-officer-review",
+    OFFICER_DASHBOARD: "/reference-service/certificate/officer/dashboard",
+    OFFICER_CASES: "/reference-service/certificate/officer/cases",
+    OFFICER_REVIEW: "/reference-service/certificate/officer/review",
     
     // User Dashboard
-    MY_APPLICATIONS: "/certificate-my-applications",
+    MY_APPLICATIONS: "/reference-service/certificate/my-applications",
     
     // Public
-    VERIFICATION: "/certificate-verification"
+    VERIFICATION: "/reference-service/certificate/verification"
   }
 } as const;
 
@@ -249,10 +249,10 @@ export const getBreadcrumbs = (path: string): Array<{ label: string; path: strin
   }
   
   // Certificate service routes
-  if (path.startsWith('/certificate')) {
+  if (path.startsWith('/reference-service/certificate') || path === '/reference-service/demo') {
     breadcrumbs.push({ label: 'Certificate Service', path: ROUTES.CERTIFICATE.SERVICE });
     
-    if (path.includes('form')) {
+    if (path.includes('/form/')) {
       breadcrumbs.push({ label: 'Application Form', path: ROUTES.CERTIFICATE.START });
     }
   }

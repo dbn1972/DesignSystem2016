@@ -292,9 +292,9 @@ If you see "Module not found" errors:
 Now that UX4G is installed:
 
 1. [Quick Start Guide](/getting-started/quick-start) - Build your first form
-2. [Component Documentation](/components) - Explore all components
-3. [Storybook](/storybook) - See live examples
+2. [Component Documentation](https://ux4g.gov.in/components) - Explore all components
+3. [Storybook](https://ux4g.gov.in/storybook) - See live examples
 
 ---
 
-**Need help?** Check our [FAQs](/resources/faqs) or [open an issue](https://github.com/ux4g/ux4g/issues).
+**Need help?** Check our [FAQs](https://ux4g.gov.in/resources/faqs) or [open an issue](https://github.com/ux4g/ux4g/issues).

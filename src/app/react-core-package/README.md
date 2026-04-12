@@ -4,6 +4,12 @@ React component library for UX4G - Indian Government Design System
 
 Accessible React components built on `@ux4g/tokens` and `@ux4g/styles`.
 
+Canonical API vocabulary for all UX4G packages lives in [../COMPONENT_CONTRACT.md](/Users/debabratanayak_1/Documents/DesignSystem_211/src/app/COMPONENT_CONTRACT.md).
+
+Current stabilization priority lives in [../CORE_10_HARDENING_PLAN.md](/Users/debabratanayak_1/Documents/DesignSystem_211/src/app/CORE_10_HARDENING_PLAN.md). The core 10 components are the default hardening target before broader surface-area expansion.
+
+Component maturity is exported as `REACT_COMPONENT_MATURITY` so consuming teams can make rollout decisions from code as well as docs.
+
 ## Features
 
 - 🇮🇳 **Government-Grade Design** - Aligned with UX4G specifications
@@ -14,6 +20,20 @@ Accessible React components built on `@ux4g/tokens` and `@ux4g/styles`.
 - 🎯 **Composable Components** - Flexible composition patterns
 - 🚧 **Active Development** - Core pieces are usable, but not every exported component is equally mature
 
+## Maturity Labels
+
+- `stable`: recommended for broad production use
+- `beta`: suitable for production with active hardening and tighter review
+- `experimental`: use only with deliberate adoption and local ownership
+
+### Current React status
+
+| Component | Maturity |
+| --- | --- |
+| `Label`, `HintText`, `ErrorText`, `Spinner` | `stable` |
+| `Button`, `Input`, `Select`, `Checkbox`, `Radio`, `Textarea`, `Field`, `Alert`, `Badge`, `Card`, `Avatar`, `Table`, `Tabs`, `Breadcrumb`, `Pagination`, `Dialog`, `Tooltip`, `Progress`, `Autocomplete` | `beta` |
+| `Drawer`, `Popover`, `Toast`, `Accordion`, `Rating`, `Stepper`, `Timeline`, `OTPInput`, `DatePicker`, `FileUpload`, `SearchBar`, `Menu` | `experimental` |
+
 ## Installation
 
 ```bash
@@ -21,6 +41,8 @@ npm install @ux4g/react-core @ux4g/tokens @ux4g/styles react react-dom
 ```
 
 ## Quick Start
+
+`Beta example`
 
 ```tsx
 import { Button, Input, Field, Label, Alert } from '@ux4g/react-core';
@@ -35,10 +57,8 @@ function App() {
         Apply for government services online
       </Alert>
 
-      <Field>
-        <Label htmlFor="email" required>Email</Label>
+      <Field label="Email" required>
         <Input
-          id="email"
           type="email"
           value={email}
           onChange={setEmail}
@@ -57,45 +77,47 @@ function App() {
 ## Components
 
 ### Form Components
-- **Button** - Primary interactive element
-- **Input** - Text input fields
-- **Textarea** - Multi-line text input
-- **Select** - Dropdown selection
-- **Checkbox** - Checkbox input
-- **Radio** - Radio button input
-- **Field** - Form field container
-- **Label** - Form labels
-- **HintText** - Helper text
-- **ErrorText** - Error messages
-- **FileUpload** - File upload
-- **DateInput** - Date picker
+- **Button** (`beta`) - Primary interactive element
+- **Input** (`beta`) - Text input fields
+- **Textarea** (`beta`) - Multi-line text input
+- **Select** (`beta`) - Dropdown selection
+- **Checkbox** (`beta`) - Checkbox input
+- **Radio** (`beta`) - Radio button input
+- **Field** (`beta`) - Form field container
+- **Label** (`stable`) - Form labels
+- **HintText** (`stable`) - Helper text
+- **ErrorText** (`stable`) - Error messages
+- **FileUpload** (`experimental`) - File upload
+- **DatePicker** (`experimental`) - Date picker
 
 ### Feedback Components
-- **Alert** - Important messages
-- **Badge** - Status badges
-- **Toast** - Toast notifications
+- **Alert** (`beta`) - Important messages
+- **Badge** (`beta`) - Status badges
+- **Toast** (`experimental`) - Toast notifications
 
 ### Layout / Display Components
-- **Card** - Content containers
-- **Avatar** - User or entity avatars
-- **Table** - Data tables
+- **Card** (`beta`) - Content containers
+- **Avatar** (`beta`) - User or entity avatars
+- **Table** (`beta`) - Data tables
 
 ### Navigation Components
-- **Tabs** - Tab navigation
-- **Accordion** - Expandable sections
-- **Breadcrumb** - Breadcrumb trails
-- **Pagination** - Page navigation
-- **Stepper** - Step indicators
+- **Tabs** (`beta`) - Tab navigation
+- **Accordion** (`experimental`) - Expandable sections
+- **Breadcrumb** (`beta`) - Breadcrumb trails
+- **Pagination** (`beta`) - Page navigation
+- **Stepper** (`experimental`) - Step indicators
 
 ### Overlay Components
-- **Dialog** - Modal dialogs
-- **Drawer** - Side drawers
-- **Popover** - Contextual overlays
-- **Tooltip** - Supplemental guidance
+- **Dialog** (`beta`) - Modal dialogs
+- **Drawer** (`experimental`) - Side drawers
+- **Popover** (`experimental`) - Contextual overlays
+- **Tooltip** (`beta`) - Supplemental guidance
 
 ## Usage Examples
 
 ### Form with Validation
+
+`Beta example`
 
 ```tsx
 import { Button, Input, Field, Label, ErrorText, HintText } from '@ux4g/react-core';
@@ -106,21 +128,18 @@ function RegistrationForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Field error={!!errors.email}>
-        <Label htmlFor="email" required>Email</Label>
+      <Field
+        id="email"
+        label="Email"
+        hint={!errors.email ? "We'll never share your email" : undefined}
+        errorText={errors.email}
+        required
+      >
         <Input
-          id="email"
           type="email"
           value={formData.email}
           onChange={(value) => setFormData({ ...formData, email: value })}
-          error={!!errors.email}
-          aria-describedby={errors.email ? 'email-error' : 'email-hint'}
         />
-        {errors.email ? (
-          <ErrorText id="email-error">{errors.email}</ErrorText>
-        ) : (
-          <HintText id="email-hint">We'll never share your email</HintText>
-        )}
       </Field>
 
       <Button type="submit" loading={isSubmitting}>
@@ -132,6 +151,8 @@ function RegistrationForm() {
 ```
 
 ### Button Variants
+
+`Beta example`
 
 ```tsx
 import { Button } from '@ux4g/react-core';
@@ -159,6 +180,8 @@ import { Button } from '@ux4g/react-core';
 
 ### Alerts
 
+`Beta example`
+
 ```tsx
 import { Alert } from '@ux4g/react-core';
 
@@ -185,6 +208,8 @@ import { Alert } from '@ux4g/react-core';
 
 ### Tabs
 
+`Beta example`
+
 ```tsx
 import { Tabs } from '@ux4g/react-core';
 
@@ -200,6 +225,8 @@ import { Tabs } from '@ux4g/react-core';
 
 ### Data Table
 
+`Beta example`
+
 ```tsx
 import { Table, Pagination, Badge } from '@ux4g/react-core';
 
@@ -208,7 +235,7 @@ import { Table, Pagination, Badge } from '@ux4g/react-core';
     { key: 'id', header: 'Application ID', width: '120px' },
     { key: 'name', header: 'Applicant Name', sortable: true },
     { key: 'status', header: 'Status', accessor: (row) => (
-      <Badge variant="secondary">{row.status}</Badge>
+      <Badge variant="info">{row.status}</Badge>
     )},
     { key: 'date', header: 'Submitted', sortable: true }
   ]}
@@ -226,6 +253,8 @@ import { Table, Pagination, Badge } from '@ux4g/react-core';
 ```
 
 ### Dialog
+
+`Beta example`
 
 ```tsx
 import { Dialog, Button } from '@ux4g/react-core';
@@ -339,7 +368,7 @@ const CustomButton: React.FC<ButtonProps> = (props) => {
 
 ## Contributing
 
-Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.md) for details.
+Contributions are welcome! Please read our [Contributing Guide](../../../CONTRIBUTING_GUIDELINES_FEATURE.md) for details.
 
 ## License
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { RouterProvider } from "react-router";
 import { router } from "./routes";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -8,7 +8,9 @@ import "./i18n/config"; // Initialize i18n
 export default function App() {
   return (
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <Suspense fallback={<div className="p-6 text-sm text-gray-600">Loading...</div>}>
+        <RouterProvider router={router} />
+      </Suspense>
     </ThemeProvider>
   );
 }

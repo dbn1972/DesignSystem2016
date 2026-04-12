@@ -2,18 +2,30 @@
 
 **Framework-agnostic Web Components for Government of India Design System**
 
+Canonical API vocabulary for all UX4G packages lives in [../COMPONENT_CONTRACT.md](/Users/debabratanayak_1/Documents/DesignSystem_211/src/app/COMPONENT_CONTRACT.md).
+
+Current stabilization priority lives in [../CORE_10_HARDENING_PLAN.md](/Users/debabratanayak_1/Documents/DesignSystem_211/src/app/CORE_10_HARDENING_PLAN.md). The core 10 components are the default hardening target before broader surface-area expansion.
+
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://www.npmjs.com/package/@ux4g/web-components)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ## 🎯 Overview
 
-UX4G Web Components provides **framework-agnostic**, standards-based Web Components that work with **any JavaScript framework** or **plain HTML**. Perfect for government websites and applications that need:
+UX4G Web Components provides **framework-agnostic**, standards-based Web Components that work with **any JavaScript framework** or **plain HTML**. Maturity varies by component, so teams should prefer the beta subset for shared production use and treat the rest as evaluation-stage.
 
 - ✅ **Universal compatibility** - Works with React, Angular, Vue, Svelte, or vanilla HTML
 - ✅ **Zero dependencies** - Uses native Web Components APIs
 - ✅ **Accessibility-first** - WCAG 2.1 Level AA compliant
 - ✅ **Government branding** - Indian tricolor theme
-- ✅ **Production-ready** - Battle-tested components
+- 🚧 **Maturity-aware adoption** - Use exported maturity labels to choose stable rollout sets
+
+## Maturity Labels
+
+- `stable`: recommended for broad production use
+- `beta`: suitable for production with active hardening and tighter review
+- `experimental`: use with deliberate adoption and local ownership
+
+Web-component maturity is exported as `WEB_COMPONENT_MATURITY`.
 
 ## 📦 Installation
 
@@ -286,22 +298,27 @@ export class AppModule { }
 
 ## 📚 Available Components
 
-| Component | Description | Status |
+| Component | Description | Maturity |
 |-----------|-------------|--------|
-| `<ux4g-button>` | Primary interactive element for user actions | ✅ Stable |
-| `<ux4g-input>` | Text input field for form data entry | ✅ Stable |
-| `<ux4g-checkbox>` | Checkbox for boolean selections | ✅ Stable |
-| `<ux4g-alert>` | Alert notifications and messages | ✅ Stable |
-| `<ux4g-select>` | Dropdown selection component | ✅ Stable |
-
-**More components coming soon!** (60+ components planned)
+| `<ux4g-button>` | Primary interactive element for user actions | `beta` |
+| `<ux4g-input>` | Text input field for form data entry | `beta` |
+| `<ux4g-checkbox>` | Checkbox for boolean selections | `beta` |
+| `<ux4g-alert>` | Alert notifications and messages | `beta` |
+| `<ux4g-select>` | Dropdown selection component | `beta` |
+| `<ux4g-dialog>` | Modal dialog interaction | `beta` |
+| `<ux4g-table>` | Data table presentation | `beta` |
+| `<ux4g-autocomplete>` | Autocomplete/typeahead input | `beta` |
+| `<ux4g-tabs>` | Tabbed content | `beta` |
+| Most other exported web components | Larger or less-verified surface area | `experimental` |
 
 ## 🎨 Component API
 
 ### `<ux4g-button>`
 
+`Beta component`
+
 **Attributes:**
-- `variant`: `primary` | `secondary` | `outline` | `ghost` | `danger` (default: `primary`)
+- `variant`: `primary` | `secondary` | `tertiary` | `ghost` | `destructive` (default: `primary`)
 - `size`: `sm` | `md` | `lg` (default: `md`)
 - `disabled`: boolean
 - `loading`: boolean
@@ -309,7 +326,8 @@ export class AppModule { }
 - `full-width`: boolean
 
 **Events:**
-- `ux4g-click`: Fired when button is clicked
+- `ux4g-activate`: Fired when the button is activated
+- `ux4g-click`: Deprecated legacy alias
 
 **Example:**
 ```html
@@ -319,6 +337,8 @@ export class AppModule { }
 ```
 
 ### `<ux4g-input>`
+
+`Beta component`
 
 **Attributes:**
 - `label`: string
@@ -354,6 +374,8 @@ export class AppModule { }
 
 ### `<ux4g-checkbox>`
 
+`Beta component`
+
 **Attributes:**
 - `label`: string
 - `checked`: boolean
@@ -376,6 +398,8 @@ export class AppModule { }
 
 ### `<ux4g-alert>`
 
+`Beta component`
+
 **Attributes:**
 - `variant`: `info` | `success` | `warning` | `error` (default: `info`)
 - `title`: string
@@ -393,6 +417,8 @@ export class AppModule { }
 ```
 
 ### `<ux4g-select>`
+
+`Beta component`
 
 **Attributes:**
 - `label`: string
@@ -479,11 +505,11 @@ All UX4G Web Components are built with **accessibility-first** approach:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](../../../CONTRIBUTING.md) for guidelines.
+We welcome contributions! Please see [CONTRIBUTING_GUIDELINES_FEATURE.md](../../../CONTRIBUTING_GUIDELINES_FEATURE.md) for guidelines.
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](../react-core-package/LICENSE) file for details.
 
 ## 🔗 Related Packages
 

@@ -108,6 +108,10 @@ export type {
   ComponentSize,
   ComponentVariant,
   StatusVariant,
+  ComponentMaturity,
+  ComponentState,
+  ComponentEventName,
+  ComponentSlotName,
   BaseComponentProps,
   InteractiveComponentProps,
   FormFieldProps,
@@ -115,6 +119,16 @@ export type {
   ControlledValueProps,
   DescribableProps
 } from './types/common';
+
+export {
+  COMPONENT_SIZES,
+  COMPONENT_VARIANTS,
+  STATUS_VARIANTS
+} from './types/common';
+
+export {
+  REACT_COMPONENT_MATURITY
+} from '../../component-maturity';
 
 // Utilities
 export { cn } from './utils/cn';
