@@ -14,6 +14,15 @@
 import React, { forwardRef } from 'react';
 import { cn } from '../../utils/cn';
 import { SelectProps } from './Select.types';
+import { useFieldContext } from '../Field/Field.context';
+
+function mergeDescribedBy(...values: Array<string | undefined>): string | undefined {
+  const merged = values
+    .flatMap((value) => (value ? value.split(' ') : []))
+    .filter(Boolean);
+
+  return merged.length > 0 ? Array.from(new Set(merged)).join(' ') : undefined;
+}
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   (
@@ -23,9 +32,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       children,
       className,
       placeholder,
-      disabled = false,
-      required = false,
-      error = false,
+      disabled,
+      required,
+      error,
       size = 'md',
       fullWidth = false,
       'aria-label': ariaLabel,
@@ -36,26 +45,33 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     },
     ref
   ) => {
+    const field = useFieldContext();
+    const resolvedId = id ?? field?.inputId;
+    const resolvedDisabled = disabled ?? field?.disabled ?? false;
+    const resolvedRequired = required ?? field?.required ?? false;
+    const resolvedError = error ?? field?.invalid ?? false;
+    const resolvedDescribedBy = mergeDescribedBy(ariaDescribedBy, field?.describedBy);
+
     return (
       <select
         ref={ref}
-        id={id}
+        id={resolvedId}
         name={name}
         className={cn(
           'ux4g-select',
           `ux4g-select-${size}`,
-          disabled && 'ux4g-select-disabled',
-          error && 'ux4g-select-error',
+          resolvedDisabled && 'ux4g-select-disabled',
+          resolvedError && 'ux4g-select-error',
           fullWidth && 'ux4g-select-fullwidth',
           className
         )}
-        disabled={disabled}
-        required={required}
+        disabled={resolvedDisabled}
+        required={resolvedRequired}
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledBy}
-        aria-describedby={ariaDescribedBy}
-        aria-invalid={ariaInvalid || error}
-        aria-required={required}
+        aria-describedby={resolvedDescribedBy}
+        aria-invalid={ariaInvalid ?? resolvedError}
+        aria-required={resolvedRequired}
         {...props}
       >
         {placeholder && (
