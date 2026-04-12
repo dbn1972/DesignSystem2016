@@ -1,0 +1,6 @@
+/**
+ * UX4G Progress Styles Entry Point
+ * Keeps per-component imports stable while shared feedback rules live in status.css.
+ */
+
+@import './status.css';

@@ -1,0 +1,6 @@
+/**
+ * UX4G Switch Styles Entry Point
+ * Keeps per-component imports stable while shared form rules live in forms.css.
+ */
+
+@import './forms.css';

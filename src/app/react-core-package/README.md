@@ -2,7 +2,7 @@
 
 React component library for UX4G - Indian Government Design System
 
-Production-ready, accessible React components built on `@ux4g/tokens` and `@ux4g/styles`.
+Accessible React components built on `@ux4g/tokens` and `@ux4g/styles`.
 
 ## Features
 
@@ -12,7 +12,7 @@ Production-ready, accessible React components built on `@ux4g/tokens` and `@ux4g
 - 📦 **Modular & Tree-Shakeable** - Import only what you need
 - 🔧 **TypeScript Support** - Full type definitions included
 - 🎯 **Composable Components** - Flexible composition patterns
-- 🚀 **Production-Ready** - Battle-tested patterns and best practices
+- 🚧 **Active Development** - Core pieces are usable, but not every exported component is equally mature
 
 ## Installation
 
@@ -74,13 +74,11 @@ function App() {
 - **Alert** - Important messages
 - **Badge** - Status badges
 - **Toast** - Toast notifications
-- **StatusTag** - Status indicators
 
-### Layout Components
+### Layout / Display Components
 - **Card** - Content containers
-- **Header** - Page headers
-- **TopNav** - Top navigation
-- **SideNav** - Side navigation
+- **Avatar** - User or entity avatars
+- **Table** - Data tables
 
 ### Navigation Components
 - **Tabs** - Tab navigation
@@ -89,12 +87,11 @@ function App() {
 - **Pagination** - Page navigation
 - **Stepper** - Step indicators
 
-### Data Components
-- **Table** - Data tables
-
 ### Overlay Components
 - **Dialog** - Modal dialogs
 - **Drawer** - Side drawers
+- **Popover** - Contextual overlays
+- **Tooltip** - Supplemental guidance
 
 ## Usage Examples
 
@@ -148,9 +145,6 @@ import { Button } from '@ux4g/react-core';
 // Destructive action
 <Button variant="destructive">Delete</Button>
 
-// Ghost button
-<Button variant="ghost">Learn More</Button>
-
 // With icons
 <Button iconBefore={<IconSave />}>Save</Button>
 
@@ -192,48 +186,36 @@ import { Alert } from '@ux4g/react-core';
 ### Tabs
 
 ```tsx
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@ux4g/react-core';
+import { Tabs } from '@ux4g/react-core';
 
-<Tabs defaultValue="personal">
-  <TabsList>
-    <TabsTrigger value="personal">Personal Details</TabsTrigger>
-    <TabsTrigger value="documents">Documents</TabsTrigger>
-    <TabsTrigger value="review">Review</TabsTrigger>
-  </TabsList>
-  
-  <TabsContent value="personal">
-    <PersonalDetailsForm />
-  </TabsContent>
-  
-  <TabsContent value="documents">
-    <DocumentsUpload />
-  </TabsContent>
-  
-  <TabsContent value="review">
-    <ApplicationReview />
-  </TabsContent>
-</Tabs>
+<Tabs
+  defaultValue="personal"
+  items={[
+    { value: 'personal', label: 'Personal Details', content: <PersonalDetailsForm /> },
+    { value: 'documents', label: 'Documents', content: <DocumentsUpload /> },
+    { value: 'review', label: 'Review', content: <ApplicationReview /> },
+  ]}
+/>
 ```
 
 ### Data Table
 
 ```tsx
-import { Table, Pagination } from '@ux4g/react-core';
+import { Table, Pagination, Badge } from '@ux4g/react-core';
 
 <Table
   columns={[
     { key: 'id', header: 'Application ID', width: '120px' },
     { key: 'name', header: 'Applicant Name', sortable: true },
     { key: 'status', header: 'Status', accessor: (row) => (
-      <StatusTag variant={row.statusVariant}>{row.status}</StatusTag>
+      <Badge variant="secondary">{row.status}</Badge>
     )},
     { key: 'date', header: 'Submitted', sortable: true }
   ]}
   data={applications}
   onRowClick={handleRowClick}
-  sortBy={sortColumn}
-  sortDirection={sortDirection}
-  onSort={handleSort}
+  sortState={sortState}
+  onSortChange={setSortState}
 />
 
 <Pagination
@@ -259,9 +241,8 @@ function ConfirmDialog() {
 
       <Dialog
         open={isOpen}
-        onOpenChange={setIsOpen}
+        onClose={() => setIsOpen(false)}
         title="Confirm Deletion"
-        description="Are you sure you want to delete this application? This action cannot be undone."
         footer={
           <>
             <Button variant="ghost" onClick={() => setIsOpen(false)}>
@@ -285,10 +266,10 @@ All components follow WCAG 2.1 Level AA guidelines:
 - ✓ Semantic HTML structure
 - ✓ ARIA attributes included
 - ✓ Keyboard navigation support
-- ✓ Focus management
+- ✓ Baseline focus management in many components
 - ✓ Screen reader optimization
 - ✓ High contrast mode support
-- ✓ Reduced motion support
+- ✓ Token-based styling foundations
 
 ### Accessibility Examples
 
@@ -343,29 +324,11 @@ const CustomButton: React.FC<ButtonProps> = (props) => {
 };
 ```
 
-## Hooks
-
-Utility hooks for common patterns:
-
-```tsx
-import { useDisclosure, useControllableState } from '@ux4g/react-core';
-
-// Boolean state management
-const { isOpen, open, close, toggle } = useDisclosure();
-
-// Controlled/uncontrolled state
-const [value, setValue] = useControllableState({
-  value: controlledValue,
-  defaultValue: 'default',
-  onChange: handleChange
-});
-```
-
 ## Documentation
 
-- [Component Patterns](./COMPONENT_PATTERNS.md) - Design patterns and best practices
 - [API Reference](./COMPONENT_API_REFERENCE.md) - Complete prop interfaces
 - [Package Structure](./PACKAGE_STRUCTURE.md) - Folder organization
+- [Component Inventory](./src/components/README.md) - Current maturity and migration status
 
 ## Browser Support
 

@@ -1,0 +1,6 @@
+/**
+ * UX4G Tag Styles Entry Point
+ * Keeps per-component imports stable while shared display rules live in status.css.
+ */
+
+@import './status.css';

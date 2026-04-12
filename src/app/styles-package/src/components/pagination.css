@@ -1,0 +1,6 @@
+/**
+ * UX4G Pagination Styles Entry Point
+ * Keeps per-component imports stable while shared navigation rules live in navigation.css.
+ */
+
+@import './navigation.css';

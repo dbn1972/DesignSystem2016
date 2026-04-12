@@ -1,0 +1,6 @@
+/**
+ * UX4G Divider Styles Entry Point
+ * Keeps per-component imports stable while shared structural rules live in navigation.css.
+ */
+
+@import './navigation.css';

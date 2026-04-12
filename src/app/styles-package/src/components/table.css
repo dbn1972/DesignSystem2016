@@ -1,0 +1,6 @@
+/**
+ * UX4G Table Styles Entry Point
+ * Keeps per-component imports stable while shared data-display rules live in status.css.
+ */
+
+@import './status.css';

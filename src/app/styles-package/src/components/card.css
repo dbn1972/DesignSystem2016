@@ -1,0 +1,6 @@
+/**
+ * UX4G Card Styles Entry Point
+ * Keeps per-component imports stable while shared surface rules live in status.css.
+ */
+
+@import './status.css';

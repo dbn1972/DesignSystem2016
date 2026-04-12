@@ -1,0 +1,6 @@
+/**
+ * UX4G Button Styles Entry Point
+ * Keeps per-component imports stable while shared button rules live in forms.css.
+ */
+
+@import './forms.css';

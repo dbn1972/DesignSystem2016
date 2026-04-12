@@ -12,6 +12,7 @@
     "./base": "./dist/base.css",
     "./utilities": "./dist/utilities.css",
     "./components": "./dist/components.css",
+    "./components/*.css": "./src/components/*.css",
     "./reset": "./dist/base/reset.css",
     "./typography": "./dist/base/typography.css",
     "./spacing": "./dist/utilities/spacing.css",

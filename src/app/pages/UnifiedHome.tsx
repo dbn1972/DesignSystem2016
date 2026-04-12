@@ -12,65 +12,72 @@ export default function UnifiedHome() {
       {/* ==================== HERO SECTION ==================== */}
       <section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <div className="max-w-4xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#000080] dark:bg-blue-600 text-white rounded-full mb-6 shadow-lg">
-              <Shield size={16} />
-              <span className="text-sm font-bold">Government of India • Digital India Initiative</span>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] gap-10 lg:gap-12 items-center">
+            <div className="max-w-4xl">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#000080] dark:bg-blue-600 text-white rounded-full mb-6 shadow-lg">
+                <Shield size={16} />
+                <span className="text-sm font-bold">Government of India • Digital India Initiative</span>
+              </div>
 
-            {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-tight">
-              UX4G Design System Platform
-            </h1>
+              {/* Heading */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-tight">
+                UX4G Design System Platform
+              </h1>
 
-            {/* Subheading */}
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-              Official design system for building consistent, accessible, and user-centered
-              government digital services across India.
-            </p>
+              {/* Subheading */}
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                Official design system for building consistent, accessible, and user-centered
+                government digital services across India.
+              </p>
 
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-              Production-ready foundations, components, patterns, and complete service implementations
-              with built-in accessibility, multilingual support, and compliance standards.
-            </p>
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                Production-ready foundations, components, patterns, and complete service implementations
+                with built-in accessibility, multilingual support, and compliance standards.
+              </p>
 
-            {/* CTA Buttons - Improved hierarchy */}
-            <div className="flex flex-col sm:flex-row items-start gap-4 mb-12">
-              {/* Primary CTA */}
-              <Link
-                to="/resources/getting-started"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#000080] hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto"
-              >
-                <Download size={20} />
-                Get Started
-              </Link>
-
-              {/* Secondary CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              {/* CTA Buttons - Improved hierarchy */}
+              <div className="flex flex-col sm:flex-row items-start gap-4 mb-12">
+                {/* Primary CTA */}
                 <Link
-                  to="/components"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-[#000080] dark:hover:border-blue-500 text-gray-900 dark:text-gray-100 font-semibold rounded-lg transition-colors"
+                  to="/resources/getting-started"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#000080] hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto"
                 >
-                  <Box size={20} />
-                  Components
+                  <Download size={20} />
+                  Get Started
                 </Link>
-                <Link
-                  to="/reference-service/demo"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-[#000080] dark:hover:border-blue-500 text-gray-900 dark:text-gray-100 font-semibold rounded-lg transition-colors"
-                >
-                  <FileText size={20} />
-                  Demo
-                </Link>
+
+                {/* Secondary CTAs */}
+                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                  <Link
+                    to="/components"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-[#000080] dark:hover:border-blue-500 text-gray-900 dark:text-gray-100 font-semibold rounded-lg transition-colors"
+                  >
+                    <Box size={20} />
+                    Components
+                  </Link>
+                  <Link
+                    to="/reference-service/demo"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-[#000080] dark:hover:border-blue-500 text-gray-900 dark:text-gray-100 font-semibold rounded-lg transition-colors"
+                  >
+                    <FileText size={20} />
+                    Demo
+                  </Link>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <StatItem number="28+" label="Core Components" />
+                <StatItem number="109" label="Pattern Examples" />
+                <StatItem number="47" label="Gov Departments" />
+                <StatItem number="22" label="Languages" />
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-              <StatItem number="28+" label="Core Components" />
-              <StatItem number="109" label="Pattern Examples" />
-              <StatItem number="47" label="Gov Departments" />
-              <StatItem number="22" label="Languages" />
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="absolute inset-x-8 top-10 h-64 rounded-full bg-gradient-to-r from-blue-200/60 via-indigo-200/50 to-emerald-200/50 blur-3xl dark:from-blue-900/30 dark:via-indigo-900/20 dark:to-emerald-900/20" />
+              <HeroBannerImage />
             </div>
           </div>
         </div>
@@ -538,6 +545,104 @@ export default function UnifiedHome() {
         </div>
       </section>
 
+    </div>
+  );
+}
+
+function HeroBannerImage() {
+  return (
+    <div className="relative w-full max-w-[520px] rounded-[28px] border border-gray-200/80 dark:border-gray-700/80 bg-white/90 dark:bg-gray-800/90 shadow-2xl overflow-hidden backdrop-blur-sm">
+      <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#FF9933] via-white to-[#138808]" />
+
+      <div className="p-6 sm:p-8">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#000080] dark:text-blue-400">
+              Unified Delivery
+            </p>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-2">
+              Build Trusted Public Services
+            </h3>
+          </div>
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#000080] text-white shadow-lg dark:bg-blue-600">
+            <Building2 size={28} />
+          </div>
+        </div>
+
+        <div className="rounded-2xl bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950/40 p-5 border border-gray-200 dark:border-gray-700">
+          <svg
+            viewBox="0 0 420 260"
+            className="w-full h-auto"
+            role="img"
+            aria-label="Illustration of connected government service modules"
+          >
+            <defs>
+              <linearGradient id="hero-panel" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="100%" stopColor="#eef4ff" />
+              </linearGradient>
+              <linearGradient id="hero-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#FF9933" />
+                <stop offset="50%" stopColor="#005196" />
+                <stop offset="100%" stopColor="#138808" />
+              </linearGradient>
+            </defs>
+
+            <rect x="18" y="18" width="384" height="224" rx="24" fill="url(#hero-panel)" />
+            <rect x="38" y="40" width="130" height="76" rx="18" fill="#ffffff" stroke="#dbe4f3" />
+            <rect x="184" y="40" width="198" height="34" rx="14" fill="#005196" opacity="0.95" />
+            <rect x="184" y="82" width="124" height="12" rx="6" fill="#d9e7fb" />
+            <rect x="184" y="100" width="168" height="12" rx="6" fill="#e8eef8" />
+
+            <rect x="38" y="138" width="108" height="82" rx="18" fill="#fff6ea" stroke="#ffd5a8" />
+            <rect x="157" y="138" width="108" height="82" rx="18" fill="#eef4ff" stroke="#bfd3ff" />
+            <rect x="276" y="138" width="106" height="82" rx="18" fill="#ecf9ee" stroke="#b8e3c1" />
+
+            <path d="M168 79 L184 79" stroke="#9db4db" strokeWidth="6" strokeLinecap="round" />
+            <path d="M92 116 L92 138" stroke="#ffbf73" strokeWidth="6" strokeLinecap="round" />
+            <path d="M211 116 L211 138" stroke="#7ea7f5" strokeWidth="6" strokeLinecap="round" />
+            <path d="M329 116 L329 138" stroke="#69bf7b" strokeWidth="6" strokeLinecap="round" />
+
+            <circle cx="84" cy="78" r="20" fill="#FF9933" opacity="0.18" />
+            <circle cx="230" cy="57" r="10" fill="#ffffff" opacity="0.95" />
+            <circle cx="258" cy="57" r="10" fill="#ffffff" opacity="0.7" />
+            <circle cx="286" cy="57" r="10" fill="#ffffff" opacity="0.45" />
+
+            <rect x="58" y="59" width="56" height="10" rx="5" fill="#005196" opacity="0.9" />
+            <rect x="58" y="76" width="82" height="8" rx="4" fill="#b8c8de" />
+            <rect x="58" y="90" width="70" height="8" rx="4" fill="#d9e2ee" />
+
+            <rect x="58" y="156" width="46" height="10" rx="5" fill="#cc5f00" opacity="0.95" />
+            <rect x="58" y="174" width="66" height="8" rx="4" fill="#f1b76e" />
+            <rect x="58" y="188" width="54" height="8" rx="4" fill="#f8dcb6" />
+
+            <rect x="177" y="156" width="58" height="10" rx="5" fill="#005196" opacity="0.95" />
+            <rect x="177" y="174" width="68" height="8" rx="4" fill="#92b5f5" />
+            <rect x="177" y="188" width="52" height="8" rx="4" fill="#d9e7fb" />
+
+            <rect x="294" y="156" width="52" height="10" rx="5" fill="#138808" opacity="0.95" />
+            <rect x="294" y="174" width="66" height="8" rx="4" fill="#8fd6a0" />
+            <rect x="294" y="188" width="46" height="8" rx="4" fill="#d7f0dc" />
+
+            <path d="M54 228 H366" stroke="url(#hero-accent)" strokeWidth="8" strokeLinecap="round" opacity="0.95" />
+          </svg>
+        </div>
+
+        <div className="grid grid-cols-3 gap-3 mt-5">
+          <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-gray-200 dark:border-gray-700">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Tokens</p>
+            <p className="mt-1 text-sm font-bold text-gray-900 dark:text-gray-100">Unified</p>
+          </div>
+          <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-gray-200 dark:border-gray-700">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Components</p>
+            <p className="mt-1 text-sm font-bold text-gray-900 dark:text-gray-100">Accessible</p>
+          </div>
+          <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-gray-200 dark:border-gray-700">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Services</p>
+            <p className="mt-1 text-sm font-bold text-gray-900 dark:text-gray-100">Scalable</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
