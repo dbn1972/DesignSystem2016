@@ -1,0 +1,13 @@
+/* UX4G Hint Text Component Styles */
+
+.ux4g-helper-text {
+  display: inline-block;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.ux4g-helper-text:empty {
+  display: none;
+}

@@ -69,13 +69,13 @@ export default function Components() {
                   </div>
                   <p className="text-sm text-gray-600">73/73 components available - v1.0.0</p>
                 </div>
-                <div className="bg-white rounded-lg p-4 border border-green-200">
+                <div className="bg-white rounded-lg p-4 border border-yellow-200">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <span className="font-bold text-gray-900">Angular</span>
-                    <span className="text-sm bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">Phase 1 Complete</span>
+                    <span className="text-sm bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full font-medium">60% Complete</span>
                   </div>
-                  <p className="text-sm text-gray-600">16/73 components (Phase 1: 100%) - v0.5.0</p>
+                  <p className="text-sm text-gray-600">44/73 components available - v1.0.0</p>
                 </div>
               </div>
               <div className="mt-4">

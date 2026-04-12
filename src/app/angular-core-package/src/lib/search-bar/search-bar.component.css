@@ -1,0 +1,171 @@
+/* UX4G Search Bar Component Styles */
+
+.ux4g-search-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+  position: relative;
+}
+
+.ux4g-search-bar__input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ux4g-search-bar__icon {
+  position: absolute;
+  left: 0.875rem;
+  color: #6b7280;
+  font-size: 1.125rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ux4g-search-bar {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-family: inherit;
+  color: #111827;
+  background-color: white;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ux4g-search-bar--sm {
+  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+  font-size: 0.875rem;
+}
+
+.ux4g-search-bar--md {
+  padding: 0.625rem 2.75rem 0.625rem 2.75rem;
+  font-size: 1rem;
+}
+
+.ux4g-search-bar--lg {
+  padding: 0.75rem 3rem 0.75rem 3rem;
+  font-size: 1.125rem;
+}
+
+.ux4g-search-bar:hover:not(:disabled):not(.ux4g-search-bar--readonly) {
+  border-color: #9ca3af;
+}
+
+.ux4g-search-bar:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.ux4g-search-bar--disabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ux4g-search-bar--readonly {
+  background-color: #f9fafb;
+  cursor: default;
+}
+
+/* Clear button */
+.ux4g-search-bar__clear-btn {
+  position: absolute;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: none;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 1rem;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  z-index: 1;
+}
+
+.ux4g-search-bar__clear-btn:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.ux4g-search-bar__clear-btn:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Suggestions dropdown */
+.ux4g-search-bar__suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  max-height: 15rem;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  list-style: none;
+  padding: 0.25rem;
+  margin: 0;
+  z-index: 1000;
+}
+
+.ux4g-search-bar__suggestion {
+  padding: 0.625rem 0.875rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s ease;
+  color: #374151;
+}
+
+.ux4g-search-bar__suggestion:hover {
+  background-color: #f3f4f6;
+}
+
+.ux4g-search-bar__suggestion--highlighted {
+  background-color: #eff6ff;
+  color: #1e40af;
+}
+
+/* Helper text */
+.ux4g-search-bar__helper-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Remove default search input styling */
+.ux4g-search-bar::-webkit-search-cancel-button {
+  display: none;
+}
+
+.ux4g-search-bar::-webkit-search-decoration {
+  display: none;
+}
+
+/* Scrollbar styling */
+.ux4g-search-bar__suggestions::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.ux4g-search-bar__suggestions::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 0.25rem;
+}
+
+.ux4g-search-bar__suggestions::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 0.25rem;
+}
+
+.ux4g-search-bar__suggestions::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}

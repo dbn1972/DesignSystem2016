@@ -1,0 +1,95 @@
+/* UX4G Popover Component Styles */
+
+.ux4g-popover {
+  position: relative;
+  display: inline-block;
+}
+
+.ux4g-popover__trigger {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.ux4g-popover__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 998;
+}
+
+.ux4g-popover__content {
+  position: absolute;
+  z-index: 999;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-width: 20rem;
+  min-width: 10rem;
+}
+
+/* Position: Top */
+.ux4g-popover__content--top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0.5rem;
+}
+
+/* Position: Bottom */
+.ux4g-popover__content--bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+}
+
+/* Position: Left */
+.ux4g-popover__content--left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 0.5rem;
+}
+
+/* Position: Right */
+.ux4g-popover__content--right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0.5rem;
+}
+
+/* Animation */
+.ux4g-popover__content {
+  animation: ux4g-popover-fade-in 0.15s ease-out;
+}
+
+@keyframes ux4g-popover-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.ux4g-popover__content--left,
+.ux4g-popover__content--right {
+  animation: ux4g-popover-slide-in 0.15s ease-out;
+}
+
+@keyframes ux4g-popover-slide-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

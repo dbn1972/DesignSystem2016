@@ -18,13 +18,13 @@ export { RadioComponent, RadioGroupComponent } from './lib/radio';
 export { TextareaComponent } from './lib/textarea';
 export { FieldComponent } from './lib/field';
 export { LabelComponent } from './lib/label';
+export { HintTextComponent } from './lib/hint-text';
+export { ErrorTextComponent } from './lib/error-text';
 export { SwitchComponent } from './lib/switch';
 export { OtpInputComponent } from './lib/otp-input';
-// export { HintTextComponent } from './lib/hint-text';
-// export { ErrorTextComponent } from './lib/error-text';
-// export { FileUploadComponent } from './lib/file-upload';
-// export { DateInputComponent } from './lib/date-input';
-// export { AutocompleteComponent } from './lib/autocomplete';
+export { DatePickerComponent } from './lib/date-picker';
+export { FileUploadComponent } from './lib/file-upload';
+export { AutocompleteComponent } from './lib/autocomplete';
 
 // Feedback Components
 export { BadgeComponent } from './lib/badge';
@@ -40,16 +40,15 @@ export { TabsComponent, TabPanelComponent } from './lib/tabs';
 export { MenuComponent, MenuItem } from './lib/menu';
 export { DrawerComponent } from './lib/drawer';
 export { StepperComponent, Step } from './lib/stepper';
-// export { AccordionComponent, AccordionItemComponent } from './lib/accordion';
-// export { TopNavComponent } from './lib/top-nav';
-// export { SideNavComponent } from './lib/side-nav';
-// export { HeaderComponent } from './lib/header';
+export { AccordionComponent, AccordionItemComponent } from './lib/accordion';
+export { SearchBarComponent } from './lib/search-bar';
 
 // Data Display Components
 export { AvatarComponent } from './lib/avatar';
 export { TagComponent } from './lib/tag';
 export { StatisticComponent } from './lib/statistic';
 export { TimelineComponent, TimelineItem } from './lib/timeline';
+export { RatingComponent } from './lib/rating';
 
 // Layout Components
 export { CardComponent, CardHeaderComponent, CardContentComponent, CardFooterComponent } from './lib/card';
@@ -63,3 +62,4 @@ export { GridComponent } from './lib/grid';
 // Overlay Components
 export { DialogComponent, DialogContentComponent, DialogFooterComponent } from './lib/dialog';
 export { TooltipDirective } from './lib/tooltip';
+export { PopoverComponent } from './lib/popover';
