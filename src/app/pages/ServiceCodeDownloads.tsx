@@ -5,6 +5,12 @@ import certificateSignInCode from "./CertificateSignIn.tsx?raw";
 import referenceSignInCode from "./ReferenceServiceSignIn.tsx?raw";
 import certificateSignUpCode from "./CertificateSignUp.tsx?raw";
 import referenceSignUpCode from "./ReferenceServiceSignUp.tsx?raw";
+import certificateEligibilityCode from "./CertificateEligibility.tsx?raw";
+import referenceEligibilityCode from "./ReferenceServiceEligibility.tsx?raw";
+import certificateStartCode from "./CertificateStart.tsx?raw";
+import referenceStartCode from "./ReferenceServiceStart.tsx?raw";
+import certificateStatusTrackerCode from "./CertificateStatusTracker.tsx?raw";
+import referenceStatusTrackerCode from "./ReferenceServiceStatusTracker.tsx?raw";
 import certificateForgotPasswordCode from "./CertificateForgotPassword.tsx?raw";
 import referenceForgotPasswordCode from "./ReferenceServiceForgotPassword.tsx?raw";
 import certificateVerifyOtpCode from "./CertificateVerifyOTP.tsx?raw";
@@ -16,10 +22,15 @@ import reusableSignUpComponentCode from "../components/auth/SignUpService.tsx?ra
 import reusableForgotPasswordComponentCode from "../components/auth/ForgotPasswordService.tsx?raw";
 import reusableOtpComponentCode from "../components/auth/OtpVerificationService.tsx?raw";
 import reusableAuthStatusComponentCode from "../components/auth/AuthStatusService.tsx?raw";
+import reusableEligibilityComponentCode from "../components/service/EligibilityService.tsx?raw";
+import reusableStartComponentCode from "../components/service/ApplicationStartService.tsx?raw";
+import reusableStatusTrackerComponentCode from "../components/service/StatusTrackerService.tsx?raw";
 import reusableSignInServiceCode from "../services/signInService.ts?raw";
 import reusableSignUpServiceCode from "../services/signUpService.ts?raw";
 import reusableForgotPasswordServiceCode from "../services/forgotPasswordService.ts?raw";
 import reusableOtpServiceCode from "../services/otpService.ts?raw";
+import reusableEligibilityServiceCode from "../services/eligibilityService.ts?raw";
+import reusableStatusTrackerServiceCode from "../services/statusTrackerService.ts?raw";
 
 type DownloadItem = {
   label: string;
@@ -122,6 +133,128 @@ const downloadGroups: DownloadGroup[] = [
         label: "Download Sign Up Service Logic",
         filename: "signUpService.ts",
         code: reusableSignUpServiceCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-eligibility",
+    title: "Certificate Eligibility Service",
+    description: "Certificate-specific eligibility wrapper and shared eligibility implementation.",
+    items: [
+      {
+        label: "Download Certificate Eligibility Page",
+        filename: "CertificateEligibility.tsx",
+        code: certificateEligibilityCode,
+      },
+      {
+        label: "Download Shared Eligibility Component",
+        filename: "EligibilityService.tsx",
+        code: reusableEligibilityComponentCode,
+      },
+      {
+        label: "Download Eligibility Service Logic",
+        filename: "eligibilityService.ts",
+        code: reusableEligibilityServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-eligibility",
+    title: "Reusable Government Eligibility Service",
+    description: "Generic eligibility flow for reuse across government services.",
+    items: [
+      {
+        label: "Download Reusable Eligibility Page",
+        filename: "ReferenceServiceEligibility.tsx",
+        code: referenceEligibilityCode,
+      },
+      {
+        label: "Download Shared Eligibility Component",
+        filename: "EligibilityService.tsx",
+        code: reusableEligibilityComponentCode,
+      },
+      {
+        label: "Download Eligibility Service Logic",
+        filename: "eligibilityService.ts",
+        code: reusableEligibilityServiceCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-start",
+    title: "Certificate Application Start Service",
+    description: "Certificate-specific application start wrapper and shared start implementation.",
+    items: [
+      {
+        label: "Download Certificate Start Page",
+        filename: "CertificateStart.tsx",
+        code: certificateStartCode,
+      },
+      {
+        label: "Download Shared Start Component",
+        filename: "ApplicationStartService.tsx",
+        code: reusableStartComponentCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-start",
+    title: "Reusable Government Application Start Service",
+    description: "Generic application start flow reusable across services.",
+    items: [
+      {
+        label: "Download Reusable Start Page",
+        filename: "ReferenceServiceStart.tsx",
+        code: referenceStartCode,
+      },
+      {
+        label: "Download Shared Start Component",
+        filename: "ApplicationStartService.tsx",
+        code: reusableStartComponentCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-status-tracker",
+    title: "Certificate Status Tracker Service",
+    description: "Certificate-specific status tracker wrapper and shared tracker implementation.",
+    items: [
+      {
+        label: "Download Certificate Status Tracker Page",
+        filename: "CertificateStatusTracker.tsx",
+        code: certificateStatusTrackerCode,
+      },
+      {
+        label: "Download Shared Status Tracker Component",
+        filename: "StatusTrackerService.tsx",
+        code: reusableStatusTrackerComponentCode,
+      },
+      {
+        label: "Download Status Tracker Service Logic",
+        filename: "statusTrackerService.ts",
+        code: reusableStatusTrackerServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-status-tracker",
+    title: "Reusable Government Status Tracker Service",
+    description: "Generic status tracker flow for reusable service integration.",
+    items: [
+      {
+        label: "Download Reusable Status Tracker Page",
+        filename: "ReferenceServiceStatusTracker.tsx",
+        code: referenceStatusTrackerCode,
+      },
+      {
+        label: "Download Shared Status Tracker Component",
+        filename: "StatusTrackerService.tsx",
+        code: reusableStatusTrackerComponentCode,
+      },
+      {
+        label: "Download Status Tracker Service Logic",
+        filename: "statusTrackerService.ts",
+        code: reusableStatusTrackerServiceCode,
       },
     ],
   },
@@ -280,7 +413,7 @@ export default function ServiceCodeDownloads() {
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Service Code Downloads</h1>
               <p className="text-sm text-gray-700 mt-1">
-                Download React source code for sign-up, sign-in, forgot-password, OTP, and auth-status services.
+                Download React source code for sign-up, sign-in, eligibility, application start, status tracker, forgot-password, OTP, and auth-status services.
               </p>
             </div>
           </div>

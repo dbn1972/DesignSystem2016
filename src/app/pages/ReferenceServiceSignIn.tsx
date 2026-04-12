@@ -15,7 +15,7 @@ export default function ReferenceServiceSignIn() {
       backText="Back to Reference Services"
       successRedirectPath="/reference-service/demo"
       forgotPasswordPath="/reference-service/forgot-password"
-      otpSignInPath="/patterns/identity/mobile-otp"
+      otpSignInPath="/reference-service/verify-otp"
       helpPath="/patterns/contact-support/service-support"
       signUpPath="/reference-service/sign-up"
       codeDownloadPath="/resources/service-code-downloads#reusable-sign-in"

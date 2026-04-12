@@ -247,6 +247,9 @@ const CertificateForgotPassword = lazy(() => import("./pages/CertificateForgotPa
 const ReferenceServiceForgotPassword = lazy(() => import("./pages/ReferenceServiceForgotPassword"));
 const ReferenceServiceVerifyOTP = lazy(() => import("./pages/ReferenceServiceVerifyOTP"));
 const ReferenceServiceAuthStatus = lazy(() => import("./pages/ReferenceServiceAuthStatus"));
+const ReferenceServiceEligibility = lazy(() => import("./pages/ReferenceServiceEligibility"));
+const ReferenceServiceStart = lazy(() => import("./pages/ReferenceServiceStart"));
+const ReferenceServiceStatusTracker = lazy(() => import("./pages/ReferenceServiceStatusTracker"));
 const CertificateSessionTimeout = lazy(() => import("./pages/CertificateSessionTimeout"));
 const CertificateUserProfile = lazy(() => import("./pages/CertificateUserProfile"));
 const CertificateFormPersonal = lazy(() => import("./pages/CertificateFormPersonal"));
@@ -544,6 +547,9 @@ export const router = createBrowserRouter([
       { path: "reference-service/forgot-password", Component: ReferenceServiceForgotPassword },
       { path: "reference-service/verify-otp", Component: ReferenceServiceVerifyOTP },
       { path: "reference-service/auth-status", Component: ReferenceServiceAuthStatus },
+      { path: "reference-service/eligibility", Component: ReferenceServiceEligibility },
+      { path: "reference-service/start", Component: ReferenceServiceStart },
+      { path: "reference-service/status-tracker", Component: ReferenceServiceStatusTracker },
 
       // Certificate Service Complete Flow
       { path: "reference-service/certificate/start", Component: CertificateStart },
