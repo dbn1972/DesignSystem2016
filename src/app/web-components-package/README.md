@@ -505,11 +505,11 @@ All UX4G Web Components are built with **accessibility-first** approach:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](../../../CONTRIBUTING.md) for guidelines.
+We welcome contributions! Please see [CONTRIBUTING_GUIDELINES_FEATURE.md](../../../CONTRIBUTING_GUIDELINES_FEATURE.md) for guidelines.
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](../react-core-package/LICENSE) file for details.
 
 ## 🔗 Related Packages
 

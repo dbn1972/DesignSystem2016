@@ -524,9 +524,9 @@ All patterns are WCAG 2.1 Level AA compliant:
 ## Documentation
 
 - [Pattern Catalog](./PATTERN_CATALOG.md) - Complete pattern specifications
-- [Composition Guide](./COMPOSITION_GUIDE.md) - How to compose and customize patterns
-- [Examples](./examples/) - Real-world usage examples
-- [Migration Guide](./MIGRATION.md) - Upgrading from older versions
+- [Package Overview](./PACKAGE_OVERVIEW.md) - How to compose and customize patterns
+- [Examples](https://ux4g.gov.in/patterns) - Real-world usage examples
+- [Pattern Catalog](./PATTERN_CATALOG.md) - Upgrading from older versions
 
 ---
 
@@ -541,7 +541,7 @@ All patterns are WCAG 2.1 Level AA compliant:
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for development setup and contribution guidelines.
+See [CONTRIBUTING_GUIDELINES_FEATURE.md](../../../CONTRIBUTING_GUIDELINES_FEATURE.md) for development setup and contribution guidelines.
 
 ---
 

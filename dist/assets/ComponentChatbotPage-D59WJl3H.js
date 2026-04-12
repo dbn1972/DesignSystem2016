@@ -1,0 +1,744 @@
+import{e as n,j as e,X as d}from"./index-wYwTiNL-.js";import{C as c}from"./ComponentDocumentation-DKnXH-Pi.js";import{M as t}from"./message-circle-B6ICwEF0.js";import{S as a}from"./send-B4CVjX2k.js";import"./copy-DRmj_ACu.js";import"./info-DKzCpq0n.js";import"./external-link-CusCIMwZ.js";/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const m=[["path",{d:"M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z",key:"131961"}],["path",{d:"M19 10v2a7 7 0 0 1-14 0v-2",key:"1vc78b"}],["line",{x1:"12",x2:"12",y1:"19",y2:"22",key:"x3vr5v"}]],g=n("mic",m);/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const u=[["path",{d:"M13.234 20.252 21 12.3",key:"1cbrk9"}],["path",{d:"m16 6-8.414 8.586a2 2 0 0 0 0 2.828 2 2 0 0 0 2.828 0l8.414-8.586a4 4 0 0 0 0-5.656 4 4 0 0 0-5.656 0l-8.415 8.585a6 6 0 1 0 8.486 8.486",key:"1pkts6"}]],p=n("paperclip",u),s=({position:o,minimized:i,botName:r,greeting:l,...h})=>e.jsx("div",{className:`fixed ${o==="bottom-left"?"bottom-4 left-4":"bottom-4 right-4"} z-50 ${i?"w-14 h-14":"w-96 h-[500px]"}`,children:i?e.jsx("button",{className:"w-14 h-14 rounded-full bg-[#005196] text-white shadow-lg hover:bg-[#004178] flex items-center justify-center",children:e.jsx(t,{size:24})}):e.jsxs("div",{className:"bg-white rounded-lg shadow-xl flex flex-col h-full border border-gray-200",children:[e.jsxs("div",{className:"bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between",children:[e.jsxs("div",{className:"flex items-center gap-3",children:[e.jsx("div",{className:"w-10 h-10 rounded-full bg-white/20 flex items-center justify-center",children:e.jsx(t,{size:20})}),e.jsxs("div",{children:[e.jsx("div",{className:"font-semibold",children:r||"Assistant"}),e.jsx("div",{className:"text-xs text-white/80",children:"Online"})]})]}),e.jsx("button",{className:"text-white/80 hover:text-white",children:e.jsx(d,{size:20})})]}),e.jsx("div",{className:"flex-1 p-4 overflow-y-auto bg-gray-50",children:e.jsx("div",{className:"space-y-4",children:e.jsxs("div",{className:"flex gap-2",children:[e.jsx("div",{className:"w-8 h-8 rounded-full bg-[#005196] flex-shrink-0 flex items-center justify-center text-white text-sm",children:"AI"}),e.jsx("div",{className:"bg-white rounded-lg p-3 shadow-sm max-w-[80%]",children:e.jsx("p",{className:"text-sm text-gray-800",children:l||"Hello! How can I help you today?"})})]})})}),e.jsx("div",{className:"p-4 border-t border-gray-200",children:e.jsxs("div",{className:"flex gap-2",children:[e.jsx("input",{type:"text",placeholder:"Type your message...",className:"flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005196]"}),e.jsx("button",{className:"w-10 h-10 bg-[#005196] text-white rounded-lg hover:bg-[#004178] flex items-center justify-center",children:e.jsx(a,{size:18})})]})})]})});function N(){return e.jsx(c,{name:"Chatbot",description:"Advanced AI-powered chatbot interface for citizen support and government service assistance. Provides automated responses, query handling, and seamless integration with department-specific contexts.",category:"Government Services",maturity:"beta",tier:"composite",since:"v2.3.0",updated:"v2.3.0",props:[{name:"botName",type:"string",default:"'Assistant'",required:!1,description:'Display name of the chatbot. Should reflect the department or service (e.g., "Tax Help Bot", "License Assistant").'},{name:"botAvatar",type:"string | ReactNode",required:!1,description:"Avatar image URL or custom avatar component for the chatbot."},{name:"greeting",type:"string",default:"'Hello! How can I help you today?'",required:!1,description:"Initial greeting message displayed when the chatbot opens."},{name:"placeholder",type:"string",default:"'Type your message...'",required:!1,description:"Placeholder text for the message input field."},{name:"position",type:"'bottom-right' | 'bottom-left'",default:"'bottom-right'",required:!1,description:"Position of the chatbot widget on the screen."},{name:"minimized",type:"boolean",default:"true",required:!1,description:"Whether the chatbot starts in minimized state (collapsed to icon)."},{name:"onSendMessage",type:"(message: string, attachments?: File[]) => Promise<ChatMessage>",required:!0,description:"Callback function when user sends a message. Returns the bot response."},{name:"onClose",type:"() => void",required:!1,description:"Callback function when chatbot is closed or minimized."},{name:"suggestedQuestions",type:"string[]",required:!1,description:"Array of suggested questions to display as quick action buttons."},{name:"enableVoice",type:"boolean",default:"false",required:!1,description:"Enable voice input functionality using Web Speech API."},{name:"enableFileUpload",type:"boolean",default:"false",required:!1,description:"Allow users to upload files (documents, images) with their messages."},{name:"departmentContext",type:"DepartmentContext",required:!1,description:"Department-specific context for tailored responses (department ID, services, FAQs)."}],examples:[{title:"Basic Chatbot",description:"Simple chatbot with default configuration for general citizen inquiries.",code:`import { Chatbot } from '@ux4g/react-composite';
+
+function Example() {
+  const handleSendMessage = async (message: string) => {
+    // Call your AI service or backend API
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      body: JSON.stringify({ message }),
+    });
+    const data = await response.json();
+    return {
+      id: Date.now().toString(),
+      text: data.response,
+      sender: 'bot',
+      timestamp: new Date(),
+    };
+  };
+
+  return (
+    <Chatbot
+      botName="Citizen Support"
+      greeting="Welcome! I'm here to help with government services."
+      onSendMessage={handleSendMessage}
+    />
+  );
+}`,preview:e.jsx("div",{className:"relative h-[600px] bg-gray-100 rounded-lg overflow-hidden",children:e.jsx(s,{position:"bottom-right",minimized:!1,botName:"Citizen Support",greeting:"Welcome! I'm here to help with government services."})})},{title:"With Suggested Questions",description:"Chatbot with quick-action suggested questions for common queries.",code:`import { Chatbot } from '@ux4g/react-composite';
+
+function Example() {
+  const suggestedQuestions = [
+    "How do I renew my driver's license?",
+    "What are the tax filing deadlines?",
+    "How can I apply for a business permit?",
+    "Where is my nearest service center?"
+  ];
+
+  const handleSendMessage = async (message: string) => {
+    // Handle message processing
+    return {
+      id: Date.now().toString(),
+      text: "I'll help you with that...",
+      sender: 'bot',
+      timestamp: new Date(),
+    };
+  };
+
+  return (
+    <Chatbot
+      botName="Service Assistant"
+      suggestedQuestions={suggestedQuestions}
+      onSendMessage={handleSendMessage}
+    />
+  );
+}`,preview:e.jsx("div",{className:"relative h-[600px] bg-gray-100 rounded-lg overflow-hidden",children:e.jsxs("div",{className:"absolute bottom-4 right-4 w-96 bg-white rounded-lg shadow-xl border border-gray-200",children:[e.jsx("div",{className:"bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between",children:e.jsxs("div",{className:"flex items-center gap-3",children:[e.jsx("div",{className:"w-10 h-10 rounded-full bg-white/20 flex items-center justify-center",children:e.jsx(t,{size:20})}),e.jsxs("div",{children:[e.jsx("div",{className:"font-semibold",children:"Service Assistant"}),e.jsx("div",{className:"text-xs text-white/80",children:"Online"})]})]})}),e.jsxs("div",{className:"p-4 space-y-2",children:[e.jsx("p",{className:"text-sm text-gray-600 mb-3",children:"Quick questions:"}),e.jsx("button",{className:"w-full text-left px-3 py-2 text-sm bg-gray-50 hover:bg-gray-100 rounded border border-gray-200",children:"How do I renew my driver's license?"}),e.jsx("button",{className:"w-full text-left px-3 py-2 text-sm bg-gray-50 hover:bg-gray-100 rounded border border-gray-200",children:"What are the tax filing deadlines?"})]})]})})},{title:"Voice Enabled",description:"Chatbot with voice input support for accessibility and convenience.",code:`import { Chatbot } from '@ux4g/react-composite';
+
+function Example() {
+  const handleSendMessage = async (message: string) => {
+    return {
+      id: Date.now().toString(),
+      text: "I heard your question and I'm processing it...",
+      sender: 'bot',
+      timestamp: new Date(),
+    };
+  };
+
+  return (
+    <Chatbot
+      botName="Voice Assistant"
+      greeting="You can type or use voice to ask your questions."
+      enableVoice={true}
+      onSendMessage={handleSendMessage}
+    />
+  );
+}`,preview:e.jsx("div",{className:"relative h-[600px] bg-gray-100 rounded-lg overflow-hidden",children:e.jsxs("div",{className:"absolute bottom-4 right-4 w-96 bg-white rounded-lg shadow-xl border border-gray-200",children:[e.jsx("div",{className:"bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between",children:e.jsxs("div",{className:"flex items-center gap-3",children:[e.jsx("div",{className:"w-10 h-10 rounded-full bg-white/20 flex items-center justify-center",children:e.jsx(t,{size:20})}),e.jsxs("div",{children:[e.jsx("div",{className:"font-semibold",children:"Voice Assistant"}),e.jsx("div",{className:"text-xs text-white/80",children:"Online"})]})]})}),e.jsx("div",{className:"p-4 border-t border-gray-200",children:e.jsxs("div",{className:"flex gap-2",children:[e.jsx("input",{type:"text",placeholder:"Type or speak your message...",className:"flex-1 px-4 py-2 border border-gray-300 rounded-lg"}),e.jsx("button",{className:"w-10 h-10 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 flex items-center justify-center",children:e.jsx(g,{size:18})}),e.jsx("button",{className:"w-10 h-10 bg-[#005196] text-white rounded-lg hover:bg-[#004178] flex items-center justify-center",children:e.jsx(a,{size:18})})]})})]})})},{title:"File Upload Support",description:"Chatbot allowing document uploads for permit applications, complaint filing, etc.",code:`import { Chatbot } from '@ux4g/react-composite';
+
+function Example() {
+  const handleSendMessage = async (
+    message: string,
+    attachments?: File[]
+  ) => {
+    // Process attachments
+    if (attachments && attachments.length > 0) {
+      const formData = new FormData();
+      formData.append('message', message);
+      attachments.forEach(file => formData.append('files', file));
+
+      const response = await fetch('/api/chat/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await response.json();
+      return data;
+    }
+
+    return {
+      id: Date.now().toString(),
+      text: "I've received your message.",
+      sender: 'bot',
+      timestamp: new Date(),
+    };
+  };
+
+  return (
+    <Chatbot
+      botName="Document Assistant"
+      greeting="You can attach documents to your inquiries."
+      enableFileUpload={true}
+      onSendMessage={handleSendMessage}
+    />
+  );
+}`,preview:e.jsx("div",{className:"relative h-[600px] bg-gray-100 rounded-lg overflow-hidden",children:e.jsxs("div",{className:"absolute bottom-4 right-4 w-96 bg-white rounded-lg shadow-xl border border-gray-200",children:[e.jsx("div",{className:"bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between",children:e.jsxs("div",{className:"flex items-center gap-3",children:[e.jsx("div",{className:"w-10 h-10 rounded-full bg-white/20 flex items-center justify-center",children:e.jsx(t,{size:20})}),e.jsxs("div",{children:[e.jsx("div",{className:"font-semibold",children:"Document Assistant"}),e.jsx("div",{className:"text-xs text-white/80",children:"Online"})]})]})}),e.jsx("div",{className:"p-4 border-t border-gray-200",children:e.jsxs("div",{className:"flex gap-2",children:[e.jsx("button",{className:"w-10 h-10 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 flex items-center justify-center",children:e.jsx(p,{size:18})}),e.jsx("input",{type:"text",placeholder:"Type your message...",className:"flex-1 px-4 py-2 border border-gray-300 rounded-lg"}),e.jsx("button",{className:"w-10 h-10 bg-[#005196] text-white rounded-lg hover:bg-[#004178] flex items-center justify-center",children:e.jsx(a,{size:18})})]})})]})})},{title:"Department Specific Bot",description:"Chatbot configured for a specific department with contextual knowledge.",code:`import { Chatbot } from '@ux4g/react-composite';
+
+function Example() {
+  const departmentContext = {
+    departmentId: 'dept-tax',
+    departmentName: 'Tax Services',
+    services: [
+      'Income Tax Filing',
+      'Property Tax',
+      'Business Tax Registration',
+      'Tax Refunds'
+    ],
+    faqs: [
+      { q: 'When is tax deadline?', a: 'April 15th annually' },
+      { q: 'How to file online?', a: 'Visit our portal at tax.gov' }
+    ]
+  };
+
+  const handleSendMessage = async (message: string) => {
+    // Use departmentContext to provide tailored responses
+    return {
+      id: Date.now().toString(),
+      text: "Based on Tax Services information...",
+      sender: 'bot',
+      timestamp: new Date(),
+    };
+  };
+
+  return (
+    <Chatbot
+      botName="Tax Help Bot"
+      botAvatar="/assets/tax-dept-icon.png"
+      greeting="Welcome to Tax Services. How can I assist you with tax-related questions?"
+      departmentContext={departmentContext}
+      onSendMessage={handleSendMessage}
+    />
+  );
+}`,preview:e.jsx("div",{className:"relative h-[600px] bg-gray-100 rounded-lg overflow-hidden",children:e.jsx(s,{position:"bottom-right",minimized:!1,botName:"Tax Help Bot",greeting:"Welcome to Tax Services. How can I assist you with tax-related questions?"})})},{title:"Multilingual Support",description:"Chatbot with language selection for diverse citizen populations.",code:`import { Chatbot } from '@ux4g/react-composite';
+import { useState } from 'react';
+
+function Example() {
+  const [language, setLanguage] = useState('en');
+
+  const greetings = {
+    en: 'Hello! How can I help you today?',
+    es: '¡Hola! ¿Cómo puedo ayudarte hoy?',
+    fr: 'Bonjour! Comment puis-je vous aider aujourd'hui?',
+    zh: '您好！今天我能帮您什么？'
+  };
+
+  const handleSendMessage = async (message: string) => {
+    // Send message with language context
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      body: JSON.stringify({ message, language }),
+    });
+    const data = await response.json();
+    return data;
+  };
+
+  return (
+    <div>
+      <div className="mb-4 flex gap-2">
+        <button onClick={() => setLanguage('en')}>English</button>
+        <button onClick={() => setLanguage('es')}>Español</button>
+        <button onClick={() => setLanguage('fr')}>Français</button>
+        <button onClick={() => setLanguage('zh')}>中文</button>
+      </div>
+
+      <Chatbot
+        botName="Multilingual Assistant"
+        greeting={greetings[language as keyof typeof greetings]}
+        onSendMessage={handleSendMessage}
+      />
+    </div>
+  );
+}`,preview:e.jsxs("div",{className:"relative h-[600px] bg-gray-100 rounded-lg overflow-hidden",children:[e.jsxs("div",{className:"absolute top-4 right-4 flex gap-2",children:[e.jsx("button",{className:"px-3 py-1 text-sm bg-white rounded shadow",children:"EN"}),e.jsx("button",{className:"px-3 py-1 text-sm bg-gray-200 rounded",children:"ES"}),e.jsx("button",{className:"px-3 py-1 text-sm bg-gray-200 rounded",children:"FR"})]}),e.jsx(s,{position:"bottom-right",minimized:!1,botName:"Multilingual Assistant",greeting:"Hello! How can I help you today?"})]})}],reactCode:{component:`import React, { useState, useRef, useEffect } from 'react';
+import { MessageCircle, X, Send, Mic, Paperclip } from 'lucide-react';
+import { cn } from '../../utils/cn';
+import { ChatbotProps, ChatMessage } from './Chatbot.types';
+
+export const Chatbot: React.FC<ChatbotProps> = ({
+  botName = 'Assistant',
+  botAvatar,
+  greeting = 'Hello! How can I help you today?',
+  placeholder = 'Type your message...',
+  position = 'bottom-right',
+  minimized: initialMinimized = true,
+  onSendMessage,
+  onClose,
+  suggestedQuestions = [],
+  enableVoice = false,
+  enableFileUpload = false,
+  departmentContext,
+}) => {
+  const [minimized, setMinimized] = useState(initialMinimized);
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      id: '1',
+      text: greeting,
+      sender: 'bot',
+      timestamp: new Date(),
+    },
+  ]);
+  const [inputValue, setInputValue] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [attachments, setAttachments] = useState<File[]>([]);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const handleSend = async () => {
+    if (!inputValue.trim() && attachments.length === 0) return;
+
+    const userMessage: ChatMessage = {
+      id: Date.now().toString(),
+      text: inputValue,
+      sender: 'user',
+      timestamp: new Date(),
+      attachments: attachments.map(f => f.name),
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+    setInputValue('');
+    setAttachments([]);
+    setIsTyping(true);
+
+    try {
+      const botResponse = await onSendMessage(inputValue, attachments);
+      setMessages(prev => [...prev, botResponse]);
+    } catch (error) {
+      console.error('Error sending message:', error);
+    } finally {
+      setIsTyping(false);
+    }
+  };
+
+  const handleSuggestedQuestion = (question: string) => {
+    setInputValue(question);
+  };
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setAttachments(prev => [...prev, ...Array.from(e.target.files!)]);
+    }
+  };
+
+  const toggleMinimized = () => {
+    const newMinimized = !minimized;
+    setMinimized(newMinimized);
+    if (newMinimized && onClose) {
+      onClose();
+    }
+  };
+
+  return (
+    <div
+      className={cn(
+        'fixed z-50',
+        position === 'bottom-left' ? 'bottom-4 left-4' : 'bottom-4 right-4'
+      )}
+    >
+      {minimized ? (
+        <button
+          onClick={toggleMinimized}
+          className="w-14 h-14 rounded-full bg-[#005196] text-white shadow-lg hover:bg-[#004178] flex items-center justify-center transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]"
+          aria-label="Open chatbot"
+        >
+          <MessageCircle size={24} />
+        </button>
+      ) : (
+        <div className="w-96 h-[500px] bg-white rounded-lg shadow-xl flex flex-col border border-gray-200">
+          {/* Header */}
+          <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              {botAvatar ? (
+                typeof botAvatar === 'string' ? (
+                  <img src={botAvatar} alt="" className="w-10 h-10 rounded-full" />
+                ) : (
+                  botAvatar
+                )
+              ) : (
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                  <MessageCircle size={20} />
+                </div>
+              )}
+              <div>
+                <div className="font-semibold">{botName}</div>
+                <div className="text-xs text-white/80">Online</div>
+              </div>
+            </div>
+            <button
+              onClick={toggleMinimized}
+              className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
+              aria-label="Minimize chatbot"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          {/* Messages */}
+          <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
+            <div className="space-y-4">
+              {messages.map((msg) => (
+                <div
+                  key={msg.id}
+                  className={cn(
+                    'flex gap-2',
+                    msg.sender === 'user' && 'flex-row-reverse'
+                  )}
+                >
+                  {msg.sender === 'bot' && (
+                    <div className="w-8 h-8 rounded-full bg-[#005196] flex-shrink-0 flex items-center justify-center text-white text-sm">
+                      AI
+                    </div>
+                  )}
+                  <div
+                    className={cn(
+                      'rounded-lg p-3 max-w-[80%]',
+                      msg.sender === 'user'
+                        ? 'bg-[#005196] text-white'
+                        : 'bg-white shadow-sm'
+                    )}
+                  >
+                    <p className="text-sm">{msg.text}</p>
+                    {msg.attachments && msg.attachments.length > 0 && (
+                      <div className="mt-2 text-xs opacity-80">
+                        {msg.attachments.map((file, i) => (
+                          <div key={i}>📎 {file}</div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+              {isTyping && (
+                <div className="flex gap-2">
+                  <div className="w-8 h-8 rounded-full bg-[#005196] flex-shrink-0 flex items-center justify-center text-white text-sm">
+                    AI
+                  </div>
+                  <div className="bg-white rounded-lg p-3 shadow-sm">
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
+                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+
+            {/* Suggested Questions */}
+            {messages.length === 1 && suggestedQuestions.length > 0 && (
+              <div className="mt-4 space-y-2">
+                <p className="text-sm text-gray-600">Suggested questions:</p>
+                {suggestedQuestions.map((q, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleSuggestedQuestion(q)}
+                    className="w-full text-left px-3 py-2 text-sm bg-white hover:bg-gray-100 rounded border border-gray-200 transition-colors"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Input */}
+          <div className="p-4 border-t border-gray-200">
+            {attachments.length > 0 && (
+              <div className="mb-2 flex flex-wrap gap-2">
+                {attachments.map((file, i) => (
+                  <div
+                    key={i}
+                    className="px-2 py-1 bg-gray-100 rounded text-xs flex items-center gap-1"
+                  >
+                    <Paperclip size={12} />
+                    {file.name}
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className="flex gap-2">
+              {enableFileUpload && (
+                <>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    multiple
+                    onChange={handleFileSelect}
+                    className="hidden"
+                  />
+                  <button
+                    onClick={() => fileInputRef.current?.click()}
+                    className="w-10 h-10 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]"
+                    aria-label="Attach file"
+                  >
+                    <Paperclip size={18} />
+                  </button>
+                </>
+              )}
+              <input
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                placeholder={placeholder}
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005196]"
+                aria-label="Message input"
+              />
+              {enableVoice && (
+                <button
+                  className="w-10 h-10 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]"
+                  aria-label="Voice input"
+                >
+                  <Mic size={18} />
+                </button>
+              )}
+              <button
+                onClick={handleSend}
+                className="w-10 h-10 bg-[#005196] text-white rounded-lg hover:bg-[#004178] flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196] disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={!inputValue.trim() && attachments.length === 0}
+                aria-label="Send message"
+              >
+                <Send size={18} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+Chatbot.displayName = 'Chatbot';`,types:`export interface ChatMessage {
+  id: string;
+  text: string;
+  sender: 'user' | 'bot';
+  timestamp: Date;
+  attachments?: string[];
+}
+
+export interface DepartmentContext {
+  departmentId: string;
+  departmentName: string;
+  services: string[];
+  faqs: Array<{ q: string; a: string }>;
+}
+
+export interface ChatbotProps {
+  botName?: string;
+  botAvatar?: string | React.ReactNode;
+  greeting?: string;
+  placeholder?: string;
+  position?: 'bottom-right' | 'bottom-left';
+  minimized?: boolean;
+  onSendMessage: (message: string, attachments?: File[]) => Promise<ChatMessage>;
+  onClose?: () => void;
+  suggestedQuestions?: string[];
+  enableVoice?: boolean;
+  enableFileUpload?: boolean;
+  departmentContext?: DepartmentContext;
+}`,variants:`// Chatbot uses inline styling rather than CVA variants
+// due to its complex, stateful nature as a composite component`},angularCode:{component:`import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+
+export interface ChatMessage {
+  id: string;
+  text: string;
+  sender: 'user' | 'bot';
+  timestamp: Date;
+  attachments?: string[];
+}
+
+export interface DepartmentContext {
+  departmentId: string;
+  departmentName: string;
+  services: string[];
+  faqs: Array<{ q: string; a: string }>;
+}
+
+@Component({
+  selector: 'ux4g-chatbot',
+  template: \`
+    <div [class]="getPositionClasses()">
+      <!-- Minimized State -->
+      <button
+        *ngIf="minimized"
+        (click)="toggleMinimized()"
+        class="chatbot-toggle"
+        aria-label="Open chatbot"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </button>
+
+      <!-- Expanded State -->
+      <div *ngIf="!minimized" class="chatbot-container">
+        <!-- Header -->
+        <div class="chatbot-header">
+          <div class="chatbot-header-info">
+            <div class="chatbot-avatar">
+              <img *ngIf="botAvatar" [src]="botAvatar" [alt]="botName" />
+              <svg *ngIf="!botAvatar" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="chatbot-name">{{ botName }}</div>
+              <div class="chatbot-status">Online</div>
+            </div>
+          </div>
+          <button (click)="toggleMinimized()" class="chatbot-close" aria-label="Minimize chatbot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Messages -->
+        <div class="chatbot-messages" #messagesContainer>
+          <div *ngFor="let message of messages"
+               [class.message-user]="message.sender === 'user'"
+               [class.message-bot]="message.sender === 'bot'"
+               class="message">
+            <div *ngIf="message.sender === 'bot'" class="message-avatar">AI</div>
+            <div class="message-content">
+              <p>{{ message.text }}</p>
+              <div *ngIf="message.attachments" class="message-attachments">
+                <div *ngFor="let file of message.attachments">📎 {{ file }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Typing Indicator -->
+          <div *ngIf="isTyping" class="message message-bot">
+            <div class="message-avatar">AI</div>
+            <div class="typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <!-- Suggested Questions -->
+          <div *ngIf="messages.length === 1 && suggestedQuestions.length > 0"
+               class="suggested-questions">
+            <p>Suggested questions:</p>
+            <button *ngFor="let question of suggestedQuestions"
+                    (click)="handleSuggestedQuestion(question)"
+                    class="suggested-question">
+              {{ question }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chatbot-input">
+          <div *ngIf="attachments.length > 0" class="attachments-preview">
+            <div *ngFor="let file of attachments" class="attachment-item">
+              📎 {{ file.name }}
+            </div>
+          </div>
+          <div class="input-row">
+            <button *ngIf="enableFileUpload"
+                    (click)="fileInput.click()"
+                    class="input-button"
+                    aria-label="Attach file">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+              </svg>
+            </button>
+            <input type="file"
+                   #fileInput
+                   multiple
+                   (change)="handleFileSelect($event)"
+                   style="display: none" />
+            <input type="text"
+                   [(ngModel)]="inputValue"
+                   (keyup.enter)="handleSend()"
+                   [placeholder]="placeholder"
+                   class="message-input"
+                   aria-label="Message input" />
+            <button *ngIf="enableVoice"
+                    class="input-button"
+                    aria-label="Voice input">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" x2="12" y1="19" y2="22"/>
+              </svg>
+            </button>
+            <button (click)="handleSend()"
+                    [disabled]="!inputValue.trim() && attachments.length === 0"
+                    class="send-button"
+                    aria-label="Send message">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  \`,
+  styleUrls: ['./chatbot.component.css']
+})
+export class ChatbotComponent implements OnInit {
+  @Input() botName = 'Assistant';
+  @Input() botAvatar?: string;
+  @Input() greeting = 'Hello! How can I help you today?';
+  @Input() placeholder = 'Type your message...';
+  @Input() position: 'bottom-right' | 'bottom-left' = 'bottom-right';
+  @Input() minimized = true;
+  @Input() suggestedQuestions: string[] = [];
+  @Input() enableVoice = false;
+  @Input() enableFileUpload = false;
+  @Input() departmentContext?: DepartmentContext;
+
+  @Output() sendMessage = new EventEmitter<{ message: string; attachments?: File[] }>();
+  @Output() closed = new EventEmitter<void>();
+
+  messages: ChatMessage[] = [];
+  inputValue = '';
+  isTyping = false;
+  attachments: File[] = [];
+
+  ngOnInit() {
+    this.messages = [
+      {
+        id: '1',
+        text: this.greeting,
+        sender: 'bot',
+        timestamp: new Date(),
+      },
+    ];
+  }
+
+  getPositionClasses(): string {
+    const base = 'chatbot-widget';
+    const positionClass = this.position === 'bottom-left' ? 'position-left' : 'position-right';
+    return \`\${base} \${positionClass}\`;
+  }
+
+  toggleMinimized(): void {
+    this.minimized = !this.minimized;
+    if (this.minimized) {
+      this.closed.emit();
+    }
+  }
+
+  handleSend(): void {
+    if (!this.inputValue.trim() && this.attachments.length === 0) return;
+
+    const userMessage: ChatMessage = {
+      id: Date.now().toString(),
+      text: this.inputValue,
+      sender: 'user',
+      timestamp: new Date(),
+      attachments: this.attachments.map(f => f.name),
+    };
+
+    this.messages.push(userMessage);
+    this.sendMessage.emit({
+      message: this.inputValue,
+      attachments: this.attachments,
+    });
+
+    this.inputValue = '';
+    this.attachments = [];
+    this.isTyping = true;
+  }
+
+  handleSuggestedQuestion(question: string): void {
+    this.inputValue = question;
+  }
+
+  handleFileSelect(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files) {
+      this.attachments = [...this.attachments, ...Array.from(input.files)];
+    }
+  }
+
+  addBotMessage(message: ChatMessage): void {
+    this.messages.push(message);
+    this.isTyping = false;
+  }
+}`,module:`import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ChatbotComponent } from './chatbot.component';
+
+@NgModule({
+  declarations: [ChatbotComponent],
+  imports: [CommonModule, FormsModule],
+  exports: [ChatbotComponent]
+})
+export class ChatbotModule { }`,types:`export type ChatbotPosition = 'bottom-right' | 'bottom-left';
+
+export interface ChatMessage {
+  id: string;
+  text: string;
+  sender: 'user' | 'bot';
+  timestamp: Date;
+  attachments?: string[];
+}
+
+export interface DepartmentContext {
+  departmentId: string;
+  departmentName: string;
+  services: string[];
+  faqs: Array<{ q: string; a: string }>;
+}`},comparisons:[{system:"Dialogflow (Google)",component:"Dialogflow Messenger",variants:"Embedded widget, custom UI",accessibility:"WCAG 2.1 AA",documentation:"Comprehensive",link:"https://cloud.google.com/dialogflow"},{system:"Rasa",component:"Rasa Chat Widget",variants:"Open-source, customizable",accessibility:"Custom implementation",documentation:"Good",link:"https://rasa.com/"},{system:"Microsoft Bot Framework",component:"Web Chat",variants:"Multiple channels, adaptive cards",accessibility:"WCAG 2.1 AA",documentation:"Comprehensive",link:"https://dev.botframework.com/"},{system:"IBM Watson Assistant",component:"Web Chat Widget",variants:"Embedded, standalone",accessibility:"WCAG 2.1 AA",documentation:"Comprehensive",link:"https://www.ibm.com/cloud/watson-assistant"},{system:"Intercom",component:"Messenger",variants:"Commercial, feature-rich",accessibility:"WCAG 2.0 AA",documentation:"Good",link:"https://www.intercom.com/"}],accessibility:{wcagLevel:"WCAG 2.1 Level AA Compliant",features:["Minimum 44x44px touch target for minimize/close buttons (WCAG 2.5.5)","2px focus ring with offset for all interactive elements (WCAG 2.4.7)","Color contrast ratios meet or exceed 4.5:1 for text (WCAG 1.4.3)","Semantic HTML with proper ARIA labels and roles","Keyboard navigation support for all interactions","Screen reader announcements for new messages","aria-live regions for typing indicators and message updates","Focus management when opening/closing chatbot","Proper labeling for all input fields and buttons","Support for voice input as alternative modality"],keyboardSupport:[{key:"Tab",action:"Navigate through interactive elements"},{key:"Shift + Tab",action:"Navigate backwards"},{key:"Enter",action:"Send message or activate button"},{key:"Escape",action:"Close/minimize chatbot"},{key:"Space",action:"Activate buttons"}],screenReader:["Announces chatbot role and state (open/closed)","Announces new messages from bot with timestamp","Announces typing indicator when bot is processing","Announces file upload status and attached files","Announces suggested questions as actionable buttons","Provides context for department-specific information"]},tokens:{file:"/tokens/components/chatbot.json",mappings:[{property:"Widget Width",token:"composite.chatbot.width",value:"384px (24rem)"},{property:"Widget Height",token:"composite.chatbot.height",value:"500px"},{property:"Header Background",token:"composite.chatbot.header.background",value:"#005196 (Navy 500)"},{property:"Header Text Color",token:"composite.chatbot.header.text",value:"#FFFFFF (White)"},{property:"Message Background (Bot)",token:"composite.chatbot.message.bot.background",value:"#FFFFFF (White)"},{property:"Message Background (User)",token:"composite.chatbot.message.user.background",value:"#005196 (Navy 500)"},{property:"Input Border",token:"composite.chatbot.input.border",value:"#D1D5DB (Gray 300)"},{property:"Send Button Background",token:"composite.chatbot.button.send.background",value:"#005196 (Navy 500)"},{property:"Border Radius",token:"base.borderRadius.lg",value:"8px"},{property:"Min Touch Target",token:"accessibility.minTouchTarget",value:"44px"}]},governmentContext:{description:"The Chatbot component serves as an intelligent virtual assistant for government services, automating responses to citizen queries, providing 24/7 support, and reducing the load on human support staff.",useCases:[{title:"Citizen Query Handling",description:"Automated responses to common questions about government services, office hours, required documents, and procedures."},{title:"Service Information",description:"Providing detailed information about available government services, eligibility criteria, and application processes."},{title:"Complaint Resolution",description:"Initial triage and routing of citizen complaints with file upload support for evidence documentation."},{title:"FAQ Automation",description:"Instantly answering frequently asked questions based on department-specific knowledge bases."},{title:"Multilingual Support",description:"Serving diverse populations by providing support in multiple languages."},{title:"Appointment Scheduling",description:"Helping citizens schedule appointments with government offices and departments."}],considerations:["Privacy and data security: Ensure all citizen interactions are encrypted and compliant with data protection regulations.","Transparency: Clearly indicate that users are interacting with an AI system, not a human.","Escalation paths: Provide clear mechanisms to escalate to human support when needed.","Accessibility: Support multiple input modalities (text, voice) and ensure compatibility with assistive technologies.","Department context: Configure chatbots with department-specific knowledge for accurate, relevant responses.","Conversation logging: Maintain audit trails of interactions for quality assurance and compliance.","Performance monitoring: Track response accuracy, resolution rates, and user satisfaction metrics."]}})}export{N as default};

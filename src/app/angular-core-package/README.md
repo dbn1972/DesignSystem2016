@@ -524,13 +524,13 @@ const status: StatusVariant = 'success';
 - [Component Patterns](./COMPONENT_PATTERNS.md) - Design patterns and best practices
 - [Framework Comparison](./FRAMEWORK_COMPARISON.md) - React vs Angular comparison guide
 - [Implementation Roadmap](./ROADMAP.md) - Detailed development timeline
-- [Changelog](./CHANGELOG.md) - Version history and migration guides
+- [Tokens Changelog](../tokens-package/CHANGELOG.md) - Version history and migration guides
 
 ---
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for development setup and contribution guidelines.
+See [CONTRIBUTING_GUIDELINES_FEATURE.md](../../../CONTRIBUTING_GUIDELINES_FEATURE.md) for development setup and contribution guidelines.
 
 ---
 

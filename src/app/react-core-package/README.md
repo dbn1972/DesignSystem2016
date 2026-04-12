@@ -368,7 +368,7 @@ const CustomButton: React.FC<ButtonProps> = (props) => {
 
 ## Contributing
 
-Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.md) for details.
+Contributions are welcome! Please read our [Contributing Guide](../../../CONTRIBUTING_GUIDELINES_FEATURE.md) for details.
 
 ## License
 

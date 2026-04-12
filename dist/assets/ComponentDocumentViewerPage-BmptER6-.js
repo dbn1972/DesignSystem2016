@@ -1,0 +1,525 @@
+import{e as n,j as e,D as s}from"./index-wYwTiNL-.js";import{C as l}from"./ComponentDocumentation-DKnXH-Pi.js";import{C as c}from"./chevron-left-CSqQJVwF.js";import{C as m}from"./chevron-right-D7hQKSZL.js";import{P as d}from"./printer-mogTdK8y.js";import"./copy-DRmj_ACu.js";import"./info-DKzCpq0n.js";import"./external-link-CusCIMwZ.js";/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const u=[["path",{d:"M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8",key:"1p45f6"}],["path",{d:"M21 3v5h-5",key:"1q7to0"}]],p=n("rotate-cw",u);/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const g=[["circle",{cx:"11",cy:"11",r:"8",key:"4ej97u"}],["line",{x1:"21",x2:"16.65",y1:"21",y2:"16.65",key:"13gj7c"}],["line",{x1:"11",x2:"11",y1:"8",y2:"14",key:"1vmskp"}],["line",{x1:"8",x2:"14",y1:"11",y2:"11",key:"durymu"}]],f=n("zoom-in",g);/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const h=[["circle",{cx:"11",cy:"11",r:"8",key:"4ej97u"}],["line",{x1:"21",x2:"16.65",y1:"21",y2:"16.65",key:"13gj7c"}],["line",{x1:"8",x2:"14",y1:"11",y2:"11",key:"durymu"}]],b=n("zoom-out",h),o=({fileType:t,zoom:r=100,page:a=1,showToolbar:i=!0,...v})=>e.jsxs("div",{className:"border border-gray-300 rounded-lg overflow-hidden bg-white",children:[i&&e.jsxs("div",{className:"flex items-center justify-between px-4 py-2 bg-gray-50 border-b border-gray-300",children:[e.jsxs("div",{className:"flex items-center gap-2",children:[e.jsx("button",{className:"p-2 hover:bg-gray-200 rounded","aria-label":"Zoom out",children:e.jsx(b,{size:16})}),e.jsxs("span",{className:"text-sm font-medium min-w-[60px] text-center",children:[r,"%"]}),e.jsx("button",{className:"p-2 hover:bg-gray-200 rounded","aria-label":"Zoom in",children:e.jsx(f,{size:16})}),e.jsx("button",{className:"p-2 hover:bg-gray-200 rounded ml-2","aria-label":"Rotate",children:e.jsx(p,{size:16})})]}),e.jsx("div",{className:"flex items-center gap-2",children:t==="pdf"&&e.jsxs(e.Fragment,{children:[e.jsx("button",{className:"p-2 hover:bg-gray-200 rounded","aria-label":"Previous page",children:e.jsx(c,{size:16})}),e.jsxs("span",{className:"text-sm min-w-[80px] text-center",children:["Page ",a," of 5"]}),e.jsx("button",{className:"p-2 hover:bg-gray-200 rounded","aria-label":"Next page",children:e.jsx(m,{size:16})})]})}),e.jsxs("div",{className:"flex items-center gap-2",children:[e.jsx("button",{className:"p-2 hover:bg-gray-200 rounded","aria-label":"Download",children:e.jsx(s,{size:16})}),e.jsx("button",{className:"p-2 hover:bg-gray-200 rounded","aria-label":"Print",children:e.jsx(d,{size:16})})]})]}),e.jsx("div",{className:"p-8 flex items-center justify-center bg-gray-100",style:{minHeight:"400px"},children:e.jsx("div",{className:"bg-white shadow-lg rounded",style:{width:"90%",height:"380px"},children:e.jsxs("div",{className:"h-full flex items-center justify-center text-gray-400",children:[t==="pdf"&&e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"text-6xl mb-4",children:"📄"}),e.jsx("div",{className:"text-sm",children:"PDF Document Preview"})]}),t==="image"&&e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"text-6xl mb-4",children:"🖼️"}),e.jsx("div",{className:"text-sm",children:"Image Preview"})]}),t==="doc"&&e.jsxs("div",{className:"text-center",children:[e.jsx("div",{className:"text-6xl mb-4",children:"📝"}),e.jsx("div",{className:"text-sm",children:"Document Preview"})]})]})})})]});function j(){return e.jsx(l,{name:"Document Viewer",description:"Advanced composite component for viewing PDF documents, images, and various document formats in government applications. Supports zoom, rotation, pagination, annotations, and accessibility features for citizens viewing certificates, applications, and official documents.",category:"Government Services",maturity:"beta",tier:"composite",since:"v2.0.0",updated:"v2.2.0",props:[{name:"fileUrl",type:"string",required:!0,description:"URL or path to the document file to display. Supports PDF, images (PNG, JPG, WebP), and document formats."},{name:"fileType",type:"'pdf' | 'image' | 'doc'",required:!0,description:"Type of document being displayed. Determines the rendering engine and available features."},{name:"zoom",type:"number",default:"100",required:!1,description:"Initial zoom level as a percentage (50-200). Controls the document display size."},{name:"page",type:"number",default:"1",required:!1,description:"Initial page number for multi-page documents (PDF, DOC). 1-indexed."},{name:"rotation",type:"0 | 90 | 180 | 270",default:"0",required:!1,description:"Initial rotation angle in degrees. Useful for documents scanned in incorrect orientation."},{name:"onDownload",type:"() => void",required:!1,description:"Callback fired when user clicks download button. Implement custom download logic or tracking."},{name:"onPrint",type:"() => void",required:!1,description:"Callback fired when user clicks print button. Implement custom print dialog or tracking."},{name:"onPageChange",type:"(page: number) => void",required:!1,description:"Callback fired when page changes in multi-page documents."},{name:"onZoomChange",type:"(zoom: number) => void",required:!1,description:"Callback fired when zoom level changes."},{name:"allowAnnotations",type:"boolean",default:"false",required:!1,description:"Enable annotation tools for users to mark up documents. Useful for review workflows."},{name:"showToolbar",type:"boolean",default:"true",required:!1,description:"Show or hide the toolbar with zoom, navigation, and action controls."},{name:"toolbarPosition",type:"'top' | 'bottom'",default:"'top'",required:!1,description:"Position of the toolbar relative to the document viewport."},{name:"enableTextSelection",type:"boolean",default:"true",required:!1,description:"Allow users to select and copy text from PDF documents."},{name:"loading",type:"boolean",default:"false",required:!1,description:"Loading state while document is being fetched or rendered."},{name:"error",type:"string",required:!1,description:"Error message to display if document fails to load."},{name:"className",type:"string",required:!1,description:"Additional CSS classes to apply to the container."}],examples:[{title:"PDF Viewer",description:"Display PDF documents with full navigation and zoom controls. Common for viewing tax forms, certificates, and official documents.",code:`import { DocumentViewer } from '@ux4g/react-composite';
+
+function Example() {
+  return (
+    <DocumentViewer
+      fileUrl="/documents/tax-certificate-2025.pdf"
+      fileType="pdf"
+      zoom={100}
+      page={1}
+      onDownload={() => console.log('Download clicked')}
+      onPrint={() => console.log('Print clicked')}
+    />
+  );
+}`,preview:e.jsx(o,{fileType:"pdf",zoom:100,page:1,showToolbar:!0})},{title:"Image Viewer",description:"Display image documents such as scanned IDs, uploaded photos, or digital signatures.",code:`import { DocumentViewer } from '@ux4g/react-composite';
+
+function Example() {
+  return (
+    <DocumentViewer
+      fileUrl="/documents/drivers-license-scan.jpg"
+      fileType="image"
+      zoom={100}
+      rotation={0}
+      onDownload={() => window.open('/documents/drivers-license-scan.jpg', '_blank')}
+    />
+  );
+}`,preview:e.jsx(o,{fileType:"image",zoom:100,showToolbar:!0})},{title:"Multi-page Documents",description:"Navigate through multi-page PDF documents with page controls. Ideal for applications, permits, and lengthy forms.",code:`import { DocumentViewer } from '@ux4g/react-composite';
+import { useState } from 'react';
+
+function Example() {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  return (
+    <DocumentViewer
+      fileUrl="/documents/building-permit-application.pdf"
+      fileType="pdf"
+      page={currentPage}
+      onPageChange={(page) => {
+        setCurrentPage(page);
+        console.log(\`Navigated to page \${page}\`);
+      }}
+      zoom={100}
+    />
+  );
+}`,preview:e.jsx(o,{fileType:"pdf",zoom:100,page:1,showToolbar:!0})},{title:"With Toolbar Controls",description:"Full-featured viewer with zoom, rotation, navigation, download, and print controls.",code:`import { DocumentViewer } from '@ux4g/react-composite';
+import { useState } from 'react';
+
+function Example() {
+  const [zoom, setZoom] = useState(100);
+  const [rotation, setRotation] = useState(0);
+
+  const handleDownload = () => {
+    // Track download in analytics
+    analytics.track('document_downloaded');
+    // Trigger download
+    window.open('/documents/business-license.pdf', '_blank');
+  };
+
+  const handlePrint = () => {
+    // Track print in analytics
+    analytics.track('document_printed');
+    // Trigger print dialog
+    window.print();
+  };
+
+  return (
+    <DocumentViewer
+      fileUrl="/documents/business-license.pdf"
+      fileType="pdf"
+      zoom={zoom}
+      rotation={rotation}
+      onZoomChange={setZoom}
+      onDownload={handleDownload}
+      onPrint={handlePrint}
+      showToolbar={true}
+      toolbarPosition="top"
+    />
+  );
+}`,preview:e.jsx(o,{fileType:"pdf",zoom:100,showToolbar:!0})},{title:"Certificate Preview",description:"Display official certificates and credentials with download option for citizens.",code:`import { DocumentViewer } from '@ux4g/react-composite';
+import { Alert } from '@ux4g/react-core';
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <Alert variant="info">
+        Your Birth Certificate is ready for download.
+        This is an official government document.
+      </Alert>
+      <DocumentViewer
+        fileUrl="/documents/birth-certificate-12345.pdf"
+        fileType="pdf"
+        zoom={100}
+        onDownload={() => {
+          // Log download event
+          console.log('Certificate downloaded');
+        }}
+        enableTextSelection={false}
+      />
+    </div>
+  );
+}`,preview:e.jsxs("div",{className:"space-y-4",children:[e.jsx("div",{className:"p-4 bg-blue-50 border border-blue-200 rounded text-blue-900 text-sm",children:"Your Birth Certificate is ready for download. This is an official government document."}),e.jsx(o,{fileType:"pdf",zoom:100,showToolbar:!0})]})}],reactCode:{component:`import React, { useState, useCallback, useEffect } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import { cn } from '../../utils/cn';
+import { DocumentViewerProps } from './DocumentViewer.types';
+import { DocumentToolbar } from './DocumentToolbar';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+
+// Configure PDF.js worker
+pdfjs.GlobalWorkerOptions.workerSrc = \`//cdnjs.cloudflare.com/ajax/libs/pdf.js/\${pdfjs.version}/pdf.worker.min.js\`;
+
+export const DocumentViewer: React.FC<DocumentViewerProps> = ({
+  fileUrl,
+  fileType,
+  zoom = 100,
+  page = 1,
+  rotation = 0,
+  onDownload,
+  onPrint,
+  onPageChange,
+  onZoomChange,
+  allowAnnotations = false,
+  showToolbar = true,
+  toolbarPosition = 'top',
+  enableTextSelection = true,
+  loading = false,
+  error,
+  className,
+}) => {
+  const [numPages, setNumPages] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState(page);
+  const [currentZoom, setCurrentZoom] = useState(zoom);
+  const [currentRotation, setCurrentRotation] = useState(rotation);
+  const [documentError, setDocumentError] = useState<string | undefined>(error);
+
+  useEffect(() => {
+    setCurrentPage(page);
+  }, [page]);
+
+  useEffect(() => {
+    setCurrentZoom(zoom);
+  }, [zoom]);
+
+  useEffect(() => {
+    setCurrentRotation(rotation);
+  }, [rotation]);
+
+  const handleDocumentLoadSuccess = useCallback(({ numPages }: { numPages: number }) => {
+    setNumPages(numPages);
+    setDocumentError(undefined);
+  }, []);
+
+  const handleDocumentLoadError = useCallback((error: Error) => {
+    console.error('Error loading document:', error);
+    setDocumentError('Failed to load document. Please try again.');
+  }, []);
+
+  const handlePageChange = useCallback((newPage: number) => {
+    const validPage = Math.max(1, Math.min(newPage, numPages));
+    setCurrentPage(validPage);
+    onPageChange?.(validPage);
+  }, [numPages, onPageChange]);
+
+  const handleZoomChange = useCallback((newZoom: number) => {
+    const validZoom = Math.max(50, Math.min(newZoom, 200));
+    setCurrentZoom(validZoom);
+    onZoomChange?.(validZoom);
+  }, [onZoomChange]);
+
+  const handleRotation = useCallback(() => {
+    const newRotation = ((currentRotation + 90) % 360) as 0 | 90 | 180 | 270;
+    setCurrentRotation(newRotation);
+  }, [currentRotation]);
+
+  const renderPDF = () => (
+    <Document
+      file={fileUrl}
+      onLoadSuccess={handleDocumentLoadSuccess}
+      onLoadError={handleDocumentLoadError}
+      loading={<LoadingSpinner />}
+      error={<ErrorMessage message={documentError} />}
+    >
+      <Page
+        pageNumber={currentPage}
+        scale={currentZoom / 100}
+        rotate={currentRotation}
+        renderTextLayer={enableTextSelection}
+        renderAnnotationLayer={allowAnnotations}
+      />
+    </Document>
+  );
+
+  const renderImage = () => (
+    <img
+      src={fileUrl}
+      alt="Document preview"
+      style={{
+        transform: \`scale(\${currentZoom / 100}) rotate(\${currentRotation}deg)\`,
+        transformOrigin: 'center',
+        maxWidth: '100%',
+        height: 'auto',
+      }}
+      onError={() => setDocumentError('Failed to load image')}
+    />
+  );
+
+  const toolbarProps = {
+    currentPage,
+    numPages,
+    zoom: currentZoom,
+    onPageChange: handlePageChange,
+    onZoomChange: handleZoomChange,
+    onRotate: handleRotation,
+    onDownload,
+    onPrint,
+    showPagination: fileType === 'pdf' && numPages > 1,
+  };
+
+  return (
+    <div className={cn('ux4g-document-viewer', className)} role="region" aria-label="Document viewer">
+      {showToolbar && toolbarPosition === 'top' && <DocumentToolbar {...toolbarProps} />}
+
+      <div className="ux4g-document-viewport">
+        {loading && <LoadingSpinner />}
+        {documentError && <ErrorMessage message={documentError} />}
+        {!loading && !documentError && (
+          <>
+            {fileType === 'pdf' && renderPDF()}
+            {fileType === 'image' && renderImage()}
+            {fileType === 'doc' && <DocumentPreview url={fileUrl} />}
+          </>
+        )}
+      </div>
+
+      {showToolbar && toolbarPosition === 'bottom' && <DocumentToolbar {...toolbarProps} />}
+    </div>
+  );
+};
+
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center p-12" role="status">
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#005196]" />
+    <span className="sr-only">Loading document...</span>
+  </div>
+);
+
+const ErrorMessage = ({ message }: { message?: string }) => (
+  <div className="p-8 text-center text-red-600" role="alert">
+    <p>{message || 'An error occurred while loading the document.'}</p>
+  </div>
+);
+
+DocumentViewer.displayName = 'DocumentViewer';`,types:`export interface DocumentViewerProps {
+  /** URL or path to the document file */
+  fileUrl: string;
+
+  /** Type of document being displayed */
+  fileType: 'pdf' | 'image' | 'doc';
+
+  /** Initial zoom level (50-200) */
+  zoom?: number;
+
+  /** Initial page number for multi-page documents */
+  page?: number;
+
+  /** Initial rotation angle */
+  rotation?: 0 | 90 | 180 | 270;
+
+  /** Download button click handler */
+  onDownload?: () => void;
+
+  /** Print button click handler */
+  onPrint?: () => void;
+
+  /** Page change callback */
+  onPageChange?: (page: number) => void;
+
+  /** Zoom change callback */
+  onZoomChange?: (zoom: number) => void;
+
+  /** Enable annotation tools */
+  allowAnnotations?: boolean;
+
+  /** Show toolbar */
+  showToolbar?: boolean;
+
+  /** Toolbar position */
+  toolbarPosition?: 'top' | 'bottom';
+
+  /** Enable text selection in PDFs */
+  enableTextSelection?: boolean;
+
+  /** Loading state */
+  loading?: boolean;
+
+  /** Error message */
+  error?: string;
+
+  /** Additional CSS classes */
+  className?: string;
+}`,variants:`import { cva } from 'class-variance-authority';
+
+export const documentViewerVariants = cva(
+  [
+    'ux4g-document-viewer',
+    'border border-gray-300 rounded-lg',
+    'bg-white overflow-hidden',
+  ],
+  {
+    variants: {
+      loading: {
+        true: 'opacity-60 pointer-events-none',
+        false: 'opacity-100',
+      },
+      fullHeight: {
+        true: 'h-full',
+        false: 'h-auto',
+      },
+    },
+    defaultVariants: {
+      loading: false,
+      fullHeight: false,
+    },
+  }
+);
+
+export const viewportVariants = cva(
+  [
+    'ux4g-document-viewport',
+    'overflow-auto bg-gray-100',
+    'flex items-center justify-center',
+  ],
+  {
+    variants: {
+      size: {
+        sm: 'min-h-[300px]',
+        md: 'min-h-[500px]',
+        lg: 'min-h-[700px]',
+        full: 'h-full',
+      },
+    },
+    defaultVariants: {
+      size: 'md',
+    },
+  }
+);`},angularCode:{component:`import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+
+type FileType = 'pdf' | 'image' | 'doc';
+type Rotation = 0 | 90 | 180 | 270;
+
+@Component({
+  selector: 'ux4g-document-viewer',
+  template: \`
+    <div class="ux4g-document-viewer" role="region" aria-label="Document viewer">
+      <div *ngIf="showToolbar && toolbarPosition === 'top'" class="ux4g-toolbar">
+        <ux4g-document-toolbar
+          [currentPage]="currentPage"
+          [numPages]="numPages"
+          [zoom]="currentZoom"
+          [showPagination]="fileType === 'pdf' && numPages > 1"
+          (pageChange)="handlePageChange($event)"
+          (zoomChange)="handleZoomChange($event)"
+          (rotate)="handleRotation()"
+          (download)="onDownload.emit()"
+          (print)="onPrint.emit()"
+        ></ux4g-document-toolbar>
+      </div>
+
+      <div class="ux4g-document-viewport">
+        <div *ngIf="loading" class="loading-spinner" role="status">
+          <div class="spinner"></div>
+          <span class="sr-only">Loading document...</span>
+        </div>
+
+        <div *ngIf="error" class="error-message" role="alert">
+          {{ error }}
+        </div>
+
+        <div *ngIf="!loading && !error">
+          <pdf-viewer
+            *ngIf="fileType === 'pdf'"
+            [src]="fileUrl"
+            [page]="currentPage"
+            [zoom]="currentZoom / 100"
+            [rotation]="currentRotation"
+            [show-all]="false"
+            [render-text]="enableTextSelection"
+            (after-load-complete)="onDocumentLoad($event)"
+            (error)="onDocumentError($event)"
+          ></pdf-viewer>
+
+          <img
+            *ngIf="fileType === 'image'"
+            [src]="fileUrl"
+            [style.transform]="getImageTransform()"
+            alt="Document preview"
+            (error)="onImageError()"
+          />
+        </div>
+      </div>
+
+      <div *ngIf="showToolbar && toolbarPosition === 'bottom'" class="ux4g-toolbar">
+        <ux4g-document-toolbar
+          [currentPage]="currentPage"
+          [numPages]="numPages"
+          [zoom]="currentZoom"
+          [showPagination]="fileType === 'pdf' && numPages > 1"
+          (pageChange)="handlePageChange($event)"
+          (zoomChange)="handleZoomChange($event)"
+          (rotate)="handleRotation()"
+          (download)="onDownload.emit()"
+          (print)="onPrint.emit()"
+        ></ux4g-document-toolbar>
+      </div>
+    </div>
+  \`,
+  styleUrls: ['./document-viewer.component.css']
+})
+export class DocumentViewerComponent implements OnInit {
+  @Input() fileUrl!: string;
+  @Input() fileType!: FileType;
+  @Input() zoom = 100;
+  @Input() page = 1;
+  @Input() rotation: Rotation = 0;
+  @Input() allowAnnotations = false;
+  @Input() showToolbar = true;
+  @Input() toolbarPosition: 'top' | 'bottom' = 'top';
+  @Input() enableTextSelection = true;
+  @Input() loading = false;
+  @Input() error?: string;
+
+  @Output() pageChange = new EventEmitter<number>();
+  @Output() zoomChange = new EventEmitter<number>();
+  @Output() onDownload = new EventEmitter<void>();
+  @Output() onPrint = new EventEmitter<void>();
+
+  currentPage = 1;
+  currentZoom = 100;
+  currentRotation: Rotation = 0;
+  numPages = 0;
+
+  ngOnInit(): void {
+    this.currentPage = this.page;
+    this.currentZoom = this.zoom;
+    this.currentRotation = this.rotation;
+  }
+
+  onDocumentLoad(pdf: any): void {
+    this.numPages = pdf.numPages;
+  }
+
+  onDocumentError(error: any): void {
+    console.error('Document load error:', error);
+    this.error = 'Failed to load document';
+  }
+
+  onImageError(): void {
+    this.error = 'Failed to load image';
+  }
+
+  handlePageChange(newPage: number): void {
+    const validPage = Math.max(1, Math.min(newPage, this.numPages));
+    this.currentPage = validPage;
+    this.pageChange.emit(validPage);
+  }
+
+  handleZoomChange(newZoom: number): void {
+    const validZoom = Math.max(50, Math.min(newZoom, 200));
+    this.currentZoom = validZoom;
+    this.zoomChange.emit(validZoom);
+  }
+
+  handleRotation(): void {
+    this.currentRotation = ((this.currentRotation + 90) % 360) as Rotation;
+  }
+
+  getImageTransform(): string {
+    return \`scale(\${this.currentZoom / 100}) rotate(\${this.currentRotation}deg)\`;
+  }
+}`,module:`import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { DocumentViewerComponent } from './document-viewer.component';
+import { DocumentToolbarComponent } from './document-toolbar.component';
+
+@NgModule({
+  declarations: [
+    DocumentViewerComponent,
+    DocumentToolbarComponent
+  ],
+  imports: [
+    CommonModule,
+    PdfViewerModule
+  ],
+  exports: [DocumentViewerComponent]
+})
+export class DocumentViewerModule { }`,types:`export type FileType = 'pdf' | 'image' | 'doc';
+export type Rotation = 0 | 90 | 180 | 270;
+export type ToolbarPosition = 'top' | 'bottom';
+
+export interface DocumentViewerConfig {
+  fileUrl: string;
+  fileType: FileType;
+  zoom?: number;
+  page?: number;
+  rotation?: Rotation;
+  allowAnnotations?: boolean;
+  showToolbar?: boolean;
+  toolbarPosition?: ToolbarPosition;
+  enableTextSelection?: boolean;
+}`},comparisons:[{system:"react-pdf",component:"Document + Page",variants:"PDF only, customizable rendering",accessibility:"WCAG 2.0 A",documentation:"Good",link:"https://github.com/wojtekmaj/react-pdf"},{system:"PDF.js Viewer",component:"PDF Viewer (Mozilla)",variants:"PDF only, full-featured",accessibility:"WCAG 2.1 AA",documentation:"Comprehensive",link:"https://mozilla.github.io/pdf.js/"},{system:"Adobe PDF Embed API",component:"PDF Embed",variants:"PDF only, Adobe features",accessibility:"WCAG 2.1 AA",documentation:"Comprehensive",link:"https://developer.adobe.com/document-services/apis/pdf-embed/"},{system:"React FileViewer",component:"FileViewer",variants:"Multi-format support",accessibility:"WCAG 2.0 A",documentation:"Basic",link:"https://github.com/plangrid/react-file-viewer"},{system:"GOV.UK Design System",component:"Document Viewer (Custom)",variants:"PDF and images, government-focused",accessibility:"WCAG 2.1 AAA",documentation:"Good",link:"https://design-system.service.gov.uk/"}],accessibility:{wcagLevel:"WCAG 2.1 Level AA Compliant",features:["Minimum 44x44px touch target for all toolbar buttons (WCAG 2.5.5)","Keyboard navigation for all controls including zoom, page navigation, and rotation (WCAG 2.1.1)","Focus indicators with 2px visible outline on all interactive elements (WCAG 2.4.7)","ARIA labels on all toolbar buttons for screen reader users","ARIA live regions for page number and zoom level changes","Text layer rendering in PDFs for screen reader access to document content","Alt text support for image documents","Loading and error states announced to assistive technologies","Semantic HTML structure with proper heading hierarchy","Color contrast ratios meet 4.5:1 for all text and controls (WCAG 1.4.3)"],keyboardSupport:[{key:"Tab",action:"Navigate between toolbar controls"},{key:"Shift + Tab",action:"Navigate backwards through controls"},{key:"Space / Enter",action:"Activate focused button"},{key:"Arrow Up/Down",action:"Scroll document vertically"},{key:"Arrow Left/Right",action:"Navigate pages (PDF)"},{key:"Page Up/Down",action:"Navigate pages in large increments"},{key:"Home",action:"Jump to first page"},{key:"End",action:"Jump to last page"},{key:"+/-",action:"Zoom in/out"}],screenReader:["Announces document type and total pages on load","Announces current page number when navigating","Announces zoom level changes",'Announces loading state with "Loading document..." message',"Announces errors with specific error messages","Document content is accessible via text layer in PDFs",'Toolbar buttons have descriptive labels (e.g., "Zoom in", "Next page", "Download document")']},tokens:{file:"/tokens/components/document-viewer.json",mappings:[{property:"Toolbar Height",token:"composite.toolbar.height",value:"48px"},{property:"Toolbar Background",token:"composite.toolbar.background",value:"#f9fafb (Gray 50)"},{property:"Toolbar Border",token:"composite.toolbar.border",value:"#d1d5db (Gray 300)"},{property:"Viewport Background",token:"composite.viewport.background",value:"#f3f4f6 (Gray 100)"},{property:"Document Shadow",token:"composite.document.shadow",value:"0 4px 6px -1px rgba(0, 0, 0, 0.1)"},{property:"Button Size",token:"base.button.size",value:"32px"},{property:"Button Hover Background",token:"base.button.hover.background",value:"#e5e7eb (Gray 200)"},{property:"Border Radius",token:"base.borderRadius",value:"8px"},{property:"Min Touch Target",token:"accessibility.minTouchTarget",value:"44px"},{property:"Focus Ring Width",token:"accessibility.focusRingWidth",value:"2px"}]}})}export{j as default};
