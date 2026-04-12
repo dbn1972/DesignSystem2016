@@ -1,4 +1,4 @@
 @import './fonts.css';
-@import './ux4g-tokens.css';
+@import '../app/tokens-package/dist/tokens.css';
 @import './tailwind.css';
 @import './theme.css';
