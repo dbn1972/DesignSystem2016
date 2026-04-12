@@ -51,7 +51,7 @@ export default function CertificatePaymentSummary() {
               </div>
 
               <Link
-                to="/reference-service/certificate/submit/success"
+                to="/reference-service/certificate/submission-success"
                 className="block w-full px-6 py-4 bg-[#138808] text-white font-bold rounded text-center hover:bg-green-700 transition-colors"
               >
                 Proceed to Payment

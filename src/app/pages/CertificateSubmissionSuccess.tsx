@@ -45,7 +45,7 @@ export default function CertificateSubmissionSuccess() {
                   Download Receipt
                 </button>
                 <Link
-                  to="/reference-service/certificate/track"
+                  to="/reference-service/certificate/status-tracker"
                   className="flex-1 px-6 py-3 border-2 border-[#000080] bg-white text-[#000080] font-bold rounded text-sm hover:bg-blue-50 text-center"
                 >
                   Track Status

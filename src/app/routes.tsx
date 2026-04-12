@@ -523,6 +523,7 @@ export const router = createBrowserRouter([
       // ======================================================================
       // 5. SYSTEMS
       // ======================================================================
+      { path: "systems", element: <Navigate to="/systems/multilingual" replace /> },
       { path: "systems/multilingual", Component: MultilingualGuidance },
       { path: "systems/form-intelligence", Component: FormIntelligenceSystem },
       { path: "systems/state-resilience", Component: StateResilienceSystem },
