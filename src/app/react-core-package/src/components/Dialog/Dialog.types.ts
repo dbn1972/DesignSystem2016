@@ -28,6 +28,11 @@ export interface DialogProps extends BaseComponentProps {
   children: ReactNode;
 
   /**
+   * Optional description announced by assistive technology.
+   */
+  description?: ReactNode;
+
+  /**
    * Dialog footer actions
    */
   footer?: ReactNode;

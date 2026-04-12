@@ -14,14 +14,24 @@
  * ```
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useId, useRef } from 'react';
 import { cn } from '../../utils/cn';
 import { DialogProps } from './Dialog.types';
+
+const FOCUSABLE_SELECTOR = [
+  'a[href]',
+  'button:not([disabled])',
+  'textarea:not([disabled])',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(', ');
 
 export function Dialog({
   open,
   onClose,
   title,
+  description,
   children,
   footer,
   size = 'md',
@@ -34,29 +44,72 @@ export function Dialog({
   ...props
 }: DialogProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
+  const previousActiveElementRef = useRef<HTMLElement | null>(null);
+  const titleId = useId();
+  const descriptionId = useId();
+  const bodyId = useId();
 
   useEffect(() => {
     if (!open) return;
 
-    const handleEscape = (event: KeyboardEvent) => {
+    const previousOverflow = document.body.style.overflow;
+    previousActiveElementRef.current = document.activeElement as HTMLElement | null;
+    document.body.style.overflow = 'hidden';
+
+    const focusInitialElement = () => {
+      const dialog = dialogRef.current;
+      if (!dialog) return;
+
+      const focusable = dialog.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR);
+      const initialTarget = focusable[0] ?? dialog;
+      initialTarget.focus();
+    };
+
+    focusInitialElement();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (closeOnEscape && event.key === 'Escape') {
+        event.preventDefault();
         onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const dialog = dialogRef.current;
+      if (!dialog) return;
+
+      const focusable = Array.from(
+        dialog.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      ).filter((element) => !element.hasAttribute('disabled') && !element.getAttribute('aria-hidden'));
+
+      if (focusable.length === 0) {
+        event.preventDefault();
+        dialog.focus();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (event.shiftKey) {
+        if (active === first || active === dialog) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (active === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [open, closeOnEscape, onClose]);
-
-  useEffect(() => {
-    if (open) {
-      const previousActiveElement = document.activeElement as HTMLElement;
-      dialogRef.current?.focus();
-
-      return () => {
-        previousActiveElement?.focus();
-      };
-    }
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+      previousActiveElementRef.current?.focus();
+    };
   }, [open]);
 
   if (!open) return null;
@@ -77,7 +130,8 @@ export function Dialog({
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
-        aria-labelledby={title ? 'dialog-title' : undefined}
+        aria-labelledby={title ? titleId : undefined}
+        aria-describedby={description || children ? descriptionId : undefined}
         className={cn('ux4g-dialog', `ux4g-dialog-${size}`, className)}
         tabIndex={-1}
         {...contentProps}
@@ -86,7 +140,7 @@ export function Dialog({
         {(title || showCloseButton) && (
           <div className="ux4g-dialog-header">
             {title && (
-              <h2 id="dialog-title" className="ux4g-dialog-title">
+              <h2 id={titleId} className="ux4g-dialog-title">
                 {title}
               </h2>
             )}
@@ -103,7 +157,18 @@ export function Dialog({
           </div>
         )}
 
-        <div className="ux4g-dialog-body">{children}</div>
+        {description ? (
+          <div id={descriptionId} className="ux4g-dialog-description">
+            {description}
+          </div>
+        ) : null}
+
+        <div
+          id={description ? bodyId : descriptionId}
+          className="ux4g-dialog-body"
+        >
+          {children}
+        </div>
 
         {footer && <div className="ux4g-dialog-footer">{footer}</div>}
       </div>
