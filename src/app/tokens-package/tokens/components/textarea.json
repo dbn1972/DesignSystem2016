@@ -1,0 +1,138 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "textarea": {
+        "base": {
+          "$type": "dimension",
+          "minHeight": {
+            "sm": { "value": "64px", "description": "Small textarea minimum height - 2 rows" },
+            "md": { "value": "96px", "description": "Medium textarea minimum height - 3 rows" },
+            "lg": { "value": "128px", "description": "Large textarea minimum height - 4 rows" }
+          },
+          "padding": {
+            "horizontal": {
+              "sm": { "value": "8px", "description": "Small horizontal padding" },
+              "md": { "value": "12px", "description": "Medium horizontal padding" },
+              "lg": { "value": "16px", "description": "Large horizontal padding" }
+            },
+            "vertical": {
+              "sm": { "value": "6px", "description": "Small vertical padding" },
+              "md": { "value": "10px", "description": "Medium vertical padding" },
+              "lg": { "value": "12px", "description": "Large vertical padding" }
+            }
+          },
+          "borderWidth": {
+            "default": { "value": "1px", "description": "Default border width" },
+            "focus": { "value": "2px", "description": "Focus state border width" },
+            "error": { "value": "2px", "description": "Error state border width" }
+          },
+          "borderRadius": {
+            "value": "4px",
+            "description": "Textarea border radius"
+          },
+          "fontSize": {
+            "sm": { "value": "14px", "description": "Small textarea font size" },
+            "md": { "value": "16px", "description": "Medium textarea font size" },
+            "lg": { "value": "18px", "description": "Large textarea font size" }
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Textarea line height - WCAG recommended"
+          },
+          "resize": {
+            "none": { "value": "none", "description": "No resize" },
+            "vertical": { "value": "vertical", "description": "Vertical resize only - recommended" },
+            "both": { "value": "both", "description": "Both directions resize" }
+          },
+          "transition": {
+            "duration": { "value": "150ms", "description": "Textarea transition duration" },
+            "timing": { "value": "ease-in-out", "description": "Textarea transition timing function" }
+          }
+        },
+        "state": {
+          "default": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Default textarea background - White" },
+            "text": { "value": "#171717", "description": "Default textarea text - Neutral 900" },
+            "border": { "value": "#d4d4d4", "description": "Default textarea border - Neutral 300" },
+            "placeholder": { "value": "#737373", "description": "Placeholder text - Neutral 500" }
+          },
+          "hover": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Hover textarea background - White" },
+            "border": { "value": "#a3a3a3", "description": "Hover textarea border - Neutral 400" }
+          },
+          "focus": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Focus textarea background - White" },
+            "border": { "value": "#005196", "description": "Focus textarea border - Navy 500" },
+            "ring": { "value": "#005196", "description": "Focus ring color - Navy 500" },
+            "ringOpacity": { "value": "0.2", "description": "Focus ring opacity" }
+          },
+          "disabled": {
+            "$type": "color",
+            "background": { "value": "#fafafa", "description": "Disabled textarea background - Neutral 50" },
+            "text": { "value": "#a3a3a3", "description": "Disabled textarea text - Neutral 400" },
+            "border": { "value": "#e5e5e5", "description": "Disabled textarea border - Neutral 200" },
+            "cursor": { "value": "not-allowed", "description": "Disabled cursor style" }
+          },
+          "error": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Error textarea background - White" },
+            "text": { "value": "#171717", "description": "Error textarea text - Neutral 900" },
+            "border": { "value": "#dc2626", "description": "Error textarea border - Error DEFAULT" },
+            "ring": { "value": "#dc2626", "description": "Error focus ring - Error DEFAULT" },
+            "ringOpacity": { "value": "0.2", "description": "Error ring opacity" }
+          },
+          "success": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Success textarea background - White" },
+            "text": { "value": "#171717", "description": "Success textarea text - Neutral 900" },
+            "border": { "value": "#008800", "description": "Success textarea border - Green 600" },
+            "ring": { "value": "#008800", "description": "Success focus ring - Green 600" },
+            "ringOpacity": { "value": "0.2", "description": "Success ring opacity" }
+          },
+          "readonly": {
+            "$type": "color",
+            "background": { "value": "#f5f5f5", "description": "Readonly textarea background - Neutral 100" },
+            "text": { "value": "#525252", "description": "Readonly textarea text - Neutral 600" },
+            "border": { "value": "#d4d4d4", "description": "Readonly textarea border - Neutral 300" }
+          }
+        },
+        "characterCount": {
+          "$type": "dimension",
+          "fontSize": {
+            "value": "14px",
+            "description": "Character count font size"
+          },
+          "marginTop": {
+            "value": "4px",
+            "description": "Character count top margin"
+          },
+          "$type": "color",
+          "text": {
+            "default": { "value": "#737373", "description": "Character count text - Neutral 500" },
+            "warning": { "value": "#cc5f00", "description": "Near limit warning - Saffron 600" },
+            "error": { "value": "#dc2626", "description": "Over limit error - Error DEFAULT" }
+          }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minHeight": {
+            "value": "64px",
+            "description": "Minimum height for readability"
+          },
+          "focusRingWidth": {
+            "value": "2px",
+            "description": "Focus ring width for accessibility"
+          },
+          "focusRingOffset": {
+            "value": "0px",
+            "description": "Focus ring offset from textarea edge"
+          }
+        }
+      }
+    }
+  }
+}

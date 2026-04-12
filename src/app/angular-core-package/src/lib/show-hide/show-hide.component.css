@@ -1,0 +1,61 @@
+.ux4g-show-hide {
+  display: block;
+}
+
+/* Hide on mobile */
+.ux4g-show-hide--hide-mobile {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .ux4g-show-hide--hide-mobile {
+    display: block;
+  }
+}
+
+/* Hide on tablet */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .ux4g-show-hide--hide-tablet {
+    display: none;
+  }
+}
+
+/* Hide on desktop */
+@media (min-width: 1024px) {
+  .ux4g-show-hide--hide-desktop {
+    display: none;
+  }
+}
+
+/* Show only on mobile */
+.ux4g-show-hide--show-mobile {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .ux4g-show-hide--show-mobile {
+    display: none;
+  }
+}
+
+/* Show only on tablet */
+.ux4g-show-hide--show-tablet {
+  display: none;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .ux4g-show-hide--show-tablet {
+    display: block;
+  }
+}
+
+/* Show only on desktop */
+.ux4g-show-hide--show-desktop {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .ux4g-show-hide--show-desktop {
+    display: block;
+  }
+}

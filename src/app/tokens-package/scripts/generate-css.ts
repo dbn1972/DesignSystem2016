@@ -1,0 +1,215 @@
+#!/usr/bin/env node
+
+/**
+ * Generate CSS Custom Properties from Design Tokens
+ *
+ * This script reads the UX4G design tokens and generates CSS custom properties
+ * for both light and dark modes, creating a bridge between design tokens
+ * and the application's theming system.
+ */
+
+import * as fs from 'fs';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+interface TokenValue {
+  value: string | number;
+  description?: string;
+  a11y?: string;
+  $type?: string;
+}
+
+type TokenObject = {
+  [key: string]: TokenValue | TokenObject | string;
+};
+
+// Helper to resolve token references like "{ux4g.color.base.navy.500}"
+function resolveTokenValue(value: string | number, allTokens: any): string | number {
+  if (typeof value !== 'string') return value;
+
+  const match = value.match(/^\{(.+)\}$/);
+  if (!match) return value;
+
+  const tokenPath = match[1].split('.');
+  let current = allTokens;
+
+  for (const segment of tokenPath) {
+    if (!current || typeof current !== 'object') return value;
+    current = current[segment];
+  }
+
+  // If we found an object with a value property, resolve it recursively
+  if (current && typeof current === 'object' && current.value) {
+    return resolveTokenValue(current.value, allTokens);
+  }
+
+  return current || value;
+}
+
+// Convert token path to CSS variable name
+function tokenPathToCSSVar(tokenPath: string[]): string {
+  return '--ux4g-' + tokenPath.join('-');
+}
+
+// Recursively extract tokens from an object
+function extractTokens(
+  obj: TokenObject,
+  currentPath: string[] = [],
+  tokens: Record<string, string | number> = {}
+): Record<string, string | number> {
+  for (const [key, value] of Object.entries(obj)) {
+    // Skip metadata keys
+    if (key.startsWith('$') || key === 'description' || key === 'a11y') {
+      continue;
+    }
+
+    const newPath = [...currentPath, key];
+
+    if (value && typeof value === 'object') {
+      if ('value' in value && value.value !== undefined) {
+        // This is a token with a value
+        tokens[tokenPathToCSSVar(newPath)] = value.value;
+      } else {
+        // This is a nested object, recurse
+        extractTokens(value as TokenObject, newPath, tokens);
+      }
+    }
+  }
+
+  return tokens;
+}
+
+// Main function
+function generateCSS(): void {
+  const tokensDir = path.join(__dirname, '../tokens');
+  const outputDir = path.join(__dirname, '../dist');
+
+  // Read all token files
+  const baseColors = JSON.parse(fs.readFileSync(path.join(tokensDir, 'base/colors.json'), 'utf-8'));
+  const spacing = JSON.parse(fs.readFileSync(path.join(tokensDir, 'base/spacing.json'), 'utf-8'));
+  const typography = JSON.parse(fs.readFileSync(path.join(tokensDir, 'base/typography.json'), 'utf-8'));
+  const radius = JSON.parse(fs.readFileSync(path.join(tokensDir, 'base/radius.json'), 'utf-8'));
+  const shadows = JSON.parse(fs.readFileSync(path.join(tokensDir, 'base/shadows.json'), 'utf-8'));
+  const motion = JSON.parse(fs.readFileSync(path.join(tokensDir, 'base/motion.json'), 'utf-8'));
+  const semanticThemes = JSON.parse(fs.readFileSync(path.join(tokensDir, 'semantic-themes.json'), 'utf-8'));
+
+  // Combine all tokens for reference resolution
+  const allTokens = {
+    ux4g: {
+      color: baseColors.ux4g.color,
+      spacing: spacing.ux4g.spacing,
+      typography: typography.ux4g.typography,
+      radius: radius.ux4g.radius,
+      shadow: shadows.ux4g.shadow,
+      motion: motion.ux4g.motion,
+      theme: semanticThemes.ux4g.theme
+    }
+  };
+
+  // Extract base tokens
+  const baseTokens: Record<string, string | number> = {};
+  extractTokens(baseColors.ux4g.color.base, ['color', 'base'], baseTokens);
+  extractTokens(spacing.ux4g.spacing, ['spacing'], baseTokens);
+  extractTokens(typography.ux4g.typography, ['typography'], baseTokens);
+  extractTokens(radius.ux4g.radius, ['radius'], baseTokens);
+  extractTokens(shadows.ux4g.shadow, ['shadow'], baseTokens);
+  extractTokens(motion.ux4g.motion, ['motion'], baseTokens);
+
+  // Extract theme tokens
+  const lightTokens = extractTokens(semanticThemes.ux4g.theme.light.color, ['color']);
+  const darkTokens = extractTokens(semanticThemes.ux4g.theme.dark.color, ['color']);
+
+  // Resolve all token references
+  const resolvedBase: Record<string, string | number> = {};
+  for (const [key, value] of Object.entries(baseTokens)) {
+    resolvedBase[key] = resolveTokenValue(value, allTokens);
+  }
+
+  const resolvedLight: Record<string, string | number> = {};
+  for (const [key, value] of Object.entries(lightTokens)) {
+    resolvedLight[key] = resolveTokenValue(value, allTokens);
+  }
+
+  const resolvedDark: Record<string, string | number> = {};
+  for (const [key, value] of Object.entries(darkTokens)) {
+    resolvedDark[key] = resolveTokenValue(value, allTokens);
+  }
+
+  // Generate CSS
+  let css = `/**
+ * UX4G Design Tokens - CSS Custom Properties
+ *
+ * Auto-generated from design tokens
+ * Do not edit this file directly - edit the token source files instead
+ *
+ * Generation date: ${new Date().toISOString()}
+ */
+
+/* ========================================
+   BASE TOKENS (theme-independent)
+   ======================================== */
+
+:root {
+`;
+
+  // Add base tokens
+  for (const [key, value] of Object.entries(resolvedBase)) {
+    css += `  ${key}: ${value};\n`;
+  }
+
+  css += `}\n\n`;
+
+  // Add light theme tokens
+  css += `/* ========================================
+   LIGHT THEME (default)
+   ======================================== */
+
+:root {
+`;
+
+  for (const [key, value] of Object.entries(resolvedLight)) {
+    css += `  ${key}: ${value};\n`;
+  }
+
+  css += `}\n\n`;
+
+  // Add dark theme tokens
+  css += `/* ========================================
+   DARK THEME
+   ======================================== */
+
+.dark {
+`;
+
+  for (const [key, value] of Object.entries(resolvedDark)) {
+    css += `  ${key}: ${value};\n`;
+  }
+
+  css += `}\n`;
+
+  // Create output directory if it doesn't exist
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  // Write CSS file
+  const outputPath = path.join(outputDir, 'tokens.css');
+  fs.writeFileSync(outputPath, css, 'utf-8');
+
+  console.log('✅ CSS custom properties generated successfully!');
+  console.log(`   Output: ${outputPath}`);
+  console.log(`   Base tokens: ${Object.keys(resolvedBase).length}`);
+  console.log(`   Light theme tokens: ${Object.keys(resolvedLight).length}`);
+  console.log(`   Dark theme tokens: ${Object.keys(resolvedDark).length}`);
+}
+
+// Run the script
+try {
+  generateCSS();
+} catch (error) {
+  console.error('❌ Error generating CSS:', error instanceof Error ? error.message : String(error));
+  process.exit(1);
+}

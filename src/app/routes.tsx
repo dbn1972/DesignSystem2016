@@ -26,6 +26,7 @@ import ContentDesignSystem from "./pages/ContentDesignSystem";
 // ========================================
 import Components from "./pages/Components";
 import FrameworkStatus from "./pages/FrameworkStatus";
+import WebComponentsDemo from "./pages/WebComponentsDemo";
 import ComponentButtonPage from "./pages/ComponentButtonPage";
 import ComponentInputPage from "./pages/ComponentInputPage";
 import ComponentCheckboxPage from "./pages/ComponentCheckboxPage";
@@ -99,6 +100,10 @@ import ComponentCodeBlockPage from "./pages/ComponentCodeBlockPage";
 import ComponentSegmentedControlPage from "./pages/ComponentSegmentedControlPage";
 import ComponentTreeViewPage from "./pages/ComponentTreeViewPage";
 import ComponentBackToTopPage from "./pages/ComponentBackToTopPage";
+import ComponentFieldPage from "./pages/ComponentFieldPage";
+import ComponentLabelPage from "./pages/ComponentLabelPage";
+import ComponentHintTextPage from "./pages/ComponentHintTextPage";
+import ComponentErrorTextPage from "./pages/ComponentErrorTextPage";
 
 // ========================================
 // 3. PATTERNS
@@ -270,6 +275,8 @@ import InstallationGuide from "./pages/InstallationGuide";
 import UX4GStarterKit from "./pages/UX4GStarterKit";
 import ComponentCodeMapping from "./pages/ComponentCodeMapping";
 import FigmaDesignSystem from "./pages/FigmaDesignSystem";
+import MigrationGuides from "./pages/MigrationGuides";
+import MigrationMaterialUI from "./pages/MigrationMaterialUI";
 
 // ========================================
 // 8. GOVERNANCE
@@ -278,6 +285,11 @@ import Governance from "./pages/Governance";
 import Adoption from "./pages/Adoption";
 import ConformanceDashboard from "./pages/ConformanceDashboard";
 import ServiceAnalytics from "./pages/ServiceAnalytics";
+import SecurityPolicy from "./pages/SecurityPolicy";
+import CodeOfConduct from "./pages/CodeOfConduct";
+import Contributing from "./pages/Contributing";
+import Copyright from "./pages/Copyright";
+import Disclaimer from "./pages/Disclaimer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import Contact from "./pages/Contact";
@@ -312,8 +324,13 @@ export const router = createBrowserRouter([
       // ======================================================================
       { path: "components", Component: Components },
       { path: "framework-status", Component: FrameworkStatus },
+      { path: "web-components", Component: WebComponentsDemo },
       { path: "components/button", Component: ComponentButtonPage },
       { path: "components/input", Component: ComponentInputPage },
+      { path: "components/field", Component: ComponentFieldPage },
+      { path: "components/label", Component: ComponentLabelPage },
+      { path: "components/hint-text", Component: ComponentHintTextPage },
+      { path: "components/error-text", Component: ComponentErrorTextPage },
       { path: "components/checkbox", Component: ComponentCheckboxPage },
       { path: "components/select", Component: ComponentSelectPage },
       { path: "components/textarea", Component: ComponentTextareaPage },
@@ -571,6 +588,8 @@ export const router = createBrowserRouter([
       { path: "resources/starter-kit", Component: UX4GStarterKit },
       { path: "resources/component-specs", Component: ComponentCodeMapping },
       { path: "resources/figma", Component: FigmaDesignSystem },
+      { path: "resources/migration-guides", Component: MigrationGuides },
+      { path: "resources/migration-material-ui", Component: MigrationMaterialUI },
 
       // ======================================================================
       // 8. GOVERNANCE
@@ -579,6 +598,11 @@ export const router = createBrowserRouter([
       { path: "governance/adoption", Component: Adoption },
       { path: "governance/conformance", Component: ConformanceDashboard },
       { path: "governance/analytics", Component: ServiceAnalytics },
+      { path: "security-policy", Component: SecurityPolicy },
+      { path: "code-of-conduct", Component: CodeOfConduct },
+      { path: "contributing", Component: Contributing },
+      { path: "copyright", Component: Copyright },
+      { path: "disclaimer", Component: Disclaimer },
       { path: "privacy-policy", Component: PrivacyPolicy },
       { path: "terms-of-use", Component: TermsOfUse },
       { path: "contact", Component: Contact },

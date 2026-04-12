@@ -161,6 +161,12 @@ export const SYSTEM_NAVIGATION: NavigationItem[] = [
         description: 'React and Angular component APIs'
       },
       {
+        id: 'migration-guides',
+        label: 'Migration Guides',
+        path: '/resources/migration-guides',
+        description: 'Migrate from other UI libraries to UX4G'
+      },
+      {
         id: 'figma-tools',
         label: 'Figma Resources',
         path: '/resources/figma',
@@ -230,6 +236,7 @@ export const PATH_MAPPINGS = {
   GETTING_STARTED: '/resources/getting-started',
   STARTER_KIT: '/resources/starter-kit',
   COMPONENT_SPECS: '/resources/component-specs',
+  MIGRATION_GUIDES: '/resources/migration-guides',
   FIGMA_TOOLS: '/resources/figma',
 
   // Governance

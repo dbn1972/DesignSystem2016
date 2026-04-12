@@ -1,0 +1,63 @@
+<div [class]="treeViewClasses" role="tree" [attr.aria-multiselectable]="multiSelect">
+  <ng-container *ngTemplateOutlet="treeNodes; context: { nodes: data, level: 0 }"></ng-container>
+</div>
+
+<ng-template #treeNodes let-nodes="nodes" let-level="level">
+  <ul [attr.role]="level === 0 ? 'tree' : 'group'" class="ux4g-tree-view__list">
+    <li *ngFor="let node of nodes"
+        class="ux4g-tree-view__item"
+        [class.ux4g-tree-view__item--expanded]="node.expanded"
+        [class.ux4g-tree-view__item--selected]="isSelected(node.id)"
+        [class.ux4g-tree-view__item--disabled]="node.disabled"
+        role="treeitem"
+        [attr.aria-expanded]="node.children && node.children.length ? node.expanded : null"
+        [attr.aria-selected]="selectable ? isSelected(node.id) : null"
+        [attr.aria-level]="level + 1"
+        [attr.aria-disabled]="node.disabled ? 'true' : null">
+      
+      <div class="ux4g-tree-view__node"
+           [ngStyle]="getIndentStyle(level)"
+           (click)="onNodeClick(node, $event)"
+           (keydown)="onKeyDown(node, $event)"
+           [attr.tabindex]="node.disabled ? '-1' : '0'">
+        
+        <!-- Expand/Collapse Toggle -->
+        <button *ngIf="node.children && node.children.length"
+                (click)="toggleNode(node, $event)"
+                class="ux4g-tree-view__toggle"
+                [attr.aria-label]="node.expanded ? 'Collapse ' + node.label : 'Expand ' + node.label"
+                type="button"
+                tabindex="-1">
+          <span class="ux4g-tree-view__toggle-icon" aria-hidden="true">
+            {{ node.expanded ? '▼' : '▶' }}
+          </span>
+        </button>
+        <span *ngIf="!node.children || !node.children.length" class="ux4g-tree-view__spacer"></span>
+        
+        <!-- Checkbox -->
+        <input *ngIf="checkboxes"
+               type="checkbox"
+               [checked]="isSelected(node.id)"
+               [disabled]="node.disabled"
+               (change)="onCheckboxChange(node, $event)"
+               (click)="$event.stopPropagation()"
+               class="ux4g-tree-view__checkbox"
+               [attr.aria-label]="'Select ' + node.label"
+               tabindex="-1">
+        
+        <!-- Icon -->
+        <span *ngIf="showIcons && node.icon" class="ux4g-tree-view__icon" aria-hidden="true">
+          {{ node.icon }}
+        </span>
+        
+        <!-- Label -->
+        <span class="ux4g-tree-view__label">{{ node.label }}</span>
+      </div>
+      
+      <!-- Children (Recursive) -->
+      <ng-container *ngIf="node.expanded && node.children && node.children.length">
+        <ng-container *ngTemplateOutlet="treeNodes; context: { nodes: node.children, level: level + 1 }"></ng-container>
+      </ng-container>
+    </li>
+  </ul>
+</ng-template>

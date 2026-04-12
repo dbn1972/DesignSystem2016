@@ -1,0 +1,208 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "table": {
+        "base": {
+          "$type": "dimension",
+          "borderWidth": {
+            "value": "1px",
+            "description": "Table border width"
+          },
+          "borderRadius": {
+            "value": "8px",
+            "description": "Table border radius"
+          },
+          "$type": "color",
+          "border": { "value": "#e5e5e5", "description": "Table border - Neutral 200" },
+          "background": { "value": "#ffffff", "description": "Table background - White" }
+        },
+        "header": {
+          "$type": "dimension",
+          "height": {
+            "sm": { "value": "40px", "description": "Small header height" },
+            "md": { "value": "48px", "description": "Medium header height - default" },
+            "lg": { "value": "56px", "description": "Large header height" }
+          },
+          "padding": {
+            "horizontal": {
+              "sm": { "value": "12px", "description": "Small horizontal padding" },
+              "md": { "value": "16px", "description": "Medium horizontal padding" },
+              "lg": { "value": "20px", "description": "Large horizontal padding" }
+            }
+          },
+          "fontSize": {
+            "sm": { "value": "12px", "description": "Small header font size" },
+            "md": { "value": "14px", "description": "Medium header font size" },
+            "lg": { "value": "16px", "description": "Large header font size" }
+          },
+          "fontWeight": {
+            "value": "600",
+            "description": "Header font weight - semibold"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Header line height"
+          },
+          "$type": "color",
+          "background": { "value": "#fafafa", "description": "Header background - Neutral 50" },
+          "text": { "value": "#171717", "description": "Header text - Neutral 900" },
+          "border": { "value": "#e5e5e5", "description": "Header border - Neutral 200" }
+        },
+        "row": {
+          "$type": "dimension",
+          "height": {
+            "sm": { "value": "40px", "description": "Small row height" },
+            "md": { "value": "48px", "description": "Medium row height - default (WCAG touch target)" },
+            "lg": { "value": "56px", "description": "Large row height" }
+          },
+          "padding": {
+            "horizontal": {
+              "sm": { "value": "12px", "description": "Small horizontal padding" },
+              "md": { "value": "16px", "description": "Medium horizontal padding" },
+              "lg": { "value": "20px", "description": "Large horizontal padding" }
+            }
+          },
+          "fontSize": {
+            "sm": { "value": "12px", "description": "Small row font size" },
+            "md": { "value": "14px", "description": "Medium row font size" },
+            "lg": { "value": "16px", "description": "Large row font size" }
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Row line height - WCAG recommended"
+          },
+          "$type": "color",
+          "background": {
+            "default": { "value": "#ffffff", "description": "Default row background - White" },
+            "alternate": { "value": "#fafafa", "description": "Alternate row background - Neutral 50 (zebra striping)" }
+          },
+          "text": { "value": "#171717", "description": "Row text - Neutral 900" },
+          "border": { "value": "#e5e5e5", "description": "Row border - Neutral 200" }
+        },
+        "cell": {
+          "$type": "dimension",
+          "padding": {
+            "horizontal": {
+              "sm": { "value": "12px", "description": "Small cell horizontal padding" },
+              "md": { "value": "16px", "description": "Medium cell horizontal padding" },
+              "lg": { "value": "20px", "description": "Large cell horizontal padding" }
+            },
+            "vertical": {
+              "sm": { "value": "8px", "description": "Small cell vertical padding" },
+              "md": { "value": "12px", "description": "Medium cell vertical padding" },
+              "lg": { "value": "16px", "description": "Large cell vertical padding" }
+            }
+          },
+          "gap": {
+            "value": "8px",
+            "description": "Gap between cell content elements"
+          }
+        },
+        "state": {
+          "hover": {
+            "$type": "color",
+            "background": { "value": "#f5f5f5", "description": "Hover row background - Neutral 100" }
+          },
+          "selected": {
+            "$type": "color",
+            "background": { "value": "#e6eef5", "description": "Selected row background - Navy 50" },
+            "border": { "value": "#005196", "description": "Selected row border - Navy 500" }
+          },
+          "focus": {
+            "$type": "color",
+            "ring": { "value": "#005196", "description": "Focus ring color - Navy 500" },
+            "ringWidth": { "value": "2px", "description": "Focus ring width" },
+            "ringOffset": { "value": "0px", "description": "Focus ring offset" }
+          }
+        },
+        "sort": {
+          "$type": "dimension",
+          "iconSize": {
+            "value": "16px",
+            "description": "Sort icon size"
+          },
+          "gap": {
+            "value": "8px",
+            "description": "Gap between header text and sort icon"
+          },
+          "$type": "color",
+          "icon": {
+            "default": { "value": "#a3a3a3", "description": "Sort icon default - Neutral 400" },
+            "active": { "value": "#005196", "description": "Sort icon active - Navy 500" },
+            "hover": { "value": "#525252", "description": "Sort icon hover - Neutral 600" }
+          }
+        },
+        "checkbox": {
+          "$type": "dimension",
+          "size": {
+            "value": "20px",
+            "description": "Checkbox size in table"
+          },
+          "padding": {
+            "value": "12px",
+            "description": "Checkbox cell padding"
+          }
+        },
+        "footer": {
+          "$type": "dimension",
+          "height": {
+            "value": "48px",
+            "description": "Footer height"
+          },
+          "padding": {
+            "horizontal": {
+              "value": "16px",
+              "description": "Footer horizontal padding"
+            }
+          },
+          "fontSize": {
+            "value": "14px",
+            "description": "Footer font size"
+          },
+          "$type": "color",
+          "background": { "value": "#fafafa", "description": "Footer background - Neutral 50" },
+          "text": { "value": "#525252", "description": "Footer text - Neutral 600" },
+          "border": { "value": "#e5e5e5", "description": "Footer border - Neutral 200" }
+        },
+        "pagination": {
+          "$type": "dimension",
+          "gap": {
+            "value": "8px",
+            "description": "Gap between pagination elements"
+          }
+        },
+        "empty": {
+          "$type": "dimension",
+          "padding": {
+            "value": "48px",
+            "description": "Empty state padding"
+          },
+          "fontSize": {
+            "value": "14px",
+            "description": "Empty state font size"
+          },
+          "$type": "color",
+          "text": { "value": "#737373", "description": "Empty state text - Neutral 500" },
+          "icon": { "value": "#a3a3a3", "description": "Empty state icon - Neutral 400" }
+        },
+        "loading": {
+          "$type": "color",
+          "overlay": { "value": "rgba(255, 255, 255, 0.8)", "description": "Loading overlay background" },
+          "spinner": { "value": "#005196", "description": "Loading spinner color - Navy 500" }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minRowHeight": {
+            "value": "44px",
+            "description": "Minimum row height per WCAG 2.5.5"
+          },
+          "$type": "string",
+          "caption": {
+            "position": { "value": "caption-side: top", "description": "Table caption position for accessibility" }
+          }
+        }
+      }
+    }
+  }
+}

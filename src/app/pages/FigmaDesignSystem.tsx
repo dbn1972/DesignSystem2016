@@ -1,27 +1,43 @@
-import { BookOpen, Palette, Code, Layers, FileText, Shield, GitBranch, Users, Download, Check } from "lucide-react";
+import { BookOpen, Palette, Code, Layers, FileText, Shield, GitBranch, Users, Download, Check, ArrowLeft } from "lucide-react";
+import { Link } from "react-router";
+import NavigationHeader from "../components/NavigationHeader";
+import Footer from "../components/Footer";
 
 export default function FigmaDesignSystem() {
   return (
-    <div className="bg-gray-50 min-h-screen">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-[1920px] mx-auto px-8 py-4">
+    <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+      <NavigationHeader />
+
+      {/* Page Header */}
+      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div className="max-w-[1920px] mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#FF9933] via-white to-[#138808] rounded flex items-center justify-center">
-                <div className="w-6 h-6 bg-[#000080] rounded"></div>
-              </div>
-              <div>
-                <div className="text-sm font-semibold text-[#000080]">UX4G Design System</div>
-                <div className="text-xs text-gray-500">Figma MVP File v1.0</div>
+            <div className="flex items-center gap-4">
+              <Link
+                to="/resources"
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                aria-label="Back to Resources"
+              >
+                <ArrowLeft size={20} className="text-gray-600 dark:text-gray-400" />
+              </Link>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{
+                  background: 'linear-gradient(to bottom right, var(--ux4g-color-saffron-500), white, var(--ux4g-color-green-600))'
+                }}>
+                  <div className="w-7 h-7 rounded" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}></div>
+                </div>
+                <div>
+                  <div className="text-base font-semibold text-gray-900 dark:text-gray-100">UX4G Design System</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">Figma MVP File v1.0</div>
+                </div>
               </div>
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-600 dark:text-gray-400">
               12 Pages • 150+ Components • WCAG AA
             </div>
           </div>
         </div>
-      </nav>
+      </div>
 
       {/* Page Content */}
       <div className="max-w-[1920px] mx-auto">
@@ -61,6 +77,8 @@ export default function FigmaDesignSystem() {
         {/* Service Blueprints */}
         <ServiceBlueprintsPage />
       </div>
+
+      <Footer />
     </div>
   );
 }
@@ -82,11 +100,14 @@ function CoverPage() {
   ];
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-[#000080] to-[#000050] text-white p-16 flex items-center justify-center">
+    <section className="min-h-screen p-16 flex items-center justify-center" style={{
+      background: 'linear-gradient(to bottom right, var(--ux4g-color-brand-primary), var(--ux4g-color-brand-primary-dark))',
+      color: 'var(--ux4g-color-text-inverse)'
+    }}>
       <div className="max-w-6xl w-full">
         <div className="mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm mb-6">
-            <span className="w-2 h-2 bg-[#FF9933] rounded-full"></span>
+            <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--ux4g-color-saffron-500)' }}></span>
             Government of India
           </div>
           
@@ -100,19 +121,19 @@ function CoverPage() {
           
           <div className="flex items-center gap-6 text-sm">
             <div className="flex items-center gap-2">
-              <Check className="text-[#138808]" size={20} />
+              <Check className="text-green-600" size={20} style={{ color: 'var(--ux4g-color-green-600)' }} />
               <span>WCAG 2.1 AA</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="text-[#138808]" size={20} />
+              <Check className="text-green-600" size={20} style={{ color: 'var(--ux4g-color-green-600)' }} />
               <span>React & Angular</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="text-[#138808]" size={20} />
+              <Check className="text-green-600" size={20} style={{ color: 'var(--ux4g-color-green-600)' }} />
               <span>Design Tokens</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="text-[#138808]" size={20} />
+              <Check className="text-green-600" size={20} style={{ color: 'var(--ux4g-color-green-600)' }} />
               <span>Governed</span>
             </div>
           </div>
@@ -124,7 +145,7 @@ function CoverPage() {
               key={index}
               className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:bg-white/15 transition-colors"
             >
-              <div className="text-4xl font-bold mb-2 text-[#FF9933]">{page.num}</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--ux4g-color-saffron-500)' }}>{page.num}</div>
               <div className="font-semibold mb-1">{page.title}</div>
               <div className="text-sm text-blue-100">{page.desc}</div>
             </div>
@@ -192,7 +213,7 @@ function FoundationsPage() {
         {/* Header */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <Palette className="text-white" size={24} />
             </div>
             <div>
@@ -212,7 +233,7 @@ function FoundationsPage() {
           <div className="grid grid-cols-4 gap-6">
             {principles.map((principle, index) => (
               <div key={index} className="border-2 border-gray-200 rounded-lg p-6">
-                <div className="w-10 h-10 bg-[#000080] rounded flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded flex items-center justify-center mb-4" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                   <principle.icon className="text-white" size={20} />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">{principle.title}</h4>
@@ -303,9 +324,13 @@ function FoundationsPage() {
               { token: "spacing-24", value: "96px" },
             ].map((space, index) => (
               <div key={index} className="border border-gray-200 rounded-lg p-4">
-                <div 
-                  className="bg-[#000080] mb-3" 
-                  style={{ width: space.value, height: space.value }}
+                <div
+                  className="mb-3"
+                  style={{
+                    backgroundColor: 'var(--ux4g-color-brand-primary)',
+                    width: space.value,
+                    height: space.value
+                  }}
                 ></div>
                 <div className="font-mono text-xs font-semibold text-gray-900">{space.value}</div>
                 <div className="text-xs text-gray-500">{space.token}</div>
@@ -324,7 +349,7 @@ function DesignTokensPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <Code className="text-white" size={24} />
             </div>
             <div>
@@ -354,7 +379,7 @@ function DesignTokensPage() {
                   <h3 className="font-semibold text-gray-900 text-lg mb-1">{cat.category}</h3>
                   <p className="text-sm text-gray-600">{cat.desc}</p>
                 </div>
-                <div className="px-3 py-1 bg-[#000080] text-white rounded-full text-sm font-semibold">
+                <div className="px-3 py-1 text-white rounded-full text-sm font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                   {cat.count}
                 </div>
               </div>
@@ -371,7 +396,7 @@ function DesignTokensPage() {
               <div className="font-mono text-sm text-[#000080] mb-2">color.primary.500</div>
               <div className="text-xs text-gray-600 mb-3">Main brand color for primary actions</div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#000080] rounded"></div>
+                <div className="w-12 h-12 rounded" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}></div>
                 <div>
                   <div className="font-semibold text-sm">#000080</div>
                   <div className="text-xs text-gray-500">Navy Blue</div>
@@ -406,7 +431,7 @@ function DesignTokensPage() {
         </div>
 
         {/* Implementation */}
-        <div className="mt-8 p-6 bg-[#000080] text-white rounded-lg">
+        <div className="mt-8 p-6 text-white rounded-lg" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
           <h4 className="font-semibold mb-3">Multi-Platform Export</h4>
           <p className="text-blue-100 text-sm mb-4">
             Tokens are exported to JSON, CSS Custom Properties, SCSS variables, and JavaScript/TypeScript 
@@ -431,7 +456,7 @@ function StylesSystemPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <Layers className="text-white" size={24} />
             </div>
             <div>
@@ -450,7 +475,7 @@ function StylesSystemPage() {
           <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50">
             <div className="grid grid-cols-12 gap-4 mb-6">
               {Array.from({ length: 12 }).map((_, i) => (
-                <div key={i} className="h-20 bg-[#000080] rounded flex items-center justify-center text-white text-sm font-semibold">
+                <div key={i} className="h-20 rounded flex items-center justify-center text-white text-sm font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                   {i + 1}
                 </div>
               ))}
@@ -523,9 +548,12 @@ function StylesSystemPage() {
               { name: "Full", value: "9999px" },
             ].map((radius, index) => (
               <div key={index} className="text-center">
-                <div 
-                  className="w-full h-24 bg-[#000080] mb-3"
-                  style={{ borderRadius: radius.value }}
+                <div
+                  className="w-full h-24 mb-3"
+                  style={{
+                    backgroundColor: 'var(--ux4g-color-brand-primary)',
+                    borderRadius: radius.value
+                  }}
                 ></div>
                 <div className="font-semibold text-sm text-gray-900 mb-1">{radius.name}</div>
                 <div className="text-xs text-gray-600 font-mono">{radius.value}</div>
@@ -544,7 +572,7 @@ function CoreComponentsPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <Layers className="text-white" size={24} />
             </div>
             <div>
@@ -564,7 +592,7 @@ function CoreComponentsPage() {
             <h3 className="text-xl font-bold text-gray-900 mb-6">Buttons</h3>
             <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50">
               <div className="flex flex-wrap gap-4">
-                <button className="px-6 py-3 bg-[#000080] text-white rounded-lg font-semibold">
+                <button className="px-6 py-3 text-white rounded-lg font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                   Primary Button
                 </button>
                 <button className="px-6 py-3 bg-white text-[#000080] border-2 border-[#000080] rounded-lg font-semibold">
@@ -673,7 +701,7 @@ function ComponentVariantsPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <GitBranch className="text-white" size={24} />
             </div>
             <div>
@@ -704,7 +732,7 @@ function ComponentVariantsPage() {
                 <tr className="border-b border-gray-200">
                   <td className="p-4 font-semibold text-gray-700">Primary</td>
                   <td className="p-4">
-                    <button className="px-4 py-2 bg-[#000080] text-white rounded-lg text-sm">Button</button>
+                    <button className="px-4 py-2 text-white rounded-lg text-sm" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>Button</button>
                   </td>
                   <td className="p-4">
                     <button className="px-4 py-2 bg-[#000060] text-white rounded-lg text-sm">Button</button>
@@ -741,10 +769,10 @@ function ComponentVariantsPage() {
           <h3 className="text-xl font-bold text-gray-900 mb-6">Size Variations</h3>
           <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50">
             <div className="flex items-center gap-4">
-              <button className="px-3 py-1 bg-[#000080] text-white rounded text-xs">Small</button>
-              <button className="px-4 py-2 bg-[#000080] text-white rounded-lg text-sm">Medium</button>
-              <button className="px-6 py-3 bg-[#000080] text-white rounded-lg">Large</button>
-              <button className="px-8 py-4 bg-[#000080] text-white rounded-lg text-lg">Extra Large</button>
+              <button className="px-3 py-1 text-white rounded text-xs" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>Small</button>
+              <button className="px-4 py-2 text-white rounded-lg text-sm" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>Medium</button>
+              <button className="px-6 py-3 bg-transparent text-white rounded-lg">Large</button>
+              <button className="px-8 py-4 text-white rounded-lg text-lg" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>Extra Large</button>
             </div>
           </div>
         </div>
@@ -792,7 +820,7 @@ function AccessibilityPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <Shield className="text-white" size={24} />
             </div>
             <div>
@@ -907,7 +935,7 @@ function DocumentationTemplatesPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <FileText className="text-white" size={24} />
             </div>
             <div>
@@ -1009,7 +1037,7 @@ function ImplementationPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <Download className="text-white" size={24} />
             </div>
             <div>
@@ -1106,7 +1134,7 @@ function GovernancePage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <GitBranch className="text-white" size={24} />
             </div>
             <div>
@@ -1131,7 +1159,7 @@ function GovernancePage() {
               <div key={index} className="border-2 border-gray-200 rounded-lg p-6">
                 <div className="flex items-start justify-between mb-3">
                   <h4 className="font-bold text-gray-900">{item.role}</h4>
-                  <span className="px-2 py-1 bg-[#000080] text-white rounded text-xs font-semibold">
+                  <span className="px-2 py-1 text-white rounded text-xs font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                     {item.count}
                   </span>
                 </div>
@@ -1155,7 +1183,7 @@ function GovernancePage() {
               ].map((phase, index) => (
                 <div key={index} className="flex items-center">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold mb-2">
+                    <div className="w-12 h-12 text-white rounded-full flex items-center justify-center font-bold mb-2" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                       {index + 1}
                     </div>
                     <div className="font-semibold text-sm text-gray-900 mb-1">{phase.phase}</div>
@@ -1200,7 +1228,7 @@ function AdoptionPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <Users className="text-white" size={24} />
             </div>
             <div>
@@ -1227,7 +1255,7 @@ function AdoptionPage() {
                 <div className="space-y-2">
                   {path.steps.map((step, idx) => (
                     <div key={idx} className="flex items-center gap-3">
-                      <div className="w-6 h-6 bg-[#000080] text-white rounded-full flex items-center justify-center text-xs font-semibold">
+                      <div className="w-6 h-6 text-white rounded-full flex items-center justify-center text-xs font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                         {idx + 1}
                       </div>
                       <div className="text-sm text-gray-700">{step}</div>
@@ -1297,7 +1325,7 @@ function ServiceBlueprintsPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-[#000080] rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
               <BookOpen className="text-white" size={24} />
             </div>
             <div>
@@ -1331,7 +1359,7 @@ function ServiceBlueprintsPage() {
                 ].map((item, index) => (
                   <div key={index} className="flex items-center flex-shrink-0">
                     <div className="w-48 h-32 border-2 border-gray-300 rounded-lg bg-gray-50 flex flex-col items-center justify-center">
-                      <div className="w-10 h-10 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold mb-2">
+                      <div className="w-10 h-10 text-white rounded-full flex items-center justify-center font-bold mb-2" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                         {index + 1}
                       </div>
                       <div className="font-semibold text-sm text-gray-900">{item.step}</div>
@@ -1446,7 +1474,7 @@ function ServiceBlueprintsPage() {
         </div>
 
         {/* Implementation Notes */}
-        <div className="mt-12 p-8 bg-[#000080] text-white rounded-lg">
+        <div className="mt-12 p-8 text-white rounded-lg" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
           <h4 className="text-xl font-bold mb-4">Implementation Guidance</h4>
           <ul className="space-y-2 text-blue-100">
             <li>• Each blueprint includes complete screen flows, component usage, and accessibility notes</li>

@@ -1,0 +1,79 @@
+.ux4g-aadhaar-input {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ux4g-aadhaar-input__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.ux4g-aadhaar-input__label--required {
+  font-weight: 600;
+}
+
+.ux4g-aadhaar-input__required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.ux4g-aadhaar-input__wrapper {
+  position: relative;
+}
+
+.ux4g-aadhaar-input__input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #111827;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ux4g-aadhaar-input__input::placeholder {
+  color: #9ca3af;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
+}
+
+.ux4g-aadhaar-input__input:hover:not(:disabled) {
+  border-color: #9ca3af;
+}
+
+.ux4g-aadhaar-input__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ux4g-aadhaar-input__input--error {
+  border-color: #dc2626;
+}
+
+.ux4g-aadhaar-input__input--error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.ux4g-aadhaar-input__input--disabled {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.ux4g-aadhaar-input__helper {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.ux4g-aadhaar-input__helper--error {
+  color: #dc2626;
+}

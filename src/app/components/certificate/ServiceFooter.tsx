@@ -6,19 +6,22 @@ interface ServiceFooterProps {
   links?: Array<{ to: string; text: string }>;
 }
 
-export function ServiceFooter({ 
+export function ServiceFooter({
   leftText = "Certificate Application Service • Government of India",
   rightText,
   links = []
 }: ServiceFooterProps) {
   return (
-    <footer className="bg-white border-t-2 border-gray-300 mt-24">
+    <footer className="mt-24" style={{
+      backgroundColor: 'var(--ux4g-color-background-primary)',
+      borderTop: '2px solid var(--ux4g-color-border-default)'
+    }}>
       <div className="max-w-[1400px] mx-auto px-12 py-8">
-        <div className="flex items-center justify-between text-sm text-gray-600">
+        <div className="flex items-center justify-between text-sm" style={{ color: 'var(--ux4g-color-text-secondary)' }}>
           <div>{leftText}</div>
           <div className="flex items-center gap-6">
             {links.map((link, idx) => (
-              <Link key={idx} to={link.to} className="text-[#000080] font-bold hover:underline">
+              <Link key={idx} to={link.to} className="font-bold hover:underline" style={{ color: 'var(--ux4g-color-interactive-default)' }}>
                 {link.text}
               </Link>
             ))}

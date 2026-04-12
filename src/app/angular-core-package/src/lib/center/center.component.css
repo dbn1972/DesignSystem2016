@@ -1,0 +1,32 @@
+.ux4g-center {
+  display: flex;
+  width: 100%;
+}
+
+.ux4g-center--inline {
+  display: inline-flex;
+  width: auto;
+}
+
+.ux4g-center--both {
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.ux4g-center--horizontal {
+  justify-content: center;
+}
+
+.ux4g-center--vertical {
+  align-items: center;
+  min-height: 100%;
+}
+
+.ux4g-center > * {
+  width: 100%;
+}
+
+.ux4g-center--inline > * {
+  width: auto;
+}

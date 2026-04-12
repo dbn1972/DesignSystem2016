@@ -1,0 +1,60 @@
+.ux4g-section {
+  width: 100%;
+}
+
+/* Sizes */
+.ux4g-section--sm {
+  padding: 2rem 1rem;
+}
+
+.ux4g-section--md {
+  padding: 4rem 1rem;
+}
+
+.ux4g-section--lg {
+  padding: 6rem 1rem;
+}
+
+.ux4g-section--xl {
+  padding: 8rem 1rem;
+}
+
+/* Backgrounds */
+.ux4g-section--bg-default {
+  background-color: #ffffff;
+}
+
+.ux4g-section--bg-subtle {
+  background-color: #f8fafc;
+}
+
+.ux4g-section--bg-accent {
+  background-color: #eff6ff;
+}
+
+.ux4g-section--bg-primary {
+  background-color: #000080;
+  color: #ffffff;
+}
+
+/* Container */
+.ux4g-section__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .ux4g-section--sm { padding: 3rem 1.5rem; }
+  .ux4g-section--md { padding: 5rem 1.5rem; }
+  .ux4g-section--lg { padding: 7rem 1.5rem; }
+  .ux4g-section--xl { padding: 10rem 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .ux4g-section--sm { padding: 4rem 2rem; }
+  .ux4g-section--md { padding: 6rem 2rem; }
+  .ux4g-section--lg { padding: 8rem 2rem; }
+  .ux4g-section--xl { padding: 12rem 2rem; }
+}

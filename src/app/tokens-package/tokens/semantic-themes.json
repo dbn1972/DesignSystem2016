@@ -1,0 +1,101 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "theme": {
+      "light": {
+        "color": {
+          "$type": "color",
+          "brand": {
+            "primary": { "value": "{ux4g.color.base.navy.500}", "description": "Primary brand color - light mode" },
+            "secondary": { "value": "{ux4g.color.base.saffron.500}", "description": "Secondary brand color - light mode" },
+            "tertiary": { "value": "{ux4g.color.base.green.600}", "description": "Tertiary brand color - light mode" }
+          },
+          "text": {
+            "primary": { "value": "{ux4g.color.base.neutral.900}", "description": "Primary text - light mode" },
+            "secondary": { "value": "{ux4g.color.base.neutral.600}", "description": "Secondary text - light mode" },
+            "tertiary": { "value": "{ux4g.color.base.neutral.500}", "description": "Tertiary text - light mode" },
+            "disabled": { "value": "{ux4g.color.base.neutral.400}", "description": "Disabled text - light mode" },
+            "inverse": { "value": "{ux4g.color.base.neutral.0}", "description": "Inverse text - light mode" },
+            "link": { "value": "{ux4g.color.base.navy.500}", "description": "Link text - light mode" },
+            "link-hover": { "value": "{ux4g.color.base.navy.700}", "description": "Link hover - light mode" }
+          },
+          "background": {
+            "primary": { "value": "{ux4g.color.base.neutral.0}", "description": "Primary background - light mode" },
+            "secondary": { "value": "{ux4g.color.base.neutral.50}", "description": "Secondary background - light mode" },
+            "tertiary": { "value": "{ux4g.color.base.neutral.100}", "description": "Tertiary background - light mode" },
+            "inverse": { "value": "{ux4g.color.base.neutral.900}", "description": "Inverse background - light mode" }
+          },
+          "surface": {
+            "primary": { "value": "{ux4g.color.base.neutral.0}", "description": "Primary surface (cards, modals) - light mode" },
+            "secondary": { "value": "{ux4g.color.base.neutral.50}", "description": "Secondary surface - light mode" },
+            "tertiary": { "value": "{ux4g.color.base.neutral.100}", "description": "Tertiary surface - light mode" }
+          },
+          "border": {
+            "default": { "value": "{ux4g.color.base.neutral.200}", "description": "Default border - light mode" },
+            "hover": { "value": "{ux4g.color.base.neutral.400}", "description": "Hover border - light mode" },
+            "focus": { "value": "{ux4g.color.base.navy.500}", "description": "Focus border - light mode" }
+          },
+          "interactive": {
+            "default": { "value": "{ux4g.color.base.navy.500}", "description": "Default interactive - light mode" },
+            "hover": { "value": "{ux4g.color.base.navy.600}", "description": "Hover state - light mode" },
+            "active": { "value": "{ux4g.color.base.navy.700}", "description": "Active state - light mode" },
+            "disabled": { "value": "{ux4g.color.base.neutral.300}", "description": "Disabled state - light mode" }
+          },
+          "feedback": {
+            "success": { "value": "{ux4g.color.base.green.600}", "description": "Success state - light mode" },
+            "warning": { "value": "{ux4g.color.base.saffron.600}", "description": "Warning state - light mode" },
+            "error": { "value": "{ux4g.color.base.semantic.error.DEFAULT}", "description": "Error state - light mode" },
+            "info": { "value": "{ux4g.color.base.navy.500}", "description": "Info state - light mode" }
+          }
+        }
+      },
+      "dark": {
+        "color": {
+          "$type": "color",
+          "brand": {
+            "primary": { "value": "{ux4g.color.base.navy.400}", "description": "Primary brand color - dark mode (lighter for contrast)" },
+            "secondary": { "value": "{ux4g.color.base.saffron.400}", "description": "Secondary brand color - dark mode" },
+            "tertiary": { "value": "{ux4g.color.base.green.500}", "description": "Tertiary brand color - dark mode" }
+          },
+          "text": {
+            "primary": { "value": "{ux4g.color.base.neutral.50}", "description": "Primary text - dark mode (inverted)" },
+            "secondary": { "value": "{ux4g.color.base.neutral.300}", "description": "Secondary text - dark mode" },
+            "tertiary": { "value": "{ux4g.color.base.neutral.400}", "description": "Tertiary text - dark mode" },
+            "disabled": { "value": "{ux4g.color.base.neutral.600}", "description": "Disabled text - dark mode" },
+            "inverse": { "value": "{ux4g.color.base.neutral.900}", "description": "Inverse text - dark mode" },
+            "link": { "value": "{ux4g.color.base.navy.300}", "description": "Link text - dark mode (lighter for visibility)" },
+            "link-hover": { "value": "{ux4g.color.base.navy.200}", "description": "Link hover - dark mode" }
+          },
+          "background": {
+            "primary": { "value": "{ux4g.color.base.neutral.950}", "description": "Primary background - dark mode" },
+            "secondary": { "value": "{ux4g.color.base.neutral.900}", "description": "Secondary background - dark mode" },
+            "tertiary": { "value": "{ux4g.color.base.neutral.800}", "description": "Tertiary background - dark mode" },
+            "inverse": { "value": "{ux4g.color.base.neutral.0}", "description": "Inverse background - dark mode" }
+          },
+          "surface": {
+            "primary": { "value": "{ux4g.color.base.neutral.900}", "description": "Primary surface (cards, modals) - dark mode" },
+            "secondary": { "value": "{ux4g.color.base.neutral.800}", "description": "Secondary surface - dark mode" },
+            "tertiary": { "value": "{ux4g.color.base.neutral.700}", "description": "Tertiary surface - dark mode" }
+          },
+          "border": {
+            "default": { "value": "{ux4g.color.base.neutral.700}", "description": "Default border - dark mode" },
+            "hover": { "value": "{ux4g.color.base.neutral.600}", "description": "Hover border - dark mode" },
+            "focus": { "value": "{ux4g.color.base.navy.400}", "description": "Focus border - dark mode" }
+          },
+          "interactive": {
+            "default": { "value": "{ux4g.color.base.navy.400}", "description": "Default interactive - dark mode" },
+            "hover": { "value": "{ux4g.color.base.navy.300}", "description": "Hover state - dark mode" },
+            "active": { "value": "{ux4g.color.base.navy.200}", "description": "Active state - dark mode" },
+            "disabled": { "value": "{ux4g.color.base.neutral.700}", "description": "Disabled state - dark mode" }
+          },
+          "feedback": {
+            "success": { "value": "{ux4g.color.base.green.500}", "description": "Success state - dark mode" },
+            "warning": { "value": "{ux4g.color.base.saffron.400}", "description": "Warning state - dark mode" },
+            "error": { "value": "{ux4g.color.base.semantic.error.light}", "description": "Error state - dark mode" },
+            "info": { "value": "{ux4g.color.base.navy.400}", "description": "Info state - dark mode" }
+          }
+        }
+      }
+    }
+  }
+}

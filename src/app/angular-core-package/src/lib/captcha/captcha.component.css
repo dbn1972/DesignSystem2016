@@ -1,0 +1,188 @@
+.ux4g-captcha {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ux4g-captcha__container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.ux4g-captcha__challenge {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  min-height: 60px;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.ux4g-captcha__challenge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(156, 163, 175, 0.05) 2px,
+    rgba(156, 163, 175, 0.05) 4px
+  );
+  pointer-events: none;
+}
+
+.ux4g-captcha__char {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #111827;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.ux4g-captcha__challenge--easy .ux4g-captcha__char {
+  font-size: 28px;
+}
+
+.ux4g-captcha__challenge--hard .ux4g-captcha__char {
+  font-size: 22px;
+}
+
+.ux4g-captcha__refresh,
+.ux4g-captcha__audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.ux4g-captcha__refresh:hover,
+.ux4g-captcha__audio:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.ux4g-captcha__refresh:active,
+.ux4g-captcha__audio:active {
+  background-color: #f3f4f6;
+}
+
+.ux4g-captcha__refresh:focus,
+.ux4g-captcha__audio:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.ux4g-captcha__refresh-icon,
+.ux4g-captcha__audio-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.ux4g-captcha__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.ux4g-captcha__input-wrapper {
+  position: relative;
+}
+
+.ux4g-captcha__input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #111827;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ux4g-captcha__input::placeholder {
+  color: #9ca3af;
+  letter-spacing: normal;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ux4g-captcha__input:hover:not(:disabled) {
+  border-color: #9ca3af;
+}
+
+.ux4g-captcha__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ux4g-captcha__input--error {
+  border-color: #dc2626;
+}
+
+.ux4g-captcha__input--error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.ux4g-captcha__input--success {
+  border-color: #16a34a;
+}
+
+.ux4g-captcha__input--success:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+.ux4g-captcha__input:disabled {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.ux4g-captcha__status {
+  margin-top: 6px;
+  font-size: 13px;
+  min-height: 18px;
+}
+
+.ux4g-captcha__status--success {
+  color: #16a34a;
+  font-weight: 500;
+}
+
+.ux4g-captcha__status--error {
+  color: #dc2626;
+  font-weight: 500;
+}

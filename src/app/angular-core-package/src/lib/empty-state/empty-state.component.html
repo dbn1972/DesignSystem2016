@@ -1,0 +1,38 @@
+<div [class]="emptyStateClasses" role="status" aria-live="polite">
+  <!-- Illustration -->
+  <div class="ux4g-empty-state__illustration" aria-hidden="true">
+    <span *ngIf="icon" class="ux4g-empty-state__icon">{{ icon }}</span>
+    <div *ngIf="!icon && illustration" [class]="'ux4g-empty-state__illustration--' + illustration">
+      <div class="ux4g-empty-state__graphic"></div>
+    </div>
+  </div>
+  
+  <!-- Content -->
+  <div class="ux4g-empty-state__content">
+    <h3 class="ux4g-empty-state__title">{{ title }}</h3>
+    <p class="ux4g-empty-state__description">{{ description }}</p>
+    
+    <!-- Actions -->
+    <div class="ux4g-empty-state__actions" *ngIf="actionText || secondaryActionText">
+      <button *ngIf="actionText && !actionHref" 
+              (click)="onAction()"
+              class="ux4g-empty-state__button ux4g-empty-state__button--primary"
+              type="button">
+        {{ actionText }}
+      </button>
+      
+      <a *ngIf="actionText && actionHref"
+         [href]="actionHref"
+         class="ux4g-empty-state__button ux4g-empty-state__button--primary">
+        {{ actionText }}
+      </a>
+      
+      <button *ngIf="secondaryActionText"
+              (click)="onSecondaryAction()"
+              class="ux4g-empty-state__button ux4g-empty-state__button--secondary"
+              type="button">
+        {{ secondaryActionText }}
+      </button>
+    </div>
+  </div>
+</div>

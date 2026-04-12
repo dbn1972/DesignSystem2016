@@ -1,0 +1,19 @@
+.ux4g-aspect-ratio {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--aspect-ratio, 16 / 9);
+}
+
+.ux4g-aspect-ratio__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ux4g-aspect-ratio__content > * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

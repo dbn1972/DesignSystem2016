@@ -14,6 +14,23 @@
       "motion": "./base/motion.json",
       "zIndex": "./base/z-index.json"
     },
-    "semantic": "./semantic.json"
+    "semantic": "./semantic.json",
+    "themes": "./semantic-themes.json",
+    "components": {
+      "alert": "./components/alert.json",
+      "badge": "./components/badge.json",
+      "button": "./components/button.json",
+      "card": "./components/card.json",
+      "checkbox": "./components/checkbox.json",
+      "input": "./components/input.json",
+      "modal": "./components/modal.json",
+      "radio": "./components/radio.json",
+      "select": "./components/select.json",
+      "table": "./components/table.json",
+      "textarea": "./components/textarea.json",
+      "toast": "./components/toast.json",
+      "toggle": "./components/toggle.json",
+      "tooltip": "./components/tooltip.json"
+    }
   }
 }

@@ -1,0 +1,208 @@
+.ux4g-data-grid {
+  width: 100%;
+  font-family: inherit;
+}
+
+.ux4g-data-grid__container {
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.ux4g-data-grid__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.ux4g-data-grid__header {
+  position: sticky;
+  top: 0;
+  background: #f5f5f5;
+  z-index: 10;
+}
+
+.ux4g-data-grid__cell {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+.ux4g-data-grid__cell--header {
+  font-weight: 600;
+  color: #333;
+  vertical-align: top;
+}
+
+.ux4g-data-grid__cell--select {
+  width: 50px;
+  text-align: center;
+}
+
+.ux4g-data-grid__cell--sortable {
+  cursor: pointer;
+}
+
+.ux4g-data-grid__cell--empty {
+  text-align: center;
+  padding: 40px 16px;
+  color: #666;
+}
+
+.ux4g-data-grid__header-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ux4g-data-grid__sort-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #333;
+  font-weight: 600;
+}
+
+.ux4g-data-grid__sort-button:hover {
+  color: #0066cc;
+}
+
+.ux4g-data-grid__sort-icon {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.ux4g-data-grid__filter {
+  margin-top: 4px;
+}
+
+.ux4g-data-grid__filter-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.ux4g-data-grid__filter-input:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+}
+
+.ux4g-data-grid__row {
+  transition: background-color 0.15s;
+}
+
+.ux4g-data-grid__row:hover {
+  background-color: #f9f9f9;
+}
+
+.ux4g-data-grid__row--selectable {
+  cursor: pointer;
+}
+
+.ux4g-data-grid__row--selected {
+  background-color: #e3f2fd !important;
+}
+
+.ux4g-data-grid__skeleton {
+  padding: 20px;
+}
+
+.ux4g-data-grid__skeleton-line {
+  height: 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.ux4g-data-grid__empty-state {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.ux4g-data-grid__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+
+.ux4g-data-grid__pagination-pages {
+  display: flex;
+  gap: 4px;
+}
+
+.ux4g-data-grid__pagination-button {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.15s;
+}
+
+.ux4g-data-grid__pagination-button:hover:not(:disabled) {
+  background: #f5f5f5;
+  border-color: #0066cc;
+}
+
+.ux4g-data-grid__pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ux4g-data-grid__pagination-button--active {
+  background: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.ux4g-data-grid__pagination-info {
+  margin-left: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ux4g-data-grid__cell {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .ux4g-data-grid__pagination {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .ux4g-data-grid__pagination-info {
+    width: 100%;
+    text-align: center;
+    margin: 8px 0 0;
+  }
+}

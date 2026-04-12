@@ -2,9 +2,9 @@ import { Users, GitBranch, CheckCircle, AlertCircle, Clock, XCircle, ChevronRigh
 
 export default function Governance() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
+      <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] dark:from-blue-900 dark:via-blue-950 dark:to-blue-950 text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
@@ -23,17 +23,17 @@ export default function Governance() {
             </p>
 
             <div className="grid grid-cols-3 gap-6 mt-8">
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-white/10 dark:bg-white/5 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Clear Ownership</div>
-                <div className="text-blue-200 text-sm">Defined roles and responsibilities</div>
+                <div className="text-blue-200 dark:text-blue-300 text-sm">Defined roles and responsibilities</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-white/10 dark:bg-white/5 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Quality Gates</div>
-                <div className="text-blue-200 text-sm">Multi-stage review process</div>
+                <div className="text-blue-200 dark:text-blue-300 text-sm">Multi-stage review process</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-white/10 dark:bg-white/5 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Lifecycle Model</div>
-                <div className="text-blue-200 text-sm">Alpha to production workflow</div>
+                <div className="text-blue-200 dark:text-blue-300 text-sm">Alpha to production workflow</div>
               </div>
             </div>
           </div>
@@ -68,12 +68,12 @@ function OwnershipModelSection() {
 
       <div className="mt-8 space-y-8">
         {/* Governance Structure Diagram */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Governance Structure</h3>
+        <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 border-b-2 border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-gray-900 dark:text-gray-100">Governance Structure</h3>
           </div>
-          
-          <div className="p-12 bg-gradient-to-b from-white to-gray-50">
+
+          <div className="p-12 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
             {/* Core Team */}
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -118,8 +118,8 @@ function OwnershipModelSection() {
               </div>
 
               {/* Supporting Roles */}
-              <div className="mt-8 pt-8 border-t-2 border-gray-200">
-                <h4 className="font-bold text-gray-900 mb-4 text-center">Supporting Roles</h4>
+              <div className="mt-8 pt-8 border-t-2 border-gray-200 dark:border-gray-700">
+                <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">Supporting Roles</h4>
                 <div className="grid grid-cols-4 gap-4">
                   <SupportRole
                     title="Documentation"
@@ -144,23 +144,23 @@ function OwnershipModelSection() {
         </div>
 
         {/* Responsibility Matrix */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Responsibility Matrix (RACI)</h3>
+        <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 border-b-2 border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-gray-900 dark:text-gray-100">Responsibility Matrix (RACI)</h3>
           </div>
-          
+
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 border-b-2 border-gray-200">
+              <thead className="bg-gray-50 dark:bg-gray-800 border-b-2 border-gray-200 dark:border-gray-700">
                 <tr>
-                  <th className="text-left p-4 font-semibold text-gray-900">Activity</th>
-                  <th className="text-center p-4 font-semibold text-gray-900">Design Lead</th>
-                  <th className="text-center p-4 font-semibold text-gray-900">Eng Lead</th>
-                  <th className="text-center p-4 font-semibold text-gray-900">Product Lead</th>
-                  <th className="text-center p-4 font-semibold text-gray-900">Contributors</th>
+                  <th className="text-left p-4 font-semibold text-gray-900 dark:text-gray-100">Activity</th>
+                  <th className="text-center p-4 font-semibold text-gray-900 dark:text-gray-100">Design Lead</th>
+                  <th className="text-center p-4 font-semibold text-gray-900 dark:text-gray-100">Eng Lead</th>
+                  <th className="text-center p-4 font-semibold text-gray-900 dark:text-gray-100">Product Lead</th>
+                  <th className="text-center p-4 font-semibold text-gray-900 dark:text-gray-100">Contributors</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                 <RACIRow
                   activity="Component Design"
                   roles={['R', 'C', 'I', 'C']}
@@ -185,23 +185,23 @@ function OwnershipModelSection() {
             </table>
           </div>
           
-          <div className="p-6 bg-gray-50 border-t-2 border-gray-200">
+          <div className="p-6 bg-gray-50 dark:bg-gray-800 border-t-2 border-gray-200 dark:border-gray-700">
             <div className="grid grid-cols-4 gap-6 text-xs">
               <div>
-                <strong className="text-gray-900">R - Responsible:</strong>
-                <span className="text-gray-700 ml-1">Does the work</span>
+                <strong className="text-gray-900 dark:text-gray-100">R - Responsible:</strong>
+                <span className="text-gray-700 dark:text-gray-300 ml-1">Does the work</span>
               </div>
               <div>
-                <strong className="text-gray-900">A - Accountable:</strong>
-                <span className="text-gray-700 ml-1">Final approval</span>
+                <strong className="text-gray-900 dark:text-gray-100">A - Accountable:</strong>
+                <span className="text-gray-700 dark:text-gray-300 ml-1">Final approval</span>
               </div>
               <div>
-                <strong className="text-gray-900">C - Consulted:</strong>
-                <span className="text-gray-700 ml-1">Provides input</span>
+                <strong className="text-gray-900 dark:text-gray-100">C - Consulted:</strong>
+                <span className="text-gray-700 dark:text-gray-300 ml-1">Provides input</span>
               </div>
               <div>
-                <strong className="text-gray-900">I - Informed:</strong>
-                <span className="text-gray-700 ml-1">Kept updated</span>
+                <strong className="text-gray-900 dark:text-gray-100">I - Informed:</strong>
+                <span className="text-gray-700 dark:text-gray-300 ml-1">Kept updated</span>
               </div>
             </div>
           </div>
@@ -213,17 +213,17 @@ function OwnershipModelSection() {
 
 function OwnershipPillar({ title, responsibilities, color }: any) {
   const colorClasses = {
-    blue: 'bg-blue-50 border-blue-300',
-    purple: 'bg-purple-50 border-purple-300',
-    green: 'bg-green-50 border-green-300'
+    blue: 'bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-800',
+    purple: 'bg-purple-50 dark:bg-purple-900/20 border-purple-300 dark:border-purple-800',
+    green: 'bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-800'
   };
 
   return (
     <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-6`}>
-      <h3 className="font-bold text-gray-900 mb-4 text-lg">{title}</h3>
+      <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-4 text-lg">{title}</h3>
       <ul className="space-y-2">
         {responsibilities.map((resp: string, index: number) => (
-          <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+          <li key={index} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
             <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={16} />
             <span>{resp}</span>
           </li>
@@ -235,9 +235,9 @@ function OwnershipPillar({ title, responsibilities, color }: any) {
 
 function SupportRole({ title, description }: any) {
   return (
-    <div className="bg-gray-100 border border-gray-300 rounded-lg p-3 text-center">
-      <div className="font-semibold text-gray-900 text-sm mb-1">{title}</div>
-      <div className="text-xs text-gray-600">{description}</div>
+    <div className="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg p-3 text-center">
+      <div className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">{title}</div>
+      <div className="text-xs text-gray-600 dark:text-gray-400">{description}</div>
     </div>
   );
 }
@@ -245,17 +245,17 @@ function SupportRole({ title, description }: any) {
 function RACIRow({ activity, roles }: any) {
   const getRoleColor = (role: string) => {
     switch (role) {
-      case 'R': return 'bg-blue-100 text-blue-700 border-blue-300';
-      case 'A': return 'bg-green-100 text-green-700 border-green-300';
-      case 'C': return 'bg-yellow-100 text-yellow-700 border-yellow-300';
-      case 'I': return 'bg-gray-100 text-gray-700 border-gray-300';
+      case 'R': return 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-blue-300 dark:border-blue-700';
+      case 'A': return 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-300 dark:border-green-700';
+      case 'C': return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-yellow-300 dark:border-yellow-700';
+      case 'I': return 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700';
       default: return '';
     }
   };
 
   return (
-    <tr className="hover:bg-gray-50">
-      <td className="p-4 font-semibold text-gray-900">{activity}</td>
+    <tr className="hover:bg-gray-50 dark:hover:bg-gray-800">
+      <td className="p-4 font-semibold text-gray-900 dark:text-gray-100">{activity}</td>
       {roles.map((role: string, index: number) => (
         <td key={index} className="p-4 text-center">
           <span className={`inline-block px-3 py-1 rounded-full font-bold text-xs border ${getRoleColor(role)}`}>
@@ -317,28 +317,28 @@ function ReviewLanesSection() {
         />
       </div>
 
-      <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">Parallel Review Process</h3>
-        <p className="text-sm text-gray-700 mb-4">
-          All three review lanes run in parallel to minimize total review time. A contribution must pass 
+      <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
+        <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-3">Parallel Review Process</h3>
+        <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+          All three review lanes run in parallel to minimize total review time. A contribution must pass
           all applicable reviews before advancing to approval gates.
         </p>
-        
-        <div className="bg-white border border-blue-200 rounded-lg p-4">
+
+        <div className="bg-white dark:bg-gray-900 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="px-3 py-1 bg-blue-100 text-blue-700 rounded font-semibold text-sm">
+              <div className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded font-semibold text-sm">
                 Design ✓
               </div>
-              <div className="px-3 py-1 bg-purple-100 text-purple-700 rounded font-semibold text-sm">
+              <div className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded font-semibold text-sm">
                 Engineering ✓
               </div>
-              <div className="px-3 py-1 bg-green-100 text-green-700 rounded font-semibold text-sm">
+              <div className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded font-semibold text-sm">
                 Documentation ✓
               </div>
             </div>
-            <ArrowRight className="text-gray-400" size={24} />
-            <div className="px-4 py-2 bg-[#138808] text-white rounded-lg font-bold">
+            <ArrowRight className="text-gray-400 dark:text-gray-600" size={24} />
+            <div className="px-4 py-2 bg-[#138808] dark:bg-green-700 text-white rounded-lg font-bold">
               Ready for Approval
             </div>
           </div>
@@ -350,32 +350,32 @@ function ReviewLanesSection() {
 
 function ReviewLane({ title, owner, focuses, timeline, color }: any) {
   const colorClasses = {
-    blue: 'border-blue-200 bg-blue-50',
-    purple: 'border-purple-200 bg-purple-50',
-    green: 'border-green-200 bg-green-50'
+    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20',
+    purple: 'border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20',
+    green: 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20'
   };
 
   return (
     <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg overflow-hidden`}>
-      <div className="bg-white border-b-2 border-gray-200 p-4">
-        <h3 className="font-bold text-gray-900 text-lg mb-1">{title}</h3>
-        <div className="text-sm text-gray-600">Owner: {owner}</div>
+      <div className="bg-white dark:bg-gray-900 border-b-2 border-gray-200 dark:border-gray-700 p-4">
+        <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg mb-1">{title}</h3>
+        <div className="text-sm text-gray-600 dark:text-gray-400">Owner: {owner}</div>
       </div>
-      
+
       <div className="p-4">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">Review Focus:</h4>
+        <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 text-sm">Review Focus:</h4>
         <ul className="space-y-2 mb-4">
           {focuses.map((focus: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
               <span>{focus}</span>
             </li>
           ))}
         </ul>
-        
-        <div className="pt-4 border-t border-gray-200 flex items-center gap-2 text-sm">
+
+        <div className="pt-4 border-t border-gray-200 dark:border-gray-700 flex items-center gap-2 text-sm">
           <Clock size={14} className="text-gray-500" />
-          <span className="text-gray-600">Timeline: {timeline}</span>
+          <span className="text-gray-600 dark:text-gray-400">Timeline: {timeline}</span>
         </div>
       </div>
     </div>
@@ -393,8 +393,8 @@ function ApprovalGatesSection() {
 
       <div className="mt-8 space-y-6">
         {/* Approval Flow Diagram */}
-        <div className="border-2 border-gray-200 rounded-lg p-8 bg-gradient-to-b from-white to-gray-50">
-          <h3 className="font-bold text-gray-900 mb-6 text-center">Approval Flow</h3>
+        <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+          <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">Approval Flow</h3>
           
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center justify-between">
@@ -480,18 +480,18 @@ function ApprovalGatesSection() {
 
 function ApprovalGate({ title, status, requirements }: any) {
   const statusColors = {
-    start: 'bg-gray-100 border-gray-300',
-    review: 'bg-blue-50 border-blue-300',
-    approval: 'bg-yellow-50 border-yellow-300',
-    complete: 'bg-green-50 border-green-300'
+    start: 'bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700',
+    review: 'bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-800',
+    approval: 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-300 dark:border-yellow-700',
+    complete: 'bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-800'
   };
 
   return (
     <div className={`border-2 ${statusColors[status as keyof typeof statusColors]} rounded-lg p-4 min-w-[200px]`}>
-      <h4 className="font-bold text-gray-900 mb-3 text-center">{title}</h4>
+      <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-3 text-center">{title}</h4>
       <ul className="space-y-1">
         {requirements.map((req: string, index: number) => (
-          <li key={index} className="text-xs text-gray-700">• {req}</li>
+          <li key={index} className="text-xs text-gray-700 dark:text-gray-300">• {req}</li>
         ))}
       </ul>
     </div>
@@ -500,25 +500,25 @@ function ApprovalGate({ title, status, requirements }: any) {
 
 function GateDetails({ title, criteria, approver }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-4 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900">{title}</h3>
+    <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+      <div className="bg-gray-50 dark:bg-gray-800 p-4 border-b-2 border-gray-200 dark:border-gray-700">
+        <h3 className="font-bold text-gray-900 dark:text-gray-100">{title}</h3>
       </div>
-      
+
       <div className="p-6">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">Approval Criteria:</h4>
+        <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 text-sm">Approval Criteria:</h4>
         <ul className="space-y-2 mb-6">
           {criteria.map((criterion: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
+            <li key={index} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+              <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
               <span>{criterion}</span>
             </li>
           ))}
         </ul>
-        
-        <div className="pt-4 border-t border-gray-200">
-          <div className="text-xs text-gray-600 mb-1">Final Approver:</div>
-          <div className="font-semibold text-gray-900">{approver}</div>
+
+        <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Final Approver:</div>
+          <div className="font-semibold text-gray-900 dark:text-gray-100">{approver}</div>
         </div>
       </div>
     </div>
@@ -536,10 +536,10 @@ function ContributionPathwaySection() {
 
       <div className="mt-8 space-y-8">
         {/* Contribution Flow */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900 mb-2">Contribution Workflow</h3>
-            <p className="text-sm text-gray-700">End-to-end process for contributing components, patterns, or improvements</p>
+        <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 border-b-2 border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">Contribution Workflow</h3>
+            <p className="text-sm text-gray-700 dark:text-gray-300">End-to-end process for contributing components, patterns, or improvements</p>
           </div>
           
           <div className="p-8">
@@ -552,7 +552,7 @@ function ContributionPathwaySection() {
                 actions={['Describe use case', 'Provide examples', 'Justify need']}
               />
               
-              <div className="ml-6 border-l-2 border-gray-200 h-8"></div>
+              <div className="ml-6 border-l-2 border-gray-200 dark:border-gray-700 h-8"></div>
               
               <ContributionStep
                 number="2"
@@ -562,7 +562,7 @@ function ContributionPathwaySection() {
                 actions={['Team discussion', 'Feasibility assessment', 'Priority determination']}
               />
               
-              <div className="ml-6 border-l-2 border-gray-200 h-8"></div>
+              <div className="ml-6 border-l-2 border-gray-200 dark:border-gray-700 h-8"></div>
               
               <ContributionStep
                 number="3"
@@ -572,7 +572,7 @@ function ContributionPathwaySection() {
                 actions={['Design in Figma', 'Code implementation', 'Write documentation']}
               />
               
-              <div className="ml-6 border-l-2 border-gray-200 h-8"></div>
+              <div className="ml-6 border-l-2 border-gray-200 dark:border-gray-700 h-8"></div>
               
               <ContributionStep
                 number="4"
@@ -582,7 +582,7 @@ function ContributionPathwaySection() {
                 actions={['Design review', 'Code review', 'Documentation review']}
               />
               
-              <div className="ml-6 border-l-2 border-gray-200 h-8"></div>
+              <div className="ml-6 border-l-2 border-gray-200 dark:border-gray-700 h-8"></div>
               
               <ContributionStep
                 number="5"
@@ -630,26 +630,26 @@ function ContributionStep({ number, title, description, duration, actions }: any
   return (
     <div className="flex gap-6">
       <div className="flex-shrink-0">
-        <div className="w-12 h-12 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold text-xl">
+        <div className="w-12 h-12 bg-[#000080] dark:bg-blue-700 text-white rounded-full flex items-center justify-center font-bold text-xl">
           {number}
         </div>
       </div>
-      
-      <div className="flex-1 bg-gray-50 border border-gray-200 rounded-lg p-4">
+
+      <div className="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h4 className="font-bold text-gray-900 text-lg">{title}</h4>
-            <p className="text-sm text-gray-600">{description}</p>
+            <h4 className="font-bold text-gray-900 dark:text-gray-100 text-lg">{title}</h4>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
           </div>
-          <div className="text-xs text-gray-500 flex items-center gap-1 flex-shrink-0 ml-4">
+          <div className="text-xs text-gray-500 dark:text-gray-500 flex items-center gap-1 flex-shrink-0 ml-4">
             <Clock size={12} />
             {duration}
           </div>
         </div>
-        
+
         <div className="flex gap-2 mt-3">
           {actions.map((action: string, index: number) => (
-            <span key={index} className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
+            <span key={index} className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded text-xs">
               {action}
             </span>
           ))}
@@ -661,24 +661,24 @@ function ContributionStep({ number, title, description, duration, actions }: any
 
 function ContributionType({ title, description, effort, approval, color }: any) {
   const colorClasses = {
-    blue: 'border-blue-200 bg-blue-50',
-    purple: 'border-purple-200 bg-purple-50',
-    green: 'border-green-200 bg-green-50'
+    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20',
+    purple: 'border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20',
+    green: 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20'
   };
 
   return (
     <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-6`}>
-      <h3 className="font-bold text-gray-900 text-lg mb-2">{title}</h3>
-      <p className="text-sm text-gray-700 mb-4">{description}</p>
-      
+      <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg mb-2">{title}</h3>
+      <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">{description}</p>
+
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
-          <span className="text-gray-600">Effort Level:</span>
-          <span className="font-semibold text-gray-900">{effort}</span>
+          <span className="text-gray-600 dark:text-gray-400">Effort Level:</span>
+          <span className="font-semibold text-gray-900 dark:text-gray-100">{effort}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-600">Approval:</span>
-          <span className="font-semibold text-gray-900 text-right">{approval}</span>
+          <span className="text-gray-600 dark:text-gray-400">Approval:</span>
+          <span className="font-semibold text-gray-900 dark:text-gray-100 text-right">{approval}</span>
         </div>
       </div>
     </div>
@@ -726,9 +726,9 @@ function ReleaseGovernanceSection() {
         </div>
 
         {/* Release Process */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Release Process</h3>
+        <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 border-b-2 border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-gray-900 dark:text-gray-100">Release Process</h3>
           </div>
           
           <div className="p-8">
@@ -786,30 +786,30 @@ function ReleaseGovernanceSection() {
 
 function ReleaseType({ title, version, frequency, description, planning, color }: any) {
   const colorClasses = {
-    red: 'border-red-200 bg-red-50',
-    yellow: 'border-yellow-200 bg-yellow-50',
-    green: 'border-green-200 bg-green-50'
+    red: 'border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20',
+    yellow: 'border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900/20',
+    green: 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20'
   };
 
   return (
     <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-6`}>
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold text-gray-900 text-lg">{title}</h3>
-        <code className="px-2 py-1 bg-gray-900 text-white rounded text-xs font-mono">{version}</code>
+        <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg">{title}</h3>
+        <code className="px-2 py-1 bg-gray-900 dark:bg-gray-800 text-white dark:text-gray-100 rounded text-xs font-mono">{version}</code>
       </div>
-      
+
       <div className="space-y-3 text-sm">
         <div>
-          <div className="text-gray-600 text-xs mb-1">Frequency:</div>
-          <div className="font-semibold text-gray-900">{frequency}</div>
+          <div className="text-gray-600 dark:text-gray-400 text-xs mb-1">Frequency:</div>
+          <div className="font-semibold text-gray-900 dark:text-gray-100">{frequency}</div>
         </div>
         <div>
-          <div className="text-gray-600 text-xs mb-1">Includes:</div>
-          <div className="text-gray-700">{description}</div>
+          <div className="text-gray-600 dark:text-gray-400 text-xs mb-1">Includes:</div>
+          <div className="text-gray-700 dark:text-gray-300">{description}</div>
         </div>
         <div>
-          <div className="text-gray-600 text-xs mb-1">Planning:</div>
-          <div className="text-gray-700">{planning}</div>
+          <div className="text-gray-600 dark:text-gray-400 text-xs mb-1">Planning:</div>
+          <div className="text-gray-700 dark:text-gray-300">{planning}</div>
         </div>
       </div>
     </div>
@@ -820,15 +820,15 @@ function ReleasePhase({ phase, duration, activities }: any) {
   return (
     <div className="flex gap-6">
       <div className="flex-shrink-0 text-right" style={{ width: '120px' }}>
-        <div className="font-bold text-gray-900">{phase}</div>
-        <div className="text-sm text-gray-600">{duration}</div>
+        <div className="font-bold text-gray-900 dark:text-gray-100">{phase}</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">{duration}</div>
       </div>
-      
-      <div className="flex-1 border-l-4 border-[#000080] pl-6">
+
+      <div className="flex-1 border-l-4 border-[#000080] dark:border-blue-700 pl-6">
         <ul className="space-y-2">
           {activities.map((activity: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-              <Circle className="flex-shrink-0 mt-1 fill-current text-[#000080]" size={8} />
+            <li key={index} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+              <Circle className="flex-shrink-0 mt-1 fill-current text-[#000080] dark:text-blue-700" size={8} />
               <span>{activity}</span>
             </li>
           ))}
@@ -937,10 +937,10 @@ function LifecycleStatusesSection() {
 
 function StatusBadgeCard({ status, color, description }: any) {
   const colorClasses = {
-    yellow: 'bg-yellow-100 text-yellow-700 border-yellow-300',
-    blue: 'bg-blue-100 text-blue-700 border-blue-300',
-    green: 'bg-green-100 text-green-700 border-green-300',
-    red: 'bg-red-100 text-red-700 border-red-300'
+    yellow: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-yellow-300 dark:border-yellow-700',
+    blue: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-blue-300 dark:border-blue-700',
+    green: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-300 dark:border-green-700',
+    red: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border-red-300 dark:border-red-700'
   };
 
   return (
@@ -953,35 +953,35 @@ function StatusBadgeCard({ status, color, description }: any) {
 
 function StatusDetail({ status, badge, characteristics, usage, support }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-4 border-b-2 border-gray-200 flex items-center gap-3">
+    <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+      <div className="bg-gray-50 dark:bg-gray-800 p-4 border-b-2 border-gray-200 dark:border-gray-700 flex items-center gap-3">
         <span className={`px-4 py-2 ${badge.bg} ${badge.text} border ${badge.border} rounded-full font-bold text-sm uppercase`}>
           {status}
         </span>
-        <h3 className="font-bold text-gray-900">Status Details</h3>
+        <h3 className="font-bold text-gray-900 dark:text-gray-100">Status Details</h3>
       </div>
-      
+
       <div className="p-6 grid grid-cols-2 gap-6">
         <div>
-          <h4 className="font-semibold text-gray-900 mb-3">Characteristics:</h4>
+          <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">Characteristics:</h4>
           <ul className="space-y-2">
             {characteristics.map((char: string, index: number) => (
-              <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+              <li key={index} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
                 <span>{char}</span>
               </li>
             ))}
           </ul>
         </div>
-        
+
         <div className="space-y-4">
           <div>
-            <h4 className="font-semibold text-gray-900 mb-2">Usage Guidance:</h4>
-            <p className="text-sm text-gray-700">{usage}</p>
+            <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Usage Guidance:</h4>
+            <p className="text-sm text-gray-700 dark:text-gray-300">{usage}</p>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-900 mb-2">Support Level:</h4>
-            <p className="text-sm text-gray-700">{support}</p>
+            <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Support Level:</h4>
+            <p className="text-sm text-gray-700 dark:text-gray-300">{support}</p>
           </div>
         </div>
       </div>
@@ -1000,37 +1000,37 @@ function PromotionRulesSection() {
 
       <div className="mt-8 space-y-6">
         {/* Promotion Flow */}
-        <div className="border-2 border-gray-200 rounded-lg p-8 bg-gradient-to-r from-yellow-50 via-blue-50 via-green-50 to-white">
+        <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-8 bg-gradient-to-r from-yellow-50 via-blue-50 via-green-50 to-white dark:from-yellow-900/20 dark:via-blue-900/20 dark:via-green-900/20 dark:to-gray-900">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
             <div className="text-center">
-              <div className="px-4 py-2 bg-yellow-100 text-yellow-700 border-2 border-yellow-300 rounded-full font-bold mb-2">
+              <div className="px-4 py-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-2 border-yellow-300 dark:border-yellow-700 rounded-full font-bold mb-2">
                 ALPHA
               </div>
-              <div className="text-xs text-gray-600">Initial development</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Initial development</div>
             </div>
-            
+
             <div className="flex flex-col items-center">
-              <ChevronRight className="text-gray-400" size={32} />
-              <div className="text-xs text-gray-500 mt-1">Promote</div>
+              <ChevronRight className="text-gray-400 dark:text-gray-600" size={32} />
+              <div className="text-xs text-gray-500">Promote</div>
             </div>
-            
+
             <div className="text-center">
-              <div className="px-4 py-2 bg-blue-100 text-blue-700 border-2 border-blue-300 rounded-full font-bold mb-2">
+              <div className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-2 border-blue-300 dark:border-blue-700 rounded-full font-bold mb-2">
                 BETA
               </div>
-              <div className="text-xs text-gray-600">Testing period</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Testing period</div>
             </div>
-            
+
             <div className="flex flex-col items-center">
-              <ChevronRight className="text-gray-400" size={32} />
-              <div className="text-xs text-gray-500 mt-1">Promote</div>
+              <ChevronRight className="text-gray-400 dark:text-gray-600" size={32} />
+              <div className="text-xs text-gray-500">Promote</div>
             </div>
-            
+
             <div className="text-center">
-              <div className="px-4 py-2 bg-green-100 text-green-700 border-2 border-green-300 rounded-full font-bold mb-2">
+              <div className="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-2 border-green-300 dark:border-green-700 rounded-full font-bold mb-2">
                 PRODUCTION
               </div>
-              <div className="text-xs text-gray-600">Full release</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Full release</div>
             </div>
           </div>
         </div>
@@ -1068,16 +1068,16 @@ function PromotionRulesSection() {
         </div>
 
         {/* Fast-Track Exception */}
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <div className="flex items-start gap-3">
-            <Zap className="text-orange-600 flex-shrink-0 mt-1" size={24} />
+            <Zap className="text-orange-600 dark:text-orange-500 flex-shrink-0 mt-1" size={24} />
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Fast-Track Promotion</h3>
-              <p className="text-sm text-gray-700 mb-3">
-                Critical bug fixes and minor variants can be fast-tracked through lifecycle stages with 
+              <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">Fast-Track Promotion</h3>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+                Critical bug fixes and minor variants can be fast-tracked through lifecycle stages with
                 approval from both Design and Engineering Leads.
               </p>
-              <div className="text-xs text-gray-600">
+              <div className="text-xs text-gray-600 dark:text-gray-400">
                 Fast-track requires: clear justification, minimal risk assessment, and full regression testing
               </div>
             </div>
@@ -1090,20 +1090,20 @@ function PromotionRulesSection() {
 
 function PromotionCriteria({ from, to, requirements, timeline }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-gray-50 to-white p-4 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900 flex items-center gap-2">
-          {from} <ChevronRight size={20} className="text-gray-400" /> {to}
+    <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-4 border-b-2 border-gray-200 dark:border-gray-700">
+        <h3 className="font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+          {from} <ChevronRight size={20} className="text-gray-400 dark:text-gray-600" /> {to}
         </h3>
-        <div className="text-xs text-gray-600 mt-1">{timeline}</div>
+        <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">{timeline}</div>
       </div>
-      
+
       <div className="p-6">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">Requirements:</h4>
+        <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 text-sm">Requirements:</h4>
         <ul className="space-y-2">
           {requirements.map((req: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
+            <li key={index} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+              <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
               <span>{req}</span>
             </li>
           ))}
@@ -1124,8 +1124,8 @@ function DeprecationProcessSection() {
 
       <div className="mt-8 space-y-8">
         {/* Deprecation Timeline */}
-        <div className="border-2 border-gray-200 rounded-lg p-8 bg-gradient-to-b from-white to-gray-50">
-          <h3 className="font-bold text-gray-900 mb-6 text-center">Deprecation Timeline (Minimum 6 Months)</h3>
+        <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+          <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">Deprecation Timeline (Minimum 6 Months)</h3>
           
           <div className="max-w-5xl mx-auto space-y-4">
             <DeprecationPhase
@@ -1180,53 +1180,53 @@ function DeprecationProcessSection() {
 
         {/* Deprecation Criteria */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Valid Reasons for Deprecation</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-6">
+            <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-4">Valid Reasons for Deprecation</h3>
+            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
+                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
                 <span>Better alternative component available</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
+                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
                 <span>Security vulnerability that cannot be patched</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
+                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
                 <span>Component no longer meets accessibility standards</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
+                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
                 <span>Technology platform no longer supported</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
+                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
                 <span>Low usage and high maintenance cost</span>
               </li>
             </ul>
           </div>
 
-          <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Deprecation Safeguards</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
+            <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-4">Deprecation Safeguards</h3>
+            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600" size={16} />
+                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
                 <span>Minimum 6-month notice period</span>
               </li>
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600" size={16} />
+                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
                 <span>Clear migration path required</span>
               </li>
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600" size={16} />
+                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
                 <span>No deprecation in minor/patch releases</span>
               </li>
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600" size={16} />
+                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
                 <span>Direct support during migration</span>
               </li>
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600" size={16} />
+                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
                 <span>Product Lead must approve all deprecations</span>
               </li>
             </ul>
@@ -1239,23 +1239,23 @@ function DeprecationProcessSection() {
 
 function DeprecationPhase({ month, phase, actions, status }: any) {
   const statusColors = {
-    red: 'border-red-400 bg-red-50',
-    orange: 'border-orange-400 bg-orange-50',
-    yellow: 'border-yellow-400 bg-yellow-50',
-    gray: 'border-gray-400 bg-gray-50'
+    red: 'border-red-400 dark:border-red-700 bg-red-50 dark:bg-red-900/20',
+    orange: 'border-orange-400 dark:border-orange-700 bg-orange-50 dark:bg-orange-900/20',
+    yellow: 'border-yellow-400 dark:border-yellow-700 bg-yellow-50 dark:bg-yellow-900/20',
+    gray: 'border-gray-400 dark:border-gray-700 bg-gray-50 dark:bg-gray-800'
   };
 
   return (
     <div className="flex gap-6">
       <div className="flex-shrink-0 text-right" style={{ width: '100px' }}>
-        <div className="font-bold text-gray-900">{month}</div>
-        <div className="text-sm text-gray-600">{phase}</div>
+        <div className="font-bold text-gray-900 dark:text-gray-100">{month}</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">{phase}</div>
       </div>
-      
+
       <div className={`flex-1 border-l-4 ${statusColors[status as keyof typeof statusColors]} pl-6 py-3`}>
         <ul className="space-y-1">
           {actions.map((action: string, index: number) => (
-            <li key={index} className="text-sm text-gray-700">• {action}</li>
+            <li key={index} className="text-sm text-gray-700 dark:text-gray-300">• {action}</li>
           ))}
         </ul>
       </div>
@@ -1274,12 +1274,12 @@ function ExceptionProcessSection() {
 
       <div className="mt-8 space-y-8">
         {/* When to Request Exception */}
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">When Exceptions May Be Granted</h3>
+        <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
+          <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-4">When Exceptions May Be Granted</h3>
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Valid Exception Scenarios:</h4>
-              <ul className="space-y-2 text-gray-700">
+              <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Valid Exception Scenarios:</h4>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li>• Critical security vulnerability requiring immediate patch</li>
                 <li>• Urgent government directive or policy change</li>
                 <li>• Time-sensitive citizen-facing emergency</li>
@@ -1287,8 +1287,8 @@ function ExceptionProcessSection() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Invalid Exception Requests:</h4>
-              <ul className="space-y-2 text-gray-700">
+              <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Invalid Exception Requests:</h4>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li>• Missed project deadlines</li>
                 <li>• Preference for non-standard design</li>
                 <li>• Lack of planning or resources</li>
@@ -1299,9 +1299,9 @@ function ExceptionProcessSection() {
         </div>
 
         {/* Exception Request Process */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Exception Request Workflow</h3>
+        <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 border-b-2 border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-gray-900 dark:text-gray-100">Exception Request Workflow</h3>
           </div>
           
           <div className="p-8 space-y-6">
@@ -1374,14 +1374,14 @@ function ExceptionProcessSection() {
 function ExceptionStep({ step, title, description, required }: any) {
   return (
     <div className="flex gap-6">
-      <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+      <div className="w-10 h-10 bg-orange-600 dark:bg-orange-700 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
         {step}
       </div>
-      
+
       <div className="flex-1">
-        <h4 className="font-bold text-gray-900 mb-1">{title}</h4>
-        <p className="text-sm text-gray-600 mb-3">{description}</p>
-        <ul className="space-y-1 text-sm text-gray-700">
+        <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-1">{title}</h4>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{description}</p>
+        <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
           {required.map((item: string, index: number) => (
             <li key={index}>• {item}</li>
           ))}
@@ -1393,11 +1393,11 @@ function ExceptionStep({ step, title, description, required }: any) {
 
 function ExceptionType({ title, duration, description, examples }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
-      <div className="text-sm text-orange-600 font-semibold mb-3">{duration}</div>
-      <p className="text-sm text-gray-700 mb-4">{description}</p>
-      <div className="text-xs text-gray-600">
+    <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-6">
+      <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{title}</h3>
+      <div className="text-sm text-orange-600 dark:text-orange-500 font-semibold mb-3">{duration}</div>
+      <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">{description}</p>
+      <div className="text-xs text-gray-600 dark:text-gray-400">
         <strong>Examples:</strong> {examples.join(', ')}
       </div>
     </div>
@@ -1454,10 +1454,10 @@ function ConformanceExpectationsSection() {
         </div>
 
         {/* Verification Process */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Conformance Verification</h3>
-            <p className="text-sm text-gray-600 mt-1">How conformance is measured and verified</p>
+        <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 border-b-2 border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-gray-900 dark:text-gray-100">Conformance Verification</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">How conformance is measured and verified</p>
           </div>
           
           <div className="p-6 space-y-6">
@@ -1485,26 +1485,26 @@ function ConformanceExpectationsSection() {
         </div>
 
         {/* Non-Conformance */}
-        <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <XCircle className="text-red-600" size={20} />
+        <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
+          <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+            <XCircle className="text-red-600 dark:text-red-500" size={20} />
             Non-Conformance Consequences
           </h3>
-          
+
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3">For Government Departments:</h4>
-              <ul className="space-y-2 text-gray-700">
+              <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">For Government Departments:</h4>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li>• Reduced support priority</li>
                 <li>• Excluded from beta testing programs</li>
                 <li>• May not influence design system roadmap</li>
                 <li>• Required justification in project reviews</li>
               </ul>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3">For Vendor Partners:</h4>
-              <ul className="space-y-2 text-gray-700">
+              <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">For Vendor Partners:</h4>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li>• Application may be rejected in acceptance testing</li>
                 <li>• Remediation work required before go-live</li>
                 <li>• Future contract consideration affected</li>
@@ -1520,31 +1520,31 @@ function ConformanceExpectationsSection() {
 
 function ConformanceLevel({ level, badge, requirements, benefits }: any) {
   const badgeColors = {
-    gold: 'bg-yellow-100 text-yellow-700 border-yellow-300',
-    silver: 'bg-gray-100 text-gray-700 border-gray-300',
-    bronze: 'bg-orange-100 text-orange-700 border-orange-300'
+    gold: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-yellow-300 dark:border-yellow-700',
+    silver: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700',
+    bronze: 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 border-orange-300 dark:border-orange-700'
   };
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className={`p-4 border-b-2 ${badgeColors[badge as keyof typeof badgeColors]} border-gray-300`}>
+    <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+      <div className={`p-4 border-b-2 ${badgeColors[badge as keyof typeof badgeColors]} border-gray-300 dark:border-gray-700`}>
         <h3 className="font-bold text-center text-lg">{level}</h3>
       </div>
-      
+
       <div className="p-6">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">Requirements:</h4>
+        <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 text-sm">Requirements:</h4>
         <ul className="space-y-2 mb-6">
           {requirements.map((req: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
               <span>{req}</span>
             </li>
           ))}
         </ul>
-        
-        <div className="pt-4 border-t border-gray-200">
-          <div className="text-xs text-gray-600 mb-1">Benefits:</div>
-          <div className="text-sm font-semibold text-gray-900">{benefits}</div>
+
+        <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">Benefits:</div>
+          <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">{benefits}</div>
         </div>
       </div>
     </div>
@@ -1555,15 +1555,15 @@ function VerificationMethod({ method, frequency, description, tools }: any) {
   return (
     <div className="flex gap-6">
       <div className="flex-shrink-0 w-32">
-        <div className="font-bold text-gray-900">{method}</div>
-        <div className="text-sm text-gray-600">{frequency}</div>
+        <div className="font-bold text-gray-900 dark:text-gray-100">{method}</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">{frequency}</div>
       </div>
-      
+
       <div className="flex-1">
-        <p className="text-sm text-gray-700 mb-3">{description}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{description}</p>
         <div className="flex gap-2 flex-wrap">
           {tools.map((tool: string, index: number) => (
-            <span key={index} className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
+            <span key={index} className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded text-xs">
               {tool}
             </span>
           ))}
@@ -1579,10 +1579,10 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-[#000080]">{icon}</div>
-        <h2 className="text-4xl font-bold text-gray-900">{title}</h2>
+        <div className="text-[#000080] dark:text-blue-400">{icon}</div>
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100">{title}</h2>
       </div>
-      <p className="text-lg text-gray-600">{description}</p>
+      <p className="text-lg text-gray-600 dark:text-gray-400">{description}</p>
     </div>
   );
 }

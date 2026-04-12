@@ -1,0 +1,190 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "card": {
+        "base": {
+          "$type": "dimension",
+          "padding": {
+            "sm": { "value": "12px", "description": "Small card padding" },
+            "md": { "value": "16px", "description": "Medium card padding - default" },
+            "lg": { "value": "24px", "description": "Large card padding" },
+            "xl": { "value": "32px", "description": "Extra large card padding" }
+          },
+          "gap": {
+            "sm": { "value": "8px", "description": "Small gap between card sections" },
+            "md": { "value": "12px", "description": "Medium gap between card sections" },
+            "lg": { "value": "16px", "description": "Large gap between card sections" }
+          },
+          "borderWidth": {
+            "value": "1px",
+            "description": "Card border width"
+          },
+          "borderRadius": {
+            "sm": { "value": "4px", "description": "Small border radius" },
+            "md": { "value": "8px", "description": "Medium border radius - default" },
+            "lg": { "value": "12px", "description": "Large border radius" }
+          },
+          "minHeight": {
+            "value": "80px",
+            "description": "Minimum card height"
+          }
+        },
+        "variant": {
+          "default": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Default card background - White" },
+            "border": { "value": "#e5e5e5", "description": "Default card border - Neutral 200" },
+            "shadow": { "value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)", "description": "Default card shadow" }
+          },
+          "elevated": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Elevated card background - White" },
+            "border": { "value": "transparent", "description": "Elevated card border - transparent" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Elevated card shadow - medium" }
+          },
+          "outlined": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Outlined card background - White" },
+            "border": { "value": "#d4d4d4", "description": "Outlined card border - Neutral 300" },
+            "shadow": { "value": "none", "description": "Outlined card shadow - none" }
+          },
+          "filled": {
+            "$type": "color",
+            "background": { "value": "#fafafa", "description": "Filled card background - Neutral 50" },
+            "border": { "value": "transparent", "description": "Filled card border - transparent" },
+            "shadow": { "value": "none", "description": "Filled card shadow - none" }
+          }
+        },
+        "state": {
+          "hover": {
+            "$type": "color",
+            "default": {
+              "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Hover shadow for default cards" }
+            },
+            "elevated": {
+              "shadow": { "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)", "description": "Hover shadow for elevated cards" }
+            },
+            "outlined": {
+              "border": { "value": "#005196", "description": "Hover border for outlined cards - Navy 500" }
+            }
+          },
+          "focus": {
+            "$type": "color",
+            "ring": { "value": "#005196", "description": "Focus ring color - Navy 500" },
+            "ringWidth": { "value": "2px", "description": "Focus ring width" },
+            "ringOffset": { "value": "2px", "description": "Focus ring offset" }
+          },
+          "active": {
+            "$type": "color",
+            "border": { "value": "#005196", "description": "Active card border - Navy 500" },
+            "shadow": { "value": "0 0 0 3px rgba(0, 81, 150, 0.1)", "description": "Active card glow" }
+          }
+        },
+        "header": {
+          "$type": "dimension",
+          "padding": {
+            "value": "16px",
+            "description": "Card header padding"
+          },
+          "borderBottom": {
+            "width": { "value": "1px", "description": "Header border width" },
+            "style": { "value": "solid", "description": "Header border style" }
+          },
+          "$type": "color",
+          "background": { "value": "#ffffff", "description": "Header background - White" },
+          "border": { "value": "#e5e5e5", "description": "Header border - Neutral 200" }
+        },
+        "title": {
+          "$type": "dimension",
+          "fontSize": {
+            "sm": { "value": "16px", "description": "Small title font size" },
+            "md": { "value": "18px", "description": "Medium title font size" },
+            "lg": { "value": "20px", "description": "Large title font size" }
+          },
+          "fontWeight": {
+            "value": "600",
+            "description": "Title font weight - semibold"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Title line height"
+          },
+          "$type": "color",
+          "text": { "value": "#171717", "description": "Title text - Neutral 900" }
+        },
+        "description": {
+          "$type": "dimension",
+          "fontSize": {
+            "value": "14px",
+            "description": "Description font size"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Description line height"
+          },
+          "marginTop": {
+            "value": "4px",
+            "description": "Description top margin"
+          },
+          "$type": "color",
+          "text": { "value": "#525252", "description": "Description text - Neutral 600" }
+        },
+        "body": {
+          "$type": "dimension",
+          "padding": {
+            "value": "16px",
+            "description": "Card body padding"
+          },
+          "fontSize": {
+            "value": "14px",
+            "description": "Body font size"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Body line height - WCAG recommended"
+          },
+          "$type": "color",
+          "text": { "value": "#171717", "description": "Body text - Neutral 900" }
+        },
+        "footer": {
+          "$type": "dimension",
+          "padding": {
+            "value": "16px",
+            "description": "Card footer padding"
+          },
+          "gap": {
+            "value": "12px",
+            "description": "Gap between footer elements"
+          },
+          "borderTop": {
+            "width": { "value": "1px", "description": "Footer border width" },
+            "style": { "value": "solid", "description": "Footer border style" }
+          },
+          "$type": "color",
+          "background": { "value": "#fafafa", "description": "Footer background - Neutral 50" },
+          "border": { "value": "#e5e5e5", "description": "Footer border - Neutral 200" }
+        },
+        "image": {
+          "$type": "dimension",
+          "borderRadius": {
+            "top": { "value": "8px 8px 0 0", "description": "Top image border radius" },
+            "all": { "value": "8px", "description": "All sides image border radius" }
+          },
+          "aspectRatio": {
+            "square": { "value": "1 / 1", "description": "Square aspect ratio" },
+            "video": { "value": "16 / 9", "description": "Video aspect ratio" },
+            "photo": { "value": "4 / 3", "description": "Photo aspect ratio" }
+          }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minTouchTarget": {
+            "value": "44px",
+            "description": "Minimum touch target for interactive cards per WCAG 2.5.5"
+          }
+        }
+      }
+    }
+  }
+}

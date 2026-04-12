@@ -1,0 +1,85 @@
+.ux4g-segmented-control {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ux4g-segmented-control--full-width {
+  width: 100%;
+  display: block;
+}
+
+.ux4g-segmented-control__track {
+  position: relative;
+  display: inline-flex;
+  background-color: #e5e7eb;
+  border-radius: 8px;
+  padding: 2px;
+  width: 100%;
+}
+
+.ux4g-segmented-control--full-width .ux4g-segmented-control__track {
+  width: 100%;
+}
+
+.ux4g-segmented-control__indicator {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.ux4g-segmented-control__option {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  color: #4b5563;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.ux4g-segmented-control--sm .ux4g-segmented-control__option {
+  padding: 4px 12px;
+  font-size: 13px;
+}
+
+.ux4g-segmented-control--md .ux4g-segmented-control__option {
+  padding: 6px 16px;
+  font-size: 14px;
+}
+
+.ux4g-segmented-control--lg .ux4g-segmented-control__option {
+  padding: 8px 20px;
+  font-size: 16px;
+}
+
+.ux4g-segmented-control__option:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.ux4g-segmented-control__option:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.ux4g-segmented-control__option--selected {
+  color: #111827;
+}
+
+.ux4g-segmented-control__option--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ux4g-segmented-control--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}

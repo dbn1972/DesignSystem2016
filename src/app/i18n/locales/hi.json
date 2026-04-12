@@ -1,0 +1,169 @@
+{
+  "common": {
+    "home": "होम",
+    "about": "के बारे में",
+    "contact": "संपर्क करें",
+    "search": "खोजें",
+    "login": "लॉगिन",
+    "logout": "लॉगआउट",
+    "signup": "साइन अप करें",
+    "submit": "जमा करें",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "close": "बंद करें",
+    "back": "वापस",
+    "next": "अगला",
+    "previous": "पिछला",
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "warning": "चेतावनी",
+    "info": "जानकारी",
+    "confirm": "पुष्टि करें",
+    "required": "आवश्यक",
+    "optional": "वैकल्पिक",
+    "select": "चुनें",
+    "selectLanguage": "भाषा चुनें",
+    "language": "भाषा"
+  },
+  "navigation": {
+    "foundations": "आधार",
+    "components": "घटक",
+    "patterns": "पैटर्न",
+    "archetypes": "सेवा प्रकार",
+    "systems": "प्रणालियाँ",
+    "services": "संदर्भ सेवाएं",
+    "resources": "संसाधन",
+    "governance": "शासन",
+    "accessibility": "सुगम्यता",
+    "contentSystem": "सामग्री डिज़ाइन प्रणाली",
+    "frameworkStatus": "फ्रेमवर्क स्थिति",
+    "webComponents": "वेब घटक"
+  },
+  "home": {
+    "title": "UX4G डिज़ाइन सिस्टम",
+    "subtitle": "भारत सरकार की आधिकारिक डिज़ाइन प्रणाली",
+    "tagline": "हर नागरिक के लिए सुसंगत, सुलभ और समावेशी डिजिटल सेवाएं बनाना",
+    "getStarted": "शुरू करें",
+    "viewComponents": "घटक देखें",
+    "explore": "दस्तावेज़ीकरण देखें",
+    "forDevelopers": "डेवलपर्स के लिए",
+    "forDesigners": "डिज़ाइनरों के लिए",
+    "forPolicymakers": "नीति निर्माताओं के लिए"
+  },
+  "hero": {
+    "title": "डिजिटल इंडिया के लिए डिज़ाइन सिस्टम",
+    "description": "सभी 1.4 बिलियन नागरिकों की सेवा करने वाली सरकारी डिजिटल सेवाओं के निर्माण के लिए उत्पादन-तैयार घटक, पैटर्न और दिशानिर्देश।",
+    "cta": {
+      "primary": "शुरू करें",
+      "secondary": "घटक देखें"
+    }
+  },
+  "features": {
+    "title": "भारत के लिए बनाया गया",
+    "subtitle": "भारतीय सरकारी सेवाओं के लिए डिज़ाइन की गई सुविधाएं",
+    "accessibility": {
+      "title": "सुगम्यता प्रथम",
+      "description": "WCAG 2.1 लेवल AA अनुपालक घटक यह सुनिश्चित करते हैं कि डिजिटल सेवाएं विकलांग व्यक्तियों सहित सभी नागरिकों के लिए सुलभ हैं।"
+    },
+    "multilingual": {
+      "title": "22 भाषाओं का समर्थन",
+      "description": "स्वचालित पाठ दिशा और सांस्कृतिक अनुकूलन के साथ भारत की 22 अनुसूचित भाषाओं के लिए पूर्ण समर्थन।"
+    },
+    "government": {
+      "title": "सरकार-विशिष्ट",
+      "description": "आधार, पैन, डिजीलॉकर और अन्य सरकारी सेवाओं के लिए बिल्ट-इन सत्यापन के साथ पूर्व-निर्मित घटक।"
+    },
+    "frameworks": {
+      "title": "मल्टी-फ्रेमवर्क",
+      "description": "React, Angular और Web Components के लिए उपलब्ध। अपनी परियोजना के अनुरूप तकनीक चुनें।"
+    },
+    "responsive": {
+      "title": "मोबाइल-फर्स्ट डिज़ाइन",
+      "description": "इंडिया मोबाइल के लिए टच-फ्रेंडली इंटरफेस के साथ मोबाइल उपकरणों के लिए अनुकूलित रिस्पॉन्सिव घटक।"
+    },
+    "opensource": {
+      "title": "ओपन सोर्स",
+      "description": "MIT लाइसेंस प्राप्त और समुदाय-संचालित। योगदान करें और भारत के लिए डिजिटल सेवाओं को बेहतर बनाने में मदद करें।"
+    }
+  },
+  "components": {
+    "title": "73 उत्पादन-तैयार घटक",
+    "description": "सुलभ, सरकार-तैयार UI घटकों की व्यापक लाइब्रेरी",
+    "viewAll": "सभी घटक देखें",
+    "categories": {
+      "formElements": "फॉर्म तत्व",
+      "navigation": "नेविगेशन",
+      "feedback": "प्रतिक्रिया",
+      "dataDisplay": "डेटा प्रदर्शन",
+      "layout": "लेआउट",
+      "advanced": "उन्नत घटक"
+    }
+  },
+  "frameworks": {
+    "title": "अपना फ्रेमवर्क चुनें",
+    "react": "React घटक",
+    "angular": "Angular घटक",
+    "webComponents": "वेब घटक",
+    "allFrameworks": "सभी फ्रेमवर्क समर्थित"
+  },
+  "footer": {
+    "about": "UX4G के बारे में",
+    "documentation": "दस्तावेज़ीकरण",
+    "github": "GitHub",
+    "contribute": "योगदान करें",
+    "license": "MIT लाइसेंस",
+    "digitalIndia": "डिजिटल इंडिया पहल",
+    "madeWith": "डिजिटल इंडिया के लिए ❤️ के साथ बनाया गया",
+    "copyright": "© 2026 भारत सरकार। सर्वाधिकार सुरक्षित।"
+  },
+  "accessibility": {
+    "skipToContent": "मुख्य सामग्री पर जाएं",
+    "openMenu": "मेनू खोलें",
+    "closeMenu": "मेनू बंद करें",
+    "toggleTheme": "थीम बदलें",
+    "previousPage": "पिछला पृष्ठ",
+    "nextPage": "अगला पृष्ठ",
+    "loading": "सामग्री लोड हो रही है",
+    "sr": {
+      "required": "आवश्यक फ़ील्ड",
+      "optional": "वैकल्पिक फ़ील्ड",
+      "error": "त्रुटि",
+      "success": "सफलता",
+      "loading": "लोड हो रहा है"
+    }
+  },
+  "errors": {
+    "pageNotFound": "पृष्ठ नहीं मिला",
+    "pageNotFoundDescription": "आप जिस पृष्ठ को ढूंढ रहे हैं वह मौजूद नहीं है।",
+    "goHome": "होम पर जाएं",
+    "serverError": "सर्वर त्रुटि",
+    "serverErrorDescription": "कुछ गलत हो गया। कृपया बाद में पुनः प्रयास करें।",
+    "tryAgain": "पुनः प्रयास करें"
+  },
+  "forms": {
+    "emailLabel": "ईमेल पता",
+    "emailPlaceholder": "अपना ईमेल दर्ज करें",
+    "passwordLabel": "पासवर्ड",
+    "passwordPlaceholder": "अपना पासवर्ड दर्ज करें",
+    "nameLabel": "पूरा नाम",
+    "namePlaceholder": "अपना पूरा नाम दर्ज करें",
+    "phoneLabel": "फोन नंबर",
+    "phonePlaceholder": "+91 XXXXX XXXXX",
+    "aadhaarLabel": "आधार संख्या",
+    "aadhaarPlaceholder": "XXXX XXXX XXXX",
+    "panLabel": "पैन कार्ड नंबर",
+    "panPlaceholder": "ABCDE1234F",
+    "validation": {
+      "required": "यह फ़ील्ड आवश्यक है",
+      "invalidEmail": "कृपया एक वैध ईमेल पता दर्ज करें",
+      "invalidPhone": "कृपया एक वैध फोन नंबर दर्ज करें",
+      "invalidAadhaar": "कृपया एक वैध 12-अंकीय आधार संख्या दर्ज करें",
+      "invalidPan": "कृपया एक वैध पैन प्रारूप दर्ज करें (5 अक्षर + 4 अंक + 1 अक्षर)",
+      "passwordTooShort": "पासवर्ड कम से कम 8 वर्णों का होना चाहिए",
+      "passwordRequirements": "पासवर्ड में अपरकेस, लोअरकेस, नंबर और विशेष वर्ण होना चाहिए"
+    }
+  }
+}

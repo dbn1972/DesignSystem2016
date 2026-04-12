@@ -1,0 +1,227 @@
+/* Footer Container */
+.ux4g-footer {
+  width: 100%;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  padding: 3rem 0 2rem;
+  margin-top: auto;
+}
+
+.ux4g-footer--government {
+  background: #112e51;
+  color: #ffffff;
+  border-top-color: #1a4480;
+}
+
+.ux4g-footer__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Footer Columns */
+.ux4g-footer__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ux4g-footer--government .ux4g-footer__columns {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.ux4g-footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ux4g-footer__column-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.ux4g-footer--government .ux4g-footer__column-title {
+  color: #ffffff;
+}
+
+.ux4g-footer__link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ux4g-footer__link-item {
+  margin: 0;
+}
+
+.ux4g-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.ux4g-footer--government .ux4g-footer__link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ux4g-footer__link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.ux4g-footer--government .ux4g-footer__link:hover {
+  color: #ffffff;
+}
+
+.ux4g-footer__link:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.ux4g-footer__external-icon {
+  font-size: 0.75rem;
+  margin-left: 0.125rem;
+}
+
+/* Bottom Section */
+.ux4g-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+}
+
+.ux4g-footer__copyright {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.ux4g-footer--government .ux4g-footer__copyright {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Social Links */
+.ux4g-footer__social {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.ux4g-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #374151;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ux4g-footer--government .ux4g-footer__social-link {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.ux4g-footer__social-link:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.ux4g-footer--government .ux4g-footer__social-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.ux4g-footer__social-link:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.ux4g-footer__social-icon {
+  font-size: 1.25rem;
+}
+
+/* Disclaimer */
+.ux4g-footer__disclaimer {
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.ux4g-footer--government .ux4g-footer__disclaimer {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.ux4g-footer__disclaimer p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.ux4g-footer--government .ux4g-footer__disclaimer p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ux4g-footer {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .ux4g-footer__columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .ux4g-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .ux4g-footer__social {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .ux4g-footer__columns {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,35 @@
+<div [class]="codeBlockClasses">
+  <!-- Header -->
+  <div class="ux4g-code-block__header" *ngIf="fileName || copyable">
+    <span *ngIf="fileName" class="ux4g-code-block__filename">
+      <span class="ux4g-code-block__file-icon" aria-hidden="true">📄</span>
+      {{ fileName }}
+    </span>
+    <button *ngIf="copyable"
+            (click)="copyCode()"
+            class="ux4g-code-block__copy"
+            [attr.aria-label]="copied ? 'Copied to clipboard' : 'Copy code to clipboard'"
+            type="button">
+      <span *ngIf="!copied" aria-hidden="true">📋</span>
+      <span *ngIf="copied" aria-hidden="true">✓</span>
+      <span class="ux4g-code-block__copy-text">{{ copied ? 'Copied' : 'Copy' }}</span>
+    </button>
+  </div>
+  
+  <!-- Code Content -->
+  <div class="ux4g-code-block__content" [style.max-height]="maxHeight">
+    <div class="ux4g-code-block__wrapper">
+      <!-- Line Numbers -->
+      <div *ngIf="showLineNumbers" class="ux4g-code-block__line-numbers" aria-hidden="true">
+        <div *ngFor="let line of getLines(); let i = index"
+             class="ux4g-code-block__line-number"
+             [class.ux4g-code-block__line-number--highlighted]="isLineHighlighted(i + 1)">
+          {{ i + 1 }}
+        </div>
+      </div>
+      
+      <!-- Code -->
+      <pre class="ux4g-code-block__pre" [class.ux4g-code-block__pre--with-lines]="showLineNumbers"><code [class]="'language-' + language" class="ux4g-code-block__code">{{ code }}</code></pre>
+    </div>
+  </div>
+</div>

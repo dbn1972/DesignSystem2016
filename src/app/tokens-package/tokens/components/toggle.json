@@ -1,0 +1,141 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "toggle": {
+        "base": {
+          "$type": "dimension",
+          "width": {
+            "sm": { "value": "36px", "description": "Small toggle width" },
+            "md": { "value": "44px", "description": "Medium toggle width - default" },
+            "lg": { "value": "52px", "description": "Large toggle width" }
+          },
+          "height": {
+            "sm": { "value": "20px", "description": "Small toggle height" },
+            "md": { "value": "24px", "description": "Medium toggle height - WCAG touch target" },
+            "lg": { "value": "28px", "description": "Large toggle height" }
+          },
+          "thumbSize": {
+            "sm": { "value": "16px", "description": "Small thumb size" },
+            "md": { "value": "20px", "description": "Medium thumb size" },
+            "lg": { "value": "24px", "description": "Large thumb size" }
+          },
+          "thumbOffset": {
+            "sm": { "value": "2px", "description": "Small thumb offset from edge" },
+            "md": { "value": "2px", "description": "Medium thumb offset from edge" },
+            "lg": { "value": "2px", "description": "Large thumb offset from edge" }
+          },
+          "borderRadius": {
+            "track": { "value": "9999px", "description": "Track border radius - full pill" },
+            "thumb": { "value": "9999px", "description": "Thumb border radius - full circle" }
+          },
+          "transition": {
+            "duration": { "value": "200ms", "description": "Toggle transition duration" },
+            "timing": { "value": "ease-in-out", "description": "Toggle transition timing function" }
+          }
+        },
+        "state": {
+          "unchecked": {
+            "$type": "color",
+            "track": {
+              "background": { "value": "#d4d4d4", "description": "Unchecked track background - Neutral 300" },
+              "border": { "value": "#d4d4d4", "description": "Unchecked track border - Neutral 300" }
+            },
+            "thumb": {
+              "background": { "value": "#ffffff", "description": "Unchecked thumb background - White" },
+              "shadow": { "value": "0 1px 3px 0 rgb(0 0 0 / 0.1)", "description": "Thumb shadow" }
+            }
+          },
+          "checked": {
+            "$type": "color",
+            "track": {
+              "background": { "value": "#005196", "description": "Checked track background - Navy 500" },
+              "border": { "value": "#005196", "description": "Checked track border - Navy 500" }
+            },
+            "thumb": {
+              "background": { "value": "#ffffff", "description": "Checked thumb background - White" },
+              "shadow": { "value": "0 1px 3px 0 rgb(0 0 0 / 0.1)", "description": "Thumb shadow" }
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "unchecked": {
+              "track": {
+                "background": { "value": "#a3a3a3", "description": "Unchecked hover track - Neutral 400" }
+              }
+            },
+            "checked": {
+              "track": {
+                "background": { "value": "#004178", "description": "Checked hover track - Navy 600" }
+              }
+            }
+          },
+          "focus": {
+            "$type": "color",
+            "ring": { "value": "#005196", "description": "Focus ring color - Navy 500" },
+            "ringOpacity": { "value": "0.3", "description": "Focus ring opacity" }
+          },
+          "disabled": {
+            "$type": "color",
+            "unchecked": {
+              "track": {
+                "background": { "value": "#e5e5e5", "description": "Disabled unchecked track - Neutral 200" }
+              },
+              "thumb": {
+                "background": { "value": "#fafafa", "description": "Disabled thumb - Neutral 50" }
+              }
+            },
+            "checked": {
+              "track": {
+                "background": { "value": "#99b9d5", "description": "Disabled checked track - Navy 200" }
+              },
+              "thumb": {
+                "background": { "value": "#e6eef5", "description": "Disabled thumb - Navy 50" }
+              }
+            },
+            "cursor": { "value": "not-allowed", "description": "Disabled cursor style" }
+          }
+        },
+        "label": {
+          "$type": "dimension",
+          "gap": {
+            "sm": { "value": "8px", "description": "Gap between toggle and label - small" },
+            "md": { "value": "12px", "description": "Gap between toggle and label - medium" },
+            "lg": { "value": "16px", "description": "Gap between toggle and label - large" }
+          },
+          "$type": "color",
+          "text": {
+            "default": { "value": "#171717", "description": "Label text - Neutral 900" },
+            "disabled": { "value": "#a3a3a3", "description": "Disabled label text - Neutral 400" }
+          }
+        },
+        "icon": {
+          "$type": "dimension",
+          "size": {
+            "sm": { "value": "10px", "description": "Small icon size in thumb" },
+            "md": { "value": "12px", "description": "Medium icon size in thumb" },
+            "lg": { "value": "14px", "description": "Large icon size in thumb" }
+          },
+          "$type": "color",
+          "unchecked": { "value": "#737373", "description": "Unchecked icon color - Neutral 500" },
+          "checked": { "value": "#005196", "description": "Checked icon color - Navy 500" }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minTouchTarget": {
+            "width": { "value": "44px", "description": "Minimum width per WCAG 2.5.5" },
+            "height": { "value": "44px", "description": "Minimum height per WCAG 2.5.5" }
+          },
+          "focusRingWidth": {
+            "value": "2px",
+            "description": "Focus ring width for accessibility"
+          },
+          "focusRingOffset": {
+            "value": "2px",
+            "description": "Focus ring offset from toggle edge"
+          }
+        }
+      }
+    }
+  }
+}

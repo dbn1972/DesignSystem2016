@@ -1,0 +1,194 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "badge": {
+        "base": {
+          "$type": "dimension",
+          "height": {
+            "sm": { "value": "20px", "description": "Small badge height" },
+            "md": { "value": "24px", "description": "Medium badge height - default" },
+            "lg": { "value": "28px", "description": "Large badge height" }
+          },
+          "padding": {
+            "horizontal": {
+              "sm": { "value": "6px", "description": "Small horizontal padding" },
+              "md": { "value": "8px", "description": "Medium horizontal padding" },
+              "lg": { "value": "12px", "description": "Large horizontal padding" }
+            }
+          },
+          "borderRadius": {
+            "square": { "value": "4px", "description": "Square badge radius" },
+            "rounded": { "value": "12px", "description": "Rounded badge radius" },
+            "pill": { "value": "9999px", "description": "Pill badge radius - full pill" }
+          },
+          "borderWidth": {
+            "value": "1px",
+            "description": "Badge border width"
+          },
+          "fontSize": {
+            "sm": { "value": "12px", "description": "Small badge font size" },
+            "md": { "value": "14px", "description": "Medium badge font size" },
+            "lg": { "value": "16px", "description": "Large badge font size" }
+          },
+          "fontWeight": {
+            "value": "500",
+            "description": "Badge font weight - medium"
+          },
+          "lineHeight": {
+            "value": "1",
+            "description": "Badge line height - tight for badges"
+          },
+          "iconSize": {
+            "sm": { "value": "12px", "description": "Small icon size" },
+            "md": { "value": "14px", "description": "Medium icon size" },
+            "lg": { "value": "16px", "description": "Large icon size" }
+          },
+          "gap": {
+            "value": "4px",
+            "description": "Gap between icon and text"
+          }
+        },
+        "variant": {
+          "default": {
+            "$type": "color",
+            "background": { "value": "#f5f5f5", "description": "Default badge background - Neutral 100" },
+            "text": { "value": "#171717", "description": "Default badge text - Neutral 900" },
+            "border": { "value": "#e5e5e5", "description": "Default badge border - Neutral 200" }
+          },
+          "primary": {
+            "$type": "color",
+            "background": { "value": "#e6eef5", "description": "Primary badge background - Navy 50" },
+            "text": { "value": "#00315a", "description": "Primary badge text - Navy 700" },
+            "border": { "value": "#99b9d5", "description": "Primary badge border - Navy 200" }
+          },
+          "secondary": {
+            "$type": "color",
+            "background": { "value": "#fff4e6", "description": "Secondary badge background - Saffron 50" },
+            "text": { "value": "#994700", "description": "Secondary badge text - Saffron 700" },
+            "border": { "value": "#ffc999", "description": "Secondary badge border - Saffron 200" }
+          },
+          "success": {
+            "$type": "color",
+            "background": { "value": "#e6f7e6", "description": "Success badge background - Green 50" },
+            "text": { "value": "#006600", "description": "Success badge text - Green 700" },
+            "border": { "value": "#99dd99", "description": "Success badge border - Green 200" }
+          },
+          "warning": {
+            "$type": "color",
+            "background": { "value": "#fff4e6", "description": "Warning badge background - Saffron 50" },
+            "text": { "value": "#994700", "description": "Warning badge text - Saffron 700" },
+            "border": { "value": "#ffc999", "description": "Warning badge border - Saffron 200" }
+          },
+          "error": {
+            "$type": "color",
+            "background": { "value": "#fef2f2", "description": "Error badge background - Red 50" },
+            "text": { "value": "#991b1b", "description": "Error badge text - Error dark" },
+            "border": { "value": "#fecaca", "description": "Error badge border - Red 200" }
+          },
+          "info": {
+            "$type": "color",
+            "background": { "value": "#e6eef5", "description": "Info badge background - Navy 50" },
+            "text": { "value": "#00315a", "description": "Info badge text - Navy 700" },
+            "border": { "value": "#99b9d5", "description": "Info badge border - Navy 200" }
+          }
+        },
+        "solid": {
+          "primary": {
+            "$type": "color",
+            "background": { "value": "#005196", "description": "Solid primary background - Navy 500" },
+            "text": { "value": "#ffffff", "description": "Solid primary text - White" },
+            "border": { "value": "#005196", "description": "Solid primary border - Navy 500" }
+          },
+          "secondary": {
+            "$type": "color",
+            "background": { "value": "#ff7700", "description": "Solid secondary background - Saffron 500" },
+            "text": { "value": "#ffffff", "description": "Solid secondary text - White" },
+            "border": { "value": "#ff7700", "description": "Solid secondary border - Saffron 500" }
+          },
+          "success": {
+            "$type": "color",
+            "background": { "value": "#008800", "description": "Solid success background - Green 600" },
+            "text": { "value": "#ffffff", "description": "Solid success text - White" },
+            "border": { "value": "#008800", "description": "Solid success border - Green 600" }
+          },
+          "warning": {
+            "$type": "color",
+            "background": { "value": "#cc5f00", "description": "Solid warning background - Saffron 600" },
+            "text": { "value": "#ffffff", "description": "Solid warning text - White" },
+            "border": { "value": "#cc5f00", "description": "Solid warning border - Saffron 600" }
+          },
+          "error": {
+            "$type": "color",
+            "background": { "value": "#dc2626", "description": "Solid error background - Error DEFAULT" },
+            "text": { "value": "#ffffff", "description": "Solid error text - White" },
+            "border": { "value": "#dc2626", "description": "Solid error border - Error DEFAULT" }
+          }
+        },
+        "dot": {
+          "$type": "dimension",
+          "size": {
+            "sm": { "value": "6px", "description": "Small dot size" },
+            "md": { "value": "8px", "description": "Medium dot size" },
+            "lg": { "value": "10px", "description": "Large dot size" }
+          },
+          "gap": {
+            "value": "6px",
+            "description": "Gap between dot and text"
+          },
+          "$type": "color",
+          "default": { "value": "#737373", "description": "Default dot color - Neutral 500" },
+          "primary": { "value": "#005196", "description": "Primary dot color - Navy 500" },
+          "success": { "value": "#008800", "description": "Success dot color - Green 600" },
+          "warning": { "value": "#cc5f00", "description": "Warning dot color - Saffron 600" },
+          "error": { "value": "#dc2626", "description": "Error dot color - Error DEFAULT" }
+        },
+        "numeric": {
+          "$type": "dimension",
+          "size": {
+            "sm": { "value": "16px", "description": "Small numeric badge size" },
+            "md": { "value": "20px", "description": "Medium numeric badge size" },
+            "lg": { "value": "24px", "description": "Large numeric badge size" }
+          },
+          "fontSize": {
+            "sm": { "value": "10px", "description": "Small numeric font size" },
+            "md": { "value": "12px", "description": "Medium numeric font size" },
+            "lg": { "value": "14px", "description": "Large numeric font size" }
+          },
+          "borderRadius": {
+            "value": "9999px",
+            "description": "Numeric badge radius - full circle"
+          },
+          "$type": "color",
+          "background": { "value": "#dc2626", "description": "Numeric badge background - Error DEFAULT" },
+          "text": { "value": "#ffffff", "description": "Numeric badge text - White" }
+        },
+        "position": {
+          "$type": "string",
+          "topRight": { "value": "top-right", "description": "Top right position - default for notifications" },
+          "topLeft": { "value": "top-left", "description": "Top left position" },
+          "bottomRight": { "value": "bottom-right", "description": "Bottom right position" },
+          "bottomLeft": { "value": "bottom-left", "description": "Bottom left position" }
+        },
+        "offset": {
+          "$type": "dimension",
+          "top": {
+            "value": "-8px",
+            "description": "Top offset for positioned badges"
+          },
+          "right": {
+            "value": "-8px",
+            "description": "Right offset for positioned badges"
+          }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minWidth": {
+            "value": "24px",
+            "description": "Minimum width for readability"
+          }
+        }
+      }
+    }
+  }
+}

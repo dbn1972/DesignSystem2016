@@ -1,0 +1,38 @@
+.ux4g-qr-code {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-family: inherit;
+}
+
+.ux4g-qr-code__canvas {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ux4g-qr-code__download {
+  padding: 8px 16px;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ux4g-qr-code__download:hover {
+  background: #0052a3;
+}
+
+.ux4g-qr-code__download:active {
+  background: #003d7a;
+}
+
+.ux4g-qr-code__download:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3);
+}

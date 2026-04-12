@@ -9,6 +9,10 @@ const DarkModeContext = createContext<DarkModeContextType | undefined>(undefined
 
 export function DarkModeProvider({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check if we're in a browser environment
+    if (typeof window === 'undefined') {
+      return false;
+    }
     // Check localStorage first
     const stored = localStorage.getItem('darkMode');
     if (stored !== null) {

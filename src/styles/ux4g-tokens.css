@@ -1,0 +1,215 @@
+/**
+ * UX4G Design Tokens - CSS Custom Properties
+ *
+ * This file bridges the @ux4g/tokens design system with the application theme.
+ * It defines CSS variables that can be used throughout the application.
+ *
+ * Layer: Base Tokens (theme-independent) + Theme Tokens (light/dark)
+ */
+
+/* ========================================
+   BASE COLOR TOKENS
+   ======================================== */
+
+:root {
+  /* Indian Tricolor - Saffron */
+  --ux4g-color-saffron-50: #fff4e6;
+  --ux4g-color-saffron-100: #ffe4cc;
+  --ux4g-color-saffron-200: #ffc999;
+  --ux4g-color-saffron-300: #ffad66;
+  --ux4g-color-saffron-400: #ff9233;
+  --ux4g-color-saffron-500: #ff7700;
+  --ux4g-color-saffron-600: #cc5f00;
+  --ux4g-color-saffron-700: #994700;
+  --ux4g-color-saffron-800: #663000;
+  --ux4g-color-saffron-900: #331800;
+
+  /* Indian Tricolor - Green */
+  --ux4g-color-green-50: #e6f7e6;
+  --ux4g-color-green-100: #cceecc;
+  --ux4g-color-green-200: #99dd99;
+  --ux4g-color-green-300: #66cc66;
+  --ux4g-color-green-400: #33bb33;
+  --ux4g-color-green-500: #00aa00;
+  --ux4g-color-green-600: #008800;
+  --ux4g-color-green-700: #006600;
+  --ux4g-color-green-800: #004400;
+  --ux4g-color-green-900: #002200;
+
+  /* Government Primary - Navy */
+  --ux4g-color-navy-50: #e6eef5;
+  --ux4g-color-navy-100: #ccdcea;
+  --ux4g-color-navy-200: #99b9d5;
+  --ux4g-color-navy-300: #6697c0;
+  --ux4g-color-navy-400: #3374ab;
+  --ux4g-color-navy-500: #005196;
+  --ux4g-color-navy-600: #004178;
+  --ux4g-color-navy-700: #00315a;
+  --ux4g-color-navy-800: #00203c;
+  --ux4g-color-navy-900: #00101e;
+
+  /* Neutral Scale */
+  --ux4g-color-neutral-0: #ffffff;
+  --ux4g-color-neutral-50: #fafafa;
+  --ux4g-color-neutral-100: #f5f5f5;
+  --ux4g-color-neutral-200: #e5e5e5;
+  --ux4g-color-neutral-300: #d4d4d4;
+  --ux4g-color-neutral-400: #a3a3a3;
+  --ux4g-color-neutral-500: #737373;
+  --ux4g-color-neutral-600: #525252;
+  --ux4g-color-neutral-700: #404040;
+  --ux4g-color-neutral-800: #262626;
+  --ux4g-color-neutral-900: #171717;
+  --ux4g-color-neutral-950: #0a0a0a;
+  --ux4g-color-neutral-1000: #000000;
+
+  /* Semantic Feedback */
+  --ux4g-color-error: #dc2626;
+  --ux4g-color-error-light: #ef4444;
+  --ux4g-color-error-dark: #991b1b;
+
+  /* Spacing Scale (rem-based) */
+  --ux4g-spacing-0: 0px;
+  --ux4g-spacing-px: 1px;
+  --ux4g-spacing-1: 0.25rem;
+  --ux4g-spacing-2: 0.5rem;
+  --ux4g-spacing-3: 0.75rem;
+  --ux4g-spacing-4: 1rem;
+  --ux4g-spacing-5: 1.25rem;
+  --ux4g-spacing-6: 1.5rem;
+  --ux4g-spacing-8: 2rem;
+  --ux4g-spacing-10: 2.5rem;
+  --ux4g-spacing-12: 3rem;
+  --ux4g-spacing-16: 4rem;
+  --ux4g-spacing-20: 5rem;
+  --ux4g-spacing-24: 6rem;
+
+  /* Border Radius */
+  --ux4g-radius-none: 0px;
+  --ux4g-radius-sm: 0.125rem;
+  --ux4g-radius-base: 0.25rem;
+  --ux4g-radius-md: 0.375rem;
+  --ux4g-radius-lg: 0.5rem;
+  --ux4g-radius-xl: 0.75rem;
+  --ux4g-radius-2xl: 1rem;
+  --ux4g-radius-3xl: 1.5rem;
+  --ux4g-radius-full: 9999px;
+
+  /* Shadows */
+  --ux4g-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ux4g-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --ux4g-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --ux4g-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --ux4g-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --ux4g-shadow-focus: 0 0 0 3px rgba(0, 81, 150, 0.3);
+}
+
+/* ========================================
+   LIGHT THEME (Default)
+   ======================================== */
+
+:root {
+  /* Brand Colors */
+  --ux4g-color-brand-primary: var(--ux4g-color-navy-500);
+  --ux4g-color-brand-secondary: var(--ux4g-color-saffron-500);
+  --ux4g-color-brand-tertiary: var(--ux4g-color-green-600);
+
+  /* Text Colors */
+  --ux4g-color-text-primary: var(--ux4g-color-neutral-900);
+  --ux4g-color-text-secondary: var(--ux4g-color-neutral-600);
+  --ux4g-color-text-tertiary: var(--ux4g-color-neutral-500);
+  --ux4g-color-text-disabled: var(--ux4g-color-neutral-400);
+  --ux4g-color-text-inverse: var(--ux4g-color-neutral-0);
+  --ux4g-color-text-link: var(--ux4g-color-navy-500);
+  --ux4g-color-text-link-hover: var(--ux4g-color-navy-700);
+
+  /* Background Colors */
+  --ux4g-color-background-primary: var(--ux4g-color-neutral-0);
+  --ux4g-color-background-secondary: var(--ux4g-color-neutral-50);
+  --ux4g-color-background-tertiary: var(--ux4g-color-neutral-100);
+  --ux4g-color-background-inverse: var(--ux4g-color-neutral-900);
+
+  /* Surface Colors (Cards, Modals) */
+  --ux4g-color-surface-primary: var(--ux4g-color-neutral-0);
+  --ux4g-color-surface-secondary: var(--ux4g-color-neutral-50);
+  --ux4g-color-surface-tertiary: var(--ux4g-color-neutral-100);
+
+  /* Border Colors */
+  --ux4g-color-border-default: var(--ux4g-color-neutral-200);
+  --ux4g-color-border-hover: var(--ux4g-color-neutral-400);
+  --ux4g-color-border-focus: var(--ux4g-color-navy-500);
+
+  /* Interactive Colors */
+  --ux4g-color-interactive-default: var(--ux4g-color-navy-500);
+  --ux4g-color-interactive-hover: var(--ux4g-color-navy-600);
+  --ux4g-color-interactive-active: var(--ux4g-color-navy-700);
+  --ux4g-color-interactive-disabled: var(--ux4g-color-neutral-300);
+
+  /* Feedback Colors */
+  --ux4g-color-feedback-success: var(--ux4g-color-green-600);
+  --ux4g-color-feedback-warning: var(--ux4g-color-saffron-600);
+  --ux4g-color-feedback-error: var(--ux4g-color-error);
+  --ux4g-color-feedback-info: var(--ux4g-color-navy-500);
+
+  /* Focus Ring */
+  --ux4g-color-focus-ring: var(--ux4g-color-navy-500);
+}
+
+/* ========================================
+   DARK THEME
+   ======================================== */
+
+.dark {
+  /* Brand Colors - Lighter for contrast */
+  --ux4g-color-brand-primary: var(--ux4g-color-navy-400);
+  --ux4g-color-brand-secondary: var(--ux4g-color-saffron-400);
+  --ux4g-color-brand-tertiary: var(--ux4g-color-green-500);
+
+  /* Text Colors - Inverted */
+  --ux4g-color-text-primary: var(--ux4g-color-neutral-50);
+  --ux4g-color-text-secondary: var(--ux4g-color-neutral-300);
+  --ux4g-color-text-tertiary: var(--ux4g-color-neutral-400);
+  --ux4g-color-text-disabled: var(--ux4g-color-neutral-600);
+  --ux4g-color-text-inverse: var(--ux4g-color-neutral-900);
+  --ux4g-color-text-link: var(--ux4g-color-navy-300);
+  --ux4g-color-text-link-hover: var(--ux4g-color-navy-200);
+
+  /* Background Colors - Dark */
+  --ux4g-color-background-primary: var(--ux4g-color-neutral-950);
+  --ux4g-color-background-secondary: var(--ux4g-color-neutral-900);
+  --ux4g-color-background-tertiary: var(--ux4g-color-neutral-800);
+  --ux4g-color-background-inverse: var(--ux4g-color-neutral-0);
+
+  /* Surface Colors */
+  --ux4g-color-surface-primary: var(--ux4g-color-neutral-900);
+  --ux4g-color-surface-secondary: var(--ux4g-color-neutral-800);
+  --ux4g-color-surface-tertiary: var(--ux4g-color-neutral-700);
+
+  /* Border Colors - Dark */
+  --ux4g-color-border-default: var(--ux4g-color-neutral-700);
+  --ux4g-color-border-hover: var(--ux4g-color-neutral-600);
+  --ux4g-color-border-focus: var(--ux4g-color-navy-400);
+
+  /* Interactive Colors */
+  --ux4g-color-interactive-default: var(--ux4g-color-navy-400);
+  --ux4g-color-interactive-hover: var(--ux4g-color-navy-300);
+  --ux4g-color-interactive-active: var(--ux4g-color-navy-200);
+  --ux4g-color-interactive-disabled: var(--ux4g-color-neutral-700);
+
+  /* Feedback Colors - Adjusted for dark background */
+  --ux4g-color-feedback-success: var(--ux4g-color-green-500);
+  --ux4g-color-feedback-warning: var(--ux4g-color-saffron-400);
+  --ux4g-color-feedback-error: var(--ux4g-color-error-light);
+  --ux4g-color-feedback-info: var(--ux4g-color-navy-400);
+
+  /* Focus Ring */
+  --ux4g-color-focus-ring: var(--ux4g-color-navy-400);
+
+  /* Shadows - Lighter for dark mode */
+  --ux4g-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --ux4g-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+  --ux4g-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --ux4g-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --ux4g-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  --ux4g-shadow-focus: 0 0 0 3px rgba(51, 116, 171, 0.4);
+}

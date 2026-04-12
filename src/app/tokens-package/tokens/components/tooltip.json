@@ -1,0 +1,127 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "tooltip": {
+        "base": {
+          "$type": "dimension",
+          "maxWidth": {
+            "sm": { "value": "200px", "description": "Small tooltip max width" },
+            "md": { "value": "300px", "description": "Medium tooltip max width - default" },
+            "lg": { "value": "400px", "description": "Large tooltip max width" }
+          },
+          "padding": {
+            "vertical": { "value": "6px", "description": "Tooltip vertical padding" },
+            "horizontal": { "value": "12px", "description": "Tooltip horizontal padding" }
+          },
+          "borderRadius": {
+            "value": "6px",
+            "description": "Tooltip border radius"
+          },
+          "fontSize": {
+            "value": "14px",
+            "description": "Tooltip font size"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Tooltip line height"
+          },
+          "arrowSize": {
+            "value": "6px",
+            "description": "Tooltip arrow size"
+          }
+        },
+        "variant": {
+          "default": {
+            "$type": "color",
+            "background": { "value": "#171717", "description": "Default tooltip background - Neutral 900" },
+            "text": { "value": "#ffffff", "description": "Default tooltip text - White" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Tooltip shadow" }
+          },
+          "light": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Light tooltip background - White" },
+            "text": { "value": "#171717", "description": "Light tooltip text - Neutral 900" },
+            "border": { "value": "#e5e5e5", "description": "Light tooltip border - Neutral 200" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Tooltip shadow" }
+          },
+          "info": {
+            "$type": "color",
+            "background": { "value": "#005196", "description": "Info tooltip background - Navy 500" },
+            "text": { "value": "#ffffff", "description": "Info tooltip text - White" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Tooltip shadow" }
+          },
+          "success": {
+            "$type": "color",
+            "background": { "value": "#008800", "description": "Success tooltip background - Green 600" },
+            "text": { "value": "#ffffff", "description": "Success tooltip text - White" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Tooltip shadow" }
+          },
+          "warning": {
+            "$type": "color",
+            "background": { "value": "#cc5f00", "description": "Warning tooltip background - Saffron 600" },
+            "text": { "value": "#ffffff", "description": "Warning tooltip text - White" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Tooltip shadow" }
+          },
+          "error": {
+            "$type": "color",
+            "background": { "value": "#dc2626", "description": "Error tooltip background - Error DEFAULT" },
+            "text": { "value": "#ffffff", "description": "Error tooltip text - White" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Tooltip shadow" }
+          }
+        },
+        "arrow": {
+          "$type": "color",
+          "default": { "value": "#171717", "description": "Default arrow color - Neutral 900" },
+          "light": { "value": "#ffffff", "description": "Light arrow color - White" },
+          "info": { "value": "#005196", "description": "Info arrow color - Navy 500" },
+          "success": { "value": "#008800", "description": "Success arrow color - Green 600" },
+          "warning": { "value": "#cc5f00", "description": "Warning arrow color - Saffron 600" },
+          "error": { "value": "#dc2626", "description": "Error arrow color - Error DEFAULT" }
+        },
+        "offset": {
+          "$type": "dimension",
+          "default": {
+            "value": "8px",
+            "description": "Default offset from trigger element"
+          }
+        },
+        "placement": {
+          "$type": "string",
+          "top": { "value": "top", "description": "Tooltip above trigger" },
+          "topStart": { "value": "top-start", "description": "Tooltip above trigger, aligned to start" },
+          "topEnd": { "value": "top-end", "description": "Tooltip above trigger, aligned to end" },
+          "bottom": { "value": "bottom", "description": "Tooltip below trigger (default)" },
+          "bottomStart": { "value": "bottom-start", "description": "Tooltip below trigger, aligned to start" },
+          "bottomEnd": { "value": "bottom-end", "description": "Tooltip below trigger, aligned to end" },
+          "left": { "value": "left", "description": "Tooltip to the left of trigger" },
+          "right": { "value": "right", "description": "Tooltip to the right of trigger" }
+        },
+        "animation": {
+          "$type": "duration",
+          "enter": {
+            "delay": { "value": "200ms", "description": "Delay before showing tooltip" },
+            "duration": { "value": "150ms", "description": "Enter animation duration" },
+            "timing": { "value": "ease-out", "description": "Enter animation timing" }
+          },
+          "exit": {
+            "delay": { "value": "0ms", "description": "Delay before hiding tooltip" },
+            "duration": { "value": "75ms", "description": "Exit animation duration" },
+            "timing": { "value": "ease-in", "description": "Exit animation timing" }
+          }
+        },
+        "accessibility": {
+          "$type": "string",
+          "role": {
+            "value": "tooltip",
+            "description": "ARIA role - tooltip"
+          },
+          "describedBy": {
+            "value": "true",
+            "description": "Use aria-describedby for association"
+          }
+        }
+      }
+    }
+  }
+}

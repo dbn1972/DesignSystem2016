@@ -3,23 +3,23 @@ import { BookOpen, User, FileCheck, CreditCard, FileText, Shield, CheckCircle, M
 
 export default function PatternLibraryHub() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-gradient-to-br from-green-50 via-white to-blue-50 border-b-2 border-gray-300">
+      <header className="bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-green-900/20 dark:via-gray-800 dark:to-blue-900/20 border-b-2 border-gray-300 dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-12 py-12">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 border-2 border-gray-300 rounded flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 border-2 border-gray-300 dark:border-gray-700 rounded flex items-center justify-center">
                 <BookOpen size={32} className="text-white" />
               </div>
               <div>
-                <div className="text-sm text-gray-600 mb-1">Live Demonstrations</div>
-                <h1 className="text-4xl font-bold text-gray-900">Pattern Library</h1>
+                <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Live Demonstrations</div>
+                <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">Pattern Library</h1>
               </div>
             </div>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Production-ready patterns for common government service scenarios. Each pattern includes 
-              live demonstrations, code examples, and implementation guidelines. Use these patterns 
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              Production-ready patterns for common government service scenarios. Each pattern includes
+              live demonstrations, code examples, and implementation guidelines. Use these patterns
               as-is or customize for your specific needs.
             </p>
           </div>
@@ -28,13 +28,13 @@ export default function PatternLibraryHub() {
 
       {/* Content */}
       <main className="max-w-[1400px] mx-auto px-12 py-12">
-        
+
         {/* Stats */}
         <div className="grid grid-cols-4 gap-6 mb-12">
-          <StatCard number="110+" label="Pattern Demos" />
+          <StatCard number="64" label="Pattern Demos" />
           <StatCard number="11" label="Pattern Categories" />
           <StatCard number="100%" label="Accessibility Tested" />
-          <StatCard number="45+" label="Reference Service Pages" />
+          <StatCard number="51" label="Reference Service Pages" />
         </div>
 
         {/* Pattern Categories */}
@@ -388,15 +388,21 @@ export default function PatternLibraryHub() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-gray-300 rounded-lg p-12 mt-12 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">See Patterns in Action</h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            Explore our complete reference service - a certificate application with 45+ pages 
+        <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-12 mt-12 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">See Patterns in Action</h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            Explore our complete reference service - a certificate application with 51 pages
             demonstrating all these patterns in a real government service context.
           </p>
           <Link
             to="/reference-service/demo"
-            className="inline-block px-8 py-4 bg-[#000080] hover:bg-[#000066] text-white font-bold rounded transition-colors"
+            className="inline-block px-8 py-4 font-bold rounded transition-colors"
+            style={{
+              backgroundColor: 'var(--ux4g-color-brand-primary)',
+              color: 'var(--ux4g-color-text-inverse)'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-brand-primary-dark)'}
+            onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-brand-primary)'}
           >
             View Reference Service →
           </Link>
@@ -411,9 +417,9 @@ export default function PatternLibraryHub() {
 
 function StatCard({ number, label }: { number: string; label: string }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 text-center">
-      <div className="text-3xl font-bold text-[#000080] mb-2">{number}</div>
-      <div className="text-sm text-gray-700">{label}</div>
+    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6 text-center">
+      <div className="text-3xl font-bold mb-2" style={{ color: 'var(--ux4g-color-brand-primary)' }}>{number}</div>
+      <div className="text-sm text-gray-700 dark:text-gray-300">{label}</div>
     </div>
   );
 }
@@ -431,23 +437,23 @@ function PatternCategory({ icon, title, description, color, patterns }: {
   }>;
 }) {
   const colorClasses = {
-    blue: 'bg-blue-50 border-blue-300',
-    green: 'bg-green-50 border-green-300',
-    purple: 'bg-purple-50 border-purple-300',
-    orange: 'bg-orange-50 border-orange-300',
-    red: 'bg-red-50 border-red-300',
-    indigo: 'bg-indigo-50 border-indigo-300',
-    teal: 'bg-teal-50 border-teal-300'
+    blue: 'bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-800',
+    green: 'bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-800',
+    purple: 'bg-purple-50 dark:bg-purple-900/20 border-purple-300 dark:border-purple-800',
+    orange: 'bg-orange-50 dark:bg-orange-900/20 border-orange-300 dark:border-orange-800',
+    red: 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-800',
+    indigo: 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-300 dark:border-indigo-800',
+    teal: 'bg-teal-50 dark:bg-teal-900/20 border-teal-300 dark:border-teal-800'
   };
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className={`${colorClasses[color as keyof typeof colorClasses]} border-b-2 border-gray-300 p-6`}>
+    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+      <div className={`${colorClasses[color as keyof typeof colorClasses]} border-b-2 border-gray-300 dark:border-gray-700 p-6`}>
         <div className="flex items-center gap-4">
           <div>{icon}</div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
-            <p className="text-gray-700 mt-1">{description}</p>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{title}</h2>
+            <p className="text-gray-700 dark:text-gray-300 mt-1">{description}</p>
           </div>
         </div>
       </div>
@@ -457,19 +463,39 @@ function PatternCategory({ icon, title, description, color, patterns }: {
             <Link
               key={i}
               to={pattern.path}
-              className="p-4 border-2 border-gray-300 rounded-lg hover:border-[#000080] hover:shadow-md transition-all group"
+              className="p-4 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:shadow-md transition-all group"
+              style={{
+                '--hover-border-color': 'var(--ux4g-color-brand-primary)',
+                '--hover-text-color': 'var(--ux4g-color-brand-primary)'
+              } as React.CSSProperties}
+              onMouseOver={(e) => {
+                e.currentTarget.style.borderColor = 'var(--ux4g-color-brand-primary)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.borderColor = '';
+              }}
             >
               <div className="flex items-start justify-between mb-2">
-                <h3 className="font-bold text-gray-900 group-hover:text-[#000080]">{pattern.name}</h3>
-                <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded">
+                <h3
+                  className="font-bold text-gray-900 dark:text-gray-100 transition-colors"
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.color = 'var(--ux4g-color-brand-primary)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.color = '';
+                  }}
+                >
+                  {pattern.name}
+                </h3>
+                <span className="text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
                   {pattern.demos.length} demos
                 </span>
               </div>
-              <p className="text-sm text-gray-700 mb-3">{pattern.description}</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{pattern.description}</p>
               <div className="flex flex-wrap gap-2">
                 {pattern.demos.map((demo, j) => (
-                  <span key={j} className="flex items-center gap-1 text-xs text-gray-600 bg-gray-50 px-2 py-1 rounded">
-                    <CheckCircle size={12} className="text-green-600" />
+                  <span key={j} className="flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-2 py-1 rounded">
+                    <CheckCircle size={12} className="text-green-600 dark:text-green-400" />
                     {demo}
                   </span>
                 ))}

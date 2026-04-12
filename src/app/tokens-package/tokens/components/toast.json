@@ -1,0 +1,198 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "toast": {
+        "base": {
+          "$type": "dimension",
+          "width": {
+            "sm": { "value": "300px", "description": "Small toast width" },
+            "md": { "value": "400px", "description": "Medium toast width - default" },
+            "lg": { "value": "500px", "description": "Large toast width" }
+          },
+          "minHeight": {
+            "value": "64px",
+            "description": "Minimum toast height"
+          },
+          "padding": {
+            "vertical": { "value": "12px", "description": "Toast vertical padding" },
+            "horizontal": { "value": "16px", "description": "Toast horizontal padding" }
+          },
+          "gap": {
+            "icon": { "value": "12px", "description": "Gap between icon and content" },
+            "action": { "value": "12px", "description": "Gap between content and action" }
+          },
+          "borderRadius": {
+            "value": "8px",
+            "description": "Toast border radius"
+          },
+          "borderWidth": {
+            "value": "1px",
+            "description": "Toast border width"
+          },
+          "iconSize": {
+            "value": "20px",
+            "description": "Toast icon size"
+          }
+        },
+        "variant": {
+          "info": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Info toast background - White" },
+            "border": { "value": "#99b9d5", "description": "Info toast border - Navy 200" },
+            "icon": { "value": "#005196", "description": "Info toast icon - Navy 500" },
+            "title": { "value": "#171717", "description": "Info toast title - Neutral 900" },
+            "text": { "value": "#525252", "description": "Info toast text - Neutral 600" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Info toast shadow" }
+          },
+          "success": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Success toast background - White" },
+            "border": { "value": "#99dd99", "description": "Success toast border - Green 200" },
+            "icon": { "value": "#008800", "description": "Success toast icon - Green 600" },
+            "title": { "value": "#171717", "description": "Success toast title - Neutral 900" },
+            "text": { "value": "#525252", "description": "Success toast text - Neutral 600" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Success toast shadow" }
+          },
+          "warning": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Warning toast background - White" },
+            "border": { "value": "#ffc999", "description": "Warning toast border - Saffron 200" },
+            "icon": { "value": "#cc5f00", "description": "Warning toast icon - Saffron 600" },
+            "title": { "value": "#171717", "description": "Warning toast title - Neutral 900" },
+            "text": { "value": "#525252", "description": "Warning toast text - Neutral 600" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Warning toast shadow" }
+          },
+          "error": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Error toast background - White" },
+            "border": { "value": "#fecaca", "description": "Error toast border - Red 200" },
+            "icon": { "value": "#dc2626", "description": "Error toast icon - Error DEFAULT" },
+            "title": { "value": "#171717", "description": "Error toast title - Neutral 900" },
+            "text": { "value": "#525252", "description": "Error toast text - Neutral 600" },
+            "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Error toast shadow" }
+          }
+        },
+        "title": {
+          "$type": "dimension",
+          "fontSize": {
+            "value": "14px",
+            "description": "Toast title font size"
+          },
+          "fontWeight": {
+            "value": "600",
+            "description": "Toast title font weight - semibold"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Toast title line height"
+          },
+          "marginBottom": {
+            "value": "4px",
+            "description": "Toast title bottom margin"
+          }
+        },
+        "description": {
+          "$type": "dimension",
+          "fontSize": {
+            "value": "14px",
+            "description": "Toast description font size"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Toast description line height"
+          }
+        },
+        "close": {
+          "$type": "dimension",
+          "size": {
+            "value": "20px",
+            "description": "Close button size"
+          },
+          "padding": {
+            "value": "4px",
+            "description": "Close button padding"
+          },
+          "$type": "color",
+          "icon": {
+            "default": { "value": "#525252", "description": "Close icon - Neutral 600" },
+            "hover": { "value": "#171717", "description": "Close icon hover - Neutral 900" }
+          },
+          "background": {
+            "hover": { "value": "rgba(0, 0, 0, 0.05)", "description": "Close button hover background" }
+          }
+        },
+        "action": {
+          "$type": "dimension",
+          "fontSize": {
+            "value": "14px",
+            "description": "Action button font size"
+          },
+          "fontWeight": {
+            "value": "600",
+            "description": "Action button font weight"
+          },
+          "$type": "color",
+          "text": {
+            "default": { "value": "#005196", "description": "Action text - Navy 500" },
+            "hover": { "value": "#004178", "description": "Action text hover - Navy 600" }
+          }
+        },
+        "position": {
+          "$type": "string",
+          "topLeft": { "value": "top-left", "description": "Top left position" },
+          "topCenter": { "value": "top-center", "description": "Top center position" },
+          "topRight": { "value": "top-right", "description": "Top right position - default" },
+          "bottomLeft": { "value": "bottom-left", "description": "Bottom left position" },
+          "bottomCenter": { "value": "bottom-center", "description": "Bottom center position" },
+          "bottomRight": { "value": "bottom-right", "description": "Bottom right position" }
+        },
+        "spacing": {
+          "$type": "dimension",
+          "fromEdge": {
+            "value": "16px",
+            "description": "Distance from screen edge"
+          },
+          "betweenToasts": {
+            "value": "12px",
+            "description": "Gap between stacked toasts"
+          }
+        },
+        "animation": {
+          "$type": "duration",
+          "enter": {
+            "duration": { "value": "200ms", "description": "Enter animation duration" },
+            "timing": { "value": "ease-out", "description": "Enter animation timing" }
+          },
+          "exit": {
+            "duration": { "value": "150ms", "description": "Exit animation duration" },
+            "timing": { "value": "ease-in", "description": "Exit animation timing" }
+          },
+          "$type": "string",
+          "direction": {
+            "slideIn": { "value": "slide-in", "description": "Slide in animation" },
+            "fadeIn": { "value": "fade-in", "description": "Fade in animation" }
+          }
+        },
+        "duration": {
+          "$type": "duration",
+          "short": { "value": "3000ms", "description": "Short duration - 3 seconds" },
+          "medium": { "value": "5000ms", "description": "Medium duration - 5 seconds (default)" },
+          "long": { "value": "7000ms", "description": "Long duration - 7 seconds" },
+          "persistent": { "value": "0ms", "description": "Persistent - manual dismiss only" }
+        },
+        "accessibility": {
+          "$type": "string",
+          "role": {
+            "status": { "value": "status", "description": "ARIA role for info toasts" },
+            "alert": { "value": "alert", "description": "ARIA role for error toasts" }
+          },
+          "liveRegion": {
+            "polite": { "value": "polite", "description": "Polite announcements" },
+            "assertive": { "value": "assertive", "description": "Assertive announcements for errors" }
+          }
+        }
+      }
+    }
+  }
+}

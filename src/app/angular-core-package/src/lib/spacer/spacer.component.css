@@ -1,0 +1,71 @@
+/* Spacer Base */
+.ux4g-spacer {
+  display: block;
+  flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Vertical Spacer */
+.ux4g-spacer--vertical {
+  display: block;
+  width: 1px;
+}
+
+/* Horizontal Spacer */
+.ux4g-spacer--horizontal {
+  display: inline-block;
+  vertical-align: middle;
+  height: 1px;
+}
+
+/* Responsive Spacer */
+.ux4g-spacer--responsive.ux4g-spacer--vertical {
+  /* Base size is set via inline style, media query reduces it */
+}
+
+.ux4g-spacer--responsive.ux4g-spacer--horizontal {
+  /* Base size is set via inline style, media query reduces it */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ux4g-spacer--responsive.ux4g-spacer--vertical {
+    /* Reduce vertical spacing by 25% on mobile */
+    height: calc(var(--spacing, 1rem) * 0.75) !important;
+    min-height: calc(var(--spacing, 1rem) * 0.75) !important;
+  }
+
+  .ux4g-spacer--responsive.ux4g-spacer--horizontal {
+    /* Reduce horizontal spacing by 25% on mobile */
+    width: calc(var(--spacing, 1rem) * 0.75) !important;
+    min-width: calc(var(--spacing, 1rem) * 0.75) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ux4g-spacer--responsive.ux4g-spacer--vertical {
+    /* Reduce vertical spacing by 50% on small mobile */
+    height: calc(var(--spacing, 1rem) * 0.5) !important;
+    min-height: calc(var(--spacing, 1rem) * 0.5) !important;
+  }
+
+  .ux4g-spacer--responsive.ux4g-spacer--horizontal {
+    /* Reduce horizontal spacing by 50% on small mobile */
+    width: calc(var(--spacing, 1rem) * 0.5) !important;
+    min-width: calc(var(--spacing, 1rem) * 0.5) !important;
+  }
+}
+
+/* Print styles - minimize spacing in print */
+@media print {
+  .ux4g-spacer--vertical {
+    height: 0.5rem !important;
+    min-height: 0.5rem !important;
+  }
+
+  .ux4g-spacer--horizontal {
+    width: 0.25rem !important;
+    min-width: 0.25rem !important;
+  }
+}

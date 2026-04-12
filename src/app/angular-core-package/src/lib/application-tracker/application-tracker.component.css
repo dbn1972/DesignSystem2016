@@ -1,0 +1,182 @@
+.ux4g-application-tracker {
+  display: flex;
+  gap: 0;
+  font-family: inherit;
+}
+
+.ux4g-application-tracker--vertical {
+  flex-direction: column;
+}
+
+.ux4g-application-tracker__stage {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+  min-width: 120px;
+}
+
+.ux4g-application-tracker--vertical .ux4g-application-tracker__stage {
+  flex-direction: row;
+}
+
+.ux4g-application-tracker:not(.ux4g-application-tracker--vertical) .ux4g-application-tracker__stage {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ux4g-application-tracker__stage-indicator {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.ux4g-application-tracker--vertical .ux4g-application-tracker__stage-indicator {
+  flex-direction: column;
+  align-items: center;
+}
+
+.ux4g-application-tracker:not(.ux4g-application-tracker--vertical) .ux4g-application-tracker__stage-indicator {
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.ux4g-application-tracker__stage-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  background: #e0e0e0;
+  color: #666;
+  border: 3px solid #e0e0e0;
+  flex-shrink: 0;
+  z-index: 1;
+  transition: all 0.3s;
+}
+
+.ux4g-application-tracker__stage--completed .ux4g-application-tracker__stage-icon {
+  background: #138808;
+  color: white;
+  border-color: #138808;
+}
+
+.ux4g-application-tracker__stage--current .ux4g-application-tracker__stage-icon {
+  background: #0066cc;
+  color: white;
+  border-color: #0066cc;
+  animation: pulse 2s infinite;
+}
+
+.ux4g-application-tracker__stage--rejected .ux4g-application-tracker__stage-icon {
+  background: #d32f2f;
+  color: white;
+  border-color: #d32f2f;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 102, 204, 0);
+  }
+}
+
+.ux4g-application-tracker__stage-line {
+  flex: 1;
+  height: 3px;
+  background: #e0e0e0;
+  transition: background 0.3s;
+}
+
+.ux4g-application-tracker--vertical .ux4g-application-tracker__stage-line {
+  width: 3px;
+  height: 40px;
+  margin: 4px 0;
+}
+
+.ux4g-application-tracker:not(.ux4g-application-tracker--vertical) .ux4g-application-tracker__stage-line {
+  margin: 0 8px;
+  align-self: center;
+}
+
+.ux4g-application-tracker__stage-line--completed {
+  background: #138808;
+}
+
+.ux4g-application-tracker__stage-content {
+  padding: 8px 0;
+}
+
+.ux4g-application-tracker--vertical .ux4g-application-tracker__stage-content {
+  flex: 1;
+  text-align: left;
+}
+
+.ux4g-application-tracker:not(.ux4g-application-tracker--vertical) .ux4g-application-tracker__stage-content {
+  margin-top: 12px;
+}
+
+.ux4g-application-tracker__stage-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.ux4g-application-tracker__stage--completed .ux4g-application-tracker__stage-label {
+  color: #138808;
+}
+
+.ux4g-application-tracker__stage--current .ux4g-application-tracker__stage-label {
+  color: #0066cc;
+}
+
+.ux4g-application-tracker__stage--rejected .ux4g-application-tracker__stage-label {
+  color: #d32f2f;
+}
+
+.ux4g-application-tracker__stage-description {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.ux4g-application-tracker__stage-date {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ux4g-application-tracker:not(.ux4g-application-tracker--vertical) {
+    flex-direction: column;
+  }
+
+  .ux4g-application-tracker:not(.ux4g-application-tracker--vertical) .ux4g-application-tracker__stage {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .ux4g-application-tracker:not(.ux4g-application-tracker--vertical) .ux4g-application-tracker__stage-indicator {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .ux4g-application-tracker:not(.ux4g-application-tracker--vertical) .ux4g-application-tracker__stage-line {
+    width: 3px;
+    height: 40px;
+    margin: 4px 0;
+  }
+
+  .ux4g-application-tracker:not(.ux4g-application-tracker--vertical) .ux4g-application-tracker__stage-content {
+    margin-top: 0;
+  }
+}

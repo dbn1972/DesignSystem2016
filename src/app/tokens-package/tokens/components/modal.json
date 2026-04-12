@@ -1,0 +1,171 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "modal": {
+        "base": {
+          "$type": "dimension",
+          "width": {
+            "sm": { "value": "400px", "description": "Small modal width" },
+            "md": { "value": "600px", "description": "Medium modal width - default" },
+            "lg": { "value": "800px", "description": "Large modal width" },
+            "xl": { "value": "1000px", "description": "Extra large modal width" },
+            "full": { "value": "calc(100vw - 32px)", "description": "Full width modal with margins" }
+          },
+          "maxWidth": {
+            "value": "90vw",
+            "description": "Maximum modal width - responsive"
+          },
+          "maxHeight": {
+            "value": "90vh",
+            "description": "Maximum modal height - responsive"
+          },
+          "borderRadius": {
+            "value": "8px",
+            "description": "Modal border radius"
+          },
+          "padding": {
+            "sm": { "value": "16px", "description": "Small modal padding" },
+            "md": { "value": "24px", "description": "Medium modal padding" },
+            "lg": { "value": "32px", "description": "Large modal padding" }
+          },
+          "gap": {
+            "value": "16px",
+            "description": "Gap between modal sections"
+          }
+        },
+        "overlay": {
+          "$type": "color",
+          "background": { "value": "rgba(0, 0, 0, 0.5)", "description": "Overlay background - 50% black" },
+          "$type": "number",
+          "opacity": { "value": "0.5", "description": "Overlay opacity" },
+          "$type": "dimension",
+          "blur": { "value": "4px", "description": "Optional backdrop blur" }
+        },
+        "container": {
+          "$type": "color",
+          "background": { "value": "#ffffff", "description": "Modal background - White" },
+          "border": { "value": "#e5e5e5", "description": "Modal border - Neutral 200" },
+          "shadow": { "value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)", "description": "Modal shadow - xl elevation" }
+        },
+        "header": {
+          "$type": "dimension",
+          "padding": {
+            "value": "24px",
+            "description": "Header padding"
+          },
+          "borderBottom": {
+            "width": { "value": "1px", "description": "Header border width" },
+            "style": { "value": "solid", "description": "Header border style" }
+          },
+          "$type": "color",
+          "background": { "value": "#ffffff", "description": "Header background - White" },
+          "border": { "value": "#e5e5e5", "description": "Header border - Neutral 200" }
+        },
+        "title": {
+          "$type": "dimension",
+          "fontSize": {
+            "sm": { "value": "18px", "description": "Small title font size" },
+            "md": { "value": "20px", "description": "Medium title font size" },
+            "lg": { "value": "24px", "description": "Large title font size" }
+          },
+          "fontWeight": {
+            "value": "600",
+            "description": "Title font weight - semibold"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Title line height"
+          },
+          "$type": "color",
+          "text": { "value": "#171717", "description": "Title text - Neutral 900" }
+        },
+        "body": {
+          "$type": "dimension",
+          "padding": {
+            "value": "24px",
+            "description": "Body padding"
+          },
+          "fontSize": {
+            "value": "16px",
+            "description": "Body font size"
+          },
+          "lineHeight": {
+            "value": "1.5",
+            "description": "Body line height - WCAG recommended"
+          },
+          "$type": "color",
+          "text": { "value": "#525252", "description": "Body text - Neutral 600" }
+        },
+        "footer": {
+          "$type": "dimension",
+          "padding": {
+            "value": "24px",
+            "description": "Footer padding"
+          },
+          "gap": {
+            "value": "12px",
+            "description": "Gap between footer buttons"
+          },
+          "borderTop": {
+            "width": { "value": "1px", "description": "Footer border width" },
+            "style": { "value": "solid", "description": "Footer border style" }
+          },
+          "$type": "color",
+          "background": { "value": "#fafafa", "description": "Footer background - Neutral 50" },
+          "border": { "value": "#e5e5e5", "description": "Footer border - Neutral 200" }
+        },
+        "close": {
+          "$type": "dimension",
+          "size": {
+            "value": "32px",
+            "description": "Close button size"
+          },
+          "iconSize": {
+            "value": "20px",
+            "description": "Close icon size"
+          },
+          "position": {
+            "top": { "value": "16px", "description": "Close button top position" },
+            "right": { "value": "16px", "description": "Close button right position" }
+          },
+          "$type": "color",
+          "icon": {
+            "default": { "value": "#525252", "description": "Close icon - Neutral 600" },
+            "hover": { "value": "#171717", "description": "Close icon hover - Neutral 900" }
+          },
+          "background": {
+            "default": { "value": "transparent", "description": "Close background - transparent" },
+            "hover": { "value": "#f5f5f5", "description": "Close background hover - Neutral 100" }
+          }
+        },
+        "animation": {
+          "$type": "duration",
+          "enter": {
+            "duration": { "value": "200ms", "description": "Enter animation duration" },
+            "timing": { "value": "ease-out", "description": "Enter animation timing" }
+          },
+          "exit": {
+            "duration": { "value": "150ms", "description": "Exit animation duration" },
+            "timing": { "value": "ease-in", "description": "Exit animation timing" }
+          }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minHeight": {
+            "value": "200px",
+            "description": "Minimum modal height"
+          },
+          "focusTrap": {
+            "value": "true",
+            "description": "Focus trap enabled - WCAG 2.4.3"
+          },
+          "escapeClose": {
+            "value": "true",
+            "description": "Close on Escape key - WCAG 2.1.2"
+          }
+        }
+      }
+    }
+  }
+}

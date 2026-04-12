@@ -1,0 +1,181 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "select": {
+        "base": {
+          "$type": "dimension",
+          "height": {
+            "sm": { "value": "32px", "description": "Small select height" },
+            "md": { "value": "40px", "description": "Medium select height - default" },
+            "lg": { "value": "48px", "description": "Large select height - WCAG touch target" }
+          },
+          "padding": {
+            "horizontal": {
+              "sm": { "value": "8px", "description": "Small horizontal padding" },
+              "md": { "value": "12px", "description": "Medium horizontal padding" },
+              "lg": { "value": "16px", "description": "Large horizontal padding" }
+            },
+            "icon": {
+              "sm": { "value": "24px", "description": "Icon area width - small" },
+              "md": { "value": "32px", "description": "Icon area width - medium" },
+              "lg": { "value": "40px", "description": "Icon area width - large" }
+            }
+          },
+          "borderWidth": {
+            "default": { "value": "1px", "description": "Default border width" },
+            "focus": { "value": "2px", "description": "Focus state border width" }
+          },
+          "borderRadius": {
+            "value": "4px",
+            "description": "Select border radius"
+          },
+          "iconSize": {
+            "sm": { "value": "16px", "description": "Small dropdown icon size" },
+            "md": { "value": "20px", "description": "Medium dropdown icon size" },
+            "lg": { "value": "24px", "description": "Large dropdown icon size" }
+          },
+          "transition": {
+            "duration": { "value": "150ms", "description": "Select transition duration" },
+            "timing": { "value": "ease-in-out", "description": "Select transition timing function" }
+          }
+        },
+        "state": {
+          "default": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Default background - White" },
+            "text": { "value": "#171717", "description": "Default text - Neutral 900" },
+            "border": { "value": "#d4d4d4", "description": "Default border - Neutral 300" },
+            "icon": { "value": "#525252", "description": "Dropdown icon - Neutral 600" },
+            "placeholder": { "value": "#737373", "description": "Placeholder text - Neutral 500" }
+          },
+          "hover": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Hover background - White" },
+            "border": { "value": "#a3a3a3", "description": "Hover border - Neutral 400" },
+            "icon": { "value": "#171717", "description": "Hover icon - Neutral 900" }
+          },
+          "focus": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Focus background - White" },
+            "border": { "value": "#005196", "description": "Focus border - Navy 500" },
+            "ring": { "value": "#005196", "description": "Focus ring color - Navy 500" },
+            "ringOpacity": { "value": "0.2", "description": "Focus ring opacity" }
+          },
+          "open": {
+            "$type": "color",
+            "border": { "value": "#005196", "description": "Open state border - Navy 500" },
+            "icon": { "value": "#005196", "description": "Open state icon - Navy 500" }
+          },
+          "disabled": {
+            "$type": "color",
+            "background": { "value": "#fafafa", "description": "Disabled background - Neutral 50" },
+            "text": { "value": "#a3a3a3", "description": "Disabled text - Neutral 400" },
+            "border": { "value": "#e5e5e5", "description": "Disabled border - Neutral 200" },
+            "icon": { "value": "#a3a3a3", "description": "Disabled icon - Neutral 400" },
+            "cursor": { "value": "not-allowed", "description": "Disabled cursor style" }
+          },
+          "error": {
+            "$type": "color",
+            "border": { "value": "#dc2626", "description": "Error border - Error DEFAULT" },
+            "ring": { "value": "#dc2626", "description": "Error focus ring - Error DEFAULT" }
+          }
+        },
+        "dropdown": {
+          "$type": "dimension",
+          "maxHeight": {
+            "value": "256px",
+            "description": "Maximum dropdown height - 8 options visible"
+          },
+          "minWidth": {
+            "value": "200px",
+            "description": "Minimum dropdown width"
+          },
+          "borderWidth": {
+            "value": "1px",
+            "description": "Dropdown border width"
+          },
+          "borderRadius": {
+            "value": "4px",
+            "description": "Dropdown border radius"
+          },
+          "$type": "color",
+          "background": { "value": "#ffffff", "description": "Dropdown background - White" },
+          "border": { "value": "#d4d4d4", "description": "Dropdown border - Neutral 300" },
+          "shadow": { "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)", "description": "Dropdown shadow" }
+        },
+        "option": {
+          "$type": "dimension",
+          "height": {
+            "sm": { "value": "32px", "description": "Small option height" },
+            "md": { "value": "40px", "description": "Medium option height" },
+            "lg": { "value": "48px", "description": "Large option height" }
+          },
+          "padding": {
+            "horizontal": {
+              "value": "12px",
+              "description": "Option horizontal padding"
+            }
+          },
+          "$type": "color",
+          "background": {
+            "default": { "value": "#ffffff", "description": "Option default background" },
+            "hover": { "value": "#f5f5f5", "description": "Option hover background - Neutral 100" },
+            "selected": { "value": "#e6eef5", "description": "Option selected background - Navy 50" },
+            "active": { "value": "#ccdcea", "description": "Option active background - Navy 100" }
+          },
+          "text": {
+            "default": { "value": "#171717", "description": "Option text - Neutral 900" },
+            "selected": { "value": "#005196", "description": "Selected option text - Navy 500" },
+            "disabled": { "value": "#a3a3a3", "description": "Disabled option text - Neutral 400" }
+          }
+        },
+        "multiselect": {
+          "$type": "dimension",
+          "gap": {
+            "value": "4px",
+            "description": "Gap between selected items"
+          },
+          "tag": {
+            "height": {
+              "value": "24px",
+              "description": "Tag height in multiselect"
+            },
+            "padding": {
+              "value": "4px 8px",
+              "description": "Tag padding"
+            },
+            "borderRadius": {
+              "value": "4px",
+              "description": "Tag border radius"
+            }
+          },
+          "$type": "color",
+          "tag": {
+            "background": { "value": "#e6eef5", "description": "Tag background - Navy 50" },
+            "text": { "value": "#00315a", "description": "Tag text - Navy 700" },
+            "remove": {
+              "default": { "value": "#525252", "description": "Remove icon - Neutral 600" },
+              "hover": { "value": "#dc2626", "description": "Remove icon hover - Error DEFAULT" }
+            }
+          }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minHeight": {
+            "value": "44px",
+            "description": "Minimum touch target size per WCAG 2.5.5"
+          },
+          "focusRingWidth": {
+            "value": "2px",
+            "description": "Focus ring width for accessibility"
+          },
+          "focusRingOffset": {
+            "value": "0px",
+            "description": "Focus ring offset from select edge"
+          }
+        }
+      }
+    }
+  }
+}

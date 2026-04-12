@@ -1,0 +1,130 @@
+.ux4g-digital-signature {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: inherit;
+}
+
+.ux4g-digital-signature__canvas-container {
+  position: relative;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.ux4g-digital-signature__canvas {
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.ux4g-digital-signature__placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ccc;
+  font-size: 18px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ux4g-digital-signature__controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ux4g-digital-signature__button {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: white;
+  color: #333;
+}
+
+.ux4g-digital-signature__button:hover:not(:disabled) {
+  background: #f5f5f5;
+  border-color: #0066cc;
+}
+
+.ux4g-digital-signature__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ux4g-digital-signature__button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.3);
+}
+
+.ux4g-digital-signature__button--clear {
+  background: #f44336;
+  color: white;
+  border-color: #f44336;
+}
+
+.ux4g-digital-signature__button--clear:hover:not(:disabled) {
+  background: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.ux4g-digital-signature__button--undo {
+  background: #ff9800;
+  color: white;
+  border-color: #ff9800;
+}
+
+.ux4g-digital-signature__button--undo:hover:not(:disabled) {
+  background: #f57c00;
+  border-color: #f57c00;
+}
+
+.ux4g-digital-signature__button--save {
+  background: #138808;
+  color: white;
+  border-color: #138808;
+}
+
+.ux4g-digital-signature__button--save:hover:not(:disabled) {
+  background: #0e6606;
+  border-color: #0e6606;
+}
+
+.ux4g-digital-signature__button--esign {
+  background: #0066cc;
+  color: white;
+  border-color: #0066cc;
+  flex: 1;
+  min-width: 200px;
+}
+
+.ux4g-digital-signature__button--esign:hover:not(:disabled) {
+  background: #0052a3;
+  border-color: #0052a3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ux4g-digital-signature__canvas-container {
+    width: 100%;
+  }
+
+  .ux4g-digital-signature__canvas {
+    width: 100%;
+    height: auto;
+  }
+
+  .ux4g-digital-signature__controls {
+    flex-direction: column;
+  }
+
+  .ux4g-digital-signature__button {
+    width: 100%;
+  }
+}

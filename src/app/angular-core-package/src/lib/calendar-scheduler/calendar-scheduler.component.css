@@ -1,0 +1,212 @@
+.ux4g-calendar-scheduler {
+  font-family: inherit;
+  max-width: 600px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  background: white;
+}
+
+.ux4g-calendar-scheduler__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.ux4g-calendar-scheduler__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  text-align: center;
+}
+
+.ux4g-calendar-scheduler__nav-button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ux4g-calendar-scheduler__nav-button:hover {
+  background: #f5f5f5;
+  border-color: #0066cc;
+}
+
+.ux4g-calendar-scheduler__today-button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ux4g-calendar-scheduler__today-button:hover {
+  background: #f5f5f5;
+  border-color: #0066cc;
+}
+
+.ux4g-calendar-scheduler__calendar {
+  margin-bottom: 20px;
+}
+
+.ux4g-calendar-scheduler__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.ux4g-calendar-scheduler__weekday {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  padding: 8px 0;
+}
+
+.ux4g-calendar-scheduler__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.ux4g-calendar-scheduler__day {
+  aspect-ratio: 1;
+  border: 1px solid #e0e0e0;
+  background: white;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ux4g-calendar-scheduler__day:hover:not(:disabled) {
+  background: #f5f5f5;
+  border-color: #0066cc;
+}
+
+.ux4g-calendar-scheduler__day--other-month {
+  color: #ccc;
+}
+
+.ux4g-calendar-scheduler__day--today {
+  background: #e3f2fd;
+  font-weight: 600;
+}
+
+.ux4g-calendar-scheduler__day--selected {
+  background: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.ux4g-calendar-scheduler__day--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ux4g-calendar-scheduler__day--has-slots {
+  font-weight: 600;
+}
+
+.ux4g-calendar-scheduler__day-indicator {
+  position: absolute;
+  bottom: 4px;
+  font-size: 16px;
+  color: #0066cc;
+}
+
+.ux4g-calendar-scheduler__day--selected .ux4g-calendar-scheduler__day-indicator {
+  color: white;
+}
+
+.ux4g-calendar-scheduler__slots {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+}
+
+.ux4g-calendar-scheduler__slots-title {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.ux4g-calendar-scheduler__slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+}
+
+.ux4g-calendar-scheduler__slot {
+  padding: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ux4g-calendar-scheduler__slot:hover:not(:disabled) {
+  background: #e3f2fd;
+  border-color: #0066cc;
+}
+
+.ux4g-calendar-scheduler__slot--booked {
+  background: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.ux4g-calendar-scheduler__no-slots {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 20px;
+  grid-column: 1 / -1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ux4g-calendar-scheduler {
+    padding: 12px;
+  }
+
+  .ux4g-calendar-scheduler__header {
+    flex-wrap: wrap;
+  }
+
+  .ux4g-calendar-scheduler__title {
+    font-size: 16px;
+  }
+
+  .ux4g-calendar-scheduler__today-button {
+    width: 100%;
+    order: 3;
+  }
+
+  .ux4g-calendar-scheduler__day {
+    font-size: 12px;
+  }
+
+  .ux4g-calendar-scheduler__slots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+}

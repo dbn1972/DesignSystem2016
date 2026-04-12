@@ -1,82 +1,154 @@
+/**
+ * UX4G Integrated Theme
+ *
+ * This theme integrates Tailwind CSS v4 with UX4G design tokens,
+ * creating a unified theming system that supports light/dark modes
+ * and maintains consistency with Government of India design standards.
+ */
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+
+  /* ========================================
+     SEMANTIC COLOR MAPPINGS
+     Using UX4G design tokens for consistency
+     ======================================== */
+
+  /* Background & Foreground */
+  --background: var(--ux4g-color-background-primary);
+  --foreground: var(--ux4g-color-text-primary);
+
+  /* Card surfaces */
+  --card: var(--ux4g-color-surface-primary);
+  --card-foreground: var(--ux4g-color-text-primary);
+
+  /* Popovers */
+  --popover: var(--ux4g-color-surface-primary);
+  --popover-foreground: var(--ux4g-color-text-primary);
+
+  /* Primary (Brand) */
+  --primary: var(--ux4g-color-brand-primary);
+  --primary-foreground: var(--ux4g-color-text-inverse);
+
+  /* Secondary */
+  --secondary: var(--ux4g-color-background-secondary);
+  --secondary-foreground: var(--ux4g-color-text-primary);
+
+  /* Muted */
+  --muted: var(--ux4g-color-background-tertiary);
+  --muted-foreground: var(--ux4g-color-text-secondary);
+
+  /* Accent */
+  --accent: var(--ux4g-color-background-secondary);
+  --accent-foreground: var(--ux4g-color-text-primary);
+
+  /* Destructive (Error) */
+  --destructive: var(--ux4g-color-feedback-error);
+  --destructive-foreground: var(--ux4g-color-text-inverse);
+
+  /* Borders & Inputs */
+  --border: var(--ux4g-color-border-default);
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
+  --input-background: var(--ux4g-color-background-secondary);
+  --switch-background: var(--ux4g-color-neutral-300);
+
+  /* Typography */
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Focus & Ring */
+  --ring: var(--ux4g-color-focus-ring);
+
+  /* Chart colors - Using Indian tricolor palette */
+  --chart-1: var(--ux4g-color-navy-500);
+  --chart-2: var(--ux4g-color-saffron-500);
+  --chart-3: var(--ux4g-color-green-600);
+  --chart-4: var(--ux4g-color-navy-300);
+  --chart-5: var(--ux4g-color-saffron-300);
+
+  /* Border Radius */
+  --radius: var(--ux4g-radius-lg);
+
+  /* Sidebar specific (for dashboard/admin interfaces) */
+  --sidebar: var(--ux4g-color-background-primary);
+  --sidebar-foreground: var(--ux4g-color-text-primary);
+  --sidebar-primary: var(--ux4g-color-brand-primary);
+  --sidebar-primary-foreground: var(--ux4g-color-text-inverse);
+  --sidebar-accent: var(--ux4g-color-background-secondary);
+  --sidebar-accent-foreground: var(--ux4g-color-text-secondary);
+  --sidebar-border: var(--ux4g-color-border-default);
+  --sidebar-ring: var(--ux4g-color-focus-ring);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* All color values automatically switch via UX4G tokens */
+  /* The .dark class on <html> triggers UX4G token updates */
+
+  /* Background & Foreground - automatically mapped */
+  --background: var(--ux4g-color-background-primary);
+  --foreground: var(--ux4g-color-text-primary);
+
+  /* Card surfaces */
+  --card: var(--ux4g-color-surface-primary);
+  --card-foreground: var(--ux4g-color-text-primary);
+
+  /* Popovers */
+  --popover: var(--ux4g-color-surface-primary);
+  --popover-foreground: var(--ux4g-color-text-primary);
+
+  /* Primary (Brand) - lighter in dark mode */
+  --primary: var(--ux4g-color-brand-primary);
+  --primary-foreground: var(--ux4g-color-text-inverse);
+
+  /* Secondary */
+  --secondary: var(--ux4g-color-surface-secondary);
+  --secondary-foreground: var(--ux4g-color-text-primary);
+
+  /* Muted */
+  --muted: var(--ux4g-color-surface-tertiary);
+  --muted-foreground: var(--ux4g-color-text-secondary);
+
+  /* Accent */
+  --accent: var(--ux4g-color-surface-secondary);
+  --accent-foreground: var(--ux4g-color-text-primary);
+
+  /* Destructive */
+  --destructive: var(--ux4g-color-feedback-error);
+  --destructive-foreground: var(--ux4g-color-text-primary);
+
+  /* Borders & Inputs */
+  --border: var(--ux4g-color-border-default);
+  --input: var(--ux4g-color-border-default);
+  --input-background: var(--ux4g-color-surface-secondary);
+  --switch-background: var(--ux4g-color-neutral-600);
+
+  /* Focus & Ring */
+  --ring: var(--ux4g-color-focus-ring);
+
+  /* Chart colors - Adjusted for dark mode */
+  --chart-1: var(--ux4g-color-navy-400);
+  --chart-2: var(--ux4g-color-saffron-400);
+  --chart-3: var(--ux4g-color-green-500);
+  --chart-4: var(--ux4g-color-navy-300);
+  --chart-5: var(--ux4g-color-saffron-300);
+
+  /* Sidebar specific */
+  --sidebar: var(--ux4g-color-surface-secondary);
+  --sidebar-foreground: var(--ux4g-color-text-primary);
+  --sidebar-primary: var(--ux4g-color-brand-primary);
+  --sidebar-primary-foreground: var(--ux4g-color-text-inverse);
+  --sidebar-accent: var(--ux4g-color-surface-tertiary);
+  --sidebar-accent-foreground: var(--ux4g-color-text-primary);
+  --sidebar-border: var(--ux4g-color-border-default);
+  --sidebar-ring: var(--ux4g-color-focus-ring);
 }
+
+/* ========================================
+   TAILWIND V4 THEME INTEGRATION
+   Map CSS variables to Tailwind utilities
+   ======================================== */
 
 @theme inline {
   --color-background: var(--background);
@@ -118,6 +190,10 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
 
 @layer base {
   * {
@@ -179,6 +255,10 @@
     line-height: 1.5;
   }
 }
+
+/* ========================================
+   UTILITY ANIMATIONS
+   ======================================== */
 
 @layer utilities {
   @keyframes slide-in-right {

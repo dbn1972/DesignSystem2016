@@ -1,0 +1,87 @@
+.ux4g-address-autocomplete-india {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ux4g-address-autocomplete-india__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.ux4g-address-autocomplete-india__required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.ux4g-address-autocomplete-india__fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ux4g-address-autocomplete-india__field {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+.ux4g-address-autocomplete-india__field--half {
+  flex: 1 1 calc(50% - 6px);
+  min-width: 200px;
+}
+
+.ux4g-address-autocomplete-india__input,
+.ux4g-address-autocomplete-india__select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #111827;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ux4g-address-autocomplete-india__input::placeholder {
+  color: #9ca3af;
+}
+
+.ux4g-address-autocomplete-india__input:hover:not(:disabled),
+.ux4g-address-autocomplete-india__select:hover:not(:disabled) {
+  border-color: #9ca3af;
+}
+
+.ux4g-address-autocomplete-india__input:focus,
+.ux4g-address-autocomplete-india__select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ux4g-address-autocomplete-india__input:disabled,
+.ux4g-address-autocomplete-india__select:disabled {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.ux4g-address-autocomplete-india__select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.ux4g-address-autocomplete-india__select:disabled {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%9ca3af' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 640px) {
+  .ux4g-address-autocomplete-india__field--half {
+    flex: 1 1 100%;
+  }
+}

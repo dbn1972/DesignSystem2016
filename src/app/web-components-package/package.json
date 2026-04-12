@@ -1,0 +1,57 @@
+{
+  "name": "@ux4g/web-components",
+  "version": "1.0.0",
+  "description": "UX4G Government of India Design System - Framework-agnostic Web Components",
+  "type": "module",
+  "main": "./dist/ux4g-web-components.js",
+  "module": "./dist/ux4g-web-components.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/ux4g-web-components.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./components/*": {
+      "import": "./dist/components/*.js",
+      "types": "./dist/components/*.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && npm run bundle",
+    "bundle": "node scripts/bundle.js",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "ux4g",
+    "government",
+    "india",
+    "design-system",
+    "web-components",
+    "custom-elements",
+    "framework-agnostic",
+    "accessibility",
+    "wcag"
+  ],
+  "author": "Government of India",
+  "license": "MIT",
+  "peerDependencies": {
+    "@ux4g/styles": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ux4g/design-system"
+  },
+  "bugs": {
+    "url": "https://github.com/ux4g/design-system/issues"
+  },
+  "homepage": "https://ux4g.gov.in"
+}

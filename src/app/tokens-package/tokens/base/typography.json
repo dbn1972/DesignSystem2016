@@ -18,7 +18,51 @@
         },
         "devanagari": {
           "value": "'Noto Sans Devanagari', system-ui, sans-serif",
-          "description": "Hindi and regional language support"
+          "description": "Hindi (हिन्दी), Marathi (मराठी), Nepali - Devanagari script"
+        },
+        "tamil": {
+          "value": "'Noto Sans Tamil', system-ui, sans-serif",
+          "description": "Tamil (தமிழ்) - Tamil script"
+        },
+        "bengali": {
+          "value": "'Noto Sans Bengali', system-ui, sans-serif",
+          "description": "Bengali (বাংলা), Assamese (অসমীয়া) - Bengali-Assamese script"
+        },
+        "telugu": {
+          "value": "'Noto Sans Telugu', system-ui, sans-serif",
+          "description": "Telugu (తెలుగు) - Telugu script"
+        },
+        "gujarati": {
+          "value": "'Noto Sans Gujarati', system-ui, sans-serif",
+          "description": "Gujarati (ગુજરાતી) - Gujarati script"
+        },
+        "kannada": {
+          "value": "'Noto Sans Kannada', system-ui, sans-serif",
+          "description": "Kannada (ಕನ್ನಡ) - Kannada script"
+        },
+        "malayalam": {
+          "value": "'Noto Sans Malayalam', system-ui, sans-serif",
+          "description": "Malayalam (മലയാളം) - Malayalam script"
+        },
+        "punjabi": {
+          "value": "'Noto Sans Gurmukhi', system-ui, sans-serif",
+          "description": "Punjabi (ਪੰਜਾਬੀ) - Gurmukhi script"
+        },
+        "odia": {
+          "value": "'Noto Sans Oriya', system-ui, sans-serif",
+          "description": "Odia (ଓଡ଼ିଆ) - Odia script"
+        },
+        "urdu": {
+          "value": "'Noto Nastaliq Urdu', 'Noto Sans Arabic', serif",
+          "description": "Urdu (اردو) - Nastaliq (Perso-Arabic) script, RTL"
+        },
+        "kashmiri": {
+          "value": "'Noto Sans Arabic', 'Noto Nastaliq Urdu', serif",
+          "description": "Kashmiri (कॉशुर/کٲشُر) - Perso-Arabic and Devanagari scripts"
+        },
+        "sindhi": {
+          "value": "'Noto Sans Arabic', 'Noto Sans Devanagari', serif",
+          "description": "Sindhi (सिन्धी/سنڌي) - Perso-Arabic and Devanagari scripts"
         }
       },
       "fontSize": {

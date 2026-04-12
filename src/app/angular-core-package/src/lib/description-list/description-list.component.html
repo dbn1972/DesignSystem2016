@@ -1,0 +1,36 @@
+<dl [class]="descriptionListClasses">
+  <div *ngFor="let item of items; let i = index" 
+       class="ux4g-description-list__item"
+       [class.ux4g-description-list__item--highlight]="item.highlight">
+    
+    <dt class="ux4g-description-list__term">
+      <span *ngIf="item.icon" class="ux4g-description-list__icon" aria-hidden="true">
+        {{ item.icon }}
+      </span>
+      {{ item.term }}
+    </dt>
+    
+    <dd class="ux4g-description-list__description">
+      <ng-container *ngIf="isArray(item.description); else single">
+        <ul class="ux4g-description-list__list">
+          <li *ngFor="let desc of asArray(item.description)">{{ desc }}</li>
+        </ul>
+      </ng-container>
+      <ng-template #single>
+        <span class="ux4g-description-list__value">{{ item.description }}</span>
+      </ng-template>
+      
+      <button *ngIf="item.copyable" 
+              (click)="copyToClipboard(item.description, item.term, i)"
+              class="ux4g-description-list__copy"
+              [attr.aria-label]="'Copy ' + item.term"
+              type="button">
+        <span *ngIf="!isCopied(i)" aria-hidden="true">📋</span>
+        <span *ngIf="isCopied(i)" aria-hidden="true">✓</span>
+        <span class="ux4g-description-list__copy-text">
+          {{ isCopied(i) ? 'Copied' : 'Copy' }}
+        </span>
+      </button>
+    </dd>
+  </div>
+</dl>

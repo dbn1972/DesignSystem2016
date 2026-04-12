@@ -1,0 +1,117 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "ux4g": {
+    "component": {
+      "radio": {
+        "base": {
+          "$type": "dimension",
+          "size": {
+            "sm": { "value": "16px", "description": "Small radio size" },
+            "md": { "value": "20px", "description": "Medium radio size - default" },
+            "lg": { "value": "24px", "description": "Large radio size - WCAG touch target" }
+          },
+          "borderWidth": {
+            "default": { "value": "2px", "description": "Default border width - WCAG non-text contrast" },
+            "checked": { "value": "2px", "description": "Checked state border width" }
+          },
+          "borderRadius": {
+            "value": "9999px",
+            "description": "Radio border radius - full circle"
+          },
+          "dotSize": {
+            "sm": { "value": "8px", "description": "Small inner dot size" },
+            "md": { "value": "10px", "description": "Medium inner dot size" },
+            "lg": { "value": "12px", "description": "Large inner dot size" }
+          },
+          "transition": {
+            "duration": { "value": "150ms", "description": "Radio transition duration" },
+            "timing": { "value": "ease-in-out", "description": "Radio transition timing function" }
+          }
+        },
+        "state": {
+          "unchecked": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Unchecked background - White" },
+            "border": { "value": "#525252", "description": "Unchecked border - Neutral 600 (WCAG AA)" }
+          },
+          "checked": {
+            "$type": "color",
+            "background": { "value": "#ffffff", "description": "Checked background - White" },
+            "border": { "value": "#005196", "description": "Checked border - Navy 500" },
+            "dot": { "value": "#005196", "description": "Inner dot color - Navy 500" }
+          },
+          "hover": {
+            "$type": "color",
+            "unchecked": {
+              "background": { "value": "#fafafa", "description": "Unchecked hover background - Neutral 50" },
+              "border": { "value": "#404040", "description": "Unchecked hover border - Neutral 700" }
+            },
+            "checked": {
+              "border": { "value": "#004178", "description": "Checked hover border - Navy 600" },
+              "dot": { "value": "#004178", "description": "Checked hover dot - Navy 600" }
+            }
+          },
+          "focus": {
+            "$type": "color",
+            "ring": { "value": "#005196", "description": "Focus ring color - Navy 500" },
+            "ringOpacity": { "value": "0.3", "description": "Focus ring opacity" }
+          },
+          "disabled": {
+            "$type": "color",
+            "unchecked": {
+              "background": { "value": "#fafafa", "description": "Disabled unchecked background - Neutral 50" },
+              "border": { "value": "#d4d4d4", "description": "Disabled border - Neutral 300" }
+            },
+            "checked": {
+              "background": { "value": "#fafafa", "description": "Disabled checked background - Neutral 50" },
+              "border": { "value": "#d4d4d4", "description": "Disabled checked border - Neutral 300" },
+              "dot": { "value": "#a3a3a3", "description": "Disabled dot - Neutral 400" }
+            },
+            "cursor": { "value": "not-allowed", "description": "Disabled cursor style" }
+          },
+          "error": {
+            "$type": "color",
+            "border": { "value": "#dc2626", "description": "Error border - Error DEFAULT" },
+            "ring": { "value": "#dc2626", "description": "Error focus ring - Error DEFAULT" }
+          }
+        },
+        "label": {
+          "$type": "dimension",
+          "gap": {
+            "sm": { "value": "8px", "description": "Gap between radio and label - small" },
+            "md": { "value": "12px", "description": "Gap between radio and label - medium" },
+            "lg": { "value": "16px", "description": "Gap between radio and label - large" }
+          },
+          "$type": "color",
+          "text": {
+            "default": { "value": "#171717", "description": "Label text - Neutral 900" },
+            "disabled": { "value": "#a3a3a3", "description": "Disabled label text - Neutral 400" }
+          }
+        },
+        "group": {
+          "$type": "dimension",
+          "gap": {
+            "tight": { "value": "8px", "description": "Tight spacing between radio options" },
+            "base": { "value": "12px", "description": "Base spacing between radio options" },
+            "relaxed": { "value": "16px", "description": "Relaxed spacing between radio options" }
+          }
+        },
+        "accessibility": {
+          "$type": "dimension",
+          "minTouchTarget": {
+            "value": "44px",
+            "description": "Minimum touch target size per WCAG 2.5.5"
+          },
+          "focusRingWidth": {
+            "value": "2px",
+            "description": "Focus ring width for accessibility"
+          },
+          "focusRingOffset": {
+            "value": "2px",
+            "description": "Focus ring offset from radio edge"
+          }
+        }
+      }
+    }
+  }
+}

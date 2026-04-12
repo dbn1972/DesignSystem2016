@@ -49,7 +49,7 @@
         },
         "input": {
           "padding-x": { "value": "{ux4g.spacing.3}", "description": "Input horizontal padding" },
-          "padding-y": { "value": "{ux4g.spacing.2-5}", "description": "Input vertical padding" }
+          "padding-y": { "value": "0.625rem", "description": "Input vertical padding (10px)" }
         },
         "card": {
           "padding": { "value": "{ux4g.spacing.6}", "description": "Card padding" },
@@ -59,24 +59,24 @@
       "typography": {
         "heading": {
           "h1": {
-            "size": { "value": "{ux4g.typography.fontSize.4xl}", "$type": "dimension" },
-            "weight": { "value": "{ux4g.typography.fontWeight.bold}", "$type": "fontWeight" },
-            "lineHeight": { "value": "{ux4g.typography.lineHeight.tight}", "$type": "number" }
+            "size": { "value": "{ux4g.typography.fontSize.4xl}", "description": "H1 heading font size", "$type": "dimension" },
+            "weight": { "value": "{ux4g.typography.fontWeight.bold}", "description": "H1 heading font weight", "$type": "fontWeight" },
+            "lineHeight": { "value": "{ux4g.typography.lineHeight.tight}", "description": "H1 heading line height", "$type": "number" }
           },
           "h2": {
-            "size": { "value": "{ux4g.typography.fontSize.3xl}", "$type": "dimension" },
-            "weight": { "value": "{ux4g.typography.fontWeight.semibold}", "$type": "fontWeight" },
-            "lineHeight": { "value": "{ux4g.typography.lineHeight.tight}", "$type": "number" }
+            "size": { "value": "{ux4g.typography.fontSize.3xl}", "description": "H2 heading font size", "$type": "dimension" },
+            "weight": { "value": "{ux4g.typography.fontWeight.semibold}", "description": "H2 heading font weight", "$type": "fontWeight" },
+            "lineHeight": { "value": "{ux4g.typography.lineHeight.tight}", "description": "H2 heading line height", "$type": "number" }
           },
           "h3": {
-            "size": { "value": "{ux4g.typography.fontSize.2xl}", "$type": "dimension" },
-            "weight": { "value": "{ux4g.typography.fontWeight.semibold}", "$type": "fontWeight" },
-            "lineHeight": { "value": "{ux4g.typography.lineHeight.snug}", "$type": "number" }
+            "size": { "value": "{ux4g.typography.fontSize.2xl}", "description": "H3 heading font size", "$type": "dimension" },
+            "weight": { "value": "{ux4g.typography.fontWeight.semibold}", "description": "H3 heading font weight", "$type": "fontWeight" },
+            "lineHeight": { "value": "{ux4g.typography.lineHeight.snug}", "description": "H3 heading line height", "$type": "number" }
           }
         },
         "body": {
-          "size": { "value": "{ux4g.typography.fontSize.base}", "$type": "dimension" },
-          "lineHeight": { "value": "{ux4g.typography.lineHeight.normal}", "$type": "number" }
+          "size": { "value": "{ux4g.typography.fontSize.base}", "description": "Body text font size", "$type": "dimension" },
+          "lineHeight": { "value": "{ux4g.typography.lineHeight.normal}", "description": "Body text line height - WCAG 1.4.12", "$type": "number" }
         }
       }
     }

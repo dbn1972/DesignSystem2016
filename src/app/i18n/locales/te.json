@@ -1,0 +1,169 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "search": "Search",
+    "login": "Login",
+    "logout": "Logout",
+    "signup": "Sign Up",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "confirm": "Confirm",
+    "required": "Required",
+    "optional": "Optional",
+    "select": "Select",
+    "selectLanguage": "Select Language",
+    "language": "Language"
+  },
+  "navigation": {
+    "foundations": "Foundations",
+    "components": "Components",
+    "patterns": "Patterns",
+    "archetypes": "Service Archetypes",
+    "systems": "Systems",
+    "services": "Reference Services",
+    "resources": "Resources",
+    "governance": "Governance",
+    "accessibility": "Accessibility",
+    "contentSystem": "Content Design System",
+    "frameworkStatus": "Framework Status",
+    "webComponents": "Web Components"
+  },
+  "home": {
+    "title": "UX4G Design System",
+    "subtitle": "Government of India's Official Design System",
+    "tagline": "Building consistent, accessible, and inclusive digital services for every citizen",
+    "getStarted": "Get Started",
+    "viewComponents": "View Components",
+    "explore": "Explore Documentation",
+    "forDevelopers": "For Developers",
+    "forDesigners": "For Designers",
+    "forPolicymakers": "For Policymakers"
+  },
+  "hero": {
+    "title": "Design System for Digital India",
+    "description": "Production-ready components, patterns, and guidelines for building government digital services that serve all 1.4 billion citizens.",
+    "cta": {
+      "primary": "Get Started",
+      "secondary": "View Components"
+    }
+  },
+  "features": {
+    "title": "Built for India",
+    "subtitle": "Features designed for Indian government services",
+    "accessibility": {
+      "title": "Accessibility First",
+      "description": "WCAG 2.1 Level AA compliant components ensuring digital services are accessible to all citizens including persons with disabilities."
+    },
+    "multilingual": {
+      "title": "22 Languages Supported",
+      "description": "Complete support for India's 22 scheduled languages with automatic text direction and cultural adaptation."
+    },
+    "government": {
+      "title": "Government-Specific",
+      "description": "Pre-built components for Aadhaar, PAN, DigiLocker, and other government services with built-in validation."
+    },
+    "frameworks": {
+      "title": "Multi-Framework",
+      "description": "Available for React, Angular, and Web Components. Choose the technology that fits your project."
+    },
+    "responsive": {
+      "title": "Mobile-First Design",
+      "description": "Responsive components optimized for mobile devices with touch-friendly interfaces for India Mobile."
+    },
+    "opensource": {
+      "title": "Open Source",
+      "description": "MIT licensed and community-driven. Contribute and help improve digital services for India."
+    }
+  },
+  "components": {
+    "title": "73 Production-Ready Components",
+    "description": "Comprehensive library of accessible, government-ready UI components",
+    "viewAll": "View All Components",
+    "categories": {
+      "formElements": "Form Elements",
+      "navigation": "Navigation",
+      "feedback": "Feedback",
+      "dataDisplay": "Data Display",
+      "layout": "Layout",
+      "advanced": "Advanced Components"
+    }
+  },
+  "frameworks": {
+    "title": "Choose Your Framework",
+    "react": "React Components",
+    "angular": "Angular Components",
+    "webComponents": "Web Components",
+    "allFrameworks": "All frameworks supported"
+  },
+  "footer": {
+    "about": "About UX4G",
+    "documentation": "Documentation",
+    "github": "GitHub",
+    "contribute": "Contribute",
+    "license": "MIT License",
+    "digitalIndia": "Digital India Initiative",
+    "madeWith": "Built with ❤️ for Digital India",
+    "copyright": "© 2026 Government of India. All rights reserved."
+  },
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Toggle theme",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "loading": "Loading content",
+    "sr": {
+      "required": "required field",
+      "optional": "optional field",
+      "error": "error",
+      "success": "success",
+      "loading": "loading"
+    }
+  },
+  "errors": {
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDescription": "The page you are looking for does not exist.",
+    "goHome": "Go to Home",
+    "serverError": "Server Error",
+    "serverErrorDescription": "Something went wrong. Please try again later.",
+    "tryAgain": "Try Again"
+  },
+  "forms": {
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "+91 XXXXX XXXXX",
+    "aadhaarLabel": "Aadhaar Number",
+    "aadhaarPlaceholder": "XXXX XXXX XXXX",
+    "panLabel": "PAN Card Number",
+    "panPlaceholder": "ABCDE1234F",
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "invalidPhone": "Please enter a valid phone number",
+      "invalidAadhaar": "Please enter a valid 12-digit Aadhaar number",
+      "invalidPan": "Please enter a valid PAN format (5 letters + 4 digits + 1 letter)",
+      "passwordTooShort": "Password must be at least 8 characters",
+      "passwordRequirements": "Password must contain uppercase, lowercase, number, and special character"
+    }
+  }
+}

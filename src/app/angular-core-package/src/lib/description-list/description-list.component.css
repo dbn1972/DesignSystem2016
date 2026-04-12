@@ -1,0 +1,176 @@
+/* Description List Component Styles */
+
+.ux4g-description-list {
+  margin: 0;
+  padding: 0;
+}
+
+/* Bordered variant */
+.ux4g-description-list--bordered {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Item */
+.ux4g-description-list__item {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+/* Horizontal layout */
+.ux4g-description-list--horizontal .ux4g-description-list__item {
+  grid-template-columns: minmax(150px, 1fr) 2fr;
+  align-items: start;
+}
+
+/* Vertical layout */
+.ux4g-description-list--vertical .ux4g-description-list__item {
+  grid-template-columns: 1fr;
+}
+
+/* Dividers */
+.ux4g-description-list--divider .ux4g-description-list__item:not(:last-child) {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Striped rows */
+.ux4g-description-list--striped .ux4g-description-list__item:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Highlighted items */
+.ux4g-description-list__item--highlight {
+  background-color: #fffbeb;
+  border-left: 3px solid #f59e0b;
+  padding-left: calc(1rem - 3px);
+}
+
+.ux4g-description-list--striped .ux4g-description-list__item--highlight:nth-child(even) {
+  background-color: #fef3c7;
+}
+
+/* Sizes */
+.ux4g-description-list--sm .ux4g-description-list__item {
+  padding: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ux4g-description-list--md .ux4g-description-list__item {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.ux4g-description-list--lg .ux4g-description-list__item {
+  padding: 1.25rem;
+  font-size: 1.125rem;
+}
+
+/* Term */
+.ux4g-description-list__term {
+  font-weight: 600;
+  color: #334155;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ux4g-description-list__icon {
+  font-size: 1.25em;
+  flex-shrink: 0;
+}
+
+/* Description */
+.ux4g-description-list__description {
+  color: #475569;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ux4g-description-list__value {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* List within description */
+.ux4g-description-list__list {
+  margin: 0;
+  padding-left: 1.5rem;
+  flex: 1;
+}
+
+.ux4g-description-list__list li {
+  margin-bottom: 0.25rem;
+}
+
+.ux4g-description-list__list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Copy button */
+.ux4g-description-list__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.25rem;
+  color: #475569;
+  font-size: 0.875em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ux4g-description-list__copy:hover {
+  background-color: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.ux4g-description-list__copy:active {
+  background-color: #cbd5e1;
+}
+
+.ux4g-description-list__copy:focus {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+.ux4g-description-list__copy-text {
+  font-size: 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ux4g-description-list--horizontal .ux4g-description-list__item {
+    grid-template-columns: 1fr;
+  }
+
+  .ux4g-description-list__term {
+    padding-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .ux4g-description-list--sm .ux4g-description-list__item {
+    padding: 0.625rem;
+    font-size: 0.8125rem;
+  }
+
+  .ux4g-description-list--md .ux4g-description-list__item {
+    padding: 0.875rem;
+    font-size: 0.9375rem;
+  }
+
+  .ux4g-description-list--lg .ux4g-description-list__item {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}

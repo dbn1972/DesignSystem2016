@@ -1,0 +1,65 @@
+<ul *ngIf="!ordered" [class]="listClasses" role="list">
+  <li *ngFor="let item of items; let i = index"
+      [class]="getItemClasses(item)"
+      [attr.aria-current]="item.active ? 'true' : null"
+      [attr.aria-disabled]="item.disabled ? 'true' : null">
+
+    <span *ngIf="item.icon || icon" class="ux4g-list__icon" aria-hidden="true">
+      {{ item.icon || icon }}
+    </span>
+
+    <div class="ux4g-list__content">
+      <a *ngIf="item.href"
+         [href]="item.href"
+         [class.disabled]="item.disabled"
+         (click)="onItemClick(item, $event)"
+         (keydown)="onKeyDown(item, $event)"
+         [attr.tabindex]="item.disabled ? '-1' : '0'"
+         class="ux4g-list__link">
+        {{ item.content }}
+      </a>
+      <span *ngIf="!item.href" class="ux4g-list__text">{{ item.content }}</span>
+
+      <span *ngIf="item.badge" class="ux4g-list__badge" aria-label="Count">
+        {{ item.badge }}
+      </span>
+
+      <p *ngIf="item.description" class="ux4g-list__description">
+        {{ item.description }}
+      </p>
+    </div>
+  </li>
+</ul>
+
+<ol *ngIf="ordered" [class]="listClasses" role="list">
+  <li *ngFor="let item of items; let i = index"
+      [class]="getItemClasses(item)"
+      [attr.aria-current]="item.active ? 'true' : null"
+      [attr.aria-disabled]="item.disabled ? 'true' : null">
+
+    <span *ngIf="item.icon || icon" class="ux4g-list__icon" aria-hidden="true">
+      {{ item.icon || icon }}
+    </span>
+
+    <div class="ux4g-list__content">
+      <a *ngIf="item.href"
+         [href]="item.href"
+         [class.disabled]="item.disabled"
+         (click)="onItemClick(item, $event)"
+         (keydown)="onKeyDown(item, $event)"
+         [attr.tabindex]="item.disabled ? '-1' : '0'"
+         class="ux4g-list__link">
+        {{ item.content }}
+      </a>
+      <span *ngIf="!item.href" class="ux4g-list__text">{{ item.content }}</span>
+
+      <span *ngIf="item.badge" class="ux4g-list__badge" aria-label="Count">
+        {{ item.badge }}
+      </span>
+
+      <p *ngIf="item.description" class="ux4g-list__description">
+        {{ item.description }}
+      </p>
+    </div>
+  </li>
+</ol>
