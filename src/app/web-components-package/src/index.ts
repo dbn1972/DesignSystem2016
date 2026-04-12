@@ -8,6 +8,8 @@
 
 // Base classes
 export { UX4GElement, UX4GFormElement } from './base/UX4GElement';
+export * from './component-contract';
+export { WEB_COMPONENT_MATURITY } from '../../component-maturity';
 
 // Utilities
 export * from './utils/helpers';

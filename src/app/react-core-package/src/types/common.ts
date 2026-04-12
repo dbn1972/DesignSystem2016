@@ -14,12 +14,15 @@ import { AriaAttributes, ReactNode, HTMLAttributes } from 'react';
  * Base size variants used across components
  * Maps to UX4G spacing and typography tokens
  */
+export const COMPONENT_SIZES = ['sm', 'md', 'lg'] as const;
 export type ComponentSize = 'sm' | 'md' | 'lg';
+export type ComponentMaturity = 'stable' | 'beta' | 'experimental';
 
 /**
  * Semantic variant types for interactive components
  * Maps to UX4G color tokens
  */
+export const COMPONENT_VARIANTS = ['primary', 'secondary', 'tertiary', 'ghost', 'destructive'] as const;
 export type ComponentVariant =
   | 'primary'    // Primary action (--ux4g-color-primary)
   | 'secondary'  // Secondary action
@@ -31,11 +34,56 @@ export type ComponentVariant =
  * Status variants for feedback components
  * Maps to UX4G semantic color tokens
  */
+export const STATUS_VARIANTS = ['neutral', 'info', 'success', 'warning', 'error'] as const;
 export type StatusVariant =
+  | 'neutral'  // Neutral informational status
   | 'info'     // --ux4g-color-info
   | 'success'  // --ux4g-color-success
   | 'warning'  // --ux4g-color-warning
   | 'error';   // --ux4g-color-error
+
+/**
+ * Canonical boolean and semantic state names used across UX4G components.
+ */
+export type ComponentState =
+  | 'disabled'
+  | 'loading'
+  | 'readonly'
+  | 'required'
+  | 'invalid'
+  | 'selected'
+  | 'checked'
+  | 'open'
+  | 'active';
+
+/**
+ * Semantic event names used across the design system.
+ * Frameworks should map these semantics to their native event APIs.
+ */
+export type ComponentEventName =
+  | 'activate'
+  | 'change'
+  | 'openChange'
+  | 'selectionChange'
+  | 'dismiss'
+  | 'submit'
+  | 'valueCommit';
+
+/**
+ * Shared conceptual child regions used across composition APIs.
+ */
+export type ComponentSlotName =
+  | 'default'
+  | 'label'
+  | 'description'
+  | 'hint'
+  | 'error'
+  | 'icon-leading'
+  | 'icon-trailing'
+  | 'actions'
+  | 'header'
+  | 'footer'
+  | 'empty';
 
 /**
  * Common base props for all UX4G components

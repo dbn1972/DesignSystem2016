@@ -3,14 +3,15 @@
  * 
  * @element ux4g-button
  * 
- * @attr {string} variant - Button variant: primary, secondary, outline, ghost, danger
+ * @attr {string} variant - Button variant: primary, secondary, tertiary, ghost, destructive
  * @attr {string} size - Button size: sm, md, lg
  * @attr {boolean} disabled - Whether button is disabled
  * @attr {boolean} loading - Whether button is in loading state
  * @attr {string} type - Button type: button, submit, reset
  * @attr {boolean} full-width - Whether button takes full width
  * 
- * @fires ux4g-click - Fired when button is clicked
+ * @fires ux4g-activate - Fired when the button is activated
+ * @fires ux4g-click - Deprecated legacy alias for ux4g-activate
  * 
  * @example
  * ```html
@@ -22,6 +23,10 @@
 
 import { UX4GElement } from '../../base/UX4GElement';
 import { classNames } from '../../utils/helpers';
+import {
+  COMPONENT_EVENTS,
+  normalizeInteractiveVariant
+} from '../../component-contract';
 
 export class UX4GButton extends UX4GElement {
   static get observedAttributes() {
@@ -41,7 +46,7 @@ export class UX4GButton extends UX4GElement {
   }
 
   protected render(): void {
-    const variant = this.getAttributeOrDefault('variant', 'primary');
+    const variant = normalizeInteractiveVariant(this.getAttribute('variant'));
     const size = this.getAttributeOrDefault('size', 'md');
     const type = this.getAttributeOrDefault('type', 'button') as 'button' | 'submit' | 'reset';
     const disabled = this.getBooleanAttribute('disabled');
@@ -84,6 +89,7 @@ export class UX4GButton extends UX4GElement {
     // Click handler
     this._button.addEventListener('click', (e) => {
       if (!isDisabled) {
+        this.dispatchCustomEvent(COMPONENT_EVENTS.activate, { originalEvent: e });
         this.dispatchCustomEvent('ux4g-click', { originalEvent: e });
       }
     });
@@ -121,7 +127,7 @@ export class UX4GButton extends UX4GElement {
   }
 
   get variant(): string {
-    return this.getAttributeOrDefault('variant', 'primary');
+    return normalizeInteractiveVariant(this.getAttribute('variant'));
   }
 
   /**

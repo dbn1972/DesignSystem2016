@@ -4,6 +4,7 @@
 
 // Types
 export * from './types/common.types';
+export { ANGULAR_COMPONENT_MATURITY } from '../../component-maturity';
 
 // Utils
 export { classNames, bemClass, ux4gClass } from './utils/class-names';
