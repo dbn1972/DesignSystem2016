@@ -3,6 +3,8 @@ import { Link } from "react-router";
 
 import certificateSignInCode from "./CertificateSignIn.tsx?raw";
 import referenceSignInCode from "./ReferenceServiceSignIn.tsx?raw";
+import certificateSignUpCode from "./CertificateSignUp.tsx?raw";
+import referenceSignUpCode from "./ReferenceServiceSignUp.tsx?raw";
 import certificateForgotPasswordCode from "./CertificateForgotPassword.tsx?raw";
 import referenceForgotPasswordCode from "./ReferenceServiceForgotPassword.tsx?raw";
 import certificateVerifyOtpCode from "./CertificateVerifyOTP.tsx?raw";
@@ -10,10 +12,12 @@ import referenceVerifyOtpCode from "./ReferenceServiceVerifyOTP.tsx?raw";
 import certificateAuthStatusCode from "./CertificateSessionTimeout.tsx?raw";
 import referenceAuthStatusCode from "./ReferenceServiceAuthStatus.tsx?raw";
 import reusableSignInComponentCode from "../components/auth/SignInService.tsx?raw";
+import reusableSignUpComponentCode from "../components/auth/SignUpService.tsx?raw";
 import reusableForgotPasswordComponentCode from "../components/auth/ForgotPasswordService.tsx?raw";
 import reusableOtpComponentCode from "../components/auth/OtpVerificationService.tsx?raw";
 import reusableAuthStatusComponentCode from "../components/auth/AuthStatusService.tsx?raw";
 import reusableSignInServiceCode from "../services/signInService.ts?raw";
+import reusableSignUpServiceCode from "../services/signUpService.ts?raw";
 import reusableForgotPasswordServiceCode from "../services/forgotPasswordService.ts?raw";
 import reusableOtpServiceCode from "../services/otpService.ts?raw";
 
@@ -74,6 +78,50 @@ const downloadGroups: DownloadGroup[] = [
         label: "Download Sign In Service Logic",
         filename: "signInService.ts",
         code: reusableSignInServiceCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-sign-up",
+    title: "Certificate Sign Up Service",
+    description: "Certificate-specific sign-up wrapper and shared sign-up implementation.",
+    items: [
+      {
+        label: "Download Certificate Sign Up Page",
+        filename: "CertificateSignUp.tsx",
+        code: certificateSignUpCode,
+      },
+      {
+        label: "Download Shared Sign Up Component",
+        filename: "SignUpService.tsx",
+        code: reusableSignUpComponentCode,
+      },
+      {
+        label: "Download Sign Up Service Logic",
+        filename: "signUpService.ts",
+        code: reusableSignUpServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-sign-up",
+    title: "Reusable Government Sign Up Service",
+    description: "Generic sign-up flow reusable across government services.",
+    items: [
+      {
+        label: "Download Reusable Sign Up Page",
+        filename: "ReferenceServiceSignUp.tsx",
+        code: referenceSignUpCode,
+      },
+      {
+        label: "Download Shared Sign Up Component",
+        filename: "SignUpService.tsx",
+        code: reusableSignUpComponentCode,
+      },
+      {
+        label: "Download Sign Up Service Logic",
+        filename: "signUpService.ts",
+        code: reusableSignUpServiceCode,
       },
     ],
   },
@@ -232,7 +280,7 @@ export default function ServiceCodeDownloads() {
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Service Code Downloads</h1>
               <p className="text-sm text-gray-700 mt-1">
-                Download React source code for sign-in, forgot-password, OTP, and auth-status services.
+                Download React source code for sign-up, sign-in, forgot-password, OTP, and auth-status services.
               </p>
             </div>
           </div>

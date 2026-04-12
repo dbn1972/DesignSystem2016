@@ -241,6 +241,7 @@ const CertificateDocumentGuidelines = lazy(() => import("./pages/CertificateDocu
 const CertificatePrivacyPolicy = lazy(() => import("./pages/CertificatePrivacyPolicy"));
 const CertificateSignIn = lazy(() => import("./pages/CertificateSignIn"));
 const CertificateSignUp = lazy(() => import("./pages/CertificateSignUp"));
+const ReferenceServiceSignUp = lazy(() => import("./pages/ReferenceServiceSignUp"));
 const CertificateVerifyOTP = lazy(() => import("./pages/CertificateVerifyOTP"));
 const CertificateForgotPassword = lazy(() => import("./pages/CertificateForgotPassword"));
 const ReferenceServiceForgotPassword = lazy(() => import("./pages/ReferenceServiceForgotPassword"));
@@ -539,6 +540,7 @@ export const router = createBrowserRouter([
       { path: "reference-service/overview", Component: ReferenceServiceBlueprint },
       { path: "reference-service/demo", Component: CertificateService },
       { path: "reference-service/sign-in", Component: ReferenceServiceSignIn },
+      { path: "reference-service/sign-up", Component: ReferenceServiceSignUp },
       { path: "reference-service/forgot-password", Component: ReferenceServiceForgotPassword },
       { path: "reference-service/verify-otp", Component: ReferenceServiceVerifyOTP },
       { path: "reference-service/auth-status", Component: ReferenceServiceAuthStatus },

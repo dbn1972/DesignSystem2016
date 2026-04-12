@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, Moon, Sun } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, UserCheck, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, Moon, Sun } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from '../contexts/ThemeContext';
 import LanguageSelector from './LanguageSelector';
@@ -608,6 +608,7 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
               <MegaMenuItem icon={<Map size={14} className="text-blue-600" />} label="Service Blueprint" href="/reference-service/overview" />
               <MegaMenuItem icon={<Box size={14} className="text-green-600" />} label="Certificate Service Demo" href="/reference-service/demo" />
               <MegaMenuItem icon={<Users size={14} className="text-indigo-600" />} label="Reusable Sign In Service" href="/reference-service/sign-in" />
+              <MegaMenuItem icon={<UserCheck size={14} className="text-green-700" />} label="Reusable Sign Up Service" href="/reference-service/sign-up" />
               <MegaMenuItem icon={<Shield size={14} className="text-purple-600" />} label="Reusable OTP Service" href="/reference-service/verify-otp" />
               <MegaMenuItem icon={<AlertCircle size={14} className="text-orange-600" />} label="Auth Status Service" href="/reference-service/auth-status" />
             </div>

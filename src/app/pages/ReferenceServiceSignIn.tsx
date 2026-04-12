@@ -17,6 +17,7 @@ export default function ReferenceServiceSignIn() {
       forgotPasswordPath="/reference-service/forgot-password"
       otpSignInPath="/patterns/identity/mobile-otp"
       helpPath="/patterns/contact-support/service-support"
+      signUpPath="/reference-service/sign-up"
       codeDownloadPath="/resources/service-code-downloads#reusable-sign-in"
       serviceName="Government Service Platform"
       initialState={initialState}
