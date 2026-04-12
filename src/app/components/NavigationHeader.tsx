@@ -607,6 +607,9 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
             <div className="space-y-0.5">
               <MegaMenuItem icon={<Map size={14} className="text-blue-600" />} label="Service Blueprint" href="/reference-service/overview" />
               <MegaMenuItem icon={<Box size={14} className="text-green-600" />} label="Certificate Service Demo" href="/reference-service/demo" />
+              <MegaMenuItem icon={<Users size={14} className="text-indigo-600" />} label="Reusable Sign In Service" href="/reference-service/sign-in" />
+              <MegaMenuItem icon={<Shield size={14} className="text-purple-600" />} label="Reusable OTP Service" href="/reference-service/verify-otp" />
+              <MegaMenuItem icon={<AlertCircle size={14} className="text-orange-600" />} label="Auth Status Service" href="/reference-service/auth-status" />
             </div>
           </div>
 
@@ -631,6 +634,10 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
               <Link to="/reference-service/certificate/officer/dashboard" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
                 <div className="font-bold text-gray-700 dark:text-gray-300">Officer Dashboard</div>
                 <div className="text-gray-600 dark:text-gray-400">Review and approval workflow</div>
+              </Link>
+              <Link to="/resources/service-code-downloads" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
+                <div className="font-bold text-gray-700 dark:text-gray-300">React Code Downloads</div>
+                <div className="text-gray-600 dark:text-gray-400">Certificate + reusable sign-in source</div>
               </Link>
             </div>
           </div>

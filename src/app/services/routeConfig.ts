@@ -42,6 +42,7 @@ export const ROUTES = {
   RESOURCES: "/resources",
   INSTALLATION: "/installation",
   STARTER_KITS: "/starter-kits",
+  SERVICE_CODE_DOWNLOADS: "/resources/service-code-downloads",
   
   // Governance
   GOVERNANCE: "/governance",
@@ -52,6 +53,10 @@ export const ROUTES = {
   SERVICE_PATTERNS: "/service-pattern-libraries",
   IDENTITY_ACCESS_PATTERNS: "/identity-access-patterns",
   CONSENT_PATTERNS: "/consent-declaration-patterns",
+  REFERENCE_SERVICE_SIGN_IN: "/reference-service/sign-in",
+  REFERENCE_SERVICE_FORGOT_PASSWORD: "/reference-service/forgot-password",
+  REFERENCE_SERVICE_VERIFY_OTP: "/reference-service/verify-otp",
+  REFERENCE_SERVICE_AUTH_STATUS: "/reference-service/auth-status",
   
   // Certificate Service Routes
   CERTIFICATE: {
@@ -120,6 +125,10 @@ export const ROUTE_GROUPS = {
   PUBLIC: [
     ROUTES.HOME,
     ROUTES.CERTIFICATE.SERVICE,
+    ROUTES.REFERENCE_SERVICE_SIGN_IN,
+    ROUTES.REFERENCE_SERVICE_FORGOT_PASSWORD,
+    ROUTES.REFERENCE_SERVICE_VERIFY_OTP,
+    ROUTES.REFERENCE_SERVICE_AUTH_STATUS,
     ROUTES.CERTIFICATE.ELIGIBILITY,
     ROUTES.CERTIFICATE.HELP,
     ROUTES.CERTIFICATE.DOCUMENT_GUIDELINES,

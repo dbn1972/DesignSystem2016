@@ -231,6 +231,7 @@ const MultilingualGuidance = lazy(() => import("./pages/MultilingualGuidance"));
 // ========================================
 const ReferenceServiceBlueprint = lazy(() => import("./pages/ReferenceServiceBlueprint"));
 const CertificateService = lazy(() => import("./pages/CertificateService"));
+const ReferenceServiceSignIn = lazy(() => import("./pages/ReferenceServiceSignIn"));
 
 // Certificate Service - Complete Flow (44 pages)
 const CertificateStart = lazy(() => import("./pages/CertificateStart"));
@@ -242,6 +243,9 @@ const CertificateSignIn = lazy(() => import("./pages/CertificateSignIn"));
 const CertificateSignUp = lazy(() => import("./pages/CertificateSignUp"));
 const CertificateVerifyOTP = lazy(() => import("./pages/CertificateVerifyOTP"));
 const CertificateForgotPassword = lazy(() => import("./pages/CertificateForgotPassword"));
+const ReferenceServiceForgotPassword = lazy(() => import("./pages/ReferenceServiceForgotPassword"));
+const ReferenceServiceVerifyOTP = lazy(() => import("./pages/ReferenceServiceVerifyOTP"));
+const ReferenceServiceAuthStatus = lazy(() => import("./pages/ReferenceServiceAuthStatus"));
 const CertificateSessionTimeout = lazy(() => import("./pages/CertificateSessionTimeout"));
 const CertificateUserProfile = lazy(() => import("./pages/CertificateUserProfile"));
 const CertificateFormPersonal = lazy(() => import("./pages/CertificateFormPersonal"));
@@ -278,6 +282,7 @@ const ComponentCodeMapping = lazy(() => import("./pages/ComponentCodeMapping"));
 const FigmaDesignSystem = lazy(() => import("./pages/FigmaDesignSystem"));
 const MigrationGuides = lazy(() => import("./pages/MigrationGuides"));
 const MigrationMaterialUI = lazy(() => import("./pages/MigrationMaterialUI"));
+const ServiceCodeDownloads = lazy(() => import("./pages/ServiceCodeDownloads"));
 
 // ========================================
 // 8. GOVERNANCE
@@ -533,6 +538,10 @@ export const router = createBrowserRouter([
       // ======================================================================
       { path: "reference-service/overview", Component: ReferenceServiceBlueprint },
       { path: "reference-service/demo", Component: CertificateService },
+      { path: "reference-service/sign-in", Component: ReferenceServiceSignIn },
+      { path: "reference-service/forgot-password", Component: ReferenceServiceForgotPassword },
+      { path: "reference-service/verify-otp", Component: ReferenceServiceVerifyOTP },
+      { path: "reference-service/auth-status", Component: ReferenceServiceAuthStatus },
 
       // Certificate Service Complete Flow
       { path: "reference-service/certificate/start", Component: CertificateStart },
@@ -589,6 +598,7 @@ export const router = createBrowserRouter([
       { path: "resources/getting-started", Component: InstallationGuide },
       { path: "resources/starter-kit", Component: UX4GStarterKit },
       { path: "resources/component-specs", Component: ComponentCodeMapping },
+      { path: "resources/service-code-downloads", Component: ServiceCodeDownloads },
       { path: "resources/figma", Component: FigmaDesignSystem },
       { path: "resources/migration-guides", Component: MigrationGuides },
       { path: "resources/migration-material-ui", Component: MigrationMaterialUI },
