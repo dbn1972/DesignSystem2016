@@ -251,6 +251,10 @@ const ReferenceServiceEligibility = lazy(() => import("./pages/ReferenceServiceE
 const ReferenceServiceStart = lazy(() => import("./pages/ReferenceServiceStart"));
 const ReferenceServiceStatusTracker = lazy(() => import("./pages/ReferenceServiceStatusTracker"));
 const ReferenceServiceDocumentUpload = lazy(() => import("./pages/ReferenceServiceDocumentUpload"));
+const ReferenceServiceReviewSummary = lazy(() => import("./pages/ReferenceServiceReviewSummary"));
+const ReferenceServiceDeclaration = lazy(() => import("./pages/ReferenceServiceDeclaration"));
+const ReferenceServicePaymentSummary = lazy(() => import("./pages/ReferenceServicePaymentSummary"));
+const ReferenceServicePaymentReceipt = lazy(() => import("./pages/ReferenceServicePaymentReceipt"));
 const CertificateSessionTimeout = lazy(() => import("./pages/CertificateSessionTimeout"));
 const CertificateUserProfile = lazy(() => import("./pages/CertificateUserProfile"));
 const CertificateFormPersonal = lazy(() => import("./pages/CertificateFormPersonal"));
@@ -552,6 +556,10 @@ export const router = createBrowserRouter([
       { path: "reference-service/start", Component: ReferenceServiceStart },
       { path: "reference-service/status-tracker", Component: ReferenceServiceStatusTracker },
       { path: "reference-service/document-upload", Component: ReferenceServiceDocumentUpload },
+      { path: "reference-service/review-summary", Component: ReferenceServiceReviewSummary },
+      { path: "reference-service/declaration", Component: ReferenceServiceDeclaration },
+      { path: "reference-service/payment-summary", Component: ReferenceServicePaymentSummary },
+      { path: "reference-service/payment-receipt", Component: ReferenceServicePaymentReceipt },
 
       // Certificate Service Complete Flow
       { path: "reference-service/certificate/start", Component: CertificateStart },

@@ -11,6 +11,14 @@ import certificateStartCode from "./CertificateStart.tsx?raw";
 import referenceStartCode from "./ReferenceServiceStart.tsx?raw";
 import certificateDocumentUploadCode from "./CertificateDocumentUpload.tsx?raw";
 import referenceDocumentUploadCode from "./ReferenceServiceDocumentUpload.tsx?raw";
+import certificateReviewSummaryCode from "./CertificateReviewSummary.tsx?raw";
+import referenceReviewSummaryCode from "./ReferenceServiceReviewSummary.tsx?raw";
+import certificateDeclarationCode from "./CertificateDeclaration.tsx?raw";
+import referenceDeclarationCode from "./ReferenceServiceDeclaration.tsx?raw";
+import certificatePaymentSummaryCode from "./CertificatePaymentSummary.tsx?raw";
+import referencePaymentSummaryCode from "./ReferenceServicePaymentSummary.tsx?raw";
+import certificatePaymentReceiptCode from "./CertificatePaymentReceipt.tsx?raw";
+import referencePaymentReceiptCode from "./ReferenceServicePaymentReceipt.tsx?raw";
 import certificateStatusTrackerCode from "./CertificateStatusTracker.tsx?raw";
 import referenceStatusTrackerCode from "./ReferenceServiceStatusTracker.tsx?raw";
 import certificateForgotPasswordCode from "./CertificateForgotPassword.tsx?raw";
@@ -27,6 +35,10 @@ import reusableAuthStatusComponentCode from "../components/auth/AuthStatusServic
 import reusableEligibilityComponentCode from "../components/service/EligibilityService.tsx?raw";
 import reusableStartComponentCode from "../components/service/ApplicationStartService.tsx?raw";
 import reusableDocumentUploadComponentCode from "../components/service/DocumentUploadService.tsx?raw";
+import reusableReviewSummaryComponentCode from "../components/service/ReviewSummaryService.tsx?raw";
+import reusableDeclarationComponentCode from "../components/service/DeclarationService.tsx?raw";
+import reusablePaymentSummaryComponentCode from "../components/service/PaymentSummaryService.tsx?raw";
+import reusablePaymentReceiptComponentCode from "../components/service/PaymentReceiptService.tsx?raw";
 import reusableStatusTrackerComponentCode from "../components/service/StatusTrackerService.tsx?raw";
 import reusableSignInServiceCode from "../services/signInService.ts?raw";
 import reusableSignUpServiceCode from "../services/signUpService.ts?raw";
@@ -34,6 +46,8 @@ import reusableForgotPasswordServiceCode from "../services/forgotPasswordService
 import reusableOtpServiceCode from "../services/otpService.ts?raw";
 import reusableEligibilityServiceCode from "../services/eligibilityService.ts?raw";
 import reusableDocumentUploadServiceCode from "../services/documentUploadService.ts?raw";
+import reusableReviewDeclarationServiceCode from "../services/reviewDeclarationService.ts?raw";
+import reusablePaymentServiceCode from "../services/paymentService.ts?raw";
 import reusableStatusTrackerServiceCode from "../services/statusTrackerService.ts?raw";
 
 type DownloadItem = {
@@ -263,6 +277,182 @@ const downloadGroups: DownloadGroup[] = [
     ],
   },
   {
+    id: "certificate-review-summary",
+    title: "Certificate Review Summary Service",
+    description: "Certificate-specific review-summary wrapper and shared review implementation.",
+    items: [
+      {
+        label: "Download Certificate Review Summary Page",
+        filename: "CertificateReviewSummary.tsx",
+        code: certificateReviewSummaryCode,
+      },
+      {
+        label: "Download Shared Review Summary Component",
+        filename: "ReviewSummaryService.tsx",
+        code: reusableReviewSummaryComponentCode,
+      },
+      {
+        label: "Download Review/Declaration Service Logic",
+        filename: "reviewDeclarationService.ts",
+        code: reusableReviewDeclarationServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-review-summary",
+    title: "Reusable Government Review Summary Service",
+    description: "Generic review-summary flow reusable across government services.",
+    items: [
+      {
+        label: "Download Reusable Review Summary Page",
+        filename: "ReferenceServiceReviewSummary.tsx",
+        code: referenceReviewSummaryCode,
+      },
+      {
+        label: "Download Shared Review Summary Component",
+        filename: "ReviewSummaryService.tsx",
+        code: reusableReviewSummaryComponentCode,
+      },
+      {
+        label: "Download Review/Declaration Service Logic",
+        filename: "reviewDeclarationService.ts",
+        code: reusableReviewDeclarationServiceCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-declaration",
+    title: "Certificate Declaration Service",
+    description: "Certificate-specific declaration wrapper and shared declaration implementation.",
+    items: [
+      {
+        label: "Download Certificate Declaration Page",
+        filename: "CertificateDeclaration.tsx",
+        code: certificateDeclarationCode,
+      },
+      {
+        label: "Download Shared Declaration Component",
+        filename: "DeclarationService.tsx",
+        code: reusableDeclarationComponentCode,
+      },
+      {
+        label: "Download Review/Declaration Service Logic",
+        filename: "reviewDeclarationService.ts",
+        code: reusableReviewDeclarationServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-declaration",
+    title: "Reusable Government Declaration Service",
+    description: "Generic declaration flow reusable across government services.",
+    items: [
+      {
+        label: "Download Reusable Declaration Page",
+        filename: "ReferenceServiceDeclaration.tsx",
+        code: referenceDeclarationCode,
+      },
+      {
+        label: "Download Shared Declaration Component",
+        filename: "DeclarationService.tsx",
+        code: reusableDeclarationComponentCode,
+      },
+      {
+        label: "Download Review/Declaration Service Logic",
+        filename: "reviewDeclarationService.ts",
+        code: reusableReviewDeclarationServiceCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-payment-summary",
+    title: "Certificate Payment Summary Service",
+    description: "Certificate-specific payment summary wrapper with shared payment handling logic.",
+    items: [
+      {
+        label: "Download Certificate Payment Summary Page",
+        filename: "CertificatePaymentSummary.tsx",
+        code: certificatePaymentSummaryCode,
+      },
+      {
+        label: "Download Shared Payment Summary Component",
+        filename: "PaymentSummaryService.tsx",
+        code: reusablePaymentSummaryComponentCode,
+      },
+      {
+        label: "Download Payment Service Logic",
+        filename: "paymentService.ts",
+        code: reusablePaymentServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-payment-summary",
+    title: "Reusable Government Payment Summary Service",
+    description: "Generic payment summary flow reusable across service applications.",
+    items: [
+      {
+        label: "Download Reusable Payment Summary Page",
+        filename: "ReferenceServicePaymentSummary.tsx",
+        code: referencePaymentSummaryCode,
+      },
+      {
+        label: "Download Shared Payment Summary Component",
+        filename: "PaymentSummaryService.tsx",
+        code: reusablePaymentSummaryComponentCode,
+      },
+      {
+        label: "Download Payment Service Logic",
+        filename: "paymentService.ts",
+        code: reusablePaymentServiceCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-payment-receipt",
+    title: "Certificate Payment Receipt Service",
+    description: "Certificate-specific payment receipt wrapper with shared receipt rendering logic.",
+    items: [
+      {
+        label: "Download Certificate Payment Receipt Page",
+        filename: "CertificatePaymentReceipt.tsx",
+        code: certificatePaymentReceiptCode,
+      },
+      {
+        label: "Download Shared Payment Receipt Component",
+        filename: "PaymentReceiptService.tsx",
+        code: reusablePaymentReceiptComponentCode,
+      },
+      {
+        label: "Download Payment Service Logic",
+        filename: "paymentService.ts",
+        code: reusablePaymentServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-payment-receipt",
+    title: "Reusable Government Payment Receipt Service",
+    description: "Generic payment receipt flow reusable across government service journeys.",
+    items: [
+      {
+        label: "Download Reusable Payment Receipt Page",
+        filename: "ReferenceServicePaymentReceipt.tsx",
+        code: referencePaymentReceiptCode,
+      },
+      {
+        label: "Download Shared Payment Receipt Component",
+        filename: "PaymentReceiptService.tsx",
+        code: reusablePaymentReceiptComponentCode,
+      },
+      {
+        label: "Download Payment Service Logic",
+        filename: "paymentService.ts",
+        code: reusablePaymentServiceCode,
+      },
+    ],
+  },
+  {
     id: "certificate-status-tracker",
     title: "Certificate Status Tracker Service",
     description: "Certificate-specific status tracker wrapper and shared tracker implementation.",
@@ -461,7 +651,7 @@ export default function ServiceCodeDownloads() {
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Service Code Downloads</h1>
               <p className="text-sm text-gray-700 mt-1">
-                Download React source code for sign-up, sign-in, eligibility, application start, document upload, status tracker, forgot-password, OTP, and auth-status services.
+                Download React source code for sign-up, sign-in, eligibility, application start, document upload, review summary, declaration, payment summary, payment receipt, status tracker, forgot-password, OTP, and auth-status services.
               </p>
             </div>
           </div>

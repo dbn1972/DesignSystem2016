@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, UserCheck, Shield, Upload, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, Moon, Sun } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, UserCheck, Shield, Upload, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, Moon, Sun, CreditCard } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from '../contexts/ThemeContext';
 import LanguageSelector from './LanguageSelector';
@@ -614,6 +614,10 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
               <MegaMenuItem icon={<CheckCircle size={14} className="text-teal-600" />} label="Eligibility Service" href="/reference-service/eligibility" />
               <MegaMenuItem icon={<FileText size={14} className="text-blue-700" />} label="Application Start Service" href="/reference-service/start" />
               <MegaMenuItem icon={<Upload size={14} className="text-cyan-700" />} label="Document Upload Service" href="/reference-service/document-upload" />
+              <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Review Summary Service" href="/reference-service/review-summary" />
+              <MegaMenuItem icon={<CheckCircle size={14} className="text-purple-700" />} label="Declaration Service" href="/reference-service/declaration" />
+              <MegaMenuItem icon={<CreditCard size={14} className="text-pink-600" />} label="Payment Summary Service" href="/reference-service/payment-summary" />
+              <MegaMenuItem icon={<CreditCard size={14} className="text-green-600" />} label="Payment Receipt Service" href="/reference-service/payment-receipt" />
               <MegaMenuItem icon={<BarChart3 size={14} className="text-indigo-600" />} label="Status Tracker Service" href="/reference-service/status-tracker" />
             </div>
           </div>
@@ -909,6 +913,10 @@ function MobileNavigation({ onClose }: { onClose: () => void }) {
           <MobileLink label="Eligibility Service" href="/reference-service/eligibility" onClose={onClose} />
           <MobileLink label="Start Service" href="/reference-service/start" onClose={onClose} />
           <MobileLink label="Document Upload" href="/reference-service/document-upload" onClose={onClose} />
+          <MobileLink label="Review Summary" href="/reference-service/review-summary" onClose={onClose} />
+          <MobileLink label="Declaration" href="/reference-service/declaration" onClose={onClose} />
+          <MobileLink label="Payment Summary" href="/reference-service/payment-summary" onClose={onClose} />
+          <MobileLink label="Payment Receipt" href="/reference-service/payment-receipt" onClose={onClose} />
           <MobileLink label="Status Tracker" href="/reference-service/status-tracker" onClose={onClose} />
         </MobileSection>
 
