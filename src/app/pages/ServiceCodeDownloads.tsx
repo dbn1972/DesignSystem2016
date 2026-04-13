@@ -9,6 +9,8 @@ import certificateEligibilityCode from "./CertificateEligibility.tsx?raw";
 import referenceEligibilityCode from "./ReferenceServiceEligibility.tsx?raw";
 import certificateStartCode from "./CertificateStart.tsx?raw";
 import referenceStartCode from "./ReferenceServiceStart.tsx?raw";
+import certificateDocumentUploadCode from "./CertificateDocumentUpload.tsx?raw";
+import referenceDocumentUploadCode from "./ReferenceServiceDocumentUpload.tsx?raw";
 import certificateStatusTrackerCode from "./CertificateStatusTracker.tsx?raw";
 import referenceStatusTrackerCode from "./ReferenceServiceStatusTracker.tsx?raw";
 import certificateForgotPasswordCode from "./CertificateForgotPassword.tsx?raw";
@@ -24,12 +26,14 @@ import reusableOtpComponentCode from "../components/auth/OtpVerificationService.
 import reusableAuthStatusComponentCode from "../components/auth/AuthStatusService.tsx?raw";
 import reusableEligibilityComponentCode from "../components/service/EligibilityService.tsx?raw";
 import reusableStartComponentCode from "../components/service/ApplicationStartService.tsx?raw";
+import reusableDocumentUploadComponentCode from "../components/service/DocumentUploadService.tsx?raw";
 import reusableStatusTrackerComponentCode from "../components/service/StatusTrackerService.tsx?raw";
 import reusableSignInServiceCode from "../services/signInService.ts?raw";
 import reusableSignUpServiceCode from "../services/signUpService.ts?raw";
 import reusableForgotPasswordServiceCode from "../services/forgotPasswordService.ts?raw";
 import reusableOtpServiceCode from "../services/otpService.ts?raw";
 import reusableEligibilityServiceCode from "../services/eligibilityService.ts?raw";
+import reusableDocumentUploadServiceCode from "../services/documentUploadService.ts?raw";
 import reusableStatusTrackerServiceCode from "../services/statusTrackerService.ts?raw";
 
 type DownloadItem = {
@@ -211,6 +215,50 @@ const downloadGroups: DownloadGroup[] = [
         label: "Download Shared Start Component",
         filename: "ApplicationStartService.tsx",
         code: reusableStartComponentCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-document-upload",
+    title: "Certificate Document Upload Service",
+    description: "Certificate-specific document-upload wrapper and shared upload implementation.",
+    items: [
+      {
+        label: "Download Certificate Document Upload Page",
+        filename: "CertificateDocumentUpload.tsx",
+        code: certificateDocumentUploadCode,
+      },
+      {
+        label: "Download Shared Document Upload Component",
+        filename: "DocumentUploadService.tsx",
+        code: reusableDocumentUploadComponentCode,
+      },
+      {
+        label: "Download Document Upload Service Logic",
+        filename: "documentUploadService.ts",
+        code: reusableDocumentUploadServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-document-upload",
+    title: "Reusable Government Document Upload Service",
+    description: "Generic document-upload flow reusable across government services.",
+    items: [
+      {
+        label: "Download Reusable Document Upload Page",
+        filename: "ReferenceServiceDocumentUpload.tsx",
+        code: referenceDocumentUploadCode,
+      },
+      {
+        label: "Download Shared Document Upload Component",
+        filename: "DocumentUploadService.tsx",
+        code: reusableDocumentUploadComponentCode,
+      },
+      {
+        label: "Download Document Upload Service Logic",
+        filename: "documentUploadService.ts",
+        code: reusableDocumentUploadServiceCode,
       },
     ],
   },
@@ -413,7 +461,7 @@ export default function ServiceCodeDownloads() {
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Service Code Downloads</h1>
               <p className="text-sm text-gray-700 mt-1">
-                Download React source code for sign-up, sign-in, eligibility, application start, status tracker, forgot-password, OTP, and auth-status services.
+                Download React source code for sign-up, sign-in, eligibility, application start, document upload, status tracker, forgot-password, OTP, and auth-status services.
               </p>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, UserCheck, Shield, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, Moon, Sun } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, UserCheck, Shield, Upload, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, Moon, Sun } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from '../contexts/ThemeContext';
 import LanguageSelector from './LanguageSelector';
@@ -613,6 +613,7 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
               <MegaMenuItem icon={<AlertCircle size={14} className="text-orange-600" />} label="Auth Status Service" href="/reference-service/auth-status" />
               <MegaMenuItem icon={<CheckCircle size={14} className="text-teal-600" />} label="Eligibility Service" href="/reference-service/eligibility" />
               <MegaMenuItem icon={<FileText size={14} className="text-blue-700" />} label="Application Start Service" href="/reference-service/start" />
+              <MegaMenuItem icon={<Upload size={14} className="text-cyan-700" />} label="Document Upload Service" href="/reference-service/document-upload" />
               <MegaMenuItem icon={<BarChart3 size={14} className="text-indigo-600" />} label="Status Tracker Service" href="/reference-service/status-tracker" />
             </div>
           </div>
@@ -907,6 +908,7 @@ function MobileNavigation({ onClose }: { onClose: () => void }) {
           <MobileLink label="Reusable Sign Up" href="/reference-service/sign-up" onClose={onClose} />
           <MobileLink label="Eligibility Service" href="/reference-service/eligibility" onClose={onClose} />
           <MobileLink label="Start Service" href="/reference-service/start" onClose={onClose} />
+          <MobileLink label="Document Upload" href="/reference-service/document-upload" onClose={onClose} />
           <MobileLink label="Status Tracker" href="/reference-service/status-tracker" onClose={onClose} />
         </MobileSection>
 
