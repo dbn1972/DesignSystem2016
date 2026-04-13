@@ -253,6 +253,11 @@ const ReferenceServiceStatusTracker = lazy(() => import("./pages/ReferenceServic
 const ReferenceServiceDocumentUpload = lazy(() => import("./pages/ReferenceServiceDocumentUpload"));
 const ReferenceServiceReviewSummary = lazy(() => import("./pages/ReferenceServiceReviewSummary"));
 const ReferenceServiceDeclaration = lazy(() => import("./pages/ReferenceServiceDeclaration"));
+const ReferenceServiceUserProfile = lazy(() => import("./pages/ReferenceServiceUserProfile"));
+const ReferenceServiceFormPersonal = lazy(() => import("./pages/ReferenceServiceFormPersonal"));
+const ReferenceServiceFormAddress = lazy(() => import("./pages/ReferenceServiceFormAddress"));
+const ReferenceServiceFormAdditional = lazy(() => import("./pages/ReferenceServiceFormAdditional"));
+const ReferenceServiceFormReview = lazy(() => import("./pages/ReferenceServiceFormReview"));
 const ReferenceServicePaymentSummary = lazy(() => import("./pages/ReferenceServicePaymentSummary"));
 const ReferenceServicePaymentReceipt = lazy(() => import("./pages/ReferenceServicePaymentReceipt"));
 const CertificateSessionTimeout = lazy(() => import("./pages/CertificateSessionTimeout"));
@@ -558,6 +563,11 @@ export const router = createBrowserRouter([
       { path: "reference-service/document-upload", Component: ReferenceServiceDocumentUpload },
       { path: "reference-service/review-summary", Component: ReferenceServiceReviewSummary },
       { path: "reference-service/declaration", Component: ReferenceServiceDeclaration },
+      { path: "reference-service/user-profile", Component: ReferenceServiceUserProfile },
+      { path: "reference-service/form/personal", Component: ReferenceServiceFormPersonal },
+      { path: "reference-service/form/address", Component: ReferenceServiceFormAddress },
+      { path: "reference-service/form/additional", Component: ReferenceServiceFormAdditional },
+      { path: "reference-service/form/review", Component: ReferenceServiceFormReview },
       { path: "reference-service/payment-summary", Component: ReferenceServicePaymentSummary },
       { path: "reference-service/payment-receipt", Component: ReferenceServicePaymentReceipt },
 

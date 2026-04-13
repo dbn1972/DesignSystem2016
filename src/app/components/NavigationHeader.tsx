@@ -614,6 +614,11 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
               <MegaMenuItem icon={<CheckCircle size={14} className="text-teal-600" />} label="Eligibility Service" href="/reference-service/eligibility" />
               <MegaMenuItem icon={<FileText size={14} className="text-blue-700" />} label="Application Start Service" href="/reference-service/start" />
               <MegaMenuItem icon={<Upload size={14} className="text-cyan-700" />} label="Document Upload Service" href="/reference-service/document-upload" />
+              <MegaMenuItem icon={<User size={14} className="text-purple-700" />} label="User Profile Service" href="/reference-service/user-profile" />
+              <MegaMenuItem icon={<FileText size={14} className="text-violet-700" />} label="Personal Form Service" href="/reference-service/form/personal" />
+              <MegaMenuItem icon={<Map size={14} className="text-orange-700" />} label="Address Form Service" href="/reference-service/form/address" />
+              <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Additional Form Service" href="/reference-service/form/additional" />
+              <MegaMenuItem icon={<FileText size={14} className="text-teal-700" />} label="Form Review Service" href="/reference-service/form/review" />
               <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Review Summary Service" href="/reference-service/review-summary" />
               <MegaMenuItem icon={<CheckCircle size={14} className="text-purple-700" />} label="Declaration Service" href="/reference-service/declaration" />
               <MegaMenuItem icon={<CreditCard size={14} className="text-pink-600" />} label="Payment Summary Service" href="/reference-service/payment-summary" />
@@ -912,6 +917,11 @@ function MobileNavigation({ onClose }: { onClose: () => void }) {
           <MobileLink label="Reusable Sign Up" href="/reference-service/sign-up" onClose={onClose} />
           <MobileLink label="Eligibility Service" href="/reference-service/eligibility" onClose={onClose} />
           <MobileLink label="Start Service" href="/reference-service/start" onClose={onClose} />
+          <MobileLink label="User Profile" href="/reference-service/user-profile" onClose={onClose} />
+          <MobileLink label="Form Personal" href="/reference-service/form/personal" onClose={onClose} />
+          <MobileLink label="Form Address" href="/reference-service/form/address" onClose={onClose} />
+          <MobileLink label="Form Additional" href="/reference-service/form/additional" onClose={onClose} />
+          <MobileLink label="Form Review" href="/reference-service/form/review" onClose={onClose} />
           <MobileLink label="Document Upload" href="/reference-service/document-upload" onClose={onClose} />
           <MobileLink label="Review Summary" href="/reference-service/review-summary" onClose={onClose} />
           <MobileLink label="Declaration" href="/reference-service/declaration" onClose={onClose} />

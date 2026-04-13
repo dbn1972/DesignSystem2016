@@ -7,7 +7,7 @@ export default function ReferenceServiceStart() {
       title="Start New Application"
       serviceName="Government Service Platform"
       applicantName="Service User"
-      startFormPath="/reference-service/demo"
+      startFormPath="/reference-service/form/personal"
       helpPath="/patterns/contact-support/service-support"
       codeDownloadPath="/resources/service-code-downloads#reusable-start"
     />

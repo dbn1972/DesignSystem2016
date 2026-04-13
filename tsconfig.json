@@ -12,6 +12,7 @@
     "jsx": "react-jsx",
     "strict": false,
     "skipLibCheck": true,
+    "ignoreDeprecations": "5.0",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
@@ -27,6 +28,7 @@
   ],
   "exclude": [
     "dist",
-    "node_modules"
+    "node_modules",
+    "**/LICENSE/**"
   ]
 }

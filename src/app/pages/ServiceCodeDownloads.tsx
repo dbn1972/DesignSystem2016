@@ -9,6 +9,16 @@ import certificateEligibilityCode from "./CertificateEligibility.tsx?raw";
 import referenceEligibilityCode from "./ReferenceServiceEligibility.tsx?raw";
 import certificateStartCode from "./CertificateStart.tsx?raw";
 import referenceStartCode from "./ReferenceServiceStart.tsx?raw";
+import certificateUserProfileCode from "./CertificateUserProfile.tsx?raw";
+import referenceUserProfileCode from "./ReferenceServiceUserProfile.tsx?raw";
+import certificateFormPersonalCode from "./CertificateFormPersonal.tsx?raw";
+import referenceFormPersonalCode from "./ReferenceServiceFormPersonal.tsx?raw";
+import certificateFormAddressCode from "./CertificateFormAddress.tsx?raw";
+import referenceFormAddressCode from "./ReferenceServiceFormAddress.tsx?raw";
+import certificateFormAdditionalCode from "./CertificateFormAdditional.tsx?raw";
+import referenceFormAdditionalCode from "./ReferenceServiceFormAdditional.tsx?raw";
+import certificateFormReviewCode from "./CertificateFormReview.tsx?raw";
+import referenceFormReviewCode from "./ReferenceServiceFormReview.tsx?raw";
 import certificateDocumentUploadCode from "./CertificateDocumentUpload.tsx?raw";
 import referenceDocumentUploadCode from "./ReferenceServiceDocumentUpload.tsx?raw";
 import certificateReviewSummaryCode from "./CertificateReviewSummary.tsx?raw";
@@ -34,6 +44,11 @@ import reusableOtpComponentCode from "../components/auth/OtpVerificationService.
 import reusableAuthStatusComponentCode from "../components/auth/AuthStatusService.tsx?raw";
 import reusableEligibilityComponentCode from "../components/service/EligibilityService.tsx?raw";
 import reusableStartComponentCode from "../components/service/ApplicationStartService.tsx?raw";
+import reusableUserProfileComponentCode from "../components/service/UserProfileService.tsx?raw";
+import reusablePersonalFormComponentCode from "../components/service/PersonalFormService.tsx?raw";
+import reusableAddressFormComponentCode from "../components/service/AddressFormService.tsx?raw";
+import reusableAdditionalFormComponentCode from "../components/service/AdditionalFormService.tsx?raw";
+import reusableFormReviewComponentCode from "../components/service/FormReviewService.tsx?raw";
 import reusableDocumentUploadComponentCode from "../components/service/DocumentUploadService.tsx?raw";
 import reusableReviewSummaryComponentCode from "../components/service/ReviewSummaryService.tsx?raw";
 import reusableDeclarationComponentCode from "../components/service/DeclarationService.tsx?raw";
@@ -46,6 +61,7 @@ import reusableForgotPasswordServiceCode from "../services/forgotPasswordService
 import reusableOtpServiceCode from "../services/otpService.ts?raw";
 import reusableEligibilityServiceCode from "../services/eligibilityService.ts?raw";
 import reusableDocumentUploadServiceCode from "../services/documentUploadService.ts?raw";
+import reusableFormFlowServiceCode from "../services/formFlowService.ts?raw";
 import reusableReviewDeclarationServiceCode from "../services/reviewDeclarationService.ts?raw";
 import reusablePaymentServiceCode from "../services/paymentService.ts?raw";
 import reusableStatusTrackerServiceCode from "../services/statusTrackerService.ts?raw";
@@ -229,6 +245,216 @@ const downloadGroups: DownloadGroup[] = [
         label: "Download Shared Start Component",
         filename: "ApplicationStartService.tsx",
         code: reusableStartComponentCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-user-profile",
+    title: "Certificate User Profile Service",
+    description: "Certificate-specific user profile wrapper with shared account settings module.",
+    items: [
+      {
+        label: "Download Certificate User Profile Page",
+        filename: "CertificateUserProfile.tsx",
+        code: certificateUserProfileCode,
+      },
+      {
+        label: "Download Shared User Profile Component",
+        filename: "UserProfileService.tsx",
+        code: reusableUserProfileComponentCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-user-profile",
+    title: "Reusable Government User Profile Service",
+    description: "Reusable account settings/profile service for government service platforms.",
+    items: [
+      {
+        label: "Download Reusable User Profile Page",
+        filename: "ReferenceServiceUserProfile.tsx",
+        code: referenceUserProfileCode,
+      },
+      {
+        label: "Download Shared User Profile Component",
+        filename: "UserProfileService.tsx",
+        code: reusableUserProfileComponentCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-form-personal",
+    title: "Certificate Personal Form Service",
+    description: "Certificate personal-information form wrapper with shared form module.",
+    items: [
+      {
+        label: "Download Certificate Personal Form Page",
+        filename: "CertificateFormPersonal.tsx",
+        code: certificateFormPersonalCode,
+      },
+      {
+        label: "Download Shared Personal Form Component",
+        filename: "PersonalFormService.tsx",
+        code: reusablePersonalFormComponentCode,
+      },
+      {
+        label: "Download Form Flow Service Logic",
+        filename: "formFlowService.ts",
+        code: reusableFormFlowServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-form-personal",
+    title: "Reusable Government Personal Form Service",
+    description: "Reusable personal-information form flow for cross-service onboarding.",
+    items: [
+      {
+        label: "Download Reusable Personal Form Page",
+        filename: "ReferenceServiceFormPersonal.tsx",
+        code: referenceFormPersonalCode,
+      },
+      {
+        label: "Download Shared Personal Form Component",
+        filename: "PersonalFormService.tsx",
+        code: reusablePersonalFormComponentCode,
+      },
+      {
+        label: "Download Form Flow Service Logic",
+        filename: "formFlowService.ts",
+        code: reusableFormFlowServiceCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-form-address",
+    title: "Certificate Address Form Service",
+    description: "Certificate address-details form wrapper with shared form module.",
+    items: [
+      {
+        label: "Download Certificate Address Form Page",
+        filename: "CertificateFormAddress.tsx",
+        code: certificateFormAddressCode,
+      },
+      {
+        label: "Download Shared Address Form Component",
+        filename: "AddressFormService.tsx",
+        code: reusableAddressFormComponentCode,
+      },
+      {
+        label: "Download Form Flow Service Logic",
+        filename: "formFlowService.ts",
+        code: reusableFormFlowServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-form-address",
+    title: "Reusable Government Address Form Service",
+    description: "Reusable address-details form flow for government services.",
+    items: [
+      {
+        label: "Download Reusable Address Form Page",
+        filename: "ReferenceServiceFormAddress.tsx",
+        code: referenceFormAddressCode,
+      },
+      {
+        label: "Download Shared Address Form Component",
+        filename: "AddressFormService.tsx",
+        code: reusableAddressFormComponentCode,
+      },
+      {
+        label: "Download Form Flow Service Logic",
+        filename: "formFlowService.ts",
+        code: reusableFormFlowServiceCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-form-additional",
+    title: "Certificate Additional Form Service",
+    description: "Certificate additional-information form wrapper with shared form module.",
+    items: [
+      {
+        label: "Download Certificate Additional Form Page",
+        filename: "CertificateFormAdditional.tsx",
+        code: certificateFormAdditionalCode,
+      },
+      {
+        label: "Download Shared Additional Form Component",
+        filename: "AdditionalFormService.tsx",
+        code: reusableAdditionalFormComponentCode,
+      },
+      {
+        label: "Download Form Flow Service Logic",
+        filename: "formFlowService.ts",
+        code: reusableFormFlowServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-form-additional",
+    title: "Reusable Government Additional Form Service",
+    description: "Reusable additional-information form flow for service applications.",
+    items: [
+      {
+        label: "Download Reusable Additional Form Page",
+        filename: "ReferenceServiceFormAdditional.tsx",
+        code: referenceFormAdditionalCode,
+      },
+      {
+        label: "Download Shared Additional Form Component",
+        filename: "AdditionalFormService.tsx",
+        code: reusableAdditionalFormComponentCode,
+      },
+      {
+        label: "Download Form Flow Service Logic",
+        filename: "formFlowService.ts",
+        code: reusableFormFlowServiceCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-form-review",
+    title: "Certificate Form Review Service",
+    description: "Certificate form-review wrapper with shared review module.",
+    items: [
+      {
+        label: "Download Certificate Form Review Page",
+        filename: "CertificateFormReview.tsx",
+        code: certificateFormReviewCode,
+      },
+      {
+        label: "Download Shared Form Review Component",
+        filename: "FormReviewService.tsx",
+        code: reusableFormReviewComponentCode,
+      },
+      {
+        label: "Download Form Flow Service Logic",
+        filename: "formFlowService.ts",
+        code: reusableFormFlowServiceCode,
+      },
+    ],
+  },
+  {
+    id: "reusable-form-review",
+    title: "Reusable Government Form Review Service",
+    description: "Reusable form-review and confirmation module for service flows.",
+    items: [
+      {
+        label: "Download Reusable Form Review Page",
+        filename: "ReferenceServiceFormReview.tsx",
+        code: referenceFormReviewCode,
+      },
+      {
+        label: "Download Shared Form Review Component",
+        filename: "FormReviewService.tsx",
+        code: reusableFormReviewComponentCode,
+      },
+      {
+        label: "Download Form Flow Service Logic",
+        filename: "formFlowService.ts",
+        code: reusableFormFlowServiceCode,
       },
     ],
   },
@@ -651,7 +877,7 @@ export default function ServiceCodeDownloads() {
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Service Code Downloads</h1>
               <p className="text-sm text-gray-700 mt-1">
-                Download React source code for sign-up, sign-in, eligibility, application start, document upload, review summary, declaration, payment summary, payment receipt, status tracker, forgot-password, OTP, and auth-status services.
+                Download React source code for sign-up, sign-in, eligibility, application start, user profile, personal/address/additional/review forms, document upload, review summary, declaration, payment summary, payment receipt, status tracker, forgot-password, OTP, and auth-status services.
               </p>
             </div>
           </div>
