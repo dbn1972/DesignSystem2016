@@ -15,6 +15,7 @@ const ButtonPreview = ({ variant, size, children, ...props }: any) => (
       variant === 'secondary' ? 'bg-card text-[#005196] border-[#005196] hover:bg-[#f5f5f5]' :
       variant === 'tertiary' ? 'bg-transparent text-[#005196] border-transparent hover:bg-[#f5f5f5]' :
       variant === 'danger' ? 'bg-[#dc2626] text-white border-[#dc2626] hover:bg-[#991b1b]' :
+      variant === 'ghost' ? 'bg-transparent text-foreground border-transparent hover:bg-accent' :
       'bg-[#008800] text-white border-[#008800] hover:bg-[#006600]'
     } ${
       size === 'sm' ? 'h-8 px-3 text-sm' :
@@ -41,10 +42,10 @@ export default function ComponentButtonPage() {
       props={[
         {
           name: 'variant',
-          type: "'primary' | 'secondary' | 'tertiary' | 'danger' | 'success'",
+          type: "'primary' | 'secondary' | 'tertiary' | 'destructive' | 'ghost' | 'success' | 'danger'",
           default: "'primary'",
           required: false,
-          description: 'Visual variant of the button. Primary for main actions, secondary for alternative actions, tertiary for low-emphasis actions, danger for destructive actions, success for positive confirmations.',
+          description: 'Visual variant. Primary for main actions, secondary for alternatives, tertiary for low-emphasis, destructive for dangerous actions, ghost for transparent backgrounds, success for positive confirmations. "danger" is a legacy alias for "destructive".',
         },
         {
           name: 'size',
@@ -113,6 +114,19 @@ export default function ComponentButtonPage() {
           description: 'Additional CSS classes to apply. Merged with variant classes.',
         },
         {
+          name: 'as',
+          type: 'ElementType',
+          default: "'button'",
+          required: false,
+          description: 'Polymorphic element type. Pass "a" to render as a link, or a React Router Link component for client-side navigation.',
+        },
+        {
+          name: 'href',
+          type: 'string',
+          required: false,
+          description: 'Link URL — used when as="a". Ignored for button elements.',
+        },
+        {
           name: 'onClick',
           type: '(event: MouseEvent) => void',
           required: false,
@@ -132,7 +146,8 @@ function Example() {
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="tertiary">Tertiary</Button>
-      <Button variant="danger">Danger</Button>
+      <Button variant="destructive">Destructive</Button>
+      <Button variant="ghost">Ghost</Button>
       <Button variant="success">Success</Button>
     </div>
   );
@@ -142,7 +157,8 @@ function Example() {
               <ButtonPreview variant="primary">Primary</ButtonPreview>
               <ButtonPreview variant="secondary">Secondary</ButtonPreview>
               <ButtonPreview variant="tertiary">Tertiary</ButtonPreview>
-              <ButtonPreview variant="danger">Danger</ButtonPreview>
+              <ButtonPreview variant="danger">Destructive</ButtonPreview>
+              <ButtonPreview variant="ghost">Ghost</ButtonPreview>
               <ButtonPreview variant="success">Success</ButtonPreview>
             </div>
           ),
@@ -517,12 +533,137 @@ export type ButtonType = 'button' | 'submit' | 'reset';`,
           { property: 'Padding Horizontal (Medium)', token: 'base.padding.horizontal.md', value: '16px' },
           { property: 'Border Radius', token: 'base.borderRadius', value: '4px' },
           { property: 'Font Size (Medium)', token: 'base.fontSize.md', value: '16px' },
-          { property: 'Primary Background', token: 'variant.primary.background.default', value: '#005196 (Navy 500)' },
-          { property: 'Primary Hover', token: 'variant.primary.background.hover', value: '#004178 (Navy 600)' },
+          { property: 'Primary Background', token: 'variant.primary.background.default', value: 'var(--primary)' },
+          { property: 'Primary Hover', token: 'variant.primary.background.hover', value: 'var(--primary) / 90%' },
           { property: 'Min Touch Target', token: 'accessibility.minTouchTarget', value: '44px' },
           { property: 'Focus Ring Width', token: 'accessibility.focusRingWidth', value: '2px' },
         ],
       }}
+
+      useCases={[
+        {
+          title: 'Application Submission',
+          description: 'Primary CTA for submitting government service applications.',
+          scenario: 'Citizen completes a multi-step certificate application form.',
+          implementation: '<Button variant="primary" type="submit">Submit Application</Button>',
+        },
+        {
+          title: 'Destructive Action Confirmation',
+          description: 'Destructive variant for irreversible actions like deleting a draft.',
+          scenario: 'Officer deletes a pending application from the review queue.',
+          implementation: '<Button variant="destructive" iconBefore={<Trash2 />}>Delete Draft</Button>',
+        },
+        {
+          title: 'Navigation as Link',
+          description: 'Polymorphic rendering as an anchor for navigation CTAs.',
+          scenario: 'Service landing page with a "Get Started" button linking to sign-up.',
+          implementation: '<Button as="a" href="/sign-up" variant="primary">Get Started</Button>',
+        },
+        {
+          title: 'Ghost Action in Toolbars',
+          description: 'Ghost variant for low-emphasis actions in dense UI areas.',
+          scenario: 'Officer dashboard toolbar with filter and sort actions.',
+          implementation: '<Button variant="ghost" size="sm" iconBefore={<Filter />}>Filter</Button>',
+        },
+      ]}
+
+      additionalContent={
+        <>
+          {/* ── When to use / When not to use ── */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Button when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>The user needs to perform an action (submit, save, delete, confirm)</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>You need a clear call-to-action on a page or form</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>The action changes data or triggers a process</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>You need to indicate a primary, secondary, or destructive action</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>You need a loading state while an async operation completes</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Button when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>The action is purely navigational — use a link instead</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>You need a toggle — use Switch or Checkbox instead</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>You have more than 3 actions in a row — consider a Menu or Dropdown</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>The text is very long — buttons should have concise labels</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>You're using it only for styling — semantic HTML matters</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* ── Do / Don't examples ── */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don't</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="flex gap-3">
+                    <ButtonPreview variant="primary" size="md">Submit Application</ButtonPreview>
+                    <ButtonPreview variant="secondary" size="md">Save Draft</ButtonPreview>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Use one primary action per section. Pair with a secondary action for alternatives.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don't</div>
+                <div className="p-4 space-y-3">
+                  <div className="flex gap-3">
+                    <ButtonPreview variant="primary" size="md">Submit</ButtonPreview>
+                    <ButtonPreview variant="primary" size="md">Save</ButtonPreview>
+                    <ButtonPreview variant="primary" size="md">Continue</ButtonPreview>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don't use multiple primary buttons in the same section — it creates confusion about which action is most important.</p>
+                </div>
+              </div>
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <ButtonPreview variant="danger" size="md">Delete Application</ButtonPreview>
+                  <p className="text-sm text-muted-foreground">Use the destructive variant for irreversible actions. Make the label specific about what will be deleted.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don't</div>
+                <div className="p-4 space-y-3">
+                  <ButtonPreview variant="danger" size="md">Click Here</ButtonPreview>
+                  <p className="text-sm text-muted-foreground">Don't use vague labels like "Click Here" or "OK". Button text should describe the action.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ── Related components ── */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/menu" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Menu</h3>
+                <p className="text-sm text-muted-foreground">For multiple actions in a dropdown</p>
+              </a>
+              <a href="/components/switch" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Switch</h3>
+                <p className="text-sm text-muted-foreground">For toggle on/off actions</p>
+              </a>
+              <a href="/components/stepper" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Stepper</h3>
+                <p className="text-sm text-muted-foreground">For multi-step form navigation</p>
+              </a>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }
