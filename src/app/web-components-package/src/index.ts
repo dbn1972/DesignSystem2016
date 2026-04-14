@@ -131,8 +131,10 @@ export { UX4GUserProfileService } from './services/ux4g-user-profile-service';
 // ── Certificate Flow Pages ──────────────────────────────────────────────────
 // 31 certificate-specific pages composing the reusable service components.
 export { UX4GCertDemo } from './services/certificate-flow/cert-demo';
+export { UX4GCertOfficerDashboard, UX4GCertOfficerCases, UX4GCertOfficerReview } from './services/certificate-flow/cert-officer';
 import './services/certificate-flow/cert-pages';
 import './services/certificate-flow/cert-unique-pages';
+import './services/certificate-flow/cert-officer';
 
 /**
  * Auto-register all components
