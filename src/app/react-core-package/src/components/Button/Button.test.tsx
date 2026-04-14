@@ -19,15 +19,30 @@ describe('Button', () => {
     expect(screen.getByText('Click me')).toBeInTheDocument();
   });
 
-  // ── Variants ─────────────────────────────────────────────────────────────
+  // ── Variants (canonical + legacy alias) ──────────────────────────────────
 
-  it.each(['primary', 'secondary', 'tertiary', 'danger', 'success'] as const)(
+  it.each(['primary', 'secondary', 'tertiary', 'success'] as const)(
     'applies %s variant class',
     (variant) => {
       render(<Button variant={variant}>Action</Button>);
       expect(screen.getByRole('button')).toHaveClass(`ux4g-button-${variant}`);
     }
   );
+
+  it('applies destructive variant class', () => {
+    render(<Button variant="destructive">Delete</Button>);
+    expect(screen.getByRole('button')).toHaveClass('ux4g-button-destructive');
+  });
+
+  it('applies ghost variant class', () => {
+    render(<Button variant="ghost">Ghost</Button>);
+    expect(screen.getByRole('button')).toHaveClass('ux4g-button-ghost');
+  });
+
+  it('maps legacy "danger" to "destructive" class', () => {
+    render(<Button variant="danger">Remove</Button>);
+    expect(screen.getByRole('button')).toHaveClass('ux4g-button-destructive');
+  });
 
   // ── Sizes ─────────────────────────────────────────────────────────────────
 
@@ -157,5 +172,22 @@ describe('Button', () => {
     const ref = React.createRef<HTMLButtonElement>();
     render(<Button ref={ref}>Action</Button>);
     expect(ref.current).toBeInstanceOf(HTMLButtonElement);
+  });
+
+  // ── Polymorphic rendering (P0-2) ──────────────────────────────────────────
+
+  it('renders as an anchor when as="a"', () => {
+    render(<Button as="a" href="/next">Continue</Button>);
+    const el = screen.getByText('Continue').closest('a');
+    expect(el).toBeInTheDocument();
+    expect(el).toHaveAttribute('href', '/next');
+    expect(el).not.toHaveAttribute('type'); // anchors don't get type
+  });
+
+  it('does not set disabled attribute on non-button elements', () => {
+    render(<Button as="a" href="/next" disabled>Link</Button>);
+    const el = screen.getByText('Link').closest('a');
+    expect(el).toHaveAttribute('aria-disabled', 'true');
+    expect(el).not.toHaveAttribute('disabled'); // only aria-disabled for links
   });
 });
