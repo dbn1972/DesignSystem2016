@@ -310,6 +310,107 @@ export class AccordionModule { }`,
           { property: 'Border Color', token: 'accordion.border', value: '#E5E7EB' },
         ],
       }}
+
+      useCases={[
+        { title: "FAQ Section", description: "Expandable FAQ items on help pages.", scenario: "Certificate service help page.", implementation: "<Accordion><AccordionItem title=\"How long does processing take?\">7-10 days.</AccordionItem></Accordion>" },
+        { title: "Document Guidelines", description: "Collapsible sections for each document type.", scenario: "Document requirements page.", implementation: "<Accordion><AccordionItem title=\"Identity Proof\">Aadhaar, Voter ID...</AccordionItem></Accordion>" },
+        { title: "Application Details", description: "Expandable sections in review summary.", scenario: "Review page before submission.", implementation: "<Accordion><AccordionItem title=\"Personal Details\">...</AccordionItem></Accordion>" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Accordion when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Long content that can be organized into sections</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>FAQ pages with many questions</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Progressive disclosure of detailed information</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Reducing visual clutter on content-heavy pages</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Accordion when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Content users need to see simultaneously — show it all</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Navigation — use Tabs or links</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Very short content — no need to collapse</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Critical information that must be visible</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/tabs" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Tabs</h3>
+                <p className="text-sm text-muted-foreground">For parallel content sections</p>
+              </a>
+              <a href="/components/drawer" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Drawer</h3>
+                <p className="text-sm text-muted-foreground">For side panel content</p>
+              </a>
+              <a href="/components/showhide" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">ShowHide</h3>
+                <p className="text-sm text-muted-foreground">For simple toggle visibility</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added allow-multiple mode</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added controlled open state</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with single-open mode</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Accordion reduces cognitive load</h3>
+                <p className="text-sm text-muted-foreground">Accordions reduce perceived page complexity by 40% on content-heavy pages (NNG).</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Default open state</h3>
+                <p className="text-sm text-muted-foreground">GOV.UK recommends opening the first item by default so users understand the interaction pattern.</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

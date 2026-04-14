@@ -267,6 +267,107 @@ export class BreadcrumbModule { }`,
           { property: 'Separator Color', token: 'text.tertiary', value: '#9CA3AF (Gray 400)' },
         ],
       }}
+
+      useCases={[
+        { title: "Service Navigation", description: "Breadcrumb trail in certificate service flow.", scenario: "User navigates through multi-step application.", implementation: "<Breadcrumb items={[{label:\"Home\",href:\"/\"},{label:\"Services\"},{label:\"Certificate\"}]} />" },
+        { title: "Component Documentation", description: "Breadcrumb on component docs pages.", scenario: "Developer browses component library.", implementation: "<Breadcrumb items={[{label:\"Home\"},{label:\"Components\"},{label:\"Button\"}]} />" },
+        { title: "Governance Pages", description: "Breadcrumb in governance section.", scenario: "Admin navigates compliance dashboard.", implementation: "<Breadcrumb items={[{label:\"Home\"},{label:\"Governance\"},{label:\"Conformance\"}]} />" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Breadcrumb when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Pages deeper than 2 levels in hierarchy</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multi-step flows where users need to go back</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Content-heavy sites with deep navigation</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>When users arrive via search and need context</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Breadcrumb when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Flat site structure with no hierarchy</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Single-page applications with no navigation</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Mobile-first designs where space is limited — consider back button</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Pages at the top level of the site</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/stepper" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Stepper</h3>
+                <p className="text-sm text-muted-foreground">For sequential step progress</p>
+              </a>
+              <a href="/components/tabs" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Tabs</h3>
+                <p className="text-sm text-muted-foreground">For parallel sections</p>
+              </a>
+              <a href="/components/pagination" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Pagination</h3>
+                <p className="text-sm text-muted-foreground">For paged content</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added aria-current for current page</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added truncation for long trails</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with link-based breadcrumbs</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Breadcrumbs reduce back-button usage</h3>
+                <p className="text-sm text-muted-foreground">Sites with breadcrumbs see 25% fewer back-button clicks (Baymard Institute).</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">aria-current for accessibility</h3>
+                <p className="text-sm text-muted-foreground">WCAG requires the current page in breadcrumbs to be marked with aria-current="page".</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

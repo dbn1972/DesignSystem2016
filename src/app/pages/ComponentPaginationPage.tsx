@@ -151,6 +151,107 @@ function Example() {
       totalPages={10}
       currentPage={page}
       onPageChange={setPage}
+
+      useCases={[
+        { title: "Application List Paging", description: "Navigate through pages of applications.", scenario: "My Applications shows 10 per page.", implementation: "<Pagination total={50} pageSize={10} current={1} />" },
+        { title: "Search Results", description: "Page through search results.", scenario: "Service search returns many results.", implementation: "<Pagination total={120} pageSize={20} current={3} />" },
+        { title: "Officer Case Queue", description: "Navigate through assigned cases.", scenario: "Officer dashboard with 47 total cases.", implementation: "<Pagination total={47} pageSize={10} current={1} />" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Pagination when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Large data sets that need paging</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Search results with many items</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Lists where loading all items is impractical</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>When users need to navigate to specific pages</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Pagination when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Small lists (under 20 items) — show all</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Infinite scroll is preferred</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Sequential content — use Stepper</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Content that should be visible at once</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/table" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Table</h3>
+                <p className="text-sm text-muted-foreground">Often used with pagination</p>
+              </a>
+              <a href="/components/datagrid" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">DataGrid</h3>
+                <p className="text-sm text-muted-foreground">For paginated data grids</p>
+              </a>
+              <a href="/components/stepper" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Stepper</h3>
+                <p className="text-sm text-muted-foreground">For sequential navigation</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added page size selector</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added jump-to-page input</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with numbered pages</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Pagination vs infinite scroll</h3>
+                <p className="text-sm text-muted-foreground">Pagination is preferred for task-oriented sites (e.g., government services) where users need to find specific items (NNG).</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Show total count</h3>
+                <p className="text-sm text-muted-foreground">Displaying total results count helps users estimate effort and decide whether to refine their search (Baymard).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }`,

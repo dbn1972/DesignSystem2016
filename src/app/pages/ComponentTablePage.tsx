@@ -336,6 +336,107 @@ export class TableModule { }`,
           { property: 'Stripe Background', token: 'table.row.stripe', value: '#F9FAFB' },
         ],
       }}
+
+      useCases={[
+        { title: "Application Case Queue", description: "Sortable table of pending applications for officers.", scenario: "Officer dashboard shows all assigned cases.", implementation: "<Table columns={columns} data={cases} sortable />" },
+        { title: "Fee Structure Display", description: "Read-only table showing service fees.", scenario: "Certificate service information page.", implementation: "<Table columns={feeColumns} data={fees} />" },
+        { title: "Document Checklist", description: "Table with status indicators per document.", scenario: "Review summary shows uploaded document status.", implementation: "<Table columns={docColumns} data={documents} />" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Table when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Displaying structured data in rows and columns</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Sortable and filterable data sets</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Comparison data (fees, features, status)</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Administrative data views</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Table when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple key-value pairs — use DescriptionList</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Card-based layouts — use Card grid</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Single-column lists — use List</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Very few items — consider a simpler layout</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/datagrid" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">DataGrid</h3>
+                <p className="text-sm text-muted-foreground">For advanced data tables</p>
+              </a>
+              <a href="/components/descriptionlist" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">DescriptionList</h3>
+                <p className="text-sm text-muted-foreground">For key-value pairs</p>
+              </a>
+              <a href="/components/card" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Card</h3>
+                <p className="text-sm text-muted-foreground">For card-based layouts</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added column sorting</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added row selection</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic table rendering</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Zebra striping improves scanning</h3>
+                <p className="text-sm text-muted-foreground">Alternating row colors improve data scanning speed by 10% for tables with 10+ rows (Baymard).</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Sticky headers for long tables</h3>
+                <p className="text-sm text-muted-foreground">GOV.UK recommends sticky column headers for tables exceeding viewport height.</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

@@ -132,6 +132,107 @@ function Example() {
       steps={steps}
       currentStep={currentStep}
       onStepChange={setCurrentStep}
+
+      useCases={[
+        { title: "Application Form Progress", description: "Step indicator for multi-step certificate application.", scenario: "User sees progress through Personal > Address > Additional > Review.", implementation: "<Stepper steps={formSteps} currentStep={2} />" },
+        { title: "Payment Flow", description: "Steps through payment process.", scenario: "Summary > Method > Confirmation > Receipt.", implementation: "<Stepper steps={paymentSteps} currentStep={1} />" },
+        { title: "Account Recovery", description: "Multi-step identity verification.", scenario: "Locked > Identity > Documents > Review > Success.", implementation: "<Stepper steps={recoverySteps} currentStep={3} />" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Stepper when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multi-step forms or wizards</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Sequential processes with clear stages</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>When users need to see overall progress</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Flows where steps can be completed or skipped</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Stepper when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-sequential content — use Tabs</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple progress — use Progress bar</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Page navigation — use Breadcrumb</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Single-step forms</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/progress" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Progress</h3>
+                <p className="text-sm text-muted-foreground">For simple progress bars</p>
+              </a>
+              <a href="/components/breadcrumb" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Breadcrumb</h3>
+                <p className="text-sm text-muted-foreground">For page hierarchy</p>
+              </a>
+              <a href="/components/tabs" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Tabs</h3>
+                <p className="text-sm text-muted-foreground">For parallel sections</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added vertical orientation</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added clickable completed steps</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with horizontal stepper</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Progress indicators reduce abandonment</h3>
+                <p className="text-sm text-muted-foreground">Multi-step forms with visible progress indicators have 20% lower abandonment rates (Formisimo).</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Step count matters</h3>
+                <p className="text-sm text-muted-foreground">Forms with 3-5 visible steps have the best completion rates. More than 7 steps cause anxiety (Baymard).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }`,

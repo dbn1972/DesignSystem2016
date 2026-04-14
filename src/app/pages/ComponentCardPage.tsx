@@ -272,6 +272,107 @@ export class CardModule { }`,
           { property: 'Padding', token: 'card.padding', value: '24px' },
         ],
       }}
+
+      useCases={[
+        { title: "Service Information Card", description: "Card displaying a government service summary.", scenario: "Home page shows available services as cards.", implementation: "<Card title=\"Birth Certificate\" description=\"Apply online\" />" },
+        { title: "Application Status Card", description: "Card showing application progress.", scenario: "My Applications dashboard.", implementation: "<Card><Badge>Under Review</Badge><p>CERT-2026-001</p></Card>" },
+        { title: "Quick Action Card", description: "Clickable card for navigation.", scenario: "Officer dashboard quick actions.", implementation: "<Card as=\"a\" href=\"/cases\">View Cases</Card>" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Card when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Grouping related content visually</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Clickable content blocks for navigation</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Dashboard widgets and summaries</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Service or feature showcases</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Card when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Tabular data — use Table</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple text content — no card needed</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Full-page layouts — use Section</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Inline content grouping — use Divider</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/table" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Table</h3>
+                <p className="text-sm text-muted-foreground">For structured data</p>
+              </a>
+              <a href="/components/section" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Section</h3>
+                <p className="text-sm text-muted-foreground">For page sections</p>
+              </a>
+              <a href="/components/badge" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Badge</h3>
+                <p className="text-sm text-muted-foreground">For status indicators in cards</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added header/content/footer slots</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added clickable card variant</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic card layout</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Card scanning patterns</h3>
+                <p className="text-sm text-muted-foreground">Users scan card grids in F-pattern. Place the most important info (title, status) in the top-left (NNG).</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Click target size</h3>
+                <p className="text-sm text-muted-foreground">Clickable cards should have the entire card as the click target, not just the title link (WCAG 2.5.5).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }
