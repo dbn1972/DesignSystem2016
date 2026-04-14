@@ -110,9 +110,23 @@ export * from './services/service-contract';
 export { UX4GServiceHeader } from './services/ux4g-service-header';
 export { UX4GServiceFooter } from './services/ux4g-service-footer';
 export { UX4GSignInService } from './services/ux4g-sign-in-service';
+export { UX4GSignUpService } from './services/ux4g-sign-up-service';
+export { UX4GOtpVerifyService } from './services/ux4g-otp-verify-service';
+export { UX4GForgotPasswordService } from './services/ux4g-forgot-password-service';
+export { UX4GAuthStatusService } from './services/ux4g-auth-status-service';
 export { UX4GEligibilityService } from './services/ux4g-eligibility-service';
 export { UX4GApplicationStartService } from './services/ux4g-application-start-service';
 export { UX4GPersonalFormService } from './services/ux4g-personal-form-service';
+export { UX4GAddressFormService } from './services/ux4g-address-form-service';
+export { UX4GAdditionalFormService } from './services/ux4g-additional-form-service';
+export { UX4GFormReviewService } from './services/ux4g-form-review-service';
+export { UX4GDocumentUploadService } from './services/ux4g-document-upload-service';
+export { UX4GReviewSummaryService } from './services/ux4g-review-summary-service';
+export { UX4GDeclarationService } from './services/ux4g-declaration-service';
+export { UX4GPaymentSummaryService } from './services/ux4g-payment-summary-service';
+export { UX4GPaymentReceiptService } from './services/ux4g-payment-receipt-service';
+export { UX4GStatusTrackerService } from './services/ux4g-status-tracker-service';
+export { UX4GUserProfileService } from './services/ux4g-user-profile-service';
 
 /**
  * Auto-register all components
