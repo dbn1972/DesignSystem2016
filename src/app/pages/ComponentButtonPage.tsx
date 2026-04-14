@@ -15,7 +15,7 @@ const ButtonPreview = ({ variant, size, children, ...props }: any) => (
       variant === 'primary' ? 'bg-[#005196] text-white border-[#005196] hover:bg-[#004178]' :
       variant === 'secondary' ? 'bg-card text-[#005196] border-[#005196] hover:bg-[#f5f5f5]' :
       variant === 'tertiary' ? 'bg-transparent text-[#005196] border-transparent hover:bg-[#f5f5f5]' :
-      variant === 'danger' ? 'bg-[#dc2626] text-white border-[#dc2626] hover:bg-[#991b1b]' :
+      (variant === 'danger' || variant === 'destructive') ? 'bg-[#dc2626] text-white border-[#dc2626] hover:bg-[#991b1b]' :
       variant === 'ghost' ? 'bg-transparent text-foreground border-transparent hover:bg-accent' :
       'bg-[#008800] text-white border-[#008800] hover:bg-[#006600]'
     } ${
@@ -59,7 +59,7 @@ function ButtonPlayground() {
           <label className="block font-semibold text-foreground mb-1">Variant</label>
           <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
             {['primary', 'secondary', 'tertiary', 'destructive', 'ghost', 'success'].map(v => (
-              <option key={v} value={v === 'destructive' ? 'danger' : v}>{v}</option>
+              <option key={v} value={v}>{v}</option>
             ))}
           </select>
         </div>
@@ -107,6 +107,17 @@ export default function ComponentButtonPage() {
       tier="core"
       since="v1.0.0"
       updated="v2.0.0"
+
+      preview={
+        <div className="flex flex-wrap items-center gap-4">
+          <ButtonPreview variant="primary">Primary</ButtonPreview>
+          <ButtonPreview variant="secondary">Secondary</ButtonPreview>
+          <ButtonPreview variant="tertiary">Tertiary</ButtonPreview>
+          <ButtonPreview variant="destructive">Destructive</ButtonPreview>
+          <ButtonPreview variant="ghost">Ghost</ButtonPreview>
+          <ButtonPreview variant="success">Success</ButtonPreview>
+        </div>
+      }
       
       props={[
         {
