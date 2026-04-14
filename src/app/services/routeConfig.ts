@@ -8,6 +8,8 @@
 // Version: 1.0.0
 // ============================================================================
 
+import { ROUTE_PATHS } from "../routes/pathSource";
+
 // ==================== ROUTE PATHS ====================
 
 export const ROUTES = {
@@ -16,119 +18,119 @@ export const ROUTES = {
   COVER: "/cover",
   
   // Foundations
-  FOUNDATIONS: "/foundations",
-  FOUNDATIONS_DETAILED: "/foundations-detailed",
-  DESIGN_TOKENS: "/design-tokens",
-  STYLES_SYSTEM: "/styles-system",
+  FOUNDATIONS: ROUTE_PATHS.FOUNDATIONS.ROOT,
+  FOUNDATIONS_DETAILED: ROUTE_PATHS.FOUNDATIONS.ROOT,
+  DESIGN_TOKENS: ROUTE_PATHS.FOUNDATIONS.ROOT,
+  STYLES_SYSTEM: ROUTE_PATHS.FOUNDATIONS.ROOT,
   
   // Components
-  COMPONENTS: "/components",
-  CORE_COMPONENTS: "/core-components",
-  COMPONENT_DOCS: "/component-docs",
+  COMPONENTS: ROUTE_PATHS.COMPONENTS.ROOT,
+  CORE_COMPONENTS: ROUTE_PATHS.COMPONENTS.ROOT,
+  COMPONENT_DOCS: ROUTE_PATHS.COMPONENTS.ROOT,
   
   // Patterns
-  PATTERNS: "/patterns",
-  ADVANCED_PATTERNS: "/advanced-patterns",
-  FORM_INTELLIGENCE: "/form-intelligence-system",
-  STATE_RESILIENCE: "/state-resilience-system",
-  CONTENT_DESIGN: "/content-design-system",
-  CONTENT_SHOWCASE: "/content-system-showcase",
+  PATTERNS: ROUTE_PATHS.PATTERNS.ROOT,
+  ADVANCED_PATTERNS: ROUTE_PATHS.PATTERNS.ROOT,
+  FORM_INTELLIGENCE: ROUTE_PATHS.SYSTEMS.FORM_INTELLIGENCE,
+  STATE_RESILIENCE: ROUTE_PATHS.SYSTEMS.STATE_RESILIENCE,
+  CONTENT_DESIGN: ROUTE_PATHS.FOUNDATIONS.CONTENT_SYSTEM,
+  CONTENT_SHOWCASE: ROUTE_PATHS.FOUNDATIONS.CONTENT_SYSTEM,
   
   // Accessibility
-  ACCESSIBILITY: "/accessibility",
-  ACCESSIBILITY_TOOLING: "/accessibility-tooling",
+  ACCESSIBILITY: ROUTE_PATHS.FOUNDATIONS.ACCESSIBILITY,
+  ACCESSIBILITY_TOOLING: ROUTE_PATHS.FOUNDATIONS.ACCESSIBILITY,
   
   // Resources
   RESOURCES: "/resources",
-  INSTALLATION: "/installation",
-  STARTER_KITS: "/starter-kits",
+  INSTALLATION: "/resources/getting-started",
+  STARTER_KITS: "/resources/starter-kit",
   SERVICE_CODE_DOWNLOADS: "/resources/service-code-downloads",
   
   // Governance
-  GOVERNANCE: "/governance",
-  ADOPTION: "/governance/adoption",
-  CONFORMANCE: "/governance/conformance",
+  GOVERNANCE: ROUTE_PATHS.GOVERNANCE.ROOT,
+  ADOPTION: ROUTE_PATHS.GOVERNANCE.ADOPTION,
+  CONFORMANCE: ROUTE_PATHS.GOVERNANCE.CONFORMANCE,
   
   // Service Pattern Libraries
-  SERVICE_PATTERNS: "/service-pattern-libraries",
-  IDENTITY_ACCESS_PATTERNS: "/identity-access-patterns",
-  CONSENT_PATTERNS: "/consent-declaration-patterns",
-  REFERENCE_SERVICE_SIGN_IN: "/reference-service/sign-in",
-  REFERENCE_SERVICE_SIGN_UP: "/reference-service/sign-up",
-  REFERENCE_SERVICE_FORGOT_PASSWORD: "/reference-service/forgot-password",
-  REFERENCE_SERVICE_VERIFY_OTP: "/reference-service/verify-otp",
-  REFERENCE_SERVICE_AUTH_STATUS: "/reference-service/auth-status",
-  REFERENCE_SERVICE_ELIGIBILITY: "/reference-service/eligibility",
-  REFERENCE_SERVICE_START: "/reference-service/start",
-  REFERENCE_SERVICE_STATUS_TRACKER: "/reference-service/status-tracker",
-  REFERENCE_SERVICE_DOCUMENT_UPLOAD: "/reference-service/document-upload",
-  REFERENCE_SERVICE_REVIEW_SUMMARY: "/reference-service/review-summary",
-  REFERENCE_SERVICE_DECLARATION: "/reference-service/declaration",
-  REFERENCE_SERVICE_USER_PROFILE: "/reference-service/user-profile",
-  REFERENCE_SERVICE_FORM_PERSONAL: "/reference-service/form/personal",
-  REFERENCE_SERVICE_FORM_ADDRESS: "/reference-service/form/address",
-  REFERENCE_SERVICE_FORM_ADDITIONAL: "/reference-service/form/additional",
-  REFERENCE_SERVICE_FORM_REVIEW: "/reference-service/form/review",
-  REFERENCE_SERVICE_PAYMENT_SUMMARY: "/reference-service/payment-summary",
-  REFERENCE_SERVICE_PAYMENT_RECEIPT: "/reference-service/payment-receipt",
+  SERVICE_PATTERNS: ROUTE_PATHS.SERVICES.OVERVIEW,
+  IDENTITY_ACCESS_PATTERNS: ROUTE_PATHS.PATTERNS.IDENTITY_ROOT,
+  CONSENT_PATTERNS: ROUTE_PATHS.PATTERNS.CONSENT_ROOT,
+  REFERENCE_SERVICE_SIGN_IN: ROUTE_PATHS.SERVICES.SIGN_IN,
+  REFERENCE_SERVICE_SIGN_UP: ROUTE_PATHS.SERVICES.SIGN_UP,
+  REFERENCE_SERVICE_FORGOT_PASSWORD: ROUTE_PATHS.SERVICES.FORGOT_PASSWORD,
+  REFERENCE_SERVICE_VERIFY_OTP: ROUTE_PATHS.SERVICES.VERIFY_OTP,
+  REFERENCE_SERVICE_AUTH_STATUS: ROUTE_PATHS.SERVICES.AUTH_STATUS,
+  REFERENCE_SERVICE_ELIGIBILITY: ROUTE_PATHS.SERVICES.ELIGIBILITY,
+  REFERENCE_SERVICE_START: ROUTE_PATHS.SERVICES.START,
+  REFERENCE_SERVICE_STATUS_TRACKER: ROUTE_PATHS.SERVICES.STATUS_TRACKER,
+  REFERENCE_SERVICE_DOCUMENT_UPLOAD: ROUTE_PATHS.SERVICES.DOCUMENT_UPLOAD,
+  REFERENCE_SERVICE_REVIEW_SUMMARY: ROUTE_PATHS.SERVICES.REVIEW_SUMMARY,
+  REFERENCE_SERVICE_DECLARATION: ROUTE_PATHS.SERVICES.DECLARATION,
+  REFERENCE_SERVICE_USER_PROFILE: ROUTE_PATHS.SERVICES.USER_PROFILE,
+  REFERENCE_SERVICE_FORM_PERSONAL: ROUTE_PATHS.SERVICES.FORM_PERSONAL,
+  REFERENCE_SERVICE_FORM_ADDRESS: ROUTE_PATHS.SERVICES.FORM_ADDRESS,
+  REFERENCE_SERVICE_FORM_ADDITIONAL: ROUTE_PATHS.SERVICES.FORM_ADDITIONAL,
+  REFERENCE_SERVICE_FORM_REVIEW: ROUTE_PATHS.SERVICES.FORM_REVIEW,
+  REFERENCE_SERVICE_PAYMENT_SUMMARY: ROUTE_PATHS.SERVICES.PAYMENT_SUMMARY,
+  REFERENCE_SERVICE_PAYMENT_RECEIPT: ROUTE_PATHS.SERVICES.PAYMENT_RECEIPT,
   
   // Certificate Service Routes
   CERTIFICATE: {
     // Discovery
-    SERVICE: "/reference-service/demo",
-    ELIGIBILITY: "/reference-service/certificate/eligibility",
-    HELP: "/reference-service/certificate/help",
-    DOCUMENT_GUIDELINES: "/reference-service/certificate/document-guidelines",
-    PRIVACY_POLICY: "/reference-service/certificate/privacy-policy",
+    SERVICE: ROUTE_PATHS.SERVICES.DEMO,
+    ELIGIBILITY: ROUTE_PATHS.CERTIFICATE.ELIGIBILITY,
+    HELP: ROUTE_PATHS.CERTIFICATE.HELP,
+    DOCUMENT_GUIDELINES: ROUTE_PATHS.CERTIFICATE.DOCUMENT_GUIDELINES,
+    PRIVACY_POLICY: ROUTE_PATHS.CERTIFICATE.PRIVACY_POLICY,
     
     // Authentication
-    SIGN_UP: "/reference-service/certificate/sign-up",
-    SIGN_IN: "/reference-service/certificate/sign-in",
-    SIGN_IN_UPDATED: "/reference-service/certificate/sign-in",
-    VERIFY_OTP: "/reference-service/certificate/verify-otp",
-    FORGOT_PASSWORD: "/reference-service/certificate/forgot-password",
-    SESSION_TIMEOUT: "/reference-service/certificate/session-timeout",
-    USER_PROFILE: "/reference-service/certificate/user-profile",
+    SIGN_UP: ROUTE_PATHS.CERTIFICATE.SIGN_UP,
+    SIGN_IN: ROUTE_PATHS.CERTIFICATE.SIGN_IN,
+    SIGN_IN_UPDATED: ROUTE_PATHS.CERTIFICATE.SIGN_IN,
+    VERIFY_OTP: ROUTE_PATHS.CERTIFICATE.VERIFY_OTP,
+    FORGOT_PASSWORD: ROUTE_PATHS.CERTIFICATE.FORGOT_PASSWORD,
+    SESSION_TIMEOUT: ROUTE_PATHS.CERTIFICATE.SESSION_TIMEOUT,
+    USER_PROFILE: ROUTE_PATHS.CERTIFICATE.USER_PROFILE,
     
     // Application Flow
-    START: "/reference-service/certificate/start",
-    FORM_PERSONAL: "/reference-service/certificate/form/personal",
-    FORM_PERSONAL_UPDATED: "/reference-service/certificate/form/personal",
-    FORM_ADDRESS: "/reference-service/certificate/form/address",
-    FORM_ADDITIONAL: "/reference-service/certificate/form/additional",
-    FORM_REVIEW: "/reference-service/certificate/form/review",
-    DOCUMENT_UPLOAD: "/reference-service/certificate/document-upload",
-    REVIEW_SUMMARY: "/reference-service/certificate/review-summary",
-    DECLARATION: "/reference-service/certificate/declaration",
+    START: ROUTE_PATHS.CERTIFICATE.START,
+    FORM_PERSONAL: ROUTE_PATHS.CERTIFICATE.FORM_PERSONAL,
+    FORM_PERSONAL_UPDATED: ROUTE_PATHS.CERTIFICATE.FORM_PERSONAL,
+    FORM_ADDRESS: ROUTE_PATHS.CERTIFICATE.FORM_ADDRESS,
+    FORM_ADDITIONAL: ROUTE_PATHS.CERTIFICATE.FORM_ADDITIONAL,
+    FORM_REVIEW: ROUTE_PATHS.CERTIFICATE.FORM_REVIEW,
+    DOCUMENT_UPLOAD: ROUTE_PATHS.CERTIFICATE.DOCUMENT_UPLOAD,
+    REVIEW_SUMMARY: ROUTE_PATHS.CERTIFICATE.REVIEW_SUMMARY,
+    DECLARATION: ROUTE_PATHS.CERTIFICATE.DECLARATION,
     
     // Payment
-    PAYMENT_SUMMARY: "/reference-service/certificate/payment-summary",
-    PAYMENT_RECEIPT: "/reference-service/certificate/payment-receipt",
+    PAYMENT_SUMMARY: ROUTE_PATHS.CERTIFICATE.PAYMENT_SUMMARY,
+    PAYMENT_RECEIPT: ROUTE_PATHS.CERTIFICATE.PAYMENT_RECEIPT,
     
     // Post-Submission
-    SUBMISSION_SUCCESS: "/reference-service/certificate/submission-success",
-    STATUS_TRACKER: "/reference-service/certificate/status-tracker",
-    NOTIFICATIONS: "/reference-service/certificate/notifications",
+    SUBMISSION_SUCCESS: ROUTE_PATHS.CERTIFICATE.SUBMISSION_SUCCESS,
+    STATUS_TRACKER: ROUTE_PATHS.CERTIFICATE.STATUS_TRACKER,
+    NOTIFICATIONS: ROUTE_PATHS.CERTIFICATE.NOTIFICATIONS,
     
     // Issuance
-    ISSUED: "/reference-service/certificate/issued",
-    FEEDBACK: "/reference-service/certificate/feedback",
+    ISSUED: ROUTE_PATHS.CERTIFICATE.ISSUED,
+    FEEDBACK: ROUTE_PATHS.CERTIFICATE.FEEDBACK,
     
     // Recovery
-    CORRECTION_REQUEST: "/reference-service/certificate/correction-request",
-    REJECTED: "/reference-service/certificate/rejected",
-    APPEAL: "/reference-service/certificate/appeal",
+    CORRECTION_REQUEST: ROUTE_PATHS.CERTIFICATE.CORRECTION_REQUEST,
+    REJECTED: ROUTE_PATHS.CERTIFICATE.REJECTED,
+    APPEAL: ROUTE_PATHS.CERTIFICATE.APPEAL,
     
     // Officer
-    OFFICER_DASHBOARD: "/reference-service/certificate/officer/dashboard",
-    OFFICER_CASES: "/reference-service/certificate/officer/cases",
-    OFFICER_REVIEW: "/reference-service/certificate/officer/review",
+    OFFICER_DASHBOARD: ROUTE_PATHS.CERTIFICATE.OFFICER_DASHBOARD,
+    OFFICER_CASES: ROUTE_PATHS.CERTIFICATE.OFFICER_CASES,
+    OFFICER_REVIEW: ROUTE_PATHS.CERTIFICATE.OFFICER_REVIEW,
     
     // User Dashboard
-    MY_APPLICATIONS: "/reference-service/certificate/my-applications",
+    MY_APPLICATIONS: ROUTE_PATHS.CERTIFICATE.MY_APPLICATIONS,
     
     // Public
-    VERIFICATION: "/reference-service/certificate/verification"
+    VERIFICATION: ROUTE_PATHS.CERTIFICATE.VERIFICATION
   }
 } as const;
 

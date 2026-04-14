@@ -637,9 +637,9 @@ function DesignOnboardingSection() {
           <ResourceCard
             title="Essential Design Resources"
             resources={[
-              { name: 'Figma Component Library', type: 'Link', url: '/figma-design-system' },
+              { name: 'Figma Component Library', type: 'Link', url: '/resources/figma' },
               { name: 'Design Foundations Guide', type: 'PDF', url: '/foundations' },
-              { name: 'Design Token Reference', type: 'Interactive', url: '/design-tokens' },
+              { name: 'Design Token Reference', type: 'Interactive', url: '/foundations' },
               { name: 'Common Patterns Library', type: 'Figma', url: '/patterns' }
             ]}
           />
@@ -703,10 +703,10 @@ function DeveloperOnboardingSection() {
           <ResourceCard
             title="Essential Developer Resources"
             resources={[
-              { name: 'Installation Guide', type: 'Documentation', url: '/installation' },
-              { name: 'Component API Reference', type: 'Interactive', url: '/component-docs' },
-              { name: 'React Usage Guide', type: 'Tutorial', url: '/installation#react' },
-              { name: 'Angular Usage Guide', type: 'Tutorial', url: '/installation#angular' }
+              { name: 'Installation Guide', type: 'Documentation', url: '/resources/getting-started' },
+              { name: 'Component API Reference', type: 'Interactive', url: '/components' },
+              { name: 'React Usage Guide', type: 'Tutorial', url: '/resources/getting-started#react' },
+              { name: 'Angular Usage Guide', type: 'Tutorial', url: '/resources/getting-started#angular' }
             ]}
           />
 
@@ -1105,7 +1105,7 @@ function SupportChannelsSection() {
           icon={<BookOpen size={28} />}
           title="Documentation"
           description="Comprehensive guides, tutorials, and API reference"
-          link="/core-components"
+          link="/components"
           linkText="Browse Documentation"
           responseTime="Self-service"
           color="blue"

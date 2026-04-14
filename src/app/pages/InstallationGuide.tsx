@@ -626,7 +626,7 @@ const StyledButton = styled.button\`
           <p className="text-sm text-muted-foreground mb-4">
             For a complete list of all available design tokens, values, and usage examples:
           </p>
-          <a href="/design-tokens" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline">
+          <a href="/foundations" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline">
             View Design Tokens Documentation <ChevronRight size={16} />
           </a>
         </div>
@@ -1185,7 +1185,7 @@ function SupportEscalationSection() {
             title="Documentation"
             description="Search our comprehensive guides and API references"
             action="Browse Docs"
-            href="/core-components"
+            href="/components"
             color="blue"
           />
           

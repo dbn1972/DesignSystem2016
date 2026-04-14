@@ -33,7 +33,7 @@ export default function Documentation() {
       icon: Rocket,
       title: "Getting Started",
       description: "Quick start guide, installation instructions, and setup for UX4G Design System",
-      href: "/installation-guide",
+      href: "/resources/getting-started",
       color: "bg-[#FF9933]",
       badge: "Start Here"
     },
@@ -41,7 +41,7 @@ export default function Documentation() {
       icon: Palette,
       title: "Foundations",
       description: "Colors, typography, spacing, accessibility principles, and design tokens",
-      href: "/foundations-detailed",
+      href: "/foundations",
       color: "bg-primary",
       badge: "Essential"
     },
@@ -49,7 +49,7 @@ export default function Documentation() {
       icon: Boxes,
       title: "Components Library",
       description: "Comprehensive library of UI components with code examples and guidelines",
-      href: "/core-components",
+      href: "/components",
       color: "bg-green-700",
       badge: "100+ Components"
     },
@@ -73,7 +73,7 @@ export default function Documentation() {
       icon: GitBranch,
       title: "Migration Guides",
       description: "Version migration guides, breaking changes, and upgrade instructions",
-      href: "/migration-guides",
+      href: "/resources/migration-guides",
       color: "bg-green-700",
       badge: null
     },
@@ -81,7 +81,7 @@ export default function Documentation() {
       icon: Users,
       title: "Contribution Guidelines",
       description: "How to contribute components, patterns, and improvements to UX4G",
-      href: "/contribution-guidelines",
+      href: "/contributing",
       color: "bg-[#FF9933]",
       badge: null
     },
@@ -89,7 +89,7 @@ export default function Documentation() {
       icon: FileText,
       title: "Changelog",
       description: "Release notes, version history, and what's new in each release",
-      href: "/changelog",
+      href: "/resources/migration-guides",
       color: "bg-primary",
       badge: "v2.4.0"
     }
@@ -100,7 +100,7 @@ export default function Documentation() {
     {
       icon: BookOpen,
       title: "Installation Guide",
-      href: "/installation-guide"
+      href: "/resources/getting-started"
     },
     {
       icon: Shield,
@@ -110,7 +110,7 @@ export default function Documentation() {
     {
       icon: Zap,
       title: "Design Tokens",
-      href: "/design-tokens"
+      href: "/foundations"
     },
     {
       icon: Globe,
@@ -120,12 +120,12 @@ export default function Documentation() {
     {
       icon: Download,
       title: "Figma Library",
-      href: "/figma-design-system"
+      href: "/resources/figma"
     },
     {
       icon: TrendingUp,
       title: "Analytics",
-      href: "/service-analytics"
+      href: "/governance/analytics"
     }
   ];
 
@@ -137,7 +137,7 @@ export default function Documentation() {
       title: "Enhanced Form Intelligence System",
       description: "New auto-save, smart validation, and progress indicators for complex forms",
       type: "Feature",
-      href: "/changelog#v2.4.0"
+      href: "/resources/migration-guides#v2.4.0"
     },
     {
       date: "March 2026",
@@ -145,7 +145,7 @@ export default function Documentation() {
       title: "Improved Accessibility Features",
       description: "WCAG 2.2 compliance updates and enhanced screen reader support",
       type: "Enhancement",
-      href: "/changelog#v2.3.5"
+      href: "/resources/migration-guides#v2.3.5"
     },
     {
       date: "March 2026",
@@ -153,7 +153,7 @@ export default function Documentation() {
       title: "New Digital Signature Component",
       description: "Secure digital signature capture and verification component",
       type: "Feature",
-      href: "/changelog#v2.3.0"
+      href: "/resources/migration-guides#v2.3.0"
     }
   ];
 
@@ -279,7 +279,7 @@ export default function Documentation() {
 
             {/* FAQ Card */}
             <Link
-              to="/faq"
+              to="/patterns/contact-support/overview"
               className="group bg-gradient-to-br from-[#138808] to-[#0d6006] text-primary-foreground rounded-xl p-6 hover:shadow-xl transition-all duration-200"
             >
               <div className="w-14 h-14 bg-card/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -344,9 +344,9 @@ export default function Documentation() {
             ))}
           </div>
 
-          <div className="mt-8 text-center">
+      <div className="mt-8 text-center">
             <Link
-              to="/changelog"
+              to="/resources/migration-guides"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-colors"
             >
               View Full Changelog
@@ -420,7 +420,7 @@ export default function Documentation() {
               <p className="text-muted-foreground">Quick answers to common questions</p>
             </div>
             <Link
-              to="/faq"
+              to="/patterns/contact-support/overview"
               className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-primary font-semibold hover:bg-blue-50 rounded-lg transition-colors"
             >
               View All FAQs
@@ -453,7 +453,7 @@ export default function Documentation() {
 
           <div className="mt-8 text-center md:hidden">
             <Link
-              to="/faq"
+              to="/patterns/contact-support/overview"
               className="inline-flex items-center gap-2 px-6 py-3 text-primary font-semibold border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-colors"
             >
               View All FAQs
@@ -476,14 +476,14 @@ export default function Documentation() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
-                to="/contact-support-overview"
+                to="/patterns/contact-support/overview"
                 className="px-8 py-3 bg-[#FF9933] text-primary-foreground font-semibold rounded-lg hover:bg-[#e68a2e] transition-colors inline-flex items-center gap-2"
               >
                 <Users size={20} />
                 Contact Support
               </Link>
               <Link
-                to="/contribution-guidelines"
+                to="/contributing"
                 className="px-8 py-3 bg-card text-primary font-semibold rounded-lg hover:bg-muted transition-colors inline-flex items-center gap-2"
               >
                 <GitBranch size={20} />
@@ -511,17 +511,17 @@ export default function Documentation() {
               <h3 className="font-bold text-foreground mb-4">Getting Started</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/installation-guide" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/resources/getting-started" className="text-muted-foreground hover:text-primary transition-colors">
                     Installation
                   </Link>
                 </li>
                 <li>
-                  <Link to="/ux4g-starter-kit" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/resources/starter-kit" className="text-muted-foreground hover:text-primary transition-colors">
                     Starter Kit
                   </Link>
                 </li>
                 <li>
-                  <Link to="/adoption" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/governance/adoption" className="text-muted-foreground hover:text-primary transition-colors">
                     Adoption Guide
                   </Link>
                 </li>
@@ -532,12 +532,12 @@ export default function Documentation() {
               <h3 className="font-bold text-foreground mb-4">Design</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/foundations-detailed" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/foundations" className="text-muted-foreground hover:text-primary transition-colors">
                     Foundations
                   </Link>
                 </li>
                 <li>
-                  <Link to="/core-components" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/components" className="text-muted-foreground hover:text-primary transition-colors">
                     Components
                   </Link>
                 </li>
@@ -558,7 +558,7 @@ export default function Documentation() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/figma-design-system" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/resources/figma" className="text-muted-foreground hover:text-primary transition-colors">
                     Figma Library
                   </Link>
                 </li>
@@ -574,17 +574,17 @@ export default function Documentation() {
               <h3 className="font-bold text-foreground mb-4">Community</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/contribution-guidelines" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/contributing" className="text-muted-foreground hover:text-primary transition-colors">
                     Contributing
                   </Link>
                 </li>
                 <li>
-                  <Link to="/changelog" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/resources/migration-guides" className="text-muted-foreground hover:text-primary transition-colors">
                     Changelog
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact-support-overview" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link to="/patterns/contact-support/overview" className="text-muted-foreground hover:text-primary transition-colors">
                     Support
                   </Link>
                 </li>

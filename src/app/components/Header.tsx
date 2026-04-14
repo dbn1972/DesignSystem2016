@@ -8,10 +8,10 @@ export default function Header() {
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Foundations", href: "/foundations-detailed" },
-    { name: "Tokens", href: "/design-tokens" },
-    { name: "Styles", href: "/styles-system" },
-    { name: "Components", href: "/core-components" },
+    { name: "Foundations", href: "/foundations" },
+    { name: "Tokens", href: "/foundations" },
+    { name: "Styles", href: "/foundations" },
+    { name: "Components", href: "/components" },
     { name: "Accessibility", href: "/accessibility" },
     { name: "Patterns", href: "/patterns" },
   ];

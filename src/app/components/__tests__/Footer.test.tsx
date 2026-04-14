@@ -16,6 +16,8 @@ describe('Footer', () => {
     renderFooter();
     const footer = screen.getByRole('contentinfo');
     expect(footer).toBeInTheDocument();
+    expect(footer.className).toContain('bg-card');
+    expect(footer.className).toContain('text-card-foreground');
   });
 
   it('should display the main heading', () => {

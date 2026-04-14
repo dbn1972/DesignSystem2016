@@ -15,7 +15,10 @@ function renderFooter(props = {}) {
 describe('ServiceFooter', () => {
   it('renders as a footer landmark', () => {
     renderFooter();
-    expect(screen.getByRole('contentinfo')).toBeInTheDocument();
+    const footer = screen.getByRole('contentinfo');
+    expect(footer).toBeInTheDocument();
+    expect(footer.className).toContain('bg-card');
+    expect(footer.className).toContain('text-muted-foreground');
   });
 
   it('renders default leftText', () => {

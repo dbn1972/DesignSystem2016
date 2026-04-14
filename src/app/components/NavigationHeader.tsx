@@ -58,14 +58,14 @@ export default function NavigationHeader() {
           {/* Utility Nav */}
           <div className="hidden md:flex items-center gap-2">
             <button
-              className="p-2.5 text-muted-foreground hover:text-foreground hover:bg-background   dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="p-2.5 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
               aria-label="Search"
             >
               <Search size={18} />
             </button>
             <ThemeSwitcher />
             <LanguageSelector variant="compact" />
-            <a href="https://github.com" className="px-3.5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground border border-border rounded-lg hover:bg-background   dark:hover:bg-gray-800 transition-colors">
+            <a href="https://github.com" className="px-3.5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground border border-border rounded-lg hover:bg-muted transition-colors">
               GitHub
             </a>
             <Link to="/resources/getting-started" className="px-3.5 py-2 text-sm font-medium rounded-lg transition-all hover:shadow-md" style={{
@@ -79,7 +79,7 @@ export default function NavigationHeader() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 text-muted-foreground hover:bg-background  dark:hover:bg-gray-800 rounded-lg transition-colors"
+            className="md:hidden p-2.5 text-muted-foreground hover:bg-muted rounded-lg transition-colors"
             aria-label="Main menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -231,19 +231,19 @@ function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
             <div className="font-semibold text-sm text-foreground mb-5">Foundation Topics</div>
             <div className="grid grid-cols-2 gap-3 text-xs">
               <Link to="/foundations" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:hover:border-blue-800">
-                <div className="font-semibold text-foreground dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Design Tokens</div>
+                <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Design Tokens</div>
                 <div className="text-muted-foreground">Color, typography, spacing, and more</div>
               </Link>
               <Link to="/accessibility" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:hover:border-blue-800">
-                <div className="font-semibold text-foreground dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Accessibility</div>
+                <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Accessibility</div>
                 <div className="text-muted-foreground">WCAG 2.1 Level AA compliance</div>
               </Link>
               <Link to="/content-system" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:hover:border-blue-800">
-                <div className="font-semibold text-foreground dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Content Guidelines</div>
+                <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Content Guidelines</div>
                 <div className="text-muted-foreground">Voice, tone, and writing principles</div>
               </Link>
               <Link to="/foundations" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:hover:border-blue-800">
-                <div className="font-semibold text-foreground dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Responsive Design</div>
+                <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Responsive Design</div>
                 <div className="text-muted-foreground">Mobile-first approach</div>
               </Link>
             </div>
@@ -850,10 +850,10 @@ function MegaMenuItem({ icon, label, href }: { icon: React.ReactNode; label: str
   return (
     <Link
       to={href}
-      className="group flex items-center gap-2.5 px-3 py-2.5 text-sm text-muted-foreground hover:bg-background dark:hover:bg-gray-800 rounded-lg transition-all"
+      className="group flex items-center gap-2.5 px-3 py-2.5 text-sm text-muted-foreground hover:bg-muted rounded-lg transition-all"
     >
       <span className="transition-transform group-hover:scale-110">{icon}</span>
-      <span className="group-hover:text-foreground dark:group-hover:text-gray-100">{label}</span>
+      <span className="group-hover:text-foreground">{label}</span>
     </Link>
   );
 }
@@ -1047,7 +1047,7 @@ function MobileLink({ label, href, onClose, small }: any) {
       className={`block px-3 py-2 rounded-md transition-colors ${small ? 'text-xs' : 'text-sm'} ${
         active
           ? 'bg-blue-50 dark:bg-blue-900/20 text-[var(--ux4g-color-brand-primary)] font-medium'
-          : 'text-muted-foreground hover:bg-muted dark:hover:bg-gray-800'
+          : 'text-muted-foreground hover:bg-muted'
       }`}
     >
       {label}

@@ -9,15 +9,20 @@ import {
   getBreadcrumbs,
   getRouteMetadata,
 } from '../routeConfig';
+import { ROUTE_PATHS } from '../../routes/pathSource';
 
 describe('ROUTES', () => {
   it('HOME is "/"', () => {
     expect(ROUTES.HOME).toBe('/');
   });
 
-  it('CERTIFICATE routes are nested under /reference-service/certificate', () => {
-    expect(ROUTES.CERTIFICATE.SIGN_IN).toContain('/reference-service/certificate');
-    expect(ROUTES.CERTIFICATE.FORM_PERSONAL).toContain('/reference-service/certificate');
+  it('legacy aliases resolve to canonical path source entries', () => {
+    expect(ROUTES.FOUNDATIONS_DETAILED).toBe(ROUTE_PATHS.FOUNDATIONS.ROOT);
+    expect(ROUTES.DESIGN_TOKENS).toBe(ROUTE_PATHS.FOUNDATIONS.ROOT);
+    expect(ROUTES.CORE_COMPONENTS).toBe(ROUTE_PATHS.COMPONENTS.ROOT);
+    expect(ROUTES.INSTALLATION).toBe('/resources/getting-started');
+    expect(ROUTES.CERTIFICATE.SIGN_IN).toBe(ROUTE_PATHS.CERTIFICATE.SIGN_IN);
+    expect(ROUTES.CERTIFICATE.FORM_PERSONAL).toBe(ROUTE_PATHS.CERTIFICATE.FORM_PERSONAL);
   });
 });
 

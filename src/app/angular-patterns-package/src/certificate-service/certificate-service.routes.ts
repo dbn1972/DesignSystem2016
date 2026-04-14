@@ -50,6 +50,22 @@ export const certificateRoutes: Routes = [
       { path: 'correction-request', loadComponent: () => import('./pages/cert-correction-request/cert-correction-request.component').then(m => m.CertCorrectionRequestComponent), title: 'Correction Request' },
       { path: 'rejected', loadComponent: () => import('./pages/cert-rejected/cert-rejected.component').then(m => m.CertRejectedComponent), title: 'Application Rejected' },
       { path: 'appeal', loadComponent: () => import('./pages/cert-appeal/cert-appeal.component').then(m => m.CertAppealComponent), title: 'File Appeal' },
+
+      // Officer Dashboard
+      { path: 'officer/dashboard', loadComponent: () => import('./pages/cert-officer-dashboard/cert-officer-dashboard.component').then(m => m.CertOfficerDashboardComponent), title: 'Officer Dashboard' },
+      { path: 'officer/cases', loadComponent: () => import('./pages/cert-officer-cases/cert-officer-cases.component').then(m => m.CertOfficerCasesComponent), title: 'Case Queue' },
+      { path: 'officer/review', loadComponent: () => import('./pages/cert-officer-review/cert-officer-review.component').then(m => m.CertOfficerReviewComponent), title: 'Officer Review' },
+
+      // Identity Service Pages
+      { path: 'identity/sign-in', loadComponent: () => import('./pages/identity-sign-in/identity-sign-in.component').then(m => m.IdentitySignInComponent), title: 'Identity Sign In' },
+      { path: 'identity/sign-up', loadComponent: () => import('./pages/identity-sign-up/identity-sign-up.component').then(m => m.IdentitySignUpComponent), title: 'Identity Sign Up' },
+      { path: 'identity/mobile-otp', loadComponent: () => import('./pages/identity-mobile-otp/identity-mobile-otp.component').then(m => m.IdentityMobileOtpComponent), title: 'Mobile OTP' },
+      { path: 'identity/email-otp', loadComponent: () => import('./pages/identity-email-otp/identity-email-otp.component').then(m => m.IdentityEmailOtpComponent), title: 'Email OTP' },
+      { path: 'identity/forgot-password', loadComponent: () => import('./pages/identity-forgot-password/identity-forgot-password.component').then(m => m.IdentityForgotPasswordComponent), title: 'Forgot Password' },
+      { path: 'identity/account-recovery', loadComponent: () => import('./pages/identity-account-recovery/identity-account-recovery.component').then(m => m.IdentityAccountRecoveryComponent), title: 'Account Recovery' },
+      { path: 'identity/session-timeout', loadComponent: () => import('./pages/identity-session-timeout/identity-session-timeout.component').then(m => m.IdentitySessionTimeoutComponent), title: 'Session Timeout' },
+      { path: 'identity/error-lockout', loadComponent: () => import('./pages/identity-error-lockout/identity-error-lockout.component').then(m => m.IdentityErrorLockoutComponent), title: 'Error & Lockout' },
+      { path: 'identity/aadhaar', loadComponent: () => import('./pages/identity-aadhaar/identity-aadhaar.component').then(m => m.IdentityAadhaarComponent), title: 'Aadhaar Auth' },
     ],
   },
 ];

@@ -38,7 +38,7 @@ describe('Header', () => {
   // ── Active state ──────────────────────────────────────────────────────────
 
   it('applies active class to the current route link', () => {
-    renderHeader('/foundations-detailed');
+    renderHeader('/foundations');
     const foundationsLink = screen.getByRole('link', { name: 'Foundations' });
     expect(foundationsLink.className).toContain('bg-primary');
   });
@@ -83,11 +83,11 @@ describe('Header', () => {
     expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/');
   });
 
-  it('Components link points to "/core-components"', () => {
+  it('Components link points to "/components"', () => {
     renderHeader();
     expect(screen.getByRole('link', { name: 'Components' })).toHaveAttribute(
       'href',
-      '/core-components'
+      '/components'
     );
   });
 });
