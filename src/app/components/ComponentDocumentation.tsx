@@ -114,6 +114,9 @@ interface ComponentDocumentationProps {
   // Additional content to render after the main documentation
   additionalContent?: React.ReactNode;
 
+  // Live preview hero shown at the top of Overview tab
+  preview?: React.ReactNode;
+
   // Government-specific context (India-specific usage notes)
   governmentContext?: {
     relevance?: string;
@@ -141,10 +144,12 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
   tokens,
   useCases,
   additionalContent,
+  preview,
   governmentContext,
 }) => {
   const [activeTab, setActiveTab] = useState<'overview' | 'props' | 'examples' | 'code' | 'comparison' | 'tokens'>('overview');
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  const [mobileCodeFramework, setMobileCodeFramework] = useState(0);
 
   const maturityConfig = {
     draft: { label: 'Draft', color: 'bg-blue-100 text-blue-800', icon: '🔵' },
@@ -314,6 +319,29 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
           <div className="flex gap-8">
             {/* Main content */}
             <div className="flex-1 min-w-0 space-y-8">
+
+            {/* Live Preview Hero */}
+            {preview && (
+              <section id="section-preview" className="bg-card rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="px-6 py-4 border-b border-border bg-gradient-to-r from-muted/30 to-transparent">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Live Preview</h2>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 uppercase tracking-wider">Interactive</span>
+                  </div>
+                </div>
+                <div className="p-8 flex items-center justify-center min-h-[160px] bg-[radial-gradient(circle_at_center,_rgba(0,81,150,0.03),_transparent_70%)]">
+                  {preview}
+                </div>
+              </section>
+            )}
+
+            {/* Premium content: When to use, Related, Changelog, Research — shown first for decision-making */}
+            {additionalContent && (
+              <div id="section-guidance" className="space-y-0">
+                {additionalContent}
+              </div>
+            )}
+
             {/* Installation */}
             <section id="section-installation" className="bg-card rounded-xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-2xl font-bold text-foreground mb-4">Installation</h2>
@@ -433,13 +461,6 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                 </div>
               </section>
             )}
-
-            {/* Additional premium content (When to use, Related, Changelog, Research) */}
-            {additionalContent && (
-              <div id="section-premium" className="space-y-0">
-                {additionalContent}
-              </div>
-            )}
             </div>
 
             {/* Sticky sidebar TOC — desktop only */}
@@ -447,10 +468,11 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               <nav className="sticky top-24 space-y-1" aria-label="On this page">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">On this page</p>
                 {[
+                  ...(preview ? [{ id: 'section-preview', label: 'Preview' }] : []),
+                  ...(additionalContent ? [{ id: 'section-guidance', label: 'When to Use' }] : []),
                   { id: 'section-installation', label: 'Installation' },
                   { id: 'section-accessibility', label: 'Accessibility' },
                   ...(useCases && useCases.length > 0 ? [{ id: 'section-usecases', label: 'Use Cases' }] : []),
-                  ...(additionalContent ? [{ id: 'section-premium', label: 'Guidance & Research' }] : []),
                 ].map((item) => (
                   <a
                     key={item.id}
@@ -565,7 +587,74 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               </div>
             </section>
 
-            <div className="grid gap-6 lg:grid-cols-3">
+            {/* Mobile: Framework selector tabs */}
+            <div className="lg:hidden">
+              <div className="flex rounded-xl border border-border bg-muted/30 p-1 mb-4">
+                {codeSections.map((section, idx) => (
+                  <button
+                    key={section.key}
+                    onClick={() => setMobileCodeFramework(idx)}
+                    className={`flex-1 px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
+                      mobileCodeFramework === idx
+                        ? 'bg-card text-[#005196] shadow-sm'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {section.title.split(' ')[0]}
+                  </button>
+                ))}
+              </div>
+              {codeSections[mobileCodeFramework] && (
+                <section className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+                  <div className="h-1 bg-[#005196]" />
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-5 flex items-start justify-between gap-4">
+                      <div className="space-y-2">
+                        <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                          {codeSections[mobileCodeFramework].eyebrow}
+                        </span>
+                        <div>
+                          <h2 className="text-xl font-bold text-foreground">{codeSections[mobileCodeFramework].title}</h2>
+                          <p className="mt-1 text-sm leading-6 text-muted-foreground">{codeSections[mobileCodeFramework].description}</p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => downloadCode(codeSections[mobileCodeFramework].blocks[0]?.code || '', codeSections[mobileCodeFramework].downloadFilename)}
+                        aria-label={codeSections[mobileCodeFramework].downloadLabel}
+                        title={codeSections[mobileCodeFramework].downloadLabel}
+                        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] transition-colors hover:border-[#005196] hover:bg-[#005196] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+                      >
+                        <Download size={16} />
+                      </button>
+                    </div>
+                    <div className="flex-1 space-y-4">
+                      {codeSections[mobileCodeFramework].blocks.map((block) => (
+                        <div key={block.copyId} className="space-y-2">
+                          <div className="flex items-center justify-between gap-3">
+                            <h3 className="text-sm font-semibold text-muted-foreground">{block.title}</h3>
+                            <button
+                              onClick={() => copyToClipboard(block.code, block.copyId)}
+                              className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                            >
+                              {copiedCode === block.copyId ? <Check size={14} /> : <Copy size={14} />}
+                              Copy
+                            </button>
+                          </div>
+                          <div className="rounded-2xl border border-border bg-slate-950 p-4 text-sm text-slate-100 shadow-inner">
+                            <pre className="overflow-x-auto font-mono leading-6">
+                              <code>{block.code}</code>
+                            </pre>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              )}
+            </div>
+
+            {/* Desktop: 3-column grid */}
+            <div className="hidden lg:grid gap-6 lg:grid-cols-3">
               {codeSections.map((section, sectionIdx) => (
                 <section
                   key={section.key}

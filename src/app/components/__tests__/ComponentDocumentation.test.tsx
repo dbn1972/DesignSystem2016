@@ -162,16 +162,17 @@ describe('ComponentDocumentation', () => {
     const user = userEvent.setup();
     renderDocs();
     await user.click(screen.getByRole('button', { name: /Code Downloads/ }));
-    expect(screen.getByText('React implementation')).toBeInTheDocument();
-    expect(screen.getByText('Angular implementation')).toBeInTheDocument();
-    expect(screen.getByText('Web Components / HTML')).toBeInTheDocument();
+    // Both mobile and desktop views render — use getAllByText
+    expect(screen.getAllByText('React implementation').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('Angular implementation').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('Web Components / HTML').length).toBeGreaterThanOrEqual(1);
   });
 
   it('renders Download React Code button', async () => {
     const user = userEvent.setup();
     renderDocs();
     await user.click(screen.getByRole('button', { name: /Code Downloads/ }));
-    expect(screen.getByRole('button', { name: /Download React Code/i })).toBeInTheDocument();
+    expect(screen.getAllByRole('button', { name: /Download React Code/i }).length).toBeGreaterThanOrEqual(1);
   });
 
   it('downloads bundled code for React, Angular, and Web Components', async () => {
@@ -182,16 +183,17 @@ describe('ComponentDocumentation', () => {
 
     const { anchor, click, createObjectURL, revokeObjectURL } = mockDownload();
 
-    await user.click(screen.getByRole('button', { name: /Download React code/i }));
+    // Click the first matching download button (mobile or desktop)
+    await user.click(screen.getAllByRole('button', { name: /Download React code/i })[0]);
     expect(createObjectURL).toHaveBeenCalled();
     expect(anchor.download).toBe('Button.tsx');
     expect(click).toHaveBeenCalled();
 
-    await user.click(screen.getByRole('button', { name: /Download Angular code/i }));
+    await user.click(screen.getAllByRole('button', { name: /Download Angular code/i })[0]);
     expect(anchor.download).toBe('button.component.ts');
     expect(click).toHaveBeenCalledTimes(2);
 
-    await user.click(screen.getByRole('button', { name: /Download Web code/i }));
+    await user.click(screen.getAllByRole('button', { name: /Download Web code/i })[0]);
     expect(anchor.download).toBe('button.web.ts');
     expect(click).toHaveBeenCalledTimes(3);
 
