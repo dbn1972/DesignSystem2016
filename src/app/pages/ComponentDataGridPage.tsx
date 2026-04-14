@@ -176,6 +176,102 @@ function Example() {
       sortable
       pageable
       pageSize={10}
+
+      useCases={[
+        { title: "Officer Case Management", description: "Advanced data grid for managing cases.", scenario: "Officer dashboard with sorting, filtering, pagination.", implementation: "<DataGrid columns={columns} data={cases} sortable filterable />" },
+        { title: "Audit Log", description: "Paginated audit trail with search.", scenario: "Governance compliance audit view.", implementation: "<DataGrid columns={auditColumns} data={auditLog} searchable />" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use DataGrid when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Large datasets needing sort, filter, search</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Administrative data management</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Paginated data with column controls</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Export-ready data views</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use DataGrid when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple data display — use Table</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Card-based layouts — use Card grid</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Small datasets — use Table</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Read-only summaries — use DescriptionList</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/table" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Table</h3>
+                <p className="text-sm text-muted-foreground">For simpler data display</p>
+              </a>
+              <a href="/components/pagination" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Pagination</h3>
+                <p className="text-sm text-muted-foreground">For page navigation</p>
+              </a>
+              <a href="/components/input" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Input</h3>
+                <p className="text-sm text-muted-foreground">For search/filter inputs</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added column resizing</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added row selection</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with sort and filter</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Column prioritization</h3>
+                <p className="text-sm text-muted-foreground">Data grids should show the most important columns first and allow users to customize column order (Baymard).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }`,

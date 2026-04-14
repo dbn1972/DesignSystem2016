@@ -899,6 +899,101 @@ export default function ComponentAutocompletePage() {
           { property: 'Max Dropdown Height', token: 'base.dropdown.maxHeight', value: '240px' },
         ],
       }}
+
+      useCases={[
+        { title: "Address Search", description: "Type-ahead for Indian addresses.", scenario: "Address form with PIN code lookup.", implementation: "<Autocomplete label=\"Search Address\" options={addresses} />" },
+        { title: "Service Search", description: "Search across available government services.", scenario: "Home page service finder.", implementation: "<Autocomplete label=\"Find a Service\" options={services} />" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Autocomplete when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Large option lists that need filtering</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Search with suggestions</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Address or location lookup</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>When users know part of the value</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Autocomplete when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Small option lists (under 10) — use Select</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Free text without suggestions — use Input</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Multiple selections — use Checkbox group</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/select" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Select</h3>
+                <p className="text-sm text-muted-foreground">For shorter option lists</p>
+              </a>
+              <a href="/components/input" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Input</h3>
+                <p className="text-sm text-muted-foreground">For free text</p>
+              </a>
+              <a href="/components/searchbar" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">SearchBar</h3>
+                <p className="text-sm text-muted-foreground">For global search</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added async option loading</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added highlight matching text</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with static options</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Autocomplete reduces errors</h3>
+                <p className="text-sm text-muted-foreground">Autocomplete fields reduce data entry errors by 50% for address fields (Royal Mail research).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

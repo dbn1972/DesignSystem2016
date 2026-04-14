@@ -258,6 +258,102 @@ function Example() {
       penWidth={2}
       onSave={handleSave}
       onClear={() => console.log('Signature cleared')}
+
+      useCases={[
+        { title: "Document Signing", description: "Digital signature for official documents.", scenario: "Officer signs approved certificate.", implementation: "<DigitalSignature onSign={handleSign} certificate={cert} />" },
+        { title: "Consent Signing", description: "Citizen signs consent form digitally.", scenario: "Data sharing consent in eKYC.", implementation: "<DigitalSignature type=\"consent\" />" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use DigitalSignature when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Official document signing</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Legal consent capture</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Certificate approval workflows</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Authenticated action confirmation</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use DigitalSignature when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple checkboxes for consent — use Checkbox</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Password confirmation — use Input</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-legal agreements — use Checkbox</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Handwritten signature capture — use a canvas component</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/checkbox" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Checkbox</h3>
+                <p className="text-sm text-muted-foreground">For simple consent</p>
+              </a>
+              <a href="/components/button" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Button</h3>
+                <p className="text-sm text-muted-foreground">For action confirmation</p>
+              </a>
+              <a href="/components/dialog" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Dialog</h3>
+                <p className="text-sm text-muted-foreground">For signing confirmation</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added DSC token support</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added Aadhaar eSign integration</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic digital signature</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Digital signatures in governance</h3>
+                <p className="text-sm text-muted-foreground">Digital signatures reduce document processing time by 80% and eliminate physical courier delays (India IT Act 2000 compliance).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }`,

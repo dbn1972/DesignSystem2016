@@ -199,6 +199,102 @@ function Example() {
       onChange={setContent}
       placeholder="Enter announcement text..."
       toolbar={['bold', 'italic', 'list', 'ordered']}
+
+      useCases={[
+        { title: "Notice Drafting", description: "Rich text editor for official notices.", scenario: "Admin drafts public notice.", implementation: "<RichTextEditor onChange={handleChange} toolbar={[\"bold\",\"italic\",\"list\",\"link\"]} />" },
+        { title: "Appeal Description", description: "Formatted text for appeal submissions.", scenario: "Citizen writes detailed appeal.", implementation: "<RichTextEditor maxLength={5000} />" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use RichTextEditor when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Formatted text input (bold, italic, lists)</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Notice and announcement drafting</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Detailed description fields</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Content management interfaces</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use RichTextEditor when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Plain text — use Textarea</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Code editing — use CodeBlock</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Short text — use Input</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Read-only content — use rendered HTML</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/textarea" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Textarea</h3>
+                <p className="text-sm text-muted-foreground">For plain text input</p>
+              </a>
+              <a href="/components/codeblock" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">CodeBlock</h3>
+                <p className="text-sm text-muted-foreground">For code display</p>
+              </a>
+              <a href="/components/input" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Input</h3>
+                <p className="text-sm text-muted-foreground">For single-line text</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added table support</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added image embedding</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic formatting toolbar</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Toolbar simplicity</h3>
+                <p className="text-sm text-muted-foreground">Rich text editors with fewer than 10 toolbar options have 40% higher usability scores than full-featured editors (NNG).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }`,

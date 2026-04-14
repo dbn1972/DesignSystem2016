@@ -365,6 +365,97 @@ export default function ComponentEmptyStatePage() {
           code: 'import { EmptyState } from \'@ux4g/react-core\';\nimport { FolderOpen } from \'lucide-react\';\n\nfunction Dashboard({ isFirstTime, onStartOnboarding }) {\n  if (isFirstTime) {\n    return (\n      <EmptyState\n        variant="first-time"\n        icon={<FolderOpen size={48} />}\n        title="Welcome to the Citizen Portal"\n        description="Get started by completing your profile to access personalized government services, track applications, and receive important notifications."\n        actionLabel="Complete your profile"\n        onAction={onStartOnboarding}\n        secondaryActionLabel="Explore services"\n        onSecondaryAction={() => router.push(\'/services\')}\n      />\n    );\n  }\n  \n  return <DashboardContent />;\n}',
         },
       ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use EmptyState when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Lists or tables with no data</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Search results with no matches</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>First-time user experiences</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Filtered views with no results</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use EmptyState when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Loading states — use Skeleton or Spinner</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Error states — use Alert</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Partial data — show what exists</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Temporary states — use Toast</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/skeleton" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Skeleton</h3>
+                <p className="text-sm text-muted-foreground">For loading states</p>
+              </a>
+              <a href="/components/alert" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Alert</h3>
+                <p className="text-sm text-muted-foreground">For error states</p>
+              </a>
+              <a href="/components/card" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Card</h3>
+                <p className="text-sm text-muted-foreground">For content containers</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added action button slot</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added illustration support</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with title and description</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Empty states drive engagement</h3>
+                <p className="text-sm text-muted-foreground">Empty states with a clear CTA have 3x higher conversion to first action than blank pages (Intercom research).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

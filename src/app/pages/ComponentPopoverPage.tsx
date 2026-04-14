@@ -742,6 +742,97 @@ export default function ComponentPopoverPage() {
           implementation: 'Filter button that opens popover with checkboxes for status, date range, and category filtering.',
         },
       ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Popover when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Interactive content on hover or click</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Rich help text with links</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Quick previews without navigation</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Supplementary information panels</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Popover when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple text labels — use Tooltip</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Full forms — use Modal or Drawer</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Critical actions — use Dialog</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Navigation — use Menu</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/tooltip" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Tooltip</h3>
+                <p className="text-sm text-muted-foreground">For simple text labels</p>
+              </a>
+              <a href="/components/modal" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Modal</h3>
+                <p className="text-sm text-muted-foreground">For full overlays</p>
+              </a>
+              <a href="/components/drawer" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Drawer</h3>
+                <p className="text-sm text-muted-foreground">For side panels</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added click and hover triggers</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added arrow positioning</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with click trigger</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Popover vs Tooltip</h3>
+                <p className="text-sm text-muted-foreground">Popovers should be used when content is interactive (links, buttons). Tooltips are for passive text only (WAI-ARIA).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

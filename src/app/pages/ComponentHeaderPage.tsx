@@ -164,6 +164,102 @@ function Example() {
         { label: 'About', href: '/about' },
         { label: 'Contact', href: '/contact' },
       ]}
+
+      useCases={[
+        { title: "Government Site Header", description: "Standard header with logo and navigation.", scenario: "All pages of the design system site.", implementation: "<Header logo={<Logo />} navigation={<Nav />} />" },
+        { title: "Service Portal Header", description: "Header with user menu and language selector.", scenario: "Authenticated citizen portal.", implementation: "<Header user={currentUser} languageSelector />" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Header when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Page-level header with branding</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Navigation bar with links</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>User account and settings access</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Language and accessibility controls</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use Header when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Section headers — use heading elements</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Card headers — use Card header slot</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Modal headers — use Modal title</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Inline navigation — use links directly</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/footer" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Footer</h3>
+                <p className="text-sm text-muted-foreground">For page footer</p>
+              </a>
+              <a href="/components/breadcrumb" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Breadcrumb</h3>
+                <p className="text-sm text-muted-foreground">For page hierarchy</p>
+              </a>
+              <a href="/components/languageselector" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">LanguageSelector</h3>
+                <p className="text-sm text-muted-foreground">For language switching</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added responsive mobile menu</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added skip-to-content link</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with logo and navigation</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Skip navigation links</h3>
+                <p className="text-sm text-muted-foreground">WCAG 2.4.1 requires a skip-to-content link. Government sites without it fail accessibility audits 100% of the time.</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }`,

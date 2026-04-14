@@ -118,7 +118,7 @@ COMPONENTS.Progress = { useCases: [{ title: 'Document Upload Progress', descript
 COMPONENTS.Spinner = { useCases: [{ title: 'Button Loading State', description: 'Inline spinner inside a loading button.', scenario: 'User clicks Submit and waits for API response.', implementation: '<Spinner size="sm" /> inside <Button loading>' }, { title: 'Page Loading', description: 'Full-page spinner during route transitions.', scenario: 'Lazy-loaded page is being fetched.', implementation: '<Spinner size="lg" label="Loading page..." />' }, { title: 'Data Fetching', description: 'Spinner while fetching application status.', scenario: 'Status tracker loads timeline data.', implementation: '<Spinner size="md" label="Loading status..." />' }], whenToUse: ['Brief loading states (under 3 seconds)', 'Inline loading indicators in buttons or cards', 'Initial page or component loading', 'API call waiting states'], whenNotToUse: ['Long operations with known progress — use Progress', 'Content placeholders — use Skeleton', 'Background tasks — no indicator needed', 'Operations longer than 10 seconds — add a message'], related: [['Progress', 'For determinate progress'], ['Skeleton', 'For content placeholders'], ['Toast', 'For completion notifications']], changelog: [{ version: 'v2.0.0', date: 'March 2026', changes: ['Added accessible label prop', 'Added color variants'] }, { version: 'v1.0.0', date: 'October 2025', changes: ['Initial release with 3 sizes'] }], research: [{ title: 'Spinner vs Skeleton', text: 'Skeleton screens are perceived as 15% faster than spinners for content loading (Google research).' }, { title: 'Accessible spinners', text: 'WCAG requires role="status" or aria-live="polite" so screen readers announce loading state.' }] };
 COMPONENTS.Pagination = { useCases: [{ title: 'Application List Paging', description: 'Navigate through pages of applications.', scenario: 'My Applications shows 10 per page.', implementation: '<Pagination total={50} pageSize={10} current={1} />' }, { title: 'Search Results', description: 'Page through search results.', scenario: 'Service search returns many results.', implementation: '<Pagination total={120} pageSize={20} current={3} />' }, { title: 'Officer Case Queue', description: 'Navigate through assigned cases.', scenario: 'Officer dashboard with 47 total cases.', implementation: '<Pagination total={47} pageSize={10} current={1} />' }], whenToUse: ['Large data sets that need paging', 'Search results with many items', 'Lists where loading all items is impractical', 'When users need to navigate to specific pages'], whenNotToUse: ['Small lists (under 20 items) — show all', 'Infinite scroll is preferred', 'Sequential content — use Stepper', 'Content that should be visible at once'], related: [['Table', 'Often used with pagination'], ['DataGrid', 'For paginated data grids'], ['Stepper', 'For sequential navigation']], changelog: [{ version: 'v2.0.0', date: 'March 2026', changes: ['Added page size selector', 'Added jump-to-page input'] }, { version: 'v1.0.0', date: 'October 2025', changes: ['Initial release with numbered pages'] }], research: [{ title: 'Pagination vs infinite scroll', text: 'Pagination is preferred for task-oriented sites (e.g., government services) where users need to find specific items (NNG).' }, { title: 'Show total count', text: 'Displaying total results count helps users estimate effort and decide whether to refine their search (Baymard).' }] };
 
-function buildAdditionalContent(name, data) {
+function buildAdditionalContent(name, data, skipUseCases = false) {
   const relatedLinks = data.related.map(([comp, desc]) =>
     `              <a href="/components/${comp.toLowerCase().replace(/\s+/g, '-')}" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
                 <h3 className="font-semibold text-foreground mb-1">${comp}</h3>
@@ -145,14 +145,16 @@ ${e.changes.map(c => `                    <li className="text-sm text-muted-fore
               </div>`
   ).join('\n');
 
-  const doItems = data.whenToUse.map(t => `                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>${t.replace(/'/g, '&apos;')}</li>`).join('\n');
-  const dontItems = data.whenNotToUse.map(t => `                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>${t.replace(/'/g, '&apos;')}</li>`).join('\n');
+  const doItems = data.whenToUse.map(t => `                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>${t.replace(/'/g, '&apos;').replace(/<(\w)/g, '{"<$1').replace(/(\w)>/g, '$1>"}')}</li>`).join('\n');
+  const dontItems = data.whenNotToUse.map(t => `                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>${t.replace(/'/g, '&apos;').replace(/<(\w)/g, '{"<$1').replace(/(\w)>/g, '$1>"}')}</li>`).join('\n');
 
-  return `
+  const useCasesPart = skipUseCases ? '' : `
       useCases={[
 ${data.useCases.map(uc => `        { title: "${uc.title}", description: "${uc.description}", scenario: "${uc.scenario}", implementation: "${uc.implementation.replace(/"/g, '\\"')}" },`).join('\n')}
       ]}
+`;
 
+  return `${useCasesPart}
       additionalContent={
         <>
           {/* When to use */}
@@ -207,6 +209,10 @@ ${researchCards}
       }`;
 }
 
+// Batch 5+6+7a: Import 20 more components
+import { BATCH } from './batch56-data.mjs';
+Object.assign(COMPONENTS, BATCH);
+
 let updated = 0;
 for (const [name, data] of Object.entries(COMPONENTS)) {
   const filePath = `/Users/debabratanayak_1/Documents/DesignSystem_211/src/app/pages/Component${name}Page.tsx`;
@@ -218,7 +224,8 @@ for (const [name, data] of Object.entries(COMPONENTS)) {
   const insertionPoint = '\n    />\n  );\n}';
   if (!content.includes(insertionPoint)) { console.log(`SKIP: ${name} — can't find insertion point`); continue; }
 
-  const newContent = buildAdditionalContent(name, data);
+  const hasUseCases = content.includes('useCases={');
+  const newContent = buildAdditionalContent(name, data, hasUseCases);
   const updatedContent = content.replace(insertionPoint, '\n' + newContent + insertionPoint);
   writeFileSync(filePath, updatedContent);
   console.log(`UPDATED: ${name}`);
@@ -226,3 +233,4 @@ for (const [name, data] of Object.entries(COMPONENTS)) {
 }
 
 console.log(`\nDone: ${updated} components updated`);
+// This line is a placeholder to find the insertion point
