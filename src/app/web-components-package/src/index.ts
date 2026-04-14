@@ -101,6 +101,19 @@ export { UX4GSection } from './components/section/ux4g-section';
 // Components - Utilities
 export { UX4GLanguageSelector } from './components/language-selector/ux4g-language-selector';
 
+// ── Service Components ──────────────────────────────────────────────────────
+// Service-level compositions that mirror React service implementations.
+// These use the shared service contract for validation, field definitions,
+// and event vocabulary.
+
+export * from './services/service-contract';
+export { UX4GServiceHeader } from './services/ux4g-service-header';
+export { UX4GServiceFooter } from './services/ux4g-service-footer';
+export { UX4GSignInService } from './services/ux4g-sign-in-service';
+export { UX4GEligibilityService } from './services/ux4g-eligibility-service';
+export { UX4GApplicationStartService } from './services/ux4g-application-start-service';
+export { UX4GPersonalFormService } from './services/ux4g-personal-form-service';
+
 /**
  * Auto-register all components
  * Call this to register all UX4G components at once
