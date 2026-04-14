@@ -128,6 +128,12 @@ export { UX4GPaymentReceiptService } from './services/ux4g-payment-receipt-servi
 export { UX4GStatusTrackerService } from './services/ux4g-status-tracker-service';
 export { UX4GUserProfileService } from './services/ux4g-user-profile-service';
 
+// ── Certificate Flow Pages ──────────────────────────────────────────────────
+// 31 certificate-specific pages composing the reusable service components.
+export { UX4GCertDemo } from './services/certificate-flow/cert-demo';
+import './services/certificate-flow/cert-pages';
+import './services/certificate-flow/cert-unique-pages';
+
 /**
  * Auto-register all components
  * Call this to register all UX4G components at once
