@@ -8,7 +8,7 @@ export default function MigrationMaterialUI() {
       <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b-4 border-saffron-600 py-12">
         <div className="max-w-7xl mx-auto px-6">
           <Link
-            to="/resources/migration"
+            to="/resources/migration-guides"
             className="inline-flex items-center gap-2 text-saffron-700 hover:text-saffron-900 font-semibold mb-4"
           >
             <ArrowLeft size={16} />

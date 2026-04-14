@@ -188,7 +188,7 @@ export default function GlobalSearchPattern() {
               <div className="absolute top-full left-0 right-0 mt-2 bg-card border-2 border-border rounded-lg shadow-lg z-10 p-6 text-center">
                 <div className="text-muted-foreground mb-4">No services found for "{query}"</div>
                 <Link
-                  to="/patterns/search-discovery/guided-finder"
+                  to="/patterns/search-discovery"
                   className="inline-flex items-center gap-2 text-primary hover:underline"
                 >
                   <span>Try our guided service finder</span>
@@ -272,7 +272,7 @@ export default function GlobalSearchPattern() {
                   the right service for you.
                 </p>
                 <Link
-                  to="/patterns/search-discovery/guided-finder"
+                  to="/patterns/search-discovery"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90"
                 >
                   <span>Start Guided Finder</span>

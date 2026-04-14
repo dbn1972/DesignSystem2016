@@ -126,7 +126,7 @@ export default function OperationalServicePatterns() {
           
           {/* Appointment Booking */}
           <PatternCard
-            to="/appointment-booking-pattern"
+            to="/archetypes/appointment"
             icon={<Calendar size={32} />}
             iconBg="bg-blue-100"
             iconColor="text-primary"
@@ -164,7 +164,7 @@ export default function OperationalServicePatterns() {
 
           {/* Payment Failure and Retry */}
           <PatternCard
-            to="/payment-failure-pattern"
+            to="/patterns/payment/failure-retry"
             icon={<XCircle size={32} />}
             iconBg="bg-red-100"
             iconColor="text-red-700"
@@ -183,7 +183,7 @@ export default function OperationalServicePatterns() {
 
           {/* Multi-Document Upload */}
           <PatternCard
-            to="/document-upload-pattern"
+            to="/reference-service/document-upload"
             icon={<Upload size={32} />}
             iconBg="bg-purple-100"
             iconColor="text-purple-700"
@@ -202,7 +202,7 @@ export default function OperationalServicePatterns() {
 
           {/* Document Verification/Rejection */}
           <PatternCard
-            to="/document-verification-pattern"
+            to="/archetypes/correction"
             icon={<FileCheck size={32} />}
             iconBg="bg-indigo-100"
             iconColor="text-indigo-700"
@@ -221,7 +221,7 @@ export default function OperationalServicePatterns() {
 
           {/* Record Lookup */}
           <PatternCard
-            to="/record-lookup-pattern"
+            to="/patterns/search-discovery/global-search"
             icon={<Search size={32} />}
             iconBg="bg-teal-100"
             iconColor="text-teal-700"
@@ -259,7 +259,7 @@ export default function OperationalServicePatterns() {
 
           {/* Officer Review and Decision */}
           <PatternCard
-            to="/officer-review-pattern"
+            to="/reference-service/certificate/officer/dashboard"
             icon={<UserCheck size={32} />}
             iconBg="bg-orange-100"
             iconColor="text-orange-700"
