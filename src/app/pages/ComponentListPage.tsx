@@ -6,6 +6,39 @@ import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Check } from 'lucide-react';
 
+function ListPlayground() {
+  const [variant, setVariant] = React.useState('default');
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <div className="text-center space-y-3">
+          <div className="text-4xl">🧩</div>
+          <p className="text-sm text-muted-foreground">Live List preview with current settings</p>
+          <div className="flex flex-wrap gap-2 justify-center">
+            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{variant}</span>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Variant</label>
+            <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="default">default</option>
+              <option value="bordered">bordered</option>
+              <option value="striped">striped</option>
+            </select>
+          </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<List ${variant} />`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentListPage() {
   return (
     <ComponentDocumentation
@@ -15,6 +48,13 @@ export default function ComponentListPage() {
       maturity="stable"
       tier="foundation"
       since="v1.0.0"
+
+      preview={
+        <div className="text-center space-y-3">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#005196]/10 text-[#005196] text-2xl font-bold">Li</div>
+          <p className="text-sm text-muted-foreground">List component in its default state</p>
+        </div>
+      }
       
       props={[
         {
@@ -262,6 +302,33 @@ export type ListSpacing = 'compact' | 'normal' | 'relaxed';`,
                 </ul>
               </div>
             </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Use consistent left-aligned structure for list items — users scan 20% faster.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use lists for structured multi-column data — use Table instead.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different List configurations in real time.</p>
+            <ListPlayground />
           </section>
 
           {/* Related components */}

@@ -54,6 +54,35 @@ const MapLocationPickerPreview = ({
   </div>
 );
 
+function MapLocationPickerPlayground() {
+  const [editable, setEditable] = React.useState(false);
+  const [showSearch, setShowSearch] = React.useState(false);
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <div className="text-center space-y-3">
+          <div className="text-4xl">🧩</div>
+          <p className="text-sm text-muted-foreground">Live MapLocationPicker preview with current settings</p>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {editable && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">editable</span>}
+            {showSearch && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">showSearch</span>}
+          </div>
+        </div>
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={editable} onChange={e => setEditable(e.target.checked)} className="accent-primary" /><span className="text-foreground">Editable</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showSearch} onChange={e => setShowSearch(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Search</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<MapLocationPicker${editable ? ' editable' : ''}${showSearch ? ' showSearch' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentMapLocationPickerPage() {
   return (
     <ComponentDocumentation
@@ -64,6 +93,13 @@ export default function ComponentMapLocationPickerPage() {
       tier="composite"
       since="v2.0.0"
       updated="v2.2.0"
+
+      preview={
+        <div className="text-center space-y-3">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#005196]/10 text-[#005196] text-2xl font-bold">Ma</div>
+          <p className="text-sm text-muted-foreground">MapLocationPicker component in its default state</p>
+        </div>
+      }
 
       props={[
         {
@@ -240,6 +276,33 @@ function Example() {
                 </ul>
               </div>
             </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Use map-based verification to reduce address errors by 70%.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t require map interaction for users who already know their address — offer text input too.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different MapLocationPicker configurations in real time.</p>
+            <MapLocationPickerPlayground />
           </section>
 
           {/* Related components */}

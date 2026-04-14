@@ -119,3 +119,12 @@ export default function ApiReference() {
     </main>
   );
 }
+
+function MiniStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-muted/20 p-4">
+      <div className="text-xl font-semibold tracking-tight text-foreground">{value}</div>
+      <div className="mt-1 text-sm leading-6 text-muted-foreground">{label}</div>
+    </div>
+  );
+}

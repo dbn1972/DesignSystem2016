@@ -65,6 +65,39 @@ const SpinnerPreview = ({ size, color, label, speed, ...props }: any) => {
   );
 };
 
+function SpinnerPlayground() {
+  const [size, setSize] = React.useState('sm');
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <div className="text-center space-y-3">
+          <div className="text-4xl">🧩</div>
+          <p className="text-sm text-muted-foreground">Live Spinner preview with current settings</p>
+          <div className="flex flex-wrap gap-2 justify-center">
+            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{size}</span>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Size</label>
+            <select value={size} onChange={e => setSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="sm">sm</option>
+              <option value="md">md</option>
+              <option value="lg">lg</option>
+            </select>
+          </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Spinner ${size} />`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentSpinnerPage() {
   return (
     <ComponentDocumentation
@@ -75,6 +108,13 @@ export default function ComponentSpinnerPage() {
       tier="core"
       since="v1.0.0"
       updated="v2.0.0"
+
+      preview={
+        <div className="text-center space-y-3">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#005196]/10 text-[#005196] text-2xl font-bold">Sp</div>
+          <p className="text-sm text-muted-foreground">Spinner component in its default state</p>
+        </div>
+      }
 
       props={[
         {
@@ -578,6 +618,33 @@ export interface SpinnerConfig {
                 </ul>
               </div>
             </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Use spinners for brief loading states under 3 seconds.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use spinners for long operations — add a message or use Progress bar.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Spinner configurations in real time.</p>
+            <SpinnerPlayground />
           </section>
 
           {/* Related components */}

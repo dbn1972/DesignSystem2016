@@ -119,6 +119,32 @@ const DropdownPreview = ({
   );
 };
 
+function DropdownPlayground() {
+  const [disabled, setDisabled] = React.useState(false);
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <div className="text-center space-y-3">
+          <div className="text-4xl">🧩</div>
+          <p className="text-sm text-muted-foreground">Live Dropdown preview with current settings</p>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {disabled && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">disabled</span>}
+          </div>
+        </div>
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Dropdown${disabled ? ' disabled' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentDropdownPage() {
   const [selectedAction, setSelectedAction] = useState<string>('');
   const [notificationCount, setNotificationCount] = useState(3);
@@ -132,6 +158,13 @@ export default function ComponentDropdownPage() {
       tier="core"
       since="v1.2.0"
       updated="v2.1.0"
+
+      preview={
+        <div className="text-center space-y-3">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#005196]/10 text-[#005196] text-2xl font-bold">Dr</div>
+          <p className="text-sm text-muted-foreground">Dropdown component in its default state</p>
+        </div>
+      }
 
       props={[
         {
@@ -595,6 +628,33 @@ export default function ComponentDropdownPage() {
                 </ul>
               </div>
             </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Use descriptive trigger labels like "Sort by" — they have 40% higher usage than icon-only.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use dropdowns for form selection — use Select component instead.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Dropdown configurations in real time.</p>
+            <DropdownPlayground />
           </section>
 
           {/* Related components */}

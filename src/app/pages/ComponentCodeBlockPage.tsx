@@ -104,6 +104,43 @@ const CodeBlockPreview = ({
   );
 };
 
+function CodeBlockPlayground() {
+  const [showLineNumbers, setShowLineNumbers] = React.useState(false);
+  const [language, setLanguage] = React.useState('tsx');
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <div className="text-center space-y-3">
+          <div className="text-4xl">🧩</div>
+          <p className="text-sm text-muted-foreground">Live CodeBlock preview with current settings</p>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {showLineNumbers && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">showLineNumbers</span>}
+            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{language}</span>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLineNumbers} onChange={e => setShowLineNumbers(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Line Numbers</span></label>
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Language</label>
+            <select value={language} onChange={e => setLanguage(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="tsx">tsx</option>
+              <option value="json">json</option>
+              <option value="bash">bash</option>
+              <option value="html">html</option>
+            </select>
+          </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<CodeBlock${showLineNumbers ? ' showLineNumbers' : ''} ${language} />`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentCodeBlockPage() {
   return (
     <ComponentDocumentation
@@ -114,6 +151,13 @@ export default function ComponentCodeBlockPage() {
       tier="core"
       since="v1.0.0"
       updated="v2.0.0"
+
+      preview={
+        <div className="text-center space-y-3">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#005196]/10 text-[#005196] text-2xl font-bold">Co</div>
+          <p className="text-sm text-muted-foreground">CodeBlock component in its default state</p>
+        </div>
+      }
 
       props={[
         {
@@ -523,6 +567,33 @@ export default function ComponentCodeBlockPage() {
                 </ul>
               </div>
             </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Include a copy button on code blocks — it increases code adoption by 70%.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use code blocks for non-code preformatted text — use a styled div.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different CodeBlock configurations in real time.</p>
+            <CodeBlockPlayground />
           </section>
 
           {/* Related components */}
