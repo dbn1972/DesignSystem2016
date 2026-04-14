@@ -40,6 +40,35 @@ const CheckboxPreview = ({ label, disabled = false, indeterminate = false }: any
   );
 };
 
+function CheckboxPlayground() {
+  const [disabled, setDisabled] = React.useState(false);
+  const [required, setRequired] = React.useState(false);
+  const [label, setLabel] = React.useState('I accept the Terms of Service');
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <CheckboxPreview label={label} disabled={disabled} />
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Label</label>
+          <input value={label} onChange={e => setLabel(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
+        </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Checkbox label="${label}"${disabled ? ' disabled' : ''}${required ? ' required' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentCheckboxPage() {
   return (
     <ComponentDocumentation
@@ -50,6 +79,13 @@ export default function ComponentCheckboxPage() {
       tier="core"
       since="v1.0.0"
       updated="v2.0.0"
+
+      preview={
+        <div className="flex flex-wrap items-center gap-8">
+          <CheckboxPreview label="Unchecked" />
+          <CheckboxPreview label="Disabled" disabled />
+        </div>
+      }
       
       props={[
         {
@@ -176,6 +212,42 @@ function Example() {
                 </ul>
               </div>
             </div>
+          </section>
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-[#005196]" readOnly /> Aadhaar Card verified</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-[#005196]" readOnly /> Address proof verified</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-[#005196]" readOnly /> Photo verified</label>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Use checkboxes for multiple independent selections from a list.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-[#005196]" readOnly /> Male</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-[#005196]" readOnly /> Female</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-[#005196]" readOnly /> Other</label>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t use checkboxes for mutually exclusive options — use Radio buttons instead.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Checkbox configurations in real time.</p>
+            <CheckboxPlayground />
           </section>
 
           {/* Related components */}

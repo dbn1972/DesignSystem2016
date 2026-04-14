@@ -37,6 +37,39 @@ const SelectPreview = ({ placeholder, options, disabled = false, error = false }
   );
 };
 
+const STATES = [{ value: 'DL', label: 'Delhi' }, { value: 'MH', label: 'Maharashtra' }, { value: 'KA', label: 'Karnataka' }, { value: 'TN', label: 'Tamil Nadu' }, { value: 'UP', label: 'Uttar Pradesh' }];
+
+function SelectPlayground() {
+  const [disabled, setDisabled] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [required, setRequired] = React.useState(false);
+  const [placeholder, setPlaceholder] = React.useState('Select a state');
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <SelectPreview placeholder={placeholder} options={STATES} disabled={disabled} error={error} />
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Placeholder</label>
+          <input value={placeholder} onChange={e => setPlaceholder(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={error} onChange={e => setError(e.target.checked)} className="accent-primary" /><span className="text-foreground">Error state</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
+        </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Select placeholder="${placeholder}"${disabled ? ' disabled' : ''}${error ? ' error' : ''}${required ? ' required' : ''} options={states} />`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentSelectPage() {
   return (
     <ComponentDocumentation
@@ -47,6 +80,14 @@ export default function ComponentSelectPage() {
       tier="core"
       since="v1.0.0"
       updated="v2.0.0"
+
+      preview={
+        <div className="flex flex-wrap items-end gap-6">
+          <SelectPreview placeholder="Select State / UT" options={STATES} />
+          <SelectPreview placeholder="Disabled" options={STATES} disabled />
+          <SelectPreview placeholder="Error state" options={[]} error />
+        </div>
+      }
       
       props={[
         {
@@ -180,6 +221,40 @@ function Example() {
                 </ul>
               </div>
             </div>
+          </section>
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-1">
+                    <label className="block text-sm font-medium text-foreground">State / UT <span className="text-red-500">*</span></label>
+                    <select className="w-full px-4 py-2 border border-border rounded-lg text-sm bg-card"><option>Select a state</option></select>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Use Select for 5+ options. No default selection on required fields to prevent accidental submissions.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <div className="flex gap-2 flex-wrap">
+                    {['Delhi', 'Maharashtra', 'Karnataka'].map(s => <label key={s} className="flex items-center gap-1 text-sm"><input type="radio" name="state-bad" readOnly />{s}</label>)}
+                    <span className="text-sm text-muted-foreground">...+33 more</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t use Radio buttons for long lists — they take too much space. Use Select for 5+ options.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Select configurations in real time.</p>
+            <SelectPlayground />
           </section>
 
           {/* Related components */}

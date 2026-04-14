@@ -3,7 +3,7 @@
  * Primary interactive element for actions
  */
 
-import { ButtonHTMLAttributes, ElementType, ComponentPropsWithoutRef, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ElementType, ReactNode } from 'react';
 import {
   ComponentSize,
   InteractiveComponentProps,

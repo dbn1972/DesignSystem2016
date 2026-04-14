@@ -39,6 +39,50 @@ const InputPreview = ({ type = 'text', placeholder, icon, error, ...props }: any
   );
 };
 
+function InputPlayground() {
+  const [type, setType] = React.useState('text');
+  const [placeholder, setPlaceholder] = React.useState('Enter your name');
+  const [disabled, setDisabled] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [required, setRequired] = React.useState(false);
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <InputPreview
+          type={type}
+          placeholder={placeholder}
+          disabled={disabled}
+          error={error ? 'This field is required' : undefined}
+          required={required}
+        />
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Type</label>
+          <select value={type} onChange={e => setType(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+            {['text', 'email', 'password', 'tel', 'search', 'number', 'url'].map(t => <option key={t} value={t}>{t}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Placeholder</label>
+          <input value={placeholder} onChange={e => setPlaceholder(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={error} onChange={e => setError(e.target.checked)} className="accent-primary" /><span className="text-foreground">Error state</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
+        </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Input type="${type}" placeholder="${placeholder}"${disabled ? ' disabled' : ''}${error ? ' error' : ''}${required ? ' required' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentInputPage() {
   return (
     <ComponentDocumentation
@@ -48,6 +92,14 @@ export default function ComponentInputPage() {
       maturity="beta"
       tier="core"
       since="v1.0.0"
+
+      preview={
+        <div className="flex flex-wrap items-end gap-6">
+          <InputPreview placeholder="Full name" />
+          <InputPreview type="email" placeholder="email@gov.in" icon={<Mail size={16} />} />
+          <InputPreview placeholder="Required field" error="This field is required" />
+        </div>
+      }
       updated="v2.0.0"
       
       props={[
@@ -200,6 +252,59 @@ function Example() {
                 </ul>
               </div>
             </div>
+          </section>
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-1">
+                    <label className="block text-sm font-medium text-foreground">Full Name <span className="text-red-500">*</span></label>
+                    <input className="w-full px-4 py-2 border border-border rounded-lg text-sm" placeholder="As per Aadhaar card" readOnly />
+                  </div>
+                  <p className="text-sm text-muted-foreground">Always pair inputs with a visible label and helpful placeholder text.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <input className="w-full px-4 py-2 border border-border rounded-lg text-sm" placeholder="Enter value here" readOnly />
+                  <p className="text-sm text-muted-foreground">Don&apos;t use placeholder as the only label — it disappears on focus and fails WCAG 1.3.1.</p>
+                </div>
+              </div>
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-1">
+                    <label className="block text-sm font-medium text-foreground">Aadhaar Number</label>
+                    <input className="w-full px-4 py-2 border border-red-500 rounded-lg text-sm" value="1234-5678" readOnly />
+                    <p className="text-sm text-red-600">Please enter a valid 12-digit Aadhaar number</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Show specific, actionable error messages below the field.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-1">
+                    <label className="block text-sm font-medium text-foreground">Aadhaar Number</label>
+                    <input className="w-full px-4 py-2 border border-red-500 rounded-lg text-sm" value="1234-5678" readOnly />
+                    <p className="text-sm text-red-600">Invalid input</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t use vague error messages — tell the user exactly what to fix.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Input configurations in real time.</p>
+            <InputPlayground />
           </section>
 
           {/* Related components */}

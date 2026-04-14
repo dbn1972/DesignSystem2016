@@ -237,7 +237,7 @@ function Example() {
               <ButtonPreview variant="primary">Primary</ButtonPreview>
               <ButtonPreview variant="secondary">Secondary</ButtonPreview>
               <ButtonPreview variant="tertiary">Tertiary</ButtonPreview>
-              <ButtonPreview variant="danger">Destructive</ButtonPreview>
+              <ButtonPreview variant="destructive">Destructive</ButtonPreview>
               <ButtonPreview variant="ghost">Ghost</ButtonPreview>
               <ButtonPreview variant="success">Success</ButtonPreview>
             </div>
@@ -280,7 +280,7 @@ function Example() {
       <Button variant="secondary" iconAfter={<Send size={16} />}>
         Send Message
       </Button>
-      <Button variant="danger" iconBefore={<Trash2 size={16} />}>
+      <Button variant="destructive" iconBefore={<Trash2 size={16} />}>
         Delete
       </Button>
     </div>
@@ -296,7 +296,7 @@ function Example() {
                 <span>Send Message</span>
                 <Send size={16} />
               </ButtonPreview>
-              <ButtonPreview variant="danger">
+              <ButtonPreview variant="destructive">
                 <Trash2 size={16} />
                 <span>Delete</span>
               </ButtonPreview>
@@ -710,14 +710,14 @@ export type ButtonType = 'button' | 'submit' | 'reset';`,
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
-                  <ButtonPreview variant="danger" size="md">Delete Application</ButtonPreview>
+                  <ButtonPreview variant="destructive" size="md">Delete Application</ButtonPreview>
                   <p className="text-sm text-muted-foreground">Use the destructive variant for irreversible actions. Make the label specific about what will be deleted.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don't</div>
                 <div className="p-4 space-y-3">
-                  <ButtonPreview variant="danger" size="md">Click Here</ButtonPreview>
+                  <ButtonPreview variant="destructive" size="md">Click Here</ButtonPreview>
                   <p className="text-sm text-muted-foreground">Don't use vague labels like "Click Here" or "OK". Button text should describe the action.</p>
                 </div>
               </div>

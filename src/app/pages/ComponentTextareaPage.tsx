@@ -28,6 +28,55 @@ const TextareaPreview = ({ placeholder, rows = 4, disabled = false, error = fals
   );
 };
 
+function TextareaPlayground() {
+  const [rows, setRows] = React.useState(4);
+  const [disabled, setDisabled] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [maxLength, setMaxLength] = React.useState(500);
+  const [value, setValue] = React.useState('');
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <div className="w-full max-w-md">
+          <textarea
+            rows={rows}
+            disabled={disabled}
+            maxLength={maxLength}
+            value={value}
+            onChange={e => setValue(e.target.value)}
+            placeholder="Enter additional remarks..."
+            className={`w-full px-4 py-3 border rounded-lg resize-y focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${error ? 'border-red-500 focus-visible:ring-red-500' : 'border-border focus-visible:ring-[#005196]'} ${disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
+          />
+          <div className="flex justify-between mt-1">
+            {error && <p className="text-sm text-red-600">This field is required</p>}
+            <p className="text-xs text-muted-foreground ml-auto">{value.length}/{maxLength}</p>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Rows</label>
+          <input type="number" min={2} max={10} value={rows} onChange={e => setRows(Number(e.target.value))} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Max Length</label>
+          <input type="number" min={100} max={2000} step={100} value={maxLength} onChange={e => setMaxLength(Number(e.target.value))} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={error} onChange={e => setError(e.target.checked)} className="accent-primary" /><span className="text-foreground">Error state</span></label>
+        </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Textarea rows={${rows}} maxLength={${maxLength}}${disabled ? ' disabled' : ''}${error ? ' error' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentTextareaPage() {
   return (
     <ComponentDocumentation
@@ -38,6 +87,18 @@ export default function ComponentTextareaPage() {
       tier="core"
       since="v1.0.0"
       updated="v2.0.0"
+
+      preview={
+        <div className="flex flex-wrap items-end gap-6">
+          <div className="w-64">
+            <textarea rows={3} placeholder="Additional remarks..." className="w-full px-4 py-3 border border-border rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]" readOnly />
+          </div>
+          <div className="w-64">
+            <textarea rows={3} placeholder="Error state" className="w-full px-4 py-3 border border-red-500 rounded-lg text-sm" readOnly />
+            <p className="mt-1 text-xs text-red-600">This field is required</p>
+          </div>
+        </div>
+      }
       
       props={[
         {
@@ -178,6 +239,38 @@ function Example() {
                 </ul>
               </div>
             </div>
+          </section>
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-1">
+                    <label className="block text-sm font-medium text-foreground">Reason for Appeal</label>
+                    <textarea rows={3} className="w-full px-3 py-2 border border-border rounded-lg text-sm" placeholder="Explain your grounds for appeal..." readOnly />
+                    <p className="text-xs text-muted-foreground text-right">0/500</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Show character count and a clear label. Use placeholder for guidance, not as a label.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <textarea rows={1} className="w-full px-3 py-2 border border-border rounded-lg text-sm" placeholder="Comments" readOnly />
+                  <p className="text-sm text-muted-foreground">Don&apos;t use a single-row textarea — use Input for short text. Set rows to at least 3 for multi-line content.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Textarea configurations in real time.</p>
+            <TextareaPlayground />
           </section>
 
           {/* Related components */}
