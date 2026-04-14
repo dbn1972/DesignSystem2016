@@ -3,27 +3,27 @@ import { Shield, Video, Fingerprint, CheckCircle, AlertCircle, Lock, Eye, ArrowR
 
 export default function AadhaarVideoKYCPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-gradient-to-br from-orange-50 via-white to-green-50 border-b-2 border-gray-300">
+      <header className="bg-gradient-to-br from-orange-50 via-white to-green-50 border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-12">
           <div className="mb-6">
-            <Link to="/patterns/identity" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/patterns/identity" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Identity & Access Patterns
             </Link>
           </div>
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-green-500 border-2 border-gray-300 rounded flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-green-500 border-2 border-border rounded flex items-center justify-center">
                   <Shield size={32} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">Identity Verification Pattern</div>
-                  <h1 className="text-4xl font-bold text-gray-900">Aadhaar-based Video KYC Pattern</h1>
+                  <div className="text-sm text-muted-foreground mb-1">Identity Verification Pattern</div>
+                  <h1 className="text-4xl font-bold text-foreground">Aadhaar-based Video KYC Pattern</h1>
                 </div>
               </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 Combine the security of Aadhaar authentication with video verification for enhanced 
                 identity validation. This pattern integrates UIDAI's Aadhaar eKYC services with live 
                 or recorded video verification, providing the highest level of identity assurance for 
@@ -32,15 +32,15 @@ export default function AadhaarVideoKYCPattern() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Complexity: <span className="font-bold text-gray-900">High</span></span>
+                  <span className="text-muted-foreground">Complexity: <span className="font-bold text-foreground">High</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-orange-500 rounded-sm"></div>
-                  <span className="text-gray-600">Type: <span className="font-bold text-gray-900">Hybrid</span></span>
+                  <span className="text-muted-foreground">Type: <span className="font-bold text-foreground">Hybrid</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-red-500 rounded-sm"></div>
-                  <span className="text-gray-600">Security: <span className="font-bold text-gray-900">Maximum</span></span>
+                  <span className="text-muted-foreground">Security: <span className="font-bold text-foreground">Maximum</span></span>
                 </div>
               </div>
             </div>
@@ -62,11 +62,11 @@ export default function AadhaarVideoKYCPattern() {
             
             {/* Overview */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Pattern Overview
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <p className="text-gray-700 mb-6">
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <p className="text-muted-foreground mb-6">
                   Aadhaar-based Video KYC combines UIDAI's Aadhaar authentication (OTP or biometric) with 
                   video-based identity verification. This creates a two-factor verification process: 
                   (1) Aadhaar authentication proves the user possesses the Aadhaar credentials, and 
@@ -74,11 +74,11 @@ export default function AadhaarVideoKYCPattern() {
                 </p>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <CheckCircle size={20} className="text-green-600" />
                       When to Use
                     </h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Maximum identity assurance required</li>
                       <li>• Financial services (banking, loans, insurance)</li>
                       <li>• Government benefits and subsidies</li>
@@ -88,11 +88,11 @@ export default function AadhaarVideoKYCPattern() {
                     </ul>
                   </div>
                   <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <AlertCircle size={20} className="text-red-600" />
                       When Not to Use
                     </h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• User doesn't have Aadhaar</li>
                       <li>• Aadhaar not legally permitted for service</li>
                       <li>• Low-value, low-risk transactions</li>
@@ -107,7 +107,7 @@ export default function AadhaarVideoKYCPattern() {
 
             {/* User Journey */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 User Journey
               </h2>
               <div className="space-y-4">
@@ -168,7 +168,7 @@ export default function AadhaarVideoKYCPattern() {
 
             {/* UX Requirements */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 UX Requirements
               </h2>
               <div className="grid grid-cols-1 gap-6">
@@ -225,12 +225,12 @@ export default function AadhaarVideoKYCPattern() {
 
             {/* Technical Specifications */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Technical Specifications
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Implementation Requirements</h3>
+              <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Implementation Requirements</h3>
                 </div>
                 <div className="p-6 space-y-6">
                   <TechSpec
@@ -305,14 +305,14 @@ export default function AadhaarVideoKYCPattern() {
 
             {/* Accessibility */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Accessibility Considerations
               </h2>
               <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3">Alternative Authentication</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">Alternative Authentication</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>Biometric authentication for users without mobile</span>
@@ -332,8 +332,8 @@ export default function AadhaarVideoKYCPattern() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3">Special Cases</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">Special Cases</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>Assisted verification for elderly/disabled</span>
@@ -358,13 +358,13 @@ export default function AadhaarVideoKYCPattern() {
 
             {/* Code Example */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Implementation Example
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4 flex items-center justify-between">
-                  <h3 className="font-bold text-gray-900">Aadhaar Authentication Flow</h3>
-                  <span className="text-xs text-gray-600 bg-gray-200 px-3 py-1 rounded">TypeScript</span>
+              <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4 flex items-center justify-between">
+                  <h3 className="font-bold text-foreground">Aadhaar Authentication Flow</h3>
+                  <span className="text-xs text-muted-foreground bg-gray-200 px-3 py-1 rounded">TypeScript</span>
                 </div>
                 <div className="p-6">
                   <pre className="bg-gray-900 text-green-400 p-6 rounded text-sm overflow-x-auto">
@@ -476,14 +476,14 @@ export function AadhaarVideoKYC() {
           </div>
           
           <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-4">
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-muted-foreground">
               <strong>Privacy Notice:</strong> Your Aadhaar will be used only for identity 
               verification. Data is encrypted and stored securely as per UIDAI guidelines.
             </p>
           </div>
 
           <div>
-            <label className="block font-bold text-gray-900 mb-2">
+            <label className="block font-bold text-foreground mb-2">
               Aadhaar Number
             </label>
             <input
@@ -492,7 +492,7 @@ export function AadhaarVideoKYC() {
               onChange={(e) => setAadhaarNumber(e.target.value.replace(/\D/g, ''))}
               maxLength={12}
               placeholder="XXXX XXXX XXXX"
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded"
+              className="w-full px-4 py-3 border-2 border-border rounded"
             />
           </div>
 
@@ -504,7 +504,7 @@ export function AadhaarVideoKYC() {
               onChange={(e) => setConsent(e.target.checked)}
               className="mt-1"
             />
-            <label htmlFor="consent" className="text-sm text-gray-700">
+            <label htmlFor="consent" className="text-sm text-muted-foreground">
               I consent to Aadhaar authentication and eKYC data retrieval for verification purposes.
               I understand my data will be handled securely as per UIDAI regulations.
             </label>
@@ -523,13 +523,13 @@ export function AadhaarVideoKYC() {
       {step === 'otp' && (
         <div className="space-y-6">
           <h2 className="text-2xl font-bold">Enter OTP</h2>
-          <p className="text-gray-700">
+          <p className="text-muted-foreground">
             OTP sent to mobile number registered with Aadhaar ending in 
             <strong> XXXXXX{aadhaarNumber.slice(-4)}</strong>
           </p>
 
           <div>
-            <label className="block font-bold text-gray-900 mb-2">
+            <label className="block font-bold text-foreground mb-2">
               Enter 6-digit OTP
             </label>
             <input
@@ -538,7 +538,7 @@ export function AadhaarVideoKYC() {
               onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
               maxLength={6}
               placeholder="000000"
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded text-center text-2xl"
+              className="w-full px-4 py-3 border-2 border-border rounded text-center text-2xl"
             />
           </div>
 
@@ -556,13 +556,13 @@ export function AadhaarVideoKYC() {
         <div className="space-y-6">
           <h2 className="text-2xl font-bold">eKYC Data Retrieved</h2>
           
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+          <div className="bg-card border-2 border-border rounded-lg p-6">
             <div className="grid grid-cols-2 gap-6">
               <div>
                 <img 
                   src={\`data:image/jpeg;base64,\${ekycData.photo}\`} 
                   alt="Aadhaar Photo"
-                  className="w-32 h-32 object-cover rounded border-2 border-gray-300"
+                  className="w-32 h-32 object-cover rounded border-2 border-border"
                 />
               </div>
               <div className="space-y-2 text-sm">
@@ -588,7 +588,7 @@ export function AadhaarVideoKYC() {
         <div className="text-center space-y-6">
           <CheckCircle size={64} className="text-green-600 mx-auto" />
           <h2 className="text-3xl font-bold">Verification Complete</h2>
-          <p className="text-gray-700">
+          <p className="text-muted-foreground">
             Your identity has been verified successfully using Aadhaar and video KYC.
           </p>
         </div>
@@ -625,7 +625,7 @@ function JourneyStep({ step, title, description, icon }: {
   icon: React.ReactNode;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 flex items-start gap-4">
+    <div className="bg-card border-2 border-border rounded-lg p-6 flex items-start gap-4">
       <div className="flex-shrink-0">
         <div className="w-12 h-12 bg-orange-100 border-2 border-orange-300 rounded-full flex items-center justify-center font-bold text-orange-700">
           {step}
@@ -634,9 +634,9 @@ function JourneyStep({ step, title, description, icon }: {
       <div className="flex-1">
         <div className="flex items-center gap-3 mb-2">
           <div className="text-orange-600">{icon}</div>
-          <h3 className="font-bold text-gray-900">{title}</h3>
+          <h3 className="font-bold text-foreground">{title}</h3>
         </div>
-        <p className="text-sm text-gray-700">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   );
@@ -656,8 +656,8 @@ function RequirementCard({ title, requirements, color }: {
 
   return (
     <div className={`${colors[color as keyof typeof colors]} border-2 rounded-lg p-6`}>
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
-      <ul className="space-y-2 text-sm text-gray-700">
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
+      <ul className="space-y-2 text-sm text-muted-foreground">
         {requirements.map((req, i) => (
           <li key={i} className="flex items-start gap-2">
             <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
@@ -672,8 +672,8 @@ function RequirementCard({ title, requirements, color }: {
 function TechSpec({ title, specs }: { title: string; specs: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-gray-900 mb-3">{title}</h4>
-      <ul className="space-y-2 text-sm text-gray-700">
+      <h4 className="font-bold text-foreground mb-3">{title}</h4>
+      <ul className="space-y-2 text-sm text-muted-foreground">
         {specs.map((spec, i) => (
           <li key={i} className="flex items-start gap-2">
             <div className="w-1.5 h-1.5 bg-orange-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -687,26 +687,26 @@ function TechSpec({ title, specs }: { title: string; specs: string[] }) {
 
 function QuickInfo() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden sticky top-24">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden sticky top-24">
       <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Info</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Info</h3>
       </div>
       <div className="p-4 space-y-4 text-sm">
         <div>
-          <div className="text-gray-600 mb-1">Verification Time</div>
-          <div className="font-bold text-gray-900">10-20 minutes</div>
+          <div className="text-muted-foreground mb-1">Verification Time</div>
+          <div className="font-bold text-foreground">10-20 minutes</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Success Rate</div>
-          <div className="font-bold text-gray-900">98-99%</div>
+          <div className="text-muted-foreground mb-1">Success Rate</div>
+          <div className="font-bold text-foreground">98-99%</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Security Level</div>
-          <div className="font-bold text-gray-900">Maximum</div>
+          <div className="text-muted-foreground mb-1">Security Level</div>
+          <div className="font-bold text-foreground">Maximum</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Compliance</div>
-          <div className="font-bold text-gray-900">UIDAI + RBI KYC</div>
+          <div className="text-muted-foreground mb-1">Compliance</div>
+          <div className="font-bold text-foreground">UIDAI + RBI KYC</div>
         </div>
       </div>
     </div>
@@ -715,20 +715,20 @@ function QuickInfo() {
 
 function RelatedPatterns() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
-        <Link to="/patterns/identity/offline-video-kyc" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/patterns/identity/offline-video-kyc" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>Offline Video KYC</span>
         </Link>
-        <Link to="/patterns/identity/online-video-kyc" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/patterns/identity/online-video-kyc" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>Online Video KYC</span>
         </Link>
-        <Link to="/patterns/identity" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/patterns/identity" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>All Identity Patterns</span>
         </Link>
@@ -740,8 +740,8 @@ function RelatedPatterns() {
 function BestPractices() {
   return (
     <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
-      <h3 className="font-bold text-gray-900 text-sm mb-3">Best Practices</h3>
-      <ul className="space-y-2 text-xs text-gray-700">
+      <h3 className="font-bold text-foreground text-sm mb-3">Best Practices</h3>
+      <ul className="space-y-2 text-xs text-muted-foreground">
         <li className="flex items-start gap-2">
           <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
           <span>Use Virtual ID (VID) instead of Aadhaar number</span>

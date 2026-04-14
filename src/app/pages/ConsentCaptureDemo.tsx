@@ -52,22 +52,22 @@ export default function ConsentCaptureDemo() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-16 h-16 bg-blue-100 border-2 border-blue-300 rounded flex items-center justify-center">
-                  <CheckSquare size={32} className="text-[#000080]" />
+                  <CheckSquare size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Interactive Pattern Demo</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Consent Capture Flow</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Interactive Pattern Demo</div>
+                  <h1 className="text-3xl font-bold text-foreground">Consent Capture Flow</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Interactive demonstration of consent capture pattern with multiple states, expandable details, 
                 and accessible interactions. This shows how to implement explicit consent collection with 
                 plain-language messaging and clear user control.
@@ -75,14 +75,14 @@ export default function ConsentCaptureDemo() {
               <div className="flex items-center gap-4">
                 <Link 
                   to="/patterns/consent/consent-capture"
-                  className="text-sm text-[#000080] font-bold hover:underline flex items-center gap-1"
+                  className="text-sm text-primary font-bold hover:underline flex items-center gap-1"
                 >
                   <ArrowLeft size={16} />
                   View Pattern Documentation
                 </Link>
                 <button 
                   onClick={resetDemo}
-                  className="text-sm text-gray-600 font-bold hover:text-gray-900 flex items-center gap-1"
+                  className="text-sm text-muted-foreground font-bold hover:text-foreground flex items-center gap-1"
                 >
                   Reset Demo
                 </button>
@@ -101,7 +101,7 @@ export default function ConsentCaptureDemo() {
           
           {/* Interactive Consent Flow - 8 columns */}
           <div className="col-span-8">
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
               
               {/* Different state views */}
               {(consentState === "initial" || consentState === "reading" || consentState === "blocked") && (
@@ -153,9 +153,9 @@ export default function ConsentCaptureDemo() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Consent Capture Interactive Demo</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -169,7 +169,7 @@ export default function ConsentCaptureDemo() {
 
 function StateIndicator({ currentState }: { currentState: ConsentState }) {
   const stateConfig = {
-    initial: { label: "Initial", color: "bg-gray-100 text-gray-700", icon: <Info size={16} /> },
+    initial: { label: "Initial", color: "bg-muted text-muted-foreground", icon: <Info size={16} /> },
     reading: { label: "Reading Details", color: "bg-blue-100 text-blue-700", icon: <Eye size={16} /> },
     granted: { label: "Consent Granted", color: "bg-green-100 text-green-700", icon: <CheckCircle size={16} /> },
     declined: { label: "Consent Declined", color: "bg-red-100 text-red-700", icon: <XCircle size={16} /> },
@@ -181,8 +181,8 @@ function StateIndicator({ currentState }: { currentState: ConsentState }) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="text-xs font-bold text-gray-600 text-right">CURRENT STATE</div>
-      <div className={`px-4 py-3 ${config.color} border-2 border-gray-300 rounded font-bold text-sm text-center flex items-center justify-center gap-2 min-w-[180px]`}>
+      <div className="text-xs font-bold text-muted-foreground text-right">CURRENT STATE</div>
+      <div className={`px-4 py-3 ${config.color} border-2 border-border rounded font-bold text-sm text-center flex items-center justify-center gap-2 min-w-[180px]`}>
         {config.icon}
         {config.label}
       </div>
@@ -217,14 +217,14 @@ function ConsentRequestScreen({
     <>
       {/* Header */}
       <div className="bg-gradient-to-r from-[#FF9933] via-white to-[#138808] p-1">
-        <div className="bg-white px-8 py-6">
+        <div className="bg-card px-8 py-6">
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 bg-[#000080] rounded flex items-center justify-center flex-shrink-0">
+            <div className="w-16 h-16 bg-primary rounded flex items-center justify-center flex-shrink-0">
               <Shield size={32} className="text-white" />
             </div>
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Data Collection Consent</h2>
-              <p className="text-sm text-gray-700">
+              <h2 className="text-2xl font-bold text-foreground mb-2">Data Collection Consent</h2>
+              <p className="text-sm text-muted-foreground">
                 We need your permission to collect and process your personal data for this service
               </p>
             </div>
@@ -251,8 +251,8 @@ function ConsentRequestScreen({
         
         {/* What We Collect - Summary */}
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Database size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+            <Database size={20} className="text-primary" />
             What We Will Collect
           </h3>
           
@@ -278,11 +278,11 @@ function ConsentRequestScreen({
 
         {/* Why We Need It */}
         <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-green-600" />
             Why We Need This Data
           </h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             This data is required to verify your identity, process your application, communicate service updates, 
             and maintain records as per government regulations. We will not use your data for any other purpose 
             without your explicit consent.
@@ -308,21 +308,21 @@ function ConsentRequestScreen({
         </div>
 
         {/* Expandable Details */}
-        <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="border-2 border-border rounded-lg overflow-hidden">
           <button
             onClick={onExpandDetails}
-            className="w-full px-6 py-4 bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-between text-left"
+            className="w-full px-6 py-4 bg-muted hover:bg-gray-200 transition-colors flex items-center justify-between text-left"
           >
-            <span className="font-bold text-gray-900">View Detailed Privacy Policy</span>
+            <span className="font-bold text-foreground">View Detailed Privacy Policy</span>
             {showDetails ? (
-              <ChevronDown size={20} className="text-gray-600" />
+              <ChevronDown size={20} className="text-muted-foreground" />
             ) : (
-              <ChevronRight size={20} className="text-gray-600" />
+              <ChevronRight size={20} className="text-muted-foreground" />
             )}
           </button>
           
           {showDetails && (
-            <div className="p-6 bg-white space-y-4 border-t-2 border-gray-300">
+            <div className="p-6 bg-card space-y-4 border-t-2 border-border">
               <DetailSection
                 title="1. Data Collection and Usage"
                 content="We collect your personal information solely for the purpose of processing your application and providing government services. This includes identity verification, eligibility assessment, service delivery, and record maintenance."
@@ -348,7 +348,7 @@ function ConsentRequestScreen({
         </div>
 
         {/* Consent Checkbox */}
-        <div className={`border-2 ${attemptedProceed && !consentChecked ? 'border-red-300 bg-red-50' : 'border-gray-300 bg-gray-50'} rounded-lg p-6`}>
+        <div className={`border-2 ${attemptedProceed && !consentChecked ? 'border-red-300 bg-red-50' : 'border-border bg-background'} rounded-lg p-6`}>
           <label className="flex items-start gap-4 cursor-pointer group">
             <input
               type="checkbox"
@@ -357,7 +357,7 @@ function ConsentRequestScreen({
               className="mt-1 w-5 h-5 border-2 border-gray-400 rounded cursor-pointer"
             />
             <div className="flex-1">
-              <span className="text-sm text-gray-900 leading-relaxed">
+              <span className="text-sm text-foreground leading-relaxed">
                 I have read and understood the above information. I consent to the collection, processing, 
                 and storage of my personal data as described for the purpose of accessing this government service. 
                 I understand that I can withdraw this consent at any time from my account settings.
@@ -378,7 +378,7 @@ function ConsentRequestScreen({
             disabled={!consentChecked}
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               consentChecked
-                ? 'bg-[#000080] text-white hover:bg-blue-900'
+                ? 'bg-primary text-white hover:opacity-90'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             }`}
           >
@@ -386,7 +386,7 @@ function ConsentRequestScreen({
           </button>
           <button
             onClick={onDecline}
-            className="flex-1 px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50 transition-colors"
+            className="flex-1 px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background transition-colors"
           >
             I Do Not Consent
           </button>
@@ -396,7 +396,7 @@ function ConsentRequestScreen({
         <div className="text-center pt-2">
           <button
             onClick={onHelp}
-            className="text-sm text-[#000080] hover:underline flex items-center gap-1 mx-auto"
+            className="text-sm text-primary hover:underline flex items-center gap-1 mx-auto"
           >
             <HelpCircle size={16} />
             Need help understanding this?
@@ -412,7 +412,7 @@ function DataItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-3">
       {icon}
-      <span className="text-sm text-gray-700">{text}</span>
+      <span className="text-sm text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -428,9 +428,9 @@ function InfoCard({ icon, title, text, bgColor, borderColor }: {
     <div className={`${bgColor} border-2 ${borderColor} rounded-lg p-4`}>
       <div className="flex items-center gap-2 mb-2">
         {icon}
-        <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
+        <h4 className="font-bold text-foreground text-sm">{title}</h4>
       </div>
-      <p className="text-xs text-gray-700">{text}</p>
+      <p className="text-xs text-muted-foreground">{text}</p>
     </div>
   );
 }
@@ -438,8 +438,8 @@ function InfoCard({ icon, title, text, bgColor, borderColor }: {
 function DetailSection({ title, content }: { title: string; content: string }) {
   return (
     <div>
-      <h4 className="font-bold text-gray-900 mb-2 text-sm">{title}</h4>
-      <p className="text-sm text-gray-700 leading-relaxed">{content}</p>
+      <h4 className="font-bold text-foreground mb-2 text-sm">{title}</h4>
+      <p className="text-sm text-muted-foreground leading-relaxed">{content}</p>
     </div>
   );
 }
@@ -454,18 +454,18 @@ function ConsentGrantedScreen({ onReset }: { onReset: () => void }) {
           <CheckCircle size={48} className="text-green-600" />
         </div>
         
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">Consent Granted</h2>
-        <p className="text-gray-700 mb-8 leading-relaxed">
+        <h2 className="text-3xl font-bold text-foreground mb-3">Consent Granted</h2>
+        <p className="text-muted-foreground mb-8 leading-relaxed">
           Thank you for providing your consent. Your preferences have been recorded and you can now 
           proceed with the service.
         </p>
 
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Info size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+            <Info size={20} className="text-primary" />
             What Happens Next
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <div className="flex items-start gap-3">
               <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
               <span>Your consent has been recorded with timestamp and version number</span>
@@ -499,12 +499,12 @@ function ConsentGrantedScreen({ onReset }: { onReset: () => void }) {
         </div>
 
         <div className="space-y-3">
-          <button className="w-full px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 transition-colors">
+          <button className="w-full px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90 transition-colors">
             Continue to Service Dashboard
           </button>
           <button
             onClick={onReset}
-            className="w-full px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50 transition-colors"
+            className="w-full px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background transition-colors"
           >
             Reset Demo
           </button>
@@ -524,8 +524,8 @@ function ConsentDeclinedScreen({ onReconsider, onReset }: { onReconsider: () => 
           <AlertCircle size={48} className="text-orange-600" />
         </div>
         
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">Consent Not Provided</h2>
-        <p className="text-gray-700 mb-8 leading-relaxed">
+        <h2 className="text-3xl font-bold text-foreground mb-3">Consent Not Provided</h2>
+        <p className="text-muted-foreground mb-8 leading-relaxed">
           You have chosen not to provide consent for data collection. Here is what this means for your 
           service access:
         </p>
@@ -535,7 +535,7 @@ function ConsentDeclinedScreen({ onReconsider, onReset }: { onReconsider: () => 
             <XCircle size={20} className="text-red-600" />
             Service Limitations
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <div className="flex items-start gap-3">
               <XCircle size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
               <span>You will not be able to submit applications or access personalized services</span>
@@ -556,21 +556,21 @@ function ConsentDeclinedScreen({ onReconsider, onReset }: { onReconsider: () => 
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-            <Info size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+            <Info size={20} className="text-primary" />
             Alternative Options
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <div className="flex items-start gap-3">
-              <ChevronRight size={16} className="text-[#000080] mt-0.5 flex-shrink-0" />
+              <ChevronRight size={16} className="text-primary mt-0.5 flex-shrink-0" />
               <span>Visit your nearest government service center for in-person assistance</span>
             </div>
             <div className="flex items-start gap-3">
-              <ChevronRight size={16} className="text-[#000080] mt-0.5 flex-shrink-0" />
+              <ChevronRight size={16} className="text-primary mt-0.5 flex-shrink-0" />
               <span>Contact the helpline at 1800-XXX-XXXX for alternative service delivery methods</span>
             </div>
             <div className="flex items-start gap-3">
-              <ChevronRight size={16} className="text-[#000080] mt-0.5 flex-shrink-0" />
+              <ChevronRight size={16} className="text-primary mt-0.5 flex-shrink-0" />
               <span>You can provide consent later if you change your mind</span>
             </div>
           </div>
@@ -579,16 +579,16 @@ function ConsentDeclinedScreen({ onReconsider, onReset }: { onReconsider: () => 
         <div className="space-y-3">
           <button
             onClick={onReconsider}
-            className="w-full px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 transition-colors"
+            className="w-full px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90 transition-colors"
           >
             Review and Reconsider Consent
           </button>
-          <button className="w-full px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50 transition-colors">
+          <button className="w-full px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background transition-colors">
             Continue Without Consent (Limited Access)
           </button>
           <button
             onClick={onReset}
-            className="text-sm text-gray-600 hover:text-gray-900 font-medium"
+            className="text-sm text-muted-foreground hover:text-foreground font-medium"
           >
             Reset Demo
           </button>
@@ -609,8 +609,8 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
             <HelpCircle size={32} className="text-orange-600" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Understanding Consent</h2>
-            <p className="text-sm text-gray-600">Common questions and answers</p>
+            <h2 className="text-2xl font-bold text-foreground">Understanding Consent</h2>
+            <p className="text-sm text-muted-foreground">Common questions and answers</p>
           </div>
         </div>
 
@@ -646,18 +646,18 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
         </div>
 
         <div className="mt-8 p-6 bg-blue-50 border-2 border-blue-300 rounded-lg">
-          <h3 className="font-bold text-gray-900 mb-3">Still have questions?</h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <h3 className="font-bold text-foreground mb-3">Still have questions?</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             Contact our Data Protection Officer or visit the nearest service center for assistance.
           </p>
           <div className="flex gap-4 text-sm">
             <div>
-              <span className="font-bold text-gray-900">Email:</span>{' '}
-              <a href="#" className="text-[#000080] hover:underline">privacy@service.gov.in</a>
+              <span className="font-bold text-foreground">Email:</span>{' '}
+              <a href="#" className="text-primary hover:underline">privacy@service.gov.in</a>
             </div>
             <div>
-              <span className="font-bold text-gray-900">Phone:</span>{' '}
-              <a href="#" className="text-[#000080] hover:underline">1800-XXX-XXXX</a>
+              <span className="font-bold text-foreground">Phone:</span>{' '}
+              <a href="#" className="text-primary hover:underline">1800-XXX-XXXX</a>
             </div>
           </div>
         </div>
@@ -665,7 +665,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
         <div className="mt-8 text-center">
           <button
             onClick={onBack}
-            className="px-6 py-3 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 transition-colors inline-flex items-center gap-2"
+            className="px-6 py-3 bg-primary text-white font-bold rounded text-sm hover:opacity-90 transition-colors inline-flex items-center gap-2"
           >
             <ArrowLeft size={18} />
             Back to Consent Screen
@@ -678,12 +678,12 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-2 flex items-start gap-2">
-        <HelpCircle size={18} className="text-[#000080] mt-0.5 flex-shrink-0" />
+    <div className="bg-card border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-2 flex items-start gap-2">
+        <HelpCircle size={18} className="text-primary mt-0.5 flex-shrink-0" />
         {question}
       </h3>
-      <p className="text-sm text-gray-700 leading-relaxed pl-6">{answer}</p>
+      <p className="text-sm text-muted-foreground leading-relaxed pl-6">{answer}</p>
     </div>
   );
 }
@@ -692,8 +692,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 function InteractionGuide({ hasReadDetails, consentChecked }: { hasReadDetails: boolean; consentChecked: boolean }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-[#000080] text-white px-4 py-3">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-primary text-white px-4 py-3">
         <h3 className="font-bold text-sm">Interaction Guide</h3>
       </div>
       <div className="p-4 space-y-4">
@@ -726,11 +726,11 @@ function GuideStep({ number, text, completed }: { number: string; text: string; 
   return (
     <div className="flex items-center gap-3">
       <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
-        completed ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
+        completed ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'
       }`}>
         {completed ? <CheckCircle size={18} /> : number}
       </div>
-      <span className={`text-sm ${completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
+      <span className={`text-sm ${completed ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
         {text}
       </span>
     </div>
@@ -750,12 +750,12 @@ function StateExplainer({ currentState }: { currentState: ConsentState }) {
   };
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">State Explanation</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">State Explanation</h3>
       </div>
       <div className="p-4">
-        <p className="text-sm text-gray-700 leading-relaxed">
+        <p className="text-sm text-muted-foreground leading-relaxed">
           {explanations[currentState]}
         </p>
       </div>
@@ -767,11 +767,11 @@ function StateExplainer({ currentState }: { currentState: ConsentState }) {
 
 function ImplementationNotes() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">Key Features</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">Key Features</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <FeatureItem text="Plain language explanations" />
         <FeatureItem text="Expandable detailed information" />
         <FeatureItem text="Explicit consent checkbox" />

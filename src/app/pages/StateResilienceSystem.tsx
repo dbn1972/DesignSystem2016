@@ -3,31 +3,31 @@ import { Shield, AlertTriangle, RefreshCw, Wifi, Clock, CheckCircle, XCircle, In
 
 export default function StateResilienceSystem() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link to="/patterns" className="hover:text-[#000080]">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+            <Link to="/patterns" className="hover:text-primary">
               Patterns
             </Link>
             <ChevronRight size={16} />
-            <span className="text-gray-900 font-medium">State & Resilience System</span>
+            <span className="text-foreground font-medium">State & Resilience System</span>
           </div>
 
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <Shield size={32} className="text-[#000080]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 border-2 border-border rounded flex items-center justify-center">
+                  <Shield size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Core System</div>
-                  <h1 className="text-3xl font-bold text-gray-900">State & Resilience System</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Core System</div>
+                  <h1 className="text-3xl font-bold text-foreground">State & Resilience System</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Comprehensive error handling, retry logic, and failure recovery patterns for government services. 
                 Build resilient applications that gracefully handle network issues, timeouts, partial failures, 
                 and service interruptions while keeping users informed and in control.
@@ -35,15 +35,15 @@ export default function StateResilienceSystem() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">System ID: <span className="font-bold text-gray-900">UX4G-SYS-RES-001</span></span>
+                  <span className="text-muted-foreground">System ID: <span className="font-bold text-foreground">UX4G-SYS-RES-001</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">2.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">2.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function StateResilienceSystem() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -77,7 +77,7 @@ export default function StateResilienceSystem() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -114,9 +114,9 @@ export default function StateResilienceSystem() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • State & Resilience System</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -131,41 +131,41 @@ export default function StateResilienceSystem() {
 function OverviewSection() {
   return (
     <section id="overview" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">System Overview</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">System Overview</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-gray-300 rounded-lg p-8">
-        <h3 className="font-bold text-gray-900 mb-4 text-lg">What is State & Resilience?</h3>
-        <p className="text-gray-700 mb-4">
+      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-border rounded-lg p-8">
+        <h3 className="font-bold text-foreground mb-4 text-lg">What is State & Resilience?</h3>
+        <p className="text-muted-foreground mb-4">
           Government services must work reliably even when things go wrong. The State & Resilience System 
           provides patterns for handling errors, network failures, timeouts, and partial completion states 
           across all user journeys. Never leave users stranded with a broken experience.
         </p>
         <div className="grid grid-cols-3 gap-4">
-          <div className="bg-white border border-gray-300 rounded p-4">
+          <div className="bg-card border border-border rounded p-4">
             <Shield size={24} className="text-blue-600 mb-2" />
-            <p className="font-bold text-gray-900 mb-1">Defensive</p>
-            <p className="text-sm text-gray-700">Anticipate failures before they happen</p>
+            <p className="font-bold text-foreground mb-1">Defensive</p>
+            <p className="text-sm text-muted-foreground">Anticipate failures before they happen</p>
           </div>
-          <div className="bg-white border border-gray-300 rounded p-4">
+          <div className="bg-card border border-border rounded p-4">
             <RefreshCw size={24} className="text-green-600 mb-2" />
-            <p className="font-bold text-gray-900 mb-1">Recoverable</p>
-            <p className="text-sm text-gray-700">Provide clear paths to retry and recover</p>
+            <p className="font-bold text-foreground mb-1">Recoverable</p>
+            <p className="text-sm text-muted-foreground">Provide clear paths to retry and recover</p>
           </div>
-          <div className="bg-white border border-gray-300 rounded p-4">
+          <div className="bg-card border border-border rounded p-4">
             <Activity size={24} className="text-purple-600 mb-2" />
-            <p className="font-bold text-gray-900 mb-1">Transparent</p>
-            <p className="text-sm text-gray-700">Communicate state clearly to users</p>
+            <p className="font-bold text-foreground mb-1">Transparent</p>
+            <p className="text-sm text-muted-foreground">Communicate state clearly to users</p>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* What This System Covers */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">System Coverage</h3>
+            <h3 className="font-bold text-foreground">System Coverage</h3>
           </div>
           <div className="p-6 space-y-2 text-sm">
             <CoverageItem icon={<XCircle size={16} className="text-red-600" />} text="Error States (validation, server, logic errors)" />
@@ -178,9 +178,9 @@ function OverviewSection() {
         </div>
 
         {/* Why This Matters */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Why Resilience Matters</h3>
+            <h3 className="font-bold text-foreground">Why Resilience Matters</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <WhyItem 
@@ -211,8 +211,8 @@ function OverviewSection() {
 function PrinciplesSection() {
   return (
     <section id="principles" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Resilience Principles</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Resilience Principles</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
@@ -286,8 +286,8 @@ function PrinciplesSection() {
 function ErrorStatesSection() {
   return (
     <section id="error-states" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Error State Patterns</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Error State Patterns</h2>
       </div>
 
       <div className="grid grid-cols-1 gap-6">
@@ -380,19 +380,19 @@ function ErrorStatesSection() {
 function RetryPatternsSection() {
   return (
     <section id="retry-patterns" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Retry Patterns</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Retry Patterns</h2>
       </div>
 
       <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertTriangle size={20} className="text-yellow-600" />
           When to Retry vs. When NOT to Retry
         </h3>
         <div className="grid grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-green-600 mb-2">✅ DO Retry:</p>
-            <ul className="space-y-1 ml-4 text-gray-700">
+            <ul className="space-y-1 ml-4 text-muted-foreground">
               <li>• Network timeouts (transient)</li>
               <li>• Server errors 5xx (may be temporary)</li>
               <li>• Rate limiting 429 (after delay)</li>
@@ -401,7 +401,7 @@ function RetryPatternsSection() {
           </div>
           <div>
             <p className="font-bold text-red-600 mb-2">❌ DON'T Retry:</p>
-            <ul className="space-y-1 ml-4 text-gray-700">
+            <ul className="space-y-1 ml-4 text-muted-foreground">
               <li>• Validation errors 400 (need user fix)</li>
               <li>• Authentication errors 401/403</li>
               <li>• Not found errors 404</li>
@@ -486,27 +486,27 @@ const backoff = async (fn, max = 5) => {
 function NetworkHandlingSection() {
   return (
     <section id="network" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Network Handling Patterns</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Network Handling Patterns</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Offline Detection */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Offline Detection & Banner</h3>
+            <h3 className="font-bold text-foreground">Offline Detection & Banner</h3>
           </div>
           <div className="p-6">
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-muted-foreground mb-4">
               Detect when user goes offline and show persistent banner. Queue actions to sync when back online.
             </p>
             <div className="space-y-3">
               <div className="bg-orange-50 border-2 border-orange-300 rounded p-3 text-sm">
                 <div className="flex items-center gap-2">
                   <WifiOff size={16} className="text-orange-600" />
-                  <p className="font-bold text-gray-900">You're offline</p>
+                  <p className="font-bold text-foreground">You're offline</p>
                 </div>
-                <p className="text-gray-700 mt-1">Your changes are being saved locally. They'll sync when you're back online.</p>
+                <p className="text-muted-foreground mt-1">Your changes are being saved locally. They'll sync when you're back online.</p>
               </div>
               <pre className="bg-gray-900 text-green-400 p-3 rounded text-xs overflow-x-auto">
 {`// Listen for offline/online
@@ -525,24 +525,24 @@ window.addEventListener('online', () => {
         </div>
 
         {/* Slow Network Warning */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Slow Network Warning</h3>
+            <h3 className="font-bold text-foreground">Slow Network Warning</h3>
           </div>
           <div className="p-6">
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-muted-foreground mb-4">
               Detect slow connections and warn users before large uploads or downloads.
             </p>
             <div className="space-y-3">
               <div className="bg-yellow-50 border-2 border-yellow-300 rounded p-3 text-sm">
                 <div className="flex items-center gap-2">
                   <Wifi size={16} className="text-yellow-600" />
-                  <p className="font-bold text-gray-900">Slow connection detected</p>
+                  <p className="font-bold text-foreground">Slow connection detected</p>
                 </div>
-                <p className="text-gray-700 mt-1">Uploading large files may take longer. Continue anyway?</p>
+                <p className="text-muted-foreground mt-1">Uploading large files may take longer. Continue anyway?</p>
                 <div className="flex gap-2 mt-2">
-                  <button className="px-3 py-1 bg-[#000080] text-white text-xs font-bold rounded">Continue</button>
-                  <button className="px-3 py-1 border border-gray-300 bg-white text-gray-700 text-xs font-bold rounded">Cancel</button>
+                  <button className="px-3 py-1 bg-primary text-white text-xs font-bold rounded">Continue</button>
+                  <button className="px-3 py-1 border border-border bg-card text-muted-foreground text-xs font-bold rounded">Cancel</button>
                 </div>
               </div>
               <pre className="bg-gray-900 text-green-400 p-3 rounded text-xs overflow-x-auto">
@@ -558,22 +558,22 @@ if (connection?.effectiveType === '2g'
         </div>
 
         {/* Request Timeout */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Request Timeout Handling</h3>
+            <h3 className="font-bold text-foreground">Request Timeout Handling</h3>
           </div>
           <div className="p-6">
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-muted-foreground mb-4">
               Set reasonable timeouts (30s for API calls) and handle timeout gracefully with retry option.
             </p>
             <div className="space-y-3">
               <div className="bg-red-50 border-2 border-red-300 rounded p-3 text-sm">
                 <div className="flex items-center gap-2">
                   <Clock size={16} className="text-red-600" />
-                  <p className="font-bold text-gray-900">Request timed out</p>
+                  <p className="font-bold text-foreground">Request timed out</p>
                 </div>
-                <p className="text-gray-700 mt-1">The server took too long to respond. This might be due to network issues.</p>
-                <button className="px-3 py-1 bg-[#000080] text-white text-xs font-bold rounded mt-2">
+                <p className="text-muted-foreground mt-1">The server took too long to respond. This might be due to network issues.</p>
+                <button className="px-3 py-1 bg-primary text-white text-xs font-bold rounded mt-2">
                   <RefreshCw size={12} className="inline mr-1" />
                   Retry
                 </button>
@@ -598,19 +598,19 @@ const fetchWithTimeout = (url, options = {}) => {
         </div>
 
         {/* Optimistic UI Updates */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Optimistic UI Updates</h3>
+            <h3 className="font-bold text-foreground">Optimistic UI Updates</h3>
           </div>
           <div className="p-6">
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-muted-foreground mb-4">
               Update UI immediately, then sync with server. Rollback if server rejects.
             </p>
             <div className="space-y-3">
               <div className="bg-green-50 border border-green-300 rounded p-3 text-sm">
                 <CheckCircle size={16} className="inline mr-2 text-green-600" />
-                <span className="text-gray-700">Document uploaded ✓</span>
-                <p className="text-xs text-gray-600 mt-1">Syncing with server...</p>
+                <span className="text-muted-foreground">Document uploaded ✓</span>
+                <p className="text-xs text-muted-foreground mt-1">Syncing with server...</p>
               </div>
               <pre className="bg-gray-900 text-green-400 p-3 rounded text-xs overflow-x-auto">
 {`// Optimistic update
@@ -644,8 +644,8 @@ function uploadDocument(file) {
 function PartialStatesSection() {
   return (
     <section id="partial-states" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Partial Completion States</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Partial Completion States</h2>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
@@ -704,35 +704,35 @@ function PartialStatesSection() {
         />
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
         <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Auto-Save Implementation Pattern</h3>
+          <h3 className="font-bold text-foreground">Auto-Save Implementation Pattern</h3>
         </div>
         <div className="p-6">
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <h4 className="font-bold text-gray-900 mb-2 text-sm">Visual Indicator States</h4>
+              <h4 className="font-bold text-foreground mb-2 text-sm">Visual Indicator States</h4>
               <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+                <div className="flex items-center gap-2 p-2 bg-background rounded">
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
-                  <span className="text-gray-700">Saving...</span>
+                  <span className="text-muted-foreground">Saving...</span>
                 </div>
                 <div className="flex items-center gap-2 p-2 bg-green-50 rounded">
                   <CheckCircle size={12} className="text-green-600" />
-                  <span className="text-gray-700">Saved at 2:34 PM</span>
+                  <span className="text-muted-foreground">Saved at 2:34 PM</span>
                 </div>
                 <div className="flex items-center gap-2 p-2 bg-red-50 rounded">
                   <XCircle size={12} className="text-red-600" />
-                  <span className="text-gray-700">Save failed - Retry</span>
+                  <span className="text-muted-foreground">Save failed - Retry</span>
                 </div>
                 <div className="flex items-center gap-2 p-2 bg-orange-50 rounded">
                   <WifiOff size={12} className="text-orange-600" />
-                  <span className="text-gray-700">Offline - Will sync</span>
+                  <span className="text-muted-foreground">Offline - Will sync</span>
                 </div>
               </div>
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-2 text-sm">Code Implementation</h4>
+              <h4 className="font-bold text-foreground mb-2 text-sm">Code Implementation</h4>
               <pre className="bg-gray-900 text-green-400 p-3 rounded text-xs overflow-x-auto">
 {`const [saveStatus, setSaveStatus] = useState('saved');
 const [lastSaved, setLastSaved] = useState(null);
@@ -770,13 +770,13 @@ async function saveDraft(data) {
 function IntegrationGuideSection() {
   return (
     <section id="integration" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Integration Guide: Adding Resilience to Existing Flows</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Integration Guide: Adding Resilience to Existing Flows</h2>
       </div>
 
       <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">Step-by-Step: Retrofit Existing Pages</h3>
-        <p className="text-sm text-gray-700 mb-4">
+        <h3 className="font-bold text-foreground mb-3">Step-by-Step: Retrofit Existing Pages</h3>
+        <p className="text-sm text-muted-foreground mb-4">
           This guide shows how to add resilience patterns to existing flows without creating new isolated screens.
         </p>
       </div>
@@ -927,12 +927,12 @@ try {
 function AppliedExamplesSection() {
   return (
     <section id="examples" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Applied Examples: Resilience in Action</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Applied Examples: Resilience in Action</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-gray-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">These Patterns Have Been Applied To:</h3>
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-6">
+        <h3 className="font-bold text-foreground mb-3">These Patterns Have Been Applied To:</h3>
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div className="space-y-2">
             <AppliedLink to="/certificate-form-personal" text="Certificate Form (with auto-save & validation)" />
@@ -1016,9 +1016,9 @@ function AppliedExamplesSection() {
 
 function StateMatrix() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">State Matrix</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">State Matrix</h3>
       </div>
       <div className="p-4 text-xs space-y-2">
         <StateItem icon={<Activity className="text-blue-600" />} label="Loading" />
@@ -1026,7 +1026,7 @@ function StateMatrix() {
         <StateItem icon={<XCircle className="text-red-600" />} label="Error" />
         <StateItem icon={<Clock className="text-orange-600" />} label="Pending" />
         <StateItem icon={<Save className="text-purple-600" />} label="Draft" />
-        <StateItem icon={<WifiOff className="text-gray-600" />} label="Offline" />
+        <StateItem icon={<WifiOff className="text-muted-foreground" />} label="Offline" />
         <StateItem icon={<RefreshCw className="text-blue-600" />} label="Retrying" />
         <StateItem icon={<AlertCircle className="text-yellow-600" />} label="Partial" />
       </div>
@@ -1036,26 +1036,26 @@ function StateMatrix() {
 
 function QuickReference() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
         <div>
-          <p className="font-bold text-gray-900 mb-1">Max Retries</p>
-          <p className="text-gray-700">3 attempts</p>
+          <p className="font-bold text-foreground mb-1">Max Retries</p>
+          <p className="text-muted-foreground">3 attempts</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Request Timeout</p>
-          <p className="text-gray-700">30 seconds (API)</p>
+          <p className="font-bold text-foreground mb-1">Request Timeout</p>
+          <p className="text-muted-foreground">30 seconds (API)</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Auto-Save Interval</p>
-          <p className="text-gray-700">Every 2 minutes</p>
+          <p className="font-bold text-foreground mb-1">Auto-Save Interval</p>
+          <p className="text-muted-foreground">Every 2 minutes</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Retry Backoff</p>
-          <p className="text-gray-700">Exponential (1s, 2s, 4s)</p>
+          <p className="font-bold text-foreground mb-1">Retry Backoff</p>
+          <p className="text-muted-foreground">Exponential (1s, 2s, 4s)</p>
         </div>
       </div>
     </div>
@@ -1064,9 +1064,9 @@ function QuickReference() {
 
 function ApplicationGuide() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Apply to Your Flow</h3>
+        <h3 className="font-bold text-foreground text-sm">Apply to Your Flow</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <ChecklistItem text="Add loading states" />
@@ -1082,9 +1082,9 @@ function ApplicationGuide() {
 
 function Resources() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Resources</h3>
+        <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <ResourceLink text="Error Handling Best Practices" />
@@ -1103,7 +1103,7 @@ function CoverageItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-2">
       {icon}
-      <span className="text-gray-700 flex-1">{text}</span>
+      <span className="text-muted-foreground flex-1">{text}</span>
     </div>
   );
 }
@@ -1111,8 +1111,8 @@ function CoverageItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 function WhyItem({ title, description }: { title: string; description: string }) {
   return (
     <div>
-      <p className="font-bold text-gray-900 mb-1">{title}</p>
-      <p className="text-gray-700">{description}</p>
+      <p className="font-bold text-foreground mb-1">{title}</p>
+      <p className="text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -1124,23 +1124,23 @@ function PrincipleCard({ number, title, description, examples }: {
   examples: string[];
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-b-2 border-gray-300 px-6 py-4">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-b-2 border-border px-6 py-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold">
+          <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
             {number}
           </div>
-          <h3 className="font-bold text-gray-900">{title}</h3>
+          <h3 className="font-bold text-foreground">{title}</h3>
         </div>
       </div>
       <div className="p-6">
-        <p className="text-sm text-gray-700 mb-4">{description}</p>
-        <div className="bg-gray-50 border border-gray-300 rounded p-3">
-          <p className="text-xs font-bold text-gray-900 mb-2">Examples:</p>
-          <ul className="space-y-1 text-xs text-gray-700">
+        <p className="text-sm text-muted-foreground mb-4">{description}</p>
+        <div className="bg-background border border-border rounded p-3">
+          <p className="text-xs font-bold text-foreground mb-2">Examples:</p>
+          <ul className="space-y-1 text-xs text-muted-foreground">
             {examples.map((ex, i) => (
               <li key={i} className="flex items-start gap-2">
-                <ArrowRight size={12} className="text-[#000080] mt-0.5 flex-shrink-0" />
+                <ArrowRight size={12} className="text-primary mt-0.5 flex-shrink-0" />
                 <span>{ex}</span>
               </li>
             ))}
@@ -1169,30 +1169,30 @@ function ErrorStatePattern({ title, severity, trigger, recovery, examples, imple
                         'bg-blue-100 text-blue-800 border-blue-300';
   
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="font-bold text-gray-900">{title}</h3>
+          <h3 className="font-bold text-foreground">{title}</h3>
           <span className={`text-xs px-3 py-1 border rounded font-bold ${severityColor}`}>
             {severity} Severity
           </span>
         </div>
         <div className="grid grid-cols-2 gap-4 text-sm mt-3">
           <div>
-            <p className="font-bold text-gray-900 mb-1">Trigger:</p>
-            <p className="text-gray-700">{trigger}</p>
+            <p className="font-bold text-foreground mb-1">Trigger:</p>
+            <p className="text-muted-foreground">{trigger}</p>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-1">Recovery:</p>
-            <p className="text-gray-700">{recovery}</p>
+            <p className="font-bold text-foreground mb-1">Recovery:</p>
+            <p className="text-muted-foreground">{recovery}</p>
           </div>
         </div>
       </div>
       <div className="p-6">
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <p className="text-sm font-bold text-gray-900 mb-2">Common Examples:</p>
-            <ul className="space-y-1 text-sm text-gray-700">
+            <p className="text-sm font-bold text-foreground mb-2">Common Examples:</p>
+            <ul className="space-y-1 text-sm text-muted-foreground">
               {examples.map((ex, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
@@ -1202,23 +1202,23 @@ function ErrorStatePattern({ title, severity, trigger, recovery, examples, imple
             </ul>
           </div>
           <div>
-            <p className="text-sm font-bold text-gray-900 mb-2">Implementation:</p>
+            <p className="text-sm font-bold text-foreground mb-2">Implementation:</p>
             <div className="space-y-2 text-xs">
               <div>
-                <p className="font-bold text-gray-900">Detection:</p>
-                <p className="text-gray-700">{implementation.detection}</p>
+                <p className="font-bold text-foreground">Detection:</p>
+                <p className="text-muted-foreground">{implementation.detection}</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900">Display:</p>
-                <p className="text-gray-700">{implementation.display}</p>
+                <p className="font-bold text-foreground">Display:</p>
+                <p className="text-muted-foreground">{implementation.display}</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900">Action:</p>
-                <p className="text-gray-700">{implementation.action}</p>
+                <p className="font-bold text-foreground">Action:</p>
+                <p className="text-muted-foreground">{implementation.action}</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900">Persistence:</p>
-                <p className="text-gray-700">{implementation.persistence}</p>
+                <p className="font-bold text-foreground">Persistence:</p>
+                <p className="text-muted-foreground">{implementation.persistence}</p>
               </div>
             </div>
           </div>
@@ -1235,18 +1235,18 @@ function RetryPattern({ title, description, useWhen, implementation }: {
   implementation: string;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
+        <h4 className="font-bold text-foreground text-sm">{title}</h4>
       </div>
       <div className="p-4">
-        <p className="text-sm text-gray-700 mb-3">{description}</p>
+        <p className="text-sm text-muted-foreground mb-3">{description}</p>
         <div className="mb-3">
-          <p className="text-xs font-bold text-gray-900 mb-2">Use When:</p>
-          <ul className="space-y-1 text-xs text-gray-700">
+          <p className="text-xs font-bold text-foreground mb-2">Use When:</p>
+          <ul className="space-y-1 text-xs text-muted-foreground">
             {useWhen.map((item, i) => (
               <li key={i} className="flex items-start gap-1">
-                <span className="text-[#000080]">•</span>
+                <span className="text-primary">•</span>
                 <span>{item}</span>
               </li>
             ))}
@@ -1268,30 +1268,30 @@ function PartialStateCard({ icon, title, description, indicators, actions }: {
   actions: string[];
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
         <div className="flex items-center gap-2">
           {icon}
-          <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
+          <h4 className="font-bold text-foreground text-sm">{title}</h4>
         </div>
       </div>
       <div className="p-4">
-        <p className="text-sm text-gray-700 mb-3">{description}</p>
+        <p className="text-sm text-muted-foreground mb-3">{description}</p>
         <div className="space-y-3">
           <div>
-            <p className="text-xs font-bold text-gray-900 mb-2">Visual Indicators:</p>
-            <ul className="space-y-1 text-xs text-gray-700">
+            <p className="text-xs font-bold text-foreground mb-2">Visual Indicators:</p>
+            <ul className="space-y-1 text-xs text-muted-foreground">
               {indicators.map((item, i) => (
                 <li key={i} className="flex items-start gap-1">
-                  <span className="text-[#000080]">•</span>
+                  <span className="text-primary">•</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <p className="text-xs font-bold text-gray-900 mb-2">User Actions:</p>
-            <ul className="space-y-1 text-xs text-gray-700">
+            <p className="text-xs font-bold text-foreground mb-2">User Actions:</p>
+            <ul className="space-y-1 text-xs text-muted-foreground">
               {actions.map((item, i) => (
                 <li key={i} className="flex items-start gap-1">
                   <span className="text-green-600">→</span>
@@ -1314,28 +1314,28 @@ function IntegrationStep({ number, title, description, before, after }: {
   after: string;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold text-sm">
+          <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
             {number}
           </div>
           <div>
-            <h4 className="font-bold text-gray-900">{title}</h4>
-            <p className="text-sm text-gray-700">{description}</p>
+            <h4 className="font-bold text-foreground">{title}</h4>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
         </div>
       </div>
       <div className="p-6">
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <p className="text-sm font-bold text-gray-900 mb-2">❌ Before (Brittle):</p>
+            <p className="text-sm font-bold text-foreground mb-2">❌ Before (Brittle):</p>
             <pre className="bg-gray-900 text-red-400 p-3 rounded text-xs overflow-x-auto">
               {before}
             </pre>
           </div>
           <div>
-            <p className="text-sm font-bold text-gray-900 mb-2">✅ After (Resilient):</p>
+            <p className="text-sm font-bold text-foreground mb-2">✅ After (Resilient):</p>
             <pre className="bg-gray-900 text-green-400 p-3 rounded text-xs overflow-x-auto">
               {after}
             </pre>
@@ -1348,9 +1348,9 @@ function IntegrationStep({ number, title, description, before, after }: {
 
 function AppliedLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="flex items-center gap-2 p-2 bg-white border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
-      <ArrowRight size={14} className="text-[#000080]" />
-      <span className="text-gray-900">{text}</span>
+    <Link to={to} className="flex items-center gap-2 p-2 bg-card border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+      <ArrowRight size={14} className="text-primary" />
+      <span className="text-foreground">{text}</span>
     </Link>
   );
 }
@@ -1368,28 +1368,28 @@ function ExampleScenario({ title, flow, resilienceFeatures }: {
       case 'pending': return 'bg-yellow-100 border-yellow-300 text-yellow-800';
       case 'recovery': return 'bg-purple-100 border-purple-300 text-purple-800';
       case 'warning': return 'bg-orange-100 border-orange-300 text-orange-800';
-      case 'partial': return 'bg-gray-100 border-gray-300 text-gray-800';
-      default: return 'bg-gray-100 border-gray-300 text-gray-800';
+      case 'partial': return 'bg-muted border-border text-foreground';
+      default: return 'bg-muted border-border text-foreground';
     }
   };
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-green-50 to-blue-50 border-b-2 border-gray-300 px-6 py-4">
-        <h3 className="font-bold text-gray-900">{title}</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-r from-green-50 to-blue-50 border-b-2 border-border px-6 py-4">
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <p className="font-bold text-gray-900 mb-3 text-sm">Flow:</p>
+            <p className="font-bold text-foreground mb-3 text-sm">Flow:</p>
             <div className="space-y-2">
               {flow.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                  <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
                     {i + 1}
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm text-gray-900">{item.step}</p>
+                    <p className="text-sm text-foreground">{item.step}</p>
                     <span className={`inline-block mt-1 px-2 py-0.5 border rounded text-xs font-bold ${getStateColor(item.state)}`}>
                       {item.state}
                     </span>
@@ -1399,8 +1399,8 @@ function ExampleScenario({ title, flow, resilienceFeatures }: {
             </div>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-3 text-sm">Resilience Features Applied:</p>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <p className="font-bold text-foreground mb-3 text-sm">Resilience Features Applied:</p>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               {resilienceFeatures.map((feature, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
@@ -1417,26 +1417,26 @@ function ExampleScenario({ title, flow, resilienceFeatures }: {
 
 function StateItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="flex items-center gap-2 p-2 bg-gray-50 rounded">
+    <div className="flex items-center gap-2 p-2 bg-background rounded">
       {icon}
-      <span className="text-gray-900">{label}</span>
+      <span className="text-foreground">{label}</span>
     </div>
   );
 }
 
 function ChecklistItem({ text }: { text: string }) {
   return (
-    <div className="flex items-center gap-2 p-2 bg-gray-50 rounded">
-      <div className="w-4 h-4 border-2 border-gray-300 rounded"></div>
-      <span className="text-gray-900">{text}</span>
+    <div className="flex items-center gap-2 p-2 bg-background rounded">
+      <div className="w-4 h-4 border-2 border-border rounded"></div>
+      <span className="text-foreground">{text}</span>
     </div>
   );
 }
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-gray-900">
-      <ArrowRight size={12} className="text-[#000080]" />
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+      <ArrowRight size={12} className="text-primary" />
       <span>{text}</span>
     </a>
   );

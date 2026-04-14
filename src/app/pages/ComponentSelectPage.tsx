@@ -17,10 +17,10 @@ const SelectPreview = ({ placeholder, options, disabled = false, error = false }
           value={value}
           onChange={(e) => setValue(e.target.value)}
           disabled={disabled}
-          className={`w-full px-4 py-3 pr-10 border rounded-lg appearance-none bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${
+          className={`w-full px-4 py-3 pr-10 border rounded-lg appearance-none bg-card focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${
             error 
               ? 'border-red-500 focus-visible:ring-red-500' 
-              : 'border-gray-300 focus-visible:ring-[#005196]'
+              : 'border-border focus-visible:ring-[#005196]'
           } ${disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
         >
           <option value="">{placeholder}</option>
@@ -316,7 +316,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         />
 
         {helperText && !error && (
-          <p id={helperId} className="mt-2 text-sm text-gray-600">
+          <p id={helperId} className="mt-2 text-sm text-muted-foreground">
             {helperText}
           </p>
         )}
@@ -351,12 +351,12 @@ export interface SelectProps
 
 export const selectVariants = cva(
   [
-    'px-4 py-3 rounded-lg border bg-white',
-    'text-base text-gray-900',
+    'px-4 py-3 rounded-lg border bg-card',
+    'text-base text-foreground',
     'transition-all duration-150',
     'cursor-pointer',
     'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-    'disabled:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-60',
+    'disabled:bg-muted disabled:cursor-not-allowed disabled:opacity-60',
     'min-h-[44px]',
   ],
   {
@@ -367,7 +367,7 @@ export const selectVariants = cva(
           'focus-visible:ring-red-500',
         ],
         false: [
-          'border-gray-300',
+          'border-border',
           'focus-visible:ring-[#005196]',
         ],
       },
@@ -427,7 +427,7 @@ export interface SelectOption {
         <polyline points="6 9 12 15 18 9"></polyline>
       </svg>
 
-      <p *ngIf="helperText && !error" class="mt-2 text-sm text-gray-600">
+      <p *ngIf="helperText && !error" class="mt-2 text-sm text-muted-foreground">
         {{ helperText }}
       </p>
 
@@ -461,11 +461,11 @@ export class SelectComponent implements ControlValueAccessor {
   private onTouched: () => void = () => {};
 
   getSelectClasses(): string {
-    const base = 'px-4 py-3 rounded-lg border bg-white appearance-none pr-10 transition-all cursor-pointer';
+    const base = 'px-4 py-3 rounded-lg border bg-card appearance-none pr-10 transition-all cursor-pointer';
     const focus = 'focus:outline-none focus:ring-2 focus:ring-offset-2';
     const state = this.error 
       ? 'border-red-500 focus:ring-red-500' 
-      : 'border-gray-300 focus:ring-blue-500';
+      : 'border-border focus:ring-blue-500';
     const width = this.fullWidth ? 'w-full' : '';
     
     return [base, focus, state, width].join(' ');

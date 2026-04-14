@@ -50,7 +50,7 @@ export function PersonalFormService({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader
         icon={User}
         iconColor="bg-purple-600"
@@ -60,7 +60,7 @@ export function PersonalFormService({
           <button
             type="button"
             onClick={saveDraft}
-            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded text-sm font-bold text-gray-700 hover:bg-gray-50"
+            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded text-sm font-bold text-muted-foreground hover:bg-muted"
           >
             <Save size={16} />
             Save Draft
@@ -78,17 +78,17 @@ export function PersonalFormService({
       )}
 
       <main className="max-w-[1000px] mx-auto px-4 sm:px-6 py-8">
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-5">
+        <div className="bg-card border-2 border-border rounded-lg p-6 space-y-5">
           <Field label="Full Name" required error={errors.fullName}>
-            <input value={formData.fullName} onChange={(e) => setField("fullName", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+            <input value={formData.fullName} onChange={(e) => setField("fullName", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
           </Field>
 
           <div className="grid md:grid-cols-2 gap-4">
             <Field label="Date of Birth" required error={errors.dateOfBirth}>
-              <input type="date" value={formData.dateOfBirth} onChange={(e) => setField("dateOfBirth", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+              <input type="date" value={formData.dateOfBirth} onChange={(e) => setField("dateOfBirth", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
             </Field>
             <Field label="Gender" required error={errors.gender}>
-              <select value={formData.gender} onChange={(e) => setField("gender", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2">
+              <select value={formData.gender} onChange={(e) => setField("gender", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2">
                 <option value="">Select</option>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
@@ -99,10 +99,10 @@ export function PersonalFormService({
 
           <div className="grid md:grid-cols-2 gap-4">
             <Field label="Father's Name" required error={errors.fatherName}>
-              <input value={formData.fatherName} onChange={(e) => setField("fatherName", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+              <input value={formData.fatherName} onChange={(e) => setField("fatherName", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
             </Field>
             <Field label="Mother's Name" required error={errors.motherName}>
-              <input value={formData.motherName} onChange={(e) => setField("motherName", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+              <input value={formData.motherName} onChange={(e) => setField("motherName", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
             </Field>
           </div>
 
@@ -112,11 +112,11 @@ export function PersonalFormService({
                 inputMode="numeric"
                 value={formData.mobileNumber}
                 onChange={(e) => setField("mobileNumber", e.target.value.replace(/\D/g, "").slice(0, 10))}
-                className="w-full border-2 border-gray-300 rounded px-3 py-2"
+                className="w-full border-2 border-border rounded px-3 py-2"
               />
             </Field>
             <Field label="Email" error={errors.email}>
-              <input type="email" value={formData.email} onChange={(e) => setField("email", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+              <input type="email" value={formData.email} onChange={(e) => setField("email", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
             </Field>
           </div>
 
@@ -125,20 +125,20 @@ export function PersonalFormService({
               inputMode="numeric"
               value={formData.aadhaarNumber}
               onChange={(e) => setField("aadhaarNumber", e.target.value.replace(/\D/g, "").slice(0, 12))}
-              className="w-full border-2 border-gray-300 rounded px-3 py-2"
+              className="w-full border-2 border-border rounded px-3 py-2"
             />
           </Field>
         </div>
 
         <div className="flex items-center justify-between mt-6 gap-3 flex-wrap">
-          <Link to={backPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-gray-700 hover:bg-gray-50">
+          <Link to={backPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-muted-foreground hover:bg-muted">
             <ArrowLeft size={16} />
             Back
           </Link>
 
           <div className="flex items-center gap-3">
             {codeDownloadPath && (
-              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-[#000080] hover:bg-gray-50">
+              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-primary hover:bg-muted">
                 <Download size={15} />
                 Download React code
               </Link>
@@ -147,7 +147,7 @@ export function PersonalFormService({
             <button
               type="button"
               onClick={continueFlow}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-[#000080] text-white rounded font-bold text-sm hover:bg-blue-900"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-white rounded font-bold text-sm hover:opacity-90"
             >
               Save and Continue
               <ArrowRight size={16} />
@@ -174,7 +174,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-900 mb-1">
+      <label className="block text-sm font-bold text-foreground mb-1">
         {label}
         {required ? <span className="text-red-600"> *</span> : null}
       </label>

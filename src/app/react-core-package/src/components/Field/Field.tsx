@@ -13,7 +13,7 @@
  * ```
  */
 
-import React, { Children, forwardRef, isValidElement, useId } from 'react';
+import { Children, forwardRef, isValidElement, useId } from 'react';
 import { cn } from '../../utils/cn';
 import { FieldProps } from './Field.types';
 import { FieldContext } from './Field.context';

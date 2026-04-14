@@ -10,7 +10,7 @@
  * ```
  */
 
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { cn } from '../../utils/cn';
 import { PopoverProps } from './Popover.types';
 
@@ -43,7 +43,7 @@ export function Popover({
   useEffect(() => {
     if (trigger !== 'click') return;
 
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: globalThis.MouseEvent) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
         setOpen(false);
       }

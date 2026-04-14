@@ -14,7 +14,7 @@
  * ```
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { cn } from '../../utils/cn';
 import { BreadcrumbProps } from './Breadcrumb.types';
 

@@ -12,7 +12,7 @@
  * ```
  */
 
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../utils/cn';
 import { TextareaProps } from './Textarea.types';
 import { useFieldContext } from '../Field/Field.context';

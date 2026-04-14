@@ -5,20 +5,20 @@ import Footer from "../components/Footer";
 
 export default function FigmaDesignSystem() {
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <div className="bg-background dark:bg-gray-900 min-h-screen">
       <NavigationHeader />
 
       {/* Page Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="bg-card dark:bg-gray-800 border-b border-border dark:border-gray-700">
         <div className="max-w-[1920px] mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 to="/resources"
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                className="p-2 hover:bg-muted dark:hover:bg-gray-700 rounded-lg transition-colors"
                 aria-label="Back to Resources"
               >
-                <ArrowLeft size={20} className="text-gray-600 dark:text-gray-400" />
+                <ArrowLeft size={20} className="text-muted-foreground dark:text-gray-400" />
               </Link>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{
@@ -27,12 +27,12 @@ export default function FigmaDesignSystem() {
                   <div className="w-7 h-7 rounded" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}></div>
                 </div>
                 <div>
-                  <div className="text-base font-semibold text-gray-900 dark:text-gray-100">UX4G Design System</div>
+                  <div className="text-base font-semibold text-foreground dark:text-gray-100">UX4G Design System</div>
                   <div className="text-xs text-gray-500 dark:text-gray-400">Figma MVP File v1.0</div>
                 </div>
               </div>
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="text-sm text-muted-foreground dark:text-gray-400">
               12 Pages • 150+ Components • WCAG AA
             </div>
           </div>
@@ -208,7 +208,7 @@ function FoundationsPage() {
   ];
 
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16">
@@ -218,10 +218,10 @@ function FoundationsPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 02</div>
-              <h2 className="text-4xl font-bold text-gray-900">Foundations</h2>
+              <h2 className="text-4xl font-bold text-foreground">Foundations</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Core design principles, color systems, typography, spacing, and visual guidelines 
             that establish consistency across all government digital services.
           </p>
@@ -229,15 +229,15 @@ function FoundationsPage() {
 
         {/* Design Principles */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Design Principles</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-8">Design Principles</h3>
           <div className="grid grid-cols-4 gap-6">
             {principles.map((principle, index) => (
-              <div key={index} className="border-2 border-gray-200 rounded-lg p-6">
+              <div key={index} className="border-2 border-border rounded-lg p-6">
                 <div className="w-10 h-10 rounded flex items-center justify-center mb-4" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                   <principle.icon className="text-white" size={20} />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">{principle.title}</h4>
-                <p className="text-sm text-gray-600">{principle.desc}</p>
+                <h4 className="font-semibold text-foreground mb-2">{principle.title}</h4>
+                <p className="text-sm text-muted-foreground">{principle.desc}</p>
               </div>
             ))}
           </div>
@@ -245,10 +245,10 @@ function FoundationsPage() {
 
         {/* Color System */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Color System</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-8">Color System</h3>
           <div className="grid grid-cols-4 gap-6">
             {colors.map((color, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+              <div key={index} className="border border-border rounded-lg overflow-hidden">
                 <div 
                   className="h-32 flex items-end p-4"
                   style={{ backgroundColor: color.value }}
@@ -256,14 +256,14 @@ function FoundationsPage() {
                   <div className={`px-2 py-1 rounded text-xs font-mono font-semibold ${
                     color.value === "#FFFFFF" || color.value === "#F9FAFB" || color.value === "#F3F4F6"
                       ? "bg-gray-900 text-white" 
-                      : "bg-white text-gray-900"
+                      : "bg-card text-foreground"
                   }`}>
                     {color.value}
                   </div>
                 </div>
-                <div className="p-4 bg-white">
-                  <div className="font-semibold text-sm text-gray-900 mb-1">{color.name}</div>
-                  <div className="text-xs text-gray-600">{color.usage}</div>
+                <div className="p-4 bg-card">
+                  <div className="font-semibold text-sm text-foreground mb-1">{color.name}</div>
+                  <div className="text-xs text-muted-foreground">{color.usage}</div>
                 </div>
               </div>
             ))}
@@ -271,10 +271,10 @@ function FoundationsPage() {
           
           <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <div className="flex items-start gap-3">
-              <Shield className="text-[#000080] flex-shrink-0 mt-0.5" size={20} />
+              <Shield className="text-primary flex-shrink-0 mt-0.5" size={20} />
               <div>
-                <div className="font-semibold text-gray-900 text-sm mb-1">Accessibility Note</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-semibold text-foreground text-sm mb-1">Accessibility Note</div>
+                <div className="text-sm text-muted-foreground">
                   All color combinations meet WCAG 2.1 AA contrast ratios (minimum 4.5:1 for normal text, 3:1 for large text).
                 </div>
               </div>
@@ -284,8 +284,8 @@ function FoundationsPage() {
 
         {/* Typography Scale */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Typography Scale</h3>
-          <div className="border border-gray-200 rounded-lg divide-y divide-gray-200">
+          <h3 className="text-2xl font-bold text-foreground mb-8">Typography Scale</h3>
+          <div className="border border-border rounded-lg divide-y divide-gray-200">
             {[
               { name: "Display Large", size: "48px", weight: "700", line: "56px", usage: "Hero headlines" },
               { name: "Display", size: "36px", weight: "700", line: "44px", usage: "Page titles" },
@@ -297,11 +297,11 @@ function FoundationsPage() {
               { name: "Body Small", size: "14px", weight: "400", line: "20px", usage: "Secondary text" },
               { name: "Caption", size: "12px", weight: "400", line: "16px", usage: "Labels, captions" },
             ].map((type, index) => (
-              <div key={index} className="p-4 grid grid-cols-6 gap-4 items-center hover:bg-gray-50">
-                <div className="col-span-2 font-semibold text-gray-900">{type.name}</div>
-                <div className="text-gray-600 text-sm">{type.size} / {type.weight}</div>
-                <div className="text-gray-600 text-sm">LH: {type.line}</div>
-                <div className="col-span-2 text-gray-600 text-sm">{type.usage}</div>
+              <div key={index} className="p-4 grid grid-cols-6 gap-4 items-center hover:bg-background">
+                <div className="col-span-2 font-semibold text-foreground">{type.name}</div>
+                <div className="text-muted-foreground text-sm">{type.size} / {type.weight}</div>
+                <div className="text-muted-foreground text-sm">LH: {type.line}</div>
+                <div className="col-span-2 text-muted-foreground text-sm">{type.usage}</div>
               </div>
             ))}
           </div>
@@ -309,7 +309,7 @@ function FoundationsPage() {
 
         {/* Spacing Scale */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Spacing Scale</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-8">Spacing Scale</h3>
           <div className="grid grid-cols-6 gap-4">
             {[
               { token: "spacing-1", value: "4px" },
@@ -323,7 +323,7 @@ function FoundationsPage() {
               { token: "spacing-20", value: "80px" },
               { token: "spacing-24", value: "96px" },
             ].map((space, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-4">
+              <div key={index} className="border border-border rounded-lg p-4">
                 <div
                   className="mb-3"
                   style={{
@@ -332,7 +332,7 @@ function FoundationsPage() {
                     height: space.value
                   }}
                 ></div>
-                <div className="font-mono text-xs font-semibold text-gray-900">{space.value}</div>
+                <div className="font-mono text-xs font-semibold text-foreground">{space.value}</div>
                 <div className="text-xs text-gray-500">{space.token}</div>
               </div>
             ))}
@@ -345,7 +345,7 @@ function FoundationsPage() {
 
 function DesignTokensPage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -354,10 +354,10 @@ function DesignTokensPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 03</div>
-              <h2 className="text-4xl font-bold text-gray-900">Design Tokens</h2>
+              <h2 className="text-4xl font-bold text-foreground">Design Tokens</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Structured, platform-agnostic design values that create a single source of truth 
             between design and code.
           </p>
@@ -373,11 +373,11 @@ function DesignTokensPage() {
             { category: "Elevation/Shadow", count: 6, desc: "Shadow tokens for depth" },
             { category: "Animation", count: 12, desc: "Duration and easing curves" },
           ].map((cat, index) => (
-            <div key={index} className="border-2 border-gray-200 rounded-lg p-6">
+            <div key={index} className="border-2 border-border rounded-lg p-6">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <h3 className="font-semibold text-gray-900 text-lg mb-1">{cat.category}</h3>
-                  <p className="text-sm text-gray-600">{cat.desc}</p>
+                  <h3 className="font-semibold text-foreground text-lg mb-1">{cat.category}</h3>
+                  <p className="text-sm text-muted-foreground">{cat.desc}</p>
                 </div>
                 <div className="px-3 py-1 text-white rounded-full text-sm font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                   {cat.count}
@@ -388,13 +388,13 @@ function DesignTokensPage() {
         </div>
 
         {/* Token Structure Example */}
-        <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Token Naming Convention</h3>
+        <div className="border-2 border-border rounded-lg p-8 bg-background">
+          <h3 className="text-xl font-bold text-foreground mb-6">Token Naming Convention</h3>
           
           <div className="space-y-4">
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <div className="font-mono text-sm text-[#000080] mb-2">color.primary.500</div>
-              <div className="text-xs text-gray-600 mb-3">Main brand color for primary actions</div>
+            <div className="bg-card border border-border rounded-lg p-4">
+              <div className="font-mono text-sm text-primary mb-2">color.primary.500</div>
+              <div className="text-xs text-muted-foreground mb-3">Main brand color for primary actions</div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}></div>
                 <div>
@@ -404,11 +404,11 @@ function DesignTokensPage() {
               </div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
+            <div className="bg-card border border-border rounded-lg p-4">
               <div className="font-mono text-sm text-[#138808] mb-2">color.success.500</div>
-              <div className="text-xs text-gray-600 mb-3">Success state indicator</div>
+              <div className="text-xs text-muted-foreground mb-3">Success state indicator</div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#138808] rounded"></div>
+                <div className="w-12 h-12 bg-green-700 rounded"></div>
                 <div>
                   <div className="font-semibold text-sm">#138808</div>
                   <div className="text-xs text-gray-500">India Green</div>
@@ -416,9 +416,9 @@ function DesignTokensPage() {
               </div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
+            <div className="bg-card border border-border rounded-lg p-4">
               <div className="font-mono text-sm text-[#FF9933] mb-2">color.accent.500</div>
-              <div className="text-xs text-gray-600 mb-3">Accent color for highlights</div>
+              <div className="text-xs text-muted-foreground mb-3">Accent color for highlights</div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-[#FF9933] rounded"></div>
                 <div>
@@ -452,7 +452,7 @@ function DesignTokensPage() {
 
 function StylesSystemPage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -461,18 +461,18 @@ function StylesSystemPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 04</div>
-              <h2 className="text-4xl font-bold text-gray-900">Styles System</h2>
+              <h2 className="text-4xl font-bold text-foreground">Styles System</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Composable visual patterns and reusable styles that form the foundation of the component library.
           </p>
         </div>
 
         {/* Grid System */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">12-Column Grid System</h3>
-          <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50">
+          <h3 className="text-2xl font-bold text-foreground mb-8">12-Column Grid System</h3>
+          <div className="border-2 border-border rounded-lg p-8 bg-background">
             <div className="grid grid-cols-12 gap-4 mb-6">
               {Array.from({ length: 12 }).map((_, i) => (
                 <div key={i} className="h-20 rounded flex items-center justify-center text-white text-sm font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
@@ -483,26 +483,26 @@ function StylesSystemPage() {
             
             <div className="space-y-4">
               <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-12 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-gray-700">
+                <div className="col-span-12 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-muted-foreground">
                   12 Columns (Full Width)
                 </div>
               </div>
               <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-6 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-gray-700">
+                <div className="col-span-6 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-muted-foreground">
                   6 Columns
                 </div>
-                <div className="col-span-6 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-gray-700">
+                <div className="col-span-6 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-muted-foreground">
                   6 Columns
                 </div>
               </div>
               <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-4 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-gray-700">
+                <div className="col-span-4 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-muted-foreground">
                   4 Columns
                 </div>
-                <div className="col-span-4 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-gray-700">
+                <div className="col-span-4 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-muted-foreground">
                   4 Columns
                 </div>
-                <div className="col-span-4 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-gray-700">
+                <div className="col-span-4 h-12 bg-blue-100 rounded flex items-center justify-center text-sm text-muted-foreground">
                   4 Columns
                 </div>
               </div>
@@ -512,7 +512,7 @@ function StylesSystemPage() {
 
         {/* Elevation System */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Elevation & Shadows</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-8">Elevation & Shadows</h3>
           <div className="grid grid-cols-5 gap-6">
             {[
               { level: "Level 0", shadow: "none", usage: "Flat surfaces" },
@@ -523,13 +523,13 @@ function StylesSystemPage() {
             ].map((elev, index) => (
               <div key={index} className="text-center">
                 <div 
-                  className="w-full h-32 bg-white rounded-lg mb-3 flex items-center justify-center"
+                  className="w-full h-32 bg-card rounded-lg mb-3 flex items-center justify-center"
                   style={{ boxShadow: elev.shadow }}
                 >
                   <div className="text-gray-400 text-sm font-semibold">{index}</div>
                 </div>
-                <div className="font-semibold text-sm text-gray-900 mb-1">{elev.level}</div>
-                <div className="text-xs text-gray-600">{elev.usage}</div>
+                <div className="font-semibold text-sm text-foreground mb-1">{elev.level}</div>
+                <div className="text-xs text-muted-foreground">{elev.usage}</div>
               </div>
             ))}
           </div>
@@ -537,7 +537,7 @@ function StylesSystemPage() {
 
         {/* Border Radius */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Border Radius Scale</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-8">Border Radius Scale</h3>
           <div className="grid grid-cols-6 gap-6">
             {[
               { name: "None", value: "0px" },
@@ -555,8 +555,8 @@ function StylesSystemPage() {
                     borderRadius: radius.value
                   }}
                 ></div>
-                <div className="font-semibold text-sm text-gray-900 mb-1">{radius.name}</div>
-                <div className="text-xs text-gray-600 font-mono">{radius.value}</div>
+                <div className="font-semibold text-sm text-foreground mb-1">{radius.name}</div>
+                <div className="text-xs text-muted-foreground font-mono">{radius.value}</div>
               </div>
             ))}
           </div>
@@ -568,7 +568,7 @@ function StylesSystemPage() {
 
 function CoreComponentsPage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -577,10 +577,10 @@ function CoreComponentsPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 05</div>
-              <h2 className="text-4xl font-bold text-gray-900">Core Components</h2>
+              <h2 className="text-4xl font-bold text-foreground">Core Components</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Base component library with accessibility built-in, ready for implementation in React and Angular.
           </p>
         </div>
@@ -589,16 +589,16 @@ function CoreComponentsPage() {
         <div className="space-y-12">
           {/* Buttons */}
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-6">Buttons</h3>
-            <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50">
+            <h3 className="text-xl font-bold text-foreground mb-6">Buttons</h3>
+            <div className="border-2 border-border rounded-lg p-8 bg-background">
               <div className="flex flex-wrap gap-4">
                 <button className="px-6 py-3 text-white rounded-lg font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                   Primary Button
                 </button>
-                <button className="px-6 py-3 bg-white text-[#000080] border-2 border-[#000080] rounded-lg font-semibold">
+                <button className="px-6 py-3 bg-card text-primary border-2 border-primary rounded-lg font-semibold">
                   Secondary Button
                 </button>
-                <button className="px-6 py-3 bg-[#138808] text-white rounded-lg font-semibold">
+                <button className="px-6 py-3 bg-green-700 text-white rounded-lg font-semibold">
                   Success Button
                 </button>
                 <button className="px-6 py-3 bg-gray-200 text-gray-400 rounded-lg font-semibold">
@@ -610,32 +610,32 @@ function CoreComponentsPage() {
 
           {/* Form Inputs */}
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-6">Form Inputs</h3>
-            <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50 space-y-4">
+            <h3 className="text-xl font-bold text-foreground mb-6">Form Inputs</h3>
+            <div className="border-2 border-border rounded-lg p-8 bg-background space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-muted-foreground mb-2">
                   Text Input
                 </label>
                 <input
                   type="text"
                   placeholder="Enter text here..."
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg"
+                  className="w-full px-4 py-3 border-2 border-border rounded-lg"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-muted-foreground mb-2">
                   Select Dropdown
                 </label>
-                <select className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg bg-white">
+                <select className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card">
                   <option>Select an option...</option>
                 </select>
               </div>
 
               <div>
                 <label className="flex items-center gap-3">
-                  <input type="checkbox" className="w-5 h-5 border-2 border-gray-300 rounded" />
-                  <span className="text-gray-700">Checkbox Label</span>
+                  <input type="checkbox" className="w-5 h-5 border-2 border-border rounded" />
+                  <span className="text-muted-foreground">Checkbox Label</span>
                 </label>
               </div>
             </div>
@@ -643,48 +643,48 @@ function CoreComponentsPage() {
 
           {/* Cards */}
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-6">Cards</h3>
+            <h3 className="text-xl font-bold text-foreground mb-6">Cards</h3>
             <div className="grid grid-cols-3 gap-6">
-              <div className="border-2 border-gray-200 rounded-lg p-6 bg-white">
-                <h4 className="font-semibold text-gray-900 mb-2">Basic Card</h4>
-                <p className="text-sm text-gray-600 mb-4">
+              <div className="border-2 border-border rounded-lg p-6 bg-card">
+                <h4 className="font-semibold text-foreground mb-2">Basic Card</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Card component with title and description.
                 </p>
-                <button className="text-[#000080] text-sm font-semibold">Learn More →</button>
+                <button className="text-primary text-sm font-semibold">Learn More →</button>
               </div>
 
-              <div className="border-2 border-gray-200 rounded-lg overflow-hidden bg-white">
+              <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
                 <div className="h-32 bg-gradient-to-br from-[#FF9933] to-[#138808]"></div>
                 <div className="p-6">
-                  <h4 className="font-semibold text-gray-900 mb-2">Image Card</h4>
-                  <p className="text-sm text-gray-600">Card with image header.</p>
+                  <h4 className="font-semibold text-foreground mb-2">Image Card</h4>
+                  <p className="text-sm text-muted-foreground">Card with image header.</p>
                 </div>
               </div>
 
-              <div className="border-2 border-[#000080] rounded-lg p-6 bg-blue-50">
-                <h4 className="font-semibold text-gray-900 mb-2">Highlighted Card</h4>
-                <p className="text-sm text-gray-600">Card with emphasized border.</p>
+              <div className="border-2 border-primary rounded-lg p-6 bg-blue-50">
+                <h4 className="font-semibold text-foreground mb-2">Highlighted Card</h4>
+                <p className="text-sm text-muted-foreground">Card with emphasized border.</p>
               </div>
             </div>
           </div>
 
           {/* Alerts */}
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-6">Alerts</h3>
+            <h3 className="text-xl font-bold text-foreground mb-6">Alerts</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3 p-4 bg-green-50 border-2 border-green-200 rounded-lg">
                 <Check className="text-[#138808] flex-shrink-0" size={20} />
                 <div>
-                  <div className="font-semibold text-gray-900 mb-1">Success</div>
-                  <div className="text-sm text-gray-700">Your action was completed successfully.</div>
+                  <div className="font-semibold text-foreground mb-1">Success</div>
+                  <div className="text-sm text-muted-foreground">Your action was completed successfully.</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
-                <FileText className="text-[#000080] flex-shrink-0" size={20} />
+                <FileText className="text-primary flex-shrink-0" size={20} />
                 <div>
-                  <div className="font-semibold text-gray-900 mb-1">Information</div>
-                  <div className="text-sm text-gray-700">Here is some important information.</div>
+                  <div className="font-semibold text-foreground mb-1">Information</div>
+                  <div className="text-sm text-muted-foreground">Here is some important information.</div>
                 </div>
               </div>
             </div>
@@ -697,7 +697,7 @@ function CoreComponentsPage() {
 
 function ComponentVariantsPage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -706,31 +706,31 @@ function ComponentVariantsPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 06</div>
-              <h2 className="text-4xl font-bold text-gray-900">Component Variants & States</h2>
+              <h2 className="text-4xl font-bold text-foreground">Component Variants & States</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             All possible states, sizes, and variants for each component to ensure comprehensive coverage.
           </p>
         </div>
 
         {/* Button States */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Button States Matrix</h3>
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+          <h3 className="text-xl font-bold text-foreground mb-6">Button States Matrix</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50">
+              <thead className="bg-background">
                 <tr>
-                  <th className="text-left p-4 border-b-2 border-gray-200 font-semibold text-gray-900">Variant</th>
-                  <th className="text-left p-4 border-b-2 border-gray-200 font-semibold text-gray-900">Default</th>
-                  <th className="text-left p-4 border-b-2 border-gray-200 font-semibold text-gray-900">Hover</th>
-                  <th className="text-left p-4 border-b-2 border-gray-200 font-semibold text-gray-900">Active</th>
-                  <th className="text-left p-4 border-b-2 border-gray-200 font-semibold text-gray-900">Disabled</th>
+                  <th className="text-left p-4 border-b-2 border-border font-semibold text-foreground">Variant</th>
+                  <th className="text-left p-4 border-b-2 border-border font-semibold text-foreground">Default</th>
+                  <th className="text-left p-4 border-b-2 border-border font-semibold text-foreground">Hover</th>
+                  <th className="text-left p-4 border-b-2 border-border font-semibold text-foreground">Active</th>
+                  <th className="text-left p-4 border-b-2 border-border font-semibold text-foreground">Disabled</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-gray-200">
-                  <td className="p-4 font-semibold text-gray-700">Primary</td>
+                <tr className="border-b border-border">
+                  <td className="p-4 font-semibold text-muted-foreground">Primary</td>
                   <td className="p-4">
                     <button className="px-4 py-2 text-white rounded-lg text-sm" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>Button</button>
                   </td>
@@ -744,19 +744,19 @@ function ComponentVariantsPage() {
                     <button className="px-4 py-2 bg-gray-200 text-gray-400 rounded-lg text-sm">Button</button>
                   </td>
                 </tr>
-                <tr className="border-b border-gray-200">
-                  <td className="p-4 font-semibold text-gray-700">Secondary</td>
+                <tr className="border-b border-border">
+                  <td className="p-4 font-semibold text-muted-foreground">Secondary</td>
                   <td className="p-4">
-                    <button className="px-4 py-2 bg-white text-[#000080] border-2 border-[#000080] rounded-lg text-sm">Button</button>
+                    <button className="px-4 py-2 bg-card text-primary border-2 border-primary rounded-lg text-sm">Button</button>
                   </td>
                   <td className="p-4">
-                    <button className="px-4 py-2 bg-blue-50 text-[#000080] border-2 border-[#000080] rounded-lg text-sm">Button</button>
+                    <button className="px-4 py-2 bg-blue-50 text-primary border-2 border-primary rounded-lg text-sm">Button</button>
                   </td>
                   <td className="p-4">
-                    <button className="px-4 py-2 bg-blue-100 text-[#000080] border-2 border-[#000080] rounded-lg text-sm">Button</button>
+                    <button className="px-4 py-2 bg-blue-100 text-primary border-2 border-primary rounded-lg text-sm">Button</button>
                   </td>
                   <td className="p-4">
-                    <button className="px-4 py-2 bg-white text-gray-400 border-2 border-gray-200 rounded-lg text-sm">Button</button>
+                    <button className="px-4 py-2 bg-card text-gray-400 border-2 border-border rounded-lg text-sm">Button</button>
                   </td>
                 </tr>
               </tbody>
@@ -766,8 +766,8 @@ function ComponentVariantsPage() {
 
         {/* Size Variations */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Size Variations</h3>
-          <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50">
+          <h3 className="text-xl font-bold text-foreground mb-6">Size Variations</h3>
+          <div className="border-2 border-border rounded-lg p-8 bg-background">
             <div className="flex items-center gap-4">
               <button className="px-3 py-1 text-white rounded text-xs" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>Small</button>
               <button className="px-4 py-2 text-white rounded-lg text-sm" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>Medium</button>
@@ -779,33 +779,33 @@ function ComponentVariantsPage() {
 
         {/* Input States */}
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Input Field States</h3>
-          <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50 space-y-4">
+          <h3 className="text-xl font-bold text-foreground mb-6">Input Field States</h3>
+          <div className="border-2 border-border rounded-lg p-8 bg-background space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Default State</label>
-              <input type="text" placeholder="Enter text..." className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg" />
+              <label className="block text-sm font-semibold text-muted-foreground mb-2">Default State</label>
+              <input type="text" placeholder="Enter text..." className="w-full px-4 py-3 border-2 border-border rounded-lg" />
             </div>
             
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Focus State</label>
-              <input type="text" defaultValue="Focused input" className="w-full px-4 py-3 border-2 border-[#000080] rounded-lg ring-4 ring-blue-100" readOnly />
+              <label className="block text-sm font-semibold text-muted-foreground mb-2">Focus State</label>
+              <input type="text" defaultValue="Focused input" className="w-full px-4 py-3 border-2 border-primary rounded-lg ring-4 ring-blue-100" readOnly />
             </div>
             
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Error State</label>
+              <label className="block text-sm font-semibold text-muted-foreground mb-2">Error State</label>
               <input type="text" defaultValue="Invalid input" className="w-full px-4 py-3 border-2 border-red-500 rounded-lg" readOnly />
               <p className="text-sm text-red-600 mt-1">This field is required</p>
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Success State</label>
+              <label className="block text-sm font-semibold text-muted-foreground mb-2">Success State</label>
               <input type="text" defaultValue="Valid input" className="w-full px-4 py-3 border-2 border-[#138808] rounded-lg" readOnly />
               <p className="text-sm text-[#138808] mt-1">Input validated successfully</p>
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Disabled State</label>
-              <input type="text" defaultValue="Disabled input" disabled className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-100 text-gray-400" />
+              <label className="block text-sm font-semibold text-muted-foreground mb-2">Disabled State</label>
+              <input type="text" defaultValue="Disabled input" disabled className="w-full px-4 py-3 border-2 border-border rounded-lg bg-muted text-gray-400" />
             </div>
           </div>
         </div>
@@ -816,7 +816,7 @@ function ComponentVariantsPage() {
 
 function AccessibilityPage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -825,17 +825,17 @@ function AccessibilityPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 07</div>
-              <h2 className="text-4xl font-bold text-gray-900">Accessibility Guidance</h2>
+              <h2 className="text-4xl font-bold text-foreground">Accessibility Guidance</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             WCAG 2.1 AA compliance standards, testing protocols, and implementation guidance for inclusive design.
           </p>
         </div>
 
         {/* WCAG Compliance */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">WCAG 2.1 AA Requirements</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">WCAG 2.1 AA Requirements</h3>
           <div className="grid grid-cols-2 gap-6">
             {[
               { principle: "Perceivable", desc: "Information must be presentable in ways users can perceive", checks: ["Color contrast 4.5:1 minimum", "Text alternatives for images", "Captions for media"] },
@@ -843,14 +843,14 @@ function AccessibilityPage() {
               { principle: "Understandable", desc: "Information and UI must be understandable", checks: ["Readable content", "Predictable navigation", "Input assistance"] },
               { principle: "Robust", desc: "Content must work with assistive technologies", checks: ["Valid markup", "ARIA labels", "Screen reader support"] },
             ].map((item, index) => (
-              <div key={index} className="border-2 border-gray-200 rounded-lg p-6">
-                <h4 className="font-bold text-lg text-gray-900 mb-2">{item.principle}</h4>
-                <p className="text-sm text-gray-600 mb-4">{item.desc}</p>
+              <div key={index} className="border-2 border-border rounded-lg p-6">
+                <h4 className="font-bold text-lg text-foreground mb-2">{item.principle}</h4>
+                <p className="text-sm text-muted-foreground mb-4">{item.desc}</p>
                 <div className="space-y-2">
                   {item.checks.map((check, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-sm">
                       <Check className="text-[#138808] flex-shrink-0" size={16} />
-                      <span className="text-gray-700">{check}</span>
+                      <span className="text-muted-foreground">{check}</span>
                     </div>
                   ))}
                 </div>
@@ -861,10 +861,10 @@ function AccessibilityPage() {
 
         {/* Color Contrast */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Color Contrast Ratios</h3>
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-4 border-b-2 border-gray-200">
-              <div className="grid grid-cols-4 gap-4 font-semibold text-gray-900 text-sm">
+          <h3 className="text-xl font-bold text-foreground mb-6">Color Contrast Ratios</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-4 border-b-2 border-border">
+              <div className="grid grid-cols-4 gap-4 font-semibold text-foreground text-sm">
                 <div>Foreground</div>
                 <div>Background</div>
                 <div>Ratio</div>
@@ -879,13 +879,13 @@ function AccessibilityPage() {
               { fg: "#FF9933", bg: "#FFFFFF", ratio: "3.2:1", pass: false },
               { fg: "#FFFFFF", bg: "#FF9933", ratio: "3.2:1", pass: false },
             ].map((contrast, index) => (
-              <div key={index} className="p-4 border-b border-gray-200 grid grid-cols-4 gap-4 items-center text-sm">
+              <div key={index} className="p-4 border-b border-border grid grid-cols-4 gap-4 items-center text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded" style={{ backgroundColor: contrast.fg }}></div>
                   <span className="font-mono text-xs">{contrast.fg}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded border border-gray-200" style={{ backgroundColor: contrast.bg }}></div>
+                  <div className="w-8 h-8 rounded border border-border" style={{ backgroundColor: contrast.bg }}></div>
                   <span className="font-mono text-xs">{contrast.bg}</span>
                 </div>
                 <div className="font-semibold">{contrast.ratio}</div>
@@ -903,8 +903,8 @@ function AccessibilityPage() {
 
         {/* Keyboard Navigation */}
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Keyboard Navigation</h3>
-          <div className="border-2 border-gray-200 rounded-lg p-8 bg-gray-50">
+          <h3 className="text-xl font-bold text-foreground mb-6">Keyboard Navigation</h3>
+          <div className="border-2 border-border rounded-lg p-8 bg-background">
             <div className="grid grid-cols-2 gap-6">
               {[
                 { key: "Tab", action: "Move focus forward" },
@@ -915,10 +915,10 @@ function AccessibilityPage() {
                 { key: "Home / End", action: "Jump to start or end" },
               ].map((nav, index) => (
                 <div key={index} className="flex items-center gap-4">
-                  <div className="px-4 py-2 bg-white border-2 border-gray-300 rounded font-mono text-sm font-semibold text-gray-900 min-w-[140px]">
+                  <div className="px-4 py-2 bg-card border-2 border-border rounded font-mono text-sm font-semibold text-foreground min-w-[140px]">
                     {nav.key}
                   </div>
-                  <div className="text-sm text-gray-700">{nav.action}</div>
+                  <div className="text-sm text-muted-foreground">{nav.action}</div>
                 </div>
               ))}
             </div>
@@ -931,7 +931,7 @@ function AccessibilityPage() {
 
 function DocumentationTemplatesPage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -940,31 +940,31 @@ function DocumentationTemplatesPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 08</div>
-              <h2 className="text-4xl font-bold text-gray-900">Documentation Page Templates</h2>
+              <h2 className="text-4xl font-bold text-foreground">Documentation Page Templates</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Standardized page layouts for component documentation, patterns, and implementation guides.
           </p>
         </div>
 
         {/* Component Doc Template */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden mb-12">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-lg font-bold text-gray-900">Component Documentation Template</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden mb-12">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-lg font-bold text-foreground">Component Documentation Template</h3>
           </div>
           
           <div className="p-8 space-y-8">
             <div>
               <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 1</div>
-              <h4 className="font-semibold text-gray-900 mb-3">Overview</h4>
-              <p className="text-sm text-gray-600">Brief description of component purpose and use cases.</p>
+              <h4 className="font-semibold text-foreground mb-3">Overview</h4>
+              <p className="text-sm text-muted-foreground">Brief description of component purpose and use cases.</p>
             </div>
 
             <div>
               <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 2</div>
-              <h4 className="font-semibold text-gray-900 mb-3">When to Use</h4>
-              <ul className="space-y-1 text-sm text-gray-600">
+              <h4 className="font-semibold text-foreground mb-3">When to Use</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>• Primary use case example</li>
                 <li>• Secondary use case example</li>
               </ul>
@@ -972,8 +972,8 @@ function DocumentationTemplatesPage() {
 
             <div>
               <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 3</div>
-              <h4 className="font-semibold text-gray-900 mb-3">When Not to Use</h4>
-              <ul className="space-y-1 text-sm text-gray-600">
+              <h4 className="font-semibold text-foreground mb-3">When Not to Use</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>• Avoid in this scenario</li>
                 <li>• Use alternative component instead</li>
               </ul>
@@ -981,21 +981,21 @@ function DocumentationTemplatesPage() {
 
             <div>
               <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 4</div>
-              <h4 className="font-semibold text-gray-900 mb-3">Visual Examples</h4>
-              <div className="p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <h4 className="font-semibold text-foreground mb-3">Visual Examples</h4>
+              <div className="p-6 bg-background border border-border rounded-lg">
                 <div className="text-xs text-gray-500">[Component preview area]</div>
               </div>
             </div>
 
             <div>
               <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 5</div>
-              <h4 className="font-semibold text-gray-900 mb-3">Accessibility</h4>
-              <p className="text-sm text-gray-600">Accessibility requirements and implementation notes.</p>
+              <h4 className="font-semibold text-foreground mb-3">Accessibility</h4>
+              <p className="text-sm text-muted-foreground">Accessibility requirements and implementation notes.</p>
             </div>
 
             <div>
               <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 6</div>
-              <h4 className="font-semibold text-gray-900 mb-3">Code Example</h4>
+              <h4 className="font-semibold text-foreground mb-3">Code Example</h4>
               <div className="p-4 bg-gray-900 text-green-400 font-mono text-xs rounded-lg">
                 &lt;Button variant="primary"&gt;Click me&lt;/Button&gt;
               </div>
@@ -1004,24 +1004,24 @@ function DocumentationTemplatesPage() {
         </div>
 
         {/* Pattern Doc Template */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-lg font-bold text-gray-900">Pattern Documentation Template</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-lg font-bold text-foreground">Pattern Documentation Template</h3>
           </div>
           
           <div className="p-8 space-y-6">
             <div className="grid grid-cols-3 gap-6">
-              <div className="border border-gray-200 rounded-lg p-4">
+              <div className="border border-border rounded-lg p-4">
                 <div className="text-xs text-gray-500 mb-2">Problem</div>
-                <div className="text-sm text-gray-700">What problem does this pattern solve?</div>
+                <div className="text-sm text-muted-foreground">What problem does this pattern solve?</div>
               </div>
-              <div className="border border-gray-200 rounded-lg p-4">
+              <div className="border border-border rounded-lg p-4">
                 <div className="text-xs text-gray-500 mb-2">Solution</div>
-                <div className="text-sm text-gray-700">How does the pattern address it?</div>
+                <div className="text-sm text-muted-foreground">How does the pattern address it?</div>
               </div>
-              <div className="border border-gray-200 rounded-lg p-4">
+              <div className="border border-border rounded-lg p-4">
                 <div className="text-xs text-gray-500 mb-2">Usage</div>
-                <div className="text-sm text-gray-700">When should teams use this?</div>
+                <div className="text-sm text-muted-foreground">When should teams use this?</div>
               </div>
             </div>
           </div>
@@ -1033,7 +1033,7 @@ function DocumentationTemplatesPage() {
 
 function ImplementationPage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -1042,26 +1042,26 @@ function ImplementationPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 09</div>
-              <h2 className="text-4xl font-bold text-gray-900">Installation & Implementation</h2>
+              <h2 className="text-4xl font-bold text-foreground">Installation & Implementation</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Step-by-step guidance for installing packages, configuring projects, and implementing components.
           </p>
         </div>
 
         {/* Quick Start */}
         <div className="mb-12">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Quick Start Guide</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">Quick Start Guide</h3>
           <div className="grid grid-cols-3 gap-6">
             {[
               { step: "01", title: "Install Package", desc: "npm install @ux4g/react" },
               { step: "02", title: "Import Styles", desc: "import '@ux4g/react/styles.css'" },
               { step: "03", title: "Use Components", desc: "import { Button } from '@ux4g/react'" },
             ].map((item, index) => (
-              <div key={index} className="border-2 border-gray-200 rounded-lg p-6">
-                <div className="text-4xl font-bold text-[#000080] mb-3">{item.step}</div>
-                <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
+              <div key={index} className="border-2 border-border rounded-lg p-6">
+                <div className="text-4xl font-bold text-primary mb-3">{item.step}</div>
+                <h4 className="font-semibold text-foreground mb-2">{item.title}</h4>
                 <code className="text-xs bg-gray-900 text-green-400 px-2 py-1 rounded font-mono">
                   {item.desc}
                 </code>
@@ -1072,25 +1072,25 @@ function ImplementationPage() {
 
         {/* Framework Support */}
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Framework Support</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">Framework Support</h3>
           <div className="grid grid-cols-2 gap-6">
-            <div className="border-2 border-gray-200 rounded-lg p-8">
-              <h4 className="text-lg font-bold text-gray-900 mb-4">React Implementation</h4>
+            <div className="border-2 border-border rounded-lg p-8">
+              <h4 className="text-lg font-bold text-foreground mb-4">React Implementation</h4>
               <div className="space-y-3 text-sm">
-                <div className="p-3 bg-gray-50 rounded">
-                  <div className="text-gray-600 mb-1">Install</div>
+                <div className="p-3 bg-background rounded">
+                  <div className="text-muted-foreground mb-1">Install</div>
                   <code className="text-xs bg-gray-900 text-green-400 px-2 py-1 rounded font-mono">
                     npm install @ux4g/react
                   </code>
                 </div>
-                <div className="p-3 bg-gray-50 rounded">
-                  <div className="text-gray-600 mb-1">Import</div>
+                <div className="p-3 bg-background rounded">
+                  <div className="text-muted-foreground mb-1">Import</div>
                   <code className="text-xs bg-gray-900 text-green-400 px-2 py-1 rounded font-mono">
                     import &#123; Button &#125; from '@ux4g/react'
                   </code>
                 </div>
-                <div className="p-3 bg-gray-50 rounded">
-                  <div className="text-gray-600 mb-1">Use</div>
+                <div className="p-3 bg-background rounded">
+                  <div className="text-muted-foreground mb-1">Use</div>
                   <code className="text-xs bg-gray-900 text-green-400 px-2 py-1 rounded font-mono">
                     &lt;Button variant="primary"&gt;Submit&lt;/Button&gt;
                   </code>
@@ -1098,23 +1098,23 @@ function ImplementationPage() {
               </div>
             </div>
 
-            <div className="border-2 border-gray-200 rounded-lg p-8">
-              <h4 className="text-lg font-bold text-gray-900 mb-4">Angular Implementation</h4>
+            <div className="border-2 border-border rounded-lg p-8">
+              <h4 className="text-lg font-bold text-foreground mb-4">Angular Implementation</h4>
               <div className="space-y-3 text-sm">
-                <div className="p-3 bg-gray-50 rounded">
-                  <div className="text-gray-600 mb-1">Install</div>
+                <div className="p-3 bg-background rounded">
+                  <div className="text-muted-foreground mb-1">Install</div>
                   <code className="text-xs bg-gray-900 text-green-400 px-2 py-1 rounded font-mono">
                     npm install @ux4g/angular
                   </code>
                 </div>
-                <div className="p-3 bg-gray-50 rounded">
-                  <div className="text-gray-600 mb-1">Import Module</div>
+                <div className="p-3 bg-background rounded">
+                  <div className="text-muted-foreground mb-1">Import Module</div>
                   <code className="text-xs bg-gray-900 text-green-400 px-2 py-1 rounded font-mono">
                     import &#123; UX4GModule &#125; from '@ux4g/angular'
                   </code>
                 </div>
-                <div className="p-3 bg-gray-50 rounded">
-                  <div className="text-gray-600 mb-1">Use</div>
+                <div className="p-3 bg-background rounded">
+                  <div className="text-muted-foreground mb-1">Use</div>
                   <code className="text-xs bg-gray-900 text-green-400 px-2 py-1 rounded font-mono">
                     &lt;ux4g-button variant="primary"&gt;Submit&lt;/ux4g-button&gt;
                   </code>
@@ -1130,7 +1130,7 @@ function ImplementationPage() {
 
 function GovernancePage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -1139,31 +1139,31 @@ function GovernancePage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 10</div>
-              <h2 className="text-4xl font-bold text-gray-900">Governance & Lifecycle</h2>
+              <h2 className="text-4xl font-bold text-foreground">Governance & Lifecycle</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Decision-making frameworks, release processes, and lifecycle management for platform sustainability.
           </p>
         </div>
 
         {/* Governance Model */}
         <div className="mb-12">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Governance Model</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">Governance Model</h3>
           <div className="grid grid-cols-3 gap-6">
             {[
               { role: "Core Team", resp: "Platform development and maintenance", count: "8 members" },
               { role: "Working Group", resp: "Cross-ministry governance decisions", count: "15 ministries" },
               { role: "Contributors", resp: "Component proposals and improvements", count: "50+ teams" },
             ].map((item, index) => (
-              <div key={index} className="border-2 border-gray-200 rounded-lg p-6">
+              <div key={index} className="border-2 border-border rounded-lg p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h4 className="font-bold text-gray-900">{item.role}</h4>
+                  <h4 className="font-bold text-foreground">{item.role}</h4>
                   <span className="px-2 py-1 text-white rounded text-xs font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                     {item.count}
                   </span>
                 </div>
-                <p className="text-sm text-gray-600">{item.resp}</p>
+                <p className="text-sm text-muted-foreground">{item.resp}</p>
               </div>
             ))}
           </div>
@@ -1171,8 +1171,8 @@ function GovernancePage() {
 
         {/* Release Process */}
         <div className="mb-12">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Release Process</h3>
-          <div className="border-2 border-gray-200 rounded-lg p-8">
+          <h3 className="text-xl font-bold text-foreground mb-6">Release Process</h3>
+          <div className="border-2 border-border rounded-lg p-8">
             <div className="flex items-center justify-between">
               {[
                 { phase: "Proposal", desc: "Submit request" },
@@ -1186,8 +1186,8 @@ function GovernancePage() {
                     <div className="w-12 h-12 text-white rounded-full flex items-center justify-center font-bold mb-2" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                       {index + 1}
                     </div>
-                    <div className="font-semibold text-sm text-gray-900 mb-1">{phase.phase}</div>
-                    <div className="text-xs text-gray-600">{phase.desc}</div>
+                    <div className="font-semibold text-sm text-foreground mb-1">{phase.phase}</div>
+                    <div className="text-xs text-muted-foreground">{phase.desc}</div>
                   </div>
                   {index < 4 && (
                     <div className="w-16 h-0.5 bg-gray-300 mx-4"></div>
@@ -1200,7 +1200,7 @@ function GovernancePage() {
 
         {/* Lifecycle States */}
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Component Lifecycle States</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">Component Lifecycle States</h3>
           <div className="space-y-4">
             {[
               { state: "Alpha", color: "bg-yellow-100 text-yellow-700 border-yellow-300", desc: "Early development, subject to breaking changes" },
@@ -1208,11 +1208,11 @@ function GovernancePage() {
               { state: "Stable", color: "bg-green-100 text-green-700 border-green-300", desc: "Production ready, fully supported" },
               { state: "Deprecated", color: "bg-red-100 text-red-700 border-red-300", desc: "Scheduled for removal, migration required" },
             ].map((item, index) => (
-              <div key={index} className="border-2 border-gray-200 rounded-lg p-4 flex items-center gap-4">
+              <div key={index} className="border-2 border-border rounded-lg p-4 flex items-center gap-4">
                 <div className={`px-4 py-2 rounded-lg border-2 font-semibold text-sm ${item.color}`}>
                   {item.state}
                 </div>
-                <div className="text-sm text-gray-700">{item.desc}</div>
+                <div className="text-sm text-muted-foreground">{item.desc}</div>
               </div>
             ))}
           </div>
@@ -1224,7 +1224,7 @@ function GovernancePage() {
 
 function AdoptionPage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -1233,32 +1233,32 @@ function AdoptionPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 11</div>
-              <h2 className="text-4xl font-bold text-gray-900">Adoption & Onboarding</h2>
+              <h2 className="text-4xl font-bold text-foreground">Adoption & Onboarding</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Resources and guidance for teams, departments, and vendors to successfully adopt the design system.
           </p>
         </div>
 
         {/* Onboarding Paths */}
         <div className="mb-12">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Onboarding Paths</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">Onboarding Paths</h3>
           <div className="grid grid-cols-3 gap-6">
             {[
               { role: "Designers", steps: ["Access Figma library", "Review foundations", "Explore components", "Start designing"] },
               { role: "Developers", steps: ["Install package", "Configure project", "Import components", "Build features"] },
               { role: "Teams", steps: ["Attend workshop", "Review governance", "Plan migration", "Deploy services"] },
             ].map((path, index) => (
-              <div key={index} className="border-2 border-gray-200 rounded-lg p-6">
-                <h4 className="font-bold text-lg text-gray-900 mb-4">{path.role}</h4>
+              <div key={index} className="border-2 border-border rounded-lg p-6">
+                <h4 className="font-bold text-lg text-foreground mb-4">{path.role}</h4>
                 <div className="space-y-2">
                   {path.steps.map((step, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       <div className="w-6 h-6 text-white rounded-full flex items-center justify-center text-xs font-semibold" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                         {idx + 1}
                       </div>
-                      <div className="text-sm text-gray-700">{step}</div>
+                      <div className="text-sm text-muted-foreground">{step}</div>
                     </div>
                   ))}
                 </div>
@@ -1269,7 +1269,7 @@ function AdoptionPage() {
 
         {/* Support Channels */}
         <div className="mb-12">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Support Channels</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">Support Channels</h3>
           <div className="grid grid-cols-2 gap-6">
             {[
               { channel: "Documentation Portal", desc: "Comprehensive guides and API references", availability: "24/7" },
@@ -1277,14 +1277,14 @@ function AdoptionPage() {
               { channel: "Community Forum", desc: "Discussion and Q&A with other users", availability: "24/7" },
               { channel: "Training Workshops", desc: "Scheduled training sessions", availability: "Monthly" },
             ].map((support, index) => (
-              <div key={index} className="border-2 border-gray-200 rounded-lg p-6">
+              <div key={index} className="border-2 border-border rounded-lg p-6">
                 <div className="flex items-start justify-between mb-2">
-                  <h4 className="font-semibold text-gray-900">{support.channel}</h4>
+                  <h4 className="font-semibold text-foreground">{support.channel}</h4>
                   <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">
                     {support.availability}
                   </span>
                 </div>
-                <p className="text-sm text-gray-600">{support.desc}</p>
+                <p className="text-sm text-muted-foreground">{support.desc}</p>
               </div>
             ))}
           </div>
@@ -1292,24 +1292,24 @@ function AdoptionPage() {
 
         {/* Success Metrics */}
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Adoption Success Metrics</h3>
-          <div className="border-2 border-gray-200 rounded-lg p-8">
+          <h3 className="text-xl font-bold text-foreground mb-6">Adoption Success Metrics</h3>
+          <div className="border-2 border-border rounded-lg p-8">
             <div className="grid grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-[#000080] mb-2">15</div>
-                <div className="text-sm text-gray-600">Ministries Adopting</div>
+                <div className="text-4xl font-bold text-primary mb-2">15</div>
+                <div className="text-sm text-muted-foreground">Ministries Adopting</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#000080] mb-2">50+</div>
-                <div className="text-sm text-gray-600">Active Teams</div>
+                <div className="text-4xl font-bold text-primary mb-2">50+</div>
+                <div className="text-sm text-muted-foreground">Active Teams</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#000080] mb-2">100+</div>
-                <div className="text-sm text-gray-600">Services Using System</div>
+                <div className="text-4xl font-bold text-primary mb-2">100+</div>
+                <div className="text-sm text-muted-foreground">Services Using System</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#000080] mb-2">95%</div>
-                <div className="text-sm text-gray-600">Satisfaction Rate</div>
+                <div className="text-4xl font-bold text-primary mb-2">95%</div>
+                <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
               </div>
             </div>
           </div>
@@ -1321,7 +1321,7 @@ function AdoptionPage() {
 
 function ServiceBlueprintsPage() {
   return (
-    <section className="min-h-screen bg-white p-16">
+    <section className="min-h-screen bg-card p-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
@@ -1330,10 +1330,10 @@ function ServiceBlueprintsPage() {
             </div>
             <div>
               <div className="text-sm text-gray-500 uppercase tracking-wide">Page 12</div>
-              <h2 className="text-4xl font-bold text-gray-900">Reference Service Blueprints</h2>
+              <h2 className="text-4xl font-bold text-foreground">Reference Service Blueprints</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             End-to-end reference implementations showing how to assemble components into complete government services.
           </p>
         </div>
@@ -1341,10 +1341,10 @@ function ServiceBlueprintsPage() {
         {/* Service Examples */}
         <div className="space-y-12">
           {/* Citizen Application Flow */}
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="text-lg font-bold text-gray-900">Blueprint 1: Citizen Application Service</h3>
-              <p className="text-sm text-gray-600 mt-1">Complete flow for submitting government applications</p>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="text-lg font-bold text-foreground">Blueprint 1: Citizen Application Service</h3>
+              <p className="text-sm text-muted-foreground mt-1">Complete flow for submitting government applications</p>
             </div>
             
             <div className="p-8">
@@ -1358,12 +1358,12 @@ function ServiceBlueprintsPage() {
                   { step: "Confirmation", screen: "Receipt & tracking" },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center flex-shrink-0">
-                    <div className="w-48 h-32 border-2 border-gray-300 rounded-lg bg-gray-50 flex flex-col items-center justify-center">
+                    <div className="w-48 h-32 border-2 border-border rounded-lg bg-background flex flex-col items-center justify-center">
                       <div className="w-10 h-10 text-white rounded-full flex items-center justify-center font-bold mb-2" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
                         {index + 1}
                       </div>
-                      <div className="font-semibold text-sm text-gray-900">{item.step}</div>
-                      <div className="text-xs text-gray-600">{item.screen}</div>
+                      <div className="font-semibold text-sm text-foreground">{item.step}</div>
+                      <div className="text-xs text-muted-foreground">{item.screen}</div>
                     </div>
                     {index < 5 && (
                       <div className="w-8 h-0.5 bg-gray-300 mx-2 flex-shrink-0"></div>
@@ -1373,10 +1373,10 @@ function ServiceBlueprintsPage() {
               </div>
               
               <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                <div className="font-semibold text-sm text-gray-900 mb-2">Components Used</div>
+                <div className="font-semibold text-sm text-foreground mb-2">Components Used</div>
                 <div className="flex flex-wrap gap-2">
                   {["Button", "Input", "Select", "File Upload", "Progress Stepper", "Card", "Alert"].map((comp, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-white border border-blue-200 rounded text-xs text-gray-700">
+                    <span key={idx} className="px-2 py-1 bg-card border border-blue-200 rounded text-xs text-muted-foreground">
                       {comp}
                     </span>
                   ))}
@@ -1386,10 +1386,10 @@ function ServiceBlueprintsPage() {
           </div>
 
           {/* Certificate Issuance */}
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="text-lg font-bold text-gray-900">Blueprint 2: Certificate Issuance Service</h3>
-              <p className="text-sm text-gray-600 mt-1">Digital certificate generation and download</p>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="text-lg font-bold text-foreground">Blueprint 2: Certificate Issuance Service</h3>
+              <p className="text-sm text-muted-foreground mt-1">Digital certificate generation and download</p>
             </div>
             
             <div className="p-8">
@@ -1402,12 +1402,12 @@ function ServiceBlueprintsPage() {
                   { step: "Download", screen: "Download & print" },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center flex-shrink-0">
-                    <div className="w-48 h-32 border-2 border-gray-300 rounded-lg bg-gray-50 flex flex-col items-center justify-center">
-                      <div className="w-10 h-10 bg-[#138808] text-white rounded-full flex items-center justify-center font-bold mb-2">
+                    <div className="w-48 h-32 border-2 border-border rounded-lg bg-background flex flex-col items-center justify-center">
+                      <div className="w-10 h-10 bg-green-700 text-white rounded-full flex items-center justify-center font-bold mb-2">
                         {index + 1}
                       </div>
-                      <div className="font-semibold text-sm text-gray-900">{item.step}</div>
-                      <div className="text-xs text-gray-600">{item.screen}</div>
+                      <div className="font-semibold text-sm text-foreground">{item.step}</div>
+                      <div className="text-xs text-muted-foreground">{item.screen}</div>
                     </div>
                     {index < 4 && (
                       <div className="w-8 h-0.5 bg-gray-300 mx-2 flex-shrink-0"></div>
@@ -1417,10 +1417,10 @@ function ServiceBlueprintsPage() {
               </div>
               
               <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <div className="font-semibold text-sm text-gray-900 mb-2">Components Used</div>
+                <div className="font-semibold text-sm text-foreground mb-2">Components Used</div>
                 <div className="flex flex-wrap gap-2">
                   {["Button", "Badge", "Modal", "Progress Bar", "Download Link", "Print Layout"].map((comp, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-white border border-green-200 rounded text-xs text-gray-700">
+                    <span key={idx} className="px-2 py-1 bg-card border border-green-200 rounded text-xs text-muted-foreground">
                       {comp}
                     </span>
                   ))}
@@ -1430,10 +1430,10 @@ function ServiceBlueprintsPage() {
           </div>
 
           {/* Status Tracking */}
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="text-lg font-bold text-gray-900">Blueprint 3: Application Status Tracking</h3>
-              <p className="text-sm text-gray-600 mt-1">Real-time status updates for submitted applications</p>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="text-lg font-bold text-foreground">Blueprint 3: Application Status Tracking</h3>
+              <p className="text-sm text-muted-foreground mt-1">Real-time status updates for submitted applications</p>
             </div>
             
             <div className="p-8">
@@ -1445,12 +1445,12 @@ function ServiceBlueprintsPage() {
                   { step: "Feedback", screen: "Rate service" },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center flex-shrink-0">
-                    <div className="w-48 h-32 border-2 border-gray-300 rounded-lg bg-gray-50 flex flex-col items-center justify-center">
+                    <div className="w-48 h-32 border-2 border-border rounded-lg bg-background flex flex-col items-center justify-center">
                       <div className="w-10 h-10 bg-[#FF9933] text-white rounded-full flex items-center justify-center font-bold mb-2">
                         {index + 1}
                       </div>
-                      <div className="font-semibold text-sm text-gray-900">{item.step}</div>
-                      <div className="text-xs text-gray-600">{item.screen}</div>
+                      <div className="font-semibold text-sm text-foreground">{item.step}</div>
+                      <div className="text-xs text-muted-foreground">{item.screen}</div>
                     </div>
                     {index < 3 && (
                       <div className="w-8 h-0.5 bg-gray-300 mx-2 flex-shrink-0"></div>
@@ -1460,10 +1460,10 @@ function ServiceBlueprintsPage() {
               </div>
               
               <div className="mt-6 p-4 bg-orange-50 border border-orange-200 rounded-lg">
-                <div className="font-semibold text-sm text-gray-900 mb-2">Components Used</div>
+                <div className="font-semibold text-sm text-foreground mb-2">Components Used</div>
                 <div className="flex flex-wrap gap-2">
                   {["Input", "Search", "Timeline", "Badge", "Card", "Link", "Rating"].map((comp, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-white border border-orange-200 rounded text-xs text-gray-700">
+                    <span key={idx} className="px-2 py-1 bg-card border border-orange-200 rounded text-xs text-muted-foreground">
                       {comp}
                     </span>
                   ))}

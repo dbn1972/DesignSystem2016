@@ -25,7 +25,7 @@ export function PaymentReceiptService({
   const receipt = loadPaymentReceiptDataOrFallback();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader
         icon={CreditCard}
         iconColor="bg-green-600"
@@ -36,7 +36,7 @@ export function PaymentReceiptService({
             <button
               type="button"
               onClick={() => window.print()}
-              className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded bg-white text-gray-700 text-sm font-bold hover:bg-gray-50"
+              className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded bg-card text-muted-foreground text-sm font-bold hover:bg-muted"
             >
               <Printer size={16} />
               Print
@@ -44,7 +44,7 @@ export function PaymentReceiptService({
             <button
               type="button"
               onClick={() => window.print()}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded bg-[#000080] text-white text-sm font-bold hover:bg-blue-900"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded bg-primary text-white text-sm font-bold hover:opacity-90"
             >
               <Download size={16} />
               Download PDF
@@ -58,22 +58,22 @@ export function PaymentReceiptService({
           <div className="w-16 h-16 mx-auto mb-3 bg-green-600 rounded-full flex items-center justify-center">
             <CheckCircle size={32} className="text-white" />
           </div>
-          <h2 className="text-xl font-bold text-gray-900">Payment Successful</h2>
-          <p className="text-sm text-gray-700 mt-1">Your payment has been recorded and linked to your application.</p>
+          <h2 className="text-xl font-bold text-foreground">Payment Successful</h2>
+          <p className="text-sm text-muted-foreground mt-1">Your payment has been recorded and linked to your application.</p>
         </section>
 
-        <section className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="px-6 py-4 border-b-2 border-gray-200 flex items-center justify-between gap-4 flex-wrap">
+        <section className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="px-6 py-4 border-b-2 border-border flex items-center justify-between gap-4 flex-wrap">
             <div>
-              <p className="text-xs text-gray-600">Transaction ID</p>
-              <p className="font-mono text-lg font-bold text-gray-900">{receipt.transactionId}</p>
+              <p className="text-xs text-muted-foreground">Transaction ID</p>
+              <p className="font-mono text-lg font-bold text-foreground">{receipt.transactionId}</p>
             </div>
             <div>
-              <p className="text-xs text-gray-600">Reference Number</p>
-              <p className="font-bold text-gray-900">{receipt.referenceNumber}</p>
+              <p className="text-xs text-muted-foreground">Reference Number</p>
+              <p className="font-bold text-foreground">{receipt.referenceNumber}</p>
             </div>
             <div>
-              <p className="text-xs text-gray-600">Status</p>
+              <p className="text-xs text-muted-foreground">Status</p>
               <p className="font-bold text-green-700">{receipt.paymentStatus}</p>
             </div>
           </div>
@@ -88,13 +88,13 @@ export function PaymentReceiptService({
               <ReceiptField label="Bank Reference" value={receipt.bankReference} />
             </div>
 
-            <div className="border-2 border-gray-200 rounded-lg p-4">
-              <h3 className="font-bold text-gray-900 mb-3">Amount Details</h3>
+            <div className="border-2 border-border rounded-lg p-4">
+              <h3 className="font-bold text-foreground mb-3">Amount Details</h3>
               <div className="space-y-2 text-sm">
                 <PaymentRow label="Application Fee" amount={receipt.applicationFee} />
                 <PaymentRow label="Processing Fee" amount={receipt.processingFee} />
                 <PaymentRow label="GST" amount={receipt.gst} />
-                <div className="border-t-2 border-gray-300 pt-2 mt-2">
+                <div className="border-t-2 border-border pt-2 mt-2">
                   <PaymentRow label="Total Paid" amount={receipt.total} strong />
                 </div>
               </div>
@@ -102,20 +102,20 @@ export function PaymentReceiptService({
           </div>
         </section>
 
-        <section className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-4">
-          <h3 className="font-bold text-gray-900">What&apos;s Next</h3>
-          <p className="text-sm text-gray-700">You can track progress, receive notifications, and download your issued document after approval.</p>
+        <section className="bg-card border-2 border-border rounded-lg p-6 space-y-4">
+          <h3 className="font-bold text-foreground">What&apos;s Next</h3>
+          <p className="text-sm text-muted-foreground">You can track progress, receive notifications, and download your issued document after approval.</p>
 
           <div className="grid sm:grid-cols-2 gap-3">
             <Link
               to={statusTrackerPath}
-              className="inline-flex items-center justify-center px-4 py-3 bg-[#138808] text-white rounded font-bold text-sm hover:bg-green-700"
+              className="inline-flex items-center justify-center px-4 py-3 bg-green-700 text-white rounded font-bold text-sm hover:bg-green-600"
             >
               Track Application Status
             </Link>
             <Link
               to={dashboardPath}
-              className="inline-flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded font-bold text-sm text-gray-700 hover:bg-gray-50"
+              className="inline-flex items-center justify-center px-4 py-3 border-2 border-border rounded font-bold text-sm text-muted-foreground hover:bg-muted"
             >
               Go to Dashboard
             </Link>
@@ -125,7 +125,7 @@ export function PaymentReceiptService({
             <div className="pt-2">
               <Link
                 to={codeDownloadPath}
-                className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-[#000080] hover:bg-gray-50"
+                className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-primary hover:bg-muted"
               >
                 <Download size={15} />
                 Download React code
@@ -143,8 +143,8 @@ export function PaymentReceiptService({
 function ReceiptField({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <p className="text-xs text-gray-600">{label}</p>
-      <p className="text-sm font-bold text-gray-900">{value}</p>
+      <p className="text-xs text-muted-foreground">{label}</p>
+      <p className="text-sm font-bold text-foreground">{value}</p>
     </div>
   );
 }
@@ -152,8 +152,8 @@ function ReceiptField({ label, value }: { label: string; value: string }) {
 function PaymentRow({ label, amount, strong }: { label: string; amount: number; strong?: boolean }) {
   return (
     <div className="flex items-center justify-between">
-      <span className={strong ? "font-bold text-gray-900" : "text-gray-700"}>{label}</span>
-      <span className={strong ? "font-bold text-gray-900" : "text-gray-900"}>₹{amount}</span>
+      <span className={strong ? "font-bold text-foreground" : "text-muted-foreground"}>{label}</span>
+      <span className={strong ? "font-bold text-foreground" : "text-foreground"}>₹{amount}</span>
     </div>
   );
 }

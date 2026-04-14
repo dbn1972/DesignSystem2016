@@ -68,8 +68,8 @@ export default function CertificateOfficerDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b-2 border-gray-300">
+    <div className="min-h-screen bg-background">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -77,14 +77,14 @@ export default function CertificateOfficerDashboard() {
                 <LayoutDashboard size={28} className="text-white" />
               </div>
               <div>
-                <div className="text-sm text-gray-600">Officer Portal</div>
-                <h1 className="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
+                <div className="text-sm text-muted-foreground">Officer Portal</div>
+                <h1 className="text-2xl font-bold text-foreground">Dashboard Overview</h1>
               </div>
             </div>
             <div className="text-right">
-              <div className="text-sm text-gray-600">Logged in as</div>
-              <div className="font-bold text-gray-900">Officer Suresh Mehta</div>
-              <div className="text-xs text-gray-600">District Office, Mumbai</div>
+              <div className="text-sm text-muted-foreground">Logged in as</div>
+              <div className="font-bold text-foreground">Officer Suresh Mehta</div>
+              <div className="text-xs text-muted-foreground">District Office, Mumbai</div>
             </div>
           </div>
         </div>
@@ -155,61 +155,61 @@ export default function CertificateOfficerDashboard() {
           <div className="col-span-8 space-y-6">
             
             {/* Quick Actions */}
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-              <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-                <h2 className="font-bold text-gray-900">Quick Actions</h2>
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+              <div className="bg-muted border-b-2 border-border px-8 py-4">
+                <h2 className="font-bold text-foreground">Quick Actions</h2>
               </div>
               <div className="p-8">
                 <div className="grid grid-cols-2 gap-4">
                   <Link
                     to="/reference-service/certificate/officer/cases"
-                    className="flex items-center gap-3 p-4 border-2 border-gray-300 rounded hover:border-[#000080] hover:bg-blue-50 transition-all"
+                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
                   >
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                       <Briefcase size={24} className="text-blue-700" />
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900">View Case Queue</div>
-                      <div className="text-xs text-gray-600">{stats.totalCases} total cases</div>
+                      <div className="font-bold text-foreground">View Case Queue</div>
+                      <div className="text-xs text-muted-foreground">{stats.totalCases} total cases</div>
                     </div>
                   </Link>
 
                   <Link
                     to="/reference-service/certificate/officer/cases"
-                    className="flex items-center gap-3 p-4 border-2 border-gray-300 rounded hover:border-[#000080] hover:bg-blue-50 transition-all"
+                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
                   >
                     <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                       <Clock size={24} className="text-orange-700" />
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900">Pending Applications</div>
-                      <div className="text-xs text-gray-600">{stats.pendingReview} awaiting review</div>
+                      <div className="font-bold text-foreground">Pending Applications</div>
+                      <div className="text-xs text-muted-foreground">{stats.pendingReview} awaiting review</div>
                     </div>
                   </Link>
 
                   <Link
                     to="/reference-service/certificate/officer/cases"
-                    className="flex items-center gap-3 p-4 border-2 border-gray-300 rounded hover:border-[#000080] hover:bg-blue-50 transition-all"
+                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
                   >
                     <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
                       <AlertCircle size={24} className="text-red-700" />
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900">Clarifications</div>
-                      <div className="text-xs text-gray-600">{stats.clarificationNeeded} responses received</div>
+                      <div className="font-bold text-foreground">Clarifications</div>
+                      <div className="text-xs text-muted-foreground">{stats.clarificationNeeded} responses received</div>
                     </div>
                   </Link>
 
                   <Link
                     to="/reference-service/certificate/officer/cases"
-                    className="flex items-center gap-3 p-4 border-2 border-gray-300 rounded hover:border-[#000080] hover:bg-blue-50 transition-all"
+                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
                   >
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                       <CheckCircle size={24} className="text-green-700" />
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900">Completed Cases</div>
-                      <div className="text-xs text-gray-600">{stats.completedToday} today</div>
+                      <div className="font-bold text-foreground">Completed Cases</div>
+                      <div className="text-xs text-muted-foreground">{stats.completedToday} today</div>
                     </div>
                   </Link>
                 </div>
@@ -217,17 +217,17 @@ export default function CertificateOfficerDashboard() {
             </div>
 
             {/* Recent Activity */}
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-              <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-                <h2 className="font-bold text-gray-900">Recent Activity</h2>
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+              <div className="bg-muted border-b-2 border-border px-8 py-4">
+                <h2 className="font-bold text-foreground">Recent Activity</h2>
               </div>
               <div className="divide-y-2 divide-gray-200">
                 {recentActivity.map((activity, idx) => (
                   <ActivityItem key={idx} activity={activity} />
                 ))}
               </div>
-              <div className="p-4 text-center border-t-2 border-gray-300">
-                <Link to="/reference-service/certificate/officer/cases" className="text-sm text-[#000080] font-bold hover:underline">
+              <div className="p-4 text-center border-t-2 border-border">
+                <Link to="/reference-service/certificate/officer/cases" className="text-sm text-primary font-bold hover:underline">
                   View All Activity →
                 </Link>
               </div>
@@ -239,9 +239,9 @@ export default function CertificateOfficerDashboard() {
           <aside className="col-span-4 space-y-6">
             
             {/* Urgent Cases */}
-            <div className="bg-white border-2 border-red-300 rounded-lg overflow-hidden">
+            <div className="bg-card border-2 border-red-300 rounded-lg overflow-hidden">
               <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
-                <h3 className="font-bold text-gray-900 flex items-center gap-2">
+                <h3 className="font-bold text-foreground flex items-center gap-2">
                   <AlertCircle size={18} className="text-red-600" />
                   Urgent Cases
                 </h3>
@@ -260,9 +260,9 @@ export default function CertificateOfficerDashboard() {
             </div>
 
             {/* Today's Schedule */}
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-              <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                <h3 className="font-bold text-gray-900">Today's Goals</h3>
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+              <div className="bg-muted border-b-2 border-border px-6 py-4">
+                <h3 className="font-bold text-foreground">Today's Goals</h3>
               </div>
               <div className="p-6 space-y-3">
                 <GoalItem label="Review pending applications" current={8} target={12} />
@@ -276,9 +276,9 @@ export default function CertificateOfficerDashboard() {
 
       </main>
 
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>Certificate Application Service • Officer Portal</div>
             <div>Dashboard</div>
           </div>
@@ -299,7 +299,7 @@ function StatCard({ icon, label, value, color, trend }: any) {
   return (
     <div className={`border-2 rounded-lg p-6 ${colors[color]}`}>
       <div className="flex items-start justify-between mb-4">
-        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+        <div className="w-12 h-12 bg-card rounded-lg flex items-center justify-center">
           {icon}
         </div>
       </div>
@@ -321,10 +321,10 @@ function MetricCard({ icon, label, value, subtext, color }: any) {
     <div className={`border-2 rounded-lg p-6 ${colors[color]}`}>
       <div className="flex items-center gap-2 mb-3">
         {icon}
-        <span className="text-sm font-bold text-gray-700">{label}</span>
+        <span className="text-sm font-bold text-muted-foreground">{label}</span>
       </div>
-      <div className="text-3xl font-bold text-gray-900 mb-1">{value}</div>
-      <div className="text-xs text-gray-600">{subtext}</div>
+      <div className="text-3xl font-bold text-foreground mb-1">{value}</div>
+      <div className="text-xs text-muted-foreground">{subtext}</div>
     </div>
   );
 }
@@ -337,15 +337,15 @@ function ActivityItem({ activity }: any) {
   };
 
   return (
-    <div className="p-6 hover:bg-gray-50 transition-colors">
+    <div className="p-6 hover:bg-background transition-colors">
       <div className="flex items-start gap-4">
         <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${typeColors[activity.type as keyof typeof typeColors]}`}></div>
         <div className="flex-1">
-          <div className="font-bold text-gray-900 mb-1">{activity.action}</div>
-          <div className="text-sm text-gray-700 mb-1">
+          <div className="font-bold text-foreground mb-1">{activity.action}</div>
+          <div className="text-sm text-muted-foreground mb-1">
             {activity.applicant} • {activity.refNumber}
           </div>
-          <div className="text-xs text-gray-600">{activity.time}</div>
+          <div className="text-xs text-muted-foreground">{activity.time}</div>
         </div>
       </div>
     </div>
@@ -356,13 +356,13 @@ function UrgentCaseCard({ caseItem }: any) {
   return (
     <div className="bg-red-50 border-2 border-red-300 rounded p-4">
       <div className="flex items-start justify-between mb-2">
-        <div className="font-bold text-gray-900 text-sm">{caseItem.applicant}</div>
+        <div className="font-bold text-foreground text-sm">{caseItem.applicant}</div>
         <span className="text-xs bg-red-600 text-white px-2 py-1 rounded font-bold">
           {caseItem.daysWaiting}d
         </span>
       </div>
-      <div className="text-xs text-gray-700 mb-2">{caseItem.certificateType}</div>
-      <div className="text-xs font-mono text-gray-600">{caseItem.refNumber}</div>
+      <div className="text-xs text-muted-foreground mb-2">{caseItem.certificateType}</div>
+      <div className="text-xs font-mono text-muted-foreground">{caseItem.refNumber}</div>
     </div>
   );
 }
@@ -373,12 +373,12 @@ function GoalItem({ label, current, target }: any) {
   return (
     <div>
       <div className="flex items-center justify-between text-sm mb-2">
-        <span className="text-gray-700">{label}</span>
-        <span className="font-bold text-gray-900">{current}/{target}</span>
+        <span className="text-muted-foreground">{label}</span>
+        <span className="font-bold text-foreground">{current}/{target}</span>
       </div>
       <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
         <div
-          className="h-full bg-[#000080] transition-all duration-300"
+          className="h-full bg-primary transition-all duration-300"
           style={{ width: `${percentage}%` }}
         ></div>
       </div>

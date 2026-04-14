@@ -14,7 +14,7 @@
  * ```
  */
 
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, MouseEvent } from 'react';
 import { cn } from '../../utils/cn';
 import { DrawerProps } from './Drawer.types';
 
@@ -39,7 +39,7 @@ export function Drawer({
   useEffect(() => {
     if (!open) return;
 
-    const handleEscape = (event: KeyboardEvent) => {
+    const handleEscape = ( event: globalThis.KeyboardEvent) => {
       if (closeOnEscape && event.key === 'Escape') {
         onClose();
       }
@@ -62,7 +62,7 @@ export function Drawer({
 
   if (!open) return null;
 
-  const handleBackdropClick = (event: React.MouseEvent) => {
+  const handleBackdropClick = (event: MouseEvent<HTMLDivElement>) => {
     if (closeOnBackdrop && event.target === event.currentTarget) {
       onClose();
     }

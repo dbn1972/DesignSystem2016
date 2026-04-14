@@ -82,7 +82,7 @@ export default function ComponentAspectRatioPage() {
 function Example() {
   return (
     <AspectRatio ratio="16/9" maxWidth="800px">
-      <div className="flex items-center justify-center bg-gray-100 w-full h-full rounded">
+      <div className="flex items-center justify-center bg-muted w-full h-full rounded">
         <span className="text-gray-500">16:9 Video Player</span>
       </div>
     </AspectRatio>
@@ -90,7 +90,7 @@ function Example() {
 }`,
           preview: (
             <AspectRatioPreview ratio="16/9" maxWidth="800px">
-              <div className="flex items-center justify-center bg-gray-100 w-full h-full rounded border-2 border-gray-300">
+              <div className="flex items-center justify-center bg-muted w-full h-full rounded border-2 border-border">
                 <span className="text-gray-500 font-medium">16:9 Video Player</span>
               </div>
             </AspectRatioPreview>
@@ -114,7 +114,7 @@ function Example() {
 }`,
           preview: (
             <AspectRatioPreview ratio="4/3" maxWidth="600px">
-              <div className="flex items-center justify-center bg-gray-100 w-full h-full rounded border-2 border-gray-300">
+              <div className="flex items-center justify-center bg-muted w-full h-full rounded border-2 border-border">
                 <span className="text-gray-500 font-medium">4:3 Image</span>
               </div>
             </AspectRatioPreview>
@@ -138,7 +138,7 @@ function Example() {
 }`,
           preview: (
             <AspectRatioPreview ratio="1/1" maxWidth="300px">
-              <div className="flex items-center justify-center bg-gray-100 w-full h-full rounded-full border-2 border-gray-300">
+              <div className="flex items-center justify-center bg-muted w-full h-full rounded-full border-2 border-border">
                 <span className="text-gray-500 font-medium">1:1</span>
               </div>
             </AspectRatioPreview>
@@ -196,11 +196,11 @@ function Example() {
             <AspectRatioPreview ratio="21/9">
               <div className="flex items-center justify-center bg-gray-200 w-full h-full rounded border-2 border-gray-400">
                 <div className="text-center">
-                  <svg className="w-12 h-12 mx-auto mb-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-12 h-12 mx-auto mb-2 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span className="text-gray-600 font-medium">21:9 Map Embed</span>
+                  <span className="text-muted-foreground font-medium">21:9 Map Embed</span>
                 </div>
               </div>
             </AspectRatioPreview>
@@ -214,8 +214,8 @@ function Example() {
 function Example() {
   return (
     <AspectRatio ratio="3/2" maxWidth="700px">
-      <div className="w-full h-full bg-white border-2 border-gray-300 rounded shadow-lg p-6">
-        <div className="text-gray-800 space-y-4">
+      <div className="w-full h-full bg-card border-2 border-border rounded shadow-lg p-6">
+        <div className="text-foreground space-y-4">
           <h3 className="text-xl font-bold">Document Title</h3>
           <div className="h-2 bg-gray-200 rounded w-3/4"></div>
           <div className="h-2 bg-gray-200 rounded w-full"></div>
@@ -227,8 +227,8 @@ function Example() {
 }`,
           preview: (
             <AspectRatioPreview ratio="3/2" maxWidth="700px">
-              <div className="w-full h-full bg-white border-2 border-gray-300 rounded shadow-lg p-6">
-                <div className="text-gray-800 space-y-4">
+              <div className="w-full h-full bg-card border-2 border-border rounded shadow-lg p-6">
+                <div className="text-foreground space-y-4">
                   <h3 className="text-xl font-bold">Document Title</h3>
                   <div className="h-2 bg-gray-200 rounded w-3/4"></div>
                   <div className="h-2 bg-gray-200 rounded w-full"></div>

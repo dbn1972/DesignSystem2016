@@ -24,9 +24,9 @@ import {
 
 export default function ConsentDeclarationPatterns() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
@@ -35,16 +35,16 @@ export default function ConsentDeclarationPatterns() {
                   <Shield size={32} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">
+                  <div className="text-sm text-muted-foreground mb-1">
                     UX4G Pattern Family
                   </div>
-                  <h1 className="text-3xl font-bold text-gray-900">
+                  <h1 className="text-3xl font-bold text-foreground">
                     Consent, Declaration & Legal Acknowledgment
                     Patterns
                   </h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 A structured pattern family for user consent,
                 legal declarations, acknowledgment flows, and
                 trust communication across government digital
@@ -57,27 +57,27 @@ export default function ConsentDeclarationPatterns() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">
+                  <span className="text-muted-foreground">
                     Pattern Family ID:{" "}
-                    <span className="font-bold text-gray-900">
+                    <span className="font-bold text-foreground">
                       UX4G-PAT-010
                     </span>
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">
+                  <span className="text-muted-foreground">
                     Version:{" "}
-                    <span className="font-bold text-gray-900">
+                    <span className="font-bold text-foreground">
                       1.0.0
                     </span>
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">
+                  <span className="text-muted-foreground">
                     Updated:{" "}
-                    <span className="font-bold text-gray-900">
+                    <span className="font-bold text-foreground">
                       April 2026
                     </span>
                   </span>
@@ -100,17 +100,17 @@ export default function ConsentDeclarationPatterns() {
       </header>
 
       {/* Overview Section */}
-      <section className="bg-white border-b border-gray-300">
+      <section className="bg-card border-b border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-12">
           <div className="grid grid-cols-3 gap-8 mb-12">
             <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
-                <Info size={24} className="text-[#000080]" />
-                <h3 className="font-bold text-gray-900">
+                <Info size={24} className="text-primary" />
+                <h3 className="font-bold text-foreground">
                   Purpose
                 </h3>
               </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Enable users to provide informed consent, make
                 declarations, acknowledge legal terms, and
                 manage their authorization preferences across
@@ -125,11 +125,11 @@ export default function ConsentDeclarationPatterns() {
                   size={24}
                   className="text-orange-600"
                 />
-                <h3 className="font-bold text-gray-900">
+                <h3 className="font-bold text-foreground">
                   Key Principles
                 </h3>
               </div>
-              <ul className="text-sm text-gray-700 space-y-2">
+              <ul className="text-sm text-muted-foreground space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle
                     size={14}
@@ -162,11 +162,11 @@ export default function ConsentDeclarationPatterns() {
                   size={24}
                   className="text-green-600"
                 />
-                <h3 className="font-bold text-gray-900">
+                <h3 className="font-bold text-foreground">
                   Compliance
                 </h3>
               </div>
-              <ul className="text-sm text-gray-700 space-y-2">
+              <ul className="text-sm text-muted-foreground space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle
                     size={14}
@@ -195,11 +195,11 @@ export default function ConsentDeclarationPatterns() {
           </div>
 
           {/* Pattern Categories */}
-          <div className="border-l-4 border-[#000080] pl-4 mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">
+          <div className="border-l-4 border-primary pl-4 mb-6">
+            <h2 className="text-2xl font-bold text-foreground">
               Pattern Collection
             </h2>
-            <p className="text-gray-600 mt-2">
+            <p className="text-muted-foreground mt-2">
               7 interconnected patterns covering consent
               capture, declarations, legal acknowledgment, and
               authorization management
@@ -216,7 +216,7 @@ export default function ConsentDeclarationPatterns() {
             to="/patterns/consent/consent-capture"
             icon={<CheckSquare size={32} />}
             iconBg="bg-blue-100"
-            iconColor="text-[#000080]"
+            iconColor="text-primary"
             patternId="UX4G-PAT-010-01"
             title="Consent Capture"
             description="Standard pattern for capturing user consent with clear explanation, opt-in/opt-out mechanisms, and confirmation. Used for data collection, processing authorization, and service-specific permissions."
@@ -345,7 +345,7 @@ export default function ConsentDeclarationPatterns() {
           />
 
           {/* Placeholder for future pattern */}
-          <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 flex items-center justify-center">
+          <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 flex items-center justify-center">
             <div className="text-center">
               <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <HelpCircle
@@ -353,7 +353,7 @@ export default function ConsentDeclarationPatterns() {
                   className="text-gray-400"
                 />
               </div>
-              <h3 className="font-bold text-gray-600 mb-2">
+              <h3 className="font-bold text-muted-foreground mb-2">
                 More Patterns Coming Soon
               </h3>
               <p className="text-sm text-gray-500">
@@ -370,13 +370,13 @@ export default function ConsentDeclarationPatterns() {
           <div className="bg-gradient-to-r from-green-100 to-blue-100 border-b-2 border-green-300 px-8 py-4">
             <div className="flex items-center gap-3">
               <Eye size={24} className="text-green-700" />
-              <h2 className="font-bold text-gray-900 text-xl">
+              <h2 className="font-bold text-foreground text-xl">
                 Interactive Pattern Demonstrations
               </h2>
             </div>
           </div>
           <div className="p-8">
-            <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
               Explore fully interactive demonstrations of key
               consent and declaration patterns. Each demo shows
               complete user flows with multiple states,
@@ -386,7 +386,7 @@ export default function ConsentDeclarationPatterns() {
               {/* Consent Capture Demo */}
               <Link
                 to="/consent-capture-demo"
-                className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-green-600 hover:shadow-lg transition-all group"
+                className="bg-card border-2 border-border rounded-lg p-6 hover:border-green-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
                   <CheckSquare
@@ -394,10 +394,10 @@ export default function ConsentDeclarationPatterns() {
                     className="text-green-700"
                   />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-green-700 transition-colors">
                   Consent Capture Demo
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Interactive demo showing basic consent capture
                   with granular options, clear explanations, and
                   decline paths.
@@ -414,15 +414,15 @@ export default function ConsentDeclarationPatterns() {
               {/* Guardian/Proxy Consent Demo */}
               <Link
                 to="/guardian-proxy-consent-demo"
-                className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-teal-600 hover:shadow-lg transition-all group"
+                className="bg-card border-2 border-border rounded-lg p-6 hover:border-teal-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal-200 transition-colors">
                   <Users size={24} className="text-teal-700" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-teal-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-teal-700 transition-colors">
                   Guardian/Proxy Consent
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Complete flow for guardian authorization
                   including relationship verification and
                   multiple scenarios.
@@ -439,15 +439,15 @@ export default function ConsentDeclarationPatterns() {
               {/* Consent Withdrawal Demo */}
               <Link
                 to="/consent-withdrawal-demo"
-                className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all group"
+                className="bg-card border-2 border-border rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-200 transition-colors">
                   <UserX size={24} className="text-red-700" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-red-700 transition-colors">
                   Consent Withdrawal
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Interactive demonstration of consent review
                   and withdrawal with impact explanations and
                   restricted scenarios.
@@ -464,7 +464,7 @@ export default function ConsentDeclarationPatterns() {
               {/* Data Sharing Consent Demo */}
               <Link
                 to="/data-sharing-consent-demo"
-                className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-orange-600 hover:shadow-lg transition-all group"
+                className="bg-card border-2 border-border rounded-lg p-6 hover:border-orange-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
                   <Database
@@ -472,10 +472,10 @@ export default function ConsentDeclarationPatterns() {
                     className="text-orange-700"
                   />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-orange-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-orange-700 transition-colors">
                   Data Sharing Consent
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Full data sharing flow with recipient details,
                   purpose explanations, and granular permission
                   controls.
@@ -492,15 +492,15 @@ export default function ConsentDeclarationPatterns() {
               {/* Privacy Notice Demo */}
               <Link
                 to="/privacy-notice-demo"
-                className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-purple-600 hover:shadow-lg transition-all group"
+                className="bg-card border-2 border-border rounded-lg p-6 hover:border-purple-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
                   <Eye size={24} className="text-purple-700" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-purple-700 transition-colors">
                   Privacy Notice Acknowledgment
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Privacy notice presentation with blocking
                   behavior, acknowledgment vs consent
                   distinction, and help resources.
@@ -517,7 +517,7 @@ export default function ConsentDeclarationPatterns() {
               {/* Terms Acceptance Demo */}
               <Link
                 to="/terms-acceptance-demo"
-                className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-indigo-600 hover:shadow-lg transition-all group"
+                className="bg-card border-2 border-border rounded-lg p-6 hover:border-indigo-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-200 transition-colors">
                   <FileText
@@ -525,10 +525,10 @@ export default function ConsentDeclarationPatterns() {
                     className="text-indigo-700"
                   />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-indigo-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-indigo-700 transition-colors">
                   Terms Acceptance
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Complete terms acceptance flow with
                   summary-first approach, expandable sections,
                   and decline options.
@@ -545,15 +545,15 @@ export default function ConsentDeclarationPatterns() {
               {/* Declaration Before Submission Demo */}
               <Link
                 to="/declaration-before-submission-demo"
-                className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-green-600 hover:shadow-lg transition-all group"
+                className="bg-card border-2 border-border rounded-lg p-6 hover:border-green-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
                   <CheckCircle size={24} className="text-green-700" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-green-700 transition-colors">
                   Declaration Before Submission
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Pre-submission declaration flow with review screen, declaration points, and submission confirmation.
                 </p>
                 <div className="flex items-center gap-2 text-xs text-green-700 font-bold">
@@ -568,15 +568,15 @@ export default function ConsentDeclarationPatterns() {
               {/* Fee Payment Demo */}
               <Link
                 to="/fee-payment-demo"
-                className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-blue-600 hover:shadow-lg transition-all group"
+                className="bg-card border-2 border-border rounded-lg p-6 hover:border-blue-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
                   <CreditCard size={24} className="text-blue-700" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-blue-700 transition-colors">
                   Fee Payment Flow
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Complete payment journey from fee summary to receipt with multiple payment methods and secure processing.
                 </p>
                 <div className="flex items-center gap-2 text-xs text-blue-700 font-bold">
@@ -591,15 +591,15 @@ export default function ConsentDeclarationPatterns() {
               {/* Payment Failure & Retry Demo */}
               <Link
                 to="/payment-failure-retry-demo"
-                className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all group"
+                className="bg-card border-2 border-border rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-200 transition-colors">
                   <XCircle size={24} className="text-red-700" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-red-700 transition-colors">
                   Payment Failure & Retry
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Recovery pattern for failed payments with retry flows, alternate methods, pending states, and support escalation.
                 </p>
                 <div className="flex items-center gap-2 text-xs text-red-700 font-bold">
@@ -615,9 +615,9 @@ export default function ConsentDeclarationPatterns() {
         </section>
 
         {/* Cross-Pattern Guidance */}
-        <section className="mt-16 bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-            <h2 className="font-bold text-gray-900 text-xl">
+        <section className="mt-16 bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-8 py-4">
+            <h2 className="font-bold text-foreground text-xl">
               Cross-Pattern Guidance
             </h2>
           </div>
@@ -625,10 +625,10 @@ export default function ConsentDeclarationPatterns() {
             <div className="grid grid-cols-2 gap-8">
               {/* Design Principles */}
               <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                   <Settings
                     size={20}
-                    className="text-[#000080]"
+                    className="text-primary"
                   />
                   Universal Design Principles
                 </h3>
@@ -645,8 +645,8 @@ export default function ConsentDeclarationPatterns() {
 
               {/* Implementation Standards */}
               <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Lock size={20} className="text-[#000080]" />
+                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Lock size={20} className="text-primary" />
                   Implementation Standards
                 </h3>
                 <div className="space-y-3 text-sm">
@@ -662,10 +662,10 @@ export default function ConsentDeclarationPatterns() {
 
               {/* Legal Requirements */}
               <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                   <Shield
                     size={20}
-                    className="text-[#000080]"
+                    className="text-primary"
                   />
                   Legal & Compliance Requirements
                 </h3>
@@ -681,8 +681,8 @@ export default function ConsentDeclarationPatterns() {
 
               {/* Accessibility Requirements */}
               <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Globe size={20} className="text-[#000080]" />
+                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Globe size={20} className="text-primary" />
                   Accessibility Requirements
                 </h3>
                 <div className="space-y-3 text-sm">
@@ -703,13 +703,13 @@ export default function ConsentDeclarationPatterns() {
           <div className="flex items-start gap-4">
             <HelpCircle
               size={32}
-              className="text-[#000080] flex-shrink-0"
+              className="text-primary flex-shrink-0"
             />
             <div className="flex-1">
-              <h2 className="font-bold text-gray-900 text-xl mb-2">
+              <h2 className="font-bold text-foreground text-xl mb-2">
                 Need Help Implementing These Patterns?
               </h2>
-              <p className="text-sm text-gray-700 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Our team provides implementation support, code
                 examples, Figma components, and compliance
                 guidance for all consent and declaration
@@ -718,19 +718,19 @@ export default function ConsentDeclarationPatterns() {
               <div className="flex items-center gap-4">
                 <a
                   href="#"
-                  className="px-6 py-3 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 transition-colors"
+                  className="px-6 py-3 bg-primary text-white font-bold rounded text-sm hover:opacity-90 transition-colors"
                 >
                   Contact Support Team
                 </a>
                 <a
                   href="#"
-                  className="px-6 py-3 border-2 border-[#000080] bg-white text-[#000080] font-bold rounded text-sm hover:bg-blue-50 transition-colors"
+                  className="px-6 py-3 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 transition-colors"
                 >
                   View Code Examples
                 </a>
                 <a
                   href="#"
-                  className="text-sm text-[#000080] font-bold hover:underline"
+                  className="text-sm text-primary font-bold hover:underline"
                 >
                   Download Figma Kit →
                 </a>
@@ -741,9 +741,9 @@ export default function ConsentDeclarationPatterns() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>
               UX4G Design System Platform • Consent, Declaration
               & Legal Acknowledgment Patterns
@@ -786,10 +786,10 @@ function PatternCard({
   return (
     <Link
       to={to}
-      className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden hover:border-[#000080] hover:shadow-lg transition-all group"
+      className="bg-card border-2 border-border rounded-lg overflow-hidden hover:border-primary hover:shadow-lg transition-all group"
     >
       {/* Header */}
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+      <div className="bg-muted border-b-2 border-border px-6 py-4">
         <div className="flex items-center gap-4">
           <div
             className={`w-16 h-16 ${iconBg} rounded flex items-center justify-center flex-shrink-0`}
@@ -797,29 +797,29 @@ function PatternCard({
             <div className={iconColor}>{icon}</div>
           </div>
           <div className="flex-1">
-            <div className="text-xs text-gray-600 mb-1">
+            <div className="text-xs text-muted-foreground mb-1">
               {patternId}
             </div>
-            <h3 className="font-bold text-gray-900 group-hover:text-[#000080] transition-colors">
+            <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
               {title}
             </h3>
           </div>
           <ArrowRight
             size={20}
-            className="text-gray-400 group-hover:text-[#000080] group-hover:translate-x-1 transition-all"
+            className="text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all"
           />
         </div>
       </div>
 
       {/* Content */}
       <div className="p-6">
-        <p className="text-sm text-gray-700 leading-relaxed mb-4">
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
           {description}
         </p>
 
         {/* Features */}
         <div className="mb-4">
-          <h4 className="text-xs font-bold text-gray-600 uppercase mb-2">
+          <h4 className="text-xs font-bold text-muted-foreground uppercase mb-2">
             Key Features
           </h4>
           <div className="grid grid-cols-2 gap-2">
@@ -832,7 +832,7 @@ function PatternCard({
                   size={14}
                   className="text-green-600 mt-0.5 flex-shrink-0"
                 />
-                <span className="text-xs text-gray-700">
+                <span className="text-xs text-muted-foreground">
                   {feature}
                 </span>
               </div>
@@ -841,21 +841,21 @@ function PatternCard({
         </div>
 
         {/* Metadata */}
-        <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
+        <div className="flex items-center gap-4 pt-4 border-t border-border">
           <div className="flex items-center gap-2 text-xs">
             <Settings size={14} className="text-gray-500" />
-            <span className="text-gray-600">
+            <span className="text-muted-foreground">
               Complexity:{" "}
-              <span className="font-bold text-gray-900">
+              <span className="font-bold text-foreground">
                 {complexity}
               </span>
             </span>
           </div>
           <div className="flex items-center gap-2 text-xs">
             <Clock size={14} className="text-gray-500" />
-            <span className="text-gray-600">
+            <span className="text-muted-foreground">
               Est:{" "}
-              <span className="font-bold text-gray-900">
+              <span className="font-bold text-foreground">
                 {estimatedTime}
               </span>
             </span>
@@ -875,7 +875,7 @@ function GuidanceItem({ text }: { text: string }) {
         size={16}
         className="text-green-600 mt-0.5 flex-shrink-0"
       />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }

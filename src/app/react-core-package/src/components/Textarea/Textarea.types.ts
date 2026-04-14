@@ -2,7 +2,7 @@ import { TextareaHTMLAttributes } from 'react';
 import { FormFieldProps } from '../../types/common';
 
 export interface TextareaProps
-  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'>,
+  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size' | 'aria-invalid' | 'aria-required'>,
     FormFieldProps {
   /**
    * Textarea size variant

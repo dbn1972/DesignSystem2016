@@ -128,13 +128,18 @@ export class UX4GRating extends UX4GFormElement {
   }
 
   /**
-   * Set rating value
+   * Set rating value (numeric)
    */
-  set value(val: number) {
+  set value(val: number | string) {
     this.setAttribute('value', String(val));
   }
 
-  get value(): number {
+  get value(): string {
+    return this._value || '0';
+  }
+
+  /** Numeric convenience getter */
+  get numericValue(): number {
     return parseFloat(this._value || '0');
   }
 

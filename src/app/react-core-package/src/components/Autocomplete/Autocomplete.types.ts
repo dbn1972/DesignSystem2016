@@ -24,7 +24,7 @@ export interface AutocompleteOption {
 }
 
 export interface AutocompleteProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'>,
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange' | 'value' | 'defaultValue' | 'onSelect' | 'aria-invalid' | 'aria-required'>,
     FormFieldProps,
     Omit<ControlledValueProps<string>, 'onChange'> {
   /**

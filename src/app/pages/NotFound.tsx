@@ -9,15 +9,15 @@ export default function NotFound() {
           <AlertTriangle className="text-yellow-600" size={40} />
         </div>
         
-        <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Page Not Found</h2>
-        <p className="text-lg text-gray-600 mb-8">
+        <h1 className="text-6xl font-bold text-foreground mb-4">404</h1>
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Page Not Found</h2>
+        <p className="text-lg text-muted-foreground mb-8">
           The page you're looking for doesn't exist or has been moved.
         </p>
         
         <Link 
           to="/"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[#000080] text-white rounded-lg hover:bg-[#000060] transition-colors font-semibold"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:opacity-90 transition-colors font-semibold"
         >
           <Home size={20} />
           Return to Home

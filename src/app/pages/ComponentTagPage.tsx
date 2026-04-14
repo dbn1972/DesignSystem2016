@@ -14,31 +14,31 @@ const TagPreview = ({ variant, size, closeable, outlined, children, icon, onClos
   const variantClasses =
     variant === 'primary' ? (
       outlined
-        ? 'bg-white text-[#005196] border border-[#005196]'
+        ? 'bg-card text-[#005196] border border-[#005196]'
         : 'bg-[#005196] text-white border border-[#005196]'
     ) :
     variant === 'success' ? (
       outlined
-        ? 'bg-white text-[#008800] border border-[#008800]'
+        ? 'bg-card text-[#008800] border border-[#008800]'
         : 'bg-[#008800] text-white border border-[#008800]'
     ) :
     variant === 'warning' ? (
       outlined
-        ? 'bg-white text-[#f59e0b] border border-[#f59e0b]'
+        ? 'bg-card text-[#f59e0b] border border-[#f59e0b]'
         : 'bg-[#f59e0b] text-white border border-[#f59e0b]'
     ) :
     variant === 'error' ? (
       outlined
-        ? 'bg-white text-[#dc2626] border border-[#dc2626]'
+        ? 'bg-card text-[#dc2626] border border-[#dc2626]'
         : 'bg-[#dc2626] text-white border border-[#dc2626]'
     ) :
     variant === 'info' ? (
       outlined
-        ? 'bg-white text-[#0284c7] border border-[#0284c7]'
+        ? 'bg-card text-[#0284c7] border border-[#0284c7]'
         : 'bg-[#0284c7] text-white border border-[#0284c7]'
     ) :
     outlined
-      ? 'bg-white text-[#525252] border border-[#737373]'
+      ? 'bg-card text-[#525252] border border-[#737373]'
       : 'bg-[#e5e5e5] text-[#262626] border border-transparent';
 
   const sizeClasses =
@@ -292,7 +292,7 @@ export default function ComponentTagPage() {
       reactCode={{
         component: 'import React, { forwardRef } from \'react\';\nimport { cn } from \'../../utils/cn\';\nimport { tagVariants } from \'./tag.variants\';\nimport { TagProps } from \'./Tag.types\';\nimport { X } from \'lucide-react\';\n\nexport const Tag = forwardRef<HTMLSpanElement, TagProps>(\n  (\n    {\n      children,\n      className,\n      variant = \'default\',\n      size = \'md\',\n      outlined = false,\n      closeable = false,\n      onClose,\n      icon,\n      disabled = false,\n      onClick,\n      \'aria-label\': ariaLabel,\n      ...props\n    },\n    ref\n  ) => {\n    const isInteractive = !!onClick || closeable;\n    const isDisabled = disabled;\n\n    const handleClose = (e: React.MouseEvent) => {\n      e.stopPropagation();\n      if (!isDisabled && onClose) {\n        onClose();\n      }\n    };\n\n    const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {\n      if (!isDisabled && onClick) {\n        onClick(e);\n      }\n    };\n\n    const TagElement = isInteractive ? \'button\' : \'span\';\n    const componentProps = isInteractive\n      ? {\n          type: \'button\' as const,\n          disabled: isDisabled,\n          onClick: handleClick,\n        }\n      : {};\n\n    return (\n      <TagElement\n        ref={ref as any}\n        className={cn(\n          tagVariants({ variant, size, outlined, disabled }),\n          isInteractive && \'cursor-pointer hover:opacity-90\',\n          className\n        )}\n        aria-label={ariaLabel || (typeof children === \'string\' ? children : undefined)}\n        aria-disabled={isDisabled}\n        {...componentProps}\n        {...props}\n      >\n        {icon && (\n          <span className="inline-flex shrink-0" aria-hidden="true">\n            {icon}\n          </span>\n        )}\n        <span className="inline-flex items-center">{children}</span>\n        {closeable && (\n          <button\n            type="button"\n            className="inline-flex shrink-0 items-center justify-center w-4 h-4 rounded-full hover:bg-black hover:bg-opacity-10 focus:outline-none focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:ring-current ml-1 -mr-1"\n            onClick={handleClose}\n            disabled={isDisabled}\n            aria-label={ariaLabel ? \`Remove \${ariaLabel}\` : \'Remove tag\'}\n          >\n            <X size={12} />\n          </button>\n        )}\n      </TagElement>\n    );\n  }\n);\n\nTag.displayName = \'Tag\';',
         types: 'export interface TagProps \n  extends Omit<React.HTMLAttributes<HTMLSpanElement>, \'onClick\'>,\n          TagVariantProps {\n  children?: React.ReactNode;\n  closeable?: boolean;\n  onClose?: () => void;\n  icon?: React.ReactNode;\n  disabled?: boolean;\n  onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;\n}\n\nexport interface TagVariantProps {\n  variant?: \'default\' | \'primary\' | \'success\' | \'warning\' | \'error\' | \'info\';\n  size?: \'sm\' | \'md\' | \'lg\';\n  outlined?: boolean;\n}',
-        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const tagVariants = cva(\n  [\n    \'inline-flex items-center gap-1.5\',\n    \'font-medium whitespace-nowrap\',\n    \'rounded-full\',\n    \'transition-all duration-150 ease-in-out\',\n    \'border\',\n  ],\n  {\n    variants: {\n      variant: {\n        default: [],\n        primary: [],\n        success: [],\n        warning: [],\n        error: [],\n        info: [],\n      },\n      size: {\n        sm: [\'h-6 px-2 py-0.5 text-xs\'],\n        md: [\'h-7 px-3 py-1 text-sm\'],\n        lg: [\'h-9 px-4 py-1.5 text-base\'],\n      },\n      outlined: {\n        true: [],\n        false: [],\n      },\n      disabled: {\n        true: [\'opacity-60 cursor-not-allowed\'],\n        false: [],\n      },\n    },\n    compoundVariants: [\n      {\n        variant: \'default\',\n        outlined: false,\n        class: \'bg-[#e5e5e5] text-[#262626] border-transparent\',\n      },\n      {\n        variant: \'default\',\n        outlined: true,\n        class: \'bg-white text-[#525252] border-[#737373]\',\n      },\n      {\n        variant: \'primary\',\n        outlined: false,\n        class: \'bg-[#005196] text-white border-[#005196]\',\n      },\n      {\n        variant: \'primary\',\n        outlined: true,\n        class: \'bg-white text-[#005196] border-[#005196]\',\n      },\n      {\n        variant: \'success\',\n        outlined: false,\n        class: \'bg-[#008800] text-white border-[#008800]\',\n      },\n      {\n        variant: \'success\',\n        outlined: true,\n        class: \'bg-white text-[#008800] border-[#008800]\',\n      },\n      {\n        variant: \'warning\',\n        outlined: false,\n        class: \'bg-[#f59e0b] text-white border-[#f59e0b]\',\n      },\n      {\n        variant: \'warning\',\n        outlined: true,\n        class: \'bg-white text-[#f59e0b] border-[#f59e0b]\',\n      },\n      {\n        variant: \'error\',\n        outlined: false,\n        class: \'bg-[#dc2626] text-white border-[#dc2626]\',\n      },\n      {\n        variant: \'error\',\n        outlined: true,\n        class: \'bg-white text-[#dc2626] border-[#dc2626]\',\n      },\n      {\n        variant: \'info\',\n        outlined: false,\n        class: \'bg-[#0284c7] text-white border-[#0284c7]\',\n      },\n      {\n        variant: \'info\',\n        outlined: true,\n        class: \'bg-white text-[#0284c7] border-[#0284c7]\',\n      },\n    ],\n    defaultVariants: {\n      variant: \'default\',\n      size: \'md\',\n      outlined: false,\n      disabled: false,\n    },\n  }\n);\n\nexport type TagVariantProps = VariantProps<typeof tagVariants>;',
+        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const tagVariants = cva(\n  [\n    \'inline-flex items-center gap-1.5\',\n    \'font-medium whitespace-nowrap\',\n    \'rounded-full\',\n    \'transition-all duration-150 ease-in-out\',\n    \'border\',\n  ],\n  {\n    variants: {\n      variant: {\n        default: [],\n        primary: [],\n        success: [],\n        warning: [],\n        error: [],\n        info: [],\n      },\n      size: {\n        sm: [\'h-6 px-2 py-0.5 text-xs\'],\n        md: [\'h-7 px-3 py-1 text-sm\'],\n        lg: [\'h-9 px-4 py-1.5 text-base\'],\n      },\n      outlined: {\n        true: [],\n        false: [],\n      },\n      disabled: {\n        true: [\'opacity-60 cursor-not-allowed\'],\n        false: [],\n      },\n    },\n    compoundVariants: [\n      {\n        variant: \'default\',\n        outlined: false,\n        class: \'bg-[#e5e5e5] text-[#262626] border-transparent\',\n      },\n      {\n        variant: \'default\',\n        outlined: true,\n        class: \'bg-card text-[#525252] border-[#737373]\',\n      },\n      {\n        variant: \'primary\',\n        outlined: false,\n        class: \'bg-[#005196] text-white border-[#005196]\',\n      },\n      {\n        variant: \'primary\',\n        outlined: true,\n        class: \'bg-card text-[#005196] border-[#005196]\',\n      },\n      {\n        variant: \'success\',\n        outlined: false,\n        class: \'bg-[#008800] text-white border-[#008800]\',\n      },\n      {\n        variant: \'success\',\n        outlined: true,\n        class: \'bg-card text-[#008800] border-[#008800]\',\n      },\n      {\n        variant: \'warning\',\n        outlined: false,\n        class: \'bg-[#f59e0b] text-white border-[#f59e0b]\',\n      },\n      {\n        variant: \'warning\',\n        outlined: true,\n        class: \'bg-card text-[#f59e0b] border-[#f59e0b]\',\n      },\n      {\n        variant: \'error\',\n        outlined: false,\n        class: \'bg-[#dc2626] text-white border-[#dc2626]\',\n      },\n      {\n        variant: \'error\',\n        outlined: true,\n        class: \'bg-card text-[#dc2626] border-[#dc2626]\',\n      },\n      {\n        variant: \'info\',\n        outlined: false,\n        class: \'bg-[#0284c7] text-white border-[#0284c7]\',\n      },\n      {\n        variant: \'info\',\n        outlined: true,\n        class: \'bg-card text-[#0284c7] border-[#0284c7]\',\n      },\n    ],\n    defaultVariants: {\n      variant: \'default\',\n      size: \'md\',\n      outlined: false,\n      disabled: false,\n    },\n  }\n);\n\nexport type TagVariantProps = VariantProps<typeof tagVariants>;',
       }}
 
       angularCode={{
@@ -405,32 +405,32 @@ export default function ComponentTagPage() {
         {
           title: 'Department and Agency Tags',
           description: 'Categorize content, documents, or services by government department or agency affiliation.',
-          example: 'Use primary outlined tags with department icons to label documents: "Department of Defense", "Treasury", "Health and Human Services".',
+          implementation: 'Use primary outlined tags with department icons to label documents: "Department of Defense", "Treasury", "Health and Human Services".',
         },
         {
           title: 'Application Status Labels',
           description: 'Display the current status of applications, permits, or requests throughout their lifecycle.',
-          example: 'Use success tags for "Approved", warning tags for "Pending Review", info tags for "In Progress", and error tags for "Rejected".',
+          implementation: 'Use success tags for "Approved", warning tags for "Pending Review", info tags for "In Progress", and error tags for "Rejected".',
         },
         {
           title: 'Service Category Filters',
           description: 'Allow users to filter services or content by category with closeable tags.',
-          example: 'Use closeable primary tags for active filters: "Veterans Services", "Healthcare", "Education" that users can remove to update results.',
+          implementation: 'Use closeable primary tags for active filters: "Veterans Services", "Healthcare", "Education" that users can remove to update results.',
         },
         {
           title: 'Security Classification Badges',
           description: 'Indicate security clearance levels or document classification status.',
-          example: 'Use error tags for "Classified", warning tags for "Confidential", info tags for "Internal Use", and success tags for "Public".',
+          implementation: 'Use error tags for "Classified", warning tags for "Confidential", info tags for "Internal Use", and success tags for "Public".',
         },
         {
           title: 'Multi-Language Content Tags',
           description: 'Identify available language translations for forms and documents.',
-          example: 'Use default outlined tags to show available languages: "English", "Spanish", "French", "Chinese".',
+          implementation: 'Use default outlined tags to show available languages: "English", "Spanish", "French", "Chinese".',
         },
         {
           title: 'Benefit Eligibility Indicators',
           description: 'Show which benefits or services a user qualifies for based on their profile.',
-          example: 'Use success tags with checkmark icons for "Eligible" benefits and default tags for "Not Eligible" programs.',
+          implementation: 'Use success tags with checkmark icons for "Eligible" benefits and default tags for "Not Eligible" programs.',
         },
       ]}
     />

@@ -37,11 +37,11 @@ export default function SmartSuggestionsPattern() {
     : districts.filter(d => d.popular);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <header className="bg-gradient-to-br from-purple-50 via-white to-pink-50 border-b-4 border-[#FF9933]">
         <div className="max-w-[1400px] mx-auto px-12 py-16">
           <div className="mb-6">
-            <Link to="/patterns/data-input" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/patterns/data-input" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Data Input Patterns
             </Link>
           </div>
@@ -51,11 +51,11 @@ export default function SmartSuggestionsPattern() {
                 <Lightbulb size={40} className="text-white" />
               </div>
               <div>
-                <div className="text-sm font-bold text-[#000080] mb-2 uppercase tracking-wide">Data Input Pattern</div>
-                <h1 className="text-5xl font-bold text-gray-900">Smart Suggestions</h1>
+                <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Data Input Pattern</div>
+                <h1 className="text-5xl font-bold text-foreground">Smart Suggestions</h1>
               </div>
             </div>
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            <p className="text-xl text-muted-foreground leading-relaxed mb-6">
               Context-aware autocomplete that suggests values based on user behavior, popular choices,
               and intelligent prediction to accelerate form completion.
             </p>
@@ -67,8 +67,8 @@ export default function SmartSuggestionsPattern() {
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
             <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6 mb-6">
-              <h2 className="font-bold text-gray-900 mb-2">Interactive Demo</h2>
-              <p className="text-sm text-gray-700">
+              <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
+              <p className="text-sm text-muted-foreground">
                 Type in the fields below to see context-aware suggestions based on popular choices and smart prediction.
               </p>
             </div>
@@ -77,10 +77,10 @@ export default function SmartSuggestionsPattern() {
             <div className="space-y-6">
 
               {/* Example 1: Occupation with Categories */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <h3 className="font-bold text-gray-900 mb-4">Example 1: Categorized Suggestions</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <h3 className="font-bold text-foreground mb-4">Example 1: Categorized Suggestions</h3>
                 <div className="relative">
-                  <label className="block font-bold text-gray-900 mb-2">
+                  <label className="block font-bold text-foreground mb-2">
                     Occupation <span className="text-red-600">*</span>
                   </label>
                   <div className="relative">
@@ -94,13 +94,13 @@ export default function SmartSuggestionsPattern() {
                       onFocus={() => setShowSuggestions(true)}
                       onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
                       placeholder="Start typing your occupation..."
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded focus:border-[#000080] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                     />
                     <Search size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
                   </div>
 
                   {showSuggestions && filteredOccupations.length > 0 && (
-                    <div className="absolute z-10 w-full mt-2 bg-white border-2 border-gray-300 rounded-lg shadow-lg max-h-80 overflow-y-auto">
+                    <div className="absolute z-10 w-full mt-2 bg-card border-2 border-border rounded-lg shadow-lg max-h-80 overflow-y-auto">
                       {filteredOccupations.map((occ, idx) => (
                         <button
                           key={idx}
@@ -108,11 +108,11 @@ export default function SmartSuggestionsPattern() {
                             setOccupation(occ.value);
                             setShowSuggestions(false);
                           }}
-                          className="w-full px-4 py-3 text-left hover:bg-blue-50 border-b border-gray-200 last:border-b-0 flex items-center justify-between"
+                          className="w-full px-4 py-3 text-left hover:bg-blue-50 border-b border-border last:border-b-0 flex items-center justify-between"
                         >
                           <div>
-                            <div className="font-bold text-gray-900">{occ.value}</div>
-                            <div className="text-xs text-gray-600">{occ.category}</div>
+                            <div className="font-bold text-foreground">{occ.value}</div>
+                            <div className="text-xs text-muted-foreground">{occ.category}</div>
                           </div>
                           {occ.frequency === "high" && (
                             <div className="flex items-center gap-1 text-xs text-green-600">
@@ -125,16 +125,16 @@ export default function SmartSuggestionsPattern() {
                     </div>
                   )}
                 </div>
-                <div className="text-xs text-gray-600 mt-2">
+                <div className="text-xs text-muted-foreground mt-2">
                   Try typing: "Teacher", "Software", "Doctor"
                 </div>
               </div>
 
               {/* Example 2: Location with Popular First */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <h3 className="font-bold text-gray-900 mb-4">Example 2: Popular Choices First</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <h3 className="font-bold text-foreground mb-4">Example 2: Popular Choices First</h3>
                 <div className="relative">
-                  <label className="block font-bold text-gray-900 mb-2">
+                  <label className="block font-bold text-foreground mb-2">
                     District <span className="text-red-600">*</span>
                   </label>
                   <div className="relative">
@@ -148,15 +148,15 @@ export default function SmartSuggestionsPattern() {
                       onFocus={() => setShowDistrictSuggestions(true)}
                       onBlur={() => setTimeout(() => setShowDistrictSuggestions(false), 200)}
                       placeholder="Select or type your district..."
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded focus:border-[#000080] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                     />
                     <MapPin size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
                   </div>
 
                   {showDistrictSuggestions && (
-                    <div className="absolute z-10 w-full mt-2 bg-white border-2 border-gray-300 rounded-lg shadow-lg max-h-80 overflow-y-auto">
+                    <div className="absolute z-10 w-full mt-2 bg-card border-2 border-border rounded-lg shadow-lg max-h-80 overflow-y-auto">
                       {!district && (
-                        <div className="px-4 py-2 bg-blue-50 border-b-2 border-blue-200 text-xs text-gray-700 font-bold">
+                        <div className="px-4 py-2 bg-blue-50 border-b-2 border-blue-200 text-xs text-muted-foreground font-bold">
                           POPULAR DISTRICTS
                         </div>
                       )}
@@ -167,12 +167,12 @@ export default function SmartSuggestionsPattern() {
                             setDistrict(d.value);
                             setShowDistrictSuggestions(false);
                           }}
-                          className="w-full px-4 py-3 text-left hover:bg-blue-50 border-b border-gray-200 last:border-b-0"
+                          className="w-full px-4 py-3 text-left hover:bg-blue-50 border-b border-border last:border-b-0"
                         >
                           <div className="flex items-center justify-between">
                             <div>
-                              <div className="font-bold text-gray-900">{d.value}</div>
-                              <div className="text-xs text-gray-600">{d.state}</div>
+                              <div className="font-bold text-foreground">{d.value}</div>
+                              <div className="text-xs text-muted-foreground">{d.state}</div>
                             </div>
                             {d.popular && !district && (
                               <div className="text-xs px-2 py-1 bg-orange-100 text-orange-700 rounded font-bold">
@@ -185,35 +185,35 @@ export default function SmartSuggestionsPattern() {
                     </div>
                   )}
                 </div>
-                <div className="text-xs text-gray-600 mt-2">
+                <div className="text-xs text-muted-foreground mt-2">
                   Popular districts shown first. Start typing to search all districts.
                 </div>
               </div>
 
               {/* Example 3: Recent Entries */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <h3 className="font-bold text-gray-900 mb-4">Example 3: Recent & Frequent Values</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <h3 className="font-bold text-foreground mb-4">Example 3: Recent & Frequent Values</h3>
                 <div>
-                  <label className="block font-bold text-gray-900 mb-2">Purpose of Visit</label>
+                  <label className="block font-bold text-foreground mb-2">Purpose of Visit</label>
                   <input
                     type="text"
                     placeholder="Start typing..."
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded focus:border-[#000080] focus:outline-none"
+                    className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                   />
 
                   <div className="mt-3">
-                    <div className="text-xs text-gray-600 mb-2 flex items-center gap-2">
+                    <div className="text-xs text-muted-foreground mb-2 flex items-center gap-2">
                       <Clock size={14} />
                       RECENTLY USED
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      <button className="px-3 py-1.5 bg-gray-100 border border-gray-300 rounded text-sm hover:bg-blue-50 hover:border-[#000080]">
+                      <button className="px-3 py-1.5 bg-muted border border-border rounded text-sm hover:bg-blue-50 hover:border-primary">
                         Income Certificate
                       </button>
-                      <button className="px-3 py-1.5 bg-gray-100 border border-gray-300 rounded text-sm hover:bg-blue-50 hover:border-[#000080]">
+                      <button className="px-3 py-1.5 bg-muted border border-border rounded text-sm hover:bg-blue-50 hover:border-primary">
                         Domicile Certificate
                       </button>
-                      <button className="px-3 py-1.5 bg-gray-100 border border-gray-300 rounded text-sm hover:bg-blue-50 hover:border-[#000080]">
+                      <button className="px-3 py-1.5 bg-muted border border-border rounded text-sm hover:bg-blue-50 hover:border-primary">
                         Birth Certificate
                       </button>
                     </div>
@@ -226,26 +226,26 @@ export default function SmartSuggestionsPattern() {
             {/* Implementation Guide */}
             <div className="mt-8 space-y-6">
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Suggestion Strategies</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Suggestion Strategies</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6">
                   <div className="space-y-4 text-sm">
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">1. Popular First</h3>
-                      <p className="text-gray-700 mb-2">
+                      <h3 className="font-bold text-foreground mb-2">1. Popular First</h3>
+                      <p className="text-muted-foreground mb-2">
                         Show most commonly selected options at the top. Useful for fields with clear popular choices.
                       </p>
-                      <div className="bg-gray-50 border border-gray-200 rounded p-3 text-xs font-mono">
+                      <div className="bg-background border border-border rounded p-3 text-xs font-mono">
                         {`// Sort by selection frequency
 suggestions.sort((a, b) => b.count - a.count);`}
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">2. Recent History</h3>
-                      <p className="text-gray-700 mb-2">
+                      <h3 className="font-bold text-foreground mb-2">2. Recent History</h3>
+                      <p className="text-muted-foreground mb-2">
                         Show user's recently used values. Store in localStorage for returning users.
                       </p>
-                      <div className="bg-gray-50 border border-gray-200 rounded p-3 text-xs font-mono">
+                      <div className="bg-background border border-border rounded p-3 text-xs font-mono">
                         {`// Store recent selections
 localStorage.setItem('recent_occupation',
   JSON.stringify([...recentValues, newValue].slice(0, 5)));`}
@@ -253,11 +253,11 @@ localStorage.setItem('recent_occupation',
                     </div>
 
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">3. Context-Aware</h3>
-                      <p className="text-gray-700 mb-2">
+                      <h3 className="font-bold text-foreground mb-2">3. Context-Aware</h3>
+                      <p className="text-muted-foreground mb-2">
                         Predict based on other field values. Example: Suggest districts in selected state only.
                       </p>
-                      <div className="bg-gray-50 border border-gray-200 rounded p-3 text-xs font-mono">
+                      <div className="bg-background border border-border rounded p-3 text-xs font-mono">
                         {`// Filter by context
 const suggestions = districts.filter(
   d => d.state === selectedState
@@ -266,8 +266,8 @@ const suggestions = districts.filter(
                     </div>
 
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">4. Fuzzy Matching</h3>
-                      <p className="text-gray-700">
+                      <h3 className="font-bold text-foreground mb-2">4. Fuzzy Matching</h3>
+                      <p className="text-muted-foreground">
                         Match partial/misspelled input. "Bangalor" should match "Bangalore Urban".
                       </p>
                     </div>
@@ -276,41 +276,41 @@ const suggestions = districts.filter(
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">UX Best Practices</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-3 text-sm">
+                <h2 className="text-2xl font-bold text-foreground mb-4">UX Best Practices</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6 space-y-3 text-sm">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">1. Show Suggestions Early</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">1. Show Suggestions Early</h3>
+                    <p className="text-muted-foreground">
                       Display popular options on focus, before user starts typing. Don't wait for 3+ characters.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">2. Limit Suggestion Count</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">2. Limit Suggestion Count</h3>
+                    <p className="text-muted-foreground">
                       Show 5-8 suggestions max. Too many options overwhelm users. Add "View All" if needed.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">3. Highlight Match Text</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">3. Highlight Match Text</h3>
+                    <p className="text-muted-foreground">
                       Bold the matched portion in suggestions to help users quickly scan options.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">4. Add Visual Indicators</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">4. Add Visual Indicators</h3>
+                    <p className="text-muted-foreground">
                       Use icons/badges for "Popular", "Recent", "Recommended" to guide selection.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">5. Keyboard Navigation</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">5. Keyboard Navigation</h3>
+                    <p className="text-muted-foreground">
                       Support arrow keys to navigate, Enter to select, Escape to close suggestions.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">6. Allow Free Text</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">6. Allow Free Text</h3>
+                    <p className="text-muted-foreground">
                       Don't restrict to suggestions only. Users should be able to type custom values.
                     </p>
                   </div>
@@ -318,23 +318,23 @@ const suggestions = districts.filter(
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Performance Optimization</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-3 text-sm">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Performance Optimization</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6 space-y-3 text-sm">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">Debounce Input</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">Debounce Input</h3>
+                    <p className="text-muted-foreground">
                       Wait 200-300ms after user stops typing before fetching suggestions. Reduces API calls.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">Cache Results</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">Cache Results</h3>
+                    <p className="text-muted-foreground">
                       Cache API responses for common searches. Instant suggestions for repeated queries.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">Prioritize Client-Side</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">Prioritize Client-Side</h3>
+                    <p className="text-muted-foreground">
                       For small datasets (&lt;1000 items), filter client-side instead of API calls.
                     </p>
                   </div>
@@ -345,31 +345,31 @@ const suggestions = districts.filter(
 
           <aside className="col-span-4">
             <div className="sticky top-8 space-y-6">
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Pattern Information</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Pattern Information</h3>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Complexity</div>
+                    <div className="text-xs text-muted-foreground mb-1">Complexity</div>
                     <div className="font-bold">Low-Medium</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Time Saved</div>
+                    <div className="text-xs text-muted-foreground mb-1">Time Saved</div>
                     <div className="font-bold">~15-30 seconds per field</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Error Reduction</div>
+                    <div className="text-xs text-muted-foreground mb-1">Error Reduction</div>
                     <div className="font-bold">60-80%</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Best For</div>
+                    <div className="text-xs text-muted-foreground mb-1">Best For</div>
                     <div className="font-bold">Predictable inputs</div>
                   </div>
                 </div>
               </div>
 
               <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-3">When to Use</h3>
-                <ul className="space-y-2 text-xs text-gray-700">
+                <h3 className="font-bold text-foreground mb-3">When to Use</h3>
+                <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Fields with known value sets</li>
                   <li>✓ Location/address inputs</li>
                   <li>✓ Occupation/profession</li>
@@ -379,9 +379,9 @@ const suggestions = districts.filter(
                 </ul>
               </div>
 
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Data Sources</h3>
-                <ul className="space-y-2 text-xs text-gray-700">
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Data Sources</h3>
+                <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>• Usage analytics (popular)</li>
                   <li>• User history (recent)</li>
                   <li>• Static datasets (master data)</li>
@@ -390,16 +390,16 @@ const suggestions = districts.filter(
                 </ul>
               </div>
 
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Related Patterns</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Related Patterns</h3>
                 <div className="space-y-2">
-                  <Link to="/patterns/data-input/address-lookup" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/data-input/address-lookup" className="block text-sm text-primary hover:underline">
                     → Address Lookup
                   </Link>
-                  <Link to="/patterns/data-input/autofill" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/data-input/autofill" className="block text-sm text-primary hover:underline">
                     → Auto-fill Pattern
                   </Link>
-                  <Link to="/patterns/form-validation" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/form-validation" className="block text-sm text-primary hover:underline">
                     → Form Validation
                   </Link>
                 </div>

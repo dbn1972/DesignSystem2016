@@ -129,7 +129,7 @@ export function SignUpService({
       });
 
       if (!result.success) {
-        setStatus({ state: result.state, message: result.message });
+        setStatus({ state: (result as any).state, message: (result as any).message });
         return;
       }
 
@@ -143,7 +143,7 @@ export function SignUpService({
     formData.password.length >= 12 ? "strong" : formData.password.length >= 8 ? "medium" : "weak";
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader
         icon={UserPlus}
         iconColor="bg-green-600"
@@ -155,10 +155,10 @@ export function SignUpService({
 
       <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8 lg:py-12">
         <div className="max-w-2xl mx-auto space-y-6">
-          <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
             <div className="bg-green-50 border-b-2 border-green-300 px-6 sm:px-8 py-6">
-              <h2 className="text-xl font-bold text-gray-900">{subtitle}</h2>
-              <p className="text-sm text-gray-700 mt-2">
+              <h2 className="text-xl font-bold text-foreground">{subtitle}</h2>
+              <p className="text-sm text-muted-foreground mt-2">
                 Create your account to access secure government services.
               </p>
             </div>
@@ -191,7 +191,7 @@ export function SignUpService({
                   className={inputClass(Boolean(errors.mobileNumber))}
                   maxLength={10}
                 />
-                <p className="mt-2 text-xs text-gray-600">OTP will be sent to this number for verification.</p>
+                <p className="mt-2 text-xs text-muted-foreground">OTP will be sent to this number for verification.</p>
               </FormField>
 
               <FormField label="Email Address (Optional)" error={errors.email}>
@@ -216,14 +216,14 @@ export function SignUpService({
                   <button
                     type="button"
                     onClick={() => setShowPassword((prev) => !prev)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-900"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                     aria-label={showPassword ? "Hide password" : "Show password"}
                   >
                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
                 </div>
                 {formData.password && (
-                  <p className="mt-2 text-xs text-gray-600">Password strength: <span className="font-bold capitalize">{passwordStrength}</span></p>
+                  <p className="mt-2 text-xs text-muted-foreground">Password strength: <span className="font-bold capitalize">{passwordStrength}</span></p>
                 )}
               </FormField>
 
@@ -243,9 +243,9 @@ export function SignUpService({
                     type="checkbox"
                     checked={formData.agreeTerms}
                     onChange={(event) => setField("agreeTerms", event.target.checked)}
-                    className="w-4 h-4 mt-0.5 border-2 border-gray-300 rounded"
+                    className="w-4 h-4 mt-0.5 border-2 border-border rounded"
                   />
-                  <span className="text-sm text-gray-700">
+                  <span className="text-sm text-muted-foreground">
                     I agree to the Terms and Conditions and Privacy Policy.
                   </span>
                 </label>
@@ -257,21 +257,21 @@ export function SignUpService({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3.5 bg-[#138808] text-white font-bold rounded text-sm hover:bg-green-700 disabled:opacity-70"
+                className="w-full px-6 py-3.5 bg-green-700 text-white font-bold rounded text-sm hover:bg-green-600 disabled:opacity-70"
                 aria-busy={isSubmitting}
               >
                 {isSubmitting ? "Creating Account..." : "Create Account"}
               </button>
 
-              <div className="border-t-2 border-gray-200 pt-4 space-y-2 text-center">
-                <p className="text-sm text-gray-700">
+              <div className="border-t-2 border-border pt-4 space-y-2 text-center">
+                <p className="text-sm text-muted-foreground">
                   Already have an account?{" "}
-                  <Link to={signInPath} className="font-bold text-[#000080] hover:underline">Sign in</Link>
+                  <Link to={signInPath} className="font-bold text-primary hover:underline">Sign in</Link>
                 </p>
                 {codeDownloadPath && (
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-muted-foreground">
                     Need this service code?{" "}
-                    <Link to={codeDownloadPath} className="inline-flex items-center gap-1 font-bold text-[#000080] hover:underline">
+                    <Link to={codeDownloadPath} className="inline-flex items-center gap-1 font-bold text-primary hover:underline">
                       <Download size={14} />
                       Download React code
                     </Link>
@@ -286,7 +286,7 @@ export function SignUpService({
             icon={Info}
             title="Benefits of Creating an Account"
             message={
-              <ul className="text-sm text-gray-700 space-y-1 list-disc pl-4">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-4">
                 <li>Track all your applications in one place.</li>
                 <li>Save and resume applications anytime.</li>
                 <li>Get notifications for every status change.</li>
@@ -294,7 +294,7 @@ export function SignUpService({
               </ul>
             }
           >
-            <Link to={helpPath} className="inline-flex items-center gap-2 mt-3 text-sm font-bold text-[#000080] hover:underline">
+            <Link to={helpPath} className="inline-flex items-center gap-2 mt-3 text-sm font-bold text-primary hover:underline">
               <ArrowLeft size={14} className="rotate-180" />
               Get support
             </Link>
@@ -320,7 +320,7 @@ function FormField({
 }) {
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-900 mb-2">
+      <label className="block text-sm font-bold text-foreground mb-2">
         {label}
         {required && <span className="text-red-600 ml-1">*</span>}
       </label>
@@ -331,7 +331,7 @@ function FormField({
 }
 
 function inputClass(hasError: boolean) {
-  return `w-full px-4 py-3 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080] ${
-    hasError ? "border-red-300 bg-red-50" : "border-gray-300 bg-white"
+  return `w-full px-4 py-3 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring ${
+    hasError ? "border-red-300 bg-red-50" : "border-border bg-card"
   }`;
 }

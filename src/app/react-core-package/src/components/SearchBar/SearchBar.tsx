@@ -11,7 +11,7 @@
  * ```
  */
 
-import React, { useState, forwardRef } from 'react';
+import { useState, forwardRef, ChangeEvent, KeyboardEvent } from 'react';
 import { cn } from '../../utils/cn';
 import { SearchBarProps } from './SearchBar.types';
 
@@ -38,7 +38,7 @@ export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
     const value = controlledValue ?? internalValue;
     const isControlled = controlledValue !== undefined;
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const newValue = event.target.value;
       if (!isControlled) {
         setInternalValue(newValue);
@@ -46,7 +46,7 @@ export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
       onChange?.(event);
     };
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Enter') {
         onSearch?.(value as string);
       }

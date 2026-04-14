@@ -18,7 +18,7 @@ const StackPreview = ({ direction = 'vertical', spacing = 'md' }: any) => {
     <div className={`${direction === 'vertical' ? 'flex flex-col' : 'flex flex-row'} ${spacingClasses[spacing as keyof typeof spacingClasses]}`}>
       {[1, 2, 3].map(i => (
         <div key={i} className="bg-green-100 border-2 border-green-300 rounded-lg p-4 text-center">
-          <span className="text-gray-700 font-semibold">Item {i}</span>
+          <span className="text-muted-foreground font-semibold">Item {i}</span>
         </div>
       ))}
     </div>
@@ -150,15 +150,15 @@ function Example() {
           preview: (
             <div className="space-y-8">
               <div>
-                <p className="text-sm font-semibold text-gray-600 mb-2">Extra Small</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Extra Small</p>
                 <StackPreview direction="vertical" spacing="xs" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-600 mb-2">Medium</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Medium</p>
                 <StackPreview direction="vertical" spacing="md" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-600 mb-2">Large</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Large</p>
                 <StackPreview direction="vertical" spacing="lg" />
               </div>
             </div>

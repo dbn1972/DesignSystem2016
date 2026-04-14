@@ -14,7 +14,7 @@ const ChartPreview = ({ type, data, labels, title, height = 300, width = 500, co
       const maxValue = Math.max(...data);
       const barWidth = width / data.length - 20;
       return (
-        <svg width={width} height={height} className="bg-white p-4">
+        <svg width={width} height={height} className="bg-card p-4">
           {data.map((value: number, index: number) => {
             const barHeight = (value / maxValue) * (height - 60);
             return (
@@ -50,7 +50,7 @@ const ChartPreview = ({ type, data, labels, title, height = 300, width = 500, co
       }).join(' ');
 
       return (
-        <svg width={width} height={height} className="bg-white p-4">
+        <svg width={width} height={height} className="bg-card p-4">
           {type === 'area' && (
             <polygon
               points={`20,${height - 40} ${points} ${width - 20},${height - 40}`}
@@ -88,7 +88,7 @@ const ChartPreview = ({ type, data, labels, title, height = 300, width = 500, co
 
       let currentAngle = -90;
       return (
-        <svg width={width} height={height} className="bg-white p-4">
+        <svg width={width} height={height} className="bg-card p-4">
           {data.map((value: number, index: number) => {
             const angle = (value / total) * 360;
             const startAngle = currentAngle;
@@ -134,11 +134,11 @@ const ChartPreview = ({ type, data, labels, title, height = 300, width = 500, co
   };
 
   return (
-    <div className="inline-block border border-gray-200 rounded">
-      {title && <div className="px-4 py-2 border-b border-gray-200 font-semibold">{title}</div>}
+    <div className="inline-block border border-border rounded">
+      {title && <div className="px-4 py-2 border-b border-border font-semibold">{title}</div>}
       {renderChart()}
       {legend && labels && (
-        <div className="px-4 py-2 border-t border-gray-200 flex flex-wrap gap-3">
+        <div className="px-4 py-2 border-t border-border flex flex-wrap gap-3">
           {labels.map((label: string, index: number) => (
             <div key={index} className="flex items-center gap-2">
               <div
@@ -689,17 +689,17 @@ export const ChartLibrary: React.FC<ChartLibraryProps> = ({
 
   return (
     <div
-      className={cn('border border-gray-200 rounded bg-white', className)}
+      className={cn('border border-border rounded bg-card', className)}
       role="img"
       aria-label={title || 'Data visualization chart'}
     >
       {(title || downloadable) && (
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-border">
           {title && <h3 className="font-semibold text-lg">{title}</h3>}
           {downloadable && (
             <button
               onClick={handleDownload}
-              className="flex items-center gap-2 px-3 py-1.5 text-sm border border-gray-300 rounded hover:bg-gray-50 transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 text-sm border border-border rounded hover:bg-background transition-colors"
               aria-label="Download chart"
             >
               <Download size={16} />
@@ -713,8 +713,8 @@ export const ChartLibrary: React.FC<ChartLibraryProps> = ({
       </div>
 
       {/* Accessible data table alternative */}
-      <details className="px-4 py-2 border-t border-gray-200">
-        <summary className="cursor-pointer text-sm text-gray-600 hover:text-gray-900">
+      <details className="px-4 py-2 border-t border-border">
+        <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
           View data as table
         </summary>
         <table className="w-full mt-2 text-sm border-collapse">

@@ -22,7 +22,7 @@ const AlertPreview = ({ variant = 'info', children }: any) => {
       <div className="flex-1">
         {children}
       </div>
-      <button className="text-gray-400 hover:text-gray-600">
+      <button className="text-gray-400 hover:text-muted-foreground">
         <X size={20} />
       </button>
     </div>
@@ -110,20 +110,20 @@ function Example() {
           preview: (
             <div className="space-y-4">
               <AlertPreview variant="success">
-                <h3 className="font-semibold text-gray-900 mb-1">Success</h3>
-                <p className="text-gray-700">Your application has been submitted successfully.</p>
+                <h3 className="font-semibold text-foreground mb-1">Success</h3>
+                <p className="text-muted-foreground">Your application has been submitted successfully.</p>
               </AlertPreview>
               <AlertPreview variant="info">
-                <h3 className="font-semibold text-gray-900 mb-1">Information</h3>
-                <p className="text-gray-700">Please complete your profile to continue.</p>
+                <h3 className="font-semibold text-foreground mb-1">Information</h3>
+                <p className="text-muted-foreground">Please complete your profile to continue.</p>
               </AlertPreview>
               <AlertPreview variant="warning">
-                <h3 className="font-semibold text-gray-900 mb-1">Warning</h3>
-                <p className="text-gray-700">Your session will expire in 5 minutes.</p>
+                <h3 className="font-semibold text-foreground mb-1">Warning</h3>
+                <p className="text-muted-foreground">Your session will expire in 5 minutes.</p>
               </AlertPreview>
               <AlertPreview variant="error">
-                <h3 className="font-semibold text-gray-900 mb-1">Error</h3>
-                <p className="text-gray-700">Unable to process your request. Please try again.</p>
+                <h3 className="font-semibold text-foreground mb-1">Error</h3>
+                <p className="text-muted-foreground">Unable to process your request. Please try again.</p>
               </AlertPreview>
             </div>
           ),

@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2, AlertTriangle, Code, Package } fro
 
 export default function MigrationMaterialUI() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b-4 border-saffron-600 py-12">
         <div className="max-w-7xl mx-auto px-6">
@@ -15,23 +15,23 @@ export default function MigrationMaterialUI() {
             <span>Back to Migration Guides</span>
           </Link>
 
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Material-UI to UX4G Migration Guide</h1>
-          <p className="text-xl text-gray-700 max-w-3xl">
+          <h1 className="text-4xl font-bold text-foreground mb-4">Material-UI to UX4G Migration Guide</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Comprehensive guide for migrating from Material-UI (MUI) v5.x to UX4G Design System
           </p>
 
           <div className="mt-6 flex items-center gap-6">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-sm font-semibold text-gray-700">High Compatibility</span>
+              <span className="text-sm font-semibold text-muted-foreground">High Compatibility</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600">Estimated Time:</span>
-              <span className="text-sm font-semibold text-gray-900">2-4 weeks</span>
+              <span className="text-sm text-muted-foreground">Estimated Time:</span>
+              <span className="text-sm font-semibold text-foreground">2-4 weeks</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600">Complexity:</span>
-              <span className="text-sm font-semibold text-gray-900">Medium</span>
+              <span className="text-sm text-muted-foreground">Complexity:</span>
+              <span className="text-sm font-semibold text-foreground">Medium</span>
             </div>
           </div>
         </div>
@@ -40,48 +40,48 @@ export default function MigrationMaterialUI() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Overview */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Migration Overview</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Migration Overview</h2>
           
           <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
-            <h3 className="font-bold text-gray-900 mb-3">Why This Migration is Straightforward</h3>
+            <h3 className="font-bold text-foreground mb-3">Why This Migration is Straightforward</h3>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Both libraries use component-based architecture with similar prop patterns</span>
+                <span className="text-muted-foreground">Both libraries use component-based architecture with similar prop patterns</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Strong TypeScript support in both makes refactoring safer</span>
+                <span className="text-muted-foreground">Strong TypeScript support in both makes refactoring safer</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Most MUI components have direct UX4G equivalents</span>
+                <span className="text-muted-foreground">Most MUI components have direct UX4G equivalents</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Similar theming concepts make token migration easier</span>
+                <span className="text-muted-foreground">Similar theming concepts make token migration easier</span>
               </li>
             </ul>
           </div>
 
           <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-3">Key Differences to Consider</h3>
+            <h3 className="font-bold text-foreground mb-3">Key Differences to Consider</h3>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <AlertTriangle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Styling approach: MUI uses CSS-in-JS (Emotion) while UX4G uses Tailwind CSS</span>
+                <span className="text-muted-foreground">Styling approach: MUI uses CSS-in-JS (Emotion) while UX4G uses Tailwind CSS</span>
               </li>
               <li className="flex items-start gap-2">
                 <AlertTriangle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Theme tokens need to be remapped to UX4G design tokens</span>
+                <span className="text-muted-foreground">Theme tokens need to be remapped to UX4G design tokens</span>
               </li>
               <li className="flex items-start gap-2">
                 <AlertTriangle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Some MUI-specific components (Lab, DataGrid) require custom solutions</span>
+                <span className="text-muted-foreground">Some MUI-specific components (Lab, DataGrid) require custom solutions</span>
               </li>
               <li className="flex items-start gap-2">
                 <AlertTriangle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Government-specific accessibility requirements may differ from MUI defaults</span>
+                <span className="text-muted-foreground">Government-specific accessibility requirements may differ from MUI defaults</span>
               </li>
             </ul>
           </div>
@@ -89,18 +89,18 @@ export default function MigrationMaterialUI() {
 
         {/* Component Mapping */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Component Mapping Reference</h2>
-          <p className="text-gray-700 mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Component Mapping Reference</h2>
+          <p className="text-muted-foreground mb-6">
             Quick reference for mapping Material-UI components to their UX4G equivalents
           </p>
 
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+          <div className="border-2 border-border rounded-lg overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b-2 border-gray-200">
+              <thead className="bg-background border-b-2 border-border">
                 <tr>
-                  <th className="text-left p-4 font-bold text-gray-900">Material-UI Component</th>
-                  <th className="text-left p-4 font-bold text-gray-900">UX4G Component</th>
-                  <th className="text-left p-4 font-bold text-gray-900">Migration Notes</th>
+                  <th className="text-left p-4 font-bold text-foreground">Material-UI Component</th>
+                  <th className="text-left p-4 font-bold text-foreground">UX4G Component</th>
+                  <th className="text-left p-4 font-bold text-foreground">Migration Notes</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -309,7 +309,7 @@ export default function MigrationMaterialUI() {
 
         {/* Code Examples */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Before & After Code Examples</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Before & After Code Examples</h2>
 
           <div className="space-y-8">
             <CodeExample
@@ -528,11 +528,11 @@ function MyTable({ data }) {
 
         {/* Styling Migration */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Styling Migration (MUI Theme → UX4G Tokens)</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Styling Migration (MUI Theme → UX4G Tokens)</h2>
           
           <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6 mb-6">
-            <h3 className="font-bold text-gray-900 mb-3">Key Difference: CSS-in-JS vs Tailwind CSS</h3>
-            <p className="text-gray-700 mb-4">
+            <h3 className="font-bold text-foreground mb-3">Key Difference: CSS-in-JS vs Tailwind CSS</h3>
+            <p className="text-muted-foreground mb-4">
               Material-UI uses Emotion for CSS-in-JS styling, while UX4G uses Tailwind CSS utility classes and design tokens. 
               This requires a mindset shift in how you approach styling.
             </p>
@@ -607,7 +607,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 
         {/* Step-by-Step Process */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Step-by-Step Migration Process</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Step-by-Step Migration Process</h2>
 
           <div className="space-y-4">
             <MigrationStep
@@ -683,7 +683,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 
         {/* Common Issues */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Common Migration Issues & Solutions</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Common Migration Issues & Solutions</h2>
 
           <div className="space-y-4">
             <IssueCard
@@ -721,7 +721,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
         {/* Checklist */}
         <section className="mb-12">
           <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Migration Checklist</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6">Migration Checklist</h2>
             
             <div className="space-y-3">
               <ChecklistItem text="UX4G packages installed and configured" />
@@ -743,34 +743,34 @@ const StyledButton = styled(Button)(({ theme }) => ({
         {/* Next Steps */}
         <section>
           <div className="bg-gradient-to-br from-saffron-50 to-green-50 border-2 border-saffron-200 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Need Help?</h2>
-            <p className="text-gray-700 mb-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Need Help?</h2>
+            <p className="text-muted-foreground mb-6">
               If you encounter issues during your migration or need guidance, we're here to support you.
             </p>
 
             <div className="grid md:grid-cols-3 gap-4">
               <Link
                 to="/resources/component-specs"
-                className="bg-white border-2 border-gray-200 rounded-lg p-4 hover:border-saffron-500 transition-colors"
+                className="bg-card border-2 border-border rounded-lg p-4 hover:border-saffron-500 transition-colors"
               >
-                <h3 className="font-bold text-gray-900 mb-2">Component API Reference</h3>
-                <p className="text-sm text-gray-600">Detailed prop documentation</p>
+                <h3 className="font-bold text-foreground mb-2">Component API Reference</h3>
+                <p className="text-sm text-muted-foreground">Detailed prop documentation</p>
               </Link>
 
               <Link
                 to="/pattern-library"
-                className="bg-white border-2 border-gray-200 rounded-lg p-4 hover:border-saffron-500 transition-colors"
+                className="bg-card border-2 border-border rounded-lg p-4 hover:border-saffron-500 transition-colors"
               >
-                <h3 className="font-bold text-gray-900 mb-2">Pattern Library</h3>
-                <p className="text-sm text-gray-600">Live component examples</p>
+                <h3 className="font-bold text-foreground mb-2">Pattern Library</h3>
+                <p className="text-sm text-muted-foreground">Live component examples</p>
               </Link>
 
               <Link
                 to="/contact"
-                className="bg-white border-2 border-gray-200 rounded-lg p-4 hover:border-saffron-500 transition-colors"
+                className="bg-card border-2 border-border rounded-lg p-4 hover:border-saffron-500 transition-colors"
               >
-                <h3 className="font-bold text-gray-900 mb-2">Contact Support</h3>
-                <p className="text-sm text-gray-600">Get personalized help</p>
+                <h3 className="font-bold text-foreground mb-2">Contact Support</h3>
+                <p className="text-sm text-muted-foreground">Get personalized help</p>
               </Link>
             </div>
           </div>
@@ -798,9 +798,9 @@ function ComponentMappingRow({ muiComponent, ux4gComponent, notes, status }: Com
 
   return (
     <tr>
-      <td className="p-4 font-mono text-sm text-gray-900">{muiComponent}</td>
+      <td className="p-4 font-mono text-sm text-foreground">{muiComponent}</td>
       <td className="p-4 font-mono text-sm text-saffron-700">{ux4gComponent}</td>
-      <td className="p-4 text-sm text-gray-700">
+      <td className="p-4 text-sm text-muted-foreground">
         <div className="flex items-start gap-2">
           <span className={`px-2 py-0.5 rounded text-xs font-semibold uppercase ${statusColors[status]} flex-shrink-0`}>
             {status}
@@ -821,9 +821,9 @@ interface CodeExampleProps {
 
 function CodeExample({ title, before, after, notes }: CodeExampleProps) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-4 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900 flex items-center gap-2">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background p-4 border-b-2 border-border">
+        <h3 className="font-bold text-foreground flex items-center gap-2">
           <Code size={18} />
           {title}
         </h3>
@@ -831,7 +831,7 @@ function CodeExample({ title, before, after, notes }: CodeExampleProps) {
 
       <div className="grid md:grid-cols-2 gap-0 divide-x divide-gray-200">
         <div className="p-4">
-          <div className="text-xs font-semibold text-gray-600 mb-2">Material-UI (Before)</div>
+          <div className="text-xs font-semibold text-muted-foreground mb-2">Material-UI (Before)</div>
           <pre className="bg-gray-900 text-gray-100 p-4 rounded text-xs overflow-x-auto">
             <code>{before}</code>
           </pre>
@@ -849,7 +849,7 @@ function CodeExample({ title, before, after, notes }: CodeExampleProps) {
         <div className="bg-blue-50 border-t-2 border-blue-200 p-4">
           <div className="flex items-start gap-2">
             <AlertTriangle size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-gray-700">{notes}</p>
+            <p className="text-sm text-muted-foreground">{notes}</p>
           </div>
         </div>
       )}
@@ -866,12 +866,12 @@ interface StylingExampleProps {
 
 function StylingExample({ title, muiCode, ux4gCode, notes }: StylingExampleProps) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
+    <div className="border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
 
       <div className="space-y-4">
         <div>
-          <div className="text-xs font-semibold text-gray-600 mb-2">Material-UI Approach</div>
+          <div className="text-xs font-semibold text-muted-foreground mb-2">Material-UI Approach</div>
           <pre className="bg-gray-900 text-gray-100 p-4 rounded text-xs overflow-x-auto">
             <code>{muiCode}</code>
           </pre>
@@ -885,7 +885,7 @@ function StylingExample({ title, muiCode, ux4gCode, notes }: StylingExampleProps
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-200 rounded p-3">
-          <p className="text-sm text-gray-700">{notes}</p>
+          <p className="text-sm text-muted-foreground">{notes}</p>
         </div>
       </div>
     </div>
@@ -901,14 +901,14 @@ interface MigrationStepProps {
 
 function MigrationStep({ step, title, description, commands }: MigrationStepProps) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
+    <div className="border-2 border-border rounded-lg p-6">
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0 w-10 h-10 bg-saffron-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
           {step}
         </div>
         <div className="flex-1">
-          <h3 className="font-bold text-gray-900 mb-1">{title}</h3>
-          <p className="text-gray-700 mb-3">{description}</p>
+          <h3 className="font-bold text-foreground mb-1">{title}</h3>
+          <p className="text-muted-foreground mb-3">{description}</p>
 
           <pre className="bg-gray-900 text-gray-100 p-4 rounded text-xs overflow-x-auto">
             <code>{commands.join('\n')}</code>
@@ -931,10 +931,10 @@ function IssueCard({ issue, solution, example }: IssueCardProps) {
       <div className="flex items-start gap-3">
         <AlertTriangle className="text-orange-600 flex-shrink-0" size={20} />
         <div className="flex-1">
-          <h4 className="font-semibold text-gray-900 mb-1">{issue}</h4>
-          <p className="text-sm text-gray-700 mb-2">{solution}</p>
-          <div className="bg-white border border-orange-200 rounded p-2">
-            <code className="text-xs text-gray-900">{example}</code>
+          <h4 className="font-semibold text-foreground mb-1">{issue}</h4>
+          <p className="text-sm text-muted-foreground mb-2">{solution}</p>
+          <div className="bg-card border border-orange-200 rounded p-2">
+            <code className="text-xs text-foreground">{example}</code>
           </div>
         </div>
       </div>
@@ -946,7 +946,7 @@ function ChecklistItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-3">
       <CheckCircle2 className="text-green-600 flex-shrink-0 mt-0.5" size={20} />
-      <span className="text-gray-900">{text}</span>
+      <span className="text-foreground">{text}</span>
     </div>
   );
 }

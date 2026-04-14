@@ -20,8 +20,8 @@ const TextareaPreview = ({ placeholder, rows = 4, disabled = false, error = fals
         className={`w-full px-4 py-3 border rounded-lg resize-y focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${
           error 
             ? 'border-red-500 focus-visible:ring-red-500' 
-            : 'border-gray-300 focus-visible:ring-[#005196]'
-        } ${disabled ? 'bg-gray-100 cursor-not-allowed opacity-60' : ''}`}
+            : 'border-border focus-visible:ring-[#005196]'
+        } ${disabled ? 'bg-muted cursor-not-allowed opacity-60' : ''}`}
         {...props}
       />
     </div>
@@ -164,7 +164,7 @@ function Example() {
         maxLength={maxLength}
         rows={6}
       />
-      <div className="mt-2 text-sm text-gray-600 text-right">
+      <div className="mt-2 text-sm text-muted-foreground text-right">
         {value.length} / {maxLength} characters
       </div>
     </div>
@@ -173,7 +173,7 @@ function Example() {
           preview: (
             <div className="w-full max-w-md">
               <TextareaPreview placeholder="Enter description (max 500 characters)" rows={6} maxLength={500} />
-              <div className="mt-2 text-sm text-gray-600 text-right">0 / 500 characters</div>
+              <div className="mt-2 text-sm text-muted-foreground text-right">0 / 500 characters</div>
             </div>
           ),
         },
@@ -305,7 +305,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         <div className="flex justify-between items-start mt-2">
           <div className="flex-1">
             {helperText && !error && (
-              <p id={helperId} className="text-sm text-gray-600">
+              <p id={helperId} className="text-sm text-muted-foreground">
                 {helperText}
               </p>
             )}
@@ -318,7 +318,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           </div>
 
           {(showCharCount || maxLength) && (
-            <p className="text-sm text-gray-600 ml-4">
+            <p className="text-sm text-muted-foreground ml-4">
               {charCount}
               {maxLength && \` / \${maxLength}\`}
             </p>
@@ -344,10 +344,10 @@ Textarea.displayName = 'Textarea';`,
 export const textareaVariants = cva(
   [
     'px-4 py-3 rounded-lg border',
-    'text-base text-gray-900 placeholder:text-gray-400',
+    'text-base text-foreground placeholder:text-gray-400',
     'transition-all duration-150',
     'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-    'disabled:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-60',
+    'disabled:bg-muted disabled:cursor-not-allowed disabled:opacity-60',
   ],
   {
     variants: {
@@ -357,7 +357,7 @@ export const textareaVariants = cva(
           'focus-visible:ring-red-500',
         ],
         false: [
-          'border-gray-300',
+          'border-border',
           'focus-visible:ring-[#005196]',
         ],
       },
@@ -403,7 +403,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
       <div class="flex justify-between items-start mt-2">
         <div class="flex-1">
-          <p *ngIf="helperText && !error" class="text-sm text-gray-600">
+          <p *ngIf="helperText && !error" class="text-sm text-muted-foreground">
             {{ helperText }}
           </p>
 
@@ -412,7 +412,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
           </p>
         </div>
 
-        <p *ngIf="showCharCount || maxLength" class="text-sm text-gray-600 ml-4">
+        <p *ngIf="showCharCount || maxLength" class="text-sm text-muted-foreground ml-4">
           {{ charCount }}{{ maxLength ? ' / ' + maxLength : '' }}
         </p>
       </div>
@@ -451,7 +451,7 @@ export class TextareaComponent implements ControlValueAccessor {
     const base = 'px-4 py-3 rounded-lg border transition-all focus:outline-none focus:ring-2 focus:ring-offset-2';
     const state = this.error 
       ? 'border-red-500 focus:ring-red-500' 
-      : 'border-gray-300 focus:ring-blue-500';
+      : 'border-border focus:ring-blue-500';
     const width = this.fullWidth ? 'w-full' : '';
     const resize = \`resize-\${this.resize === 'vertical' ? 'y' : this.resize === 'horizontal' ? 'x' : this.resize === 'none' ? 'none' : ''}\`;
     

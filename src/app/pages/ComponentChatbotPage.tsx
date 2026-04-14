@@ -19,7 +19,7 @@ const ChatbotPreview = ({ position, minimized, botName, greeting, ...props }: an
         <MessageCircle size={24} />
       </button>
     ) : (
-      <div className="bg-white rounded-lg shadow-xl flex flex-col h-full border border-gray-200">
+      <div className="bg-card rounded-lg shadow-xl flex flex-col h-full border border-border">
         <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -34,26 +34,26 @@ const ChatbotPreview = ({ position, minimized, botName, greeting, ...props }: an
             <X size={20} />
           </button>
         </div>
-        <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
+        <div className="flex-1 p-4 overflow-y-auto bg-background">
           <div className="space-y-4">
             <div className="flex gap-2">
               <div className="w-8 h-8 rounded-full bg-[#005196] flex-shrink-0 flex items-center justify-center text-white text-sm">
                 AI
               </div>
-              <div className="bg-white rounded-lg p-3 shadow-sm max-w-[80%]">
-                <p className="text-sm text-gray-800">
+              <div className="bg-card rounded-lg p-3 shadow-sm max-w-[80%]">
+                <p className="text-sm text-foreground">
                   {greeting || 'Hello! How can I help you today?'}
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div className="p-4 border-t border-gray-200">
+        <div className="p-4 border-t border-border">
           <div className="flex gap-2">
             <input
               type="text"
               placeholder="Type your message..."
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005196]"
+              className="flex-1 px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005196]"
             />
             <button className="w-10 h-10 bg-[#005196] text-white rounded-lg hover:bg-[#004178] flex items-center justify-center">
               <Send size={18} />
@@ -189,7 +189,7 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="relative h-[600px] bg-gray-100 rounded-lg overflow-hidden">
+            <div className="relative h-[600px] bg-muted rounded-lg overflow-hidden">
               <ChatbotPreview
                 position="bottom-right"
                 minimized={false}
@@ -231,8 +231,8 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="relative h-[600px] bg-gray-100 rounded-lg overflow-hidden">
-              <div className="absolute bottom-4 right-4 w-96 bg-white rounded-lg shadow-xl border border-gray-200">
+            <div className="relative h-[600px] bg-muted rounded-lg overflow-hidden">
+              <div className="absolute bottom-4 right-4 w-96 bg-card rounded-lg shadow-xl border border-border">
                 <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -245,11 +245,11 @@ function Example() {
                   </div>
                 </div>
                 <div className="p-4 space-y-2">
-                  <p className="text-sm text-gray-600 mb-3">Quick questions:</p>
-                  <button className="w-full text-left px-3 py-2 text-sm bg-gray-50 hover:bg-gray-100 rounded border border-gray-200">
+                  <p className="text-sm text-muted-foreground mb-3">Quick questions:</p>
+                  <button className="w-full text-left px-3 py-2 text-sm bg-background hover:bg-muted rounded border border-border">
                     How do I renew my driver's license?
                   </button>
-                  <button className="w-full text-left px-3 py-2 text-sm bg-gray-50 hover:bg-gray-100 rounded border border-gray-200">
+                  <button className="w-full text-left px-3 py-2 text-sm bg-background hover:bg-muted rounded border border-border">
                     What are the tax filing deadlines?
                   </button>
                 </div>
@@ -282,8 +282,8 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="relative h-[600px] bg-gray-100 rounded-lg overflow-hidden">
-              <div className="absolute bottom-4 right-4 w-96 bg-white rounded-lg shadow-xl border border-gray-200">
+            <div className="relative h-[600px] bg-muted rounded-lg overflow-hidden">
+              <div className="absolute bottom-4 right-4 w-96 bg-card rounded-lg shadow-xl border border-border">
                 <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -295,14 +295,14 @@ function Example() {
                     </div>
                   </div>
                 </div>
-                <div className="p-4 border-t border-gray-200">
+                <div className="p-4 border-t border-border">
                   <div className="flex gap-2">
                     <input
                       type="text"
                       placeholder="Type or speak your message..."
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg"
+                      className="flex-1 px-4 py-2 border border-border rounded-lg"
                     />
-                    <button className="w-10 h-10 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 flex items-center justify-center">
+                    <button className="w-10 h-10 bg-muted text-muted-foreground rounded-lg hover:bg-gray-200 flex items-center justify-center">
                       <Mic size={18} />
                     </button>
                     <button className="w-10 h-10 bg-[#005196] text-white rounded-lg hover:bg-[#004178] flex items-center justify-center">
@@ -356,8 +356,8 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="relative h-[600px] bg-gray-100 rounded-lg overflow-hidden">
-              <div className="absolute bottom-4 right-4 w-96 bg-white rounded-lg shadow-xl border border-gray-200">
+            <div className="relative h-[600px] bg-muted rounded-lg overflow-hidden">
+              <div className="absolute bottom-4 right-4 w-96 bg-card rounded-lg shadow-xl border border-border">
                 <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -369,15 +369,15 @@ function Example() {
                     </div>
                   </div>
                 </div>
-                <div className="p-4 border-t border-gray-200">
+                <div className="p-4 border-t border-border">
                   <div className="flex gap-2">
-                    <button className="w-10 h-10 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 flex items-center justify-center">
+                    <button className="w-10 h-10 bg-muted text-muted-foreground rounded-lg hover:bg-gray-200 flex items-center justify-center">
                       <Paperclip size={18} />
                     </button>
                     <input
                       type="text"
                       placeholder="Type your message..."
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg"
+                      className="flex-1 px-4 py-2 border border-border rounded-lg"
                     />
                     <button className="w-10 h-10 bg-[#005196] text-white rounded-lg hover:bg-[#004178] flex items-center justify-center">
                       <Send size={18} />
@@ -430,7 +430,7 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="relative h-[600px] bg-gray-100 rounded-lg overflow-hidden">
+            <div className="relative h-[600px] bg-muted rounded-lg overflow-hidden">
               <ChatbotPreview
                 position="bottom-right"
                 minimized={false}
@@ -484,9 +484,9 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="relative h-[600px] bg-gray-100 rounded-lg overflow-hidden">
+            <div className="relative h-[600px] bg-muted rounded-lg overflow-hidden">
               <div className="absolute top-4 right-4 flex gap-2">
-                <button className="px-3 py-1 text-sm bg-white rounded shadow">EN</button>
+                <button className="px-3 py-1 text-sm bg-card rounded shadow">EN</button>
                 <button className="px-3 py-1 text-sm bg-gray-200 rounded">ES</button>
                 <button className="px-3 py-1 text-sm bg-gray-200 rounded">FR</button>
               </div>
@@ -604,7 +604,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
           <MessageCircle size={24} />
         </button>
       ) : (
-        <div className="w-96 h-[500px] bg-white rounded-lg shadow-xl flex flex-col border border-gray-200">
+        <div className="w-96 h-[500px] bg-card rounded-lg shadow-xl flex flex-col border border-border">
           {/* Header */}
           <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -634,7 +634,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
           </div>
 
           {/* Messages */}
-          <div className="flex-1 p-4 overflow-y-auto bg-gray-50">
+          <div className="flex-1 p-4 overflow-y-auto bg-background">
             <div className="space-y-4">
               {messages.map((msg) => (
                 <div
@@ -654,7 +654,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                       'rounded-lg p-3 max-w-[80%]',
                       msg.sender === 'user'
                         ? 'bg-[#005196] text-white'
-                        : 'bg-white shadow-sm'
+                        : 'bg-card shadow-sm'
                     )}
                   >
                     <p className="text-sm">{msg.text}</p>
@@ -673,7 +673,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                   <div className="w-8 h-8 rounded-full bg-[#005196] flex-shrink-0 flex items-center justify-center text-white text-sm">
                     AI
                   </div>
-                  <div className="bg-white rounded-lg p-3 shadow-sm">
+                  <div className="bg-card rounded-lg p-3 shadow-sm">
                     <div className="flex gap-1">
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
@@ -688,12 +688,12 @@ export const Chatbot: React.FC<ChatbotProps> = ({
             {/* Suggested Questions */}
             {messages.length === 1 && suggestedQuestions.length > 0 && (
               <div className="mt-4 space-y-2">
-                <p className="text-sm text-gray-600">Suggested questions:</p>
+                <p className="text-sm text-muted-foreground">Suggested questions:</p>
                 {suggestedQuestions.map((q, i) => (
                   <button
                     key={i}
                     onClick={() => handleSuggestedQuestion(q)}
-                    className="w-full text-left px-3 py-2 text-sm bg-white hover:bg-gray-100 rounded border border-gray-200 transition-colors"
+                    className="w-full text-left px-3 py-2 text-sm bg-card hover:bg-muted rounded border border-border transition-colors"
                   >
                     {q}
                   </button>
@@ -703,13 +703,13 @@ export const Chatbot: React.FC<ChatbotProps> = ({
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-gray-200">
+          <div className="p-4 border-t border-border">
             {attachments.length > 0 && (
               <div className="mb-2 flex flex-wrap gap-2">
                 {attachments.map((file, i) => (
                   <div
                     key={i}
-                    className="px-2 py-1 bg-gray-100 rounded text-xs flex items-center gap-1"
+                    className="px-2 py-1 bg-muted rounded text-xs flex items-center gap-1"
                   >
                     <Paperclip size={12} />
                     {file.name}
@@ -729,7 +729,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                   />
                   <button
                     onClick={() => fileInputRef.current?.click()}
-                    className="w-10 h-10 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]"
+                    className="w-10 h-10 bg-muted text-muted-foreground rounded-lg hover:bg-gray-200 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]"
                     aria-label="Attach file"
                   >
                     <Paperclip size={18} />
@@ -742,12 +742,12 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder={placeholder}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005196]"
+                className="flex-1 px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005196]"
                 aria-label="Message input"
               />
               {enableVoice && (
                 <button
-                  className="w-10 h-10 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]"
+                  className="w-10 h-10 bg-muted text-muted-foreground rounded-lg hover:bg-gray-200 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]"
                   aria-label="Voice input"
                 >
                   <Mic size={18} />

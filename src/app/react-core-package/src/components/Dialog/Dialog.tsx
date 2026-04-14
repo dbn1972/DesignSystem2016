@@ -14,7 +14,7 @@
  * ```
  */
 
-import React, { useEffect, useId, useRef } from 'react';
+import { useEffect, useId, useRef, MouseEvent } from 'react';
 import { cn } from '../../utils/cn';
 import { DialogProps } from './Dialog.types';
 
@@ -67,7 +67,7 @@ export function Dialog({
 
     focusInitialElement();
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = ( event: globalThis.KeyboardEvent) => {
       if (closeOnEscape && event.key === 'Escape') {
         event.preventDefault();
         onClose();
@@ -114,7 +114,7 @@ export function Dialog({
 
   if (!open) return null;
 
-  const handleBackdropClick = (event: React.MouseEvent) => {
+  const handleBackdropClick = (event: MouseEvent<HTMLDivElement>) => {
     if (closeOnBackdrop && event.target === event.currentTarget) {
       onClose();
     }

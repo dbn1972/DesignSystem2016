@@ -21,12 +21,12 @@ export function ServiceHeader({
   rightContent
 }: ServiceHeaderProps) {
   return (
-    <header className="bg-white border-b-2 border-gray-300">
+    <header className="bg-card border-b-2 border-border">
       <div className="max-w-[1400px] mx-auto px-12 py-6">
         {backLink && backText && (
           <Link 
             to={backLink}
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-4"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4"
           >
             ← {backText}
           </Link>
@@ -37,8 +37,8 @@ export function ServiceHeader({
               <Icon size={28} className="text-white" />
             </div>
             <div>
-              <div className="text-sm text-gray-600">{category}</div>
-              <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+              <div className="text-sm text-muted-foreground">{category}</div>
+              <h1 className="text-2xl font-bold text-foreground">{title}</h1>
             </div>
           </div>
           {rightContent}

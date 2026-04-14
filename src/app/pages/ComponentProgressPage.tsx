@@ -58,7 +58,7 @@ const ProgressPreview = ({ variant, size, value, indeterminate, label, showPerce
           />
         </svg>
         {showPercentage && !indeterminate && (
-          <span className="text-sm font-medium text-gray-700">{value}%</span>
+          <span className="text-sm font-medium text-muted-foreground">{value}%</span>
         )}
       </div>
     );
@@ -83,8 +83,8 @@ const ProgressPreview = ({ variant, size, value, indeterminate, label, showPerce
     <div className="w-full">
       {(label || showPercentage) && (
         <div className="flex justify-between items-center mb-2">
-          {label && <span className="text-sm font-medium text-gray-700">{label}</span>}
-          {showPercentage && !indeterminate && <span className="text-sm font-medium text-gray-700">{value}%</span>}
+          {label && <span className="text-sm font-medium text-muted-foreground">{label}</span>}
+          {showPercentage && !indeterminate && <span className="text-sm font-medium text-muted-foreground">{value}%</span>}
         </div>
       )}
       <div
@@ -376,12 +376,12 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
         {(label || showPercentage) && (
           <div className="flex justify-between items-center mb-2">
             {label && (
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-sm font-medium text-muted-foreground">
                 {label}
               </span>
             )}
             {showPercentage && !indeterminate && (
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-sm font-medium text-muted-foreground">
                 {normalizedValue}%
               </span>
             )}
@@ -506,11 +506,11 @@ type ProgressColor = 'primary' | 'success' | 'warning' | 'danger';
     <div class="progress-container" [class.w-full]="variant === 'linear'">
       <div *ngIf="(label || showPercentage) && variant === 'linear'"
            class="flex justify-between items-center mb-2">
-        <span *ngIf="label" class="text-sm font-medium text-gray-700">
+        <span *ngIf="label" class="text-sm font-medium text-muted-foreground">
           {{ label }}
         </span>
         <span *ngIf="showPercentage && !indeterminate"
-              class="text-sm font-medium text-gray-700">
+              class="text-sm font-medium text-muted-foreground">
           {{ value }}%
         </span>
       </div>
@@ -556,7 +556,7 @@ type ProgressColor = 'primary' | 'success' | 'warning' | 'danger';
       </svg>
 
       <span *ngIf="showPercentage && !indeterminate && variant === 'circular'"
-            class="text-sm font-medium text-gray-700 mt-2">
+            class="text-sm font-medium text-muted-foreground mt-2">
         {{ value }}%
       </span>
     </div>

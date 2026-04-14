@@ -30,11 +30,11 @@ export default function LanguageSwitcherPattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <header className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 border-b-4 border-[#FF9933]">
         <div className="max-w-[1400px] mx-auto px-12 py-16">
           <div className="mb-6">
-            <Link to="/patterns/localization" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/patterns/localization" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Localization Patterns
             </Link>
           </div>
@@ -45,11 +45,11 @@ export default function LanguageSwitcherPattern() {
                   <Languages size={40} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#000080] mb-2 uppercase tracking-wide">Localization Pattern</div>
-                  <h1 className="text-5xl font-bold text-gray-900">Language Switcher</h1>
+                  <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Localization Pattern</div>
+                  <h1 className="text-5xl font-bold text-foreground">Language Switcher</h1>
                 </div>
               </div>
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
                 User interface component for selecting preferred language with smart defaults,
                 persistent preferences, and multiple presentation variants for different contexts.
               </p>
@@ -62,22 +62,22 @@ export default function LanguageSwitcherPattern() {
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
             <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
-              <h2 className="font-bold text-gray-900 mb-2">Interactive Demo</h2>
-              <p className="text-sm text-gray-700">
+              <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
+              <p className="text-sm text-muted-foreground">
                 Try different language switcher variants. Select a variant to see it in action.
               </p>
             </div>
 
             {/* Variant Selector */}
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-6 mb-6">
-              <h3 className="font-bold text-gray-900 mb-4">Select Variant:</h3>
+            <div className="bg-card border-2 border-border rounded-lg p-6 mb-6">
+              <h3 className="font-bold text-foreground mb-4">Select Variant:</h3>
               <div className="flex gap-3">
                 <button
                   onClick={() => setVariant("dropdown")}
                   className={`px-6 py-3 rounded font-bold ${
                     variant === "dropdown"
-                      ? "bg-[#000080] text-white"
-                      : "border-2 border-gray-300 text-gray-700 hover:border-gray-400"
+                      ? "bg-primary text-white"
+                      : "border-2 border-border text-muted-foreground hover:border-gray-400"
                   }`}
                 >
                   Dropdown
@@ -86,8 +86,8 @@ export default function LanguageSwitcherPattern() {
                   onClick={() => setVariant("modal")}
                   className={`px-6 py-3 rounded font-bold ${
                     variant === "modal"
-                      ? "bg-[#000080] text-white"
-                      : "border-2 border-gray-300 text-gray-700 hover:border-gray-400"
+                      ? "bg-primary text-white"
+                      : "border-2 border-border text-muted-foreground hover:border-gray-400"
                   }`}
                 >
                   Modal
@@ -96,8 +96,8 @@ export default function LanguageSwitcherPattern() {
                   onClick={() => setVariant("inline")}
                   className={`px-6 py-3 rounded font-bold ${
                     variant === "inline"
-                      ? "bg-[#000080] text-white"
-                      : "border-2 border-gray-300 text-gray-700 hover:border-gray-400"
+                      ? "bg-primary text-white"
+                      : "border-2 border-border text-muted-foreground hover:border-gray-400"
                   }`}
                 >
                   Inline Grid
@@ -107,26 +107,26 @@ export default function LanguageSwitcherPattern() {
 
             {/* Dropdown Variant */}
             {variant === "dropdown" && (
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Dropdown Variant</h3>
-                <p className="text-sm text-gray-600 mb-6">
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <h3 className="text-xl font-bold text-foreground mb-4">Dropdown Variant</h3>
+                <p className="text-sm text-muted-foreground mb-6">
                   Compact dropdown for header/navigation. Best for limited space.
                 </p>
 
                 <div className="max-w-xs relative">
                   <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="w-full flex items-center justify-between px-4 py-3 border-2 border-gray-300 rounded bg-white hover:border-[#000080] font-bold"
+                    className="w-full flex items-center justify-between px-4 py-3 border-2 border-border rounded bg-card hover:border-primary font-bold"
                   >
                     <div className="flex items-center gap-2">
-                      <Globe size={20} className="text-gray-600" />
+                      <Globe size={20} className="text-muted-foreground" />
                       <span>{selectedLanguage.nativeName}</span>
                     </div>
-                    <ChevronDown size={20} className={`text-gray-600 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown size={20} className={`text-muted-foreground transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
                   </button>
 
                   {dropdownOpen && (
-                    <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-gray-300 rounded shadow-lg max-h-80 overflow-y-auto z-10">
+                    <div className="absolute top-full left-0 right-0 mt-2 bg-card border-2 border-border rounded shadow-lg max-h-80 overflow-y-auto z-10">
                       {LANGUAGES.map((lang) => (
                         <button
                           key={lang.code}
@@ -136,8 +136,8 @@ export default function LanguageSwitcherPattern() {
                           }`}
                         >
                           <div>
-                            <div className="font-bold text-gray-900">{lang.nativeName}</div>
-                            <div className="text-xs text-gray-600">{lang.name}</div>
+                            <div className="font-bold text-foreground">{lang.nativeName}</div>
+                            <div className="text-xs text-muted-foreground">{lang.name}</div>
                           </div>
                           {selectedLanguage.code === lang.code && (
                             <CheckCircle size={16} className="text-green-600" />
@@ -152,30 +152,30 @@ export default function LanguageSwitcherPattern() {
 
             {/* Modal Variant */}
             {variant === "modal" && (
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Modal Variant</h3>
-                <p className="text-sm text-gray-600 mb-6">
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <h3 className="text-xl font-bold text-foreground mb-4">Modal Variant</h3>
+                <p className="text-sm text-muted-foreground mb-6">
                   Full-screen modal for first-time language selection or settings page.
                 </p>
 
                 <button
                   onClick={() => setModalOpen(true)}
-                  className="px-6 py-3 bg-[#000080] text-white rounded font-bold hover:bg-blue-900"
+                  className="px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90"
                 >
                   Open Language Selector
                 </button>
 
                 {modalOpen && (
                   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white rounded-lg max-w-2xl w-full mx-4 max-h-[80vh] overflow-hidden flex flex-col">
-                      <div className="border-b-2 border-gray-300 p-6 flex items-center justify-between">
+                    <div className="bg-card rounded-lg max-w-2xl w-full mx-4 max-h-[80vh] overflow-hidden flex flex-col">
+                      <div className="border-b-2 border-border p-6 flex items-center justify-between">
                         <div>
-                          <h3 className="text-2xl font-bold text-gray-900">Select Your Language</h3>
-                          <p className="text-sm text-gray-600 mt-1">भाषा चुनें • Choose Language</p>
+                          <h3 className="text-2xl font-bold text-foreground">Select Your Language</h3>
+                          <p className="text-sm text-muted-foreground mt-1">भाषा चुनें • Choose Language</p>
                         </div>
                         <button
                           onClick={() => setModalOpen(false)}
-                          className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded"
+                          className="w-10 h-10 flex items-center justify-center hover:bg-muted rounded"
                         >
                           <X size={24} />
                         </button>
@@ -187,16 +187,16 @@ export default function LanguageSwitcherPattern() {
                             <button
                               key={lang.code}
                               onClick={() => handleLanguageSelect(lang)}
-                              className={`p-4 border-2 rounded-lg text-left hover:border-[#000080] hover:bg-blue-50 transition-all ${
+                              className={`p-4 border-2 rounded-lg text-left hover:border-primary hover:bg-blue-50 transition-all ${
                                 selectedLanguage.code === lang.code
-                                  ? "border-[#000080] bg-blue-50"
-                                  : "border-gray-300"
+                                  ? "border-primary bg-blue-50"
+                                  : "border-border"
                               }`}
                             >
                               <div className="flex items-center justify-between">
                                 <div>
-                                  <div className="font-bold text-gray-900 text-lg">{lang.nativeName}</div>
-                                  <div className="text-sm text-gray-600">{lang.name}</div>
+                                  <div className="font-bold text-foreground text-lg">{lang.nativeName}</div>
+                                  <div className="text-sm text-muted-foreground">{lang.name}</div>
                                 </div>
                                 {selectedLanguage.code === lang.code && (
                                   <CheckCircle size={20} className="text-green-600" />
@@ -207,10 +207,10 @@ export default function LanguageSwitcherPattern() {
                         </div>
                       </div>
 
-                      <div className="border-t-2 border-gray-300 p-6">
+                      <div className="border-t-2 border-border p-6">
                         <button
                           onClick={() => setModalOpen(false)}
-                          className="w-full px-6 py-3 bg-[#000080] text-white rounded font-bold hover:bg-blue-900"
+                          className="w-full px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90"
                         >
                           Confirm Selection
                         </button>
@@ -223,9 +223,9 @@ export default function LanguageSwitcherPattern() {
 
             {/* Inline Grid Variant */}
             {variant === "inline" && (
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Inline Grid Variant</h3>
-                <p className="text-sm text-gray-600 mb-6">
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <h3 className="text-xl font-bold text-foreground mb-4">Inline Grid Variant</h3>
+                <p className="text-sm text-muted-foreground mb-6">
                   Inline grid for welcome pages or settings. Shows all options upfront.
                 </p>
 
@@ -234,14 +234,14 @@ export default function LanguageSwitcherPattern() {
                     <button
                       key={lang.code}
                       onClick={() => handleLanguageSelect(lang)}
-                      className={`p-4 border-2 rounded-lg text-center hover:border-[#000080] hover:bg-blue-50 transition-all ${
+                      className={`p-4 border-2 rounded-lg text-center hover:border-primary hover:bg-blue-50 transition-all ${
                         selectedLanguage.code === lang.code
-                          ? "border-[#000080] bg-blue-50"
-                          : "border-gray-300"
+                          ? "border-primary bg-blue-50"
+                          : "border-border"
                       }`}
                     >
-                      <div className="font-bold text-gray-900">{lang.nativeName}</div>
-                      <div className="text-xs text-gray-600 mt-1">{lang.name}</div>
+                      <div className="font-bold text-foreground">{lang.nativeName}</div>
+                      <div className="text-xs text-muted-foreground mt-1">{lang.name}</div>
                       {selectedLanguage.code === lang.code && (
                         <CheckCircle size={16} className="text-green-600 mx-auto mt-2" />
                       )}
@@ -256,8 +256,8 @@ export default function LanguageSwitcherPattern() {
               <div className="flex items-center gap-3">
                 <CheckCircle size={24} className="text-green-600" />
                 <div>
-                  <div className="font-bold text-gray-900">Currently Selected:</div>
-                  <div className="text-sm text-gray-700">
+                  <div className="font-bold text-foreground">Currently Selected:</div>
+                  <div className="text-sm text-muted-foreground">
                     {selectedLanguage.nativeName} ({selectedLanguage.name}) • {selectedLanguage.script} Script
                   </div>
                 </div>
@@ -267,14 +267,14 @@ export default function LanguageSwitcherPattern() {
             {/* Pattern Details */}
             <div className="mt-8 space-y-6">
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Implementation Guidelines</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Implementation Guidelines</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6 space-y-4">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">1. Smart Defaults</h3>
-                    <p className="text-sm text-gray-700 mb-2">
+                    <h3 className="font-bold text-foreground mb-2">1. Smart Defaults</h3>
+                    <p className="text-sm text-muted-foreground mb-2">
                       Auto-detect language preference in this order:
                     </p>
-                    <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                    <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                       <li>• User's saved preference (cookie/localStorage)</li>
                       <li>• Browser's Accept-Language header</li>
                       <li>• IP-based geolocation</li>
@@ -282,20 +282,20 @@ export default function LanguageSwitcherPattern() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">2. Persistence</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">2. Persistence</h3>
+                    <p className="text-sm text-muted-foreground">
                       Store selected language in localStorage and session cookie. Apply to all pages immediately without page reload.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">3. Accessibility</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">3. Accessibility</h3>
+                    <p className="text-sm text-muted-foreground">
                       Include lang attribute on each option. Ensure keyboard navigation works. Announce selection changes to screen readers.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">4. Display Native Names</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">4. Display Native Names</h3>
+                    <p className="text-sm text-muted-foreground">
                       Always show language names in their native script (हिंदी not "Hindi"). Include English translation as secondary text.
                     </p>
                   </div>
@@ -306,27 +306,27 @@ export default function LanguageSwitcherPattern() {
 
           <aside className="col-span-4">
             <div className="sticky top-8 space-y-6">
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Pattern Information</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Pattern Information</h3>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Complexity</div>
+                    <div className="text-xs text-muted-foreground mb-1">Complexity</div>
                     <div className="font-bold">Medium</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Required For</div>
+                    <div className="text-xs text-muted-foreground mb-1">Required For</div>
                     <div className="font-bold">All services</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Variants</div>
+                    <div className="text-xs text-muted-foreground mb-1">Variants</div>
                     <div className="font-bold">Dropdown, Modal, Inline</div>
                   </div>
                 </div>
               </div>
 
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-3">Best Practices</h3>
-                <ul className="space-y-2 text-xs text-gray-700">
+                <h3 className="font-bold text-foreground mb-3">Best Practices</h3>
+                <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Show native script names</li>
                   <li>✓ Auto-detect from browser/location</li>
                   <li>✓ Save preference persistently</li>
@@ -336,9 +336,9 @@ export default function LanguageSwitcherPattern() {
                 </ul>
               </div>
 
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Components Used</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Components Used</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Dropdown Menu</li>
                   <li>• Modal Dialog</li>
                   <li>• Button Grid</li>
@@ -346,16 +346,16 @@ export default function LanguageSwitcherPattern() {
                 </ul>
               </div>
 
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Related Patterns</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Related Patterns</h3>
                 <div className="space-y-2">
-                  <Link to="/patterns/localization/mixed-language-fallback" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/localization/mixed-language-fallback" className="block text-sm text-primary hover:underline">
                     → Mixed-Language Fallback
                   </Link>
-                  <Link to="/patterns/localization/content-expansion" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/localization/content-expansion" className="block text-sm text-primary hover:underline">
                     → Content Expansion
                   </Link>
-                  <Link to="/patterns/localization/script-layout" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/localization/script-layout" className="block text-sm text-primary hover:underline">
                     → Script-Specific Layout
                   </Link>
                 </div>

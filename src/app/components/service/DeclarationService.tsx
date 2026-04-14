@@ -35,30 +35,30 @@ export function DeclarationService({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader icon={FileCheck} iconColor="bg-purple-600" category={category} title={title} />
 
       <main className="max-w-[1000px] mx-auto px-4 sm:px-6 py-8">
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-5">
-          <p className="text-sm text-gray-700">
-            I, <span className="font-bold text-gray-900">{getDeclarationDisplayName(draft.personal.fullName)}</span>, declare that all
+        <div className="bg-card border-2 border-border rounded-lg p-6 space-y-5">
+          <p className="text-sm text-muted-foreground">
+            I, <span className="font-bold text-foreground">{getDeclarationDisplayName(draft.personal.fullName)}</span>, declare that all
             submitted information and documents are accurate and can be verified by the issuing authority.
           </p>
 
-          <ul className="list-disc list-inside text-sm text-gray-700 space-y-2">
+          <ul className="list-disc list-inside text-sm text-muted-foreground space-y-2">
             <li>Data may be used only for processing this certificate application.</li>
             <li>False information may lead to rejection and legal action.</li>
             <li>Application fee is non-refundable once payment succeeds.</li>
           </ul>
 
-          <label className="flex items-start gap-3 p-4 border-2 border-gray-300 rounded cursor-pointer">
+          <label className="flex items-start gap-3 p-4 border-2 border-border rounded cursor-pointer">
             <input
               type="checkbox"
               checked={accepted}
               onChange={(event) => setAccepted(event.target.checked)}
               className="mt-1"
             />
-            <span className="text-sm text-gray-700">
+            <span className="text-sm text-muted-foreground">
               I have read and agree to the declaration, consent, and data usage terms.
             </span>
           </label>
@@ -67,7 +67,7 @@ export function DeclarationService({
         <div className="flex items-center justify-between mt-6 gap-3 flex-wrap">
           <Link
             to={backPath}
-            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-gray-700 hover:bg-gray-50"
+            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-muted-foreground hover:bg-muted"
           >
             <ArrowLeft size={16} />
             Back
@@ -77,7 +77,7 @@ export function DeclarationService({
             {codeDownloadPath && (
               <Link
                 to={codeDownloadPath}
-                className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-[#000080] hover:bg-gray-50"
+                className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-primary hover:bg-muted"
               >
                 <Download size={15} />
                 Download React code
@@ -88,7 +88,7 @@ export function DeclarationService({
               type="button"
               onClick={continueFlow}
               disabled={!accepted}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-[#138808] text-white rounded font-bold text-sm hover:bg-green-700 disabled:bg-gray-300 disabled:text-gray-500"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-green-700 text-white rounded font-bold text-sm hover:bg-green-600 disabled:bg-gray-300 disabled:text-gray-500"
             >
               Accept and Continue
               <ArrowRight size={16} />

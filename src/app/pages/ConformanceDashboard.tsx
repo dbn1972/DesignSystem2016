@@ -2,7 +2,7 @@ import { BarChart3, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, XCircl
 
 export default function ConformanceDashboard() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
@@ -55,23 +55,23 @@ export default function ConformanceDashboard() {
       </div>
 
       {/* Navigation */}
-      <div className="border-b-2 border-gray-200 bg-gray-50 sticky top-0 z-10">
+      <div className="border-b-2 border-border bg-background sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-8">
           <nav className="flex gap-6 overflow-x-auto py-4 text-sm">
-            <a href="#overview" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Adoption Overview</a>
-            <a href="#departments" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Departments</a>
-            <a href="#services" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Active Services</a>
-            <a href="#vendors" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Vendor Conformance</a>
-            <a href="#component-usage" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Component Usage</a>
-            <a href="#framework-usage" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Framework Usage</a>
-            <a href="#documentation" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Documentation</a>
-            <a href="#accessibility" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Accessibility</a>
-            <a href="#releases" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Release Adoption</a>
-            <a href="#exceptions" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Exceptions</a>
-            <a href="#deprecation" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Deprecation Risk</a>
-            <a href="#issues" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Issues</a>
-            <a href="#support" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Support Burden</a>
-            <a href="#roadmap" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Roadmap</a>
+            <a href="#overview" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Adoption Overview</a>
+            <a href="#departments" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Departments</a>
+            <a href="#services" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Active Services</a>
+            <a href="#vendors" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Vendor Conformance</a>
+            <a href="#component-usage" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Component Usage</a>
+            <a href="#framework-usage" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Framework Usage</a>
+            <a href="#documentation" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Documentation</a>
+            <a href="#accessibility" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Accessibility</a>
+            <a href="#releases" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Release Adoption</a>
+            <a href="#exceptions" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Exceptions</a>
+            <a href="#deprecation" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Deprecation Risk</a>
+            <a href="#issues" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Issues</a>
+            <a href="#support" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Support Burden</a>
+            <a href="#roadmap" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Roadmap</a>
           </nav>
         </div>
       </div>
@@ -142,22 +142,22 @@ function AdoptionOverview() {
         </div>
 
         {/* Adoption Trend Chart */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Quarterly Adoption Trend</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Quarterly Adoption Trend</h3>
           </div>
-          <div className="p-8 bg-white">
+          <div className="p-8 bg-card">
             <AdoptionTrendVisualization />
           </div>
         </div>
 
         {/* Maturity Distribution */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Adoption Maturity Distribution</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Adoption Maturity Distribution</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-4">
                 <MaturityBar label="Exemplar (90-100%)" count={12} total={47} color="green" />
                 <MaturityBar label="Conformant (70-89%)" count={23} total={47} color="blue" />
@@ -167,11 +167,11 @@ function AdoptionOverview() {
             </div>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Top Performing Sectors</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Top Performing Sectors</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-3">
                 <SectorPerformanceRow sector="Digital Services" score={94} services={48} />
                 <SectorPerformanceRow sector="Revenue & Taxation" score={89} services={37} />
@@ -198,9 +198,9 @@ function DepartmentsOnboarded() {
 
       <div className="mt-8 space-y-6">
         {/* Department Comparison Matrix */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200 flex items-center justify-between">
-            <h3 className="font-bold text-gray-900">Department Conformance Matrix</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border flex items-center justify-between">
+            <h3 className="font-bold text-foreground">Department Conformance Matrix</h3>
             <button className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
               <Filter size={14} />
               Filter by Sector
@@ -208,15 +208,15 @@ function DepartmentsOnboarded() {
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-100 border-b-2 border-gray-200">
+              <thead className="bg-muted border-b-2 border-border">
                 <tr>
-                  <th className="text-left p-4 text-sm font-bold text-gray-900">Department</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Services</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Conformance</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Accessibility</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Version</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Status</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Last Audit</th>
+                  <th className="text-left p-4 text-sm font-bold text-foreground">Department</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Services</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Conformance</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Accessibility</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Version</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Status</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Last Audit</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -306,11 +306,11 @@ function DepartmentsOnboarded() {
         </div>
 
         {/* Heat Map */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Conformance Heat Map by Ministry</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Conformance Heat Map by Ministry</h3>
           </div>
-          <div className="p-8 bg-white">
+          <div className="p-8 bg-card">
             <ConformanceHeatMap />
           </div>
         </div>
@@ -352,11 +352,11 @@ function ActiveServices() {
         </div>
 
         {/* Service Categories */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Services by Category</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Services by Category</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-3">
                 <ServiceCategoryBar category="Taxation & Revenue" count={52} conformance={87} />
@@ -488,11 +488,11 @@ function VendorConformance() {
         </div>
 
         {/* Certification Levels */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Vendor Certification Levels</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Vendor Certification Levels</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="grid grid-cols-3 gap-6">
               <CertificationLevelCard
                 level="Level 3 - Exemplar"
@@ -531,11 +531,11 @@ function ComponentUsageTrends() {
 
       <div className="mt-8 space-y-6">
         {/* Top Components */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Most Used Components</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Most Used Components</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-3">
               <ComponentUsageBar component="Button" usage={312} implementations={98} trend="stable" />
               <ComponentUsageBar component="Form Input" usage={298} implementations={95} trend="up" />
@@ -555,12 +555,12 @@ function ComponentUsageTrends() {
         <div className="grid grid-cols-2 gap-6">
           <div className="border-2 border-orange-200 rounded-lg overflow-hidden">
             <div className="bg-orange-50 p-6 border-b-2 border-orange-200">
-              <h3 className="font-bold text-gray-900 flex items-center gap-2">
+              <h3 className="font-bold text-foreground flex items-center gap-2">
                 <AlertTriangle className="text-orange-600" size={20} />
                 Underutilized Components
               </h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-2 text-sm">
                 <UnderutilizedComponentRow component="Timeline" usage={23} potential="High for status tracking" />
                 <UnderutilizedComponentRow component="Accordion" usage={34} potential="Good for FAQs" />
@@ -573,12 +573,12 @@ function ComponentUsageTrends() {
 
           <div className="border-2 border-purple-200 rounded-lg overflow-hidden">
             <div className="bg-purple-50 p-6 border-b-2 border-purple-200">
-              <h3 className="font-bold text-gray-900 flex items-center gap-2">
+              <h3 className="font-bold text-foreground flex items-center gap-2">
                 <TrendingUp className="text-purple-600" size={20} />
                 Growing Adoption
               </h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-2 text-sm">
                 <GrowingComponentRow component="File Upload" growth="+45%" quarter="Q4 2025" />
                 <GrowingComponentRow component="Search Autocomplete" growth="+38%" quarter="Q4 2025" />
@@ -606,11 +606,11 @@ function FrameworkUsageTrends() {
       <div className="mt-8 space-y-6">
         {/* Framework Distribution */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Framework Distribution</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Framework Distribution</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-4">
                 <FrameworkBar framework="React" services={178} percentage={57} version="18.x" />
                 <FrameworkBar framework="Angular" services={89} percentage={29} version="16.x / 17.x" />
@@ -620,11 +620,11 @@ function FrameworkUsageTrends() {
             </div>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Package Distribution Method</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Package Distribution Method</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-4">
                 <PackageMethodBar method="NPM Package" services={234} percentage={75} status="recommended" />
                 <PackageMethodBar method="CDN (Hosted)" services={52} percentage={17} status="acceptable" />
@@ -636,11 +636,11 @@ function FrameworkUsageTrends() {
         </div>
 
         {/* Version Adoption */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">UX4G Version Adoption</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">UX4G Version Adoption</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-3">
               <VersionAdoptionRow version="v3.2.x (Latest)" services={142} percentage={46} status="current" />
               <VersionAdoptionRow version="v3.1.x" services={98} percentage={31} status="supported" />
@@ -688,11 +688,11 @@ function DocumentationAdoption() {
         </div>
 
         {/* Popular Pages */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Most Visited Documentation Pages</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Most Visited Documentation Pages</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-3">
               <DocPageRow page="Component Documentation" visits={8432} avgTime="8m 12s" bounce="18%" />
               <DocPageRow page="Getting Started Guide" visits={6789} avgTime="6m 45s" bounce="24%" />
@@ -706,11 +706,11 @@ function DocumentationAdoption() {
 
         {/* Resource Downloads */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Resource Downloads</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Resource Downloads</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-2 text-sm">
                 <ResourceDownloadRow resource="Figma UI Kit" downloads={487} />
                 <ResourceDownloadRow resource="Component Storybook" downloads={423} />
@@ -721,11 +721,11 @@ function DocumentationAdoption() {
             </div>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Documentation Gaps</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Documentation Gaps</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-2 text-sm">
                 <DocGapRow gap="Angular migration guide" tickets={34} priority="high" />
                 <DocGapRow gap="Server-side rendering examples" tickets={28} priority="high" />
@@ -780,11 +780,11 @@ function AccessibilityReadiness() {
         </div>
 
         {/* Accessibility Heat Map */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Accessibility Compliance by WCAG Criteria</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Accessibility Compliance by WCAG Criteria</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-3">
               <WCAGCriteriaRow criteria="1.1 Text Alternatives" compliant={298} total={312} percentage={96} />
               <WCAGCriteriaRow criteria="1.3 Adaptable Content" compliant={287} total={312} percentage={92} />
@@ -823,11 +823,11 @@ function ReleaseAdoptionStatus() {
 
       <div className="mt-8 space-y-6">
         {/* Release Timeline */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Recent Releases & Adoption Rate</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Recent Releases & Adoption Rate</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-4">
               <ReleaseAdoptionRow
                 version="v3.2.1"
@@ -867,11 +867,11 @@ function ReleaseAdoptionStatus() {
 
         {/* Migration Status */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Migration to v3.2.x Progress</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Migration to v3.2.x Progress</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-4">
                 <MigrationStatusBar status="Completed" count={142} percentage={46} color="green" />
                 <MigrationStatusBar status="In Progress" count={89} percentage={29} color="blue" />
@@ -883,12 +883,12 @@ function ReleaseAdoptionStatus() {
 
           <div className="border-2 border-orange-200 rounded-lg overflow-hidden">
             <div className="bg-orange-50 p-6 border-b-2 border-orange-200">
-              <h3 className="font-bold text-gray-900 flex items-center gap-2">
+              <h3 className="font-bold text-foreground flex items-center gap-2">
                 <AlertTriangle className="text-orange-600" size={20} />
                 Services on Deprecated Versions
               </h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-2 text-sm">
                 <DeprecatedServiceRow service="Municipal Portal (Bangalore)" version="v2.8.4" endOfLife="30 Jun 2026" />
                 <DeprecatedServiceRow service="Ration Card (Uttar Pradesh)" version="v2.7.2" endOfLife="30 Jun 2026" />
@@ -942,20 +942,20 @@ function ExceptionsWaivers() {
         </div>
 
         {/* Exceptions Table */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Active Exceptions Registry</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Active Exceptions Registry</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-100 border-b-2 border-gray-200">
+              <thead className="bg-muted border-b-2 border-border">
                 <tr>
-                  <th className="text-left p-4 text-sm font-bold text-gray-900">Service</th>
-                  <th className="text-left p-4 text-sm font-bold text-gray-900">Exception Type</th>
-                  <th className="text-left p-4 text-sm font-bold text-gray-900">Justification</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Approved</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Expires</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Status</th>
+                  <th className="text-left p-4 text-sm font-bold text-foreground">Service</th>
+                  <th className="text-left p-4 text-sm font-bold text-foreground">Exception Type</th>
+                  <th className="text-left p-4 text-sm font-bold text-foreground">Justification</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Approved</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Expires</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -999,12 +999,12 @@ function ExceptionsWaivers() {
         {/* Pending Exceptions */}
         <div className="border-2 border-yellow-200 rounded-lg overflow-hidden">
           <div className="bg-yellow-50 p-6 border-b-2 border-yellow-200">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <Clock className="text-yellow-600" size={20} />
               Exceptions Pending Governance Review
             </h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-3">
               <PendingExceptionRow
                 service="State GST Portal (Tamil Nadu)"
@@ -1062,11 +1062,11 @@ function DeprecationRisk() {
         </div>
 
         {/* Deprecated Features */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Deprecated Features Still in Use</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Deprecated Features Still in Use</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-4">
               <DeprecatedFeatureRow
                 feature="Legacy Modal Component (v2.x)"
@@ -1107,12 +1107,12 @@ function DeprecationRisk() {
         {/* Lifecycle Warnings */}
         <div className="border-2 border-red-200 rounded-lg overflow-hidden">
           <div className="bg-red-50 p-6 border-b-2 border-red-200">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <AlertCircle className="text-red-600" size={20} />
               Urgent Lifecycle Warnings
             </h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-3">
               <LifecycleWarningRow
                 service="Property Tax Portal (MCD Delhi)"
@@ -1182,9 +1182,9 @@ function NonConformanceLog() {
         </div>
 
         {/* Issues Table */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200 flex items-center justify-between">
-            <h3 className="font-bold text-gray-900">Active Non-Conformance Issues</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border flex items-center justify-between">
+            <h3 className="font-bold text-foreground">Active Non-Conformance Issues</h3>
             <button className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
               <Filter size={14} />
               Filter by Severity
@@ -1192,15 +1192,15 @@ function NonConformanceLog() {
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-100 border-b-2 border-gray-200">
+              <thead className="bg-muted border-b-2 border-border">
                 <tr>
-                  <th className="text-left p-4 text-sm font-bold text-gray-900">Issue ID</th>
-                  <th className="text-left p-4 text-sm font-bold text-gray-900">Service</th>
-                  <th className="text-left p-4 text-sm font-bold text-gray-900">Issue Description</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Severity</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Reported</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Assignee</th>
-                  <th className="text-center p-4 text-sm font-bold text-gray-900">Status</th>
+                  <th className="text-left p-4 text-sm font-bold text-foreground">Issue ID</th>
+                  <th className="text-left p-4 text-sm font-bold text-foreground">Service</th>
+                  <th className="text-left p-4 text-sm font-bold text-foreground">Issue Description</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Severity</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Reported</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Assignee</th>
+                  <th className="text-center p-4 text-sm font-bold text-foreground">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -1256,11 +1256,11 @@ function NonConformanceLog() {
 
         {/* Issue Trends */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Issues by Category</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Issues by Category</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-3">
                 <IssueCategoryBar category="Accessibility" count={8} percentage={35} />
                 <IssueCategoryBar category="Component Usage" count={6} percentage={26} />
@@ -1271,16 +1271,16 @@ function NonConformanceLog() {
             </div>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Resolution Performance</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Resolution Performance</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-4">
                 <ResolutionMetricRow metric="Within SLA" count={28} total={34} percentage={82} />
                 <ResolutionMetricRow metric="Beyond SLA" count={6} total={34} percentage={18} />
-                <div className="pt-4 border-t border-gray-200">
-                  <div className="text-sm text-gray-600 mb-2">Avg Resolution Time by Severity</div>
+                <div className="pt-4 border-t border-border">
+                  <div className="text-sm text-muted-foreground mb-2">Avg Resolution Time by Severity</div>
                   <div className="space-y-2 text-xs">
                     <div className="flex justify-between"><span>Critical:</span><span className="font-bold">3.2 days</span></div>
                     <div className="flex justify-between"><span>High:</span><span className="font-bold">8.5 days</span></div>
@@ -1336,11 +1336,11 @@ function SupportBurden() {
         </div>
 
         {/* Support by Department */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Support Volume by Department</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Support Volume by Department</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-3">
               <SupportVolumeBar department="State Services Portal (UP)" tickets={34} avgTime="6.2 hrs" satisfaction={4.1} />
               <SupportVolumeBar department="Municipal Corporation (Bangalore)" tickets={28} avgTime="5.8 hrs" satisfaction={3.9} />
@@ -1353,11 +1353,11 @@ function SupportBurden() {
 
         {/* Common Support Topics */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-              <h3 className="font-bold text-gray-900">Top Support Topics</h3>
+          <div className="border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-background p-6 border-b-2 border-border">
+              <h3 className="font-bold text-foreground">Top Support Topics</h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-2 text-sm">
                 <SupportTopicRow topic="Component implementation guidance" tickets={78} trend="stable" />
                 <SupportTopicRow topic="Accessibility compliance questions" tickets={56} trend="up" />
@@ -1371,12 +1371,12 @@ function SupportBurden() {
 
           <div className="border-2 border-green-200 rounded-lg overflow-hidden">
             <div className="bg-green-50 p-6 border-b-2 border-green-200">
-              <h3 className="font-bold text-gray-900 flex items-center gap-2">
+              <h3 className="font-bold text-foreground flex items-center gap-2">
                 <TrendingDown className="text-green-600" size={20} />
                 Support Reduction Initiatives
               </h3>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-card">
               <div className="space-y-3 text-sm">
                 <InitiativeRow
                   initiative="Enhanced code examples in docs"
@@ -1421,11 +1421,11 @@ function RoadmapPriorities() {
         <div className="border-2 border-blue-200 rounded-lg overflow-hidden">
           <div className="bg-blue-50 p-6 border-b-2 border-blue-200">
             <div className="flex items-center justify-between">
-              <h3 className="font-bold text-gray-900">Q2 2026 Priorities (Apr-Jun)</h3>
+              <h3 className="font-bold text-foreground">Q2 2026 Priorities (Apr-Jun)</h3>
               <span className="text-sm text-blue-700 font-medium">Based on conformance data</span>
             </div>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="space-y-4">
               <PriorityCard
                 priority={1}
@@ -1459,11 +1459,11 @@ function RoadmapPriorities() {
         </div>
 
         {/* Next Quarter Preview */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Q3 2026 Planning (Jul-Sep)</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Q3 2026 Planning (Jul-Sep)</h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="grid grid-cols-2 gap-4">
               <UpcomingPriorityCard
                 title="Offline-First Patterns"
@@ -1492,12 +1492,12 @@ function RoadmapPriorities() {
         {/* Data-Driven Insights */}
         <div className="border-2 border-purple-200 rounded-lg overflow-hidden">
           <div className="bg-purple-50 p-6 border-b-2 border-purple-200">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <BarChart3 className="text-purple-600" size={20} />
               Key Insights from Conformance Data
             </h3>
           </div>
-          <div className="p-6 bg-white">
+          <div className="p-6 bg-card">
             <div className="grid grid-cols-2 gap-6">
               <InsightCard
                 insight="Services using NPM packages have 23% higher conformance scores than manual integration"
@@ -1531,12 +1531,12 @@ function RoadmapPriorities() {
 
 function SectionHeader({ title, icon, description }: any) {
   return (
-    <div className="border-b-2 border-gray-200 pb-6">
+    <div className="border-b-2 border-border pb-6">
       <div className="flex items-center gap-3 mb-2">
-        <div className="text-[#000080]">{icon}</div>
-        <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
+        <div className="text-primary">{icon}</div>
+        <h2 className="text-3xl font-bold text-foreground">{title}</h2>
       </div>
-      <p className="text-gray-600 ml-11">{description}</p>
+      <p className="text-muted-foreground ml-11">{description}</p>
     </div>
   );
 }
@@ -1546,22 +1546,22 @@ function KPICard({ label, value, subtitle, trend, status }: any) {
     good: 'border-green-200 bg-green-50',
     warning: 'border-yellow-200 bg-yellow-50',
     critical: 'border-red-200 bg-red-50',
-    neutral: 'border-gray-200 bg-gray-50'
+    neutral: 'border-border bg-background'
   };
 
   const trendIcons: any = {
     up: <ArrowUpRight className="text-green-600" size={16} />,
     down: <ArrowDownRight className="text-red-600" size={16} />,
-    neutral: <Minus className="text-gray-600" size={16} />
+    neutral: <Minus className="text-muted-foreground" size={16} />
   };
 
   return (
     <div className={`border-2 rounded-lg p-5 ${statusColors[status]}`}>
-      <div className="text-sm text-gray-600 mb-1">{label}</div>
-      <div className="text-3xl font-bold text-gray-900 mb-2">{value}</div>
-      <div className="text-xs text-gray-600 mb-2">{subtitle}</div>
+      <div className="text-sm text-muted-foreground mb-1">{label}</div>
+      <div className="text-3xl font-bold text-foreground mb-2">{value}</div>
+      <div className="text-xs text-muted-foreground mb-2">{subtitle}</div>
       {trend && (
-        <div className="flex items-center gap-1 text-xs text-gray-700">
+        <div className="flex items-center gap-1 text-xs text-muted-foreground">
           {trendIcons[trend.direction]}
           <span>{trend.value}</span>
         </div>
@@ -1572,13 +1572,13 @@ function KPICard({ label, value, subtitle, trend, status }: any) {
 
 function StatCard({ label, value, detail, icon }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-5 bg-white">
+    <div className="border-2 border-border rounded-lg p-5 bg-card">
       <div className="flex items-start justify-between mb-3">
-        <div className="text-sm text-gray-600">{label}</div>
+        <div className="text-sm text-muted-foreground">{label}</div>
         {icon}
       </div>
-      <div className="text-3xl font-bold text-gray-900 mb-1">{value}</div>
-      <div className="text-xs text-gray-600">{detail}</div>
+      <div className="text-3xl font-bold text-foreground mb-1">{value}</div>
+      <div className="text-xs text-muted-foreground">{detail}</div>
     </div>
   );
 }
@@ -1600,7 +1600,7 @@ function AdoptionTrendVisualization() {
             <div className="flex-1 bg-blue-600 rounded-t" style={{ height: `${(q.departments / 50) * 200}px` }}></div>
             <div className="flex-1 bg-green-600 rounded-t" style={{ height: `${(q.services / 350) * 200}px` }}></div>
           </div>
-          <div className="text-xs text-gray-600 font-medium">{q.label}</div>
+          <div className="text-xs text-muted-foreground font-medium">{q.label}</div>
           <div className="text-xs text-gray-500">
             <div className="text-blue-600">{q.departments} depts</div>
             <div className="text-green-600">{q.services} svcs</div>
@@ -1623,10 +1623,10 @@ function MaturityBar({ label, count, total, color }: any) {
   return (
     <div>
       <div className="flex justify-between text-sm mb-2">
-        <span className="text-gray-700 font-medium">{label}</span>
-        <span className="text-gray-900 font-bold">{count} ({percentage}%)</span>
+        <span className="text-muted-foreground font-medium">{label}</span>
+        <span className="text-foreground font-bold">{count} ({percentage}%)</span>
       </div>
-      <div className="h-8 bg-gray-100 rounded-lg overflow-hidden">
+      <div className="h-8 bg-muted rounded-lg overflow-hidden">
         <div className={`h-full ${colorClasses[color]} flex items-center justify-end px-3 text-white text-xs font-bold`} style={{ width: `${percentage}%` }}>
           {percentage > 10 && `${percentage}%`}
         </div>
@@ -1639,11 +1639,11 @@ function SectorPerformanceRow({ sector, score, services }: any) {
   return (
     <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
       <div>
-        <div className="font-medium text-gray-900 text-sm">{sector}</div>
+        <div className="font-medium text-foreground text-sm">{sector}</div>
         <div className="text-xs text-gray-500">{services} services</div>
       </div>
       <div className="flex items-center gap-2">
-        <div className="text-2xl font-bold text-gray-900">{score}%</div>
+        <div className="text-2xl font-bold text-foreground">{score}%</div>
         <CheckCircle className="text-green-600" size={20} />
       </div>
     </div>
@@ -1659,27 +1659,27 @@ function DepartmentRow({ name, code, services, conformance, accessibility, versi
   };
 
   return (
-    <tr className="hover:bg-gray-50">
+    <tr className="hover:bg-background">
       <td className="p-4">
-        <div className="font-medium text-gray-900 text-sm">{name}</div>
+        <div className="font-medium text-foreground text-sm">{name}</div>
         <div className="text-xs text-gray-500">{code}</div>
       </td>
-      <td className="p-4 text-center text-sm text-gray-900">{services}</td>
+      <td className="p-4 text-center text-sm text-foreground">{services}</td>
       <td className="p-4 text-center">
-        <span className="text-sm font-bold text-gray-900">{conformance}%</span>
+        <span className="text-sm font-bold text-foreground">{conformance}%</span>
       </td>
       <td className="p-4 text-center">
-        <span className="text-sm font-bold text-gray-900">{accessibility}%</span>
+        <span className="text-sm font-bold text-foreground">{accessibility}%</span>
       </td>
       <td className="p-4 text-center">
-        <code className="text-xs bg-gray-100 px-2 py-1 rounded">{version}</code>
+        <code className="text-xs bg-muted px-2 py-1 rounded">{version}</code>
       </td>
       <td className="p-4 text-center">
         <span className={`text-xs px-3 py-1 rounded-full font-medium ${statusConfig[status].bg} ${statusConfig[status].text}`}>
           {statusConfig[status].label}
         </span>
       </td>
-      <td className="p-4 text-center text-xs text-gray-600">{lastAudit}</td>
+      <td className="p-4 text-center text-xs text-muted-foreground">{lastAudit}</td>
     </tr>
   );
 }
@@ -1728,10 +1728,10 @@ function ServiceCategoryBar({ category, count, conformance }: any) {
     <div className="flex items-center gap-3">
       <div className="flex-1">
         <div className="flex justify-between text-sm mb-1">
-          <span className="text-gray-700 font-medium">{category}</span>
-          <span className="text-gray-600">{count} services</span>
+          <span className="text-muted-foreground font-medium">{category}</span>
+          <span className="text-muted-foreground">{count} services</span>
         </div>
-        <div className="h-6 bg-gray-100 rounded overflow-hidden">
+        <div className="h-6 bg-muted rounded overflow-hidden">
           <div className={`h-full ${getColor(conformance)} flex items-center justify-end px-2 text-white text-xs font-bold`} style={{ width: `${conformance}%` }}>
             {conformance}%
           </div>
@@ -1751,22 +1751,22 @@ function ActionRequiredPanel({ title, items }: any) {
   return (
     <div className="border-2 border-red-200 rounded-lg overflow-hidden">
       <div className="bg-red-50 p-6 border-b-2 border-red-200">
-        <h3 className="font-bold text-gray-900 flex items-center gap-2">
+        <h3 className="font-bold text-foreground flex items-center gap-2">
           <AlertCircle className="text-red-600" size={20} />
           {title}
         </h3>
       </div>
-      <div className="p-6 bg-white">
+      <div className="p-6 bg-card">
         <div className="space-y-3">
           {items.map((item: any, idx: number) => (
-            <div key={idx} className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border-l-4 border-red-600">
+            <div key={idx} className="flex items-start gap-3 p-4 bg-background rounded-lg border-l-4 border-red-600">
               <div className={`flex-shrink-0 w-8 h-8 ${severityConfig[item.severity].bg} rounded-full flex items-center justify-center ${severityConfig[item.severity].text}`}>
                 {severityConfig[item.severity].icon}
               </div>
               <div className="flex-1">
-                <div className="font-bold text-gray-900 text-sm mb-1">{item.service}</div>
-                <div className="text-sm text-gray-700 mb-2">{item.issue}</div>
-                <div className="flex items-center gap-4 text-xs text-gray-600">
+                <div className="font-bold text-foreground text-sm mb-1">{item.service}</div>
+                <div className="text-sm text-muted-foreground mb-2">{item.issue}</div>
+                <div className="flex items-center gap-4 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1">
                     <Calendar size={12} />
                     Deadline: {item.deadline}
@@ -1793,8 +1793,8 @@ function VendorComplianceCard({ name, certification, projects, conformanceScore,
     <div className={`border-2 ${statusConfig[status].border} ${statusConfig[status].bg} rounded-lg p-5`}>
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h4 className="font-bold text-gray-900 text-lg mb-1">{name}</h4>
-          <div className="text-sm text-gray-600">{certification}</div>
+          <h4 className="font-bold text-foreground text-lg mb-1">{name}</h4>
+          <div className="text-sm text-muted-foreground">{certification}</div>
         </div>
         <div className={`${statusConfig[status].badge} text-white text-xs px-3 py-1 rounded-full font-bold`}>
           {conformanceScore}%
@@ -1803,15 +1803,15 @@ function VendorComplianceCard({ name, certification, projects, conformanceScore,
       <div className="grid grid-cols-3 gap-3 text-sm">
         <div>
           <div className="text-xs text-gray-500">Projects</div>
-          <div className="font-bold text-gray-900">{projects}</div>
+          <div className="font-bold text-foreground">{projects}</div>
         </div>
         <div>
           <div className="text-xs text-gray-500">Last Audit</div>
-          <div className="font-bold text-gray-900 text-xs">{lastAudit}</div>
+          <div className="font-bold text-foreground text-xs">{lastAudit}</div>
         </div>
         <div>
           <div className="text-xs text-gray-500">Expires</div>
-          <div className="font-bold text-gray-900 text-xs">{expiryDate}</div>
+          <div className="font-bold text-foreground text-xs">{expiryDate}</div>
         </div>
       </div>
     </div>
@@ -1827,9 +1827,9 @@ function CertificationLevelCard({ level, vendors, requirements, color }: any) {
 
   return (
     <div className={`border-2 ${colorClasses[color]} rounded-lg p-5`}>
-      <h4 className="font-bold text-gray-900 mb-1">{level}</h4>
-      <div className="text-2xl font-bold text-gray-900 mb-4">{vendors} vendors</div>
-      <div className="text-xs text-gray-700">
+      <h4 className="font-bold text-foreground mb-1">{level}</h4>
+      <div className="text-2xl font-bold text-foreground mb-4">{vendors} vendors</div>
+      <div className="text-xs text-muted-foreground">
         <div className="font-medium mb-2">Requirements:</div>
         <ul className="space-y-1">
           {requirements.map((req: string, idx: number) => (
@@ -1848,22 +1848,22 @@ function ComponentUsageBar({ component, usage, implementations, trend }: any) {
   const trendIcons: any = {
     up: <TrendingUp className="text-green-600" size={14} />,
     down: <TrendingDown className="text-red-600" size={14} />,
-    stable: <Minus className="text-gray-600" size={14} />
+    stable: <Minus className="text-muted-foreground" size={14} />
   };
 
   const percentage = Math.round((implementations / 312) * 100);
 
   return (
     <div className="flex items-center gap-4">
-      <div className="w-40 text-sm font-medium text-gray-900">{component}</div>
+      <div className="w-40 text-sm font-medium text-foreground">{component}</div>
       <div className="flex-1">
-        <div className="h-6 bg-gray-100 rounded overflow-hidden">
+        <div className="h-6 bg-muted rounded overflow-hidden">
           <div className="h-full bg-blue-600 flex items-center justify-end px-2 text-white text-xs font-bold" style={{ width: `${percentage}%` }}>
             {percentage > 15 && `${percentage}%`}
           </div>
         </div>
       </div>
-      <div className="w-32 text-sm text-gray-600">{implementations} services</div>
+      <div className="w-32 text-sm text-muted-foreground">{implementations} services</div>
       <div className="w-16 flex justify-center">{trendIcons[trend]}</div>
     </div>
   );
@@ -1873,8 +1873,8 @@ function UnderutilizedComponentRow({ component, usage, potential }: any) {
   return (
     <div className="flex items-start justify-between py-2 border-b border-gray-100 last:border-0">
       <div className="flex-1">
-        <div className="font-medium text-gray-900">{component}</div>
-        <div className="text-xs text-gray-600">{potential}</div>
+        <div className="font-medium text-foreground">{component}</div>
+        <div className="text-xs text-muted-foreground">{potential}</div>
       </div>
       <div className="text-sm text-orange-600 font-bold">{usage} uses</div>
     </div>
@@ -1884,9 +1884,9 @@ function UnderutilizedComponentRow({ component, usage, potential }: any) {
 function GrowingComponentRow({ component, growth, quarter }: any) {
   return (
     <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-      <div className="font-medium text-gray-900">{component}</div>
+      <div className="font-medium text-foreground">{component}</div>
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-600">{quarter}</span>
+        <span className="text-sm text-muted-foreground">{quarter}</span>
         <span className="text-sm text-green-600 font-bold flex items-center gap-1">
           <TrendingUp size={14} />
           {growth}
@@ -1900,10 +1900,10 @@ function FrameworkBar({ framework, services, percentage, version }: any) {
   return (
     <div>
       <div className="flex justify-between text-sm mb-2">
-        <span className="text-gray-700 font-medium">{framework}</span>
-        <span className="text-gray-600">{services} services ({percentage}%)</span>
+        <span className="text-muted-foreground font-medium">{framework}</span>
+        <span className="text-muted-foreground">{services} services ({percentage}%)</span>
       </div>
-      <div className="h-8 bg-gray-100 rounded overflow-hidden mb-1">
+      <div className="h-8 bg-muted rounded overflow-hidden mb-1">
         <div className="h-full bg-blue-600 flex items-center px-3 text-white text-xs font-bold" style={{ width: `${percentage}%` }}>
           {percentage}%
         </div>
@@ -1924,12 +1924,12 @@ function PackageMethodBar({ method, services, percentage, status }: any) {
   return (
     <div>
       <div className="flex justify-between text-sm mb-2">
-        <span className="text-gray-700 font-medium">{method}</span>
+        <span className="text-muted-foreground font-medium">{method}</span>
         <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${statusConfig[status].badge}`}>
           {status}
         </span>
       </div>
-      <div className="h-8 bg-gray-100 rounded overflow-hidden">
+      <div className="h-8 bg-muted rounded overflow-hidden">
         <div className={`h-full ${statusConfig[status].color} flex items-center justify-between px-3 text-white text-xs font-bold`} style={{ width: `${percentage}%` }}>
           <span>{percentage}%</span>
           <span>{services}</span>
@@ -1950,16 +1950,16 @@ function VersionAdoptionRow({ version, services, percentage, status }: any) {
   return (
     <div className="flex items-center gap-4">
       <div className="w-32">
-        <code className="text-sm font-mono font-bold text-gray-900">{version}</code>
+        <code className="text-sm font-mono font-bold text-foreground">{version}</code>
       </div>
       <div className="flex-1">
-        <div className="h-6 bg-gray-100 rounded overflow-hidden">
+        <div className="h-6 bg-muted rounded overflow-hidden">
           <div className={`h-full ${statusConfig[status].color} flex items-center justify-end px-2 text-white text-xs font-bold`} style={{ width: `${percentage}%` }}>
             {percentage > 10 && `${percentage}%`}
           </div>
         </div>
       </div>
-      <div className="w-24 text-sm text-gray-600">{services} svcs</div>
+      <div className="w-24 text-sm text-muted-foreground">{services} svcs</div>
       <div className="w-28">
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${statusConfig[status].badge}`}>
           {statusConfig[status].label}
@@ -1972,11 +1972,11 @@ function VersionAdoptionRow({ version, services, percentage, status }: any) {
 function DocPageRow({ page, visits, avgTime, bounce }: any) {
   return (
     <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0">
-      <div className="flex-1 font-medium text-gray-900 text-sm">{page}</div>
+      <div className="flex-1 font-medium text-foreground text-sm">{page}</div>
       <div className="flex items-center gap-6 text-sm">
-        <div className="text-gray-600">{visits} visits</div>
-        <div className="text-gray-600">{avgTime}</div>
-        <div className="text-gray-600">{bounce} bounce</div>
+        <div className="text-muted-foreground">{visits} visits</div>
+        <div className="text-muted-foreground">{avgTime}</div>
+        <div className="text-muted-foreground">{bounce} bounce</div>
       </div>
     </div>
   );
@@ -1985,8 +1985,8 @@ function DocPageRow({ page, visits, avgTime, bounce }: any) {
 function ResourceDownloadRow({ resource, downloads }: any) {
   return (
     <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-      <span className="text-gray-700">{resource}</span>
-      <span className="font-bold text-gray-900">{downloads}</span>
+      <span className="text-muted-foreground">{resource}</span>
+      <span className="font-bold text-foreground">{downloads}</span>
     </div>
   );
 }
@@ -2000,9 +2000,9 @@ function DocGapRow({ gap, tickets, priority }: any) {
 
   return (
     <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-      <span className="text-gray-700">{gap}</span>
+      <span className="text-muted-foreground">{gap}</span>
       <div className="flex items-center gap-2">
-        <span className="text-gray-900 font-bold">{tickets}</span>
+        <span className="text-foreground font-bold">{tickets}</span>
         <span className={`text-xs font-medium ${priorityConfig[priority]}`}>({priority})</span>
       </div>
     </div>
@@ -2019,15 +2019,15 @@ function WCAGCriteriaRow({ criteria, compliant, total, percentage }: any) {
 
   return (
     <div className="flex items-center gap-4">
-      <div className="w-48 text-sm font-medium text-gray-900">{criteria}</div>
+      <div className="w-48 text-sm font-medium text-foreground">{criteria}</div>
       <div className="flex-1">
-        <div className="h-6 bg-gray-100 rounded overflow-hidden">
+        <div className="h-6 bg-muted rounded overflow-hidden">
           <div className={`h-full ${getColor(percentage)} flex items-center justify-end px-2 text-white text-xs font-bold`} style={{ width: `${percentage}%` }}>
             {percentage}%
           </div>
         </div>
       </div>
-      <div className="w-32 text-sm text-gray-600">{compliant}/{total} services</div>
+      <div className="w-32 text-sm text-muted-foreground">{compliant}/{total} services</div>
     </div>
   );
 }
@@ -2043,18 +2043,18 @@ function ReleaseAdoptionRow({ version, releaseDate, adopted, total, daysLive, st
   return (
     <div className="flex items-center gap-4">
       <div className="w-24">
-        <code className="text-sm font-mono font-bold text-gray-900">{version}</code>
+        <code className="text-sm font-mono font-bold text-foreground">{version}</code>
       </div>
-      <div className="w-28 text-sm text-gray-600">{releaseDate}</div>
+      <div className="w-28 text-sm text-muted-foreground">{releaseDate}</div>
       <div className="flex-1">
-        <div className="h-8 bg-gray-100 rounded overflow-hidden">
+        <div className="h-8 bg-muted rounded overflow-hidden">
           <div className={`h-full ${statusConfig[status].color} flex items-center justify-between px-3 text-white text-xs font-bold`} style={{ width: `${percentage}%` }}>
             <span>{percentage}%</span>
             <span>{adopted}/{total}</span>
           </div>
         </div>
       </div>
-      <div className="w-24 text-sm text-gray-600">{daysLive} days</div>
+      <div className="w-24 text-sm text-muted-foreground">{daysLive} days</div>
       <div className="w-28">
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${statusConfig[status].badge}`}>
           {status}
@@ -2075,10 +2075,10 @@ function MigrationStatusBar({ status, count, percentage, color }: any) {
   return (
     <div>
       <div className="flex justify-between text-sm mb-2">
-        <span className="text-gray-700 font-medium">{status}</span>
-        <span className="text-gray-900 font-bold">{count} services ({percentage}%)</span>
+        <span className="text-muted-foreground font-medium">{status}</span>
+        <span className="text-foreground font-bold">{count} services ({percentage}%)</span>
       </div>
-      <div className="h-6 bg-gray-100 rounded overflow-hidden">
+      <div className="h-6 bg-muted rounded overflow-hidden">
         <div className={`h-full ${colorClasses[color]} flex items-center justify-end px-2 text-white text-xs font-bold`} style={{ width: `${percentage}%` }}>
           {percentage > 10 && `${percentage}%`}
         </div>
@@ -2091,8 +2091,8 @@ function DeprecatedServiceRow({ service, version, endOfLife }: any) {
   return (
     <div className="flex items-start justify-between py-2 border-b border-gray-100 last:border-0">
       <div className="flex-1">
-        <div className="font-medium text-gray-900">{service}</div>
-        <code className="text-xs text-gray-600">{version}</code>
+        <div className="font-medium text-foreground">{service}</div>
+        <code className="text-xs text-muted-foreground">{version}</code>
       </div>
       <div className="text-xs text-orange-600 font-bold">EOL: {endOfLife}</div>
     </div>
@@ -2106,12 +2106,12 @@ function ExceptionRow({ service, type, justification, approved, expires, status 
   };
 
   return (
-    <tr className="hover:bg-gray-50">
-      <td className="p-4 text-sm text-gray-900">{service}</td>
-      <td className="p-4 text-sm text-gray-700">{type}</td>
-      <td className="p-4 text-sm text-gray-600">{justification}</td>
-      <td className="p-4 text-center text-xs text-gray-600">{approved}</td>
-      <td className="p-4 text-center text-xs text-gray-600">{expires}</td>
+    <tr className="hover:bg-background">
+      <td className="p-4 text-sm text-foreground">{service}</td>
+      <td className="p-4 text-sm text-muted-foreground">{type}</td>
+      <td className="p-4 text-sm text-muted-foreground">{justification}</td>
+      <td className="p-4 text-center text-xs text-muted-foreground">{approved}</td>
+      <td className="p-4 text-center text-xs text-muted-foreground">{expires}</td>
       <td className="p-4 text-center">
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${statusConfig[status].badge}`}>
           {statusConfig[status].label}
@@ -2123,13 +2123,13 @@ function ExceptionRow({ service, type, justification, approved, expires, status 
 
 function PendingExceptionRow({ service, request, requestedDate, reviewDate }: any) {
   return (
-    <div className="bg-white border border-yellow-200 rounded-lg p-4">
+    <div className="bg-card border border-yellow-200 rounded-lg p-4">
       <div className="flex items-start justify-between mb-2">
-        <div className="font-bold text-gray-900 text-sm">{service}</div>
+        <div className="font-bold text-foreground text-sm">{service}</div>
         <Clock className="text-yellow-600" size={16} />
       </div>
-      <div className="text-sm text-gray-700 mb-2">{request}</div>
-      <div className="flex items-center gap-4 text-xs text-gray-600">
+      <div className="text-sm text-muted-foreground mb-2">{request}</div>
+      <div className="flex items-center gap-4 text-xs text-muted-foreground">
         <span>Requested: {requestedDate}</span>
         <span>•</span>
         <span>Review: {reviewDate}</span>
@@ -2164,22 +2164,22 @@ function DeprecatedFeatureRow({ feature, affectedServices, deprecatedDate, endOf
   return (
     <div className="border-l-4 border-orange-600 bg-orange-50 rounded-r-lg p-4">
       <div className="flex items-start justify-between mb-2">
-        <div className="font-bold text-gray-900">{feature}</div>
+        <div className="font-bold text-foreground">{feature}</div>
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${riskConfig[risk].bg} ${riskConfig[risk].text}`}>
           {risk} risk
         </span>
       </div>
       <div className="grid grid-cols-2 gap-4 text-sm mb-2">
         <div>
-          <span className="text-gray-600">Affected Services:</span>
-          <span className="font-bold text-gray-900 ml-2">{affectedServices}</span>
+          <span className="text-muted-foreground">Affected Services:</span>
+          <span className="font-bold text-foreground ml-2">{affectedServices}</span>
         </div>
         <div>
-          <span className="text-gray-600">End of Life:</span>
+          <span className="text-muted-foreground">End of Life:</span>
           <span className="font-bold text-orange-600 ml-2">{endOfLife}</span>
         </div>
       </div>
-      <div className="text-sm text-gray-700">
+      <div className="text-sm text-muted-foreground">
         <span className="font-medium">Replacement:</span> {replacement}
       </div>
     </div>
@@ -2196,11 +2196,11 @@ function LifecycleWarningRow({ service, version, warning, action, severity }: an
     <div className={`flex items-start gap-3 p-3 ${severityConfig[severity].bg} border ${severityConfig[severity].border} rounded-lg`}>
       <div className="flex-shrink-0 mt-1">{severityConfig[severity].icon}</div>
       <div className="flex-1">
-        <div className="font-bold text-gray-900 text-sm mb-1">{service}</div>
-        <div className="text-sm text-gray-700 mb-1">{warning}</div>
-        <div className="text-xs text-gray-900 font-medium">Action: {action}</div>
+        <div className="font-bold text-foreground text-sm mb-1">{service}</div>
+        <div className="text-sm text-muted-foreground mb-1">{warning}</div>
+        <div className="text-xs text-foreground font-medium">Action: {action}</div>
       </div>
-      <code className="text-xs bg-white px-2 py-1 rounded">{version}</code>
+      <code className="text-xs bg-card px-2 py-1 rounded">{version}</code>
     </div>
   );
 }
@@ -2214,25 +2214,25 @@ function IssueRow({ id, service, description, severity, reported, assignee, stat
   };
 
   const statusConfig: any = {
-    open: { badge: 'bg-gray-100 text-gray-700' },
+    open: { badge: 'bg-muted text-muted-foreground' },
     'in-progress': { badge: 'bg-blue-100 text-blue-700' },
     testing: { badge: 'bg-purple-100 text-purple-700' }
   };
 
   return (
-    <tr className="hover:bg-gray-50">
+    <tr className="hover:bg-background">
       <td className="p-4">
-        <code className="text-xs font-mono text-gray-900">{id}</code>
+        <code className="text-xs font-mono text-foreground">{id}</code>
       </td>
-      <td className="p-4 text-sm text-gray-900">{service}</td>
-      <td className="p-4 text-sm text-gray-700">{description}</td>
+      <td className="p-4 text-sm text-foreground">{service}</td>
+      <td className="p-4 text-sm text-muted-foreground">{description}</td>
       <td className="p-4 text-center">
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${severityConfig[severity].badge}`}>
           {severity}
         </span>
       </td>
-      <td className="p-4 text-center text-xs text-gray-600">{reported}</td>
-      <td className="p-4 text-xs text-gray-700">{assignee}</td>
+      <td className="p-4 text-center text-xs text-muted-foreground">{reported}</td>
+      <td className="p-4 text-xs text-muted-foreground">{assignee}</td>
       <td className="p-4 text-center">
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${statusConfig[status].badge}`}>
           {status}
@@ -2245,15 +2245,15 @@ function IssueRow({ id, service, description, severity, reported, assignee, stat
 function IssueCategoryBar({ category, count, percentage }: any) {
   return (
     <div className="flex items-center gap-3">
-      <div className="w-32 text-sm text-gray-700">{category}</div>
+      <div className="w-32 text-sm text-muted-foreground">{category}</div>
       <div className="flex-1">
-        <div className="h-6 bg-gray-100 rounded overflow-hidden">
+        <div className="h-6 bg-muted rounded overflow-hidden">
           <div className="h-full bg-orange-600 flex items-center justify-end px-2 text-white text-xs font-bold" style={{ width: `${percentage}%` }}>
             {count}
           </div>
         </div>
       </div>
-      <div className="w-12 text-sm text-gray-600">{percentage}%</div>
+      <div className="w-12 text-sm text-muted-foreground">{percentage}%</div>
     </div>
   );
 }
@@ -2264,10 +2264,10 @@ function ResolutionMetricRow({ metric, count, total, percentage }: any) {
   return (
     <div>
       <div className="flex justify-between text-sm mb-2">
-        <span className="text-gray-700">{metric}</span>
-        <span className="text-gray-900 font-bold">{count}/{total}</span>
+        <span className="text-muted-foreground">{metric}</span>
+        <span className="text-foreground font-bold">{count}/{total}</span>
       </div>
-      <div className="h-6 bg-gray-100 rounded overflow-hidden">
+      <div className="h-6 bg-muted rounded overflow-hidden">
         <div className={`h-full ${color} flex items-center justify-end px-2 text-white text-xs font-bold`} style={{ width: `${percentage}%` }}>
           {percentage}%
         </div>
@@ -2279,11 +2279,11 @@ function ResolutionMetricRow({ metric, count, total, percentage }: any) {
 function SupportVolumeBar({ department, tickets, avgTime, satisfaction }: any) {
   return (
     <div className="flex items-center gap-4 py-2 border-b border-gray-100 last:border-0">
-      <div className="flex-1 text-sm text-gray-900">{department}</div>
-      <div className="w-20 text-sm font-bold text-gray-900">{tickets} tickets</div>
-      <div className="w-20 text-sm text-gray-600">{avgTime}</div>
+      <div className="flex-1 text-sm text-foreground">{department}</div>
+      <div className="w-20 text-sm font-bold text-foreground">{tickets} tickets</div>
+      <div className="w-20 text-sm text-muted-foreground">{avgTime}</div>
       <div className="w-16 flex items-center gap-1 text-sm">
-        <span className="text-gray-900 font-bold">{satisfaction}</span>
+        <span className="text-foreground font-bold">{satisfaction}</span>
         <span className="text-xs text-gray-500">/5</span>
       </div>
     </div>
@@ -2294,14 +2294,14 @@ function SupportTopicRow({ topic, tickets, trend }: any) {
   const trendIcons: any = {
     up: <TrendingUp className="text-red-600" size={14} />,
     down: <TrendingDown className="text-green-600" size={14} />,
-    stable: <Minus className="text-gray-600" size={14} />
+    stable: <Minus className="text-muted-foreground" size={14} />
   };
 
   return (
     <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-      <span className="text-gray-700 flex-1">{topic}</span>
+      <span className="text-muted-foreground flex-1">{topic}</span>
       <div className="flex items-center gap-2">
-        <span className="font-bold text-gray-900">{tickets}</span>
+        <span className="font-bold text-foreground">{tickets}</span>
         {trendIcons[trend]}
       </div>
     </div>
@@ -2312,14 +2312,14 @@ function InitiativeRow({ initiative, impact, status }: any) {
   const statusConfig: any = {
     completed: { badge: 'bg-green-100 text-green-700', icon: <CheckCircle size={14} /> },
     'in-progress': { badge: 'bg-blue-100 text-blue-700', icon: <Clock size={14} /> },
-    planned: { badge: 'bg-gray-100 text-gray-700', icon: <Calendar size={14} /> }
+    planned: { badge: 'bg-muted text-muted-foreground', icon: <Calendar size={14} /> }
   };
 
   return (
     <div className="flex items-start justify-between">
       <div className="flex-1">
-        <div className="text-gray-900 font-medium mb-1">{initiative}</div>
-        <div className="text-xs text-gray-600">{impact}</div>
+        <div className="text-foreground font-medium mb-1">{initiative}</div>
+        <div className="text-xs text-muted-foreground">{impact}</div>
       </div>
       <span className={`text-xs px-2 py-1 rounded-full font-medium flex items-center gap-1 ${statusConfig[status].badge}`}>
         {statusConfig[status].icon}
@@ -2331,30 +2331,30 @@ function InitiativeRow({ initiative, impact, status }: any) {
 
 function PriorityCard({ priority, title, rationale, impact, effort, owner, timeline }: any) {
   return (
-    <div className="border-2 border-blue-200 rounded-lg p-5 bg-white">
+    <div className="border-2 border-blue-200 rounded-lg p-5 bg-card">
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
           {priority}
         </div>
         <div className="flex-1">
-          <h4 className="font-bold text-gray-900 text-lg mb-2">{title}</h4>
-          <p className="text-sm text-gray-700 mb-3">{rationale}</p>
+          <h4 className="font-bold text-foreground text-lg mb-2">{title}</h4>
+          <p className="text-sm text-muted-foreground mb-3">{rationale}</p>
           <div className="grid grid-cols-2 gap-3 text-sm">
             <div>
-              <span className="text-gray-600">Impact:</span>
-              <span className="font-medium text-gray-900 ml-2">{impact}</span>
+              <span className="text-muted-foreground">Impact:</span>
+              <span className="font-medium text-foreground ml-2">{impact}</span>
             </div>
             <div>
-              <span className="text-gray-600">Effort:</span>
-              <span className="font-medium text-gray-900 ml-2">{effort}</span>
+              <span className="text-muted-foreground">Effort:</span>
+              <span className="font-medium text-foreground ml-2">{effort}</span>
             </div>
             <div>
-              <span className="text-gray-600">Owner:</span>
-              <span className="font-medium text-gray-900 ml-2">{owner}</span>
+              <span className="text-muted-foreground">Owner:</span>
+              <span className="font-medium text-foreground ml-2">{owner}</span>
             </div>
             <div>
-              <span className="text-gray-600">Timeline:</span>
-              <span className="font-medium text-gray-900 ml-2">{timeline}</span>
+              <span className="text-muted-foreground">Timeline:</span>
+              <span className="font-medium text-foreground ml-2">{timeline}</span>
             </div>
           </div>
         </div>
@@ -2367,18 +2367,18 @@ function UpcomingPriorityCard({ title, drivers, status }: any) {
   const statusConfig: any = {
     research: { badge: 'bg-purple-100 text-purple-700' },
     scoping: { badge: 'bg-blue-100 text-blue-700' },
-    planned: { badge: 'bg-gray-100 text-gray-700' }
+    planned: { badge: 'bg-muted text-muted-foreground' }
   };
 
   return (
-    <div className="border border-gray-200 rounded-lg p-4 bg-white">
+    <div className="border border-border rounded-lg p-4 bg-card">
       <div className="flex items-start justify-between mb-3">
-        <h5 className="font-bold text-gray-900 text-sm">{title}</h5>
+        <h5 className="font-bold text-foreground text-sm">{title}</h5>
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${statusConfig[status].badge}`}>
           {status}
         </span>
       </div>
-      <div className="text-xs text-gray-600">
+      <div className="text-xs text-muted-foreground">
         <div className="font-medium mb-1">Drivers:</div>
         <ul className="space-y-1">
           {drivers.map((driver: string, idx: number) => (
@@ -2400,17 +2400,17 @@ function InsightCard({ insight, recommendation, impact }: any) {
   };
 
   return (
-    <div className="border border-purple-200 rounded-lg p-4 bg-white">
+    <div className="border border-purple-200 rounded-lg p-4 bg-card">
       <div className="flex items-start gap-2 mb-3">
         <BarChart3 className="text-purple-600 flex-shrink-0 mt-0.5" size={16} />
-        <p className="text-sm text-gray-900 font-medium">{insight}</p>
+        <p className="text-sm text-foreground font-medium">{insight}</p>
       </div>
       <div className="bg-purple-50 rounded p-3 mb-3">
-        <div className="text-xs text-gray-600 font-medium mb-1">Recommendation:</div>
-        <p className="text-sm text-gray-900">{recommendation}</p>
+        <div className="text-xs text-muted-foreground font-medium mb-1">Recommendation:</div>
+        <p className="text-sm text-foreground">{recommendation}</p>
       </div>
       <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-600">Impact:</span>
+        <span className="text-xs text-muted-foreground">Impact:</span>
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${impactConfig[impact]}`}>
           {impact}
         </span>

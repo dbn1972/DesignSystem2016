@@ -15,10 +15,10 @@ const TrackerPreview = () => {
   ];
   
   return (
-    <div className="bg-white rounded-xl p-6 border border-gray-200">
+    <div className="bg-card rounded-xl p-6 border border-border">
       <div className="mb-6">
-        <h3 className="text-lg font-semibold text-gray-900">Application Status</h3>
-        <p className="text-sm text-gray-600">Application ID: APP2024001234</p>
+        <h3 className="text-lg font-semibold text-foreground">Application Status</h3>
+        <p className="text-sm text-muted-foreground">Application ID: APP2024001234</p>
       </div>
       
       <div className="space-y-4">
@@ -30,7 +30,7 @@ const TrackerPreview = () => {
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     status.completed
-                      ? 'bg-[#138808] text-white'
+                      ? 'bg-green-700 text-white'
                       : status.active
                       ? 'bg-[#005196] text-white'
                       : 'bg-gray-200 text-gray-400'
@@ -39,13 +39,13 @@ const TrackerPreview = () => {
                   <Icon size={20} />
                 </div>
                 {index < statuses.length - 1 && (
-                  <div className={`w-0.5 h-12 mt-2 ${status.completed ? 'bg-[#138808]' : 'bg-gray-200'}`} />
+                  <div className={`w-0.5 h-12 mt-2 ${status.completed ? 'bg-green-700' : 'bg-gray-200'}`} />
                 )}
               </div>
               
               <div className="flex-1 pb-4">
-                <p className="font-semibold text-gray-900">{status.label}</p>
-                <p className="text-sm text-gray-600">{status.date}</p>
+                <p className="font-semibold text-foreground">{status.label}</p>
+                <p className="text-sm text-muted-foreground">{status.date}</p>
               </div>
             </div>
           );
@@ -139,11 +139,11 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
   className,
 }) => {
   return (
-    <div className={\`bg-white rounded-xl p-6 border border-gray-200 \${className}\`}>
+    <div className={\`bg-card rounded-xl p-6 border border-border \${className}\`}>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">Application Status</h3>
-          <p className="text-sm text-gray-600">Application ID: {applicationId}</p>
+          <h3 className="text-lg font-semibold text-foreground">Application Status</h3>
+          <p className="text-sm text-muted-foreground">Application ID: {applicationId}</p>
         </div>
         {onRefresh && (
           <button
@@ -168,7 +168,7 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
                 <div
                   className={\`
                     w-10 h-10 rounded-full flex items-center justify-center transition-colors
-                    \${isCompleted ? 'bg-[#138808] text-white' : ''}
+                    \${isCompleted ? 'bg-green-700 text-white' : ''}
                     \${isActive ? 'bg-[#005196] text-white' : ''}
                     \${isRejected ? 'bg-red-600 text-white' : ''}
                     \${!isCompleted && !isActive && !isRejected ? 'bg-gray-200 text-gray-400' : ''}
@@ -180,7 +180,7 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
                 {index < stages.length - 1 && (
                   <div
                     className={\`w-0.5 h-12 mt-2 transition-colors \${
-                      isCompleted ? 'bg-[#138808]' : 'bg-gray-200'
+                      isCompleted ? 'bg-green-700' : 'bg-gray-200'
                     }\`}
                   />
                 )}
@@ -189,13 +189,13 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
               <div className="flex-1 pb-4">
                 <p
                   className={\`font-semibold \${
-                    isRejected ? 'text-red-600' : 'text-gray-900'
+                    isRejected ? 'text-red-600' : 'text-foreground'
                   }\`}
                 >
                   {stage.label}
                 </p>
                 {stage.date && (
-                  <p className="text-sm text-gray-600 mt-1">{stage.date}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{stage.date}</p>
                 )}
                 {stage.description && (
                   <p className="text-sm text-gray-500 mt-1">{stage.description}</p>
@@ -207,10 +207,10 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
       </div>
       
       {/* Estimated Completion */}
-      <div className="mt-6 pt-6 border-t border-gray-200">
+      <div className="mt-6 pt-6 border-t border-border">
         <div className="flex items-center justify-between text-sm">
-          <span className="text-gray-600">Estimated Completion:</span>
-          <span className="font-semibold text-gray-900">7-10 business days</span>
+          <span className="text-muted-foreground">Estimated Completion:</span>
+          <span className="font-semibold text-foreground">7-10 business days</span>
         </div>
       </div>
     </div>
@@ -249,11 +249,11 @@ interface ApplicationStage {
 @Component({
   selector: 'ux4g-application-tracker',
   template: \`
-    <div class="bg-white rounded-xl p-6 border border-gray-200">
+    <div class="bg-card rounded-xl p-6 border border-border">
       <div class="flex items-center justify-between mb-6">
         <div>
-          <h3 class="text-lg font-semibold text-gray-900">Application Status</h3>
-          <p class="text-sm text-gray-600">Application ID: {{ applicationId }}</p>
+          <h3 class="text-lg font-semibold text-foreground">Application Status</h3>
+          <p class="text-sm text-muted-foreground">Application ID: {{ applicationId }}</p>
         </div>
         <button *ngIf="onRefresh.observers.length > 0"
                 (click)="handleRefresh()"
@@ -275,10 +275,10 @@ interface ApplicationStage {
           </div>
           
           <div class="flex-1 pb-4">
-            <p [class]="stage.status === 'rejected' ? 'font-semibold text-red-600' : 'font-semibold text-gray-900'">
+            <p [class]="stage.status === 'rejected' ? 'font-semibold text-red-600' : 'font-semibold text-foreground'">
               {{ stage.label }}
             </p>
-            <p *ngIf="stage.date" class="text-sm text-gray-600 mt-1">{{ stage.date }}</p>
+            <p *ngIf="stage.date" class="text-sm text-muted-foreground mt-1">{{ stage.date }}</p>
             <p *ngIf="stage.description" class="text-sm text-gray-500 mt-1">{{ stage.description }}</p>
           </div>
         </div>

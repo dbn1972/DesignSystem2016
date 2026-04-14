@@ -31,7 +31,7 @@ const CodeBlockPreview = ({
     return (
       <code
         className={
-          'inline-flex items-center rounded bg-gray-100 border border-gray-300 font-mono text-gray-900 ' +
+          'inline-flex items-center rounded bg-muted border border-border font-mono text-foreground ' +
           (size === 'sm' ? 'px-1.5 py-0.5 text-xs' :
            size === 'lg' ? 'px-2.5 py-1 text-base' :
            'px-2 py-0.5 text-sm')
@@ -44,17 +44,17 @@ const CodeBlockPreview = ({
   }
 
   return (
-    <div className="relative rounded-lg border border-gray-300 bg-gray-50" {...props}>
+    <div className="relative rounded-lg border border-border bg-background" {...props}>
       {(filename || showCopyButton) && (
-        <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2">
+        <div className="flex items-center justify-between border-b border-border bg-muted px-4 py-2">
           {filename && (
-            <span className="text-sm font-medium text-gray-700">{filename}</span>
+            <span className="text-sm font-medium text-muted-foreground">{filename}</span>
           )}
           {!filename && <div />}
           {showCopyButton && (
             <button
               onClick={handleCopy}
-              className="inline-flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="inline-flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium text-muted-foreground hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               aria-label={copied ? 'Copied' : 'Copy code'}
             >
               {copied ? (
@@ -91,12 +91,12 @@ const CodeBlockPreview = ({
                   <span className="table-cell select-none pr-4 text-right text-gray-500 w-8">
                     {index + 1}
                   </span>
-                  <span className="table-cell text-gray-900">{line}</span>
+                  <span className="table-cell text-foreground">{line}</span>
                 </div>
               ))}
             </code>
           ) : (
-            <code className="text-gray-900">{code}</code>
+            <code className="text-foreground">{code}</code>
           )}
         </pre>
       </div>
@@ -184,7 +184,7 @@ export default function ComponentCodeBlockPage() {
           code: 'import { CodeBlock } from \'@ux4g/react-core\';\n\nfunction Example() {\n  return (\n    <p>\n      Your application ID is{\" \"}\n      <CodeBlock code="APP-2024-MH-00123456" inline />\n      {\" \"}and reference number is{\" \"}\n      <CodeBlock code="REF-987654321" inline />\n    </p>\n  );\n}',
           preview: (
             <div className="space-y-4">
-              <p className="text-gray-900">
+              <p className="text-foreground">
                 Your application ID is{' '}
                 <CodeBlockPreview code="APP-2024-MH-00123456" inline />
                 {' '}and reference number is{' '}
@@ -221,11 +221,11 @@ export default function ComponentCodeBlockPage() {
         {
           title: 'Government Reference IDs',
           description: 'Display formatted government IDs with proper spacing and copy functionality.',
-          code: 'import { CodeBlock } from \'@ux4g/react-core\';\n\nfunction Example() {\n  return (\n    <div className="space-y-4">\n      <div>\n        <label className="block text-sm font-medium text-gray-700 mb-2">\n          Aadhaar Number\n        </label>\n        <CodeBlock\n          code="2345 6789 0123"\n          inline\n          size="lg"\n        />\n      </div>\n      \n      <div>\n        <label className="block text-sm font-medium text-gray-700 mb-2">\n          PAN Card Number\n        </label>\n        <CodeBlock\n          code="ABCDE1234F"\n          inline\n          size="lg"\n        />\n      </div>\n      \n      <div>\n        <label className="block text-sm font-medium text-gray-700 mb-2">\n          Transaction ID\n        </label>\n        <CodeBlock\n          code="TXN20240411MH0012345678"\n          inline\n          size="lg"\n        />\n      </div>\n    </div>\n  );\n}',
+          code: 'import { CodeBlock } from \'@ux4g/react-core\';\n\nfunction Example() {\n  return (\n    <div className="space-y-4">\n      <div>\n        <label className="block text-sm font-medium text-muted-foreground mb-2">\n          Aadhaar Number\n        </label>\n        <CodeBlock\n          code="2345 6789 0123"\n          inline\n          size="lg"\n        />\n      </div>\n      \n      <div>\n        <label className="block text-sm font-medium text-muted-foreground mb-2">\n          PAN Card Number\n        </label>\n        <CodeBlock\n          code="ABCDE1234F"\n          inline\n          size="lg"\n        />\n      </div>\n      \n      <div>\n        <label className="block text-sm font-medium text-muted-foreground mb-2">\n          Transaction ID\n        </label>\n        <CodeBlock\n          code="TXN20240411MH0012345678"\n          inline\n          size="lg"\n        />\n      </div>\n    </div>\n  );\n}',
           preview: (
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Aadhaar Number
                 </label>
                 <CodeBlockPreview
@@ -236,7 +236,7 @@ export default function ComponentCodeBlockPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   PAN Card Number
                 </label>
                 <CodeBlockPreview
@@ -247,7 +247,7 @@ export default function ComponentCodeBlockPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Transaction ID
                 </label>
                 <CodeBlockPreview
@@ -313,7 +313,7 @@ export default function ComponentCodeBlockPage() {
           preview: (
             <div className="space-y-6">
               <div>
-                <h4 className="text-sm font-semibold mb-2 text-gray-900">Python</h4>
+                <h4 className="text-sm font-semibold mb-2 text-foreground">Python</h4>
                 <CodeBlockPreview
                   code={'import re\n\ndef validate_aadhaar(number):\n    pattern = r"^[2-9]{1}[0-9]{11}$"\n    return bool(re.match(pattern, number))'}
                   language="python"
@@ -322,7 +322,7 @@ export default function ComponentCodeBlockPage() {
               </div>
 
               <div>
-                <h4 className="text-sm font-semibold mb-2 text-gray-900">Java</h4>
+                <h4 className="text-sm font-semibold mb-2 text-foreground">Java</h4>
                 <CodeBlockPreview
                   code={'public class AadhaarValidator {\n    public static boolean validate(String number) {\n        return number.matches("^[2-9]{1}[0-9]{11}$");\n    }\n}'}
                   language="java"
@@ -335,13 +335,13 @@ export default function ComponentCodeBlockPage() {
       ]}
 
       reactCode={{
-        component: 'import React, { forwardRef, useState } from \'react\';\nimport { cn } from \'../../utils/cn\';\nimport { codeBlockVariants } from \'./codeBlock.variants\';\nimport { CodeBlockProps } from \'./CodeBlock.types\';\nimport { Copy, Check } from \'lucide-react\';\n\nexport const CodeBlock = forwardRef<HTMLDivElement, CodeBlockProps>(\n  (\n    {\n      code,\n      language = \'text\',\n      inline = false,\n      showLineNumbers = false,\n      showCopyButton = false,\n      filename,\n      size = \'md\',\n      maxHeight,\n      className,\n      ...props\n    },\n    ref\n  ) => {\n    const [copied, setCopied] = useState(false);\n\n    const handleCopy = async () => {\n      try {\n        await navigator.clipboard.writeText(code);\n        setCopied(true);\n        setTimeout(() => setCopied(false), 2000);\n      } catch (err) {\n        console.error(\'Failed to copy:\', err);\n      }\n    };\n\n    if (inline) {\n      return (\n        <code\n          className={cn(\n            codeBlockVariants({ inline: true, size }),\n            className\n          )}\n          {...props}\n        >\n          {code}\n        </code>\n      );\n    }\n\n    const lines = code.split(\'\\n\');\n\n    return (\n      <div\n        ref={ref}\n        className={cn(\'relative rounded-lg border border-gray-300 bg-gray-50\', className)}\n        {...props}\n      >\n        {(filename || showCopyButton) && (\n          <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2">\n            {filename && (\n              <span className="text-sm font-medium text-gray-700">\n                {filename}\n              </span>\n            )}\n            {!filename && <div />}\n            {showCopyButton && (\n              <button\n                onClick={handleCopy}\n                className="inline-flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"\n                aria-label={copied ? \'Copied to clipboard\' : \'Copy code to clipboard\'}\n                aria-live="polite"\n              >\n                {copied ? (\n                  <>\n                    <Check size={14} aria-hidden="true" />\n                    <span>Copied</span>\n                  </>\n                ) : (\n                  <>\n                    <Copy size={14} aria-hidden="true" />\n                    <span>Copy</span>\n                  </>\n                )}\n              </button>\n            )}\n          </div>\n        )}\n        <div\n          className="overflow-auto p-4"\n          style={maxHeight ? { maxHeight } : undefined}\n          role="region"\n          aria-label={filename ? filename + \' code\' : \'Code block\'}\n        >\n          <pre\n            className={cn(\n              \'font-mono\',\n              size === \'sm\' && \'text-xs\',\n              size === \'md\' && \'text-sm\',\n              size === \'lg\' && \'text-base\'\n            )}\n          >\n            {showLineNumbers ? (\n              <code>\n                {lines.map((line, index) => (\n                  <div key={index} className="table-row">\n                    <span className="table-cell select-none pr-4 text-right text-gray-500 w-8">\n                      {index + 1}\n                    </span>\n                    <span className="table-cell text-gray-900">{line}</span>\n                  </div>\n                ))}\n              </code>\n            ) : (\n              <code className="text-gray-900">{code}</code>\n            )}\n          </pre>\n        </div>\n      </div>\n    );\n  }\n);\n\nCodeBlock.displayName = \'CodeBlock\';',
+        component: 'import React, { forwardRef, useState } from \'react\';\nimport { cn } from \'../../utils/cn\';\nimport { codeBlockVariants } from \'./codeBlock.variants\';\nimport { CodeBlockProps } from \'./CodeBlock.types\';\nimport { Copy, Check } from \'lucide-react\';\n\nexport const CodeBlock = forwardRef<HTMLDivElement, CodeBlockProps>(\n  (\n    {\n      code,\n      language = \'text\',\n      inline = false,\n      showLineNumbers = false,\n      showCopyButton = false,\n      filename,\n      size = \'md\',\n      maxHeight,\n      className,\n      ...props\n    },\n    ref\n  ) => {\n    const [copied, setCopied] = useState(false);\n\n    const handleCopy = async () => {\n      try {\n        await navigator.clipboard.writeText(code);\n        setCopied(true);\n        setTimeout(() => setCopied(false), 2000);\n      } catch (err) {\n        console.error(\'Failed to copy:\', err);\n      }\n    };\n\n    if (inline) {\n      return (\n        <code\n          className={cn(\n            codeBlockVariants({ inline: true, size }),\n            className\n          )}\n          {...props}\n        >\n          {code}\n        </code>\n      );\n    }\n\n    const lines = code.split(\'\\n\');\n\n    return (\n      <div\n        ref={ref}\n        className={cn(\'relative rounded-lg border border-border bg-background\', className)}\n        {...props}\n      >\n        {(filename || showCopyButton) && (\n          <div className="flex items-center justify-between border-b border-border bg-muted px-4 py-2">\n            {filename && (\n              <span className="text-sm font-medium text-muted-foreground">\n                {filename}\n              </span>\n            )}\n            {!filename && <div />}\n            {showCopyButton && (\n              <button\n                onClick={handleCopy}\n                className="inline-flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium text-muted-foreground hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"\n                aria-label={copied ? \'Copied to clipboard\' : \'Copy code to clipboard\'}\n                aria-live="polite"\n              >\n                {copied ? (\n                  <>\n                    <Check size={14} aria-hidden="true" />\n                    <span>Copied</span>\n                  </>\n                ) : (\n                  <>\n                    <Copy size={14} aria-hidden="true" />\n                    <span>Copy</span>\n                  </>\n                )}\n              </button>\n            )}\n          </div>\n        )}\n        <div\n          className="overflow-auto p-4"\n          style={maxHeight ? { maxHeight } : undefined}\n          role="region"\n          aria-label={filename ? filename + \' code\' : \'Code block\'}\n        >\n          <pre\n            className={cn(\n              \'font-mono\',\n              size === \'sm\' && \'text-xs\',\n              size === \'md\' && \'text-sm\',\n              size === \'lg\' && \'text-base\'\n            )}\n          >\n            {showLineNumbers ? (\n              <code>\n                {lines.map((line, index) => (\n                  <div key={index} className="table-row">\n                    <span className="table-cell select-none pr-4 text-right text-gray-500 w-8">\n                      {index + 1}\n                    </span>\n                    <span className="table-cell text-foreground">{line}</span>\n                  </div>\n                ))}\n              </code>\n            ) : (\n              <code className="text-foreground">{code}</code>\n            )}\n          </pre>\n        </div>\n      </div>\n    );\n  }\n);\n\nCodeBlock.displayName = \'CodeBlock\';',
         types: 'export interface CodeBlockProps\n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \'children\'> {\n  code: string;\n  language?: \'typescript\' | \'javascript\' | \'json\' | \'html\' | \'css\' | \'python\' | \'java\' | \'bash\' | \'text\';\n  inline?: boolean;\n  showLineNumbers?: boolean;\n  showCopyButton?: boolean;\n  filename?: string;\n  size?: \'sm\' | \'md\' | \'lg\';\n  maxHeight?: string;\n}',
-        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const codeBlockVariants = cva(\n  [\n    \'font-mono\',\n  ],\n  {\n    variants: {\n      inline: {\n        true: [\n          \'inline-flex\',\n          \'items-center\',\n          \'rounded\',\n          \'bg-gray-100\',\n          \'border\',\n          \'border-gray-300\',\n          \'text-gray-900\',\n        ],\n        false: [\n          \'block\',\n        ],\n      },\n      size: {\n        sm: [],\n        md: [],\n        lg: [],\n      },\n    },\n    compoundVariants: [\n      {\n        inline: true,\n        size: \'sm\',\n        class: \'px-1.5 py-0.5 text-xs\',\n      },\n      {\n        inline: true,\n        size: \'md\',\n        class: \'px-2 py-0.5 text-sm\',\n      },\n      {\n        inline: true,\n        size: \'lg\',\n        class: \'px-2.5 py-1 text-base\',\n      },\n      {\n        inline: false,\n        size: \'sm\',\n        class: \'text-xs\',\n      },\n      {\n        inline: false,\n        size: \'md\',\n        class: \'text-sm\',\n      },\n      {\n        inline: false,\n        size: \'lg\',\n        class: \'text-base\',\n      },\n    ],\n    defaultVariants: {\n      inline: false,\n      size: \'md\',\n    },\n  }\n);\n\nexport type CodeBlockVariantProps = VariantProps<typeof codeBlockVariants>;',
+        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const codeBlockVariants = cva(\n  [\n    \'font-mono\',\n  ],\n  {\n    variants: {\n      inline: {\n        true: [\n          \'inline-flex\',\n          \'items-center\',\n          \'rounded\',\n          \'bg-muted\',\n          \'border\',\n          \'border-border\',\n          \'text-foreground\',\n        ],\n        false: [\n          \'block\',\n        ],\n      },\n      size: {\n        sm: [],\n        md: [],\n        lg: [],\n      },\n    },\n    compoundVariants: [\n      {\n        inline: true,\n        size: \'sm\',\n        class: \'px-1.5 py-0.5 text-xs\',\n      },\n      {\n        inline: true,\n        size: \'md\',\n        class: \'px-2 py-0.5 text-sm\',\n      },\n      {\n        inline: true,\n        size: \'lg\',\n        class: \'px-2.5 py-1 text-base\',\n      },\n      {\n        inline: false,\n        size: \'sm\',\n        class: \'text-xs\',\n      },\n      {\n        inline: false,\n        size: \'md\',\n        class: \'text-sm\',\n      },\n      {\n        inline: false,\n        size: \'lg\',\n        class: \'text-base\',\n      },\n    ],\n    defaultVariants: {\n      inline: false,\n      size: \'md\',\n    },\n  }\n);\n\nexport type CodeBlockVariantProps = VariantProps<typeof codeBlockVariants>;',
       }}
 
       angularCode={{
-        component: 'import { Component, Input } from \'@angular/core\';\n\ntype CodeBlockLanguage = \'typescript\' | \'javascript\' | \'json\' | \'html\' | \'css\' | \'python\' | \'java\' | \'bash\' | \'text\';\ntype CodeBlockSize = \'sm\' | \'md\' | \'lg\';\n\n@Component({\n  selector: \'ux4g-code-block\',\n  template: `\n    <code\n      *ngIf="inline"\n      [class]="getInlineClasses()"\n    >\n      {{ code }}\n    </code>\n\n    <div\n      *ngIf="!inline"\n      class="relative rounded-lg border border-gray-300 bg-gray-50"\n      [attr.role]="\'region\'"\n      [attr.aria-label]="filename ? filename + \' code\' : \'Code block\'"\n    >\n      <div\n        *ngIf="filename || showCopyButton"\n        class="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2"\n      >\n        <span *ngIf="filename" class="text-sm font-medium text-gray-700">\n          {{ filename }}\n        </span>\n        <div *ngIf="!filename"></div>\n        <button\n          *ngIf="showCopyButton"\n          (click)="handleCopy()"\n          class="inline-flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"\n          [attr.aria-label]="copied ? \'Copied to clipboard\' : \'Copy code to clipboard\'"\n          [attr.aria-live]="\'polite\'"\n        >\n          <ng-container *ngIf="copied">\n            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\n              <polyline points="20 6 9 17 4 12"></polyline>\n            </svg>\n            <span>Copied</span>\n          </ng-container>\n          <ng-container *ngIf="!copied">\n            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\n              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>\n              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>\n            </svg>\n            <span>Copy</span>\n          </ng-container>\n        </button>\n      </div>\n      <div\n        class="overflow-auto p-4"\n        [style.max-height]="maxHeight"\n      >\n        <pre [class]="getPreClasses()"><code *ngIf="!showLineNumbers" class="text-gray-900">{{ code }}</code><code *ngIf="showLineNumbers"><div *ngFor="let line of getLines(); let i = index" class="table-row"><span class="table-cell select-none pr-4 text-right text-gray-500 w-8">{{ i + 1 }}</span><span class="table-cell text-gray-900">{{ line }}</span></div></code></pre>\n      </div>\n    </div>\n  `,\n  styleUrls: [\'./code-block.component.css\']\n})\nexport class CodeBlockComponent {\n  @Input() code!: string;\n  @Input() language: CodeBlockLanguage = \'text\';\n  @Input() inline = false;\n  @Input() showLineNumbers = false;\n  @Input() showCopyButton = false;\n  @Input() filename?: string;\n  @Input() size: CodeBlockSize = \'md\';\n  @Input() maxHeight?: string;\n\n  copied = false;\n\n  getInlineClasses(): string {\n    const baseClasses = \'inline-flex items-center rounded bg-gray-100 border border-gray-300 font-mono text-gray-900\';\n    const sizeClasses = {\n      sm: \'px-1.5 py-0.5 text-xs\',\n      md: \'px-2 py-0.5 text-sm\',\n      lg: \'px-2.5 py-1 text-base\'\n    };\n    return baseClasses + \' \' + sizeClasses[this.size];\n  }\n\n  getPreClasses(): string {\n    const baseClasses = \'font-mono\';\n    const sizeClasses = {\n      sm: \'text-xs\',\n      md: \'text-sm\',\n      lg: \'text-base\'\n    };\n    return baseClasses + \' \' + sizeClasses[this.size];\n  }\n\n  getLines(): string[] {\n    return this.code.split(\'\\n\');\n  }\n\n  async handleCopy(): Promise<void> {\n    try {\n      await navigator.clipboard.writeText(this.code);\n      this.copied = true;\n      setTimeout(() => {\n        this.copied = false;\n      }, 2000);\n    } catch (err) {\n      console.error(\'Failed to copy:\', err);\n    }\n  }\n}',
+        component: 'import { Component, Input } from \'@angular/core\';\n\ntype CodeBlockLanguage = \'typescript\' | \'javascript\' | \'json\' | \'html\' | \'css\' | \'python\' | \'java\' | \'bash\' | \'text\';\ntype CodeBlockSize = \'sm\' | \'md\' | \'lg\';\n\n@Component({\n  selector: \'ux4g-code-block\',\n  template: `\n    <code\n      *ngIf="inline"\n      [class]="getInlineClasses()"\n    >\n      {{ code }}\n    </code>\n\n    <div\n      *ngIf="!inline"\n      class="relative rounded-lg border border-border bg-background"\n      [attr.role]="\'region\'"\n      [attr.aria-label]="filename ? filename + \' code\' : \'Code block\'"\n    >\n      <div\n        *ngIf="filename || showCopyButton"\n        class="flex items-center justify-between border-b border-border bg-muted px-4 py-2"\n      >\n        <span *ngIf="filename" class="text-sm font-medium text-muted-foreground">\n          {{ filename }}\n        </span>\n        <div *ngIf="!filename"></div>\n        <button\n          *ngIf="showCopyButton"\n          (click)="handleCopy()"\n          class="inline-flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium text-muted-foreground hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"\n          [attr.aria-label]="copied ? \'Copied to clipboard\' : \'Copy code to clipboard\'"\n          [attr.aria-live]="\'polite\'"\n        >\n          <ng-container *ngIf="copied">\n            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\n              <polyline points="20 6 9 17 4 12"></polyline>\n            </svg>\n            <span>Copied</span>\n          </ng-container>\n          <ng-container *ngIf="!copied">\n            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\n              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>\n              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>\n            </svg>\n            <span>Copy</span>\n          </ng-container>\n        </button>\n      </div>\n      <div\n        class="overflow-auto p-4"\n        [style.max-height]="maxHeight"\n      >\n        <pre [class]="getPreClasses()"><code *ngIf="!showLineNumbers" class="text-foreground">{{ code }}</code><code *ngIf="showLineNumbers"><div *ngFor="let line of getLines(); let i = index" class="table-row"><span class="table-cell select-none pr-4 text-right text-gray-500 w-8">{{ i + 1 }}</span><span class="table-cell text-foreground">{{ line }}</span></div></code></pre>\n      </div>\n    </div>\n  `,\n  styleUrls: [\'./code-block.component.css\']\n})\nexport class CodeBlockComponent {\n  @Input() code!: string;\n  @Input() language: CodeBlockLanguage = \'text\';\n  @Input() inline = false;\n  @Input() showLineNumbers = false;\n  @Input() showCopyButton = false;\n  @Input() filename?: string;\n  @Input() size: CodeBlockSize = \'md\';\n  @Input() maxHeight?: string;\n\n  copied = false;\n\n  getInlineClasses(): string {\n    const baseClasses = \'inline-flex items-center rounded bg-muted border border-border font-mono text-foreground\';\n    const sizeClasses = {\n      sm: \'px-1.5 py-0.5 text-xs\',\n      md: \'px-2 py-0.5 text-sm\',\n      lg: \'px-2.5 py-1 text-base\'\n    };\n    return baseClasses + \' \' + sizeClasses[this.size];\n  }\n\n  getPreClasses(): string {\n    const baseClasses = \'font-mono\';\n    const sizeClasses = {\n      sm: \'text-xs\',\n      md: \'text-sm\',\n      lg: \'text-base\'\n    };\n    return baseClasses + \' \' + sizeClasses[this.size];\n  }\n\n  getLines(): string[] {\n    return this.code.split(\'\\n\');\n  }\n\n  async handleCopy(): Promise<void> {\n    try {\n      await navigator.clipboard.writeText(this.code);\n      this.copied = true;\n      setTimeout(() => {\n        this.copied = false;\n      }, 2000);\n    } catch (err) {\n      console.error(\'Failed to copy:\', err);\n    }\n  }\n}',
         module: 'import { NgModule } from \'@angular/core\';\nimport { CommonModule } from \'@angular/common\';\nimport { CodeBlockComponent } from \'./code-block.component\';\n\n@NgModule({\n  declarations: [CodeBlockComponent],\n  imports: [CommonModule],\n  exports: [CodeBlockComponent]\n})\nexport class CodeBlockModule { }',
         types: 'export type CodeBlockLanguage = \'typescript\' | \'javascript\' | \'json\' | \'html\' | \'css\' | \'python\' | \'java\' | \'bash\' | \'text\';\nexport type CodeBlockSize = \'sm\' | \'md\' | \'lg\';',
       }}
@@ -449,42 +449,42 @@ export default function ComponentCodeBlockPage() {
         {
           title: 'Application Reference Numbers',
           description: 'Display application IDs and reference numbers for citizen tracking.',
-          example: '<CodeBlock code="APP-2024-MH-00123456" inline size="lg" />',
+          implementation: '<CodeBlock code="APP-2024-MH-00123456" inline size="lg" />',
         },
         {
           title: 'Aadhaar Display',
           description: 'Show masked or full Aadhaar numbers with proper formatting.',
-          example: '<CodeBlock code="XXXX-XXXX-0123" inline /> or <CodeBlock code="2345 6789 0123" inline />',
+          implementation: '<CodeBlock code="XXXX-XXXX-0123" inline /> or <CodeBlock code="2345 6789 0123" inline />',
         },
         {
           title: 'PAN Card Format',
           description: 'Display PAN card numbers in the standard 10-character format.',
-          example: '<CodeBlock code="ABCDE1234F" inline size="lg" />',
+          implementation: '<CodeBlock code="ABCDE1234F" inline size="lg" />',
         },
         {
           title: 'Transaction IDs',
           description: 'Show payment and transaction reference codes for government services.',
-          example: '<CodeBlock code="TXN20240411MH0012345678" inline showCopyButton />',
+          implementation: '<CodeBlock code="TXN20240411MH0012345678" inline showCopyButton />',
         },
         {
           title: 'API Documentation',
           description: 'Document API endpoints, requests, and responses for developer portals.',
-          example: '<CodeBlock code={apiExample} language="json" showLineNumbers showCopyButton filename="API Response" />',
+          implementation: '<CodeBlock code={apiExample} language="json" showLineNumbers showCopyButton filename="API Response" />',
         },
         {
           title: 'Configuration Examples',
           description: 'Show configuration file examples for government service integration.',
-          example: '<CodeBlock code={configCode} language="javascript" showLineNumbers filename="config.js" />',
+          implementation: '<CodeBlock code={configCode} language="javascript" showLineNumbers filename="config.js" />',
         },
         {
           title: 'Validation Code Snippets',
           description: 'Display code examples for Aadhaar, PAN, and other ID validation.',
-          example: '<CodeBlock code={validationCode} language="javascript" showLineNumbers showCopyButton />',
+          implementation: '<CodeBlock code={validationCode} language="javascript" showLineNumbers showCopyButton />',
         },
         {
           title: 'JSON Data Display',
           description: 'Format and display JSON data from government APIs and databases.',
-          example: '<CodeBlock code={jsonData} language="json" showLineNumbers maxHeight="400px" />',
+          implementation: '<CodeBlock code={jsonData} language="json" showLineNumbers maxHeight="400px" />',
         },
       ]}
     />

@@ -6,7 +6,7 @@ interface FormProgressProps {
 
 export function FormProgress({ currentStep, totalSteps, steps }: FormProgressProps) {
   return (
-    <div className="bg-gray-100 border-b-2 border-gray-300 py-6">
+    <div className="bg-muted border-b-2 border-border py-6">
       <div className="max-w-[1400px] mx-auto px-12">
         <div className="flex items-center justify-between max-w-2xl mx-auto">
           {steps.map((step, index) => {
@@ -22,13 +22,13 @@ export function FormProgress({ currentStep, totalSteps, steps }: FormProgressPro
                       isCompleted
                         ? 'bg-green-600 text-white'
                         : isActive
-                        ? 'bg-[#000080] text-white'
-                        : 'bg-gray-300 text-gray-600'
+                        ? 'bg-primary text-white'
+                        : 'bg-gray-300 text-muted-foreground'
                     }`}
                   >
                     {isCompleted ? '✓' : stepNumber}
                   </div>
-                  <div className="text-xs text-gray-700 font-bold whitespace-nowrap">
+                  <div className="text-xs text-muted-foreground font-bold whitespace-nowrap">
                     {step.label}
                   </div>
                 </div>

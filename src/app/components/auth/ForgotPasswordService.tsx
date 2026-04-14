@@ -182,7 +182,7 @@ export function ForgotPasswordService({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader
         icon={KeyRound}
         iconColor="bg-orange-600"
@@ -202,9 +202,9 @@ export function ForgotPasswordService({
             <StepBadge number={3} label="New Password" active={stepNumber === 3} completed={false} />
           </div>
 
-          <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
             {status && (
-              <div className="p-5 border-b-2 border-gray-200">
+              <div className="p-5 border-b-2 border-border">
                 <InfoBanner
                   variant={stateVariantMap[status.state]}
                   title={
@@ -224,14 +224,14 @@ export function ForgotPasswordService({
             {step === "identifier" && (
               <form onSubmit={handleRequestOtp} className="p-6 sm:p-8 space-y-5" noValidate>
                 <div>
-                  <h2 className="text-xl font-bold text-gray-900">Identify Your Account</h2>
-                  <p className="text-sm text-gray-700 mt-2">
+                  <h2 className="text-xl font-bold text-foreground">Identify Your Account</h2>
+                  <p className="text-sm text-muted-foreground mt-2">
                     Enter your registered email, mobile number, or user ID to receive a reset OTP.
                   </p>
                 </div>
 
                 <div>
-                  <label htmlFor="fp-identifier" className="block text-sm font-bold text-gray-900 mb-2">
+                  <label htmlFor="fp-identifier" className="block text-sm font-bold text-foreground mb-2">
                     Email, Mobile Number, or User ID <span className="text-red-600">*</span>
                   </label>
                   <input
@@ -243,8 +243,8 @@ export function ForgotPasswordService({
                       setErrors((prev) => ({ ...prev, identifier: undefined }));
                       clearStatus();
                     }}
-                    className={`w-full px-4 py-3 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080] ${
-                      errors.identifier ? "border-red-300 bg-red-50" : "border-gray-300 bg-white"
+                    className={`w-full px-4 py-3 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring ${
+                      errors.identifier ? "border-red-300 bg-red-50" : "border-border bg-card"
                     }`}
                     aria-invalid={Boolean(errors.identifier)}
                     aria-describedby={errors.identifier ? "fp-identifier-error" : undefined}
@@ -260,7 +260,7 @@ export function ForgotPasswordService({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3.5 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 disabled:opacity-70"
+                  className="w-full px-6 py-3.5 bg-primary text-white font-bold rounded text-sm hover:opacity-90 disabled:opacity-70"
                   aria-busy={isSubmitting}
                 >
                   {isSubmitting ? "Sending OTP..." : "Send OTP"}
@@ -271,14 +271,14 @@ export function ForgotPasswordService({
             {step === "otp" && (
               <div className="p-6 sm:p-8 space-y-5">
                 <div>
-                  <h2 className="text-xl font-bold text-gray-900">Verify OTP</h2>
-                  <p className="text-sm text-gray-700 mt-2">
+                  <h2 className="text-xl font-bold text-foreground">Verify OTP</h2>
+                  <p className="text-sm text-muted-foreground mt-2">
                     Enter the 6-digit OTP sent to +91 {maskedMobile}.
                   </p>
                 </div>
 
                 <div>
-                  <label htmlFor="fp-otp" className="block text-sm font-bold text-gray-900 mb-2">
+                  <label htmlFor="fp-otp" className="block text-sm font-bold text-foreground mb-2">
                     One-Time Password (OTP) <span className="text-red-600">*</span>
                   </label>
                   <input
@@ -292,8 +292,8 @@ export function ForgotPasswordService({
                       setErrors((prev) => ({ ...prev, otp: undefined }));
                       clearStatus();
                     }}
-                    className={`w-full px-4 py-3 border-2 rounded text-sm tracking-[0.25em] text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080] ${
-                      errors.otp ? "border-red-300 bg-red-50" : "border-gray-300 bg-white"
+                    className={`w-full px-4 py-3 border-2 rounded text-sm tracking-[0.25em] text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring ${
+                      errors.otp ? "border-red-300 bg-red-50" : "border-border bg-card"
                     }`}
                     aria-invalid={Boolean(errors.otp)}
                     aria-describedby={errors.otp ? "fp-otp-error" : undefined}
@@ -309,7 +309,7 @@ export function ForgotPasswordService({
                 <button
                   type="button"
                   onClick={continueFromOtpStep}
-                  className="w-full px-6 py-3.5 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900"
+                  className="w-full px-6 py-3.5 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
                 >
                   Continue
                 </button>
@@ -327,7 +327,7 @@ export function ForgotPasswordService({
                     }
                   }}
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 border-2 border-gray-300 rounded text-sm font-bold text-gray-800 hover:bg-gray-50 disabled:opacity-60"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 border-2 border-border rounded text-sm font-bold text-foreground hover:bg-muted disabled:opacity-60"
                 >
                   <RefreshCw size={14} />
                   Resend OTP
@@ -338,14 +338,14 @@ export function ForgotPasswordService({
             {step === "new-password" && (
               <form onSubmit={handleResetPassword} className="p-6 sm:p-8 space-y-5" noValidate>
                 <div>
-                  <h2 className="text-xl font-bold text-gray-900">Set New Password</h2>
-                  <p className="text-sm text-gray-700 mt-2">
+                  <h2 className="text-xl font-bold text-foreground">Set New Password</h2>
+                  <p className="text-sm text-muted-foreground mt-2">
                     Create a new password and confirm it to secure your account.
                   </p>
                 </div>
 
                 <div>
-                  <label htmlFor="fp-new-password" className="block text-sm font-bold text-gray-900 mb-2">
+                  <label htmlFor="fp-new-password" className="block text-sm font-bold text-foreground mb-2">
                     New Password <span className="text-red-600">*</span>
                   </label>
                   <input
@@ -357,8 +357,8 @@ export function ForgotPasswordService({
                       setErrors((prev) => ({ ...prev, newPassword: undefined }));
                       clearStatus();
                     }}
-                    className={`w-full px-4 py-3 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080] ${
-                      errors.newPassword ? "border-red-300 bg-red-50" : "border-gray-300 bg-white"
+                    className={`w-full px-4 py-3 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring ${
+                      errors.newPassword ? "border-red-300 bg-red-50" : "border-border bg-card"
                     }`}
                     aria-invalid={Boolean(errors.newPassword)}
                     aria-describedby={errors.newPassword ? "fp-new-password-error" : undefined}
@@ -372,7 +372,7 @@ export function ForgotPasswordService({
                 </div>
 
                 <div>
-                  <label htmlFor="fp-confirm-password" className="block text-sm font-bold text-gray-900 mb-2">
+                  <label htmlFor="fp-confirm-password" className="block text-sm font-bold text-foreground mb-2">
                     Confirm New Password <span className="text-red-600">*</span>
                   </label>
                   <input
@@ -384,8 +384,8 @@ export function ForgotPasswordService({
                       setErrors((prev) => ({ ...prev, confirmPassword: undefined }));
                       clearStatus();
                     }}
-                    className={`w-full px-4 py-3 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080] ${
-                      errors.confirmPassword ? "border-red-300 bg-red-50" : "border-gray-300 bg-white"
+                    className={`w-full px-4 py-3 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring ${
+                      errors.confirmPassword ? "border-red-300 bg-red-50" : "border-border bg-card"
                     }`}
                     aria-invalid={Boolean(errors.confirmPassword)}
                     aria-describedby={errors.confirmPassword ? "fp-confirm-password-error" : undefined}
@@ -401,7 +401,7 @@ export function ForgotPasswordService({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3.5 bg-[#138808] text-white font-bold rounded text-sm hover:bg-green-700 disabled:opacity-70"
+                  className="w-full px-6 py-3.5 bg-green-700 text-white font-bold rounded text-sm hover:bg-green-600 disabled:opacity-70"
                   aria-busy={isSubmitting}
                 >
                   {isSubmitting ? "Resetting Password..." : "Reset Password"}
@@ -415,12 +415,12 @@ export function ForgotPasswordService({
             title="Need Help?"
             message="If you no longer have access to your registered contact details, contact support for account recovery assistance."
           >
-            <Link to={helpPath} className="inline-flex items-center gap-2 mt-2 text-sm font-bold text-[#000080] hover:underline">
+            <Link to={helpPath} className="inline-flex items-center gap-2 mt-2 text-sm font-bold text-primary hover:underline">
               <ArrowLeft size={14} className="rotate-180" />
               Contact support
             </Link>
             {codeDownloadPath && (
-              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 mt-2 ml-4 text-sm font-bold text-[#000080] hover:underline">
+              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 mt-2 ml-4 text-sm font-bold text-primary hover:underline">
                 <Download size={14} />
                 Download React code
               </Link>
@@ -442,13 +442,13 @@ function StepBadge({ number, label, active, completed }: { number: number; label
           completed
             ? "bg-green-600 text-white"
             : active
-            ? "bg-[#000080] text-white"
-            : "bg-gray-200 text-gray-600"
+            ? "bg-primary text-white"
+            : "bg-gray-200 text-muted-foreground"
         }`}
       >
         {completed ? <CheckCircle size={16} /> : number}
       </div>
-      <div className="text-xs text-gray-700">{label}</div>
+      <div className="text-xs text-muted-foreground">{label}</div>
     </div>
   );
 }

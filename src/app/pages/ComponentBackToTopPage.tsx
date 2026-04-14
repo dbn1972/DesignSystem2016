@@ -180,10 +180,10 @@ export default function ComponentBackToTopPage() {
           preview: (
             <div className="relative h-64 overflow-auto border rounded p-4">
               <div className="space-y-4">
-                <p className="text-sm text-gray-600">Scroll down in this container to see the Back to Top button appear.</p>
+                <p className="text-sm text-muted-foreground">Scroll down in this container to see the Back to Top button appear.</p>
                 <div className="h-[800px] bg-gradient-to-b from-blue-50 to-blue-100 rounded p-4">
                   <h3 className="font-semibold mb-2">Long Content Area</h3>
-                  <p className="text-sm text-gray-600 mb-4">Keep scrolling down...</p>
+                  <p className="text-sm text-muted-foreground mb-4">Keep scrolling down...</p>
                   {Array.from({ length: 20 }).map((_, i) => (
                     <p key={i} className="mb-4 text-sm">
                       This is paragraph {i + 1} of the long content. The Back to Top button will appear as you scroll down.
@@ -204,21 +204,21 @@ export default function ComponentBackToTopPage() {
               <div className="relative h-48 overflow-auto border rounded p-4">
                 <div className="h-[600px] bg-gradient-to-b from-green-50 to-green-100 rounded p-4">
                   <h3 className="font-semibold mb-2">Bottom Right Position</h3>
-                  <p className="text-sm text-gray-600">Scroll to see button in bottom-right corner (default).</p>
+                  <p className="text-sm text-muted-foreground">Scroll to see button in bottom-right corner (default).</p>
                 </div>
                 <BackToTopPreview position="bottom-right" showAfter={50} />
               </div>
               <div className="relative h-48 overflow-auto border rounded p-4">
                 <div className="h-[600px] bg-gradient-to-b from-purple-50 to-purple-100 rounded p-4">
                   <h3 className="font-semibold mb-2">Bottom Left Position</h3>
-                  <p className="text-sm text-gray-600">Scroll to see button in bottom-left corner.</p>
+                  <p className="text-sm text-muted-foreground">Scroll to see button in bottom-left corner.</p>
                 </div>
                 <BackToTopPreview position="bottom-left" showAfter={50} />
               </div>
               <div className="relative h-48 overflow-auto border rounded p-4">
                 <div className="h-[600px] bg-gradient-to-b from-orange-50 to-orange-100 rounded p-4">
                   <h3 className="font-semibold mb-2">Bottom Center Position</h3>
-                  <p className="text-sm text-gray-600">Scroll to see button in bottom-center.</p>
+                  <p className="text-sm text-muted-foreground">Scroll to see button in bottom-center.</p>
                 </div>
                 <BackToTopPreview position="bottom-center" showAfter={50} />
               </div>
@@ -233,7 +233,7 @@ export default function ComponentBackToTopPage() {
             <div className="relative h-64 overflow-auto border rounded p-4">
               <div className="h-[800px] bg-gradient-to-b from-indigo-50 to-indigo-100 rounded p-4">
                 <h3 className="font-semibold mb-2">With Text Label</h3>
-                <p className="text-sm text-gray-600 mb-4">Scroll down to see the labeled button.</p>
+                <p className="text-sm text-muted-foreground mb-4">Scroll down to see the labeled button.</p>
                 {Array.from({ length: 15 }).map((_, i) => (
                   <p key={i} className="mb-4 text-sm">
                     Content paragraph {i + 1}. The button includes a text label for clarity.
@@ -253,7 +253,7 @@ export default function ComponentBackToTopPage() {
               <div className="relative h-48 overflow-auto border rounded p-4">
                 <div className="h-[400px] bg-gradient-to-b from-pink-50 to-pink-100 rounded p-4">
                   <h3 className="font-semibold mb-2">Appears Early (100px)</h3>
-                  <p className="text-sm text-gray-600">Button appears after minimal scrolling.</p>
+                  <p className="text-sm text-muted-foreground">Button appears after minimal scrolling.</p>
                   {Array.from({ length: 8 }).map((_, i) => (
                     <p key={i} className="mb-4 text-sm">Paragraph {i + 1}</p>
                   ))}
@@ -263,7 +263,7 @@ export default function ComponentBackToTopPage() {
               <div className="relative h-48 overflow-auto border rounded p-4">
                 <div className="h-[1200px] bg-gradient-to-b from-yellow-50 to-yellow-100 rounded p-4">
                   <h3 className="font-semibold mb-2">Appears Late (500px)</h3>
-                  <p className="text-sm text-gray-600">Button appears after scrolling halfway down.</p>
+                  <p className="text-sm text-muted-foreground">Button appears after scrolling halfway down.</p>
                   {Array.from({ length: 20 }).map((_, i) => (
                     <p key={i} className="mb-4 text-sm">Paragraph {i + 1}</p>
                   ))}
@@ -278,18 +278,18 @@ export default function ComponentBackToTopPage() {
           description: 'Choose between circle, square, or rounded rectangle shapes.',
           code: 'import { BackToTop } from \'@ux4g/react-core\';\n\nfunction Example() {\n  return (\n    <div>\n      {/* Circle (default) */}\n      <BackToTop shape="circle" />\n      \n      {/* Square */}\n      <BackToTop shape="square" />\n      \n      {/* Rounded */}\n      <BackToTop shape="rounded" />\n    </div>\n  );\n}',
           preview: (
-            <div className="flex gap-4 items-center justify-center p-8 bg-gray-50 rounded">
+            <div className="flex gap-4 items-center justify-center p-8 bg-background rounded">
               <div className="text-center">
                 <BackToTopPreview shape="circle" position="bottom-right" style={{ position: 'relative', bottom: 'auto', right: 'auto' }} />
-                <p className="text-sm text-gray-600 mt-2">Circle</p>
+                <p className="text-sm text-muted-foreground mt-2">Circle</p>
               </div>
               <div className="text-center">
                 <BackToTopPreview shape="square" position="bottom-right" style={{ position: 'relative', bottom: 'auto', right: 'auto' }} />
-                <p className="text-sm text-gray-600 mt-2">Square</p>
+                <p className="text-sm text-muted-foreground mt-2">Square</p>
               </div>
               <div className="text-center">
                 <BackToTopPreview shape="rounded" position="bottom-right" style={{ position: 'relative', bottom: 'auto', right: 'auto' }} />
-                <p className="text-sm text-gray-600 mt-2">Rounded</p>
+                <p className="text-sm text-muted-foreground mt-2">Rounded</p>
               </div>
             </div>
           ),
@@ -303,7 +303,7 @@ export default function ComponentBackToTopPage() {
               <div className="relative h-64 overflow-auto border rounded p-4">
                 <div className="h-[1000px] bg-gradient-to-b from-teal-50 to-teal-100 rounded p-4">
                   <h3 className="font-semibold mb-2">Smooth Scroll Animation</h3>
-                  <p className="text-sm text-gray-600 mb-4">Click the button to smoothly animate back to top.</p>
+                  <p className="text-sm text-muted-foreground mb-4">Click the button to smoothly animate back to top.</p>
                   {Array.from({ length: 20 }).map((_, i) => (
                     <p key={i} className="mb-4 text-sm">
                       Paragraph {i + 1}. Notice the smooth scrolling animation when you click Back to Top.
@@ -315,7 +315,7 @@ export default function ComponentBackToTopPage() {
               <div className="relative h-64 overflow-auto border rounded p-4">
                 <div className="h-[1000px] bg-gradient-to-b from-red-50 to-red-100 rounded p-4">
                   <h3 className="font-semibold mb-2">Instant Scroll (No Animation)</h3>
-                  <p className="text-sm text-gray-600 mb-4">Click the button to instantly jump back to top.</p>
+                  <p className="text-sm text-muted-foreground mb-4">Click the button to instantly jump back to top.</p>
                   {Array.from({ length: 20 }).map((_, i) => (
                     <p key={i} className="mb-4 text-sm">
                       Paragraph {i + 1}. Notice the instant jump when you click Back to Top.
@@ -334,53 +334,53 @@ export default function ComponentBackToTopPage() {
           preview: (
             <div className="relative h-96 overflow-auto border rounded p-4">
               <div className="space-y-8">
-                <section className="bg-white p-6 rounded shadow-sm">
+                <section className="bg-card p-6 rounded shadow-sm">
                   <h2 className="text-xl font-bold mb-4">Section 1: Introduction</h2>
-                  <p className="text-sm text-gray-700 mb-3">
+                  <p className="text-sm text-muted-foreground mb-3">
                     This is a long-form content page demonstrating the Back to Top component in a real-world scenario.
                     As you scroll through multiple sections, the button will appear to help you navigate back quickly.
                   </p>
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <p key={i} className="mb-3 text-sm text-gray-600">
+                    <p key={i} className="mb-3 text-sm text-muted-foreground">
                       Additional introductory paragraph {i + 1} providing context and background information.
                     </p>
                   ))}
                 </section>
 
-                <section className="bg-white p-6 rounded shadow-sm">
+                <section className="bg-card p-6 rounded shadow-sm">
                   <h2 className="text-xl font-bold mb-4">Section 2: Main Content</h2>
-                  <p className="text-sm text-gray-700 mb-3">
+                  <p className="text-sm text-muted-foreground mb-3">
                     The main content section contains detailed information organized into subsections.
                   </p>
                   {Array.from({ length: 8 }).map((_, i) => (
                     <div key={i} className="mb-4">
                       <h3 className="font-semibold text-sm mb-2">Subsection {i + 1}</h3>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-muted-foreground">
                         Detailed content for subsection {i + 1} with important information and explanations.
                       </p>
                     </div>
                   ))}
                 </section>
 
-                <section className="bg-white p-6 rounded shadow-sm">
+                <section className="bg-card p-6 rounded shadow-sm">
                   <h2 className="text-xl font-bold mb-4">Section 3: Additional Information</h2>
-                  <p className="text-sm text-gray-700 mb-3">
+                  <p className="text-sm text-muted-foreground mb-3">
                     Further details and supporting content continue here.
                   </p>
                   {Array.from({ length: 6 }).map((_, i) => (
-                    <p key={i} className="mb-3 text-sm text-gray-600">
+                    <p key={i} className="mb-3 text-sm text-muted-foreground">
                       Supporting paragraph {i + 1} with supplementary information.
                     </p>
                   ))}
                 </section>
 
-                <section className="bg-white p-6 rounded shadow-sm">
+                <section className="bg-card p-6 rounded shadow-sm">
                   <h2 className="text-xl font-bold mb-4">Section 4: Conclusion</h2>
-                  <p className="text-sm text-gray-700 mb-3">
+                  <p className="text-sm text-muted-foreground mb-3">
                     Summary and final thoughts about the topic.
                   </p>
                   {Array.from({ length: 4 }).map((_, i) => (
-                    <p key={i} className="mb-3 text-sm text-gray-600">
+                    <p key={i} className="mb-3 text-sm text-muted-foreground">
                       Concluding paragraph {i + 1} wrapping up the discussion.
                     </p>
                   ))}
@@ -509,32 +509,32 @@ export default function ComponentBackToTopPage() {
         {
           title: 'Long Policy Documents',
           description: 'Essential for multi-page policy documents, terms of service, and legal agreements where users need to quickly return to navigation or table of contents after reading.',
-          example: 'Privacy Policy page with 20+ sections requiring easy navigation back to top menu.',
+          implementation: 'Privacy Policy page with 20+ sections requiring easy navigation back to top menu.',
         },
         {
           title: 'Multi-Section Forms',
           description: 'Helpful in long application forms or surveys where users might need to return to the top to review instructions, change earlier answers, or access the main navigation.',
-          example: 'Benefits application form with 15 steps where users need to reference instructions at the top.',
+          implementation: 'Benefits application form with 15 steps where users need to reference instructions at the top.',
         },
         {
           title: 'Service Catalogs',
           description: 'Useful in government service directories or catalogs with extensive listings where users browse down the page and need quick access back to search or filters.',
-          example: 'Department services listing with 50+ services organized by category.',
+          implementation: 'Department services listing with 50+ services organized by category.',
         },
         {
           title: 'FAQ Pages',
           description: 'Critical for FAQ pages with many questions where users scroll to find answers and need easy navigation back to the question categories or search.',
-          example: 'Public health FAQ with 100+ questions organized into topics.',
+          implementation: 'Public health FAQ with 100+ questions organized into topics.',
         },
         {
           title: 'Terms and Conditions',
           description: 'Necessary for lengthy terms and conditions or user agreements where users need to navigate back to specific sections or the beginning of the document.',
-          example: 'Online service terms with 30+ clauses and subsections.',
+          implementation: 'Online service terms with 30+ clauses and subsections.',
         },
         {
           title: 'Documentation Pages',
           description: 'Important for technical documentation, guides, and tutorials with extensive content where users need to return to the navigation menu or page header.',
-          example: 'Developer API documentation with detailed endpoints and examples spanning multiple screens.',
+          implementation: 'Developer API documentation with detailed endpoints and examples spanning multiple screens.',
         },
       ]}
     />

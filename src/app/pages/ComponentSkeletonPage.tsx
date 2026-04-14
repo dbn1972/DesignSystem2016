@@ -66,7 +66,7 @@ const CardLoadingExample = () => {
         {isLoaded ? 'Show Loading' : 'Show Loaded'}
       </button>
 
-      <div className="border border-gray-200 rounded-lg p-6 bg-white">
+      <div className="border border-border rounded-lg p-6 bg-card">
         {!isLoaded ? (
           <div className="space-y-4">
             <div className="flex items-center gap-4">
@@ -86,8 +86,8 @@ const CardLoadingExample = () => {
                 JD
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900">John Doe</h3>
-                <p className="text-sm text-gray-600">Senior Developer</p>
+                <h3 className="font-semibold text-foreground">John Doe</h3>
+                <p className="text-sm text-muted-foreground">Senior Developer</p>
               </div>
             </div>
             <img
@@ -95,7 +95,7 @@ const CardLoadingExample = () => {
               alt="Project"
               className="w-full h-[200px] object-cover rounded"
             />
-            <p className="text-gray-700">
+            <p className="text-muted-foreground">
               This is a completed project card showing real content. The skeleton loader provided visual feedback while the data was being fetched from the server.
             </p>
           </div>
@@ -118,9 +118,9 @@ const TableLoadingExample = () => {
         {isLoaded ? 'Show Loading' : 'Show Loaded'}
       </button>
 
-      <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
+      <div className="border border-border rounded-lg overflow-hidden bg-card">
         <table className="w-full">
-          <thead className="bg-gray-50 border-b border-gray-200">
+          <thead className="bg-background border-b border-border">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
@@ -145,29 +145,29 @@ const TableLoadingExample = () => {
             ) : (
               <>
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">Application #12345</td>
+                  <td className="px-6 py-4 text-sm text-foreground">Application #12345</td>
                   <td className="px-6 py-4 text-sm"><span className="px-2 py-1 bg-green-100 text-green-800 rounded">Approved</span></td>
-                  <td className="px-6 py-4 text-sm text-gray-600">2026-04-10</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">2026-04-10</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">Application #12344</td>
+                  <td className="px-6 py-4 text-sm text-foreground">Application #12344</td>
                   <td className="px-6 py-4 text-sm"><span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Pending</span></td>
-                  <td className="px-6 py-4 text-sm text-gray-600">2026-04-09</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">2026-04-09</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">Application #12343</td>
+                  <td className="px-6 py-4 text-sm text-foreground">Application #12343</td>
                   <td className="px-6 py-4 text-sm"><span className="px-2 py-1 bg-green-100 text-green-800 rounded">Approved</span></td>
-                  <td className="px-6 py-4 text-sm text-gray-600">2026-04-08</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">2026-04-08</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">Application #12342</td>
+                  <td className="px-6 py-4 text-sm text-foreground">Application #12342</td>
                   <td className="px-6 py-4 text-sm"><span className="px-2 py-1 bg-red-100 text-red-800 rounded">Rejected</span></td>
-                  <td className="px-6 py-4 text-sm text-gray-600">2026-04-07</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">2026-04-07</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 text-sm text-gray-900">Application #12341</td>
+                  <td className="px-6 py-4 text-sm text-foreground">Application #12341</td>
                   <td className="px-6 py-4 text-sm"><span className="px-2 py-1 bg-green-100 text-green-800 rounded">Approved</span></td>
-                  <td className="px-6 py-4 text-sm text-gray-600">2026-04-06</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">2026-04-06</td>
                 </tr>
               </>
             )}
@@ -194,19 +194,19 @@ const DashboardLoadingExample = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {!isLoaded ? (
           <>
-            <div className="border border-gray-200 rounded-lg p-6 bg-white">
+            <div className="border border-border rounded-lg p-6 bg-card">
               <SkeletonPreview variant="text" width="50%" animated="pulse" />
               <div className="mt-4">
                 <SkeletonPreview variant="text" width="70%" height="32px" animated="pulse" />
               </div>
             </div>
-            <div className="border border-gray-200 rounded-lg p-6 bg-white">
+            <div className="border border-border rounded-lg p-6 bg-card">
               <SkeletonPreview variant="text" width="50%" animated="pulse" />
               <div className="mt-4">
                 <SkeletonPreview variant="text" width="70%" height="32px" animated="pulse" />
               </div>
             </div>
-            <div className="border border-gray-200 rounded-lg p-6 bg-white">
+            <div className="border border-border rounded-lg p-6 bg-card">
               <SkeletonPreview variant="text" width="50%" animated="pulse" />
               <div className="mt-4">
                 <SkeletonPreview variant="text" width="70%" height="32px" animated="pulse" />
@@ -215,19 +215,19 @@ const DashboardLoadingExample = () => {
           </>
         ) : (
           <>
-            <div className="border border-gray-200 rounded-lg p-6 bg-white">
-              <div className="text-sm text-gray-600">Total Applications</div>
-              <div className="mt-2 text-3xl font-semibold text-gray-900">1,284</div>
+            <div className="border border-border rounded-lg p-6 bg-card">
+              <div className="text-sm text-muted-foreground">Total Applications</div>
+              <div className="mt-2 text-3xl font-semibold text-foreground">1,284</div>
               <div className="mt-2 text-sm text-green-600">+12% from last month</div>
             </div>
-            <div className="border border-gray-200 rounded-lg p-6 bg-white">
-              <div className="text-sm text-gray-600">Pending Review</div>
-              <div className="mt-2 text-3xl font-semibold text-gray-900">42</div>
+            <div className="border border-border rounded-lg p-6 bg-card">
+              <div className="text-sm text-muted-foreground">Pending Review</div>
+              <div className="mt-2 text-3xl font-semibold text-foreground">42</div>
               <div className="mt-2 text-sm text-yellow-600">Requires attention</div>
             </div>
-            <div className="border border-gray-200 rounded-lg p-6 bg-white">
-              <div className="text-sm text-gray-600">Approved This Week</div>
-              <div className="mt-2 text-3xl font-semibold text-gray-900">156</div>
+            <div className="border border-border rounded-lg p-6 bg-card">
+              <div className="text-sm text-muted-foreground">Approved This Week</div>
+              <div className="mt-2 text-3xl font-semibold text-foreground">156</div>
               <div className="mt-2 text-sm text-green-600">+8% from last week</div>
             </div>
           </>
@@ -250,7 +250,7 @@ const ListLoadingExample = () => {
         {isLoaded ? 'Show Loading' : 'Show Loaded'}
       </button>
 
-      <div className="border border-gray-200 rounded-lg bg-white divide-y divide-gray-200">
+      <div className="border border-border rounded-lg bg-card divide-y divide-gray-200">
         {!isLoaded ? (
           Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="p-4 flex items-center gap-4">
@@ -268,8 +268,8 @@ const ListLoadingExample = () => {
                 AM
               </div>
               <div className="flex-1">
-                <div className="font-medium text-gray-900">Alice Martinez</div>
-                <div className="text-sm text-gray-600">Submitted license renewal application</div>
+                <div className="font-medium text-foreground">Alice Martinez</div>
+                <div className="text-sm text-muted-foreground">Submitted license renewal application</div>
               </div>
             </div>
             <div className="p-4 flex items-center gap-4">
@@ -277,8 +277,8 @@ const ListLoadingExample = () => {
                 BJ
               </div>
               <div className="flex-1">
-                <div className="font-medium text-gray-900">Bob Johnson</div>
-                <div className="text-sm text-gray-600">Uploaded required documentation</div>
+                <div className="font-medium text-foreground">Bob Johnson</div>
+                <div className="text-sm text-muted-foreground">Uploaded required documentation</div>
               </div>
             </div>
             <div className="p-4 flex items-center gap-4">
@@ -286,8 +286,8 @@ const ListLoadingExample = () => {
                 CW
               </div>
               <div className="flex-1">
-                <div className="font-medium text-gray-900">Carol Williams</div>
-                <div className="text-sm text-gray-600">Application approved by reviewer</div>
+                <div className="font-medium text-foreground">Carol Williams</div>
+                <div className="text-sm text-muted-foreground">Application approved by reviewer</div>
               </div>
             </div>
             <div className="p-4 flex items-center gap-4">
@@ -295,8 +295,8 @@ const ListLoadingExample = () => {
                 DD
               </div>
               <div className="flex-1">
-                <div className="font-medium text-gray-900">David Davis</div>
-                <div className="text-sm text-gray-600">Payment processed successfully</div>
+                <div className="font-medium text-foreground">David Davis</div>
+                <div className="text-sm text-muted-foreground">Payment processed successfully</div>
               </div>
             </div>
           </>
@@ -319,7 +319,7 @@ const FormLoadingExample = () => {
         {isLoaded ? 'Show Loading' : 'Show Loaded'}
       </button>
 
-      <div className="border border-gray-200 rounded-lg p-6 bg-white space-y-4">
+      <div className="border border-border rounded-lg p-6 bg-card space-y-4">
         {!isLoaded ? (
           <>
             <div>
@@ -348,31 +348,31 @@ const FormLoadingExample = () => {
         ) : (
           <>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 Full Name
               </label>
               <input
                 type="text"
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
+                className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
                 placeholder="Enter your name"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 Email Address
               </label>
               <input
                 type="email"
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
+                className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
                 placeholder="Enter your email"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 Additional Comments
               </label>
               <textarea
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
+                className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
                 rows={4}
                 placeholder="Enter any additional information"
               />
@@ -381,7 +381,7 @@ const FormLoadingExample = () => {
               <button className="px-4 py-2 bg-[#005196] text-white rounded hover:bg-[#004178] transition-colors">
                 Submit
               </button>
-              <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded hover:bg-gray-50 transition-colors">
+              <button className="px-4 py-2 border border-border text-muted-foreground rounded hover:bg-background transition-colors">
                 Cancel
               </button>
             </div>
@@ -515,17 +515,17 @@ export default function ComponentSkeletonPage() {
             preview: (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-sm font-medium mb-2 text-gray-700">Single Line</h3>
+                  <h3 className="text-sm font-medium mb-2 text-muted-foreground">Single Line</h3>
                   <SkeletonPreview variant="text" width="60%" animated="pulse" />
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-medium mb-2 text-gray-700">Multiple Lines</h3>
+                  <h3 className="text-sm font-medium mb-2 text-muted-foreground">Multiple Lines</h3>
                   <SkeletonPreview variant="text" count={3} animated="pulse" />
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-medium mb-2 text-gray-700">Custom Width</h3>
+                  <h3 className="text-sm font-medium mb-2 text-muted-foreground">Custom Width</h3>
                   <SkeletonPreview variant="text" width="200px" animated="pulse" />
                 </div>
               </div>
@@ -538,7 +538,7 @@ export default function ComponentSkeletonPage() {
             preview: (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-sm font-medium mb-2 text-gray-700">Avatar (Circle)</h3>
+                  <h3 className="text-sm font-medium mb-2 text-muted-foreground">Avatar (Circle)</h3>
                   <div className="flex gap-4 items-center">
                     <SkeletonPreview variant="circle" width="40px" height="40px" animated="pulse" />
                     <SkeletonPreview variant="circle" width="56px" height="56px" animated="pulse" />
@@ -547,7 +547,7 @@ export default function ComponentSkeletonPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-medium mb-2 text-gray-700">Image (Rectangle)</h3>
+                  <h3 className="text-sm font-medium mb-2 text-muted-foreground">Image (Rectangle)</h3>
                   <SkeletonPreview variant="rectangle" width="100%" height="200px" animated="pulse" />
                 </div>
               </div>
@@ -560,17 +560,17 @@ export default function ComponentSkeletonPage() {
             preview: (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-sm font-medium mb-2 text-gray-700">Pulse Animation</h3>
+                  <h3 className="text-sm font-medium mb-2 text-muted-foreground">Pulse Animation</h3>
                   <SkeletonPreview variant="text" count={2} animated="pulse" />
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-medium mb-2 text-gray-700">Wave Animation</h3>
+                  <h3 className="text-sm font-medium mb-2 text-muted-foreground">Wave Animation</h3>
                   <SkeletonPreview variant="text" count={2} animated="wave" />
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-medium mb-2 text-gray-700">No Animation</h3>
+                  <h3 className="text-sm font-medium mb-2 text-muted-foreground">No Animation</h3>
                   <SkeletonPreview variant="text" count={2} animated={false} />
                 </div>
               </div>
@@ -579,7 +579,7 @@ export default function ComponentSkeletonPage() {
           {
             title: 'Card Loading with Toggle',
             description: 'Interactive example showing skeleton loading for a card layout with toggle between loading and loaded states.',
-            code: 'import { Skeleton } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isLoading, setIsLoading] = useState(true);\n  \n  return (\n    <div>\n      {isLoading ? (\n        <div className="border rounded-lg p-6 space-y-4">\n          <div className="flex items-center gap-4">\n            <Skeleton variant="circle" width="48px" height="48px" />\n            <div className="flex-1">\n              <Skeleton variant="text" width="40%" />\n              <Skeleton variant="text" width="60%" />\n            </div>\n          </div>\n          <Skeleton variant="rectangle" height="200px" />\n          <Skeleton variant="text" count={3} />\n        </div>\n      ) : (\n        <div className="border rounded-lg p-6">\n          <div className="flex items-center gap-4">\n            <div className="w-12 h-12 rounded-full bg-blue-500" />\n            <div>\n              <h3 className="font-semibold">John Doe</h3>\n              <p className="text-sm text-gray-600">Developer</p>\n            </div>\n          </div>\n          {/* Content loaded */}\n        </div>\n      )}\n    </div>\n  );\n}',
+            code: 'import { Skeleton } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isLoading, setIsLoading] = useState(true);\n  \n  return (\n    <div>\n      {isLoading ? (\n        <div className="border rounded-lg p-6 space-y-4">\n          <div className="flex items-center gap-4">\n            <Skeleton variant="circle" width="48px" height="48px" />\n            <div className="flex-1">\n              <Skeleton variant="text" width="40%" />\n              <Skeleton variant="text" width="60%" />\n            </div>\n          </div>\n          <Skeleton variant="rectangle" height="200px" />\n          <Skeleton variant="text" count={3} />\n        </div>\n      ) : (\n        <div className="border rounded-lg p-6">\n          <div className="flex items-center gap-4">\n            <div className="w-12 h-12 rounded-full bg-blue-500" />\n            <div>\n              <h3 className="font-semibold">John Doe</h3>\n              <p className="text-sm text-muted-foreground">Developer</p>\n            </div>\n          </div>\n          {/* Content loaded */}\n        </div>\n      )}\n    </div>\n  );\n}',
             preview: <CardLoadingExample />,
           },
           {
@@ -707,32 +707,32 @@ export default function ComponentSkeletonPage() {
           {
             title: 'Application List Loading',
             description: 'Display skeleton placeholders while loading a list of citizen applications, showing the expected structure with avatars and text lines.',
-            example: 'Loading list of license applications with applicant names, status badges, and submission dates in a table or card layout.',
+            implementation: 'Loading list of license applications with applicant names, status badges, and submission dates in a table or card layout.',
           },
           {
             title: 'Dashboard Metrics Loading',
             description: 'Show skeleton cards for dashboard metrics while fetching analytics data, maintaining visual hierarchy and layout stability.',
-            example: 'Loading dashboard showing total applications, pending reviews, and approval rates with skeleton placeholders for numbers and labels.',
+            implementation: 'Loading dashboard showing total applications, pending reviews, and approval rates with skeleton placeholders for numbers and labels.',
           },
           {
             title: 'Document Preview Loading',
             description: 'Display skeleton for document preview area while PDF or image is being fetched from the server.',
-            example: 'Loading document viewer with skeleton rectangle representing the document area and skeleton text for document metadata.',
+            implementation: 'Loading document viewer with skeleton rectangle representing the document area and skeleton text for document metadata.',
           },
           {
             title: 'Table Data Loading',
             description: 'Show skeleton rows in data tables during initial load or when filtering/sorting, preventing layout shift and providing clear feedback.',
-            example: 'Loading table of permit applications with skeleton placeholders for each column maintaining table structure.',
+            implementation: 'Loading table of permit applications with skeleton placeholders for each column maintaining table structure.',
           },
           {
             title: 'User Profile Loading',
             description: 'Display skeleton for user profile page while fetching personal information, showing expected layout with avatar and text fields.',
-            example: 'Loading citizen profile with skeleton circle for avatar, skeleton text for name and contact details, and skeleton rectangles for additional information sections.',
+            implementation: 'Loading citizen profile with skeleton circle for avatar, skeleton text for name and contact details, and skeleton rectangles for additional information sections.',
           },
           {
             title: 'Form Loading',
             description: 'Show skeleton placeholders for form fields while loading dynamic form configuration or pre-filled data from the server.',
-            example: 'Loading application form with skeleton rectangles for input fields, labels, and action buttons maintaining form structure.',
+            implementation: 'Loading application form with skeleton rectangles for input fields, labels, and action buttons maintaining form structure.',
           },
         ]}
       />

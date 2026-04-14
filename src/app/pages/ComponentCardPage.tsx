@@ -6,9 +6,9 @@ import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 
 const CardPreview = ({ title, children }: any) => (
-  <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
-    <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
-    <p className="text-gray-600 mb-4">{children}</p>
+  <div className="bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-shadow">
+    <h3 className="text-xl font-semibold text-foreground mb-3">{title}</h3>
+    <p className="text-muted-foreground mb-4">{children}</p>
     <button className="px-4 py-2 bg-[#005196] text-white rounded-lg text-sm font-semibold">
       Learn More
     </button>
@@ -111,8 +111,8 @@ export const Card: React.FC<CardProps> = ({
   return (
     <div
       className={cn(
-        'bg-white rounded-xl p-6',
-        bordered && 'border border-gray-200',
+        'bg-card rounded-xl p-6',
+        bordered && 'border border-border',
         hoverable && 'hover:shadow-lg transition-shadow',
         onClick && 'cursor-pointer',
         className
@@ -122,7 +122,7 @@ export const Card: React.FC<CardProps> = ({
       {header && <div className="mb-4">{header}</div>}
       
       {title && (
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">
+        <h3 className="text-xl font-semibold text-foreground mb-3">
           {title}
         </h3>
       )}
@@ -130,7 +130,7 @@ export const Card: React.FC<CardProps> = ({
       <div>{children}</div>
       
       {footer && (
-        <div className="mt-4 pt-4 border-t border-gray-200">
+        <div className="mt-4 pt-4 border-t border-border">
           {footer}
         </div>
       )}
@@ -160,7 +160,7 @@ export const Card: React.FC<CardProps> = ({
         <ng-content select="[header]"></ng-content>
       </div>
       
-      <h3 *ngIf="title" class="text-xl font-semibold text-gray-900 mb-3">
+      <h3 *ngIf="title" class="text-xl font-semibold text-foreground mb-3">
         {{ title }}
       </h3>
       
@@ -168,7 +168,7 @@ export const Card: React.FC<CardProps> = ({
         <ng-content></ng-content>
       </div>
       
-      <div *ngIf="hasFooter" class="mt-4 pt-4 border-t border-gray-200">
+      <div *ngIf="hasFooter" class="mt-4 pt-4 border-t border-border">
         <ng-content select="[footer]"></ng-content>
       </div>
     </div>
@@ -183,8 +183,8 @@ export class CardComponent {
   @Output() clicked = new EventEmitter<void>();
   
   getCardClasses(): string {
-    let classes = 'bg-white rounded-xl p-6';
-    if (this.bordered) classes += ' border border-gray-200';
+    let classes = 'bg-card rounded-xl p-6';
+    if (this.bordered) classes += ' border border-border';
     if (this.hoverable) classes += ' hover:shadow-lg transition-shadow';
     if (this.clicked.observers.length > 0) classes += ' cursor-pointer';
     return classes;

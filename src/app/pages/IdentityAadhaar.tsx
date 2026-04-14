@@ -16,15 +16,15 @@ export default function IdentityAadhaar() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation Bar */}
-      <nav className="bg-white border-b-2 border-gray-300">
+      <nav className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between">
-          <Link to="/patterns/identity" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+          <Link to="/patterns/identity" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
             <ArrowLeft size={20} />
             <span className="font-medium">Back to Identity Patterns</span>
           </Link>
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-muted-foreground">
             <span className="font-bold">Flow:</span> Aadhaar Authentication
           </div>
         </div>
@@ -36,25 +36,25 @@ export default function IdentityAadhaar() {
           
           {/* Prototype View - 8 columns */}
           <div className="col-span-8">
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden shadow-lg">
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden shadow-lg">
               {/* Tricolor Header */}
               <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 h-2"></div>
               
               {/* Government Header */}
-              <div className="bg-white border-b-2 border-gray-300 px-8 py-6">
+              <div className="bg-card border-b-2 border-border px-8 py-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#000080] rounded flex items-center justify-center">
+                  <div className="w-12 h-12 bg-primary rounded flex items-center justify-center">
                     <Shield size={24} className="text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-lg text-gray-900">Digital India Portal</div>
-                    <div className="text-sm text-gray-600">Government of India</div>
+                    <div className="font-bold text-lg text-foreground">Digital India Portal</div>
+                    <div className="text-sm text-muted-foreground">Government of India</div>
                   </div>
                 </div>
               </div>
 
               {/* Progress Indicator */}
-              <div className="bg-gray-100 border-b-2 border-gray-300 px-12 py-4">
+              <div className="bg-muted border-b-2 border-border px-12 py-4">
                 <div className="flex items-center justify-between max-w-2xl mx-auto">
                   <ProgressStep number={1} label="Consent" active={step === "consent"} completed={step !== "consent"} />
                   <div className={`flex-1 h-0.5 mx-2 ${step !== "consent" ? 'bg-green-500' : 'bg-gray-300'}`}></div>
@@ -76,24 +76,24 @@ export default function IdentityAadhaar() {
                       <div className="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <FileText size={40} className="text-indigo-600" />
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900 mb-3 text-center">Aadhaar Authentication Consent</h1>
-                      <p className="text-gray-600 mb-8 text-center">
+                      <h1 className="text-3xl font-bold text-foreground mb-3 text-center">Aadhaar Authentication Consent</h1>
+                      <p className="text-muted-foreground mb-8 text-center">
                         Read and accept the terms before proceeding with Aadhaar-based authentication
                       </p>
 
                       <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg mb-6">
                         <div className="flex items-start gap-3 mb-4">
                           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                          <div className="text-sm text-gray-700">
-                            <div className="font-bold text-gray-900 mb-2">What is Aadhaar Authentication?</div>
+                          <div className="text-sm text-muted-foreground">
+                            <div className="font-bold text-foreground mb-2">What is Aadhaar Authentication?</div>
                             <p>Aadhaar authentication verifies your identity using your 12-digit Aadhaar number and OTP sent to your registered mobile number. This is a secure method approved by UIDAI (Unique Identification Authority of India).</p>
                           </div>
                         </div>
                       </div>
 
-                      <div className="border-2 border-gray-300 rounded-lg p-6 mb-6 max-h-96 overflow-y-auto">
-                        <h3 className="font-bold text-gray-900 mb-4">Terms and Conditions</h3>
-                        <div className="space-y-4 text-sm text-gray-700">
+                      <div className="border-2 border-border rounded-lg p-6 mb-6 max-h-96 overflow-y-auto">
+                        <h3 className="font-bold text-foreground mb-4">Terms and Conditions</h3>
+                        <div className="space-y-4 text-sm text-muted-foreground">
                           <ConsentPoint text="I authorize the use of my Aadhaar number for authentication purposes" />
                           <ConsentPoint text="I understand that my Aadhaar details will be shared with UIDAI for verification" />
                           <ConsentPoint text="I confirm that the mobile number linked to my Aadhaar is accessible" />
@@ -103,14 +103,14 @@ export default function IdentityAadhaar() {
                         </div>
                       </div>
 
-                      <label className="flex items-start gap-3 p-4 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-[#000080] hover:bg-blue-50 transition-colors mb-6">
+                      <label className="flex items-start gap-3 p-4 border-2 border-border rounded-lg cursor-pointer hover:border-primary hover:bg-blue-50 transition-colors mb-6">
                         <input
                           type="checkbox"
                           checked={consentGiven}
                           onChange={(e) => setConsentGiven(e.target.checked)}
                           className="w-5 h-5 mt-0.5"
                         />
-                        <span className="text-sm text-gray-900 font-medium">
+                        <span className="text-sm text-foreground font-medium">
                           I have read and accept the terms and conditions for Aadhaar authentication
                         </span>
                       </label>
@@ -118,7 +118,7 @@ export default function IdentityAadhaar() {
                       <button
                         onClick={() => setStep("enter")}
                         disabled={!consentGiven}
-                        className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         Proceed to Authentication
                       </button>
@@ -129,15 +129,15 @@ export default function IdentityAadhaar() {
                   {step === "enter" && (
                     <div>
                       <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Shield size={40} className="text-[#000080]" />
+                        <Shield size={40} className="text-primary" />
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900 mb-3 text-center">Enter Aadhaar Number</h1>
-                      <p className="text-gray-600 mb-8 text-center">
+                      <h1 className="text-3xl font-bold text-foreground mb-3 text-center">Enter Aadhaar Number</h1>
+                      <p className="text-muted-foreground mb-8 text-center">
                         Provide your 12-digit Aadhaar number for verification
                       </p>
 
                       <div className="mb-8">
-                        <label htmlFor="aadhaar" className="block text-sm font-bold text-gray-900 mb-2">
+                        <label htmlFor="aadhaar" className="block text-sm font-bold text-foreground mb-2">
                           Aadhaar Number <span className="text-red-600">*</span>
                         </label>
                         <input
@@ -145,11 +145,11 @@ export default function IdentityAadhaar() {
                           id="aadhaar"
                           value={aadhaarNumber}
                           onChange={(e) => setAadhaarNumber(e.target.value.replace(/\D/g, '').slice(0, 12))}
-                          className="w-full px-4 py-4 border-2 border-gray-300 rounded-lg text-center text-2xl font-bold tracking-widest focus:border-[#000080] focus:outline-none"
+                          className="w-full px-4 py-4 border-2 border-border rounded-lg text-center text-2xl font-bold tracking-widest focus:border-primary focus:outline-none"
                           placeholder="XXXX XXXX XXXX"
                           maxLength={12}
                         />
-                        <div className="text-sm text-gray-600 mt-2">
+                        <div className="text-sm text-muted-foreground mt-2">
                           <Info size={14} className="inline mr-1" />
                           Your Aadhaar number is encrypted and transmitted securely
                         </div>
@@ -158,8 +158,8 @@ export default function IdentityAadhaar() {
                       <div className="p-6 bg-yellow-50 border-2 border-yellow-200 rounded-lg mb-8">
                         <div className="flex items-start gap-3">
                           <AlertTriangle size={20} className="text-yellow-600 flex-shrink-0 mt-0.5" />
-                          <div className="text-sm text-gray-700">
-                            <div className="font-bold text-gray-900 mb-2">Security Notice</div>
+                          <div className="text-sm text-muted-foreground">
+                            <div className="font-bold text-foreground mb-2">Security Notice</div>
                             <ul className="space-y-1">
                               <li>• Never share your Aadhaar number on unsecured websites</li>
                               <li>• Verify the URL starts with https://</li>
@@ -172,7 +172,7 @@ export default function IdentityAadhaar() {
                       <button
                         onClick={() => setStep("otp")}
                         disabled={aadhaarNumber.length !== 12}
-                        className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         Send OTP
                       </button>
@@ -185,16 +185,16 @@ export default function IdentityAadhaar() {
                       <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <Shield size={40} className="text-green-600" />
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900 mb-3 text-center">Verify OTP</h1>
-                      <p className="text-gray-600 mb-2 text-center">
+                      <h1 className="text-3xl font-bold text-foreground mb-3 text-center">Verify OTP</h1>
+                      <p className="text-muted-foreground mb-2 text-center">
                         OTP sent to mobile number linked with Aadhaar
                       </p>
-                      <p className="text-lg font-bold text-gray-900 mb-8 text-center">
+                      <p className="text-lg font-bold text-foreground mb-8 text-center">
                         {maskAadhaar(aadhaarNumber)}
                       </p>
 
                       <div className="mb-8">
-                        <label htmlFor="otp" className="block text-sm font-bold text-gray-900 mb-2">
+                        <label htmlFor="otp" className="block text-sm font-bold text-foreground mb-2">
                           Enter 6-Digit OTP <span className="text-red-600">*</span>
                         </label>
                         <input
@@ -202,19 +202,19 @@ export default function IdentityAadhaar() {
                           id="otp"
                           value={otp}
                           onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                          className="w-full px-4 py-4 border-2 border-gray-300 rounded-lg text-center text-2xl font-bold tracking-widest focus:border-[#000080] focus:outline-none"
+                          className="w-full px-4 py-4 border-2 border-border rounded-lg text-center text-2xl font-bold tracking-widest focus:border-primary focus:outline-none"
                           placeholder="______"
                           maxLength={6}
                         />
-                        <div className="text-sm text-gray-600 mt-2">
-                          Didn't receive OTP? <button className="text-[#000080] font-bold hover:underline">Resend</button>
+                        <div className="text-sm text-muted-foreground mt-2">
+                          Didn't receive OTP? <button className="text-primary font-bold hover:underline">Resend</button>
                         </div>
                       </div>
 
                       <button
                         onClick={() => setStep("success")}
                         disabled={otp.length !== 6}
-                        className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         Verify and Authenticate
                       </button>
@@ -227,14 +227,14 @@ export default function IdentityAadhaar() {
                       <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle size={40} className="text-green-600" />
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900 mb-3">Authentication Successful</h1>
-                      <p className="text-gray-600 mb-8">
+                      <h1 className="text-3xl font-bold text-foreground mb-3">Authentication Successful</h1>
+                      <p className="text-muted-foreground mb-8">
                         Your identity has been verified successfully using Aadhaar
                       </p>
 
                       <div className="p-6 bg-green-50 border-2 border-green-200 rounded-lg mb-8 text-left">
-                        <div className="font-bold text-gray-900 mb-3">Verified Details</div>
-                        <div className="space-y-2 text-sm text-gray-700">
+                        <div className="font-bold text-foreground mb-3">Verified Details</div>
+                        <div className="space-y-2 text-sm text-muted-foreground">
                           <VerifiedDetail label="Name" value="As per Aadhaar" />
                           <VerifiedDetail label="Aadhaar" value={maskAadhaar(aadhaarNumber)} />
                           <VerifiedDetail label="Authentication" value="UIDAI Verified ✓" />
@@ -244,7 +244,7 @@ export default function IdentityAadhaar() {
 
                       <Link
                         to="/patterns/identity"
-                        className="block w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors text-center"
+                        className="block w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors text-center"
                       >
                         Continue
                       </Link>
@@ -254,16 +254,16 @@ export default function IdentityAadhaar() {
               </div>
 
               {/* Help Card */}
-              <div className="border-t-2 border-gray-300 bg-gray-50 px-12 py-6">
+              <div className="border-t-2 border-border bg-background px-12 py-6">
                 <div className="max-w-2xl mx-auto">
                   <div className="flex items-start gap-3">
-                    <HelpCircle size={20} className="text-[#000080] flex-shrink-0 mt-0.5" />
+                    <HelpCircle size={20} className="text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-gray-900 mb-2">Need Help with Aadhaar?</div>
-                      <div className="text-sm text-gray-700 space-y-1">
+                      <div className="font-bold text-foreground mb-2">Need Help with Aadhaar?</div>
+                      <div className="text-sm text-muted-foreground space-y-1">
                         <p>UIDAI Helpline: <span className="font-bold">1947</span> (Toll-Free)</p>
                         <p>Portal Support: <span className="font-bold">1800-XXX-XXXX</span></p>
-                        <p className="text-gray-600">Available 24x7</p>
+                        <p className="text-muted-foreground">Available 24x7</p>
                       </div>
                     </div>
                   </div>
@@ -295,12 +295,12 @@ function ProgressStep({ number, label, active, completed }: { number: number; la
         completed
           ? 'bg-green-500 border-green-500 text-white'
           : active
-          ? 'bg-[#000080] border-[#000080] text-white'
-          : 'bg-white border-gray-300 text-gray-400'
+          ? 'bg-primary border-primary text-white'
+          : 'bg-card border-border text-gray-400'
       }`}>
         {completed ? <Check size={18} /> : number}
       </div>
-      <div className={`text-xs font-medium ${active ? 'text-gray-900' : 'text-gray-500'}`}>{label}</div>
+      <div className={`text-xs font-medium ${active ? 'text-foreground' : 'text-gray-500'}`}>{label}</div>
     </div>
   );
 }
@@ -317,8 +317,8 @@ function ConsentPoint({ text }: { text: string }) {
 function VerifiedDetail({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="font-bold text-gray-600">{label}:</span>
-      <span className="text-gray-900">{value}</span>
+      <span className="font-bold text-muted-foreground">{label}:</span>
+      <span className="text-foreground">{value}</span>
     </div>
   );
 }
@@ -327,9 +327,9 @@ function VerifiedDetail({ label, value }: { label: string; value: string }) {
 
 function PatternInfo() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Pattern Info</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground">Pattern Info</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <InfoRow label="Pattern ID" value="UX4G-PAT-009-07" />
@@ -346,9 +346,9 @@ function ConsentRequirements() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Consent Required</h3>
+        <h3 className="font-bold text-foreground">Consent Required</h3>
       </div>
-      <div className="p-4 space-y-2 text-sm text-gray-700">
+      <div className="p-4 space-y-2 text-sm text-muted-foreground">
         <ConsentItem text="Explicit consent before collection" />
         <ConsentItem text="Clear explanation of data use" />
         <ConsentItem text="User must actively accept terms" />
@@ -363,9 +363,9 @@ function SecurityNotes() {
   return (
     <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
       <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Security</h3>
+        <h3 className="font-bold text-foreground">Security</h3>
       </div>
-      <div className="p-4 space-y-2 text-sm text-gray-700">
+      <div className="p-4 space-y-2 text-sm text-muted-foreground">
         <SecurityItem text="256-bit SSL/TLS encryption" />
         <SecurityItem text="Aadhaar number never stored" />
         <SecurityItem text="OTP sent via UIDAI gateway" />
@@ -378,11 +378,11 @@ function SecurityNotes() {
 
 function LegalCompliance() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Legal Compliance</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground">Legal Compliance</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <LegalItem
           title="Aadhaar Act, 2016"
           description="Complies with all provisions and amendments"
@@ -404,13 +404,13 @@ function LegalCompliance() {
 function InfoRow({ label, value, badge }: { label: string; value: string; badge?: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
+      <span className="text-muted-foreground">{label}</span>
       {badge ? (
-        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'} text-xs font-bold rounded-full`}>
+        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
           {value}
         </span>
       ) : (
-        <span className="font-bold text-gray-900">{value}</span>
+        <span className="font-bold text-foreground">{value}</span>
       )}
     </div>
   );
@@ -437,8 +437,8 @@ function SecurityItem({ text }: { text: string }) {
 function LegalItem({ title, description }: { title: string; description: string }) {
   return (
     <div>
-      <div className="font-bold text-gray-900 mb-1">{title}</div>
-      <div className="text-xs text-gray-600">{description}</div>
+      <div className="font-bold text-foreground mb-1">{title}</div>
+      <div className="text-xs text-muted-foreground">{description}</div>
     </div>
   );
 }

@@ -11,11 +11,11 @@ import { CheckCircle2, AlertCircle, AlertTriangle, Info } from 'lucide-react';
 const ToastPreview = ({ variant, message, description, position, action, ...props }: any) => (
   <div
     className={`flex items-start gap-3 rounded-lg border p-4 shadow-lg min-w-[300px] max-w-[500px] ${
-      variant === 'success' ? 'bg-white border-[#008800] text-[#1a1a1a]' :
-      variant === 'error' ? 'bg-white border-[#dc2626] text-[#1a1a1a]' :
-      variant === 'warning' ? 'bg-white border-[#f59e0b] text-[#1a1a1a]' :
-      variant === 'info' ? 'bg-white border-[#005196] text-[#1a1a1a]' :
-      'bg-white border-gray-300 text-[#1a1a1a]'
+      variant === 'success' ? 'bg-card border-[#008800] text-[#1a1a1a]' :
+      variant === 'error' ? 'bg-card border-[#dc2626] text-[#1a1a1a]' :
+      variant === 'warning' ? 'bg-card border-[#f59e0b] text-[#1a1a1a]' :
+      variant === 'info' ? 'bg-card border-[#005196] text-[#1a1a1a]' :
+      'bg-card border-border text-[#1a1a1a]'
     }`}
     role="alert"
     aria-live={variant === 'error' ? 'assertive' : 'polite'}
@@ -33,7 +33,7 @@ const ToastPreview = ({ variant, message, description, position, action, ...prop
       {action && <div className="mt-2">{action}</div>}
     </div>
     <button
-      className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors"
+      className="flex-shrink-0 text-gray-400 hover:text-muted-foreground transition-colors"
       aria-label="Close notification"
     >
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -261,20 +261,20 @@ function Example() {
 }`,
           preview: (
             <div className="flex flex-wrap gap-4">
-              <div className="text-sm text-gray-600 w-full">
+              <div className="text-sm text-muted-foreground w-full">
                 Click the positions below to see where toasts appear:
               </div>
               <div className="grid grid-cols-2 gap-4 w-full max-w-md">
-                <div className="p-3 border rounded text-sm text-center bg-gray-50">
+                <div className="p-3 border rounded text-sm text-center bg-background">
                   Top Right (Default)
                 </div>
-                <div className="p-3 border rounded text-sm text-center bg-gray-50">
+                <div className="p-3 border rounded text-sm text-center bg-background">
                   Top Left
                 </div>
-                <div className="p-3 border rounded text-sm text-center bg-gray-50">
+                <div className="p-3 border rounded text-sm text-center bg-background">
                   Bottom Right
                 </div>
-                <div className="p-3 border rounded text-sm text-center bg-gray-50">
+                <div className="p-3 border rounded text-sm text-center bg-background">
                   Bottom Left
                 </div>
               </div>
@@ -395,7 +395,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             <button
               type="button"
               onClick={onClose}
-              className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded"
+              className="flex-shrink-0 text-gray-400 hover:text-muted-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded"
               aria-label="Close notification"
             >
               <X size={16} />
@@ -435,16 +435,16 @@ export const toastVariants = cva(
     variants: {
       variant: {
         success: [
-          'bg-white border-[#008800] text-[#1a1a1a]',
+          'bg-card border-[#008800] text-[#1a1a1a]',
         ],
         error: [
-          'bg-white border-[#dc2626] text-[#1a1a1a]',
+          'bg-card border-[#dc2626] text-[#1a1a1a]',
         ],
         warning: [
-          'bg-white border-[#f59e0b] text-[#1a1a1a]',
+          'bg-card border-[#f59e0b] text-[#1a1a1a]',
         ],
         info: [
-          'bg-white border-[#005196] text-[#1a1a1a]',
+          'bg-card border-[#005196] text-[#1a1a1a]',
         ],
       },
       position: {

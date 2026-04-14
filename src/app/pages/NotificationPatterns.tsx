@@ -3,12 +3,12 @@ import { Bell, Mail, MessageSquare, Smartphone, AlertTriangle, Clock, Settings, 
 
 export default function NotificationPatterns() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-gradient-to-br from-purple-50 via-white to-pink-50 border-b-4 border-[#FF9933]">
         <div className="max-w-[1400px] mx-auto px-12 py-16">
           <div className="mb-6">
-            <Link to="/pattern-library" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/pattern-library" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Pattern Library
             </Link>
           </div>
@@ -19,11 +19,11 @@ export default function NotificationPatterns() {
                   <Bell size={40} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#000080] mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-gray-900">Notification System Patterns</h1>
+                  <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
+                  <h1 className="text-5xl font-bold text-foreground">Notification System Patterns</h1>
                 </div>
               </div>
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
                 Advanced notification patterns that go beyond simple alerts. Multi-channel delivery (SMS, Email, In-app), 
                 actionable notifications with direct response capability, smart reminder sequences, escalation chains, 
                 and granular user preferences. Keep citizens informed proactively while respecting their communication preferences.
@@ -31,15 +31,15 @@ export default function NotificationPatterns() {
               <div className="flex items-center gap-8 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <span className="text-gray-700">Pattern Family: <span className="font-bold text-gray-900">Communication</span></span>
+                  <span className="text-muted-foreground">Pattern Family: <span className="font-bold text-foreground">Communication</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-pink-500 rounded-full"></div>
-                  <span className="text-gray-700">Patterns: <span className="font-bold text-gray-900">6 Interactive Flows</span></span>
+                  <span className="text-muted-foreground">Patterns: <span className="font-bold text-foreground">6 Interactive Flows</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-[#000080] rounded-full"></div>
-                  <span className="text-gray-700">Focus: <span className="font-bold text-gray-900">Multi-Channel</span></span>
+                  <div className="w-3 h-3 bg-primary rounded-full"></div>
+                  <span className="text-muted-foreground">Focus: <span className="font-bold text-foreground">Multi-Channel</span></span>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function NotificationPatterns() {
               <div className="px-8 py-4 bg-purple-500 text-white rounded-lg font-bold text-center shadow-lg">
                 PROACTIVE
               </div>
-              <div className="px-8 py-4 bg-white border-2 border-[#138808] text-[#138808] rounded-lg font-bold text-center">
+              <div className="px-8 py-4 bg-card border-2 border-[#138808] text-[#138808] rounded-lg font-bold text-center">
                 ACTIONABLE
               </div>
             </div>
@@ -56,19 +56,19 @@ export default function NotificationPatterns() {
       </header>
 
       {/* Quick Access */}
-      <div className="bg-white border-b-2 border-gray-300">
+      <div className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <span className="font-bold text-gray-900">Quick Access:</span>
-              <Link to="/patterns/notifications/overview" className="text-[#000080] hover:underline text-sm font-medium">
+              <span className="font-bold text-foreground">Quick Access:</span>
+              <Link to="/patterns/notifications/overview" className="text-primary hover:underline text-sm font-medium">
                 Pattern Overview
               </Link>
-              <Link to="#all-patterns" className="text-[#000080] hover:underline text-sm font-medium">
+              <Link to="#all-patterns" className="text-primary hover:underline text-sm font-medium">
                 View All Patterns
               </Link>
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-muted-foreground">
               Last updated: April 2026
             </div>
           </div>
@@ -80,35 +80,35 @@ export default function NotificationPatterns() {
         
         {/* System Overview */}
         <section className="mb-16">
-          <div className="bg-gradient-to-br from-pink-50 to-purple-50 border-2 border-gray-300 rounded-lg p-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Advanced Notification Systems?</h2>
+          <div className="bg-gradient-to-br from-pink-50 to-purple-50 border-2 border-border rounded-lg p-10">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Why Advanced Notification Systems?</h2>
             <div className="grid grid-cols-3 gap-8">
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
                   Citizen Benefits
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   Stay informed about application status, upcoming deadlines, and required actions without having to check 
                   portals repeatedly. Choose preferred channels (SMS/Email/App) and control frequency and types of notifications.
                 </p>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
                   Service Efficiency
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   Proactive notifications reduce status inquiry calls by 70%, improve completion rates by reminding citizens 
                   of pending actions, and enable direct action from notifications (upload document, make payment).
                 </p>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
                   System Intelligence
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   Smart reminder sequences (3 days before, 1 day before, day-of deadline), escalation chains for urgent matters, 
                   and analytics on notification effectiveness to optimize communication strategies.
                 </p>
@@ -119,15 +119,15 @@ export default function NotificationPatterns() {
 
         {/* Pattern Categories */}
         <section className="mb-16" id="all-patterns">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-purple-500 pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-purple-500 pl-4">
             Pattern Categories
           </h2>
 
           {/* Notification Management Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <Bell size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Notification Management Patterns</h3>
+              <Bell size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Notification Management Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -154,8 +154,8 @@ export default function NotificationPatterns() {
           {/* Channel-Specific Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <MessageSquare size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Channel-Specific Patterns</h3>
+              <MessageSquare size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Channel-Specific Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -182,8 +182,8 @@ export default function NotificationPatterns() {
           {/* Time-Based & Urgency Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <Clock size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Time-Based & Urgency Patterns</h3>
+              <Clock size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Time-Based & Urgency Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -210,7 +210,7 @@ export default function NotificationPatterns() {
 
         {/* Implementation Guidelines */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-[#138808] pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-[#138808] pl-4">
             Implementation Guidelines
           </h2>
           <div className="grid grid-cols-3 gap-6">
@@ -249,13 +249,13 @@ export default function NotificationPatterns() {
 
         {/* Notification Types Taxonomy */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-blue-500 pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-blue-500 pl-4">
             Notification Types Taxonomy
           </h2>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+          <div className="bg-card border-2 border-border rounded-lg p-8">
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">By Urgency</h3>
+                <h3 className="font-bold text-foreground mb-4">By Urgency</h3>
                 <div className="space-y-3">
                   <NotificationType 
                     type="Critical" 
@@ -284,7 +284,7 @@ export default function NotificationPatterns() {
                 </div>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">By Category</h3>
+                <h3 className="font-bold text-foreground mb-4">By Category</h3>
                 <div className="space-y-3">
                   <NotificationType 
                     type="Status Updates" 
@@ -318,16 +318,16 @@ export default function NotificationPatterns() {
 
         {/* Notification Intelligence Features */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-purple-500 pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-purple-500 pl-4">
             Notification Intelligence Features
           </h2>
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-              <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <div className="bg-card border-2 border-border rounded-lg p-8">
+              <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <Zap size={20} className="text-yellow-600" />
                 Smart Delivery
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span><strong>Optimal timing:</strong> Send during user's active hours (ML-based)</span>
@@ -346,12 +346,12 @@ export default function NotificationPatterns() {
                 </li>
               </ul>
             </div>
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-              <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <div className="bg-card border-2 border-border rounded-lg p-8">
+              <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <Bell size={20} className="text-purple-600" />
                 Smart Content
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span><strong>Personalization:</strong> Use citizen name, service type, location</span>
@@ -375,10 +375,10 @@ export default function NotificationPatterns() {
 
         {/* Notification Templates */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-pink-500 pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-pink-500 pl-4">
             Standard Notification Templates
           </h2>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+          <div className="bg-card border-2 border-border rounded-lg p-8">
             <div className="space-y-4">
               <TemplateExample
                 title="Status Update"
@@ -404,28 +404,28 @@ export default function NotificationPatterns() {
 
         {/* Related Resources */}
         <section>
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-[#000080] pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-primary pl-4">
             Related Resources
           </h2>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+          <div className="bg-card border-2 border-border rounded-lg p-8">
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">Related Pattern Families</h3>
+                <h3 className="font-bold text-foreground mb-4">Related Pattern Families</h3>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link to="/patterns/dashboard" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/patterns/dashboard" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Dashboard & Personalization Patterns</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/patterns/status-lifecycle" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/patterns/status-lifecycle" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Status & Lifecycle Patterns</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/patterns/contact-support" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/patterns/contact-support" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Contact & Support Patterns</span>
                     </Link>
@@ -433,22 +433,22 @@ export default function NotificationPatterns() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">Design System Components</h3>
+                <h3 className="font-bold text-foreground mb-4">Design System Components</h3>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link to="/components" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/components" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Alert & Badge Components</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/components" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/components" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Toggle & Switch Components</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/components" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/components" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Card Components</span>
                     </Link>
@@ -477,38 +477,38 @@ function PatternCard({ title, description, icon, link, complexity, channels, use
 }) {
   return (
     <Link to={link} className="block group">
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-6 h-full transition-all hover:border-[#000080] hover:shadow-lg">
+      <div className="bg-card border-2 border-border rounded-lg p-6 h-full transition-all hover:border-primary hover:shadow-lg">
         <div className="flex items-start gap-4 mb-4">
-          <div className="p-3 bg-gray-50 border-2 border-gray-200 rounded-lg group-hover:border-[#000080] transition-colors">
+          <div className="p-3 bg-background border-2 border-border rounded-lg group-hover:border-primary transition-colors">
             {icon}
           </div>
           <div className="flex-1">
-            <h4 className="font-bold text-gray-900 mb-2 group-hover:text-[#000080] transition-colors">
+            <h4 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
               {title}
             </h4>
-            <div className="flex items-center gap-4 text-xs text-gray-600 mb-3">
-              <span className="px-2 py-1 bg-gray-100 rounded">
+            <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
+              <span className="px-2 py-1 bg-muted rounded">
                 {complexity}
               </span>
               <span className="text-purple-600">📱 {channels}</span>
             </div>
           </div>
         </div>
-        <p className="text-sm text-gray-700 mb-4">
+        <p className="text-sm text-muted-foreground mb-4">
           {description}
         </p>
         <div className="mb-4">
-          <div className="text-xs font-bold text-gray-600 mb-2">Common Use Cases:</div>
+          <div className="text-xs font-bold text-muted-foreground mb-2">Common Use Cases:</div>
           <ul className="space-y-1">
             {useCases.map((useCase, i) => (
-              <li key={i} className="text-xs text-gray-600 flex items-start gap-1">
+              <li key={i} className="text-xs text-muted-foreground flex items-start gap-1">
                 <span className="text-[#138808]">•</span>
                 <span>{useCase}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="flex items-center gap-2 text-[#000080] text-sm font-medium group-hover:gap-3 transition-all">
+        <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
           <span>View Pattern</span>
           <ArrowRight size={16} />
         </div>
@@ -522,11 +522,11 @@ function GuidelineCard({ title, points }: {
   points: string[];
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
+    <div className="bg-card border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <ul className="space-y-2">
         {points.map((point, i) => (
-          <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
             <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{point}</span>
           </li>
@@ -546,20 +546,20 @@ function NotificationType({ type, color, description, channels }: {
     red: 'bg-red-100 text-red-800 border-red-300',
     orange: 'bg-orange-100 text-orange-800 border-orange-300',
     blue: 'bg-blue-100 text-blue-800 border-blue-300',
-    gray: 'bg-gray-100 text-gray-800 border-gray-300',
+    gray: 'bg-muted text-foreground border-border',
     purple: 'bg-purple-100 text-purple-800 border-purple-300',
     teal: 'bg-teal-100 text-teal-800 border-teal-300'
   };
 
   return (
-    <div className="border-l-4 border-gray-300 pl-4">
+    <div className="border-l-4 border-border pl-4">
       <div className="flex items-center gap-2 mb-2">
         <span className={`px-3 py-1 text-xs font-bold rounded border-2 ${colors[color as keyof typeof colors]}`}>
           {type}
         </span>
       </div>
-      <p className="text-sm text-gray-700 mb-1">{description}</p>
-      <p className="text-xs text-gray-600">{channels}</p>
+      <p className="text-sm text-muted-foreground mb-1">{description}</p>
+      <p className="text-xs text-muted-foreground">{channels}</p>
     </div>
   );
 }
@@ -571,33 +571,33 @@ function TemplateExample({ title, sms, email, inapp }: {
   inapp: string;
 }) {
   return (
-    <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6">
-      <h4 className="font-bold text-gray-900 mb-4">{title}</h4>
+    <div className="bg-background border-2 border-border rounded-lg p-6">
+      <h4 className="font-bold text-foreground mb-4">{title}</h4>
       <div className="space-y-3">
         <div>
           <div className="flex items-center gap-2 mb-2">
             <MessageSquare size={16} className="text-blue-600" />
-            <span className="text-xs font-bold text-gray-700">SMS (160 chars)</span>
+            <span className="text-xs font-bold text-muted-foreground">SMS (160 chars)</span>
           </div>
-          <div className="bg-white p-3 rounded text-sm text-gray-800 font-mono">
+          <div className="bg-card p-3 rounded text-sm text-foreground font-mono">
             {sms}
           </div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-2">
             <Mail size={16} className="text-green-600" />
-            <span className="text-xs font-bold text-gray-700">Email Subject</span>
+            <span className="text-xs font-bold text-muted-foreground">Email Subject</span>
           </div>
-          <div className="bg-white p-3 rounded text-sm text-gray-800">
+          <div className="bg-card p-3 rounded text-sm text-foreground">
             {email}
           </div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-2">
             <Bell size={16} className="text-purple-600" />
-            <span className="text-xs font-bold text-gray-700">In-App Notification</span>
+            <span className="text-xs font-bold text-muted-foreground">In-App Notification</span>
           </div>
-          <div className="bg-white p-3 rounded text-sm text-gray-800">
+          <div className="bg-card p-3 rounded text-sm text-foreground">
             {inapp}
           </div>
         </div>

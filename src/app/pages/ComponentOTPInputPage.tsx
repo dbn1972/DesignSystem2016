@@ -40,11 +40,11 @@ const OTPInputPreview = () => {
             value={digit}
             onChange={e => handleChange(index, e.target.value)}
             onKeyDown={e => handleKeyDown(index, e)}
-            className="w-12 h-14 text-center text-2xl font-semibold border-2 border-gray-300 rounded-lg focus:border-[#005196] focus:outline-none"
+            className="w-12 h-14 text-center text-2xl font-semibold border-2 border-border rounded-lg focus:border-[#005196] focus:outline-none"
           />
         ))}
       </div>
-      <p className="text-center mt-4 text-sm text-gray-600">
+      <p className="text-center mt-4 text-sm text-muted-foreground">
         Enter the 6-digit OTP sent to your mobile
       </p>
     </div>
@@ -228,8 +228,8 @@ export const OTPInput: React.FC<OTPInputProps> = ({
           className={\`
             w-12 h-14 text-center text-2xl font-semibold rounded-lg
             border-2 transition-colors
-            \${error ? 'border-red-500' : 'border-gray-300'}
-            \${disabled ? 'bg-gray-100 cursor-not-allowed' : ''}
+            \${error ? 'border-red-500' : 'border-border'}
+            \${disabled ? 'bg-muted cursor-not-allowed' : ''}
             focus:border-[#005196] focus:outline-none
           \`}
         />
@@ -322,8 +322,8 @@ export class OTPInputComponent implements AfterViewInit {
   
   getInputClasses(): string {
     let classes = 'w-12 h-14 text-center text-2xl font-semibold border-2 rounded-lg focus:outline-none transition-colors';
-    classes += this.error ? ' border-red-500' : ' border-gray-300 focus:border-blue-600';
-    classes += this.disabled ? ' bg-gray-100 cursor-not-allowed' : '';
+    classes += this.error ? ' border-red-500' : ' border-border focus:border-blue-600';
+    classes += this.disabled ? ' bg-muted cursor-not-allowed' : '';
     return classes;
   }
 }`,

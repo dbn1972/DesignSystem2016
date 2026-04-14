@@ -12,7 +12,7 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
-    <div className="w-full border border-gray-200 rounded-lg overflow-hidden bg-white">
+    <div className="w-full border border-border rounded-lg overflow-hidden bg-card">
       <div className="flex items-center justify-between p-4 bg-[#005196] text-white">
         <div className="flex items-center gap-2">
           <Calendar size={20} />
@@ -32,13 +32,13 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
       {view === 'month' && (
         <div className="grid grid-cols-7 gap-px bg-gray-200">
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-            <div key={day} className="bg-gray-50 p-2 text-center text-xs font-semibold text-gray-600">
+            <div key={day} className="bg-background p-2 text-center text-xs font-semibold text-muted-foreground">
               {day}
             </div>
           ))}
           {Array.from({ length: 35 }, (_, i) => (
-            <div key={i} className="bg-white p-2 min-h-[80px] hover:bg-gray-50 cursor-pointer">
-              <div className="text-sm text-gray-700">{((i % 30) + 1)}</div>
+            <div key={i} className="bg-card p-2 min-h-[80px] hover:bg-background cursor-pointer">
+              <div className="text-sm text-muted-foreground">{((i % 30) + 1)}</div>
               {events.filter((e: any) => e.day === i).map((event: any, idx: number) => (
                 <div key={idx} className={`text-xs mt-1 p-1 rounded ${event.color || 'bg-blue-100 text-blue-800'}`}>
                   {event.title}
@@ -51,21 +51,21 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
 
       {view === 'week' && (
         <div className="grid grid-cols-8">
-          <div className="border-r border-gray-200 p-2 text-xs text-gray-500">
+          <div className="border-r border-border p-2 text-xs text-gray-500">
             <div className="h-8"></div>
             {Array.from({ length: 10 }, (_, i) => (
-              <div key={i} className="h-16 border-t border-gray-200 pt-1">
+              <div key={i} className="h-16 border-t border-border pt-1">
                 {String(parseInt(minTime.split(':')[0]) + i).padStart(2, '0')}:00
               </div>
             ))}
           </div>
           {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, dayIdx) => (
-            <div key={day} className="border-r border-gray-200">
-              <div className="h-8 p-2 text-center text-xs font-semibold bg-gray-50 border-b border-gray-200">
+            <div key={day} className="border-r border-border">
+              <div className="h-8 p-2 text-center text-xs font-semibold bg-background border-b border-border">
                 {day}
               </div>
               {Array.from({ length: 10 }, (_, i) => (
-                <div key={i} className="h-16 border-t border-gray-200 hover:bg-blue-50 cursor-pointer relative">
+                <div key={i} className="h-16 border-t border-border hover:bg-blue-50 cursor-pointer relative">
                   {events.filter((e: any) => e.dayOfWeek === dayIdx && e.hour === i + parseInt(minTime.split(':')[0])).map((event: any, idx: number) => (
                     <div key={idx} className={`absolute inset-x-1 top-1 bottom-1 p-1 rounded text-xs ${event.color || 'bg-[#005196] text-white'}`}>
                       <div className="font-semibold">{event.title}</div>
@@ -81,10 +81,10 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
 
       {view === 'day' && (
         <div className="grid grid-cols-2">
-          <div className="border-r border-gray-200 p-2 text-xs text-gray-500">
+          <div className="border-r border-border p-2 text-xs text-gray-500">
             {Array.from({ length: 10 }, (_, i) => (
-              <div key={i} className="h-20 border-t border-gray-200 pt-1 relative">
-                <span className="absolute -top-2 bg-white px-1">
+              <div key={i} className="h-20 border-t border-border pt-1 relative">
+                <span className="absolute -top-2 bg-card px-1">
                   {String(parseInt(minTime.split(':')[0]) + i).padStart(2, '0')}:00
                 </span>
               </div>
@@ -92,7 +92,7 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
           </div>
           <div className="relative">
             {Array.from({ length: 10 }, (_, i) => (
-              <div key={i} className="h-20 border-t border-gray-200 hover:bg-blue-50 cursor-pointer relative">
+              <div key={i} className="h-20 border-t border-border hover:bg-blue-50 cursor-pointer relative">
                 {events.filter((e: any) => e.hour === i + parseInt(minTime.split(':')[0])).map((event: any, idx: number) => (
                   <div key={idx} className={`absolute inset-x-2 top-1 p-2 rounded shadow-sm ${event.color || 'bg-[#005196] text-white'}`}>
                     <div className="font-semibold">{event.title}</div>
@@ -659,7 +659,7 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
     return (
       <div className="grid grid-cols-7 gap-px bg-gray-200">
         {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-          <div key={day} className="bg-gray-50 p-2 text-center text-xs font-semibold text-gray-600">
+          <div key={day} className="bg-background p-2 text-center text-xs font-semibold text-muted-foreground">
             {day}
           </div>
         ))}
@@ -673,8 +673,8 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
             <div
               key={idx}
               className={cn(
-                'bg-white p-2 min-h-[100px] hover:bg-gray-50 cursor-pointer',
-                isOffDay && 'bg-gray-100 text-gray-400'
+                'bg-card p-2 min-h-[100px] hover:bg-background cursor-pointer',
+                isOffDay && 'bg-muted text-gray-400'
               )}
               onClick={() => {
                 const start = new Date(day);
@@ -710,15 +710,15 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
 
     return (
       <div className="grid grid-cols-8">
-        <div className="border-r border-gray-200"></div>
+        <div className="border-r border-border"></div>
         {weekDays.map(day => (
-          <div key={day.toString()} className="border-r border-gray-200 p-2 text-center text-sm font-semibold">
+          <div key={day.toString()} className="border-r border-border p-2 text-center text-sm font-semibold">
             {format(day, 'EEE d')}
           </div>
         ))}
         {timeSlots.map((timeSlot, slotIdx) => (
           <React.Fragment key={slotIdx}>
-            <div className="border-t border-gray-200 p-2 text-xs text-gray-500 text-right">
+            <div className="border-t border-border p-2 text-xs text-gray-500 text-right">
               {format(timeSlot, 'HH:mm')}
             </div>
             {weekDays.map((day, dayIdx) => {
@@ -737,8 +737,8 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
                 <div
                   key={dayIdx}
                   className={cn(
-                    'border-t border-gray-200 min-h-[60px] hover:bg-blue-50 cursor-pointer relative',
-                    isOffTime && 'bg-gray-50'
+                    'border-t border-border min-h-[60px] hover:bg-blue-50 cursor-pointer relative',
+                    isOffTime && 'bg-background'
                   )}
                   onClick={() => handleSlotClick(slotStart, slotEnd)}
                 >
@@ -769,9 +769,9 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
   const renderDayView = () => {
     return (
       <div className="grid grid-cols-2">
-        <div className="border-r border-gray-200">
+        <div className="border-r border-border">
           {timeSlots.map((timeSlot, idx) => (
-            <div key={idx} className="h-20 border-t border-gray-200 p-2 text-xs text-gray-500 text-right">
+            <div key={idx} className="h-20 border-t border-border p-2 text-xs text-gray-500 text-right">
               {format(timeSlot, 'HH:mm')}
             </div>
           ))}
@@ -793,8 +793,8 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
               <div
                 key={idx}
                 className={cn(
-                  'h-20 border-t border-gray-200 hover:bg-blue-50 cursor-pointer relative',
-                  isOffTime && 'bg-gray-50'
+                  'h-20 border-t border-border hover:bg-blue-50 cursor-pointer relative',
+                  isOffTime && 'bg-background'
                 )}
                 onClick={() => handleSlotClick(slotStart, slotEnd)}
               >
@@ -825,7 +825,7 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
   };
 
   return (
-    <div className={cn('calendar-scheduler w-full border border-gray-200 rounded-lg overflow-hidden bg-white', className)}>
+    <div className={cn('calendar-scheduler w-full border border-border rounded-lg overflow-hidden bg-card', className)}>
       <div className="flex items-center justify-between p-4 bg-[#005196] text-white">
         <div className="flex items-center gap-2">
           <h3 className="font-semibold text-lg">
@@ -941,7 +941,7 @@ export const calendarVariants = cva(
   [
     'calendar-scheduler',
     'w-full border rounded-lg overflow-hidden',
-    'bg-white',
+    'bg-card',
   ],
   {
     variants: {
@@ -960,16 +960,16 @@ export const calendarVariants = cva(
 export const slotVariants = cva(
   [
     'calendar-slot',
-    'border-t border-gray-200',
+    'border-t border-border',
     'cursor-pointer transition-colors',
   ],
   {
     variants: {
       state: {
         available: ['hover:bg-blue-50'],
-        booked: ['bg-gray-50 cursor-not-allowed'],
+        booked: ['bg-background cursor-not-allowed'],
         holiday: ['bg-red-50 cursor-not-allowed'],
-        nonWorking: ['bg-gray-100 cursor-not-allowed'],
+        nonWorking: ['bg-muted cursor-not-allowed'],
       },
     },
     defaultVariants: {

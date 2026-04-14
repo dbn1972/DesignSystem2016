@@ -138,7 +138,7 @@ export const Modal: React.FC<ModalProps> = ({
       onClick={closeOnOverlayClick ? onClose : undefined}
     >
       <div
-        className={\`bg-white rounded-lg shadow-xl w-full \${sizeClasses[size]}\`}
+        className={\`bg-card rounded-lg shadow-xl w-full \${sizeClasses[size]}\`}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
@@ -153,7 +153,7 @@ export const Modal: React.FC<ModalProps> = ({
           )}
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 hover:bg-muted rounded-lg transition-colors"
             aria-label="Close modal"
           >
             <X size={20} />
@@ -167,7 +167,7 @@ export const Modal: React.FC<ModalProps> = ({
         
         {/* Footer */}
         {footer && (
-          <div className="flex justify-end gap-3 p-6 border-t bg-gray-50">
+          <div className="flex justify-end gap-3 p-6 border-t bg-background">
             {footer}
           </div>
         )}
@@ -211,7 +211,7 @@ export interface ModalProps {
           <ng-content></ng-content>
         </div>
         
-        <div *ngIf="hasFooter" class="flex justify-end gap-3 p-6 border-t bg-gray-50">
+        <div *ngIf="hasFooter" class="flex justify-end gap-3 p-6 border-t bg-background">
           <ng-content select="[footer]"></ng-content>
         </div>
       </div>
@@ -233,7 +233,7 @@ export class ModalComponent {
       lg: 'max-w-2xl',
       xl: 'max-w-4xl',
     };
-    return \`bg-white rounded-lg shadow-xl w-full \${sizes[this.size]}\`;
+    return \`bg-card rounded-lg shadow-xl w-full \${sizes[this.size]}\`;
   }
   
   handleOverlayClick(): void {

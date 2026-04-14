@@ -17,7 +17,7 @@ const BreadcrumbPreview = () => (
       Services
     </a>
     <ChevronRight size={16} className="text-gray-400" />
-    <span className="text-gray-600">Current Page</span>
+    <span className="text-muted-foreground">Current Page</span>
   </nav>
 );
 
@@ -115,7 +115,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
                 </a>
               ) : (
                 <span
-                  className="text-gray-600"
+                  className="text-muted-foreground"
                   aria-current={isLast ? 'page' : undefined}
                 >
                   {item.label}
@@ -167,7 +167,7 @@ interface BreadcrumbItem {
           </a>
           
           <span *ngIf="!item.href || isLast"
-                class="text-gray-600"
+                class="text-muted-foreground"
                 [attr.aria-current]="isLast ? 'page' : null">
             {{ item.label }}
           </span>

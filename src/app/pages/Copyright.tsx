@@ -2,7 +2,7 @@ import { Copyright as CopyrightIcon, FileText, Scale, AlertCircle, CheckCircle, 
 
 export default function Copyright() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
@@ -68,20 +68,20 @@ function CopyrightNoticeSection() {
 
       <div className="mt-8 space-y-6">
         {/* Primary Copyright */}
-        <div className="border-2 border-gray-200 rounded-lg p-8 bg-gradient-to-br from-blue-50 to-white">
+        <div className="border-2 border-border rounded-lg p-8 bg-gradient-to-br from-blue-50 to-white">
           <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-[#000080] rounded-full flex items-center justify-center">
+            <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
               <CopyrightIcon className="text-white" size={24} />
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 © 2024-2026 Government of India
               </h3>
-              <p className="text-gray-700 mb-4 leading-relaxed">
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 UX4G Design System is copyright © 2024-2026 Government of India. All rights reserved
                 except as explicitly granted under the terms of the MIT License.
               </p>
-              <div className="bg-white border-2 border-blue-200 rounded-lg p-4 font-mono text-sm text-gray-800">
+              <div className="bg-card border-2 border-blue-200 rounded-lg p-4 font-mono text-sm text-foreground">
                 Copyright © 2024-2026 Government of India<br />
                 UX4G Design System<br />
                 Licensed under the MIT License
@@ -125,15 +125,15 @@ function CopyrightNoticeSection() {
 
 function CopyrightScopeCard({ title, items, icon }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 border-b-2 border-gray-200 p-4 flex items-center gap-2">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background border-b-2 border-border p-4 flex items-center gap-2">
         {icon}
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
         <ul className="space-y-2">
           {items.map((item: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <span className="text-gray-400 mt-0.5">•</span>
               <span>{item}</span>
             </li>
@@ -155,17 +155,17 @@ function LicenseTermsSection() {
 
       <div className="mt-8 space-y-6">
         {/* MIT License Full Text */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 border-b-2 border-gray-200 p-6">
-            <h3 className="font-bold text-gray-900 text-xl mb-2">MIT License (Full Text)</h3>
-            <p className="text-sm text-gray-700">
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 border-b-2 border-border p-6">
+            <h3 className="font-bold text-foreground text-xl mb-2">MIT License (Full Text)</h3>
+            <p className="text-sm text-muted-foreground">
               The UX4G Design System is licensed under the MIT License, one of the most permissive
               and widely-used open source licenses.
             </p>
           </div>
 
-          <div className="p-8 bg-gray-50">
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-6 font-mono text-sm text-gray-800 leading-relaxed">
+          <div className="p-8 bg-background">
+            <div className="bg-card border-2 border-border rounded-lg p-6 font-mono text-sm text-foreground leading-relaxed">
               <p className="mb-4">MIT License</p>
 
               <p className="mb-4">Copyright (c) 2024-2026 Government of India</p>
@@ -256,7 +256,7 @@ function LicensePermission({ title, color, items }: any) {
       <h3 className={`font-bold ${iconColor[color as keyof typeof iconColor]} mb-4 text-lg`}>{title}</h3>
       <ul className="space-y-2">
         {items.map((item: string, index: number) => (
-          <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+          <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
             <CheckCircle className={`flex-shrink-0 mt-0.5 ${iconColor[color as keyof typeof iconColor]}`} size={16} />
             <span>{item}</span>
           </li>
@@ -349,21 +349,21 @@ function UsageRightCard({ title, description, rights, badge, badgeColor }: any) 
   };
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 border-b-2 border-gray-200 p-4">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background border-b-2 border-border p-4">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="font-bold text-gray-900 text-lg">{title}</h3>
+          <h3 className="font-bold text-foreground text-lg">{title}</h3>
           <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${badgeColors[badgeColor as keyof typeof badgeColors]}`}>
             {badge}
           </span>
         </div>
-        <p className="text-sm text-gray-600">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
 
       <div className="p-6">
         <ul className="space-y-2">
           {rights.map((right: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
               <span>{right}</span>
             </li>
@@ -385,10 +385,10 @@ function AttributionRequirementsSection() {
 
       <div className="mt-8 space-y-6">
         {/* Attribution Templates */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 border-b-2 border-gray-200 p-6">
-            <h3 className="font-bold text-gray-900 mb-2">Attribution Templates</h3>
-            <p className="text-sm text-gray-600">Copy and paste these attribution notices</p>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background border-b-2 border-border p-6">
+            <h3 className="font-bold text-foreground mb-2">Attribution Templates</h3>
+            <p className="text-sm text-muted-foreground">Copy and paste these attribution notices</p>
           </div>
 
           <div className="p-8 space-y-6">
@@ -427,9 +427,9 @@ function AttributionRequirementsSection() {
 
         {/* Attribution Placement */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Required Placement</h3>
-            <ul className="space-y-3 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Required Placement</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-green-600" size={16} />
                 <span>Source code files (as comments)</span>
@@ -449,9 +449,9 @@ function AttributionRequirementsSection() {
             </ul>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Optional (Appreciated)</h3>
-            <ul className="space-y-3 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Optional (Appreciated)</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Share2 className="flex-shrink-0 mt-0.5 text-blue-600" size={16} />
                 <span>Website footer</span>
@@ -479,7 +479,7 @@ function AttributionRequirementsSection() {
 function AttributionTemplate({ title, template }: any) {
   return (
     <div>
-      <h4 className="font-semibold text-gray-900 mb-2">{title}</h4>
+      <h4 className="font-semibold text-foreground mb-2">{title}</h4>
       <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
         <pre className="whitespace-pre-wrap">{template}</pre>
       </div>
@@ -502,27 +502,27 @@ function ThirdPartyLicensesSection() {
 
       <div className="mt-8 space-y-6">
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">Acknowledgment of Dependencies</h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <h3 className="font-bold text-foreground mb-3">Acknowledgment of Dependencies</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             UX4G Design System is built on top of several excellent open source projects.
             We acknowledge and thank the maintainers of these projects.
           </p>
         </div>
 
         {/* Major Dependencies */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 border-b-2 border-gray-200 p-4">
-            <h3 className="font-bold text-gray-900">Major Dependencies</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background border-b-2 border-border p-4">
+            <h3 className="font-bold text-foreground">Major Dependencies</h3>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 border-b-2 border-gray-200">
+              <thead className="bg-background border-b-2 border-border">
                 <tr>
-                  <th className="text-left p-4 font-semibold text-gray-900">Package</th>
-                  <th className="text-left p-4 font-semibold text-gray-900">License</th>
-                  <th className="text-left p-4 font-semibold text-gray-900">Copyright</th>
-                  <th className="text-left p-4 font-semibold text-gray-900">Link</th>
+                  <th className="text-left p-4 font-semibold text-foreground">Package</th>
+                  <th className="text-left p-4 font-semibold text-foreground">License</th>
+                  <th className="text-left p-4 font-semibold text-foreground">Copyright</th>
+                  <th className="text-left p-4 font-semibold text-foreground">Link</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -560,8 +560,8 @@ function ThirdPartyLicensesSection() {
             </table>
           </div>
 
-          <div className="p-4 bg-gray-50 border-t-2 border-gray-200">
-            <p className="text-xs text-gray-600">
+          <div className="p-4 bg-background border-t-2 border-border">
+            <p className="text-xs text-muted-foreground">
               For a complete list of dependencies and their licenses, see the package.json file in the repository.
             </p>
           </div>
@@ -573,14 +573,14 @@ function ThirdPartyLicensesSection() {
 
 function DependencyRow({ package: pkg, license, copyright, link }: any) {
   return (
-    <tr className="hover:bg-gray-50">
-      <td className="p-4 font-semibold text-gray-900">{pkg}</td>
+    <tr className="hover:bg-background">
+      <td className="p-4 font-semibold text-foreground">{pkg}</td>
       <td className="p-4">
         <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">
           {license}
         </span>
       </td>
-      <td className="p-4 text-gray-700">{copyright}</td>
+      <td className="p-4 text-muted-foreground">{copyright}</td>
       <td className="p-4">
         <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-xs">
           {link}
@@ -604,10 +604,10 @@ function GovernmentBrandingSection() {
           <div className="flex items-start gap-3">
             <AlertCircle className="text-orange-600 flex-shrink-0 mt-1" size={24} />
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Important Restrictions</h3>
-              <p className="text-sm text-gray-700">
+              <h3 className="font-bold text-foreground mb-2">Important Restrictions</h3>
+              <p className="text-sm text-muted-foreground">
                 While the UX4G Design System is open source, certain government symbols and emblems are
-                <strong className="text-gray-900"> NOT covered by the MIT License</strong> and have separate usage restrictions
+                <strong className="text-foreground"> NOT covered by the MIT License</strong> and have separate usage restrictions
                 under Indian law.
               </p>
             </div>
@@ -616,11 +616,11 @@ function GovernmentBrandingSection() {
 
         <div className="grid grid-cols-2 gap-6">
           <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <AlertCircle className="text-red-600" size={20} />
               Restricted Symbols
             </h3>
-            <ul className="space-y-3 text-sm text-gray-700">
+            <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <span className="text-red-600 font-bold">⊗</span>
                 <div>
@@ -649,11 +649,11 @@ function GovernmentBrandingSection() {
           </div>
 
           <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <CheckCircle className="text-green-600" size={20} />
               Permitted Use
             </h3>
-            <ul className="space-y-3 text-sm text-gray-700">
+            <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-green-600" size={16} />
                 <div>
@@ -696,17 +696,17 @@ function CommercialUseSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Commercial Use Policy</h3>
-          <p className="text-gray-700 mb-6">
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Commercial Use Policy</h3>
+          <p className="text-muted-foreground mb-6">
             The MIT License permits commercial use of the UX4G Design System. However, commercial users
             must comply with certain requirements and restrictions.
           </p>
 
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm">✓ Permitted Activities</h4>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-3 text-sm">✓ Permitted Activities</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Building commercial products using UX4G</li>
                 <li>• Selling services that use UX4G components</li>
                 <li>• Creating derivative works for clients</li>
@@ -716,8 +716,8 @@ function CommercialUseSection() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm">✗ Prohibited Activities</h4>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-3 text-sm">✗ Prohibited Activities</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Claiming official government endorsement</li>
                 <li>• Selling UX4G itself as a product</li>
                 <li>• Removing copyright notices</li>
@@ -729,12 +729,12 @@ function CommercialUseSection() {
         </div>
 
         <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">Attribution for Commercial Use</h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <h3 className="font-bold text-foreground mb-3">Attribution for Commercial Use</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             Commercial users <strong>must include attribution</strong> in their products. This can be as simple
             as a line in your documentation or a credits section in your application.
           </p>
-          <div className="bg-white border border-yellow-300 rounded p-4 text-sm text-gray-800">
+          <div className="bg-card border border-yellow-300 rounded p-4 text-sm text-foreground">
             "This product uses components from the UX4G Design System, developed by the Government of India."
           </div>
         </div>
@@ -753,10 +753,10 @@ function ContributorRightsSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 border-b-2 border-gray-200 p-6">
-            <h3 className="font-bold text-gray-900 mb-2">Contributor License Agreement (CLA)</h3>
-            <p className="text-sm text-gray-600">
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background border-b-2 border-border p-6">
+            <h3 className="font-bold text-foreground mb-2">Contributor License Agreement (CLA)</h3>
+            <p className="text-sm text-muted-foreground">
               By contributing to UX4G, you agree to the following terms
             </p>
           </div>
@@ -785,12 +785,12 @@ function ContributorRightsSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Attribution for Contributors</h3>
-            <p className="text-sm text-gray-700 mb-4">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Attribution for Contributors</h3>
+            <p className="text-sm text-muted-foreground mb-4">
               Contributors are acknowledged in:
             </p>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <CheckCircle className="text-green-600" size={16} />
                 CONTRIBUTORS.md file
@@ -810,12 +810,12 @@ function ContributorRightsSection() {
             </ul>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Removal of Contributions</h3>
-            <p className="text-sm text-gray-700 mb-4">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Removal of Contributions</h3>
+            <p className="text-sm text-muted-foreground mb-4">
               Contributors cannot unilaterally remove accepted contributions, but may request removal if:
             </p>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <AlertCircle className="text-orange-600" size={16} />
                 Legal issues arise
@@ -839,8 +839,8 @@ function ContributorRightsSection() {
 function CLAPoint({ title, description }: any) {
   return (
     <div className="border-l-4 border-blue-500 pl-4 py-2">
-      <h4 className="font-semibold text-gray-900 mb-1">{title}</h4>
-      <p className="text-sm text-gray-700">{description}</p>
+      <h4 className="font-semibold text-foreground mb-1">{title}</h4>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -851,13 +851,13 @@ function TrademarkPolicySection() {
       <SectionHeader
         title="Trademark Policy"
         description="Usage of UX4G name and branding"
-        icon={<Shield size={28} className="text-[#000080]" />}
+        icon={<Shield size={28} className="text-primary" />}
       />
 
       <div className="mt-8 space-y-6">
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">UX4G Trademark</h3>
-          <p className="text-sm text-gray-700">
+          <h3 className="font-bold text-foreground mb-3">UX4G Trademark</h3>
+          <p className="text-sm text-muted-foreground">
             "UX4G" and "UX4G Design System" are trademarks of the Government of India. While the source code
             is licensed under MIT, the UX4G name and logo have separate usage guidelines.
           </p>
@@ -865,8 +865,8 @@ function TrademarkPolicySection() {
 
         <div className="grid grid-cols-2 gap-6">
           <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Acceptable Use</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-4">Acceptable Use</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle className="text-green-600 flex-shrink-0 mt-0.5" size={16} />
                 <span>"Built with UX4G Design System"</span>
@@ -887,8 +887,8 @@ function TrademarkPolicySection() {
           </div>
 
           <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Unacceptable Use</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-4">Unacceptable Use</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <AlertCircle className="text-red-600 flex-shrink-0 mt-0.5" size={16} />
                 <span>Implying official endorsement</span>
@@ -923,37 +923,37 @@ function ContactSection() {
       />
 
       <div className="mt-8">
-        <div className="border-2 border-gray-200 rounded-lg p-8 bg-gradient-to-br from-blue-50 to-white">
-          <h3 className="font-bold text-gray-900 mb-4 text-xl">Need Help with Licensing?</h3>
-          <p className="text-gray-700 mb-6">
+        <div className="border-2 border-border rounded-lg p-8 bg-gradient-to-br from-blue-50 to-white">
+          <h3 className="font-bold text-foreground mb-4 text-xl">Need Help with Licensing?</h3>
+          <p className="text-muted-foreground mb-6">
             If you have questions about licensing, attribution, commercial use, or need special permissions,
             please contact our legal team.
           </p>
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <div className="font-semibold text-gray-900 mb-2">General Licensing Questions</div>
+            <div className="bg-card border border-border rounded-lg p-4">
+              <div className="font-semibold text-foreground mb-2">General Licensing Questions</div>
               <a href="mailto:license@ux4g.gov.in" className="text-blue-600 hover:underline">
                 license@ux4g.gov.in
               </a>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <div className="font-semibold text-gray-900 mb-2">Commercial Use Inquiries</div>
+            <div className="bg-card border border-border rounded-lg p-4">
+              <div className="font-semibold text-foreground mb-2">Commercial Use Inquiries</div>
               <a href="mailto:commercial@ux4g.gov.in" className="text-blue-600 hover:underline">
                 commercial@ux4g.gov.in
               </a>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <div className="font-semibold text-gray-900 mb-2">Trademark Permissions</div>
+            <div className="bg-card border border-border rounded-lg p-4">
+              <div className="font-semibold text-foreground mb-2">Trademark Permissions</div>
               <a href="mailto:legal@ux4g.gov.in" className="text-blue-600 hover:underline">
                 legal@ux4g.gov.in
               </a>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <div className="font-semibold text-gray-900 mb-2">Copyright Claims</div>
+            <div className="bg-card border border-border rounded-lg p-4">
+              <div className="font-semibold text-foreground mb-2">Copyright Claims</div>
               <a href="mailto:copyright@ux4g.gov.in" className="text-blue-600 hover:underline">
                 copyright@ux4g.gov.in
               </a>
@@ -971,10 +971,10 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-[#000080]">{icon}</div>
-        <h2 className="text-4xl font-bold text-gray-900">{title}</h2>
+        <div className="text-primary">{icon}</div>
+        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
       </div>
-      <p className="text-lg text-gray-600">{description}</p>
+      <p className="text-lg text-muted-foreground">{description}</p>
     </div>
   );
 }

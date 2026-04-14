@@ -50,19 +50,19 @@ const DrawerPreview = ({
         />
       )}
       <div
-        className={'fixed bg-white shadow-xl flex flex-col ' + placementClasses + ' ' + slideAnimation}
+        className={'fixed bg-card shadow-xl flex flex-col ' + placementClasses + ' ' + slideAnimation}
         {...props}
       >
         {(title || header) && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 shrink-0">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-border shrink-0">
             {header || (
-              <h2 id="drawer-title" className="text-lg font-semibold text-gray-900">
+              <h2 id="drawer-title" className="text-lg font-semibold text-foreground">
                 {title}
               </h2>
             )}
             <button
               onClick={onClose}
-              className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+              className="p-2 text-gray-500 hover:text-muted-foreground hover:bg-muted rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
               aria-label="Close drawer"
             >
               <X size={20} />
@@ -72,7 +72,7 @@ const DrawerPreview = ({
         {!title && !header && (
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 z-10"
+            className="absolute top-4 right-4 p-2 text-gray-500 hover:text-muted-foreground hover:bg-muted rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 z-10"
             aria-label="Close drawer"
           >
             <X size={20} />
@@ -82,7 +82,7 @@ const DrawerPreview = ({
           {children}
         </div>
         {footer && (
-          <div className="px-6 py-4 border-t border-gray-200 shrink-0">
+          <div className="px-6 py-4 border-t border-border shrink-0">
             {footer}
           </div>
         )}
@@ -196,7 +196,7 @@ export default function ComponentDrawerPage() {
         {
           title: 'Basic Drawer',
           description: 'Simple drawer from the right with title and content.',
-          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Open Drawer\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Basic Drawer"\n        placement="right"\n        size="md"\n      >\n        <p className="text-gray-700">\n          This is a basic drawer component. It slides in from the right\n          and can contain any content you need.\n        </p>\n        <p className="mt-4 text-gray-700">\n          Click the overlay or press Escape to close.\n        </p>\n      </Drawer>\n    </>\n  );\n}',
+          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Open Drawer\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Basic Drawer"\n        placement="right"\n        size="md"\n      >\n        <p className="text-muted-foreground">\n          This is a basic drawer component. It slides in from the right\n          and can contain any content you need.\n        </p>\n        <p className="mt-4 text-muted-foreground">\n          Click the overlay or press Escape to close.\n        </p>\n      </Drawer>\n    </>\n  );\n}',
           preview: (
             <>
               <button
@@ -212,11 +212,11 @@ export default function ComponentDrawerPage() {
                 placement="right"
                 size="md"
               >
-                <p className="text-gray-700">
+                <p className="text-muted-foreground">
                   This is a basic drawer component. It slides in from the right
                   and can contain any content you need.
                 </p>
-                <p className="mt-4 text-gray-700">
+                <p className="mt-4 text-muted-foreground">
                   Click the overlay or press Escape to close.
                 </p>
               </DrawerPreview>
@@ -226,7 +226,7 @@ export default function ComponentDrawerPage() {
         {
           title: 'Drawer with Form',
           description: 'Drawer containing a form with footer actions.',
-          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Add New User\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Add New User"\n        placement="right"\n        size="md"\n        footer={\n          <div className="flex gap-3 justify-end">\n            <button\n              onClick={() => setIsOpen(false)}\n              className="px-4 py-2 border border-gray-300 rounded"\n            >\n              Cancel\n            </button>\n            <button className="px-4 py-2 bg-[#005196] text-white rounded">\n              Save User\n            </button>\n          </div>\n        }\n      >\n        <form className="space-y-4">\n          <div>\n            <label className="block text-sm font-medium mb-1">Full Name</label>\n            <input\n              type="text"\n              className="w-full px-3 py-2 border rounded"\n              placeholder="John Doe"\n            />\n          </div>\n          <div>\n            <label className="block text-sm font-medium mb-1">Email</label>\n            <input\n              type="email"\n              className="w-full px-3 py-2 border rounded"\n              placeholder="john@example.com"\n            />\n          </div>\n          <div>\n            <label className="block text-sm font-medium mb-1">Role</label>\n            <select className="w-full px-3 py-2 border rounded">\n              <option>Administrator</option>\n              <option>Editor</option>\n              <option>Viewer</option>\n            </select>\n          </div>\n        </form>\n      </Drawer>\n    </>\n  );\n}',
+          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Add New User\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Add New User"\n        placement="right"\n        size="md"\n        footer={\n          <div className="flex gap-3 justify-end">\n            <button\n              onClick={() => setIsOpen(false)}\n              className="px-4 py-2 border border-border rounded"\n            >\n              Cancel\n            </button>\n            <button className="px-4 py-2 bg-[#005196] text-white rounded">\n              Save User\n            </button>\n          </div>\n        }\n      >\n        <form className="space-y-4">\n          <div>\n            <label className="block text-sm font-medium mb-1">Full Name</label>\n            <input\n              type="text"\n              className="w-full px-3 py-2 border rounded"\n              placeholder="John Doe"\n            />\n          </div>\n          <div>\n            <label className="block text-sm font-medium mb-1">Email</label>\n            <input\n              type="email"\n              className="w-full px-3 py-2 border rounded"\n              placeholder="john@example.com"\n            />\n          </div>\n          <div>\n            <label className="block text-sm font-medium mb-1">Role</label>\n            <select className="w-full px-3 py-2 border rounded">\n              <option>Administrator</option>\n              <option>Editor</option>\n              <option>Viewer</option>\n            </select>\n          </div>\n        </form>\n      </Drawer>\n    </>\n  );\n}',
           preview: (
             <>
               <button
@@ -245,7 +245,7 @@ export default function ComponentDrawerPage() {
                   <div className="flex gap-3 justify-end">
                     <button
                       onClick={() => setFormOpen(false)}
-                      className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+                      className="px-4 py-2 border border-border rounded hover:bg-background transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
                     >
                       Cancel
                     </button>
@@ -257,24 +257,24 @@ export default function ComponentDrawerPage() {
               >
                 <form className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <label className="block text-sm font-medium text-muted-foreground mb-1">Full Name</label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
+                      className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
                       placeholder="John Doe"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <label className="block text-sm font-medium text-muted-foreground mb-1">Email</label>
                     <input
                       type="email"
-                      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
+                      className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
                       placeholder="john@example.com"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]">
+                    <label className="block text-sm font-medium text-muted-foreground mb-1">Role</label>
+                    <select className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]">
                       <option>Administrator</option>
                       <option>Editor</option>
                       <option>Viewer</option>
@@ -293,7 +293,7 @@ export default function ComponentDrawerPage() {
             <>
               <button
                 onClick={() => setFilterOpen(true)}
-                className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded hover:bg-background transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
               >
                 <Filter size={20} />
                 Filters
@@ -306,7 +306,7 @@ export default function ComponentDrawerPage() {
                 size="sm"
                 footer={
                   <div className="flex gap-3 justify-between">
-                    <button className="px-4 py-2 text-[#005196] hover:bg-gray-100 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2">
+                    <button className="px-4 py-2 text-[#005196] hover:bg-muted rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2">
                       Clear All
                     </button>
                     <button className="px-4 py-2 bg-[#005196] text-white rounded hover:bg-[#004178] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2">
@@ -317,25 +317,25 @@ export default function ComponentDrawerPage() {
               >
                 <div className="space-y-6">
                   <div>
-                    <h3 className="font-medium text-gray-900 mb-2">Status</h3>
+                    <h3 className="font-medium text-foreground mb-2">Status</h3>
                     <label className="flex items-center gap-2 mb-2">
                       <input type="checkbox" className="w-4 h-4 text-[#005196] focus:ring-2 focus:ring-[#005196]" />
-                      <span className="text-gray-700">Pending</span>
+                      <span className="text-muted-foreground">Pending</span>
                     </label>
                     <label className="flex items-center gap-2 mb-2">
                       <input type="checkbox" className="w-4 h-4 text-[#005196] focus:ring-2 focus:ring-[#005196]" />
-                      <span className="text-gray-700">Approved</span>
+                      <span className="text-muted-foreground">Approved</span>
                     </label>
                     <label className="flex items-center gap-2">
                       <input type="checkbox" className="w-4 h-4 text-[#005196] focus:ring-2 focus:ring-[#005196]" />
-                      <span className="text-gray-700">Rejected</span>
+                      <span className="text-muted-foreground">Rejected</span>
                     </label>
                   </div>
                   <div>
-                    <h3 className="font-medium text-gray-900 mb-2">Date Range</h3>
-                    <input type="date" className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
+                    <h3 className="font-medium text-foreground mb-2">Date Range</h3>
+                    <input type="date" className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
                     <span className="block text-center text-gray-500 my-1">to</span>
-                    <input type="date" className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
+                    <input type="date" className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
                   </div>
                 </div>
               </DrawerPreview>
@@ -345,12 +345,12 @@ export default function ComponentDrawerPage() {
         {
           title: 'Mobile Menu',
           description: 'Navigation drawer for mobile with menu items and sections.',
-          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { Menu, ChevronRight } from \'lucide-react\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        <Menu size={24} />\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        placement="left"\n        size="sm"\n      >\n        <nav className="space-y-1">\n          <a className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded">\n            <span>Dashboard</span>\n            <ChevronRight size={20} />\n          </a>\n          <a className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded">\n            <span>Applications</span>\n            <ChevronRight size={20} />\n          </a>\n          <a className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded">\n            <span>Documents</span>\n            <ChevronRight size={20} />\n          </a>\n          <div className="border-t my-2 pt-2">\n            <a className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded">\n              <span>Settings</span>\n              <ChevronRight size={20} />\n            </a>\n            <a className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded">\n              <span>Help</span>\n              <ChevronRight size={20} />\n            </a>\n          </div>\n        </nav>\n      </Drawer>\n    </>\n  );\n}',
+          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { Menu, ChevronRight } from \'lucide-react\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        <Menu size={24} />\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        placement="left"\n        size="sm"\n      >\n        <nav className="space-y-1">\n          <a className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded">\n            <span>Dashboard</span>\n            <ChevronRight size={20} />\n          </a>\n          <a className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded">\n            <span>Applications</span>\n            <ChevronRight size={20} />\n          </a>\n          <a className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded">\n            <span>Documents</span>\n            <ChevronRight size={20} />\n          </a>\n          <div className="border-t my-2 pt-2">\n            <a className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded">\n              <span>Settings</span>\n              <ChevronRight size={20} />\n            </a>\n            <a className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded">\n              <span>Help</span>\n              <ChevronRight size={20} />\n            </a>\n          </div>\n        </nav>\n      </Drawer>\n    </>\n  );\n}',
           preview: (
             <>
               <button
                 onClick={() => setMenuOpen(true)}
-                className="p-2 hover:bg-gray-100 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+                className="p-2 hover:bg-muted rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
                 aria-label="Open menu"
               >
                 <Menu size={24} />
@@ -362,24 +362,24 @@ export default function ComponentDrawerPage() {
                 size="sm"
               >
                 <nav className="space-y-1">
-                  <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded transition-colors text-gray-900">
+                  <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded transition-colors text-foreground">
                     <span>Dashboard</span>
                     <ChevronRight size={20} />
                   </a>
-                  <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded transition-colors text-gray-900">
+                  <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded transition-colors text-foreground">
                     <span>Applications</span>
                     <ChevronRight size={20} />
                   </a>
-                  <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded transition-colors text-gray-900">
+                  <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded transition-colors text-foreground">
                     <span>Documents</span>
                     <ChevronRight size={20} />
                   </a>
-                  <div className="border-t border-gray-200 my-2 pt-2">
-                    <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded transition-colors text-gray-900">
+                  <div className="border-t border-border my-2 pt-2">
+                    <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded transition-colors text-foreground">
                       <span>Settings</span>
                       <ChevronRight size={20} />
                     </a>
-                    <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 rounded transition-colors text-gray-900">
+                    <a href="#" className="flex items-center justify-between px-4 py-3 hover:bg-muted rounded transition-colors text-foreground">
                       <span>Help</span>
                       <ChevronRight size={20} />
                     </a>
@@ -392,12 +392,12 @@ export default function ComponentDrawerPage() {
         {
           title: 'Settings Panel',
           description: 'Settings drawer with grouped configuration options.',
-          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { Settings } from \'lucide-react\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        <Settings size={20} />\n        Settings\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Application Settings"\n        placement="right"\n        size="lg"\n        footer={\n          <div className="flex gap-3 justify-end">\n            <button className="px-4 py-2 border border-gray-300 rounded">\n              Cancel\n            </button>\n            <button className="px-4 py-2 bg-[#005196] text-white rounded">\n              Save Changes\n            </button>\n          </div>\n        }\n      >\n        <div className="space-y-6">\n          <div>\n            <h3 className="text-lg font-semibold mb-4">Notifications</h3>\n            <label className="flex items-center justify-between mb-3">\n              <span>Email notifications</span>\n              <input type="checkbox" defaultChecked />\n            </label>\n            <label className="flex items-center justify-between mb-3">\n              <span>SMS notifications</span>\n              <input type="checkbox" />\n            </label>\n          </div>\n          <div className="border-t pt-6">\n            <h3 className="text-lg font-semibold mb-4">Privacy</h3>\n            <label className="flex items-center justify-between mb-3">\n              <span>Share analytics data</span>\n              <input type="checkbox" defaultChecked />\n            </label>\n            <label className="flex items-center justify-between mb-3">\n              <span>Public profile</span>\n              <input type="checkbox" />\n            </label>\n          </div>\n        </div>\n      </Drawer>\n    </>\n  );\n}',
+          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { Settings } from \'lucide-react\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        <Settings size={20} />\n        Settings\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Application Settings"\n        placement="right"\n        size="lg"\n        footer={\n          <div className="flex gap-3 justify-end">\n            <button className="px-4 py-2 border border-border rounded">\n              Cancel\n            </button>\n            <button className="px-4 py-2 bg-[#005196] text-white rounded">\n              Save Changes\n            </button>\n          </div>\n        }\n      >\n        <div className="space-y-6">\n          <div>\n            <h3 className="text-lg font-semibold mb-4">Notifications</h3>\n            <label className="flex items-center justify-between mb-3">\n              <span>Email notifications</span>\n              <input type="checkbox" defaultChecked />\n            </label>\n            <label className="flex items-center justify-between mb-3">\n              <span>SMS notifications</span>\n              <input type="checkbox" />\n            </label>\n          </div>\n          <div className="border-t pt-6">\n            <h3 className="text-lg font-semibold mb-4">Privacy</h3>\n            <label className="flex items-center justify-between mb-3">\n              <span>Share analytics data</span>\n              <input type="checkbox" defaultChecked />\n            </label>\n            <label className="flex items-center justify-between mb-3">\n              <span>Public profile</span>\n              <input type="checkbox" />\n            </label>\n          </div>\n        </div>\n      </Drawer>\n    </>\n  );\n}',
           preview: (
             <>
               <button
                 onClick={() => setSettingsOpen(true)}
-                className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded hover:bg-background transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
               >
                 <Settings size={20} />
                 Settings
@@ -412,7 +412,7 @@ export default function ComponentDrawerPage() {
                   <div className="flex gap-3 justify-end">
                     <button
                       onClick={() => setSettingsOpen(false)}
-                      className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+                      className="px-4 py-2 border border-border rounded hover:bg-background transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
                     >
                       Cancel
                     </button>
@@ -424,24 +424,24 @@ export default function ComponentDrawerPage() {
               >
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Notifications</h3>
+                    <h3 className="text-lg font-semibold text-foreground mb-4">Notifications</h3>
                     <label className="flex items-center justify-between mb-3">
-                      <span className="text-gray-700">Email notifications</span>
+                      <span className="text-muted-foreground">Email notifications</span>
                       <input type="checkbox" defaultChecked className="w-4 h-4 text-[#005196] focus:ring-2 focus:ring-[#005196]" />
                     </label>
                     <label className="flex items-center justify-between mb-3">
-                      <span className="text-gray-700">SMS notifications</span>
+                      <span className="text-muted-foreground">SMS notifications</span>
                       <input type="checkbox" className="w-4 h-4 text-[#005196] focus:ring-2 focus:ring-[#005196]" />
                     </label>
                   </div>
-                  <div className="border-t border-gray-200 pt-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Privacy</h3>
+                  <div className="border-t border-border pt-6">
+                    <h3 className="text-lg font-semibold text-foreground mb-4">Privacy</h3>
                     <label className="flex items-center justify-between mb-3">
-                      <span className="text-gray-700">Share analytics data</span>
+                      <span className="text-muted-foreground">Share analytics data</span>
                       <input type="checkbox" defaultChecked className="w-4 h-4 text-[#005196] focus:ring-2 focus:ring-[#005196]" />
                     </label>
                     <label className="flex items-center justify-between mb-3">
-                      <span className="text-gray-700">Public profile</span>
+                      <span className="text-muted-foreground">Public profile</span>
                       <input type="checkbox" className="w-4 h-4 text-[#005196] focus:ring-2 focus:ring-[#005196]" />
                     </label>
                   </div>
@@ -453,7 +453,7 @@ export default function ComponentDrawerPage() {
         {
           title: 'Multi-Step Wizard',
           description: 'Drawer containing a multi-step form wizard with progress indicator.',
-          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n  const [step, setStep] = useState(1);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Start Application\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Application Wizard"\n        placement="right"\n        size="lg"\n        footer={\n          <div className="flex gap-3 justify-between">\n            <button\n              onClick={() => setStep(s => Math.max(1, s - 1))}\n              disabled={step === 1}\n              className="px-4 py-2 border border-gray-300 rounded"\n            >\n              Previous\n            </button>\n            <button\n              onClick={() => step === 3 ? setIsOpen(false) : setStep(s => s + 1)}\n              className="px-4 py-2 bg-[#005196] text-white rounded"\n            >\n              {step === 3 ? \'Submit\' : \'Next\'}\n            </button>\n          </div>\n        }\n      >\n        <div className="mb-8">\n          <div className="flex justify-between mb-2">\n            <span className={step >= 1 ? \'text-[#005196] font-medium\' : \'text-gray-400\'}>\n              Step 1\n            </span>\n            <span className={step >= 2 ? \'text-[#005196] font-medium\' : \'text-gray-400\'}>\n              Step 2\n            </span>\n            <span className={step >= 3 ? \'text-[#005196] font-medium\' : \'text-gray-400\'}>\n              Step 3\n            </span>\n          </div>\n          <div className="h-2 bg-gray-200 rounded-full">\n            <div\n              className="h-full bg-[#005196] rounded-full transition-all"\n              style={{ width: (step * 33.33) + \'%\' }}\n            />\n          </div>\n        </div>\n        {step === 1 && (\n          <div className="space-y-4">\n            <h3 className="text-lg font-semibold">Personal Information</h3>\n            <input type="text" placeholder="Full Name" className="w-full px-3 py-2 border rounded" />\n            <input type="email" placeholder="Email" className="w-full px-3 py-2 border rounded" />\n          </div>\n        )}\n        {step === 2 && (\n          <div className="space-y-4">\n            <h3 className="text-lg font-semibold">Address Details</h3>\n            <input type="text" placeholder="Street Address" className="w-full px-3 py-2 border rounded" />\n            <input type="text" placeholder="City" className="w-full px-3 py-2 border rounded" />\n          </div>\n        )}\n        {step === 3 && (\n          <div className="space-y-4">\n            <h3 className="text-lg font-semibold">Review & Submit</h3>\n            <p>Please review your information before submitting.</p>\n          </div>\n        )}\n      </Drawer>\n    </>\n  );\n}',
+          code: 'import { Drawer } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n  const [step, setStep] = useState(1);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Start Application\n      </button>\n      <Drawer\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Application Wizard"\n        placement="right"\n        size="lg"\n        footer={\n          <div className="flex gap-3 justify-between">\n            <button\n              onClick={() => setStep(s => Math.max(1, s - 1))}\n              disabled={step === 1}\n              className="px-4 py-2 border border-border rounded"\n            >\n              Previous\n            </button>\n            <button\n              onClick={() => step === 3 ? setIsOpen(false) : setStep(s => s + 1)}\n              className="px-4 py-2 bg-[#005196] text-white rounded"\n            >\n              {step === 3 ? \'Submit\' : \'Next\'}\n            </button>\n          </div>\n        }\n      >\n        <div className="mb-8">\n          <div className="flex justify-between mb-2">\n            <span className={step >= 1 ? \'text-[#005196] font-medium\' : \'text-gray-400\'}>\n              Step 1\n            </span>\n            <span className={step >= 2 ? \'text-[#005196] font-medium\' : \'text-gray-400\'}>\n              Step 2\n            </span>\n            <span className={step >= 3 ? \'text-[#005196] font-medium\' : \'text-gray-400\'}>\n              Step 3\n            </span>\n          </div>\n          <div className="h-2 bg-gray-200 rounded-full">\n            <div\n              className="h-full bg-[#005196] rounded-full transition-all"\n              style={{ width: (step * 33.33) + \'%\' }}\n            />\n          </div>\n        </div>\n        {step === 1 && (\n          <div className="space-y-4">\n            <h3 className="text-lg font-semibold">Personal Information</h3>\n            <input type="text" placeholder="Full Name" className="w-full px-3 py-2 border rounded" />\n            <input type="email" placeholder="Email" className="w-full px-3 py-2 border rounded" />\n          </div>\n        )}\n        {step === 2 && (\n          <div className="space-y-4">\n            <h3 className="text-lg font-semibold">Address Details</h3>\n            <input type="text" placeholder="Street Address" className="w-full px-3 py-2 border rounded" />\n            <input type="text" placeholder="City" className="w-full px-3 py-2 border rounded" />\n          </div>\n        )}\n        {step === 3 && (\n          <div className="space-y-4">\n            <h3 className="text-lg font-semibold">Review & Submit</h3>\n            <p>Please review your information before submitting.</p>\n          </div>\n        )}\n      </Drawer>\n    </>\n  );\n}',
           preview: (
             <>
               <button
@@ -476,7 +476,7 @@ export default function ComponentDrawerPage() {
                     <button
                       onClick={() => setWizardStep(s => Math.max(1, s - 1))}
                       disabled={wizardStep === 1}
-                      className={'px-4 py-2 border border-gray-300 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 ' + (wizardStep === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-50')}
+                      className={'px-4 py-2 border border-border rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 ' + (wizardStep === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-background')}
                     >
                       Previous
                     </button>
@@ -510,24 +510,24 @@ export default function ComponentDrawerPage() {
                 </div>
                 {wizardStep === 1 && (
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Personal Information</h3>
-                    <input type="text" placeholder="Full Name" className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
-                    <input type="email" placeholder="Email" className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
+                    <h3 className="text-lg font-semibold text-foreground">Personal Information</h3>
+                    <input type="text" placeholder="Full Name" className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
+                    <input type="email" placeholder="Email" className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
                   </div>
                 )}
                 {wizardStep === 2 && (
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Address Details</h3>
-                    <input type="text" placeholder="Street Address" className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
-                    <input type="text" placeholder="City" className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
+                    <h3 className="text-lg font-semibold text-foreground">Address Details</h3>
+                    <input type="text" placeholder="Street Address" className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
+                    <input type="text" placeholder="City" className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]" />
                   </div>
                 )}
                 {wizardStep === 3 && (
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Review & Submit</h3>
-                    <p className="text-gray-700">Please review your information before submitting.</p>
-                    <div className="bg-gray-50 p-4 rounded border border-gray-200">
-                      <p className="text-sm text-gray-600">All information will be verified before approval.</p>
+                    <h3 className="text-lg font-semibold text-foreground">Review & Submit</h3>
+                    <p className="text-muted-foreground">Please review your information before submitting.</p>
+                    <div className="bg-background p-4 rounded border border-border">
+                      <p className="text-sm text-muted-foreground">All information will be verified before approval.</p>
                     </div>
                   </div>
                 )}
@@ -538,9 +538,9 @@ export default function ComponentDrawerPage() {
       ]}
 
       reactCode={{
-        component: 'import React, { useEffect, useRef } from \'react\';\nimport { createPortal } from \'react-dom\';\nimport { cn } from \'../../utils/cn\';\nimport { drawerVariants } from \'./drawer.variants\';\nimport { DrawerProps } from \'./Drawer.types\';\nimport { X } from \'lucide-react\';\n\nexport const Drawer = ({\n  isOpen,\n  onClose,\n  placement = \'right\',\n  size = \'md\',\n  title,\n  children,\n  showOverlay = true,\n  closeOnOverlayClick = true,\n  closeOnEscape = true,\n  header,\n  footer,\n  className,\n  ...props\n}: DrawerProps) => {\n  const drawerRef = useRef<HTMLDivElement>(null);\n  const previousFocusRef = useRef<HTMLElement | null>(null);\n\n  useEffect(() => {\n    if (isOpen) {\n      previousFocusRef.current = document.activeElement as HTMLElement;\n      \n      const focusableElements = drawerRef.current?.querySelectorAll(\n        \'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])\'\n      );\n      if (focusableElements && focusableElements.length > 0) {\n        (focusableElements[0] as HTMLElement).focus();\n      }\n\n      document.body.style.overflow = \'hidden\';\n    } else {\n      document.body.style.overflow = \'\';\n      previousFocusRef.current?.focus();\n    }\n\n    return () => {\n      document.body.style.overflow = \'\';\n    };\n  }, [isOpen]);\n\n  useEffect(() => {\n    if (!isOpen || !closeOnEscape) return;\n\n    const handleEscape = (event: KeyboardEvent) => {\n      if (event.key === \'Escape\') {\n        onClose();\n      }\n    };\n\n    document.addEventListener(\'keydown\', handleEscape);\n    return () => document.removeEventListener(\'keydown\', handleEscape);\n  }, [isOpen, closeOnEscape, onClose]);\n\n  useEffect(() => {\n    if (!isOpen) return;\n\n    const handleFocusTrap = (event: KeyboardEvent) => {\n      if (event.key !== \'Tab\') return;\n\n      const focusableElements = drawerRef.current?.querySelectorAll(\n        \'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])\'\n      );\n      \n      if (!focusableElements || focusableElements.length === 0) return;\n\n      const firstElement = focusableElements[0] as HTMLElement;\n      const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;\n\n      if (event.shiftKey) {\n        if (document.activeElement === firstElement) {\n          event.preventDefault();\n          lastElement.focus();\n        }\n      } else {\n        if (document.activeElement === lastElement) {\n          event.preventDefault();\n          firstElement.focus();\n        }\n      }\n    };\n\n    document.addEventListener(\'keydown\', handleFocusTrap);\n    return () => document.removeEventListener(\'keydown\', handleFocusTrap);\n  }, [isOpen]);\n\n  if (!isOpen) return null;\n\n  const handleOverlayClick = () => {\n    if (closeOnOverlayClick) {\n      onClose();\n    }\n  };\n\n  return createPortal(\n    <div\n      className="fixed inset-0 z-50"\n      role="dialog"\n      aria-modal="true"\n      aria-labelledby={title ? \'drawer-title\' : undefined}\n    >\n      {showOverlay && (\n        <div\n          className="absolute inset-0 bg-black/50 transition-opacity duration-300"\n          onClick={handleOverlayClick}\n          aria-hidden="true"\n        />\n      )}\n      <div\n        ref={drawerRef}\n        className={cn(\n          drawerVariants({ placement, size }),\n          className\n        )}\n        {...props}\n      >\n        {(title || header) && (\n          <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 shrink-0">\n            {header || (\n              <h2 id="drawer-title" className="text-lg font-semibold text-gray-900">\n                {title}\n              </h2>\n            )}\n            <button\n              onClick={onClose}\n              className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"\n              aria-label="Close drawer"\n            >\n              <X size={20} />\n            </button>\n          </div>\n        )}\n        {!title && !header && (\n          <button\n            onClick={onClose}\n            className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 z-10"\n            aria-label="Close drawer"\n          >\n            <X size={20} />\n          </button>\n        )}\n        <div className="flex-1 overflow-y-auto p-6">\n          {children}\n        </div>\n        {footer && (\n          <div className="px-6 py-4 border-t border-gray-200 shrink-0">\n            {footer}\n          </div>\n        )}\n      </div>\n    </div>,\n    document.body\n  );\n};',
+        component: 'import React, { useEffect, useRef } from \'react\';\nimport { createPortal } from \'react-dom\';\nimport { cn } from \'../../utils/cn\';\nimport { drawerVariants } from \'./drawer.variants\';\nimport { DrawerProps } from \'./Drawer.types\';\nimport { X } from \'lucide-react\';\n\nexport const Drawer = ({\n  isOpen,\n  onClose,\n  placement = \'right\',\n  size = \'md\',\n  title,\n  children,\n  showOverlay = true,\n  closeOnOverlayClick = true,\n  closeOnEscape = true,\n  header,\n  footer,\n  className,\n  ...props\n}: DrawerProps) => {\n  const drawerRef = useRef<HTMLDivElement>(null);\n  const previousFocusRef = useRef<HTMLElement | null>(null);\n\n  useEffect(() => {\n    if (isOpen) {\n      previousFocusRef.current = document.activeElement as HTMLElement;\n      \n      const focusableElements = drawerRef.current?.querySelectorAll(\n        \'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])\'\n      );\n      if (focusableElements && focusableElements.length > 0) {\n        (focusableElements[0] as HTMLElement).focus();\n      }\n\n      document.body.style.overflow = \'hidden\';\n    } else {\n      document.body.style.overflow = \'\';\n      previousFocusRef.current?.focus();\n    }\n\n    return () => {\n      document.body.style.overflow = \'\';\n    };\n  }, [isOpen]);\n\n  useEffect(() => {\n    if (!isOpen || !closeOnEscape) return;\n\n    const handleEscape = (event: KeyboardEvent) => {\n      if (event.key === \'Escape\') {\n        onClose();\n      }\n    };\n\n    document.addEventListener(\'keydown\', handleEscape);\n    return () => document.removeEventListener(\'keydown\', handleEscape);\n  }, [isOpen, closeOnEscape, onClose]);\n\n  useEffect(() => {\n    if (!isOpen) return;\n\n    const handleFocusTrap = (event: KeyboardEvent) => {\n      if (event.key !== \'Tab\') return;\n\n      const focusableElements = drawerRef.current?.querySelectorAll(\n        \'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])\'\n      );\n      \n      if (!focusableElements || focusableElements.length === 0) return;\n\n      const firstElement = focusableElements[0] as HTMLElement;\n      const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;\n\n      if (event.shiftKey) {\n        if (document.activeElement === firstElement) {\n          event.preventDefault();\n          lastElement.focus();\n        }\n      } else {\n        if (document.activeElement === lastElement) {\n          event.preventDefault();\n          firstElement.focus();\n        }\n      }\n    };\n\n    document.addEventListener(\'keydown\', handleFocusTrap);\n    return () => document.removeEventListener(\'keydown\', handleFocusTrap);\n  }, [isOpen]);\n\n  if (!isOpen) return null;\n\n  const handleOverlayClick = () => {\n    if (closeOnOverlayClick) {\n      onClose();\n    }\n  };\n\n  return createPortal(\n    <div\n      className="fixed inset-0 z-50"\n      role="dialog"\n      aria-modal="true"\n      aria-labelledby={title ? \'drawer-title\' : undefined}\n    >\n      {showOverlay && (\n        <div\n          className="absolute inset-0 bg-black/50 transition-opacity duration-300"\n          onClick={handleOverlayClick}\n          aria-hidden="true"\n        />\n      )}\n      <div\n        ref={drawerRef}\n        className={cn(\n          drawerVariants({ placement, size }),\n          className\n        )}\n        {...props}\n      >\n        {(title || header) && (\n          <div className="flex items-center justify-between px-6 py-4 border-b border-border shrink-0">\n            {header || (\n              <h2 id="drawer-title" className="text-lg font-semibold text-foreground">\n                {title}\n              </h2>\n            )}\n            <button\n              onClick={onClose}\n              className="p-2 text-gray-500 hover:text-muted-foreground hover:bg-muted rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"\n              aria-label="Close drawer"\n            >\n              <X size={20} />\n            </button>\n          </div>\n        )}\n        {!title && !header && (\n          <button\n            onClick={onClose}\n            className="absolute top-4 right-4 p-2 text-gray-500 hover:text-muted-foreground hover:bg-muted rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 z-10"\n            aria-label="Close drawer"\n          >\n            <X size={20} />\n          </button>\n        )}\n        <div className="flex-1 overflow-y-auto p-6">\n          {children}\n        </div>\n        {footer && (\n          <div className="px-6 py-4 border-t border-border shrink-0">\n            {footer}\n          </div>\n        )}\n      </div>\n    </div>,\n    document.body\n  );\n};',
         types: 'export interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {\n  isOpen: boolean;\n  onClose: () => void;\n  placement?: \'left\' | \'right\' | \'top\' | \'bottom\';\n  size?: \'sm\' | \'md\' | \'lg\' | \'full\';\n  title?: string;\n  children: React.ReactNode;\n  showOverlay?: boolean;\n  closeOnOverlayClick?: boolean;\n  closeOnEscape?: boolean;\n  header?: React.ReactNode;\n  footer?: React.ReactNode;\n}',
-        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const drawerVariants = cva(\n  [\n    \'fixed bg-white shadow-xl flex flex-col\',\n    \'transition-transform duration-300 ease-in-out\',\n  ],\n  {\n    variants: {\n      placement: {\n        left: [\n          \'left-0 top-0 bottom-0\',\n          \'animate-slide-in-left\',\n        ],\n        right: [\n          \'right-0 top-0 bottom-0\',\n          \'animate-slide-in-right\',\n        ],\n        top: [\n          \'top-0 left-0 right-0\',\n          \'animate-slide-in-top\',\n        ],\n        bottom: [\n          \'bottom-0 left-0 right-0\',\n          \'animate-slide-in-bottom\',\n        ],\n      },\n      size: {\n        sm: \'[.placement-left_&]:w-80 [.placement-right_&]:w-80 [.placement-top_&]:h-64 [.placement-bottom_&]:h-64\',\n        md: \'[.placement-left_&]:w-96 [.placement-right_&]:w-96 [.placement-top_&]:h-80 [.placement-bottom_&]:h-80\',\n        lg: \'[.placement-left_&]:w-[600px] [.placement-right_&]:w-[600px] [.placement-top_&]:h-[600px] [.placement-bottom_&]:h-[600px]\',\n        full: \'[.placement-left_&]:w-full [.placement-right_&]:w-full [.placement-top_&]:h-full [.placement-bottom_&]:h-full\',\n      },\n    },\n    compoundVariants: [\n      {\n        placement: \'left\',\n        size: \'sm\',\n        className: \'w-80\',\n      },\n      {\n        placement: \'left\',\n        size: \'md\',\n        className: \'w-96\',\n      },\n      {\n        placement: \'left\',\n        size: \'lg\',\n        className: \'w-[600px]\',\n      },\n      {\n        placement: \'left\',\n        size: \'full\',\n        className: \'w-full\',\n      },\n      {\n        placement: \'right\',\n        size: \'sm\',\n        className: \'w-80\',\n      },\n      {\n        placement: \'right\',\n        size: \'md\',\n        className: \'w-96\',\n      },\n      {\n        placement: \'right\',\n        size: \'lg\',\n        className: \'w-[600px]\',\n      },\n      {\n        placement: \'right\',\n        size: \'full\',\n        className: \'w-full\',\n      },\n      {\n        placement: \'top\',\n        size: \'sm\',\n        className: \'h-64\',\n      },\n      {\n        placement: \'top\',\n        size: \'md\',\n        className: \'h-80\',\n      },\n      {\n        placement: \'top\',\n        size: \'lg\',\n        className: \'h-[600px]\',\n      },\n      {\n        placement: \'top\',\n        size: \'full\',\n        className: \'h-full\',\n      },\n      {\n        placement: \'bottom\',\n        size: \'sm\',\n        className: \'h-64\',\n      },\n      {\n        placement: \'bottom\',\n        size: \'md\',\n        className: \'h-80\',\n      },\n      {\n        placement: \'bottom\',\n        size: \'lg\',\n        className: \'h-[600px]\',\n      },\n      {\n        placement: \'bottom\',\n        size: \'full\',\n        className: \'h-full\',\n      },\n    ],\n    defaultVariants: {\n      placement: \'right\',\n      size: \'md\',\n    },\n  }\n);\n\nexport type DrawerVariantProps = VariantProps<typeof drawerVariants>;',
+        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const drawerVariants = cva(\n  [\n    \'fixed bg-card shadow-xl flex flex-col\',\n    \'transition-transform duration-300 ease-in-out\',\n  ],\n  {\n    variants: {\n      placement: {\n        left: [\n          \'left-0 top-0 bottom-0\',\n          \'animate-slide-in-left\',\n        ],\n        right: [\n          \'right-0 top-0 bottom-0\',\n          \'animate-slide-in-right\',\n        ],\n        top: [\n          \'top-0 left-0 right-0\',\n          \'animate-slide-in-top\',\n        ],\n        bottom: [\n          \'bottom-0 left-0 right-0\',\n          \'animate-slide-in-bottom\',\n        ],\n      },\n      size: {\n        sm: \'[.placement-left_&]:w-80 [.placement-right_&]:w-80 [.placement-top_&]:h-64 [.placement-bottom_&]:h-64\',\n        md: \'[.placement-left_&]:w-96 [.placement-right_&]:w-96 [.placement-top_&]:h-80 [.placement-bottom_&]:h-80\',\n        lg: \'[.placement-left_&]:w-[600px] [.placement-right_&]:w-[600px] [.placement-top_&]:h-[600px] [.placement-bottom_&]:h-[600px]\',\n        full: \'[.placement-left_&]:w-full [.placement-right_&]:w-full [.placement-top_&]:h-full [.placement-bottom_&]:h-full\',\n      },\n    },\n    compoundVariants: [\n      {\n        placement: \'left\',\n        size: \'sm\',\n        className: \'w-80\',\n      },\n      {\n        placement: \'left\',\n        size: \'md\',\n        className: \'w-96\',\n      },\n      {\n        placement: \'left\',\n        size: \'lg\',\n        className: \'w-[600px]\',\n      },\n      {\n        placement: \'left\',\n        size: \'full\',\n        className: \'w-full\',\n      },\n      {\n        placement: \'right\',\n        size: \'sm\',\n        className: \'w-80\',\n      },\n      {\n        placement: \'right\',\n        size: \'md\',\n        className: \'w-96\',\n      },\n      {\n        placement: \'right\',\n        size: \'lg\',\n        className: \'w-[600px]\',\n      },\n      {\n        placement: \'right\',\n        size: \'full\',\n        className: \'w-full\',\n      },\n      {\n        placement: \'top\',\n        size: \'sm\',\n        className: \'h-64\',\n      },\n      {\n        placement: \'top\',\n        size: \'md\',\n        className: \'h-80\',\n      },\n      {\n        placement: \'top\',\n        size: \'lg\',\n        className: \'h-[600px]\',\n      },\n      {\n        placement: \'top\',\n        size: \'full\',\n        className: \'h-full\',\n      },\n      {\n        placement: \'bottom\',\n        size: \'sm\',\n        className: \'h-64\',\n      },\n      {\n        placement: \'bottom\',\n        size: \'md\',\n        className: \'h-80\',\n      },\n      {\n        placement: \'bottom\',\n        size: \'lg\',\n        className: \'h-[600px]\',\n      },\n      {\n        placement: \'bottom\',\n        size: \'full\',\n        className: \'h-full\',\n      },\n    ],\n    defaultVariants: {\n      placement: \'right\',\n      size: \'md\',\n    },\n  }\n);\n\nexport type DrawerVariantProps = VariantProps<typeof drawerVariants>;',
       }}
 
       angularCode={{

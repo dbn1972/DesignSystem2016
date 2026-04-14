@@ -26,13 +26,13 @@ const DataGridPreview = () => {
   };
   
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
+    <div className="border border-border rounded-lg overflow-hidden">
       <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+        <thead className="bg-background">
           <tr>
             <th
               onClick={() => handleSort('name')}
-              className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase cursor-pointer hover:bg-gray-100"
+              className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase cursor-pointer hover:bg-muted"
             >
               <div className="flex items-center gap-2">
                 Name
@@ -41,26 +41,26 @@ const DataGridPreview = () => {
                 )}
               </div>
             </th>
-            <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
+            <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">
               Department
             </th>
-            <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
+            <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">
               Salary
             </th>
-            <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
+            <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">
               Status
             </th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-card divide-y divide-gray-200">
           {data.map(row => (
-            <tr key={row.id} className="hover:bg-gray-50">
-              <td className="px-6 py-4 text-sm font-semibold text-gray-900">{row.name}</td>
-              <td className="px-6 py-4 text-sm text-gray-600">{row.department}</td>
-              <td className="px-6 py-4 text-sm text-gray-600">₹{row.salary.toLocaleString()}</td>
+            <tr key={row.id} className="hover:bg-background">
+              <td className="px-6 py-4 text-sm font-semibold text-foreground">{row.name}</td>
+              <td className="px-6 py-4 text-sm text-muted-foreground">{row.department}</td>
+              <td className="px-6 py-4 text-sm text-muted-foreground">₹{row.salary.toLocaleString()}</td>
               <td className="px-6 py-4">
                 <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
-                  row.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                  row.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-muted text-foreground'
                 }`}>
                   {row.status}
                 </span>
@@ -70,13 +70,13 @@ const DataGridPreview = () => {
         </tbody>
       </table>
       
-      <div className="bg-gray-50 px-6 py-3 flex items-center justify-between border-t border-gray-200">
-        <span className="text-sm text-gray-600">Showing 1-3 of 3 entries</span>
+      <div className="bg-background px-6 py-3 flex items-center justify-between border-t border-border">
+        <span className="text-sm text-muted-foreground">Showing 1-3 of 3 entries</span>
         <div className="flex gap-2">
-          <button className="px-3 py-1 bg-white border border-gray-300 rounded text-sm disabled:opacity-50" disabled>
+          <button className="px-3 py-1 bg-card border border-border rounded text-sm disabled:opacity-50" disabled>
             Previous
           </button>
-          <button className="px-3 py-1 bg-white border border-gray-300 rounded text-sm disabled:opacity-50" disabled>
+          <button className="px-3 py-1 bg-card border border-border rounded text-sm disabled:opacity-50" disabled>
             Next
           </button>
         </div>
@@ -233,16 +233,16 @@ export const DataGrid: React.FC<DataGridProps> = ({
   const totalPages = Math.ceil(sortedData.length / pageSize);
   
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
+    <div className="border border-border rounded-lg overflow-hidden">
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-background">
             <tr>
               {selectable && (
                 <th className="px-6 py-3 w-12">
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300"
+                    className="rounded border-border"
                     onChange={(e) => {
                       if (e.target.checked) {
                         setSelectedRows(new Set(paginatedData));
@@ -258,8 +258,8 @@ export const DataGrid: React.FC<DataGridProps> = ({
                 <th
                   key={column.key}
                   onClick={() => column.sortable !== false && handleSort(column.key)}
-                  className={\`px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase \${
-                    column.sortable !== false && sortable ? 'cursor-pointer hover:bg-gray-100' : ''
+                  className={\`px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase \${
+                    column.sortable !== false && sortable ? 'cursor-pointer hover:bg-muted' : ''
                   }\`}
                   style={{ width: column.width }}
                 >
@@ -274,18 +274,18 @@ export const DataGrid: React.FC<DataGridProps> = ({
             </tr>
           </thead>
           
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-card divide-y divide-gray-200">
             {paginatedData.map((row, rowIndex) => (
               <tr
                 key={rowIndex}
                 onClick={() => onRowClick?.(row)}
-                className={\`\${onRowClick ? 'cursor-pointer' : ''} hover:bg-gray-50\`}
+                className={\`\${onRowClick ? 'cursor-pointer' : ''} hover:bg-background\`}
               >
                 {selectable && (
                   <td className="px-6 py-4">
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300"
+                      className="rounded border-border"
                       checked={selectedRows.has(row)}
                       onChange={(e) => {
                         const newSelected = new Set(selectedRows);
@@ -301,7 +301,7 @@ export const DataGrid: React.FC<DataGridProps> = ({
                 )}
                 
                 {columns.map(column => (
-                  <td key={column.key} className="px-6 py-4 text-sm text-gray-900">
+                  <td key={column.key} className="px-6 py-4 text-sm text-foreground">
                     {row[column.key]}
                   </td>
                 ))}
@@ -312,22 +312,22 @@ export const DataGrid: React.FC<DataGridProps> = ({
       </div>
       
       {pageable && (
-        <div className="bg-gray-50 px-6 py-3 flex items-center justify-between border-t border-gray-200">
-          <span className="text-sm text-gray-600">
+        <div className="bg-background px-6 py-3 flex items-center justify-between border-t border-border">
+          <span className="text-sm text-muted-foreground">
             Showing {(currentPage - 1) * pageSize + 1}-{Math.min(currentPage * pageSize, sortedData.length)} of {sortedData.length} entries
           </span>
           <div className="flex gap-2">
             <button
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="px-3 py-1 bg-white border border-gray-300 rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+              className="px-3 py-1 bg-card border border-border rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-background"
             >
               Previous
             </button>
             <button
               onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 bg-white border border-gray-300 rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
+              className="px-3 py-1 bg-card border border-border rounded text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-background"
             >
               Next
             </button>
@@ -362,9 +362,9 @@ export interface DataGridProps {
 @Component({
   selector: 'ux4g-datagrid',
   template: \`
-    <div class="border border-gray-200 rounded-lg overflow-hidden">
+    <div class="border border-border rounded-lg overflow-hidden">
       <table class="min-w-full divide-y divide-gray-200">
-        <thead class="bg-gray-50">
+        <thead class="bg-background">
           <tr>
             <th *ngFor="let column of columns"
                 (click)="handleSort(column.key)"
@@ -373,20 +373,20 @@ export interface DataGridProps {
             </th>
           </tr>
         </thead>
-        <tbody class="bg-white divide-y divide-gray-200">
-          <tr *ngFor="let row of paginatedData" class="hover:bg-gray-50">
-            <td *ngFor="let column of columns" class="px-6 py-4 text-sm text-gray-900">
+        <tbody class="bg-card divide-y divide-gray-200">
+          <tr *ngFor="let row of paginatedData" class="hover:bg-background">
+            <td *ngFor="let column of columns" class="px-6 py-4 text-sm text-foreground">
               {{ row[column.key] }}
             </td>
           </tr>
         </tbody>
       </table>
       
-      <div *ngIf="pageable" class="bg-gray-50 px-6 py-3 flex items-center justify-between border-t">
-        <span class="text-sm text-gray-600">Showing {{ data.length }} entries</span>
+      <div *ngIf="pageable" class="bg-background px-6 py-3 flex items-center justify-between border-t">
+        <span class="text-sm text-muted-foreground">Showing {{ data.length }} entries</span>
         <div class="flex gap-2">
-          <button class="px-3 py-1 bg-white border rounded text-sm">Previous</button>
-          <button class="px-3 py-1 bg-white border rounded text-sm">Next</button>
+          <button class="px-3 py-1 bg-card border rounded text-sm">Previous</button>
+          <button class="px-3 py-1 bg-card border rounded text-sm">Next</button>
         </div>
       </div>
     </div>
@@ -410,8 +410,8 @@ export class DataGridComponent {
   }
   
   getHeaderClasses(column: any): string {
-    let classes = 'px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase';
-    if (this.sortable) classes += ' cursor-pointer hover:bg-gray-100';
+    let classes = 'px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase';
+    if (this.sortable) classes += ' cursor-pointer hover:bg-muted';
     return classes;
   }
   

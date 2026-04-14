@@ -83,7 +83,7 @@ const FeedbackRatingWidgetPreview = ({ type, maxRating = 5, value, onChange, siz
             } ${
               value === rating
                 ? 'bg-[#005196] text-white border-[#005196]'
-                : 'bg-white text-[#333333] border-[#cccccc] hover:border-[#005196]'
+                : 'bg-card text-[#333333] border-[#cccccc] hover:border-[#005196]'
             }`}
             aria-label={`Rate ${rating} out of ${maxRating}`}
             aria-pressed={value === rating}
@@ -423,7 +423,7 @@ function Example() {
           value={feedback}
           onChange={(e) => setFeedback(e.target.value)}
           rows={4}
-          className="w-full border border-gray-300 rounded p-2"
+          className="w-full border border-border rounded p-2"
           placeholder="Tell us more about your experience..."
         />
       </div>
@@ -714,7 +714,7 @@ export const FeedbackRatingWidget = forwardRef<HTMLDivElement, FeedbackRatingWid
                   size === 'lg' && 'w-12 h-12 text-lg',
                   isActive
                     ? 'bg-[#005196] text-white border-[#005196]'
-                    : 'bg-white text-[#333333] border-[#cccccc] hover:border-[#005196]'
+                    : 'bg-card text-[#333333] border-[#cccccc] hover:border-[#005196]'
                 )}
                 aria-label={\`Rate \${rating} out of \${maxRating}\`}
                 aria-pressed={value === rating}
@@ -939,7 +939,7 @@ type RatingSize = 'sm' | 'md' | 'lg';
         </div>
       </div>
 
-      <div *ngIf="showLabels && type !== 'thumbs'" class="flex justify-between text-sm text-gray-600">
+      <div *ngIf="showLabels && type !== 'thumbs'" class="flex justify-between text-sm text-muted-foreground">
         <span>Low</span>
         <span>High</span>
       </div>

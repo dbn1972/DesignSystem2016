@@ -39,12 +39,12 @@ export default function PostCompletionFeedbackPattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b-4 border-[#FF9933]">
         <div className="max-w-[1400px] mx-auto px-12 py-16">
           <div className="mb-6">
-            <Link to="/patterns/feedback" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/patterns/feedback" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Feedback & Rating Patterns
             </Link>
           </div>
@@ -55,11 +55,11 @@ export default function PostCompletionFeedbackPattern() {
                   <MessageCircle size={40} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#000080] mb-2 uppercase tracking-wide">Feedback Pattern</div>
-                  <h1 className="text-5xl font-bold text-gray-900">Post-Completion Feedback</h1>
+                  <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Feedback Pattern</div>
+                  <h1 className="text-5xl font-bold text-foreground">Post-Completion Feedback</h1>
                 </div>
               </div>
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
                 Comprehensive feedback form triggered after service completion to collect detailed insights on user experience,
                 satisfaction, and areas for improvement.
               </p>
@@ -75,20 +75,20 @@ export default function PostCompletionFeedbackPattern() {
           {/* Left Column - Interactive Demo */}
           <div className="col-span-8">
             <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
-              <h2 className="font-bold text-gray-900 mb-2">Interactive Demo</h2>
-              <p className="text-sm text-gray-700">
+              <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
+              <p className="text-sm text-muted-foreground">
                 Try the post-completion feedback form. This captures detailed experience insights.
               </p>
             </div>
 
             {/* Demo Container */}
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-8">
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Header */}
-                  <div className="border-b-2 border-gray-200 pb-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Share Your Experience</h3>
-                    <p className="text-sm text-gray-600">
+                  <div className="border-b-2 border-border pb-6">
+                    <h3 className="text-xl font-bold text-foreground mb-2">Share Your Experience</h3>
+                    <p className="text-sm text-muted-foreground">
                       We'd love to hear about your experience with the Income Certificate service.
                       Your feedback helps us improve.
                     </p>
@@ -96,7 +96,7 @@ export default function PostCompletionFeedbackPattern() {
 
                   {/* Overall Rating */}
                   <div>
-                    <label className="block font-bold text-gray-900 mb-2">
+                    <label className="block font-bold text-foreground mb-2">
                       Overall Experience <span className="text-red-600">*</span>
                     </label>
                     <div className="flex items-center gap-2">
@@ -118,7 +118,7 @@ export default function PostCompletionFeedbackPattern() {
                         </button>
                       ))}
                       {formData.overallRating > 0 && (
-                        <span className="ml-2 text-sm font-bold text-gray-700">
+                        <span className="ml-2 text-sm font-bold text-muted-foreground">
                           {formData.overallRating === 5 && "Excellent"}
                           {formData.overallRating === 4 && "Good"}
                           {formData.overallRating === 3 && "Average"}
@@ -132,7 +132,7 @@ export default function PostCompletionFeedbackPattern() {
                   {/* Quick Ratings */}
                   <div className="grid grid-cols-2 gap-6">
                     <div>
-                      <label className="block font-bold text-gray-900 mb-2">Ease of Use</label>
+                      <label className="block font-bold text-foreground mb-2">Ease of Use</label>
                       <div className="flex gap-2">
                         <button
                           type="button"
@@ -140,7 +140,7 @@ export default function PostCompletionFeedbackPattern() {
                           className={`flex-1 px-4 py-2 border-2 rounded font-bold text-sm ${
                             formData.easeOfUse === "easy"
                               ? "border-green-500 bg-green-50 text-green-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsUp size={16} className="inline-block mr-1" />
@@ -152,7 +152,7 @@ export default function PostCompletionFeedbackPattern() {
                           className={`flex-1 px-4 py-2 border-2 rounded font-bold text-sm ${
                             formData.easeOfUse === "difficult"
                               ? "border-red-500 bg-red-50 text-red-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsDown size={16} className="inline-block mr-1" />
@@ -162,7 +162,7 @@ export default function PostCompletionFeedbackPattern() {
                     </div>
 
                     <div>
-                      <label className="block font-bold text-gray-900 mb-2">Service Speed</label>
+                      <label className="block font-bold text-foreground mb-2">Service Speed</label>
                       <div className="flex gap-2">
                         <button
                           type="button"
@@ -170,7 +170,7 @@ export default function PostCompletionFeedbackPattern() {
                           className={`flex-1 px-4 py-2 border-2 rounded font-bold text-sm ${
                             formData.speed === "fast"
                               ? "border-green-500 bg-green-50 text-green-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsUp size={16} className="inline-block mr-1" />
@@ -182,7 +182,7 @@ export default function PostCompletionFeedbackPattern() {
                           className={`flex-1 px-4 py-2 border-2 rounded font-bold text-sm ${
                             formData.speed === "slow"
                               ? "border-red-500 bg-red-50 text-red-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsDown size={16} className="inline-block mr-1" />
@@ -192,7 +192,7 @@ export default function PostCompletionFeedbackPattern() {
                     </div>
 
                     <div>
-                      <label className="block font-bold text-gray-900 mb-2">Instructions Clarity</label>
+                      <label className="block font-bold text-foreground mb-2">Instructions Clarity</label>
                       <div className="flex gap-2">
                         <button
                           type="button"
@@ -200,7 +200,7 @@ export default function PostCompletionFeedbackPattern() {
                           className={`flex-1 px-4 py-2 border-2 rounded font-bold text-sm ${
                             formData.clarity === "clear"
                               ? "border-green-500 bg-green-50 text-green-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsUp size={16} className="inline-block mr-1" />
@@ -212,7 +212,7 @@ export default function PostCompletionFeedbackPattern() {
                           className={`flex-1 px-4 py-2 border-2 rounded font-bold text-sm ${
                             formData.clarity === "confusing"
                               ? "border-red-500 bg-red-50 text-red-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsDown size={16} className="inline-block mr-1" />
@@ -222,7 +222,7 @@ export default function PostCompletionFeedbackPattern() {
                     </div>
 
                     <div>
-                      <label className="block font-bold text-gray-900 mb-2">Outcome Satisfaction</label>
+                      <label className="block font-bold text-foreground mb-2">Outcome Satisfaction</label>
                       <div className="flex gap-2">
                         <button
                           type="button"
@@ -230,7 +230,7 @@ export default function PostCompletionFeedbackPattern() {
                           className={`flex-1 px-4 py-2 border-2 rounded font-bold text-sm ${
                             formData.outcome === "satisfied"
                               ? "border-green-500 bg-green-50 text-green-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsUp size={16} className="inline-block mr-1" />
@@ -242,7 +242,7 @@ export default function PostCompletionFeedbackPattern() {
                           className={`flex-1 px-4 py-2 border-2 rounded font-bold text-sm ${
                             formData.outcome === "unsatisfied"
                               ? "border-red-500 bg-red-50 text-red-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsDown size={16} className="inline-block mr-1" />
@@ -254,7 +254,7 @@ export default function PostCompletionFeedbackPattern() {
 
                   {/* Open-ended Questions */}
                   <div>
-                    <label className="block font-bold text-gray-900 mb-2">
+                    <label className="block font-bold text-foreground mb-2">
                       What worked well?
                     </label>
                     <textarea
@@ -262,12 +262,12 @@ export default function PostCompletionFeedbackPattern() {
                       onChange={(e) => setFormData({...formData, whatWorked: e.target.value})}
                       rows={3}
                       placeholder="Tell us what you liked about the service..."
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded focus:border-[#000080] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-gray-900 mb-2">
+                    <label className="block font-bold text-foreground mb-2">
                       What could be improved?
                     </label>
                     <textarea
@@ -275,12 +275,12 @@ export default function PostCompletionFeedbackPattern() {
                       onChange={(e) => setFormData({...formData, whatDidnt: e.target.value})}
                       rows={3}
                       placeholder="Share any challenges or frustrations you faced..."
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded focus:border-[#000080] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-gray-900 mb-2">
+                    <label className="block font-bold text-foreground mb-2">
                       Any suggestions?
                     </label>
                     <textarea
@@ -288,12 +288,12 @@ export default function PostCompletionFeedbackPattern() {
                       onChange={(e) => setFormData({...formData, suggestions: e.target.value})}
                       rows={2}
                       placeholder="Optional: Suggest new features or improvements..."
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded focus:border-[#000080] focus:outline-none"
+                      className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                     />
                   </div>
 
                   {/* Contact Option */}
-                  <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4">
+                  <div className="bg-background border-2 border-border rounded-lg p-4">
                     <label className="flex items-start gap-3 cursor-pointer">
                       <input
                         type="checkbox"
@@ -302,8 +302,8 @@ export default function PostCompletionFeedbackPattern() {
                         className="w-5 h-5 mt-0.5"
                       />
                       <div className="flex-1">
-                        <span className="font-bold text-gray-900">I'd like to be contacted about my feedback</span>
-                        <p className="text-sm text-gray-600 mt-1">
+                        <span className="font-bold text-foreground">I'd like to be contacted about my feedback</span>
+                        <p className="text-sm text-muted-foreground mt-1">
                           We may reach out to better understand your experience
                         </p>
                       </div>
@@ -314,7 +314,7 @@ export default function PostCompletionFeedbackPattern() {
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         placeholder="your.email@example.com"
-                        className="w-full mt-3 px-4 py-2 border-2 border-gray-300 rounded focus:border-[#000080] focus:outline-none"
+                        className="w-full mt-3 px-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none"
                       />
                     )}
                   </div>
@@ -327,14 +327,14 @@ export default function PostCompletionFeedbackPattern() {
                       className={`px-8 py-3 rounded font-bold ${
                         formData.overallRating === 0
                           ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                          : "bg-[#000080] text-white hover:bg-blue-900"
+                          : "bg-primary text-white hover:opacity-90"
                       }`}
                     >
                       Submit Feedback
                     </button>
                     <button
                       type="button"
-                      className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded font-bold hover:bg-gray-50"
+                      className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold hover:bg-background"
                     >
                       Skip for Now
                     </button>
@@ -346,16 +346,16 @@ export default function PostCompletionFeedbackPattern() {
                   <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle size={40} className="text-green-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You for Your Detailed Feedback!</h3>
-                  <p className="text-gray-700 mb-2">
+                  <h3 className="text-2xl font-bold text-foreground mb-2">Thank You for Your Detailed Feedback!</h3>
+                  <p className="text-muted-foreground mb-2">
                     Your insights are invaluable in helping us improve our services for all citizens.
                   </p>
-                  <p className="text-sm text-gray-600 mb-6">
+                  <p className="text-sm text-muted-foreground mb-6">
                     Reference ID: FB-2026-04-{Math.floor(Math.random() * 10000).toString().padStart(6, '0')}
                   </p>
                   <button
                     onClick={handleReset}
-                    className="px-6 py-3 bg-[#000080] text-white rounded font-bold hover:bg-blue-900"
+                    className="px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90"
                     >
                     Submit Another Feedback
                   </button>
@@ -366,9 +366,9 @@ export default function PostCompletionFeedbackPattern() {
             {/* Pattern Details */}
             <div className="mt-8 space-y-6">
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">When to Use</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                  <ul className="space-y-2 text-sm text-gray-700">
+                <h2 className="text-2xl font-bold text-foreground mb-4">When to Use</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6">
+                  <ul className="space-y-2 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                       <span>After major service transactions or application completions</span>
@@ -390,29 +390,29 @@ export default function PostCompletionFeedbackPattern() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Best Practices</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Best Practices</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6 space-y-4">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">1. Balance Detail with Brevity</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">1. Balance Detail with Brevity</h3>
+                    <p className="text-sm text-muted-foreground">
                       Keep forms under 10 questions. Longer forms see significant drop-off rates.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">2. Mix Quantitative and Qualitative</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">2. Mix Quantitative and Qualitative</h3>
+                    <p className="text-sm text-muted-foreground">
                       Use ratings for metrics, but include open-ended questions to understand the "why" behind scores.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">3. Make Most Fields Optional</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">3. Make Most Fields Optional</h3>
+                    <p className="text-sm text-muted-foreground">
                       Only require overall rating. Making everything optional improves completion rates.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">4. Show Impact</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">4. Show Impact</h3>
+                    <p className="text-sm text-muted-foreground">
                       Display "Recent Improvements Based on Feedback" to show citizens their input matters.
                     </p>
                   </div>
@@ -426,32 +426,32 @@ export default function PostCompletionFeedbackPattern() {
             <div className="sticky top-8 space-y-6">
 
               {/* Pattern Info */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Pattern Information</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Pattern Information</h3>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Complexity</div>
+                    <div className="text-xs text-muted-foreground mb-1">Complexity</div>
                     <div className="font-bold">Medium</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Average Time</div>
+                    <div className="text-xs text-muted-foreground mb-1">Average Time</div>
                     <div className="font-bold">2-3 minutes</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">User Effort</div>
+                    <div className="text-xs text-muted-foreground mb-1">User Effort</div>
                     <div className="font-bold">Moderate</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Response Rate</div>
+                    <div className="text-xs text-muted-foreground mb-1">Response Rate</div>
                     <div className="font-bold">Medium (15-30%)</div>
                   </div>
                 </div>
               </div>
 
               {/* Components Used */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Components Used</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Components Used</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Star Rating</li>
                   <li>• Binary Choice Buttons</li>
                   <li>• Text Area</li>
@@ -463,8 +463,8 @@ export default function PostCompletionFeedbackPattern() {
 
               {/* Accessibility */}
               <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-3">Accessibility Notes</h3>
-                <ul className="space-y-2 text-xs text-gray-700">
+                <h3 className="font-bold text-foreground mb-3">Accessibility Notes</h3>
+                <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Proper form labels and ARIA attributes</li>
                   <li>✓ Keyboard navigation support</li>
                   <li>✓ Required fields marked clearly</li>
@@ -474,16 +474,16 @@ export default function PostCompletionFeedbackPattern() {
               </div>
 
               {/* Related Patterns */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Related Patterns</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Related Patterns</h3>
                 <div className="space-y-2">
-                  <Link to="/patterns/feedback/rate-service" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/feedback/rate-service" className="block text-sm text-primary hover:underline">
                     → Rate Service
                   </Link>
-                  <Link to="/patterns/feedback/issue-reporting" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/feedback/issue-reporting" className="block text-sm text-primary hover:underline">
                     → Issue Reporting
                   </Link>
-                  <Link to="/patterns/feedback/acknowledgment" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/feedback/acknowledgment" className="block text-sm text-primary hover:underline">
                     → Feedback Acknowledgment
                   </Link>
                 </div>

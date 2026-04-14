@@ -16,10 +16,11 @@ import { Link } from 'react-router';
 
 interface PropDefinition {
   name: string;
-  type: string;
-  default?: string;
+  type: string | string[];
+  default?: string | string[];
   required?: boolean;
   description: string;
+  [key: string]: unknown;
 }
 
 interface CodeExample {
@@ -27,22 +28,25 @@ interface CodeExample {
   description: string;
   code: string;
   preview?: React.ReactNode;
+  [key: string]: unknown;
 }
 
 interface DesignSystemComparison {
   system: string;
   component: string;
-  variants: string;
+  variants: string | string[];
   accessibility: string;
   documentation: string;
   link: string;
+  [key: string]: unknown;
 }
 
 interface UseCase {
   title: string;
   description: string;
-  scenario: string;
-  implementation: string;
+  scenario?: string;
+  implementation?: string;
+  [key: string]: unknown;
 }
 
 interface ComponentDocumentationProps {
@@ -93,6 +97,14 @@ interface ComponentDocumentationProps {
 
   // Government service use cases
   useCases?: UseCase[];
+
+  // Government-specific context (India-specific usage notes)
+  governmentContext?: {
+    relevance?: string;
+    indianContext?: string;
+    wcagNotes?: string;
+    [key: string]: string | undefined;
+  };
 }
 
 export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
@@ -150,24 +162,24 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-card border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-8">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
             <Link to="/" className="hover:text-[#005196]">Home</Link>
             <span>/</span>
             <Link to="/components" className="hover:text-[#005196]">Components</Link>
             <span>/</span>
-            <span className="text-gray-900 font-medium">{name}</span>
+            <span className="text-foreground font-medium">{name}</span>
           </nav>
 
           {/* Title and badges */}
           <div className="flex items-start justify-between mb-4">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">{name}</h1>
-              <p className="text-lg text-gray-600 max-w-3xl">{description}</p>
+              <h1 className="text-4xl font-bold text-foreground mb-2">{name}</h1>
+              <p className="text-lg text-muted-foreground max-w-3xl">{description}</p>
             </div>
           </div>
 
@@ -177,17 +189,17 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               <span>{currentMaturity.icon}</span>
               {currentMaturity.label}
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-muted text-foreground">
               Tier: {tier.charAt(0).toUpperCase() + tier.slice(1)}
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-muted text-foreground">
               Category: {category}
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-muted text-foreground">
               Since: {since}
             </span>
             {updated && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-muted text-foreground">
                 Updated: {updated}
               </span>
             )}
@@ -196,7 +208,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
 
         {/* Tabs */}
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex gap-1 border-b border-gray-200">
+          <div className="flex gap-1 border-b border-border">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -204,7 +216,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                 className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                   activeTab === tab.id
                     ? 'border-[#005196] text-[#005196]'
-                    : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+                    : 'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
                 }`}
               >
                 {tab.label}
@@ -220,11 +232,11 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         {activeTab === 'overview' && (
           <div className="space-y-8">
             {/* Installation */}
-            <section className="bg-white rounded-lg border border-gray-200 p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Installation</h2>
+            <section className="bg-card rounded-lg border border-border p-6">
+              <h2 className="text-2xl font-bold text-foreground mb-4">Installation</h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-2">React</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">React</h3>
                   <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm relative">
                     <code>npm install @ux4g/react-core</code>
                     <button
@@ -236,7 +248,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-2">Angular</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Angular</h3>
                   <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm relative">
                     <code>npm install @ux4g/angular-core</code>
                     <button
@@ -251,19 +263,19 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
             </section>
 
             {/* Accessibility */}
-            <section className="bg-white rounded-lg border border-gray-200 p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Accessibility</h2>
+            <section className="bg-card rounded-lg border border-border p-6">
+              <h2 className="text-2xl font-bold text-foreground mb-4">Accessibility</h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-2">WCAG Compliance</h3>
-                  <p className="text-gray-600">{accessibility.wcagLevel}</p>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">WCAG Compliance</h3>
+                  <p className="text-muted-foreground">{accessibility.wcagLevel}</p>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-3">Features</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-3">Features</h3>
                   <ul className="space-y-2">
                     {accessibility.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-gray-600">
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
                         <Check size={16} className="text-[#138808] mt-0.5 shrink-0" />
                         <span>{feature}</span>
                       </li>
@@ -272,20 +284,20 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-3">Keyboard Support</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-3">Keyboard Support</h3>
                   <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-200">
-                      <thead className="bg-gray-50">
+                      <thead className="bg-background">
                         <tr>
-                          <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Key</th>
-                          <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Action</th>
+                          <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Key</th>
+                          <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Action</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200">
                         {accessibility.keyboardSupport.map((item, idx) => (
                           <tr key={idx}>
-                            <td className="px-4 py-3 text-sm font-mono bg-gray-50">{item.key}</td>
-                            <td className="px-4 py-3 text-sm text-gray-600">{item.action}</td>
+                            <td className="px-4 py-3 text-sm font-mono bg-background">{item.key}</td>
+                            <td className="px-4 py-3 text-sm text-muted-foreground">{item.action}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -294,10 +306,10 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-3">Screen Reader Support</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-3">Screen Reader Support</h3>
                   <ul className="space-y-2">
                     {accessibility.screenReader.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-gray-600">
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
                         <Info size={16} className="text-[#005196] mt-0.5 shrink-0" />
                         <span>{item}</span>
                       </li>
@@ -309,21 +321,21 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
 
             {/* Use Cases */}
             {useCases && useCases.length > 0 && (
-              <section className="bg-white rounded-lg border border-gray-200 p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Government Service Use Cases</h2>
+              <section className="bg-card rounded-lg border border-border p-6">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Government Service Use Cases</h2>
                 <div className="grid gap-6">
                   {useCases.map((useCase, idx) => (
-                    <div key={idx} className="border border-gray-200 rounded-lg p-5 hover:border-[#005196] transition-colors">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{useCase.title}</h3>
-                      <p className="text-gray-600 mb-3">{useCase.description}</p>
+                    <div key={idx} className="border border-border rounded-lg p-5 hover:border-[#005196] transition-colors">
+                      <h3 className="text-lg font-semibold text-foreground mb-2">{useCase.title}</h3>
+                      <p className="text-muted-foreground mb-3">{useCase.description}</p>
                       <div className="space-y-2">
                         <div className="flex gap-2">
-                          <span className="text-sm font-semibold text-gray-700 min-w-[120px]">Scenario:</span>
-                          <span className="text-sm text-gray-600">{useCase.scenario}</span>
+                          <span className="text-sm font-semibold text-muted-foreground min-w-[120px]">Scenario:</span>
+                          <span className="text-sm text-muted-foreground">{useCase.scenario}</span>
                         </div>
                         <div className="flex gap-2">
-                          <span className="text-sm font-semibold text-gray-700 min-w-[120px]">Implementation:</span>
-                          <code className="text-sm text-[#005196] bg-gray-50 px-2 py-1 rounded">{useCase.implementation}</code>
+                          <span className="text-sm font-semibold text-muted-foreground min-w-[120px]">Implementation:</span>
+                          <code className="text-sm text-[#005196] bg-background px-2 py-1 rounded">{useCase.implementation}</code>
                         </div>
                       </div>
                     </div>
@@ -336,36 +348,36 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
 
         {/* Props API Tab */}
         {activeTab === 'props' && (
-          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="bg-card rounded-lg border border-border overflow-hidden">
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-background">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Prop</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Type</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Default</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Required</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Description</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Prop</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Type</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Default</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Required</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Description</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {props.map((prop, idx) => (
-                    <tr key={idx} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 text-sm font-mono font-semibold text-gray-900">{prop.name}</td>
-                      <td className="px-6 py-4 text-sm font-mono text-gray-600">{prop.type}</td>
-                      <td className="px-6 py-4 text-sm font-mono text-gray-600">{prop.default || '-'}</td>
+                    <tr key={idx} className="hover:bg-background">
+                      <td className="px-6 py-4 text-sm font-mono font-semibold text-foreground">{prop.name}</td>
+                      <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{prop.type}</td>
+                      <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{prop.default || '-'}</td>
                       <td className="px-6 py-4 text-sm">
                         {prop.required ? (
                           <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-red-100 text-red-800">
                             Required
                           </span>
                         ) : (
-                          <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-600">
+                          <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-muted text-muted-foreground">
                             Optional
                           </span>
                         )}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">{prop.description}</td>
+                      <td className="px-6 py-4 text-sm text-muted-foreground">{prop.description}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -378,13 +390,13 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         {activeTab === 'examples' && (
           <div className="space-y-8">
             {examples.map((example, idx) => (
-              <div key={idx} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-                <div className="p-6 border-b border-gray-200">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{example.title}</h3>
-                  <p className="text-sm text-gray-600">{example.description}</p>
+              <div key={idx} className="bg-card rounded-lg border border-border overflow-hidden">
+                <div className="p-6 border-b border-border">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{example.title}</h3>
+                  <p className="text-sm text-muted-foreground">{example.description}</p>
                 </div>
                 {example.preview && (
-                  <div className="p-6 border-b border-gray-200 bg-gray-50">
+                  <div className="p-6 border-b border-border bg-background">
                     <div className="flex items-center justify-center min-h-[120px]">
                       {example.preview}
                     </div>
@@ -412,9 +424,9 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         {activeTab === 'code' && (
           <div className="space-y-6">
             {/* React Code */}
-            <section className="bg-white rounded-lg border border-gray-200 p-6">
+            <section className="bg-card rounded-lg border border-border p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-gray-900">React Implementation</h2>
+                <h2 className="text-xl font-bold text-foreground">React Implementation</h2>
                 <button
                   onClick={() => downloadCode(reactCode.component, `${name}.tsx`)}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-[#005196] text-white rounded-lg hover:bg-[#004178] transition-colors"
@@ -425,7 +437,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               </div>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-2">Component ({name}.tsx)</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Component ({name}.tsx)</h3>
                   <div className="relative">
                     <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
                       <pre className="text-sm font-mono">
@@ -442,7 +454,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                 </div>
                 {reactCode.variants && (
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-700 mb-2">Variants ({name.toLowerCase()}.variants.ts)</h3>
+                    <h3 className="text-sm font-semibold text-muted-foreground mb-2">Variants ({name.toLowerCase()}.variants.ts)</h3>
                     <div className="relative">
                       <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
                         <pre className="text-sm font-mono">
@@ -459,7 +471,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   </div>
                 )}
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-2">Types ({name}.types.ts)</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Types ({name}.types.ts)</h3>
                   <div className="relative">
                     <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
                       <pre className="text-sm font-mono">
@@ -478,9 +490,9 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
             </section>
 
             {/* Angular Code */}
-            <section className="bg-white rounded-lg border border-gray-200 p-6">
+            <section className="bg-card rounded-lg border border-border p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-gray-900">Angular Implementation</h2>
+                <h2 className="text-xl font-bold text-foreground">Angular Implementation</h2>
                 <button
                   onClick={() => downloadCode(angularCode.component, `${name.toLowerCase()}.component.ts`)}
                   className="inline-flex items-center gap-2 px-4 py-2 bg-[#005196] text-white rounded-lg hover:bg-[#004178] transition-colors"
@@ -491,7 +503,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               </div>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-2">Component ({name.toLowerCase()}.component.ts)</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Component ({name.toLowerCase()}.component.ts)</h3>
                   <div className="relative">
                     <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
                       <pre className="text-sm font-mono">
@@ -507,7 +519,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 mb-2">Module ({name.toLowerCase()}.module.ts)</h3>
+                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Module ({name.toLowerCase()}.module.ts)</h3>
                   <div className="relative">
                     <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
                       <pre className="text-sm font-mono">
@@ -529,31 +541,31 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
 
         {/* Design System Comparison Tab */}
         {activeTab === 'comparison' && (
-          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-            <div className="p-6 border-b border-gray-200">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Design System Comparison</h2>
-              <p className="text-gray-600">
+          <div className="bg-card rounded-lg border border-border overflow-hidden">
+            <div className="p-6 border-b border-border">
+              <h2 className="text-2xl font-bold text-foreground mb-2">Design System Comparison</h2>
+              <p className="text-muted-foreground">
                 Compare {name} implementation across popular design systems
               </p>
             </div>
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-background">
                   <tr>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Design System</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Component Name</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Variants</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Accessibility</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Documentation</th>
-                    <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Link</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Design System</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Component Name</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Variants</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Accessibility</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Documentation</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Link</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   <tr className="bg-[#005196] bg-opacity-5">
-                    <td className="px-6 py-4 text-sm font-semibold text-gray-900">UX4G (Current)</td>
-                    <td className="px-6 py-4 text-sm font-mono text-gray-600">{name}</td>
-                    <td className="px-6 py-4 text-sm text-gray-600">{props.find(p => p.name === 'variant')?.type || 'N/A'}</td>
-                    <td className="px-6 py-4 text-sm text-gray-600">{accessibility.wcagLevel}</td>
+                    <td className="px-6 py-4 text-sm font-semibold text-foreground">UX4G (Current)</td>
+                    <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{name}</td>
+                    <td className="px-6 py-4 text-sm text-muted-foreground">{props.find(p => p.name === 'variant')?.type || 'N/A'}</td>
+                    <td className="px-6 py-4 text-sm text-muted-foreground">{accessibility.wcagLevel}</td>
                     <td className="px-6 py-4 text-sm">
                       <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800">
                         Comprehensive
@@ -564,16 +576,16 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                     </td>
                   </tr>
                   {comparisons.map((comp, idx) => (
-                    <tr key={idx} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 text-sm font-semibold text-gray-900">{comp.system}</td>
-                      <td className="px-6 py-4 text-sm font-mono text-gray-600">{comp.component}</td>
-                      <td className="px-6 py-4 text-sm text-gray-600">{comp.variants}</td>
-                      <td className="px-6 py-4 text-sm text-gray-600">{comp.accessibility}</td>
+                    <tr key={idx} className="hover:bg-background">
+                      <td className="px-6 py-4 text-sm font-semibold text-foreground">{comp.system}</td>
+                      <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{comp.component}</td>
+                      <td className="px-6 py-4 text-sm text-muted-foreground">{comp.variants}</td>
+                      <td className="px-6 py-4 text-sm text-muted-foreground">{comp.accessibility}</td>
                       <td className="px-6 py-4 text-sm">
                         <span className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium ${
                           comp.documentation === 'Comprehensive' ? 'bg-green-100 text-green-800' :
                           comp.documentation === 'Good' ? 'bg-blue-100 text-blue-800' :
-                          'bg-gray-100 text-gray-600'
+                          'bg-muted text-muted-foreground'
                         }`}>
                           {comp.documentation}
                         </span>
@@ -600,26 +612,26 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         {/* Token Mappings Tab */}
         {activeTab === 'tokens' && tokens && (
           <div className="space-y-6">
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Token Mappings</h2>
-              <p className="text-gray-600 mb-6">
-                This component uses design tokens from: <code className="px-2 py-1 bg-gray-100 rounded text-sm font-mono">{tokens.file}</code>
+            <div className="bg-card rounded-lg border border-border p-6">
+              <h2 className="text-2xl font-bold text-foreground mb-4">Token Mappings</h2>
+              <p className="text-muted-foreground mb-6">
+                This component uses design tokens from: <code className="px-2 py-1 bg-muted rounded text-sm font-mono">{tokens.file}</code>
               </p>
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
+                  <thead className="bg-background">
                     <tr>
-                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Property</th>
-                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Token Path</th>
-                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase">Value</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Property</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Token Path</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Value</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {tokens.mappings.map((mapping, idx) => (
-                      <tr key={idx} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 text-sm font-semibold text-gray-900">{mapping.property}</td>
-                        <td className="px-6 py-4 text-sm font-mono text-gray-600">{mapping.token}</td>
-                        <td className="px-6 py-4 text-sm font-mono text-gray-600">{mapping.value}</td>
+                      <tr key={idx} className="hover:bg-background">
+                        <td className="px-6 py-4 text-sm font-semibold text-foreground">{mapping.property}</td>
+                        <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{mapping.token}</td>
+                        <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{mapping.value}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -631,8 +643,8 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               <div className="flex gap-3">
                 <Info className="text-[#005196] shrink-0 mt-0.5" size={20} />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Token-Driven Component</h3>
-                  <p className="text-sm text-gray-600">
+                  <h3 className="font-semibold text-foreground mb-2">Token-Driven Component</h3>
+                  <p className="text-sm text-muted-foreground">
                     This component is part of our Phase 2 token integration. All visual styles are derived from design tokens,
                     ensuring consistency across the design system and making global updates easier.
                   </p>

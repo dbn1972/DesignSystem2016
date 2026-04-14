@@ -3,35 +3,35 @@ import { Smartphone, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowL
 
 export default function MobileOTPPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link to="/patterns/identity" className="hover:text-[#000080]">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+            <Link to="/patterns/identity" className="hover:text-primary">
               Identity & Access Patterns
             </Link>
             <ChevronRight size={16} />
-            <Link to="/patterns/identity/otp-verification" className="hover:text-[#000080]">
+            <Link to="/patterns/identity/otp-verification" className="hover:text-primary">
               OTP Verification
             </Link>
             <ChevronRight size={16} />
-            <span className="text-gray-900 font-medium">Mobile OTP</span>
+            <span className="text-foreground font-medium">Mobile OTP</span>
           </div>
 
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-16 h-16 bg-blue-100 border-2 border-blue-300 rounded flex items-center justify-center">
-                  <Smartphone size={32} className="text-[#000080]" />
+                  <Smartphone size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Identity & Access Pattern</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Mobile OTP Verification</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Identity & Access Pattern</div>
+                  <h1 className="text-3xl font-bold text-foreground">Mobile OTP Verification</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Complete pattern for mobile number-based OTP verification via SMS. Extends the parent OTP pattern 
                 with mobile-specific states, SMS delivery handling, network considerations, and recovery paths 
                 optimized for Indian telecommunications infrastructure.
@@ -39,15 +39,15 @@ export default function MobileOTPPattern() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-002-01</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002-01</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function MobileOTPPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -82,7 +82,7 @@ export default function MobileOTPPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -120,9 +120,9 @@ export default function MobileOTPPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Mobile OTP Verification Pattern</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -137,35 +137,35 @@ export default function MobileOTPPattern() {
 function OverviewSection() {
   return (
     <section id="overview" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Pattern Overview</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Purpose */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Purpose</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Purpose</h3>
           </div>
           <div className="p-6">
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Verify user identity using SMS-based one-time passwords sent to registered mobile numbers. 
               Optimized for Indian telecommunications infrastructure with handling for network delays, 
               low connectivity, and SMS delivery challenges.
             </p>
             <div className="space-y-2">
-              <InfoItem icon={<Smartphone size={16} className="text-[#000080]" />} text="Mobile-first verification for Indian users" />
-              <InfoItem icon={<MessageSquare size={16} className="text-[#000080]" />} text="SMS delivery across all major carriers" />
-              <InfoItem icon={<Signal size={16} className="text-[#000080]" />} text="Graceful handling of network issues" />
-              <InfoItem icon={<Shield size={16} className="text-[#000080]" />} text="Secure with government SMS gateway" />
+              <InfoItem icon={<Smartphone size={16} className="text-primary" />} text="Mobile-first verification for Indian users" />
+              <InfoItem icon={<MessageSquare size={16} className="text-primary" />} text="SMS delivery across all major carriers" />
+              <InfoItem icon={<Signal size={16} className="text-primary" />} text="Graceful handling of network issues" />
+              <InfoItem icon={<Shield size={16} className="text-primary" />} text="Secure with government SMS gateway" />
             </div>
           </div>
         </div>
 
         {/* User Goals */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">User Goals</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">User Goals</h3>
           </div>
           <div className="p-6 space-y-2">
             <GoalItem text="Receive SMS quickly on any network" />
@@ -177,9 +177,9 @@ function OverviewSection() {
         </div>
 
         {/* When to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <Check size={18} className="text-green-600" />
               When to Use
             </h3>
@@ -195,9 +195,9 @@ function OverviewSection() {
         </div>
 
         {/* When Not to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When Not to Use
             </h3>
@@ -220,11 +220,11 @@ function OverviewSection() {
 function FlowDiagram() {
   return (
     <section id="flow" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">End-to-End Flow Diagram</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-8">
         <div className="space-y-4">
           <FlowStep 
             number={1}
@@ -321,28 +321,28 @@ function FlowDiagram() {
 function ExampleScreens() {
   return (
     <section id="screens" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Example Screens</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Example Screens</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Mobile Number Entry */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Mobile Number Entry</h3>
+            <h3 className="font-bold text-foreground">Mobile Number Entry</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-gray-300 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
-                <Smartphone size={40} className="text-[#000080] mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Enter Mobile Number</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <Smartphone size={40} className="text-primary mx-auto mb-3" />
+                <h4 className="font-bold text-foreground mb-2">Enter Mobile Number</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   We'll send a verification code<br/>
                   to confirm your identity
                 </p>
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-2">
+                <label className="block text-sm font-bold text-foreground mb-2">
                   Mobile Number
                 </label>
                 <div className="flex gap-2">
@@ -350,24 +350,24 @@ function ExampleScreens() {
                     type="text" 
                     value="+91"
                     disabled
-                    className="w-16 px-3 py-3 border-2 border-gray-300 rounded bg-gray-100 text-center font-bold"
+                    className="w-16 px-3 py-3 border-2 border-border rounded bg-muted text-center font-bold"
                   />
                   <input 
                     type="tel" 
                     placeholder="10-digit mobile number"
-                    className="flex-1 px-4 py-3 border-2 border-gray-300 rounded"
+                    className="flex-1 px-4 py-3 border-2 border-border rounded"
                   />
                 </div>
-                <p className="text-xs text-gray-600 mt-2">
+                <p className="text-xs text-muted-foreground mt-2">
                   <Info size={12} className="inline mr-1" />
                   Enter number without country code
                 </p>
               </div>
-              <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-blue-900">
+              <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90">
                 Send OTP
               </button>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Ready for input</p>
               <p><strong>Validation:</strong> 10 digits, starts 6-9</p>
             </div>
@@ -375,22 +375,22 @@ function ExampleScreens() {
         </div>
 
         {/* Invalid Mobile Number */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Invalid Mobile Number</h3>
+            <h3 className="font-bold text-foreground">Invalid Mobile Number</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-red-400 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-red-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Invalid Number</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Invalid Number</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Please check and enter a<br/>
                   valid 10-digit mobile number
                 </p>
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-2">
+                <label className="block text-sm font-bold text-foreground mb-2">
                   Mobile Number
                 </label>
                 <div className="flex gap-2">
@@ -398,7 +398,7 @@ function ExampleScreens() {
                     type="text" 
                     value="+91"
                     disabled
-                    className="w-16 px-3 py-3 border-2 border-gray-300 rounded bg-gray-100 text-center font-bold"
+                    className="w-16 px-3 py-3 border-2 border-border rounded bg-muted text-center font-bold"
                   />
                   <input 
                     type="tel" 
@@ -411,11 +411,11 @@ function ExampleScreens() {
                   Mobile number must be 10 digits
                 </div>
               </div>
-              <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-blue-900">
+              <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90">
                 Send OTP
               </button>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Validation error</p>
               <p><strong>Error:</strong> Incomplete number</p>
             </div>
@@ -423,19 +423,19 @@ function ExampleScreens() {
         </div>
 
         {/* OTP Sent State */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">OTP Sent Successfully</h3>
+            <h3 className="font-bold text-foreground">OTP Sent Successfully</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-gray-300 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
                 <MessageSquare size={40} className="text-green-600 mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">OTP Sent</h4>
-                <p className="text-sm text-gray-600 mb-2">
+                <h4 className="font-bold text-foreground mb-2">OTP Sent</h4>
+                <p className="text-sm text-muted-foreground mb-2">
                   We've sent a 6-digit code to
                 </p>
-                <p className="text-sm font-bold text-gray-900 mb-4">
+                <p className="text-sm font-bold text-foreground mb-4">
                   +91 ******* 123
                 </p>
               </div>
@@ -444,24 +444,24 @@ function ExampleScreens() {
                 SMS sent successfully
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-2">Enter 6-digit OTP</label>
+                <label className="block text-sm font-bold text-foreground mb-2">Enter 6-digit OTP</label>
                 <div className="flex gap-2 justify-center">
                   {[...Array(6)].map((_, i) => (
                     <input 
                       key={i}
                       type="text" 
                       maxLength={1}
-                      className="w-12 h-12 border-2 border-gray-300 rounded text-center font-bold text-xl"
+                      className="w-12 h-12 border-2 border-border rounded text-center font-bold text-xl"
                     />
                   ))}
                 </div>
               </div>
-              <div className="text-center text-sm text-gray-600">
+              <div className="text-center text-sm text-muted-foreground">
                 <Clock size={14} className="inline mr-1" />
-                Code expires in <span className="font-bold text-gray-900">4:45</span>
+                Code expires in <span className="font-bold text-foreground">4:45</span>
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> OTP sent, awaiting input</p>
               <p><strong>Timer:</strong> 5:00 countdown started</p>
             </div>
@@ -469,39 +469,39 @@ function ExampleScreens() {
         </div>
 
         {/* SMS Delayed */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">SMS Delayed</h3>
+            <h3 className="font-bold text-foreground">SMS Delayed</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-yellow-400 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-yellow-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <Clock size={40} className="text-yellow-600 mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Haven't received code yet?</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Haven't received code yet?</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   SMS may take up to 2 minutes<br/>
                   due to network conditions
                 </p>
               </div>
               <div className="bg-yellow-50 border border-yellow-300 rounded p-4">
-                <p className="text-sm text-gray-900 font-bold mb-2">Please wait a moment...</p>
-                <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                <p className="text-sm text-foreground font-bold mb-2">Please wait a moment...</p>
+                <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• SMS sent to: +91 ******* 123</li>
                   <li>• Check your inbox for messages</li>
                   <li>• Delivery may be delayed</li>
                 </ul>
               </div>
               <div className="flex gap-2">
-                <button className="flex-1 px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-blue-900 flex items-center justify-center gap-2">
+                <button className="flex-1 px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90 flex items-center justify-center gap-2">
                   <RefreshCw size={16} />
                   Resend OTP
                 </button>
-                <button className="flex-1 px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50">
+                <button className="flex-1 px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background">
                   Change Number
                 </button>
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> SMS delayed (&gt;60 seconds)</p>
               <p><strong>Action:</strong> Show guidance, enable resend</p>
             </div>
@@ -509,22 +509,22 @@ function ExampleScreens() {
         </div>
 
         {/* SMS Not Received */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">SMS Not Received</h3>
+            <h3 className="font-bold text-foreground">SMS Not Received</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-red-400 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-red-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Still no code?</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Still no code?</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Let's try to resolve this
                 </p>
               </div>
               <div className="bg-blue-50 border border-blue-300 rounded p-4">
-                <p className="text-sm font-bold text-gray-900 mb-2">Troubleshooting Steps:</p>
-                <ul className="text-sm text-gray-700 space-y-1 ml-4">
+                <p className="text-sm font-bold text-foreground mb-2">Troubleshooting Steps:</p>
+                <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• Check if +91 ******* 123 is correct</li>
                   <li>• Ensure you have network signal</li>
                   <li>• Check SMS inbox / message folder</li>
@@ -533,20 +533,20 @@ function ExampleScreens() {
                 </ul>
               </div>
               <div className="space-y-2">
-                <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-blue-900 flex items-center justify-center gap-2">
+                <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90 flex items-center justify-center gap-2">
                   <RefreshCw size={16} />
                   Resend OTP
                 </button>
-                <button className="w-full px-4 py-3 border-2 border-[#000080] bg-white text-[#000080] font-bold rounded hover:bg-blue-50">
+                <button className="w-full px-4 py-3 border-2 border-primary bg-card text-primary font-bold rounded hover:bg-blue-50">
                   Change Mobile Number
                 </button>
-                <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50 flex items-center justify-center gap-2">
+                <button className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background flex items-center justify-center gap-2">
                   <HelpCircle size={16} />
                   Contact Support
                 </button>
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> SMS failed (&gt;3 minutes)</p>
               <p><strong>Actions:</strong> Full recovery options</p>
             </div>
@@ -554,27 +554,27 @@ function ExampleScreens() {
         </div>
 
         {/* Change Number */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Change Mobile Number</h3>
+            <h3 className="font-bold text-foreground">Change Mobile Number</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-gray-300 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
-                <Smartphone size={40} className="text-[#000080] mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Update Mobile Number</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <Smartphone size={40} className="text-primary mx-auto mb-3" />
+                <h4 className="font-bold text-foreground mb-2">Update Mobile Number</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Enter a new number to<br/>
                   receive verification code
                 </p>
               </div>
               <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm">
-                <p className="text-gray-700">
+                <p className="text-muted-foreground">
                   <strong>Current Number:</strong> +91 ******* 123
                 </p>
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-2">
+                <label className="block text-sm font-bold text-foreground mb-2">
                   New Mobile Number
                 </label>
                 <div className="flex gap-2">
@@ -582,25 +582,25 @@ function ExampleScreens() {
                     type="text" 
                     value="+91"
                     disabled
-                    className="w-16 px-3 py-3 border-2 border-gray-300 rounded bg-gray-100 text-center font-bold"
+                    className="w-16 px-3 py-3 border-2 border-border rounded bg-muted text-center font-bold"
                   />
                   <input 
                     type="tel" 
                     placeholder="10-digit mobile number"
-                    className="flex-1 px-4 py-3 border-2 border-gray-300 rounded"
+                    className="flex-1 px-4 py-3 border-2 border-border rounded"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-blue-900">
+                <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90">
                   Send OTP to New Number
                 </button>
-                <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50">
+                <button className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background">
                   Cancel
                 </button>
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Change number flow</p>
               <p><strong>Validation:</strong> New number must differ</p>
             </div>
@@ -608,34 +608,34 @@ function ExampleScreens() {
         </div>
 
         {/* Network Error */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-100 border-b-2 border-red-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Network Error</h3>
+            <h3 className="font-bold text-foreground">Network Error</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-red-500 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-red-500 rounded p-6 space-y-4">
               <div className="text-center">
                 <Signal size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Connection Problem</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Connection Problem</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Unable to send OTP due to<br/>
                   network connectivity issue
                 </p>
               </div>
               <div className="bg-red-50 border-2 border-red-300 rounded p-4 text-sm">
                 <p className="text-red-800 font-bold mb-2">What you can do:</p>
-                <ul className="text-gray-700 space-y-1 ml-4">
+                <ul className="text-muted-foreground space-y-1 ml-4">
                   <li>• Check your internet connection</li>
                   <li>• Ensure you have network signal</li>
                   <li>• Try again in a few moments</li>
                 </ul>
               </div>
-              <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-blue-900 flex items-center justify-center gap-2">
+              <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90 flex items-center justify-center gap-2">
                 <RefreshCw size={16} />
                 Try Again
               </button>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Network failure</p>
               <p><strong>Action:</strong> Retry with backoff</p>
             </div>
@@ -643,32 +643,32 @@ function ExampleScreens() {
         </div>
 
         {/* Success State */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Verification Success</h3>
+            <h3 className="font-bold text-foreground">Verification Success</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-green-400 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-green-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <CheckCircle size={40} className="text-green-600" />
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">Mobile Verified!</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Mobile Verified!</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Your mobile number has been<br/>
                   successfully verified
                 </p>
               </div>
               <div className="bg-green-50 border border-green-300 rounded p-4 text-center">
                 <p className="text-sm text-green-800 font-bold mb-1">Verified Number</p>
-                <p className="text-sm text-gray-900 font-mono">+91 9876543210</p>
+                <p className="text-sm text-foreground font-mono">+91 9876543210</p>
               </div>
-              <div className="text-center text-sm text-gray-600">
+              <div className="text-center text-sm text-muted-foreground">
                 <CheckCircle size={14} className="inline mr-1 text-green-600" />
                 Proceeding to next step...
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Verification successful</p>
               <p><strong>Action:</strong> Auto-redirect in 2 seconds</p>
             </div>
@@ -684,48 +684,48 @@ function ExampleScreens() {
 function MobileEntrySection() {
   return (
     <section id="mobile-entry" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Mobile Number Entry & Validation</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Mobile Number Entry & Validation</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Indian Mobile Number Format</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Indian Mobile Number Format</h3>
         </div>
         <div className="p-6">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b-2 border-gray-300">
-                <th className="text-left py-3 px-4 font-bold text-gray-900">Component</th>
-                <th className="text-left py-3 px-4 font-bold text-gray-900">Format</th>
-                <th className="text-left py-3 px-4 font-bold text-gray-900">Validation Rule</th>
+              <tr className="border-b-2 border-border">
+                <th className="text-left py-3 px-4 font-bold text-foreground">Component</th>
+                <th className="text-left py-3 px-4 font-bold text-foreground">Format</th>
+                <th className="text-left py-3 px-4 font-bold text-foreground">Validation Rule</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Country Code</td>
-                <td className="py-3 px-4 text-gray-700">+91 (auto-populated)</td>
-                <td className="py-3 px-4 text-gray-700">Fixed, non-editable</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Country Code</td>
+                <td className="py-3 px-4 text-muted-foreground">+91 (auto-populated)</td>
+                <td className="py-3 px-4 text-muted-foreground">Fixed, non-editable</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Number Length</td>
-                <td className="py-3 px-4 text-gray-700">10 digits</td>
-                <td className="py-3 px-4 text-gray-700">Exactly 10, no more/less</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Number Length</td>
+                <td className="py-3 px-4 text-muted-foreground">10 digits</td>
+                <td className="py-3 px-4 text-muted-foreground">Exactly 10, no more/less</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">First Digit</td>
-                <td className="py-3 px-4 text-gray-700">6, 7, 8, or 9</td>
-                <td className="py-3 px-4 text-gray-700">Must start with 6-9</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">First Digit</td>
+                <td className="py-3 px-4 text-muted-foreground">6, 7, 8, or 9</td>
+                <td className="py-3 px-4 text-muted-foreground">Must start with 6-9</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Character Set</td>
-                <td className="py-3 px-4 text-gray-700">Numeric only</td>
-                <td className="py-3 px-4 text-gray-700">0-9, no letters/symbols</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Character Set</td>
+                <td className="py-3 px-4 text-muted-foreground">Numeric only</td>
+                <td className="py-3 px-4 text-muted-foreground">0-9, no letters/symbols</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-medium text-gray-900">Example</td>
-                <td className="py-3 px-4 text-gray-700 font-mono">9876543210</td>
-                <td className="py-3 px-4 text-gray-700">Valid format</td>
+                <td className="py-3 px-4 font-medium text-foreground">Example</td>
+                <td className="py-3 px-4 text-muted-foreground font-mono">9876543210</td>
+                <td className="py-3 px-4 text-muted-foreground">Valid format</td>
               </tr>
             </tbody>
           </table>
@@ -734,9 +734,9 @@ function MobileEntrySection() {
 
       <div className="grid grid-cols-2 gap-6">
         {/* Input Validation */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Client-Side Validation</h3>
+            <h3 className="font-bold text-foreground">Client-Side Validation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <ValidationRule 
@@ -768,30 +768,30 @@ function MobileEntrySection() {
         </div>
 
         {/* Masked Display */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Masked Number Display</h3>
+            <h3 className="font-bold text-foreground">Masked Number Display</h3>
           </div>
           <div className="p-6 space-y-4">
             <div className="text-sm space-y-3">
-              <div className="bg-gray-50 border border-gray-300 rounded p-3">
-                <p className="text-xs text-gray-600 mb-1">Standard Masking (Recommended)</p>
-                <p className="font-mono text-gray-900">+91 ******* 210</p>
-                <p className="text-xs text-gray-600 mt-1">Show last 3 digits for confirmation</p>
+              <div className="bg-background border border-border rounded p-3">
+                <p className="text-xs text-muted-foreground mb-1">Standard Masking (Recommended)</p>
+                <p className="font-mono text-foreground">+91 ******* 210</p>
+                <p className="text-xs text-muted-foreground mt-1">Show last 3 digits for confirmation</p>
               </div>
-              <div className="bg-gray-50 border border-gray-300 rounded p-3">
-                <p className="text-xs text-gray-600 mb-1">Partial Masking (Alternative)</p>
-                <p className="font-mono text-gray-900">+91 987*****10</p>
-                <p className="text-xs text-gray-600 mt-1">Show first 3 and last 2 digits</p>
+              <div className="bg-background border border-border rounded p-3">
+                <p className="text-xs text-muted-foreground mb-1">Partial Masking (Alternative)</p>
+                <p className="font-mono text-foreground">+91 987*****10</p>
+                <p className="text-xs text-muted-foreground mt-1">Show first 3 and last 2 digits</p>
               </div>
-              <div className="bg-gray-50 border border-gray-300 rounded p-3">
-                <p className="text-xs text-gray-600 mb-1">High Security (Max Privacy)</p>
-                <p className="font-mono text-gray-900">+91 ********** </p>
-                <p className="text-xs text-gray-600 mt-1">Fully masked, show "your registered number"</p>
+              <div className="bg-background border border-border rounded p-3">
+                <p className="text-xs text-muted-foreground mb-1">High Security (Max Privacy)</p>
+                <p className="font-mono text-foreground">+91 ********** </p>
+                <p className="text-xs text-muted-foreground mt-1">Fully masked, show "your registered number"</p>
               </div>
             </div>
             <div className="bg-yellow-50 border border-yellow-300 rounded p-3 text-xs">
-              <p className="text-gray-700">
+              <p className="text-muted-foreground">
                 <strong>Recommendation:</strong> Show last 3 digits for user confirmation while maintaining privacy
               </p>
             </div>
@@ -807,13 +807,13 @@ function MobileEntrySection() {
 function SMSHandlingSection() {
   return (
     <section id="sms-handling" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">SMS Delivery & Delay Handling</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">SMS Delivery & Delay Handling</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">SMS Template & Content</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">SMS Template & Content</h3>
         </div>
         <div className="p-6">
           <div className="bg-gray-900 text-green-400 p-6 rounded font-mono text-sm">
@@ -826,20 +826,20 @@ function SMSHandlingSection() {
           </div>
           <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
             <div>
-              <p className="font-bold text-gray-900 mb-1">Message Length</p>
-              <p className="text-gray-700">Under 160 characters (1 SMS credit)</p>
+              <p className="font-bold text-foreground mb-1">Message Length</p>
+              <p className="text-muted-foreground">Under 160 characters (1 SMS credit)</p>
             </div>
             <div>
-              <p className="font-bold text-gray-900 mb-1">Language</p>
-              <p className="text-gray-700">English (multilingual support in roadmap)</p>
+              <p className="font-bold text-foreground mb-1">Language</p>
+              <p className="text-muted-foreground">English (multilingual support in roadmap)</p>
             </div>
             <div>
-              <p className="font-bold text-gray-900 mb-1">Sender ID</p>
-              <p className="text-gray-700">GOV-IN / VM-GOVIND (registered)</p>
+              <p className="font-bold text-foreground mb-1">Sender ID</p>
+              <p className="text-muted-foreground">GOV-IN / VM-GOVIND (registered)</p>
             </div>
             <div>
-              <p className="font-bold text-gray-900 mb-1">DLT Registration</p>
-              <p className="text-gray-700">TRAI DLT compliant template</p>
+              <p className="font-bold text-foreground mb-1">DLT Registration</p>
+              <p className="text-muted-foreground">TRAI DLT compliant template</p>
             </div>
           </div>
         </div>
@@ -847,66 +847,66 @@ function SMSHandlingSection() {
 
       <div className="grid grid-cols-3 gap-6">
         {/* Immediate Delivery */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900 text-sm">Immediate (0-30s)</h3>
+            <h3 className="font-bold text-foreground text-sm">Immediate (0-30s)</h3>
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
               <CheckCircle size={32} className="text-green-600 mx-auto mb-2" />
-              <p className="text-xs font-bold text-gray-900">Ideal Delivery</p>
+              <p className="text-xs font-bold text-foreground">Ideal Delivery</p>
             </div>
             <div className="space-y-2 text-xs">
-              <p className="text-gray-700"><strong>Status:</strong> SMS delivered</p>
-              <p className="text-gray-700"><strong>User Action:</strong> Enter OTP</p>
-              <p className="text-gray-700"><strong>UI State:</strong> Normal flow</p>
-              <p className="text-gray-700"><strong>Message:</strong> None (success)</p>
+              <p className="text-muted-foreground"><strong>Status:</strong> SMS delivered</p>
+              <p className="text-muted-foreground"><strong>User Action:</strong> Enter OTP</p>
+              <p className="text-muted-foreground"><strong>UI State:</strong> Normal flow</p>
+              <p className="text-muted-foreground"><strong>Message:</strong> None (success)</p>
             </div>
           </div>
         </div>
 
         {/* Slight Delay */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900 text-sm">Delayed (30s-2min)</h3>
+            <h3 className="font-bold text-foreground text-sm">Delayed (30s-2min)</h3>
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
               <Clock size={32} className="text-yellow-600 mx-auto mb-2" />
-              <p className="text-xs font-bold text-gray-900">Minor Delay</p>
+              <p className="text-xs font-bold text-foreground">Minor Delay</p>
             </div>
             <div className="space-y-2 text-xs">
-              <p className="text-gray-700"><strong>Status:</strong> In transit</p>
-              <p className="text-gray-700"><strong>User Action:</strong> Wait patiently</p>
-              <p className="text-gray-700"><strong>UI State:</strong> Show "wait" message</p>
-              <p className="text-gray-700"><strong>Message:</strong> "SMS may take up to 2 minutes"</p>
+              <p className="text-muted-foreground"><strong>Status:</strong> In transit</p>
+              <p className="text-muted-foreground"><strong>User Action:</strong> Wait patiently</p>
+              <p className="text-muted-foreground"><strong>UI State:</strong> Show "wait" message</p>
+              <p className="text-muted-foreground"><strong>Message:</strong> "SMS may take up to 2 minutes"</p>
             </div>
           </div>
         </div>
 
         {/* Major Delay */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900 text-sm">Failed (&gt;2min)</h3>
+            <h3 className="font-bold text-foreground text-sm">Failed (&gt;2min)</h3>
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
               <XCircle size={32} className="text-red-600 mx-auto mb-2" />
-              <p className="text-xs font-bold text-gray-900">Delivery Issue</p>
+              <p className="text-xs font-bold text-foreground">Delivery Issue</p>
             </div>
             <div className="space-y-2 text-xs">
-              <p className="text-gray-700"><strong>Status:</strong> Likely failed</p>
-              <p className="text-gray-700"><strong>User Action:</strong> Resend / change number</p>
-              <p className="text-gray-700"><strong>UI State:</strong> Show recovery options</p>
-              <p className="text-gray-700"><strong>Message:</strong> "Having trouble? Try these steps..."</p>
+              <p className="text-muted-foreground"><strong>Status:</strong> Likely failed</p>
+              <p className="text-muted-foreground"><strong>User Action:</strong> Resend / change number</p>
+              <p className="text-muted-foreground"><strong>UI State:</strong> Show recovery options</p>
+              <p className="text-muted-foreground"><strong>Message:</strong> "Having trouble? Try these steps..."</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <Info size={20} className="text-[#000080]" />
+        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+          <Info size={20} className="text-primary" />
           Progressive Disclosure: User Guidance Timeline
         </h3>
         <div className="space-y-3 text-sm">
@@ -941,15 +941,15 @@ function SMSHandlingSection() {
 function NetworkConsiderations() {
   return (
     <section id="network" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Low Network & Connectivity Handling</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Low Network & Connectivity Handling</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Common Network Issues */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Common Network Issues in India</h3>
+            <h3 className="font-bold text-foreground">Common Network Issues in India</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <NetworkIssue 
@@ -981,13 +981,13 @@ function NetworkConsiderations() {
         </div>
 
         {/* Retry Logic */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">SMS Retry & Fallback Logic</h3>
+            <h3 className="font-bold text-foreground">SMS Retry & Fallback Logic</h3>
           </div>
           <div className="p-6 space-y-4">
             <div className="text-sm">
-              <p className="font-bold text-gray-900 mb-2">Automated Retry Strategy:</p>
+              <p className="font-bold text-foreground mb-2">Automated Retry Strategy:</p>
               <div className="space-y-2 ml-4">
                 <RetryStep step="1st Attempt" timing="Immediate" gateway="Primary gateway (BSNL/MTNL)" />
                 <RetryStep step="2nd Attempt" timing="+30 seconds" gateway="Secondary gateway (Private vendor)" />
@@ -996,7 +996,7 @@ function NetworkConsiderations() {
               </div>
             </div>
             <div className="bg-yellow-50 border border-yellow-300 rounded p-3 text-xs">
-              <p className="text-gray-700">
+              <p className="text-muted-foreground">
                 <strong>Note:</strong> System attempts 3 automated retries before requiring user action. 
                 Each retry logged for monitoring SMS gateway reliability.
               </p>
@@ -1005,28 +1005,28 @@ function NetworkConsiderations() {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">User Guidance for Network Issues</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">User Guidance for Network Issues</h3>
         </div>
         <div className="p-6">
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-bold text-gray-900 mb-3">Before Requesting OTP</h4>
+              <h4 className="font-bold text-foreground mb-3">Before Requesting OTP</h4>
               <div className="space-y-2">
-                <GuidanceItem icon={<Signal size={14} className="text-[#000080]" />} text="Check you have network signal (2G/3G/4G/5G)" />
-                <GuidanceItem icon={<Smartphone size={14} className="text-[#000080]" />} text="Ensure correct SIM is active (if dual SIM)" />
-                <GuidanceItem icon={<Phone size={14} className="text-[#000080]" />} text="Verify mobile number is correct before submitting" />
-                <GuidanceItem icon={<MessageSquare size={14} className="text-[#000080]" />} text="Check SMS inbox has space (not full)" />
+                <GuidanceItem icon={<Signal size={14} className="text-primary" />} text="Check you have network signal (2G/3G/4G/5G)" />
+                <GuidanceItem icon={<Smartphone size={14} className="text-primary" />} text="Ensure correct SIM is active (if dual SIM)" />
+                <GuidanceItem icon={<Phone size={14} className="text-primary" />} text="Verify mobile number is correct before submitting" />
+                <GuidanceItem icon={<MessageSquare size={14} className="text-primary" />} text="Check SMS inbox has space (not full)" />
               </div>
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-3">If OTP Doesn't Arrive</h4>
+              <h4 className="font-bold text-foreground mb-3">If OTP Doesn't Arrive</h4>
               <div className="space-y-2">
-                <GuidanceItem icon={<Clock size={14} className="text-[#000080]" />} text="Wait 2 minutes before resending" />
-                <GuidanceItem icon={<RefreshCw size={14} className="text-[#000080]" />} text="Try resending OTP (max 3 times per hour)" />
-                <GuidanceItem icon={<Smartphone size={14} className="text-[#000080]" />} text="Restart phone and check again" />
-                <GuidanceItem icon={<HelpCircle size={14} className="text-[#000080]" />} text="Contact support if problem persists" />
+                <GuidanceItem icon={<Clock size={14} className="text-primary" />} text="Wait 2 minutes before resending" />
+                <GuidanceItem icon={<RefreshCw size={14} className="text-primary" />} text="Try resending OTP (max 3 times per hour)" />
+                <GuidanceItem icon={<Smartphone size={14} className="text-primary" />} text="Restart phone and check again" />
+                <GuidanceItem icon={<HelpCircle size={14} className="text-primary" />} text="Contact support if problem persists" />
               </div>
             </div>
           </div>
@@ -1041,15 +1041,15 @@ function NetworkConsiderations() {
 function AccessibilitySection() {
   return (
     <section id="accessibility" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Accessibility Guidelines</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Accessibility Guidelines</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Mobile Input Accessibility */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Mobile Number Input</h3>
+            <h3 className="font-bold text-foreground">Mobile Number Input</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem 
@@ -1076,9 +1076,9 @@ function AccessibilitySection() {
         </div>
 
         {/* OTP Input Accessibility */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">OTP Field Accessibility</h3>
+            <h3 className="font-bold text-foreground">OTP Field Accessibility</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem 
@@ -1105,17 +1105,17 @@ function AccessibilitySection() {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">SMS Auto-Read APIs (Web OTP)</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">SMS Auto-Read APIs (Web OTP)</h3>
         </div>
         <div className="p-6">
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-bold text-gray-900 mb-3">iOS Safari (WebKit)</h4>
-              <div className="bg-gray-50 border border-gray-300 rounded p-4">
-                <p className="text-gray-700 mb-2">Automatically reads SMS with OTP when:</p>
-                <ul className="space-y-1 ml-4 text-gray-700">
+              <h4 className="font-bold text-foreground mb-3">iOS Safari (WebKit)</h4>
+              <div className="bg-background border border-border rounded p-4">
+                <p className="text-muted-foreground mb-2">Automatically reads SMS with OTP when:</p>
+                <ul className="space-y-1 ml-4 text-muted-foreground">
                   <li>• Input has autocomplete="one-time-code"</li>
                   <li>• SMS contains OTP in recognizable format</li>
                   <li>• Domain matches sender's domain binding</li>
@@ -1123,9 +1123,9 @@ function AccessibilitySection() {
               </div>
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-3">Android Chrome (Web OTP API)</h4>
-              <div className="bg-gray-50 border border-gray-300 rounded p-4">
-                <p className="text-gray-700 mb-2">Use WebOTP API with SMS format:</p>
+              <h4 className="font-bold text-foreground mb-3">Android Chrome (Web OTP API)</h4>
+              <div className="bg-background border border-border rounded p-4">
+                <p className="text-muted-foreground mb-2">Use WebOTP API with SMS format:</p>
                 <div className="bg-gray-900 text-green-400 p-2 rounded font-mono text-xs mt-2">
                   Your code: 123456<br/>
                   @example.com #123456
@@ -1137,11 +1137,11 @@ function AccessibilitySection() {
       </div>
 
       <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-orange-600" />
           Screen Reader Guidance
         </h3>
-        <div className="space-y-2 text-sm text-gray-700">
+        <div className="space-y-2 text-sm text-muted-foreground">
           <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Announce 'Enter mobile number' when field gains focus" />
           <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Announce 'OTP sent to +91 ******* 123' after successful SMS send" />
           <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Announce 'Code expires in X minutes' when OTP screen loads" />
@@ -1159,13 +1159,13 @@ function AccessibilitySection() {
 function ImplementationSection() {
   return (
     <section id="implementation" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Implementation Notes</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Implementation Notes</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">SMS Gateway Integration</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">SMS Gateway Integration</h3>
         </div>
         <div className="p-6 space-y-4 text-sm">
           <ImplementationItem 
@@ -1205,9 +1205,9 @@ function ImplementationSection() {
       </div>
 
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Code Example: Mobile Input</h3>
+            <h3 className="font-bold text-foreground">Code Example: Mobile Input</h3>
           </div>
           <div className="p-6">
             <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
@@ -1244,9 +1244,9 @@ function ImplementationSection() {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Code Example: SMS Sending</h3>
+            <h3 className="font-bold text-foreground">Code Example: SMS Sending</h3>
           </div>
           <div className="p-6">
             <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
@@ -1286,14 +1286,14 @@ async function sendMobileOTP(mobile) {
 function GovernanceSection() {
   return (
     <section id="governance" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Governance & Lifecycle</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Governance & Lifecycle</h2>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Lifecycle Status</h3>
+            <h3 className="font-bold text-foreground">Lifecycle Status</h3>
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
@@ -1302,17 +1302,17 @@ function GovernanceSection() {
               </div>
             </div>
             <div className="text-sm space-y-2">
-              <p className="text-gray-700"><strong>Version:</strong> 1.0.0</p>
-              <p className="text-gray-700"><strong>Released:</strong> April 2026</p>
-              <p className="text-gray-700"><strong>Last Updated:</strong> April 2026</p>
-              <p className="text-gray-700"><strong>Next Review:</strong> October 2026</p>
+              <p className="text-muted-foreground"><strong>Version:</strong> 1.0.0</p>
+              <p className="text-muted-foreground"><strong>Released:</strong> April 2026</p>
+              <p className="text-muted-foreground"><strong>Last Updated:</strong> April 2026</p>
+              <p className="text-muted-foreground"><strong>Next Review:</strong> October 2026</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Conformance Level</h3>
+            <h3 className="font-bold text-foreground">Conformance Level</h3>
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
@@ -1320,9 +1320,9 @@ function GovernanceSection() {
                 MANDATORY
               </div>
             </div>
-            <div className="text-sm space-y-2 text-gray-700">
+            <div className="text-sm space-y-2 text-muted-foreground">
               <p>All mobile-based authentication flows MUST use this pattern.</p>
-              <p className="font-bold text-gray-900 mt-3">Required For:</p>
+              <p className="font-bold text-foreground mt-3">Required For:</p>
               <ul className="space-y-1 ml-4">
                 <li>• Citizen sign-up/sign-in</li>
                 <li>• Mobile verification</li>
@@ -1332,36 +1332,36 @@ function GovernanceSection() {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Pattern Owner</h3>
+            <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
             <div>
-              <p className="font-bold text-gray-900">Team:</p>
-              <p className="text-gray-700">Identity & Access Team</p>
+              <p className="font-bold text-foreground">Team:</p>
+              <p className="text-muted-foreground">Identity & Access Team</p>
             </div>
             <div>
-              <p className="font-bold text-gray-900">Contact:</p>
-              <p className="text-gray-700">mobile-otp@ux4g.gov.in</p>
+              <p className="font-bold text-foreground">Contact:</p>
+              <p className="text-muted-foreground">mobile-otp@ux4g.gov.in</p>
             </div>
             <div>
-              <p className="font-bold text-gray-900">Support Hours:</p>
-              <p className="text-gray-700">Mon-Fri, 9 AM - 6 PM IST</p>
+              <p className="font-bold text-foreground">Support Hours:</p>
+              <p className="text-muted-foreground">Mon-Fri, 9 AM - 6 PM IST</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Support & Escalation Guidance
         </h3>
         <div className="grid grid-cols-2 gap-6 text-sm">
           <div>
-            <p className="font-bold text-gray-900 mb-2">For Implementation Questions:</p>
-            <ul className="space-y-1 text-gray-700 ml-4">
+            <p className="font-bold text-foreground mb-2">For Implementation Questions:</p>
+            <ul className="space-y-1 text-muted-foreground ml-4">
               <li>• Email: support@ux4g.gov.in</li>
               <li>• Slack: #ux4g-mobile-otp</li>
               <li>• Docs: docs.ux4g.gov.in/mobile-otp</li>
@@ -1369,8 +1369,8 @@ function GovernanceSection() {
             </ul>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-2">For User-Facing Issues:</p>
-            <ul className="space-y-1 text-gray-700 ml-4">
+            <p className="font-bold text-foreground mb-2">For User-Facing Issues:</p>
+            <ul className="space-y-1 text-muted-foreground ml-4">
               <li>• Helpline: 1800-XXX-XXXX (toll-free)</li>
               <li>• SMS not received: Check gateway status page</li>
               <li>• Report bugs: bugs@ux4g.gov.in</li>
@@ -1387,34 +1387,34 @@ function GovernanceSection() {
 
 function QuickReference() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
         <div>
-          <p className="font-bold text-gray-900 mb-1">Mobile Format</p>
-          <p className="text-gray-700">+91 + 10 digits (6-9 first)</p>
+          <p className="font-bold text-foreground mb-1">Mobile Format</p>
+          <p className="text-muted-foreground">+91 + 10 digits (6-9 first)</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">OTP Length</p>
-          <p className="text-gray-700">6 digits (numeric only)</p>
+          <p className="font-bold text-foreground mb-1">OTP Length</p>
+          <p className="text-muted-foreground">6 digits (numeric only)</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">SMS Delivery</p>
-          <p className="text-gray-700">0-30s (ideal), up to 2min</p>
+          <p className="font-bold text-foreground mb-1">SMS Delivery</p>
+          <p className="text-muted-foreground">0-30s (ideal), up to 2min</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Validity</p>
-          <p className="text-gray-700">5 minutes</p>
+          <p className="font-bold text-foreground mb-1">Validity</p>
+          <p className="text-muted-foreground">5 minutes</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Resend Limit</p>
-          <p className="text-gray-700">3 per hour per mobile</p>
+          <p className="font-bold text-foreground mb-1">Resend Limit</p>
+          <p className="text-muted-foreground">3 per hour per mobile</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">SMS Gateway</p>
-          <p className="text-gray-700">CDAC/NIC (primary)</p>
+          <p className="font-bold text-foreground mb-1">SMS Gateway</p>
+          <p className="text-muted-foreground">CDAC/NIC (primary)</p>
         </div>
       </div>
     </div>
@@ -1423,20 +1423,20 @@ function QuickReference() {
 
 function ParentPattern() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Parent Pattern</h3>
+        <h3 className="font-bold text-foreground text-sm">Parent Pattern</h3>
       </div>
       <div className="p-4">
         <Link 
           to="/patterns/identity/otp-verification"
-          className="block p-3 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
-            <Hash size={16} className="text-[#000080]" />
-            <span className="font-bold text-sm text-gray-900">OTP Verification</span>
+            <Hash size={16} className="text-primary" />
+            <span className="font-bold text-sm text-foreground">OTP Verification</span>
           </div>
-          <p className="text-xs text-gray-600">Parent pattern with shared logic</p>
+          <p className="text-xs text-muted-foreground">Parent pattern with shared logic</p>
         </Link>
       </div>
     </div>
@@ -1445,9 +1445,9 @@ function ParentPattern() {
 
 function RelatedPatterns() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <RelatedPatternLink to="/patterns/identity/otp-verification" text="Email OTP Pattern" />
@@ -1462,9 +1462,9 @@ function RelatedPatterns() {
 
 function Resources() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Resources</h3>
+        <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <ResourceLink icon={<MessageSquare size={14} />} text="TRAI DLT Guidelines" />
@@ -1483,7 +1483,7 @@ function InfoItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-2">
       {icon}
-      <span className="text-xs text-gray-700 flex-1">{text}</span>
+      <span className="text-xs text-muted-foreground flex-1">{text}</span>
     </div>
   );
 }
@@ -1492,7 +1492,7 @@ function GoalItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <CheckCircle size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
-      <span className="text-sm text-gray-700">{text}</span>
+      <span className="text-sm text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1501,7 +1501,7 @@ function WhenItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <ChevronRight size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1510,7 +1510,7 @@ function WhenNotItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <ChevronRight size={14} className="text-red-600 flex-shrink-0 mt-0.5" />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1525,27 +1525,27 @@ function FlowStep({ number, title, description, state, branches, variant }: {
 }) {
   const bgColor = variant === 'success' ? 'bg-green-50' : 
                   variant === 'error' ? 'bg-red-50' :
-                  variant === 'warning' ? 'bg-orange-50' : 'bg-gray-50';
+                  variant === 'warning' ? 'bg-orange-50' : 'bg-background';
   const borderColor = variant === 'success' ? 'border-green-300' : 
                       variant === 'error' ? 'border-red-300' :
-                      variant === 'warning' ? 'border-orange-300' : 'border-gray-300';
+                      variant === 'warning' ? 'border-orange-300' : 'border-border';
   
   return (
     <div className={`${bgColor} border-2 ${borderColor} rounded-lg p-4`}>
       <div className="flex items-start gap-4">
-        <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
+        <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
           {number}
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-gray-900">{title}</h4>
-            <span className="text-xs font-bold text-gray-600 px-2 py-1 bg-white border border-gray-300 rounded">
+            <h4 className="font-bold text-foreground">{title}</h4>
+            <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
           </div>
-          <p className="text-sm text-gray-700">{description}</p>
+          <p className="text-sm text-muted-foreground">{description}</p>
           {branches && (
-            <div className="mt-2 text-xs text-gray-600 flex items-center gap-2">
+            <div className="mt-2 text-xs text-muted-foreground flex items-center gap-2">
               <ArrowRight size={14} />
               <span>Branches to success, delay, or error path</span>
             </div>
@@ -1558,10 +1558,10 @@ function FlowStep({ number, title, description, state, branches, variant }: {
 
 function ValidationRule({ rule, description, timing }: { rule: string; description: string; timing: string }) {
   return (
-    <div className="bg-white border border-gray-300 rounded p-3">
-      <p className="font-bold text-gray-900 mb-1">{rule}</p>
-      <p className="text-gray-700 mb-2">{description}</p>
-      <p className="text-xs text-gray-600">
+    <div className="bg-card border border-border rounded p-3">
+      <p className="font-bold text-foreground mb-1">{rule}</p>
+      <p className="text-muted-foreground mb-2">{description}</p>
+      <p className="text-xs text-muted-foreground">
         <Clock size={12} className="inline mr-1" />
         <span className="font-bold">Timing:</span> {timing}
       </p>
@@ -1571,9 +1571,9 @@ function ValidationRule({ rule, description, timing }: { rule: string; descripti
 
 function NetworkIssue({ issue, description, solution }: { issue: string; description: string; solution: string }) {
   return (
-    <div className="bg-white border border-gray-300 rounded p-3">
-      <p className="font-bold text-gray-900 mb-1">{issue}</p>
-      <p className="text-gray-700 text-xs mb-2">{description}</p>
+    <div className="bg-card border border-border rounded p-3">
+      <p className="font-bold text-foreground mb-1">{issue}</p>
+      <p className="text-muted-foreground text-xs mb-2">{description}</p>
       <p className="text-xs text-green-700">
         <CheckCircle size={12} className="inline mr-1" />
         <span className="font-bold">Solution:</span> {solution}
@@ -1585,10 +1585,10 @@ function NetworkIssue({ issue, description, solution }: { issue: string; descrip
 function RetryStep({ step, timing, gateway }: { step: string; timing: string; gateway: string }) {
   return (
     <div className="flex items-start gap-2">
-      <div className="w-16 text-xs font-bold text-gray-900">{step}</div>
+      <div className="w-16 text-xs font-bold text-foreground">{step}</div>
       <div className="flex-1">
-        <p className="text-xs text-gray-700"><strong>Timing:</strong> {timing}</p>
-        <p className="text-xs text-gray-600">{gateway}</p>
+        <p className="text-xs text-muted-foreground"><strong>Timing:</strong> {timing}</p>
+        <p className="text-xs text-muted-foreground">{gateway}</p>
       </div>
     </div>
   );
@@ -1597,10 +1597,10 @@ function RetryStep({ step, timing, gateway }: { step: string; timing: string; ga
 function TimelineItem({ time, message, action }: { time: string; message: string; action: string }) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-24 text-xs font-bold text-gray-900 font-mono">{time}</div>
+      <div className="w-24 text-xs font-bold text-foreground font-mono">{time}</div>
       <div className="flex-1">
-        <p className="text-xs text-gray-900 font-bold mb-1">{message}</p>
-        <p className="text-xs text-gray-600">{action}</p>
+        <p className="text-xs text-foreground font-bold mb-1">{message}</p>
+        <p className="text-xs text-muted-foreground">{action}</p>
       </div>
     </div>
   );
@@ -1610,7 +1610,7 @@ function GuidanceItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-2">
       {icon}
-      <span className="text-xs text-gray-700">{text}</span>
+      <span className="text-xs text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1618,8 +1618,8 @@ function GuidanceItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 function AccessibilityItem({ label, description }: { label: string; description: string }) {
   return (
     <div>
-      <p className="font-bold text-gray-900 mb-1">{label}</p>
-      <p className="text-gray-700">{description}</p>
+      <p className="font-bold text-foreground mb-1">{label}</p>
+      <p className="text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -1627,11 +1627,11 @@ function AccessibilityItem({ label, description }: { label: string; description:
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-gray-900 mb-2">{category}</h4>
+      <h4 className="font-bold text-foreground mb-2">{category}</h4>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
-          <li key={index} className="text-gray-700 flex items-start gap-2">
-            <span className="text-[#000080] font-bold">•</span>
+          <li key={index} className="text-muted-foreground flex items-start gap-2">
+            <span className="text-primary font-bold">•</span>
             <span>{req}</span>
           </li>
         ))}
@@ -1642,10 +1642,10 @@ function ImplementationItem({ category, requirements }: { category: string; requ
 
 function RelatedPatternLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="block p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
-        <ArrowRight size={12} className="text-[#000080]" />
-        <span className="text-gray-900">{text}</span>
+        <ArrowRight size={12} className="text-primary" />
+        <span className="text-foreground">{text}</span>
       </div>
     </Link>
   );
@@ -1653,8 +1653,8 @@ function RelatedPatternLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-gray-900">
-      <span className="text-[#000080]">{icon}</span>
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+      <span className="text-primary">{icon}</span>
       <span>{text}</span>
     </a>
   );

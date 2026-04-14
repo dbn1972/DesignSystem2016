@@ -10,8 +10,8 @@ import { Menu, Search, Bell, User, ChevronDown } from 'lucide-react';
 // Import the actual Header component for live preview
 const HeaderPreview = ({ variant, withSearch, showNotifications, showProfile }: any) => (
   <header className={`w-full ${
-    variant === 'government' ? 'bg-[#000080] text-white' :
-    variant === 'light' ? 'bg-white text-gray-900 border-b border-gray-200' :
+    variant === 'government' ? 'bg-primary text-white' :
+    variant === 'light' ? 'bg-card text-foreground border-b border-border' :
     'bg-gray-900 text-white'
   }`}>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -256,7 +256,7 @@ export const Header: React.FC<HeaderProps> = ({
     'w-full',
     sticky && 'sticky top-0 z-50',
     variant === 'government' && 'bg-[#005196] text-white',
-    variant === 'light' && 'bg-white text-gray-900 border-b border-gray-200',
+    variant === 'light' && 'bg-card text-foreground border-b border-border',
     variant === 'dark' && 'bg-gray-900 text-white',
     className
   );
@@ -372,7 +372,7 @@ export const headerVariants = cva(
     variants: {
       variant: {
         government: 'bg-[#005196] text-white',
-        light: 'bg-white text-gray-900 border-b border-gray-200',
+        light: 'bg-card text-foreground border-b border-border',
         dark: 'bg-gray-900 text-white',
       },
       sticky: {
@@ -482,7 +482,7 @@ export class HeaderComponent {
     if (this.variant === 'government') {
       classes.push('bg-[#005196]', 'text-white');
     } else if (this.variant === 'light') {
-      classes.push('bg-white', 'text-gray-900', 'border-b', 'border-gray-200');
+      classes.push('bg-card', 'text-foreground', 'border-b', 'border-border');
     } else {
       classes.push('bg-gray-900', 'text-white');
     }

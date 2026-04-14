@@ -71,7 +71,7 @@ function extractTokens(
     if (value && typeof value === 'object') {
       if ('value' in value && value.value !== undefined) {
         // This is a token with a value
-        tokens[tokenPathToCSSVar(newPath)] = value.value;
+        tokens[tokenPathToCSSVar(newPath)] = value.value as string | number;
       } else {
         // This is a nested object, recurse
         extractTokens(value as TokenObject, newPath, tokens);

@@ -11,7 +11,7 @@
  * ```
  */
 
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../utils/cn';
 import { SelectProps } from './Select.types';
 import { useFieldContext } from '../Field/Field.context';

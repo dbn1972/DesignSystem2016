@@ -3,7 +3,7 @@ import { ArrowRight, Package, AlertTriangle, CheckCircle2, BookOpen, Code, Zap, 
 
 export default function MigrationGuides() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-saffron-50 via-white to-green-50 border-b-4 border-saffron-600 py-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -13,10 +13,10 @@ export default function MigrationGuides() {
             </div>
             <div>
               <div className="text-sm font-semibold text-saffron-700 uppercase tracking-wide">Resources</div>
-              <h1 className="text-4xl font-bold text-gray-900">Migration Guides</h1>
+              <h1 className="text-4xl font-bold text-foreground">Migration Guides</h1>
             </div>
           </div>
-          <p className="text-xl text-gray-700 mt-4 max-w-3xl">
+          <p className="text-xl text-muted-foreground mt-4 max-w-3xl">
             Comprehensive guides for migrating from existing UI libraries to the UX4G Design System
           </p>
           
@@ -33,7 +33,7 @@ export default function MigrationGuides() {
         {/* Quick Navigation */}
         <section className="mb-12">
           <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-            <h2 className="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
+            <h2 className="font-bold text-foreground text-lg mb-4 flex items-center gap-2">
               <BookOpen size={20} className="text-blue-600" />
               Quick Navigation
             </h2>
@@ -50,7 +50,7 @@ export default function MigrationGuides() {
 
         {/* Migration Strategy */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Recommended Migration Strategy</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Recommended Migration Strategy</h2>
           
           <div className="grid grid-cols-3 gap-6 mb-8">
             <StrategyCard
@@ -116,8 +116,8 @@ export default function MigrationGuides() {
 
         {/* Popular Library Migrations */}
         <section id="popular-libraries" className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Popular Library Migrations</h2>
-          <p className="text-gray-700 mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Popular Library Migrations</h2>
+          <p className="text-muted-foreground mb-6">
             Step-by-step guides for migrating from the most common UI libraries to UX4G
           </p>
 
@@ -257,8 +257,8 @@ export default function MigrationGuides() {
 
         {/* Version Migration */}
         <section id="version-migration" className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">UX4G Version Migration</h2>
-          <p className="text-gray-700 mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">UX4G Version Migration</h2>
+          <p className="text-muted-foreground mb-6">
             Guides for upgrading between major versions of the UX4G Design System
           </p>
 
@@ -285,8 +285,8 @@ export default function MigrationGuides() {
 
         {/* Framework Migration */}
         <section id="framework-migration" className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Framework Migration (Within UX4G)</h2>
-          <p className="text-gray-700 mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Framework Migration (Within UX4G)</h2>
+          <p className="text-muted-foreground mb-6">
             Switching between React and Angular implementations of UX4G components
           </p>
 
@@ -321,7 +321,7 @@ export default function MigrationGuides() {
 
         {/* Best Practices */}
         <section id="best-practices" className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Migration Best Practices</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Migration Best Practices</h2>
           
           <div className="space-y-6">
             <BestPracticeCard
@@ -380,7 +380,7 @@ export default function MigrationGuides() {
 
         {/* Troubleshooting */}
         <section id="troubleshooting" className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Common Migration Issues</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">Common Migration Issues</h2>
           
           <div className="space-y-4">
             <TroubleshootingItem
@@ -413,8 +413,8 @@ export default function MigrationGuides() {
         {/* Get Support */}
         <section id="support" className="mb-12">
           <div className="bg-gradient-to-br from-saffron-50 to-green-50 border-2 border-saffron-200 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Need Migration Support?</h2>
-            <p className="text-gray-700 mb-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Need Migration Support?</h2>
+            <p className="text-muted-foreground mb-6">
               Our team is here to help you successfully migrate to UX4G. We offer various support channels for teams at different stages of adoption.
             </p>
 
@@ -444,8 +444,8 @@ export default function MigrationGuides() {
         </section>
 
         {/* Related Resources */}
-        <section className="border-t-2 border-gray-200 pt-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Resources</h2>
+        <section className="border-t-2 border-border pt-12">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Related Resources</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <ResourceCard
@@ -482,9 +482,9 @@ export default function MigrationGuides() {
 
 function MigrationStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="bg-white rounded-lg p-4 border-2 border-gray-200">
+    <div className="bg-card rounded-lg p-4 border-2 border-border">
       <div className="text-2xl font-bold text-saffron-600">{value}</div>
-      <div className="text-sm text-gray-600 mt-1">{label}</div>
+      <div className="text-sm text-muted-foreground mt-1">{label}</div>
     </div>
   );
 }
@@ -513,24 +513,24 @@ interface StrategyCardProps {
 
 function StrategyCard({ title, recommended, timeline, effort, description, pros, cons }: StrategyCardProps) {
   return (
-    <div className={`border-2 rounded-lg p-6 ${recommended ? 'border-green-500 bg-green-50' : 'border-gray-200 bg-white'}`}>
+    <div className={`border-2 rounded-lg p-6 ${recommended ? 'border-green-500 bg-green-50' : 'border-border bg-card'}`}>
       <div className="flex items-start justify-between mb-3">
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
         {recommended && (
           <span className="bg-green-600 text-white text-xs px-2 py-1 rounded font-semibold">RECOMMENDED</span>
         )}
       </div>
 
-      <p className="text-sm text-gray-700 mb-4">{description}</p>
+      <p className="text-sm text-muted-foreground mb-4">{description}</p>
 
-      <div className="grid grid-cols-2 gap-4 mb-4 pb-4 border-b border-gray-200">
+      <div className="grid grid-cols-2 gap-4 mb-4 pb-4 border-b border-border">
         <div>
-          <div className="text-xs text-gray-600">Timeline</div>
-          <div className="font-semibold text-gray-900">{timeline}</div>
+          <div className="text-xs text-muted-foreground">Timeline</div>
+          <div className="font-semibold text-foreground">{timeline}</div>
         </div>
         <div>
-          <div className="text-xs text-gray-600">Effort Level</div>
-          <div className="font-semibold text-gray-900">{effort}</div>
+          <div className="text-xs text-muted-foreground">Effort Level</div>
+          <div className="font-semibold text-foreground">{effort}</div>
         </div>
       </div>
 
@@ -539,7 +539,7 @@ function StrategyCard({ title, recommended, timeline, effort, description, pros,
           <div className="text-xs font-semibold text-green-700 mb-2">Pros</div>
           <ul className="space-y-1">
             {pros.map((pro, index) => (
-              <li key={index} className="text-xs text-gray-700 flex items-start gap-1">
+              <li key={index} className="text-xs text-muted-foreground flex items-start gap-1">
                 <CheckCircle2 size={12} className="text-green-600 flex-shrink-0 mt-0.5" />
                 <span>{pro}</span>
               </li>
@@ -551,7 +551,7 @@ function StrategyCard({ title, recommended, timeline, effort, description, pros,
           <div className="text-xs font-semibold text-red-700 mb-2">Cons</div>
           <ul className="space-y-1">
             {cons.map((con, index) => (
-              <li key={index} className="text-xs text-gray-700 flex items-start gap-1">
+              <li key={index} className="text-xs text-muted-foreground flex items-start gap-1">
                 <AlertTriangle size={12} className="text-red-600 flex-shrink-0 mt-0.5" />
                 <span>{con}</span>
               </li>
@@ -592,12 +592,12 @@ function LibraryMigrationCard({
     'bg-red-100 text-red-700 border-red-300';
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden hover:border-saffron-500 transition-colors">
-      <div className="bg-gray-50 p-4 border-b-2 border-gray-200">
+    <div className="border-2 border-border rounded-lg overflow-hidden hover:border-saffron-500 transition-colors">
+      <div className="bg-background p-4 border-b-2 border-border">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="font-bold text-gray-900">{from}</h3>
-            <p className="text-sm text-gray-600">{version}</p>
+            <h3 className="font-bold text-foreground">{from}</h3>
+            <p className="text-sm text-muted-foreground">{version}</p>
           </div>
           <span className={`px-3 py-1 rounded-full text-xs font-semibold border-2 ${compatibilityColor}`}>
             {compatibility} Compatibility
@@ -606,16 +606,16 @@ function LibraryMigrationCard({
       </div>
 
       <div className="p-6">
-        <p className="text-gray-700 mb-4">{description}</p>
+        <p className="text-muted-foreground mb-4">{description}</p>
 
-        <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-gray-200">
+        <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-border">
           <div>
-            <div className="text-xs text-gray-600 mb-1">Time Estimate</div>
-            <div className="font-semibold text-gray-900">{timeEstimate}</div>
+            <div className="text-xs text-muted-foreground mb-1">Time Estimate</div>
+            <div className="font-semibold text-foreground">{timeEstimate}</div>
           </div>
           <div>
-            <div className="text-xs text-gray-600 mb-1">Complexity</div>
-            <div className="font-semibold text-gray-900">{complexity}</div>
+            <div className="text-xs text-muted-foreground mb-1">Complexity</div>
+            <div className="font-semibold text-foreground">{complexity}</div>
           </div>
         </div>
 
@@ -624,7 +624,7 @@ function LibraryMigrationCard({
             <div className="text-sm font-semibold text-green-700 mb-2">Highlights</div>
             <ul className="space-y-1">
               {highlights.map((highlight, index) => (
-                <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
+                <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
                   <CheckCircle2 size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
                   <span>{highlight}</span>
                 </li>
@@ -636,7 +636,7 @@ function LibraryMigrationCard({
             <div className="text-sm font-semibold text-orange-700 mb-2">Important Considerations</div>
             <ul className="space-y-1">
               {caveats.map((caveat, index) => (
-                <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
+                <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
                   <AlertTriangle size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
                   <span>{caveat}</span>
                 </li>
@@ -668,13 +668,13 @@ interface VersionMigrationCardProps {
 
 function VersionMigrationCard({ from, to, breaking, releaseDate, summary, link }: VersionMigrationCardProps) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-saffron-500 transition-colors">
+    <div className="border-2 border-border rounded-lg p-6 hover:border-saffron-500 transition-colors">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <h3 className="font-bold text-gray-900">
+          <h3 className="font-bold text-foreground">
             UX4G {from} → {to}
           </h3>
-          <p className="text-sm text-gray-600">{releaseDate}</p>
+          <p className="text-sm text-muted-foreground">{releaseDate}</p>
         </div>
         {breaking && (
           <span className="bg-red-100 text-red-700 border-2 border-red-300 px-3 py-1 rounded-full text-xs font-semibold">
@@ -683,7 +683,7 @@ function VersionMigrationCard({ from, to, breaking, releaseDate, summary, link }
         )}
       </div>
 
-      <p className="text-gray-700 mb-4">{summary}</p>
+      <p className="text-muted-foreground mb-4">{summary}</p>
 
       <Link
         to={link}
@@ -706,17 +706,17 @@ interface FrameworkMigrationCardProps {
 
 function FrameworkMigrationCard({ from, to, description, keyPoints, link }: FrameworkMigrationCardProps) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-saffron-500 transition-colors">
-      <h3 className="font-bold text-gray-900 mb-2">
+    <div className="border-2 border-border rounded-lg p-6 hover:border-saffron-500 transition-colors">
+      <h3 className="font-bold text-foreground mb-2">
         {from} → {to}
       </h3>
-      <p className="text-gray-700 mb-4">{description}</p>
+      <p className="text-muted-foreground mb-4">{description}</p>
 
       <div className="mb-4">
-        <div className="text-sm font-semibold text-gray-900 mb-2">Key Points</div>
+        <div className="text-sm font-semibold text-foreground mb-2">Key Points</div>
         <ul className="space-y-1">
           {keyPoints.map((point, index) => (
-            <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
+            <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
               <CheckCircle2 size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
               <span>{point}</span>
             </li>
@@ -744,19 +744,19 @@ interface BestPracticeCardProps {
 
 function BestPracticeCard({ title, icon, description, steps }: BestPracticeCardProps) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
+    <div className="border-2 border-border rounded-lg p-6">
       <div className="flex items-start gap-4 mb-4">
         <div className="flex-shrink-0">{icon}</div>
         <div>
-          <h3 className="font-bold text-gray-900 mb-1">{title}</h3>
-          <p className="text-gray-700">{description}</p>
+          <h3 className="font-bold text-foreground mb-1">{title}</h3>
+          <p className="text-muted-foreground">{description}</p>
         </div>
       </div>
 
       <div className="ml-10">
         <ol className="space-y-2">
           {steps.map((step, index) => (
-            <li key={index} className="text-sm text-gray-700 flex items-start gap-3">
+            <li key={index} className="text-sm text-muted-foreground flex items-start gap-3">
               <span className="flex-shrink-0 w-6 h-6 bg-saffron-600 text-white rounded-full flex items-center justify-center text-xs font-semibold">
                 {index + 1}
               </span>
@@ -771,12 +771,12 @@ function BestPracticeCard({ title, icon, description, steps }: BestPracticeCardP
 
 function TroubleshootingItem({ issue, solution }: { issue: string; solution: string }) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-4">
+    <div className="border-2 border-border rounded-lg p-4">
       <div className="flex items-start gap-3">
         <AlertTriangle className="text-orange-600 flex-shrink-0" size={20} />
         <div>
-          <h4 className="font-semibold text-gray-900 mb-1">{issue}</h4>
-          <p className="text-sm text-gray-700">{solution}</p>
+          <h4 className="font-semibold text-foreground mb-1">{issue}</h4>
+          <p className="text-sm text-muted-foreground">{solution}</p>
         </div>
       </div>
     </div>
@@ -785,9 +785,9 @@ function TroubleshootingItem({ issue, solution }: { issue: string; solution: str
 
 function SupportCard({ title, description, action, link }: { title: string; description: string; action: string; link: string }) {
   return (
-    <div className="bg-white border-2 border-gray-200 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-sm text-gray-700 mb-4">{description}</p>
+    <div className="bg-card border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground mb-4">{description}</p>
       <Link
         to={link}
         className="inline-flex items-center gap-2 text-saffron-700 hover:text-saffron-900 font-semibold"
@@ -803,10 +803,10 @@ function ResourceCard({ title, description, link }: { title: string; description
   return (
     <Link
       to={link}
-      className="border-2 border-gray-200 rounded-lg p-4 hover:border-saffron-500 transition-colors group"
+      className="border-2 border-border rounded-lg p-4 hover:border-saffron-500 transition-colors group"
     >
-      <h3 className="font-bold text-gray-900 mb-1 group-hover:text-saffron-700">{title}</h3>
-      <p className="text-sm text-gray-600">{description}</p>
+      <h3 className="font-bold text-foreground mb-1 group-hover:text-saffron-700">{title}</h3>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </Link>
   );
 }

@@ -3,37 +3,37 @@ import { Search, Eye, CheckCircle, Clock, AlertCircle, XCircle, RefreshCw, Bell,
 // UX4G Service Pattern Library - High-Volume Status Tracking
 export default function HighVolumeStatusTrackingPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <Search size={32} className="text-gray-700" />
+                <div className="w-16 h-16 bg-muted border-2 border-border rounded flex items-center justify-center">
+                  <Search size={32} className="text-muted-foreground" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Service Pattern Library</div>
-                  <h1 className="text-3xl font-bold text-gray-900">High-Volume Status Tracking</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Service Pattern Library</div>
+                  <h1 className="text-3xl font-bold text-foreground">High-Volume Status Tracking</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Scalable status tracking pattern for high-volume government services. Enables millions of citizens to check application 
                 progress, understand current stage, know pending actions, and get reassurance with minimal server load.
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-008</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-008</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function HighVolumeStatusTrackingPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -68,7 +68,7 @@ export default function HighVolumeStatusTrackingPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -107,9 +107,9 @@ export default function HighVolumeStatusTrackingPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Service Pattern Library</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -130,7 +130,7 @@ function PatternOverview() {
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               High-volume government services receive millions of status queries daily. Citizens repeatedly check progress, 
               causing server overload, anxiety, and support ticket floods. Status communication is unclear, creating mistrust.
             </p>
@@ -223,7 +223,7 @@ function PatternOverview() {
             <StatusStateCard
               state="Submitted"
               color="gray"
-              icon={<FileText size={20} className="text-gray-600" />}
+              icon={<FileText size={20} className="text-muted-foreground" />}
               description="Application received and logged. Awaiting assignment to officer."
               userExpectation="Acknowledgment and reference number"
             />
@@ -379,12 +379,12 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 1: Tracking Entry / Lookup" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 p-1">
-              <div className="bg-white p-8">
+              <div className="bg-card p-8">
                 <div className="text-center mb-6">
-                  <h1 className="text-4xl font-bold text-gray-900 mb-4">Track Your Application</h1>
-                  <p className="text-lg text-gray-600">
+                  <h1 className="text-4xl font-bold text-foreground mb-4">Track Your Application</h1>
+                  <p className="text-lg text-muted-foreground">
                     Enter your application or reference number to check current status
                   </p>
                 </div>
@@ -392,27 +392,27 @@ function PageDesigns() {
             </div>
             <div className="p-8 space-y-6">
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-                <label className="block text-sm font-bold text-gray-900 mb-4">
+                <label className="block text-sm font-bold text-foreground mb-4">
                   Application / Reference Number
                 </label>
                 <div className="grid grid-cols-3 gap-4">
                   <input
                     type="text"
                     placeholder="e.g., APP-2026-123456 or REF-2026-789012"
-                    className="col-span-2 px-6 py-4 border-2 border-gray-300 rounded-lg text-xl font-mono text-center"
+                    className="col-span-2 px-6 py-4 border-2 border-border rounded-lg text-xl font-mono text-center"
                   />
-                  <button className="px-6 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] text-lg flex items-center justify-center gap-2">
+                  <button className="px-6 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 text-lg flex items-center justify-center gap-2">
                     <Search size={20} />
                     Track Status
                   </button>
                 </div>
-                <div className="text-sm text-gray-600 mt-3 text-center">
+                <div className="text-sm text-muted-foreground mt-3 text-center">
                   Find your number on the acknowledgment receipt or confirmation email
                 </div>
               </div>
 
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-4">Other Ways to Track</div>
+              <div className="bg-background border-2 border-border rounded-lg p-6">
+                <div className="font-bold text-foreground mb-4">Other Ways to Track</div>
                 <div className="grid grid-cols-3 gap-4">
                   <TrackingMethodCard
                     icon={<Hash size={24} className="text-blue-600" />}
@@ -436,8 +436,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <Info size={20} className="text-yellow-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Don't Have Your Number?</div>
-                    <div className="text-sm text-gray-700 space-y-1">
+                    <div className="font-bold text-foreground mb-2">Don't Have Your Number?</div>
+                    <div className="text-sm text-muted-foreground space-y-1">
                       <p>• Check your confirmation SMS or email</p>
                       <p>• Look at your printed acknowledgment receipt</p>
                       <p>• Contact support: <strong>1800-XXX-XXXX</strong> or <strong>support@service.gov.in</strong></p>
@@ -462,21 +462,21 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 2: Status Overview (At-a-Glance)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-blue-100 border-b-2 border-blue-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Clock size={32} className="text-blue-600" />
-                <h1 className="text-3xl font-bold text-gray-900">Your Application is In Progress</h1>
+                <h1 className="text-3xl font-bold text-foreground">Your Application is In Progress</h1>
               </div>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-muted-foreground">
                 We're reviewing your passport application. Expected completion: 15 April 2026.
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6 text-center">
-                <div className="text-sm text-gray-600 mb-2">Application Number</div>
-                <div className="text-3xl font-bold text-gray-900 font-mono mb-4">APP-2026-123456</div>
-                <div className="text-sm text-gray-600">Passport Application — Submitted on 1 April 2026</div>
+              <div className="bg-background border-2 border-border rounded-lg p-6 text-center">
+                <div className="text-sm text-muted-foreground mb-2">Application Number</div>
+                <div className="text-3xl font-bold text-foreground font-mono mb-4">APP-2026-123456</div>
+                <div className="text-sm text-muted-foreground">Passport Application — Submitted on 1 April 2026</div>
               </div>
 
               <div className="grid grid-cols-3 gap-6">
@@ -501,24 +501,24 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">What's Happening Now?</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">What's Happening Now?</div>
+                <div className="text-sm text-muted-foreground">
                   Your application is currently undergoing <strong>police verification</strong>. A police officer will 
                   visit your address to verify your residence and identity. This typically takes 5-7 working days. 
                   Once verification is complete, your passport will be printed and dispatched.
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Quick Progress Summary</h3>
+              <div className="border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Quick Progress Summary</h3>
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
                       <div className="h-full bg-blue-600 rounded-full" style={{ width: '60%' }}></div>
                     </div>
-                    <div className="text-sm font-bold text-gray-900">60% Complete</div>
+                    <div className="text-sm font-bold text-foreground">60% Complete</div>
                   </div>
                   <div className="grid grid-cols-5 gap-2 text-xs text-center">
                     <ProgressStage label="Submitted" status="complete" />
@@ -531,10 +531,10 @@ function PageDesigns() {
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                   View Detailed Timeline
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Need Help?
                 </button>
               </div>
@@ -555,10 +555,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 3: Stage-by-Stage Timeline (Detailed Progress)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Application Timeline</h2>
-              <div className="text-sm text-gray-600">Application Number: APP-2026-123456</div>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Application Timeline</h2>
+              <div className="text-sm text-muted-foreground">Application Number: APP-2026-123456</div>
             </div>
             <div className="p-8">
               <div className="space-y-4">
@@ -620,13 +620,13 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 4: Action Needed (User Must Act)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-yellow-100 border-b-2 border-yellow-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <AlertCircle size={32} className="text-yellow-600" />
-                <h1 className="text-3xl font-bold text-gray-900">Action Required: Upload Missing Document</h1>
+                <h1 className="text-3xl font-bold text-foreground">Action Required: Upload Missing Document</h1>
               </div>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-muted-foreground">
                 We need additional information to continue processing your application.
               </p>
             </div>
@@ -635,8 +635,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Urgent: Action Needed by 12 April 2026</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">Urgent: Action Needed by 12 April 2026</div>
+                    <div className="text-sm text-muted-foreground">
                       Your application will be <strong>rejected</strong> if you don't complete this action within 
                       <strong> 7 days</strong> (by 12 April 2026 at 11:59 PM).
                     </div>
@@ -645,7 +645,7 @@ function PageDesigns() {
               </div>
 
               <div className="border-2 border-yellow-300 bg-yellow-50 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-4">What We Need From You</div>
+                <div className="font-bold text-foreground mb-4">What We Need From You</div>
                 <div className="space-y-4">
                   <RequiredActionItem
                     number="1"
@@ -658,8 +658,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">How to Upload Document</div>
-                <ol className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">How to Upload Document</div>
+                <ol className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">1</div>
                     <span>Take a clear photo of your address proof document (ensure all text is readable)</span>
@@ -679,8 +679,8 @@ function PageDesigns() {
                 </ol>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <div className="text-sm text-gray-700">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <div className="text-sm text-muted-foreground">
                   <strong>Need Help?</strong> Call <span className="font-bold text-blue-600">1800-XXX-XXXX</span> or 
                   email <span className="font-bold text-blue-600">support@passport.gov.in</span>
                 </div>
@@ -706,13 +706,13 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 5: Delayed Status (Honest Communication)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-orange-100 border-b-2 border-orange-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <RefreshCw size={32} className="text-orange-600" />
-                <h1 className="text-3xl font-bold text-gray-900">Your Application is Delayed</h1>
+                <h1 className="text-3xl font-bold text-foreground">Your Application is Delayed</h1>
               </div>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-muted-foreground">
                 We apologize — your application is taking longer than expected.
               </p>
             </div>
@@ -721,8 +721,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3 mb-4">
                   <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Why This Delay Happened</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">Why This Delay Happened</div>
+                    <div className="text-sm text-muted-foreground">
                       Your application was originally scheduled for completion on <strong>15 April 2026</strong>. 
                       However, due to <strong>high volume of police verification requests</strong> in your area, 
                       the local police station is experiencing backlogs.
@@ -735,7 +735,7 @@ function PageDesigns() {
                 <DelayInfoCard
                   label="Original Expected Date"
                   value="15 April 2026"
-                  icon={<Calendar size={20} className="text-gray-600" />}
+                  icon={<Calendar size={20} className="text-muted-foreground" />}
                 />
                 <DelayInfoCard
                   label="New Expected Date"
@@ -746,8 +746,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-3">What We're Doing About It</div>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">What We're Doing About It</div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                     <span>We've sent a reminder to the police station to expedite your verification</span>
@@ -763,14 +763,14 @@ function PageDesigns() {
                 </ul>
               </div>
 
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-3">We Sincerely Apologize</div>
-                <div className="text-sm text-gray-700 mb-4">
+              <div className="bg-background border-2 border-border rounded-lg p-6">
+                <div className="font-bold text-foreground mb-3">We Sincerely Apologize</div>
+                <div className="text-sm text-muted-foreground mb-4">
                   We understand this delay is frustrating, especially when you're waiting for an important document. 
                   We're committed to completing your application as quickly as possible while ensuring all 
                   verification steps are thorough.
                 </div>
-                <div className="text-sm text-gray-700">
+                <div className="text-sm text-muted-foreground">
                   <strong>Responsible Officer:</strong> Senior Passport Officer, Delhi Region<br/>
                   <strong>Officer ID:</strong> SPO-DEL-123<br/>
                   <strong>Contact:</strong> spo.delhi@passport.gov.in
@@ -781,7 +781,7 @@ function PageDesigns() {
                 <button className="px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700">
                   File Escalation / Complaint
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Request Callback
                 </button>
               </div>
@@ -803,9 +803,9 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 6: Completed State (Success)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-green-600 text-white p-12 text-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
               <h1 className="text-3xl font-bold mb-4">Your Passport is Ready!</h1>
@@ -817,9 +817,9 @@ function PageDesigns() {
               <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Passport Number</div>
-                    <div className="text-3xl font-bold text-gray-900 font-mono mb-2">Z1234567</div>
-                    <div className="text-sm text-gray-700">Issued on <strong>15 April 2026</strong> • Valid until <strong>15 April 2036</strong></div>
+                    <div className="text-sm text-muted-foreground mb-1">Passport Number</div>
+                    <div className="text-3xl font-bold text-foreground font-mono mb-2">Z1234567</div>
+                    <div className="text-sm text-muted-foreground">Issued on <strong>15 April 2026</strong> • Valid until <strong>15 April 2036</strong></div>
                   </div>
                   <div className="px-4 py-2 bg-green-600 text-white font-bold text-sm rounded">
                     ISSUED
@@ -849,8 +849,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">Next Steps</div>
-                <ol className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">Next Steps</div>
+                <ol className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">1</div>
                     <span>Your passport will be delivered to your address within <strong>5-7 working days</strong></span>
@@ -875,13 +875,13 @@ function PageDesigns() {
                   <ExternalLink size={18} />
                   Track Delivery on India Post
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50 flex items-center gap-2">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background flex items-center gap-2">
                   <Download size={18} />
                   Download Status Certificate
                 </button>
               </div>
 
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4 text-sm text-gray-700 text-center">
+              <div className="bg-background border-2 border-border rounded-lg p-4 text-sm text-muted-foreground text-center">
                 <strong>Total Processing Time:</strong> 14 days (from submission to dispatch)
               </div>
             </div>
@@ -901,10 +901,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 7: Escalation and Help Options" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Need Help or Want to Escalate?</h2>
-              <div className="text-sm text-gray-600">We're here to assist you with your application</div>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Need Help or Want to Escalate?</h2>
+              <div className="text-sm text-muted-foreground">We're here to assist you with your application</div>
             </div>
             <div className="p-8 space-y-6">
               <div className="grid grid-cols-2 gap-6">
@@ -942,9 +942,9 @@ function PageDesigns() {
                 />
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Frequently Asked Questions</h3>
+              <div className="border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Frequently Asked Questions</h3>
                 </div>
                 <div className="divide-y-2 divide-gray-200">
                   <FAQItem
@@ -967,7 +967,7 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-3">Other Resources</div>
+                <div className="font-bold text-foreground mb-3">Other Resources</div>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <ResourceLink
                     icon={<FileText size={16} className="text-blue-600" />}
@@ -1021,8 +1021,8 @@ function StatusModel() {
             <div className="flex items-start gap-3 mb-4">
               <Target size={24} className="text-purple-600 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-2">6 Core Status States</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-2">6 Core Status States</div>
+                <div className="text-sm text-muted-foreground">
                   Every application must be in exactly one state at any time. State transitions are logged with 
                   timestamp, officer ID, and reason. Users see plain-language status, not internal codes.
                 </div>
@@ -1227,13 +1227,13 @@ function AccessibilityGuidance() {
             <div className="flex items-start gap-3 mb-4">
               <RefreshCw size={24} className="text-blue-600 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-2">Reducing Friction for Repeat Visitors</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-2">Reducing Friction for Repeat Visitors</div>
+                <div className="text-sm text-muted-foreground">
                   Users check status 5-10 times during processing. Optimize for quick re-entry and progressive disclosure.
                 </div>
               </div>
             </div>
-            <div className="space-y-3 text-sm text-gray-700">
+            <div className="space-y-3 text-sm text-muted-foreground">
               <OptimizationTip
                 tip="Remember Last Search"
                 implementation="Store application number in localStorage. Pre-fill on return visit. Show 'Track last application' quick link."
@@ -1304,8 +1304,8 @@ function ContentGuidance() {
             <div className="flex items-start gap-3 mb-4">
               <Globe size={24} className="text-purple-600 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-2">Language Support for High-Volume Services</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-2">Language Support for High-Volume Services</div>
+                <div className="text-sm text-muted-foreground">
                   Status tracking must support Hindi and English minimum. State-specific services should add regional language. 
                   SMS notifications sent in user's preferred language.
                 </div>
@@ -1521,9 +1521,9 @@ function GovernanceConformance() {
 
 function MetadataPanel() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Pattern Metadata</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Pattern Metadata</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <MetadataRow label="Pattern ID" value="UX4G-PAT-008" />
@@ -1541,7 +1541,7 @@ function QuickRefPanel() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <QuickRefRow label="Status States" value="6 core states" />
@@ -1559,9 +1559,9 @@ function DesignPrinciples() {
   return (
     <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
       <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Core Principles</h3>
+        <h3 className="font-bold text-foreground text-sm">Core Principles</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <PrincipleItem icon={<Eye size={14} />} text="Transparency: Show what's happening" />
         <PrincipleItem icon={<CheckCircle size={14} />} text="Reassurance: Reduce anxiety" />
         <PrincipleItem icon={<Clock size={14} />} text="Clarity: Plain language, timelines" />
@@ -1576,9 +1576,9 @@ function RiskIndicators() {
     <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
       <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3 flex items-center gap-2">
         <AlertTriangle size={16} className="text-red-700" />
-        <h3 className="font-bold text-gray-900 text-sm">Risk Indicators</h3>
+        <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <RiskItem severity="high" risk="Vague status communication" />
         <RiskItem severity="high" risk="No delay explanation" />
         <RiskItem severity="high" risk="Technical jargon" />
@@ -1591,9 +1591,9 @@ function RiskIndicators() {
 
 function RelatedResources() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <RelatedLink title="Application Submission" />
@@ -1609,15 +1609,15 @@ function RelatedResources() {
 
 function SectionHeader({ title }: any) {
   return (
-    <div className="border-l-4 border-[#000080] pl-4">
-      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+    <div className="border-l-4 border-primary pl-4">
+      <h2 className="text-2xl font-bold text-foreground">{title}</h2>
     </div>
   );
 }
 
 function DocModule({ children }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
       {children}
     </div>
   );
@@ -1625,8 +1625,8 @@ function DocModule({ children }: any) {
 
 function ModuleHeader({ title }: any) {
   return (
-    <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-      <h3 className="font-bold text-gray-900">{title}</h3>
+    <div className="bg-muted border-b-2 border-border px-6 py-4">
+      <h3 className="font-bold text-foreground">{title}</h3>
     </div>
   );
 }
@@ -1637,11 +1637,11 @@ function ModuleContent({ children }: any) {
 
 function ProblemSolutionBlock({ icon, problem, solution }: any) {
   return (
-    <div className="flex items-start gap-3 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-background border-2 border-border rounded-lg">
       <div className="flex-shrink-0 mt-0.5">{icon}</div>
       <div>
-        <div className="text-sm font-bold text-gray-900 mb-1">Problem: {problem}</div>
-        <div className="text-sm text-gray-700">Solution: {solution}</div>
+        <div className="text-sm font-bold text-foreground mb-1">Problem: {problem}</div>
+        <div className="text-sm text-muted-foreground">Solution: {solution}</div>
       </div>
     </div>
   );
@@ -1650,13 +1650,13 @@ function ProblemSolutionBlock({ icon, problem, solution }: any) {
 function UserGroup({ icon, name, description, percentage }: any) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-10 h-10 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center flex-shrink-0">
+      <div className="w-10 h-10 bg-muted border-2 border-border rounded flex items-center justify-center flex-shrink-0">
         {icon}
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{name}</div>
-        <div className="text-xs text-gray-600 mb-2">{description}</div>
-        <div className="text-xs font-bold text-gray-900">{percentage} of users</div>
+        <div className="font-bold text-sm text-foreground mb-1">{name}</div>
+        <div className="text-xs text-muted-foreground mb-2">{description}</div>
+        <div className="text-xs font-bold text-foreground">{percentage} of users</div>
       </div>
     </div>
   );
@@ -1664,11 +1664,11 @@ function UserGroup({ icon, name, description, percentage }: any) {
 
 function UseCaseCard({ title, examples }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-3">{title}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-3">{title}</div>
       <ul className="space-y-2">
         {examples.map((example: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
             <span>{example}</span>
           </li>
@@ -1680,7 +1680,7 @@ function UseCaseCard({ title, examples }: any) {
 
 function StatusStateCard({ state, color, icon, description, userExpectation }: any) {
   const colorConfig: any = {
-    gray: { bg: 'bg-gray-50', border: 'border-gray-300' },
+    gray: { bg: 'bg-background', border: 'border-border' },
     blue: { bg: 'bg-blue-50', border: 'border-blue-300' },
     yellow: { bg: 'bg-yellow-50', border: 'border-yellow-300' },
     green: { bg: 'bg-green-50', border: 'border-green-300' },
@@ -1693,9 +1693,9 @@ function StatusStateCard({ state, color, icon, description, userExpectation }: a
       <div className="flex items-start gap-3 mb-3">
         <div className="flex-shrink-0">{icon}</div>
         <div className="flex-1">
-          <div className="font-bold text-sm text-gray-900 mb-1">{state}</div>
-          <div className="text-sm text-gray-700 mb-2">{description}</div>
-          <div className="text-xs text-gray-600"><strong>User Expects:</strong> {userExpectation}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{state}</div>
+          <div className="text-sm text-muted-foreground mb-2">{description}</div>
+          <div className="text-xs text-muted-foreground"><strong>User Expects:</strong> {userExpectation}</div>
         </div>
       </div>
     </div>
@@ -1704,10 +1704,10 @@ function StatusStateCard({ state, color, icon, description, userExpectation }: a
 
 function FlowStep({ number, label, status }: any) {
   const statusConfig: any = {
-    entry: { bg: 'bg-gray-100', border: 'border-gray-400', text: 'text-gray-700' },
+    entry: { bg: 'bg-muted', border: 'border-gray-400', text: 'text-muted-foreground' },
     active: { bg: 'bg-blue-50', border: 'border-blue-400', text: 'text-blue-700' },
     decision: { bg: 'bg-purple-50', border: 'border-purple-400', text: 'text-purple-700' },
-    info: { bg: 'bg-gray-50', border: 'border-gray-300', text: 'text-gray-600' },
+    info: { bg: 'bg-background', border: 'border-border', text: 'text-muted-foreground' },
     success: { bg: 'bg-green-50', border: 'border-green-400', text: 'text-green-700' },
     warning: { bg: 'bg-yellow-50', border: 'border-yellow-400', text: 'text-yellow-700' },
     error: { bg: 'bg-red-50', border: 'border-red-400', text: 'text-red-700' }
@@ -1716,27 +1716,27 @@ function FlowStep({ number, label, status }: any) {
   return (
     <div className={`border-2 ${statusConfig[status].border} rounded-lg p-3 ${statusConfig[status].bg}`}>
       <div className={`text-xs font-bold ${statusConfig[status].text} mb-1`}>{number}</div>
-      <div className="text-xs font-medium text-gray-900">{label}</div>
+      <div className="text-xs font-medium text-foreground">{label}</div>
     </div>
   );
 }
 
 function PageSequenceRow({ number, title, description, required }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-l-4 border-[#000080] rounded">
-      <div className="w-8 h-8 bg-[#000080] text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
+    <div className="flex items-start gap-4 p-4 bg-background border-l-4 border-primary rounded">
+      <div className="w-8 h-8 bg-primary text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
         {number}
       </div>
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-1">
-          <div className="font-bold text-sm text-gray-900">{title}</div>
+          <div className="font-bold text-sm text-foreground">{title}</div>
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-gray-700 text-xs font-bold rounded">CONDITIONAL</span>
+            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">CONDITIONAL</span>
           )}
         </div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1744,12 +1744,12 @@ function PageSequenceRow({ number, title, description, required }: any) {
 
 function TrackingMethodCard({ icon, title, description }: any) {
   return (
-    <button className="border-2 border-gray-300 rounded-lg p-4 bg-white hover:border-[#000080] hover:bg-blue-50 transition-colors text-left">
+    <button className="border-2 border-border rounded-lg p-4 bg-card hover:border-primary hover:bg-blue-50 transition-colors text-left">
       <div className="flex flex-col items-center text-center gap-2">
         {icon}
         <div>
-          <div className="font-bold text-sm text-gray-900">{title}</div>
-          <div className="text-xs text-gray-600">{description}</div>
+          <div className="font-bold text-sm text-foreground">{title}</div>
+          <div className="text-xs text-muted-foreground">{description}</div>
         </div>
       </div>
     </button>
@@ -1758,13 +1758,13 @@ function TrackingMethodCard({ icon, title, description }: any) {
 
 function OverviewStat({ icon, label, value, detail }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">{icon}</div>
         <div>
-          <div className="text-sm text-gray-600 mb-1">{label}</div>
-          <div className="font-bold text-lg text-gray-900 mb-1">{value}</div>
-          <div className="text-xs text-gray-600">{detail}</div>
+          <div className="text-sm text-muted-foreground mb-1">{label}</div>
+          <div className="font-bold text-lg text-foreground mb-1">{value}</div>
+          <div className="text-xs text-muted-foreground">{detail}</div>
         </div>
       </div>
     </div>
@@ -1789,7 +1789,7 @@ function TimelineItem({ date, stage, description, status, icon, progress }: any)
   const progressStyles: any = {
     current: { bg: 'bg-blue-600', border: 'border-blue-600', line: 'bg-gray-300' },
     past: { bg: 'bg-green-600', border: 'border-green-600', line: 'bg-green-300' },
-    future: { bg: 'bg-white', border: 'border-gray-300', line: 'bg-gray-200' }
+    future: { bg: 'bg-card', border: 'border-border', line: 'bg-gray-200' }
   };
 
   return (
@@ -1805,9 +1805,9 @@ function TimelineItem({ date, stage, description, status, icon, progress }: any)
         {progress !== 'future' && <div className={`w-0.5 h-16 ${progressStyles[progress].line}`}></div>}
       </div>
       <div className="flex-1 pb-12">
-        <div className="text-xs text-gray-600">{date}</div>
-        <div className="font-bold text-sm text-gray-900 mb-1">{stage}</div>
-        <div className="text-sm text-gray-700">{description}</div>
+        <div className="text-xs text-muted-foreground">{date}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{stage}</div>
+        <div className="text-sm text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1815,15 +1815,15 @@ function TimelineItem({ date, stage, description, status, icon, progress }: any)
 
 function RequiredActionItem({ number, title, description, acceptedDocs, deadline }: any) {
   return (
-    <div className="border-2 border-orange-300 bg-white rounded-lg p-4">
+    <div className="border-2 border-orange-300 bg-card rounded-lg p-4">
       <div className="flex items-start gap-3 mb-3">
         <div className="w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
           {number}
         </div>
         <div className="flex-1">
-          <div className="font-bold text-sm text-gray-900 mb-2">{title}</div>
-          <div className="text-sm text-gray-700 mb-2">{description}</div>
-          <div className="grid grid-cols-2 gap-4 text-xs text-gray-600">
+          <div className="font-bold text-sm text-foreground mb-2">{title}</div>
+          <div className="text-sm text-muted-foreground mb-2">{description}</div>
+          <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
             <div><strong>Accepted:</strong> {acceptedDocs}</div>
             <div><strong>Deadline:</strong> {deadline}</div>
           </div>
@@ -1835,12 +1835,12 @@ function RequiredActionItem({ number, title, description, acceptedDocs, deadline
 
 function DelayInfoCard({ label, value, icon, highlighted }: any) {
   return (
-    <div className={`border-2 rounded-lg p-4 ${highlighted ? 'border-orange-300 bg-orange-50' : 'border-gray-300 bg-white'}`}>
+    <div className={`border-2 rounded-lg p-4 ${highlighted ? 'border-orange-300 bg-orange-50' : 'border-border bg-card'}`}>
       <div className="flex items-center gap-3">
         {icon}
         <div>
-          <div className="text-sm text-gray-600 mb-1">{label}</div>
-          <div className={`font-bold text-lg ${highlighted ? 'text-orange-900' : 'text-gray-900'}`}>{value}</div>
+          <div className="text-sm text-muted-foreground mb-1">{label}</div>
+          <div className={`font-bold text-lg ${highlighted ? 'text-orange-900' : 'text-foreground'}`}>{value}</div>
         </div>
       </div>
     </div>
@@ -1849,27 +1849,27 @@ function DelayInfoCard({ label, value, icon, highlighted }: any) {
 
 function CompletionStat({ icon, label, value, detail }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white text-center">
+    <div className="border-2 border-border rounded-lg p-4 bg-card text-center">
       <div className="flex justify-center mb-2">{icon}</div>
-      <div className="text-sm text-gray-600 mb-1">{label}</div>
-      <div className="font-bold text-gray-900 mb-1">{value}</div>
-      <div className="text-xs text-gray-600">{detail}</div>
+      <div className="text-sm text-muted-foreground mb-1">{label}</div>
+      <div className="font-bold text-foreground mb-1">{value}</div>
+      <div className="text-xs text-muted-foreground">{detail}</div>
     </div>
   );
 }
 
 function HelpOptionCard({ icon, title, description, detail, hours, action }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-6 bg-white hover:border-[#000080] hover:bg-blue-50 cursor-pointer transition-colors">
+    <div className="border-2 border-border rounded-lg p-6 bg-card hover:border-primary hover:bg-blue-50 cursor-pointer transition-colors">
       <div className="flex flex-col items-center text-center gap-3">
         {icon}
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-          <div className="text-xs text-gray-600 mb-2">{description}</div>
-          <div className="text-xs font-bold text-gray-900 mb-1">{detail}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+          <div className="text-xs text-muted-foreground mb-2">{description}</div>
+          <div className="text-xs font-bold text-foreground mb-1">{detail}</div>
           <div className="text-xs text-gray-500">{hours}</div>
         </div>
-        <button className="px-4 py-2 bg-[#000080] text-white font-bold text-sm rounded hover:bg-[#000060]">
+        <button className="px-4 py-2 bg-primary text-white font-bold text-sm rounded hover:opacity-90">
           {action}
         </button>
       </div>
@@ -1880,15 +1880,15 @@ function HelpOptionCard({ icon, title, description, detail, hours, action }: any
 function FAQItem({ question, answer }: any) {
   return (
     <div className="p-4">
-      <div className="font-bold text-sm text-gray-900 mb-2">{question}</div>
-      <div className="text-sm text-gray-700">{answer}</div>
+      <div className="font-bold text-sm text-foreground mb-2">{question}</div>
+      <div className="text-sm text-muted-foreground">{answer}</div>
     </div>
   );
 }
 
 function ResourceLink({ icon, title, link }: any) {
   return (
-    <a href="#" className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#000080]">
+    <a href="#" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
       {icon}
       <span>{title}</span>
       <ChevronRight size={14} className="ml-auto" />
@@ -1901,9 +1901,9 @@ function PageAnnotation({ items }: any) {
     <div className="mt-4 bg-blue-50 border-l-4 border-blue-600 p-4">
       <div className="flex items-start gap-2 mb-2">
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
-        <div className="font-bold text-sm text-gray-900">Design Annotations</div>
+        <div className="font-bold text-sm text-foreground">Design Annotations</div>
       </div>
-      <ul className="space-y-1.5 text-sm text-gray-700">
+      <ul className="space-y-1.5 text-sm text-muted-foreground">
         {items.map((item: string, idx: number) => (
           <li key={idx} className="flex items-start gap-2">
             <div className="w-1 h-1 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -1917,11 +1917,11 @@ function PageAnnotation({ items }: any) {
 
 function StateTransition({ from, to, condition, timing }: any) {
   return (
-    <div className="border-2 border-purple-300 bg-white rounded-lg p-3 flex items-center gap-3">
+    <div className="border-2 border-purple-300 bg-card rounded-lg p-3 flex items-center gap-3">
       <div className="px-3 py-1 bg-purple-100 text-purple-900 text-xs font-bold rounded">{from}</div>
       <ArrowRight size={16} className="text-purple-600" />
       <div className="px-3 py-1 bg-purple-100 text-purple-900 text-xs font-bold rounded">{to}</div>
-      <div className="flex-1 text-xs text-gray-700">
+      <div className="flex-1 text-xs text-muted-foreground">
         <div><strong>When:</strong> {condition}</div>
         <div><strong>Timing:</strong> {timing}</div>
       </div>
@@ -1932,11 +1932,11 @@ function StateTransition({ from, to, condition, timing }: any) {
 function DelayRuleBlock({ scenario, communication, action, example }: any) {
   return (
     <div className="border-2 border-orange-300 bg-orange-50 rounded-lg p-4">
-      <div className="font-bold text-sm text-gray-900 mb-2">{scenario}</div>
-      <div className="space-y-2 text-sm text-gray-700">
+      <div className="font-bold text-sm text-foreground mb-2">{scenario}</div>
+      <div className="space-y-2 text-sm text-muted-foreground">
         <div><strong>Communication:</strong> {communication}</div>
         <div><strong>Action:</strong> {action}</div>
-        <div className="bg-white border border-orange-200 rounded p-2 italic">
+        <div className="bg-card border border-orange-200 rounded p-2 italic">
           <strong>Example:</strong> "{example}"
         </div>
       </div>
@@ -1947,9 +1947,9 @@ function DelayRuleBlock({ scenario, communication, action, example }: any) {
 function TimelineCalculation({ stage, calculation, display }: any) {
   return (
     <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
-      <div className="font-bold text-sm text-gray-900 mb-2">{stage}</div>
-      <div className="text-sm text-gray-700 mb-2"><strong>Calculation:</strong> {calculation}</div>
-      <div className="text-xs text-gray-600 bg-white border border-blue-200 rounded p-2 italic">
+      <div className="font-bold text-sm text-foreground mb-2">{stage}</div>
+      <div className="text-sm text-muted-foreground mb-2"><strong>Calculation:</strong> {calculation}</div>
+      <div className="text-xs text-muted-foreground bg-card border border-blue-200 rounded p-2 italic">
         <strong>Display to User:</strong> "{display}"
       </div>
     </div>
@@ -1958,21 +1958,21 @@ function TimelineCalculation({ stage, calculation, display }: any) {
 
 function ComponentCard({ name, variants, usage }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-2">{name}</div>
-      <div className="text-xs text-gray-600 mb-2">Variants: {variants}</div>
-      <div className="text-xs text-gray-600">Usage: {usage}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-2">{name}</div>
+      <div className="text-xs text-muted-foreground mb-2">Variants: {variants}</div>
+      <div className="text-xs text-muted-foreground">Usage: {usage}</div>
     </div>
   );
 }
 
 function AccessibilityBlock({ area, requirements }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-3">{area}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-3">{area}</div>
       <ul className="space-y-2">
         {requirements.map((req: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{req}</span>
           </li>
@@ -1985,19 +1985,19 @@ function AccessibilityBlock({ area, requirements }: any) {
 function OptimizationTip({ tip, implementation }: any) {
   return (
     <div className="border-l-2 border-blue-400 pl-3">
-      <div className="font-bold text-sm text-gray-900 mb-1">{tip}</div>
-      <div className="text-sm text-gray-700">{implementation}</div>
+      <div className="font-bold text-sm text-foreground mb-1">{tip}</div>
+      <div className="text-sm text-muted-foreground">{implementation}</div>
     </div>
   );
 }
 
 function ToneBlock({ context, tone, good, bad }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">{context}</div>
-          <div className="text-xs text-gray-600 italic">{tone}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{context}</div>
+          <div className="text-xs text-muted-foreground italic">{tone}</div>
         </div>
       </div>
       <div className="space-y-3">
@@ -2006,14 +2006,14 @@ function ToneBlock({ context, tone, good, bad }: any) {
             <CheckCircle size={14} className="text-green-600" />
             <span className="text-xs font-bold text-green-700">Good</span>
           </div>
-          <div className="text-sm text-gray-900 bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
+          <div className="text-sm text-foreground bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
             <span className="text-xs font-bold text-red-700">Bad</span>
           </div>
-          <div className="text-sm text-gray-900 bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
+          <div className="text-sm text-foreground bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
         </div>
       </div>
     </div>
@@ -2023,8 +2023,8 @@ function ToneBlock({ context, tone, good, bad }: any) {
 function MultilingualItem({ aspect, requirement }: any) {
   return (
     <div className="text-sm">
-      <div className="font-bold text-gray-900 mb-1">{aspect}</div>
-      <div className="text-gray-700">{requirement}</div>
+      <div className="font-bold text-foreground mb-1">{aspect}</div>
+      <div className="text-muted-foreground">{requirement}</div>
     </div>
   );
 }
@@ -2037,15 +2037,15 @@ function ImplementationItem({ category, requirement, priority }: any) {
   };
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-4 p-4 bg-background border-2 border-border rounded-lg">
       <div className="w-24 flex-shrink-0">
         <div className={`px-2 py-1 rounded text-xs font-bold text-center ${priorityConfig[priority].bg} ${priorityConfig[priority].text} ${priorityConfig[priority].border} border`}>
           {priority.toUpperCase()}
         </div>
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{category}</div>
-        <div className="text-sm text-gray-700">{requirement}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{category}</div>
+        <div className="text-sm text-muted-foreground">{requirement}</div>
       </div>
     </div>
   );
@@ -2053,24 +2053,24 @@ function ImplementationItem({ category, requirement, priority }: any) {
 
 function AnalyticsEvent({ event, description }: any) {
   return (
-    <div className="flex items-start gap-4 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <code className="px-2 py-1 bg-white border border-gray-400 rounded text-xs font-mono text-gray-900 flex-shrink-0">
+    <div className="flex items-start gap-4 p-3 bg-background border-2 border-border rounded-lg">
+      <code className="px-2 py-1 bg-card border border-gray-400 rounded text-xs font-mono text-foreground flex-shrink-0">
         {event}
       </code>
-      <div className="flex-1 text-sm text-gray-700">{description}</div>
+      <div className="flex-1 text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
 
 function ConformanceItem({ checked, label }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-3 bg-background border-2 border-border rounded-lg">
       <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${
-        checked ? 'bg-green-500 border-green-600' : 'bg-white border-gray-400'
+        checked ? 'bg-green-500 border-green-600' : 'bg-card border-gray-400'
       }`}>
         {checked && <Check size={14} className="text-white" />}
       </div>
-      <div className="text-sm text-gray-700">{label}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -2085,12 +2085,12 @@ function RiskBlock({ risk, impact, solution }: any) {
   return (
     <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
-        <div className="font-bold text-sm text-gray-900 flex-1">{risk}</div>
+        <div className="font-bold text-sm text-foreground flex-1">{risk}</div>
         <div className={`px-2 py-1 rounded text-xs font-bold ${impactConfig[impact].bg} ${impactConfig[impact].color} flex-shrink-0 ml-3`}>
           {impact} Impact
         </div>
       </div>
-      <div className="text-sm text-gray-700">
+      <div className="text-sm text-muted-foreground">
         <span className="font-bold">Solution:</span> {solution}
       </div>
     </div>
@@ -2100,9 +2100,9 @@ function RiskBlock({ risk, impact, solution }: any) {
 function MaturityBlock({ status, version, description }: any) {
   return (
     <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50">
-      <div className="font-bold text-sm text-gray-900 mb-1">{status}</div>
-      <div className="text-xs text-gray-600 mb-3">{version}</div>
-      <div className="text-sm text-gray-700">{description}</div>
+      <div className="font-bold text-sm text-foreground mb-1">{status}</div>
+      <div className="text-xs text-muted-foreground mb-3">{version}</div>
+      <div className="text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
@@ -2110,8 +2110,8 @@ function MaturityBlock({ status, version, description }: any) {
 function MetadataRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2119,8 +2119,8 @@ function MetadataRow({ label, value }: any) {
 function QuickRefRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-700">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2151,7 +2151,7 @@ function RiskItem({ severity, risk }: any) {
 
 function RelatedLink({ title }: any) {
   return (
-    <a href="#" className="block px-3 py-2 bg-white border border-gray-300 rounded hover:border-[#000080] hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
+    <a href="#" className="block px-3 py-2 bg-card border border-border rounded hover:border-primary hover:bg-background transition-colors text-sm text-muted-foreground font-medium">
       {title}
     </a>
   );

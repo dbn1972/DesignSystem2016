@@ -80,16 +80,16 @@ export default function CertificateDocumentGuidelines() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b-2 border-gray-300">
+    <div className="min-h-screen bg-background">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-6">
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-green-600 rounded flex items-center justify-center">
               <FileText size={28} className="text-white" />
             </div>
             <div>
-              <div className="text-sm text-gray-600">Application Help</div>
-              <h1 className="text-2xl font-bold text-gray-900">Document Requirements & Guidelines</h1>
+              <div className="text-sm text-muted-foreground">Application Help</div>
+              <h1 className="text-2xl font-bold text-foreground">Document Requirements & Guidelines</h1>
             </div>
           </div>
         </div>
@@ -102,8 +102,8 @@ export default function CertificateDocumentGuidelines() {
           <div className="flex items-start gap-3">
             <AlertCircle size={24} className="text-orange-600 flex-shrink-0" />
             <div>
-              <h2 className="font-bold text-gray-900 mb-2">Important: Read Before Uploading</h2>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <h2 className="font-bold text-foreground mb-2">Important: Read Before Uploading</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Please ensure all documents meet the specifications mentioned below. Applications with incomplete, 
                 unclear, or incorrect documents will be rejected, causing delays in processing. Follow the guidelines 
                 carefully to avoid rejection.
@@ -160,15 +160,15 @@ export default function CertificateDocumentGuidelines() {
         </div>
 
         {/* General Guidelines */}
-        <div className="mt-8 bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-            <h2 className="font-bold text-gray-900">General Technical Guidelines</h2>
+        <div className="mt-8 bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-8 py-4">
+            <h2 className="font-bold text-foreground">General Technical Guidelines</h2>
           </div>
           <div className="p-8">
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 text-sm">File Formats Accepted</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <h3 className="font-bold text-foreground mb-3 text-sm">File Formats Accepted</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center gap-2">
                     <CheckCircle size={16} className="text-green-600" />
                     PDF (Portable Document Format)
@@ -184,8 +184,8 @@ export default function CertificateDocumentGuidelines() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 text-sm">File Size Limits</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <h3 className="font-bold text-foreground mb-3 text-sm">File Size Limits</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Identity Proof: Maximum 2 MB</li>
                   <li>• Address Proof: Maximum 2 MB</li>
                   <li>• Photograph: 50 KB - 200 KB</li>
@@ -193,8 +193,8 @@ export default function CertificateDocumentGuidelines() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 text-sm">Image Quality</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <h3 className="font-bold text-foreground mb-3 text-sm">Image Quality</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Minimum resolution: 300 DPI</li>
                   <li>• Color: Preferred (colored scan)</li>
                   <li>• Orientation: Correct (not upside down)</li>
@@ -202,8 +202,8 @@ export default function CertificateDocumentGuidelines() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 text-sm">Document Validity</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <h3 className="font-bold text-foreground mb-3 text-sm">Document Validity</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Identity proof must be valid</li>
                   <li>• Utility bills within 3 months</li>
                   <li>• Photograph within 6 months</li>
@@ -218,18 +218,18 @@ export default function CertificateDocumentGuidelines() {
         <div className="mt-8 bg-green-50 border-2 border-green-300 rounded-lg p-6">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+              <h3 className="font-bold text-foreground mb-2 flex items-center gap-2">
                 <Download size={20} className="text-green-600" />
                 Sample Document Templates
               </h3>
-              <p className="text-sm text-gray-700 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 Download sample templates to understand the quality and format requirements
               </p>
               <div className="flex items-center gap-3">
-                <button className="px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900">
+                <button className="px-4 py-2 bg-primary text-white font-bold rounded text-sm hover:opacity-90">
                   Download Sample PDF
                 </button>
-                <button className="px-4 py-2 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50">
+                <button className="px-4 py-2 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background">
                   View Examples
                 </button>
               </div>
@@ -241,7 +241,7 @@ export default function CertificateDocumentGuidelines() {
         <div className="mt-8 text-center">
           <Link
             to="/reference-service/certificate/sign-up"
-            className="inline-block px-8 py-4 bg-[#138808] text-white font-bold rounded hover:bg-green-700"
+            className="inline-block px-8 py-4 bg-green-700 text-white font-bold rounded hover:bg-green-600"
           >
             Start Your Application
           </Link>
@@ -249,15 +249,15 @@ export default function CertificateDocumentGuidelines() {
 
       </main>
 
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>Certificate Application Service • Government of India</div>
             <div>
-              <Link to="/reference-service/demo" className="text-[#000080] font-bold hover:underline mr-6">
+              <Link to="/reference-service/demo" className="text-primary font-bold hover:underline mr-6">
                 Service Home
               </Link>
-              <Link to="/reference-service/certificate/help" className="text-gray-600 hover:underline">
+              <Link to="/reference-service/certificate/help" className="text-muted-foreground hover:underline">
                 Help & Support
               </Link>
             </div>
@@ -279,9 +279,9 @@ function TipCard({ icon, title, tips, color }: any) {
     <div className={`border-2 rounded-lg p-6 ${colors[color]}`}>
       <div className="flex items-center gap-2 mb-4">
         {icon}
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
-      <ul className="space-y-2 text-sm text-gray-700">
+      <ul className="space-y-2 text-sm text-muted-foreground">
         {tips.map((tip: string, idx: number) => (
           <li key={idx}>• {tip}</li>
         ))}
@@ -292,9 +292,9 @@ function TipCard({ icon, title, tips, color }: any) {
 
 function DocumentCard({ document }: any) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4 flex items-center justify-between">
-        <h2 className="font-bold text-gray-900">{document.name}</h2>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-8 py-4 flex items-center justify-between">
+        <h2 className="font-bold text-foreground">{document.name}</h2>
         {document.required ? (
           <span className="px-3 py-1 bg-red-100 border-2 border-red-300 text-red-900 text-xs font-bold rounded">
             REQUIRED
@@ -311,11 +311,11 @@ function DocumentCard({ document }: any) {
           {/* Left Column */}
           <div className="space-y-6">
             <div>
-              <h4 className="font-bold text-gray-900 mb-3 text-sm flex items-center gap-2">
+              <h4 className="font-bold text-foreground mb-3 text-sm flex items-center gap-2">
                 <CheckCircle size={18} className="text-green-600" />
                 Accepted Documents
               </h4>
-              <ul className="space-y-2 text-sm text-gray-700 ml-6">
+              <ul className="space-y-2 text-sm text-muted-foreground ml-6">
                 {document.accepted.map((item: string, idx: number) => (
                   <li key={idx}>• {item}</li>
                 ))}
@@ -323,11 +323,11 @@ function DocumentCard({ document }: any) {
             </div>
 
             <div>
-              <h4 className="font-bold text-gray-900 mb-3 text-sm flex items-center gap-2">
+              <h4 className="font-bold text-foreground mb-3 text-sm flex items-center gap-2">
                 <Info size={18} className="text-blue-600" />
                 Specifications
               </h4>
-              <ul className="space-y-2 text-sm text-gray-700 ml-6">
+              <ul className="space-y-2 text-sm text-muted-foreground ml-6">
                 {document.specifications.map((spec: string, idx: number) => (
                   <li key={idx}>• {spec}</li>
                 ))}
@@ -337,12 +337,12 @@ function DocumentCard({ document }: any) {
 
           {/* Right Column */}
           <div>
-            <h4 className="font-bold text-gray-900 mb-3 text-sm flex items-center gap-2">
+            <h4 className="font-bold text-foreground mb-3 text-sm flex items-center gap-2">
               <XCircle size={18} className="text-red-600" />
               Common Errors to Avoid
             </h4>
             <div className="bg-red-50 border-2 border-red-300 rounded-lg p-4">
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 {document.commonErrors.map((error: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2">
                     <span className="text-red-600 mt-1">✗</span>

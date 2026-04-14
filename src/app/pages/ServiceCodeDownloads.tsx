@@ -860,23 +860,23 @@ function triggerDownload(filename: string, code: string) {
 
 export default function ServiceCodeDownloads() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b-2 border-gray-300">
+    <div className="min-h-screen bg-background">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <Link
             to="/reference-service/overview"
-            className="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900 mb-4"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4"
           >
             <ArrowLeft size={16} />
             Back to Reference Services
           </Link>
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded bg-[#000080] text-white flex items-center justify-center">
+            <div className="w-12 h-12 rounded bg-primary text-white flex items-center justify-center">
               <FileCode2 size={22} />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Service Code Downloads</h1>
-              <p className="text-sm text-gray-700 mt-1">
+              <h1 className="text-2xl font-bold text-foreground">Service Code Downloads</h1>
+              <p className="text-sm text-muted-foreground mt-1">
                 Download React source code for sign-up, sign-in, eligibility, application start, user profile, personal/address/additional/review forms, document upload, review summary, declaration, payment summary, payment receipt, status tracker, forgot-password, OTP, and auth-status services.
               </p>
             </div>
@@ -887,9 +887,9 @@ export default function ServiceCodeDownloads() {
       <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8 lg:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {downloadGroups.map((group) => (
-            <section id={group.id} key={group.title} className="bg-white border-2 border-gray-300 rounded-lg p-6 scroll-mt-24">
-              <h2 className="text-xl font-bold text-gray-900">{group.title}</h2>
-              <p className="text-sm text-gray-700 mt-2 mb-5">{group.description}</p>
+            <section id={group.id} key={group.title} className="bg-card border-2 border-border rounded-lg p-6 scroll-mt-24">
+              <h2 className="text-xl font-bold text-foreground">{group.title}</h2>
+              <p className="text-sm text-muted-foreground mt-2 mb-5">{group.description}</p>
 
               <div className="space-y-3">
                 {group.items.map((item) => (
@@ -897,7 +897,7 @@ export default function ServiceCodeDownloads() {
                     key={`${group.title}-${item.filename}`}
                     type="button"
                     onClick={() => triggerDownload(item.filename, item.code)}
-                    className="w-full inline-flex items-center justify-between gap-3 px-4 py-3 border-2 border-gray-300 rounded text-sm font-bold text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080]"
+                    className="w-full inline-flex items-center justify-between gap-3 px-4 py-3 border-2 border-border rounded text-sm font-bold text-foreground hover:bg-background focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring"
                   >
                     <span className="text-left">{item.label}</span>
                     <Download size={16} aria-hidden="true" />

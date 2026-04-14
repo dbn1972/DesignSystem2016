@@ -30,15 +30,15 @@ export default function IdentitySessionTimeout() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation Bar */}
-      <nav className="bg-white border-b-2 border-gray-300">
+      <nav className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between">
-          <Link to="/patterns/identity" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+          <Link to="/patterns/identity" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
             <ArrowLeft size={20} />
             <span className="font-medium">Back to Identity Patterns</span>
           </Link>
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-muted-foreground">
             <span className="font-bold">Flow:</span> Session Timeout / Re-authentication
           </div>
         </div>
@@ -50,19 +50,19 @@ export default function IdentitySessionTimeout() {
           
           {/* Prototype View - 8 columns */}
           <div className="col-span-8">
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden shadow-lg">
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden shadow-lg">
               {/* Tricolor Header */}
               <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 h-2"></div>
               
               {/* Government Header */}
-              <div className="bg-white border-b-2 border-gray-300 px-8 py-6">
+              <div className="bg-card border-b-2 border-border px-8 py-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#000080] rounded flex items-center justify-center">
+                  <div className="w-12 h-12 bg-primary rounded flex items-center justify-center">
                     <Shield size={24} className="text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-lg text-gray-900">Digital India Portal</div>
-                    <div className="text-sm text-gray-600">Government of India</div>
+                    <div className="font-bold text-lg text-foreground">Digital India Portal</div>
+                    <div className="text-sm text-muted-foreground">Government of India</div>
                   </div>
                 </div>
               </div>
@@ -75,10 +75,10 @@ export default function IdentitySessionTimeout() {
                   
                   {/* Warning Modal */}
                   <div className="absolute inset-0 flex items-center justify-center z-20 p-12">
-                    <div className="bg-white border-2 border-yellow-300 rounded-lg shadow-2xl max-w-lg w-full">
+                    <div className="bg-card border-2 border-yellow-300 rounded-lg shadow-2xl max-w-lg w-full">
                       <div className="bg-yellow-100 border-b-2 border-yellow-300 px-6 py-4 flex items-center gap-3">
                         <Clock size={24} className="text-yellow-700" />
-                        <h2 className="font-bold text-gray-900 text-lg">Session About to Expire</h2>
+                        <h2 className="font-bold text-foreground text-lg">Session About to Expire</h2>
                       </div>
                       
                       <div className="p-6 text-center">
@@ -86,20 +86,20 @@ export default function IdentitySessionTimeout() {
                           <div className="text-5xl font-bold text-yellow-700">{formatTime(timeLeft)}</div>
                         </div>
                         
-                        <p className="text-gray-700 mb-6 leading-relaxed">
+                        <p className="text-muted-foreground mb-6 leading-relaxed">
                           Your session will expire due to inactivity. You'll be automatically logged out for security reasons.
                         </p>
 
                         <div className="space-y-3">
                           <button
                             onClick={handleStayLoggedIn}
-                            className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors"
+                            className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors"
                           >
                             Stay Logged In
                           </button>
                           <button
                             onClick={() => setTimedOut(true)}
-                            className="w-full py-3 bg-white text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                            className="w-full py-3 bg-card text-muted-foreground font-medium border-2 border-border rounded-lg hover:bg-background transition-colors"
                           >
                             Log Out Now
                           </button>
@@ -108,8 +108,8 @@ export default function IdentitySessionTimeout() {
                         <div className="mt-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg text-sm text-left">
                           <div className="flex items-start gap-2">
                             <Info size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                            <div className="text-gray-700">
-                              <div className="font-bold text-gray-900 mb-1">Why does this happen?</div>
+                            <div className="text-muted-foreground">
+                              <div className="font-bold text-foreground mb-1">Why does this happen?</div>
                               <p>Sessions expire after 30 minutes of inactivity to protect your account and data.</p>
                             </div>
                           </div>
@@ -128,14 +128,14 @@ export default function IdentitySessionTimeout() {
                       <AlertCircle size={40} className="text-red-600" />
                     </div>
                     
-                    <h1 className="text-3xl font-bold text-gray-900 mb-3">Session Expired</h1>
-                    <p className="text-gray-600 mb-8">
+                    <h1 className="text-3xl font-bold text-foreground mb-3">Session Expired</h1>
+                    <p className="text-muted-foreground mb-8">
                       Your session has expired due to inactivity. For security, you've been logged out automatically.
                     </p>
 
-                    <div className="p-6 bg-gray-100 border-2 border-gray-300 rounded-lg mb-8 text-left">
-                      <div className="font-bold text-gray-900 mb-3">Your work has been saved</div>
-                      <div className="text-sm text-gray-700 space-y-2">
+                    <div className="p-6 bg-muted border-2 border-border rounded-lg mb-8 text-left">
+                      <div className="font-bold text-foreground mb-3">Your work has been saved</div>
+                      <div className="text-sm text-muted-foreground space-y-2">
                         <p>• Any form data you entered has been saved as a draft</p>
                         <p>• Simply sign in again to continue where you left off</p>
                         <p>• Your draft will be available for 24 hours</p>
@@ -144,12 +144,12 @@ export default function IdentitySessionTimeout() {
 
                     <Link
                       to="/patterns/identity/sign-in"
-                      className="block w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors text-center mb-4"
+                      className="block w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors text-center mb-4"
                     >
                       Sign In Again
                     </Link>
 
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-muted-foreground">
                       <Info size={14} className="inline mr-1" />
                       Session timeout helps protect your account from unauthorized access
                     </div>
@@ -165,14 +165,14 @@ export default function IdentitySessionTimeout() {
                       <CheckCircle size={40} className="text-green-600" />
                     </div>
                     
-                    <h1 className="text-3xl font-bold text-gray-900 mb-3">Session Extended</h1>
-                    <p className="text-gray-600 mb-8">
+                    <h1 className="text-3xl font-bold text-foreground mb-3">Session Extended</h1>
+                    <p className="text-muted-foreground mb-8">
                       Your session has been extended. You can continue working without interruption.
                     </p>
 
                     <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg mb-8 text-left">
-                      <div className="font-bold text-gray-900 mb-3">Session Security</div>
-                      <div className="text-sm text-gray-700 space-y-2">
+                      <div className="font-bold text-foreground mb-3">Session Security</div>
+                      <div className="text-sm text-muted-foreground space-y-2">
                         <p>• Sessions expire after 30 minutes of inactivity</p>
                         <p>• You'll receive a warning 2 minutes before expiry</p>
                         <p>• Maximum session duration: 8 hours</p>
@@ -182,7 +182,7 @@ export default function IdentitySessionTimeout() {
 
                     <button
                       onClick={() => setShowWarning(true)}
-                      className="w-full py-3 bg-white text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="w-full py-3 bg-card text-muted-foreground font-medium border-2 border-border rounded-lg hover:bg-background transition-colors"
                     >
                       <RefreshCw size={16} className="inline mr-2" />
                       View Session Warning Again
@@ -192,16 +192,16 @@ export default function IdentitySessionTimeout() {
               )}
 
               {/* Help Card */}
-              <div className="border-t-2 border-gray-300 bg-gray-50 px-12 py-6">
+              <div className="border-t-2 border-border bg-background px-12 py-6">
                 <div className="max-w-xl mx-auto">
                   <div className="flex items-start gap-3">
-                    <HelpCircle size={20} className="text-[#000080] flex-shrink-0 mt-0.5" />
+                    <HelpCircle size={20} className="text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-gray-900 mb-2">Need Help?</div>
-                      <div className="text-sm text-gray-700 space-y-1">
+                      <div className="font-bold text-foreground mb-2">Need Help?</div>
+                      <div className="text-sm text-muted-foreground space-y-1">
                         <p>Call: <span className="font-bold">1800-XXX-XXXX</span> (Toll-Free)</p>
                         <p>Email: <span className="font-bold">support@digitalindia.gov.in</span></p>
-                        <p className="text-gray-600">Monday to Friday, 9:00 AM - 6:00 PM IST</p>
+                        <p className="text-muted-foreground">Monday to Friday, 9:00 AM - 6:00 PM IST</p>
                       </div>
                     </div>
                   </div>
@@ -228,9 +228,9 @@ export default function IdentitySessionTimeout() {
 
 function PatternInfo() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Pattern Info</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground">Pattern Info</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <InfoRow label="Pattern ID" value="UX4G-PAT-009-08" />
@@ -247,9 +247,9 @@ function SecurityRationale() {
   return (
     <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
       <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Security Rationale</h3>
+        <h3 className="font-bold text-foreground">Security Rationale</h3>
       </div>
-      <div className="p-4 space-y-2 text-sm text-gray-700">
+      <div className="p-4 space-y-2 text-sm text-muted-foreground">
         <SecurityItem text="Prevents unauthorized access to unattended devices" />
         <SecurityItem text="Reduces risk of session hijacking" />
         <SecurityItem text="Protects sensitive government data" />
@@ -262,9 +262,9 @@ function SecurityRationale() {
 
 function TimingConfiguration() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Timing Configuration</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground">Timing Configuration</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <ConfigItem label="Inactivity Timeout" value="30 minutes" />
@@ -280,9 +280,9 @@ function ImplementationNotes() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Implementation</h3>
+        <h3 className="font-bold text-foreground">Implementation</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <ImplementationItem
           title="Idle Detection"
           description="Track mouse movement, keyboard input, scroll events"
@@ -308,13 +308,13 @@ function ImplementationNotes() {
 function InfoRow({ label, value, badge }: { label: string; value: string; badge?: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
+      <span className="text-muted-foreground">{label}</span>
       {badge ? (
-        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'} text-xs font-bold rounded-full`}>
+        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
           {value}
         </span>
       ) : (
-        <span className="font-bold text-gray-900">{value}</span>
+        <span className="font-bold text-foreground">{value}</span>
       )}
     </div>
   );
@@ -332,8 +332,8 @@ function SecurityItem({ text }: { text: string }) {
 function ConfigItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -341,8 +341,8 @@ function ConfigItem({ label, value }: { label: string; value: string }) {
 function ImplementationItem({ title, description }: { title: string; description: string }) {
   return (
     <div>
-      <div className="font-bold text-gray-900 mb-1">{title}</div>
-      <div className="text-xs text-gray-600">{description}</div>
+      <div className="font-bold text-foreground mb-1">{title}</div>
+      <div className="text-xs text-muted-foreground">{description}</div>
     </div>
   );
 }

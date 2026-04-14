@@ -323,7 +323,7 @@ function Example() {
         size="md"
         className="ring-2 ring-white"
       />
-      <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-600 ring-2 ring-white">
+      <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-muted-foreground ring-2 ring-white">
         +3
       </div>
     </div>
@@ -353,7 +353,7 @@ function Example() {
                 size="md"
                 className="ring-2 ring-white"
               />
-              <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-gray-600 ring-2 ring-white">
+              <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium text-muted-foreground ring-2 ring-white">
                 +3
               </div>
             </div>

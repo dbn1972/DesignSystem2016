@@ -13,7 +13,7 @@
  * ```
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { cn } from '../../utils/cn';
 import { AccordionProps } from './Accordion.types';
 

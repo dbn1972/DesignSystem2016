@@ -2,37 +2,37 @@ import { Award, CheckCircle, XCircle, AlertCircle, Info, Clock, Download, Eye, F
 
 export default function ApprovalIssuancePattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <Award size={32} className="text-gray-700" />
+                <div className="w-16 h-16 bg-muted border-2 border-border rounded flex items-center justify-center">
+                  <Award size={32} className="text-muted-foreground" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Service Pattern Library</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Approval and Issuance</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Service Pattern Library</div>
+                  <h1 className="text-3xl font-bold text-foreground">Approval and Issuance</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Final decision and outcome delivery pattern for applications, certificates, licenses, and benefits. 
                 Communicates approval, rejection, issuance, and next steps with clarity and authority.
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-006</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-006</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function ApprovalIssuancePattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -67,7 +67,7 @@ export default function ApprovalIssuancePattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -106,9 +106,9 @@ export default function ApprovalIssuancePattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Service Pattern Library</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -129,7 +129,7 @@ function PatternOverview() {
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               After submitting applications, citizens face uncertainty about decisions, lack clarity on outcomes, 
               and struggle to access issued documents. Poor communication erodes trust in government services.
             </p>
@@ -363,21 +363,21 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 1: Under Review Status" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-blue-100 border-b-2 border-blue-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Clock size={32} className="text-blue-600" />
-                <h1 className="text-3xl font-bold text-gray-900">Application Under Review</h1>
+                <h1 className="text-3xl font-bold text-foreground">Application Under Review</h1>
               </div>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-muted-foreground">
                 Your application is being reviewed by our team. We'll notify you once a decision is made.
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6 text-center">
-                <div className="text-sm text-gray-600 mb-2">Application Reference Number</div>
-                <div className="text-3xl font-bold text-gray-900 font-mono mb-4">DL-2026-12345</div>
-                <div className="text-sm text-gray-600">Driving License Application — Submitted on 15 March 2026</div>
+              <div className="bg-background border-2 border-border rounded-lg p-6 text-center">
+                <div className="text-sm text-muted-foreground mb-2">Application Reference Number</div>
+                <div className="text-3xl font-bold text-foreground font-mono mb-4">DL-2026-12345</div>
+                <div className="text-sm text-muted-foreground">Driving License Application — Submitted on 15 March 2026</div>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
@@ -396,8 +396,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">What's Happening Now?</div>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">What's Happening Now?</div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">1</div>
                     <span>Verifying your identity documents (Aadhaar, address proof)</span>
@@ -413,9 +413,9 @@ function PageDesigns() {
                 </ul>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Application Timeline</h3>
+              <div className="border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Application Timeline</h3>
                 </div>
                 <div className="p-6 space-y-4">
                   <TimelineItem
@@ -435,7 +435,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4 text-sm text-gray-700 text-center">
+              <div className="bg-background border-2 border-border rounded-lg p-4 text-sm text-muted-foreground text-center">
                 <strong>Need to make changes?</strong> Contact RTO Office at 
                 <span className="font-bold text-blue-600 ml-2">0120-XXXX-XXXX</span> or 
                 email <span className="font-bold text-blue-600">rto.noida@up.gov.in</span>
@@ -457,13 +457,13 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 2: Action Needed (Additional Information Required)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-yellow-100 border-b-2 border-yellow-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <AlertCircle size={32} className="text-yellow-600" />
-                <h1 className="text-3xl font-bold text-gray-900">Action Needed: Additional Information Required</h1>
+                <h1 className="text-3xl font-bold text-foreground">Action Needed: Additional Information Required</h1>
               </div>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-muted-foreground">
                 We need some additional information to complete the review of your application.
               </p>
             </div>
@@ -472,8 +472,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <AlertCircle size={20} className="text-yellow-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Why This Is Needed</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">Why This Is Needed</div>
+                    <div className="text-sm text-muted-foreground">
                       During review, we found that your medical certificate has expired. 
                       To proceed with your driving license application, we need a valid medical certificate 
                       issued within the last 6 months.
@@ -482,9 +482,9 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Required Information (1 item)</h3>
+              <div className="border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Required Information (1 item)</h3>
                 </div>
                 <div className="p-6">
                   <RequiredInfoItem
@@ -497,8 +497,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-4">How to Get Medical Certificate</div>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-4">How to Get Medical Certificate</div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 flex-shrink-0"></div>
                     <span>Visit any government-authorized medical center or RTO-approved doctor</span>
@@ -515,21 +515,21 @@ function PageDesigns() {
               </div>
 
               <div className="border-2 border-orange-300 bg-orange-50 rounded-lg p-6">
-                <label className="block text-sm font-bold text-gray-900 mb-4">
+                <label className="block text-sm font-bold text-foreground mb-4">
                   Upload Updated Medical Certificate <span className="text-red-600">*</span>
                 </label>
-                <div className="border-2 border-dashed border-orange-400 rounded-lg p-8 text-center bg-white hover:bg-orange-50 cursor-pointer transition-colors">
+                <div className="border-2 border-dashed border-orange-400 rounded-lg p-8 text-center bg-card hover:bg-orange-50 cursor-pointer transition-colors">
                   <Download size={32} className="text-orange-600 mx-auto mb-3" />
-                  <div className="text-sm text-gray-900 font-bold mb-2">Click to upload or drag and drop</div>
-                  <div className="text-xs text-gray-600">PDF, JPG, PNG (max 2 MB)</div>
+                  <div className="text-sm text-foreground font-bold mb-2">Click to upload or drag and drop</div>
+                  <div className="text-xs text-muted-foreground">PDF, JPG, PNG (max 2 MB)</div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <div className="text-sm text-gray-600">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <div className="text-sm text-muted-foreground">
                   <strong>Deadline:</strong> 30 March 2026 (12 days remaining)
                 </div>
-                <button className="px-10 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] flex items-center gap-2">
+                <button className="px-10 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 flex items-center gap-2">
                   <CheckCircle size={20} />
                   Submit Information
                 </button>
@@ -551,9 +551,9 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 3: Approval Outcome" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-green-600 text-white p-12 text-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
               <h1 className="text-3xl font-bold mb-4">Application Approved!</h1>
@@ -565,9 +565,9 @@ function PageDesigns() {
               <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Application Number</div>
-                    <div className="text-2xl font-bold text-gray-900 font-mono mb-2">DL-2026-12345</div>
-                    <div className="text-sm text-gray-700">Approved on <strong>22 March 2026</strong></div>
+                    <div className="text-sm text-muted-foreground mb-1">Application Number</div>
+                    <div className="text-2xl font-bold text-foreground font-mono mb-2">DL-2026-12345</div>
+                    <div className="text-sm text-muted-foreground">Approved on <strong>22 March 2026</strong></div>
                   </div>
                   <div className="px-4 py-2 bg-green-600 text-white font-bold text-sm rounded">
                     APPROVED
@@ -591,8 +591,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">What Happens Next?</div>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">What Happens Next?</div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">1</div>
                     <span>Your driving license is being printed and processed</span>
@@ -608,8 +608,8 @@ function PageDesigns() {
                 </ul>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg p-6 bg-white">
-                <div className="font-bold text-gray-900 mb-4">Approval Details</div>
+              <div className="border-2 border-border rounded-lg p-6 bg-card">
+                <div className="font-bold text-foreground mb-4">Approval Details</div>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <DetailRow label="Approved By" value="RTO Officer Rajesh Kumar (ID: RTO-NOI-456)" />
                   <DetailRow label="Approval Date" value="22 March 2026, 11:30 AM" />
@@ -619,10 +619,10 @@ function PageDesigns() {
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-10 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+                <button className="px-10 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                   Track Issuance Status
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Download Approval Letter
                 </button>
               </div>
@@ -643,7 +643,7 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 4: Rejection Outcome (Clear and Constructive)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-gray-700 text-white p-8">
               <div className="flex items-center gap-3 mb-4">
                 <XCircle size={32} />
@@ -657,9 +657,9 @@ function PageDesigns() {
               <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Application Number</div>
-                    <div className="text-2xl font-bold text-gray-900 font-mono mb-2">DL-2026-12345</div>
-                    <div className="text-sm text-gray-700">Decision made on <strong>22 March 2026</strong></div>
+                    <div className="text-sm text-muted-foreground mb-1">Application Number</div>
+                    <div className="text-2xl font-bold text-foreground font-mono mb-2">DL-2026-12345</div>
+                    <div className="text-sm text-muted-foreground">Decision made on <strong>22 March 2026</strong></div>
                   </div>
                   <div className="px-4 py-2 bg-gray-700 text-white font-bold text-sm rounded">
                     NOT APPROVED
@@ -670,7 +670,7 @@ function PageDesigns() {
               <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                 <div className="flex items-start gap-3 mb-4">
                   <XCircle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
-                  <div className="font-bold text-gray-900">Reasons for Non-Approval</div>
+                  <div className="font-bold text-foreground">Reasons for Non-Approval</div>
                 </div>
                 <div className="space-y-3">
                   <RejectionReason
@@ -687,7 +687,7 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">Your Options</div>
+                <div className="font-bold text-foreground mb-3">Your Options</div>
                 <div className="space-y-4">
                   <OptionCard
                     icon={<RefreshCw size={20} className="text-blue-600" />}
@@ -710,8 +710,8 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg p-6 bg-white">
-                <div className="font-bold text-gray-900 mb-4">Decision Details</div>
+              <div className="border-2 border-border rounded-lg p-6 bg-card">
+                <div className="font-bold text-foreground mb-4">Decision Details</div>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <DetailRow label="Reviewed By" value="RTO Officer Rajesh Kumar (ID: RTO-NOI-456)" />
                   <DetailRow label="Decision Date" value="22 March 2026, 11:30 AM" />
@@ -724,7 +724,7 @@ function PageDesigns() {
                 <button className="px-8 py-3 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-700">
                   File Appeal
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Download Decision Letter
                 </button>
               </div>
@@ -745,7 +745,7 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 5: Issued Certificate/Document" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-teal-600 text-white p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Award size={32} />
@@ -759,9 +759,9 @@ function PageDesigns() {
               <div className="bg-teal-50 border-2 border-teal-200 rounded-lg p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">License Number</div>
-                    <div className="text-3xl font-bold text-gray-900 font-mono mb-2">DL-0120260012345</div>
-                    <div className="text-sm text-gray-700">Issued on <strong>2 April 2026</strong> • Valid until <strong>2 April 2046</strong></div>
+                    <div className="text-sm text-muted-foreground mb-1">License Number</div>
+                    <div className="text-3xl font-bold text-foreground font-mono mb-2">DL-0120260012345</div>
+                    <div className="text-sm text-muted-foreground">Issued on <strong>2 April 2026</strong> • Valid until <strong>2 April 2046</strong></div>
                   </div>
                   <div className="px-4 py-2 bg-teal-600 text-white font-bold text-sm rounded">
                     ACTIVE
@@ -769,9 +769,9 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
+              <div className="border-2 border-border rounded-lg overflow-hidden">
                 <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 p-1">
-                  <div className="bg-white p-8">
+                  <div className="bg-card p-8">
                     <div className="grid grid-cols-3 gap-8">
                       <div className="col-span-2 space-y-4">
                         <div className="flex items-center gap-3 mb-4">
@@ -779,7 +779,7 @@ function PageDesigns() {
                             <Award size={24} className="text-white" />
                           </div>
                           <div>
-                            <div className="text-xs text-gray-600">Government of India</div>
+                            <div className="text-xs text-muted-foreground">Government of India</div>
                             <div className="font-bold text-lg">Driving License</div>
                           </div>
                         </div>
@@ -793,16 +793,16 @@ function PageDesigns() {
                           <LicenseField label="Issue Date" value="02/04/2026" />
                           <LicenseField label="Valid Until" value="02/04/2046" />
                         </div>
-                        <div className="pt-4 border-t border-gray-300">
-                          <div className="text-xs text-gray-600 mb-2">Authorized to Drive</div>
+                        <div className="pt-4 border-t border-border">
+                          <div className="text-xs text-muted-foreground mb-2">Authorized to Drive</div>
                           <div className="font-bold">Light Motor Vehicle (LMV)</div>
                         </div>
                       </div>
                       <div className="flex flex-col items-center justify-between">
-                        <div className="w-32 h-40 bg-gray-200 border-2 border-gray-300 rounded flex items-center justify-center mb-4">
+                        <div className="w-32 h-40 bg-gray-200 border-2 border-border rounded flex items-center justify-center mb-4">
                           <div className="text-xs text-gray-500 text-center">Photo</div>
                         </div>
-                        <div className="w-32 h-32 bg-white border-2 border-gray-300 rounded flex items-center justify-center">
+                        <div className="w-32 h-32 bg-card border-2 border-border rounded flex items-center justify-center">
                           <div className="text-xs text-gray-500 text-center">QR Code</div>
                         </div>
                       </div>
@@ -812,23 +812,23 @@ function PageDesigns() {
               </div>
 
               <div className="grid grid-cols-3 gap-4">
-                <button className="px-6 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] flex items-center justify-center gap-2">
+                <button className="px-6 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90 flex items-center justify-center gap-2">
                   <Download size={18} />
                   Download PDF
                 </button>
-                <button className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
+                <button className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-600 flex items-center justify-center gap-2">
                   <Printer size={18} />
                   Print License
                 </button>
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50 flex items-center justify-center gap-2">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background flex items-center justify-center gap-2">
                   <ExternalLink size={18} />
                   Verify Online
                 </button>
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">How to Use Your License</div>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">How to Use Your License</div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                     <span><strong>Download e-License:</strong> Carry on your phone via DigiLocker or mParivahan app</span>
@@ -848,7 +848,7 @@ function PageDesigns() {
                 </ul>
               </div>
 
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4 text-sm text-gray-700 text-center">
+              <div className="bg-background border-2 border-border rounded-lg p-4 text-sm text-muted-foreground text-center">
                 <strong>Collect Physical License:</strong> Visit RTO Office, Sector 15, Noida between 10 AM - 5 PM (Mon-Sat). 
                 Bring printed copy of this page and Aadhaar card.
               </div>
@@ -870,10 +870,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 6: Next Steps and Validity Tracking" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">License Details and Next Steps</h2>
-              <div className="text-sm text-gray-600">License Number: DL-0120260012345</div>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">License Details and Next Steps</h2>
+              <div className="text-sm text-muted-foreground">License Number: DL-0120260012345</div>
             </div>
             <div className="p-8 space-y-6">
               <div className="grid grid-cols-3 gap-6">
@@ -895,16 +895,16 @@ function PageDesigns() {
               </div>
 
               <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">Your License is Active and Valid</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">Your License is Active and Valid</div>
+                <div className="text-sm text-muted-foreground">
                   You can legally drive Light Motor Vehicles (LMV) in India until 2 April 2046. 
                   Remember to renew your license before it expires to avoid penalties.
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Important Next Steps</h3>
+              <div className="border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Important Next Steps</h3>
                 </div>
                 <div className="p-6 space-y-4">
                   <NextStepBlock
@@ -935,8 +935,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">Renewal Information</div>
-                <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">Renewal Information</div>
+                <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
                   <div>
                     <strong>When to Renew:</strong><br/>
                     You can renew your license up to 1 year before expiry (from April 2045)
@@ -949,10 +949,10 @@ function PageDesigns() {
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                   Download License Copy
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Share with DigiLocker
                 </button>
               </div>
@@ -986,8 +986,8 @@ function OutcomeStates() {
             <div className="flex items-start gap-3 mb-4">
               <Eye size={24} className="text-purple-600 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-2">Accessibility-First State Design</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-2">Accessibility-First State Design</div>
+                <div className="text-sm text-muted-foreground">
                   All outcome states use multiple indicators (icon + text + border + background + ARIA label) 
                   to ensure clarity for all users, including those with color blindness or using screen readers.
                 </div>
@@ -1250,8 +1250,8 @@ function AccessibilityGuidance() {
             <div className="flex items-start gap-3 mb-4">
               <Globe size={24} className="text-purple-600 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-2">Language Support for Official Documents</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-2">Language Support for Official Documents</div>
+                <div className="text-sm text-muted-foreground">
                   Certificates and licenses must be issued in Hindi and English minimum. 
                   State-specific documents should include the regional language as third option.
                 </div>
@@ -1465,9 +1465,9 @@ function GovernanceConformance() {
 
 function MetadataPanel() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Pattern Metadata</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Pattern Metadata</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <MetadataRow label="Pattern ID" value="UX4G-PAT-006" />
@@ -1485,7 +1485,7 @@ function QuickRefPanel() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <QuickRefRow label="Outcome States" value="5 states" />
@@ -1503,9 +1503,9 @@ function DesignPrinciples() {
   return (
     <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
       <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Core Principles</h3>
+        <h3 className="font-bold text-foreground text-sm">Core Principles</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <PrincipleItem icon={<Target size={14} />} text="Clarity: Multi-modal state indicators" />
         <PrincipleItem icon={<Shield size={14} />} text="Authority: Official design, verification" />
         <PrincipleItem icon={<Eye size={14} />} text="Accessibility: Not color-only, ARIA labels" />
@@ -1520,9 +1520,9 @@ function RiskIndicators() {
     <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
       <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3 flex items-center gap-2">
         <AlertTriangle size={16} className="text-red-700" />
-        <h3 className="font-bold text-gray-900 text-sm">Risk Indicators</h3>
+        <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <RiskItem severity="high" risk="Color-only state indicators" />
         <RiskItem severity="high" risk="Vague rejection messages" />
         <RiskItem severity="high" risk="No document verification" />
@@ -1535,9 +1535,9 @@ function RiskIndicators() {
 
 function RelatedResources() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <RelatedLink title="Application Submission" />
@@ -1553,15 +1553,15 @@ function RelatedResources() {
 
 function SectionHeader({ title }: any) {
   return (
-    <div className="border-l-4 border-[#000080] pl-4">
-      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+    <div className="border-l-4 border-primary pl-4">
+      <h2 className="text-2xl font-bold text-foreground">{title}</h2>
     </div>
   );
 }
 
 function DocModule({ children }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
       {children}
     </div>
   );
@@ -1569,8 +1569,8 @@ function DocModule({ children }: any) {
 
 function ModuleHeader({ title }: any) {
   return (
-    <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-      <h3 className="font-bold text-gray-900">{title}</h3>
+    <div className="bg-muted border-b-2 border-border px-6 py-4">
+      <h3 className="font-bold text-foreground">{title}</h3>
     </div>
   );
 }
@@ -1581,11 +1581,11 @@ function ModuleContent({ children }: any) {
 
 function ProblemSolutionBlock({ icon, problem, solution }: any) {
   return (
-    <div className="flex items-start gap-3 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-background border-2 border-border rounded-lg">
       <div className="flex-shrink-0 mt-0.5">{icon}</div>
       <div>
-        <div className="text-sm font-bold text-gray-900 mb-1">Problem: {problem}</div>
-        <div className="text-sm text-gray-700">Solution: {solution}</div>
+        <div className="text-sm font-bold text-foreground mb-1">Problem: {problem}</div>
+        <div className="text-sm text-muted-foreground">Solution: {solution}</div>
       </div>
     </div>
   );
@@ -1594,13 +1594,13 @@ function ProblemSolutionBlock({ icon, problem, solution }: any) {
 function UserGroup({ icon, name, description, percentage }: any) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-10 h-10 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center flex-shrink-0">
+      <div className="w-10 h-10 bg-muted border-2 border-border rounded flex items-center justify-center flex-shrink-0">
         {icon}
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{name}</div>
-        <div className="text-xs text-gray-600 mb-2">{description}</div>
-        <div className="text-xs font-bold text-gray-900">{percentage} of users</div>
+        <div className="font-bold text-sm text-foreground mb-1">{name}</div>
+        <div className="text-xs text-muted-foreground mb-2">{description}</div>
+        <div className="text-xs font-bold text-foreground">{percentage} of users</div>
       </div>
     </div>
   );
@@ -1608,11 +1608,11 @@ function UserGroup({ icon, name, description, percentage }: any) {
 
 function UseCaseCard({ title, examples }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-3">{title}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-3">{title}</div>
       <ul className="space-y-2">
         {examples.map((example: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
             <span>{example}</span>
           </li>
@@ -1636,9 +1636,9 @@ function OutcomeStateCard({ state, color, icon, description, userAction }: any) 
       <div className="flex items-start gap-3 mb-3">
         <div className="flex-shrink-0">{icon}</div>
         <div className="flex-1">
-          <div className="font-bold text-sm text-gray-900 mb-1">{state}</div>
-          <div className="text-sm text-gray-700 mb-2">{description}</div>
-          <div className="text-xs text-gray-600"><strong>User Action:</strong> {userAction}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{state}</div>
+          <div className="text-sm text-muted-foreground mb-2">{description}</div>
+          <div className="text-xs text-muted-foreground"><strong>User Action:</strong> {userAction}</div>
         </div>
       </div>
     </div>
@@ -1647,39 +1647,39 @@ function OutcomeStateCard({ state, color, icon, description, userAction }: any) 
 
 function FlowStep({ number, label, status }: any) {
   const statusConfig: any = {
-    entry: { bg: 'bg-gray-100', border: 'border-gray-400', text: 'text-gray-700' },
+    entry: { bg: 'bg-muted', border: 'border-gray-400', text: 'text-muted-foreground' },
     active: { bg: 'bg-blue-50', border: 'border-blue-400', text: 'text-blue-700' },
     decision: { bg: 'bg-yellow-50', border: 'border-yellow-400', text: 'text-yellow-700' },
     critical: { bg: 'bg-purple-50', border: 'border-purple-400', text: 'text-purple-700' },
     success: { bg: 'bg-green-50', border: 'border-green-400', text: 'text-green-700' },
     error: { bg: 'bg-red-50', border: 'border-red-400', text: 'text-red-700' },
-    info: { bg: 'bg-gray-50', border: 'border-gray-300', text: 'text-gray-600' }
+    info: { bg: 'bg-background', border: 'border-border', text: 'text-muted-foreground' }
   };
 
   return (
     <div className={`border-2 ${statusConfig[status].border} rounded-lg p-3 ${statusConfig[status].bg}`}>
       <div className={`text-xs font-bold ${statusConfig[status].text} mb-1`}>{number}</div>
-      <div className="text-xs font-medium text-gray-900">{label}</div>
+      <div className="text-xs font-medium text-foreground">{label}</div>
     </div>
   );
 }
 
 function PageSequenceRow({ number, title, description, required }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-l-4 border-[#000080] rounded">
-      <div className="w-8 h-8 bg-[#000080] text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
+    <div className="flex items-start gap-4 p-4 bg-background border-l-4 border-primary rounded">
+      <div className="w-8 h-8 bg-primary text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
         {number}
       </div>
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-1">
-          <div className="font-bold text-sm text-gray-900">{title}</div>
+          <div className="font-bold text-sm text-foreground">{title}</div>
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-gray-700 text-xs font-bold rounded">OPTIONAL</span>
+            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
         </div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1687,13 +1687,13 @@ function PageSequenceRow({ number, title, description, required }: any) {
 
 function StatusCard({ icon, title, value, detail }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">{icon}</div>
         <div>
-          <div className="text-sm text-gray-600 mb-1">{title}</div>
-          <div className="font-bold text-gray-900 mb-2">{value}</div>
-          <div className="text-xs text-gray-600">{detail}</div>
+          <div className="text-sm text-muted-foreground mb-1">{title}</div>
+          <div className="font-bold text-foreground mb-2">{value}</div>
+          <div className="text-xs text-muted-foreground">{detail}</div>
         </div>
       </div>
     </div>
@@ -1704,15 +1704,15 @@ function TimelineItem({ date, status, description, active, icon }: any) {
   return (
     <div className="flex items-start gap-4">
       <div className="flex flex-col items-center">
-        <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${active ? 'bg-blue-600 border-blue-600' : 'bg-white border-gray-300'}`}>
+        <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${active ? 'bg-blue-600 border-blue-600' : 'bg-card border-border'}`}>
           {active ? <div className="text-white">{icon}</div> : icon}
         </div>
         {!active && <div className="w-0.5 h-12 bg-gray-300"></div>}
       </div>
       <div className="flex-1">
-        <div className="text-xs text-gray-600">{date}</div>
-        <div className="font-bold text-sm text-gray-900 mb-1">{status}</div>
-        <div className="text-sm text-gray-700">{description}</div>
+        <div className="text-xs text-muted-foreground">{date}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{status}</div>
+        <div className="text-sm text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1721,9 +1721,9 @@ function TimelineItem({ date, status, description, active, icon }: any) {
 function RequiredInfoItem({ title, description, format, deadline }: any) {
   return (
     <div className="border-2 border-yellow-300 bg-yellow-50 rounded-lg p-4">
-      <div className="font-bold text-gray-900 mb-2">{title}</div>
-      <div className="text-sm text-gray-700 mb-2">{description}</div>
-      <div className="grid grid-cols-2 gap-4 text-xs text-gray-600">
+      <div className="font-bold text-foreground mb-2">{title}</div>
+      <div className="text-sm text-muted-foreground mb-2">{description}</div>
+      <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
         <div><strong>Format:</strong> {format}</div>
         <div><strong>Deadline:</strong> {deadline}</div>
       </div>
@@ -1733,13 +1733,13 @@ function RequiredInfoItem({ title, description, format, deadline }: any) {
 
 function ApprovalDetailCard({ icon, title, value, detail }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">{icon}</div>
         <div>
-          <div className="text-sm text-gray-600 mb-1">{title}</div>
-          <div className="font-bold text-lg text-gray-900 mb-1">{value}</div>
-          <div className="text-xs text-gray-600">{detail}</div>
+          <div className="text-sm text-muted-foreground mb-1">{title}</div>
+          <div className="font-bold text-lg text-foreground mb-1">{value}</div>
+          <div className="text-xs text-muted-foreground">{detail}</div>
         </div>
       </div>
     </div>
@@ -1749,20 +1749,20 @@ function ApprovalDetailCard({ icon, title, value, detail }: any) {
 function DetailRow({ label, value }: any) {
   return (
     <div>
-      <div className="text-gray-600 mb-1">{label}</div>
-      <div className="text-gray-900">{value}</div>
+      <div className="text-muted-foreground mb-1">{label}</div>
+      <div className="text-foreground">{value}</div>
     </div>
   );
 }
 
 function RejectionReason({ reason, detail, solution }: any) {
   return (
-    <div className="border-2 border-red-300 bg-white rounded-lg p-4">
-      <div className="font-bold text-sm text-gray-900 mb-2 flex items-center gap-2">
+    <div className="border-2 border-red-300 bg-card rounded-lg p-4">
+      <div className="font-bold text-sm text-foreground mb-2 flex items-center gap-2">
         <XCircle size={16} className="text-red-600" />
         {reason}
       </div>
-      <div className="text-sm text-gray-700 mb-2">{detail}</div>
+      <div className="text-sm text-muted-foreground mb-2">{detail}</div>
       <div className="text-sm text-green-700 bg-green-50 border border-green-200 rounded p-2">
         <strong>Solution:</strong> {solution}
       </div>
@@ -1772,12 +1772,12 @@ function RejectionReason({ reason, detail, solution }: any) {
 
 function OptionCard({ icon, title, description, action }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white hover:border-blue-600 cursor-pointer transition-colors">
+    <div className="border-2 border-border rounded-lg p-4 bg-card hover:border-blue-600 cursor-pointer transition-colors">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">{icon}</div>
         <div className="flex-1">
-          <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-          <div className="text-sm text-gray-700 mb-2">{description}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+          <div className="text-sm text-muted-foreground mb-2">{description}</div>
           <div className="text-xs font-bold text-blue-600">{action}</div>
         </div>
       </div>
@@ -1788,31 +1788,31 @@ function OptionCard({ icon, title, description, action }: any) {
 function LicenseField({ label, value }: any) {
   return (
     <div>
-      <div className="text-xs text-gray-600 mb-1">{label}</div>
-      <div className="font-bold text-sm text-gray-900">{value}</div>
+      <div className="text-xs text-muted-foreground mb-1">{label}</div>
+      <div className="font-bold text-sm text-foreground">{value}</div>
     </div>
   );
 }
 
 function ValidityCard({ label, value, icon }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white text-center">
+    <div className="border-2 border-border rounded-lg p-4 bg-card text-center">
       <div className="flex justify-center mb-2">{icon}</div>
-      <div className="text-sm text-gray-600 mb-1">{label}</div>
-      <div className="font-bold text-lg text-gray-900">{value}</div>
+      <div className="text-sm text-muted-foreground mb-1">{label}</div>
+      <div className="font-bold text-lg text-foreground">{value}</div>
     </div>
   );
 }
 
 function NextStepBlock({ number, title, description, link }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-l-4 border-blue-600 rounded">
+    <div className="flex items-start gap-4 p-4 bg-background border-l-4 border-blue-600 rounded">
       <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
         {number}
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-        <div className="text-sm text-gray-700 mb-2">{description}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+        <div className="text-sm text-muted-foreground mb-2">{description}</div>
         <a href="#" className="text-sm font-bold text-blue-600 hover:underline">{link} →</a>
       </div>
     </div>
@@ -1824,9 +1824,9 @@ function PageAnnotation({ items }: any) {
     <div className="mt-4 bg-blue-50 border-l-4 border-blue-600 p-4">
       <div className="flex items-start gap-2 mb-2">
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
-        <div className="font-bold text-sm text-gray-900">Design Annotations</div>
+        <div className="font-bold text-sm text-foreground">Design Annotations</div>
       </div>
-      <ul className="space-y-1.5 text-sm text-gray-700">
+      <ul className="space-y-1.5 text-sm text-muted-foreground">
         {items.map((item: string, idx: number) => (
           <li key={idx} className="flex items-start gap-2">
             <div className="w-1 h-1 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -1843,15 +1843,15 @@ function StateIndicator({ state, icon, color, aria }: any) {
     blue: { bg: 'bg-blue-50', border: 'border-blue-400', text: 'text-blue-700' },
     yellow: { bg: 'bg-yellow-50', border: 'border-yellow-400', text: 'text-yellow-700' },
     green: { bg: 'bg-green-50', border: 'border-green-400', text: 'text-green-700' },
-    gray: { bg: 'bg-gray-50', border: 'border-gray-400', text: 'text-gray-700' },
+    gray: { bg: 'bg-background', border: 'border-gray-400', text: 'text-muted-foreground' },
     teal: { bg: 'bg-teal-50', border: 'border-teal-400', text: 'text-teal-700' }
   };
 
   return (
     <div className={`border-2 ${colorConfig[color].border} ${colorConfig[color].bg} rounded-lg p-3 text-center`}>
       <div className={`flex justify-center mb-2 ${colorConfig[color].text}`}>{icon}</div>
-      <div className="text-xs font-bold text-gray-900 mb-1">{state}</div>
-      <div className="text-xs text-gray-600 italic">"{aria}"</div>
+      <div className="text-xs font-bold text-foreground mb-1">{state}</div>
+      <div className="text-xs text-muted-foreground italic">"{aria}"</div>
     </div>
   );
 }
@@ -1859,11 +1859,11 @@ function StateIndicator({ state, icon, color, aria }: any) {
 function ScreenReaderExample({ state, code, announcement }: any) {
   return (
     <div className="border-2 border-purple-300 bg-purple-50 rounded-lg p-4">
-      <div className="font-bold text-sm text-gray-900 mb-2">{state} State</div>
-      <div className="text-xs text-gray-600 bg-white border border-purple-200 rounded p-2 mb-2 font-mono">
+      <div className="font-bold text-sm text-foreground mb-2">{state} State</div>
+      <div className="text-xs text-muted-foreground bg-card border border-purple-200 rounded p-2 mb-2 font-mono">
         {code}
       </div>
-      <div className="text-sm text-gray-700">
+      <div className="text-sm text-muted-foreground">
         <strong>Announcement:</strong> "{announcement}"
       </div>
     </div>
@@ -1875,19 +1875,19 @@ function NotificationChannel({ event, channels, timing, content }: any) {
     <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
       <div className="grid grid-cols-4 gap-4 text-sm">
         <div>
-          <div className="font-bold text-gray-900 mb-1">{event}</div>
+          <div className="font-bold text-foreground mb-1">{event}</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Channels</div>
-          <div className="text-gray-900">{channels.join(', ')}</div>
+          <div className="text-muted-foreground mb-1">Channels</div>
+          <div className="text-foreground">{channels.join(', ')}</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Timing</div>
-          <div className="text-gray-900">{timing}</div>
+          <div className="text-muted-foreground mb-1">Timing</div>
+          <div className="text-foreground">{timing}</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Content</div>
-          <div className="text-gray-900">{content}</div>
+          <div className="text-muted-foreground mb-1">Content</div>
+          <div className="text-foreground">{content}</div>
         </div>
       </div>
     </div>
@@ -1896,21 +1896,21 @@ function NotificationChannel({ event, channels, timing, content }: any) {
 
 function ComponentCard({ name, variants, usage }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-2">{name}</div>
-      <div className="text-xs text-gray-600 mb-2">Variants: {variants}</div>
-      <div className="text-xs text-gray-600">Usage: {usage}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-2">{name}</div>
+      <div className="text-xs text-muted-foreground mb-2">Variants: {variants}</div>
+      <div className="text-xs text-muted-foreground">Usage: {usage}</div>
     </div>
   );
 }
 
 function ToneBlock({ context, tone, good, bad }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">{context}</div>
-          <div className="text-xs text-gray-600 italic">{tone}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{context}</div>
+          <div className="text-xs text-muted-foreground italic">{tone}</div>
         </div>
       </div>
       <div className="space-y-3">
@@ -1919,14 +1919,14 @@ function ToneBlock({ context, tone, good, bad }: any) {
             <CheckCircle size={14} className="text-green-600" />
             <span className="text-xs font-bold text-green-700">Good</span>
           </div>
-          <div className="text-sm text-gray-900 bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
+          <div className="text-sm text-foreground bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
             <span className="text-xs font-bold text-red-700">Bad</span>
           </div>
-          <div className="text-sm text-gray-900 bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
+          <div className="text-sm text-foreground bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
         </div>
       </div>
     </div>
@@ -1936,23 +1936,23 @@ function ToneBlock({ context, tone, good, bad }: any) {
 function LanguagePattern({ element, pattern, example, why }: any) {
   return (
     <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
-      <div className="font-bold text-sm text-gray-900 mb-2">{element}</div>
-      <div className="text-sm text-gray-700 mb-2"><strong>Pattern:</strong> {pattern}</div>
-      <div className="text-xs text-gray-600 bg-white border border-blue-200 rounded p-2 mb-2 italic">
+      <div className="font-bold text-sm text-foreground mb-2">{element}</div>
+      <div className="text-sm text-muted-foreground mb-2"><strong>Pattern:</strong> {pattern}</div>
+      <div className="text-xs text-muted-foreground bg-card border border-blue-200 rounded p-2 mb-2 italic">
         <strong>Example:</strong> {example}
       </div>
-      <div className="text-xs text-gray-600"><strong>Why:</strong> {why}</div>
+      <div className="text-xs text-muted-foreground"><strong>Why:</strong> {why}</div>
     </div>
   );
 }
 
 function AccessibilityBlock({ area, requirements }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-3">{area}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-3">{area}</div>
       <ul className="space-y-2">
         {requirements.map((req: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{req}</span>
           </li>
@@ -1965,8 +1965,8 @@ function AccessibilityBlock({ area, requirements }: any) {
 function MultilingualItem({ aspect, requirement }: any) {
   return (
     <div className="text-sm">
-      <div className="font-bold text-gray-900 mb-1">{aspect}</div>
-      <div className="text-gray-700">{requirement}</div>
+      <div className="font-bold text-foreground mb-1">{aspect}</div>
+      <div className="text-muted-foreground">{requirement}</div>
     </div>
   );
 }
@@ -1979,15 +1979,15 @@ function ImplementationItem({ category, requirement, priority }: any) {
   };
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-4 p-4 bg-background border-2 border-border rounded-lg">
       <div className="w-24 flex-shrink-0">
         <div className={`px-2 py-1 rounded text-xs font-bold text-center ${priorityConfig[priority].bg} ${priorityConfig[priority].text} ${priorityConfig[priority].border} border`}>
           {priority.toUpperCase()}
         </div>
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{category}</div>
-        <div className="text-sm text-gray-700">{requirement}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{category}</div>
+        <div className="text-sm text-muted-foreground">{requirement}</div>
       </div>
     </div>
   );
@@ -1995,24 +1995,24 @@ function ImplementationItem({ category, requirement, priority }: any) {
 
 function AnalyticsEvent({ event, description }: any) {
   return (
-    <div className="flex items-start gap-4 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <code className="px-2 py-1 bg-white border border-gray-400 rounded text-xs font-mono text-gray-900 flex-shrink-0">
+    <div className="flex items-start gap-4 p-3 bg-background border-2 border-border rounded-lg">
+      <code className="px-2 py-1 bg-card border border-gray-400 rounded text-xs font-mono text-foreground flex-shrink-0">
         {event}
       </code>
-      <div className="flex-1 text-sm text-gray-700">{description}</div>
+      <div className="flex-1 text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
 
 function ConformanceItem({ checked, label }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-3 bg-background border-2 border-border rounded-lg">
       <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${
-        checked ? 'bg-green-500 border-green-600' : 'bg-white border-gray-400'
+        checked ? 'bg-green-500 border-green-600' : 'bg-card border-gray-400'
       }`}>
         {checked && <Check size={14} className="text-white" />}
       </div>
-      <div className="text-sm text-gray-700">{label}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -2027,12 +2027,12 @@ function RiskBlock({ risk, impact, solution }: any) {
   return (
     <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
-        <div className="font-bold text-sm text-gray-900 flex-1">{risk}</div>
+        <div className="font-bold text-sm text-foreground flex-1">{risk}</div>
         <div className={`px-2 py-1 rounded text-xs font-bold ${impactConfig[impact].bg} ${impactConfig[impact].color} flex-shrink-0 ml-3`}>
           {impact} Impact
         </div>
       </div>
-      <div className="text-sm text-gray-700">
+      <div className="text-sm text-muted-foreground">
         <span className="font-bold">Solution:</span> {solution}
       </div>
     </div>
@@ -2042,9 +2042,9 @@ function RiskBlock({ risk, impact, solution }: any) {
 function MaturityBlock({ status, version, description }: any) {
   return (
     <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50">
-      <div className="font-bold text-sm text-gray-900 mb-1">{status}</div>
-      <div className="text-xs text-gray-600 mb-3">{version}</div>
-      <div className="text-sm text-gray-700">{description}</div>
+      <div className="font-bold text-sm text-foreground mb-1">{status}</div>
+      <div className="text-xs text-muted-foreground mb-3">{version}</div>
+      <div className="text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
@@ -2052,8 +2052,8 @@ function MaturityBlock({ status, version, description }: any) {
 function MetadataRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2061,8 +2061,8 @@ function MetadataRow({ label, value }: any) {
 function QuickRefRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-700">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2093,7 +2093,7 @@ function RiskItem({ severity, risk }: any) {
 
 function RelatedLink({ title }: any) {
   return (
-    <a href="#" className="block px-3 py-2 bg-white border border-gray-300 rounded hover:border-[#000080] hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
+    <a href="#" className="block px-3 py-2 bg-card border border-border rounded hover:border-primary hover:bg-background transition-colors text-sm text-muted-foreground font-medium">
       {title}
     </a>
   );

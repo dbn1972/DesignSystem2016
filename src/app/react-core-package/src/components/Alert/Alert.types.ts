@@ -3,7 +3,7 @@
  * Feedback component for important messages
  */
 
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import {
   StatusVariant,
   BaseComponentProps,
@@ -11,7 +11,7 @@ import {
 } from '../../types/common';
 
 export interface AlertProps
-  extends HTMLAttributes<HTMLDivElement>,
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'title'>,
     BaseComponentProps,
     ChildrenProp {
   /**
@@ -23,17 +23,17 @@ export interface AlertProps
   /**
    * Alert title
    */
-  title?: React.ReactNode;
+  title?: ReactNode;
 
   /**
    * Alert description/message
    */
-  description?: React.ReactNode;
+  description?: ReactNode;
 
   /**
    * Custom icon (overrides default status icon)
    */
-  icon?: React.ReactNode;
+  icon?: ReactNode;
 
   /**
    * Whether to show icon

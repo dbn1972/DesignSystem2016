@@ -96,7 +96,7 @@ export function OtpVerificationService({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader
         icon={Shield}
         iconColor="bg-purple-600"
@@ -108,10 +108,10 @@ export function OtpVerificationService({
 
       <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8 lg:py-12">
         <div className="max-w-xl mx-auto space-y-6">
-          <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
             <div className="bg-purple-50 border-b-2 border-purple-300 px-6 sm:px-8 py-6 text-center">
-              <h2 className="text-xl font-bold text-gray-900">Enter Verification Code</h2>
-              <p className="text-sm text-gray-700 mt-2">We sent a 6-digit OTP to +91 {masked}</p>
+              <h2 className="text-xl font-bold text-foreground">Enter Verification Code</h2>
+              <p className="text-sm text-muted-foreground mt-2">We sent a 6-digit OTP to +91 {masked}</p>
             </div>
 
             <div className="p-6 sm:p-8 space-y-5">
@@ -132,7 +132,7 @@ export function OtpVerificationService({
               )}
 
               <div>
-                <label htmlFor="otp-code" className="block text-sm font-bold text-gray-900 mb-2">
+                <label htmlFor="otp-code" className="block text-sm font-bold text-foreground mb-2">
                   One-Time Password <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -147,7 +147,7 @@ export function OtpVerificationService({
                       setStatus(null);
                     }
                   }}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded text-center tracking-[0.25em] text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080]"
+                  className="w-full px-4 py-3 border-2 border-border rounded text-center tracking-[0.25em] text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring"
                   placeholder="123456"
                   aria-invalid={status?.state === "invalid-otp"}
                 />
@@ -157,7 +157,7 @@ export function OtpVerificationService({
                 type="button"
                 onClick={verify}
                 disabled={isSubmitting || otp.length !== 6}
-                className="w-full px-6 py-3.5 bg-[#138808] text-white font-bold rounded text-sm hover:bg-green-700 disabled:opacity-70"
+                className="w-full px-6 py-3.5 bg-green-700 text-white font-bold rounded text-sm hover:bg-green-600 disabled:opacity-70"
                 aria-busy={isSubmitting}
               >
                 {isSubmitting ? "Verifying..." : "Verify OTP"}
@@ -168,14 +168,14 @@ export function OtpVerificationService({
                   <button
                     type="button"
                     onClick={resendOtp}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-[#000080] hover:underline"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
                   >
                     <RefreshCw size={14} />
                     Resend OTP
                   </button>
                 ) : (
-                  <p className="text-sm text-gray-600">
-                    Resend OTP in <span className="font-bold text-gray-900">{timer}s</span>
+                  <p className="text-sm text-muted-foreground">
+                    Resend OTP in <span className="font-bold text-foreground">{timer}s</span>
                   </p>
                 )}
               </div>
@@ -186,19 +186,19 @@ export function OtpVerificationService({
             variant="info"
             title="Security Tips"
             message={
-              <ul className="text-sm text-gray-700 space-y-1 list-disc pl-4">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-4">
                 <li>Never share your OTP with anyone.</li>
                 <li>OTP is valid for a short duration only.</li>
                 <li>If you did not request OTP, contact support.</li>
               </ul>
             }
           >
-            <Link to={helpPath} className="inline-flex items-center gap-2 mt-3 text-sm font-bold text-[#000080] hover:underline">
+            <Link to={helpPath} className="inline-flex items-center gap-2 mt-3 text-sm font-bold text-primary hover:underline">
               <ArrowLeft size={14} className="rotate-180" />
               Get support
             </Link>
             {codeDownloadPath && (
-              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 mt-3 ml-4 text-sm font-bold text-[#000080] hover:underline">
+              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 mt-3 ml-4 text-sm font-bold text-primary hover:underline">
                 <Download size={14} />
                 Download React code
               </Link>

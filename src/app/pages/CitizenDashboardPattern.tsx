@@ -44,28 +44,28 @@ export default function CitizenDashboardPattern() {
   const [activeTab, setActiveTab] = useState<'overview' | 'tasks' | 'applications'>('overview');
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link to="/patterns/dashboard" className="text-sm text-gray-600 hover:text-[#000080]">
+              <Link to="/patterns/dashboard" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
               <span className="text-gray-400">|</span>
-              <span className="text-sm font-bold text-gray-900">Citizen Dashboard</span>
+              <span className="text-sm font-bold text-foreground">Citizen Dashboard</span>
             </div>
             <div className="flex items-center gap-4">
-              <button className="relative p-2 hover:bg-gray-100 rounded">
-                <Bell size={20} className="text-gray-700" />
+              <button className="relative p-2 hover:bg-muted rounded">
+                <Bell size={20} className="text-muted-foreground" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
               </button>
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-[#000080] rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">
                   RK
                 </div>
-                <span className="text-sm font-bold text-gray-900">{USER.name}</span>
+                <span className="text-sm font-bold text-foreground">{USER.name}</span>
               </div>
             </div>
           </div>
@@ -98,15 +98,15 @@ export default function CitizenDashboardPattern() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-card border-b border-border">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="flex gap-1">
             <button
               onClick={() => setActiveTab('overview')}
               className={`px-6 py-3 font-bold border-b-4 transition-colors ${
                 activeTab === 'overview'
-                  ? 'border-[#000080] text-[#000080]'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-muted-foreground hover:text-foreground'
               }`}
             >
               Overview
@@ -115,8 +115,8 @@ export default function CitizenDashboardPattern() {
               onClick={() => setActiveTab('tasks')}
               className={`px-6 py-3 font-bold border-b-4 transition-colors relative ${
                 activeTab === 'tasks'
-                  ? 'border-[#000080] text-[#000080]'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-muted-foreground hover:text-foreground'
               }`}
             >
               Pending Tasks
@@ -126,8 +126,8 @@ export default function CitizenDashboardPattern() {
               onClick={() => setActiveTab('applications')}
               className={`px-6 py-3 font-bold border-b-4 transition-colors ${
                 activeTab === 'applications'
-                  ? 'border-[#000080] text-[#000080]'
-                  : 'border-transparent text-gray-600 hover:text-gray-900'
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-muted-foreground hover:text-foreground'
               }`}
             >
               My Applications
@@ -152,29 +152,29 @@ export default function CitizenDashboardPattern() {
                     <div className="flex items-center gap-3">
                       <AlertCircle size={24} className="text-yellow-600" />
                       <div>
-                        <h2 className="text-lg font-bold text-gray-900">Action Required</h2>
-                        <p className="text-sm text-gray-600">You have {PENDING_TASKS.length} pending tasks that need your attention</p>
+                        <h2 className="text-lg font-bold text-foreground">Action Required</h2>
+                        <p className="text-sm text-muted-foreground">You have {PENDING_TASKS.length} pending tasks that need your attention</p>
                       </div>
                     </div>
                     <button
                       onClick={() => setActiveTab('tasks')}
-                      className="px-4 py-2 bg-[#000080] text-white rounded font-bold hover:bg-[#000060]"
+                      className="px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90"
                     >
                       View All
                     </button>
                   </div>
                   <div className="space-y-2">
                     {PENDING_TASKS.slice(0, 2).map(task => (
-                      <div key={task.id} className="bg-white border-2 border-gray-300 rounded p-4 flex items-center justify-between">
+                      <div key={task.id} className="bg-card border-2 border-border rounded p-4 flex items-center justify-between">
                         <div className="flex-1">
-                          <div className="font-bold text-gray-900">{task.title}</div>
-                          <div className="text-sm text-gray-600">{task.service}</div>
+                          <div className="font-bold text-foreground">{task.title}</div>
+                          <div className="text-sm text-muted-foreground">{task.service}</div>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className={`text-sm font-bold ${
                             task.priority === 'high' ? 'text-red-600' :
                             task.priority === 'medium' ? 'text-orange-600' :
-                            'text-gray-600'
+                            'text-muted-foreground'
                           }`}>
                             {task.deadline}
                           </div>
@@ -187,12 +187,12 @@ export default function CitizenDashboardPattern() {
               )}
 
               {/* Active Applications */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+              <div className="bg-card border-2 border-border rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold text-gray-900">Active Applications</h2>
+                  <h2 className="text-xl font-bold text-foreground">Active Applications</h2>
                   <button
                     onClick={() => setActiveTab('applications')}
-                    className="text-[#000080] hover:underline text-sm font-medium flex items-center gap-1"
+                    className="text-primary hover:underline text-sm font-medium flex items-center gap-1"
                   >
                     <span>View All</span>
                     <ChevronRight size={16} />
@@ -200,17 +200,17 @@ export default function CitizenDashboardPattern() {
                 </div>
                 <div className="space-y-4">
                   {ACTIVE_APPLICATIONS.map(app => (
-                    <div key={app.id} className="border-2 border-gray-300 rounded-lg p-4 hover:border-[#000080] transition-all">
+                    <div key={app.id} className="border-2 border-border rounded-lg p-4 hover:border-primary transition-all">
                       <div className="flex items-start justify-between mb-3">
                         <div>
-                          <h3 className="font-bold text-gray-900 mb-1">{app.name}</h3>
-                          <div className="text-sm text-gray-600">Ref: {app.ref}</div>
+                          <h3 className="font-bold text-foreground mb-1">{app.name}</h3>
+                          <div className="text-sm text-muted-foreground">Ref: {app.ref}</div>
                         </div>
                         <div className="text-right">
                           <div className={`text-sm font-bold px-3 py-1 rounded ${
                             app.status === 'Under Review' ? 'bg-blue-100 text-blue-800' :
                             app.status === 'Payment Pending' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-gray-100 text-gray-800'
+                            'bg-muted text-foreground'
                           }`}>
                             {app.status}
                           </div>
@@ -219,21 +219,21 @@ export default function CitizenDashboardPattern() {
                       </div>
                       <div className="mb-2">
                         <div className="flex items-center justify-between text-sm mb-1">
-                          <span className="text-gray-600">Progress</span>
-                          <span className="font-bold text-gray-900">{app.progress}%</span>
+                          <span className="text-muted-foreground">Progress</span>
+                          <span className="font-bold text-foreground">{app.progress}%</span>
                         </div>
                         <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-[#138808] transition-all"
+                            className="h-full bg-green-700 transition-all"
                             style={{ width: `${app.progress}%` }}
                           ></div>
                         </div>
                       </div>
                       <div className="flex gap-2">
-                        <button className="flex-1 px-4 py-2 border-2 border-gray-300 rounded font-bold hover:border-gray-400 text-sm">
+                        <button className="flex-1 px-4 py-2 border-2 border-border rounded font-bold hover:border-gray-400 text-sm">
                           View Details
                         </button>
-                        <button className="px-4 py-2 bg-[#000080] text-white rounded font-bold hover:bg-[#000060] text-sm">
+                        <button className="px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90 text-sm">
                           Continue
                         </button>
                       </div>
@@ -243,21 +243,21 @@ export default function CitizenDashboardPattern() {
               </div>
 
               {/* Quick Actions */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h2 className="text-xl font-bold text-foreground mb-4">Quick Actions</h2>
                 <div className="grid grid-cols-4 gap-4">
                   {QUICK_ACTIONS.map((action, i) => (
                     <Link
                       key={i}
                       to={action.link}
-                      className="p-4 border-2 border-gray-300 rounded-lg hover:border-[#000080] hover:bg-blue-50 transition-all text-center group"
+                      className="p-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 transition-all text-center group"
                     >
-                      <div className="inline-block p-3 bg-gray-100 rounded-lg mb-2 group-hover:bg-[#000080] transition-colors">
-                        <div className="text-gray-700 group-hover:text-white transition-colors">
+                      <div className="inline-block p-3 bg-muted rounded-lg mb-2 group-hover:bg-primary transition-colors">
+                        <div className="text-muted-foreground group-hover:text-white transition-colors">
                           {action.icon}
                         </div>
                       </div>
-                      <div className="text-sm font-bold text-gray-900 group-hover:text-[#000080]">
+                      <div className="text-sm font-bold text-foreground group-hover:text-primary">
                         {action.name}
                       </div>
                     </Link>
@@ -271,21 +271,21 @@ export default function CitizenDashboardPattern() {
             <aside className="col-span-4 space-y-6">
               
               {/* Notifications */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+              <div className="bg-card border-2 border-border rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-gray-900">Recent Notifications</h3>
-                  <Link to="/patterns/dashboard/notifications" className="text-xs text-[#000080] hover:underline">
+                  <h3 className="font-bold text-foreground">Recent Notifications</h3>
+                  <Link to="/patterns/dashboard/notifications" className="text-xs text-primary hover:underline">
                     View All
                   </Link>
                 </div>
                 <div className="space-y-3">
                   {NOTIFICATIONS.slice(0, 3).map(notif => (
-                    <div key={notif.id} className={`p-3 rounded ${notif.unread ? 'bg-blue-50 border-l-4 border-[#000080]' : 'bg-gray-50'}`}>
+                    <div key={notif.id} className={`p-3 rounded ${notif.unread ? 'bg-blue-50 border-l-4 border-primary' : 'bg-background'}`}>
                       <div className="flex items-start justify-between mb-1">
-                        <div className="text-sm font-bold text-gray-900">{notif.title}</div>
+                        <div className="text-sm font-bold text-foreground">{notif.title}</div>
                         {notif.unread && <div className="w-2 h-2 bg-red-500 rounded-full"></div>}
                       </div>
-                      <div className="text-xs text-gray-600 mb-1">{notif.message}</div>
+                      <div className="text-xs text-muted-foreground mb-1">{notif.message}</div>
                       <div className="text-xs text-gray-500">{notif.time}</div>
                     </div>
                   ))}
@@ -293,10 +293,10 @@ export default function CitizenDashboardPattern() {
               </div>
 
               {/* Saved Services */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+              <div className="bg-card border-2 border-border rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-gray-900">Saved Services</h3>
-                  <Link to="/patterns/dashboard/saved-services" className="text-xs text-[#000080] hover:underline">
+                  <h3 className="font-bold text-foreground">Saved Services</h3>
+                  <Link to="/patterns/dashboard/saved-services" className="text-xs text-primary hover:underline">
                     Manage
                   </Link>
                 </div>
@@ -305,10 +305,10 @@ export default function CitizenDashboardPattern() {
                     <Link
                       key={i}
                       to="#"
-                      className="block p-3 border-2 border-gray-300 rounded hover:border-[#000080] hover:bg-blue-50 transition-all"
+                      className="block p-3 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
                     >
-                      <div className="text-sm font-bold text-gray-900">{service.name}</div>
-                      <div className="text-xs text-gray-600">{service.category}</div>
+                      <div className="text-sm font-bold text-foreground">{service.name}</div>
+                      <div className="text-xs text-muted-foreground">{service.category}</div>
                     </Link>
                   ))}
                 </div>
@@ -316,13 +316,13 @@ export default function CitizenDashboardPattern() {
 
               {/* Help & Support */}
               <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-2">Need Help?</h3>
-                <p className="text-sm text-gray-700 mb-4">
+                <h3 className="font-bold text-foreground mb-2">Need Help?</h3>
+                <p className="text-sm text-muted-foreground mb-4">
                   Contact our support team for assistance with your applications.
                 </p>
                 <Link
                   to="/patterns/contact-support"
-                  className="block text-center px-4 py-2 bg-[#000080] text-white rounded font-bold hover:bg-[#000060]"
+                  className="block text-center px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90"
                 >
                   Get Support
                 </Link>
@@ -335,29 +335,29 @@ export default function CitizenDashboardPattern() {
 
         {activeTab === 'tasks' && (
           <div className="max-w-[900px] mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Pending Tasks</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6">Pending Tasks</h2>
             <div className="space-y-4">
               {PENDING_TASKS.map(task => (
-                <div key={task.id} className="bg-white border-2 border-gray-300 rounded-lg p-6">
+                <div key={task.id} className="bg-card border-2 border-border rounded-lg p-6">
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <h3 className="font-bold text-gray-900">{task.title}</h3>
+                        <h3 className="font-bold text-foreground">{task.title}</h3>
                         <span className={`px-2 py-1 text-xs font-bold rounded ${
                           task.priority === 'high' ? 'bg-red-100 text-red-800' :
                           task.priority === 'medium' ? 'bg-orange-100 text-orange-800' :
-                          'bg-gray-100 text-gray-800'
+                          'bg-muted text-foreground'
                         }`}>
                           {task.priority.toUpperCase()}
                         </span>
                       </div>
-                      <div className="text-sm text-gray-600 mb-2">{task.service}</div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-muted-foreground mb-2">{task.service}</div>
+                      <div className="text-sm text-muted-foreground">
                         <Clock size={14} className="inline mr-1" />
                         Deadline: {task.deadline}
                       </div>
                     </div>
-                    <button className="px-6 py-2 bg-[#000080] text-white rounded font-bold hover:bg-[#000060]">
+                    <button className="px-6 py-2 bg-primary text-white rounded font-bold hover:opacity-90">
                       Complete Task
                     </button>
                   </div>
@@ -369,40 +369,40 @@ export default function CitizenDashboardPattern() {
 
         {activeTab === 'applications' && (
           <div className="max-w-[900px] mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">My Applications</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6">My Applications</h2>
             <div className="space-y-4">
               {ACTIVE_APPLICATIONS.map(app => (
-                <div key={app.id} className="bg-white border-2 border-gray-300 rounded-lg p-6">
+                <div key={app.id} className="bg-card border-2 border-border rounded-lg p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="font-bold text-gray-900 text-lg mb-1">{app.name}</h3>
-                      <div className="text-sm text-gray-600">Reference: {app.ref}</div>
+                      <h3 className="font-bold text-foreground text-lg mb-1">{app.name}</h3>
+                      <div className="text-sm text-muted-foreground">Reference: {app.ref}</div>
                     </div>
                     <div className={`text-sm font-bold px-4 py-2 rounded ${
                       app.status === 'Under Review' ? 'bg-blue-100 text-blue-800' :
                       app.status === 'Payment Pending' ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-gray-100 text-gray-800'
+                      'bg-muted text-foreground'
                     }`}>
                       {app.status}
                     </div>
                   </div>
                   <div className="mb-4">
                     <div className="flex items-center justify-between text-sm mb-2">
-                      <span className="text-gray-600">Completion Progress</span>
-                      <span className="font-bold text-gray-900">{app.progress}%</span>
+                      <span className="text-muted-foreground">Completion Progress</span>
+                      <span className="font-bold text-foreground">{app.progress}%</span>
                     </div>
                     <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-[#138808]"
+                        className="h-full bg-green-700"
                         style={{ width: `${app.progress}%` }}
                       ></div>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <button className="flex-1 px-4 py-2 border-2 border-gray-300 rounded font-bold hover:border-gray-400">
+                    <button className="flex-1 px-4 py-2 border-2 border-border rounded font-bold hover:border-gray-400">
                       View Details
                     </button>
-                    <button className="flex-1 px-4 py-2 bg-[#000080] text-white rounded font-bold hover:bg-[#000060]">
+                    <button className="flex-1 px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90">
                       Continue Application
                     </button>
                   </div>
@@ -414,35 +414,35 @@ export default function CitizenDashboardPattern() {
 
         {/* Pattern Info */}
         <div className="mt-12 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Pattern Features Demonstrated</h3>
+          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>
-              <div className="font-bold text-gray-700 mb-2">Personalization</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Personalization</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• User greeting</li>
                 <li>• Location display</li>
                 <li>• Tailored content</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Task Management</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Task Management</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Pending tasks</li>
                 <li>• Priority indicators</li>
                 <li>• Deadline tracking</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Application Status</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Application Status</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Progress bars</li>
                 <li>• Status badges</li>
                 <li>• Quick actions</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Navigation</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Navigation</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Tab interface</li>
                 <li>• Quick links</li>
                 <li>• Notifications</li>

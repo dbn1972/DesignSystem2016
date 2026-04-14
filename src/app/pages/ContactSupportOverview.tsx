@@ -3,22 +3,22 @@ import { MessageSquare, CheckCircle, AlertCircle, ArrowRight, Info, Users, Shiel
 
 export default function ContactSupportOverview() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b-2 border-gray-300">
+      <header className="bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-12">
           <div className="mb-6">
-            <Link to="/patterns/contact-support" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/patterns/contact-support" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Contact & Support Patterns
             </Link>
           </div>
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-gray-300 rounded flex items-center justify-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-border rounded flex items-center justify-center">
               <Info size={32} className="text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-3">Pattern Overview</h1>
-              <p className="text-lg text-gray-700">
+              <h1 className="text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
+              <p className="text-lg text-muted-foreground">
                 Understanding when and how to use Contact & Support patterns in government digital services
               </p>
             </div>
@@ -35,11 +35,11 @@ export default function ContactSupportOverview() {
             
             {/* Purpose */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-blue-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-blue-500 pl-4">
                 Purpose of Contact & Support Patterns
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <p className="text-gray-700 mb-6">
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <p className="text-muted-foreground mb-6">
                   Contact and Support patterns provide structured, accessible channels for citizens to 
                   communicate with government departments across various service scenarios. These patterns 
                   ensure consistent user experience while enabling appropriate routing, prioritization, 
@@ -47,8 +47,8 @@ export default function ContactSupportOverview() {
                 </p>
                 <div className="grid grid-cols-3 gap-6">
                   <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3">Citizen Benefits</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">Citizen Benefits</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Clear path to assistance</li>
                       <li>• Predictable response times</li>
                       <li>• Case tracking capability</li>
@@ -56,8 +56,8 @@ export default function ContactSupportOverview() {
                     </ul>
                   </div>
                   <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3">Department Benefits</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">Department Benefits</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Efficient case routing</li>
                       <li>• Priority management</li>
                       <li>• Reduced manual triage</li>
@@ -65,8 +65,8 @@ export default function ContactSupportOverview() {
                     </ul>
                   </div>
                   <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3">System Benefits</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">System Benefits</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Reusable components</li>
                       <li>• Consistent workflows</li>
                       <li>• Scalable architecture</li>
@@ -79,7 +79,7 @@ export default function ContactSupportOverview() {
 
             {/* Pattern Selection Guide */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 When to Use Each Pattern
               </h2>
               <div className="space-y-4">
@@ -208,12 +208,12 @@ export default function ContactSupportOverview() {
 
             {/* Relationship to Service Flows */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-green-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-green-500 pl-4">
                 Relationship to Service Flows
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+              <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
                 <div className="p-8">
-                  <p className="text-gray-700 mb-6">
+                  <p className="text-muted-foreground mb-6">
                     Contact & Support patterns integrate with broader service delivery flows at multiple touchpoints:
                   </p>
                   <div className="space-y-6">
@@ -254,17 +254,17 @@ export default function ContactSupportOverview() {
 
             {/* Accessibility Considerations */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Accessibility Considerations
               </h2>
               <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <Shield size={20} className="text-orange-600" />
                       WCAG 2.1 Level AA Compliance
                     </h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>Keyboard navigation for all form interactions</span>
@@ -288,11 +288,11 @@ export default function ContactSupportOverview() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <Users size={20} className="text-orange-600" />
                       Inclusive Design Features
                     </h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>Multi-language support (22 scheduled languages)</span>
@@ -321,14 +321,14 @@ export default function ContactSupportOverview() {
 
             {/* Governance Considerations */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-red-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-red-500 pl-4">
                 Governance Considerations
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-8">
                 <div className="grid grid-cols-2 gap-8">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-4">Data Privacy & Security</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-4">Data Privacy & Security</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Personal data collection minimization</li>
                       <li>• Encrypted transmission (TLS 1.3)</li>
                       <li>• Secure storage with access controls</li>
@@ -338,8 +338,8 @@ export default function ContactSupportOverview() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-4">Response & SLA Management</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-4">Response & SLA Management</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Priority-based SLA assignment</li>
                       <li>• Standard: 5-7 business days</li>
                       <li>• Priority: 2-3 business days</li>
@@ -349,8 +349,8 @@ export default function ContactSupportOverview() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-4">Compliance Requirements</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-4">Compliance Requirements</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Right to Information Act, 2005</li>
                       <li>• Digital India guidelines</li>
                       <li>• GIGW (Government India Guidelines for Websites)</li>
@@ -359,8 +359,8 @@ export default function ContactSupportOverview() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-4">Audit & Reporting</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-4">Audit & Reporting</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Comprehensive audit trail</li>
                       <li>• Case history and timeline tracking</li>
                       <li>• Response time analytics</li>
@@ -407,17 +407,17 @@ function PatternGuide({ title, when, notWhen, color }: {
   };
 
   return (
-    <div className={`bg-white border-2 ${colors[color as keyof typeof colors]} rounded-lg p-6`}>
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
+    <div className={`bg-card border-2 ${colors[color as keyof typeof colors]} rounded-lg p-6`}>
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <div className="grid grid-cols-2 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <CheckCircle size={16} className="text-green-600" />
-            <span className="text-sm font-bold text-gray-900">Use When:</span>
+            <span className="text-sm font-bold text-foreground">Use When:</span>
           </div>
           <ul className="space-y-2">
             {when.map((item, i) => (
-              <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+              <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                 <span className="text-green-600">•</span>
                 <span>{item}</span>
               </li>
@@ -427,11 +427,11 @@ function PatternGuide({ title, when, notWhen, color }: {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <AlertCircle size={16} className="text-red-600" />
-            <span className="text-sm font-bold text-gray-900">Don't Use When:</span>
+            <span className="text-sm font-bold text-foreground">Don't Use When:</span>
           </div>
           <ul className="space-y-2">
             {notWhen.map((item, i) => (
-              <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+              <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                 <span className="text-red-600">•</span>
                 <span>{item}</span>
               </li>
@@ -450,11 +450,11 @@ function FlowIntegration({ title, description, touchpoints }: {
 }) {
   return (
     <div className="border-l-4 border-blue-500 pl-6">
-      <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-sm text-gray-700 mb-3">{description}</p>
+      <h3 className="font-bold text-foreground mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground mb-3">{description}</p>
       <div className="grid grid-cols-2 gap-2">
         {touchpoints.map((point, i) => (
-          <div key={i} className="text-xs text-gray-600 bg-gray-50 px-3 py-2 rounded">
+          <div key={i} className="text-xs text-muted-foreground bg-background px-3 py-2 rounded">
             {point}
           </div>
         ))}
@@ -465,16 +465,16 @@ function FlowIntegration({ title, description, touchpoints }: {
 
 function QuickNavigation() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden sticky top-24">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden sticky top-24">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Navigation</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Navigation</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
-        <a href="#purpose" className="block text-gray-700 hover:text-[#000080]">Purpose</a>
-        <a href="#pattern-selection" className="block text-gray-700 hover:text-[#000080]">Pattern Selection</a>
-        <a href="#service-flows" className="block text-gray-700 hover:text-[#000080]">Service Flows</a>
-        <a href="#accessibility" className="block text-gray-700 hover:text-[#000080]">Accessibility</a>
-        <a href="#governance" className="block text-gray-700 hover:text-[#000080]">Governance</a>
+        <a href="#purpose" className="block text-muted-foreground hover:text-primary">Purpose</a>
+        <a href="#pattern-selection" className="block text-muted-foreground hover:text-primary">Pattern Selection</a>
+        <a href="#service-flows" className="block text-muted-foreground hover:text-primary">Service Flows</a>
+        <a href="#accessibility" className="block text-muted-foreground hover:text-primary">Accessibility</a>
+        <a href="#governance" className="block text-muted-foreground hover:text-primary">Governance</a>
       </div>
     </div>
   );
@@ -483,8 +483,8 @@ function QuickNavigation() {
 function KeyPrinciples() {
   return (
     <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
-      <h3 className="font-bold text-gray-900 text-sm mb-3">Key Principles</h3>
-      <ul className="space-y-2 text-xs text-gray-700">
+      <h3 className="font-bold text-foreground text-sm mb-3">Key Principles</h3>
+      <ul className="space-y-2 text-xs text-muted-foreground">
         <li className="flex items-start gap-2">
           <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
           <span>Intent-based routing</span>
@@ -512,20 +512,20 @@ function KeyPrinciples() {
 
 function Resources() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Resources</h3>
+        <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
-        <Link to="/patterns/contact-support" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/patterns/contact-support" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>All Patterns</span>
         </Link>
-        <Link to="/patterns/forms" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/patterns/forms" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>Form Patterns</span>
         </Link>
-        <Link to="/components/validation" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/components/validation" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>Validation Rules</span>
         </Link>

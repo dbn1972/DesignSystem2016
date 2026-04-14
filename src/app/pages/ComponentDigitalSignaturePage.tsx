@@ -69,7 +69,7 @@ const DigitalSignaturePreview = ({
   return (
     <div className="inline-flex flex-col gap-2">
       {label && (
-        <label className="text-sm font-medium text-gray-700">
+        <label className="text-sm font-medium text-muted-foreground">
           {label}
           {required && <span className="text-red-600 ml-1">*</span>}
         </label>
@@ -81,7 +81,7 @@ const DigitalSignaturePreview = ({
             ref={canvasRef}
             width={width}
             height={height}
-            className="border-2 border-gray-300 rounded cursor-crosshair bg-white"
+            className="border-2 border-border rounded cursor-crosshair bg-card"
             onMouseDown={startDrawing}
             onMouseMove={draw}
             onMouseUp={stopDrawing}
@@ -92,7 +92,7 @@ const DigitalSignaturePreview = ({
           />
           <button
             onClick={clearSignature}
-            className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-700 border border-gray-300 rounded hover:bg-gray-50"
+            className="flex items-center gap-2 px-3 py-1.5 text-sm text-muted-foreground border border-border rounded hover:bg-background"
             type="button"
           >
             <Trash2 size={14} />
@@ -108,7 +108,7 @@ const DigitalSignaturePreview = ({
             value={typedSignature}
             onChange={(e) => setTypedSignature(e.target.value)}
             placeholder="Type your full name"
-            className="px-4 py-3 text-2xl border-2 border-gray-300 rounded font-cursive"
+            className="px-4 py-3 text-2xl border-2 border-border rounded font-cursive"
             style={{ width, fontFamily: 'Brush Script MT, cursive' }}
             aria-label="Type your signature"
           />
@@ -117,11 +117,11 @@ const DigitalSignaturePreview = ({
 
       {signatureType === 'upload' && (
         <div
-          className="flex flex-col items-center justify-center gap-2 border-2 border-dashed border-gray-300 rounded bg-gray-50 cursor-pointer hover:bg-gray-100"
+          className="flex flex-col items-center justify-center gap-2 border-2 border-dashed border-border rounded bg-background cursor-pointer hover:bg-muted"
           style={{ width, height }}
         >
           <Upload size={24} className="text-gray-400" />
-          <span className="text-sm text-gray-600">Click to upload signature image</span>
+          <span className="text-sm text-muted-foreground">Click to upload signature image</span>
           <input
             type="file"
             accept="image/*"
@@ -431,7 +431,7 @@ function Example() {
                 width={500}
                 height={200}
               />
-              <p className="mt-2 text-sm text-gray-600">
+              <p className="mt-2 text-sm text-muted-foreground">
                 Complete your signature above to enable submission
               </p>
             </div>
@@ -569,7 +569,7 @@ export const DigitalSignature = forwardRef<HTMLDivElement, DigitalSignatureProps
     return (
       <div ref={ref} className={cn('flex flex-col gap-2', className)} {...props}>
         {label && (
-          <label className="text-sm font-medium text-gray-700">
+          <label className="text-sm font-medium text-muted-foreground">
             {label}
             {required && <span className="text-red-600 ml-1" aria-label="required">*</span>}
           </label>
@@ -583,8 +583,8 @@ export const DigitalSignature = forwardRef<HTMLDivElement, DigitalSignatureProps
               height={height}
               className={cn(
                 'border-2 rounded touch-none',
-                disabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-white cursor-crosshair',
-                'border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                disabled ? 'bg-muted cursor-not-allowed' : 'bg-card cursor-crosshair',
+                'border-border focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500'
               )}
               onMouseDown={startDrawing}
               onMouseMove={draw}
@@ -602,7 +602,7 @@ export const DigitalSignature = forwardRef<HTMLDivElement, DigitalSignatureProps
                 type="button"
                 onClick={handleClear}
                 disabled={disabled || isEmpty}
-                className="flex items-center gap-2 px-3 py-1.5 text-sm border rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center gap-2 px-3 py-1.5 text-sm border rounded hover:bg-background disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Clear
               </button>
@@ -629,7 +629,7 @@ export const DigitalSignature = forwardRef<HTMLDivElement, DigitalSignatureProps
               className={cn(
                 'px-4 py-3 text-2xl border-2 rounded',
                 'focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500',
-                disabled && 'bg-gray-100 cursor-not-allowed'
+                disabled && 'bg-muted cursor-not-allowed'
               )}
               style={{
                 width,
@@ -654,12 +654,12 @@ export const DigitalSignature = forwardRef<HTMLDivElement, DigitalSignatureProps
             className={cn(
               'flex flex-col items-center justify-center gap-2',
               'border-2 border-dashed rounded cursor-pointer',
-              disabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-gray-50 hover:bg-gray-100',
+              disabled ? 'bg-muted cursor-not-allowed' : 'bg-background hover:bg-muted',
               'transition-colors'
             )}
             style={{ width, height }}
           >
-            <div className="flex flex-col items-center gap-2 text-gray-600">
+            <div className="flex flex-col items-center gap-2 text-muted-foreground">
               <span className="text-sm">Click to upload signature image</span>
               <span className="text-xs text-gray-500">PNG, JPG up to 5MB</span>
             </div>

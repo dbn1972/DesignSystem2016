@@ -9,7 +9,7 @@ import { AlertCircle } from 'lucide-react';
 
 // Component previews
 const LabelPreview = ({ children, required }: any) => (
-  <label className="block text-sm font-medium text-gray-900">
+  <label className="block text-sm font-medium text-foreground">
     {children}
     {required && <span className="text-red-500 ml-1">*</span>}
   </label>
@@ -20,7 +20,7 @@ const InputPreview = ({ error, ...props }: any) => (
     className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${
       error
         ? 'border-red-500 focus-visible:ring-red-500'
-        : 'border-gray-300 focus-visible:ring-[#005196]'
+        : 'border-border focus-visible:ring-[#005196]'
     }`}
     {...props}
   />

@@ -89,17 +89,17 @@ export default function ActionableNotificationsPattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1000px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link to="/patterns/notifications" className="text-sm text-gray-600 hover:text-[#000080]">
+              <Link to="/patterns/notifications" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
               <span className="text-gray-400">|</span>
-              <span className="text-sm font-bold text-gray-900">Actionable Notifications</span>
+              <span className="text-sm font-bold text-foreground">Actionable Notifications</span>
             </div>
           </div>
         </div>
@@ -109,31 +109,31 @@ export default function ActionableNotificationsPattern() {
       <main className="max-w-[1000px] mx-auto px-8 py-12">
         
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Actionable Notifications</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-bold text-foreground mb-2">Actionable Notifications</h1>
+          <p className="text-muted-foreground">
             Complete actions directly from notifications without navigating to separate pages
           </p>
         </div>
 
         {/* Summary */}
         <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6 text-center">
+          <div className="bg-card border-2 border-border rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-orange-600 mb-2">
               {notifications.filter(n => !n.completed).length}
             </div>
-            <div className="text-sm text-gray-600">Pending Actions</div>
+            <div className="text-sm text-muted-foreground">Pending Actions</div>
           </div>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6 text-center">
+          <div className="bg-card border-2 border-border rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-green-600 mb-2">
               {notifications.filter(n => n.completed).length}
             </div>
-            <div className="text-sm text-gray-600">Completed</div>
+            <div className="text-sm text-muted-foreground">Completed</div>
           </div>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6 text-center">
+          <div className="bg-card border-2 border-border rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-red-600 mb-2">
               {notifications.filter(n => !n.completed && n.deadline && getDaysLeft(n.deadline) === 'Today').length}
             </div>
-            <div className="text-sm text-gray-600">Due Today</div>
+            <div className="text-sm text-muted-foreground">Due Today</div>
           </div>
         </div>
 
@@ -142,26 +142,26 @@ export default function ActionableNotificationsPattern() {
           {notifications.map((notif) => (
             <div key={notif.id}>
               {!notif.completed ? (
-                <div className="bg-white border-2 border-orange-300 rounded-lg overflow-hidden">
+                <div className="bg-card border-2 border-orange-300 rounded-lg overflow-hidden">
                   {/* Header */}
                   <div className="bg-orange-50 border-b-2 border-orange-200 p-6">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
                           <Zap size={24} className="text-orange-600" />
-                          <h3 className="text-lg font-bold text-gray-900">{notif.title}</h3>
+                          <h3 className="text-lg font-bold text-foreground">{notif.title}</h3>
                         </div>
-                        <p className="text-sm text-gray-700 mb-3">{notif.message}</p>
+                        <p className="text-sm text-muted-foreground mb-3">{notif.message}</p>
                         <div className="flex items-center gap-4 text-sm">
                           <div className="flex items-center gap-2">
                             <FileText size={16} className="text-gray-500" />
-                            <span className="font-mono text-gray-700">{notif.reference}</span>
+                            <span className="font-mono text-muted-foreground">{notif.reference}</span>
                           </div>
                           {notif.deadline && (
                             <div className={`flex items-center gap-2 font-bold ${
                               getDaysLeft(notif.deadline) === 'Today' || getDaysLeft(notif.deadline) === 'Overdue'
                                 ? 'text-red-600'
-                                : 'text-gray-700'
+                                : 'text-muted-foreground'
                             }`}>
                               <AlertCircle size={16} />
                               <span>Deadline: {getDaysLeft(notif.deadline)}</span>
@@ -186,7 +186,7 @@ export default function ActionableNotificationsPattern() {
                     ) : (
                       <button
                         onClick={() => setActiveAction(notif.id)}
-                        className="w-full px-6 py-3 bg-[#000080] text-white rounded font-bold hover:bg-[#000060] flex items-center justify-center gap-2"
+                        className="w-full px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90 flex items-center justify-center gap-2"
                       >
                         <Zap size={20} />
                         <span>Take Action Now</span>
@@ -199,8 +199,8 @@ export default function ActionableNotificationsPattern() {
                   <div className="flex items-center gap-3">
                     <CheckCircle size={24} className="text-green-600" />
                     <div className="flex-1">
-                      <div className="font-bold text-gray-900 mb-1">{notif.title}</div>
-                      <div className="text-sm text-gray-600">Action completed successfully</div>
+                      <div className="font-bold text-foreground mb-1">{notif.title}</div>
+                      <div className="text-sm text-muted-foreground">Action completed successfully</div>
                     </div>
                     <span className="px-3 py-1 bg-green-500 text-white text-sm font-bold rounded">
                       COMPLETED
@@ -214,35 +214,35 @@ export default function ActionableNotificationsPattern() {
 
         {/* Pattern Info */}
         <div className="mt-12 bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Pattern Features Demonstrated</h3>
+          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>
-              <div className="font-bold text-gray-700 mb-2">Inline Actions</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Inline Actions</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• File upload</li>
                 <li>• Payment processing</li>
                 <li>• Approval workflow</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Quick Completion</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Quick Completion</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Single-click action</li>
                 <li>• No page navigation</li>
                 <li>• Instant feedback</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Progress Tracking</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Progress Tracking</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Upload progress</li>
                 <li>• Processing states</li>
                 <li>• Completion status</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">User Experience</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">User Experience</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Reduced friction</li>
                 <li>• Clear deadlines</li>
                 <li>• Action summary</li>
@@ -273,10 +273,10 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
   if (notification.actionType === 'file-upload') {
     return (
       <div className="space-y-4">
-        <div className="text-sm font-bold text-gray-900 mb-3">Upload Document</div>
+        <div className="text-sm font-bold text-foreground mb-3">Upload Document</div>
         
         {uploadProgress === 0 ? (
-          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+          <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
             <Upload size={48} className="text-gray-400 mx-auto mb-4" />
             <input
               type="file"
@@ -291,30 +291,30 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
             />
             <label
               htmlFor="file-upload"
-              className="inline-block px-6 py-3 bg-[#000080] text-white rounded font-bold cursor-pointer hover:bg-[#000060]"
+              className="inline-block px-6 py-3 bg-primary text-white rounded font-bold cursor-pointer hover:opacity-90"
             >
               Choose File
             </label>
-            <p className="text-sm text-gray-600 mt-3">
+            <p className="text-sm text-muted-foreground mt-3">
               Supported formats: PDF, JPG, PNG (Max 5MB)
             </p>
             {selectedFile && (
               <div className="mt-4 p-4 bg-blue-50 border-2 border-blue-200 rounded">
-                <div className="text-sm font-bold text-gray-900">{selectedFile.name}</div>
-                <div className="text-xs text-gray-600">{(selectedFile.size / 1024).toFixed(2)} KB</div>
+                <div className="text-sm font-bold text-foreground">{selectedFile.name}</div>
+                <div className="text-xs text-muted-foreground">{(selectedFile.size / 1024).toFixed(2)} KB</div>
               </div>
             )}
           </div>
         ) : (
           <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg">
-            <div className="text-sm font-bold text-gray-900 mb-2">Uploading...</div>
+            <div className="text-sm font-bold text-foreground mb-2">Uploading...</div>
             <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#138808] transition-all"
+                className="h-full bg-green-700 transition-all"
                 style={{ width: `${uploadProgress}%` }}
               ></div>
             </div>
-            <div className="text-sm text-gray-600 mt-2">{uploadProgress}% complete</div>
+            <div className="text-sm text-muted-foreground mt-2">{uploadProgress}% complete</div>
           </div>
         )}
 
@@ -324,14 +324,14 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
               <button
                 onClick={simulateUpload}
                 disabled={!selectedFile}
-                className="flex-1 px-6 py-3 bg-[#138808] text-white rounded font-bold hover:bg-[#0f6b06] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="flex-1 px-6 py-3 bg-green-700 text-white rounded font-bold hover:bg-[#0f6b06] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 <Upload size={20} />
                 <span>Upload Document</span>
               </button>
               <button
                 onClick={onCancel}
-                className="px-6 py-3 border-2 border-gray-300 rounded font-bold hover:border-gray-400 flex items-center gap-2"
+                className="px-6 py-3 border-2 border-border rounded font-bold hover:border-gray-400 flex items-center gap-2"
               >
                 <X size={20} />
                 <span>Cancel</span>
@@ -346,35 +346,35 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
   if (notification.actionType === 'payment') {
     return (
       <div className="space-y-4">
-        <div className="text-sm font-bold text-gray-900 mb-3">Payment Details</div>
+        <div className="text-sm font-bold text-foreground mb-3">Payment Details</div>
         
-        <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6">
+        <div className="bg-background border-2 border-border rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-gray-700">Amount to Pay:</span>
-            <span className="text-2xl font-bold text-gray-900">{notification.amount}</span>
+            <span className="text-muted-foreground">Amount to Pay:</span>
+            <span className="text-2xl font-bold text-foreground">{notification.amount}</span>
           </div>
-          <div className="text-sm text-gray-600 mb-4">
+          <div className="text-sm text-muted-foreground mb-4">
             Application: {notification.reference}
           </div>
         </div>
 
         {isProcessing ? (
           <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
-            <div className="text-sm font-bold text-gray-900 mb-2">Processing payment...</div>
+            <div className="text-sm font-bold text-foreground mb-2">Processing payment...</div>
             <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
           </div>
         ) : (
           <div className="flex gap-3">
             <button
               onClick={onComplete}
-              className="flex-1 px-6 py-3 bg-[#138808] text-white rounded font-bold hover:bg-[#0f6b06] flex items-center justify-center gap-2"
+              className="flex-1 px-6 py-3 bg-green-700 text-white rounded font-bold hover:bg-[#0f6b06] flex items-center justify-center gap-2"
             >
               <CreditCard size={20} />
               <span>Pay Now</span>
             </button>
             <button
               onClick={onCancel}
-              className="px-6 py-3 border-2 border-gray-300 rounded font-bold hover:border-gray-400 flex items-center gap-2"
+              className="px-6 py-3 border-2 border-border rounded font-bold hover:border-gray-400 flex items-center gap-2"
             >
               <X size={20} />
               <span>Cancel</span>
@@ -388,16 +388,16 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
   if (notification.actionType === 'approval') {
     return (
       <div className="space-y-4">
-        <div className="text-sm font-bold text-gray-900 mb-3">Review Consent</div>
+        <div className="text-sm font-bold text-foreground mb-3">Review Consent</div>
         
-        <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6">
-          <div className="text-sm text-gray-700 mb-4">
+        <div className="bg-background border-2 border-border rounded-lg p-6">
+          <div className="text-sm text-muted-foreground mb-4">
             I consent to sharing my Aadhaar information with the Department of Revenue for 
             verification purposes related to my application {notification.reference}.
           </div>
           <div className="flex items-start gap-2">
             <input type="checkbox" id="consent" className="mt-1" />
-            <label htmlFor="consent" className="text-sm text-gray-700">
+            <label htmlFor="consent" className="text-sm text-muted-foreground">
               I have read and understood the data sharing terms
             </label>
           </div>
@@ -405,14 +405,14 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
 
         {isProcessing ? (
           <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
-            <div className="text-sm font-bold text-gray-900 mb-2">Processing approval...</div>
+            <div className="text-sm font-bold text-foreground mb-2">Processing approval...</div>
             <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
           </div>
         ) : (
           <div className="flex gap-3">
             <button
               onClick={onComplete}
-              className="flex-1 px-6 py-3 bg-[#138808] text-white rounded font-bold hover:bg-[#0f6b06] flex items-center justify-center gap-2"
+              className="flex-1 px-6 py-3 bg-green-700 text-white rounded font-bold hover:bg-[#0f6b06] flex items-center justify-center gap-2"
             >
               <ThumbsUp size={20} />
               <span>Approve</span>
@@ -433,11 +433,11 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
   if (notification.actionType === 'feedback') {
     return (
       <div className="space-y-4">
-        <div className="text-sm font-bold text-gray-900 mb-3">Rate Your Experience</div>
+        <div className="text-sm font-bold text-foreground mb-3">Rate Your Experience</div>
         
-        <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6">
+        <div className="bg-background border-2 border-border rounded-lg p-6">
           <div className="mb-4">
-            <div className="text-sm text-gray-700 mb-3">How would you rate the service?</div>
+            <div className="text-sm text-muted-foreground mb-3">How would you rate the service?</div>
             <div className="flex gap-2">
               {[1, 2, 3, 4, 5].map((star) => (
                 <button
@@ -451,7 +451,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
             </div>
           </div>
           <div>
-            <label htmlFor="comment" className="text-sm text-gray-700 block mb-2">
+            <label htmlFor="comment" className="text-sm text-muted-foreground block mb-2">
               Additional Comments (Optional)
             </label>
             <textarea
@@ -459,7 +459,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
               rows={3}
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              className="w-full p-3 border-2 border-gray-300 rounded focus:border-[#000080] focus:outline-none"
+              className="w-full p-3 border-2 border-border rounded focus:border-primary focus:outline-none"
               placeholder="Share your feedback..."
             ></textarea>
           </div>
@@ -467,7 +467,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
 
         {isProcessing ? (
           <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
-            <div className="text-sm font-bold text-gray-900 mb-2">Submitting feedback...</div>
+            <div className="text-sm font-bold text-foreground mb-2">Submitting feedback...</div>
             <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
           </div>
         ) : (
@@ -475,14 +475,14 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
             <button
               onClick={onComplete}
               disabled={!rating}
-              className="flex-1 px-6 py-3 bg-[#138808] text-white rounded font-bold hover:bg-[#0f6b06] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="flex-1 px-6 py-3 bg-green-700 text-white rounded font-bold hover:bg-[#0f6b06] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               <MessageSquare size={20} />
               <span>Submit Feedback</span>
             </button>
             <button
               onClick={onCancel}
-              className="px-6 py-3 border-2 border-gray-300 rounded font-bold hover:border-gray-400 flex items-center gap-2"
+              className="px-6 py-3 border-2 border-border rounded font-bold hover:border-gray-400 flex items-center gap-2"
             >
               <X size={20} />
               <span>Skip</span>

@@ -73,27 +73,27 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border bg-card hover:bg-background transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         aria-label={t('common.selectLanguage')}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        {showFlag && <Globe className="w-5 h-5 text-gray-600" aria-hidden="true" />}
+        {showFlag && <Globe className="w-5 h-5 text-muted-foreground" aria-hidden="true" />}
 
         {variant === 'default' && (
-          <span className="text-sm font-medium text-gray-900">
+          <span className="text-sm font-medium text-foreground">
             {currentLanguage.nativeName}
           </span>
         )}
 
         {variant === 'compact' && (
-          <span className="text-sm font-medium text-gray-900 uppercase">
+          <span className="text-sm font-medium text-foreground uppercase">
             {currentLanguage.code}
           </span>
         )}
 
         <ChevronDown
-          className={`w-4 h-4 text-gray-600 transition-transform ${
+          className={`w-4 h-4 text-muted-foreground transition-transform ${
             isOpen ? 'rotate-180' : ''
           }`}
           aria-hidden="true"
@@ -103,16 +103,16 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       {/* Dropdown Menu */}
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 w-72 max-h-96 overflow-y-auto bg-white rounded-lg shadow-lg border border-gray-200 z-50"
+          className="absolute right-0 mt-2 w-72 max-h-96 overflow-y-auto bg-card rounded-lg shadow-lg border border-border z-50"
           role="listbox"
           aria-label={t('common.selectLanguage')}
         >
           {/* Header */}
-          <div className="sticky top-0 bg-white border-b border-gray-200 px-4 py-3">
-            <h3 className="text-sm font-semibold text-gray-900">
+          <div className="sticky top-0 bg-card border-b border-border px-4 py-3">
+            <h3 className="text-sm font-semibold text-foreground">
               {t('common.selectLanguage')}
             </h3>
-            <p className="text-xs text-gray-600 mt-0.5">
+            <p className="text-xs text-muted-foreground mt-0.5">
               22 Scheduled Languages
             </p>
           </div>
@@ -129,15 +129,15 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
                   role="option"
                   aria-selected={isSelected}
                   onClick={() => handleLanguageChange(language.code)}
-                  className={`w-full flex items-center justify-between px-4 py-2.5 text-left transition-colors hover:bg-gray-50 ${
-                    isSelected ? 'bg-blue-50' : ''
+                  className={`w-full flex items-center justify-between px-4 py-2.5 text-left transition-colors hover:bg-background ${
+                    isSelected ? 'bg-accent' : ''
                   }`}
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <span
                         className={`text-sm font-medium ${
-                          isSelected ? 'text-[#005196]' : 'text-gray-900'
+                          isSelected ? 'text-primary' : 'text-foreground'
                         }`}
                         dir={language.dir}
                       >
@@ -149,13 +149,13 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
                         </span>
                       )}
                     </div>
-                    <div className="text-xs text-gray-500 mt-0.5">
+                    <div className="text-xs text-muted-foreground mt-0.5">
                       {language.name}
                     </div>
                   </div>
 
                   {isSelected && (
-                    <Check className="w-5 h-5 text-[#005196]" aria-hidden="true" />
+                    <Check className="w-5 h-5 text-primary" aria-hidden="true" />
                   )}
                 </button>
               );
@@ -163,8 +163,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
           </div>
 
           {/* Footer Info */}
-          <div className="sticky bottom-0 bg-gray-50 border-t border-gray-200 px-4 py-2">
-            <p className="text-xs text-gray-600">
+          <div className="sticky bottom-0 bg-background border-t border-border px-4 py-2">
+            <p className="text-xs text-muted-foreground">
               More languages coming soon
             </p>
           </div>

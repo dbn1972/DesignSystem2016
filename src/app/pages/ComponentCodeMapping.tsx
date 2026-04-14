@@ -4,22 +4,22 @@ import { useState } from "react";
 
 export default function ComponentCodeMapping() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b-2 border-gray-300">
+      <header className="bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-12">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-gray-300 rounded flex items-center justify-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-border rounded flex items-center justify-center">
                   <GitBranch size={40} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">Cross-Framework Specifications</div>
-                  <h1 className="text-4xl font-bold text-gray-900">Component-to-Code Mapping</h1>
+                  <div className="text-sm text-muted-foreground mb-1">Cross-Framework Specifications</div>
+                  <h1 className="text-4xl font-bold text-foreground">Component-to-Code Mapping</h1>
                 </div>
               </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 Complete component specifications with React props, Angular inputs/outputs, variants, and states. 
                 Ensure consistency and reusability across frameworks. Copy-paste ready TypeScript definitions 
                 for 15+ production components.
@@ -27,15 +27,15 @@ export default function ComponentCodeMapping() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Components: <span className="font-bold text-gray-900">15+</span></span>
+                  <span className="text-muted-foreground">Components: <span className="font-bold text-foreground">15+</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Frameworks: <span className="font-bold text-gray-900">React + Angular</span></span>
+                  <span className="text-muted-foreground">Frameworks: <span className="font-bold text-foreground">React + Angular</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function ComponentCodeMapping() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -68,7 +68,7 @@ export default function ComponentCodeMapping() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -104,9 +104,9 @@ export default function ComponentCodeMapping() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Component Specifications</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -121,12 +121,12 @@ export default function ComponentCodeMapping() {
 function OverviewSection() {
   return (
     <section id="overview" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Component Specifications</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Component Specifications</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-gray-300 rounded-lg p-8">
-        <p className="text-gray-700 mb-6">
+      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-border rounded-lg p-8">
+        <p className="text-muted-foreground mb-6">
           Every UX4G component has a complete specification defining React props, Angular inputs/outputs, 
           variants, and states. This ensures consistency across frameworks and makes components easy to 
           integrate into any government service.
@@ -182,8 +182,8 @@ function OverviewSection() {
 function ButtonMapping() {
   return (
     <section id="button" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Button Component</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Button Component</h2>
       </div>
 
       <ComponentSpec
@@ -299,8 +299,8 @@ function MyForm() {
 function FormFieldMapping() {
   return (
     <section id="form-field" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Form Field Component</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Form Field Component</h2>
       </div>
 
       <ComponentSpec
@@ -393,8 +393,8 @@ function PersonalInfoForm() {
 function InputMapping() {
   return (
     <section id="input" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Input Component</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Input Component</h2>
       </div>
 
       <ComponentSpec
@@ -483,8 +483,8 @@ function InputMapping() {
 function AlertMapping() {
   return (
     <section id="alert" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Alert Component</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Alert Component</h2>
       </div>
 
       <ComponentSpec
@@ -538,8 +538,8 @@ function AlertMapping() {
 function ModalMapping() {
   return (
     <section id="modal" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Modal Component</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Modal Component</h2>
       </div>
 
       <ComponentSpec
@@ -651,12 +651,12 @@ function ConfirmDialog() {
 function UsageGuide() {
   return (
     <section id="usage" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Using Component Specs</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Using Component Specs</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-gray-300 rounded-lg p-8">
-        <h3 className="font-bold text-gray-900 mb-4 text-lg">Integration Steps</h3>
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-8">
+        <h3 className="font-bold text-foreground mb-4 text-lg">Integration Steps</h3>
         <div className="space-y-4">
           <Step number={1} title="Import specifications" description="Import component specs from /src/app/services/componentSpecs.ts" />
           <Step number={2} title="Use TypeScript interfaces" description="Define props using the provided interfaces for type safety" />
@@ -666,9 +666,9 @@ function UsageGuide() {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Example: Creating a New Component</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Example: Creating a New Component</h3>
         </div>
         <div className="p-6">
           <pre className="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto">
@@ -686,8 +686,8 @@ export function Button({
 }: ButtonProps) {
   // Use variant constants
   const variantClasses = {
-    [ButtonVariants.PRIMARY]: 'bg-[#000080] text-white',
-    [ButtonVariants.SECONDARY]: 'bg-white border-2 border-gray-300',
+    [ButtonVariants.PRIMARY]: 'bg-primary text-white',
+    [ButtonVariants.SECONDARY]: 'bg-card border-2 border-border',
     [ButtonVariants.DANGER]: 'bg-red-600 text-white'
   };
 
@@ -721,9 +721,9 @@ export function Button({
 
 function QuickNav() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Components</h3>
+        <h3 className="font-bold text-foreground text-sm">Components</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <NavLink href="#button" text="Button" />
@@ -739,8 +739,8 @@ function QuickNav() {
 
 function ComponentCount() {
   return (
-    <div className="bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-gray-300 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-3 text-sm">Specifications</h3>
+    <div className="bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-3 text-sm">Specifications</h3>
       <div className="space-y-2 text-xs">
         <CountItem count="15+" text="Components" />
         <CountItem count="50+" text="Variants" />
@@ -753,15 +753,15 @@ function ComponentCount() {
 
 function SpecsLocation() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">File Location</h3>
+        <h3 className="font-bold text-foreground text-sm">File Location</h3>
       </div>
       <div className="p-4 text-xs">
-        <code className="text-gray-900 bg-gray-100 px-2 py-1 rounded block mb-2">
+        <code className="text-foreground bg-muted px-2 py-1 rounded block mb-2">
           /src/app/services/<br/>componentSpecs.ts
         </code>
-        <p className="text-gray-700 mt-2">
+        <p className="text-muted-foreground mt-2">
           Import component interfaces, variants, and states from this file
         </p>
       </div>
@@ -771,9 +771,9 @@ function SpecsLocation() {
 
 function FrameworkSupport() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Framework Support</h3>
+        <h3 className="font-bold text-foreground text-sm">Framework Support</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <FrameworkItem name="React" version="18+" status="Primary" />
@@ -792,22 +792,22 @@ function FeatureCard({ title, description, icon }: {
   icon: React.ReactNode;
 }) {
   return (
-    <div className="bg-white border border-gray-300 rounded p-4">
+    <div className="bg-card border border-border rounded p-4">
       <div className="mb-3">{icon}</div>
-      <p className="font-bold text-gray-900 mb-1 text-sm">{title}</p>
-      <p className="text-xs text-gray-700">{description}</p>
+      <p className="font-bold text-foreground mb-1 text-sm">{title}</p>
+      <p className="text-xs text-muted-foreground">{description}</p>
     </div>
   );
 }
 
 function BenefitCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
-        <ul className="space-y-2 text-sm text-gray-700">
+        <ul className="space-y-2 text-sm text-muted-foreground">
           {items.map((item, i) => (
             <li key={i} className="flex items-start gap-2">
               <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
@@ -832,18 +832,18 @@ function ComponentSpec({ name, description, reactProps, angularInputs, variants,
   const [activeTab, setActiveTab] = useState<'react' | 'angular'>('react');
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-b-2 border-gray-300 px-6 py-4">
-        <h3 className="font-bold text-gray-900 mb-1">{name}</h3>
-        <p className="text-sm text-gray-700">{description}</p>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-b-2 border-border px-6 py-4">
+        <h3 className="font-bold text-foreground mb-1">{name}</h3>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
 
-      <div className="border-b border-gray-300">
+      <div className="border-b border-border">
         <div className="flex">
           <button
             onClick={() => setActiveTab('react')}
-            className={`px-6 py-3 text-sm font-bold border-r border-gray-300 ${
-              activeTab === 'react' ? 'bg-blue-50 text-[#000080]' : 'bg-gray-50 text-gray-600'
+            className={`px-6 py-3 text-sm font-bold border-r border-border ${
+              activeTab === 'react' ? 'bg-blue-50 text-primary' : 'bg-background text-muted-foreground'
             }`}
           >
             React Props
@@ -851,7 +851,7 @@ function ComponentSpec({ name, description, reactProps, angularInputs, variants,
           <button
             onClick={() => setActiveTab('angular')}
             className={`px-6 py-3 text-sm font-bold ${
-              activeTab === 'angular' ? 'bg-blue-50 text-[#000080]' : 'bg-gray-50 text-gray-600'
+              activeTab === 'angular' ? 'bg-blue-50 text-primary' : 'bg-background text-muted-foreground'
             }`}
           >
             Angular I/O
@@ -873,17 +873,17 @@ function ComponentSpec({ name, description, reactProps, angularInputs, variants,
       </div>
 
       {variants && (
-        <div className="border-t-2 border-gray-300 p-6">
-          <h4 className="font-bold text-gray-900 mb-3 text-sm">Variants</h4>
+        <div className="border-t-2 border-border p-6">
+          <h4 className="font-bold text-foreground mb-3 text-sm">Variants</h4>
           <div className="space-y-2">
             {variants.map((v, i) => (
-              <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-300 rounded">
+              <div key={i} className="flex items-start gap-3 p-3 bg-background border border-border rounded">
                 <code className="text-sm text-blue-700 bg-blue-50 px-2 py-0.5 rounded font-mono flex-shrink-0">
                   {v.name}
                 </code>
                 <div className="flex-1">
-                  <p className="text-sm text-gray-900">{v.desc}</p>
-                  {v.example && <p className="text-xs text-gray-600 mt-1">Example: {v.example}</p>}
+                  <p className="text-sm text-foreground">{v.desc}</p>
+                  {v.example && <p className="text-xs text-muted-foreground mt-1">Example: {v.example}</p>}
                 </div>
               </div>
             ))}
@@ -892,15 +892,15 @@ function ComponentSpec({ name, description, reactProps, angularInputs, variants,
       )}
 
       {sizes && (
-        <div className="border-t-2 border-gray-300 p-6">
-          <h4 className="font-bold text-gray-900 mb-3 text-sm">Sizes</h4>
+        <div className="border-t-2 border-border p-6">
+          <h4 className="font-bold text-foreground mb-3 text-sm">Sizes</h4>
           <div className="space-y-2">
             {sizes.map((s, i) => (
-              <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-300 rounded">
+              <div key={i} className="flex items-start gap-3 p-3 bg-background border border-border rounded">
                 <code className="text-sm text-purple-700 bg-purple-50 px-2 py-0.5 rounded font-mono flex-shrink-0">
                   {s.name}
                 </code>
-                <p className="text-sm text-gray-900">{s.desc}</p>
+                <p className="text-sm text-foreground">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -908,15 +908,15 @@ function ComponentSpec({ name, description, reactProps, angularInputs, variants,
       )}
 
       {states && (
-        <div className="border-t-2 border-gray-300 p-6">
-          <h4 className="font-bold text-gray-900 mb-3 text-sm">States</h4>
+        <div className="border-t-2 border-border p-6">
+          <h4 className="font-bold text-foreground mb-3 text-sm">States</h4>
           <div className="space-y-2">
             {states.map((s, i) => (
-              <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-300 rounded">
+              <div key={i} className="flex items-start gap-3 p-3 bg-background border border-border rounded">
                 <code className="text-sm text-green-700 bg-green-50 px-2 py-0.5 rounded font-mono flex-shrink-0">
                   {s.name}
                 </code>
-                <p className="text-sm text-gray-900">{s.desc}</p>
+                <p className="text-sm text-foreground">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -934,14 +934,14 @@ function UsageExample({ title, reactCode, angularCode }: {
   const [activeTab, setActiveTab] = useState<'react' | 'angular'>('react');
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4 flex items-center justify-between">
-        <h4 className="font-bold text-gray-900">{title}</h4>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-6 py-4 flex items-center justify-between">
+        <h4 className="font-bold text-foreground">{title}</h4>
         <div className="flex gap-2">
           <button
             onClick={() => setActiveTab('react')}
             className={`px-3 py-1 text-xs font-bold rounded ${
-              activeTab === 'react' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+              activeTab === 'react' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-muted-foreground'
             }`}
           >
             React
@@ -949,7 +949,7 @@ function UsageExample({ title, reactCode, angularCode }: {
           <button
             onClick={() => setActiveTab('angular')}
             className={`px-3 py-1 text-xs font-bold rounded ${
-              activeTab === 'angular' ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700'
+              activeTab === 'angular' ? 'bg-red-500 text-white' : 'bg-gray-200 text-muted-foreground'
             }`}
           >
             Angular
@@ -979,12 +979,12 @@ function Step({ number, title, description }: {
 }) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+      <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
         {number}
       </div>
       <div>
-        <p className="font-bold text-gray-900 mb-1">{title}</p>
-        <p className="text-sm text-gray-700">{description}</p>
+        <p className="font-bold text-foreground mb-1">{title}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   );
@@ -994,9 +994,9 @@ function NavLink({ href, text }: { href: string; text: string }) {
   return (
     <a 
       href={href}
-      className="flex items-center gap-2 p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-gray-900"
+      className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground"
     >
-      <ArrowRight size={12} className="text-[#000080]" />
+      <ArrowRight size={12} className="text-primary" />
       <span>{text}</span>
     </a>
   );
@@ -1005,8 +1005,8 @@ function NavLink({ href, text }: { href: string; text: string }) {
 function CountItem({ count, text }: { count: string; text: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-700">{text}</span>
-      <span className="font-bold text-[#000080]">{count}</span>
+      <span className="text-muted-foreground">{text}</span>
+      <span className="font-bold text-primary">{count}</span>
     </div>
   );
 }
@@ -1023,10 +1023,10 @@ function FrameworkItem({ name, version, status }: {
   };
 
   return (
-    <div className="flex items-center justify-between p-2 bg-gray-50 border border-gray-300 rounded">
+    <div className="flex items-center justify-between p-2 bg-background border border-border rounded">
       <div>
-        <p className="font-bold text-gray-900 text-xs">{name}</p>
-        <p className="text-gray-600 text-xs">{version}</p>
+        <p className="font-bold text-foreground text-xs">{name}</p>
+        <p className="text-muted-foreground text-xs">{version}</p>
       </div>
       <span className={`px-2 py-0.5 rounded text-xs font-bold ${statusColors[status as keyof typeof statusColors]}`}>
         {status}

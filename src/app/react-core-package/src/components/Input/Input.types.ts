@@ -3,7 +3,7 @@
  * Text input field for forms
  */
 
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, ReactNode } from 'react';
 import {
   ComponentSize,
   FormFieldProps,
@@ -11,7 +11,7 @@ import {
 } from '../../types/common';
 
 export interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'>,
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange' | 'value' | 'aria-invalid' | 'aria-required' | 'defaultValue'>,
     FormFieldProps,
     ControlledValueProps<string> {
   /**
@@ -29,12 +29,12 @@ export interface InputProps
   /**
    * Icon to display before input text
    */
-  iconBefore?: React.ReactNode;
+  iconBefore?: ReactNode;
 
   /**
    * Icon to display after input text
    */
-  iconAfter?: React.ReactNode;
+  iconAfter?: ReactNode;
 
   /**
    * Render as full width input

@@ -3,22 +3,22 @@ import { Shield, Smartphone, Mail, Lock, Key, RefreshCw, UserCheck, Clock, Alert
 
 export default function IdentityAccessPatterns() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <Shield size={32} className="text-[#000080]" />
+                <div className="w-16 h-16 bg-muted border-2 border-border rounded flex items-center justify-center">
+                  <Shield size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Service Pattern Library</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Identity and Access Patterns</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Service Pattern Library</div>
+                  <h1 className="text-3xl font-bold text-foreground">Identity and Access Patterns</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 A comprehensive, cross-service pattern family for identity verification, authentication, 
                 password recovery, session management, and error handling across all Government of India digital services. 
                 Built for 1.4 billion citizens with accessibility, security, and trust as foundational principles.
@@ -26,15 +26,15 @@ export default function IdentityAccessPatterns() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-009</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-009</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -82,9 +82,9 @@ export default function IdentityAccessPatterns() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Identity and Access Patterns</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -99,13 +99,13 @@ export default function IdentityAccessPatterns() {
 function WhatAreIdentityPatterns() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">What Are Identity and Access Patterns?</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">What Are Identity and Access Patterns?</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-        <p className="text-gray-700 leading-relaxed mb-6">
-          Identity and Access Patterns are <span className="font-bold text-gray-900">structured, reusable UX flows</span> that handle 
+      <div className="bg-card border-2 border-border rounded-lg p-8">
+        <p className="text-muted-foreground leading-relaxed mb-6">
+          Identity and Access Patterns are <span className="font-bold text-foreground">structured, reusable UX flows</span> that handle 
           user authentication, identity verification, session management, password recovery, and error states across government digital services.
         </p>
 
@@ -113,9 +113,9 @@ function WhatAreIdentityPatterns() {
           <div className="p-5 bg-blue-50 border-2 border-blue-200 rounded-lg">
             <div className="flex items-start gap-3 mb-3">
               <Shield size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-              <h3 className="font-bold text-gray-900">Not Just Login Forms</h3>
+              <h3 className="font-bold text-foreground">Not Just Login Forms</h3>
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               These are complete journey patterns covering account creation, verification methods (OTP, Aadhaar), 
               recovery flows, session security, and comprehensive error handling—not isolated UI components.
             </p>
@@ -124,17 +124,17 @@ function WhatAreIdentityPatterns() {
           <div className="p-5 bg-green-50 border-2 border-green-200 rounded-lg">
             <div className="flex items-start gap-3 mb-3">
               <Layers size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
-              <h3 className="font-bold text-gray-900">Cross-Service Foundation</h3>
+              <h3 className="font-bold text-foreground">Cross-Service Foundation</h3>
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Used as foundational patterns across <span className="font-bold">120+ government services</span>, 
               ensuring citizens encounter familiar, predictable authentication experiences regardless of department.
             </p>
           </div>
         </div>
 
-        <div className="mt-6 p-6 bg-gray-50 border-2 border-gray-200 rounded-lg">
-          <h3 className="font-bold text-gray-900 mb-4">Pattern Scope</h3>
+        <div className="mt-6 p-6 bg-background border-2 border-border rounded-lg">
+          <h3 className="font-bold text-foreground mb-4">Pattern Scope</h3>
           <div className="grid grid-cols-3 gap-4 text-sm">
             <ScopeItem icon={<UserCheck size={16} />} label="Account Creation" description="Sign up with verification" />
             <ScopeItem icon={<Lock size={16} />} label="Authentication" description="Sign in, Aadhaar auth" />
@@ -152,10 +152,10 @@ function WhatAreIdentityPatterns() {
 function ScopeItem({ icon, label, description }: { icon: React.ReactNode; label: string; description: string }) {
   return (
     <div className="flex items-start gap-2">
-      <div className="text-[#000080] flex-shrink-0 mt-0.5">{icon}</div>
+      <div className="text-primary flex-shrink-0 mt-0.5">{icon}</div>
       <div>
-        <div className="font-bold text-gray-900 text-sm">{label}</div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="font-bold text-foreground text-sm">{label}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -166,19 +166,19 @@ function ScopeItem({ icon, label, description }: { icon: React.ReactNode; label:
 function WhyCrossService() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Why Are These Cross-Service Patterns?</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Why Are These Cross-Service Patterns?</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-          <h3 className="font-bold text-gray-900">Consistency Across Government Services</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-8 py-4">
+          <h3 className="font-bold text-foreground">Consistency Across Government Services</h3>
         </div>
         <div className="p-8">
-          <p className="text-gray-700 leading-relaxed mb-6">
+          <p className="text-muted-foreground leading-relaxed mb-6">
             Citizens interact with multiple government departments—income tax, passport services, ration card, 
             driving license, subsidies, healthcare. Each service requires authentication. 
-            <span className="font-bold text-gray-900"> Inconsistent identity flows create confusion, failed authentications, 
+            <span className="font-bold text-foreground"> Inconsistent identity flows create confusion, failed authentications, 
             and increased support burden.</span>
           </p>
 
@@ -189,8 +189,8 @@ function WhyCrossService() {
                   <XCircle size={16} className="text-red-600" />
                 </div>
                 <div>
-                  <div className="font-bold text-gray-900 mb-1">Without Cross-Service Patterns</div>
-                  <ul className="text-sm text-gray-700 space-y-1">
+                  <div className="font-bold text-foreground mb-1">Without Cross-Service Patterns</div>
+                  <ul className="text-sm text-muted-foreground space-y-1">
                     <li>• Each department designs its own login flow</li>
                     <li>• Inconsistent OTP delivery times and formats</li>
                     <li>• Different password requirements per service</li>
@@ -207,8 +207,8 @@ function WhyCrossService() {
                   <CheckCircle size={16} className="text-green-600" />
                 </div>
                 <div>
-                  <div className="font-bold text-gray-900 mb-1">With Cross-Service Patterns</div>
-                  <ul className="text-sm text-gray-700 space-y-1">
+                  <div className="font-bold text-foreground mb-1">With Cross-Service Patterns</div>
+                  <ul className="text-sm text-muted-foreground space-y-1">
                     <li>• Familiar login experience across all services</li>
                     <li>• Consistent OTP timing (30 seconds mobile, 2 min email)</li>
                     <li>• Unified password policy government-wide</li>
@@ -223,8 +223,8 @@ function WhyCrossService() {
           <div className="mt-6 p-5 bg-blue-50 border-2 border-blue-200 rounded-lg">
             <div className="flex items-start gap-3">
               <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-              <div className="text-sm text-gray-700">
-                <div className="font-bold text-gray-900 mb-2">Design System Principle</div>
+              <div className="text-sm text-muted-foreground">
+                <div className="font-bold text-foreground mb-2">Design System Principle</div>
                 <p>
                   Identity patterns must be <span className="font-bold">consistent across departments</span> because 
                   citizens don't distinguish between "Income Tax Portal" and "Passport Service"—they see them all as 
@@ -244,12 +244,12 @@ function WhyCrossService() {
 function RelationshipToArchetypes() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">How Identity Patterns Relate to Service Archetypes</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">How Identity Patterns Relate to Service Archetypes</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-        <p className="text-gray-700 leading-relaxed mb-6">
+      <div className="bg-card border-2 border-border rounded-lg p-8">
+        <p className="text-muted-foreground leading-relaxed mb-6">
           Service archetypes (Application Submission, Eligibility Screening, Renewal, etc.) represent <span className="font-bold">end-to-end citizen journeys</span>. 
           Identity and Access Patterns are <span className="font-bold">foundational sub-patterns</span> that appear within these archetypes as required steps.
         </p>
@@ -283,15 +283,15 @@ function RelationshipToArchetypes() {
         </div>
 
         <div className="mt-6 p-5 bg-purple-50 border-2 border-purple-200 rounded-lg">
-          <div className="font-bold text-gray-900 mb-3">Pattern Hierarchy</div>
-          <div className="flex items-center gap-3 text-sm text-gray-700">
-            <div className="px-3 py-2 bg-white border-2 border-gray-300 rounded font-bold">Service Archetype</div>
+          <div className="font-bold text-foreground mb-3">Pattern Hierarchy</div>
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
+            <div className="px-3 py-2 bg-card border-2 border-border rounded font-bold">Service Archetype</div>
             <span>contains</span>
             <div className="px-3 py-2 bg-blue-100 border-2 border-blue-300 rounded font-bold">Identity Pattern</div>
             <span>uses</span>
             <div className="px-3 py-2 bg-green-100 border-2 border-green-300 rounded font-bold">UI Components</div>
           </div>
-          <div className="text-xs text-gray-600 mt-3">
+          <div className="text-xs text-muted-foreground mt-3">
             Example: Application Submission archetype → uses Sign In pattern → uses Form Input and Password Input components
           </div>
         </div>
@@ -302,20 +302,20 @@ function RelationshipToArchetypes() {
 
 function ArchetypeMapping({ archetype, identityFlows, example }: { archetype: string; identityFlows: string[]; example: string }) {
   return (
-    <div className="p-5 bg-gray-50 border-2 border-gray-200 rounded-lg">
+    <div className="p-5 bg-background border-2 border-border rounded-lg">
       <div className="flex items-start justify-between mb-3">
-        <div className="font-bold text-gray-900">{archetype}</div>
-        <Link to="/archetypes" className="text-xs text-[#000080] hover:underline">View Archetype →</Link>
+        <div className="font-bold text-foreground">{archetype}</div>
+        <Link to="/archetypes" className="text-xs text-primary hover:underline">View Archetype →</Link>
       </div>
       <div className="space-y-2 mb-3">
         {identityFlows.map((flow, idx) => (
           <div key={idx} className="flex items-center gap-2 text-sm">
             <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
-            <span className="text-gray-700">{flow}</span>
+            <span className="text-muted-foreground">{flow}</span>
           </div>
         ))}
       </div>
-      <div className="text-xs text-gray-600 italic">Example: {example}</div>
+      <div className="text-xs text-muted-foreground italic">Example: {example}</div>
     </div>
   );
 }
@@ -325,8 +325,8 @@ function ArchetypeMapping({ archetype, identityFlows, example }: { archetype: st
 function CorePatternFamilies() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Core Pattern Families</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Core Pattern Families</h2>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
@@ -395,12 +395,12 @@ function PatternFamily({ title, icon, bgColor, borderColor, patterns, descriptio
     <div className={`border-2 ${borderColor} ${bgColor} rounded-lg p-6`}>
       <div className="flex items-center gap-3 mb-3">
         {icon}
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
-      <div className="text-sm text-gray-700 mb-4 leading-relaxed">{description}</div>
+      <div className="text-sm text-muted-foreground mb-4 leading-relaxed">{description}</div>
       <div className="space-y-1">
         {patterns.map((pattern, idx) => (
-          <div key={idx} className="text-sm font-medium text-gray-900">• {pattern}</div>
+          <div key={idx} className="text-sm font-medium text-foreground">• {pattern}</div>
         ))}
       </div>
     </div>
@@ -505,9 +505,9 @@ function InteractiveFlowsGrid() {
 
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Interactive Flow Prototypes</h2>
-        <p className="text-gray-600 mt-2">Click any pattern to view the interactive prototype with realistic states and navigation</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Interactive Flow Prototypes</h2>
+        <p className="text-muted-foreground mt-2">Click any pattern to view the interactive prototype with realistic states and navigation</p>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
@@ -515,22 +515,22 @@ function InteractiveFlowsGrid() {
           <Link
             key={flow.id}
             to={flow.href}
-            className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white hover:border-[#000080] hover:shadow-lg transition-all group"
+            className="border-2 border-border rounded-lg overflow-hidden bg-card hover:border-primary hover:shadow-lg transition-all group"
           >
             {/* Icon Header */}
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6 h-28 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+            <div className="bg-background border-b-2 border-border p-6 h-28 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
               {flow.icon}
             </div>
 
             {/* Details */}
             <div className="p-4">
               <div className="flex items-start justify-between mb-2">
-                <h3 className="font-bold text-gray-900 text-sm flex-1">{flow.title}</h3>
+                <h3 className="font-bold text-foreground text-sm flex-1">{flow.title}</h3>
                 <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded-full flex-shrink-0 ml-2">
                   {flow.status}
                 </span>
               </div>
-              <p className="text-sm text-gray-600 mb-4 leading-relaxed">{flow.description}</p>
+              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{flow.description}</p>
               
               <div className="flex items-center justify-between text-xs">
                 <div className="text-gray-500">
@@ -539,9 +539,9 @@ function InteractiveFlowsGrid() {
                 <div className="text-gray-500">{flow.category}</div>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-gray-200 flex items-center justify-between">
-                <span className="text-sm font-medium text-[#000080]">View Prototype</span>
-                <ArrowRight size={16} className="text-[#000080] group-hover:translate-x-1 transition-transform" />
+              <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                <span className="text-sm font-medium text-primary">View Prototype</span>
+                <ArrowRight size={16} className="text-primary group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           </Link>
@@ -556,8 +556,8 @@ function InteractiveFlowsGrid() {
 function CommonUserJourneys() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Common User Journeys</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Common User Journeys</h2>
       </div>
 
       <div className="space-y-6">
@@ -632,11 +632,11 @@ function JourneyCard({ title, steps, duration, complexity }: {
   complexity: string;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+    <div className="bg-card border-2 border-border rounded-lg p-6">
       <div className="flex items-start justify-between mb-6">
-        <h3 className="font-bold text-gray-900 text-lg">{title}</h3>
+        <h3 className="font-bold text-foreground text-lg">{title}</h3>
         <div className="flex items-center gap-4 text-sm">
-          <div className="text-gray-600">
+          <div className="text-muted-foreground">
             <span className="font-bold">Duration:</span> {duration}
           </div>
           <div className={`px-3 py-1 rounded-full text-xs font-bold ${
@@ -656,12 +656,12 @@ function JourneyCard({ title, steps, duration, complexity }: {
           <div key={idx} className="flex items-center gap-4 flex-1">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+                <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
                   {idx + 1}
                 </div>
                 <div className="flex-1">
-                  <div className="font-bold text-gray-900 text-sm">{step.label}</div>
-                  <div className="text-xs text-gray-600">{step.description}</div>
+                  <div className="font-bold text-foreground text-sm">{step.label}</div>
+                  <div className="text-xs text-muted-foreground">{step.description}</div>
                 </div>
               </div>
             </div>
@@ -680,13 +680,13 @@ function JourneyCard({ title, steps, duration, complexity }: {
 function AccessibilityConsiderations() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Accessibility Considerations</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Accessibility Considerations</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-          <h3 className="font-bold text-gray-900">WCAG 2.1 AA Compliance Across All Patterns</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-8 py-4">
+          <h3 className="font-bold text-foreground">WCAG 2.1 AA Compliance Across All Patterns</h3>
         </div>
         <div className="p-8 space-y-6">
           <AccessibilityBlock
@@ -756,12 +756,12 @@ function AccessibilityConsiderations() {
 function AccessibilityBlock({ title, requirements }: { title: string; requirements: string[] }) {
   return (
     <div>
-      <div className="font-bold text-gray-900 mb-3">{title}</div>
+      <div className="font-bold text-foreground mb-3">{title}</div>
       <div className="grid grid-cols-2 gap-3">
         {requirements.map((req, idx) => (
           <div key={idx} className="flex items-start gap-2 text-sm">
             <CheckCircle size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
-            <span className="text-gray-700">{req}</span>
+            <span className="text-muted-foreground">{req}</span>
           </div>
         ))}
       </div>
@@ -774,8 +774,8 @@ function AccessibilityBlock({ title, requirements }: { title: string; requiremen
 function ImplementationConsiderations() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Implementation Considerations</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Implementation Considerations</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
@@ -833,12 +833,12 @@ function ImplementationConsiderations() {
         <div className="flex items-start gap-3">
           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
           <div>
-            <div className="font-bold text-gray-900 mb-2">Implementation Starter Kit</div>
-            <p className="text-sm text-gray-700 mb-3">
+            <div className="font-bold text-foreground mb-2">Implementation Starter Kit</div>
+            <p className="text-sm text-muted-foreground mb-3">
               All identity patterns come with reference implementations, API endpoint specifications, 
               validation rules, and integration guides for common government tech stacks.
             </p>
-            <Link to="/starter-kits" className="text-sm font-bold text-[#000080] hover:underline">
+            <Link to="/starter-kits" className="text-sm font-bold text-primary hover:underline">
               Download Starter Kit →
             </Link>
           </div>
@@ -854,14 +854,14 @@ function ImplementationCard({ icon, title, considerations }: {
   considerations: string[];
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+    <div className="bg-card border-2 border-border rounded-lg p-6">
       <div className="flex items-center gap-3 mb-4">
         {icon}
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <ul className="space-y-2">
         {considerations.map((item, idx) => (
-          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0 mt-1.5"></div>
             <span>{item}</span>
           </li>
@@ -876,22 +876,22 @@ function ImplementationCard({ icon, title, considerations }: {
 function GovernanceConsiderations() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Governance Considerations</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Governance Considerations</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-          <h3 className="font-bold text-gray-900">Mandatory Conformance for All Government Services</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-8 py-4">
+          <h3 className="font-bold text-foreground">Mandatory Conformance for All Government Services</h3>
         </div>
         <div className="p-8">
           <div className="grid grid-cols-2 gap-6 mb-6">
             <div className="p-5 bg-red-50 border-2 border-red-200 rounded-lg">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                <div className="font-bold text-gray-900">Mandatory Patterns</div>
+                <div className="font-bold text-foreground">Mandatory Patterns</div>
               </div>
-              <div className="text-sm text-gray-700 space-y-2">
+              <div className="text-sm text-muted-foreground space-y-2">
                 <p>All government digital services <span className="font-bold">must implement</span> these patterns:</p>
                 <ul className="space-y-1 ml-4">
                   <li>• Sign In (primary authentication)</li>
@@ -905,9 +905,9 @@ function GovernanceConsiderations() {
             <div className="p-5 bg-yellow-50 border-2 border-yellow-200 rounded-lg">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
-                <div className="font-bold text-gray-900">Conditional Patterns</div>
+                <div className="font-bold text-foreground">Conditional Patterns</div>
               </div>
-              <div className="text-sm text-gray-700 space-y-2">
+              <div className="text-sm text-muted-foreground space-y-2">
                 <p>Implement <span className="font-bold">when service requires</span>:</p>
                 <ul className="space-y-1 ml-4">
                   <li>• Sign Up (new account creation services)</li>
@@ -949,13 +949,13 @@ function GovernanceConsiderations() {
 
 function GovernanceItem({ title, description, link }: { title: string; description: string; link: string }) {
   return (
-    <div className="flex items-start justify-between p-4 bg-gray-50 border-2 border-gray-200 rounded-lg">
+    <div className="flex items-start justify-between p-4 bg-background border-2 border-border rounded-lg">
       <div className="flex-1">
-        <div className="font-bold text-gray-900 mb-1">{title}</div>
-        <div className="text-sm text-gray-700">{description}</div>
+        <div className="font-bold text-foreground mb-1">{title}</div>
+        <div className="text-sm text-muted-foreground">{description}</div>
       </div>
       {link && (
-        <Link to={link} className="text-sm font-bold text-[#000080] hover:underline whitespace-nowrap ml-4">
+        <Link to={link} className="text-sm font-bold text-primary hover:underline whitespace-nowrap ml-4">
           View Details →
         </Link>
       )}
@@ -968,19 +968,19 @@ function GovernanceItem({ title, description, link }: { title: string; descripti
 function SupportAndRecovery() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Support and Recovery Considerations</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Support and Recovery Considerations</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-        <p className="text-gray-700 leading-relaxed mb-6">
+      <div className="bg-card border-2 border-border rounded-lg p-8">
+        <p className="text-muted-foreground leading-relaxed mb-6">
           Every identity pattern includes <span className="font-bold">built-in support and recovery mechanisms</span> to 
           prevent citizen frustration and reduce helpdesk burden. Support is not an afterthought—it's designed into each flow.
         </p>
 
         <div className="grid grid-cols-2 gap-6 mb-6">
           <div className="space-y-4">
-            <h3 className="font-bold text-gray-900">In-Pattern Support</h3>
+            <h3 className="font-bold text-foreground">In-Pattern Support</h3>
             <SupportFeature
               title="Always-Visible Help Cards"
               description="Every flow shows helpline number, email, and office hours"
@@ -1000,7 +1000,7 @@ function SupportAndRecovery() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-bold text-gray-900">Escalation Mechanisms</h3>
+            <h3 className="font-bold text-foreground">Escalation Mechanisms</h3>
             <SupportFeature
               title="Multi-Channel Support"
               description="Phone (1800-XXX-XXXX), email, live chat where available"
@@ -1024,8 +1024,8 @@ function SupportAndRecovery() {
           <div className="flex items-start gap-3">
             <AlertTriangle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
             <div>
-              <div className="font-bold text-gray-900 mb-2">Critical Support Principle</div>
-              <p className="text-sm text-gray-700">
+              <div className="font-bold text-foreground mb-2">Critical Support Principle</div>
+              <p className="text-sm text-muted-foreground">
                 <span className="font-bold">Never leave citizens stranded.</span> If automated recovery fails (OTP not received, 
                 account locked, verification failed), always provide manual support path with clear instructions and estimated response time.
               </p>
@@ -1039,11 +1039,11 @@ function SupportAndRecovery() {
 
 function SupportFeature({ title, description }: { title: string; description: string }) {
   return (
-    <div className="flex items-start gap-3 p-4 bg-gray-50 border-2 border-gray-200 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-background border-2 border-border rounded-lg">
       <CheckCircle size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
       <div>
-        <div className="font-bold text-gray-900 text-sm mb-1">{title}</div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="font-bold text-foreground text-sm mb-1">{title}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1054,25 +1054,25 @@ function SupportFeature({ title, description }: { title: string; description: st
 function LifecycleAndReadiness() {
   return (
     <section className="space-y-6">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Lifecycle and Readiness Statuses</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Lifecycle and Readiness Statuses</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-          <h3 className="font-bold text-gray-900">Pattern Maturity and Production Status</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-8 py-4">
+          <h3 className="font-bold text-foreground">Pattern Maturity and Production Status</h3>
         </div>
         <div className="p-8">
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-gray-100 border-b-2 border-gray-300">
-                  <th className="text-left py-3 px-4 font-bold text-gray-900">Pattern</th>
-                  <th className="text-left py-3 px-4 font-bold text-gray-900">Status</th>
-                  <th className="text-left py-3 px-4 font-bold text-gray-900">Version</th>
-                  <th className="text-left py-3 px-4 font-bold text-gray-900">Last Updated</th>
-                  <th className="text-left py-3 px-4 font-bold text-gray-900">Services Using</th>
-                  <th className="text-left py-3 px-4 font-bold text-gray-900">Conformance</th>
+                <tr className="bg-muted border-b-2 border-border">
+                  <th className="text-left py-3 px-4 font-bold text-foreground">Pattern</th>
+                  <th className="text-left py-3 px-4 font-bold text-foreground">Status</th>
+                  <th className="text-left py-3 px-4 font-bold text-foreground">Version</th>
+                  <th className="text-left py-3 px-4 font-bold text-foreground">Last Updated</th>
+                  <th className="text-left py-3 px-4 font-bold text-foreground">Services Using</th>
+                  <th className="text-left py-3 px-4 font-bold text-foreground">Conformance</th>
                 </tr>
               </thead>
               <tbody>
@@ -1126,16 +1126,16 @@ function LifecycleRow({ pattern, status, version, updated, usage, conformance }:
   conformance: string;
 }) {
   return (
-    <tr className="border-b border-gray-200 hover:bg-gray-50">
-      <td className="py-3 px-4 font-medium text-gray-900">{pattern}</td>
+    <tr className="border-b border-border hover:bg-background">
+      <td className="py-3 px-4 font-medium text-foreground">{pattern}</td>
       <td className="py-3 px-4">
         <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">
           {status}
         </span>
       </td>
-      <td className="py-3 px-4 text-sm text-gray-700">{version}</td>
-      <td className="py-3 px-4 text-sm text-gray-700">{updated}</td>
-      <td className="py-3 px-4 text-sm font-bold text-gray-900">{usage}</td>
+      <td className="py-3 px-4 text-sm text-muted-foreground">{version}</td>
+      <td className="py-3 px-4 text-sm text-muted-foreground">{updated}</td>
+      <td className="py-3 px-4 text-sm font-bold text-foreground">{usage}</td>
       <td className="py-3 px-4">
         <span className={`px-2 py-1 text-xs font-bold rounded-full ${
           conformance === 'Mandatory'
@@ -1162,9 +1162,9 @@ function StatusBadge({ label, color, description }: { label: string; color: stri
 
 function QuickRefPanel() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <QuickRefRow label="Total Patterns" value="9" />
@@ -1181,8 +1181,8 @@ function QuickRefPanel() {
 function QuickRefRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -1191,9 +1191,9 @@ function KeyPrinciples() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Key Principles</h3>
+        <h3 className="font-bold text-foreground text-sm">Key Principles</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <PrincipleItem icon={<Shield size={14} />} text="Security first, UX second" />
         <PrincipleItem icon={<Eye size={14} />} text="Transparent about data usage" />
         <PrincipleItem icon={<CheckCircle size={14} />} text="Clear error recovery paths" />
@@ -1216,7 +1216,7 @@ function UsageStats() {
   return (
     <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
       <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Adoption Stats</h3>
+        <h3 className="font-bold text-foreground text-sm">Adoption Stats</h3>
       </div>
       <div className="p-4 space-y-3">
         <StatItem label="Services Using Pattern" value="120+" />
@@ -1231,17 +1231,17 @@ function UsageStats() {
 function StatItem({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <div className="text-2xl font-bold text-gray-900">{value}</div>
-      <div className="text-xs text-gray-600">{label}</div>
+      <div className="text-2xl font-bold text-foreground">{value}</div>
+      <div className="text-xs text-muted-foreground">{label}</div>
     </div>
   );
 }
 
 function RelatedPatterns() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <RelatedLink title="Application Submission" href="/application-submission-pattern" />
@@ -1256,7 +1256,7 @@ function RelatedLink({ title, href }: { title: string; href: string }) {
   return (
     <Link
       to={href}
-      className="block px-3 py-2 bg-white border border-gray-300 rounded hover:border-[#000080] hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium"
+      className="block px-3 py-2 bg-card border border-border rounded hover:border-primary hover:bg-background transition-colors text-sm text-muted-foreground font-medium"
     >
       {title}
     </Link>

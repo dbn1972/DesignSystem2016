@@ -3,7 +3,7 @@
  * Helper text displayed below form fields
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { BaseComponentProps, ChildrenProp } from '../../types/common';
 import { useFieldContext } from '../Field/Field.context';

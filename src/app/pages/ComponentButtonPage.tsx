@@ -12,7 +12,7 @@ const ButtonPreview = ({ variant, size, children, ...props }: any) => (
   <button
     className={`inline-flex items-center justify-center gap-2 rounded border font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 min-h-[44px] ${
       variant === 'primary' ? 'bg-[#005196] text-white border-[#005196] hover:bg-[#004178]' :
-      variant === 'secondary' ? 'bg-white text-[#005196] border-[#005196] hover:bg-[#f5f5f5]' :
+      variant === 'secondary' ? 'bg-card text-[#005196] border-[#005196] hover:bg-[#f5f5f5]' :
       variant === 'tertiary' ? 'bg-transparent text-[#005196] border-transparent hover:bg-[#f5f5f5]' :
       variant === 'danger' ? 'bg-[#dc2626] text-white border-[#dc2626] hover:bg-[#991b1b]' :
       'bg-[#008800] text-white border-[#008800] hover:bg-[#006600]'
@@ -352,7 +352,7 @@ export const buttonVariants = cva(
           'focus-visible:ring-[#005196]',
         ],
         secondary: [
-          'bg-white text-[#005196] border-[#005196]',
+          'bg-card text-[#005196] border-[#005196]',
           'hover:bg-[#f5f5f5] hover:border-[#004178]',
           'active:bg-[#e5e5e5]',
         ],

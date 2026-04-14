@@ -48,23 +48,23 @@ export function PaymentSummaryService({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader icon={CreditCard} iconColor="bg-pink-600" category={category} title={title} />
 
       <main className="max-w-[900px] mx-auto px-4 sm:px-6 py-8 space-y-5">
-        <section className="bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h2 className="font-bold text-gray-900 mb-4">Fee Summary</h2>
+        <section className="bg-card border-2 border-border rounded-lg p-6">
+          <h2 className="font-bold text-foreground mb-4">Fee Summary</h2>
           <div className="space-y-2 text-sm">
             {summary.lineItems.map((item) => (
               <Line key={item.label} label={item.label} value={`Rs ${item.amount}`} />
             ))}
-            <div className="border-t-2 border-gray-300 pt-2 mt-2">
+            <div className="border-t-2 border-border pt-2 mt-2">
               <Line label="Total Amount" value={`Rs ${summary.totalAmount}`} strong />
             </div>
           </div>
 
           {paymentError ? (
-            <div className="mt-4 p-3 border-2 border-red-300 bg-red-50 rounded text-sm text-red-700 flex items-start gap-2">
+            <div className="mt-4 p-3 border-2 border-red-300 bg-red-50 dark:bg-red-950/40 dark:border-red-800 rounded text-sm text-red-700 dark:text-red-300 flex items-start gap-2">
               <AlertCircle size={16} className="mt-0.5" />
               <span>{paymentError}</span>
             </div>
@@ -74,7 +74,7 @@ export function PaymentSummaryService({
             type="button"
             onClick={handlePay}
             disabled={isProcessing}
-            className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#138808] text-white rounded font-bold text-sm hover:bg-green-700 disabled:bg-gray-300 disabled:text-gray-600"
+            className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary text-primary-foreground rounded font-bold text-sm hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground"
           >
             {isProcessing ? (
               <>
@@ -98,7 +98,7 @@ export function PaymentSummaryService({
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <Link
             to={backPath}
-            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-gray-700 hover:bg-gray-50"
+            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-foreground hover:bg-muted"
           >
             <ArrowLeft size={16} />
             Back
@@ -107,7 +107,7 @@ export function PaymentSummaryService({
           {codeDownloadPath && (
             <Link
               to={codeDownloadPath}
-              className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-[#000080] hover:bg-gray-50"
+              className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-primary hover:bg-muted"
             >
               <Download size={15} />
               Download React code
@@ -124,8 +124,8 @@ export function PaymentSummaryService({
 function Line({ label, value, strong }: { label: string; value: string; strong?: boolean }) {
   return (
     <div className="flex items-center justify-between">
-      <span className={strong ? "font-bold text-gray-900" : "text-gray-700"}>{label}</span>
-      <span className={strong ? "font-bold text-gray-900" : "text-gray-900"}>{value}</span>
+      <span className={strong ? "font-bold text-foreground" : "text-muted-foreground"}>{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }

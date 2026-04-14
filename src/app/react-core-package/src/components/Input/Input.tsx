@@ -15,7 +15,7 @@
  * ```
  */
 
-import React, { forwardRef, useState } from 'react';
+import { forwardRef, useState, ChangeEvent } from 'react';
 import { cn } from '../../utils/cn';
 import { InputProps } from './Input.types';
 import { useFieldContext } from '../Field/Field.context';
@@ -61,7 +61,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const resolvedError = error ?? field?.invalid ?? false;
     const resolvedDescribedBy = mergeDescribedBy(props['aria-describedby'], field?.describedBy);
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const newValue = event.target.value;
 
       if (!isControlled) {

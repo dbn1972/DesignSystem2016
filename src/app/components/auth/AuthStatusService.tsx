@@ -76,12 +76,12 @@ export function AuthStatusService({
   const Icon = config.icon;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader icon={Icon} iconColor={config.iconColor} category={category} title={title} />
 
       <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8 lg:py-12">
         <div className="max-w-2xl mx-auto space-y-6">
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6 sm:p-8 space-y-5">
+          <div className="bg-card border-2 border-border rounded-lg p-6 sm:p-8 space-y-5">
             <InfoBanner
               variant={config.panelVariant === "warning" ? "warning" : "error"}
               title={config.heading}
@@ -91,7 +91,7 @@ export function AuthStatusService({
             <div className="space-y-3">
               <Link
                 to={`${signInPath}${config.actionTo}`}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
               >
                 <LogIn size={16} />
                 {config.actionLabel}
@@ -99,7 +99,7 @@ export function AuthStatusService({
 
               <Link
                 to={homePath}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-gray-300 bg-white text-gray-800 font-bold rounded text-sm hover:bg-gray-50"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 border-2 border-border bg-card text-foreground font-bold rounded text-sm hover:bg-muted"
               >
                 <ArrowLeft size={16} />
                 Return to Service Home
@@ -113,12 +113,12 @@ export function AuthStatusService({
             title="Need Help?"
             message="If this issue persists, contact support. Your previously saved data remains secure."
           >
-            <Link to={helpPath} className="inline-flex items-center gap-2 mt-3 text-sm font-bold text-[#000080] hover:underline">
+            <Link to={helpPath} className="inline-flex items-center gap-2 mt-3 text-sm font-bold text-primary hover:underline">
               <ArrowLeft size={14} className="rotate-180" />
               Contact support
             </Link>
             {codeDownloadPath && (
-              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 mt-3 ml-4 text-sm font-bold text-[#000080] hover:underline">
+              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 mt-3 ml-4 text-sm font-bold text-primary hover:underline">
                 <Download size={14} />
                 Download React code
               </Link>

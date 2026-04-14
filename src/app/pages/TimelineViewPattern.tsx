@@ -122,17 +122,17 @@ export default function TimelineViewPattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1200px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link to="/patterns/status-lifecycle" className="text-sm text-gray-600 hover:text-[#000080]">
+              <Link to="/patterns/status-lifecycle" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
               <span className="text-gray-400">|</span>
-              <span className="text-sm font-bold text-gray-900">Timeline View</span>
+              <span className="text-sm font-bold text-foreground">Timeline View</span>
             </div>
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function TimelineViewPattern() {
             </div>
             <div className="text-right">
               <div className="text-sm opacity-90 mb-1">Current Status</div>
-              <div className="px-4 py-2 bg-white text-green-600 font-bold rounded">
+              <div className="px-4 py-2 bg-card text-green-600 font-bold rounded">
                 ✓ APPROVED
               </div>
             </div>
@@ -160,26 +160,26 @@ export default function TimelineViewPattern() {
       <main className="max-w-[1200px] mx-auto px-8 py-12">
         
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Application Timeline</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-bold text-foreground mb-2">Application Timeline</h1>
+          <p className="text-muted-foreground">
             Complete chronological history of all activities and status changes
           </p>
         </div>
 
         {/* Filters */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6 mb-8">
+        <div className="bg-card border-2 border-border rounded-lg p-6 mb-8">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <Filter size={20} className="text-gray-600" />
-              <span className="text-sm font-bold text-gray-900">Show:</span>
+              <Filter size={20} className="text-muted-foreground" />
+              <span className="text-sm font-bold text-foreground">Show:</span>
             </div>
             <div className="flex gap-2">
               <button
                 onClick={() => setFilterType('all')}
                 className={`px-4 py-2 rounded font-bold text-sm ${
                   filterType === 'all'
-                    ? 'bg-[#000080] text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-primary text-white'
+                    : 'bg-muted text-muted-foreground hover:bg-gray-200'
                 }`}
               >
                 All Events ({TIMELINE_EVENTS.length})
@@ -189,7 +189,7 @@ export default function TimelineViewPattern() {
                 className={`px-4 py-2 rounded font-bold text-sm ${
                   filterType === 'user'
                     ? 'bg-blue-500 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-muted text-muted-foreground hover:bg-gray-200'
                 }`}
               >
                 My Actions ({TIMELINE_EVENTS.filter(e => e.actor.includes('Applicant')).length})
@@ -199,7 +199,7 @@ export default function TimelineViewPattern() {
                 className={`px-4 py-2 rounded font-bold text-sm ${
                   filterType === 'system'
                     ? 'bg-green-500 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-muted text-muted-foreground hover:bg-gray-200'
                 }`}
               >
                 Department Actions ({TIMELINE_EVENTS.filter(e => !e.actor.includes('Applicant')).length})
@@ -230,10 +230,10 @@ export default function TimelineViewPattern() {
 
         {/* Empty State */}
         {filteredEvents.length === 0 && (
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-12 text-center">
+          <div className="bg-card border-2 border-border rounded-lg p-12 text-center">
             <AlertCircle size={48} className="text-gray-400 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-900 mb-2">No events found</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-bold text-foreground mb-2">No events found</h3>
+            <p className="text-muted-foreground">
               Try changing the filter to see different types of events.
             </p>
           </div>
@@ -241,59 +241,59 @@ export default function TimelineViewPattern() {
 
         {/* Summary Stats */}
         <div className="mt-12 grid grid-cols-4 gap-4">
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-[#000080] mb-2">{TIMELINE_EVENTS.length}</div>
-            <div className="text-sm text-gray-600">Total Events</div>
+          <div className="bg-card border-2 border-border rounded-lg p-6 text-center">
+            <div className="text-3xl font-bold text-primary mb-2">{TIMELINE_EVENTS.length}</div>
+            <div className="text-sm text-muted-foreground">Total Events</div>
           </div>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6 text-center">
+          <div className="bg-card border-2 border-border rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">
               {TIMELINE_EVENTS.filter(e => e.actor.includes('Applicant')).length}
             </div>
-            <div className="text-sm text-gray-600">Your Actions</div>
+            <div className="text-sm text-muted-foreground">Your Actions</div>
           </div>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6 text-center">
+          <div className="bg-card border-2 border-border rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-green-600 mb-2">
               {TIMELINE_EVENTS.filter(e => !e.actor.includes('Applicant')).length}
             </div>
-            <div className="text-sm text-gray-600">Department Actions</div>
+            <div className="text-sm text-muted-foreground">Department Actions</div>
           </div>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6 text-center">
+          <div className="bg-card border-2 border-border rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-purple-600 mb-2">3 days</div>
-            <div className="text-sm text-gray-600">Processing Time</div>
+            <div className="text-sm text-muted-foreground">Processing Time</div>
           </div>
         </div>
 
         {/* Pattern Info */}
         <div className="mt-12 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Pattern Features Demonstrated</h3>
+          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>
-              <div className="font-bold text-gray-700 mb-2">Timeline Display</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Timeline Display</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Chronological order</li>
                 <li>• Visual timeline line</li>
                 <li>• Color-coded events</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Event Details</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Event Details</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Actor visibility</li>
                 <li>• Department shown</li>
                 <li>• Metadata expansion</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Filtering</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Filtering</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• All events</li>
                 <li>• User actions only</li>
                 <li>• Department actions</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Timestamps</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Timestamps</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Relative time (2 hours ago)</li>
                 <li>• Absolute datetime</li>
                 <li>• Processing duration</li>
@@ -322,7 +322,7 @@ function TimelineEvent({ event, isExpanded, onToggle, getTimeAgo, isLatest }: {
     purple: { bg: 'bg-purple-500', border: 'border-purple-300', light: 'bg-purple-50' },
     indigo: { bg: 'bg-indigo-500', border: 'border-indigo-300', light: 'bg-indigo-50' },
     orange: { bg: 'bg-orange-500', border: 'border-orange-300', light: 'bg-orange-50' },
-    gray: { bg: 'bg-gray-500', border: 'border-gray-300', light: 'bg-gray-50' }
+    gray: { bg: 'bg-background0', border: 'border-border', light: 'bg-background' }
   };
 
   const colorScheme = colors[event.color as keyof typeof colors];
@@ -335,20 +335,20 @@ function TimelineEvent({ event, isExpanded, onToggle, getTimeAgo, isLatest }: {
       </div>
 
       {/* Event Card */}
-      <div className={`bg-white border-2 ${isLatest ? 'border-blue-500 shadow-lg' : 'border-gray-300'} rounded-lg overflow-hidden transition-all`}>
+      <div className={`bg-card border-2 ${isLatest ? 'border-blue-500 shadow-lg' : 'border-border'} rounded-lg overflow-hidden transition-all`}>
         <div className="p-6">
           <div className="flex items-start justify-between mb-3">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-lg font-bold text-gray-900">{event.title}</h3>
+                <h3 className="text-lg font-bold text-foreground">{event.title}</h3>
                 {isLatest && (
                   <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded">
                     LATEST
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-700 mb-3">{event.description}</p>
-              <div className="flex items-center gap-4 text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground mb-3">{event.description}</p>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <User size={14} />
                   <span>{event.actor}</span>
@@ -361,7 +361,7 @@ function TimelineEvent({ event, isExpanded, onToggle, getTimeAgo, isLatest }: {
             </div>
             <button
               onClick={onToggle}
-              className="ml-4 p-2 hover:bg-gray-100 rounded transition-colors"
+              className="ml-4 p-2 hover:bg-muted rounded transition-colors"
               aria-label={isExpanded ? 'Collapse details' : 'Expand details'}
             >
               {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
@@ -386,14 +386,14 @@ function TimelineEvent({ event, isExpanded, onToggle, getTimeAgo, isLatest }: {
           {isExpanded && event.metadata && (
             <div className={`mt-4 pt-4 border-t-2 ${colorScheme.border}`}>
               <div className={`${colorScheme.light} rounded-lg p-4`}>
-                <div className="text-sm font-bold text-gray-900 mb-3">Additional Details:</div>
+                <div className="text-sm font-bold text-foreground mb-3">Additional Details:</div>
                 <div className="space-y-2 text-sm">
                   {Object.entries(event.metadata).map(([key, value]) => (
                     <div key={key} className="flex items-start gap-2">
-                      <span className="text-gray-600 capitalize">
+                      <span className="text-muted-foreground capitalize">
                         {key.replace(/([A-Z])/g, ' $1').trim()}:
                       </span>
-                      <span className="font-bold text-gray-900">
+                      <span className="font-bold text-foreground">
                         {Array.isArray(value) ? value.join(', ') : value}
                       </span>
                     </div>

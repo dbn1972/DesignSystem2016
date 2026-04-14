@@ -3,7 +3,7 @@
  * Primary interactive element for actions
  */
 
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 import {
   ComponentSize,
   ComponentVariant,
@@ -38,12 +38,12 @@ export interface ButtonProps
   /**
    * Icon to display before text
    */
-  iconBefore?: React.ReactNode;
+  iconBefore?: ReactNode;
 
   /**
    * Icon to display after text
    */
-  iconAfter?: React.ReactNode;
+  iconAfter?: ReactNode;
 
   /**
    * Button type attribute

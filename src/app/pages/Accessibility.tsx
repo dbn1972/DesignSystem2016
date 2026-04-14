@@ -2,7 +2,7 @@ import { Check, X, Info, AlertCircle, Eye, Keyboard, Monitor, Volume2, FileText 
 
 export default function Accessibility() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#138808] to-[#0a5504] text-white py-16 px-8">
         <div className="max-w-7xl mx-auto">
@@ -114,8 +114,8 @@ function AccessibilityPrinciples() {
         <div className="flex items-start gap-3">
           <Info className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
-            <h3 className="font-bold text-gray-900 mb-2">Rights of Persons with Disabilities Act, 2016</h3>
-            <p className="text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-2">Rights of Persons with Disabilities Act, 2016</h3>
+            <p className="text-sm text-muted-foreground">
               The UX4G Design System aligns with India's Rights of Persons with Disabilities Act, 2016, 
               which mandates that all government digital services must be accessible. Compliance is not 
               optional—it is a legal requirement and moral imperative.
@@ -137,9 +137,9 @@ function ColorContrast() {
 
       <div className="mt-8 space-y-8">
         {/* Contrast Requirements */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">WCAG Contrast Requirements</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-xl font-bold text-foreground">WCAG Contrast Requirements</h3>
           </div>
           
           <div className="divide-y divide-gray-200">
@@ -179,12 +179,12 @@ function ColorContrast() {
 
         {/* Color Blindness Considerations */}
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Color Blindness Considerations</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">Color Blindness Considerations</h3>
           
           <div className="grid grid-cols-3 gap-6 mb-6">
-            <div className="bg-white rounded-lg p-4 border border-blue-200">
-              <div className="font-semibold text-gray-900 mb-2">Deuteranopia</div>
-              <div className="text-sm text-gray-600 mb-3">Red-green color blindness (most common)</div>
+            <div className="bg-card rounded-lg p-4 border border-blue-200">
+              <div className="font-semibold text-foreground mb-2">Deuteranopia</div>
+              <div className="text-sm text-muted-foreground mb-3">Red-green color blindness (most common)</div>
               <div className="flex gap-2">
                 <div className="w-8 h-8 bg-red-500 rounded"></div>
                 <div className="w-8 h-8 bg-green-500 rounded"></div>
@@ -192,19 +192,19 @@ function ColorContrast() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg p-4 border border-blue-200">
-              <div className="font-semibold text-gray-900 mb-2">Protanopia</div>
-              <div className="text-sm text-gray-600 mb-3">Red color blindness</div>
+            <div className="bg-card rounded-lg p-4 border border-blue-200">
+              <div className="font-semibold text-foreground mb-2">Protanopia</div>
+              <div className="text-sm text-muted-foreground mb-3">Red color blindness</div>
               <div className="flex gap-2">
                 <div className="w-8 h-8 bg-red-500 rounded"></div>
-                <div className="w-8 h-8 bg-gray-500 rounded"></div>
+                <div className="w-8 h-8 bg-background0 rounded"></div>
                 <div className="text-xs text-gray-500 self-center">Red appears muted</div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg p-4 border border-blue-200">
-              <div className="font-semibold text-gray-900 mb-2">Tritanopia</div>
-              <div className="text-sm text-gray-600 mb-3">Blue-yellow color blindness</div>
+            <div className="bg-card rounded-lg p-4 border border-blue-200">
+              <div className="font-semibold text-foreground mb-2">Tritanopia</div>
+              <div className="text-sm text-muted-foreground mb-3">Blue-yellow color blindness</div>
               <div className="flex gap-2">
                 <div className="w-8 h-8 bg-blue-500 rounded"></div>
                 <div className="w-8 h-8 bg-yellow-500 rounded"></div>
@@ -213,8 +213,8 @@ function ColorContrast() {
             </div>
           </div>
 
-          <div className="bg-white border border-blue-200 rounded-lg p-4">
-            <h4 className="font-semibold text-gray-900 mb-3">Design Guidelines</h4>
+          <div className="bg-card border border-blue-200 rounded-lg p-4">
+            <h4 className="font-semibold text-foreground mb-3">Design Guidelines</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start gap-2">
                 <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
@@ -237,12 +237,12 @@ function ColorContrast() {
         </div>
 
         {/* Contrast Testing Tools */}
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Testing Contrast</h3>
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="text-xl font-bold text-foreground mb-4">Testing Contrast</h3>
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3">Recommended Tools</h4>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-3">Recommended Tools</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• <strong>WebAIM Contrast Checker</strong> - Online tool for testing color combinations</li>
                 <li>• <strong>Browser DevTools</strong> - Built-in accessibility audits in Chrome/Edge</li>
                 <li>• <strong>Figma Plugins</strong> - A11y - Color Contrast Checker, Stark</li>
@@ -250,8 +250,8 @@ function ColorContrast() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3">Testing Process</h4>
-              <ol className="space-y-2 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-3">Testing Process</h4>
+              <ol className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex gap-2">
                   <span className="font-semibold">1.</span>
                   <span>Test all text against its background color</span>
@@ -288,13 +288,13 @@ function FocusVisibility() {
       <div className="mt-8 space-y-8">
         {/* Focus Requirements */}
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-8">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Focus Indicator Requirements</h3>
+          <h3 className="text-xl font-bold text-foreground mb-6">Focus Indicator Requirements</h3>
           
           <div className="grid grid-cols-2 gap-8">
             <div className="space-y-4">
-              <div className="bg-white border-2 border-blue-300 rounded-lg p-4">
-                <h4 className="font-semibold text-gray-900 mb-2">Minimum Requirements (WCAG 2.4.7)</h4>
-                <ul className="space-y-2 text-sm text-gray-700">
+              <div className="bg-card border-2 border-blue-300 rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Minimum Requirements (WCAG 2.4.7)</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
                     <span>Focus indicator must be <strong>clearly visible</strong></span>
@@ -314,9 +314,9 @@ function FocusVisibility() {
                 </ul>
               </div>
 
-              <div className="bg-white border-2 border-blue-300 rounded-lg p-4">
-                <h4 className="font-semibold text-gray-900 mb-2">UX4G Focus Standard</h4>
-                <div className="space-y-2 text-sm text-gray-700">
+              <div className="bg-card border-2 border-blue-300 rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">UX4G Focus Standard</h4>
+                <div className="space-y-2 text-sm text-muted-foreground">
                   <div className="flex justify-between">
                     <span>Ring width:</span>
                     <code className="font-mono">4px</code>
@@ -337,35 +337,35 @@ function FocusVisibility() {
               </div>
             </div>
 
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-6 space-y-6">
+            <div className="bg-card border-2 border-border rounded-lg p-6 space-y-6">
               <div>
-                <div className="text-sm font-semibold text-gray-700 mb-3">Button Focus</div>
-                <button className="px-6 py-3 bg-[#000080] text-white rounded-lg font-semibold ring-4 ring-blue-200 ring-offset-2">
+                <div className="text-sm font-semibold text-muted-foreground mb-3">Button Focus</div>
+                <button className="px-6 py-3 bg-primary text-white rounded-lg font-semibold ring-4 ring-blue-200 ring-offset-2">
                   Focused Button
                 </button>
               </div>
 
               <div>
-                <div className="text-sm font-semibold text-gray-700 mb-3">Input Focus</div>
+                <div className="text-sm font-semibold text-muted-foreground mb-3">Input Focus</div>
                 <input
                   type="text"
                   value="Focused input field"
                   readOnly
-                  className="w-full px-4 py-3 border-2 border-[#000080] rounded-lg ring-4 ring-blue-100 outline-none"
+                  className="w-full px-4 py-3 border-2 border-primary rounded-lg ring-4 ring-blue-100 outline-none"
                 />
               </div>
 
               <div>
-                <div className="text-sm font-semibold text-gray-700 mb-3">Link Focus</div>
-                <a href="#" className="text-[#000080] underline font-semibold ring-4 ring-blue-200 ring-offset-2 rounded px-1">
+                <div className="text-sm font-semibold text-muted-foreground mb-3">Link Focus</div>
+                <a href="#" className="text-primary underline font-semibold ring-4 ring-blue-200 ring-offset-2 rounded px-1">
                   Focused Link
                 </a>
               </div>
 
               <div>
-                <div className="text-sm font-semibold text-gray-700 mb-3">Checkbox Focus</div>
+                <div className="text-sm font-semibold text-muted-foreground mb-3">Checkbox Focus</div>
                 <label className="flex items-center gap-3">
-                  <input type="checkbox" className="w-5 h-5 border-2 border-[#000080] rounded ring-4 ring-blue-100" />
+                  <input type="checkbox" className="w-5 h-5 border-2 border-primary rounded ring-4 ring-blue-100" />
                   <span>Focused checkbox</span>
                 </label>
               </div>
@@ -374,13 +374,13 @@ function FocusVisibility() {
         </div>
 
         {/* Focus Order */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Focus Order</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-xl font-bold text-foreground">Focus Order</h3>
           </div>
           
           <div className="p-8">
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-6 mb-6">
+            <div className="bg-card border-2 border-border rounded-lg p-6 mb-6">
               <div className="space-y-4">
                 {[
                   { num: 1, element: "Logo/Header", desc: "Top-left navigation elements" },
@@ -391,12 +391,12 @@ function FocusVisibility() {
                   { num: 6, element: "Footer Links", desc: "Footer navigation and information" }
                 ].map((item) => (
                   <div key={item.num} className="flex items-center gap-4">
-                    <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                    <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
                       {item.num}
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">{item.element}</div>
-                      <div className="text-sm text-gray-600">{item.desc}</div>
+                      <div className="font-semibold text-foreground">{item.element}</div>
+                      <div className="text-sm text-muted-foreground">{item.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -405,11 +405,11 @@ function FocusVisibility() {
 
             <div className="grid grid-cols-2 gap-6">
               <div className="border-2 border-green-200 bg-green-50 rounded-lg p-4">
-                <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                   <Check className="text-[#138808]" size={20} />
                   Do
                 </h4>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Follow natural reading order (top to bottom, left to right)</li>
                   <li>• Use semantic HTML for natural tab order</li>
                   <li>• Test focus order with keyboard only</li>
@@ -418,11 +418,11 @@ function FocusVisibility() {
               </div>
 
               <div className="border-2 border-red-200 bg-red-50 rounded-lg p-4">
-                <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                   <X className="text-red-600" size={20} />
                   Don't
                 </h4>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Don't use positive tabindex values (tabindex="1")</li>
                   <li>• Don't create confusing focus traps</li>
                   <li>• Don't hide focus indicators with CSS</li>
@@ -447,9 +447,9 @@ function KeyboardInteraction() {
 
       <div className="mt-8 space-y-8">
         {/* Key Mappings */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Standard Keyboard Controls</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-xl font-bold text-foreground">Standard Keyboard Controls</h3>
           </div>
           
           <div className="divide-y divide-gray-200">
@@ -463,11 +463,11 @@ function KeyboardInteraction() {
               { key: "Home", function: "Move to first item in list or beginning of text field" },
               { key: "End", function: "Move to last item in list or end of text field" }
             ].map((item, index) => (
-              <div key={index} className="p-6 hover:bg-gray-50 flex items-center gap-6">
+              <div key={index} className="p-6 hover:bg-background flex items-center gap-6">
                 <kbd className="px-4 py-2 bg-gray-900 text-white rounded font-mono text-sm min-w-[140px] text-center">
                   {item.key}
                 </kbd>
-                <div className="text-gray-700">{item.function}</div>
+                <div className="text-muted-foreground">{item.function}</div>
               </div>
             ))}
           </div>
@@ -517,11 +517,11 @@ function KeyboardInteraction() {
           <div className="flex items-start gap-3">
             <AlertCircle className="text-orange-600 flex-shrink-0 mt-1" size={24} />
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Testing Keyboard Accessibility</h3>
-              <p className="text-sm text-gray-700 mb-3">
+              <h3 className="font-bold text-foreground mb-2">Testing Keyboard Accessibility</h3>
+              <p className="text-sm text-muted-foreground mb-3">
                 Every interactive element must be fully operable via keyboard. Test each page by:
               </p>
-              <ol className="space-y-2 text-sm text-gray-700">
+              <ol className="space-y-2 text-sm text-muted-foreground">
                 <li>1. Unplug your mouse or disable trackpad</li>
                 <li>2. Navigate using only Tab, Shift+Tab, Enter, Space, and Arrow keys</li>
                 <li>3. Verify all functionality is accessible</li>
@@ -546,9 +546,9 @@ function ScreenReader() {
 
       <div className="mt-8 space-y-8">
         {/* ARIA Attributes */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Essential ARIA Attributes</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-xl font-bold text-foreground">Essential ARIA Attributes</h3>
           </div>
           
           <div className="divide-y divide-gray-200">
@@ -589,14 +589,14 @@ function ScreenReader() {
                 example: '<span aria-hidden="true">🎉</span>'
               }
             ].map((item, index) => (
-              <div key={index} className="p-6 hover:bg-gray-50">
+              <div key={index} className="p-6 hover:bg-background">
                 <div className="flex items-start gap-4">
                   <code className="px-3 py-1 bg-purple-100 text-purple-700 rounded font-mono text-sm font-semibold flex-shrink-0">
                     {item.attr}
                   </code>
                   <div className="flex-1">
-                    <div className="text-gray-900 mb-2">{item.usage}</div>
-                    <code className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded font-mono block">
+                    <div className="text-foreground mb-2">{item.usage}</div>
+                    <code className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded font-mono block">
                       {item.example}
                     </code>
                   </div>
@@ -608,9 +608,9 @@ function ScreenReader() {
 
         {/* Screen Reader Text */}
         <div className="grid grid-cols-2 gap-8">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Visually Hidden Text</h3>
-            <p className="text-sm text-gray-700 mb-4">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="text-xl font-bold text-foreground mb-4">Visually Hidden Text</h3>
+            <p className="text-sm text-muted-foreground mb-4">
               Use visually hidden text to provide context for screen reader users without affecting visual design.
             </p>
             <div className="bg-gray-900 text-gray-100 rounded p-4 text-xs font-mono mb-4">
@@ -634,31 +634,31 @@ function ScreenReader() {
             </div>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Alternative Text</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="text-xl font-bold text-foreground mb-4">Alternative Text</h3>
             <div className="space-y-4 text-sm">
               <div className="bg-green-50 border border-green-200 rounded p-4">
-                <div className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <div className="font-semibold text-foreground mb-2 flex items-center gap-2">
                   <Check className="text-[#138808]" size={16} />
                   Good Alt Text
                 </div>
                 <code className="text-xs block">alt="Application form for passport renewal"</code>
-                <div className="text-gray-600 mt-2">Descriptive and contextual</div>
+                <div className="text-muted-foreground mt-2">Descriptive and contextual</div>
               </div>
 
               <div className="bg-red-50 border border-red-200 rounded p-4">
-                <div className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <div className="font-semibold text-foreground mb-2 flex items-center gap-2">
                   <X className="text-red-600" size={16} />
                   Poor Alt Text
                 </div>
                 <code className="text-xs block">alt="image123.jpg"</code>
-                <div className="text-gray-600 mt-2">Non-descriptive filename</div>
+                <div className="text-muted-foreground mt-2">Non-descriptive filename</div>
               </div>
 
               <div className="bg-blue-50 border border-blue-200 rounded p-4">
-                <div className="font-semibold text-gray-900 mb-2">Decorative Images</div>
+                <div className="font-semibold text-foreground mb-2">Decorative Images</div>
                 <code className="text-xs block">alt=""</code>
-                <div className="text-gray-600 mt-2">Empty alt for decorative images</div>
+                <div className="text-muted-foreground mt-2">Empty alt for decorative images</div>
               </div>
             </div>
           </div>
@@ -666,27 +666,27 @@ function ScreenReader() {
 
         {/* Testing with Screen Readers */}
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Testing with Screen Readers</h3>
+          <h3 className="text-xl font-bold text-foreground mb-4">Testing with Screen Readers</h3>
           <div className="grid grid-cols-3 gap-6">
-            <div className="bg-white rounded-lg p-4 border border-blue-200">
-              <Volume2 className="text-[#000080] mb-3" size={24} />
-              <h4 className="font-semibold text-gray-900 mb-2">NVDA (Windows)</h4>
-              <p className="text-sm text-gray-600 mb-2">Free, open-source screen reader</p>
-              <a href="#" className="text-[#000080] text-sm hover:underline">Download NVDA →</a>
+            <div className="bg-card rounded-lg p-4 border border-blue-200">
+              <Volume2 className="text-primary mb-3" size={24} />
+              <h4 className="font-semibold text-foreground mb-2">NVDA (Windows)</h4>
+              <p className="text-sm text-muted-foreground mb-2">Free, open-source screen reader</p>
+              <a href="#" className="text-primary text-sm hover:underline">Download NVDA →</a>
             </div>
 
-            <div className="bg-white rounded-lg p-4 border border-blue-200">
-              <Volume2 className="text-[#000080] mb-3" size={24} />
-              <h4 className="font-semibold text-gray-900 mb-2">VoiceOver (macOS/iOS)</h4>
-              <p className="text-sm text-gray-600 mb-2">Built into Apple devices</p>
-              <div className="text-sm text-gray-600">Cmd + F5 to toggle</div>
+            <div className="bg-card rounded-lg p-4 border border-blue-200">
+              <Volume2 className="text-primary mb-3" size={24} />
+              <h4 className="font-semibold text-foreground mb-2">VoiceOver (macOS/iOS)</h4>
+              <p className="text-sm text-muted-foreground mb-2">Built into Apple devices</p>
+              <div className="text-sm text-muted-foreground">Cmd + F5 to toggle</div>
             </div>
 
-            <div className="bg-white rounded-lg p-4 border border-blue-200">
-              <Volume2 className="text-[#000080] mb-3" size={24} />
-              <h4 className="font-semibold text-gray-900 mb-2">JAWS (Windows)</h4>
-              <p className="text-sm text-gray-600 mb-2">Industry-standard screen reader</p>
-              <a href="#" className="text-[#000080] text-sm hover:underline">Download JAWS →</a>
+            <div className="bg-card rounded-lg p-4 border border-blue-200">
+              <Volume2 className="text-primary mb-3" size={24} />
+              <h4 className="font-semibold text-foreground mb-2">JAWS (Windows)</h4>
+              <p className="text-sm text-muted-foreground mb-2">Industry-standard screen reader</p>
+              <a href="#" className="text-primary text-sm hover:underline">Download JAWS →</a>
             </div>
           </div>
         </div>
@@ -706,20 +706,20 @@ function SemanticStructure() {
       <div className="mt-8 space-y-8">
         <div className="grid grid-cols-2 gap-8">
           {/* Heading Hierarchy */}
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Heading Hierarchy</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="text-xl font-bold text-foreground mb-4">Heading Hierarchy</h3>
             <div className="space-y-3 mb-4">
               <div className="bg-green-50 border-l-4 border-[#138808] p-3">
-                <code className="text-sm font-mono text-gray-900">{'<h1>Page Title</h1>'}</code>
-                <div className="text-xs text-gray-600 mt-1">One per page</div>
+                <code className="text-sm font-mono text-foreground">{'<h1>Page Title</h1>'}</code>
+                <div className="text-xs text-muted-foreground mt-1">One per page</div>
               </div>
               <div className="bg-green-50 border-l-4 border-[#138808] p-3">
-                <code className="text-sm font-mono text-gray-900">{'<h2>Section Heading</h2>'}</code>
-                <div className="text-xs text-gray-600 mt-1">Main sections</div>
+                <code className="text-sm font-mono text-foreground">{'<h2>Section Heading</h2>'}</code>
+                <div className="text-xs text-muted-foreground mt-1">Main sections</div>
               </div>
               <div className="bg-green-50 border-l-4 border-[#138808] p-3">
-                <code className="text-sm font-mono text-gray-900">{'<h3>Subsection</h3>'}</code>
-                <div className="text-xs text-gray-600 mt-1">Nested under h2</div>
+                <code className="text-sm font-mono text-foreground">{'<h3>Subsection</h3>'}</code>
+                <div className="text-xs text-muted-foreground mt-1">Nested under h2</div>
               </div>
             </div>
             <div className="bg-red-50 border border-red-200 rounded p-3 text-sm">
@@ -727,13 +727,13 @@ function SemanticStructure() {
                 <X className="text-red-600" size={16} />
                 Never skip heading levels
               </strong>
-              <div className="text-gray-700 mt-1">h1 → h3 is incorrect. Always use sequential order.</div>
+              <div className="text-muted-foreground mt-1">h1 → h3 is incorrect. Always use sequential order.</div>
             </div>
           </div>
 
           {/* Landmark Regions */}
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Landmark Regions</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="text-xl font-bold text-foreground mb-4">Landmark Regions</h3>
             <div className="space-y-2 text-sm">
               {[
                 { tag: '<header>', desc: 'Site/page header with logo and navigation' },
@@ -746,7 +746,7 @@ function SemanticStructure() {
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-3 p-2">
                   <code className="font-mono text-purple-700 flex-shrink-0">{item.tag}</code>
-                  <span className="text-gray-700">{item.desc}</span>
+                  <span className="text-muted-foreground">{item.desc}</span>
                 </div>
               ))}
             </div>
@@ -754,9 +754,9 @@ function SemanticStructure() {
         </div>
 
         {/* Semantic HTML Examples */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Semantic HTML Patterns</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-xl font-bold text-foreground">Semantic HTML Patterns</h3>
           </div>
           
           <div className="divide-y divide-gray-200">
@@ -791,9 +791,9 @@ function FormAccessibility() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Form Accessibility Checklist</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-xl font-bold text-foreground">Form Accessibility Checklist</h3>
           </div>
           
           <div className="p-8">
@@ -837,10 +837,10 @@ function FormAccessibility() {
                 }
               ].map((section, index) => (
                 <div key={index} className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-gray-900 mb-3">{section.title}</h4>
+                  <h4 className="font-semibold text-foreground mb-3">{section.title}</h4>
                   <ul className="space-y-2">
                     {section.items.map((item, i) => (
-                      <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+                      <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                         <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
                         <span>{item}</span>
                       </li>
@@ -854,11 +854,11 @@ function FormAccessibility() {
 
         {/* Example Accessible Form */}
         <div className="grid grid-cols-2 gap-8">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Accessible Form Example</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="text-xl font-bold text-foreground mb-4">Accessible Form Example</h3>
             <form className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
                   Full Name <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -867,12 +867,12 @@ function FormAccessibility() {
                   required
                   aria-required="true"
                   placeholder="Rajesh Kumar"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg outline-none focus:border-[#000080] focus:ring-4 focus:ring-blue-100"
+                  className="w-full px-4 py-3 border-2 border-border rounded-lg outline-none focus:border-primary focus:ring-4 focus:ring-blue-100"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
                   Email Address <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -882,16 +882,16 @@ function FormAccessibility() {
                   aria-required="true"
                   aria-describedby="email-hint"
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg outline-none focus:border-[#000080] focus:ring-4 focus:ring-blue-100"
+                  className="w-full px-4 py-3 border-2 border-border rounded-lg outline-none focus:border-primary focus:ring-4 focus:ring-blue-100"
                 />
-                <div id="email-hint" className="text-xs text-gray-600 mt-1">
+                <div id="email-hint" className="text-xs text-muted-foreground mt-1">
                   We'll never share your email with anyone else.
                 </div>
               </div>
 
               <div>
                 <fieldset>
-                  <legend className="block text-sm font-semibold text-gray-900 mb-2">
+                  <legend className="block text-sm font-semibold text-foreground mb-2">
                     Preferred Contact Method
                   </legend>
                   <div className="space-y-2">
@@ -910,8 +910,8 @@ function FormAccessibility() {
           </div>
 
           <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Key Points</h3>
-            <ul className="space-y-3 text-sm text-gray-700">
+            <h3 className="text-xl font-bold text-foreground mb-4">Key Points</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
                 <span><strong>htmlFor/id:</strong> Label associated with input via matching ids</span>
@@ -954,8 +954,8 @@ function ErrorHandling() {
 
       <div className="mt-8 space-y-8">
         <div className="grid grid-cols-2 gap-8">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Error Message Requirements</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="text-xl font-bold text-foreground mb-4">Error Message Requirements</h3>
             <ul className="space-y-3 text-sm">
               {[
                 "Clearly identify which field has an error",
@@ -969,7 +969,7 @@ function ErrorHandling() {
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-2">
                   <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
-                  <span className="text-gray-700">{item}</span>
+                  <span className="text-muted-foreground">{item}</span>
                 </li>
               ))}
             </ul>
@@ -977,9 +977,9 @@ function ErrorHandling() {
 
           <div className="space-y-4">
             <div className="border-2 border-red-500 rounded-lg p-4 bg-red-50">
-              <h4 className="font-semibold text-gray-900 mb-3">Example: Error State</h4>
+              <h4 className="font-semibold text-foreground mb-3">Example: Error State</h4>
               <div>
-                <label htmlFor="error-email" className="block text-sm font-semibold text-gray-900 mb-2">
+                <label htmlFor="error-email" className="block text-sm font-semibold text-foreground mb-2">
                   Email Address <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -999,8 +999,8 @@ function ErrorHandling() {
             </div>
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-2 text-sm">Implementation</h4>
-              <code className="text-xs bg-white border border-blue-200 rounded p-2 block font-mono">
+              <h4 className="font-semibold text-foreground mb-2 text-sm">Implementation</h4>
+              <code className="text-xs bg-card border border-blue-200 rounded p-2 block font-mono">
 {`<input
   aria-invalid="true"
   aria-describedby="error-message"
@@ -1013,9 +1013,9 @@ function ErrorHandling() {
           </div>
         </div>
 
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Error Summary Pattern</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-xl font-bold text-foreground">Error Summary Pattern</h3>
           </div>
           
           <div className="p-8">
@@ -1041,8 +1041,8 @@ function ErrorHandling() {
             </div>
 
             <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <h4 className="font-semibold text-gray-900 mb-3">Error Summary Best Practices</h4>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-3">Error Summary Best Practices</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
                   <span>Show error summary at top of form after submission</span>
@@ -1077,22 +1077,22 @@ function TableAccessibility() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Accessible Table Example</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-xl font-bold text-foreground">Accessible Table Example</h3>
           </div>
           
           <div className="overflow-x-auto">
             <table className="w-full">
-              <caption className="p-4 text-left font-semibold text-gray-900 bg-gray-50">
+              <caption className="p-4 text-left font-semibold text-foreground bg-background">
                 Application Status for January 2024
               </caption>
-              <thead className="bg-gray-100 border-b-2 border-gray-300">
+              <thead className="bg-muted border-b-2 border-border">
                 <tr>
-                  <th scope="col" className="text-left p-4 font-semibold text-gray-900">Application ID</th>
-                  <th scope="col" className="text-left p-4 font-semibold text-gray-900">Applicant Name</th>
-                  <th scope="col" className="text-left p-4 font-semibold text-gray-900">Status</th>
-                  <th scope="col" className="text-left p-4 font-semibold text-gray-900">Date</th>
+                  <th scope="col" className="text-left p-4 font-semibold text-foreground">Application ID</th>
+                  <th scope="col" className="text-left p-4 font-semibold text-foreground">Applicant Name</th>
+                  <th scope="col" className="text-left p-4 font-semibold text-foreground">Status</th>
+                  <th scope="col" className="text-left p-4 font-semibold text-foreground">Date</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -1104,7 +1104,7 @@ function TableAccessibility() {
                       Approved
                     </span>
                   </td>
-                  <td className="p-4 text-gray-600">Jan 15, 2024</td>
+                  <td className="p-4 text-muted-foreground">Jan 15, 2024</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-mono text-sm">APP-002</td>
@@ -1114,7 +1114,7 @@ function TableAccessibility() {
                       Pending
                     </span>
                   </td>
-                  <td className="p-4 text-gray-600">Jan 18, 2024</td>
+                  <td className="p-4 text-muted-foreground">Jan 18, 2024</td>
                 </tr>
               </tbody>
             </table>
@@ -1123,8 +1123,8 @@ function TableAccessibility() {
 
         <div className="grid grid-cols-2 gap-8">
           <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Table Requirements</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <h3 className="text-xl font-bold text-foreground mb-4">Table Requirements</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
                 <span><strong>{'<caption>'}:</strong> Describes table purpose</span>
@@ -1149,11 +1149,11 @@ function TableAccessibility() {
           </div>
 
           <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Responsive Tables</h3>
-            <p className="text-sm text-gray-700 mb-4">
+            <h3 className="text-xl font-bold text-foreground mb-4">Responsive Tables</h3>
+            <p className="text-sm text-muted-foreground mb-4">
               On mobile viewports, complex tables should transform into a more accessible format:
             </p>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Check className="text-orange-600 flex-shrink-0 mt-0.5" size={16} />
                 <span>Convert to card view with labeled data</span>
@@ -1187,9 +1187,9 @@ function ModalAccessibility() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Modal Accessibility Requirements</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="text-xl font-bold text-foreground">Modal Accessibility Requirements</h3>
           </div>
           
           <div className="p-8">
@@ -1233,10 +1233,10 @@ function ModalAccessibility() {
                 }
               ].map((section, index) => (
                 <div key={index} className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-gray-900 mb-3">{section.title}</h4>
+                  <h4 className="font-semibold text-foreground mb-3">{section.title}</h4>
                   <ul className="space-y-2">
                     {section.items.map((item, i) => (
-                      <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+                      <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                         <Check className="text-blue-600 flex-shrink-0 mt-0.5" size={16} />
                         <span>{item}</span>
                       </li>
@@ -1281,33 +1281,33 @@ function StatusCommunication() {
 
       <div className="mt-8 space-y-8">
         <div className="grid grid-cols-2 gap-8">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">ARIA Live Regions</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="text-xl font-bold text-foreground mb-4">ARIA Live Regions</h3>
             <div className="space-y-4">
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <code className="text-sm font-mono text-purple-700 font-semibold">aria-live="polite"</code>
-                <p className="text-sm text-gray-700 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   Announces changes when user is idle. Use for non-critical updates like form validations or status messages.
                 </p>
               </div>
 
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <code className="text-sm font-mono text-purple-700 font-semibold">aria-live="assertive"</code>
-                <p className="text-sm text-gray-700 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   Interrupts current announcement. Use sparingly for critical errors or time-sensitive alerts.
                 </p>
               </div>
 
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <div className="bg-background border border-border rounded-lg p-4">
                 <code className="text-sm font-mono text-purple-700 font-semibold">role="status"</code>
-                <p className="text-sm text-gray-700 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   Equivalent to aria-live="polite". Use for status updates and feedback messages.
                 </p>
               </div>
 
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                 <code className="text-sm font-mono text-purple-700 font-semibold">role="alert"</code>
-                <p className="text-sm text-gray-700 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   Equivalent to aria-live="assertive". Use for critical error messages requiring immediate attention.
                 </p>
               </div>
@@ -1316,12 +1316,12 @@ function StatusCommunication() {
 
           <div className="space-y-6">
             <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Example: Form Submission</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Example: Form Submission</h3>
               <div className="space-y-4">
-                <button className="px-6 py-3 bg-[#000080] text-white rounded-lg font-semibold">
+                <button className="px-6 py-3 bg-primary text-white rounded-lg font-semibold">
                   Submit Application
                 </button>
-                <div className="border-l-4 border-[#138808] bg-white p-4 rounded-r" role="status">
+                <div className="border-l-4 border-[#138808] bg-card p-4 rounded-r" role="status">
                   <div className="flex items-center gap-2 text-[#138808]">
                     <Check size={20} />
                     <span className="font-semibold">Application submitted successfully</span>
@@ -1334,9 +1334,9 @@ function StatusCommunication() {
             </div>
 
             <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Example: Critical Error</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">Example: Critical Error</h3>
               <div className="space-y-4">
-                <div className="border-l-4 border-red-500 bg-white p-4 rounded-r" role="alert">
+                <div className="border-l-4 border-red-500 bg-card p-4 rounded-r" role="alert">
                   <div className="flex items-center gap-2 text-red-600">
                     <AlertCircle size={20} />
                     <span className="font-semibold">Session expired. Please log in again.</span>
@@ -1367,15 +1367,15 @@ function KnownLimitations() {
           <div className="flex items-start gap-4 mb-6">
             <Info className="text-orange-600 flex-shrink-0 mt-1" size={32} />
             <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Transparency in Accessibility</h3>
-              <p className="text-gray-700">
+              <h3 className="text-xl font-bold text-foreground mb-2">Transparency in Accessibility</h3>
+              <p className="text-muted-foreground">
                 The UX4G Design System maintains transparency about any known accessibility limitations. 
                 This allows teams to make informed decisions and plan for workarounds or future improvements.
               </p>
             </div>
           </div>
 
-          <div className="bg-white border border-orange-200 rounded-lg overflow-hidden">
+          <div className="bg-card border border-orange-200 rounded-lg overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-orange-100 border-b-2 border-orange-200">
                 <tr>
@@ -1421,12 +1421,12 @@ function KnownLimitations() {
           </div>
         </div>
 
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Reporting Accessibility Issues</h3>
-          <p className="text-gray-700 mb-4">
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="text-xl font-bold text-foreground mb-4">Reporting Accessibility Issues</h3>
+          <p className="text-muted-foreground mb-4">
             If you discover an accessibility issue not listed above, please report it to the UX4G team:
           </p>
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 space-y-2 text-sm">
+          <div className="bg-background border border-border rounded-lg p-4 space-y-2 text-sm">
             <div><strong>Email:</strong> accessibility@ux4g.gov.in</div>
             <div><strong>Issue Tracker:</strong> github.com/ux4g/design-system/issues</div>
             <div><strong>Required Information:</strong> Component name, assistive technology used, steps to reproduce</div>
@@ -1447,7 +1447,7 @@ function ReviewChecklist() {
 
       <div className="mt-8 space-y-8">
         <div className="bg-green-50 border-2 border-green-200 rounded-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Pre-Launch Accessibility Checklist</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-6">Pre-Launch Accessibility Checklist</h3>
           
           <div className="grid grid-cols-2 gap-8">
             {[
@@ -1532,13 +1532,13 @@ function ReviewChecklist() {
                 ]
               }
             ].map((section, index) => (
-              <div key={index} className="bg-white border-2 border-green-300 rounded-lg p-6">
-                <h4 className="text-lg font-bold text-gray-900 mb-4">{section.category}</h4>
+              <div key={index} className="bg-card border-2 border-green-300 rounded-lg p-6">
+                <h4 className="text-lg font-bold text-foreground mb-4">{section.category}</h4>
                 <ul className="space-y-3">
                   {section.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <input type="checkbox" className="w-5 h-5 border-2 border-gray-300 rounded mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-gray-700">{item}</span>
+                      <input type="checkbox" className="w-5 h-5 border-2 border-border rounded mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -1548,11 +1548,11 @@ function ReviewChecklist() {
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Continuous Accessibility</h3>
-          <p className="text-gray-700 mb-4">
+          <h3 className="text-xl font-bold text-foreground mb-4">Continuous Accessibility</h3>
+          <p className="text-muted-foreground mb-4">
             Accessibility is not a one-time checklist. It requires ongoing attention:
           </p>
-          <ul className="space-y-2 text-sm text-gray-700">
+          <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Check className="text-blue-600 flex-shrink-0 mt-0.5" size={16} />
               <span>Include accessibility testing in every sprint/release cycle</span>
@@ -1585,21 +1585,21 @@ function ReviewChecklist() {
 function SectionHeader({ title, description }: { title: string; description: string }) {
   return (
     <div className="mb-8">
-      <h2 className="text-3xl font-bold text-gray-900 mb-2">{title}</h2>
-      <p className="text-lg text-gray-600">{description}</p>
+      <h2 className="text-3xl font-bold text-foreground mb-2">{title}</h2>
+      <p className="text-lg text-muted-foreground">{description}</p>
     </div>
   );
 }
 
 function PrincipleCard({ icon, title, description, items }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6 bg-white hover:border-[#138808] transition-colors">
+    <div className="border-2 border-border rounded-lg p-6 bg-card hover:border-[#138808] transition-colors">
       <div className="text-[#138808] mb-4">{icon}</div>
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-sm text-gray-600 mb-4">{description}</p>
+      <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground mb-4">{description}</p>
       <ul className="space-y-2">
         {items.map((item: string, index: number) => (
-          <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
+          <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
             <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
             <span>{item}</span>
           </li>
@@ -1611,15 +1611,15 @@ function PrincipleCard({ icon, title, description, items }: any) {
 
 function ContrastExample({ title, ratio, requirement, examples }: any) {
   return (
-    <div className="p-6 hover:bg-gray-50">
+    <div className="p-6 hover:bg-background">
       <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
-          <h4 className="font-bold text-gray-900">{title}</h4>
+          <h4 className="font-bold text-foreground">{title}</h4>
           <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
             {ratio} minimum
           </span>
         </div>
-        <p className="text-sm text-gray-600">{requirement}</p>
+        <p className="text-sm text-muted-foreground">{requirement}</p>
       </div>
       <div className="space-y-3">
         {examples.map((example: any, index: number) => (
@@ -1649,15 +1649,15 @@ function ContrastExample({ title, ratio, requirement, examples }: any) {
 
 function KeyboardPattern({ component, keys }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6 bg-white">
-      <h4 className="font-bold text-gray-900 mb-4">{component}</h4>
+    <div className="border-2 border-border rounded-lg p-6 bg-card">
+      <h4 className="font-bold text-foreground mb-4">{component}</h4>
       <ul className="space-y-3">
         {keys.map((item: any, index: number) => (
           <li key={index} className="text-sm">
             <kbd className="px-2 py-1 bg-gray-900 text-white rounded font-mono text-xs">
               {item.key}
             </kbd>
-            <span className="text-gray-700 ml-3">{item.action}</span>
+            <span className="text-muted-foreground ml-3">{item.action}</span>
           </li>
         ))}
       </ul>
@@ -1667,24 +1667,24 @@ function KeyboardPattern({ component, keys }: any) {
 
 function SemanticExample({ correct, incorrect, reason }: any) {
   return (
-    <div className="p-6 hover:bg-gray-50">
+    <div className="p-6 hover:bg-background">
       <div className="grid grid-cols-2 gap-6 mb-3">
         <div className="bg-green-50 border border-green-200 rounded p-3">
           <div className="flex items-center gap-2 mb-2">
             <Check className="text-[#138808]" size={16} />
             <span className="font-semibold text-sm">Correct</span>
           </div>
-          <code className="text-xs font-mono text-gray-900 block">{correct}</code>
+          <code className="text-xs font-mono text-foreground block">{correct}</code>
         </div>
         <div className="bg-red-50 border border-red-200 rounded p-3">
           <div className="flex items-center gap-2 mb-2">
             <X className="text-red-600" size={16} />
             <span className="font-semibold text-sm">Incorrect</span>
           </div>
-          <code className="text-xs font-mono text-gray-900 block">{incorrect}</code>
+          <code className="text-xs font-mono text-foreground block">{incorrect}</code>
         </div>
       </div>
-      <p className="text-sm text-gray-700">{reason}</p>
+      <p className="text-sm text-muted-foreground">{reason}</p>
     </div>
   );
 }

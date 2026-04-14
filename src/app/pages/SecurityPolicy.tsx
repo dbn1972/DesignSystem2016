@@ -2,7 +2,7 @@ import { Shield, Lock, Key, AlertTriangle, FileText, Eye, CheckCircle, XCircle, 
 
 export default function SecurityPolicy() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
@@ -98,11 +98,11 @@ function SecurityStandardsSection() {
       </div>
 
       <div className="mt-6 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Lock size={20} className="text-blue-600" />
           Security-First Development
         </h3>
-        <p className="text-sm text-gray-700">
+        <p className="text-sm text-muted-foreground">
           All UX4G components are developed with security as a primary concern. We follow secure coding practices,
           conduct regular security reviews, and maintain zero-trust architecture principles. Every component undergoes
           security testing before release.
@@ -114,10 +114,10 @@ function SecurityStandardsSection() {
 
 function SecurityStandard({ title, description, compliance, details }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900 text-lg mb-1">{title}</h3>
-        <p className="text-sm text-gray-600">{description}</p>
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background p-6 border-b-2 border-border">
+        <h3 className="font-bold text-foreground text-lg mb-1">{title}</h3>
+        <p className="text-sm text-muted-foreground">{description}</p>
         <div className="mt-3">
           <span className="px-3 py-1 bg-green-100 text-green-700 border border-green-300 rounded-full font-semibold text-xs">
             {compliance}
@@ -126,10 +126,10 @@ function SecurityStandard({ title, description, compliance, details }: any) {
       </div>
 
       <div className="p-6">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">Coverage:</h4>
+        <h4 className="font-semibold text-foreground mb-3 text-sm">Coverage:</h4>
         <ul className="space-y-2">
           {details.map((detail: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
               <span>{detail}</span>
             </li>
@@ -152,7 +152,7 @@ function VulnerabilityReportingSection() {
       <div className="mt-8 space-y-8">
         {/* Reporting Process */}
         <div className="border-2 border-orange-200 bg-orange-50 rounded-lg p-8">
-          <h3 className="font-bold text-gray-900 mb-6 text-center">Responsible Disclosure Process</h3>
+          <h3 className="font-bold text-foreground mb-6 text-center">Responsible Disclosure Process</h3>
 
           <div className="max-w-5xl mx-auto space-y-6">
             <ReportingStep
@@ -194,12 +194,12 @@ function VulnerabilityReportingSection() {
 
         {/* What to Include in Report */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <FileText size={20} className="text-blue-600" />
               What to Include in Your Report
             </h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
                 <span>Component name and version affected</span>
@@ -227,8 +227,8 @@ function VulnerabilityReportingSection() {
             </ul>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <Eye size={20} className="text-purple-600" />
               Severity Classification
             </h3>
@@ -263,26 +263,26 @@ function VulnerabilityReportingSection() {
 
         {/* Bug Bounty Program */}
         <div className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Key size={20} className="text-green-600" />
             Security Researcher Recognition
           </h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <p className="text-sm text-muted-foreground mb-4">
             We recognize and appreciate security researchers who help us maintain a secure design system.
             Valid vulnerability reports receive:
           </p>
           <div className="grid grid-cols-3 gap-4 text-sm">
-            <div className="bg-white border border-green-200 rounded-lg p-3">
-              <div className="font-semibold text-gray-900 mb-1">Public Recognition</div>
-              <div className="text-xs text-gray-600">Listed in security hall of fame</div>
+            <div className="bg-card border border-green-200 rounded-lg p-3">
+              <div className="font-semibold text-foreground mb-1">Public Recognition</div>
+              <div className="text-xs text-muted-foreground">Listed in security hall of fame</div>
             </div>
-            <div className="bg-white border border-green-200 rounded-lg p-3">
-              <div className="font-semibold text-gray-900 mb-1">Certificate</div>
-              <div className="text-xs text-gray-600">Official acknowledgment from Government of India</div>
+            <div className="bg-card border border-green-200 rounded-lg p-3">
+              <div className="font-semibold text-foreground mb-1">Certificate</div>
+              <div className="text-xs text-muted-foreground">Official acknowledgment from Government of India</div>
             </div>
-            <div className="bg-white border border-green-200 rounded-lg p-3">
-              <div className="font-semibold text-gray-900 mb-1">Priority Support</div>
-              <div className="text-xs text-gray-600">Fast-track access to security team</div>
+            <div className="bg-card border border-green-200 rounded-lg p-3">
+              <div className="font-semibold text-foreground mb-1">Priority Support</div>
+              <div className="text-xs text-muted-foreground">Fast-track access to security team</div>
             </div>
           </div>
         </div>
@@ -303,8 +303,8 @@ function ReportingStep({ step, title, description, timeline }: any) {
       <div className="flex-1">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h4 className="font-bold text-gray-900 text-lg">{title}</h4>
-            <p className="text-sm text-gray-600">{description}</p>
+            <h4 className="font-bold text-foreground text-lg">{title}</h4>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
           <div className="text-xs text-gray-500 flex items-center gap-1 flex-shrink-0 ml-4">
             <Clock size={12} />
@@ -327,7 +327,7 @@ function SeverityLevel({ level, color, examples, response }: any) {
   return (
     <div className={`border ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-3`}>
       <div className="font-bold mb-1">{level}</div>
-      <div className="text-xs text-gray-600 mb-2">Examples: {examples}</div>
+      <div className="text-xs text-muted-foreground mb-2">Examples: {examples}</div>
       <div className="text-xs">
         <strong>Response Time:</strong> {response}
       </div>
@@ -387,15 +387,15 @@ function SecurityPracticesSection() {
 
 function SecurityPractice({ icon, title, practices }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
+    <div className="border-2 border-border rounded-lg p-6">
       <div className="flex items-center gap-3 mb-4">
-        <div className="text-[#000080]">{icon}</div>
-        <h3 className="font-bold text-gray-900 text-lg">{title}</h3>
+        <div className="text-primary">{icon}</div>
+        <h3 className="font-bold text-foreground text-lg">{title}</h3>
       </div>
 
       <ul className="space-y-2">
         {practices.map((practice: string, index: number) => (
-          <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+          <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
             <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
             <span>{practice}</span>
           </li>
@@ -417,8 +417,8 @@ function DataProtectionSection() {
       <div className="mt-8 space-y-6">
         <div className="grid grid-cols-2 gap-6">
           <div className="border-2 border-blue-200 bg-blue-50 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Data Handling Principles</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-4">Data Handling Principles</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
                 <span><strong>No Data Storage:</strong> Components don't store sensitive data locally</span>
@@ -443,8 +443,8 @@ function DataProtectionSection() {
           </div>
 
           <div className="border-2 border-purple-200 bg-purple-50 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Aadhaar Data Protection</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-4">Aadhaar Data Protection</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Shield className="flex-shrink-0 mt-0.5 text-purple-600" size={16} />
                 <span>Aadhaar number masking by default (XXXX XXXX 1234)</span>
@@ -537,15 +537,15 @@ function ComplianceItem({ title, description, status, details }: any) {
   };
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-1">{title}</h3>
-      <p className="text-sm text-gray-600 mb-3">{description}</p>
+    <div className="border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-1">{title}</h3>
+      <p className="text-sm text-muted-foreground mb-3">{description}</p>
 
       <div className={`inline-block px-3 py-1 border ${statusColors[status as keyof typeof statusColors]} rounded-full font-semibold text-xs mb-3`}>
         {status}
       </div>
 
-      <p className="text-xs text-gray-700">{details}</p>
+      <p className="text-xs text-muted-foreground">{details}</p>
     </div>
   );
 }
@@ -561,9 +561,9 @@ function SecurityAuditSection() {
 
       <div className="mt-8 space-y-6">
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Automated Security Testing</h3>
-            <ul className="space-y-3 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Automated Security Testing</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
                 <div>
@@ -591,9 +591,9 @@ function SecurityAuditSection() {
             </ul>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Manual Security Reviews</h3>
-            <ul className="space-y-3 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Manual Security Reviews</h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
                 <div>
@@ -636,7 +636,7 @@ function IncidentResponseSection() {
       />
 
       <div className="mt-8 border-2 border-red-200 bg-red-50 rounded-lg p-8">
-        <h3 className="font-bold text-gray-900 mb-6 text-center">Security Incident Response Plan</h3>
+        <h3 className="font-bold text-foreground mb-6 text-center">Security Incident Response Plan</h3>
 
         <div className="max-w-5xl mx-auto space-y-6">
           <IncidentStep
@@ -693,11 +693,11 @@ function IncidentStep({ step, title, description, actions, timeline }: any) {
         </div>
       </div>
 
-      <div className="flex-1 bg-white border border-red-200 rounded-lg p-4">
+      <div className="flex-1 bg-card border border-red-200 rounded-lg p-4">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h4 className="font-bold text-gray-900 text-lg">{title}</h4>
-            <p className="text-sm text-gray-600">{description}</p>
+            <h4 className="font-bold text-foreground text-lg">{title}</h4>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
           <div className="text-xs text-gray-500 flex items-center gap-1 flex-shrink-0 ml-4">
             <Clock size={12} />
@@ -728,9 +728,9 @@ function ThirdPartySecuritySection() {
 
       <div className="mt-8 space-y-6">
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Dependency Management</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Dependency Management</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
                 <span>Minimal external dependencies to reduce attack surface</span>
@@ -754,9 +754,9 @@ function ThirdPartySecuritySection() {
             </ul>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Vendor Security</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Vendor Security</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={16} />
                 <span>Security questionnaires for all vendors</span>
@@ -782,26 +782,26 @@ function ThirdPartySecuritySection() {
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">Current Dependencies</h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <h3 className="font-bold text-foreground mb-3">Current Dependencies</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             UX4G uses minimal, well-maintained, and security-audited dependencies. All dependencies are:
           </p>
           <div className="grid grid-cols-4 gap-4 text-sm">
-            <div className="bg-white border border-blue-200 rounded-lg p-3 text-center">
-              <div className="font-bold text-2xl text-gray-900 mb-1">React 18.3+</div>
-              <div className="text-xs text-gray-600">Core framework</div>
+            <div className="bg-card border border-blue-200 rounded-lg p-3 text-center">
+              <div className="font-bold text-2xl text-foreground mb-1">React 18.3+</div>
+              <div className="text-xs text-muted-foreground">Core framework</div>
             </div>
-            <div className="bg-white border border-blue-200 rounded-lg p-3 text-center">
-              <div className="font-bold text-2xl text-gray-900 mb-1">Angular 18+</div>
-              <div className="text-xs text-gray-600">Core framework</div>
+            <div className="bg-card border border-blue-200 rounded-lg p-3 text-center">
+              <div className="font-bold text-2xl text-foreground mb-1">Angular 18+</div>
+              <div className="text-xs text-muted-foreground">Core framework</div>
             </div>
-            <div className="bg-white border border-blue-200 rounded-lg p-3 text-center">
-              <div className="font-bold text-2xl text-gray-900 mb-1">Minimal</div>
-              <div className="text-xs text-gray-600">External libs</div>
+            <div className="bg-card border border-blue-200 rounded-lg p-3 text-center">
+              <div className="font-bold text-2xl text-foreground mb-1">Minimal</div>
+              <div className="text-xs text-muted-foreground">External libs</div>
             </div>
-            <div className="bg-white border border-blue-200 rounded-lg p-3 text-center">
-              <div className="font-bold text-2xl text-gray-900 mb-1">Daily</div>
-              <div className="text-xs text-gray-600">Security scans</div>
+            <div className="bg-card border border-blue-200 rounded-lg p-3 text-center">
+              <div className="font-bold text-2xl text-foreground mb-1">Daily</div>
+              <div className="text-xs text-muted-foreground">Security scans</div>
             </div>
           </div>
         </div>
@@ -814,10 +814,10 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-[#000080]">{icon}</div>
-        <h2 className="text-4xl font-bold text-gray-900">{title}</h2>
+        <div className="text-primary">{icon}</div>
+        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
       </div>
-      <p className="text-lg text-gray-600">{description}</p>
+      <p className="text-lg text-muted-foreground">{description}</p>
     </div>
   );
 }

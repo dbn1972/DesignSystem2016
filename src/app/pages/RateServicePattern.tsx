@@ -31,12 +31,12 @@ export default function RateServicePattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-gradient-to-br from-yellow-50 via-white to-orange-50 border-b-4 border-[#FF9933]">
         <div className="max-w-[1400px] mx-auto px-12 py-16">
           <div className="mb-6">
-            <Link to="/patterns/feedback" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/patterns/feedback" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Feedback & Rating Patterns
             </Link>
           </div>
@@ -47,11 +47,11 @@ export default function RateServicePattern() {
                   <Star size={40} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#000080] mb-2 uppercase tracking-wide">Feedback Pattern</div>
-                  <h1 className="text-5xl font-bold text-gray-900">Rate Service</h1>
+                  <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Feedback Pattern</div>
+                  <h1 className="text-5xl font-bold text-foreground">Rate Service</h1>
                 </div>
               </div>
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
                 Simple star rating interface for quick service satisfaction feedback. Allows citizens
                 to rate their experience on a 1-5 scale with optional sentiment tags for deeper insights.
               </p>
@@ -67,26 +67,26 @@ export default function RateServicePattern() {
           {/* Left Column - Interactive Demo */}
           <div className="col-span-8">
             <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
-              <h2 className="font-bold text-gray-900 mb-2">Interactive Demo</h2>
-              <p className="text-sm text-gray-700">
+              <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
+              <p className="text-sm text-muted-foreground">
                 Try the rating interface below. This is a live, interactive demonstration of the pattern.
               </p>
             </div>
 
             {/* Demo Container */}
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-8">
               {!submitted ? (
                 <div className="space-y-6">
                   {/* Service Info */}
-                  <div className="border-b-2 border-gray-200 pb-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Income Certificate Application</h3>
-                    <p className="text-sm text-gray-600">Application #INC-2026-04-001 • Completed on April 10, 2026</p>
+                  <div className="border-b-2 border-border pb-6">
+                    <h3 className="text-xl font-bold text-foreground mb-2">Income Certificate Application</h3>
+                    <p className="text-sm text-muted-foreground">Application #INC-2026-04-001 • Completed on April 10, 2026</p>
                   </div>
 
                   {/* Rating Question */}
                   <div>
-                    <h4 className="font-bold text-gray-900 mb-2">How would you rate your experience?</h4>
-                    <p className="text-sm text-gray-600 mb-4">Your feedback helps us improve our services</p>
+                    <h4 className="font-bold text-foreground mb-2">How would you rate your experience?</h4>
+                    <p className="text-sm text-muted-foreground mb-4">Your feedback helps us improve our services</p>
 
                     {/* Star Rating */}
                     <div className="flex items-center gap-2 mb-2">
@@ -109,7 +109,7 @@ export default function RateServicePattern() {
                         </button>
                       ))}
                     </div>
-                    <div className="text-lg font-bold text-gray-900 mb-4">
+                    <div className="text-lg font-bold text-foreground mb-4">
                       {getRatingText(hoverRating || rating)}
                     </div>
                   </div>
@@ -117,14 +117,14 @@ export default function RateServicePattern() {
                   {/* Quick Sentiment Tags (Optional) */}
                   {rating > 0 && (
                     <div>
-                      <h4 className="font-bold text-gray-900 mb-3">Quick feedback (Optional)</h4>
+                      <h4 className="font-bold text-foreground mb-3">Quick feedback (Optional)</h4>
                       <div className="grid grid-cols-3 gap-3">
                         <button
                           onClick={() => setSentiment("easy")}
                           className={`px-4 py-3 border-2 rounded-lg text-sm font-bold transition-all ${
                             sentiment === "easy"
                               ? "border-green-500 bg-green-50 text-green-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsUp size={16} className="inline-block mr-2" />
@@ -135,7 +135,7 @@ export default function RateServicePattern() {
                           className={`px-4 py-3 border-2 rounded-lg text-sm font-bold transition-all ${
                             sentiment === "fast"
                               ? "border-blue-500 bg-blue-50 text-blue-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <CheckCircle size={16} className="inline-block mr-2" />
@@ -146,7 +146,7 @@ export default function RateServicePattern() {
                           className={`px-4 py-3 border-2 rounded-lg text-sm font-bold transition-all ${
                             sentiment === "confusing"
                               ? "border-orange-500 bg-orange-50 text-orange-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <Meh size={16} className="inline-block mr-2" />
@@ -157,7 +157,7 @@ export default function RateServicePattern() {
                           className={`px-4 py-3 border-2 rounded-lg text-sm font-bold transition-all ${
                             sentiment === "helpful"
                               ? "border-purple-500 bg-purple-50 text-purple-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <CheckCircle size={16} className="inline-block mr-2" />
@@ -168,7 +168,7 @@ export default function RateServicePattern() {
                           className={`px-4 py-3 border-2 rounded-lg text-sm font-bold transition-all ${
                             sentiment === "slow"
                               ? "border-red-500 bg-red-50 text-red-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsDown size={16} className="inline-block mr-2" />
@@ -179,7 +179,7 @@ export default function RateServicePattern() {
                           className={`px-4 py-3 border-2 rounded-lg text-sm font-bold transition-all ${
                             sentiment === "technical"
                               ? "border-red-500 bg-red-50 text-red-700"
-                              : "border-gray-300 text-gray-700 hover:border-gray-400"
+                              : "border-border text-muted-foreground hover:border-gray-400"
                           }`}
                         >
                           <ThumbsDown size={16} className="inline-block mr-2" />
@@ -197,14 +197,14 @@ export default function RateServicePattern() {
                       className={`px-8 py-3 rounded font-bold ${
                         rating === 0
                           ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                          : "bg-[#000080] text-white hover:bg-blue-900"
+                          : "bg-primary text-white hover:opacity-90"
                       }`}
                     >
                       Submit Rating
                     </button>
                     <button
                       onClick={() => setRating(0)}
-                      className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded font-bold hover:bg-gray-50"
+                      className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold hover:bg-background"
                     >
                       Skip
                     </button>
@@ -216,13 +216,13 @@ export default function RateServicePattern() {
                   <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle size={40} className="text-green-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You for Your Feedback!</h3>
-                  <p className="text-gray-700 mb-6">
+                  <h3 className="text-2xl font-bold text-foreground mb-2">Thank You for Your Feedback!</h3>
+                  <p className="text-muted-foreground mb-6">
                     Your {rating}-star rating has been recorded. We use this feedback to continuously improve our services.
                   </p>
                   <button
                     onClick={handleReset}
-                    className="px-6 py-3 bg-[#000080] text-white rounded font-bold hover:bg-blue-900"
+                    className="px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90"
                   >
                     Rate Another Service
                   </button>
@@ -233,9 +233,9 @@ export default function RateServicePattern() {
             {/* Pattern Details */}
             <div className="mt-8 space-y-6">
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">When to Use</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                  <ul className="space-y-2 text-sm text-gray-700">
+                <h2 className="text-2xl font-bold text-foreground mb-4">When to Use</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6">
+                  <ul className="space-y-2 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                       <span>After successful service completion or transaction</span>
@@ -257,29 +257,29 @@ export default function RateServicePattern() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Best Practices</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Best Practices</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6 space-y-4">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">1. Make it Optional</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">1. Make it Optional</h3>
+                    <p className="text-sm text-muted-foreground">
                       Always provide a "Skip" or "Maybe Later" option. Forced ratings lead to poor data quality.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">2. Right Timing</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">2. Right Timing</h3>
+                    <p className="text-sm text-muted-foreground">
                       Show rating prompt immediately after service completion, not days later when the experience is no longer fresh.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">3. Clear Labels</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">3. Clear Labels</h3>
+                    <p className="text-sm text-muted-foreground">
                       Display rating text (Excellent, Good, etc.) to ensure all users understand the scale, especially those using screen readers.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">4. Follow-up on Low Ratings</h3>
-                    <p className="text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">4. Follow-up on Low Ratings</h3>
+                    <p className="text-sm text-muted-foreground">
                       For ratings ≤2 stars, offer a quick way to report the specific issue or connect with support.
                     </p>
                   </div>
@@ -293,32 +293,32 @@ export default function RateServicePattern() {
             <div className="sticky top-8 space-y-6">
 
               {/* Pattern Info */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Pattern Information</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Pattern Information</h3>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Complexity</div>
+                    <div className="text-xs text-muted-foreground mb-1">Complexity</div>
                     <div className="font-bold">Low</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Average Time</div>
+                    <div className="text-xs text-muted-foreground mb-1">Average Time</div>
                     <div className="font-bold">30 seconds</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">User Effort</div>
+                    <div className="text-xs text-muted-foreground mb-1">User Effort</div>
                     <div className="font-bold">Minimal (1-2 clicks)</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Response Rate</div>
+                    <div className="text-xs text-muted-foreground mb-1">Response Rate</div>
                     <div className="font-bold">High (40-60%)</div>
                   </div>
                 </div>
               </div>
 
               {/* Components Used */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Components Used</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Components Used</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Star Rating Input</li>
                   <li>• Button (Primary, Secondary)</li>
                   <li>• Success Message</li>
@@ -328,8 +328,8 @@ export default function RateServicePattern() {
 
               {/* Accessibility */}
               <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-3">Accessibility Notes</h3>
-                <ul className="space-y-2 text-xs text-gray-700">
+                <h3 className="font-bold text-foreground mb-3">Accessibility Notes</h3>
+                <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Keyboard navigable (Tab, Enter)</li>
                   <li>✓ Screen reader announces rating value</li>
                   <li>✓ Text labels for all rating levels</li>
@@ -339,16 +339,16 @@ export default function RateServicePattern() {
               </div>
 
               {/* Related Patterns */}
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Related Patterns</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Related Patterns</h3>
                 <div className="space-y-2">
-                  <Link to="/patterns/feedback/post-completion" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/feedback/post-completion" className="block text-sm text-primary hover:underline">
                     → Post-Completion Feedback
                   </Link>
-                  <Link to="/patterns/feedback/acknowledgment" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/feedback/acknowledgment" className="block text-sm text-primary hover:underline">
                     → Feedback Acknowledgment
                   </Link>
-                  <Link to="/patterns/feedback/issue-reporting" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/feedback/issue-reporting" className="block text-sm text-primary hover:underline">
                     → Issue Reporting
                   </Link>
                 </div>

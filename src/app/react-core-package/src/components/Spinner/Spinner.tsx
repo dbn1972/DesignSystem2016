@@ -8,7 +8,6 @@
  * ```
  */
 
-import React from 'react';
 import { cn } from '../../utils/cn';
 import { SpinnerProps } from './Spinner.types';
 

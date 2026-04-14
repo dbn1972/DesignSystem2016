@@ -206,8 +206,8 @@ function Example() {
   );
 }`,
           preview: (
-            <nav className="flex items-center justify-between p-4 bg-gray-50 border border-gray-200 rounded">
-              <span className="font-semibold text-gray-900">Logo</span>
+            <nav className="flex items-center justify-between p-4 bg-background border border-border rounded">
+              <span className="font-semibold text-foreground">Logo</span>
               <ShowHidePreview below="lg">
                 <button className="p-2 hover:bg-gray-200 rounded" aria-label="Open menu">
                   <Menu size={24} />
@@ -215,10 +215,10 @@ function Example() {
               </ShowHidePreview>
               <ShowHidePreview above="lg">
                 <ul className="flex gap-6 text-sm">
-                  <li><a href="#" className="text-gray-700 hover:text-gray-900">Home</a></li>
-                  <li><a href="#" className="text-gray-700 hover:text-gray-900">Services</a></li>
-                  <li><a href="#" className="text-gray-700 hover:text-gray-900">About</a></li>
-                  <li><a href="#" className="text-gray-700 hover:text-gray-900">Contact</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground">Home</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground">Services</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground">About</a></li>
+                  <li><a href="#" className="text-muted-foreground hover:text-foreground">Contact</a></li>
                 </ul>
               </ShowHidePreview>
             </nav>
@@ -252,15 +252,15 @@ function Example() {
 }`,
           preview: (
             <ShowHidePreview below="md">
-              <div className="p-4 bg-gray-50 border border-gray-200 rounded">
-                <button className="flex items-center gap-2 w-full p-2 bg-white border border-gray-300 rounded hover:bg-gray-50">
+              <div className="p-4 bg-background border border-border rounded">
+                <button className="flex items-center gap-2 w-full p-2 bg-card border border-border rounded hover:bg-background">
                   <span>Menu</span>
                   <ChevronDown size={16} />
                 </button>
                 <div className="mt-2 space-y-1">
-                  <a href="#" className="block p-2 text-sm hover:bg-gray-100 rounded">Dashboard</a>
-                  <a href="#" className="block p-2 text-sm hover:bg-gray-100 rounded">Profile</a>
-                  <a href="#" className="block p-2 text-sm hover:bg-gray-100 rounded">Settings</a>
+                  <a href="#" className="block p-2 text-sm hover:bg-muted rounded">Dashboard</a>
+                  <a href="#" className="block p-2 text-sm hover:bg-muted rounded">Profile</a>
+                  <a href="#" className="block p-2 text-sm hover:bg-muted rounded">Settings</a>
                 </div>
               </div>
             </ShowHidePreview>
@@ -293,7 +293,7 @@ function Example() {
           preview: (
             <div className="space-y-4">
               <ShowHidePreview className="print:hidden">
-                <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200">
+                <button className="flex items-center gap-2 px-4 py-2 bg-muted border border-border rounded hover:bg-gray-200">
                   <Printer size={16} />
                   <span>Print Document</span>
                 </button>

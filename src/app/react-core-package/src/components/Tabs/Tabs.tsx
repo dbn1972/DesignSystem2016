@@ -14,7 +14,7 @@
  * ```
  */
 
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, KeyboardEvent } from 'react';
 import { cn } from '../../utils/cn';
 import { TabsProps } from './Tabs.types';
 
@@ -61,7 +61,7 @@ export function Tabs({
     onChange?.(value);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent, index: number) => {
+  const handleKeyDown = (event: KeyboardEvent, _index: number) => {
     const enabledItems = items.filter((item) => !item.disabled);
     const currentIndex = enabledItems.findIndex((item) => item.value === activeValue);
 

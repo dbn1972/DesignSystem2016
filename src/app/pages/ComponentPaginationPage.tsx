@@ -17,7 +17,7 @@ const PaginationPreview = ({ totalPages, showFirstLast }: any) => {
         <button
           disabled={currentPage === 1}
           onClick={() => setCurrentPage(1)}
-          className="p-2 rounded border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-2 rounded border border-border hover:bg-background disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="First page"
         >
           <ChevronsLeft size={16} />
@@ -26,7 +26,7 @@ const PaginationPreview = ({ totalPages, showFirstLast }: any) => {
       <button
         disabled={currentPage === 1}
         onClick={() => setCurrentPage(currentPage - 1)}
-        className="p-2 rounded border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 rounded border border-border hover:bg-background disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Previous page"
       >
         <ChevronLeft size={16} />
@@ -39,7 +39,7 @@ const PaginationPreview = ({ totalPages, showFirstLast }: any) => {
           className={`min-w-[40px] h-10 px-3 rounded border ${
             currentPage === page
               ? 'bg-[#005196] text-white border-[#005196]'
-              : 'border-gray-300 hover:bg-gray-50'
+              : 'border-border hover:bg-background'
           }`}
         >
           {page}
@@ -49,7 +49,7 @@ const PaginationPreview = ({ totalPages, showFirstLast }: any) => {
       <button
         disabled={currentPage === totalPages}
         onClick={() => setCurrentPage(currentPage + 1)}
-        className="p-2 rounded border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="p-2 rounded border border-border hover:bg-background disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Next page"
       >
         <ChevronRight size={16} />
@@ -58,7 +58,7 @@ const PaginationPreview = ({ totalPages, showFirstLast }: any) => {
         <button
           disabled={currentPage === totalPages}
           onClick={() => setCurrentPage(totalPages)}
-          className="p-2 rounded border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-2 rounded border border-border hover:bg-background disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Last page"
         >
           <ChevronsRight size={16} />
@@ -240,7 +240,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => onPageChange(1)}
           disabled={disabled || currentPage === 1}
-          className={cn(buttonClasses, 'border-gray-300 hover:bg-gray-50')}
+          className={cn(buttonClasses, 'border-border hover:bg-background')}
           aria-label="First page"
         >
           <ChevronsLeft size={16} />
@@ -250,7 +250,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={disabled || currentPage === 1}
-        className={cn(buttonClasses, 'border-gray-300 hover:bg-gray-50')}
+        className={cn(buttonClasses, 'border-border hover:bg-background')}
         aria-label="Previous page"
       >
         <ChevronLeft size={16} />
@@ -274,7 +274,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               buttonClasses,
               page === currentPage
                 ? 'bg-[#005196] text-white border-[#005196]'
-                : 'border-gray-300 hover:bg-gray-50'
+                : 'border-border hover:bg-background'
             )}
             aria-label={\`Page \${page}\`}
             aria-current={page === currentPage ? 'page' : undefined}
@@ -287,7 +287,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={disabled || currentPage === totalPages}
-        className={cn(buttonClasses, 'border-gray-300 hover:bg-gray-50')}
+        className={cn(buttonClasses, 'border-border hover:bg-background')}
         aria-label="Next page"
       >
         <ChevronRight size={16} />
@@ -297,7 +297,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => onPageChange(totalPages)}
           disabled={disabled || currentPage === totalPages}
-          className={cn(buttonClasses, 'border-gray-300 hover:bg-gray-50')}
+          className={cn(buttonClasses, 'border-border hover:bg-background')}
           aria-label="Last page"
         >
           <ChevronsRight size={16} />
@@ -330,7 +330,7 @@ export const paginationButtonVariants = cva(
       },
       active: {
         true: 'bg-[#005196] text-white border-[#005196]',
-        false: 'border-gray-300 hover:bg-gray-50',
+        false: 'border-border hover:bg-background',
       },
     },
   }
@@ -445,7 +445,7 @@ export class PaginationComponent {
     if (isActive) {
       classes.push('bg-[#005196]', 'text-white', 'border-[#005196]');
     } else {
-      classes.push('border-gray-300', 'hover:bg-gray-50');
+      classes.push('border-border', 'hover:bg-background');
     }
 
     if (this.disabled) {

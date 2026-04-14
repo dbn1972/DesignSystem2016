@@ -2,37 +2,37 @@ import { RefreshCw, CheckCircle, XCircle, AlertCircle, Info, Clock, Users, Shiel
 
 export default function RenewalPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <RefreshCw size={32} className="text-gray-700" />
+                <div className="w-16 h-16 bg-muted border-2 border-border rounded flex items-center justify-center">
+                  <RefreshCw size={32} className="text-muted-foreground" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Service Pattern Library</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Renewal</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Service Pattern Library</div>
+                  <h1 className="text-3xl font-bold text-foreground">Renewal</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Service pattern for renewing existing certificates, licenses, permits, registrations, or benefits. 
                 Streamlines the process by prefilling verified data, allowing updates only where needed, and maintaining continuity.
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-003</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-003</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">March 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">March 2026</span></span>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function RenewalPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -67,7 +67,7 @@ export default function RenewalPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -106,9 +106,9 @@ export default function RenewalPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Service Pattern Library</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -129,7 +129,7 @@ function PatternOverview() {
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Citizens must repeatedly provide the same information for renewals, even when data hasn't changed. 
               Government departments re-verify information already in their systems, wasting resources.
             </p>
@@ -377,8 +377,8 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 1: Record Lookup" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-[#000080] text-white p-8">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-primary text-white p-8">
               <div className="max-w-3xl">
                 <div className="text-sm mb-2 text-blue-200">Renew Your [Service Name]</div>
                 <h1 className="text-3xl font-bold mb-4">Find Your Existing Record</h1>
@@ -392,8 +392,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <Info size={24} className="text-blue-600 flex-shrink-0" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Why Lookup First?</div>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">Why Lookup First?</div>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>We'll prefill all your existing verified information</span>
@@ -413,24 +413,24 @@ function PageDesigns() {
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-sm font-bold text-foreground mb-2">
                     Find Your Record By:
                   </label>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm text-gray-700 mb-2">Certificate/License Number</label>
+                      <label className="block text-sm text-muted-foreground mb-2">Certificate/License Number</label>
                       <input
                         type="text"
                         placeholder="e.g., DL-0120190012345"
-                        className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg"
+                        className="w-full px-4 py-3 border-2 border-border rounded-lg"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm text-gray-700 mb-2">Date of Birth</label>
+                      <label className="block text-sm text-muted-foreground mb-2">Date of Birth</label>
                       <input
                         type="text"
                         placeholder="DD/MM/YYYY"
-                        className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg"
+                        className="w-full px-4 py-3 border-2 border-border rounded-lg"
                       />
                     </div>
                   </div>
@@ -440,29 +440,29 @@ function PageDesigns() {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-gray-700 mb-2">Registered Mobile Number</label>
+                    <label className="block text-sm text-muted-foreground mb-2">Registered Mobile Number</label>
                     <input
                       type="tel"
                       placeholder="+91 98765-43210"
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg"
+                      className="w-full px-4 py-3 border-2 border-border rounded-lg"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-700 mb-2">Aadhaar Number (Last 4 digits)</label>
+                    <label className="block text-sm text-muted-foreground mb-2">Aadhaar Number (Last 4 digits)</label>
                     <input
                       type="text"
                       placeholder="XXXX"
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg"
+                      className="w-full px-4 py-3 border-2 border-border rounded-lg"
                     />
                   </div>
                 </div>
               </div>
 
-              <button className="w-full px-8 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+              <button className="w-full px-8 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                 Find My Record
               </button>
 
-              <div className="text-sm text-gray-600 text-center pt-4 border-t border-gray-300">
+              <div className="text-sm text-muted-foreground text-center pt-4 border-t border-border">
                 <strong>Can't find your record?</strong> Contact support at 1800-XXX-XXXX
               </div>
             </div>
@@ -480,25 +480,25 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 2: Existing Record Summary" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Your Existing Record</h2>
-              <p className="text-sm text-gray-600">Please verify this is your record before proceeding with renewal.</p>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Your Existing Record</h2>
+              <p className="text-sm text-muted-foreground">Please verify this is your record before proceeding with renewal.</p>
             </div>
             <div className="p-8 space-y-6">
               <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-6">
                 <div className="flex items-start justify-between">
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">License Number</div>
-                    <div className="text-2xl font-bold text-gray-900 font-mono mb-4">DL-0120190012345</div>
+                    <div className="text-sm text-muted-foreground mb-1">License Number</div>
+                    <div className="text-2xl font-bold text-foreground font-mono mb-4">DL-0120190012345</div>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <span className="text-gray-600">Issued On:</span>
-                        <span className="font-bold text-gray-900 ml-2">15/03/2019</span>
+                        <span className="text-muted-foreground">Issued On:</span>
+                        <span className="font-bold text-foreground ml-2">15/03/2019</span>
                       </div>
                       <div>
-                        <span className="text-gray-600">Valid Until:</span>
-                        <span className="font-bold text-gray-900 ml-2">14/03/2029</span>
+                        <span className="text-muted-foreground">Valid Until:</span>
+                        <span className="font-bold text-foreground ml-2">14/03/2029</span>
                       </div>
                     </div>
                   </div>
@@ -531,8 +531,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <AlertCircle size={20} className="text-yellow-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Renewal Due Soon</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">Renewal Due Soon</div>
+                    <div className="text-sm text-muted-foreground">
                       Your license expires on <strong>14/03/2029</strong>. You can renew up to 90 days before expiry 
                       or within 1 year after expiry.
                     </div>
@@ -540,11 +540,11 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg">
                   This is Not My Record
                 </button>
-                <button className="px-10 py-4 bg-[#000080] text-white font-bold rounded-lg flex items-center gap-2">
+                <button className="px-10 py-4 bg-primary text-white font-bold rounded-lg flex items-center gap-2">
                   Proceed to Renewal
                   <ChevronRight size={20} />
                 </button>
@@ -565,10 +565,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 3: Review Prefilled Information" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Review Your Information</h2>
-              <p className="text-sm text-gray-600">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Review Your Information</h2>
+              <p className="text-sm text-muted-foreground">
                 We've prefilled your information from our records. Review each section and update only what's changed.
               </p>
             </div>
@@ -576,11 +576,11 @@ function PageDesigns() {
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <Info size={20} className="text-blue-600" />
-                  <div className="font-bold text-gray-900">Understanding Field Types</div>
+                  <div className="font-bold text-foreground">Understanding Field Types</div>
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                   <FieldTypeLegend
-                    icon={<Lock size={16} className="text-gray-600" />}
+                    icon={<Lock size={16} className="text-muted-foreground" />}
                     type="Locked"
                     description="Cannot be edited (verified official records)"
                   />
@@ -626,15 +626,15 @@ function PageDesigns() {
                 ]}
               />
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg">
                   Previous
                 </button>
                 <div className="flex items-center gap-3">
-                  <button className="px-6 py-3 bg-gray-100 text-gray-900 font-bold rounded-lg">
+                  <button className="px-6 py-3 bg-muted text-foreground font-bold rounded-lg">
                     All Information is Correct
                   </button>
-                  <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg">
+                  <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg">
                     I Need to Update Some Information
                   </button>
                 </div>
@@ -655,10 +655,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 4: Update Information" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Update Your Information</h2>
-              <p className="text-sm text-gray-600">Edit only the fields that have changed. Locked fields cannot be modified.</p>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Update Your Information</h2>
+              <p className="text-sm text-muted-foreground">Edit only the fields that have changed. Locked fields cannot be modified.</p>
             </div>
             <div className="p-8 space-y-6">
               <EditableFieldGroup
@@ -682,8 +682,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Documents Required for Changes</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">Documents Required for Changes</div>
+                    <div className="text-sm text-muted-foreground">
                       Since you've updated your address, you'll need to upload address proof 
                       (utility bill, rent agreement, or Aadhaar with new address) in the next step.
                     </div>
@@ -691,11 +691,11 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg">
                   Cancel Changes
                 </button>
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg">
                   Save and Continue
                 </button>
               </div>
@@ -715,10 +715,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 5: Review and Confirm" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Review Renewal Application</h2>
-              <p className="text-sm text-gray-600">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Review Renewal Application</h2>
+              <p className="text-sm text-muted-foreground">
                 Please review all information before submitting your renewal application.
               </p>
             </div>
@@ -751,23 +751,23 @@ function PageDesigns() {
               />
 
               <div className="border-2 border-green-300 bg-green-50 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-3">Renewal Details</div>
+                <div className="font-bold text-foreground mb-3">Renewal Details</div>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <span className="text-gray-600">Current Validity:</span>
-                    <span className="font-bold text-gray-900 ml-2">Until 14/03/2029</span>
+                    <span className="text-muted-foreground">Current Validity:</span>
+                    <span className="font-bold text-foreground ml-2">Until 14/03/2029</span>
                   </div>
                   <div>
-                    <span className="text-gray-600">New Validity:</span>
+                    <span className="text-muted-foreground">New Validity:</span>
                     <span className="font-bold text-green-700 ml-2">Until 14/03/2039 (10 years)</span>
                   </div>
                   <div>
-                    <span className="text-gray-600">Renewal Fee:</span>
-                    <span className="font-bold text-gray-900 ml-2">₹500</span>
+                    <span className="text-muted-foreground">Renewal Fee:</span>
+                    <span className="font-bold text-foreground ml-2">₹500</span>
                   </div>
                   <div>
-                    <span className="text-gray-600">Processing Time:</span>
-                    <span className="font-bold text-gray-900 ml-2">7-10 working days</span>
+                    <span className="text-muted-foreground">Processing Time:</span>
+                    <span className="font-bold text-foreground ml-2">7-10 working days</span>
                   </div>
                 </div>
               </div>
@@ -775,7 +775,7 @@ function PageDesigns() {
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
                 <div className="flex items-start gap-3">
                   <input type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
-                  <div className="text-sm text-gray-700">
+                  <div className="text-sm text-muted-foreground">
                     <p className="font-bold mb-2">Declaration</p>
                     <p className="leading-relaxed">
                       I declare that all information provided is true and correct. I understand that the updated 
@@ -785,8 +785,8 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg">
                   Previous
                 </button>
                 <button className="px-10 py-4 bg-green-600 text-white font-bold rounded-lg flex items-center gap-2">
@@ -810,9 +810,9 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 6: Renewal Acknowledgment" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-green-600 text-white p-12 text-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
               <h1 className="text-3xl font-bold mb-4">Renewal Application Submitted!</h1>
@@ -821,10 +821,10 @@ function PageDesigns() {
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6 text-center">
-                <div className="text-sm text-gray-600 mb-2">Renewal Application Reference Number</div>
-                <div className="text-3xl font-bold text-gray-900 font-mono mb-4">RNW/2026/123456</div>
-                <div className="text-sm text-gray-600">Original License: DL-0120190012345</div>
+              <div className="bg-background border-2 border-border rounded-lg p-6 text-center">
+                <div className="text-sm text-muted-foreground mb-2">Renewal Application Reference Number</div>
+                <div className="text-3xl font-bold text-foreground font-mono mb-4">RNW/2026/123456</div>
+                <div className="text-sm text-muted-foreground">Original License: DL-0120190012345</div>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
@@ -841,8 +841,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">What Happens Next?</div>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">What Happens Next?</div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">1</div>
                     <span>We'll verify your updated information and supporting documents</span>
@@ -859,10 +859,10 @@ function PageDesigns() {
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg">
                   Track Renewal Status
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg">
                   Download Receipt
                 </button>
               </div>
@@ -894,7 +894,7 @@ function DataFieldRules() {
           <div className="space-y-6">
             <FieldTypeDefinition
               type="Locked (Non-Editable)"
-              icon={<Lock size={20} className="text-gray-600" />}
+              icon={<Lock size={20} className="text-muted-foreground" />}
               color="gray"
               definition="Fields that cannot be changed during renewal as they are verified through official identity documents"
               examples={[
@@ -961,7 +961,7 @@ function DataFieldRules() {
       <DocModule>
         <ModuleHeader title="Decision Tree: When to Allow Edits" />
         <ModuleContent>
-          <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-8">
+          <div className="bg-background border-2 border-border rounded-lg p-8">
             <div className="space-y-4">
               <DecisionRule
                 question="Is this field linked to official identity documents (Aadhaar, PAN, Passport)?"
@@ -990,15 +990,15 @@ function DataFieldRules() {
             <VisualPatternExample
               type="Locked Field"
               code={`<div className="relative">
-  <label className="block text-sm font-bold text-gray-900 mb-2">
+  <label className="block text-sm font-bold text-foreground mb-2">
     Full Name <Lock size={14} className="inline ml-1 text-gray-500" />
   </label>
   <input 
     value="Rajesh Kumar Sharma" 
     disabled 
-    className="w-full px-4 py-3 bg-gray-100 border-2 border-gray-300 rounded-lg text-gray-700 cursor-not-allowed"
+    className="w-full px-4 py-3 bg-muted border-2 border-border rounded-lg text-muted-foreground cursor-not-allowed"
   />
-  <div className="text-xs text-gray-600 mt-1">
+  <div className="text-xs text-muted-foreground mt-1">
     Cannot be edited (as per Aadhaar)
   </div>
 </div>`}
@@ -1007,14 +1007,14 @@ function DataFieldRules() {
             <VisualPatternExample
               type="Editable Field"
               code={`<div className="relative">
-  <label className="block text-sm font-bold text-gray-900 mb-2">
+  <label className="block text-sm font-bold text-foreground mb-2">
     Mobile Number <Edit size={14} className="inline ml-1 text-blue-600" />
   </label>
   <input 
     value="+91 98765-43210" 
     className="w-full px-4 py-3 border-2 border-blue-300 bg-blue-50 rounded-lg focus:border-blue-600"
   />
-  <div className="text-xs text-gray-600 mt-1">
+  <div className="text-xs text-muted-foreground mt-1">
     You can update this anytime
   </div>
 </div>`}
@@ -1023,7 +1023,7 @@ function DataFieldRules() {
             <VisualPatternExample
               type="Requires Proof Field (Changed)"
               code={`<div className="relative">
-  <label className="block text-sm font-bold text-gray-900 mb-2">
+  <label className="block text-sm font-bold text-foreground mb-2">
     Current Address <AlertCircle size={14} className="inline ml-1 text-orange-600" />
   </label>
   <textarea 
@@ -1377,9 +1377,9 @@ function GovernanceConformance() {
 
 function MetadataPanel() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Pattern Metadata</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Pattern Metadata</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <MetadataRow label="Pattern ID" value="UX4G-PAT-003" />
@@ -1397,7 +1397,7 @@ function QuickRefPanel() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <QuickRefRow label="Avg. Duration" value="5-10 minutes" />
@@ -1415,9 +1415,9 @@ function DesignPrinciples() {
   return (
     <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
       <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Core Principles</h3>
+        <h3 className="font-bold text-foreground text-sm">Core Principles</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <PrincipleItem icon={<Zap size={14} />} text="Efficiency: Prefill everything, update only what changed" />
         <PrincipleItem icon={<Shield size={14} />} text="Integrity: Lock verified data, require proof for changes" />
         <PrincipleItem icon={<Eye size={14} />} text="Transparency: Show what's locked, editable, or requires proof" />
@@ -1432,9 +1432,9 @@ function RiskIndicators() {
     <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
       <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3 flex items-center gap-2">
         <AlertTriangle size={16} className="text-red-700" />
-        <h3 className="font-bold text-gray-900 text-sm">Risk Indicators</h3>
+        <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <RiskItem severity="high" risk="Making all fields editable (data integrity loss)" />
         <RiskItem severity="high" risk="Not explaining locked fields (user confusion)" />
         <RiskItem severity="medium" risk="Forcing unnecessary document uploads" />
@@ -1447,9 +1447,9 @@ function RiskIndicators() {
 
 function RelatedResources() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <RelatedLink title="Application Submission" />
@@ -1465,15 +1465,15 @@ function RelatedResources() {
 
 function SectionHeader({ title }: any) {
   return (
-    <div className="border-l-4 border-[#000080] pl-4">
-      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+    <div className="border-l-4 border-primary pl-4">
+      <h2 className="text-2xl font-bold text-foreground">{title}</h2>
     </div>
   );
 }
 
 function DocModule({ children }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
       {children}
     </div>
   );
@@ -1481,8 +1481,8 @@ function DocModule({ children }: any) {
 
 function ModuleHeader({ title }: any) {
   return (
-    <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-      <h3 className="font-bold text-gray-900">{title}</h3>
+    <div className="bg-muted border-b-2 border-border px-6 py-4">
+      <h3 className="font-bold text-foreground">{title}</h3>
     </div>
   );
 }
@@ -1493,11 +1493,11 @@ function ModuleContent({ children }: any) {
 
 function ProblemSolutionBlock({ icon, problem, solution }: any) {
   return (
-    <div className="flex items-start gap-3 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-background border-2 border-border rounded-lg">
       <div className="flex-shrink-0 mt-0.5">{icon}</div>
       <div>
-        <div className="text-sm font-bold text-gray-900 mb-1">Problem: {problem}</div>
-        <div className="text-sm text-gray-700">Solution: {solution}</div>
+        <div className="text-sm font-bold text-foreground mb-1">Problem: {problem}</div>
+        <div className="text-sm text-muted-foreground">Solution: {solution}</div>
       </div>
     </div>
   );
@@ -1506,13 +1506,13 @@ function ProblemSolutionBlock({ icon, problem, solution }: any) {
 function UserGroup({ icon, name, description, percentage }: any) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-10 h-10 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center flex-shrink-0">
+      <div className="w-10 h-10 bg-muted border-2 border-border rounded flex items-center justify-center flex-shrink-0">
         {icon}
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{name}</div>
-        <div className="text-xs text-gray-600 mb-2">{description}</div>
-        <div className="text-xs font-bold text-gray-900">{percentage} of users</div>
+        <div className="font-bold text-sm text-foreground mb-1">{name}</div>
+        <div className="text-xs text-muted-foreground mb-2">{description}</div>
+        <div className="text-xs font-bold text-foreground">{percentage} of users</div>
       </div>
     </div>
   );
@@ -1520,11 +1520,11 @@ function UserGroup({ icon, name, description, percentage }: any) {
 
 function UseCaseCard({ title, examples }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-3">{title}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-3">{title}</div>
       <ul className="space-y-2">
         {examples.map((example: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
             <span>{example}</span>
           </li>
@@ -1543,15 +1543,15 @@ function ScenarioCard({ scenario, description, example, complexity }: any) {
   };
 
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start justify-between mb-3">
-        <div className="font-bold text-sm text-gray-900">{scenario}</div>
+        <div className="font-bold text-sm text-foreground">{scenario}</div>
         <div className={`px-2 py-1 border text-xs font-bold rounded ${complexityColor[complexity]}`}>
           {complexity}
         </div>
       </div>
-      <div className="text-sm text-gray-700 mb-2">{description}</div>
-      <div className="text-xs text-gray-600 bg-gray-50 border border-gray-300 rounded p-2 italic">
+      <div className="text-sm text-muted-foreground mb-2">{description}</div>
+      <div className="text-xs text-muted-foreground bg-background border border-border rounded p-2 italic">
         Example: {example}
       </div>
     </div>
@@ -1560,37 +1560,37 @@ function ScenarioCard({ scenario, description, example, complexity }: any) {
 
 function FlowStep({ number, label, status }: any) {
   const statusConfig: any = {
-    entry: { bg: 'bg-gray-100', border: 'border-gray-400', text: 'text-gray-700' },
+    entry: { bg: 'bg-muted', border: 'border-gray-400', text: 'text-muted-foreground' },
     active: { bg: 'bg-blue-50', border: 'border-blue-400', text: 'text-blue-700' },
     optional: { bg: 'bg-purple-50', border: 'border-purple-400', text: 'text-purple-700' },
     success: { bg: 'bg-green-50', border: 'border-green-400', text: 'text-green-700' },
-    info: { bg: 'bg-gray-50', border: 'border-gray-300', text: 'text-gray-600' }
+    info: { bg: 'bg-background', border: 'border-border', text: 'text-muted-foreground' }
   };
 
   return (
     <div className={`border-2 ${statusConfig[status].border} rounded-lg p-3 ${statusConfig[status].bg}`}>
       <div className={`text-xs font-bold ${statusConfig[status].text} mb-1`}>{number}</div>
-      <div className="text-xs font-medium text-gray-900">{label}</div>
+      <div className="text-xs font-medium text-foreground">{label}</div>
     </div>
   );
 }
 
 function PageSequenceRow({ number, title, description, required }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-l-4 border-[#000080] rounded">
-      <div className="w-8 h-8 bg-[#000080] text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
+    <div className="flex items-start gap-4 p-4 bg-background border-l-4 border-primary rounded">
+      <div className="w-8 h-8 bg-primary text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
         {number}
       </div>
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-1">
-          <div className="font-bold text-sm text-gray-900">{title}</div>
+          <div className="font-bold text-sm text-foreground">{title}</div>
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-gray-700 text-xs font-bold rounded">OPTIONAL</span>
+            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
         </div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1601,9 +1601,9 @@ function PageAnnotation({ items }: any) {
     <div className="mt-4 bg-blue-50 border-l-4 border-blue-600 p-4">
       <div className="flex items-start gap-2 mb-2">
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
-        <div className="font-bold text-sm text-gray-900">Design Annotations</div>
+        <div className="font-bold text-sm text-foreground">Design Annotations</div>
       </div>
-      <ul className="space-y-1.5 text-sm text-gray-700">
+      <ul className="space-y-1.5 text-sm text-muted-foreground">
         {items.map((item: string, idx: number) => (
           <li key={idx} className="flex items-start gap-2">
             <div className="w-1 h-1 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -1617,13 +1617,13 @@ function PageAnnotation({ items }: any) {
 
 function DataDisplayCard({ title, fields }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-3">{title}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-3">{title}</div>
       <div className="space-y-2 text-sm">
         {fields.map((field: any, idx: number) => (
           <div key={idx}>
-            <div className="text-gray-600 text-xs">{field.label}</div>
-            <div className="text-gray-900 font-medium">{field.value}</div>
+            <div className="text-muted-foreground text-xs">{field.label}</div>
+            <div className="text-foreground font-medium">{field.value}</div>
           </div>
         ))}
       </div>
@@ -1636,8 +1636,8 @@ function FieldTypeLegend({ icon, type, description }: any) {
     <div className="flex items-start gap-2">
       <div className="flex-shrink-0 mt-0.5">{icon}</div>
       <div>
-        <div className="font-bold text-xs text-gray-900">{type}</div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="font-bold text-xs text-foreground">{type}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1645,11 +1645,11 @@ function FieldTypeLegend({ icon, type, description }: any) {
 
 function PrefillSection({ title, locked, fields }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 border-b-2 border-gray-300 px-4 py-3 flex items-center justify-between">
-        <h3 className="font-bold text-sm text-gray-900">{title}</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background border-b-2 border-border px-4 py-3 flex items-center justify-between">
+        <h3 className="font-bold text-sm text-foreground">{title}</h3>
         {locked && (
-          <div className="flex items-center gap-1 text-xs text-gray-600">
+          <div className="flex items-center gap-1 text-xs text-muted-foreground">
             <Lock size={14} />
             <span>All fields locked</span>
           </div>
@@ -1666,14 +1666,14 @@ function PrefillSection({ title, locked, fields }: any) {
 
 function PrefillField({ label, value, type, reason }: any) {
   const typeConfig: any = {
-    locked: { icon: <Lock size={14} />, bg: 'bg-gray-100', border: 'border-gray-300', color: 'text-gray-600' },
+    locked: { icon: <Lock size={14} />, bg: 'bg-muted', border: 'border-border', color: 'text-muted-foreground' },
     editable: { icon: <Edit size={14} />, bg: 'bg-blue-50', border: 'border-blue-300', color: 'text-blue-600' },
     requiresProof: { icon: <AlertCircle size={14} />, bg: 'bg-orange-50', border: 'border-orange-300', color: 'text-orange-600' }
   };
 
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+      <label className="block text-sm font-bold text-foreground mb-2 flex items-center gap-2">
         {label}
         <span className={typeConfig[type].color}>{typeConfig[type].icon}</span>
       </label>
@@ -1683,16 +1683,16 @@ function PrefillField({ label, value, type, reason }: any) {
         disabled={type === 'locked'}
         className={`w-full px-4 py-3 border-2 ${typeConfig[type].border} ${typeConfig[type].bg} rounded-lg ${type === 'locked' ? 'cursor-not-allowed' : ''}`}
       />
-      <div className="text-xs text-gray-600 mt-1">{reason}</div>
+      <div className="text-xs text-muted-foreground mt-1">{reason}</div>
     </div>
   );
 }
 
 function EditableFieldGroup({ title, fields }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">{title}</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">{title}</h3>
       </div>
       <div className="p-4 space-y-4">
         {fields.map((field: any, idx: number) => (
@@ -1706,12 +1706,12 @@ function EditableFieldGroup({ title, fields }: any) {
 function EditableField({ label, value, editable, changed, newValue }: any) {
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-900 mb-2">{label}</label>
+      <label className="block text-sm font-bold text-foreground mb-2">{label}</label>
       {changed ? (
         <div className="space-y-2">
           <div className="text-sm">
-            <span className="text-gray-600">Old: </span>
-            <span className="text-gray-900 line-through">{value}</span>
+            <span className="text-muted-foreground">Old: </span>
+            <span className="text-foreground line-through">{value}</span>
           </div>
           <input
             defaultValue={newValue}
@@ -1722,7 +1722,7 @@ function EditableField({ label, value, editable, changed, newValue }: any) {
         <input
           defaultValue={value}
           readOnly={!editable}
-          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg"
+          className="w-full px-4 py-3 border-2 border-border rounded-lg"
         />
       )}
     </div>
@@ -1731,16 +1731,16 @@ function EditableField({ label, value, editable, changed, newValue }: any) {
 
 function ReviewSection({ title, highlight, items }: any) {
   return (
-    <div className={`border-2 rounded-lg overflow-hidden ${highlight ? 'border-blue-300 bg-blue-50' : 'border-gray-300 bg-white'}`}>
-      <div className={`${highlight ? 'bg-blue-100 border-blue-300' : 'bg-gray-50 border-gray-300'} border-b-2 px-4 py-3`}>
-        <h3 className="font-bold text-sm text-gray-900">{title}</h3>
+    <div className={`border-2 rounded-lg overflow-hidden ${highlight ? 'border-blue-300 bg-blue-50' : 'border-border bg-card'}`}>
+      <div className={`${highlight ? 'bg-blue-100 border-blue-300' : 'bg-background border-border'} border-b-2 px-4 py-3`}>
+        <h3 className="font-bold text-sm text-foreground">{title}</h3>
       </div>
       <div className="p-4 space-y-3">
         {items.map((item: any, idx: number) => (
           <div key={idx} className="text-sm">
             {item.changed ? (
               <div>
-                <div className="text-gray-600">{item.label}</div>
+                <div className="text-muted-foreground">{item.label}</div>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="text-gray-500 line-through">{item.oldValue}</span>
                   <ArrowRight size={14} className="text-blue-600" />
@@ -1749,8 +1749,8 @@ function ReviewSection({ title, highlight, items }: any) {
               </div>
             ) : (
               <div className="flex items-start justify-between">
-                <div className="text-gray-600">{item.label}</div>
-                <div className="font-medium text-gray-900 text-right">{item.value}</div>
+                <div className="text-muted-foreground">{item.label}</div>
+                <div className="font-medium text-foreground text-right">{item.value}</div>
               </div>
             )}
           </div>
@@ -1762,12 +1762,12 @@ function ReviewSection({ title, highlight, items }: any) {
 
 function NextStepCard({ icon, title, description }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">{icon}</div>
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-          <div className="text-xs text-gray-600">{description}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+          <div className="text-xs text-muted-foreground">{description}</div>
         </div>
       </div>
     </div>
@@ -1776,7 +1776,7 @@ function NextStepCard({ icon, title, description }: any) {
 
 function FieldTypeDefinition({ type, icon, color, definition, examples, reasoning, visual }: any) {
   const colorConfig: any = {
-    gray: { bg: 'bg-gray-50', border: 'border-gray-300', headerBg: 'bg-gray-100' },
+    gray: { bg: 'bg-background', border: 'border-border', headerBg: 'bg-muted' },
     blue: { bg: 'bg-blue-50', border: 'border-blue-300', headerBg: 'bg-blue-100' },
     orange: { bg: 'bg-orange-50', border: 'border-orange-300', headerBg: 'bg-orange-100' },
     purple: { bg: 'bg-purple-50', border: 'border-purple-300', headerBg: 'bg-purple-100' }
@@ -1786,25 +1786,25 @@ function FieldTypeDefinition({ type, icon, color, definition, examples, reasonin
     <div className={`border-2 ${colorConfig[color].border} ${colorConfig[color].bg} rounded-lg overflow-hidden`}>
       <div className={`${colorConfig[color].headerBg} border-b-2 ${colorConfig[color].border} px-4 py-3 flex items-center gap-2`}>
         {icon}
-        <h4 className="font-bold text-gray-900">{type}</h4>
+        <h4 className="font-bold text-foreground">{type}</h4>
       </div>
       <div className="p-4 space-y-3">
-        <div className="text-sm text-gray-700">{definition}</div>
+        <div className="text-sm text-muted-foreground">{definition}</div>
         <div>
-          <div className="text-xs font-bold text-gray-900 mb-2">Examples:</div>
+          <div className="text-xs font-bold text-foreground mb-2">Examples:</div>
           <ul className="space-y-1">
             {examples.map((example: string, idx: number) => (
-              <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+              <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
                 <div className="w-1 h-1 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
                 <span>{example}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="text-xs text-gray-600 bg-white border border-gray-300 rounded p-2">
+        <div className="text-xs text-muted-foreground bg-card border border-border rounded p-2">
           <strong>Reasoning:</strong> {reasoning}
         </div>
-        <div className="text-xs text-gray-600">
+        <div className="text-xs text-muted-foreground">
           <strong>Visual Treatment:</strong> {visual}
         </div>
       </div>
@@ -1817,19 +1817,19 @@ function DecisionRule({ question, yes, no }: any) {
     <div className="border-2 border-blue-400 bg-blue-50 rounded-lg p-6">
       <div className="flex items-start gap-3 mb-4">
         <Info size={20} className="text-blue-600 flex-shrink-0" />
-        <div className="font-bold text-sm text-gray-900">{question}</div>
+        <div className="font-bold text-sm text-foreground">{question}</div>
       </div>
       <div className="space-y-3 text-sm pl-8">
         <div className="flex items-start gap-2">
           <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
           <div>
-            <span className="font-bold text-gray-900">Yes:</span> <span className="text-gray-700">{yes}</span>
+            <span className="font-bold text-foreground">Yes:</span> <span className="text-muted-foreground">{yes}</span>
           </div>
         </div>
         <div className="flex items-start gap-2">
           <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
           <div>
-            <span className="font-bold text-gray-900">No:</span> <span className="text-gray-700">{no}</span>
+            <span className="font-bold text-foreground">No:</span> <span className="text-muted-foreground">{no}</span>
           </div>
         </div>
       </div>
@@ -1839,9 +1839,9 @@ function DecisionRule({ question, yes, no }: any) {
 
 function VisualPatternExample({ type, code }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h4 className="font-bold text-sm text-gray-900">{type}</h4>
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h4 className="font-bold text-sm text-foreground">{type}</h4>
       </div>
       <div className="p-4 bg-gray-900 text-gray-100">
         <pre className="text-xs overflow-x-auto">
@@ -1854,21 +1854,21 @@ function VisualPatternExample({ type, code }: any) {
 
 function ComponentCard({ name, variants, usage }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-2">{name}</div>
-      <div className="text-xs text-gray-600 mb-2">Variants: {variants}</div>
-      <div className="text-xs text-gray-600">Usage: {usage}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-2">{name}</div>
+      <div className="text-xs text-muted-foreground mb-2">Variants: {variants}</div>
+      <div className="text-xs text-muted-foreground">Usage: {usage}</div>
     </div>
   );
 }
 
 function ToneBlock({ context, tone, good, bad }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">{context}</div>
-          <div className="text-xs text-gray-600 italic">{tone}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{context}</div>
+          <div className="text-xs text-muted-foreground italic">{tone}</div>
         </div>
       </div>
       <div className="space-y-3">
@@ -1877,14 +1877,14 @@ function ToneBlock({ context, tone, good, bad }: any) {
             <CheckCircle size={14} className="text-green-600" />
             <span className="text-xs font-bold text-green-700">Good</span>
           </div>
-          <div className="text-sm text-gray-900 bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
+          <div className="text-sm text-foreground bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
             <span className="text-xs font-bold text-red-700">Bad</span>
           </div>
-          <div className="text-sm text-gray-900 bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
+          <div className="text-sm text-foreground bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
         </div>
       </div>
     </div>
@@ -1893,15 +1893,15 @@ function ToneBlock({ context, tone, good, bad }: any) {
 
 function LabelGuidance({ element, pattern, helpText, example }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-2">{element}</div>
-      <div className="text-sm text-gray-700 mb-2">
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-2">{element}</div>
+      <div className="text-sm text-muted-foreground mb-2">
         <strong>Pattern:</strong> {pattern}
       </div>
-      <div className="text-sm text-gray-700 mb-2">
+      <div className="text-sm text-muted-foreground mb-2">
         <strong>Help Text:</strong> {helpText}
       </div>
-      <div className="text-xs text-gray-900 bg-white border border-gray-300 rounded p-2">
+      <div className="text-xs text-foreground bg-card border border-border rounded p-2">
         <strong>Example:</strong> {example}
       </div>
     </div>
@@ -1910,11 +1910,11 @@ function LabelGuidance({ element, pattern, helpText, example }: any) {
 
 function AccessibilityBlock({ principle, requirements }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-3">{principle}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-3">{principle}</div>
       <ul className="space-y-2">
         {requirements.map((req: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{req}</span>
           </li>
@@ -1932,15 +1932,15 @@ function ImplementationItem({ category, requirement, priority }: any) {
   };
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-4 p-4 bg-background border-2 border-border rounded-lg">
       <div className="w-24 flex-shrink-0">
         <div className={`px-2 py-1 rounded text-xs font-bold text-center ${priorityConfig[priority].bg} ${priorityConfig[priority].text} ${priorityConfig[priority].border} border`}>
           {priority.toUpperCase()}
         </div>
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{category}</div>
-        <div className="text-sm text-gray-700">{requirement}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{category}</div>
+        <div className="text-sm text-muted-foreground">{requirement}</div>
       </div>
     </div>
   );
@@ -1948,24 +1948,24 @@ function ImplementationItem({ category, requirement, priority }: any) {
 
 function AnalyticsEvent({ event, description }: any) {
   return (
-    <div className="flex items-start gap-4 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <code className="px-2 py-1 bg-white border border-gray-400 rounded text-xs font-mono text-gray-900 flex-shrink-0">
+    <div className="flex items-start gap-4 p-3 bg-background border-2 border-border rounded-lg">
+      <code className="px-2 py-1 bg-card border border-gray-400 rounded text-xs font-mono text-foreground flex-shrink-0">
         {event}
       </code>
-      <div className="flex-1 text-sm text-gray-700">{description}</div>
+      <div className="flex-1 text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
 
 function ConformanceItem({ checked, label }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-3 bg-background border-2 border-border rounded-lg">
       <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${
-        checked ? 'bg-green-500 border-green-600' : 'bg-white border-gray-400'
+        checked ? 'bg-green-500 border-green-600' : 'bg-card border-gray-400'
       }`}>
         {checked && <Check size={14} className="text-white" />}
       </div>
-      <div className="text-sm text-gray-700">{label}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -1980,12 +1980,12 @@ function RiskBlock({ risk, impact, solution }: any) {
   return (
     <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
-        <div className="font-bold text-sm text-gray-900 flex-1">{risk}</div>
+        <div className="font-bold text-sm text-foreground flex-1">{risk}</div>
         <div className={`px-2 py-1 rounded text-xs font-bold ${impactConfig[impact].bg} ${impactConfig[impact].color} flex-shrink-0 ml-3`}>
           {impact} Impact
         </div>
       </div>
-      <div className="text-sm text-gray-700">
+      <div className="text-sm text-muted-foreground">
         <span className="font-bold">Solution:</span> {solution}
       </div>
     </div>
@@ -1995,9 +1995,9 @@ function RiskBlock({ risk, impact, solution }: any) {
 function MaturityBlock({ status, version, description }: any) {
   return (
     <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50">
-      <div className="font-bold text-sm text-gray-900 mb-1">{status}</div>
-      <div className="text-xs text-gray-600 mb-3">{version}</div>
-      <div className="text-sm text-gray-700">{description}</div>
+      <div className="font-bold text-sm text-foreground mb-1">{status}</div>
+      <div className="text-xs text-muted-foreground mb-3">{version}</div>
+      <div className="text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
@@ -2005,8 +2005,8 @@ function MaturityBlock({ status, version, description }: any) {
 function MetadataRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2014,8 +2014,8 @@ function MetadataRow({ label, value }: any) {
 function QuickRefRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-700">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2046,7 +2046,7 @@ function RiskItem({ severity, risk }: any) {
 
 function RelatedLink({ title }: any) {
   return (
-    <a href="#" className="block px-3 py-2 bg-white border border-gray-300 rounded hover:border-[#000080] hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
+    <a href="#" className="block px-3 py-2 bg-card border border-border rounded hover:border-primary hover:bg-background transition-colors text-sm text-muted-foreground font-medium">
       {title}
     </a>
   );

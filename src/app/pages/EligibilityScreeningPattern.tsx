@@ -2,37 +2,37 @@ import { UserCheck, CheckCircle, XCircle, AlertCircle, Info, GitBranch, ArrowRig
 
 export default function EligibilityScreeningPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <UserCheck size={32} className="text-gray-700" />
+                <div className="w-16 h-16 bg-muted border-2 border-border rounded flex items-center justify-center">
+                  <UserCheck size={32} className="text-muted-foreground" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Service Pattern Library</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Eligibility and Screening</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Service Pattern Library</div>
+                  <h1 className="text-3xl font-bold text-foreground">Eligibility and Screening</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Rule-based pre-qualification screening pattern for determining service eligibility before full application. 
                 Helps users understand if they qualify, saves time, reduces incomplete applications, and improves service efficiency.
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-002</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.1.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.1.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">February 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">February 2026</span></span>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function EligibilityScreeningPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -68,7 +68,7 @@ export default function EligibilityScreeningPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -108,9 +108,9 @@ export default function EligibilityScreeningPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Service Pattern Library</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -131,7 +131,7 @@ function PatternOverview() {
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Users waste time and effort filling lengthy applications only to discover they're ineligible. 
               Departments receive incomplete or ineligible applications, wasting processing resources.
             </p>
@@ -224,9 +224,9 @@ function PatternOverview() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <CheckCircle size={18} className="text-green-600" />
-                <h4 className="font-bold text-sm text-gray-900">Use When:</h4>
+                <h4 className="font-bold text-sm text-foreground">Use When:</h4>
               </div>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <span>Service has clear, rule-based eligibility criteria (age, income, location)</span>
@@ -248,9 +248,9 @@ function PatternOverview() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <XCircle size={18} className="text-red-600" />
-                <h4 className="font-bold text-sm text-gray-900">Don't Use When:</h4>
+                <h4 className="font-bold text-sm text-foreground">Don't Use When:</h4>
               </div>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <span>Eligibility requires manual verification or complex assessment</span>
@@ -291,8 +291,8 @@ function ScreeningLogic() {
               <div className="flex items-start gap-3 mb-4">
                 <Settings size={24} className="text-purple-600 flex-shrink-0" />
                 <div>
-                  <div className="font-bold text-gray-900 mb-2">Eligibility Rule Types</div>
-                  <div className="text-sm text-gray-700">
+                  <div className="font-bold text-foreground mb-2">Eligibility Rule Types</div>
+                  <div className="text-sm text-muted-foreground">
                     Screening rules are typically based on combinations of AND/OR logic across multiple criteria.
                   </div>
                 </div>
@@ -317,8 +317,8 @@ function ScreeningLogic() {
             </div>
 
             <div className="grid grid-cols-2 gap-6">
-              <div className="border-2 border-gray-300 rounded-lg p-6 bg-white">
-                <h4 className="font-bold text-sm text-gray-900 mb-4">Example: Scholarship Eligibility</h4>
+              <div className="border-2 border-border rounded-lg p-6 bg-card">
+                <h4 className="font-bold text-sm text-foreground mb-4">Example: Scholarship Eligibility</h4>
                 <div className="space-y-3 text-sm">
                   <LogicRule
                     condition="Age"
@@ -353,8 +353,8 @@ function ScreeningLogic() {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg p-6 bg-white">
-                <h4 className="font-bold text-sm text-gray-900 mb-4">Example: Senior Citizen Benefits</h4>
+              <div className="border-2 border-border rounded-lg p-6 bg-card">
+                <h4 className="font-bold text-sm text-foreground mb-4">Example: Senior Citizen Benefits</h4>
                 <div className="space-y-3 text-sm">
                   <LogicRule
                     condition="Age"
@@ -527,8 +527,8 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 1: Entry and Overview" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-[#000080] text-white p-8">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-primary text-white p-8">
               <div className="max-w-3xl">
                 <div className="text-sm mb-2 text-blue-200">Check Your Eligibility</div>
                 <h1 className="text-3xl font-bold mb-4">PM Scholarship Scheme Eligibility Check</h1>
@@ -556,8 +556,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <Info size={24} className="text-blue-600 flex-shrink-0" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Why Check Eligibility First?</div>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">Why Check Eligibility First?</div>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>Save time – know if you qualify before filling the full application</span>
@@ -580,14 +580,14 @@ function PageDesigns() {
                 <InfoBox icon={<Clock size={20} />} title="Instant result" text="Know immediately if you're eligible" />
               </div>
               <div className="flex items-center gap-4">
-                <button className="px-8 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors">
+                <button className="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors">
                   Start Eligibility Check
                 </button>
-                <button className="px-8 py-4 bg-gray-100 text-gray-900 font-bold rounded-lg hover:bg-gray-200 transition-colors">
+                <button className="px-8 py-4 bg-muted text-foreground font-bold rounded-lg hover:bg-gray-200 transition-colors">
                   Skip and Apply Directly
                 </button>
               </div>
-              <div className="text-sm text-gray-600 pt-4 border-t border-gray-300">
+              <div className="text-sm text-muted-foreground pt-4 border-t border-border">
                 <strong>Note:</strong> This is a preliminary check only. Final eligibility will be determined during application review.
               </div>
             </div>
@@ -606,11 +606,11 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 2: Question Step with Context" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-gray-900">Question 2 of 4</h2>
-                <div className="text-sm text-gray-600">Eligibility Check</div>
+                <h2 className="text-xl font-bold text-foreground">Question 2 of 4</h2>
+                <div className="text-sm text-muted-foreground">Eligibility Check</div>
               </div>
               <ProgressBar steps={4} current={2} />
             </div>
@@ -618,7 +618,7 @@ function PageDesigns() {
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
                 <div className="flex items-start gap-3">
                   <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-gray-700">
+                  <div className="text-sm text-muted-foreground">
                     <strong>Why we ask this:</strong> Income verification is required to ensure scholarships reach those who need them most. 
                     This information helps us determine if you qualify for income-based benefits.
                   </div>
@@ -626,7 +626,7 @@ function PageDesigns() {
               </div>
               
               <div>
-                <label className="block text-lg font-bold text-gray-900 mb-4">
+                <label className="block text-lg font-bold text-foreground mb-4">
                   What is your annual family income?
                 </label>
                 <div className="space-y-3">
@@ -651,18 +651,18 @@ function PageDesigns() {
                     selected={false}
                   />
                 </div>
-                <div className="mt-4 text-sm text-gray-600">
+                <div className="mt-4 text-sm text-muted-foreground">
                   <strong>Note:</strong> Family income includes salary, business income, agricultural income, and other sources 
                   from all earning members living together.
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 flex items-center gap-2">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg hover:bg-background flex items-center gap-2">
                   <ArrowLeft size={18} />
                   Previous Question
                 </button>
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] flex items-center gap-2">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90 flex items-center gap-2">
                   Next Question
                   <ChevronRight size={18} />
                 </button>
@@ -683,11 +683,11 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 3: Conditional Branching Path" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-gray-900">Question 3 of 4</h2>
-                <div className="text-sm text-gray-600">Eligibility Check</div>
+                <h2 className="text-xl font-bold text-foreground">Question 3 of 4</h2>
+                <div className="text-sm text-muted-foreground">Eligibility Check</div>
               </div>
               <ProgressBar steps={4} current={3} />
             </div>
@@ -695,7 +695,7 @@ function PageDesigns() {
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 rounded-r-lg">
                 <div className="flex items-start gap-3">
                   <GitBranch size={20} className="text-purple-600 flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-gray-700">
+                  <div className="text-sm text-muted-foreground">
                     <strong>Conditional Question:</strong> This question appears because you selected "18-25 years" in Question 1. 
                     Students in this age group must be currently enrolled to qualify.
                   </div>
@@ -703,7 +703,7 @@ function PageDesigns() {
               </div>
               
               <div>
-                <label className="block text-lg font-bold text-gray-900 mb-4">
+                <label className="block text-lg font-bold text-foreground mb-4">
                   Are you currently enrolled in an educational institution?
                 </label>
                 <div className="space-y-3">
@@ -729,7 +729,7 @@ function PageDesigns() {
                   />
                 </div>
                 <div className="mt-4 bg-yellow-50 border border-yellow-300 rounded-lg p-4">
-                  <div className="flex items-start gap-2 text-sm text-gray-700">
+                  <div className="flex items-start gap-2 text-sm text-muted-foreground">
                     <AlertCircle size={16} className="text-yellow-600 mt-0.5 flex-shrink-0" />
                     <span>
                       <strong>Important:</strong> If you're not currently enrolled, you may not qualify for this student scholarship. 
@@ -739,12 +739,12 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 flex items-center gap-2">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg hover:bg-background flex items-center gap-2">
                   <ArrowLeft size={18} />
                   Previous Question
                 </button>
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] flex items-center gap-2">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90 flex items-center gap-2">
                   Next Question
                   <ChevronRight size={18} />
                 </button>
@@ -765,9 +765,9 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 4: Eligible Result (Positive Outcome)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-green-600 text-white p-12 text-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
               <h1 className="text-3xl font-bold mb-4">Congratulations! You Are Eligible</h1>
@@ -775,7 +775,7 @@ function PageDesigns() {
             </div>
             <div className="p-8 space-y-6">
               <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-3">Criteria You Meet:</div>
+                <div className="font-bold text-foreground mb-3">Criteria You Meet:</div>
                 <div className="space-y-2">
                   <CriteriaCheck met={true} text="Age: 22 years (Required: 18-25 years) ✓" />
                   <CriteriaCheck met={true} text="Income: ₹5,50,000/year (Required: Below ₹6,00,000/year) ✓" />
@@ -798,8 +798,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">Documents You Will Need:</div>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">Documents You Will Need:</div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 flex-shrink-0"></div>
                     <span>Age proof (Aadhaar card, Birth certificate)</span>
@@ -820,11 +820,11 @@ function PageDesigns() {
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-10 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] flex items-center gap-2">
+                <button className="px-10 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 flex items-center gap-2">
                   <CheckCircle size={20} />
                   Proceed to Application
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Save Result
                 </button>
               </div>
@@ -845,10 +845,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 5: Not Eligible Result (Empathetic Communication)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-gray-700 text-white p-12 text-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <XCircle size={48} className="text-gray-600" />
+              <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
+                <XCircle size={48} className="text-muted-foreground" />
               </div>
               <h1 className="text-3xl font-bold mb-4">You Are Not Eligible at This Time</h1>
               <p className="text-lg text-gray-200">
@@ -857,7 +857,7 @@ function PageDesigns() {
             </div>
             <div className="p-8 space-y-6">
               <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-3">Criteria Not Met:</div>
+                <div className="font-bold text-foreground mb-3">Criteria Not Met:</div>
                 <div className="space-y-2">
                   <CriteriaCheck met={true} text="Age: 22 years (Required: 18-25 years) ✓" />
                   <CriteriaCheck met={false} text="Income: ₹7,50,000/year (Required: Below ₹6,00,000/year) ✗" />
@@ -870,8 +870,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">What This Means:</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">What This Means:</div>
+                    <div className="text-sm text-muted-foreground">
                       Your annual family income exceeds the threshold for this particular scholarship. The PM Scholarship Scheme 
                       is designed for students from economically weaker sections. However, you may qualify for other merit-based 
                       scholarships or educational loans with subsidized interest rates.
@@ -880,8 +880,8 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg p-6 bg-white">
-                <div className="font-bold text-gray-900 mb-4">Alternative Schemes You May Qualify For:</div>
+              <div className="border-2 border-border rounded-lg p-6 bg-card">
+                <div className="font-bold text-foreground mb-4">Alternative Schemes You May Qualify For:</div>
                 <div className="space-y-3">
                   <AlternativeService
                     title="Merit-Based Scholarship (No Income Limit)"
@@ -899,17 +899,17 @@ function PageDesigns() {
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                   Explore Alternative Schemes
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50 flex items-center gap-2">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background flex items-center gap-2">
                   <RefreshCw size={18} />
                   Start Over
                 </button>
               </div>
 
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4 text-center">
-                <div className="text-sm text-gray-700">
+              <div className="bg-background border-2 border-border rounded-lg p-4 text-center">
+                <div className="text-sm text-muted-foreground">
                   <strong>Need help or believe this result is incorrect?</strong><br/>
                   Contact our support team at <span className="font-bold text-blue-600">1800-XXX-XXXX</span> or 
                   email <span className="font-bold text-blue-600">scholarship@education.gov.in</span>
@@ -933,18 +933,18 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 6: Next-Step Recommendations" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Your Next Steps</h2>
-              <p className="text-sm text-gray-600">Based on your eligibility result, here's what you should do next.</p>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Your Next Steps</h2>
+              <p className="text-sm text-muted-foreground">Based on your eligibility result, here's what you should do next.</p>
             </div>
             <div className="p-8 space-y-6">
               <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
                 <div className="flex items-start gap-3 mb-4">
                   <CheckCircle size={24} className="text-green-600 flex-shrink-0" />
                   <div>
-                    <div className="font-bold text-lg text-gray-900 mb-2">You Are Eligible!</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-lg text-foreground mb-2">You Are Eligible!</div>
+                    <div className="text-sm text-muted-foreground">
                       Reference Number: <span className="font-mono font-bold">ELG-2026-123456</span> 
                       (Save this for your records)
                     </div>
@@ -974,8 +974,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">Important Deadlines:</div>
-                <div className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">Important Deadlines:</div>
+                <div className="space-y-2 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
                     <Calendar size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
                     <span><strong>Eligibility valid until:</strong> 15 June 2026</span>
@@ -991,8 +991,8 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg p-6 bg-white">
-                <div className="font-bold text-gray-900 mb-4">Need Assistance?</div>
+              <div className="border-2 border-border rounded-lg p-6 bg-card">
+                <div className="font-bold text-foreground mb-4">Need Assistance?</div>
                 <div className="grid grid-cols-2 gap-4">
                   <ContactOption
                     icon={<Phone size={20} className="text-blue-600" />}
@@ -1008,10 +1008,10 @@ function PageDesigns() {
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-10 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+                <button className="px-10 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                   Proceed to Application
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Download Eligibility Certificate
                 </button>
               </div>
@@ -1041,7 +1041,7 @@ function BranchingDecisions() {
       <DocModule>
         <ModuleHeader title="Decision Tree Example" />
         <ModuleContent>
-          <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-8">
+          <div className="bg-background border-2 border-border rounded-lg p-8">
             <div className="space-y-6">
               <DecisionNode
                 question="Are you an Indian citizen?"
@@ -1319,8 +1319,8 @@ function AccessibilityGuidance() {
             <div className="flex items-start gap-3 mb-4">
               <Globe size={24} className="text-purple-600 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-2">Language Support Requirements</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-2">Language Support Requirements</div>
+                <div className="text-sm text-muted-foreground">
                   Eligibility checks must be available in Hindi and English at minimum. State-specific deployments 
                   should support regional languages as per the 8th Schedule.
                 </div>
@@ -1531,9 +1531,9 @@ function GovernanceConformance() {
 
 function MetadataPanel() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Pattern Metadata</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Pattern Metadata</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <MetadataRow label="Pattern ID" value="UX4G-PAT-002" />
@@ -1551,7 +1551,7 @@ function QuickRefPanel() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <QuickRefRow label="Avg. Duration" value="2-3 minutes" />
@@ -1569,9 +1569,9 @@ function DesignPrinciples() {
   return (
     <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
       <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Core Principles</h3>
+        <h3 className="font-bold text-foreground text-sm">Core Principles</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <PrincipleItem icon={<Target size={14} />} text="Clarity: Simple questions, clear outcomes" />
         <PrincipleItem icon={<Shield size={14} />} text="Fairness: Transparent criteria, no hidden rules" />
         <PrincipleItem icon={<Users size={14} />} text="Empathy: Respectful tone, helpful alternatives" />
@@ -1586,9 +1586,9 @@ function RiskIndicators() {
     <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
       <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3 flex items-center gap-2">
         <AlertTriangle size={16} className="text-red-700" />
-        <h3 className="font-bold text-gray-900 text-sm">Risk Indicators</h3>
+        <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <RiskItem severity="high" risk="Too many questions (over 5) causing drop-off" />
         <RiskItem severity="high" risk="Negative tone for ineligible results" />
         <RiskItem severity="medium" risk="Complex branching confusing users" />
@@ -1601,9 +1601,9 @@ function RiskIndicators() {
 
 function RelatedResources() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <RelatedLink title="Application Submission" />
@@ -1619,15 +1619,15 @@ function RelatedResources() {
 
 function SectionHeader({ title }: any) {
   return (
-    <div className="border-l-4 border-[#000080] pl-4">
-      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+    <div className="border-l-4 border-primary pl-4">
+      <h2 className="text-2xl font-bold text-foreground">{title}</h2>
     </div>
   );
 }
 
 function DocModule({ children }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
       {children}
     </div>
   );
@@ -1635,8 +1635,8 @@ function DocModule({ children }: any) {
 
 function ModuleHeader({ title }: any) {
   return (
-    <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-      <h3 className="font-bold text-gray-900">{title}</h3>
+    <div className="bg-muted border-b-2 border-border px-6 py-4">
+      <h3 className="font-bold text-foreground">{title}</h3>
     </div>
   );
 }
@@ -1647,11 +1647,11 @@ function ModuleContent({ children }: any) {
 
 function ProblemSolutionBlock({ icon, problem, solution }: any) {
   return (
-    <div className="flex items-start gap-3 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-background border-2 border-border rounded-lg">
       <div className="flex-shrink-0 mt-0.5">{icon}</div>
       <div>
-        <div className="text-sm font-bold text-gray-900 mb-1">Problem: {problem}</div>
-        <div className="text-sm text-gray-700">Solution: {solution}</div>
+        <div className="text-sm font-bold text-foreground mb-1">Problem: {problem}</div>
+        <div className="text-sm text-muted-foreground">Solution: {solution}</div>
       </div>
     </div>
   );
@@ -1660,13 +1660,13 @@ function ProblemSolutionBlock({ icon, problem, solution }: any) {
 function UserGroup({ icon, name, description, percentage }: any) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-10 h-10 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center flex-shrink-0">
+      <div className="w-10 h-10 bg-muted border-2 border-border rounded flex items-center justify-center flex-shrink-0">
         {icon}
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{name}</div>
-        <div className="text-xs text-gray-600 mb-2">{description}</div>
-        <div className="text-xs font-bold text-gray-900">{percentage} of users</div>
+        <div className="font-bold text-sm text-foreground mb-1">{name}</div>
+        <div className="text-xs text-muted-foreground mb-2">{description}</div>
+        <div className="text-xs font-bold text-foreground">{percentage} of users</div>
       </div>
     </div>
   );
@@ -1674,11 +1674,11 @@ function UserGroup({ icon, name, description, percentage }: any) {
 
 function UseCaseCard({ title, examples }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-3">{title}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-3">{title}</div>
       <ul className="space-y-2">
         {examples.map((example: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
             <span>{example}</span>
           </li>
@@ -1690,10 +1690,10 @@ function UseCaseCard({ title, examples }: any) {
 
 function RuleTypeCard({ type, description, example }: any) {
   return (
-    <div className="border-2 border-purple-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-2">{type}</div>
-      <div className="text-xs text-gray-700 mb-3">{description}</div>
-      <div className="text-xs text-gray-600 bg-gray-50 border border-gray-300 rounded p-2 italic">
+    <div className="border-2 border-purple-300 rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-2">{type}</div>
+      <div className="text-xs text-muted-foreground mb-3">{description}</div>
+      <div className="text-xs text-muted-foreground bg-background border border-border rounded p-2 italic">
         {example}
       </div>
     </div>
@@ -1702,15 +1702,15 @@ function RuleTypeCard({ type, description, example }: any) {
 
 function LogicRule({ condition, operator, value, required }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-gray-50 border-l-4 border-blue-600 rounded-r">
+    <div className="flex items-start gap-3 p-3 bg-background border-l-4 border-blue-600 rounded-r">
       <div className="flex-1">
-        <div className="font-bold text-gray-900">{condition}</div>
-        <div className="text-gray-600">{operator} {value}</div>
+        <div className="font-bold text-foreground">{condition}</div>
+        <div className="text-muted-foreground">{operator} {value}</div>
       </div>
       {required ? (
         <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded flex-shrink-0">REQUIRED</span>
       ) : (
-        <span className="px-2 py-0.5 bg-gray-200 text-gray-700 text-xs font-bold rounded flex-shrink-0">OPTIONAL</span>
+        <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded flex-shrink-0">OPTIONAL</span>
       )}
     </div>
   );
@@ -1718,14 +1718,14 @@ function LogicRule({ condition, operator, value, required }: any) {
 
 function SequenceStrategy({ number, strategy, description, example }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
+    <div className="flex items-start gap-4 p-4 bg-background border-2 border-border rounded-lg">
+      <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
         {number}
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{strategy}</div>
-        <div className="text-sm text-gray-700 mb-2">{description}</div>
-        <div className="text-xs text-gray-600 bg-white border border-gray-300 rounded p-2 italic">
+        <div className="font-bold text-sm text-foreground mb-1">{strategy}</div>
+        <div className="text-sm text-muted-foreground mb-2">{description}</div>
+        <div className="text-xs text-muted-foreground bg-card border border-border rounded p-2 italic">
           Example: {example}
         </div>
       </div>
@@ -1735,20 +1735,20 @@ function SequenceStrategy({ number, strategy, description, example }: any) {
 
 function FlowStep({ number, label, status }: any) {
   const statusConfig: any = {
-    entry: { bg: 'bg-gray-100', border: 'border-gray-400', text: 'text-gray-700' },
+    entry: { bg: 'bg-muted', border: 'border-gray-400', text: 'text-muted-foreground' },
     active: { bg: 'bg-blue-50', border: 'border-blue-400', text: 'text-blue-700' },
     info: { bg: 'bg-purple-50', border: 'border-purple-400', text: 'text-purple-700' },
     decision: { bg: 'bg-yellow-50', border: 'border-yellow-400', text: 'text-yellow-700' },
     success: { bg: 'bg-green-50', border: 'border-green-400', text: 'text-green-700' },
     warning: { bg: 'bg-orange-50', border: 'border-orange-400', text: 'text-orange-700' },
     error: { bg: 'bg-red-50', border: 'border-red-400', text: 'text-red-700' },
-    optional: { bg: 'bg-gray-50', border: 'border-gray-300', text: 'text-gray-600' }
+    optional: { bg: 'bg-background', border: 'border-border', text: 'text-muted-foreground' }
   };
 
   return (
     <div className={`border-2 ${statusConfig[status].border} rounded-lg p-3 ${statusConfig[status].bg}`}>
       <div className={`text-xs font-bold ${statusConfig[status].text} mb-1`}>{number}</div>
-      <div className="text-xs font-medium text-gray-900">{label}</div>
+      <div className="text-xs font-medium text-foreground">{label}</div>
     </div>
   );
 }
@@ -1765,15 +1765,15 @@ function OutcomePathBlock({ outcome, color, icon, description, userActions }: an
       <div className="flex items-start gap-3 mb-4">
         <div className="flex-shrink-0">{icon}</div>
         <div>
-          <div className="font-bold text-lg text-gray-900 mb-1">{outcome}</div>
-          <div className="text-sm text-gray-700">{description}</div>
+          <div className="font-bold text-lg text-foreground mb-1">{outcome}</div>
+          <div className="text-sm text-muted-foreground">{description}</div>
         </div>
       </div>
       <div className="pl-11">
-        <div className="font-bold text-sm text-gray-900 mb-2">User Actions:</div>
+        <div className="font-bold text-sm text-foreground mb-2">User Actions:</div>
         <ul className="space-y-2">
           {userActions.map((action: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
               <ArrowRight size={14} className="mt-0.5 flex-shrink-0 text-gray-500" />
               <span>{action}</span>
             </li>
@@ -1786,11 +1786,11 @@ function OutcomePathBlock({ outcome, color, icon, description, userActions }: an
 
 function InfoBox({ icon, title, text }: any) {
   return (
-    <div className="flex items-start gap-3 p-4 bg-white border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-card border-2 border-border rounded-lg">
       <div className="text-blue-600 flex-shrink-0">{icon}</div>
       <div>
-        <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-        <div className="text-xs text-gray-600">{text}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+        <div className="text-xs text-muted-foreground">{text}</div>
       </div>
     </div>
   );
@@ -1802,7 +1802,7 @@ function ProgressBar({ steps, current }: any) {
       {Array.from({ length: steps }).map((_, idx) => (
         <div
           key={idx}
-          className={`flex-1 h-2 rounded ${idx < current ? 'bg-[#000080]' : 'bg-gray-300'}`}
+          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-gray-300'}`}
         ></div>
       ))}
     </div>
@@ -1812,14 +1812,14 @@ function ProgressBar({ steps, current }: any) {
 function RadioOption({ value, label, selected }: any) {
   return (
     <label className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-colors ${
-      selected ? 'border-[#000080] bg-blue-50' : 'border-gray-300 bg-white hover:border-gray-400'
+      selected ? 'border-primary bg-blue-50' : 'border-border bg-card hover:border-gray-400'
     }`}>
       <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-        selected ? 'border-[#000080]' : 'border-gray-400'
+        selected ? 'border-primary' : 'border-gray-400'
       }`}>
-        {selected && <div className="w-3 h-3 rounded-full bg-[#000080]"></div>}
+        {selected && <div className="w-3 h-3 rounded-full bg-primary"></div>}
       </div>
-      <span className="text-sm text-gray-900">{label}</span>
+      <span className="text-sm text-foreground">{label}</span>
     </label>
   );
 }
@@ -1829,9 +1829,9 @@ function PageAnnotation({ items }: any) {
     <div className="mt-4 bg-blue-50 border-l-4 border-blue-600 p-4">
       <div className="flex items-start gap-2 mb-2">
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
-        <div className="font-bold text-sm text-gray-900">Design Annotations</div>
+        <div className="font-bold text-sm text-foreground">Design Annotations</div>
       </div>
-      <ul className="space-y-1.5 text-sm text-gray-700">
+      <ul className="space-y-1.5 text-sm text-muted-foreground">
         {items.map((item: string, idx: number) => (
           <li key={idx} className="flex items-start gap-2">
             <div className="w-1 h-1 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -1851,19 +1851,19 @@ function CriteriaCheck({ met, text }: any) {
       ) : (
         <XCircle size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
       )}
-      <span className="text-sm text-gray-700">{text}</span>
+      <span className="text-sm text-muted-foreground">{text}</span>
     </div>
   );
 }
 
 function NextStepCard({ icon, title, description }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">{icon}</div>
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-          <div className="text-xs text-gray-600">{description}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+          <div className="text-xs text-muted-foreground">{description}</div>
         </div>
       </div>
     </div>
@@ -1872,11 +1872,11 @@ function NextStepCard({ icon, title, description }: any) {
 
 function AlternativeService({ title, description }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-white border-2 border-gray-300 rounded-lg hover:border-blue-600 cursor-pointer transition-colors">
+    <div className="flex items-start gap-3 p-3 bg-card border-2 border-border rounded-lg hover:border-blue-600 cursor-pointer transition-colors">
       <ArrowRight size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
       <div>
-        <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1884,14 +1884,14 @@ function AlternativeService({ title, description }: any) {
 
 function NextStepBlock({ number, title, description, action }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-6 bg-white hover:border-blue-600 transition-colors">
+    <div className="border-2 border-border rounded-lg p-6 bg-card hover:border-blue-600 transition-colors">
       <div className="flex items-start gap-4">
-        <div className="w-10 h-10 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+        <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
           {number}
         </div>
         <div className="flex-1">
-          <div className="font-bold text-gray-900 mb-2">{title}</div>
-          <div className="text-sm text-gray-700 mb-3">{description}</div>
+          <div className="font-bold text-foreground mb-2">{title}</div>
+          <div className="text-sm text-muted-foreground mb-3">{description}</div>
           <button className="text-sm text-blue-600 font-bold hover:underline">{action} →</button>
         </div>
       </div>
@@ -1901,11 +1901,11 @@ function NextStepBlock({ number, title, description, action }: any) {
 
 function ContactOption({ icon, title, detail }: any) {
   return (
-    <div className="flex items-start gap-3 p-4 bg-gray-50 border border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-background border border-border rounded-lg">
       <div className="flex-shrink-0">{icon}</div>
       <div>
-        <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-        <div className="text-xs text-gray-600">{detail}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+        <div className="text-xs text-muted-foreground">{detail}</div>
       </div>
     </div>
   );
@@ -1916,20 +1916,20 @@ function DecisionNode({ question, yesPath, noPath, critical }: any) {
     <div className={`border-2 rounded-lg p-6 ${critical ? 'border-red-400 bg-red-50' : 'border-blue-400 bg-blue-50'}`}>
       <div className="flex items-start gap-3 mb-4">
         <GitBranch size={20} className={critical ? 'text-red-600' : 'text-blue-600'} />
-        <div className="font-bold text-sm text-gray-900">{question}</div>
+        <div className="font-bold text-sm text-foreground">{question}</div>
       </div>
       <div className="space-y-3 text-sm">
         <div className="flex items-start gap-2">
           <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
           <div>
-            <span className="font-bold text-gray-900">Yes:</span> <span className="text-gray-700">{yesPath}</span>
+            <span className="font-bold text-foreground">Yes:</span> <span className="text-muted-foreground">{yesPath}</span>
           </div>
         </div>
         {noPath !== 'N/A' && (
           <div className="flex items-start gap-2">
             <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
             <div>
-              <span className="font-bold text-gray-900">No:</span> <span className="text-gray-700">{noPath}</span>
+              <span className="font-bold text-foreground">No:</span> <span className="text-muted-foreground">{noPath}</span>
             </div>
           </div>
         )}
@@ -1951,12 +1951,12 @@ function BestPracticeCard({ type, icon, practices }: any) {
     <div className={`border-2 ${config[type].border} ${config[type].bg} rounded-lg overflow-hidden`}>
       <div className={`${config[type].headerBg} border-b-2 ${config[type].border} px-4 py-3 flex items-center gap-2`}>
         {icon}
-        <h4 className="font-bold text-gray-900">{type}</h4>
+        <h4 className="font-bold text-foreground">{type}</h4>
       </div>
       <div className="p-4">
         <ul className="space-y-2">
           {practices.map((practice: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
               <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
               <span>{practice}</span>
             </li>
@@ -1970,15 +1970,15 @@ function BestPracticeCard({ type, icon, practices }: any) {
 function ErrorPreventionBlock({ scenario, prevention, recovery }: any) {
   return (
     <div className="border-2 border-orange-300 bg-orange-50 rounded-lg p-4">
-      <div className="font-bold text-sm text-gray-900 mb-3">{scenario}</div>
+      <div className="font-bold text-sm text-foreground mb-3">{scenario}</div>
       <div className="space-y-2 text-sm">
         <div>
-          <span className="font-bold text-gray-900">Prevention:</span>
-          <span className="text-gray-700 ml-1">{prevention}</span>
+          <span className="font-bold text-foreground">Prevention:</span>
+          <span className="text-muted-foreground ml-1">{prevention}</span>
         </div>
         <div>
-          <span className="font-bold text-gray-900">Recovery:</span>
-          <span className="text-gray-700 ml-1">{recovery}</span>
+          <span className="font-bold text-foreground">Recovery:</span>
+          <span className="text-muted-foreground ml-1">{recovery}</span>
         </div>
       </div>
     </div>
@@ -1987,29 +1987,29 @@ function ErrorPreventionBlock({ scenario, prevention, recovery }: any) {
 
 function ComponentCard({ name, variants, usage }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-2">{name}</div>
-      <div className="text-xs text-gray-600 mb-2">Variants: {variants}</div>
-      <div className="text-xs text-gray-600">Usage: {usage}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-2">{name}</div>
+      <div className="text-xs text-muted-foreground mb-2">Variants: {variants}</div>
+      <div className="text-xs text-muted-foreground">Usage: {usage}</div>
     </div>
   );
 }
 
 function ToneGuidance({ outcome, tone, dos, donts, example }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-6 bg-white">
+    <div className="border-2 border-border rounded-lg p-6 bg-card">
       <div className="flex items-start justify-between mb-4">
         <div>
-          <div className="font-bold text-lg text-gray-900 mb-1">{outcome}</div>
-          <div className="text-sm text-gray-600 italic">{tone}</div>
+          <div className="font-bold text-lg text-foreground mb-1">{outcome}</div>
+          <div className="text-sm text-muted-foreground italic">{tone}</div>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-6 mb-4">
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-2 flex items-center gap-2">
+          <div className="font-bold text-sm text-foreground mb-2 flex items-center gap-2">
             <ThumbsUp size={14} className="text-green-600" /> Do:
           </div>
-          <ul className="space-y-1.5 text-sm text-gray-700">
+          <ul className="space-y-1.5 text-sm text-muted-foreground">
             {dos.map((item: string, idx: number) => (
               <li key={idx} className="flex items-start gap-2">
                 <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
@@ -2019,10 +2019,10 @@ function ToneGuidance({ outcome, tone, dos, donts, example }: any) {
           </ul>
         </div>
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-2 flex items-center gap-2">
+          <div className="font-bold text-sm text-foreground mb-2 flex items-center gap-2">
             <ThumbsDown size={14} className="text-red-600" /> Don't:
           </div>
-          <ul className="space-y-1.5 text-sm text-gray-700">
+          <ul className="space-y-1.5 text-sm text-muted-foreground">
             {donts.map((item: string, idx: number) => (
               <li key={idx} className="flex items-start gap-2">
                 <XCircle size={12} className="text-red-600 mt-0.5 flex-shrink-0" />
@@ -2032,9 +2032,9 @@ function ToneGuidance({ outcome, tone, dos, donts, example }: any) {
           </ul>
         </div>
       </div>
-      <div className="pt-4 border-t border-gray-300">
-        <div className="text-xs font-bold text-gray-600 mb-2">Example Message:</div>
-        <div className="text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded p-3 italic">
+      <div className="pt-4 border-t border-border">
+        <div className="text-xs font-bold text-muted-foreground mb-2">Example Message:</div>
+        <div className="text-sm text-foreground bg-background border border-border rounded p-3 italic">
           {example}
         </div>
       </div>
@@ -2044,22 +2044,22 @@ function ToneGuidance({ outcome, tone, dos, donts, example }: any) {
 
 function QuestionGuideline({ principle, bad, good }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-3">{principle}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-3">{principle}</div>
       <div className="space-y-3">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
             <span className="text-xs font-bold text-red-700">Bad</span>
           </div>
-          <div className="text-sm text-gray-900 bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
+          <div className="text-sm text-foreground bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <CheckCircle size={14} className="text-green-600" />
             <span className="text-xs font-bold text-green-700">Good</span>
           </div>
-          <div className="text-sm text-gray-900 bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
+          <div className="text-sm text-foreground bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
         </div>
       </div>
     </div>
@@ -2068,11 +2068,11 @@ function QuestionGuideline({ principle, bad, good }: any) {
 
 function AccessibilityBlock({ area, requirements }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-3">{area}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-3">{area}</div>
       <ul className="space-y-2">
         {requirements.map((req: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{req}</span>
           </li>
@@ -2085,8 +2085,8 @@ function AccessibilityBlock({ area, requirements }: any) {
 function MultilingualItem({ aspect, requirement }: any) {
   return (
     <div className="text-sm">
-      <div className="font-bold text-gray-900 mb-1">{aspect}</div>
-      <div className="text-gray-700">{requirement}</div>
+      <div className="font-bold text-foreground mb-1">{aspect}</div>
+      <div className="text-muted-foreground">{requirement}</div>
     </div>
   );
 }
@@ -2099,15 +2099,15 @@ function ImplementationItem({ category, requirement, priority }: any) {
   };
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-4 p-4 bg-background border-2 border-border rounded-lg">
       <div className="w-24 flex-shrink-0">
         <div className={`px-2 py-1 rounded text-xs font-bold text-center ${priorityConfig[priority].bg} ${priorityConfig[priority].text} ${priorityConfig[priority].border} border`}>
           {priority.toUpperCase()}
         </div>
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{category}</div>
-        <div className="text-sm text-gray-700">{requirement}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{category}</div>
+        <div className="text-sm text-muted-foreground">{requirement}</div>
       </div>
     </div>
   );
@@ -2115,24 +2115,24 @@ function ImplementationItem({ category, requirement, priority }: any) {
 
 function AnalyticsEvent({ event, description }: any) {
   return (
-    <div className="flex items-start gap-4 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <code className="px-2 py-1 bg-white border border-gray-400 rounded text-xs font-mono text-gray-900 flex-shrink-0">
+    <div className="flex items-start gap-4 p-3 bg-background border-2 border-border rounded-lg">
+      <code className="px-2 py-1 bg-card border border-gray-400 rounded text-xs font-mono text-foreground flex-shrink-0">
         {event}
       </code>
-      <div className="flex-1 text-sm text-gray-700">{description}</div>
+      <div className="flex-1 text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
 
 function ConformanceItem({ checked, label }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-3 bg-background border-2 border-border rounded-lg">
       <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${
-        checked ? 'bg-green-500 border-green-600' : 'bg-white border-gray-400'
+        checked ? 'bg-green-500 border-green-600' : 'bg-card border-gray-400'
       }`}>
         {checked && <Check size={14} className="text-white" />}
       </div>
-      <div className="text-sm text-gray-700">{label}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -2147,12 +2147,12 @@ function RiskBlock({ risk, impact, solution }: any) {
   return (
     <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
-        <div className="font-bold text-sm text-gray-900 flex-1">{risk}</div>
+        <div className="font-bold text-sm text-foreground flex-1">{risk}</div>
         <div className={`px-2 py-1 rounded text-xs font-bold ${impactConfig[impact].bg} ${impactConfig[impact].color} flex-shrink-0 ml-3`}>
           {impact} Impact
         </div>
       </div>
-      <div className="text-sm text-gray-700">
+      <div className="text-sm text-muted-foreground">
         <span className="font-bold">Solution:</span> {solution}
       </div>
     </div>
@@ -2162,9 +2162,9 @@ function RiskBlock({ risk, impact, solution }: any) {
 function MaturityCard({ status, version, description }: any) {
   return (
     <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50">
-      <div className="font-bold text-sm text-gray-900 mb-1">{status}</div>
-      <div className="text-xs text-gray-600 mb-3">{version}</div>
-      <div className="text-sm text-gray-700">{description}</div>
+      <div className="font-bold text-sm text-foreground mb-1">{status}</div>
+      <div className="text-xs text-muted-foreground mb-3">{version}</div>
+      <div className="text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
@@ -2172,8 +2172,8 @@ function MaturityCard({ status, version, description }: any) {
 function MetadataRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2181,8 +2181,8 @@ function MetadataRow({ label, value }: any) {
 function QuickRefRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-700">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2213,7 +2213,7 @@ function RiskItem({ severity, risk }: any) {
 
 function RelatedLink({ title }: any) {
   return (
-    <a href="#" className="block px-3 py-2 bg-white border border-gray-300 rounded hover:border-[#000080] hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
+    <a href="#" className="block px-3 py-2 bg-card border border-border rounded hover:border-primary hover:bg-background transition-colors text-sm text-muted-foreground font-medium">
       {title}
     </a>
   );

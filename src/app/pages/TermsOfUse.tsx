@@ -3,17 +3,17 @@ import { Scale, FileText, Shield, AlertTriangle, Lock, Users, Globe, BookOpen, M
 
 export default function TermsOfUse() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-6">
           <div className="flex items-center gap-3">
-            <div className="w-14 h-14 bg-[#000080] rounded flex items-center justify-center">
+            <div className="w-14 h-14 bg-primary rounded flex items-center justify-center">
               <Scale size={28} className="text-white" />
             </div>
             <div>
-              <div className="text-sm text-gray-600">Legal Information</div>
-              <h1 className="text-2xl font-bold text-gray-900">Terms of Use</h1>
+              <div className="text-sm text-muted-foreground">Legal Information</div>
+              <h1 className="text-2xl font-bold text-foreground">Terms of Use</h1>
             </div>
           </div>
         </div>
@@ -26,18 +26,18 @@ export default function TermsOfUse() {
           <nav className="mb-8" aria-label="Breadcrumb">
             <ol className="flex items-center gap-2 text-sm">
               <li>
-                <Link to="/" className="text-[#000080] hover:underline font-medium">
+                <Link to="/" className="text-primary hover:underline font-medium">
                   Home
                 </Link>
               </li>
               <li className="text-gray-400">/</li>
               <li>
-                <Link to="/governance" className="text-[#000080] hover:underline font-medium">
+                <Link to="/governance" className="text-primary hover:underline font-medium">
                   Governance
                 </Link>
               </li>
               <li className="text-gray-400">/</li>
-              <li className="text-gray-700" aria-current="page">Terms of Use</li>
+              <li className="text-muted-foreground" aria-current="page">Terms of Use</li>
             </ol>
           </nav>
 
@@ -46,10 +46,10 @@ export default function TermsOfUse() {
             <div className="flex items-start gap-3">
               <FileText size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-sm text-gray-700">
-                  <span className="font-bold text-gray-900">Effective Date:</span> April 11, 2026
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-bold text-foreground">Effective Date:</span> April 11, 2026
                 </p>
-                <p className="text-sm text-gray-700 mt-2">
+                <p className="text-sm text-muted-foreground mt-2">
                   These Terms of Use govern your access to and use of the UX4G Design System and all
                   associated resources, components, patterns, and documentation provided by the Government of India.
                 </p>
@@ -58,29 +58,29 @@ export default function TermsOfUse() {
           </div>
 
           {/* Main Content */}
-          <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
 
             <div className="p-8 space-y-8">
 
               {/* Section 1: Acceptance of Terms */}
               <Section
-                icon={<FileText size={24} className="text-[#000080]" />}
+                icon={<FileText size={24} className="text-primary" />}
                 title="1. Acceptance of Terms"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       By accessing, downloading, or using the UX4G Design System (the "System"), you acknowledge
                       that you have read, understood, and agree to be bound by these Terms of Use. If you do not
                       agree to these terms, you may not access or use the System.
                     </p>
 
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       The UX4G Design System is maintained and operated by the Digital India initiative under the
                       Government of India ("we," "us," or "our"). These terms apply to all users including government
                       departments, agencies, contractors, developers, designers, and any other parties accessing the System.
                     </p>
 
-                    <p className="text-sm text-gray-700 leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       Your continued use of the System following any changes to these Terms of Use constitutes
                       acceptance of those changes. We reserve the right to modify these terms at any time, and such
                       modifications shall be effective immediately upon posting.
@@ -91,17 +91,17 @@ export default function TermsOfUse() {
 
               {/* Section 2: Use License */}
               <Section
-                icon={<Scale size={24} className="text-[#000080]" />}
+                icon={<Scale size={24} className="text-primary" />}
                 title="2. Use License"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       Subject to your compliance with these Terms of Use, we grant you a limited, non-exclusive,
                       non-transferable, revocable license to access and use the UX4G Design System for the following purposes:
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">2.1 Permitted Uses</h4>
-                    <ul className="space-y-2 text-sm text-gray-700 mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">2.1 Permitted Uses</h4>
+                    <ul className="space-y-2 text-sm text-muted-foreground mb-4 ml-4">
                       <li>• Building and deploying government digital services and applications</li>
                       <li>• Creating prototypes and design mockups for government projects</li>
                       <li>• Developing internal tools and systems for government agencies</li>
@@ -110,16 +110,16 @@ export default function TermsOfUse() {
                       <li>• Adapting components and patterns for specific government department needs</li>
                     </ul>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">2.2 License Scope</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">2.2 License Scope</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       The design system components, patterns, and code are provided under an open license framework
                       that permits use, modification, and distribution for government digital services. The specific
                       components may have individual licenses which must be respected. Official government logos, emblems,
                       and the Ashoka Chakra are subject to separate usage guidelines and restrictions.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">2.3 Attribution Requirements</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">2.3 Attribution Requirements</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed ml-4">
                       When using the UX4G Design System in production services, we encourage (but do not require)
                       attribution in your footer or documentation crediting the UX4G Design System and the
                       Government of India's Digital India initiative.
@@ -130,22 +130,22 @@ export default function TermsOfUse() {
 
               {/* Section 3: Intellectual Property */}
               <Section
-                icon={<Lock size={24} className="text-[#000080]" />}
+                icon={<Lock size={24} className="text-primary" />}
                 title="3. Intellectual Property Rights"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       The UX4G Design System and all materials contained therein, including but not limited to
                       design files, code, documentation, graphics, logos, and text, are owned by the Government of India
                       or its licensors and are protected by Indian and international copyright, trademark, and other
                       intellectual property laws.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">3.1 Government Assets</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">3.1 Government Assets</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       The following are protected government assets and have specific usage restrictions:
                     </p>
-                    <ul className="space-y-2 text-sm text-gray-700 mb-4 ml-8">
+                    <ul className="space-y-2 text-sm text-muted-foreground mb-4 ml-8">
                       <li>• State Emblem of India (Ashoka Chakra)</li>
                       <li>• National Flag of India</li>
                       <li>• Government of India logo and official seals</li>
@@ -153,16 +153,16 @@ export default function TermsOfUse() {
                       <li>• UX4G brand name and associated trademarks</li>
                     </ul>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">3.2 User Contributions</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">3.2 User Contributions</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       If you submit feedback, suggestions, improvements, or contributions to the UX4G Design System
                       through official channels (GitHub, email, forums), you grant the Government of India a perpetual,
                       irrevocable, worldwide, royalty-free license to use, modify, and incorporate such contributions
                       into the System without any obligation of compensation or attribution.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">3.3 Third-Party Components</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">3.3 Third-Party Components</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed ml-4">
                       The System may incorporate third-party open-source components and libraries. Such components
                       are subject to their respective licenses (MIT, Apache 2.0, etc.) and you must comply with
                       their terms when using them.
@@ -173,14 +173,14 @@ export default function TermsOfUse() {
 
               {/* Section 4: User Responsibilities */}
               <Section
-                icon={<Users size={24} className="text-[#000080]" />}
+                icon={<Users size={24} className="text-primary" />}
                 title="4. User Responsibilities"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       As a user of the UX4G Design System, you agree to:
                     </p>
-                    <ul className="space-y-2 text-sm text-gray-700 mb-4 ml-4">
+                    <ul className="space-y-2 text-sm text-muted-foreground mb-4 ml-4">
                       <li>• Use the System in accordance with all applicable laws and regulations of India</li>
                       <li>• Implement accessibility standards (WCAG 2.1 Level AA) when deploying government services</li>
                       <li>• Follow security best practices and guidelines provided in the System documentation</li>
@@ -193,7 +193,7 @@ export default function TermsOfUse() {
                       <li>• Provide accurate information and maintain transparency with citizens</li>
                     </ul>
 
-                    <p className="text-sm text-gray-700 leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       You are responsible for your implementation choices and how you deploy the System in your
                       government services. The Government of India is not liable for how you choose to use, modify,
                       or deploy the System.
@@ -204,31 +204,31 @@ export default function TermsOfUse() {
 
               {/* Section 5: Prohibited Uses */}
               <Section
-                icon={<AlertTriangle size={24} className="text-[#000080]" />}
+                icon={<AlertTriangle size={24} className="text-primary" />}
                 title="5. Prohibited Uses"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       You may not use the UX4G Design System for any of the following purposes:
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">5.1 Unauthorized Commercial Use</h4>
-                    <ul className="space-y-2 text-sm text-gray-700 mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">5.1 Unauthorized Commercial Use</h4>
+                    <ul className="space-y-2 text-sm text-muted-foreground mb-4 ml-4">
                       <li>• Selling or licensing the System or its components to third parties for profit</li>
                       <li>• Creating commercial products that compete with government digital services</li>
                       <li>• Using government assets or branding to promote private commercial ventures</li>
                     </ul>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">5.2 Misrepresentation</h4>
-                    <ul className="space-y-2 text-sm text-gray-700 mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">5.2 Misrepresentation</h4>
+                    <ul className="space-y-2 text-sm text-muted-foreground mb-4 ml-4">
                       <li>• Creating applications or websites that falsely appear to be official government services</li>
                       <li>• Misusing government logos, emblems, or branding without proper authorization</li>
                       <li>• Impersonating government officials or departments</li>
                       <li>• Creating fraudulent or deceptive services that mislead citizens</li>
                     </ul>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">5.3 Harmful Activities</h4>
-                    <ul className="space-y-2 text-sm text-gray-700 mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">5.3 Harmful Activities</h4>
+                    <ul className="space-y-2 text-sm text-muted-foreground mb-4 ml-4">
                       <li>• Introducing malware, viruses, or malicious code into the System</li>
                       <li>• Attempting to gain unauthorized access to System infrastructure or resources</li>
                       <li>• Conducting activities that could damage, disable, or impair government services</li>
@@ -236,8 +236,8 @@ export default function TermsOfUse() {
                       <li>• Violating the privacy or rights of Indian citizens</li>
                     </ul>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">5.4 Legal Violations</h4>
-                    <ul className="space-y-2 text-sm text-gray-700 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">5.4 Legal Violations</h4>
+                    <ul className="space-y-2 text-sm text-muted-foreground ml-4">
                       <li>• Using the System for any unlawful purpose or illegal activity</li>
                       <li>• Violating any applicable Indian laws or international treaties</li>
                       <li>• Infringing upon intellectual property rights of others</li>
@@ -249,37 +249,37 @@ export default function TermsOfUse() {
 
               {/* Section 6: Disclaimer of Warranties */}
               <Section
-                icon={<Shield size={24} className="text-[#000080]" />}
+                icon={<Shield size={24} className="text-primary" />}
                 title="6. Disclaimer of Warranties"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       THE UX4G DESIGN SYSTEM IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND,
                       EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY,
                       FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR COURSE OF PERFORMANCE.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">6.1 No Warranty of Accuracy</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">6.1 No Warranty of Accuracy</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       The Government of India does not warrant that the System will be error-free, uninterrupted,
                       or free from viruses or other harmful components. We do not guarantee the accuracy, reliability,
                       or completeness of any information, content, or materials provided through the System.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">6.2 No Warranty of Results</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">6.2 No Warranty of Results</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       We do not warrant that your use of the System will meet your requirements or achieve specific
                       results. The implementation, deployment, and effectiveness of government services built using
                       the System are solely your responsibility.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">6.3 Updates and Changes</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">6.3 Updates and Changes</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       We reserve the right to modify, suspend, or discontinue any aspect of the System at any time
                       without notice. We are not obligated to provide updates, but may do so at our discretion.
                     </p>
 
-                    <p className="text-sm text-gray-700 leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       Some jurisdictions do not allow the exclusion of implied warranties, so the above exclusions
                       may not apply to you. You may have additional rights under Indian law.
                     </p>
@@ -289,11 +289,11 @@ export default function TermsOfUse() {
 
               {/* Section 7: Limitation of Liability */}
               <Section
-                icon={<AlertTriangle size={24} className="text-[#000080]" />}
+                icon={<AlertTriangle size={24} className="text-primary" />}
                 title="7. Limitation of Liability"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE GOVERNMENT OF INDIA, ITS AGENCIES, OFFICERS,
                       EMPLOYEES, AND CONTRIBUTORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
                       CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED
@@ -301,7 +301,7 @@ export default function TermsOfUse() {
                       RESULTING FROM:
                     </p>
 
-                    <ul className="space-y-2 text-sm text-gray-700 mb-4 ml-4">
+                    <ul className="space-y-2 text-sm text-muted-foreground mb-4 ml-4">
                       <li>• Your access to, use of, or inability to access or use the System</li>
                       <li>• Any conduct or content of third parties using the System</li>
                       <li>• Any errors, mistakes, or inaccuracies in the System</li>
@@ -312,13 +312,13 @@ export default function TermsOfUse() {
                       <li>• Any implementation choices or deployment decisions you make</li>
                     </ul>
 
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       This limitation of liability applies regardless of the legal theory on which the claim is based,
                       whether contract, tort (including negligence), strict liability, or otherwise, even if we have
                       been advised of the possibility of such damages.
                     </p>
 
-                    <p className="text-sm text-gray-700 leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       Because some jurisdictions do not allow the exclusion or limitation of liability for consequential
                       or incidental damages, the above limitation may not apply to you. In such jurisdictions, our
                       liability shall be limited to the greatest extent permitted by law.
@@ -329,27 +329,27 @@ export default function TermsOfUse() {
 
               {/* Section 8: Governing Law */}
               <Section
-                icon={<Globe size={24} className="text-[#000080]" />}
+                icon={<Globe size={24} className="text-primary" />}
                 title="8. Governing Law and Jurisdiction"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       These Terms of Use shall be governed by and construed in accordance with the laws of India,
                       without regard to its conflict of law provisions.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">8.1 Jurisdiction</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">8.1 Jurisdiction</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       Any disputes arising out of or relating to these Terms of Use or the use of the UX4G Design System
                       shall be subject to the exclusive jurisdiction of the courts located in New Delhi, India. You
                       consent to the personal jurisdiction of such courts and waive any objection to the venue.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">8.2 Compliance with Laws</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">8.2 Compliance with Laws</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       You agree to comply with all applicable Indian laws and regulations, including but not limited to:
                     </p>
-                    <ul className="space-y-2 text-sm text-gray-700 mb-4 ml-8">
+                    <ul className="space-y-2 text-sm text-muted-foreground mb-4 ml-8">
                       <li>• Information Technology Act, 2000 and subsequent amendments</li>
                       <li>• Digital Personal Data Protection Act, 2023</li>
                       <li>• Rights of Persons with Disabilities Act, 2016</li>
@@ -358,8 +358,8 @@ export default function TermsOfUse() {
                       <li>• Any other applicable central or state legislation</li>
                     </ul>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">8.3 Language</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">8.3 Language</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed ml-4">
                       These Terms of Use are written in English. In the event of any conflict between the English
                       version and any translation, the English version shall prevail.
                     </p>
@@ -369,35 +369,35 @@ export default function TermsOfUse() {
 
               {/* Section 9: Modifications to Terms */}
               <Section
-                icon={<BookOpen size={24} className="text-[#000080]" />}
+                icon={<BookOpen size={24} className="text-primary" />}
                 title="9. Modifications to Terms"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       We reserve the right to modify, amend, or update these Terms of Use at any time at our sole
                       discretion. When we make changes, we will update the "Effective Date" at the top of these terms.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">9.1 Notification of Changes</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">9.1 Notification of Changes</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       For material changes to these terms, we will make reasonable efforts to notify users through:
                     </p>
-                    <ul className="space-y-2 text-sm text-gray-700 mb-4 ml-8">
+                    <ul className="space-y-2 text-sm text-muted-foreground mb-4 ml-8">
                       <li>• A prominent notice on the UX4G Design System website</li>
                       <li>• Email notification to registered users (if applicable)</li>
                       <li>• Announcements through official government channels</li>
                       <li>• Updates to our documentation and release notes</li>
                     </ul>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">9.2 Continued Use</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4 ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">9.2 Continued Use</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 ml-4">
                       Your continued use of the System following the posting of revised Terms of Use means that you
                       accept and agree to the changes. If you do not agree to the modified terms, you must discontinue
                       use of the System.
                     </p>
 
-                    <h4 className="font-bold text-gray-900 mb-2 text-sm">9.3 Severability</h4>
-                    <p className="text-sm text-gray-700 leading-relaxed ml-4">
+                    <h4 className="font-bold text-foreground mb-2 text-sm">9.3 Severability</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed ml-4">
                       If any provision of these Terms of Use is found to be unlawful, void, or unenforceable, that
                       provision shall be deemed severable and shall not affect the validity and enforceability of the
                       remaining provisions.
@@ -408,57 +408,57 @@ export default function TermsOfUse() {
 
               {/* Section 10: Contact Information */}
               <Section
-                icon={<Mail size={24} className="text-[#000080]" />}
+                icon={<Mail size={24} className="text-primary" />}
                 title="10. Contact Information"
                 content={
                   <>
-                    <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       If you have questions, concerns, or inquiries about these Terms of Use or the UX4G Design System,
                       please contact us through the following channels:
                     </p>
 
                     <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-4">
-                      <h4 className="font-bold text-gray-900 mb-3">UX4G Design System Team</h4>
-                      <div className="space-y-2 text-sm text-gray-700">
+                      <h4 className="font-bold text-foreground mb-3">UX4G Design System Team</h4>
+                      <div className="space-y-2 text-sm text-muted-foreground">
                         <p><span className="font-bold">Organization:</span> Digital India Initiative</p>
                         <p><span className="font-bold">Ministry:</span> Ministry of Electronics and Information Technology</p>
                         <p><span className="font-bold">Government of India</span></p>
                         <p className="mt-3">
                           <span className="font-bold">Email:</span>{" "}
-                          <a href="mailto:support@ux4g.gov.in" className="text-[#000080] hover:underline">
+                          <a href="mailto:support@ux4g.gov.in" className="text-primary hover:underline">
                             support@ux4g.gov.in
                           </a>
                         </p>
                         <p>
                           <span className="font-bold">Legal Inquiries:</span>{" "}
-                          <a href="mailto:legal@ux4g.gov.in" className="text-[#000080] hover:underline">
+                          <a href="mailto:legal@ux4g.gov.in" className="text-primary hover:underline">
                             legal@ux4g.gov.in
                           </a>
                         </p>
                         <p>
                           <span className="font-bold">Accessibility Issues:</span>{" "}
-                          <a href="mailto:accessibility@ux4g.gov.in" className="text-[#000080] hover:underline">
+                          <a href="mailto:accessibility@ux4g.gov.in" className="text-primary hover:underline">
                             accessibility@ux4g.gov.in
                           </a>
                         </p>
                         <p className="mt-3">
                           <span className="font-bold">Website:</span>{" "}
-                          <a href="https://ux4g.gov.in" className="text-[#000080] hover:underline">
+                          <a href="https://ux4g.gov.in" className="text-primary hover:underline">
                             https://ux4g.gov.in
                           </a>
                         </p>
                         <p>
                           <span className="font-bold">GitHub:</span>{" "}
-                          <a href="https://github.com/ux4g" className="text-[#000080] hover:underline">
+                          <a href="https://github.com/ux4g" className="text-primary hover:underline">
                             https://github.com/ux4g
                           </a>
                         </p>
                       </div>
                     </div>
 
-                    <p className="text-sm text-gray-700 leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       For urgent security vulnerabilities, please report them directly to{" "}
-                      <a href="mailto:security@ux4g.gov.in" className="text-[#000080] font-bold hover:underline">
+                      <a href="mailto:security@ux4g.gov.in" className="text-primary font-bold hover:underline">
                         security@ux4g.gov.in
                       </a>{" "}
                       with full details and steps to reproduce. We take security seriously and will respond promptly
@@ -469,15 +469,15 @@ export default function TermsOfUse() {
               />
 
               {/* Acknowledgment */}
-              <div className="pt-8 border-t-2 border-gray-300">
+              <div className="pt-8 border-t-2 border-border">
                 <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
-                  <h3 className="font-bold text-gray-900 mb-3">Acknowledgment</h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <h3 className="font-bold text-foreground mb-3">Acknowledgment</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     By using the UX4G Design System, you acknowledge that you have read, understood, and agree
                     to be bound by these Terms of Use. You also acknowledge that these terms constitute a binding
                     legal agreement between you and the Government of India.
                   </p>
-                  <p className="text-sm text-gray-700 leading-relaxed mt-3">
+                  <p className="text-sm text-muted-foreground leading-relaxed mt-3">
                     These terms were last updated on <span className="font-bold">April 11, 2026</span> and are
                     effective immediately for all users.
                   </p>
@@ -491,7 +491,7 @@ export default function TermsOfUse() {
           <div className="mt-8 flex items-center justify-between">
             <Link
               to="/governance"
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background transition-colors"
             >
               <ChevronLeft size={20} />
               Back to Governance
@@ -499,14 +499,14 @@ export default function TermsOfUse() {
 
             <div className="flex items-center gap-4">
               <Link
-                to="/governance/privacy-policy"
-                className="inline-block px-6 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50 transition-colors"
+                to="/privacy-policy"
+                className="inline-block px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/accessibility"
-                className="inline-block px-6 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50 transition-colors"
+                className="inline-block px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background transition-colors"
               >
                 Accessibility Statement
               </Link>
@@ -517,28 +517,28 @@ export default function TermsOfUse() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-[#FF9933] rounded-full"></div>
-              <div className="w-8 h-8 bg-white border-2 border-[#000080] rounded-full flex items-center justify-center">
-                <div className="w-2 h-2 bg-[#000080] rounded-full"></div>
+              <div className="w-8 h-8 bg-card border-2 border-primary rounded-full flex items-center justify-center">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
               </div>
-              <div className="w-8 h-8 bg-[#138808] rounded-full"></div>
-              <span className="ml-3 font-semibold text-gray-900">UX4G Design System • Government of India</span>
+              <div className="w-8 h-8 bg-green-700 rounded-full"></div>
+              <span className="ml-3 font-semibold text-foreground">UX4G Design System • Government of India</span>
             </div>
             <div className="flex items-center gap-6">
-              <Link to="/governance/terms-of-use" className="text-[#000080] font-bold hover:underline" aria-current="page">
+              <Link to="/terms-of-use" className="text-primary font-bold hover:underline" aria-current="page">
                 Terms of Use
               </Link>
-              <Link to="/governance/privacy-policy" className="text-gray-600 hover:underline">
+              <Link to="/privacy-policy" className="text-muted-foreground hover:underline">
                 Privacy Policy
               </Link>
-              <Link to="/accessibility" className="text-gray-600 hover:underline">
+              <Link to="/accessibility" className="text-muted-foreground hover:underline">
                 Accessibility
               </Link>
-              <Link to="/governance" className="text-gray-600 hover:underline">
+              <Link to="/governance" className="text-muted-foreground hover:underline">
                 Governance
               </Link>
             </div>
@@ -551,12 +551,12 @@ export default function TermsOfUse() {
 
 function Section({ icon, title, content }: { icon: React.ReactNode; title: string; content: React.ReactNode }) {
   return (
-    <section className="border-b-2 border-gray-300 pb-8 last:border-b-0">
+    <section className="border-b-2 border-border pb-8 last:border-b-0">
       <div className="flex items-start gap-3 mb-4">
         <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
           {icon}
         </div>
-        <h2 className="text-lg font-bold text-gray-900 flex-1">{title}</h2>
+        <h2 className="text-lg font-bold text-foreground flex-1">{title}</h2>
       </div>
       <div className="ml-13">
         {content}

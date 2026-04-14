@@ -50,7 +50,7 @@ export function AddressFormService({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader
         icon={MapPin}
         iconColor="bg-orange-600"
@@ -60,7 +60,7 @@ export function AddressFormService({
           <button
             type="button"
             onClick={saveDraft}
-            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded text-sm font-bold text-gray-700 hover:bg-gray-50"
+            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded text-sm font-bold text-muted-foreground hover:bg-muted"
           >
             <Save size={16} />
             Save Draft
@@ -78,41 +78,41 @@ export function AddressFormService({
       )}
 
       <main className="max-w-[1000px] mx-auto px-4 sm:px-6 py-8">
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-5">
+        <div className="bg-card border-2 border-border rounded-lg p-6 space-y-5">
           <Field label="Address Line 1" required error={errors.addressLine1}>
-            <input value={formData.addressLine1} onChange={(e) => setField("addressLine1", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+            <input value={formData.addressLine1} onChange={(e) => setField("addressLine1", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
           </Field>
 
           <Field label="Address Line 2">
-            <input value={formData.addressLine2} onChange={(e) => setField("addressLine2", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+            <input value={formData.addressLine2} onChange={(e) => setField("addressLine2", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
           </Field>
 
           <div className="grid md:grid-cols-2 gap-4">
             <Field label="City" required error={errors.city}>
-              <input value={formData.city} onChange={(e) => setField("city", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+              <input value={formData.city} onChange={(e) => setField("city", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
             </Field>
             <Field label="District" required error={errors.district}>
-              <input value={formData.district} onChange={(e) => setField("district", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+              <input value={formData.district} onChange={(e) => setField("district", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
             </Field>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             <Field label="State" required error={errors.state}>
-              <input value={formData.state} onChange={(e) => setField("state", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+              <input value={formData.state} onChange={(e) => setField("state", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
             </Field>
             <Field label="PIN Code" required error={errors.pincode}>
               <input
                 inputMode="numeric"
                 value={formData.pincode}
                 onChange={(e) => setField("pincode", e.target.value.replace(/\D/g, "").slice(0, 6))}
-                className="w-full border-2 border-gray-300 rounded px-3 py-2"
+                className="w-full border-2 border-border rounded px-3 py-2"
               />
             </Field>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             <Field label="Residence Type" required error={errors.residenceType}>
-              <select value={formData.residenceType} onChange={(e) => setField("residenceType", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2">
+              <select value={formData.residenceType} onChange={(e) => setField("residenceType", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2">
                 <option value="">Select</option>
                 <option value="owned">Owned</option>
                 <option value="rented">Rented</option>
@@ -120,20 +120,20 @@ export function AddressFormService({
               </select>
             </Field>
             <Field label="Years at Current Address">
-              <input type="number" min={0} value={formData.yearsAtAddress} onChange={(e) => setField("yearsAtAddress", e.target.value)} className="w-full border-2 border-gray-300 rounded px-3 py-2" />
+              <input type="number" min={0} value={formData.yearsAtAddress} onChange={(e) => setField("yearsAtAddress", e.target.value)} className="w-full border-2 border-border rounded px-3 py-2" />
             </Field>
           </div>
         </div>
 
         <div className="flex items-center justify-between mt-6 gap-3 flex-wrap">
-          <Link to={backPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-gray-700 hover:bg-gray-50">
+          <Link to={backPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-muted-foreground hover:bg-muted">
             <ArrowLeft size={16} />
             Previous
           </Link>
 
           <div className="flex items-center gap-3">
             {codeDownloadPath && (
-              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-[#000080] hover:bg-gray-50">
+              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-primary hover:bg-muted">
                 <Download size={15} />
                 Download React code
               </Link>
@@ -142,7 +142,7 @@ export function AddressFormService({
             <button
               type="button"
               onClick={continueFlow}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-[#000080] text-white rounded font-bold text-sm hover:bg-blue-900"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-white rounded font-bold text-sm hover:opacity-90"
             >
               Save and Continue
               <ArrowRight size={16} />
@@ -169,7 +169,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-900 mb-1">
+      <label className="block text-sm font-bold text-foreground mb-1">
         {label}
         {required ? <span className="text-red-600"> *</span> : null}
       </label>

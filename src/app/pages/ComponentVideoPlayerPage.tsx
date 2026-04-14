@@ -275,7 +275,7 @@ function Example() {
             className={\`p-2 rounded \${
               index === currentIndex
                 ? 'bg-[#005196] text-white'
-                : 'bg-gray-100'
+                : 'bg-muted'
             }\`}
           >
             {video.title}
@@ -295,10 +295,10 @@ function Example() {
                 <button className="w-full p-2 rounded bg-[#005196] text-white text-left">
                   Introduction
                 </button>
-                <button className="w-full p-2 rounded bg-gray-100 text-left">
+                <button className="w-full p-2 rounded bg-muted text-left">
                   Getting Started
                 </button>
-                <button className="w-full p-2 rounded bg-gray-100 text-left">
+                <button className="w-full p-2 rounded bg-muted text-left">
                   Advanced Topics
                 </button>
               </div>
@@ -336,7 +336,7 @@ function Example() {
         <h3 className="font-semibold text-[#005196]">
           City Council Meeting
         </h3>
-        <p className="text-sm text-gray-600 mt-1">
+        <p className="text-sm text-muted-foreground mt-1">
           Live broadcast from City Hall
         </p>
       </div>
@@ -357,7 +357,7 @@ function Example() {
                 <h3 className="font-semibold text-[#005196]">
                   City Council Meeting
                 </h3>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-sm text-muted-foreground mt-1">
                   Live broadcast from City Hall
                 </p>
               </div>
@@ -387,11 +387,11 @@ function Example() {
         ]}
         playbackRate={1.0}
       />
-      <div className="mt-4 p-4 border border-gray-200 rounded">
+      <div className="mt-4 p-4 border border-border rounded">
         <h3 className="font-semibold text-[#005196] mb-2">
           Mayor's Public Address
         </h3>
-        <p className="text-sm text-gray-600 mb-3">
+        <p className="text-sm text-muted-foreground mb-3">
           Important updates on city infrastructure and services
         </p>
         <div className="flex gap-2">
@@ -413,11 +413,11 @@ function Example() {
                 poster="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=450&fit=crop"
                 controls
               />
-              <div className="mt-4 p-4 border border-gray-200 rounded">
+              <div className="mt-4 p-4 border border-border rounded">
                 <h3 className="font-semibold text-[#005196] mb-2">
                   Mayor's Public Address
                 </h3>
-                <p className="text-sm text-gray-600 mb-3">
+                <p className="text-sm text-muted-foreground mb-3">
                   Important updates on city infrastructure and services
                 </p>
                 <div className="flex flex-wrap gap-2">

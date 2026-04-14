@@ -25,20 +25,20 @@ const StepperPreview = () => {
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-colors ${
                   step.id < currentStep
-                    ? 'bg-[#138808] text-white'
+                    ? 'bg-green-700 text-white'
                     : step.id === currentStep
                     ? 'bg-[#005196] text-white'
-                    : 'bg-gray-200 text-gray-600'
+                    : 'bg-gray-200 text-muted-foreground'
                 }`}
               >
                 {step.id < currentStep ? <Check size={20} /> : step.id}
               </div>
-              <span className="mt-2 text-sm font-medium text-gray-700">{step.label}</span>
+              <span className="mt-2 text-sm font-medium text-muted-foreground">{step.label}</span>
             </div>
             {index < steps.length - 1 && (
               <div
                 className={`flex-1 h-1 mx-4 transition-colors ${
-                  step.id < currentStep ? 'bg-[#138808]' : 'bg-gray-200'
+                  step.id < currentStep ? 'bg-green-700' : 'bg-gray-200'
                 }`}
               />
             )}
@@ -166,9 +166,9 @@ export const Stepper: React.FC<StepperProps> = ({
               <div
                 className={\`
                   w-10 h-10 rounded-full flex items-center justify-center font-semibold
-                  \${step.id < currentStep ? 'bg-[#138808] text-white' : ''}
+                  \${step.id < currentStep ? 'bg-green-700 text-white' : ''}
                   \${step.id === currentStep ? 'bg-[#005196] text-white' : ''}
-                  \${step.id > currentStep ? 'bg-gray-200 text-gray-600' : ''}
+                  \${step.id > currentStep ? 'bg-gray-200 text-muted-foreground' : ''}
                   \${clickable && step.id < currentStep ? 'cursor-pointer' : ''}
                 \`}
                 onClick={() => handleStepClick(step.id)}
@@ -176,13 +176,13 @@ export const Stepper: React.FC<StepperProps> = ({
                 {step.id < currentStep ? <Check size={20} /> : step.id}
               </div>
               {index < steps.length - 1 && (
-                <div className={\`w-1 flex-1 mt-2 \${step.id < currentStep ? 'bg-[#138808]' : 'bg-gray-200'}\`} />
+                <div className={\`w-1 flex-1 mt-2 \${step.id < currentStep ? 'bg-green-700' : 'bg-gray-200'}\`} />
               )}
             </div>
             <div className="flex-1 pb-8">
-              <p className="font-semibold text-gray-900">{step.label}</p>
+              <p className="font-semibold text-foreground">{step.label}</p>
               {step.description && (
-                <p className="text-sm text-gray-600 mt-1">{step.description}</p>
+                <p className="text-sm text-muted-foreground mt-1">{step.description}</p>
               )}
             </div>
           </div>
@@ -199,16 +199,16 @@ export const Stepper: React.FC<StepperProps> = ({
             <div
               className={\`
                 w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-colors
-                \${step.id < currentStep ? 'bg-[#138808] text-white' : ''}
+                \${step.id < currentStep ? 'bg-green-700 text-white' : ''}
                 \${step.id === currentStep ? 'bg-[#005196] text-white' : ''}
-                \${step.id > currentStep ? 'bg-gray-200 text-gray-600' : ''}
+                \${step.id > currentStep ? 'bg-gray-200 text-muted-foreground' : ''}
                 \${clickable && step.id < currentStep ? 'cursor-pointer hover:opacity-80' : ''}
               \`}
               onClick={() => handleStepClick(step.id)}
             >
               {step.id < currentStep ? <Check size={20} /> : step.id}
             </div>
-            <span className="mt-2 text-sm font-medium text-gray-700 text-center">
+            <span className="mt-2 text-sm font-medium text-muted-foreground text-center">
               {step.label}
             </span>
             {step.description && (
@@ -221,7 +221,7 @@ export const Stepper: React.FC<StepperProps> = ({
           {index < steps.length - 1 && (
             <div
               className={\`flex-1 h-1 mx-4 transition-colors \${
-                step.id < currentStep ? 'bg-[#138808]' : 'bg-gray-200'
+                step.id < currentStep ? 'bg-green-700' : 'bg-gray-200'
               }\`}
             />
           )}
@@ -264,7 +264,7 @@ interface Step {
             <span *ngIf="step.id >= currentStep">{{ step.id }}</span>
             <span *ngIf="step.id < currentStep">✓</span>
           </div>
-          <span class="mt-2 text-sm font-medium text-gray-700">{{ step.label }}</span>
+          <span class="mt-2 text-sm font-medium text-muted-foreground">{{ step.label }}</span>
         </div>
         
         <div *ngIf="i < steps.length - 1"
@@ -289,7 +289,7 @@ export class StepperComponent {
     } else if (step.id === this.currentStep) {
       classes += ' bg-blue-600 text-white';
     } else {
-      classes += ' bg-gray-200 text-gray-600';
+      classes += ' bg-gray-200 text-muted-foreground';
     }
     
     return classes;

@@ -3,12 +3,12 @@ import { MessageSquare, Headphones, AlertCircle, Phone, FileText, ThumbsUp, User
 
 export default function ContactSupportPatterns() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-gradient-to-br from-orange-50 via-white to-green-50 border-b-4 border-[#FF9933]">
         <div className="max-w-[1400px] mx-auto px-12 py-16">
           <div className="mb-6">
-            <Link to="/pattern-library" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/pattern-library" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Pattern Library
             </Link>
           </div>
@@ -19,11 +19,11 @@ export default function ContactSupportPatterns() {
                   <MessageSquare size={40} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#000080] mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-gray-900">Contact & Support Patterns</h1>
+                  <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
+                  <h1 className="text-5xl font-bold text-foreground">Contact & Support Patterns</h1>
                 </div>
               </div>
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
                 A comprehensive system of reusable patterns for citizen-government communication across 
                 general inquiries, service requests, grievances, escalations, and urgent support needs. 
                 Designed for accessibility, multi-channel routing, and structured case management.
@@ -31,15 +31,15 @@ export default function ContactSupportPatterns() {
               <div className="flex items-center gap-8 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-[#FF9933] rounded-full"></div>
-                  <span className="text-gray-700">Pattern Family: <span className="font-bold text-gray-900">Communication</span></span>
+                  <span className="text-muted-foreground">Pattern Family: <span className="font-bold text-foreground">Communication</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-[#138808] rounded-full"></div>
-                  <span className="text-gray-700">Patterns: <span className="font-bold text-gray-900">8 Interactive Flows</span></span>
+                  <div className="w-3 h-3 bg-green-700 rounded-full"></div>
+                  <span className="text-muted-foreground">Patterns: <span className="font-bold text-foreground">8 Interactive Flows</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-[#000080] rounded-full"></div>
-                  <span className="text-gray-700">Complexity: <span className="font-bold text-gray-900">Medium to High</span></span>
+                  <div className="w-3 h-3 bg-primary rounded-full"></div>
+                  <span className="text-muted-foreground">Complexity: <span className="font-bold text-foreground">Medium to High</span></span>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function ContactSupportPatterns() {
               <div className="px-8 py-4 bg-[#FF9933] text-white rounded-lg font-bold text-center shadow-lg">
                 GOVERNMENT GRADE
               </div>
-              <div className="px-8 py-4 bg-white border-2 border-[#138808] text-[#138808] rounded-lg font-bold text-center">
+              <div className="px-8 py-4 bg-card border-2 border-[#138808] text-[#138808] rounded-lg font-bold text-center">
                 ACCESSIBLE
               </div>
             </div>
@@ -56,19 +56,19 @@ export default function ContactSupportPatterns() {
       </header>
 
       {/* Quick Access */}
-      <div className="bg-white border-b-2 border-gray-300">
+      <div className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <span className="font-bold text-gray-900">Quick Access:</span>
-              <Link to="/patterns/contact-support/overview" className="text-[#000080] hover:underline text-sm font-medium">
+              <span className="font-bold text-foreground">Quick Access:</span>
+              <Link to="/patterns/contact-support/overview" className="text-primary hover:underline text-sm font-medium">
                 Pattern Overview
               </Link>
-              <Link to="#all-patterns" className="text-[#000080] hover:underline text-sm font-medium">
+              <Link to="#all-patterns" className="text-primary hover:underline text-sm font-medium">
                 View All Patterns
               </Link>
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-muted-foreground">
               Last updated: April 2026
             </div>
           </div>
@@ -80,25 +80,25 @@ export default function ContactSupportPatterns() {
         
         {/* System Overview */}
         <section className="mb-16">
-          <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-gray-300 rounded-lg p-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">System Overview</h2>
+          <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-border rounded-lg p-10">
+            <h2 className="text-3xl font-bold text-foreground mb-6">System Overview</h2>
             <div className="grid grid-cols-3 gap-8">
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
                   Purpose
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   Provide citizens with structured, accessible channels to contact government 
                   departments for inquiries, support requests, grievances, and urgent assistance.
                 </p>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
                   Key Features
                 </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
+                <ul className="text-sm text-muted-foreground space-y-1">
                   <li>• Intent-based routing</li>
                   <li>• Priority escalation paths</li>
                   <li>• Multi-language support</li>
@@ -106,11 +106,11 @@ export default function ContactSupportPatterns() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
                   Compliance
                 </h3>
-                <ul className="text-sm text-gray-700 space-y-1">
+                <ul className="text-sm text-muted-foreground space-y-1">
                   <li>• WCAG 2.1 Level AA</li>
                   <li>• Right to Information Act</li>
                   <li>• Digital India guidelines</li>
@@ -123,15 +123,15 @@ export default function ContactSupportPatterns() {
 
         {/* Pattern Categories */}
         <section className="mb-16" id="all-patterns">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-[#FF9933] pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-[#FF9933] pl-4">
             Pattern Categories
           </h2>
 
           {/* Standard Contact Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <MessageSquare size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Standard Contact Patterns</h3>
+              <MessageSquare size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Standard Contact Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -158,8 +158,8 @@ export default function ContactSupportPatterns() {
           {/* Service & Support Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <Headphones size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Service & Support Patterns</h3>
+              <Headphones size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Service & Support Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -186,8 +186,8 @@ export default function ContactSupportPatterns() {
           {/* Escalation & Priority Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <AlertCircle size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Escalation & Priority Patterns</h3>
+              <AlertCircle size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Escalation & Priority Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -214,8 +214,8 @@ export default function ContactSupportPatterns() {
           {/* Hybrid & Assisted Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <Users size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Hybrid & Assisted Patterns</h3>
+              <Users size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Hybrid & Assisted Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -242,7 +242,7 @@ export default function ContactSupportPatterns() {
 
         {/* Implementation Guidelines */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-[#138808] pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-[#138808] pl-4">
             Implementation Guidelines
           </h2>
           <div className="grid grid-cols-3 gap-6">
@@ -281,28 +281,28 @@ export default function ContactSupportPatterns() {
 
         {/* Related Resources */}
         <section>
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-[#000080] pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-primary pl-4">
             Related Resources
           </h2>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+          <div className="bg-card border-2 border-border rounded-lg p-8">
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">Related Pattern Families</h3>
+                <h3 className="font-bold text-foreground mb-4">Related Pattern Families</h3>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link to="/patterns/forms" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/patterns/forms" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Form Intelligence System</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/patterns/service" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/patterns/service" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Service Pattern Libraries</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/patterns/resilience" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/patterns/resilience" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>State Resilience System</span>
                     </Link>
@@ -310,22 +310,22 @@ export default function ContactSupportPatterns() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">Design System Components</h3>
+                <h3 className="font-bold text-foreground mb-4">Design System Components</h3>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link to="/components/forms" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/components/forms" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Form Components</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/components/validation" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/components/validation" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Validation & Error Handling</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/components/feedback" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/components/feedback" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Feedback Messages</span>
                     </Link>
@@ -354,38 +354,38 @@ function PatternCard({ title, description, icon, link, complexity, timeToComplet
 }) {
   return (
     <Link to={link} className="block group">
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-6 h-full transition-all hover:border-[#000080] hover:shadow-lg">
+      <div className="bg-card border-2 border-border rounded-lg p-6 h-full transition-all hover:border-primary hover:shadow-lg">
         <div className="flex items-start gap-4 mb-4">
-          <div className="p-3 bg-gray-50 border-2 border-gray-200 rounded-lg group-hover:border-[#000080] transition-colors">
+          <div className="p-3 bg-background border-2 border-border rounded-lg group-hover:border-primary transition-colors">
             {icon}
           </div>
           <div className="flex-1">
-            <h4 className="font-bold text-gray-900 mb-2 group-hover:text-[#000080] transition-colors">
+            <h4 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
               {title}
             </h4>
-            <div className="flex items-center gap-4 text-xs text-gray-600 mb-3">
-              <span className="px-2 py-1 bg-gray-100 rounded">
+            <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
+              <span className="px-2 py-1 bg-muted rounded">
                 {complexity} Complexity
               </span>
               <span>{timeToComplete}</span>
             </div>
           </div>
         </div>
-        <p className="text-sm text-gray-700 mb-4">
+        <p className="text-sm text-muted-foreground mb-4">
           {description}
         </p>
         <div className="mb-4">
-          <div className="text-xs font-bold text-gray-600 mb-2">Common Use Cases:</div>
+          <div className="text-xs font-bold text-muted-foreground mb-2">Common Use Cases:</div>
           <ul className="space-y-1">
             {useCases.map((useCase, i) => (
-              <li key={i} className="text-xs text-gray-600 flex items-start gap-1">
+              <li key={i} className="text-xs text-muted-foreground flex items-start gap-1">
                 <span className="text-[#138808]">•</span>
                 <span>{useCase}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="flex items-center gap-2 text-[#000080] text-sm font-medium group-hover:gap-3 transition-all">
+        <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
           <span>View Pattern</span>
           <ArrowRight size={16} />
         </div>
@@ -399,11 +399,11 @@ function GuidelineCard({ title, points }: {
   points: string[];
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
+    <div className="bg-card border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <ul className="space-y-2">
         {points.map((point, i) => (
-          <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
             <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{point}</span>
           </li>

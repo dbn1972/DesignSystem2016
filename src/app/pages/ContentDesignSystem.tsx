@@ -14,31 +14,31 @@ import {
 
 export default function ContentDesignSystem() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link to="/patterns" className="hover:text-[#000080]">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+            <Link to="/patterns" className="hover:text-primary">
               Patterns
             </Link>
             <ChevronRight size={16} />
-            <span className="text-gray-900 font-medium">Content Design System</span>
+            <span className="text-foreground font-medium">Content Design System</span>
           </div>
 
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <MessageSquare size={32} className="text-[#000080]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-blue-100 border-2 border-border rounded flex items-center justify-center">
+                  <MessageSquare size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Core System</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Content Design System</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Core System</div>
+                  <h1 className="text-3xl font-bold text-foreground">Content Design System</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Standardized content library for government digital services. Consistent labels, helper text, 
                 error messages, and consent language across all user journeys. Write once, use everywhere—ensuring 
                 clarity, accessibility, and plain language for all citizens.
@@ -46,15 +46,15 @@ export default function ContentDesignSystem() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">System ID: <span className="font-bold text-gray-900">UX4G-SYS-CONTENT-001</span></span>
+                  <span className="text-muted-foreground">System ID: <span className="font-bold text-foreground">UX4G-SYS-CONTENT-001</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">2.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">2.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function ContentDesignSystem() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -88,7 +88,7 @@ export default function ContentDesignSystem() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -125,9 +125,9 @@ export default function ContentDesignSystem() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Content Design System</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -142,41 +142,41 @@ export default function ContentDesignSystem() {
 function OverviewSection() {
   return (
     <section id="overview" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">System Overview</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">System Overview</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-gray-300 rounded-lg p-8">
-        <h3 className="font-bold text-gray-900 mb-4 text-lg">Why Content Design Matters</h3>
-        <p className="text-gray-700 mb-4">
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-8">
+        <h3 className="font-bold text-foreground mb-4 text-lg">Why Content Design Matters</h3>
+        <p className="text-muted-foreground mb-4">
           Inconsistent labels, confusing error messages, and unclear helper text create friction for users. 
           The Content Design System provides a single source of truth for all text across government services—
           ensuring every citizen gets the same clear, helpful guidance regardless of which service they use.
         </p>
         <div className="grid grid-cols-3 gap-4">
-          <div className="bg-white border border-gray-300 rounded p-4">
+          <div className="bg-card border border-border rounded p-4">
             <Languages size={24} className="text-green-600 mb-2" />
-            <p className="font-bold text-gray-900 mb-1">Plain Language</p>
-            <p className="text-sm text-gray-700">Simple words everyone understands</p>
+            <p className="font-bold text-foreground mb-1">Plain Language</p>
+            <p className="text-sm text-muted-foreground">Simple words everyone understands</p>
           </div>
-          <div className="bg-white border border-gray-300 rounded p-4">
+          <div className="bg-card border border-border rounded p-4">
             <CheckCircle size={24} className="text-blue-600 mb-2" />
-            <p className="font-bold text-gray-900 mb-1">Consistency</p>
-            <p className="text-sm text-gray-700">Same labels across all services</p>
+            <p className="font-bold text-foreground mb-1">Consistency</p>
+            <p className="text-sm text-muted-foreground">Same labels across all services</p>
           </div>
-          <div className="bg-white border border-gray-300 rounded p-4">
+          <div className="bg-card border border-border rounded p-4">
             <Shield size={24} className="text-purple-600 mb-2" />
-            <p className="font-bold text-gray-900 mb-1">Accessibility</p>
-            <p className="text-sm text-gray-700">Works for all citizens and assistive tech</p>
+            <p className="font-bold text-foreground mb-1">Accessibility</p>
+            <p className="text-sm text-muted-foreground">Works for all citizens and assistive tech</p>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* What's Included */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">What's Included</h3>
+            <h3 className="font-bold text-foreground">What's Included</h3>
           </div>
           <div className="p-6 space-y-2 text-sm">
             <ContentItem count={50} text="Standardized field labels" />
@@ -191,9 +191,9 @@ function OverviewSection() {
         </div>
 
         {/* Benefits */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Benefits</h3>
+            <h3 className="font-bold text-foreground">Benefits</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <BenefitItem 
@@ -224,8 +224,8 @@ function OverviewSection() {
 function PrinciplesSection() {
   return (
     <section id="principles" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Content Design Principles</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Content Design Principles</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
@@ -299,18 +299,18 @@ function PrinciplesSection() {
 function LabelsSection() {
   return (
     <section id="labels" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Standardized Field Labels</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Standardized Field Labels</h2>
       </div>
 
       <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Label Writing Rules
         </h3>
-        <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
+        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
-            <p className="font-bold text-gray-900 mb-2">✅ DO:</p>
+            <p className="font-bold text-foreground mb-2">✅ DO:</p>
             <ul className="ml-4 space-y-1">
               <li>• Use sentence case (not Title Case)</li>
               <li>• Be concise (1-4 words ideal)</li>
@@ -320,7 +320,7 @@ function LabelsSection() {
             </ul>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-2">❌ DON'T:</p>
+            <p className="font-bold text-foreground mb-2">❌ DON'T:</p>
             <ul className="ml-4 space-y-1">
               <li>• Use colons after labels</li>
               <li>• Use abbreviations (except widely known ones)</li>
@@ -365,9 +365,9 @@ function LabelsSection() {
         />
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Usage in Code</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Usage in Code</h3>
         </div>
         <div className="p-6">
           <pre className="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto">
@@ -395,13 +395,13 @@ function LabelsSection() {
 function HelperTextSection() {
   return (
     <section id="helper-text" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Helper Text Patterns</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Helper Text Patterns</h2>
       </div>
 
       <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">When to Use Helper Text</h3>
-        <div className="grid grid-cols-2 gap-6 text-sm text-gray-700">
+        <h3 className="font-bold text-foreground mb-3">When to Use Helper Text</h3>
+        <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
           <div>
             <p className="font-bold text-green-600 mb-2">✅ Use helper text when:</p>
             <ul className="ml-4 space-y-1">
@@ -458,21 +458,21 @@ function HelperTextSection() {
 function ErrorMessagesSection() {
   return (
     <section id="errors" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Error Message Standards</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Error Message Standards</h2>
       </div>
 
       <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">Error Message Formula</h3>
-        <div className="bg-white border border-red-200 rounded p-4 mb-4">
-          <p className="font-bold text-gray-900 text-center text-lg">
+        <h3 className="font-bold text-foreground mb-3">Error Message Formula</h3>
+        <div className="bg-card border border-red-200 rounded p-4 mb-4">
+          <p className="font-bold text-foreground text-center text-lg">
             [Problem] + [What to do about it]
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
             <p className="font-bold text-red-600 mb-2">❌ Bad Error Messages:</p>
-            <ul className="ml-4 space-y-1 text-gray-700">
+            <ul className="ml-4 space-y-1 text-muted-foreground">
               <li>• "Error"</li>
               <li>• "Invalid input"</li>
               <li>• "Validation failed"</li>
@@ -482,7 +482,7 @@ function ErrorMessagesSection() {
           </div>
           <div>
             <p className="font-bold text-green-600 mb-2">✅ Good Error Messages:</p>
-            <ul className="ml-4 space-y-1 text-gray-700">
+            <ul className="ml-4 space-y-1 text-muted-foreground">
               <li>• "Email is required. Please enter your email address."</li>
               <li>• "Enter a valid 10-digit mobile number"</li>
               <li>• "Password must be at least 8 characters"</li>
@@ -529,9 +529,9 @@ function ErrorMessagesSection() {
         />
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Usage in Code</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Usage in Code</h3>
         </div>
         <div className="p-6">
           <pre className="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto">
@@ -574,15 +574,15 @@ if (password.length < 8) {
 function SuccessMessagesSection() {
   return (
     <section id="success" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Success Message Patterns</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Success Message Patterns</h2>
       </div>
 
       <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">Success Message Guidelines</h3>
-        <div className="grid grid-cols-2 gap-6 text-sm text-gray-700">
+        <h3 className="font-bold text-foreground mb-3">Success Message Guidelines</h3>
+        <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
           <div>
-            <p className="font-bold text-gray-900 mb-2">Structure:</p>
+            <p className="font-bold text-foreground mb-2">Structure:</p>
             <ul className="ml-4 space-y-1">
               <li>• Confirm what happened</li>
               <li>• Provide reference number if applicable</li>
@@ -591,7 +591,7 @@ function SuccessMessagesSection() {
             </ul>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-2">Tone:</p>
+            <p className="font-bold text-foreground mb-2">Tone:</p>
             <ul className="ml-4 space-y-1">
               <li>• Be congratulatory but professional</li>
               <li>• Use active voice</li>
@@ -647,20 +647,20 @@ function SuccessMessagesSection() {
 function ConsentLanguageSection() {
   return (
     <section id="consent" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Consent & Legal Language</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Consent & Legal Language</h2>
       </div>
 
       <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">Legal Language Requirements</h3>
-        <p className="text-sm text-gray-700 mb-4">
+        <h3 className="font-bold text-foreground mb-3">Legal Language Requirements</h3>
+        <p className="text-sm text-muted-foreground mb-4">
           Consent language must be legally sound while remaining understandable. All templates 
           reviewed by legal and plain language experts. Use standard templates unless you have 
           specific legal requirements.
         </p>
-        <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
+        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
-            <p className="font-bold text-gray-900 mb-2">✅ Must include:</p>
+            <p className="font-bold text-foreground mb-2">✅ Must include:</p>
             <ul className="ml-4 space-y-1">
               <li>• What data is collected</li>
               <li>• Why it's collected</li>
@@ -670,7 +670,7 @@ function ConsentLanguageSection() {
             </ul>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-2">❌ Avoid:</p>
+            <p className="font-bold text-foreground mb-2">❌ Avoid:</p>
             <ul className="ml-4 space-y-1">
               <li>• Legal jargon and Latin phrases</li>
               <li>• Excessively long sentences</li>
@@ -718,50 +718,50 @@ function ConsentLanguageSection() {
 function UsageGuideSection() {
   return (
     <section id="usage" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Usage Guide</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Usage Guide</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-gray-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">How to Use the Content Library</h3>
-        <div className="space-y-4 text-sm text-gray-700">
+      <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-border rounded-lg p-6">
+        <h3 className="font-bold text-foreground mb-3">How to Use the Content Library</h3>
+        <div className="space-y-4 text-sm text-muted-foreground">
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+            <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
               1
             </div>
             <div>
-              <p className="font-bold text-gray-900 mb-1">Import the content library</p>
-              <code className="bg-gray-100 px-2 py-1 rounded text-xs">
+              <p className="font-bold text-foreground mb-1">Import the content library</p>
+              <code className="bg-muted px-2 py-1 rounded text-xs">
                 import &#123; LABELS, ERROR_MESSAGES &#125; from '../content/content-library';
               </code>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+            <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
               2
             </div>
             <div>
-              <p className="font-bold text-gray-900 mb-1">Use constants instead of hardcoded strings</p>
-              <code className="bg-gray-100 px-2 py-1 rounded text-xs">
+              <p className="font-bold text-foreground mb-1">Use constants instead of hardcoded strings</p>
+              <code className="bg-muted px-2 py-1 rounded text-xs">
                 &lt;label&gt;&#123;LABELS.mobileNumber&#125;&lt;/label&gt;
               </code>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+            <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
               3
             </div>
             <div>
-              <p className="font-bold text-gray-900 mb-1">Apply consistently across all pages</p>
-              <p className="text-gray-700">Use the same labels for the same fields everywhere</p>
+              <p className="font-bold text-foreground mb-1">Apply consistently across all pages</p>
+              <p className="text-muted-foreground">Use the same labels for the same fields everywhere</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Complete Form Example</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Complete Form Example</h3>
         </div>
         <div className="p-6">
           <pre className="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto">
@@ -832,20 +832,20 @@ function ContactForm() {
 
 function ContentLibrary() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Content Library</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Content Library</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
         <div>
-          <p className="font-bold text-gray-900 mb-1">Location</p>
-          <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded">
+          <p className="font-bold text-foreground mb-1">Location</p>
+          <code className="text-muted-foreground bg-muted px-2 py-1 rounded">
             /src/app/content/<br/>content-library.ts
           </code>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Import</p>
-          <code className="text-gray-700 bg-gray-100 px-2 py-1 rounded text-xs">
+          <p className="font-bold text-foreground mb-1">Import</p>
+          <code className="text-muted-foreground bg-muted px-2 py-1 rounded text-xs">
             import &#123; LABELS &#125;<br/>from '../content/<br/>content-library'
           </code>
         </div>
@@ -856,26 +856,26 @@ function ContentLibrary() {
 
 function QuickReference() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
         <div>
-          <p className="font-bold text-gray-900 mb-1">Total Labels</p>
-          <p className="text-gray-700">50+ standardized</p>
+          <p className="font-bold text-foreground mb-1">Total Labels</p>
+          <p className="text-muted-foreground">50+ standardized</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Error Messages</p>
-          <p className="text-gray-700">40+ templates</p>
+          <p className="font-bold text-foreground mb-1">Error Messages</p>
+          <p className="text-muted-foreground">40+ templates</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Consent Templates</p>
-          <p className="text-gray-700">15+ legal-approved</p>
+          <p className="font-bold text-foreground mb-1">Consent Templates</p>
+          <p className="text-muted-foreground">15+ legal-approved</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Language Level</p>
-          <p className="text-gray-700">Class 8-10 reading</p>
+          <p className="font-bold text-foreground mb-1">Language Level</p>
+          <p className="text-muted-foreground">Class 8-10 reading</p>
         </div>
       </div>
     </div>
@@ -884,9 +884,9 @@ function QuickReference() {
 
 function AppliedExamples() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Applied To</h3>
+        <h3 className="font-bold text-foreground text-sm">Applied To</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <AppliedLink to="/certificate-form-personal" text="Certificate Form" />
@@ -900,9 +900,9 @@ function AppliedExamples() {
 
 function Resources() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Resources</h3>
+        <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <ResourceLink text="Plain Language Guidelines" />
@@ -919,8 +919,8 @@ function Resources() {
 function ContentItem({ count, text }: { count: number; text: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-700">{text}</span>
-      <span className="font-bold text-[#000080]">{count}+</span>
+      <span className="text-muted-foreground">{text}</span>
+      <span className="font-bold text-primary">{count}+</span>
     </div>
   );
 }
@@ -928,8 +928,8 @@ function ContentItem({ count, text }: { count: number; text: string }) {
 function BenefitItem({ title, description }: { title: string; description: string }) {
   return (
     <div>
-      <p className="font-bold text-gray-900 mb-1">{title}</p>
-      <p className="text-gray-700">{description}</p>
+      <p className="font-bold text-foreground mb-1">{title}</p>
+      <p className="text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -941,23 +941,23 @@ function PrincipleCard({ number, title, description, examples }: {
   examples: string[];
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-green-50 to-blue-50 border-b-2 border-gray-300 px-6 py-4">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-r from-green-50 to-blue-50 border-b-2 border-border px-6 py-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold">
+          <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
             {number}
           </div>
-          <h3 className="font-bold text-gray-900">{title}</h3>
+          <h3 className="font-bold text-foreground">{title}</h3>
         </div>
       </div>
       <div className="p-6">
-        <p className="text-sm text-gray-700 mb-4">{description}</p>
-        <div className="bg-gray-50 border border-gray-300 rounded p-3">
-          <p className="text-xs font-bold text-gray-900 mb-2">Examples:</p>
-          <ul className="space-y-1 text-xs text-gray-700">
+        <p className="text-sm text-muted-foreground mb-4">{description}</p>
+        <div className="bg-background border border-border rounded p-3">
+          <p className="text-xs font-bold text-foreground mb-2">Examples:</p>
+          <ul className="space-y-1 text-xs text-muted-foreground">
             {examples.map((ex, i) => (
               <li key={i} className="flex items-start gap-2">
-                <span className="text-[#000080] flex-shrink-0">•</span>
+                <span className="text-primary flex-shrink-0">•</span>
                 <span>{ex}</span>
               </li>
             ))}
@@ -973,23 +973,23 @@ function LabelCategory({ title, labels }: {
   labels: Array<{ standard: string; example: string }>;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
-        <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
+        <h4 className="font-bold text-foreground text-sm">{title}</h4>
       </div>
       <div className="p-4">
         <table className="w-full text-xs">
           <thead>
-            <tr className="border-b border-gray-300">
-              <th className="text-left py-2 font-bold text-gray-900">Label</th>
-              <th className="text-left py-2 font-bold text-gray-900">Example</th>
+            <tr className="border-b border-border">
+              <th className="text-left py-2 font-bold text-foreground">Label</th>
+              <th className="text-left py-2 font-bold text-foreground">Example</th>
             </tr>
           </thead>
           <tbody>
             {labels.map((label, i) => (
-              <tr key={i} className="border-b border-gray-200">
-                <td className="py-2 font-medium text-gray-900">{label.standard}</td>
-                <td className="py-2 text-gray-600">{label.example}</td>
+              <tr key={i} className="border-b border-border">
+                <td className="py-2 font-medium text-foreground">{label.standard}</td>
+                <td className="py-2 text-muted-foreground">{label.example}</td>
               </tr>
             ))}
           </tbody>
@@ -1006,22 +1006,22 @@ function HelperTextExample({ field, helper, placeholder, explanation }: {
   explanation: string;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h4 className="font-bold text-gray-900 text-sm">{field}</h4>
+        <h4 className="font-bold text-foreground text-sm">{field}</h4>
       </div>
       <div className="p-4">
         <div className="mb-3">
           <input 
             type="text" 
             placeholder={placeholder}
-            className="w-full px-3 py-2 border-2 border-gray-300 rounded text-sm"
+            className="w-full px-3 py-2 border-2 border-border rounded text-sm"
             readOnly
           />
-          <p className="text-xs text-gray-600 mt-1">{helper}</p>
+          <p className="text-xs text-muted-foreground mt-1">{helper}</p>
         </div>
-        <div className="bg-gray-50 border border-gray-300 rounded p-2 text-xs text-gray-700">
-          <p className="font-bold text-gray-900 mb-1">Why:</p>
+        <div className="bg-background border border-border rounded p-2 text-xs text-muted-foreground">
+          <p className="font-bold text-foreground mb-1">Why:</p>
           <p>{explanation}</p>
         </div>
       </div>
@@ -1034,9 +1034,9 @@ function ErrorMessageCategory({ title, examples }: {
   examples: Array<{ wrong: string; right: string }>;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
         <div className="space-y-3">
@@ -1044,11 +1044,11 @@ function ErrorMessageCategory({ title, examples }: {
             <div key={i} className="grid grid-cols-2 gap-4 text-sm">
               <div className="bg-red-50 border border-red-200 rounded p-3">
                 <p className="font-bold text-red-600 mb-1 text-xs">❌ Wrong:</p>
-                <p className="text-gray-700">{ex.wrong}</p>
+                <p className="text-muted-foreground">{ex.wrong}</p>
               </div>
               <div className="bg-green-50 border border-green-200 rounded p-3">
                 <p className="font-bold text-green-600 mb-1 text-xs">✅ Right:</p>
-                <p className="text-gray-700">{ex.right}</p>
+                <p className="text-muted-foreground">{ex.right}</p>
               </div>
             </div>
           ))}
@@ -1064,17 +1064,17 @@ function SuccessMessageExample({ category, message, nextSteps }: {
   nextSteps: string[];
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h4 className="font-bold text-gray-900 text-sm">{category}</h4>
+        <h4 className="font-bold text-foreground text-sm">{category}</h4>
       </div>
       <div className="p-4">
         <div className="bg-green-50 border-2 border-green-300 rounded p-4 mb-3">
           <div className="flex items-start gap-2">
             <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-gray-900 mb-2">{message}</p>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <p className="font-bold text-foreground mb-2">{message}</p>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 {nextSteps.map((step, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-green-600">•</span>
@@ -1096,24 +1096,24 @@ function ConsentTemplate({ type, short, full }: {
   full: string;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
-        <h3 className="font-bold text-gray-900">{type}</h3>
+        <h3 className="font-bold text-foreground">{type}</h3>
       </div>
       <div className="p-6">
         <div className="space-y-4">
           <div>
-            <p className="text-xs font-bold text-gray-900 mb-2">Short version (checkbox):</p>
+            <p className="text-xs font-bold text-foreground mb-2">Short version (checkbox):</p>
             <div className="bg-purple-50 border border-purple-200 rounded p-3">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input type="checkbox" className="mt-1" />
-                <span className="text-sm text-gray-900">{short}</span>
+                <span className="text-sm text-foreground">{short}</span>
               </label>
             </div>
           </div>
           <div>
-            <p className="text-xs font-bold text-gray-900 mb-2">Full version (expanded):</p>
-            <div className="bg-gray-50 border border-gray-300 rounded p-4 text-sm text-gray-700 leading-relaxed">
+            <p className="text-xs font-bold text-foreground mb-2">Full version (expanded):</p>
+            <div className="bg-background border border-border rounded p-4 text-sm text-muted-foreground leading-relaxed">
               {full}
             </div>
           </div>
@@ -1125,17 +1125,17 @@ function ConsentTemplate({ type, short, full }: {
 
 function AppliedLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="flex items-center gap-2 p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
-      <Eye size={12} className="text-[#000080]" />
-      <span className="text-gray-900">{text}</span>
+    <Link to={to} className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+      <Eye size={12} className="text-primary" />
+      <span className="text-foreground">{text}</span>
     </Link>
   );
 }
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-gray-900">
-      <ArrowRight size={12} className="text-[#000080]" />
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+      <ArrowRight size={12} className="text-primary" />
       <span>{text}</span>
     </a>
   );

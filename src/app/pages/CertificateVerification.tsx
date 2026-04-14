@@ -29,16 +29,16 @@ export default function CertificateVerification() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b-2 border-gray-300">
+    <div className="min-h-screen bg-background">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-6">
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-teal-600 rounded flex items-center justify-center">
               <Search size={28} className="text-white" />
             </div>
             <div>
-              <div className="text-sm text-gray-600">Public Service</div>
-              <h1 className="text-2xl font-bold text-gray-900">Verify Certificate Authenticity</h1>
+              <div className="text-sm text-muted-foreground">Public Service</div>
+              <h1 className="text-2xl font-bold text-foreground">Verify Certificate Authenticity</h1>
             </div>
           </div>
         </div>
@@ -49,20 +49,20 @@ export default function CertificateVerification() {
           
           {/* Info Banner */}
           <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8">
-            <h2 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-              <Info size={20} className="text-[#000080]" />
+            <h2 className="font-bold text-foreground mb-3 flex items-center gap-2">
+              <Info size={20} className="text-primary" />
               Certificate Verification
             </h2>
-            <p className="text-sm text-gray-700 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               This service allows anyone to verify the authenticity of certificates issued by government departments. 
               Enter the certificate number or scan the QR code on the certificate to check its validity.
             </p>
           </div>
 
           {/* Verification Methods */}
-          <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden mb-6">
-            <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-              <h2 className="font-bold text-gray-900">Choose Verification Method</h2>
+          <div className="bg-card border-2 border-border rounded-lg overflow-hidden mb-6">
+            <div className="bg-muted border-b-2 border-border px-8 py-4">
+              <h2 className="font-bold text-foreground">Choose Verification Method</h2>
             </div>
             <div className="p-8">
               
@@ -73,8 +73,8 @@ export default function CertificateVerification() {
                   <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
                     <Search size={24} className="text-white" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Enter Certificate Number</h3>
-                  <p className="text-sm text-gray-700">
+                  <h3 className="font-bold text-foreground mb-2">Enter Certificate Number</h3>
+                  <p className="text-sm text-muted-foreground">
                     Type the certificate number found on the certificate document
                   </p>
                 </div>
@@ -84,8 +84,8 @@ export default function CertificateVerification() {
                   <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
                     <QrCode size={24} className="text-white" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Scan QR Code</h3>
-                  <p className="text-sm text-gray-700 mb-3">
+                  <h3 className="font-bold text-foreground mb-2">Scan QR Code</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
                     Use your mobile device to scan the QR code
                   </p>
                   <button className="text-sm text-purple-700 font-bold hover:underline">
@@ -98,7 +98,7 @@ export default function CertificateVerification() {
               {/* Input Form */}
               <form onSubmit={handleVerify}>
                 <div className="mb-6">
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-sm font-bold text-foreground mb-2">
                     Certificate Number <span className="text-red-600">*</span>
                   </label>
                   <div className="flex gap-3">
@@ -110,17 +110,17 @@ export default function CertificateVerification() {
                         setVerificationResult(null);
                       }}
                       placeholder="e.g., INC/2026/MH/876543"
-                      className="flex-1 px-4 py-3 border-2 border-gray-300 rounded text-sm font-mono focus:outline-none focus:border-[#000080]"
+                      className="flex-1 px-4 py-3 border-2 border-border rounded text-sm font-mono focus:outline-none focus:border-primary"
                     />
                     <button
                       type="submit"
-                      className="px-8 py-3 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 flex items-center gap-2"
+                      className="px-8 py-3 bg-primary text-white font-bold rounded text-sm hover:opacity-90 flex items-center gap-2"
                     >
                       <Search size={18} />
                       Verify
                     </button>
                   </div>
-                  <p className="mt-2 text-xs text-gray-600">
+                  <p className="mt-2 text-xs text-muted-foreground">
                     For testing: Use certificate number INC/2026/MH/876543
                   </p>
                 </div>
@@ -136,8 +136,8 @@ export default function CertificateVerification() {
                 <div className="w-20 h-20 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <CheckCircle size={40} className="text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Certificate is Valid</h3>
-                <p className="text-sm text-gray-700">
+                <h3 className="text-2xl font-bold text-foreground mb-2">Certificate is Valid</h3>
+                <p className="text-sm text-muted-foreground">
                   This certificate has been verified and is authentic
                 </p>
               </div>
@@ -151,8 +151,8 @@ export default function CertificateVerification() {
                   <VerifyField label="Status" value={validCertificate.status} highlighted />
                 </div>
                 <div className="mt-6 pt-6 border-t-2 border-green-300">
-                  <div className="text-xs text-gray-600 mb-1">Issuing Authority</div>
-                  <div className="text-sm font-bold text-gray-900">{validCertificate.issuingAuthority}</div>
+                  <div className="text-xs text-muted-foreground mb-1">Issuing Authority</div>
+                  <div className="text-sm font-bold text-foreground">{validCertificate.issuingAuthority}</div>
                 </div>
               </div>
             </div>
@@ -164,14 +164,14 @@ export default function CertificateVerification() {
                 <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <XCircle size={40} className="text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Certificate Not Found</h3>
-                <p className="text-sm text-gray-700">
+                <h3 className="text-2xl font-bold text-foreground mb-2">Certificate Not Found</h3>
+                <p className="text-sm text-muted-foreground">
                   The certificate number you entered could not be verified
                 </p>
               </div>
               <div className="p-8">
-                <h4 className="font-bold text-gray-900 mb-3">Possible Reasons:</h4>
-                <ul className="space-y-2 text-sm text-gray-700 mb-6">
+                <h4 className="font-bold text-foreground mb-3">Possible Reasons:</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground mb-6">
                   <li className="flex items-start gap-2">
                     <span className="text-red-600">•</span>
                     <span>Certificate number was entered incorrectly</span>
@@ -190,8 +190,8 @@ export default function CertificateVerification() {
                   </li>
                 </ul>
                 <div className="bg-orange-50 border-2 border-orange-300 rounded p-4">
-                  <p className="text-sm text-gray-700">
-                    <span className="font-bold text-gray-900">Important:</span> If you suspect a certificate is fraudulent, 
+                  <p className="text-sm text-muted-foreground">
+                    <span className="font-bold text-foreground">Important:</span> If you suspect a certificate is fraudulent, 
                     please report it to the issuing authority immediately.
                   </p>
                 </div>
@@ -200,12 +200,12 @@ export default function CertificateVerification() {
           )}
 
           {/* How to Find Certificate Number */}
-          <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-            <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-              <h2 className="font-bold text-gray-900">How to Find the Certificate Number</h2>
+          <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-muted border-b-2 border-border px-8 py-4">
+              <h2 className="font-bold text-foreground">How to Find the Certificate Number</h2>
             </div>
             <div className="p-8">
-              <div className="space-y-3 text-sm text-gray-700">
+              <div className="space-y-3 text-sm text-muted-foreground">
                 <Step 
                   number={1} 
                   text="Look at the top of the certificate document" 
@@ -229,9 +229,9 @@ export default function CertificateVerification() {
         </div>
       </main>
 
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>Certificate Application Service • Government of India</div>
             <div>Certificate Verification</div>
           </div>
@@ -244,8 +244,8 @@ export default function CertificateVerification() {
 function VerifyField({ label, value, highlighted }: any) {
   return (
     <div>
-      <div className="text-xs text-gray-600 mb-1">{label}</div>
-      <div className={`text-sm font-bold ${highlighted ? 'text-green-700' : 'text-gray-900'}`}>
+      <div className="text-xs text-muted-foreground mb-1">{label}</div>
+      <div className={`text-sm font-bold ${highlighted ? 'text-green-700' : 'text-foreground'}`}>
         {value}
       </div>
     </div>
@@ -255,7 +255,7 @@ function VerifyField({ label, value, highlighted }: any) {
 function Step({ number, text }: any) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-6 h-6 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
+      <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
         {number}
       </div>
       <span>{text}</span>

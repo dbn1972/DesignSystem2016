@@ -14,22 +14,22 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
   return (
     <div
       className={`inline-block border-2 rounded-lg p-4 ${
-        theme === 'dark' ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-300'
+        theme === 'dark' ? 'bg-gray-800 border-gray-600' : 'bg-card border-border'
       }`}
       {...props}
     >
       {type === 'image' && (
         <div className="space-y-3">
           <div className="flex items-center justify-between mb-2">
-            <p className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+            <p className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-muted-foreground'}`}>
               Select all images with traffic lights
             </p>
             <button
               onClick={() => setRefreshKey(prev => prev + 1)}
-              className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="p-1 rounded hover:bg-muted dark:hover:bg-gray-700"
               aria-label="Refresh CAPTCHA"
             >
-              <RefreshCw size={16} className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} />
+              <RefreshCw size={16} className={theme === 'dark' ? 'text-gray-300' : 'text-muted-foreground'} />
             </button>
           </div>
           <div className="grid grid-cols-3 gap-1 w-64 h-64 bg-gray-200">
@@ -48,17 +48,17 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
       )}
       {type === 'audio' && (
         <div className="space-y-3 w-64">
-          <p className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+          <p className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-muted-foreground'}`}>
             Type the numbers you hear
           </p>
-          <div className="flex items-center gap-2 p-3 bg-gray-100 dark:bg-gray-700 rounded">
-            <Volume2 size={20} className={theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} />
+          <div className="flex items-center gap-2 p-3 bg-muted dark:bg-gray-700 rounded">
+            <Volume2 size={20} className={theme === 'dark' ? 'text-gray-300' : 'text-muted-foreground'} />
             <button className="text-sm text-blue-600 hover:text-blue-700">Play audio</button>
           </div>
           <input
             type="text"
             placeholder="Enter numbers"
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700">
             <Eye size={14} />
@@ -68,24 +68,24 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
       )}
       {type === 'math' && (
         <div className="space-y-3 w-64">
-          <p className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+          <p className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-muted-foreground'}`}>
             Solve the math problem
           </p>
-          <div className="flex items-center gap-3 p-4 bg-gray-100 dark:bg-gray-700 rounded">
-            <span className={`text-2xl font-bold ${theme === 'dark' ? 'text-gray-200' : 'text-gray-800'}`}>
+          <div className="flex items-center gap-3 p-4 bg-muted dark:bg-gray-700 rounded">
+            <span className={`text-2xl font-bold ${theme === 'dark' ? 'text-gray-200' : 'text-foreground'}`}>
               {difficulty === 'easy' ? '5 + 3' : difficulty === 'hard' ? '17 × 4' : '12 - 7'} = ?
             </span>
           </div>
           <input
             type="text"
             placeholder="Enter answer"
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
       )}
       {type === 'puzzle' && (
         <div className="space-y-3 w-64">
-          <p className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+          <p className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-muted-foreground'}`}>
             Slide to verify
           </p>
           <div className="relative w-full h-12 bg-gray-200 rounded overflow-hidden">
@@ -347,8 +347,8 @@ function Example() {
 }`,
           preview: (
             <div className="flex justify-center">
-              <div className="p-4 border-2 border-dashed border-gray-300 rounded-lg">
-                <p className="text-sm text-gray-600 mb-3">Invisible reCAPTCHA v3</p>
+              <div className="p-4 border-2 border-dashed border-border rounded-lg">
+                <p className="text-sm text-muted-foreground mb-3">Invisible reCAPTCHA v3</p>
                 <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
                   Submit Application
                 </button>
@@ -396,14 +396,14 @@ function Example() {
 }`,
           preview: (
             <div className="flex justify-center">
-              <div className="p-4 border-2 border-gray-300 rounded-lg bg-white">
+              <div className="p-4 border-2 border-border rounded-lg bg-card">
                 <div className="flex items-center gap-2 mb-2">
-                  <Shield size={20} className="text-gray-600" />
-                  <p className="text-sm font-medium text-gray-700">hCaptcha</p>
+                  <Shield size={20} className="text-muted-foreground" />
+                  <p className="text-sm font-medium text-muted-foreground">hCaptcha</p>
                 </div>
-                <div className="w-64 h-20 bg-gray-100 rounded flex items-center justify-center">
+                <div className="w-64 h-20 bg-muted rounded flex items-center justify-center">
                   <input type="checkbox" className="mr-2" />
-                  <span className="text-sm text-gray-600">I am human</span>
+                  <span className="text-sm text-muted-foreground">I am human</span>
                 </div>
               </div>
             </div>
@@ -581,8 +581,8 @@ export const captchaVariants = cva(
     variants: {
       theme: {
         light: [
-          'bg-white border-gray-300',
-          'text-gray-800',
+          'bg-card border-border',
+          'text-foreground',
         ],
         dark: [
           'bg-gray-800 border-gray-600',

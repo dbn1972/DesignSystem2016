@@ -8,7 +8,7 @@ import "./i18n/config"; // Initialize i18n
 export default function App() {
   return (
     <ThemeProvider>
-      <Suspense fallback={<div className="p-6 text-sm text-gray-600">Loading...</div>}>
+      <Suspense fallback={<div className="p-6 text-sm text-muted-foreground">Loading...</div>}>
         <RouterProvider router={router} />
       </Suspense>
     </ThemeProvider>

@@ -3,7 +3,7 @@
  * Small label for displaying status, counts, or tags
  */
 
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../utils/cn';
 import { BadgeProps } from './Badge.types';
 

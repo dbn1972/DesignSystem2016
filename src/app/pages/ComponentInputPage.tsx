@@ -27,7 +27,7 @@ const InputPreview = ({ type = 'text', placeholder, icon, error, ...props }: any
           className={`w-full ${icon ? 'pl-10' : 'px-4'} ${icon ? 'pr-4' : 'px-4'} py-3 border rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${
             error 
               ? 'border-red-500 focus-visible:ring-red-500' 
-              : 'border-gray-300 focus-visible:ring-[#005196]'
+              : 'border-border focus-visible:ring-[#005196]'
           }`}
           {...props}
         />
@@ -333,7 +333,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         
         {helperText && !error && (
-          <p id={helperId} className="mt-2 text-sm text-gray-600">
+          <p id={helperId} className="mt-2 text-sm text-muted-foreground">
             {helperText}
           </p>
         )}
@@ -363,10 +363,10 @@ Input.displayName = 'Input';`,
 export const inputVariants = cva(
   [
     'px-4 py-3 rounded-lg border',
-    'text-base text-gray-900 placeholder:text-gray-400',
+    'text-base text-foreground placeholder:text-gray-400',
     'transition-all duration-150',
     'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-    'disabled:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-60',
+    'disabled:bg-muted disabled:cursor-not-allowed disabled:opacity-60',
     'min-h-[44px]',
   ],
   {
@@ -377,7 +377,7 @@ export const inputVariants = cva(
           'focus-visible:ring-red-500',
         ],
         false: [
-          'border-gray-300',
+          'border-border',
           'focus-visible:ring-[#005196]',
         ],
       },
@@ -420,7 +420,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
         <ng-content select="[iconAfter]"></ng-content>
       </div>
       
-      <p *ngIf="helperText && !error" class="mt-2 text-sm text-gray-600">
+      <p *ngIf="helperText && !error" class="mt-2 text-sm text-muted-foreground">
         {{ helperText }}
       </p>
       
@@ -458,7 +458,7 @@ export class InputComponent implements ControlValueAccessor {
     const baseClasses = 'ux4g-input px-4 py-3 rounded-lg border transition-all';
     const errorClasses = this.error 
       ? 'border-red-500 focus:ring-red-500' 
-      : 'border-gray-300 focus:ring-blue-500';
+      : 'border-border focus:ring-blue-500';
     const widthClasses = this.fullWidth ? 'w-full' : '';
     
     return [baseClasses, errorClasses, widthClasses].join(' ');

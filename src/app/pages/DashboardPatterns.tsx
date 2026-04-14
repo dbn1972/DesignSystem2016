@@ -3,12 +3,12 @@ import { LayoutDashboard, User, Bell, CheckSquare, Clock, Bookmark, Settings, Ar
 
 export default function DashboardPatterns() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 border-b-4 border-[#FF9933]">
         <div className="max-w-[1400px] mx-auto px-12 py-16">
           <div className="mb-6">
-            <Link to="/pattern-library" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/pattern-library" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Pattern Library
             </Link>
           </div>
@@ -19,11 +19,11 @@ export default function DashboardPatterns() {
                   <LayoutDashboard size={40} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#000080] mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-gray-900">Dashboard & Personalization Patterns</h1>
+                  <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
+                  <h1 className="text-5xl font-bold text-foreground">Dashboard & Personalization Patterns</h1>
                 </div>
               </div>
-              <p className="text-xl text-gray-700 leading-relaxed mb-6">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
                 Task-focused, personalized dashboard patterns that help citizens manage their government service interactions. 
                 Centralized access to applications, notifications, saved services, pending actions, and activity history with 
                 intelligent prioritization and continuity across service journeys.
@@ -31,15 +31,15 @@ export default function DashboardPatterns() {
               <div className="flex items-center gap-8 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-indigo-500 rounded-full"></div>
-                  <span className="text-gray-700">Pattern Family: <span className="font-bold text-gray-900">Personalization</span></span>
+                  <span className="text-muted-foreground">Pattern Family: <span className="font-bold text-foreground">Personalization</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <span className="text-gray-700">Patterns: <span className="font-bold text-gray-900">7 Interactive Flows</span></span>
+                  <span className="text-muted-foreground">Patterns: <span className="font-bold text-foreground">7 Interactive Flows</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-[#138808] rounded-full"></div>
-                  <span className="text-gray-700">Focus: <span className="font-bold text-gray-900">Task-Driven</span></span>
+                  <div className="w-3 h-3 bg-green-700 rounded-full"></div>
+                  <span className="text-muted-foreground">Focus: <span className="font-bold text-foreground">Task-Driven</span></span>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function DashboardPatterns() {
               <div className="px-8 py-4 bg-indigo-500 text-white rounded-lg font-bold text-center shadow-lg">
                 PERSONALIZED
               </div>
-              <div className="px-8 py-4 bg-white border-2 border-[#138808] text-[#138808] rounded-lg font-bold text-center">
+              <div className="px-8 py-4 bg-card border-2 border-[#138808] text-[#138808] rounded-lg font-bold text-center">
                 TASK-FOCUSED
               </div>
             </div>
@@ -56,19 +56,19 @@ export default function DashboardPatterns() {
       </header>
 
       {/* Quick Access */}
-      <div className="bg-white border-b-2 border-gray-300">
+      <div className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <span className="font-bold text-gray-900">Quick Access:</span>
-              <Link to="/patterns/dashboard/overview" className="text-[#000080] hover:underline text-sm font-medium">
+              <span className="font-bold text-foreground">Quick Access:</span>
+              <Link to="/patterns/dashboard/overview" className="text-primary hover:underline text-sm font-medium">
                 Pattern Overview
               </Link>
-              <Link to="#all-patterns" className="text-[#000080] hover:underline text-sm font-medium">
+              <Link to="#all-patterns" className="text-primary hover:underline text-sm font-medium">
                 View All Patterns
               </Link>
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-muted-foreground">
               Last updated: April 2026
             </div>
           </div>
@@ -80,35 +80,35 @@ export default function DashboardPatterns() {
         
         {/* System Overview */}
         <section className="mb-16">
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-gray-300 rounded-lg p-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Personalized Dashboards?</h2>
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-border rounded-lg p-10">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Why Personalized Dashboards?</h2>
             <div className="grid grid-cols-3 gap-8">
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
                   Citizen Benefits
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   One place to access all services, track applications, complete pending tasks, and manage 
                   preferences. Reduces cognitive load and eliminates need to remember multiple portals.
                 </p>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
                   Service Continuity
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   Seamless resume of incomplete applications, proactive notifications for required actions, 
                   and intelligent suggestions based on user profile and behavior patterns.
                 </p>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
                   System Efficiency
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   Reduces abandonment rates, improves completion times, decreases support requests, 
                   and provides valuable analytics on user behavior and service usage patterns.
                 </p>
@@ -119,15 +119,15 @@ export default function DashboardPatterns() {
 
         {/* Pattern Categories */}
         <section className="mb-16" id="all-patterns">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-indigo-500 pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-indigo-500 pl-4">
             Pattern Categories
           </h2>
 
           {/* Overview & Management Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <LayoutDashboard size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Overview & Management Patterns</h3>
+              <LayoutDashboard size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Overview & Management Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -154,8 +154,8 @@ export default function DashboardPatterns() {
           {/* Action & Task Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <CheckSquare size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Action & Task Patterns</h3>
+              <CheckSquare size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Action & Task Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -182,8 +182,8 @@ export default function DashboardPatterns() {
           {/* Saved & History Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <Bookmark size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Saved & History Patterns</h3>
+              <Bookmark size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Saved & History Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -210,8 +210,8 @@ export default function DashboardPatterns() {
           {/* Profile & Settings Patterns */}
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <User size={24} className="text-[#000080]" />
-              <h3 className="text-2xl font-bold text-gray-900">Profile & Settings Patterns</h3>
+              <User size={24} className="text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">Profile & Settings Patterns</h3>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <PatternCard
@@ -223,9 +223,9 @@ export default function DashboardPatterns() {
                 userType="All Citizens"
                 useCases={["Update profile", "Manage preferences", "Privacy settings"]}
               />
-              <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 flex items-center justify-center text-center">
+              <div className="p-6 border-2 border-dashed border-border rounded-lg bg-background flex items-center justify-center text-center">
                 <div>
-                  <p className="text-gray-600 mb-2">Additional dashboard patterns can be added:</p>
+                  <p className="text-muted-foreground mb-2">Additional dashboard patterns can be added:</p>
                   <p className="text-sm text-gray-500">Department-specific dashboards, Family dashboard, Service analytics</p>
                 </div>
               </div>
@@ -235,7 +235,7 @@ export default function DashboardPatterns() {
 
         {/* Implementation Guidelines */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-[#138808] pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-[#138808] pl-4">
             Implementation Guidelines
           </h2>
           <div className="grid grid-cols-3 gap-6">
@@ -274,16 +274,16 @@ export default function DashboardPatterns() {
 
         {/* Dashboard Intelligence Features */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-purple-500 pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-purple-500 pl-4">
             Dashboard Intelligence Features
           </h2>
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-              <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <div className="bg-card border-2 border-border rounded-lg p-8">
+              <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <Zap size={20} className="text-yellow-600" />
                 Smart Prioritization
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span><strong>Deadline-based:</strong> Tasks due soon appear at top</span>
@@ -302,12 +302,12 @@ export default function DashboardPatterns() {
                 </li>
               </ul>
             </div>
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-              <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <div className="bg-card border-2 border-border rounded-lg p-8">
+              <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <User size={20} className="text-purple-600" />
                 Personalization Engine
               </h3>
-              <ul className="space-y-2 text-sm text-gray-700">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span><strong>Profile-based:</strong> Services relevant to user demographics</span>
@@ -331,28 +331,28 @@ export default function DashboardPatterns() {
 
         {/* Related Resources */}
         <section>
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 border-l-4 border-[#000080] pl-4">
+          <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-primary pl-4">
             Related Resources
           </h2>
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+          <div className="bg-card border-2 border-border rounded-lg p-8">
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">Related Pattern Families</h3>
+                <h3 className="font-bold text-foreground mb-4">Related Pattern Families</h3>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link to="/patterns/search-discovery" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/patterns/search-discovery" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Search & Discovery Patterns</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/patterns/service" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/patterns/service" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Service Pattern Libraries</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/patterns/identity" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/patterns/identity" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Identity & Access Patterns</span>
                     </Link>
@@ -360,22 +360,22 @@ export default function DashboardPatterns() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">Design System Components</h3>
+                <h3 className="font-bold text-foreground mb-4">Design System Components</h3>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link to="/components" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/components" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Card & List Components</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/components" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/components" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Navigation Components</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/components" className="text-[#000080] hover:underline flex items-center gap-2">
+                    <Link to="/components" className="text-primary hover:underline flex items-center gap-2">
                       <ArrowRight size={14} />
                       <span>Status & Badge Components</span>
                     </Link>
@@ -404,38 +404,38 @@ function PatternCard({ title, description, icon, link, complexity, userType, use
 }) {
   return (
     <Link to={link} className="block group">
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-6 h-full transition-all hover:border-[#000080] hover:shadow-lg">
+      <div className="bg-card border-2 border-border rounded-lg p-6 h-full transition-all hover:border-primary hover:shadow-lg">
         <div className="flex items-start gap-4 mb-4">
-          <div className="p-3 bg-gray-50 border-2 border-gray-200 rounded-lg group-hover:border-[#000080] transition-colors">
+          <div className="p-3 bg-background border-2 border-border rounded-lg group-hover:border-primary transition-colors">
             {icon}
           </div>
           <div className="flex-1">
-            <h4 className="font-bold text-gray-900 mb-2 group-hover:text-[#000080] transition-colors">
+            <h4 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
               {title}
             </h4>
-            <div className="flex items-center gap-4 text-xs text-gray-600 mb-3">
-              <span className="px-2 py-1 bg-gray-100 rounded">
+            <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
+              <span className="px-2 py-1 bg-muted rounded">
                 {complexity}
               </span>
               <span>{userType}</span>
             </div>
           </div>
         </div>
-        <p className="text-sm text-gray-700 mb-4">
+        <p className="text-sm text-muted-foreground mb-4">
           {description}
         </p>
         <div className="mb-4">
-          <div className="text-xs font-bold text-gray-600 mb-2">Common Use Cases:</div>
+          <div className="text-xs font-bold text-muted-foreground mb-2">Common Use Cases:</div>
           <ul className="space-y-1">
             {useCases.map((useCase, i) => (
-              <li key={i} className="text-xs text-gray-600 flex items-start gap-1">
+              <li key={i} className="text-xs text-muted-foreground flex items-start gap-1">
                 <span className="text-[#138808]">•</span>
                 <span>{useCase}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="flex items-center gap-2 text-[#000080] text-sm font-medium group-hover:gap-3 transition-all">
+        <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
           <span>View Pattern</span>
           <ArrowRight size={16} />
         </div>
@@ -449,11 +449,11 @@ function GuidelineCard({ title, points }: {
   points: string[];
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
+    <div className="bg-card border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <ul className="space-y-2">
         {points.map((point, i) => (
-          <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
             <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{point}</span>
           </li>

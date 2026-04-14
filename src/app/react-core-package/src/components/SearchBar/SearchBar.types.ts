@@ -7,7 +7,7 @@ import { InputHTMLAttributes } from 'react';
 import { FormFieldProps, ComponentSize } from '../../types/common';
 
 export interface SearchBarProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'>,
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type' | 'aria-invalid' | 'aria-required'>,
     FormFieldProps {
   /**
    * Input size

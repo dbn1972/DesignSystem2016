@@ -3,7 +3,7 @@
  * Form field label with required indicator support
  */
 
-import React, { forwardRef, LabelHTMLAttributes } from 'react';
+import { forwardRef, LabelHTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
 import { BaseComponentProps, ChildrenProp } from '../../types/common';
 import { useFieldContext } from '../Field/Field.context';

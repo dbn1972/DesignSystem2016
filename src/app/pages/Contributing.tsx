@@ -2,7 +2,7 @@ import { Users, GitBranch, Code, CheckCircle, AlertTriangle, FileText, MessageSq
 
 export default function Contributing() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
@@ -70,34 +70,34 @@ function GettingStartedSection() {
 
       <div className="mt-8 space-y-6">
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Before You Start</h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <h3 className="font-bold text-foreground mb-4">Before You Start</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             Before making your first contribution, please ensure you:
           </p>
           <div className="grid grid-cols-2 gap-4">
             <div className="flex items-start gap-2">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-blue-600" size={16} />
-              <span className="text-sm text-gray-700">Read our <a href="/code-of-conduct" className="text-blue-600 hover:underline">Code of Conduct</a></span>
+              <span className="text-sm text-muted-foreground">Read our <a href="/code-of-conduct" className="text-blue-600 hover:underline">Code of Conduct</a></span>
             </div>
             <div className="flex items-start gap-2">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-blue-600" size={16} />
-              <span className="text-sm text-gray-700">Review the <a href="/copyright" className="text-blue-600 hover:underline">License Agreement</a></span>
+              <span className="text-sm text-muted-foreground">Review the <a href="/copyright" className="text-blue-600 hover:underline">License Agreement</a></span>
             </div>
             <div className="flex items-start gap-2">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-blue-600" size={16} />
-              <span className="text-sm text-gray-700">Understand our <a href="/governance" className="text-blue-600 hover:underline">Governance Model</a></span>
+              <span className="text-sm text-muted-foreground">Understand our <a href="/governance" className="text-blue-600 hover:underline">Governance Model</a></span>
             </div>
             <div className="flex items-start gap-2">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-blue-600" size={16} />
-              <span className="text-sm text-gray-700">Set up your development environment</span>
+              <span className="text-sm text-muted-foreground">Set up your development environment</span>
             </div>
           </div>
         </div>
 
         {/* Quick Start Steps */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 border-b-2 border-gray-200 p-6">
-            <h3 className="font-bold text-gray-900 text-xl">Quick Start</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background border-b-2 border-border p-6">
+            <h3 className="font-bold text-foreground text-xl">Quick Start</h3>
           </div>
 
           <div className="p-8 space-y-6">
@@ -145,9 +145,9 @@ pnpm test"
 
         {/* Prerequisites */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Required Tools</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Required Tools</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Code className="text-blue-600" size={16} />
                 <span>Node.js 18+ and pnpm</span>
@@ -167,9 +167,9 @@ pnpm test"
             </ul>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Recommended Knowledge</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Recommended Knowledge</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Star className="text-yellow-600" size={16} />
                 <span>React and TypeScript</span>
@@ -197,13 +197,13 @@ pnpm test"
 function QuickStartStep({ number, title, description, code }: any) {
   return (
     <div className="flex gap-6">
-      <div className="flex-shrink-0 w-12 h-12 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold text-xl">
+      <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl">
         {number}
       </div>
 
       <div className="flex-1">
-        <h4 className="font-bold text-gray-900 text-lg mb-1">{title}</h4>
-        <p className="text-sm text-gray-600 mb-3">{description}</p>
+        <h4 className="font-bold text-foreground text-lg mb-1">{title}</h4>
+        <p className="text-sm text-muted-foreground mb-3">{description}</p>
         <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
           <pre className="whitespace-pre-wrap">{code}</pre>
         </div>
@@ -336,27 +336,27 @@ function ContributionType({ icon, title, description, examples, difficulty, colo
 
   return (
     <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg overflow-hidden`}>
-      <div className="bg-white border-b-2 border-gray-200 p-4 flex items-center gap-3">
+      <div className="bg-card border-b-2 border-border p-4 flex items-center gap-3">
         {icon}
         <div>
-          <h3 className="font-bold text-gray-900">{title}</h3>
-          <p className="text-sm text-gray-600">{description}</p>
+          <h3 className="font-bold text-foreground">{title}</h3>
+          <p className="text-sm text-muted-foreground">{description}</p>
         </div>
       </div>
 
       <div className="p-6">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">Examples:</h4>
+        <h4 className="font-semibold text-foreground mb-3 text-sm">Examples:</h4>
         <ul className="space-y-2 mb-4">
           {examples.map((example: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <span className="text-gray-400 mt-0.5">•</span>
               <span>{example}</span>
             </li>
           ))}
         </ul>
 
-        <div className="pt-4 border-t border-gray-200">
-          <div className="text-xs text-gray-600">Difficulty: <span className="font-semibold text-gray-900">{difficulty}</span></div>
+        <div className="pt-4 border-t border-border">
+          <div className="text-xs text-muted-foreground">Difficulty: <span className="font-semibold text-foreground">{difficulty}</span></div>
         </div>
       </div>
     </div>
@@ -373,10 +373,10 @@ function ContributionWorkflowSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-b-2 border-gray-200 p-6">
-            <h3 className="font-bold text-gray-900 text-xl mb-2">Contribution Process</h3>
-            <p className="text-sm text-gray-700">Follow these steps for a smooth contribution experience</p>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-b-2 border-border p-6">
+            <h3 className="font-bold text-foreground text-xl mb-2">Contribution Process</h3>
+            <p className="text-sm text-muted-foreground">Follow these steps for a smooth contribution experience</p>
           </div>
 
           <div className="p-8 space-y-6">
@@ -497,7 +497,7 @@ function WorkflowStep({ step, title, description, actions, duration }: any) {
   return (
     <div className="flex gap-6">
       <div className="flex-shrink-0">
-        <div className="w-12 h-12 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold text-xl">
+        <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl">
           {step}
         </div>
       </div>
@@ -505,8 +505,8 @@ function WorkflowStep({ step, title, description, actions, duration }: any) {
       <div className="flex-1">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h4 className="font-bold text-gray-900 text-lg">{title}</h4>
-            <p className="text-sm text-gray-600">{description}</p>
+            <h4 className="font-bold text-foreground text-lg">{title}</h4>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
           <div className="flex items-center gap-1 text-xs text-gray-500 flex-shrink-0 ml-4">
             <Clock size={12} />
@@ -514,10 +514,10 @@ function WorkflowStep({ step, title, description, actions, duration }: any) {
           </div>
         </div>
 
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+        <div className="bg-background border border-border rounded-lg p-4">
           <ul className="space-y-2">
             {actions.map((action: string, index: number) => (
-              <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+              <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
                 <CheckCircle className="flex-shrink-0 mt-0.5 text-green-600" size={14} />
                 <span>{action}</span>
               </li>
@@ -586,13 +586,13 @@ function DevelopmentGuidelinesSection() {
         </div>
 
         <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Zap className="text-yellow-600" size={20} />
             Performance Guidelines
           </h3>
-          <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
+          <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
             <div>
-              <strong className="text-gray-900">Do:</strong>
+              <strong className="text-foreground">Do:</strong>
               <ul className="mt-2 space-y-1">
                 <li>• Use React.memo for expensive components</li>
                 <li>• Optimize re-renders</li>
@@ -601,7 +601,7 @@ function DevelopmentGuidelinesSection() {
               </ul>
             </div>
             <div>
-              <strong className="text-gray-900">Don't:</strong>
+              <strong className="text-foreground">Don't:</strong>
               <ul className="mt-2 space-y-1">
                 <li>• Create unnecessary re-renders</li>
                 <li>• Use inline functions in render</li>
@@ -618,11 +618,11 @@ function DevelopmentGuidelinesSection() {
 
 function GuidelineCard({ title, rules }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
+    <div className="border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <ul className="space-y-2">
         {rules.map((rule: string, index: number) => (
-          <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+          <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
             <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
             <span>{rule}</span>
           </li>
@@ -642,9 +642,9 @@ function CodeStandardsSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 border-b-2 border-gray-200 p-6">
-            <h3 className="font-bold text-gray-900 text-xl">TypeScript & React Standards</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background border-b-2 border-border p-6">
+            <h3 className="font-bold text-foreground text-xl">TypeScript & React Standards</h3>
           </div>
 
           <div className="p-6 space-y-6">
@@ -708,8 +708,8 @@ export function MyComponent({ title, onAction }: MyComponentProps) {
 
         <div className="grid grid-cols-2 gap-6">
           <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">✅ Do's</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-4">✅ Do's</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>• Use TypeScript for type safety</li>
               <li>• Write self-documenting code</li>
               <li>• Follow single responsibility principle</li>
@@ -722,8 +722,8 @@ export function MyComponent({ title, onAction }: MyComponentProps) {
           </div>
 
           <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">❌ Don'ts</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-4">❌ Don'ts</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>• Use any type in TypeScript</li>
               <li>• Write components over 300 lines</li>
               <li>• Nest more than 3 levels deep</li>
@@ -743,7 +743,7 @@ export function MyComponent({ title, onAction }: MyComponentProps) {
 function CodeExample({ title, language, code }: any) {
   return (
     <div>
-      <h4 className="font-semibold text-gray-900 mb-2">{title}</h4>
+      <h4 className="font-semibold text-foreground mb-2">{title}</h4>
       <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
         <pre className="whitespace-pre">{code}</pre>
       </div>
@@ -761,8 +761,8 @@ function ComponentGuidelinesSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Every Component Must Include</h3>
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Every Component Must Include</h3>
 
           <div className="grid grid-cols-2 gap-6">
             <ComponentRequirement
@@ -799,11 +799,11 @@ function ComponentGuidelinesSection() {
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Component Checklist</h3>
+          <h3 className="font-bold text-foreground mb-4">Component Checklist</h3>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2 text-sm">Functionality</h4>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-2 text-sm">Functionality</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>□ Works as expected</li>
                 <li>□ Handles edge cases</li>
                 <li>□ Error states handled</li>
@@ -811,8 +811,8 @@ function ComponentGuidelinesSection() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2 text-sm">Accessibility</h4>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-2 text-sm">Accessibility</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>□ Keyboard navigable</li>
                 <li>□ Screen reader tested</li>
                 <li>□ Focus indicators visible</li>
@@ -820,8 +820,8 @@ function ComponentGuidelinesSection() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2 text-sm">Testing</h4>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-2 text-sm">Testing</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>□ Unit tests pass</li>
                 <li>□ Accessibility tests pass</li>
                 <li>□ Visual regression tests</li>
@@ -829,8 +829,8 @@ function ComponentGuidelinesSection() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2 text-sm">Documentation</h4>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-2 text-sm">Documentation</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>□ Props documented</li>
                 <li>□ Usage examples provided</li>
                 <li>□ Accessibility notes</li>
@@ -853,11 +853,11 @@ function ComponentRequirement({ title, description, required }: any) {
         <Star className="flex-shrink-0 mt-0.5 text-blue-600" size={20} />
       )}
       <div>
-        <h4 className="font-semibold text-gray-900 text-sm">
+        <h4 className="font-semibold text-foreground text-sm">
           {title}
           {required && <span className="ml-2 text-xs text-red-600">*Required</span>}
         </h4>
-        <p className="text-sm text-gray-600">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   );
@@ -873,9 +873,9 @@ function DocumentationStandardsSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Documentation Structure</h3>
-          <p className="text-sm text-gray-700 mb-4">
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Documentation Structure</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             Every component page should follow this structure:
           </p>
 
@@ -891,9 +891,9 @@ function DocumentationStandardsSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Writing Style</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Writing Style</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>• Use clear, simple language</li>
               <li>• Write in present tense</li>
               <li>• Be concise but complete</li>
@@ -903,9 +903,9 @@ function DocumentationStandardsSection() {
             </ul>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Code Examples</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Code Examples</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>• Show realistic use cases</li>
               <li>• Include imports</li>
               <li>• Demonstrate all props</li>
@@ -923,8 +923,8 @@ function DocumentationStandardsSection() {
 function DocSection({ title, content }: any) {
   return (
     <div className="border-l-4 border-blue-500 pl-4 py-2 bg-blue-50">
-      <h4 className="font-semibold text-gray-900 text-sm mb-1">{title}</h4>
-      <p className="text-sm text-gray-700">{content}</p>
+      <h4 className="font-semibold text-foreground text-sm mb-1">{title}</h4>
+      <p className="text-sm text-muted-foreground">{content}</p>
     </div>
   );
 }
@@ -939,10 +939,10 @@ function SubmittingContributionsSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 border-b-2 border-gray-200 p-6">
-            <h3 className="font-bold text-gray-900 text-xl">Pull Request Template</h3>
-            <p className="text-sm text-gray-600 mt-1">Follow this template for all pull requests</p>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background border-b-2 border-border p-6">
+            <h3 className="font-bold text-foreground text-xl">Pull Request Template</h3>
+            <p className="text-sm text-muted-foreground mt-1">Follow this template for all pull requests</p>
           </div>
 
           <div className="p-6 bg-gray-900 text-green-400 font-mono text-sm">
@@ -983,11 +983,11 @@ Related to #456
         </div>
 
         <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <AlertTriangle className="text-orange-600" size={20} />
             Before Submitting
           </h3>
-          <ul className="space-y-2 text-sm text-gray-700">
+          <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
               <CheckCircle className="text-orange-600" size={16} />
               Run all tests locally and ensure they pass
@@ -1025,8 +1025,8 @@ function ReviewProcessSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Review Timeline</h3>
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Review Timeline</h3>
           <div className="space-y-3">
             <TimelineItem
               label="Initial Review"
@@ -1052,9 +1052,9 @@ function ReviewProcessSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">What Reviewers Look For</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">What Reviewers Look For</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>• Code quality and readability</li>
               <li>• Adherence to style guidelines</li>
               <li>• Test coverage and quality</li>
@@ -1065,9 +1065,9 @@ function ReviewProcessSection() {
             </ul>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Responding to Feedback</h3>
-            <ul className="space-y-2 text-sm text-gray-700">
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Responding to Feedback</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>• Be receptive and professional</li>
               <li>• Ask questions if unclear</li>
               <li>• Make requested changes promptly</li>
@@ -1079,13 +1079,13 @@ function ReviewProcessSection() {
         </div>
 
         <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">Approval Criteria</h3>
-          <p className="text-sm text-gray-700 mb-3">
+          <h3 className="font-bold text-foreground mb-3">Approval Criteria</h3>
+          <p className="text-sm text-muted-foreground mb-3">
             Your PR will be approved when:
           </p>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>✅ All tests pass</li>
                 <li>✅ Code review approved</li>
                 <li>✅ Accessibility validated</li>
@@ -1093,7 +1093,7 @@ function ReviewProcessSection() {
               </ul>
             </div>
             <div>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>✅ No merge conflicts</li>
                 <li>✅ Design approved (if applicable)</li>
                 <li>✅ Breaking changes justified</li>
@@ -1111,11 +1111,11 @@ function TimelineItem({ label, time, description }: any) {
   return (
     <div className="flex items-start gap-4">
       <div className="flex-shrink-0 w-32 text-right">
-        <div className="font-semibold text-gray-900 text-sm">{label}</div>
-        <div className="text-xs text-gray-600">{time}</div>
+        <div className="font-semibold text-foreground text-sm">{label}</div>
+        <div className="text-xs text-muted-foreground">{time}</div>
       </div>
       <div className="flex-1 border-l-2 border-blue-500 pl-4 pb-4">
-        <p className="text-sm text-gray-700">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   );
@@ -1132,7 +1132,7 @@ function CommunityGuidelinesSection() {
 
       <div className="mt-8 space-y-6">
         <div className="bg-gradient-to-r from-pink-50 to-purple-50 border-2 border-pink-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Our Values</h3>
+          <h3 className="font-bold text-foreground mb-4">Our Values</h3>
           <div className="grid grid-cols-3 gap-4">
             <ValueCard
               icon={<Heart className="text-pink-600" size={24} />}
@@ -1152,17 +1152,17 @@ function CommunityGuidelinesSection() {
           </div>
         </div>
 
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Code of Conduct</h3>
-          <p className="text-sm text-gray-700 mb-4">
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Code of Conduct</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             All contributors must follow our <a href="/code-of-conduct" className="text-blue-600 hover:underline">Code of Conduct</a>.
             Key points:
           </p>
 
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2 text-sm">✅ Expected Behavior</h4>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-2 text-sm">✅ Expected Behavior</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>• Be respectful and inclusive</li>
                 <li>• Give and receive feedback gracefully</li>
                 <li>• Focus on what's best for the community</li>
@@ -1171,8 +1171,8 @@ function CommunityGuidelinesSection() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2 text-sm">❌ Unacceptable Behavior</h4>
-              <ul className="space-y-1 text-sm text-gray-700">
+              <h4 className="font-semibold text-foreground mb-2 text-sm">❌ Unacceptable Behavior</h4>
+              <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>• Harassment or discrimination</li>
                 <li>• Trolling or insulting comments</li>
                 <li>• Personal or political attacks</li>
@@ -1183,11 +1183,11 @@ function CommunityGuidelinesSection() {
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">Getting Help</h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <h3 className="font-bold text-foreground mb-3">Getting Help</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             Need help with your contribution? We're here to support you:
           </p>
-          <ul className="space-y-2 text-sm text-gray-700">
+          <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
               <MessageSquare className="text-blue-600" size={16} />
               <span>Ask questions in GitHub Discussions</span>
@@ -1213,10 +1213,10 @@ function CommunityGuidelinesSection() {
 
 function ValueCard({ icon, title, description }: any) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
+    <div className="bg-card border border-border rounded-lg p-4 text-center">
       <div className="flex justify-center mb-2">{icon}</div>
-      <h4 className="font-semibold text-gray-900 text-sm mb-1">{title}</h4>
-      <p className="text-xs text-gray-600">{description}</p>
+      <h4 className="font-semibold text-foreground text-sm mb-1">{title}</h4>
+      <p className="text-xs text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -1231,9 +1231,9 @@ function LicenseAgreementSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Contributor License Agreement (CLA)</h3>
-          <p className="text-sm text-gray-700 mb-4">
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Contributor License Agreement (CLA)</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             By contributing to UX4G, you agree that:
           </p>
 
@@ -1265,8 +1265,8 @@ function LicenseAgreementSection() {
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">Learn More</h3>
-          <p className="text-sm text-gray-700">
+          <h3 className="font-bold text-foreground mb-3">Learn More</h3>
+          <p className="text-sm text-muted-foreground">
             For complete details about licensing and copyright, see our{' '}
             <a href="/copyright" className="text-blue-600 hover:underline">Copyright & License page</a>.
           </p>
@@ -1283,8 +1283,8 @@ function CLAPoint({ number, title, content }: any) {
         {number}
       </div>
       <div>
-        <h4 className="font-semibold text-gray-900 mb-1">{title}</h4>
-        <p className="text-sm text-gray-700">{content}</p>
+        <h4 className="font-semibold text-foreground mb-1">{title}</h4>
+        <p className="text-sm text-muted-foreground">{content}</p>
       </div>
     </div>
   );
@@ -1301,8 +1301,8 @@ function RecognitionSection() {
 
       <div className="mt-8 space-y-6">
         <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-lg p-8">
-          <h3 className="font-bold text-gray-900 text-xl mb-4">Thank You! 🙏</h3>
-          <p className="text-gray-700 mb-6">
+          <h3 className="font-bold text-foreground text-xl mb-4">Thank You! 🙏</h3>
+          <p className="text-muted-foreground mb-6">
             We deeply appreciate every contribution, big or small. The UX4G Design System is built by the community,
             for the community. Your contributions help make government digital services better for millions of citizens.
           </p>
@@ -1330,9 +1330,9 @@ function RecognitionSection() {
           </div>
         </div>
 
-        <div className="border-2 border-gray-200 rounded-lg p-8 bg-gradient-to-br from-blue-50 to-white">
-          <h3 className="font-bold text-gray-900 text-xl mb-4">Ready to Contribute?</h3>
-          <p className="text-gray-700 mb-6">
+        <div className="border-2 border-border rounded-lg p-8 bg-gradient-to-br from-blue-50 to-white">
+          <h3 className="font-bold text-foreground text-xl mb-4">Ready to Contribute?</h3>
+          <p className="text-muted-foreground mb-6">
             We're excited to have you join the UX4G community! Start by exploring open issues,
             reading the documentation, and making your first contribution.
           </p>
@@ -1342,7 +1342,7 @@ function RecognitionSection() {
               href="https://github.com/gov-in/ux4g/issues"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-[#000080] text-white rounded-lg font-semibold hover:bg-[#000070] transition-colors"
+              className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-[#000070] transition-colors"
             >
               Browse Issues
             </a>
@@ -1350,28 +1350,28 @@ function RecognitionSection() {
               href="https://github.com/gov-in/ux4g"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 border-2 border-gray-300 text-gray-900 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+              className="px-6 py-3 border-2 border-border text-foreground rounded-lg font-semibold hover:bg-background transition-colors"
             >
               View Repository
             </a>
           </div>
         </div>
 
-        <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Questions?</h3>
-          <p className="text-sm text-gray-700 mb-4">
+        <div className="bg-background border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Questions?</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             If you have questions about contributing, please reach out:
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <div className="font-semibold text-gray-900 mb-2">General Questions</div>
+            <div className="bg-card border border-border rounded-lg p-4">
+              <div className="font-semibold text-foreground mb-2">General Questions</div>
               <a href="mailto:contributors@ux4g.gov.in" className="text-blue-600 hover:underline text-sm">
                 contributors@ux4g.gov.in
               </a>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-lg p-4">
-              <div className="font-semibold text-gray-900 mb-2">Technical Support</div>
+            <div className="bg-card border border-border rounded-lg p-4">
+              <div className="font-semibold text-foreground mb-2">Technical Support</div>
               <a href="https://github.com/gov-in/ux4g/discussions" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm">
                 GitHub Discussions
               </a>
@@ -1385,9 +1385,9 @@ function RecognitionSection() {
 
 function RecognitionCard({ title, description }: any) {
   return (
-    <div className="bg-white border border-yellow-300 rounded-lg p-4">
-      <h4 className="font-semibold text-gray-900 mb-2">{title}</h4>
-      <p className="text-sm text-gray-700">{description}</p>
+    <div className="bg-card border border-yellow-300 rounded-lg p-4">
+      <h4 className="font-semibold text-foreground mb-2">{title}</h4>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -1398,10 +1398,10 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-[#000080]">{icon}</div>
-        <h2 className="text-4xl font-bold text-gray-900">{title}</h2>
+        <div className="text-primary">{icon}</div>
+        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
       </div>
-      <p className="text-lg text-gray-600">{description}</p>
+      <p className="text-lg text-muted-foreground">{description}</p>
     </div>
   );
 }

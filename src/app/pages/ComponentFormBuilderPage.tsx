@@ -10,7 +10,7 @@ import { FileText, ChevronRight, Save, Eye } from 'lucide-react';
 // Import the actual Form Builder component for live preview
 const FormBuilderPreview = ({ layout, children, ...props }: any) => (
   <div
-    className={`w-full rounded border border-gray-200 bg-white p-6 ${
+    className={`w-full rounded border border-border bg-card p-6 ${
       layout === 'horizontal' ? 'space-y-4' :
       layout === 'grid' ? 'grid grid-cols-2 gap-4' :
       'space-y-4'
@@ -23,18 +23,18 @@ const FormBuilderPreview = ({ layout, children, ...props }: any) => (
 
 const FormFieldPreview = ({ label, type = 'text', required = false }: any) => (
   <div className="space-y-2">
-    <label className="block text-sm font-medium text-gray-700">
+    <label className="block text-sm font-medium text-muted-foreground">
       {label}
       {required && <span className="text-red-600 ml-1" aria-label="required">*</span>}
     </label>
     {type === 'textarea' ? (
       <textarea
-        className="w-full min-h-[100px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196] focus:border-transparent"
+        className="w-full min-h-[100px] px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196] focus:border-transparent"
         aria-required={required}
       />
     ) : type === 'select' ? (
       <select
-        className="w-full min-h-[44px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196] focus:border-transparent"
+        className="w-full min-h-[44px] px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196] focus:border-transparent"
         aria-required={required}
       >
         <option>Select an option</option>
@@ -42,7 +42,7 @@ const FormFieldPreview = ({ label, type = 'text', required = false }: any) => (
     ) : (
       <input
         type={type}
-        className="w-full min-h-[44px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196] focus:border-transparent"
+        className="w-full min-h-[44px] px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196] focus:border-transparent"
         aria-required={required}
       />
     )}
@@ -58,12 +58,12 @@ const StepIndicator = ({ steps, currentStep }: any) => (
             className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
               index < currentStep ? 'bg-[#008800] text-white' :
               index === currentStep ? 'bg-[#005196] text-white' :
-              'bg-gray-200 text-gray-600'
+              'bg-gray-200 text-muted-foreground'
             }`}
           >
             {index + 1}
           </div>
-          <span className="ml-2 text-sm font-medium text-gray-700">{step}</span>
+          <span className="ml-2 text-sm font-medium text-muted-foreground">{step}</span>
         </div>
         {index < steps.length - 1 && (
           <ChevronRight className="text-gray-400" size={20} />
@@ -260,7 +260,7 @@ function Example() {
                 <FormFieldPreview label="Last Name" type="text" required />
                 <FormFieldPreview label="Date of Birth" type="date" required />
                 <div className="flex justify-between pt-4">
-                  <button className="bg-gray-200 text-gray-700 px-6 py-2 rounded hover:bg-gray-300 min-h-[44px]" disabled>
+                  <button className="bg-gray-200 text-muted-foreground px-6 py-2 rounded hover:bg-gray-300 min-h-[44px]" disabled>
                     Previous
                   </button>
                   <button className="bg-[#005196] text-white px-6 py-2 rounded hover:bg-[#004178] min-h-[44px]">
@@ -353,22 +353,22 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="border-2 border-dashed border-gray-300 rounded p-6 bg-gray-50">
-              <div className="flex items-center justify-between mb-4 bg-white p-3 rounded border border-gray-200 cursor-move hover:border-[#005196]">
+            <div className="border-2 border-dashed border-border rounded p-6 bg-background">
+              <div className="flex items-center justify-between mb-4 bg-card p-3 rounded border border-border cursor-move hover:border-[#005196]">
                 <span className="text-sm font-medium">Full Name (text)</span>
                 <div className="flex gap-2">
                   <button className="text-gray-500 hover:text-[#005196] text-xs">Edit</button>
                   <button className="text-gray-500 hover:text-red-600 text-xs">Delete</button>
                 </div>
               </div>
-              <div className="flex items-center justify-between mb-4 bg-white p-3 rounded border border-gray-200 cursor-move hover:border-[#005196]">
+              <div className="flex items-center justify-between mb-4 bg-card p-3 rounded border border-border cursor-move hover:border-[#005196]">
                 <span className="text-sm font-medium">Email Address (email)</span>
                 <div className="flex gap-2">
                   <button className="text-gray-500 hover:text-[#005196] text-xs">Edit</button>
                   <button className="text-gray-500 hover:text-red-600 text-xs">Delete</button>
                 </div>
               </div>
-              <button className="w-full border-2 border-dashed border-gray-300 rounded p-3 text-sm text-gray-600 hover:border-[#005196] hover:text-[#005196]">
+              <button className="w-full border-2 border-dashed border-border rounded p-3 text-sm text-muted-foreground hover:border-[#005196] hover:text-[#005196]">
                 + Add Field
               </button>
             </div>
@@ -413,25 +413,25 @@ function Example() {
           preview: (
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
-                <div className="border border-gray-200 rounded p-4 hover:border-[#005196] cursor-pointer bg-white">
+                <div className="border border-border rounded p-4 hover:border-[#005196] cursor-pointer bg-card">
                   <FileText className="text-[#005196] mb-2" size={24} />
                   <h4 className="font-medium text-sm mb-1">Business License</h4>
-                  <p className="text-xs text-gray-600">12 fields, 3 steps</p>
+                  <p className="text-xs text-muted-foreground">12 fields, 3 steps</p>
                 </div>
-                <div className="border border-gray-200 rounded p-4 hover:border-[#005196] cursor-pointer bg-white">
+                <div className="border border-border rounded p-4 hover:border-[#005196] cursor-pointer bg-card">
                   <FileText className="text-[#005196] mb-2" size={24} />
                   <h4 className="font-medium text-sm mb-1">Building Permit</h4>
-                  <p className="text-xs text-gray-600">18 fields, 4 steps</p>
+                  <p className="text-xs text-muted-foreground">18 fields, 4 steps</p>
                 </div>
-                <div className="border border-gray-200 rounded p-4 hover:border-[#005196] cursor-pointer bg-white">
+                <div className="border border-border rounded p-4 hover:border-[#005196] cursor-pointer bg-card">
                   <FileText className="text-[#005196] mb-2" size={24} />
                   <h4 className="font-medium text-sm mb-1">Marriage Certificate</h4>
-                  <p className="text-xs text-gray-600">8 fields, 2 steps</p>
+                  <p className="text-xs text-muted-foreground">8 fields, 2 steps</p>
                 </div>
-                <div className="border border-gray-200 rounded p-4 hover:border-[#005196] cursor-pointer bg-white">
+                <div className="border border-border rounded p-4 hover:border-[#005196] cursor-pointer bg-card">
                   <FileText className="text-[#005196] mb-2" size={24} />
                   <h4 className="font-medium text-sm mb-1">Parking Permit</h4>
-                  <p className="text-xs text-gray-600">10 fields, 2 steps</p>
+                  <p className="text-xs text-muted-foreground">10 fields, 2 steps</p>
                 </div>
               </div>
             </div>
@@ -512,7 +512,7 @@ function Example() {
 }`,
           preview: (
             <div className="relative">
-              <div className="absolute top-0 right-0 flex items-center gap-2 text-xs text-gray-600 bg-green-50 px-3 py-1 rounded border border-green-200">
+              <div className="absolute top-0 right-0 flex items-center gap-2 text-xs text-muted-foreground bg-green-50 px-3 py-1 rounded border border-green-200">
                 <Save size={14} className="text-green-600" />
                 <span>Auto-saved 2 minutes ago</span>
               </div>
@@ -524,12 +524,12 @@ function Example() {
                 <FormFieldPreview label="Request Details" type="textarea" required />
                 <div className="flex items-center gap-2">
                   <input type="checkbox" className="w-4 h-4" id="terms" />
-                  <label htmlFor="terms" className="text-sm text-gray-700">
+                  <label htmlFor="terms" className="text-sm text-muted-foreground">
                     I agree to the terms and conditions <span className="text-red-600">*</span>
                   </label>
                 </div>
                 <div className="flex gap-3 pt-4">
-                  <button className="bg-gray-200 text-gray-700 px-6 py-2 rounded hover:bg-gray-300 min-h-[44px] flex items-center gap-2">
+                  <button className="bg-gray-200 text-muted-foreground px-6 py-2 rounded hover:bg-gray-300 min-h-[44px] flex items-center gap-2">
                     <Eye size={16} />
                     Preview
                   </button>
@@ -678,7 +678,7 @@ export const FormBuilder: React.FC<FormBuilderProps> = ({
               <button
                 type="button"
                 onClick={() => setCurrentStep(prev => prev - 1)}
-                className="px-6 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 min-h-[44px]"
+                className="px-6 py-2 bg-gray-200 text-muted-foreground rounded hover:bg-gray-300 min-h-[44px]"
               >
                 Previous
               </button>
@@ -802,11 +802,11 @@ export const FormField: React.FC<{
     'w-full px-3 py-2 border rounded',
     'focus:outline-none focus:ring-2 focus:ring-[#005196] focus:border-transparent',
     'min-h-[44px]',
-    errors[field.name] ? 'border-red-500' : 'border-gray-300'
+    errors[field.name] ? 'border-red-500' : 'border-border'
   );
 
   const labelClasses = cn(
-    'block font-medium text-gray-700',
+    'block font-medium text-muted-foreground',
     layout === 'horizontal' ? 'mb-0' : 'mb-2'
   );
 
@@ -880,7 +880,7 @@ export const FormField: React.FC<{
         )}
 
         {field.helperText && !errors[field.name] && (
-          <p className="mt-1 text-sm text-gray-600">
+          <p className="mt-1 text-sm text-muted-foreground">
             {field.helperText}
           </p>
         )}
@@ -920,7 +920,7 @@ interface FieldDefinition {
 
       <div [class]="getLayoutClasses()">
         <div *ngFor="let field of visibleFields" class="space-y-2">
-          <label [for]="field.name" class="block text-sm font-medium text-gray-700">
+          <label [for]="field.name" class="block text-sm font-medium text-muted-foreground">
             {{ field.label }}
             <span *ngIf="field.required" class="text-red-600 ml-1">*</span>
           </label>
@@ -931,7 +931,7 @@ interface FieldDefinition {
             [type]="field.type"
             [formControlName]="field.name"
             [attr.aria-required]="field.required"
-            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[44px]"
+            class="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[44px]"
           />
 
           <textarea
@@ -939,7 +939,7 @@ interface FieldDefinition {
             [id]="field.name"
             [formControlName]="field.name"
             [attr.aria-required]="field.required"
-            class="w-full min-h-[100px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full min-h-[100px] px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           ></textarea>
 
           <select
@@ -947,7 +947,7 @@ interface FieldDefinition {
             [id]="field.name"
             [formControlName]="field.name"
             [attr.aria-required]="field.required"
-            class="w-full min-h-[44px] px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full min-h-[44px] px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select an option</option>
             <option *ngFor="let option of field.options" [value]="option">
@@ -966,7 +966,7 @@ interface FieldDefinition {
           *ngIf="multiStep && currentStep > 0"
           type="button"
           (click)="previousStep()"
-          class="px-6 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 min-h-[44px]"
+          class="px-6 py-2 bg-gray-200 text-muted-foreground rounded hover:bg-gray-300 min-h-[44px]"
         >
           Previous
         </button>
@@ -1051,7 +1051,7 @@ export class FormBuilderComponent implements OnInit {
     } else if (index === this.currentStep) {
       return \`\${baseClass} bg-blue-600 text-white\`;
     }
-    return \`\${baseClass} bg-gray-200 text-gray-600\`;
+    return \`\${baseClass} bg-gray-200 text-muted-foreground\`;
   }
 
   previousStep(): void {

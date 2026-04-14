@@ -21,10 +21,10 @@ const RadioPreview = ({ name, options, disabled = false }: any) => {
               checked={selected === option.value}
               onChange={(e) => !disabled && setSelected(e.target.value)}
               disabled={disabled}
-              className="w-5 h-5 border-2 border-gray-300 rounded-full appearance-none checked:border-[#005196] checked:border-[6px] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196] transition-all cursor-pointer"
+              className="w-5 h-5 border-2 border-border rounded-full appearance-none checked:border-[#005196] checked:border-[6px] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196] transition-all cursor-pointer"
             />
           </div>
-          <span className="text-gray-900">{option.label}</span>
+          <span className="text-foreground">{option.label}</span>
         </label>
       ))}
     </div>
@@ -202,11 +202,11 @@ function Example() {
                     <input
                       type="radio"
                       name="docs"
-                      className="w-5 h-5 border-2 border-gray-300 rounded-full"
+                      className="w-5 h-5 border-2 border-border rounded-full"
                     />
-                    <span className="text-gray-900">{opt.label}</span>
+                    <span className="text-foreground">{opt.label}</span>
                   </label>
-                  <p className="ml-8 mt-1 text-sm text-gray-600">{opt.helper}</p>
+                  <p className="ml-8 mt-1 text-sm text-muted-foreground">{opt.helper}</p>
                 </div>
               ))}
             </div>
@@ -323,14 +323,14 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           />
 
           {label && (
-            <span className="text-gray-900 select-none">
+            <span className="text-foreground select-none">
               {label}
             </span>
           )}
         </label>
 
         {helperText && (
-          <p className="ml-8 text-sm text-gray-600">
+          <p className="ml-8 text-sm text-muted-foreground">
             {helperText}
           </p>
         )}
@@ -370,7 +370,7 @@ export const radioVariants = cva(
     variants: {
       error: {
         true: 'border-red-500',
-        false: 'border-gray-300',
+        false: 'border-border',
       },
     },
     defaultVariants: {
@@ -437,12 +437,12 @@ export class RadioGroupComponent implements ControlValueAccessor {
           (change)="handleChange($event)"
         />
 
-        <span *ngIf="label" class="text-gray-900 select-none">
+        <span *ngIf="label" class="text-foreground select-none">
           {{ label }}
         </span>
       </label>
 
-      <p *ngIf="helperText" class="ml-8 text-sm text-gray-600">
+      <p *ngIf="helperText" class="ml-8 text-sm text-muted-foreground">
         {{ helperText }}
       </p>
     </div>
@@ -468,7 +468,7 @@ export class RadioComponent {
   getRadioClasses(): string {
     const base = 'w-5 h-5 rounded-full border-2 appearance-none transition-all cursor-pointer';
     const focus = 'focus:ring-2 focus:ring-offset-2 focus:ring-blue-500';
-    const state = this.checked ? 'border-blue-600 border-[6px]' : 'border-gray-300';
+    const state = this.checked ? 'border-blue-600 border-[6px]' : 'border-border';
     const error = this.error ? 'border-red-500' : '';
     
     return [base, focus, state, error].join(' ');

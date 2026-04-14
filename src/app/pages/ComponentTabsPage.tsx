@@ -12,7 +12,7 @@ const TabsPreview = ({ variant, items }: any) => {
 
   return (
     <div className="w-full">
-      <div className={`flex border-b ${variant === 'pills' ? 'border-transparent gap-2' : 'border-gray-200'}`}>
+      <div className={`flex border-b ${variant === 'pills' ? 'border-transparent gap-2' : 'border-border'}`}>
         {items.map((item: any, index: number) => (
           <button
             key={index}
@@ -21,18 +21,18 @@ const TabsPreview = ({ variant, items }: any) => {
               variant === 'pills'
                 ? active === index
                   ? 'bg-[#005196] text-white rounded-lg'
-                  : 'bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200'
+                  : 'bg-muted text-muted-foreground rounded-lg hover:bg-gray-200'
                 : active === index
                 ? 'border-b-2 border-[#005196] text-[#005196] font-semibold'
-                : 'text-gray-600 hover:text-gray-900'
+                : 'text-muted-foreground hover:text-foreground'
             }`}
           >
             {item.label}
           </button>
         ))}
       </div>
-      <div className="p-6 bg-white border border-gray-200 border-t-0 rounded-b-lg">
-        <p className="text-gray-700">{items[active].content}</p>
+      <div className="p-6 bg-card border border-border border-t-0 rounded-b-lg">
+        <p className="text-muted-foreground">{items[active].content}</p>
       </div>
     </div>
   );
@@ -168,7 +168,7 @@ export const Tabs: React.FC<TabsProps> = ({
         className={cn(
           'flex',
           orientation === 'vertical' ? 'flex-col' : 'flex-row',
-          variant === 'underline' && 'border-b border-gray-200',
+          variant === 'underline' && 'border-b border-border',
           variant === 'pills' && 'gap-2'
         )}
         role="tablist"
@@ -189,13 +189,13 @@ export const Tabs: React.FC<TabsProps> = ({
               variant === 'underline' && [
                 activeIndex === index
                   ? 'border-b-2 border-[#005196] text-[#005196] font-semibold'
-                  : 'text-gray-600 hover:text-gray-900',
+                  : 'text-muted-foreground hover:text-foreground',
               ],
               variant === 'pills' && [
                 'rounded-lg',
                 activeIndex === index
                   ? 'bg-[#005196] text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
+                  : 'bg-muted text-muted-foreground hover:bg-gray-200',
               ],
               item.disabled && 'opacity-50 cursor-not-allowed'
             )}
@@ -317,7 +317,7 @@ export class TabsComponent {
   getTabListClasses(): string {
     const classes = ['flex'];
     if (this.variant === 'underline') {
-      classes.push('border-b', 'border-gray-200');
+      classes.push('border-b', 'border-border');
     } else if (this.variant === 'pills') {
       classes.push('gap-2');
     }
@@ -337,13 +337,13 @@ export class TabsComponent {
       if (isActive) {
         classes.push('bg-[#005196]', 'text-white');
       } else {
-        classes.push('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+        classes.push('bg-muted', 'text-muted-foreground', 'hover:bg-gray-200');
       }
     } else if (this.variant === 'underline') {
       if (isActive) {
         classes.push('border-b-2', 'border-[#005196]', 'text-[#005196]', 'font-semibold');
       } else {
-        classes.push('text-gray-600', 'hover:text-gray-900');
+        classes.push('text-muted-foreground', 'hover:text-foreground');
       }
     }
 

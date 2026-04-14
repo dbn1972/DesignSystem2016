@@ -2,7 +2,7 @@ import { SelectHTMLAttributes } from 'react';
 import { FormFieldProps, ChildrenProp } from '../../types/common';
 
 export interface SelectProps
-  extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'>,
+  extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size' | 'aria-invalid' | 'aria-required'>,
     FormFieldProps,
     ChildrenProp {
   /**

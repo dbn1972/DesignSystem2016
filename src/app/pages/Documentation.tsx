@@ -42,7 +42,7 @@ export default function Documentation() {
       title: "Foundations",
       description: "Colors, typography, spacing, accessibility principles, and design tokens",
       href: "/foundations-detailed",
-      color: "bg-[#000080]",
+      color: "bg-primary",
       badge: "Essential"
     },
     {
@@ -50,7 +50,7 @@ export default function Documentation() {
       title: "Components Library",
       description: "Comprehensive library of UI components with code examples and guidelines",
       href: "/core-components",
-      color: "bg-[#138808]",
+      color: "bg-green-700",
       badge: "100+ Components"
     },
     {
@@ -66,7 +66,7 @@ export default function Documentation() {
       title: "API Reference",
       description: "Complete API documentation, component props, methods, and interfaces",
       href: "/api-reference",
-      color: "bg-[#000080]",
+      color: "bg-primary",
       badge: "Technical"
     },
     {
@@ -74,7 +74,7 @@ export default function Documentation() {
       title: "Migration Guides",
       description: "Version migration guides, breaking changes, and upgrade instructions",
       href: "/migration-guides",
-      color: "bg-[#138808]",
+      color: "bg-green-700",
       badge: null
     },
     {
@@ -90,7 +90,7 @@ export default function Documentation() {
       title: "Changelog",
       description: "Release notes, version history, and what's new in each release",
       href: "/changelog",
-      color: "bg-[#000080]",
+      color: "bg-primary",
       badge: "v2.4.0"
     }
   ];
@@ -200,7 +200,7 @@ export default function Documentation() {
   ];
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-card min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#000080] via-[#000060] to-[#000080] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -239,8 +239,8 @@ export default function Documentation() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Explore Documentation</h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="text-3xl font-bold text-foreground mb-3">Explore Documentation</h2>
+            <p className="text-lg text-muted-foreground">
               Navigate through comprehensive guides, references, and resources
             </p>
           </div>
@@ -250,7 +250,7 @@ export default function Documentation() {
               <Link
                 key={index}
                 to={section.href}
-                className="group bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-[#000080] hover:shadow-xl transition-all duration-200"
+                className="group bg-card border-2 border-border rounded-xl p-6 hover:border-primary hover:shadow-xl transition-all duration-200"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`w-14 h-14 ${section.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
@@ -263,14 +263,14 @@ export default function Documentation() {
                   )}
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#000080] transition-colors">
+                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {section.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                   {section.description}
                 </p>
 
-                <div className="flex items-center text-[#000080] font-semibold group-hover:gap-2 transition-all">
+                <div className="flex items-center text-primary font-semibold group-hover:gap-2 transition-all">
                   <span>Explore</span>
                   <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -307,7 +307,7 @@ export default function Documentation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-8">
             <Sparkles className="text-[#FF9933]" size={32} />
-            <h2 className="text-3xl font-bold text-gray-900">What's New</h2>
+            <h2 className="text-3xl font-bold text-foreground">What's New</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -315,13 +315,13 @@ export default function Documentation() {
               <Link
                 key={index}
                 to={update.href}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#000080] hover:shadow-lg transition-all group"
+                className="bg-card rounded-xl p-6 border border-border hover:border-primary hover:shadow-lg transition-all group"
               >
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-sm text-gray-500">{update.date}</span>
                   <span className={`px-2 py-1 rounded text-xs font-semibold ${
                     update.type === "Feature"
-                      ? "bg-[#138808]/10 text-[#138808]"
+                      ? "bg-green-700/10 text-[#138808]"
                       : "bg-[#FF9933]/10 text-[#FF9933]"
                   }`}>
                     {update.type}
@@ -329,15 +329,15 @@ export default function Documentation() {
                 </div>
 
                 <div className="mb-2">
-                  <span className="inline-block px-2 py-0.5 bg-[#000080] text-white text-xs font-mono rounded mb-2">
+                  <span className="inline-block px-2 py-0.5 bg-primary text-white text-xs font-mono rounded mb-2">
                     {update.version}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#000080] transition-colors">
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {update.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {update.description}
                 </p>
               </Link>
@@ -347,7 +347,7 @@ export default function Documentation() {
           <div className="mt-8 text-center">
             <Link
               to="/changelog"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#000080] text-white font-semibold rounded-lg hover:bg-[#000060] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:opacity-90 transition-colors"
             >
               View Full Changelog
               <ExternalLink size={18} />
@@ -359,19 +359,19 @@ export default function Documentation() {
       {/* Quick Links Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Quick Access</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8">Quick Access</h2>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {quickLinks.map((link, index) => (
               <Link
                 key={index}
                 to={link.href}
-                className="flex flex-col items-center justify-center p-6 bg-white border border-gray-200 rounded-xl hover:border-[#FF9933] hover:shadow-md transition-all group"
+                className="flex flex-col items-center justify-center p-6 bg-card border border-border rounded-xl hover:border-[#FF9933] hover:shadow-md transition-all group"
               >
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#FF9933]/10 transition-colors">
-                  <link.icon className="text-gray-700 group-hover:text-[#FF9933] transition-colors" size={24} />
+                <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-3 group-hover:bg-[#FF9933]/10 transition-colors">
+                  <link.icon className="text-muted-foreground group-hover:text-[#FF9933] transition-colors" size={24} />
                 </div>
-                <span className="text-sm font-medium text-gray-900 text-center">
+                <span className="text-sm font-medium text-foreground text-center">
                   {link.title}
                 </span>
               </Link>
@@ -381,14 +381,14 @@ export default function Documentation() {
       </section>
 
       {/* Popular Resources */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Popular Resources</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8">Popular Resources</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             {popularResources.map((section, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 border border-gray-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div key={index} className="bg-card rounded-xl p-6 border border-border">
+                <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
                   <div className="w-2 h-2 bg-[#FF9933] rounded-full"></div>
                   {section.category}
                 </h3>
@@ -397,9 +397,9 @@ export default function Documentation() {
                     <li key={itemIndex}>
                       <Link
                         to={item.href}
-                        className="flex items-center gap-2 text-gray-700 hover:text-[#000080] transition-colors group"
+                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
                       >
-                        <ChevronRight size={16} className="text-gray-400 group-hover:text-[#000080] group-hover:translate-x-1 transition-all" />
+                        <ChevronRight size={16} className="text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                         <span className="font-medium">{item.name}</span>
                       </Link>
                     </li>
@@ -416,12 +416,12 @@ export default function Documentation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Frequently Asked Questions</h2>
-              <p className="text-gray-600">Quick answers to common questions</p>
+              <h2 className="text-3xl font-bold text-foreground mb-2">Frequently Asked Questions</h2>
+              <p className="text-muted-foreground">Quick answers to common questions</p>
             </div>
             <Link
               to="/faq"
-              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-[#000080] font-semibold hover:bg-blue-50 rounded-lg transition-colors"
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-primary font-semibold hover:bg-blue-50 rounded-lg transition-colors"
             >
               View All FAQs
               <ChevronRight size={18} />
@@ -432,17 +432,17 @@ export default function Documentation() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#000080] transition-colors"
+                className="bg-card border border-border rounded-xl p-6 hover:border-primary transition-colors"
               >
                 <div className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-[#FF9933]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <HelpCircle className="text-[#FF9933]" size={14} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">
+                    <h3 className="font-bold text-foreground mb-2">
                       {faq.question}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -454,7 +454,7 @@ export default function Documentation() {
           <div className="mt-8 text-center md:hidden">
             <Link
               to="/faq"
-              className="inline-flex items-center gap-2 px-6 py-3 text-[#000080] font-semibold border-2 border-[#000080] rounded-lg hover:bg-[#000080] hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 text-primary font-semibold border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-colors"
             >
               View All FAQs
               <ChevronRight size={18} />
@@ -484,7 +484,7 @@ export default function Documentation() {
               </Link>
               <Link
                 to="/contribution-guidelines"
-                className="px-8 py-3 bg-white text-[#000080] font-semibold rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-2"
+                className="px-8 py-3 bg-card text-primary font-semibold rounded-lg hover:bg-muted transition-colors inline-flex items-center gap-2"
               >
                 <GitBranch size={20} />
                 Contribute
@@ -504,24 +504,24 @@ export default function Documentation() {
       </section>
 
       {/* Footer Navigation */}
-      <section className="py-12 bg-gray-50 border-t border-gray-200">
+      <section className="py-12 bg-background border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-bold text-gray-900 mb-4">Getting Started</h3>
+              <h3 className="font-bold text-foreground mb-4">Getting Started</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/installation-guide" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/installation-guide" className="text-muted-foreground hover:text-primary transition-colors">
                     Installation
                   </Link>
                 </li>
                 <li>
-                  <Link to="/ux4g-starter-kit" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/ux4g-starter-kit" className="text-muted-foreground hover:text-primary transition-colors">
                     Starter Kit
                   </Link>
                 </li>
                 <li>
-                  <Link to="/adoption" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/adoption" className="text-muted-foreground hover:text-primary transition-colors">
                     Adoption Guide
                   </Link>
                 </li>
@@ -529,20 +529,20 @@ export default function Documentation() {
             </div>
 
             <div>
-              <h3 className="font-bold text-gray-900 mb-4">Design</h3>
+              <h3 className="font-bold text-foreground mb-4">Design</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/foundations-detailed" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/foundations-detailed" className="text-muted-foreground hover:text-primary transition-colors">
                     Foundations
                   </Link>
                 </li>
                 <li>
-                  <Link to="/core-components" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/core-components" className="text-muted-foreground hover:text-primary transition-colors">
                     Components
                   </Link>
                 </li>
                 <li>
-                  <Link to="/patterns" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/patterns" className="text-muted-foreground hover:text-primary transition-colors">
                     Patterns
                   </Link>
                 </li>
@@ -550,20 +550,20 @@ export default function Documentation() {
             </div>
 
             <div>
-              <h3 className="font-bold text-gray-900 mb-4">Resources</h3>
+              <h3 className="font-bold text-foreground mb-4">Resources</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/accessibility" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/accessibility" className="text-muted-foreground hover:text-primary transition-colors">
                     Accessibility
                   </Link>
                 </li>
                 <li>
-                  <Link to="/figma-design-system" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/figma-design-system" className="text-muted-foreground hover:text-primary transition-colors">
                     Figma Library
                   </Link>
                 </li>
                 <li>
-                  <Link to="/governance" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/governance" className="text-muted-foreground hover:text-primary transition-colors">
                     Governance
                   </Link>
                 </li>
@@ -571,20 +571,20 @@ export default function Documentation() {
             </div>
 
             <div>
-              <h3 className="font-bold text-gray-900 mb-4">Community</h3>
+              <h3 className="font-bold text-foreground mb-4">Community</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="/contribution-guidelines" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/contribution-guidelines" className="text-muted-foreground hover:text-primary transition-colors">
                     Contributing
                   </Link>
                 </li>
                 <li>
-                  <Link to="/changelog" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/changelog" className="text-muted-foreground hover:text-primary transition-colors">
                     Changelog
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact-support-overview" className="text-gray-600 hover:text-[#000080] transition-colors">
+                  <Link to="/contact-support-overview" className="text-muted-foreground hover:text-primary transition-colors">
                     Support
                   </Link>
                 </li>

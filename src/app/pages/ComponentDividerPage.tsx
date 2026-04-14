@@ -10,7 +10,7 @@ const DividerPreview = ({ orientation = 'horizontal', variant = 'solid' }: any) 
     return (
       <div className="flex items-center h-24">
         <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Left</div>
-        <div className={`mx-4 h-full w-px ${variant === 'dashed' ? 'border-l border-dashed border-gray-300' : 'bg-gray-300'}`} />
+        <div className={`mx-4 h-full w-px ${variant === 'dashed' ? 'border-l border-dashed border-border' : 'bg-gray-300'}`} />
         <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Right</div>
       </div>
     );
@@ -19,7 +19,7 @@ const DividerPreview = ({ orientation = 'horizontal', variant = 'solid' }: any) 
   return (
     <div className="space-y-4">
       <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Content Above</div>
-      <div className={`h-px ${variant === 'dashed' ? 'border-t border-dashed border-gray-300' : 'bg-gray-300'}`} />
+      <div className={`h-px ${variant === 'dashed' ? 'border-t border-dashed border-border' : 'bg-gray-300'}`} />
       <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Content Below</div>
     </div>
   );
@@ -124,7 +124,7 @@ function Example() {
               <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Section 1</div>
               <div className="flex items-center gap-4">
                 <div className="flex-1 h-px bg-gray-300" />
-                <span className="text-sm font-semibold text-gray-600">OR</span>
+                <span className="text-sm font-semibold text-muted-foreground">OR</span>
                 <div className="flex-1 h-px bg-gray-300" />
               </div>
               <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Section 2</div>
@@ -180,13 +180,13 @@ export const Divider: React.FC<DividerProps> = ({
     return (
       <div className={cn('flex items-center', spacingClasses[spacing], className)}>
         {labelPosition !== 'left' && (
-          <div className={cn('flex-1', variantClasses[variant], 'border-t border-gray-300')} />
+          <div className={cn('flex-1', variantClasses[variant], 'border-t border-border')} />
         )}
-        <span className="px-4 text-sm font-semibold text-gray-600">
+        <span className="px-4 text-sm font-semibold text-muted-foreground">
           {label}
         </span>
         {labelPosition !== 'right' && (
-          <div className={cn('flex-1', variantClasses[variant], 'border-t border-gray-300')} />
+          <div className={cn('flex-1', variantClasses[variant], 'border-t border-border')} />
         )}
       </div>
     );
@@ -197,7 +197,7 @@ export const Divider: React.FC<DividerProps> = ({
     return (
       <hr
         className={cn(
-          'border-0 border-t border-gray-300',
+          'border-0 border-t border-border',
           variantClasses[variant],
           spacingClasses[spacing],
           className
@@ -245,7 +245,7 @@ export interface DividerProps {
          [class]="getContainerClasses()">
       <div *ngIf="labelPosition !== 'left'" 
            [class]="getLineClasses()"></div>
-      <span class="px-4 text-sm font-semibold text-gray-600">{{ label }}</span>
+      <span class="px-4 text-sm font-semibold text-muted-foreground">{{ label }}</span>
       <div *ngIf="labelPosition !== 'right'" 
            [class]="getLineClasses()"></div>
     </div>
@@ -285,7 +285,7 @@ export class DividerComponent {
       dashed: 'border-dashed',
       dotted: 'border-dotted',
     };
-    return \`flex-1 border-t border-gray-300 \${variantClasses[this.variant]}\`;
+    return \`flex-1 border-t border-border \${variantClasses[this.variant]}\`;
   }
   
   getHrClasses(): string {
@@ -300,7 +300,7 @@ export class DividerComponent {
       dashed: 'border-dashed',
       dotted: 'border-dotted',
     };
-    return \`border-0 border-t border-gray-300 \${variantClasses[this.variant]} \${spacingClasses[this.spacing]}\`;
+    return \`border-0 border-t border-border \${variantClasses[this.variant]} \${spacingClasses[this.spacing]}\`;
   }
   
   getVerticalClasses(): string {

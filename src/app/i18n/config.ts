@@ -108,7 +108,7 @@ i18n
 // Helper function to get language direction
 export const getLanguageDirection = (languageCode: string): 'ltr' | 'rtl' => {
   const language = SUPPORTED_LANGUAGES.find(lang => lang.code === languageCode);
-  return language?.dir || 'ltr';
+  return (language?.dir || 'ltr') as 'ltr' | 'rtl';
 };
 
 // Helper function to get language native name

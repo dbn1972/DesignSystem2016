@@ -14,15 +14,15 @@ export default function IdentityErrorLockout() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation Bar */}
-      <nav className="bg-white border-b-2 border-gray-300">
+      <nav className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between">
-          <Link to="/patterns/identity" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+          <Link to="/patterns/identity" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
             <ArrowLeft size={20} />
             <span className="font-medium">Back to Identity Patterns</span>
           </Link>
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-muted-foreground">
             <span className="font-bold">Flow:</span> Authentication Error States & Lockout
           </div>
         </div>
@@ -34,8 +34,8 @@ export default function IdentityErrorLockout() {
           
           {/* State Selector */}
           <div className="col-span-12">
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-6 mb-8">
-              <h2 className="font-bold text-gray-900 mb-4">Select Error State to View</h2>
+            <div className="bg-card border-2 border-border rounded-lg p-6 mb-8">
+              <h2 className="font-bold text-foreground mb-4">Select Error State to View</h2>
               <div className="grid grid-cols-5 gap-4">
                 {errorStates.map((state) => (
                   <button
@@ -43,12 +43,12 @@ export default function IdentityErrorLockout() {
                     onClick={() => setSelectedState(state.id as any)}
                     className={`p-4 border-2 rounded-lg flex flex-col items-center gap-2 transition-all ${
                       selectedState === state.id
-                        ? 'border-[#000080] bg-blue-50 shadow-lg'
-                        : 'border-gray-300 bg-white hover:border-gray-400'
+                        ? 'border-primary bg-blue-50 shadow-lg'
+                        : 'border-border bg-card hover:border-gray-400'
                     }`}
                   >
                     <div className={`text-${state.color}-600`}>{state.icon}</div>
-                    <span className="text-sm font-medium text-gray-900 text-center">{state.label}</span>
+                    <span className="text-sm font-medium text-foreground text-center">{state.label}</span>
                   </button>
                 ))}
               </div>
@@ -57,19 +57,19 @@ export default function IdentityErrorLockout() {
 
           {/* Prototype View - 8 columns */}
           <div className="col-span-8">
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden shadow-lg">
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden shadow-lg">
               {/* Tricolor Header */}
               <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 h-2"></div>
               
               {/* Government Header */}
-              <div className="bg-white border-b-2 border-gray-300 px-8 py-6">
+              <div className="bg-card border-b-2 border-border px-8 py-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#000080] rounded flex items-center justify-center">
+                  <div className="w-12 h-12 bg-primary rounded flex items-center justify-center">
                     <Shield size={24} className="text-white" />
                   </div>
                   <div>
-                    <div className="font-bold text-lg text-gray-900">Digital India Portal</div>
-                    <div className="text-sm text-gray-600">Government of India</div>
+                    <div className="font-bold text-lg text-foreground">Digital India Portal</div>
+                    <div className="text-sm text-muted-foreground">Government of India</div>
                   </div>
                 </div>
               </div>
@@ -89,12 +89,12 @@ export default function IdentityErrorLockout() {
                       maxAttempts={5}
                       actions={
                         <>
-                          <button className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors mb-3">
+                          <button className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors mb-3">
                             Try Again
                           </button>
                           <Link
                             to="/patterns/identity/forgot-password"
-                            className="block w-full py-3 bg-white text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-center"
+                            className="block w-full py-3 bg-card text-muted-foreground font-medium border-2 border-border rounded-lg hover:bg-background transition-colors text-center"
                           >
                             Forgot Password?
                           </Link>
@@ -119,17 +119,17 @@ export default function IdentityErrorLockout() {
                       lockDuration="15 minutes"
                       actions={
                         <>
-                          <div className="mb-6 p-6 bg-gray-100 border-2 border-gray-300 rounded-lg text-center">
-                            <div className="font-bold text-gray-900 mb-2">Account will unlock in</div>
-                            <div className="text-4xl font-bold text-[#000080]">12:34</div>
+                          <div className="mb-6 p-6 bg-muted border-2 border-border rounded-lg text-center">
+                            <div className="font-bold text-foreground mb-2">Account will unlock in</div>
+                            <div className="text-4xl font-bold text-primary">12:34</div>
                           </div>
                           <Link
                             to="/patterns/identity/account-recovery"
-                            className="block w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors text-center mb-3"
+                            className="block w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors text-center mb-3"
                           >
                             Unlock Account Now
                           </Link>
-                          <button className="w-full py-3 bg-white text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                          <button className="w-full py-3 bg-card text-muted-foreground font-medium border-2 border-border rounded-lg hover:bg-background transition-colors">
                             Contact Support
                           </button>
                         </>
@@ -155,15 +155,15 @@ export default function IdentityErrorLockout() {
                           <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
                             <div className="flex items-start gap-3 text-sm">
                               <Info size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                              <div className="text-gray-700">
-                                <div className="font-bold text-gray-900 mb-1">Your work has been saved</div>
+                              <div className="text-muted-foreground">
+                                <div className="font-bold text-foreground mb-1">Your work has been saved</div>
                                 <p>Any form data you entered is saved as a draft for 24 hours</p>
                               </div>
                             </div>
                           </div>
                           <Link
                             to="/patterns/identity/sign-in"
-                            className="block w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors text-center"
+                            className="block w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors text-center"
                           >
                             Sign In Again
                           </Link>
@@ -187,10 +187,10 @@ export default function IdentityErrorLockout() {
                       description="We couldn't connect to the server. Please check your internet connection and try again."
                       actions={
                         <>
-                          <button className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors mb-3">
+                          <button className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors mb-3">
                             Retry Connection
                           </button>
-                          <button className="w-full py-3 bg-white text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                          <button className="w-full py-3 bg-card text-muted-foreground font-medium border-2 border-border rounded-lg hover:bg-background transition-colors">
                             Go Back
                           </button>
                         </>
@@ -214,17 +214,17 @@ export default function IdentityErrorLockout() {
                       errorCode="ERR_500"
                       actions={
                         <>
-                          <div className="mb-6 p-4 bg-gray-100 border-2 border-gray-300 rounded-lg text-center">
-                            <div className="text-sm text-gray-600 mb-2">Error Reference</div>
-                            <div className="font-mono font-bold text-gray-900">REF-2026-04-XXXXX</div>
-                            <div className="text-xs text-gray-600 mt-2">Quote this when contacting support</div>
+                          <div className="mb-6 p-4 bg-muted border-2 border-border rounded-lg text-center">
+                            <div className="text-sm text-muted-foreground mb-2">Error Reference</div>
+                            <div className="font-mono font-bold text-foreground">REF-2026-04-XXXXX</div>
+                            <div className="text-xs text-muted-foreground mt-2">Quote this when contacting support</div>
                           </div>
-                          <button className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors mb-3">
+                          <button className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors mb-3">
                             Try Again
                           </button>
                           <Link
                             to="/"
-                            className="block w-full py-3 bg-white text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-center"
+                            className="block w-full py-3 bg-card text-muted-foreground font-medium border-2 border-border rounded-lg hover:bg-background transition-colors text-center"
                           >
                             Go to Homepage
                           </Link>
@@ -242,16 +242,16 @@ export default function IdentityErrorLockout() {
               </div>
 
               {/* Help Card */}
-              <div className="border-t-2 border-gray-300 bg-gray-50 px-12 py-6">
+              <div className="border-t-2 border-border bg-background px-12 py-6">
                 <div className="max-w-2xl mx-auto">
                   <div className="flex items-start gap-3">
-                    <HelpCircle size={20} className="text-[#000080] flex-shrink-0 mt-0.5" />
+                    <HelpCircle size={20} className="text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-gray-900 mb-2">Still Having Issues?</div>
-                      <div className="text-sm text-gray-700 space-y-1">
+                      <div className="font-bold text-foreground mb-2">Still Having Issues?</div>
+                      <div className="text-sm text-muted-foreground space-y-1">
                         <p>Call: <span className="font-bold">1800-XXX-XXXX</span> (Toll-Free)</p>
                         <p>Email: <span className="font-bold">support@digitalindia.gov.in</span></p>
-                        <p className="text-gray-600">Monday to Friday, 9:00 AM - 6:00 PM IST</p>
+                        <p className="text-muted-foreground">Monday to Friday, 9:00 AM - 6:00 PM IST</p>
                       </div>
                     </div>
                   </div>
@@ -309,28 +309,28 @@ function ErrorStateView({
       </div>
 
       {/* Title and Description */}
-      <h1 className="text-3xl font-bold text-gray-900 mb-3 text-center">{title}</h1>
-      <p className="text-gray-600 mb-6 text-center">{description}</p>
+      <h1 className="text-3xl font-bold text-foreground mb-3 text-center">{title}</h1>
+      <p className="text-muted-foreground mb-6 text-center">{description}</p>
 
       {/* Error Details */}
       {(attempts !== undefined || lockDuration || errorCode) && (
-        <div className="mb-6 p-4 bg-gray-100 border-2 border-gray-200 rounded-lg">
+        <div className="mb-6 p-4 bg-muted border-2 border-border rounded-lg">
           {attempts !== undefined && maxAttempts && (
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-gray-700">Failed Attempts:</span>
+              <span className="text-sm text-muted-foreground">Failed Attempts:</span>
               <span className="font-bold text-red-600">{attempts} of {maxAttempts}</span>
             </div>
           )}
           {lockDuration && (
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-gray-700">Lock Duration:</span>
-              <span className="font-bold text-gray-900">{lockDuration}</span>
+              <span className="text-sm text-muted-foreground">Lock Duration:</span>
+              <span className="font-bold text-foreground">{lockDuration}</span>
             </div>
           )}
           {errorCode && (
             <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-700">Error Code:</span>
-              <span className="font-mono font-bold text-gray-900">{errorCode}</span>
+              <span className="text-sm text-muted-foreground">Error Code:</span>
+              <span className="font-mono font-bold text-foreground">{errorCode}</span>
             </div>
           )}
         </div>
@@ -344,8 +344,8 @@ function ErrorStateView({
         <div className="flex items-start gap-3">
           <Info size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
           <div>
-            <div className="font-bold text-gray-900 mb-2 text-sm">Troubleshooting Tips</div>
-            <ul className="space-y-1 text-sm text-gray-700">
+            <div className="font-bold text-foreground mb-2 text-sm">Troubleshooting Tips</div>
+            <ul className="space-y-1 text-sm text-muted-foreground">
               {tips.map((tip, idx) => (
                 <li key={idx}>• {tip}</li>
               ))}
@@ -361,9 +361,9 @@ function ErrorStateView({
 
 function PatternInfo() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Pattern Info</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground">Pattern Info</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <InfoRow label="Pattern ID" value="UX4G-PAT-009-09" />
@@ -378,11 +378,11 @@ function PatternInfo() {
 
 function ErrorTypes() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Error Types</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground">Error Types</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <ErrorTypeItem
           title="Authentication Errors"
           examples="Invalid credentials, wrong OTP, expired password"
@@ -408,9 +408,9 @@ function RecoveryActions() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Recovery Actions</h3>
+        <h3 className="font-bold text-foreground">Recovery Actions</h3>
       </div>
-      <div className="p-4 space-y-2 text-sm text-gray-700">
+      <div className="p-4 space-y-2 text-sm text-muted-foreground">
         <RecoveryItem text="Clear, actionable error messages" />
         <RecoveryItem text="Multiple recovery paths provided" />
         <RecoveryItem text="Help and support always visible" />
@@ -423,11 +423,11 @@ function RecoveryActions() {
 
 function ImplementationNotes() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Implementation</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground">Implementation</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <ImplementationItem
           title="Error Logging"
           description="Log all errors with user context and timestamp"
@@ -453,13 +453,13 @@ function ImplementationNotes() {
 function InfoRow({ label, value, badge }: { label: string; value: string; badge?: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
+      <span className="text-muted-foreground">{label}</span>
       {badge ? (
-        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'} text-xs font-bold rounded-full`}>
+        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
           {value}
         </span>
       ) : (
-        <span className="font-bold text-gray-900">{value}</span>
+        <span className="font-bold text-foreground">{value}</span>
       )}
     </div>
   );
@@ -468,8 +468,8 @@ function InfoRow({ label, value, badge }: { label: string; value: string; badge?
 function ErrorTypeItem({ title, examples }: { title: string; examples: string }) {
   return (
     <div>
-      <div className="font-bold text-gray-900 mb-1">{title}</div>
-      <div className="text-xs text-gray-600">{examples}</div>
+      <div className="font-bold text-foreground mb-1">{title}</div>
+      <div className="text-xs text-muted-foreground">{examples}</div>
     </div>
   );
 }
@@ -486,8 +486,8 @@ function RecoveryItem({ text }: { text: string }) {
 function ImplementationItem({ title, description }: { title: string; description: string }) {
   return (
     <div>
-      <div className="font-bold text-gray-900 mb-1">{title}</div>
-      <div className="text-xs text-gray-600">{description}</div>
+      <div className="font-bold text-foreground mb-1">{title}</div>
+      <div className="text-xs text-muted-foreground">{description}</div>
     </div>
   );
 }

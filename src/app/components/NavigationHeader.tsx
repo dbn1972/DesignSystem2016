@@ -1,14 +1,14 @@
+import React from "react";
 import { Link, useLocation } from "react-router";
-import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, UserCheck, Shield, Upload, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, Moon, Sun, CreditCard } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, User, UserCheck, Shield, Upload, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, CreditCard } from "lucide-react";
 import { useState } from "react";
-import { useTheme } from '../contexts/ThemeContext';
 import LanguageSelector from './LanguageSelector';
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function NavigationHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
-  const { isDarkMode, toggleDarkMode } = useTheme();
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -33,7 +33,7 @@ export default function NavigationHeader() {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-900 sticky top-0 z-50 transition-colors shadow-sm">
+    <header className="bg-card sticky top-0 z-50 transition-colors shadow-sm">
       {/* Indian Tricolor Band */}
       <div className="h-1" style={{
         background: 'linear-gradient(to right, var(--ux4g-color-saffron-500), white, var(--ux4g-color-green-600))'
@@ -41,7 +41,7 @@ export default function NavigationHeader() {
 
       <div className="max-w-[1600px] mx-auto">
         {/* Top Bar */}
-        <div className="px-6 py-3.5 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
+        <div className="px-6 py-3.5 flex items-center justify-between border-b border-border">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-11 h-11 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105" style={{
@@ -50,28 +50,22 @@ export default function NavigationHeader() {
               <span className="text-white font-bold text-sm">UX4G</span>
             </div>
             <div>
-              <div className="font-semibold text-gray-900 dark:text-gray-100 text-base">Design System Platform</div>
-              <div className="text-[11px] text-gray-500 dark:text-gray-400">Government of India</div>
+              <div className="font-semibold text-foreground text-base">Design System Platform</div>
+              <div className="text-[11px] text-muted-foreground">Government of India</div>
             </div>
           </Link>
 
           {/* Utility Nav */}
           <div className="hidden md:flex items-center gap-2">
             <button
-              className="p-2.5 text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="p-2.5 text-gray-500 hover:text-foreground hover:bg-background   dark:hover:bg-gray-800 rounded-lg transition-colors"
               aria-label="Search"
             >
               <Search size={18} />
             </button>
-            <button
-              onClick={toggleDarkMode}
-              className="p-2.5 text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+            <ThemeSwitcher />
             <LanguageSelector variant="compact" />
-            <a href="https://github.com" className="px-3.5 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 border border-gray-200 rounded-lg hover:bg-gray-50 dark:text-gray-400 dark:border-gray-700 dark:hover:bg-gray-800 transition-colors">
+            <a href="https://github.com" className="px-3.5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground border border-border rounded-lg hover:bg-background   dark:hover:bg-gray-800 transition-colors">
               GitHub
             </a>
             <Link to="/resources/getting-started" className="px-3.5 py-2 text-sm font-medium rounded-lg transition-all hover:shadow-md" style={{
@@ -85,7 +79,7 @@ export default function NavigationHeader() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            className="md:hidden p-2.5 text-muted-foreground hover:bg-background  dark:hover:bg-gray-800 rounded-lg transition-colors"
             aria-label="Main menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -200,8 +194,8 @@ function NavItem({ label, href, active, hasDropdown, dropdownOpen, onMouseEnter 
         to={href}
         className={`flex items-center px-5 py-3.5 text-sm font-medium border-b-2 transition-all ${
           active
-            ? 'text-gray-900 dark:text-gray-100'
-            : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50/50 dark:hover:bg-gray-800/50'
+            ? 'text-foreground'
+            : 'border-transparent text-muted-foreground hover:text-foreground  hover:bg-background/50 '
         }`}
         style={active ? { borderColor: 'var(--ux4g-color-brand-primary)' } : undefined}
         aria-haspopup={hasDropdown ? 'true' : undefined}
@@ -218,12 +212,12 @@ function NavItem({ label, href, active, hasDropdown, dropdownOpen, onMouseEnter 
 function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Design Foundations
             </div>
             <div className="space-y-0.5">
@@ -233,31 +227,31 @@ function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
             </div>
           </div>
 
-          <div className="col-span-2 bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6">
-            <div className="font-semibold text-sm text-gray-900 dark:text-gray-100 mb-5">Foundation Topics</div>
+          <div className="col-span-2 bg-background/50 rounded-xl p-6">
+            <div className="font-semibold text-sm text-foreground mb-5">Foundation Topics</div>
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <Link to="/foundations" className="group space-y-2 p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md transition-all border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800">
-                <div className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Design Tokens</div>
-                <div className="text-gray-500 dark:text-gray-400">Color, typography, spacing, and more</div>
+              <Link to="/foundations" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-gray-100  hover:border-blue-200 dark:hover:border-blue-800">
+                <div className="font-semibold text-foreground dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Design Tokens</div>
+                <div className="text-muted-foreground">Color, typography, spacing, and more</div>
               </Link>
-              <Link to="/accessibility" className="group space-y-2 p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md transition-all border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800">
-                <div className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Accessibility</div>
-                <div className="text-gray-500 dark:text-gray-400">WCAG 2.1 Level AA compliance</div>
+              <Link to="/accessibility" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-gray-100  hover:border-blue-200 dark:hover:border-blue-800">
+                <div className="font-semibold text-foreground dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Accessibility</div>
+                <div className="text-muted-foreground">WCAG 2.1 Level AA compliance</div>
               </Link>
-              <Link to="/content-system" className="group space-y-2 p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md transition-all border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800">
-                <div className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Content Guidelines</div>
-                <div className="text-gray-500 dark:text-gray-400">Voice, tone, and writing principles</div>
+              <Link to="/content-system" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-gray-100  hover:border-blue-200 dark:hover:border-blue-800">
+                <div className="font-semibold text-foreground dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Content Guidelines</div>
+                <div className="text-muted-foreground">Voice, tone, and writing principles</div>
               </Link>
-              <Link to="/foundations" className="group space-y-2 p-4 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md transition-all border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800">
-                <div className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Responsive Design</div>
-                <div className="text-gray-500 dark:text-gray-400">Mobile-first approach</div>
+              <Link to="/foundations" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-gray-100  hover:border-blue-200 dark:hover:border-blue-800">
+                <div className="font-semibold text-foreground dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Responsive Design</div>
+                <div className="text-muted-foreground">Mobile-first approach</div>
               </Link>
             </div>
           </div>
 
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border border-blue-100 dark:border-blue-800">
-            <div className="font-semibold text-sm text-gray-900 dark:text-gray-100 mb-2">Design System Foundations</div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+            <div className="font-semibold text-sm text-foreground mb-2">Design System Foundations</div>
+            <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
               Learn the foundational principles of the UX4G Design System
             </p>
             <Link to="/foundations" className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:gap-2 transition-all">
@@ -275,12 +269,12 @@ function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
 function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Component Library
             </div>
             <div className="space-y-0.5">
@@ -289,31 +283,31 @@ function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
             </div>
           </div>
 
-          <div className="col-span-2 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6">
-            <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-4">Component Categories</div>
+          <div className="col-span-2 bg-card border-2 border-border rounded-lg p-6">
+            <div className="font-bold text-sm text-foreground mb-4">Component Categories</div>
             <div className="grid grid-cols-2 gap-4 text-xs">
-              <Link to="/components" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Form Components</div>
-                <div className="text-gray-600 dark:text-gray-400">Input, Select, Checkbox, Radio, Textarea</div>
+              <Link to="/components" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">Form Components</div>
+                <div className="text-muted-foreground">Input, Select, Checkbox, Radio, Textarea</div>
               </Link>
-              <Link to="/components" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Navigation</div>
-                <div className="text-gray-600 dark:text-gray-400">Header, Footer, Breadcrumb, Tabs</div>
+              <Link to="/components" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">Navigation</div>
+                <div className="text-muted-foreground">Header, Footer, Breadcrumb, Tabs</div>
               </Link>
-              <Link to="/components" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Feedback</div>
-                <div className="text-gray-600 dark:text-gray-400">Alert, Toast, Modal, Tooltip</div>
+              <Link to="/components" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">Feedback</div>
+                <div className="text-muted-foreground">Alert, Toast, Modal, Tooltip</div>
               </Link>
-              <Link to="/components" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Data Display</div>
-                <div className="text-gray-600 dark:text-gray-400">Table, Card, Badge, Tag</div>
+              <Link to="/components" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">Data Display</div>
+                <div className="text-muted-foreground">Table, Card, Badge, Tag</div>
               </Link>
             </div>
           </div>
 
           <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
-            <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-2">73 React Components</div>
-            <p className="text-xs text-gray-700 dark:text-gray-300 mb-4">
+            <div className="font-bold text-sm text-foreground mb-2">73 React Components</div>
+            <p className="text-xs text-muted-foreground mb-4">
               Production-ready, accessible components. Angular version in development.
             </p>
             <Link to="/framework-status" className="text-xs font-bold text-green-700 dark:text-green-400 hover:underline">
@@ -331,13 +325,13 @@ function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
 function PatternsMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           {/* Column 1: Overview */}
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Overview
             </div>
             <div className="space-y-0.5">
@@ -348,7 +342,7 @@ function PatternsMegaMenu({ onClose }: { onClose: () => void }) {
 
           {/* Column 2: Identity & Access */}
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Identity & Access
             </div>
             <div className="space-y-0.5">
@@ -367,7 +361,7 @@ function PatternsMegaMenu({ onClose }: { onClose: () => void }) {
 
           {/* Column 3: Service Patterns */}
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Service Patterns
             </div>
             <div className="space-y-0.5">
@@ -406,7 +400,7 @@ function PatternsMegaMenu({ onClose }: { onClose: () => void }) {
 
           {/* Column 4: Advanced Patterns */}
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Advanced Patterns
             </div>
             <div className="space-y-0.5">
@@ -450,19 +444,19 @@ function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
 
   return (
     <div
-      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Overview
             </div>
-            <MegaMenuItem icon={<Layers size={14} className="text-gray-600" />} label="Service Archetypes" href="/archetypes" />
+            <MegaMenuItem icon={<Layers size={14} className="text-muted-foreground" />} label="Service Archetypes" href="/archetypes" />
           </div>
 
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Application Archetypes
             </div>
             <div className="space-y-0.5">
@@ -485,7 +479,7 @@ function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
           </div>
 
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Support Archetypes
             </div>
             <div className="space-y-0.5">
@@ -508,7 +502,7 @@ function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
           </div>
 
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Processing Archetypes
             </div>
             <div className="space-y-0.5">
@@ -540,12 +534,12 @@ function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
 function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Cross-Cutting Systems
             </div>
             <div className="space-y-0.5">
@@ -555,30 +549,30 @@ function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
             </div>
           </div>
 
-          <div className="col-span-2 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6">
-            <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-4">About Systems</div>
-            <p className="text-xs text-gray-700 dark:text-gray-300 mb-4">
+          <div className="col-span-2 bg-card border-2 border-border rounded-lg p-6">
+            <div className="font-bold text-sm text-foreground mb-4">About Systems</div>
+            <p className="text-xs text-muted-foreground mb-4">
               Systems are cross-cutting capabilities that work across multiple patterns and service archetypes. They provide foundational functionality for complex government services.
             </p>
             <div className="grid grid-cols-2 gap-4 text-xs">
-              <Link to="/systems/multilingual" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Multilingual</div>
-                <div className="text-gray-600 dark:text-gray-400">22 official languages support</div>
+              <Link to="/systems/multilingual" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">Multilingual</div>
+                <div className="text-muted-foreground">22 official languages support</div>
               </Link>
-              <Link to="/systems/form-intelligence" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Form Intelligence</div>
-                <div className="text-gray-600 dark:text-gray-400">Smart form features and validation</div>
+              <Link to="/systems/form-intelligence" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">Form Intelligence</div>
+                <div className="text-muted-foreground">Smart form features and validation</div>
               </Link>
-              <Link to="/systems/state-resilience" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors col-span-2">
-                <div className="font-bold text-gray-700 dark:text-gray-300">State Resilience</div>
-                <div className="text-gray-600 dark:text-gray-400">Save progress and offline support</div>
+              <Link to="/systems/state-resilience" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors col-span-2">
+                <div className="font-bold text-muted-foreground">State Resilience</div>
+                <div className="text-muted-foreground">Save progress and offline support</div>
               </Link>
             </div>
           </div>
 
           <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
-            <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-2">System Capabilities</div>
-            <p className="text-xs text-gray-700 dark:text-gray-300 mb-4">
+            <div className="font-bold text-sm text-foreground mb-2">System Capabilities</div>
+            <p className="text-xs text-muted-foreground mb-4">
               Explore advanced system capabilities for complex services
             </p>
             <Link to="/systems/form-intelligence" className="text-xs font-bold text-purple-700 dark:text-purple-400 hover:underline">
@@ -595,76 +589,129 @@ function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
 
 function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
   return (
-    <div
-      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-xl animate-fadeIn"
-    >
-      <div className="max-w-[1600px] mx-auto px-12 py-10">
+    <div className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn">
+      <div className="max-w-[1600px] mx-auto px-12 py-8">
         <div className="grid grid-cols-4 gap-8">
-          <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
-              Services
+
+          {/* Col 1 — Overview + Auth */}
+          <div className="space-y-5">
+            <div>
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                Overview
+              </div>
+              <div className="space-y-0.5">
+                <MegaMenuItem icon={<Map size={14} className="text-blue-600" />} label="Service Blueprint" href="/reference-service/overview" />
+                <MegaMenuItem icon={<Box size={14} className="text-green-600" />} label="Certificate Service Demo" href="/reference-service/demo" />
+                <MegaMenuItem icon={<User size={14} className="text-purple-700" />} label="User Profile" href="/reference-service/user-profile" />
+                <MegaMenuItem icon={<BarChart3 size={14} className="text-indigo-600" />} label="Status Tracker" href="/reference-service/status-tracker" />
+              </div>
             </div>
-            <div className="space-y-0.5">
-              <MegaMenuItem icon={<Map size={14} className="text-blue-600" />} label="Service Blueprint" href="/reference-service/overview" />
-              <MegaMenuItem icon={<Box size={14} className="text-green-600" />} label="Certificate Service Demo" href="/reference-service/demo" />
-              <MegaMenuItem icon={<Users size={14} className="text-indigo-600" />} label="Reusable Sign In Service" href="/reference-service/sign-in" />
-              <MegaMenuItem icon={<UserCheck size={14} className="text-green-700" />} label="Reusable Sign Up Service" href="/reference-service/sign-up" />
-              <MegaMenuItem icon={<Shield size={14} className="text-purple-600" />} label="Reusable OTP Service" href="/reference-service/verify-otp" />
-              <MegaMenuItem icon={<AlertCircle size={14} className="text-orange-600" />} label="Auth Status Service" href="/reference-service/auth-status" />
-              <MegaMenuItem icon={<CheckCircle size={14} className="text-teal-600" />} label="Eligibility Service" href="/reference-service/eligibility" />
-              <MegaMenuItem icon={<FileText size={14} className="text-blue-700" />} label="Application Start Service" href="/reference-service/start" />
-              <MegaMenuItem icon={<Upload size={14} className="text-cyan-700" />} label="Document Upload Service" href="/reference-service/document-upload" />
-              <MegaMenuItem icon={<User size={14} className="text-purple-700" />} label="User Profile Service" href="/reference-service/user-profile" />
-              <MegaMenuItem icon={<FileText size={14} className="text-violet-700" />} label="Personal Form Service" href="/reference-service/form/personal" />
-              <MegaMenuItem icon={<Map size={14} className="text-orange-700" />} label="Address Form Service" href="/reference-service/form/address" />
-              <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Additional Form Service" href="/reference-service/form/additional" />
-              <MegaMenuItem icon={<FileText size={14} className="text-teal-700" />} label="Form Review Service" href="/reference-service/form/review" />
-              <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Review Summary Service" href="/reference-service/review-summary" />
-              <MegaMenuItem icon={<CheckCircle size={14} className="text-purple-700" />} label="Declaration Service" href="/reference-service/declaration" />
-              <MegaMenuItem icon={<CreditCard size={14} className="text-pink-600" />} label="Payment Summary Service" href="/reference-service/payment-summary" />
-              <MegaMenuItem icon={<CreditCard size={14} className="text-green-600" />} label="Payment Receipt Service" href="/reference-service/payment-receipt" />
-              <MegaMenuItem icon={<BarChart3 size={14} className="text-indigo-600" />} label="Status Tracker Service" href="/reference-service/status-tracker" />
+            <div>
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                Identity & Access
+              </div>
+              <div className="space-y-0.5">
+                <MegaMenuItem icon={<Users size={14} className="text-indigo-600" />} label="Sign In" href="/reference-service/sign-in" />
+                <MegaMenuItem icon={<UserCheck size={14} className="text-green-700" />} label="Sign Up" href="/reference-service/sign-up" />
+                <MegaMenuItem icon={<Shield size={14} className="text-purple-600" />} label="OTP Verification" href="/reference-service/verify-otp" />
+                <MegaMenuItem icon={<AlertCircle size={14} className="text-orange-600" />} label="Auth Status" href="/reference-service/auth-status" />
+              </div>
             </div>
           </div>
 
-          <div className="col-span-2 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6">
-            <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-4">Certificate Service Implementation</div>
-            <p className="text-xs text-gray-700 dark:text-gray-300 mb-4">
-              A complete end-to-end reference implementation showing:
+          {/* Col 2 — Application Flow */}
+          <div className="space-y-5">
+            <div>
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                Application Flow
+              </div>
+              <div className="space-y-0.5">
+                <MegaMenuItem icon={<CheckCircle size={14} className="text-teal-600" />} label="Eligibility Check" href="/reference-service/eligibility" />
+                <MegaMenuItem icon={<FileText size={14} className="text-blue-700" />} label="Application Start" href="/reference-service/start" />
+                <MegaMenuItem icon={<FileText size={14} className="text-violet-700" />} label="Personal Form" href="/reference-service/form/personal" />
+                <MegaMenuItem icon={<Map size={14} className="text-orange-700" />} label="Address Form" href="/reference-service/form/address" />
+                <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Additional Form" href="/reference-service/form/additional" />
+                <MegaMenuItem icon={<FileText size={14} className="text-teal-700" />} label="Form Review" href="/reference-service/form/review" />
+              </div>
+            </div>
+            <div>
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                Submission & Payment
+              </div>
+              <div className="space-y-0.5">
+                <MegaMenuItem icon={<Upload size={14} className="text-cyan-700" />} label="Document Upload" href="/reference-service/document-upload" />
+                <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Review Summary" href="/reference-service/review-summary" />
+                <MegaMenuItem icon={<CheckCircle size={14} className="text-purple-700" />} label="Declaration" href="/reference-service/declaration" />
+                <MegaMenuItem icon={<CreditCard size={14} className="text-pink-600" />} label="Payment Summary" href="/reference-service/payment-summary" />
+                <MegaMenuItem icon={<CreditCard size={14} className="text-green-600" />} label="Payment Receipt" href="/reference-service/payment-receipt" />
+              </div>
+            </div>
+          </div>
+
+          {/* Col 3 — Certificate Service spotlight */}
+          <div className="bg-card border-2 border-border rounded-lg p-5">
+            <div className="font-bold text-sm text-foreground mb-3">Certificate Service</div>
+            <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+              A complete end-to-end reference — 51 pages, 15+ patterns, all flows.
             </p>
-            <div className="grid grid-cols-2 gap-4 text-xs">
-              <Link to="/reference-service/certificate/sign-in" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Authentication Flow</div>
-                <div className="text-gray-600 dark:text-gray-400">Sign in, sign up, OTP verification</div>
+            <div className="space-y-2 text-xs">
+              <Link to="/reference-service/certificate/sign-in" className="flex items-center gap-2 p-2.5 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <Users size={13} className="text-indigo-500 flex-shrink-0" />
+                <div>
+                  <div className="font-bold text-foreground">Authentication Flow</div>
+                  <div className="text-muted-foreground">Sign in, sign up, OTP</div>
+                </div>
               </Link>
-              <Link to="/reference-service/certificate/form/personal" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Application Process</div>
-                <div className="text-gray-600 dark:text-gray-400">Multi-step forms with validation</div>
+              <Link to="/reference-service/certificate/form/personal" className="flex items-center gap-2 p-2.5 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <FileText size={13} className="text-blue-500 flex-shrink-0" />
+                <div>
+                  <div className="font-bold text-foreground">Application Process</div>
+                  <div className="text-muted-foreground">Multi-step forms</div>
+                </div>
               </Link>
-              <Link to="/reference-service/certificate/payment-summary" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Payment Integration</div>
-                <div className="text-gray-600 dark:text-gray-400">Fee summary and receipt</div>
+              <Link to="/reference-service/certificate/payment-summary" className="flex items-center gap-2 p-2.5 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <CreditCard size={13} className="text-pink-500 flex-shrink-0" />
+                <div>
+                  <div className="font-bold text-foreground">Payment Integration</div>
+                  <div className="text-muted-foreground">Fee summary & receipt</div>
+                </div>
               </Link>
-              <Link to="/reference-service/certificate/officer/dashboard" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Officer Dashboard</div>
-                <div className="text-gray-600 dark:text-gray-400">Review and approval workflow</div>
-              </Link>
-              <Link to="/resources/service-code-downloads" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">React Code Downloads</div>
-                <div className="text-gray-600 dark:text-gray-400">Certificate + reusable sign-in source</div>
+              <Link to="/reference-service/certificate/officer/dashboard" className="flex items-center gap-2 p-2.5 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <UserCheck size={13} className="text-green-600 flex-shrink-0" />
+                <div>
+                  <div className="font-bold text-foreground">Officer Dashboard</div>
+                  <div className="text-muted-foreground">Review & approval</div>
+                </div>
               </Link>
             </div>
           </div>
 
-          <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
-            <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-2">Live Demo</div>
-            <p className="text-xs text-gray-700 dark:text-gray-300 mb-4">
-              Explore a fully functional certificate service implementation
-            </p>
-            <Link to="/reference-service/demo" className="text-xs font-bold text-orange-700 dark:text-orange-400 hover:underline">
-              Try Demo Service →
-            </Link>
+          {/* Col 4 — CTA */}
+          <div className="flex flex-col gap-4">
+            <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-5 flex-1">
+              <div className="font-bold text-sm text-foreground mb-2">Live Demo</div>
+              <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                Experience the full certificate service — from eligibility to certificate issuance.
+              </p>
+              <Link
+                to="/reference-service/demo"
+                className="block w-full text-center px-4 py-2.5 rounded text-xs font-bold text-white transition-colors"
+                style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}
+              >
+                Launch Demo →
+              </Link>
+            </div>
+            <div className="bg-card border-2 border-border rounded-lg p-5">
+              <div className="font-bold text-sm text-foreground mb-2">Code Downloads</div>
+              <p className="text-xs text-muted-foreground mb-3">
+                Download React source for all reusable services.
+              </p>
+              <Link to="/resources/service-code-downloads" className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">
+                View downloads →
+              </Link>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -676,12 +723,12 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
 function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Documentation
             </div>
             <div className="space-y-0.5">
@@ -691,7 +738,7 @@ function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
           </div>
 
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Developer Tools
             </div>
             <div className="space-y-0.5">
@@ -701,27 +748,27 @@ function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
             </div>
           </div>
 
-          <div className="col-span-2 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6">
-            <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-4">Developer Resources</div>
+          <div className="col-span-2 bg-card border-2 border-border rounded-lg p-6">
+            <div className="font-bold text-sm text-foreground mb-4">Developer Resources</div>
             <div className="grid grid-cols-2 gap-4 text-xs mb-4">
-              <Link to="/resources/starter-kit" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">React Starter</div>
-                <div className="text-gray-600 dark:text-gray-400">Pre-configured React + TypeScript template</div>
+              <Link to="/resources/starter-kit" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">React Starter</div>
+                <div className="text-muted-foreground">Pre-configured React + TypeScript template</div>
               </Link>
-              <Link to="/resources/starter-kit" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Angular Starter</div>
-                <div className="text-gray-600 dark:text-gray-400">Angular standalone components setup</div>
+              <Link to="/resources/starter-kit" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">Angular Starter</div>
+                <div className="text-muted-foreground">Angular standalone components setup</div>
               </Link>
-              <Link to="/resources/getting-started" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">NPM Packages</div>
-                <div className="text-gray-600 dark:text-gray-400">@ux4g/tokens, styles, core, patterns</div>
+              <Link to="/resources/getting-started" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">NPM Packages</div>
+                <div className="text-muted-foreground">@ux4g/tokens, styles, core, patterns</div>
               </Link>
-              <Link to="/resources/figma" className="space-y-2 p-3 border border-gray-200 dark:border-gray-700 rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors">
-                <div className="font-bold text-gray-700 dark:text-gray-300">Figma Libraries</div>
-                <div className="text-gray-600 dark:text-gray-400">Design tokens and components</div>
+              <Link to="/resources/figma" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
+                <div className="font-bold text-muted-foreground">Figma Libraries</div>
+                <div className="text-muted-foreground">Design tokens and components</div>
               </Link>
             </div>
-            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="pt-4 border-t border-border">
               <Link to="/resources/getting-started" className="text-xs font-bold text-[var(--ux4g-color-brand-primary)] hover:underline">
                 View Complete Installation Guide →
               </Link>
@@ -738,12 +785,12 @@ function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
 function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Governance Framework
             </div>
             <div className="space-y-0.5">
@@ -753,7 +800,7 @@ function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
           </div>
 
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Compliance & Reporting
             </div>
             <div className="space-y-0.5">
@@ -763,10 +810,10 @@ function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
           </div>
 
           <div>
-            <div className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Departments & Vendors
             </div>
-            <div className="text-xs text-gray-700 dark:text-gray-300 space-y-2">
+            <div className="text-xs text-muted-foreground space-y-2">
               <div className="flex items-center gap-2">
                 <Building2 size={12} className="text-blue-600" />
                 <span>47 Departments</span>
@@ -783,8 +830,8 @@ function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
           </div>
 
           <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
-            <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-2">Mandatory Compliance</div>
-            <p className="text-xs text-gray-700 dark:text-gray-300 mb-4">
+            <div className="font-bold text-sm text-foreground mb-2">Mandatory Compliance</div>
+            <p className="text-xs text-muted-foreground mb-4">
               All government digital services must conform to UX4G standards
             </p>
             <Link to="/governance" className="text-xs font-bold text-red-700 dark:text-red-400 hover:underline">
@@ -803,10 +850,10 @@ function MegaMenuItem({ icon, label, href }: { icon: React.ReactNode; label: str
   return (
     <Link
       to={href}
-      className="group flex items-center gap-2.5 px-3 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all"
+      className="group flex items-center gap-2.5 px-3 py-2.5 text-sm text-muted-foreground hover:bg-background dark:hover:bg-gray-800 rounded-lg transition-all"
     >
       <span className="transition-transform group-hover:scale-110">{icon}</span>
-      <span className="group-hover:text-gray-900 dark:group-hover:text-gray-100">{label}</span>
+      <span className="group-hover:text-foreground dark:group-hover:text-gray-100">{label}</span>
     </Link>
   );
 }
@@ -818,7 +865,7 @@ function ArchetypeMenuItem({ label, href, active }: { label: string; href: strin
       className={`block px-4 py-2 text-sm rounded transition-colors ${
         active
           ? 'bg-blue-100 text-[var(--ux4g-color-brand-primary)] font-medium border-l-2 border-[var(--ux4g-color-brand-primary)]'
-          : 'text-gray-700 hover:bg-white hover:text-[var(--ux4g-color-brand-primary)]'
+          : 'text-muted-foreground hover:bg-card hover:text-[var(--ux4g-color-brand-primary)]'
       }`}
     >
       {label}
@@ -836,8 +883,13 @@ function MobileNavigation({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="md:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 max-h-[600px] overflow-y-auto">
+    <div className="md:hidden border-t border-border bg-card max-h-[600px] overflow-y-auto">
       <nav className="p-5 space-y-3">
+        <div className="flex items-center justify-between rounded-lg border border-border bg-background p-3">
+          <span className="text-xs font-semibold text-muted-foreground">Theme</span>
+          <ThemeSwitcher />
+        </div>
+
         {/* Foundations */}
         <MobileSection
           title="Foundations"
@@ -967,7 +1019,7 @@ function MobileSection({ title, expanded, onToggle, children, active }: any) {
         className={`w-full flex items-center justify-between px-4 py-3 rounded-lg font-semibold transition-all ${
           active
             ? 'bg-blue-50 dark:bg-blue-900/20 text-[var(--ux4g-color-brand-primary)]'
-            : 'bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700'
+            : 'bg-background text-foreground hover:bg-muted'
         }`}
         aria-expanded={expanded}
         aria-label={`${title} menu`}
@@ -976,7 +1028,7 @@ function MobileSection({ title, expanded, onToggle, children, active }: any) {
         <ChevronDown size={16} className={`transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`} aria-hidden="true" />
       </button>
       {expanded && (
-        <div className="mt-2 ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4 space-y-1">
+        <div className="mt-2 ml-4 border-l-2 border-border pl-4 space-y-1">
           {children}
         </div>
       )}
@@ -995,7 +1047,7 @@ function MobileLink({ label, href, onClose, small }: any) {
       className={`block px-3 py-2 rounded-md transition-colors ${small ? 'text-xs' : 'text-sm'} ${
         active
           ? 'bg-blue-50 dark:bg-blue-900/20 text-[var(--ux4g-color-brand-primary)] font-medium'
-          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+          : 'text-muted-foreground hover:bg-muted dark:hover:bg-gray-800'
       }`}
     >
       {label}

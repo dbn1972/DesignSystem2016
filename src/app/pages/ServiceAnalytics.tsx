@@ -2,7 +2,7 @@ import { BarChart3, TrendingUp, TrendingDown, AlertCircle, Search, FileX, Upload
 
 export default function ServiceAnalytics() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
@@ -41,21 +41,21 @@ export default function ServiceAnalytics() {
       </div>
 
       {/* Navigation */}
-      <div className="border-b-2 border-gray-200 bg-gray-50 sticky top-0 z-10">
+      <div className="border-b-2 border-border bg-background sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-8">
           <nav className="flex gap-6 overflow-x-auto py-4 text-sm">
-            <a href="#success-measurement" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Success Measurement</a>
-            <a href="#form-completion" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Form Completion</a>
-            <a href="#drop-off" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Drop-off Tracking</a>
-            <a href="#service-funnel" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Service Funnel</a>
-            <a href="#search-behavior" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Search Behavior</a>
-            <a href="#error-tracking" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Error Tracking</a>
-            <a href="#upload-failures" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Upload Failures</a>
-            <a href="#status-journey" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Status Journey</a>
-            <a href="#support-escalation" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Support Escalation</a>
-            <a href="#feedback-collection" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Feedback Collection</a>
-            <a href="#privacy-consent" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Privacy & Consent</a>
-            <a href="#performance-dashboard" className="whitespace-nowrap text-gray-700 hover:text-[#000080] font-medium">Performance Dashboard</a>
+            <a href="#success-measurement" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Success Measurement</a>
+            <a href="#form-completion" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Form Completion</a>
+            <a href="#drop-off" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Drop-off Tracking</a>
+            <a href="#service-funnel" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Service Funnel</a>
+            <a href="#search-behavior" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Search Behavior</a>
+            <a href="#error-tracking" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Error Tracking</a>
+            <a href="#upload-failures" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Upload Failures</a>
+            <a href="#status-journey" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Status Journey</a>
+            <a href="#support-escalation" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Support Escalation</a>
+            <a href="#feedback-collection" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Feedback Collection</a>
+            <a href="#privacy-consent" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Privacy & Consent</a>
+            <a href="#performance-dashboard" className="whitespace-nowrap text-muted-foreground hover:text-primary font-medium">Performance Dashboard</a>
           </nav>
         </div>
       </div>
@@ -1217,12 +1217,12 @@ function PatternHeader({ title, icon, maturityStatus }: any) {
   const status = statusConfig[maturityStatus];
 
   return (
-    <div className="border-b-2 border-gray-200 pb-6">
+    <div className="border-b-2 border-border pb-6">
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-4">
-          <div className="text-[#000080]">{icon}</div>
+          <div className="text-primary">{icon}</div>
           <div>
-            <h2 className="text-4xl font-bold text-gray-900">{title}</h2>
+            <h2 className="text-4xl font-bold text-foreground">{title}</h2>
           </div>
         </div>
         <div className={`px-4 py-2 ${status.bg} ${status.text} border-2 ${status.border} rounded-lg font-bold text-sm`}>
@@ -1237,19 +1237,19 @@ function PurposeContextCard({ purpose, context }: any) {
   return (
     <div className="grid grid-cols-2 gap-6">
       <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Target className="text-blue-600" size={20} />
           Purpose
         </h3>
-        <p className="text-sm text-gray-700 leading-relaxed">{purpose}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">{purpose}</p>
       </div>
 
       <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info className="text-purple-600" size={20} />
           Service Context
         </h3>
-        <p className="text-sm text-gray-700 leading-relaxed">{context}</p>
+        <p className="text-sm text-muted-foreground leading-relaxed">{context}</p>
       </div>
     </div>
   );
@@ -1257,10 +1257,10 @@ function PurposeContextCard({ purpose, context }: any) {
 
 function ServiceEventsCard({ title, events }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900 flex items-center gap-2">
-          <Database className="text-gray-600" size={20} />
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background p-6 border-b-2 border-border">
+        <h3 className="font-bold text-foreground flex items-center gap-2">
+          <Database className="text-muted-foreground" size={20} />
           {title}
         </h3>
       </div>
@@ -1268,12 +1268,12 @@ function ServiceEventsCard({ title, events }: any) {
       <div className="p-6">
         <div className="space-y-4">
           {events.map((event: any, index: number) => (
-            <div key={index} className="bg-gray-50 border-l-4 border-blue-600 rounded-r-lg p-4">
+            <div key={index} className="bg-background border-l-4 border-blue-600 rounded-r-lg p-4">
               <div className="flex items-start justify-between mb-2">
                 <code className="text-sm font-mono font-bold text-blue-600">{event.event}</code>
               </div>
-              <p className="text-sm text-gray-700 mb-2">{event.description}</p>
-              <div className="text-xs text-gray-600">
+              <p className="text-sm text-muted-foreground mb-2">{event.description}</p>
+              <div className="text-xs text-muted-foreground">
                 <span className="font-semibold">Data Points: </span>
                 {event.dataPoints}
               </div>
@@ -1287,9 +1287,9 @@ function ServiceEventsCard({ title, events }: any) {
 
 function PagePlacementCard({ placements }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900 flex items-center gap-2">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background p-6 border-b-2 border-border">
+        <h3 className="font-bold text-foreground flex items-center gap-2">
           <Map className="text-purple-600" size={20} />
           Page Placement & Visibility
         </h3>
@@ -1298,18 +1298,18 @@ function PagePlacementCard({ placements }: any) {
       <div className="p-6">
         <div className="space-y-3">
           {placements.map((placement: any, index: number) => (
-            <div key={index} className="grid grid-cols-3 gap-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <div key={index} className="grid grid-cols-3 gap-4 bg-background border border-border rounded-lg p-4">
               <div>
                 <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Location</div>
-                <div className="font-bold text-gray-900 text-sm">{placement.location}</div>
+                <div className="font-bold text-foreground text-sm">{placement.location}</div>
               </div>
               <div>
                 <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Visibility</div>
-                <div className="text-sm text-gray-700">{placement.visibility}</div>
+                <div className="text-sm text-muted-foreground">{placement.visibility}</div>
               </div>
               <div>
                 <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Purpose</div>
-                <div className="text-sm text-gray-700">{placement.purpose}</div>
+                <div className="text-sm text-muted-foreground">{placement.purpose}</div>
               </div>
             </div>
           ))}
@@ -1321,9 +1321,9 @@ function PagePlacementCard({ placements }: any) {
 
 function ComponentsUsedCard({ components }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900 flex items-center gap-2">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background p-6 border-b-2 border-border">
+        <h3 className="font-bold text-foreground flex items-center gap-2">
           <Layers className="text-blue-600" size={20} />
           UX4G Components Used
         </h3>
@@ -1332,9 +1332,9 @@ function ComponentsUsedCard({ components }: any) {
       <div className="p-6">
         <div className="grid grid-cols-2 gap-4">
           {components.map((comp: any, index: number) => (
-            <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <div className="font-bold text-gray-900 text-sm mb-2">{comp.name}</div>
-              <div className="text-xs text-gray-600">{comp.usage}</div>
+            <div key={index} className="bg-background border border-border rounded-lg p-4">
+              <div className="font-bold text-foreground text-sm mb-2">{comp.name}</div>
+              <div className="text-xs text-muted-foreground">{comp.usage}</div>
             </div>
           ))}
         </div>
@@ -1347,16 +1347,16 @@ function PrivacyGovernanceCard({ notes }: any) {
   return (
     <div className="border-2 border-red-200 rounded-lg overflow-hidden">
       <div className="bg-red-50 p-4 border-b-2 border-red-200">
-        <h4 className="font-bold text-gray-900 flex items-center gap-2">
+        <h4 className="font-bold text-foreground flex items-center gap-2">
           <Shield className="text-red-600" size={18} />
           Privacy & Governance Notes
         </h4>
       </div>
 
-      <div className="p-4 bg-white">
+      <div className="p-4 bg-card">
         <ul className="space-y-2">
           {notes.map((note: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <Shield className="flex-shrink-0 mt-0.5 text-red-600" size={14} />
               <span>{note}</span>
             </li>
@@ -1371,16 +1371,16 @@ function AccessibilityNotesCard({ notes }: any) {
   return (
     <div className="border-2 border-green-200 rounded-lg overflow-hidden">
       <div className="bg-green-50 p-4 border-b-2 border-green-200">
-        <h4 className="font-bold text-gray-900 flex items-center gap-2">
+        <h4 className="font-bold text-foreground flex items-center gap-2">
           <Eye className="text-green-600" size={18} />
           Accessibility Considerations
         </h4>
       </div>
 
-      <div className="p-4 bg-white">
+      <div className="p-4 bg-card">
         <ul className="space-y-2">
           {notes.map((note: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-green-600" size={14} />
               <span>{note}</span>
             </li>
@@ -1395,16 +1395,16 @@ function ImplementationNotesCard({ notes }: any) {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden">
       <div className="bg-blue-50 p-4 border-b-2 border-blue-200">
-        <h4 className="font-bold text-gray-900 flex items-center gap-2">
+        <h4 className="font-bold text-foreground flex items-center gap-2">
           <Code className="text-blue-600" size={18} />
           Implementation Notes
         </h4>
       </div>
 
-      <div className="p-4 bg-white">
+      <div className="p-4 bg-card">
         <ul className="space-y-2">
           {notes.map((note: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <Circle className="flex-shrink-0 mt-1.5 fill-current text-blue-600" size={6} />
               <span>{note}</span>
             </li>
@@ -1418,14 +1418,14 @@ function ImplementationNotesCard({ notes }: any) {
 function DocumentationReferencesCard({ references }: any) {
   return (
     <div className="bg-gradient-to-r from-purple-50 to-blue-50 border-2 border-purple-200 rounded-lg p-6">
-      <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+      <h4 className="font-bold text-foreground mb-4 flex items-center gap-2">
         <BookOpen className="text-purple-600" size={20} />
         Documentation References
       </h4>
       <div className="grid grid-cols-2 gap-3">
         {references.map((ref: any, index: number) => (
-          <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 flex items-center justify-between group hover:border-blue-400 transition-colors">
-            <span className="text-sm text-gray-700 font-medium">{ref.doc}</span>
+          <div key={index} className="bg-card border border-border rounded-lg p-3 flex items-center justify-between group hover:border-blue-400 transition-colors">
+            <span className="text-sm text-muted-foreground font-medium">{ref.doc}</span>
             <ChevronRight className="text-gray-400 group-hover:text-blue-600 transition-colors" size={16} />
           </div>
         ))}
@@ -1436,9 +1436,9 @@ function DocumentationReferencesCard({ references }: any) {
 
 function DashboardMetricsCard() {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900 flex items-center gap-2">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 border-b-2 border-border">
+        <h3 className="font-bold text-foreground flex items-center gap-2">
           <PieChart className="text-blue-600" size={20} />
           Key Dashboard Metrics
         </h3>
@@ -1481,11 +1481,11 @@ function DashboardMetricsCard() {
 
 function MetricSection({ title, metrics }: any) {
   return (
-    <div className="bg-gray-50 rounded-lg p-4">
-      <h4 className="font-bold text-gray-900 text-sm mb-3">{title}</h4>
+    <div className="bg-background rounded-lg p-4">
+      <h4 className="font-bold text-foreground text-sm mb-3">{title}</h4>
       <ul className="space-y-2">
         {metrics.map((metric: string, index: number) => (
-          <li key={index} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={index} className="flex items-start gap-2 text-xs text-muted-foreground">
             <CheckCircle className="flex-shrink-0 mt-0.5 text-blue-600" size={12} />
             <span>{metric}</span>
           </li>

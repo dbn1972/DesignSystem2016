@@ -13,7 +13,7 @@
  * ```
  */
 
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, KeyboardEvent } from 'react';
 import { cn } from '../../utils/cn';
 import { OTPInputProps } from './OTPInput.types';
 
@@ -67,7 +67,7 @@ export function OTPInput({
     }
   };
 
-  const handleKeyDown = (index: number, event: React.KeyboardEvent) => {
+  const handleKeyDown = (index: number, event: KeyboardEvent) => {
     if (event.key === 'Backspace' && !paddedDigits[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     } else if (event.key === 'ArrowLeft' && index > 0) {

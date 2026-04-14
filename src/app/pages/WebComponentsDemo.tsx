@@ -227,15 +227,15 @@ export default {
 </script>`;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-card border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <Link to="/components" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
             ← Back to Components
           </Link>
-          <h1 className="text-4xl font-bold text-gray-900">Web Components Package</h1>
-          <p className="mt-2 text-xl text-gray-600">
+          <h1 className="text-4xl font-bold text-foreground">Web Components Package</h1>
+          <p className="mt-2 text-xl text-muted-foreground">
             Framework-agnostic components that work with any JavaScript framework or plain HTML
           </p>
         </div>
@@ -243,10 +243,10 @@ export default {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Introduction */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">📦 @ux4g/web-components</h2>
-          <p className="text-lg text-gray-700 mb-6">
-            The <code className="px-2 py-1 bg-gray-100 rounded">@ux4g/web-components</code> package provides
+        <div className="bg-card rounded-lg shadow-sm border border-border p-8 mb-8">
+          <h2 className="text-2xl font-bold text-foreground mb-4">📦 @ux4g/web-components</h2>
+          <p className="text-lg text-muted-foreground mb-6">
+            The <code className="px-2 py-1 bg-muted rounded">@ux4g/web-components</code> package provides
             production-ready, standards-based Web Components that work universally across all modern frameworks
             and vanilla HTML/JavaScript applications.
           </p>
@@ -254,18 +254,18 @@ export default {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div className="p-4 bg-blue-50 rounded-lg">
               <div className="text-3xl mb-2">🌐</div>
-              <h3 className="font-semibold text-gray-900 mb-1">Universal</h3>
-              <p className="text-sm text-gray-600">Works with React, Angular, Vue, Svelte, or vanilla HTML</p>
+              <h3 className="font-semibold text-foreground mb-1">Universal</h3>
+              <p className="text-sm text-muted-foreground">Works with React, Angular, Vue, Svelte, or vanilla HTML</p>
             </div>
             <div className="p-4 bg-green-50 rounded-lg">
               <div className="text-3xl mb-2">♿</div>
-              <h3 className="font-semibold text-gray-900 mb-1">Accessible</h3>
-              <p className="text-sm text-gray-600">WCAG 2.1 Level AA compliant out of the box</p>
+              <h3 className="font-semibold text-foreground mb-1">Accessible</h3>
+              <p className="text-sm text-muted-foreground">WCAG 2.1 Level AA compliant out of the box</p>
             </div>
             <div className="p-4 bg-orange-50 rounded-lg">
               <div className="text-3xl mb-2">🎨</div>
-              <h3 className="font-semibold text-gray-900 mb-1">Branded</h3>
-              <p className="text-sm text-gray-600">Indian tricolor theme and government standards</p>
+              <h3 className="font-semibold text-foreground mb-1">Branded</h3>
+              <p className="text-sm text-muted-foreground">Indian tricolor theme and government standards</p>
             </div>
           </div>
 
@@ -286,12 +286,12 @@ export default {
         </div>
 
         {/* Installation */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">📥 Installation</h2>
+        <div className="bg-card rounded-lg shadow-sm border border-border p-8 mb-8">
+          <h2 className="text-2xl font-bold text-foreground mb-4">📥 Installation</h2>
           
           <div className="space-y-4">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">NPM</h3>
+              <h3 className="font-semibold text-foreground mb-2">NPM</h3>
               <div className="relative">
                 <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
                   <code>npm install @ux4g/web-components @ux4g/styles</code>
@@ -306,7 +306,7 @@ export default {
             </div>
 
             <div>
-              <h3 className="font-semibold text-gray-900 mb-2">CDN (Vanilla HTML)</h3>
+              <h3 className="font-semibold text-foreground mb-2">CDN (Vanilla HTML)</h3>
               <div className="relative">
                 <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
                   <code>{`<!-- UX4G Styles -->
@@ -321,147 +321,147 @@ export default {
         </div>
 
         {/* Available Components */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">🎨 Available Components (46/73)</h2>
+        <div className="bg-card rounded-lg shadow-sm border border-border p-8 mb-8">
+          <h2 className="text-2xl font-bold text-foreground mb-4">🎨 Available Components (46/73)</h2>
           
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-background">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Component</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-card divide-y divide-gray-200">
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-button&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Primary interactive element for user actions</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-button&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Primary interactive element for user actions</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-input&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Text input field for form data entry</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-input&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Text input field for form data entry</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-checkbox&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Checkbox for boolean selections</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-checkbox&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Checkbox for boolean selections</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-radio&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Radio button for single selection from group</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-radio&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Radio button for single selection from group</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-select&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Dropdown selection component</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-select&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Dropdown selection component</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-switch&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Toggle switch for on/off states</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-switch&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Toggle switch for on/off states</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-textarea&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Multi-line text input field</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-textarea&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Multi-line text input field</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-alert&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Alert notifications and messages</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-alert&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Alert notifications and messages</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-badge&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Status badges and labels</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-badge&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Status badges and labels</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-progress&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Progress bar for showing completion</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-progress&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Progress bar for showing completion</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-spinner&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Loading spinner indicator</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-spinner&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Loading spinner indicator</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-card&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Container for content with header/footer</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-card&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Container for content with header/footer</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-tooltip&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Contextual help tooltips</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-tooltip&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Contextual help tooltips</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-avatar&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">User avatar with initials fallback</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-avatar&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">User avatar with initials fallback</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-tabs&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Tabbed navigation interface</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-tabs&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Tabbed navigation interface</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-accordion&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Collapsible content sections</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-accordion&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Collapsible content sections</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-toast&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Toast notifications with auto-dismiss</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-toast&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Toast notifications with auto-dismiss</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-modal&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Modal dialog overlay</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-modal&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Modal dialog overlay</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-drawer&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Slide-out drawer panel</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-drawer&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Slide-out drawer panel</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-pagination&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Page navigation for data lists</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-pagination&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Page navigation for data lists</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-breadcrumb&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Navigation breadcrumb trail</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-breadcrumb&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Navigation breadcrumb trail</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-tag&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Dismissible tags and chips</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-tag&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Dismissible tags and chips</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-dropdown&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Dropdown menu with items</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-dropdown&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Dropdown menu with items</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-timeline&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Timeline with events and dates</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-timeline&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Timeline with events and dates</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-skeleton&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Loading skeleton placeholder</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-skeleton&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Loading skeleton placeholder</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-900">&lt;ux4g-divider&gt;</td>
-                  <td className="px-6 py-4 text-sm text-gray-600">Content divider/separator</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-divider&gt;</td>
+                  <td className="px-6 py-4 text-sm text-muted-foreground">Content divider/separator</td>
                   <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
                 </tr>
               </tbody>
@@ -477,10 +477,10 @@ export default {
 
         {/* Framework Examples */}
         <div className="space-y-8">
-          <h2 className="text-2xl font-bold text-gray-900">🚀 Framework Examples</h2>
+          <h2 className="text-2xl font-bold text-foreground">🚀 Framework Examples</h2>
 
           {/* Vanilla HTML */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="bg-card rounded-lg shadow-sm border border-border overflow-hidden">
             <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4">
               <h3 className="text-xl font-bold text-white">Vanilla HTML</h3>
               <p className="text-orange-100 text-sm">Pure HTML/CSS/JavaScript - No framework required</p>
@@ -501,7 +501,7 @@ export default {
           </div>
 
           {/* React */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="bg-card rounded-lg shadow-sm border border-border overflow-hidden">
             <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
               <h3 className="text-xl font-bold text-white">React</h3>
               <p className="text-blue-100 text-sm">Works seamlessly with React 16.8+</p>
@@ -522,7 +522,7 @@ export default {
           </div>
 
           {/* Angular */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="bg-card rounded-lg shadow-sm border border-border overflow-hidden">
             <div className="bg-gradient-to-r from-red-500 to-red-600 px-6 py-4">
               <h3 className="text-xl font-bold text-white">Angular</h3>
               <p className="text-red-100 text-sm">Compatible with Angular 12+</p>
@@ -543,7 +543,7 @@ export default {
           </div>
 
           {/* Vue */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <div className="bg-card rounded-lg shadow-sm border border-border overflow-hidden">
             <div className="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
               <h3 className="text-xl font-bold text-white">Vue</h3>
               <p className="text-green-100 text-sm">Works with Vue 3</p>
@@ -565,8 +565,8 @@ export default {
         </div>
 
         {/* Key Features */}
-        <div className="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">✨ Key Features</h2>
+        <div className="mt-8 bg-card rounded-lg shadow-sm border border-border p-8">
+          <h2 className="text-2xl font-bold text-foreground mb-6">✨ Key Features</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-start">
@@ -576,8 +576,8 @@ export default {
                 </div>
               </div>
               <div className="ml-4">
-                <h3 className="text-lg font-semibold text-gray-900">Framework Agnostic</h3>
-                <p className="mt-2 text-gray-600">Use the same components across React, Angular, Vue, Svelte, or vanilla HTML</p>
+                <h3 className="text-lg font-semibold text-foreground">Framework Agnostic</h3>
+                <p className="mt-2 text-muted-foreground">Use the same components across React, Angular, Vue, Svelte, or vanilla HTML</p>
               </div>
             </div>
 
@@ -588,8 +588,8 @@ export default {
                 </div>
               </div>
               <div className="ml-4">
-                <h3 className="text-lg font-semibold text-gray-900">Accessibility First</h3>
-                <p className="mt-2 text-gray-600">WCAG 2.1 Level AA compliant with full keyboard navigation and screen reader support</p>
+                <h3 className="text-lg font-semibold text-foreground">Accessibility First</h3>
+                <p className="mt-2 text-muted-foreground">WCAG 2.1 Level AA compliant with full keyboard navigation and screen reader support</p>
               </div>
             </div>
 
@@ -600,8 +600,8 @@ export default {
                 </div>
               </div>
               <div className="ml-4">
-                <h3 className="text-lg font-semibold text-gray-900">Zero Dependencies</h3>
-                <p className="mt-2 text-gray-600">Built on native Web Components APIs with no external dependencies</p>
+                <h3 className="text-lg font-semibold text-foreground">Zero Dependencies</h3>
+                <p className="mt-2 text-muted-foreground">Built on native Web Components APIs with no external dependencies</p>
               </div>
             </div>
 
@@ -612,8 +612,8 @@ export default {
                 </div>
               </div>
               <div className="ml-4">
-                <h3 className="text-lg font-semibold text-gray-900">Government Branded</h3>
-                <p className="mt-2 text-gray-600">Indian tricolor theme and compliance with government design standards</p>
+                <h3 className="text-lg font-semibold text-foreground">Government Branded</h3>
+                <p className="mt-2 text-muted-foreground">Indian tricolor theme and compliance with government design standards</p>
               </div>
             </div>
 
@@ -624,8 +624,8 @@ export default {
                 </div>
               </div>
               <div className="ml-4">
-                <h3 className="text-lg font-semibold text-gray-900">Form Integration</h3>
-                <p className="mt-2 text-gray-600">Native form participation with FormData API support</p>
+                <h3 className="text-lg font-semibold text-foreground">Form Integration</h3>
+                <p className="mt-2 text-muted-foreground">Native form participation with FormData API support</p>
               </div>
             </div>
 
@@ -636,8 +636,8 @@ export default {
                 </div>
               </div>
               <div className="ml-4">
-                <h3 className="text-lg font-semibold text-gray-900">CDN Ready</h3>
-                <p className="mt-2 text-gray-600">Drop-in via CDN for quick prototyping or legacy applications</p>
+                <h3 className="text-lg font-semibold text-foreground">CDN Ready</h3>
+                <p className="mt-2 text-muted-foreground">Drop-in via CDN for quick prototyping or legacy applications</p>
               </div>
             </div>
           </div>

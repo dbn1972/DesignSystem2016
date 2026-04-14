@@ -143,15 +143,15 @@ function Example() {
           preview: (
             <div className="space-y-8">
               <div>
-                <p className="text-sm font-semibold text-gray-600 mb-1">Extra Small (4px)</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-1">Extra Small (4px)</p>
                 <SpacerPreview size="xs" axis="vertical" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-600 mb-1">Medium (16px)</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-1">Medium (16px)</p>
                 <SpacerPreview size="md" axis="vertical" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-600 mb-1">Large (32px)</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-1">Large (32px)</p>
                 <SpacerPreview size="lg" axis="vertical" />
               </div>
             </div>

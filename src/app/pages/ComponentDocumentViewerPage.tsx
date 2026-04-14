@@ -9,9 +9,9 @@ import { Download, Printer, ZoomIn, ZoomOut, RotateCw, ChevronLeft, ChevronRight
 
 // Import the actual Document Viewer component for live preview
 const DocumentViewerPreview = ({ fileType, zoom = 100, page = 1, showToolbar = true, ...props }: any) => (
-  <div className="border border-gray-300 rounded-lg overflow-hidden bg-white">
+  <div className="border border-border rounded-lg overflow-hidden bg-card">
     {showToolbar && (
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-50 border-b border-gray-300">
+      <div className="flex items-center justify-between px-4 py-2 bg-background border-b border-border">
         <div className="flex items-center gap-2">
           <button className="p-2 hover:bg-gray-200 rounded" aria-label="Zoom out">
             <ZoomOut size={16} />
@@ -49,8 +49,8 @@ const DocumentViewerPreview = ({ fileType, zoom = 100, page = 1, showToolbar = t
         </div>
       </div>
     )}
-    <div className="p-8 flex items-center justify-center bg-gray-100" style={{ minHeight: '400px' }}>
-      <div className="bg-white shadow-lg rounded" style={{ width: '90%', height: '380px' }}>
+    <div className="p-8 flex items-center justify-center bg-muted" style={{ minHeight: '400px' }}>
+      <div className="bg-card shadow-lg rounded" style={{ width: '90%', height: '380px' }}>
         <div className="h-full flex items-center justify-center text-gray-400">
           {fileType === 'pdf' && (
             <div className="text-center">
@@ -571,8 +571,8 @@ DocumentViewer.displayName = 'DocumentViewer';`,
 export const documentViewerVariants = cva(
   [
     'ux4g-document-viewer',
-    'border border-gray-300 rounded-lg',
-    'bg-white overflow-hidden',
+    'border border-border rounded-lg',
+    'bg-card overflow-hidden',
   ],
   {
     variants: {
@@ -595,7 +595,7 @@ export const documentViewerVariants = cva(
 export const viewportVariants = cva(
   [
     'ux4g-document-viewport',
-    'overflow-auto bg-gray-100',
+    'overflow-auto bg-muted',
     'flex items-center justify-center',
   ],
   {

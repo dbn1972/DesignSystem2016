@@ -24,7 +24,7 @@ const DatePickerPreview = () => {
           placeholder="DD/MM/YYYY"
           readOnly
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005196] cursor-pointer"
+          className="w-full px-4 py-3 pr-10 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005196] cursor-pointer"
         />
         <Calendar
           className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
@@ -33,13 +33,13 @@ const DatePickerPreview = () => {
       </div>
       
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 p-4 z-50">
+        <div className="absolute top-full left-0 mt-2 bg-card rounded-lg shadow-xl border border-border p-4 z-50">
           <div className="flex items-center justify-between mb-4">
-            <button className="p-1 hover:bg-gray-100 rounded">
+            <button className="p-1 hover:bg-muted rounded">
               <ChevronLeft size={20} />
             </button>
             <span className="font-semibold">March 2024</span>
-            <button className="p-1 hover:bg-gray-100 rounded">
+            <button className="p-1 hover:bg-muted rounded">
               <ChevronRight size={20} />
             </button>
           </div>
@@ -303,9 +303,9 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           readOnly
           disabled={disabled}
           onClick={() => !disabled && setIsOpen(!isOpen)}
-          className={\`w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg 
+          className={\`w-full px-4 py-3 pr-10 border border-border rounded-lg 
             focus:outline-none focus:ring-2 focus:ring-[#005196] 
-            \${disabled ? 'bg-gray-100 cursor-not-allowed' : 'cursor-pointer'} 
+            \${disabled ? 'bg-muted cursor-not-allowed' : 'cursor-pointer'} 
             \${className}\`}
         />
         <Calendar
@@ -315,21 +315,21 @@ export const DatePicker: React.FC<DatePickerProps> = ({
       </div>
       
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 p-4 z-50 min-w-[320px]">
+        <div className="absolute top-full left-0 mt-2 bg-card rounded-lg shadow-xl border border-border p-4 z-50 min-w-[320px]">
           {/* Month Navigation */}
           <div className="flex items-center justify-between mb-4">
             <button
               type="button"
               onClick={handlePrevMonth}
-              className="p-1 hover:bg-gray-100 rounded transition-colors"
+              className="p-1 hover:bg-muted rounded transition-colors"
             >
               <ChevronLeft size={20} />
             </button>
-            <span className="font-semibold text-gray-900">{monthName}</span>
+            <span className="font-semibold text-foreground">{monthName}</span>
             <button
               type="button"
               onClick={handleNextMonth}
-              className="p-1 hover:bg-gray-100 rounded transition-colors"
+              className="p-1 hover:bg-muted rounded transition-colors"
             >
               <ChevronRight size={20} />
             </button>
@@ -409,19 +409,19 @@ export interface DatePickerProps {
           [disabled]="disabled"
           (click)="toggleCalendar()"
           readonly
-          class="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-          [class.bg-gray-100]="disabled"
+          class="w-full px-4 py-3 pr-10 border border-border rounded-lg focus:ring-2 focus:ring-blue-500"
+          [class.bg-muted]="disabled"
           [class.cursor-pointer]="!disabled"
         />
         <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">📅</span>
       </div>
       
       <div *ngIf="isOpen"
-           class="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border p-4 z-50">
+           class="absolute top-full left-0 mt-2 bg-card rounded-lg shadow-xl border p-4 z-50">
         <div class="flex items-center justify-between mb-4">
-          <button (click)="prevMonth()" class="p-1 hover:bg-gray-100 rounded">←</button>
+          <button (click)="prevMonth()" class="p-1 hover:bg-muted rounded">←</button>
           <span class="font-semibold">{{ getMonthName() }}</span>
-          <button (click)="nextMonth()" class="p-1 hover:bg-gray-100 rounded">→</button>
+          <button (click)="nextMonth()" class="p-1 hover:bg-muted rounded">→</button>
         </div>
         
         <div class="grid grid-cols-7 gap-1">

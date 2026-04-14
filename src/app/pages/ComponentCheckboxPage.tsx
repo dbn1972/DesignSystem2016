@@ -22,7 +22,7 @@ const CheckboxPreview = ({ label, disabled = false, indeterminate = false }: any
           className={`w-5 h-5 border-2 rounded appearance-none transition-all ${
             checked 
               ? 'bg-[#005196] border-[#005196]' 
-              : 'bg-white border-gray-300'
+              : 'bg-card border-border'
           } ${!disabled && 'cursor-pointer'} focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]`}
         />
         {checked && (
@@ -35,7 +35,7 @@ const CheckboxPreview = ({ label, disabled = false, indeterminate = false }: any
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2.5 h-0.5 bg-[#005196] pointer-events-none" />
         )}
       </div>
-      <span className="text-gray-900">{label}</span>
+      <span className="text-foreground">{label}</span>
     </label>
   );
 };
@@ -270,7 +270,7 @@ function Example() {
           preview: (
             <div>
               <CheckboxPreview label="Subscribe to newsletter" />
-              <p className="ml-8 mt-1 text-sm text-gray-600">You can unsubscribe at any time</p>
+              <p className="ml-8 mt-1 text-sm text-muted-foreground">You can unsubscribe at any time</p>
             </div>
           ),
         },
@@ -356,14 +356,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           </div>
 
           {label && (
-            <span className="text-gray-900 select-none">
+            <span className="text-foreground select-none">
               {label}
             </span>
           )}
         </label>
 
         {helperText && !error && (
-          <p id={helperId} className="ml-8 text-sm text-gray-600">
+          <p id={helperId} className="ml-8 text-sm text-muted-foreground">
             {helperText}
           </p>
         )}
@@ -402,7 +402,7 @@ export const checkboxVariants = cva(
     variants: {
       error: {
         true: 'border-red-500',
-        false: 'border-gray-300',
+        false: 'border-border',
       },
     },
     defaultVariants: {
@@ -458,12 +458,12 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
           </svg>
         </div>
 
-        <span *ngIf="label" class="text-gray-900 select-none">
+        <span *ngIf="label" class="text-foreground select-none">
           {{ label }}
         </span>
       </label>
 
-      <p *ngIf="helperText && !error" class="ml-8 text-sm text-gray-600">
+      <p *ngIf="helperText && !error" class="ml-8 text-sm text-muted-foreground">
         {{ helperText }}
       </p>
 
@@ -504,7 +504,7 @@ export class CheckboxComponent implements ControlValueAccessor {
   getCheckboxClasses(): string {
     const base = 'w-5 h-5 rounded border-2 appearance-none transition-all cursor-pointer';
     const focus = 'focus:ring-2 focus:ring-offset-2 focus:ring-blue-500';
-    const state = this.checked ? 'bg-blue-600 border-blue-600' : 'bg-white border-gray-300';
+    const state = this.checked ? 'bg-blue-600 border-blue-600' : 'bg-card border-border';
     const error = this.error ? 'border-red-500' : '';
     
     return [base, focus, state, error].join(' ');

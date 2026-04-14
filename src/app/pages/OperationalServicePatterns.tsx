@@ -3,22 +3,22 @@ import { Settings, Calendar, CreditCard, XCircle, Upload, FileCheck, Search, Bel
 
 export default function OperationalServicePatterns() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#FF9933] via-white to-[#138808] rounded flex items-center justify-center border-2 border-gray-300">
-                  <Settings size={32} className="text-[#000080]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#FF9933] via-white to-[#138808] rounded flex items-center justify-center border-2 border-border">
+                  <Settings size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Pattern Family</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Operational Service Patterns</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Pattern Family</div>
+                  <h1 className="text-3xl font-bold text-foreground">Operational Service Patterns</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 A structured pattern family for common operational flows used across government digital services. 
                 These patterns handle booking, payments, document management, search, notifications, reviews, and service 
                 continuity with accessibility-first design, clear recovery states, and reusable components suitable for 
@@ -27,15 +27,15 @@ export default function OperationalServicePatterns() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern Family ID: <span className="font-bold text-gray-900">UX4G-PAT-011</span></span>
+                  <span className="text-muted-foreground">Pattern Family ID: <span className="font-bold text-foreground">UX4G-PAT-011</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -53,15 +53,15 @@ export default function OperationalServicePatterns() {
       </header>
 
       {/* Overview Section */}
-      <section className="bg-white border-b border-gray-300">
+      <section className="bg-card border-b border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-12">
           <div className="grid grid-cols-3 gap-8 mb-12">
             <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
-                <Info size={24} className="text-[#000080]" />
-                <h3 className="font-bold text-gray-900">Purpose</h3>
+                <Info size={24} className="text-primary" />
+                <h3 className="font-bold text-foreground">Purpose</h3>
               </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Provide reusable, accessible operational patterns for common service tasks like booking appointments, 
                 processing payments, managing documents, searching records, and handling notifications across government services.
               </p>
@@ -70,9 +70,9 @@ export default function OperationalServicePatterns() {
             <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Zap size={24} className="text-orange-600" />
-                <h3 className="font-bold text-gray-900">Key Principles</h3>
+                <h3 className="font-bold text-foreground">Key Principles</h3>
               </div>
-              <ul className="text-sm text-gray-700 space-y-2">
+              <ul className="text-sm text-muted-foreground space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                   <span>Service continuity and save/resume support</span>
@@ -91,9 +91,9 @@ export default function OperationalServicePatterns() {
             <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Shield size={24} className="text-green-600" />
-                <h3 className="font-bold text-gray-900">Benefits</h3>
+                <h3 className="font-bold text-foreground">Benefits</h3>
               </div>
-              <ul className="text-sm text-gray-700 space-y-2">
+              <ul className="text-sm text-muted-foreground space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span>Reduced development time</span>
@@ -111,9 +111,9 @@ export default function OperationalServicePatterns() {
           </div>
 
           {/* Pattern Categories */}
-          <div className="border-l-4 border-[#000080] pl-4 mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Pattern Collection</h2>
-            <p className="text-gray-600 mt-2">
+          <div className="border-l-4 border-primary pl-4 mb-6">
+            <h2 className="text-2xl font-bold text-foreground">Pattern Collection</h2>
+            <p className="text-muted-foreground mt-2">
               9 essential operational patterns covering end-to-end service delivery workflows
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function OperationalServicePatterns() {
             to="/appointment-booking-pattern"
             icon={<Calendar size={32} />}
             iconBg="bg-blue-100"
-            iconColor="text-[#000080]"
+            iconColor="text-primary"
             patternId="UX4G-PAT-011-01"
             title="Appointment Booking"
             description="Pattern for scheduling appointments with government offices, service centers, or officials. Includes slot selection, confirmation, rescheduling, cancellation, and reminder flows with calendar integration."
@@ -298,17 +298,17 @@ export default function OperationalServicePatterns() {
         </div>
 
         {/* Cross-Pattern Guidance */}
-        <section className="mt-16 bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-            <h2 className="font-bold text-gray-900 text-xl">Cross-Pattern Guidance</h2>
+        <section className="mt-16 bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-8 py-4">
+            <h2 className="font-bold text-foreground text-xl">Cross-Pattern Guidance</h2>
           </div>
           <div className="p-8">
             <div className="grid grid-cols-2 gap-8">
               
               {/* Design Principles */}
               <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Settings size={20} className="text-[#000080]" />
+                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Settings size={20} className="text-primary" />
                   Universal Design Principles
                 </h3>
                 <div className="space-y-3 text-sm">
@@ -324,8 +324,8 @@ export default function OperationalServicePatterns() {
 
               {/* Technical Standards */}
               <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Code size={20} className="text-[#000080]" />
+                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Code size={20} className="text-primary" />
                   Technical Standards
                 </h3>
                 <div className="space-y-3 text-sm">
@@ -341,8 +341,8 @@ export default function OperationalServicePatterns() {
 
               {/* Accessibility Requirements */}
               <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Globe size={20} className="text-[#000080]" />
+                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Globe size={20} className="text-primary" />
                   Accessibility Requirements
                 </h3>
                 <div className="space-y-3 text-sm">
@@ -357,8 +357,8 @@ export default function OperationalServicePatterns() {
 
               {/* Service Continuity */}
               <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Database size={20} className="text-[#000080]" />
+                <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Database size={20} className="text-primary" />
                   Service Continuity
                 </h3>
                 <div className="space-y-3 text-sm">
@@ -378,40 +378,40 @@ export default function OperationalServicePatterns() {
         {/* Pattern Dependencies */}
         <section className="mt-8 bg-blue-50 border-2 border-blue-300 rounded-lg p-8">
           <div className="flex items-start gap-4">
-            <Info size={32} className="text-[#000080] flex-shrink-0" />
+            <Info size={32} className="text-primary flex-shrink-0" />
             <div className="flex-1">
-              <h2 className="font-bold text-gray-900 text-xl mb-2">Pattern Dependencies & Integration</h2>
-              <p className="text-sm text-gray-700 mb-4">
+              <h2 className="font-bold text-foreground text-xl mb-2">Pattern Dependencies & Integration</h2>
+              <p className="text-sm text-muted-foreground mb-4">
                 Many operational patterns work together. For example:
               </p>
               <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="bg-white border border-blue-200 rounded p-4">
-                  <h4 className="font-bold text-gray-900 mb-2">Appointment Booking →</h4>
-                  <ul className="space-y-1 text-gray-700">
+                <div className="bg-card border border-blue-200 rounded p-4">
+                  <h4 className="font-bold text-foreground mb-2">Appointment Booking →</h4>
+                  <ul className="space-y-1 text-muted-foreground">
                     <li>• Requires Fee Payment (if applicable)</li>
                     <li>• Uses Notification & Reminder</li>
                     <li>• Supports Save & Resume</li>
                   </ul>
                 </div>
-                <div className="bg-white border border-blue-200 rounded p-4">
-                  <h4 className="font-bold text-gray-900 mb-2">Document Upload →</h4>
-                  <ul className="space-y-1 text-gray-700">
+                <div className="bg-card border border-blue-200 rounded p-4">
+                  <h4 className="font-bold text-foreground mb-2">Document Upload →</h4>
+                  <ul className="space-y-1 text-muted-foreground">
                     <li>• Connects to Document Verification</li>
                     <li>• Uses Notification for status updates</li>
                     <li>• Supports Save & Resume</li>
                   </ul>
                 </div>
-                <div className="bg-white border border-blue-200 rounded p-4">
-                  <h4 className="font-bold text-gray-900 mb-2">Fee Payment →</h4>
-                  <ul className="space-y-1 text-gray-700">
+                <div className="bg-card border border-blue-200 rounded p-4">
+                  <h4 className="font-bold text-foreground mb-2">Fee Payment →</h4>
+                  <ul className="space-y-1 text-muted-foreground">
                     <li>• Requires Payment Failure handling</li>
                     <li>• Uses Notification for receipt</li>
                     <li>• Links to Record Lookup (payment history)</li>
                   </ul>
                 </div>
-                <div className="bg-white border border-blue-200 rounded p-4">
-                  <h4 className="font-bold text-gray-900 mb-2">Officer Review →</h4>
-                  <ul className="space-y-1 text-gray-700">
+                <div className="bg-card border border-blue-200 rounded p-4">
+                  <h4 className="font-bold text-foreground mb-2">Officer Review →</h4>
+                  <ul className="space-y-1 text-muted-foreground">
                     <li>• Triggers Document Verification</li>
                     <li>• Uses Notification to inform citizens</li>
                     <li>• May require additional Document Upload</li>
@@ -427,19 +427,19 @@ export default function OperationalServicePatterns() {
           <div className="flex items-start gap-4">
             <HelpCircle size={32} className="text-orange-600 flex-shrink-0" />
             <div className="flex-1">
-              <h2 className="font-bold text-gray-900 text-xl mb-2">Need Help Implementing These Patterns?</h2>
-              <p className="text-sm text-gray-700 mb-4">
+              <h2 className="font-bold text-foreground text-xl mb-2">Need Help Implementing These Patterns?</h2>
+              <p className="text-sm text-muted-foreground mb-4">
                 Our team provides comprehensive support including Figma components, React code snippets, API integration 
                 guides, and accessibility testing for all operational patterns.
               </p>
               <div className="flex items-center gap-4">
-                <a href="#" className="px-6 py-3 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 transition-colors">
+                <a href="#" className="px-6 py-3 bg-primary text-white font-bold rounded text-sm hover:opacity-90 transition-colors">
                   Contact Support Team
                 </a>
-                <a href="#" className="px-6 py-3 border-2 border-[#000080] bg-white text-[#000080] font-bold rounded text-sm hover:bg-blue-50 transition-colors">
+                <a href="#" className="px-6 py-3 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 transition-colors">
                   View Code Examples
                 </a>
-                <a href="#" className="text-sm text-[#000080] font-bold hover:underline">
+                <a href="#" className="text-sm text-primary font-bold hover:underline">
                   Download Figma Kit →
                 </a>
               </div>
@@ -450,9 +450,9 @@ export default function OperationalServicePatterns() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Operational Service Patterns</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -490,10 +490,10 @@ function PatternCard({
   return (
     <Link 
       to={to}
-      className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden hover:border-[#000080] hover:shadow-lg transition-all group"
+      className="bg-card border-2 border-border rounded-lg overflow-hidden hover:border-primary hover:shadow-lg transition-all group"
     >
       {/* Header */}
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+      <div className="bg-muted border-b-2 border-border px-6 py-4">
         <div className="flex items-center gap-4">
           <div className={`w-16 h-16 ${iconBg} rounded flex items-center justify-center flex-shrink-0`}>
             <div className={iconColor}>
@@ -501,41 +501,41 @@ function PatternCard({
             </div>
           </div>
           <div className="flex-1">
-            <div className="text-xs text-gray-600 mb-1">{patternId}</div>
-            <h3 className="font-bold text-gray-900 group-hover:text-[#000080] transition-colors">{title}</h3>
+            <div className="text-xs text-muted-foreground mb-1">{patternId}</div>
+            <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">{title}</h3>
           </div>
-          <ArrowRight size={20} className="text-gray-400 group-hover:text-[#000080] group-hover:translate-x-1 transition-all" />
+          <ArrowRight size={20} className="text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
         </div>
       </div>
 
       {/* Content */}
       <div className="p-6">
-        <p className="text-sm text-gray-700 leading-relaxed mb-4">
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
           {description}
         </p>
 
         {/* Features */}
         <div className="mb-4">
-          <h4 className="text-xs font-bold text-gray-600 uppercase mb-2">Key Features</h4>
+          <h4 className="text-xs font-bold text-muted-foreground uppercase mb-2">Key Features</h4>
           <div className="grid grid-cols-2 gap-2">
             {features.map((feature, index) => (
               <div key={index} className="flex items-start gap-2">
                 <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
-                <span className="text-xs text-gray-700">{feature}</span>
+                <span className="text-xs text-muted-foreground">{feature}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Metadata */}
-        <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
+        <div className="flex items-center gap-4 pt-4 border-t border-border">
           <div className="flex items-center gap-2 text-xs">
             <Settings size={14} className="text-gray-500" />
-            <span className="text-gray-600">Complexity: <span className="font-bold text-gray-900">{complexity}</span></span>
+            <span className="text-muted-foreground">Complexity: <span className="font-bold text-foreground">{complexity}</span></span>
           </div>
           <div className="flex items-center gap-2 text-xs">
             <Clock size={14} className="text-gray-500" />
-            <span className="text-gray-600">Est: <span className="font-bold text-gray-900">{estimatedTime}</span></span>
+            <span className="text-muted-foreground">Est: <span className="font-bold text-foreground">{estimatedTime}</span></span>
           </div>
         </div>
       </div>
@@ -549,7 +549,7 @@ function GuidanceItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }

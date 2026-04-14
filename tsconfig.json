@@ -29,6 +29,10 @@
   "exclude": [
     "dist",
     "node_modules",
-    "**/LICENSE/**"
+    "**/LICENSE/**",
+    "**/*.stories.tsx",
+    "**/*.stories.ts",
+    "src/app/angular-core-package/**",
+    "src/app/styles-package/examples/**"
   ]
 }

@@ -47,7 +47,7 @@ export function EligibilityService({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader icon={HelpCircle} iconColor="bg-blue-600" category={category} title={title} />
 
       <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8 lg:py-12">
@@ -58,9 +58,9 @@ export function EligibilityService({
             message="Answer these quick questions to check if you meet the basic eligibility criteria."
           />
 
-          <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-            <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-              <h2 className="font-bold text-gray-900">Eligibility Questions</h2>
+          <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-muted border-b-2 border-border px-6 py-4">
+              <h2 className="font-bold text-foreground">Eligibility Questions</h2>
             </div>
 
             <div className="p-6 sm:p-8 space-y-6">
@@ -92,15 +92,15 @@ export function EligibilityService({
                 onChange={(value) => setAnswer("hasAddressProof", value)}
               />
 
-              <div className="border-b-2 border-gray-300 pb-6">
+              <div className="border-b-2 border-border pb-6">
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">5</div>
+                  <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">5</div>
                   <div className="flex-1">
-                    <p className="font-bold text-gray-900 mb-3">Which certificate do you want to apply for?</p>
+                    <p className="font-bold text-foreground mb-3">Which certificate do you want to apply for?</p>
                     <select
                       value={answers.certificateType}
                       onChange={(event) => setAnswer("certificateType", event.target.value)}
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080]"
+                      className="w-full px-4 py-3 border-2 border-border rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring"
                     >
                       <option value="">Select certificate type</option>
                       <option value="income">Income Certificate</option>
@@ -118,7 +118,7 @@ export function EligibilityService({
                 onClick={() => setShowResult(true)}
                 disabled={!allAnswered}
                 className={`w-full px-6 py-3.5 font-bold rounded text-sm ${
-                  allAnswered ? "bg-[#000080] text-white hover:bg-blue-900" : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  allAnswered ? "bg-primary text-white hover:opacity-90" : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
               >
                 Check Eligibility
@@ -132,8 +132,8 @@ export function EligibilityService({
                 <div className={`w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center ${isEligible ? "bg-green-600" : "bg-red-600"}`}>
                   {isEligible ? <CheckCircle size={40} className="text-white" /> : <XCircle size={40} className="text-white" />}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{isEligible ? "You Are Eligible" : "Not Eligible Yet"}</h3>
-                <p className="text-sm text-gray-700">
+                <h3 className="text-2xl font-bold text-foreground mb-2">{isEligible ? "You Are Eligible" : "Not Eligible Yet"}</h3>
+                <p className="text-sm text-muted-foreground">
                   {isEligible
                     ? "You meet the basic eligibility criteria and can start the service application."
                     : "Some requirements are missing. Review the points below before applying."}
@@ -143,19 +143,19 @@ export function EligibilityService({
               <div className="p-6 space-y-4">
                 {isEligible ? (
                   <>
-                    <div className="space-y-2 text-sm text-gray-700">
+                    <div className="space-y-2 text-sm text-muted-foreground">
                       <NextStep text="Sign in to your account or create a new one" />
                       <NextStep text="Complete your application and upload required documents" />
                       <NextStep text="Track progress and download issued certificate" />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <Link to={signInPath} className="px-6 py-3.5 bg-[#138808] text-white font-bold rounded text-center hover:bg-green-700">Sign In to Apply</Link>
-                      <Link to={signUpPath} className="px-6 py-3.5 border-2 border-[#138808] text-[#138808] font-bold rounded text-center hover:bg-green-50">Create Account</Link>
+                      <Link to={signInPath} className="px-6 py-3.5 bg-green-700 text-white font-bold rounded text-center hover:bg-green-600">Sign In to Apply</Link>
+                      <Link to={signUpPath} className="px-6 py-3.5 border-2 border-green-700 text-green-700 dark:text-green-400 font-bold rounded text-center hover:bg-green-50 dark:hover:bg-green-950/30">Create Account</Link>
                     </div>
                   </>
                 ) : (
                   <>
-                    <h4 className="font-bold text-gray-900">Requirements Not Met</h4>
+                    <h4 className="font-bold text-foreground">Requirements Not Met</h4>
                     <div className="space-y-2">
                       {missingRequirements.map((item) => (
                         <div key={item} className="flex items-start gap-2 text-sm text-red-700">
@@ -164,7 +164,7 @@ export function EligibilityService({
                         </div>
                       ))}
                     </div>
-                    <Link to={helpPath} className="block w-full px-6 py-3.5 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-center hover:bg-gray-50">
+                    <Link to={helpPath} className="block w-full px-6 py-3.5 border-2 border-border bg-card text-muted-foreground font-bold rounded text-center hover:bg-muted">
                       Get Help
                     </Link>
                   </>
@@ -173,11 +173,11 @@ export function EligibilityService({
             </div>
           )}
 
-          <div className="text-sm text-gray-700 text-center">
-            <Link to={homePath} className="font-bold text-[#000080] hover:underline">Back to Service Home</Link>
+          <div className="text-sm text-muted-foreground text-center">
+            <Link to={homePath} className="font-bold text-primary hover:underline">Back to Service Home</Link>
             {codeDownloadPath && (
               <span className="ml-4">
-                <Link to={codeDownloadPath} className="inline-flex items-center gap-1 font-bold text-[#000080] hover:underline">
+                <Link to={codeDownloadPath} className="inline-flex items-center gap-1 font-bold text-primary hover:underline">
                   <Download size={14} />
                   Download React code
                 </Link>
@@ -204,19 +204,19 @@ function YesNoQuestion({
   onChange: (value: string) => void;
 }) {
   return (
-    <div className="border-b-2 border-gray-300 pb-6">
+    <div className="border-b-2 border-border pb-6">
       <div className="flex items-start gap-3 mb-3">
-        <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">{number}</div>
-        <p className="font-bold text-gray-900 flex-1">{text}</p>
+        <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">{number}</div>
+        <p className="font-bold text-foreground flex-1">{text}</p>
       </div>
       <div className="ml-11 flex items-center gap-4">
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="radio" name={`question-${number}`} value="yes" checked={value === "yes"} onChange={(e) => onChange(e.target.value)} className="w-4 h-4" />
-          <span className="text-sm text-gray-700">Yes</span>
+          <span className="text-sm text-muted-foreground">Yes</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="radio" name={`question-${number}`} value="no" checked={value === "no"} onChange={(e) => onChange(e.target.value)} className="w-4 h-4" />
-          <span className="text-sm text-gray-700">No</span>
+          <span className="text-sm text-muted-foreground">No</span>
         </label>
       </div>
     </div>

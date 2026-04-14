@@ -8,11 +8,16 @@
 // Version: 1.0.0
 // ============================================================================
 
+import type { ReactNode, MouseEvent, ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
+
+// Stub for Angular EventEmitter (used in Angular output specs only)
+interface EventEmitter<T> { emit(value?: T): void; subscribe(fn: (v: T) => void): void; }
+
 // ==================== BUTTON COMPONENT ====================
 
 export interface ButtonProps {
   // Content
-  children: React.ReactNode;
+  children: ReactNode;
   
   // Variants
   variant?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'ghost' | 'link';
@@ -24,12 +29,12 @@ export interface ButtonProps {
   
   // Styling
   fullWidth?: boolean;
-  iconLeft?: React.ReactNode;
-  iconRight?: React.ReactNode;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
   
   // Behavior
   type?: 'button' | 'submit' | 'reset';
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   
   // Accessibility
   ariaLabel?: string;
@@ -84,7 +89,7 @@ export interface ButtonAngular {
 export interface FormFieldProps {
   // Content
   label: string;
-  children: React.ReactNode;
+  children: ReactNode;
   
   // Helper text
   helperText?: string;
@@ -153,9 +158,9 @@ export interface InputProps {
   success?: boolean;
   
   // Behavior
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
+  onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
   
   // Constraints
   maxLength?: number;
@@ -169,8 +174,8 @@ export interface InputProps {
   ariaRequired?: boolean;
   
   // Icons
-  iconLeft?: React.ReactNode;
-  iconRight?: React.ReactNode;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
 }
 
 export const InputTypes = {
@@ -219,7 +224,7 @@ export interface InputAngular {
 
 export interface AlertProps {
   // Content
-  children: React.ReactNode;
+  children: ReactNode;
   title?: string;
   
   // Variants
@@ -230,7 +235,7 @@ export interface AlertProps {
   onDismiss?: () => void;
   
   // Styling
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   
   // Accessibility
   role?: 'alert' | 'status';
@@ -274,8 +279,8 @@ export interface ModalProps {
   
   // Content
   title: string;
-  children: React.ReactNode;
-  footer?: React.ReactNode;
+  children: ReactNode;
+  footer?: ReactNode;
   
   // Variants
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
@@ -326,7 +331,7 @@ export interface TabsProps {
   tabs: Array<{
     id: string;
     label: string;
-    content: React.ReactNode;
+    content: ReactNode;
     disabled?: boolean;
   }>;
   
@@ -378,7 +383,7 @@ export interface TabsAngular {
 
 export interface BadgeProps {
   // Content
-  children: React.ReactNode;
+  children: ReactNode;
   
   // Variants
   variant?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'info';
@@ -515,9 +520,9 @@ export interface LoadingSpinnerAngular {
 
 export interface CardProps {
   // Content
-  children: React.ReactNode;
-  header?: React.ReactNode;
-  footer?: React.ReactNode;
+  children: ReactNode;
+  header?: ReactNode;
+  footer?: ReactNode;
   
   // Variants
   variant?: 'default' | 'outlined' | 'elevated' | 'filled';
@@ -569,7 +574,7 @@ export interface BreadcrumbProps {
   }>;
   
   // Styling
-  separator?: React.ReactNode;
+  separator?: ReactNode;
   
   // Behavior
   onNavigate?: (href: string) => void;
@@ -608,7 +613,7 @@ export interface ToastProps {
   position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
   
   // Styling
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   action?: {
     label: string;
     onClick: () => void;

@@ -16,7 +16,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '../../utils/cn';
-import { MenuProps } from './Menu.types';
+import { MenuProps, MenuItem } from './Menu.types';
 
 export function Menu({
   items,
@@ -45,13 +45,13 @@ export function Menu({
   useEffect(() => {
     if (!isOpen) return;
 
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = ( event: globalThis.MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     };
 
-    const handleEscape = (event: KeyboardEvent) => {
+    const handleEscape = ( event: globalThis.KeyboardEvent) => {
       if (event.key === 'Escape') {
         setOpen(false);
       }

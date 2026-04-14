@@ -52,7 +52,7 @@ const DemoBox = ({ children, ...props }: any) => (
 );
 
 const DemoCard = ({ children, ...props }: any) => (
-  <div className="p-4 border border-gray-300 rounded bg-white" {...props}>
+  <div className="p-4 border border-border rounded bg-card" {...props}>
     {children}
   </div>
 );
@@ -186,7 +186,7 @@ function Example() {
   );
 }`,
           preview: (
-            <FlexPreview justify="center" align="center" className="h-32 border border-gray-300">
+            <FlexPreview justify="center" align="center" className="h-32 border border-border">
               <DemoBox>Centered Content</DemoBox>
             </FlexPreview>
           ),
@@ -302,7 +302,7 @@ function Example() {
                   <User size={24} className="text-[#005196]" />
                   <div>
                     <h3 className="font-semibold">User Profile</h3>
-                    <p className="text-sm text-gray-600">Manage your account</p>
+                    <p className="text-sm text-muted-foreground">Manage your account</p>
                   </div>
                 </FlexPreview>
                 <Settings size={20} className="text-gray-500 cursor-pointer" />

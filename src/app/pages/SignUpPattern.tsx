@@ -3,22 +3,22 @@ import { UserPlus, Shield, CheckCircle, AlertCircle, Info, XCircle, Eye, EyeOff,
 
 export default function SignUpPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <UserPlus size={32} className="text-[#000080]" />
+                <div className="w-16 h-16 bg-muted border-2 border-border rounded flex items-center justify-center">
+                  <UserPlus size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Identity & Access Pattern</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Sign Up</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Identity & Access Pattern</div>
+                  <h1 className="text-3xl font-bold text-foreground">Sign Up</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Standard account creation pattern for new users to register on government digital services. 
                 Includes progressive disclosure, validation, duplicate detection, password security, 
                 and OTP verification integration for trustworthy, accessible onboarding.
@@ -26,15 +26,15 @@ export default function SignUpPattern() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-009-03</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-009-03</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function SignUpPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -70,7 +70,7 @@ export default function SignUpPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -109,9 +109,9 @@ export default function SignUpPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Sign Up Pattern</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -126,18 +126,18 @@ export default function SignUpPattern() {
 function OverviewSection() {
   return (
     <section id="overview" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Pattern Overview</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Purpose */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Purpose</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Purpose</h3>
           </div>
           <div className="p-6">
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Enable new users to create accounts on government digital services with minimal friction, 
               clear guidance, and strong security. Sign Up ensures data quality, prevents duplicate accounts, 
               and seamlessly connects to verification flows.
@@ -153,9 +153,9 @@ function OverviewSection() {
         </div>
 
         {/* When to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">When to Use</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">When to Use</h3>
           </div>
           <div className="p-6">
             <div className="space-y-3 text-sm">
@@ -184,9 +184,9 @@ function OverviewSection() {
         </div>
 
         {/* When NOT to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">When NOT to Use</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">When NOT to Use</h3>
           </div>
           <div className="p-6">
             <div className="space-y-3 text-sm">
@@ -215,9 +215,9 @@ function OverviewSection() {
         </div>
 
         {/* User Goals */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">User Goals</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">User Goals</h3>
           </div>
           <div className="p-6">
             <div className="space-y-3 text-sm">
@@ -253,7 +253,7 @@ function PurposeItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
-      <span className="text-sm text-gray-700">{text}</span>
+      <span className="text-sm text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -266,7 +266,7 @@ function UseItem({ type, text }: { type: "yes" | "no"; text: string }) {
       ) : (
         <X size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
       )}
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -274,8 +274,8 @@ function UseItem({ type, text }: { type: "yes" | "no"; text: string }) {
 function GoalItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-3">
-      <div className="text-[#000080] mt-0.5">{icon}</div>
-      <span className="text-gray-700">{text}</span>
+      <div className="text-primary mt-0.5">{icon}</div>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -285,11 +285,11 @@ function GoalItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 function FlowDiagram() {
   return (
     <section id="flow" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">End-to-End Flow Diagram</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-8">
         <div className="space-y-4">
           {/* Flow Steps */}
           <FlowStep 
@@ -366,23 +366,23 @@ function FlowDiagram() {
         </div>
 
         {/* Flow Legend */}
-        <div className="mt-8 pt-6 border-t-2 border-gray-200">
+        <div className="mt-8 pt-6 border-t-2 border-border">
           <div className="flex items-center gap-8 text-sm">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-gray-400 rounded-sm"></div>
-              <span className="text-gray-600">Entry Point</span>
+              <span className="text-muted-foreground">Entry Point</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[#000080] rounded-sm"></div>
-              <span className="text-gray-600">User Action</span>
+              <div className="w-3 h-3 bg-primary rounded-sm"></div>
+              <span className="text-muted-foreground">User Action</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-600 rounded-sm"></div>
-              <span className="text-gray-600">System Response</span>
+              <span className="text-muted-foreground">System Response</span>
             </div>
             <div className="flex items-center gap-2">
               <AlertTriangle size={14} className="text-orange-600" />
-              <span className="text-gray-600">Decision Point</span>
+              <span className="text-muted-foreground">Decision Point</span>
             </div>
           </div>
         </div>
@@ -398,9 +398,9 @@ function FlowStep({ number, title, description, action, color }: {
   action: string;
   color: "gray" | "blue" | "green";
 }) {
-  const bgColor = color === "gray" ? "bg-gray-100" : color === "blue" ? "bg-blue-50" : "bg-green-50";
-  const borderColor = color === "gray" ? "border-gray-300" : color === "blue" ? "border-[#000080]" : "border-green-600";
-  const textColor = color === "gray" ? "text-gray-700" : color === "blue" ? "text-[#000080]" : "text-green-700";
+  const bgColor = color === "gray" ? "bg-muted" : color === "blue" ? "bg-blue-50" : "bg-green-50";
+  const borderColor = color === "gray" ? "border-border" : color === "blue" ? "border-primary" : "border-green-600";
+  const textColor = color === "gray" ? "text-muted-foreground" : color === "blue" ? "text-primary" : "text-green-700";
 
   return (
     <div className={`${bgColor} border-2 ${borderColor} rounded-lg p-4`}>
@@ -410,8 +410,8 @@ function FlowStep({ number, title, description, action, color }: {
         </div>
         <div className="flex-1">
           <h4 className={`font-bold ${textColor} mb-1`}>{title}</h4>
-          <p className="text-sm text-gray-700 mb-2">{description}</p>
-          <div className="text-xs text-gray-600 italic">→ {action}</div>
+          <p className="text-sm text-muted-foreground mb-2">{description}</p>
+          <div className="text-xs text-muted-foreground italic">→ {action}</div>
         </div>
       </div>
     </div>
@@ -423,7 +423,7 @@ function FlowConnector({ label }: { label?: string }) {
     <div className="flex items-center justify-center py-2">
       <div className="flex flex-col items-center">
         <ArrowRight size={24} className="text-gray-400 rotate-90" />
-        {label && <span className="text-xs text-gray-600 mt-1">{label}</span>}
+        {label && <span className="text-xs text-muted-foreground mt-1">{label}</span>}
       </div>
     </div>
   );
@@ -437,13 +437,13 @@ function FlowBranch({ condition, yesPath, noPath }: { condition: string; yesPath
         <div className="flex-1">
           <h4 className="font-bold text-orange-800 mb-3">{condition}</h4>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white border border-orange-200 rounded p-3">
+            <div className="bg-card border border-orange-200 rounded p-3">
               <div className="text-xs font-bold text-orange-700 mb-1">YES</div>
-              <div className="text-sm text-gray-700">{yesPath}</div>
+              <div className="text-sm text-muted-foreground">{yesPath}</div>
             </div>
-            <div className="bg-white border border-orange-200 rounded p-3">
+            <div className="bg-card border border-orange-200 rounded p-3">
               <div className="text-xs font-bold text-green-700 mb-1">NO</div>
-              <div className="text-sm text-gray-700">{noPath}</div>
+              <div className="text-sm text-muted-foreground">{noPath}</div>
             </div>
           </div>
         </div>
@@ -457,9 +457,9 @@ function FlowBranch({ condition, yesPath, noPath }: { condition: string; yesPath
 function ExampleScreens() {
   return (
     <section id="screens" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Example Screens</h2>
-        <p className="text-gray-600 mt-2">Representative states showing validation, error handling, and success flows</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Example Screens</h2>
+        <p className="text-muted-foreground mt-2">Representative states showing validation, error handling, and success flows</p>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
@@ -551,7 +551,7 @@ function ExampleScreen({
   children: React.ReactNode;
 }) {
   const colorMap = {
-    gray: "bg-gray-100 text-gray-700",
+    gray: "bg-muted text-muted-foreground",
     red: "bg-red-100 text-red-700",
     orange: "bg-orange-100 text-orange-700",
     green: "bg-green-100 text-green-700",
@@ -559,14 +559,14 @@ function ExampleScreen({
   };
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm mb-1">{title}</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm mb-1">{title}</h3>
         <div className={`inline-block px-2 py-1 rounded text-xs font-bold ${colorMap[stateColor]}`}>
           {state}
         </div>
       </div>
-      <div className="p-6 bg-gray-50">
+      <div className="p-6 bg-background">
         {children}
       </div>
     </div>
@@ -575,14 +575,14 @@ function ExampleScreen({
 
 function SignUpFormExample({ state }: { state: string }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 max-w-md mx-auto">
+    <div className="bg-card border-2 border-border rounded-lg p-6 max-w-md mx-auto">
       {/* Header */}
       <div className="text-center mb-6">
-        <div className="w-12 h-12 bg-[#000080] rounded mx-auto mb-3 flex items-center justify-center">
+        <div className="w-12 h-12 bg-primary rounded mx-auto mb-3 flex items-center justify-center">
           <UserPlus size={24} className="text-white" />
         </div>
-        <h3 className="font-bold text-gray-900 text-lg">Create Account</h3>
-        <p className="text-sm text-gray-600 mt-1">Sign up to access government services</p>
+        <h3 className="font-bold text-foreground text-lg">Create Account</h3>
+        <p className="text-sm text-muted-foreground mt-1">Sign up to access government services</p>
       </div>
 
       {state === "success" ? (
@@ -590,11 +590,11 @@ function SignUpFormExample({ state }: { state: string }) {
           <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
             <CheckCircle size={32} className="text-green-600" />
           </div>
-          <h4 className="font-bold text-gray-900 mb-2">Account Created Successfully</h4>
-          <p className="text-sm text-gray-600 mb-4">
+          <h4 className="font-bold text-foreground mb-2">Account Created Successfully</h4>
+          <p className="text-sm text-muted-foreground mb-4">
             Please verify your email address to continue
           </p>
-          <button className="w-full px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm">
+          <button className="w-full px-4 py-2 bg-primary text-white font-bold rounded text-sm">
             Verify Email Address
           </button>
         </div>
@@ -603,8 +603,8 @@ function SignUpFormExample({ state }: { state: string }) {
           <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
             <Smartphone size={32} className="text-blue-600" />
           </div>
-          <h4 className="font-bold text-gray-900 mb-2">Verify Your Mobile Number</h4>
-          <p className="text-sm text-gray-600 mb-4">
+          <h4 className="font-bold text-foreground mb-2">Verify Your Mobile Number</h4>
+          <p className="text-sm text-muted-foreground mb-4">
             We have sent a 6-digit OTP to<br />
             <span className="font-bold">+91 98765 43210</span>
           </p>
@@ -614,12 +614,12 @@ function SignUpFormExample({ state }: { state: string }) {
                 key={i}
                 type="text" 
                 maxLength={1}
-                className="w-10 h-10 border-2 border-gray-300 rounded text-center font-bold"
+                className="w-10 h-10 border-2 border-border rounded text-center font-bold"
                 placeholder="0"
               />
             ))}
           </div>
-          <button className="w-full px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm">
+          <button className="w-full px-4 py-2 bg-primary text-white font-bold rounded text-sm">
             Verify OTP
           </button>
         </div>
@@ -630,17 +630,17 @@ function SignUpFormExample({ state }: { state: string }) {
               <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h4 className="font-bold text-orange-800 text-sm mb-1">Account Already Exists</h4>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   An account with this email address already exists. Please sign in instead.
                 </p>
               </div>
             </div>
           </div>
           <div className="space-y-3">
-            <button className="w-full px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm">
+            <button className="w-full px-4 py-2 bg-primary text-white font-bold rounded text-sm">
               Go to Sign In
             </button>
-            <button className="w-full px-4 py-2 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm">
+            <button className="w-full px-4 py-2 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm">
               Forgot Password?
             </button>
           </div>
@@ -649,12 +649,12 @@ function SignUpFormExample({ state }: { state: string }) {
         <>
           {/* Full Name */}
           <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-900 mb-2">
+            <label className="block text-sm font-bold text-foreground mb-2">
               Full Name <span className="text-red-600">*</span>
             </label>
             <input 
               type="text" 
-              className="w-full px-3 py-2 border-2 border-gray-300 rounded text-sm focus:border-[#000080] focus:outline-none"
+              className="w-full px-3 py-2 border-2 border-border rounded text-sm focus:border-primary focus:outline-none"
               placeholder="Enter your full name"
               defaultValue={state !== "default" ? "Rajesh Kumar" : ""}
             />
@@ -662,13 +662,13 @@ function SignUpFormExample({ state }: { state: string }) {
 
           {/* Email */}
           <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-900 mb-2">
+            <label className="block text-sm font-bold text-foreground mb-2">
               Email Address <span className="text-red-600">*</span>
             </label>
             <input 
               type="email" 
               className={`w-full px-3 py-2 border-2 rounded text-sm focus:outline-none ${
-                state === "invalid-email" ? "border-red-500" : "border-gray-300 focus:border-[#000080]"
+                state === "invalid-email" ? "border-red-500" : "border-border focus:border-primary"
               }`}
               placeholder="example@email.com"
               defaultValue={state === "invalid-email" ? "rajesh@invalid" : state !== "default" ? "rajesh.kumar@example.com" : ""}
@@ -683,17 +683,17 @@ function SignUpFormExample({ state }: { state: string }) {
 
           {/* Mobile Number */}
           <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-900 mb-2">
+            <label className="block text-sm font-bold text-foreground mb-2">
               Mobile Number <span className="text-red-600">*</span>
             </label>
             <div className="flex gap-2">
-              <select className="px-2 py-2 border-2 border-gray-300 rounded text-sm bg-white">
+              <select className="px-2 py-2 border-2 border-border rounded text-sm bg-card">
                 <option>+91</option>
               </select>
               <input 
                 type="tel" 
                 className={`flex-1 px-3 py-2 border-2 rounded text-sm focus:outline-none ${
-                  state === "invalid-mobile" ? "border-red-500" : "border-gray-300 focus:border-[#000080]"
+                  state === "invalid-mobile" ? "border-red-500" : "border-border focus:border-primary"
                 }`}
                 placeholder="10-digit mobile number"
                 defaultValue={state === "invalid-mobile" ? "123" : state !== "default" ? "9876543210" : ""}
@@ -709,13 +709,13 @@ function SignUpFormExample({ state }: { state: string }) {
 
           {/* Password */}
           <div className="mb-4">
-            <label className="block text-sm font-bold text-gray-900 mb-2">
+            <label className="block text-sm font-bold text-foreground mb-2">
               Password <span className="text-red-600">*</span>
             </label>
             <input 
               type="password" 
               className={`w-full px-3 py-2 border-2 rounded text-sm focus:outline-none ${
-                state === "weak-password" ? "border-orange-500" : "border-gray-300 focus:border-[#000080]"
+                state === "weak-password" ? "border-orange-500" : "border-border focus:border-primary"
               }`}
               placeholder="Create a strong password"
               defaultValue={state === "weak-password" ? "123" : state !== "default" ? "SecurePass123!" : ""}
@@ -746,13 +746,13 @@ function SignUpFormExample({ state }: { state: string }) {
 
           {/* Confirm Password */}
           <div className="mb-6">
-            <label className="block text-sm font-bold text-gray-900 mb-2">
+            <label className="block text-sm font-bold text-foreground mb-2">
               Confirm Password <span className="text-red-600">*</span>
             </label>
             <input 
               type="password" 
               className={`w-full px-3 py-2 border-2 rounded text-sm focus:outline-none ${
-                state === "password-mismatch" ? "border-red-500" : "border-gray-300 focus:border-[#000080]"
+                state === "password-mismatch" ? "border-red-500" : "border-border focus:border-primary"
               }`}
               placeholder="Re-enter password"
               defaultValue={state === "password-mismatch" ? "DifferentPass123!" : state !== "default" && state !== "weak-password" ? "SecurePass123!" : ""}
@@ -770,7 +770,7 @@ function SignUpFormExample({ state }: { state: string }) {
             className={`w-full px-4 py-2 font-bold rounded text-sm ${
               state === "default" || state === "invalid-email" || state === "invalid-mobile" || state === "weak-password" || state === "password-mismatch"
                 ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                : "bg-[#000080] text-white"
+                : "bg-primary text-white"
             }`}
             disabled={state === "default" || state === "invalid-email" || state === "invalid-mobile" || state === "weak-password" || state === "password-mismatch"}
           >
@@ -779,8 +779,8 @@ function SignUpFormExample({ state }: { state: string }) {
 
           {/* Sign In Link */}
           <div className="text-center mt-4">
-            <span className="text-sm text-gray-600">Already have an account? </span>
-            <a href="#" className="text-sm text-[#000080] font-bold hover:underline">Sign In</a>
+            <span className="text-sm text-muted-foreground">Already have an account? </span>
+            <a href="#" className="text-sm text-primary font-bold hover:underline">Sign In</a>
           </div>
         </>
       )}
@@ -793,20 +793,20 @@ function SignUpFormExample({ state }: { state: string }) {
 function FieldsAndContent() {
   return (
     <section id="fields" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Fields & Content Guidance</h2>
-        <p className="text-gray-600 mt-2">Required fields, labels, placeholders, and help text for sign-up forms</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Fields & Content Guidance</h2>
+        <p className="text-muted-foreground mt-2">Required fields, labels, placeholders, and help text for sign-up forms</p>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
         <table className="w-full">
           <thead>
-            <tr className="bg-gray-100 border-b-2 border-gray-300">
-              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Field Name</th>
-              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Required</th>
-              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Label Text</th>
-              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Placeholder</th>
-              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Help Text</th>
+            <tr className="bg-muted border-b-2 border-border">
+              <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Field Name</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Required</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Label Text</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Placeholder</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Help Text</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -865,34 +865,34 @@ function FieldsAndContent() {
 
       {/* Content Guidelines */}
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Page Title</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Page Title</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <div>
-              <span className="font-bold text-gray-900">Heading:</span>
-              <span className="text-gray-700 ml-2">&quot;Create Account&quot; or &quot;Sign Up&quot;</span>
+              <span className="font-bold text-foreground">Heading:</span>
+              <span className="text-muted-foreground ml-2">&quot;Create Account&quot; or &quot;Sign Up&quot;</span>
             </div>
             <div>
-              <span className="font-bold text-gray-900">Subheading:</span>
-              <span className="text-gray-700 ml-2">&quot;Sign up to access [Service Name]&quot;</span>
+              <span className="font-bold text-foreground">Subheading:</span>
+              <span className="text-muted-foreground ml-2">&quot;Sign up to access [Service Name]&quot;</span>
             </div>
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Button Labels</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Button Labels</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <div>
-              <span className="font-bold text-gray-900">Primary CTA:</span>
-              <span className="text-gray-700 ml-2">&quot;Create Account&quot; or &quot;Sign Up&quot;</span>
+              <span className="font-bold text-foreground">Primary CTA:</span>
+              <span className="text-muted-foreground ml-2">&quot;Create Account&quot; or &quot;Sign Up&quot;</span>
             </div>
             <div>
-              <span className="font-bold text-gray-900">Secondary Link:</span>
-              <span className="text-gray-700 ml-2">&quot;Already have an account? Sign In&quot;</span>
+              <span className="font-bold text-foreground">Secondary Link:</span>
+              <span className="text-muted-foreground ml-2">&quot;Already have an account? Sign In&quot;</span>
             </div>
           </div>
         </div>
@@ -910,17 +910,17 @@ function FieldRow({ field, required, label, placeholder, help }: {
 }) {
   return (
     <tr>
-      <td className="px-6 py-4 text-sm text-gray-900 font-medium">{field}</td>
+      <td className="px-6 py-4 text-sm text-foreground font-medium">{field}</td>
       <td className="px-6 py-4 text-sm">
         {required ? (
           <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded">YES</span>
         ) : (
-          <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded">NO</span>
+          <span className="px-2 py-1 bg-muted text-muted-foreground text-xs font-bold rounded">NO</span>
         )}
       </td>
-      <td className="px-6 py-4 text-sm text-gray-700">{label}</td>
-      <td className="px-6 py-4 text-sm text-gray-600 italic">{placeholder}</td>
-      <td className="px-6 py-4 text-sm text-gray-600">{help}</td>
+      <td className="px-6 py-4 text-sm text-muted-foreground">{label}</td>
+      <td className="px-6 py-4 text-sm text-muted-foreground italic">{placeholder}</td>
+      <td className="px-6 py-4 text-sm text-muted-foreground">{help}</td>
     </tr>
   );
 }
@@ -930,16 +930,16 @@ function FieldRow({ field, required, label, placeholder, help }: {
 function PasswordGuidance() {
   return (
     <section id="password" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Password Guidance</h2>
-        <p className="text-gray-600 mt-2">Security requirements, strength indicators, and user guidance for password creation</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Password Guidance</h2>
+        <p className="text-muted-foreground mt-2">Security requirements, strength indicators, and user guidance for password creation</p>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Password Requirements */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Password Requirements</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Password Requirements</h3>
           </div>
           <div className="p-6">
             <div className="space-y-3">
@@ -954,9 +954,9 @@ function PasswordGuidance() {
         </div>
 
         {/* Strength Indicator */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Strength Indicator</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Strength Indicator</h3>
           </div>
           <div className="p-6 space-y-4">
             <StrengthLevel 
@@ -987,9 +987,9 @@ function PasswordGuidance() {
         </div>
 
         {/* Best Practices */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Password Best Practices</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Password Best Practices</h3>
           </div>
           <div className="p-6">
             <div className="grid grid-cols-2 gap-6">
@@ -998,7 +998,7 @@ function PasswordGuidance() {
                   <Check size={16} />
                   DO
                 </h4>
-                <div className="space-y-2 text-sm text-gray-700">
+                <div className="space-y-2 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
                     <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                     <span>Use a mix of uppercase, lowercase, numbers, and symbols</span>
@@ -1022,7 +1022,7 @@ function PasswordGuidance() {
                   <X size={16} />
                   DON&apos;T
                 </h4>
-                <div className="space-y-2 text-sm text-gray-700">
+                <div className="space-y-2 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
                     <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
                     <span>Use common words or patterns (e.g., &quot;password123&quot;)</span>
@@ -1057,7 +1057,7 @@ function RequirementItem({ text, met }: { text: string; met: boolean }) {
       ) : (
         <XCircle size={16} className="text-gray-400 mt-0.5 flex-shrink-0" />
       )}
-      <span className={`text-sm ${met ? 'text-gray-700' : 'text-gray-500'}`}>{text}</span>
+      <span className={`text-sm ${met ? 'text-muted-foreground' : 'text-gray-500'}`}>{text}</span>
     </div>
   );
 }
@@ -1088,7 +1088,7 @@ function StrengthLevel({ level, color, bars, description }: {
           ))}
         </div>
       </div>
-      <p className="text-xs text-gray-600">{description}</p>
+      <p className="text-xs text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -1098,19 +1098,19 @@ function StrengthLevel({ level, color, bars, description }: {
 function ValidationRules() {
   return (
     <section id="validation" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Validation Rules</h2>
-        <p className="text-gray-600 mt-2">Field-level and form-level validation requirements</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Validation Rules</h2>
+        <p className="text-muted-foreground mt-2">Field-level and form-level validation requirements</p>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
         <table className="w-full">
           <thead>
-            <tr className="bg-gray-100 border-b-2 border-gray-300">
-              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Field</th>
-              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Validation Rule</th>
-              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Error Message</th>
-              <th className="px-6 py-3 text-left text-sm font-bold text-gray-900">Timing</th>
+            <tr className="bg-muted border-b-2 border-border">
+              <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Field</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Validation Rule</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Error Message</th>
+              <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Timing</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -1167,9 +1167,9 @@ function ValidationRules() {
       </div>
 
       {/* Duplicate Account Handling */}
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Duplicate Account Handling</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Duplicate Account Handling</h3>
         </div>
         <div className="p-6 space-y-4">
           <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4">
@@ -1177,7 +1177,7 @@ function ValidationRules() {
               <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h4 className="font-bold text-orange-800 mb-2">When Duplicate Detected</h4>
-                <div className="space-y-2 text-sm text-gray-700">
+                <div className="space-y-2 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
                     <ChevronRight size={14} className="mt-0.5 flex-shrink-0" />
                     <span>Check email/mobile against existing accounts before creating user record</span>
@@ -1216,8 +1216,8 @@ function ValidationRow({ field, rule, error, timing }: {
 }) {
   return (
     <tr>
-      <td className="px-6 py-4 text-sm text-gray-900 font-medium">{field}</td>
-      <td className="px-6 py-4 text-sm text-gray-700">{rule}</td>
+      <td className="px-6 py-4 text-sm text-foreground font-medium">{field}</td>
+      <td className="px-6 py-4 text-sm text-muted-foreground">{rule}</td>
       <td className="px-6 py-4 text-sm text-red-600 italic">&quot;{error}&quot;</td>
       <td className="px-6 py-4 text-sm">
         <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded">{timing}</span>
@@ -1231,9 +1231,9 @@ function ValidationRow({ field, rule, error, timing }: {
 function ErrorStates() {
   return (
     <section id="errors" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Error States & Recovery</h2>
-        <p className="text-gray-600 mt-2">Common error scenarios and user recovery paths</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Error States & Recovery</h2>
+        <p className="text-muted-foreground mt-2">Common error scenarios and user recovery paths</p>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
@@ -1339,10 +1339,10 @@ function ErrorCard({ title, severity, trigger, behavior, example }: {
   };
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-6 py-4">
         <div className="flex items-center justify-between">
-          <h3 className="font-bold text-gray-900">{title}</h3>
+          <h3 className="font-bold text-foreground">{title}</h3>
           <span className={`px-2 py-1 ${severityMap[severity].bg} ${severityMap[severity].text} text-xs font-bold rounded uppercase`}>
             {severity}
           </span>
@@ -1350,14 +1350,14 @@ function ErrorCard({ title, severity, trigger, behavior, example }: {
       </div>
       <div className="p-6 space-y-4">
         <div>
-          <h4 className="text-sm font-bold text-gray-900 mb-1">Trigger</h4>
-          <p className="text-sm text-gray-700">{trigger}</p>
+          <h4 className="text-sm font-bold text-foreground mb-1">Trigger</h4>
+          <p className="text-sm text-muted-foreground">{trigger}</p>
         </div>
         <div>
-          <h4 className="text-sm font-bold text-gray-900 mb-2">Behavior</h4>
+          <h4 className="text-sm font-bold text-foreground mb-2">Behavior</h4>
           <div className="space-y-1">
             {behavior.map((item, i) => (
-              <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
+              <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                 <ChevronRight size={14} className="mt-0.5 flex-shrink-0 text-gray-400" />
                 <span>{item}</span>
               </div>
@@ -1365,7 +1365,7 @@ function ErrorCard({ title, severity, trigger, behavior, example }: {
           </div>
         </div>
         <div className={`${severityMap[severity].bg} border-2 ${severityMap[severity].border} rounded p-3`}>
-          <div className="text-xs font-bold text-gray-600 mb-1">EXAMPLE MESSAGE</div>
+          <div className="text-xs font-bold text-muted-foreground mb-1">EXAMPLE MESSAGE</div>
           <div className={`text-sm font-medium ${severityMap[severity].text}`}>&quot;{example}&quot;</div>
         </div>
       </div>
@@ -1378,16 +1378,16 @@ function ErrorCard({ title, severity, trigger, behavior, example }: {
 function AccessibilitySection() {
   return (
     <section id="accessibility" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Accessibility Requirements</h2>
-        <p className="text-gray-600 mt-2">WCAG 2.1 Level AA compliance for sign-up patterns</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Accessibility Requirements</h2>
+        <p className="text-muted-foreground mt-2">WCAG 2.1 Level AA compliance for sign-up patterns</p>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Keyboard Navigation */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Keyboard Navigation</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Keyboard Navigation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem text="Tab key moves through all form fields in logical order" />
@@ -1399,9 +1399,9 @@ function AccessibilitySection() {
         </div>
 
         {/* Screen Reader Support */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Screen Reader Support</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Screen Reader Support</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem text="All fields have associated <label> elements" />
@@ -1413,9 +1413,9 @@ function AccessibilitySection() {
         </div>
 
         {/* Color & Contrast */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Color & Contrast</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Color & Contrast</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem text="Minimum 4.5:1 contrast for normal text" />
@@ -1427,9 +1427,9 @@ function AccessibilitySection() {
         </div>
 
         {/* Error Handling */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Error Handling</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Error Handling</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem text="Error summary at top of form when multiple errors" />
@@ -1441,9 +1441,9 @@ function AccessibilitySection() {
         </div>
 
         {/* Form Labels & Help Text */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Form Labels & Help Text</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Form Labels & Help Text</h3>
           </div>
           <div className="p-6">
             <div className="grid grid-cols-2 gap-6">
@@ -1469,7 +1469,7 @@ function AccessibilityItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1479,16 +1479,16 @@ function AccessibilityItem({ text }: { text: string }) {
 function ImplementationSection() {
   return (
     <section id="implementation" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Implementation Notes</h2>
-        <p className="text-gray-600 mt-2">Technical guidance for developers implementing sign-up patterns</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Implementation Notes</h2>
+        <p className="text-muted-foreground mt-2">Technical guidance for developers implementing sign-up patterns</p>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Frontend Implementation */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <Code size={18} />
               Frontend Implementation
             </h3>
@@ -1504,9 +1504,9 @@ function ImplementationSection() {
         </div>
 
         {/* Backend/API Implementation */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <Database size={18} />
               Backend/API Implementation
             </h3>
@@ -1522,7 +1522,7 @@ function ImplementationSection() {
         </div>
 
         {/* Security Considerations */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
           <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
             <h3 className="font-bold text-red-900 flex items-center gap-2">
               <Shield size={18} />
@@ -1581,8 +1581,8 @@ function ImplementationSection() {
 function ImplementationItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
-      <ChevronRight size={14} className="text-[#000080] mt-0.5 flex-shrink-0" />
-      <span className="text-gray-700">{text}</span>
+      <ChevronRight size={14} className="text-primary mt-0.5 flex-shrink-0" />
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1592,22 +1592,22 @@ function ImplementationItem({ text }: { text: string }) {
 function GovernanceSection() {
   return (
     <section id="governance" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Governance & Compliance</h2>
-        <p className="text-gray-600 mt-2">Conformance requirements and quality assurance guidance</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Governance & Compliance</h2>
+        <p className="text-muted-foreground mt-2">Conformance requirements and quality assurance guidance</p>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Conformance Status */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Conformance Status</h3>
+            <h3 className="font-bold text-foreground">Conformance Status</h3>
           </div>
           <div className="p-6">
             <div className="bg-red-100 border-2 border-red-300 rounded-lg p-4 mb-4">
               <div className="text-center">
                 <div className="text-2xl font-bold text-red-800 mb-2">MANDATORY</div>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   All government services requiring user accounts MUST implement this pattern
                 </p>
               </div>
@@ -1615,26 +1615,26 @@ function GovernanceSection() {
             <div className="space-y-2 text-sm">
               <div className="flex items-start gap-2">
                 <AlertTriangle size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-700">Non-compliance may result in service certification delays</span>
+                <span className="text-muted-foreground">Non-compliance may result in service certification delays</span>
               </div>
               <div className="flex items-start gap-2">
                 <AlertTriangle size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-700">Required for UX4G conformance badge</span>
+                <span className="text-muted-foreground">Required for UX4G conformance badge</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Lifecycle Status */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Lifecycle Status</h3>
+            <h3 className="font-bold text-foreground">Lifecycle Status</h3>
           </div>
           <div className="p-6">
             <div className="bg-green-100 border-2 border-green-300 rounded-lg p-4 mb-4">
               <div className="text-center">
                 <div className="text-2xl font-bold text-green-800 mb-2">STABLE</div>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-muted-foreground">
                   Production-ready, fully documented, breaking changes unlikely
                 </p>
               </div>
@@ -1642,20 +1642,20 @@ function GovernanceSection() {
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                <span className="text-gray-700">Version: <span className="font-bold">1.0.0</span></span>
+                <span className="text-muted-foreground">Version: <span className="font-bold">1.0.0</span></span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                <span className="text-gray-700">Last Updated: <span className="font-bold">April 2026</span></span>
+                <span className="text-muted-foreground">Last Updated: <span className="font-bold">April 2026</span></span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Required Checks */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Pre-Launch Checklist</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Pre-Launch Checklist</h3>
           </div>
           <div className="p-6">
             <div className="grid grid-cols-2 gap-4">
@@ -1680,9 +1680,9 @@ function GovernanceSection() {
         </div>
 
         {/* Support & Escalation */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden col-span-2">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
           <div className="bg-blue-50 border-b-2 border-blue-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <HelpCircle size={18} />
               Support & Escalation
             </h3>
@@ -1690,19 +1690,19 @@ function GovernanceSection() {
           <div className="p-6">
             <div className="grid grid-cols-3 gap-6 text-sm">
               <div>
-                <h4 className="font-bold text-gray-900 mb-2">Pattern Questions</h4>
-                <p className="text-gray-700 mb-2">For design and implementation guidance</p>
-                <a href="#" className="text-[#000080] font-bold hover:underline">ux4g-support@gov.in</a>
+                <h4 className="font-bold text-foreground mb-2">Pattern Questions</h4>
+                <p className="text-muted-foreground mb-2">For design and implementation guidance</p>
+                <a href="#" className="text-primary font-bold hover:underline">ux4g-support@gov.in</a>
               </div>
               <div>
-                <h4 className="font-bold text-gray-900 mb-2">Technical Issues</h4>
-                <p className="text-gray-700 mb-2">For API or integration problems</p>
-                <a href="#" className="text-[#000080] font-bold hover:underline">tech-support@digitalindia.gov.in</a>
+                <h4 className="font-bold text-foreground mb-2">Technical Issues</h4>
+                <p className="text-muted-foreground mb-2">For API or integration problems</p>
+                <a href="#" className="text-primary font-bold hover:underline">tech-support@digitalindia.gov.in</a>
               </div>
               <div>
-                <h4 className="font-bold text-gray-900 mb-2">Conformance Review</h4>
-                <p className="text-gray-700 mb-2">For certification and audits</p>
-                <a href="#" className="text-[#000080] font-bold hover:underline">conformance@ux4g.gov.in</a>
+                <h4 className="font-bold text-foreground mb-2">Conformance Review</h4>
+                <p className="text-muted-foreground mb-2">For certification and audits</p>
+                <a href="#" className="text-primary font-bold hover:underline">conformance@ux4g.gov.in</a>
               </div>
             </div>
           </div>
@@ -1718,7 +1718,7 @@ function ChecklistItem({ text }: { text: string }) {
       <div className="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
         <Check size={12} className="text-gray-400" />
       </div>
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1727,26 +1727,26 @@ function ChecklistItem({ text }: { text: string }) {
 
 function QuickReference() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-[#000080] text-white px-4 py-3">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-primary text-white px-4 py-3">
         <h3 className="font-bold text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <div>
-          <div className="font-bold text-gray-900 mb-1">Pattern Type</div>
-          <div className="text-gray-700">Identity & Access</div>
+          <div className="font-bold text-foreground mb-1">Pattern Type</div>
+          <div className="text-muted-foreground">Identity & Access</div>
         </div>
-        <div className="border-t border-gray-200 pt-3">
-          <div className="font-bold text-gray-900 mb-1">Complexity</div>
-          <div className="text-gray-700">Medium</div>
+        <div className="border-t border-border pt-3">
+          <div className="font-bold text-foreground mb-1">Complexity</div>
+          <div className="text-muted-foreground">Medium</div>
         </div>
-        <div className="border-t border-gray-200 pt-3">
-          <div className="font-bold text-gray-900 mb-1">Est. Implementation</div>
-          <div className="text-gray-700">3-5 days</div>
+        <div className="border-t border-border pt-3">
+          <div className="font-bold text-foreground mb-1">Est. Implementation</div>
+          <div className="text-muted-foreground">3-5 days</div>
         </div>
-        <div className="border-t border-gray-200 pt-3">
-          <div className="font-bold text-gray-900 mb-1">Dependencies</div>
-          <div className="text-gray-700">OTP Verification, Email Service</div>
+        <div className="border-t border-border pt-3">
+          <div className="font-bold text-foreground mb-1">Dependencies</div>
+          <div className="text-muted-foreground">OTP Verification, Email Service</div>
         </div>
       </div>
     </div>
@@ -1755,18 +1755,18 @@ function QuickReference() {
 
 function InteractivePrototype() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">Interactive Prototype</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">Interactive Prototype</h3>
       </div>
       <div className="p-4">
         <a 
           href="#" 
-          className="block w-full px-4 py-3 bg-[#000080] text-white text-center font-bold text-sm rounded hover:bg-blue-900 transition-colors"
+          className="block w-full px-4 py-3 bg-primary text-white text-center font-bold text-sm rounded hover:opacity-90 transition-colors"
         >
           View Live Demo
         </a>
-        <p className="text-xs text-gray-600 mt-3 text-center">
+        <p className="text-xs text-muted-foreground mt-3 text-center">
           Test all states and interactions
         </p>
       </div>
@@ -1776,38 +1776,38 @@ function InteractivePrototype() {
 
 function RelatedPatterns() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">Related Patterns</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <Link 
           to="/patterns/identity/sign-in"
-          className="block px-3 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 rounded text-sm text-gray-900 transition-colors"
+          className="block px-3 py-2 bg-background hover:bg-muted border border-border rounded text-sm text-foreground transition-colors"
         >
           <div className="font-bold">Sign In</div>
-          <div className="text-xs text-gray-600">User authentication</div>
+          <div className="text-xs text-muted-foreground">User authentication</div>
         </Link>
         <Link 
           to="/patterns/identity/otp-verification"
-          className="block px-3 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 rounded text-sm text-gray-900 transition-colors"
+          className="block px-3 py-2 bg-background hover:bg-muted border border-border rounded text-sm text-foreground transition-colors"
         >
           <div className="font-bold">Email OTP</div>
-          <div className="text-xs text-gray-600">Email verification</div>
+          <div className="text-xs text-muted-foreground">Email verification</div>
         </Link>
         <Link 
           to="/patterns/identity/mobile-otp"
-          className="block px-3 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 rounded text-sm text-gray-900 transition-colors"
+          className="block px-3 py-2 bg-background hover:bg-muted border border-border rounded text-sm text-foreground transition-colors"
         >
           <div className="font-bold">Mobile OTP</div>
-          <div className="text-xs text-gray-600">SMS verification</div>
+          <div className="text-xs text-muted-foreground">SMS verification</div>
         </Link>
         <Link 
           to="/patterns/identity/forgot-password"
-          className="block px-3 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 rounded text-sm text-gray-900 transition-colors"
+          className="block px-3 py-2 bg-background hover:bg-muted border border-border rounded text-sm text-foreground transition-colors"
         >
           <div className="font-bold">Forgot Password</div>
-          <div className="text-xs text-gray-600">Account recovery</div>
+          <div className="text-xs text-muted-foreground">Account recovery</div>
         </Link>
       </div>
     </div>
@@ -1816,24 +1816,24 @@ function RelatedPatterns() {
 
 function Resources() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">Resources</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">Resources</h3>
       </div>
       <div className="p-4 space-y-3">
-        <a href="#" className="flex items-center gap-2 text-sm text-[#000080] hover:underline">
+        <a href="#" className="flex items-center gap-2 text-sm text-primary hover:underline">
           <FileText size={16} />
           <span>Figma Component</span>
         </a>
-        <a href="#" className="flex items-center gap-2 text-sm text-[#000080] hover:underline">
+        <a href="#" className="flex items-center gap-2 text-sm text-primary hover:underline">
           <Code size={16} />
           <span>Code Snippets</span>
         </a>
-        <a href="#" className="flex items-center gap-2 text-sm text-[#000080] hover:underline">
+        <a href="#" className="flex items-center gap-2 text-sm text-primary hover:underline">
           <Globe size={16} />
           <span>API Documentation</span>
         </a>
-        <a href="#" className="flex items-center gap-2 text-sm text-[#000080] hover:underline">
+        <a href="#" className="flex items-center gap-2 text-sm text-primary hover:underline">
           <Settings size={16} />
           <span>Implementation Guide</span>
         </a>

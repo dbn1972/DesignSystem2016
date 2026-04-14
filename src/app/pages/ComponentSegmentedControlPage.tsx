@@ -35,7 +35,7 @@ const SegmentedControlPreview = ({
   const baseClasses = 'relative inline-flex rounded-lg p-1 transition-all';
   const containerClasses = [
     baseClasses,
-    variant === 'primary' ? 'bg-[#005196]/10 border border-[#005196]/20' : 'bg-gray-100 border border-gray-200',
+    variant === 'primary' ? 'bg-[#005196]/10 border border-[#005196]/20' : 'bg-muted border border-border',
     fullWidth ? 'w-full' : '',
     orientation === 'vertical' ? 'flex-col' : 'flex-row',
     disabled ? 'opacity-50 cursor-not-allowed' : ''
@@ -52,7 +52,7 @@ const SegmentedControlPreview = ({
 
     const colorClasses = isSelected
       ? (variant === 'primary' ? 'text-white' : 'text-[#005196]')
-      : (variant === 'primary' ? 'text-[#005196] hover:text-[#004178]' : 'text-gray-600 hover:text-gray-900');
+      : (variant === 'primary' ? 'text-[#005196] hover:text-[#004178]' : 'text-muted-foreground hover:text-foreground');
 
     return [
       buttonBaseClasses,
@@ -66,7 +66,7 @@ const SegmentedControlPreview = ({
   };
 
   const indicatorBaseClasses = 'absolute z-0 rounded-md shadow-sm transition-all duration-200 ease-out';
-  const indicatorColorClasses = variant === 'primary' ? 'bg-[#005196]' : 'bg-white';
+  const indicatorColorClasses = variant === 'primary' ? 'bg-[#005196]' : 'bg-card';
 
   const getIndicatorStyle = () => {
     if (orientation === 'vertical') {
@@ -420,9 +420,9 @@ export default function ComponentSegmentedControlPage() {
       ]}
 
       reactCode={{
-        component: 'import React, { forwardRef, useState, useRef, useEffect } from \'react\';\nimport { cn } from \'../../utils/cn\';\nimport { segmentedControlVariants } from \'./segmented-control.variants\';\nimport { SegmentedControlProps } from \'./SegmentedControl.types\';\n\nexport const SegmentedControl = forwardRef<HTMLDivElement, SegmentedControlProps>(\n  (\n    {\n      options,\n      value,\n      onChange,\n      size = \'md\',\n      variant = \'default\',\n      fullWidth = false,\n      orientation = \'horizontal\',\n      disabled = false,\n      iconOnly = false,\n      className,\n      \'aria-label\': ariaLabel,\n      ...props\n    },\n    ref\n  ) => {\n    const containerRef = useRef<HTMLDivElement>(null);\n    const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({});\n    const selectedIndex = options.findIndex((opt) => opt.value === value);\n\n    useEffect(() => {\n      updateIndicatorPosition();\n    }, [selectedIndex, orientation, size]);\n\n    const updateIndicatorPosition = () => {\n      if (!containerRef.current) return;\n\n      const buttons = containerRef.current.querySelectorAll(\'button\');\n      const selectedButton = buttons[selectedIndex];\n\n      if (!selectedButton) return;\n\n      const containerRect = containerRef.current.getBoundingClientRect();\n      const buttonRect = selectedButton.getBoundingClientRect();\n\n      if (orientation === \'vertical\') {\n        setIndicatorStyle({\n          top: buttonRect.top - containerRect.top + \'px\',\n          height: buttonRect.height + \'px\',\n          left: \'4px\',\n          right: \'4px\',\n        });\n      } else {\n        setIndicatorStyle({\n          left: buttonRect.left - containerRect.left + \'px\',\n          width: buttonRect.width + \'px\',\n          top: \'4px\',\n          bottom: \'4px\',\n        });\n      }\n    };\n\n    const handleChange = (optionValue: string) => {\n      if (disabled) return;\n      onChange(optionValue);\n    };\n\n    return (\n      <div\n        ref={containerRef}\n        role="radiogroup"\n        aria-label={ariaLabel}\n        className={cn(\n          segmentedControlVariants({ variant, orientation, fullWidth, disabled }),\n          className\n        )}\n        {...props}\n      >\n        <div\n          className={cn(\n            \'absolute z-0 rounded-md shadow-sm transition-all duration-200 ease-out\',\n            variant === \'primary\' ? \'bg-[#005196]\' : \'bg-white\'\n          )}\n          style={indicatorStyle}\n          aria-hidden="true"\n        />\n        {options.map((option) => {\n          const isSelected = option.value === value;\n          return (\n            <button\n              key={option.value}\n              type="button"\n              role="radio"\n              aria-checked={isSelected}\n              disabled={disabled}\n              className={cn(\n                \'relative z-10 font-medium transition-all\',\n                \'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]\',\n                \'rounded-md\',\n                size === \'sm\' ? (iconOnly ? \'h-7 w-7\' : \'h-7 px-3 text-sm\') :\n                size === \'lg\' ? (iconOnly ? \'h-11 w-11\' : \'h-11 px-5 text-lg\') :\n                (iconOnly ? \'h-9 w-9\' : \'h-9 px-4 text-base\'),\n                iconOnly ? \'flex items-center justify-center\' : \'inline-flex items-center justify-center gap-2\',\n                isSelected\n                  ? (variant === \'primary\' ? \'text-white\' : \'text-[#005196]\')\n                  : (variant === \'primary\' ? \'text-[#005196] hover:text-[#004178]\' : \'text-gray-600 hover:text-gray-900\'),\n                fullWidth && \'flex-1\',\n                disabled ? \'cursor-not-allowed\' : \'cursor-pointer\'\n              )}\n              onClick={() => handleChange(option.value)}\n            >\n              {option.icon && (\n                <span className="inline-flex shrink-0" aria-hidden="true">\n                  {option.icon}\n                </span>\n              )}\n              {!iconOnly && <span>{option.label}</span>}\n            </button>\n          );\n        })}\n      </div>\n    );\n  }\n);\n\nSegmentedControl.displayName = \'SegmentedControl\';',
+        component: 'import React, { forwardRef, useState, useRef, useEffect } from \'react\';\nimport { cn } from \'../../utils/cn\';\nimport { segmentedControlVariants } from \'./segmented-control.variants\';\nimport { SegmentedControlProps } from \'./SegmentedControl.types\';\n\nexport const SegmentedControl = forwardRef<HTMLDivElement, SegmentedControlProps>(\n  (\n    {\n      options,\n      value,\n      onChange,\n      size = \'md\',\n      variant = \'default\',\n      fullWidth = false,\n      orientation = \'horizontal\',\n      disabled = false,\n      iconOnly = false,\n      className,\n      \'aria-label\': ariaLabel,\n      ...props\n    },\n    ref\n  ) => {\n    const containerRef = useRef<HTMLDivElement>(null);\n    const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({});\n    const selectedIndex = options.findIndex((opt) => opt.value === value);\n\n    useEffect(() => {\n      updateIndicatorPosition();\n    }, [selectedIndex, orientation, size]);\n\n    const updateIndicatorPosition = () => {\n      if (!containerRef.current) return;\n\n      const buttons = containerRef.current.querySelectorAll(\'button\');\n      const selectedButton = buttons[selectedIndex];\n\n      if (!selectedButton) return;\n\n      const containerRect = containerRef.current.getBoundingClientRect();\n      const buttonRect = selectedButton.getBoundingClientRect();\n\n      if (orientation === \'vertical\') {\n        setIndicatorStyle({\n          top: buttonRect.top - containerRect.top + \'px\',\n          height: buttonRect.height + \'px\',\n          left: \'4px\',\n          right: \'4px\',\n        });\n      } else {\n        setIndicatorStyle({\n          left: buttonRect.left - containerRect.left + \'px\',\n          width: buttonRect.width + \'px\',\n          top: \'4px\',\n          bottom: \'4px\',\n        });\n      }\n    };\n\n    const handleChange = (optionValue: string) => {\n      if (disabled) return;\n      onChange(optionValue);\n    };\n\n    return (\n      <div\n        ref={containerRef}\n        role="radiogroup"\n        aria-label={ariaLabel}\n        className={cn(\n          segmentedControlVariants({ variant, orientation, fullWidth, disabled }),\n          className\n        )}\n        {...props}\n      >\n        <div\n          className={cn(\n            \'absolute z-0 rounded-md shadow-sm transition-all duration-200 ease-out\',\n            variant === \'primary\' ? \'bg-[#005196]\' : \'bg-card\'\n          )}\n          style={indicatorStyle}\n          aria-hidden="true"\n        />\n        {options.map((option) => {\n          const isSelected = option.value === value;\n          return (\n            <button\n              key={option.value}\n              type="button"\n              role="radio"\n              aria-checked={isSelected}\n              disabled={disabled}\n              className={cn(\n                \'relative z-10 font-medium transition-all\',\n                \'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]\',\n                \'rounded-md\',\n                size === \'sm\' ? (iconOnly ? \'h-7 w-7\' : \'h-7 px-3 text-sm\') :\n                size === \'lg\' ? (iconOnly ? \'h-11 w-11\' : \'h-11 px-5 text-lg\') :\n                (iconOnly ? \'h-9 w-9\' : \'h-9 px-4 text-base\'),\n                iconOnly ? \'flex items-center justify-center\' : \'inline-flex items-center justify-center gap-2\',\n                isSelected\n                  ? (variant === \'primary\' ? \'text-white\' : \'text-[#005196]\')\n                  : (variant === \'primary\' ? \'text-[#005196] hover:text-[#004178]\' : \'text-muted-foreground hover:text-foreground\'),\n                fullWidth && \'flex-1\',\n                disabled ? \'cursor-not-allowed\' : \'cursor-pointer\'\n              )}\n              onClick={() => handleChange(option.value)}\n            >\n              {option.icon && (\n                <span className="inline-flex shrink-0" aria-hidden="true">\n                  {option.icon}\n                </span>\n              )}\n              {!iconOnly && <span>{option.label}</span>}\n            </button>\n          );\n        })}\n      </div>\n    );\n  }\n);\n\nSegmentedControl.displayName = \'SegmentedControl\';',
         types: 'export interface SegmentedControlOption {\n  value: string;\n  label: string;\n  icon?: React.ReactNode;\n}\n\nexport interface SegmentedControlProps\n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \'onChange\'>,\n          SegmentedControlVariantProps {\n  options: SegmentedControlOption[];\n  value: string;\n  onChange: (value: string) => void;\n  iconOnly?: boolean;\n  disabled?: boolean;\n}',
-        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const segmentedControlVariants = cva(\n  [\n    \'relative inline-flex rounded-lg p-1\',\n    \'transition-all\',\n  ],\n  {\n    variants: {\n      variant: {\n        default: [\n          \'bg-gray-100 border border-gray-200\',\n        ],\n        primary: [\n          \'bg-[#005196]/10 border border-[#005196]/20\',\n        ],\n      },\n      orientation: {\n        horizontal: \'flex-row\',\n        vertical: \'flex-col\',\n      },\n      fullWidth: {\n        true: \'w-full\',\n        false: \'\',\n      },\n      disabled: {\n        true: \'opacity-50 cursor-not-allowed\',\n        false: \'\',\n      },\n    },\n    defaultVariants: {\n      variant: \'default\',\n      orientation: \'horizontal\',\n      fullWidth: false,\n      disabled: false,\n    },\n  }\n);\n\nexport type SegmentedControlVariantProps = VariantProps<typeof segmentedControlVariants>;',
+        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const segmentedControlVariants = cva(\n  [\n    \'relative inline-flex rounded-lg p-1\',\n    \'transition-all\',\n  ],\n  {\n    variants: {\n      variant: {\n        default: [\n          \'bg-muted border border-border\',\n        ],\n        primary: [\n          \'bg-[#005196]/10 border border-[#005196]/20\',\n        ],\n      },\n      orientation: {\n        horizontal: \'flex-row\',\n        vertical: \'flex-col\',\n      },\n      fullWidth: {\n        true: \'w-full\',\n        false: \'\',\n      },\n      disabled: {\n        true: \'opacity-50 cursor-not-allowed\',\n        false: \'\',\n      },\n    },\n    defaultVariants: {\n      variant: \'default\',\n      orientation: \'horizontal\',\n      fullWidth: false,\n      disabled: false,\n    },\n  }\n);\n\nexport type SegmentedControlVariantProps = VariantProps<typeof segmentedControlVariants>;',
       }}
 
       angularCode={{
@@ -537,42 +537,42 @@ export default function ComponentSegmentedControlPage() {
         {
           title: 'View Mode Switcher',
           description: 'Toggle between list and grid views in document libraries or search results.',
-          example: 'Applications list displaying between table view and card view for easier scanning.',
+          implementation: 'Applications list displaying between table view and card view for easier scanning.',
         },
         {
           title: 'Time Period Filter',
           description: 'Select date ranges for analytics dashboards and reporting interfaces.',
-          example: 'Government service analytics showing data by day, week, month, quarter, or year.',
+          implementation: 'Government service analytics showing data by day, week, month, quarter, or year.',
         },
         {
           title: 'Application Status Filter',
           description: 'Filter applications by status (all, pending, approved, rejected) in admin dashboards.',
-          example: 'Case management system showing different application states for processing officers.',
+          implementation: 'Case management system showing different application states for processing officers.',
         },
         {
           title: 'Language Selector',
           description: 'Switch between supported languages in bilingual or multilingual government services.',
-          example: 'Federal service portal offering English and French language options prominently.',
+          implementation: 'Federal service portal offering English and French language options prominently.',
         },
         {
           title: 'Document Type Selector',
           description: 'Choose document category when uploading or searching government documents.',
-          example: 'Upload interface selecting between passport, driver license, birth certificate, or other ID.',
+          implementation: 'Upload interface selecting between passport, driver license, birth certificate, or other ID.',
         },
         {
           title: 'Service Category Navigation',
           description: 'Navigate between service categories on government portals.',
-          example: 'Main service portal switching between benefits, taxes, healthcare, and immigration sections.',
+          implementation: 'Main service portal switching between benefits, taxes, healthcare, and immigration sections.',
         },
         {
           title: 'Payment Method Selection',
           description: 'Choose payment method for government fees and services.',
-          example: 'Payment page selecting between credit card, debit card, or bank transfer options.',
+          implementation: 'Payment page selecting between credit card, debit card, or bank transfer options.',
         },
         {
           title: 'Form Type Toggle',
           description: 'Switch between individual and business application forms.',
-          example: 'Tax filing portal toggling between personal and corporate tax return forms.',
+          implementation: 'Tax filing portal toggling between personal and corporate tax return forms.',
         },
       ]}
     />

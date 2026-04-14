@@ -26,9 +26,9 @@ const RichTextEditorPreview = ({
   const charCount = content.replace(/<[^>]*>/g, '').length;
 
   return (
-    <div className="border border-gray-300 rounded">
+    <div className="border border-border rounded">
       {!readOnly && toolbar.length > 0 && (
-        <div className="flex gap-1 p-2 border-b border-gray-300 bg-gray-50">
+        <div className="flex gap-1 p-2 border-b border-border bg-background">
           {toolbar.includes('bold') && (
             <button className="p-1.5 hover:bg-gray-200 rounded" title="Bold">
               <Bold size={16} />
@@ -63,7 +63,7 @@ const RichTextEditorPreview = ({
       )}
       <div
         contentEditable={!readOnly}
-        className={`min-h-[120px] p-3 focus:outline-none ${readOnly ? 'bg-gray-50 cursor-not-allowed' : ''}`}
+        className={`min-h-[120px] p-3 focus:outline-none ${readOnly ? 'bg-background cursor-not-allowed' : ''}`}
         onInput={(e) => {
           const newContent = e.currentTarget.innerHTML;
           setContent(newContent);
@@ -75,7 +75,7 @@ const RichTextEditorPreview = ({
         {...props}
       />
       {maxLength && !readOnly && (
-        <div className="p-2 text-sm text-gray-600 border-t border-gray-300 text-right">
+        <div className="p-2 text-sm text-muted-foreground border-t border-border text-right">
           {charCount} / {maxLength} characters
         </div>
       )}
@@ -329,7 +329,7 @@ function Example() {
 }`,
           preview: (
             <div>
-              <div className="mb-2 text-sm text-gray-600">Language: English</div>
+              <div className="mb-2 text-sm text-muted-foreground">Language: English</div>
               <RichTextEditorPreview
                 placeholder="Enter content in selected language..."
                 toolbar={['bold', 'italic', 'list']}

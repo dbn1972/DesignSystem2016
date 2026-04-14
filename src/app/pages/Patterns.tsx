@@ -96,7 +96,7 @@ export default function Patterns() {
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div className="bg-card dark:bg-gray-900">
       {/* Hero */}
       <section className="py-20 bg-gradient-to-br from-[#000080] to-[#000050] dark:from-blue-900 dark:to-blue-950 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,11 +109,11 @@ export default function Patterns() {
       </section>
 
       {/* Pattern Categories */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-16 bg-card dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Pattern Library</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-2">Pattern Library</h2>
+            <p className="text-lg text-muted-foreground dark:text-gray-400">
               Common patterns for building government digital services that are consistent,
               accessible, and user-friendly.
             </p>
@@ -124,26 +124,26 @@ export default function Patterns() {
               <Link
                 key={index}
                 to={pattern.link}
-                className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-200 overflow-hidden group"
+                className="bg-card dark:bg-gray-800 rounded-xl border border-border dark:border-gray-700 hover:shadow-lg transition-all duration-200 overflow-hidden group"
               >
                 <div className={`h-2 bg-gradient-to-r ${pattern.color}`}></div>
                 <div className="p-6">
                   <div className={`w-12 h-12 bg-gradient-to-br ${pattern.color} rounded-lg flex items-center justify-center mb-4`}>
                     <pattern.icon className="text-white" size={24} />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  <h3 className="text-xl font-semibold text-foreground dark:text-gray-100 mb-3">
                     {pattern.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                  <p className="text-muted-foreground dark:text-gray-400 mb-4 leading-relaxed">
                     {pattern.description}
                   </p>
                   <div className="space-y-2 mb-4">
-                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Examples:</p>
+                    <p className="text-sm font-semibold text-muted-foreground dark:text-gray-300">Examples:</p>
                     <div className="flex flex-wrap gap-2">
                       {pattern.examples.map((example, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs"
+                          className="px-2 py-1 bg-muted dark:bg-gray-700 text-muted-foreground dark:text-gray-300 rounded text-xs"
                         >
                           {example}
                         </span>
@@ -162,11 +162,11 @@ export default function Patterns() {
       </section>
 
       {/* Service Flows */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 bg-background dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Common Service Flows</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-2">Common Service Flows</h2>
+            <p className="text-lg text-muted-foreground dark:text-gray-400">
               End-to-end user journeys for typical government service scenarios.
             </p>
           </div>
@@ -175,9 +175,9 @@ export default function Patterns() {
             {serviceFlows.map((flow, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-900 rounded-xl p-8 border border-gray-200 dark:border-gray-700"
+                className="bg-card dark:bg-gray-900 rounded-xl p-8 border border-border dark:border-gray-700"
               >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
+                <h3 className="text-xl font-semibold text-foreground dark:text-gray-100 mb-6">
                   {flow.title}
                 </h3>
                 <div className="flex flex-wrap gap-4">
@@ -190,7 +190,7 @@ export default function Patterns() {
                         }}>
                           {idx + 1}
                         </div>
-                        <span className="text-gray-700 dark:text-gray-300 font-medium">{step}</span>
+                        <span className="text-muted-foreground dark:text-gray-300 font-medium">{step}</span>
                       </div>
                       {idx < flow.steps.length - 1 && (
                         <div className="hidden md:block w-8 h-0.5 bg-gray-300 dark:bg-gray-600 mx-2"></div>
@@ -205,18 +205,18 @@ export default function Patterns() {
       </section>
 
       {/* Form Pattern Example */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-16 bg-card dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Pattern Example: Application Form</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-2">Pattern Example: Application Form</h2>
+            <p className="text-lg text-muted-foreground dark:text-gray-400">
               A complete form pattern showing best practices for government service applications.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden max-w-3xl mx-auto">
+          <div className="bg-card dark:bg-gray-800 rounded-xl border border-border dark:border-gray-700 overflow-hidden max-w-3xl mx-auto">
             {/* Progress Steps */}
-            <div className="bg-gray-50 dark:bg-gray-900 px-8 py-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-background dark:bg-gray-900 px-8 py-6 border-b border-border dark:border-gray-700">
               <div className="flex items-center justify-between">
                 {["Personal Info", "Documents", "Preview", "Submit"].map((step, idx) => (
                   <div key={idx} className="flex items-center">
@@ -233,7 +233,7 @@ export default function Patterns() {
                       >
                         {idx < 1 ? <CheckCircle size={20} /> : idx + 1}
                       </div>
-                      <span className="text-xs mt-2 text-gray-600 dark:text-gray-400">{step}</span>
+                      <span className="text-xs mt-2 text-muted-foreground dark:text-gray-400">{step}</span>
                     </div>
                     {idx < 3 && (
                       <div className="w-16 h-0.5 bg-gray-300 dark:bg-gray-600 mx-2 mb-6"></div>
@@ -245,64 +245,64 @@ export default function Patterns() {
 
             {/* Form Content */}
             <div className="p-8">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Personal Information</h3>
+              <h3 className="text-2xl font-semibold text-foreground dark:text-gray-100 mb-6">Personal Information</h3>
 
               <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-semibold text-muted-foreground dark:text-gray-300 mb-2">
                       First Name *
                     </label>
                     <input
                       type="text"
                       placeholder="Enter first name"
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                      className="w-full px-4 py-3 border border-border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-card dark:bg-gray-900 text-foreground dark:text-gray-100"
                       style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as React.CSSProperties}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-semibold text-muted-foreground dark:text-gray-300 mb-2">
                       Last Name *
                     </label>
                     <input
                       type="text"
                       placeholder="Enter last name"
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                      className="w-full px-4 py-3 border border-border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-card dark:bg-gray-900 text-foreground dark:text-gray-100"
                       style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as React.CSSProperties}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-semibold text-muted-foreground dark:text-gray-300 mb-2">
                     Email Address *
                   </label>
                   <input
                     type="email"
                     placeholder="your.email@example.com"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                    className="w-full px-4 py-3 border border-border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-card dark:bg-gray-900 text-foreground dark:text-gray-100"
                     style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as React.CSSProperties}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-semibold text-muted-foreground dark:text-gray-300 mb-2">
                     Phone Number *
                   </label>
                   <input
                     type="tel"
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                    className="w-full px-4 py-3 border border-border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-card dark:bg-gray-900 text-foreground dark:text-gray-100"
                     style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as React.CSSProperties}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-semibold text-muted-foreground dark:text-gray-300 mb-2">
                     State *
                   </label>
                   <select
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+                    className="w-full px-4 py-3 border border-border dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent bg-card dark:bg-gray-900 text-foreground dark:text-gray-100"
                     style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as React.CSSProperties}
                   >
                     <option>Select your state</option>
@@ -315,7 +315,7 @@ export default function Patterns() {
               </div>
 
               <div className="mt-8 flex justify-between items-center">
-                <button className="px-6 py-3 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-semibold">
+                <button className="px-6 py-3 text-muted-foreground dark:text-gray-300 border border-border dark:border-gray-700 rounded-lg hover:bg-background dark:hover:bg-gray-700 transition-colors font-semibold">
                   Cancel
                 </button>
                 <button
@@ -336,11 +336,11 @@ export default function Patterns() {
       </section>
 
       {/* Best Practices */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 bg-background dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Design Best Practices</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-2">Design Best Practices</h2>
+            <p className="text-lg text-muted-foreground dark:text-gray-400">
               Key principles to follow when implementing patterns in government digital services.
             </p>
           </div>
@@ -349,7 +349,7 @@ export default function Patterns() {
             {bestPractices.map((practice, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700"
+                className="bg-card dark:bg-gray-900 rounded-xl p-6 border border-border dark:border-gray-700"
               >
                 <div className="flex items-start gap-4">
                   <div
@@ -362,10 +362,10 @@ export default function Patterns() {
                     <CheckCircle size={20} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    <h3 className="text-lg font-semibold text-foreground dark:text-gray-100 mb-2">
                       {practice.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p className="text-muted-foreground dark:text-gray-400 leading-relaxed">
                       {practice.description}
                     </p>
                   </div>

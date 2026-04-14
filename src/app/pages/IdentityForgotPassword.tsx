@@ -39,15 +39,15 @@ export default function IdentityForgotPassword() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation Bar */}
-      <nav className="bg-white border-b-2 border-gray-300">
+      <nav className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-8 py-4 flex items-center justify-between">
-          <Link to="/patterns/identity" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+          <Link to="/patterns/identity" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
             <ArrowLeft size={20} />
             <span className="font-medium">Back to Identity Patterns</span>
           </Link>
-          <div className="text-sm text-gray-600">
+          <div className="text-sm text-muted-foreground">
             <span className="font-bold">Flow:</span> Forgot Password / Reset
           </div>
         </div>
@@ -59,30 +59,30 @@ export default function IdentityForgotPassword() {
           
           {/* Prototype View - 8 columns */}
           <div className="col-span-8">
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden shadow-lg">
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden shadow-lg">
               {/* Tricolor Header */}
               <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 h-2"></div>
               
               {/* Government Header */}
-              <div className="bg-white border-b-2 border-gray-300 px-8 py-6">
+              <div className="bg-card border-b-2 border-border px-8 py-6">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-[#000080] rounded flex items-center justify-center">
+                    <div className="w-12 h-12 bg-primary rounded flex items-center justify-center">
                       <Shield size={24} className="text-white" />
                     </div>
                     <div>
-                      <div className="font-bold text-lg text-gray-900">Digital India Portal</div>
-                      <div className="text-sm text-gray-600">Government of India</div>
+                      <div className="font-bold text-lg text-foreground">Digital India Portal</div>
+                      <div className="text-sm text-muted-foreground">Government of India</div>
                     </div>
                   </div>
-                  <div className="text-sm text-gray-600">
-                    Remember password? <Link to="/patterns/identity/sign-in" className="text-[#000080] font-bold hover:underline">Sign In</Link>
+                  <div className="text-sm text-muted-foreground">
+                    Remember password? <Link to="/patterns/identity/sign-in" className="text-primary font-bold hover:underline">Sign In</Link>
                   </div>
                 </div>
               </div>
 
               {/* Progress Indicator */}
-              <div className="bg-gray-100 border-b-2 border-gray-300 px-12 py-4">
+              <div className="bg-muted border-b-2 border-border px-12 py-4">
                 <div className="flex items-center justify-between max-w-2xl mx-auto">
                   <ProgressStep number={1} label="Identify" active={step === "identify"} completed={step !== "identify"} />
                   <div className={`flex-1 h-0.5 mx-2 ${step !== "identify" ? 'bg-green-500' : 'bg-gray-300'}`}></div>
@@ -103,14 +103,14 @@ export default function IdentityForgotPassword() {
                       <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <Key size={40} className="text-red-600" />
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900 mb-3 text-center">Reset Your Password</h1>
-                      <p className="text-gray-600 mb-8 text-center">
+                      <h1 className="text-3xl font-bold text-foreground mb-3 text-center">Reset Your Password</h1>
+                      <p className="text-muted-foreground mb-8 text-center">
                         Enter your registered mobile number or email to receive a verification code
                       </p>
 
                       {/* Recovery Method Selection */}
                       <div className="mb-6">
-                        <label className="block text-sm font-bold text-gray-900 mb-3">
+                        <label className="block text-sm font-bold text-foreground mb-3">
                           Choose Recovery Method
                         </label>
                         <div className="grid grid-cols-2 gap-4">
@@ -118,8 +118,8 @@ export default function IdentityForgotPassword() {
                             onClick={() => setRecoveryMethod("mobile")}
                             className={`flex items-center gap-3 p-4 border-2 rounded-lg font-medium transition-colors ${
                               recoveryMethod === "mobile"
-                                ? 'border-[#000080] bg-blue-50 text-[#000080]'
-                                : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                                ? 'border-primary bg-blue-50 text-primary'
+                                : 'border-border bg-card text-muted-foreground hover:border-gray-400'
                             }`}
                           >
                             <Phone size={20} />
@@ -130,8 +130,8 @@ export default function IdentityForgotPassword() {
                             onClick={() => setRecoveryMethod("email")}
                             className={`flex items-center gap-3 p-4 border-2 rounded-lg font-medium transition-colors ${
                               recoveryMethod === "email"
-                                ? 'border-[#000080] bg-blue-50 text-[#000080]'
-                                : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                                ? 'border-primary bg-blue-50 text-primary'
+                                : 'border-border bg-card text-muted-foreground hover:border-gray-400'
                             }`}
                           >
                             <Mail size={20} />
@@ -143,7 +143,7 @@ export default function IdentityForgotPassword() {
 
                       {/* Input Field */}
                       <div className="mb-8">
-                        <label htmlFor="identifier" className="block text-sm font-bold text-gray-900 mb-2">
+                        <label htmlFor="identifier" className="block text-sm font-bold text-foreground mb-2">
                           {recoveryMethod === "mobile" ? "Mobile Number" : "Email Address"} <span className="text-red-600">*</span>
                         </label>
                         <div className="relative">
@@ -157,7 +157,7 @@ export default function IdentityForgotPassword() {
                             id="identifier"
                             value={identifier}
                             onChange={(e) => setIdentifier(e.target.value)}
-                            className="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-lg text-gray-900 focus:border-[#000080] focus:outline-none text-lg"
+                            className="w-full pl-12 pr-4 py-4 border-2 border-border rounded-lg text-foreground focus:border-primary focus:outline-none text-lg"
                             placeholder={recoveryMethod === "mobile" ? "+91 XXXXX XXXXX" : "your.email@example.com"}
                           />
                         </div>
@@ -166,7 +166,7 @@ export default function IdentityForgotPassword() {
                       <button
                         onClick={handleSendOTP}
                         disabled={!identifier}
-                        className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         Send Verification Code
                       </button>
@@ -177,18 +177,18 @@ export default function IdentityForgotPassword() {
                   {step === "verify" && (
                     <div>
                       <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        {recoveryMethod === "mobile" ? <Phone size={40} className="text-[#000080]" /> : <Mail size={40} className="text-[#000080]" />}
+                        {recoveryMethod === "mobile" ? <Phone size={40} className="text-primary" /> : <Mail size={40} className="text-primary" />}
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900 mb-3 text-center">Enter Verification Code</h1>
-                      <p className="text-gray-600 mb-2 text-center">
+                      <h1 className="text-3xl font-bold text-foreground mb-3 text-center">Enter Verification Code</h1>
+                      <p className="text-muted-foreground mb-2 text-center">
                         We've sent a 6-digit code to
                       </p>
-                      <p className="text-lg font-bold text-gray-900 mb-8 text-center">
+                      <p className="text-lg font-bold text-foreground mb-8 text-center">
                         {identifier}
                       </p>
 
                       <div className="mb-8">
-                        <label htmlFor="otp" className="block text-sm font-bold text-gray-900 mb-2">
+                        <label htmlFor="otp" className="block text-sm font-bold text-foreground mb-2">
                           Verification Code <span className="text-red-600">*</span>
                         </label>
                         <input
@@ -196,19 +196,19 @@ export default function IdentityForgotPassword() {
                           id="otp"
                           value={otp}
                           onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                          className="w-full px-4 py-4 border-2 border-gray-300 rounded-lg text-center text-2xl font-bold tracking-widest focus:border-[#000080] focus:outline-none"
+                          className="w-full px-4 py-4 border-2 border-border rounded-lg text-center text-2xl font-bold tracking-widest focus:border-primary focus:outline-none"
                           placeholder="______"
                           maxLength={6}
                         />
-                        <div className="text-sm text-gray-600 mt-2">
-                          Didn't receive the code? <button className="text-[#000080] font-bold hover:underline">Resend Code</button>
+                        <div className="text-sm text-muted-foreground mt-2">
+                          Didn't receive the code? <button className="text-primary font-bold hover:underline">Resend Code</button>
                         </div>
                       </div>
 
                       <button
                         onClick={handleVerifyOTP}
                         disabled={otp.length !== 6}
-                        className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         Verify Code
                       </button>
@@ -221,14 +221,14 @@ export default function IdentityForgotPassword() {
                       <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <Key size={40} className="text-green-600" />
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900 mb-3 text-center">Create New Password</h1>
-                      <p className="text-gray-600 mb-8 text-center">
+                      <h1 className="text-3xl font-bold text-foreground mb-3 text-center">Create New Password</h1>
+                      <p className="text-muted-foreground mb-8 text-center">
                         Choose a strong password that you haven't used before
                       </p>
 
                       {/* New Password */}
                       <div className="mb-6">
-                        <label htmlFor="newPassword" className="block text-sm font-bold text-gray-900 mb-2">
+                        <label htmlFor="newPassword" className="block text-sm font-bold text-foreground mb-2">
                           New Password <span className="text-red-600">*</span>
                         </label>
                         <div className="relative">
@@ -238,13 +238,13 @@ export default function IdentityForgotPassword() {
                             id="newPassword"
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
-                            className="w-full pl-12 pr-12 py-4 border-2 border-gray-300 rounded-lg text-gray-900 focus:border-[#000080] focus:outline-none text-lg"
+                            className="w-full pl-12 pr-12 py-4 border-2 border-border rounded-lg text-foreground focus:border-primary focus:outline-none text-lg"
                             placeholder="Enter new password"
                           />
                           <button
                             type="button"
                             onClick={() => setShowNewPassword(!showNewPassword)}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-muted-foreground"
                           >
                             {showNewPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                           </button>
@@ -252,8 +252,8 @@ export default function IdentityForgotPassword() {
                       </div>
 
                       {/* Password Requirements */}
-                      <div className="mb-6 p-4 bg-gray-50 border-2 border-gray-200 rounded-lg">
-                        <div className="text-sm font-bold text-gray-900 mb-3">Password must contain:</div>
+                      <div className="mb-6 p-4 bg-background border-2 border-border rounded-lg">
+                        <div className="text-sm font-bold text-foreground mb-3">Password must contain:</div>
                         <div className="grid grid-cols-2 gap-2">
                           {passwordRequirements.map((req, idx) => (
                             <div key={idx} className="flex items-center gap-2 text-sm">
@@ -262,7 +262,7 @@ export default function IdentityForgotPassword() {
                               ) : (
                                 <X size={14} className="text-gray-400" />
                               )}
-                              <span className={req.met ? "text-green-700" : "text-gray-600"}>{req.label}</span>
+                              <span className={req.met ? "text-green-700" : "text-muted-foreground"}>{req.label}</span>
                             </div>
                           ))}
                         </div>
@@ -270,7 +270,7 @@ export default function IdentityForgotPassword() {
 
                       {/* Confirm Password */}
                       <div className="mb-8">
-                        <label htmlFor="confirmPassword" className="block text-sm font-bold text-gray-900 mb-2">
+                        <label htmlFor="confirmPassword" className="block text-sm font-bold text-foreground mb-2">
                           Confirm New Password <span className="text-red-600">*</span>
                         </label>
                         <div className="relative">
@@ -280,13 +280,13 @@ export default function IdentityForgotPassword() {
                             id="confirmPassword"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            className="w-full pl-12 pr-12 py-4 border-2 border-gray-300 rounded-lg text-gray-900 focus:border-[#000080] focus:outline-none text-lg"
+                            className="w-full pl-12 pr-12 py-4 border-2 border-border rounded-lg text-foreground focus:border-primary focus:outline-none text-lg"
                             placeholder="Re-enter new password"
                           />
                           <button
                             type="button"
                             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-muted-foreground"
                           >
                             {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                           </button>
@@ -308,7 +308,7 @@ export default function IdentityForgotPassword() {
                       <button
                         onClick={handleResetPassword}
                         disabled={!allRequirementsMet || !passwordsMatch}
-                        className="w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         Reset Password
                       </button>
@@ -321,17 +321,17 @@ export default function IdentityForgotPassword() {
                       <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle size={40} className="text-green-600" />
                       </div>
-                      <h1 className="text-3xl font-bold text-gray-900 mb-3">Password Reset Successful!</h1>
-                      <p className="text-gray-600 mb-8">
+                      <h1 className="text-3xl font-bold text-foreground mb-3">Password Reset Successful!</h1>
+                      <p className="text-muted-foreground mb-8">
                         Your password has been changed successfully. You can now sign in with your new password.
                       </p>
 
                       <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg mb-8">
                         <div className="flex items-start gap-3 text-left">
                           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                          <div className="text-sm text-gray-700">
-                            <div className="font-bold text-gray-900 mb-2">Security Tip</div>
-                            <ul className="space-y-1 text-gray-700">
+                          <div className="text-sm text-muted-foreground">
+                            <div className="font-bold text-foreground mb-2">Security Tip</div>
+                            <ul className="space-y-1 text-muted-foreground">
                               <li>• Don't share your password with anyone</li>
                               <li>• Use a unique password for this account</li>
                               <li>• Change your password regularly</li>
@@ -342,7 +342,7 @@ export default function IdentityForgotPassword() {
 
                       <Link
                         to="/patterns/identity/sign-in"
-                        className="block w-full py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors text-center"
+                        className="block w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors text-center"
                       >
                         Go to Sign In
                       </Link>
@@ -352,16 +352,16 @@ export default function IdentityForgotPassword() {
               </div>
 
               {/* Help Card */}
-              <div className="border-t-2 border-gray-300 bg-gray-50 px-12 py-6">
+              <div className="border-t-2 border-border bg-background px-12 py-6">
                 <div className="max-w-2xl mx-auto">
                   <div className="flex items-start gap-3">
-                    <HelpCircle size={20} className="text-[#000080] flex-shrink-0 mt-0.5" />
+                    <HelpCircle size={20} className="text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-gray-900 mb-2">Need Help?</div>
-                      <div className="text-sm text-gray-700 space-y-1">
+                      <div className="font-bold text-foreground mb-2">Need Help?</div>
+                      <div className="text-sm text-muted-foreground space-y-1">
                         <p>Call: <span className="font-bold">1800-XXX-XXXX</span> (Toll-Free)</p>
                         <p>Email: <span className="font-bold">support@digitalindia.gov.in</span></p>
-                        <p className="text-gray-600">Monday to Friday, 9:00 AM - 6:00 PM IST</p>
+                        <p className="text-muted-foreground">Monday to Friday, 9:00 AM - 6:00 PM IST</p>
                       </div>
                     </div>
                   </div>
@@ -394,12 +394,12 @@ function ProgressStep({ number, label, active, completed }: { number: number; la
         completed
           ? 'bg-green-500 border-green-500 text-white'
           : active
-          ? 'bg-[#000080] border-[#000080] text-white'
-          : 'bg-white border-gray-300 text-gray-400'
+          ? 'bg-primary border-primary text-white'
+          : 'bg-card border-border text-gray-400'
       }`}>
         {completed ? <Check size={18} /> : number}
       </div>
-      <div className={`text-xs font-medium ${active ? 'text-gray-900' : 'text-gray-500'}`}>{label}</div>
+      <div className={`text-xs font-medium ${active ? 'text-foreground' : 'text-gray-500'}`}>{label}</div>
     </div>
   );
 }
@@ -408,9 +408,9 @@ function ProgressStep({ number, label, active, completed }: { number: number; la
 
 function PatternInfo() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Pattern Info</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground">Pattern Info</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <InfoRow label="Pattern ID" value="UX4G-PAT-009-05" />
@@ -427,9 +427,9 @@ function UserJourney() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900">User Journey</h3>
+        <h3 className="font-bold text-foreground">User Journey</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <JourneyStep number="1" text="Identify account (mobile/email)" />
         <JourneyStep number="2" text="Receive OTP verification code" />
         <JourneyStep number="3" text="Verify OTP code" />
@@ -444,9 +444,9 @@ function SecurityConsiderations() {
   return (
     <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
       <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Security</h3>
+        <h3 className="font-bold text-foreground">Security</h3>
       </div>
-      <div className="p-4 space-y-2 text-sm text-gray-700">
+      <div className="p-4 space-y-2 text-sm text-muted-foreground">
         <SecurityItem text="Rate limit reset attempts (3 per hour)" />
         <SecurityItem text="OTP valid for 10 minutes only" />
         <SecurityItem text="Log all password reset attempts" />
@@ -461,9 +461,9 @@ function AccessibilityNotes() {
   return (
     <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
       <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Accessibility</h3>
+        <h3 className="font-bold text-foreground">Accessibility</h3>
       </div>
-      <div className="p-4 space-y-2 text-sm text-gray-700">
+      <div className="p-4 space-y-2 text-sm text-muted-foreground">
         <AccessibilityItem text="Progress indicator visible and announced" />
         <AccessibilityItem text="All form fields properly labeled" />
         <AccessibilityItem text="Password requirements announced" />
@@ -476,21 +476,21 @@ function AccessibilityNotes() {
 
 function ImplementationNotes() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900">Implementation</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground">Implementation</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <div>
-          <div className="font-bold text-gray-900 mb-1">Step management</div>
+          <div className="font-bold text-foreground mb-1">Step management</div>
           <div>Use state to track current step (identify → verify → reset → success)</div>
         </div>
         <div>
-          <div className="font-bold text-gray-900 mb-1">OTP delivery</div>
+          <div className="font-bold text-foreground mb-1">OTP delivery</div>
           <div>Send via SMS Gateway or Email Service with retry logic</div>
         </div>
         <div>
-          <div className="font-bold text-gray-900 mb-1">Password validation</div>
+          <div className="font-bold text-foreground mb-1">Password validation</div>
           <div>Real-time validation with visual feedback for each requirement</div>
         </div>
       </div>
@@ -502,13 +502,13 @@ function ImplementationNotes() {
 function InfoRow({ label, value, badge }: { label: string; value: string; badge?: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
+      <span className="text-muted-foreground">{label}</span>
       {badge ? (
-        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'} text-xs font-bold rounded-full`}>
+        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
           {value}
         </span>
       ) : (
-        <span className="font-bold text-gray-900">{value}</span>
+        <span className="font-bold text-foreground">{value}</span>
       )}
     </div>
   );

@@ -3,22 +3,22 @@ import { Activity, CheckCircle, AlertCircle, ArrowRight, Info, TrendingUp } from
 
 export default function StatusLifecycleOverview() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-gradient-to-br from-blue-50 via-white to-green-50 border-b-2 border-gray-300">
+      <header className="bg-gradient-to-br from-blue-50 via-white to-green-50 border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-12">
           <div className="mb-6">
-            <Link to="/patterns/status-lifecycle" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/patterns/status-lifecycle" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Status & Lifecycle Patterns
             </Link>
           </div>
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 border-2 border-gray-300 rounded flex items-center justify-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 border-2 border-border rounded flex items-center justify-center">
               <Info size={32} className="text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-3">Pattern Overview</h1>
-              <p className="text-lg text-gray-700">
+              <h1 className="text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
+              <p className="text-lg text-muted-foreground">
                 Understanding status and lifecycle intelligence in government digital services
               </p>
             </div>
@@ -35,19 +35,19 @@ export default function StatusLifecycleOverview() {
             
             {/* Purpose */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-blue-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-blue-500 pl-4">
                 Purpose of Lifecycle Patterns
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <p className="text-gray-700 mb-6">
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <p className="text-muted-foreground mb-6">
                   Status and Lifecycle patterns transform opaque bureaucratic processes into transparent, understandable journeys. 
                   Instead of showing "Pending" for weeks, these patterns provide granular visibility into what's happening, 
                   who's responsible, why there are delays, and when to expect resolution.
                 </p>
                 <div className="grid grid-cols-3 gap-6">
                   <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3">Without Lifecycle Intelligence</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">Without Lifecycle Intelligence</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• "Status: Pending" for 3 weeks</li>
                       <li>• No idea what's happening</li>
                       <li>• Constant support calls</li>
@@ -55,8 +55,8 @@ export default function StatusLifecycleOverview() {
                     </ul>
                   </div>
                   <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3">With Lifecycle Intelligence</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">With Lifecycle Intelligence</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• See exact stage and progress</li>
                       <li>• Know responsible department</li>
                       <li>• Understand delays with reasons</li>
@@ -64,8 +64,8 @@ export default function StatusLifecycleOverview() {
                     </ul>
                   </div>
                   <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3">Impact</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">Impact</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• 60% reduction in support calls</li>
                       <li>• Higher citizen satisfaction</li>
                       <li>• Department accountability</li>
@@ -78,7 +78,7 @@ export default function StatusLifecycleOverview() {
 
             {/* Pattern Selection Guide */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-green-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-green-500 pl-4">
                 When to Use Each Pattern
               </h2>
               <div className="space-y-4">
@@ -192,14 +192,14 @@ export default function StatusLifecycleOverview() {
 
             {/* Status State Machine */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Status State Machine
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <p className="text-gray-700 mb-6">
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <p className="text-muted-foreground mb-6">
                   Application statuses follow a state machine with defined transitions. This ensures consistency and prevents invalid state changes.
                 </p>
-                <div className="bg-gray-50 rounded-lg p-6">
+                <div className="bg-background rounded-lg p-6">
                   <div className="space-y-4">
                     <StateTransition
                       from="Submitted"
@@ -238,14 +238,14 @@ export default function StatusLifecycleOverview() {
 
             {/* Transparency Best Practices */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-orange-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Transparency Best Practices
               </h2>
               <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3">Always Show</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">Always Show</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>Current status with clear label</span>
@@ -273,8 +273,8 @@ export default function StatusLifecycleOverview() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3">Explain Clearly</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">Explain Clearly</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>Why application is delayed (specific reason)</span>
@@ -339,17 +339,17 @@ function PatternGuide({ title, when, notWhen, color }: {
   };
 
   return (
-    <div className={`bg-white border-2 ${colors[color as keyof typeof colors]} rounded-lg p-6`}>
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
+    <div className={`bg-card border-2 ${colors[color as keyof typeof colors]} rounded-lg p-6`}>
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <div className="grid grid-cols-2 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <CheckCircle size={16} className="text-green-600" />
-            <span className="text-sm font-bold text-gray-900">Use When:</span>
+            <span className="text-sm font-bold text-foreground">Use When:</span>
           </div>
           <ul className="space-y-2">
             {when.map((item, i) => (
-              <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+              <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                 <span className="text-green-600">•</span>
                 <span>{item}</span>
               </li>
@@ -359,11 +359,11 @@ function PatternGuide({ title, when, notWhen, color }: {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <AlertCircle size={16} className="text-red-600" />
-            <span className="text-sm font-bold text-gray-900">Don't Use When:</span>
+            <span className="text-sm font-bold text-foreground">Don't Use When:</span>
           </div>
           <ul className="space-y-2">
             {notWhen.map((item, i) => (
-              <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+              <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                 <span className="text-red-600">•</span>
                 <span>{item}</span>
               </li>
@@ -395,22 +395,22 @@ function StateTransition({ from, to, description }: {
           ))}
         </div>
       </div>
-      <p className="text-sm text-gray-600">{description}</p>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }
 
 function QuickNavigation() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden sticky top-24">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden sticky top-24">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Navigation</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Navigation</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
-        <a href="#purpose" className="block text-gray-700 hover:text-[#000080]">Purpose</a>
-        <a href="#pattern-selection" className="block text-gray-700 hover:text-[#000080]">Pattern Selection</a>
-        <a href="#state-machine" className="block text-gray-700 hover:text-[#000080]">State Machine</a>
-        <a href="#transparency" className="block text-gray-700 hover:text-[#000080]">Transparency</a>
+        <a href="#purpose" className="block text-muted-foreground hover:text-primary">Purpose</a>
+        <a href="#pattern-selection" className="block text-muted-foreground hover:text-primary">Pattern Selection</a>
+        <a href="#state-machine" className="block text-muted-foreground hover:text-primary">State Machine</a>
+        <a href="#transparency" className="block text-muted-foreground hover:text-primary">Transparency</a>
       </div>
     </div>
   );
@@ -419,8 +419,8 @@ function QuickNavigation() {
 function KeyPrinciples() {
   return (
     <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
-      <h3 className="font-bold text-gray-900 text-sm mb-3">Key Principles</h3>
-      <ul className="space-y-2 text-xs text-gray-700">
+      <h3 className="font-bold text-foreground text-sm mb-3">Key Principles</h3>
+      <ul className="space-y-2 text-xs text-muted-foreground">
         <li className="flex items-start gap-2">
           <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
           <span>Maximum transparency</span>
@@ -448,20 +448,20 @@ function KeyPrinciples() {
 
 function Resources() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Resources</h3>
+        <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
-        <Link to="/patterns/status-lifecycle" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/patterns/status-lifecycle" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>All Patterns</span>
         </Link>
-        <Link to="/components" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/components" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>Timeline Components</span>
         </Link>
-        <Link to="/accessibility" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/accessibility" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>Accessibility Guide</span>
         </Link>

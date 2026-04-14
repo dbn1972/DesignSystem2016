@@ -88,7 +88,7 @@ export interface CertificateApplication {
   statusLabel: string;
   canDownload: boolean;
   paymentAmount: number;
-  paymentStatus: "pending" | "failed" | "success";
+  paymentStatus: "pending" | "processing" | "failed" | "success";
   timeline: TimelineEvent[];
   draft: CertificateDraft;
 }

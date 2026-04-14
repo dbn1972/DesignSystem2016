@@ -3,22 +3,22 @@ import { Package, Layers, FileCode, Server, Layout, Puzzle, FolderTree, Download
 
 export default function UX4GStarterKit() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-gradient-to-br from-saffron-50 via-white to-green-50 border-b-2 border-gray-300">
+      <header className="bg-gradient-to-br from-saffron-50 via-white to-green-50 border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-12">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-saffron-500 to-green-500 border-2 border-gray-300 rounded flex items-center justify-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-saffron-500 to-green-500 border-2 border-border rounded flex items-center justify-center">
                   <Package size={40} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">Production-Ready</div>
-                  <h1 className="text-4xl font-bold text-gray-900">UX4G Starter Kit</h1>
+                  <div className="text-sm text-muted-foreground mb-1">Production-Ready</div>
+                  <h1 className="text-4xl font-bold text-foreground">UX4G Starter Kit</h1>
                 </div>
               </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 Production-ready starter kit for building government digital services. Includes reusable 
                 components, patterns, pages, routing logic, layout system, and mock API layer. Build faster 
                 with battle-tested UX4G components from real government services.
@@ -26,15 +26,15 @@ export default function UX4GStarterKit() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">License: <span className="font-bold text-gray-900">Government of India</span></span>
+                  <span className="text-muted-foreground">License: <span className="font-bold text-foreground">Government of India</span></span>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function UX4GStarterKit() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -68,7 +68,7 @@ export default function UX4GStarterKit() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -105,9 +105,9 @@ export default function UX4GStarterKit() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Starter Kit v1.0.0</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -122,12 +122,12 @@ export default function UX4GStarterKit() {
 function OverviewSection() {
   return (
     <section id="overview" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">What's the UX4G Starter Kit?</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">What's the UX4G Starter Kit?</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-gray-300 rounded-lg p-8">
-        <p className="text-gray-700 mb-6">
+      <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-border rounded-lg p-8">
+        <p className="text-muted-foreground mb-6">
           The UX4G Starter Kit is a production-ready foundation for building government digital services. 
           Instead of starting from scratch, you get battle-tested components, patterns, and pages extracted 
           from real government services like the Certificate Application system.
@@ -183,13 +183,13 @@ function OverviewSection() {
 function StructureSection() {
   return (
     <section id="structure" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Folder Structure</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Folder Structure</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900 flex items-center gap-2">
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground flex items-center gap-2">
             <FolderTree size={20} />
             Organized by Function
           </h3>
@@ -244,11 +244,11 @@ function StructureSection() {
 function ComponentsSection() {
   return (
     <section id="components" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Reusable Components</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Reusable Components</h2>
       </div>
 
-      <p className="text-gray-700">
+      <p className="text-muted-foreground">
         30+ production-ready components extracted from real government services. All components 
         follow UX4G design standards and are accessibility-tested.
       </p>
@@ -326,11 +326,11 @@ function MyForm() {
 function PatternsSection() {
   return (
     <section id="patterns" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Common Patterns</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Common Patterns</h2>
       </div>
 
-      <p className="text-gray-700">
+      <p className="text-muted-foreground">
         Proven interaction patterns for common government service scenarios. Use these patterns 
         as-is or customize for your specific needs.
       </p>
@@ -409,11 +409,11 @@ function PatternsSection() {
 function PagesSection() {
   return (
     <section id="pages" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">45+ Ready-to-Use Pages</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">45+ Ready-to-Use Pages</h2>
       </div>
 
-      <p className="text-gray-700">
+      <p className="text-muted-foreground">
         Complete pages covering the entire citizen journey from service discovery to certificate issuance. 
         All pages follow UX4G standards and include the Content Design System.
       </p>
@@ -481,17 +481,17 @@ function PagesSection() {
 function ServicesSection() {
   return (
     <section id="services" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Mock API Layer</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Mock API Layer</h2>
       </div>
 
-      <p className="text-gray-700">
+      <p className="text-muted-foreground">
         Complete mock API simulation for development and testing. Replace with real APIs in production.
       </p>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
         <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Location: /src/app/services/mockApi.ts</h3>
+          <h3 className="font-bold text-foreground">Location: /src/app/services/mockApi.ts</h3>
         </div>
         <div className="p-6 space-y-6">
           <ApiCategory
@@ -585,22 +585,22 @@ const createApplication = async () => {
 function RoutingSection() {
   return (
     <section id="routing" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Routing Configuration</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Routing Configuration</h2>
       </div>
 
-      <p className="text-gray-700">
+      <p className="text-muted-foreground">
         Centralized routing configuration with route protection and navigation helpers.
       </p>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
         <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Location: /src/app/services/routeConfig.ts</h3>
+          <h3 className="font-bold text-foreground">Location: /src/app/services/routeConfig.ts</h3>
         </div>
         <div className="p-6 space-y-4">
           <div>
-            <p className="font-bold text-gray-900 mb-2">Route Constants</p>
-            <p className="text-sm text-gray-700 mb-3">Use constants instead of hardcoded paths</p>
+            <p className="font-bold text-foreground mb-2">Route Constants</p>
+            <p className="text-sm text-muted-foreground mb-3">Use constants instead of hardcoded paths</p>
             <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
 {`import { ROUTES } from './services/routeConfig';
 
@@ -613,8 +613,8 @@ navigate(ROUTES.CERTIFICATE.FORM_PERSONAL);`}
           </div>
 
           <div>
-            <p className="font-bold text-gray-900 mb-2">Route Protection</p>
-            <p className="text-sm text-gray-700 mb-3">Check if routes require authentication</p>
+            <p className="font-bold text-foreground mb-2">Route Protection</p>
+            <p className="text-sm text-muted-foreground mb-3">Check if routes require authentication</p>
             <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
 {`import { isProtectedRoute, isOfficerRoute } from './services/routeConfig';
 
@@ -631,8 +631,8 @@ if (isOfficerRoute(currentPath)) {
           </div>
 
           <div>
-            <p className="font-bold text-gray-900 mb-2">Navigation Helpers</p>
-            <p className="text-sm text-gray-700 mb-3">Get next/previous steps in multi-step forms</p>
+            <p className="font-bold text-foreground mb-2">Navigation Helpers</p>
+            <p className="text-sm text-muted-foreground mb-3">Get next/previous steps in multi-step forms</p>
             <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
 {`import { getNextStep, getPreviousStep, getApplicationSteps } from './services/routeConfig';
 
@@ -659,12 +659,12 @@ if (prevPath) navigate(prevPath);`}
 function UsageSection() {
   return (
     <section id="usage" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Getting Started</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Getting Started</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-gray-300 rounded-lg p-8">
-        <h3 className="font-bold text-gray-900 mb-4 text-lg">Quick Start Guide</h3>
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-8">
+        <h3 className="font-bold text-foreground mb-4 text-lg">Quick Start Guide</h3>
         <div className="space-y-4">
           <Step
             number={1}
@@ -724,23 +724,23 @@ function UsageSection() {
 
 function QuickStart() {
   return (
-    <div className="bg-gradient-to-br from-saffron-50 to-green-50 border-2 border-gray-300 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-        <Download size={20} className="text-[#000080]" />
+    <div className="bg-gradient-to-br from-saffron-50 to-green-50 border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+        <Download size={20} className="text-primary" />
         Quick Start
       </h3>
       <div className="space-y-3 text-sm">
         <div className="flex items-start gap-2">
           <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
-          <span className="text-gray-700">All files in /src/app/</span>
+          <span className="text-muted-foreground">All files in /src/app/</span>
         </div>
         <div className="flex items-start gap-2">
           <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
-          <span className="text-gray-700">Copy to your project</span>
+          <span className="text-muted-foreground">Copy to your project</span>
         </div>
         <div className="flex items-start gap-2">
           <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
-          <span className="text-gray-700">Start building immediately</span>
+          <span className="text-muted-foreground">Start building immediately</span>
         </div>
       </div>
     </div>
@@ -749,9 +749,9 @@ function QuickStart() {
 
 function WhatsIncluded() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">What's Included</h3>
+        <h3 className="font-bold text-foreground text-sm">What's Included</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <IncludedItem count="30+" text="Components" />
@@ -767,9 +767,9 @@ function WhatsIncluded() {
 
 function TechStack() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Tech Stack</h3>
+        <h3 className="font-bold text-foreground text-sm">Tech Stack</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <TechItem name="React 18" desc="Latest React" />
@@ -784,9 +784,9 @@ function TechStack() {
 
 function Resources() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Documentation</h3>
+        <h3 className="font-bold text-foreground text-sm">Documentation</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <ResourceLink to="/content-design-system" text="Content Design System" />
@@ -813,24 +813,24 @@ function FeatureCard({ icon, title, description, color }: {
   };
 
   return (
-    <div className="bg-white border border-gray-300 rounded p-4">
+    <div className="bg-card border border-border rounded p-4">
       <div className={`w-12 h-12 ${colorClasses[color as keyof typeof colorClasses]} rounded flex items-center justify-center mb-3`}>
         {icon}
       </div>
-      <p className="font-bold text-gray-900 mb-1">{title}</p>
-      <p className="text-sm text-gray-700">{description}</p>
+      <p className="font-bold text-foreground mb-1">{title}</p>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }
 
 function BenefitCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
-        <ul className="space-y-2 text-sm text-gray-700">
+        <ul className="space-y-2 text-sm text-muted-foreground">
           {items.map((item, i) => (
             <li key={i} className="flex items-start gap-2">
               <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
@@ -848,15 +848,15 @@ function ComponentCategory({ title, components }: {
   components: Array<{ name: string; desc: string; path: string }>;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
-        <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
+        <h4 className="font-bold text-foreground text-sm">{title}</h4>
       </div>
       <div className="p-4 space-y-2">
         {components.map((comp, i) => (
-          <div key={i} className="bg-gray-50 border border-gray-300 rounded p-3">
-            <p className="font-bold text-gray-900 text-sm mb-1">{comp.name}</p>
-            <p className="text-xs text-gray-700 mb-2">{comp.desc}</p>
+          <div key={i} className="bg-background border border-border rounded p-3">
+            <p className="font-bold text-foreground text-sm mb-1">{comp.name}</p>
+            <p className="text-xs text-muted-foreground mb-2">{comp.desc}</p>
             <code className="text-xs text-blue-700 bg-blue-50 px-2 py-0.5 rounded">{comp.path}</code>
           </div>
         ))}
@@ -867,9 +867,9 @@ function ComponentCategory({ title, components }: {
 
 function CodeExample({ title, code }: { title: string; code: string }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-        <h4 className="font-bold text-gray-900 flex items-center gap-2">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-6 py-4">
+        <h4 className="font-bold text-foreground flex items-center gap-2">
           <Code size={18} />
           {title}
         </h4>
@@ -890,15 +890,15 @@ function PatternCard({ title, description, includes, pages }: {
   pages: Array<{ label: string; path: string }>;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-50 to-green-50 border-b-2 border-gray-300 px-6 py-4">
-        <h3 className="font-bold text-gray-900 mb-1">{title}</h3>
-        <p className="text-sm text-gray-700">{description}</p>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-50 to-green-50 border-b-2 border-border px-6 py-4">
+        <h3 className="font-bold text-foreground mb-1">{title}</h3>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
       <div className="p-6">
         <div className="mb-4">
-          <p className="text-sm font-bold text-gray-900 mb-2">Includes:</p>
-          <ul className="space-y-1 text-sm text-gray-700">
+          <p className="text-sm font-bold text-foreground mb-2">Includes:</p>
+          <ul className="space-y-1 text-sm text-muted-foreground">
             {includes.map((item, i) => (
               <li key={i} className="flex items-start gap-2">
                 <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
@@ -908,7 +908,7 @@ function PatternCard({ title, description, includes, pages }: {
           </ul>
         </div>
         <div>
-          <p className="text-sm font-bold text-gray-900 mb-2">Example Pages:</p>
+          <p className="text-sm font-bold text-foreground mb-2">Example Pages:</p>
           <div className="flex flex-wrap gap-2">
             {pages.map((page, i) => (
               <Link
@@ -932,17 +932,17 @@ function PageGroup({ phase, description, pages }: {
   pages: Array<{ name: string; path: string; type: string }>;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
-        <h3 className="font-bold text-gray-900 mb-1">{phase}</h3>
-        <p className="text-sm text-gray-700">{description}</p>
+        <h3 className="font-bold text-foreground mb-1">{phase}</h3>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
       <div className="p-6">
         <div className="space-y-2">
           {pages.map((page, i) => (
-            <div key={i} className="flex items-center justify-between p-3 bg-gray-50 border border-gray-300 rounded">
+            <div key={i} className="flex items-center justify-between p-3 bg-background border border-border rounded">
               <div>
-                <p className="font-bold text-gray-900 text-sm">{page.name}</p>
+                <p className="font-bold text-foreground text-sm">{page.name}</p>
                 <Link to={page.path} className="text-xs text-blue-700 hover:underline">
                   {page.path}
                 </Link>
@@ -970,10 +970,10 @@ function ApiCategory({ name, endpoints }: {
 }) {
   return (
     <div>
-      <h4 className="font-bold text-gray-900 mb-3">{name}</h4>
+      <h4 className="font-bold text-foreground mb-3">{name}</h4>
       <div className="space-y-2">
         {endpoints.map((endpoint, i) => (
-          <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 border border-gray-300 rounded">
+          <div key={i} className="flex items-start gap-3 p-3 bg-background border border-border rounded">
             <span className={`px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 ${
               endpoint.method === 'GET' 
                 ? 'bg-blue-100 text-blue-700'
@@ -986,8 +986,8 @@ function ApiCategory({ name, endpoints }: {
               {endpoint.method}
             </span>
             <div className="flex-1">
-              <code className="text-sm text-gray-900 font-mono">{endpoint.path}</code>
-              <p className="text-xs text-gray-600 mt-1">{endpoint.desc}</p>
+              <code className="text-sm text-foreground font-mono">{endpoint.path}</code>
+              <p className="text-xs text-muted-foreground mt-1">{endpoint.desc}</p>
             </div>
           </div>
         ))}
@@ -1003,12 +1003,12 @@ function Step({ number, title, description }: {
 }) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+      <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
         {number}
       </div>
       <div>
-        <p className="font-bold text-gray-900 mb-1">{title}</p>
-        <p className="text-sm text-gray-700">{description}</p>
+        <p className="font-bold text-foreground mb-1">{title}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   );
@@ -1016,12 +1016,12 @@ function Step({ number, title, description }: {
 
 function ExampleCard({ title, steps }: { title: string; steps: string[] }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
-        <h4 className="font-bold text-gray-900">{title}</h4>
+        <h4 className="font-bold text-foreground">{title}</h4>
       </div>
       <div className="p-6">
-        <ul className="space-y-2 text-sm text-gray-700">
+        <ul className="space-y-2 text-sm text-muted-foreground">
           {steps.map((step, i) => (
             <li key={i} className="flex items-start gap-2">
               <ArrowRight size={16} className="text-purple-600 mt-0.5 flex-shrink-0" />
@@ -1036,18 +1036,18 @@ function ExampleCard({ title, steps }: { title: string; steps: string[] }) {
 
 function IncludedItem({ count, text }: { count: string; text: string }) {
   return (
-    <div className="flex items-center justify-between p-2 bg-gray-50 border border-gray-300 rounded">
-      <span className="text-gray-900">{text}</span>
-      <span className="font-bold text-[#000080]">{count}</span>
+    <div className="flex items-center justify-between p-2 bg-background border border-border rounded">
+      <span className="text-foreground">{text}</span>
+      <span className="font-bold text-primary">{count}</span>
     </div>
   );
 }
 
 function TechItem({ name, desc }: { name: string; desc: string }) {
   return (
-    <div className="p-2 bg-gray-50 border border-gray-300 rounded">
-      <p className="font-bold text-gray-900">{name}</p>
-      <p className="text-gray-600">{desc}</p>
+    <div className="p-2 bg-background border border-border rounded">
+      <p className="font-bold text-foreground">{name}</p>
+      <p className="text-muted-foreground">{desc}</p>
     </div>
   );
 }
@@ -1056,9 +1056,9 @@ function ResourceLink({ to, text }: { to: string; text: string }) {
   return (
     <Link 
       to={to}
-      className="flex items-center gap-2 p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-gray-900"
+      className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground"
     >
-      <ArrowRight size={12} className="text-[#000080]" />
+      <ArrowRight size={12} className="text-primary" />
       <span>{text}</span>
     </Link>
   );

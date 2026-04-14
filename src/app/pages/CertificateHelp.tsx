@@ -50,17 +50,17 @@ export default function CertificateHelp() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-6">
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-orange-600 rounded flex items-center justify-center">
               <HelpCircle size={28} className="text-white" />
             </div>
             <div>
-              <div className="text-sm text-gray-600">Certificate Application Service</div>
-              <h1 className="text-2xl font-bold text-gray-900">Help & Support</h1>
+              <div className="text-sm text-muted-foreground">Certificate Application Service</div>
+              <h1 className="text-2xl font-bold text-foreground">Help & Support</h1>
             </div>
           </div>
         </div>
@@ -72,50 +72,50 @@ export default function CertificateHelp() {
         {/* Contact Cards */}
         <div className="grid grid-cols-3 gap-6 mb-12">
           
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+          <div className="bg-card border-2 border-border rounded-lg p-6">
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
               <Phone size={24} className="text-blue-700" />
             </div>
-            <h3 className="font-bold text-gray-900 mb-2">Helpline</h3>
-            <p className="text-sm text-gray-700 mb-3">
+            <h3 className="font-bold text-foreground mb-2">Helpline</h3>
+            <p className="text-sm text-muted-foreground mb-3">
               Call our toll-free helpline for assistance
             </p>
-            <a href="tel:1800-111-1111" className="text-lg font-bold text-[#000080] hover:underline">
+            <a href="tel:1800-111-1111" className="text-lg font-bold text-primary hover:underline">
               1800-111-1111
             </a>
-            <p className="text-xs text-gray-600 mt-2">
+            <p className="text-xs text-muted-foreground mt-2">
               Monday to Saturday, 9 AM - 6 PM
             </p>
           </div>
 
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+          <div className="bg-card border-2 border-border rounded-lg p-6">
             <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
               <Mail size={24} className="text-green-700" />
             </div>
-            <h3 className="font-bold text-gray-900 mb-2">Email Support</h3>
-            <p className="text-sm text-gray-700 mb-3">
+            <h3 className="font-bold text-foreground mb-2">Email Support</h3>
+            <p className="text-sm text-muted-foreground mb-3">
               Send us your queries via email
             </p>
-            <a href="mailto:support@certificate.gov.in" className="text-sm font-bold text-[#000080] hover:underline break-all">
+            <a href="mailto:support@certificate.gov.in" className="text-sm font-bold text-primary hover:underline break-all">
               support@certificate.gov.in
             </a>
-            <p className="text-xs text-gray-600 mt-2">
+            <p className="text-xs text-muted-foreground mt-2">
               Response within 24-48 hours
             </p>
           </div>
 
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+          <div className="bg-card border-2 border-border rounded-lg p-6">
             <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
               <FileText size={24} className="text-purple-700" />
             </div>
-            <h3 className="font-bold text-gray-900 mb-2">User Guide</h3>
-            <p className="text-sm text-gray-700 mb-3">
+            <h3 className="font-bold text-foreground mb-2">User Guide</h3>
+            <p className="text-sm text-muted-foreground mb-3">
               Download detailed application guide
             </p>
-            <button className="text-sm font-bold text-[#000080] hover:underline">
+            <button className="text-sm font-bold text-primary hover:underline">
               Download PDF Guide
             </button>
-            <p className="text-xs text-gray-600 mt-2">
+            <p className="text-xs text-muted-foreground mt-2">
               Step-by-step instructions
             </p>
           </div>
@@ -123,20 +123,20 @@ export default function CertificateHelp() {
         </div>
 
         {/* FAQ Section */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+          <div className="bg-muted border-b-2 border-border px-8 py-6">
+            <h2 className="text-xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
             
             {/* Search */}
             <div className="relative">
-              <Search size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
+              <Search size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for answers..."
-                className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded text-sm focus:outline-none focus:border-[#000080]"
+                className="w-full pl-12 pr-4 py-3 border-2 border-border rounded text-sm focus:outline-none focus:border-primary"
               />
             </div>
           </div>
@@ -166,7 +166,7 @@ export default function CertificateHelp() {
               faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
             ).length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-600">No results found for "{searchQuery}"</p>
+                <p className="text-muted-foreground">No results found for "{searchQuery}"</p>
                 <p className="text-sm text-gray-500 mt-2">Try different keywords or contact support</p>
               </div>
             )}
@@ -175,7 +175,7 @@ export default function CertificateHelp() {
 
         {/* Quick Links */}
         <div className="mt-12 bg-blue-50 border-2 border-blue-300 rounded-lg p-8">
-          <h3 className="font-bold text-gray-900 mb-6">Quick Links</h3>
+          <h3 className="font-bold text-foreground mb-6">Quick Links</h3>
           <div className="grid grid-cols-2 gap-4">
             <QuickLink to="/reference-service/certificate/eligibility" text="Check Eligibility" />
             <QuickLink to="/reference-service/demo" text="Service Information" />
@@ -189,12 +189,12 @@ export default function CertificateHelp() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>Certificate Application Service • Government of India</div>
             <div>
-              <Link to="/reference-service/demo" className="text-[#000080] font-bold hover:underline mr-6">
+              <Link to="/reference-service/demo" className="text-primary font-bold hover:underline mr-6">
                 Back to Service Home
               </Link>
               Help & Support
@@ -220,21 +220,21 @@ function FAQItem({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
       <button
         onClick={onToggle}
-        className="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors"
+        className="w-full px-6 py-4 flex items-center justify-between bg-background hover:bg-muted transition-colors"
       >
-        <span className="font-bold text-gray-900 text-left">{question}</span>
+        <span className="font-bold text-foreground text-left">{question}</span>
         {isExpanded ? (
-          <ChevronDown size={20} className="text-gray-600 flex-shrink-0 ml-4" />
+          <ChevronDown size={20} className="text-muted-foreground flex-shrink-0 ml-4" />
         ) : (
-          <ChevronRight size={20} className="text-gray-600 flex-shrink-0 ml-4" />
+          <ChevronRight size={20} className="text-muted-foreground flex-shrink-0 ml-4" />
         )}
       </button>
       {isExpanded && (
-        <div className="px-6 py-4 bg-white border-t-2 border-gray-300">
-          <p className="text-sm text-gray-700 leading-relaxed">{answer}</p>
+        <div className="px-6 py-4 bg-card border-t-2 border-border">
+          <p className="text-sm text-muted-foreground leading-relaxed">{answer}</p>
         </div>
       )}
     </div>
@@ -245,10 +245,10 @@ function QuickLink({ to, text }: { to: string; text: string }) {
   return (
     <Link
       to={to}
-      className="flex items-center gap-2 px-4 py-3 border-2 border-gray-300 bg-white rounded hover:border-[#000080] hover:bg-blue-50 transition-all group"
+      className="flex items-center gap-2 px-4 py-3 border-2 border-border bg-card rounded hover:border-primary hover:bg-blue-50 transition-all group"
     >
-      <ChevronRight size={16} className="text-gray-600 group-hover:text-[#000080]" />
-      <span className="text-sm text-gray-700 group-hover:text-gray-900">{text}</span>
+      <ChevronRight size={16} className="text-muted-foreground group-hover:text-primary" />
+      <span className="text-sm text-muted-foreground group-hover:text-foreground">{text}</span>
     </Link>
   );
 }

@@ -2,13 +2,13 @@ import { FileText, Users, RefreshCw, AlertCircle, CheckCircle, FileCheck, UserCh
 
 export default function ServicePatternLibraries() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 dark:bg-gray-900">
+    <div className="min-h-screen bg-background dark:bg-gray-800 dark:bg-gray-900">
       {/* Header */}
       <header className="bg-gradient-to-r from-[#000080] to-[#000050] dark:from-blue-900 dark:to-blue-950 text-white">
         <div className="max-w-[1400px] mx-auto px-12 py-12">
           <div className="flex items-start justify-between">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-900/15 rounded text-xs font-medium mb-4 border border-white/20">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-card dark:bg-gray-900/15 rounded text-xs font-medium mb-4 border border-white/20">
                 <Layers size={14} />
                 <span>UX4G Service Pattern Library</span>
               </div>
@@ -38,7 +38,7 @@ export default function ServicePatternLibraries() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-900/10 backdrop-blur border border-white/20 rounded-lg p-6">
+            <div className="bg-card dark:bg-gray-900/10 backdrop-blur border border-white/20 rounded-lg p-6">
               <div className="text-xs font-medium text-blue-200 mb-3">Pattern Status</div>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2">
@@ -56,7 +56,7 @@ export default function ServicePatternLibraries() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white dark:bg-gray-900 dark:bg-gray-900 border-b-2 border-gray-300 dark:border-gray-700 dark:border-gray-700 sticky top-0 z-20">
+      <nav className="bg-card dark:bg-gray-900 border-b-2 border-border dark:border-gray-700 sticky top-0 z-20">
         <div className="max-w-[1400px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -72,7 +72,7 @@ export default function ServicePatternLibraries() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 dark:text-gray-300 hover:text-[#000080] dark:hover:text-blue-400 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-800 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground dark:text-gray-300 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 hover:bg-muted dark:bg-gray-800 dark:hover:bg-gray-800 rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -96,9 +96,9 @@ export default function ServicePatternLibraries() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-gray-900 dark:bg-gray-900 border-t-2 border-gray-300 dark:border-gray-700 dark:border-gray-700 mt-24">
+      <footer className="bg-card dark:bg-gray-900 border-t-2 border-border dark:border-gray-700 mt-24">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 dark:text-gray-400">
+          <div className="flex items-center justify-between text-sm text-muted-foreground dark:text-gray-400">
             <div>UX4G Design System Platform • Service Pattern Library v1.0</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -162,7 +162,7 @@ function ApplicationSubmission() {
                 "Ration card applications",
                 "Government housing schemes"
               ].map((useCase, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                <div key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
                   <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{useCase}</span>
                 </div>
@@ -173,7 +173,7 @@ function ApplicationSubmission() {
           {/* Journey Flow */}
           <DocumentationModule title="End-to-End Service Flow">
             <div className="space-y-4">
-              <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <div className="text-sm text-muted-foreground dark:text-gray-400 mb-4">
                 User learns about service → checks eligibility → completes multi-step form → uploads documents → 
                 reviews submission → receives acknowledgment → tracks status
               </div>
@@ -298,7 +298,7 @@ function ApplicationSubmission() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Accessibility Requirements">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <Eye size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                 <span>Keyboard navigation on all steps</span>
@@ -323,7 +323,7 @@ function ApplicationSubmission() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Multilingual Support">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <Globe size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
                 <span>UI in 12+ scheduled languages</span>
@@ -344,7 +344,7 @@ function ApplicationSubmission() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Risk Indicators" severity="high">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <AlertTriangle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
                 <span>Data loss from session timeout</span>
@@ -431,7 +431,7 @@ function EligibilityScreening() {
                 "Income-based service access",
                 "Category-specific schemes"
               ].map((useCase, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                <div key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
                   <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{useCase}</span>
                 </div>
@@ -510,7 +510,7 @@ function EligibilityScreening() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Content Tone Guidance">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <MessageSquare size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
                 <span>Use encouraging, supportive language</span>
@@ -531,19 +531,19 @@ function EligibilityScreening() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Implementation Notes">
-            <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+            <div className="space-y-3 text-sm text-muted-foreground dark:text-gray-300">
               <div className="flex items-start gap-2">
                 <Code size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="font-medium text-gray-900 dark:text-gray-100">Rule Engine</div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Implement conditional logic for question branching</div>
+                  <div className="font-medium text-foreground dark:text-gray-100">Rule Engine</div>
+                  <div className="text-xs text-muted-foreground dark:text-gray-400">Implement conditional logic for question branching</div>
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <Code size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="font-medium text-gray-900 dark:text-gray-100">Policy Alignment</div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Work with policy team to define criteria</div>
+                  <div className="font-medium text-foreground dark:text-gray-100">Policy Alignment</div>
+                  <div className="text-xs text-muted-foreground dark:text-gray-400">Work with policy team to define criteria</div>
                 </div>
               </div>
             </div>
@@ -667,7 +667,7 @@ function Renewal() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Notification Strategy">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <Clock size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
                 <span>30 days before expiry (first reminder)</span>
@@ -798,7 +798,7 @@ function CorrectionResubmission() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Content Tone" severity="info">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <MessageSquare size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
                 <span>Be empathetic (never punitive)</span>
@@ -937,7 +937,7 @@ function ComplaintEscalation() {
           </AnnotationPanel>
 
           <AnnotationPanel title="SLA Monitoring">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <Clock size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                 <span>Track days since submission</span>
@@ -958,7 +958,7 @@ function ComplaintEscalation() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Analytics Events">
-            <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <div className="flex items-start gap-2">
                 <BarChart3 size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
                 <span>Complaint submission rate</span>
@@ -1085,7 +1085,7 @@ function ApprovalIssuance() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Security Requirements" severity="critical">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <Lock size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
                 <span>PDF encryption (AES-256)</span>
@@ -1106,7 +1106,7 @@ function ApprovalIssuance() {
           </AnnotationPanel>
 
           <AnnotationPanel title="DigiLocker Integration">
-            <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <div className="flex items-start gap-2">
                 <Database size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                 <span>Auto-upload to DigiLocker</span>
@@ -1235,7 +1235,7 @@ function AssistedOfflineToOnline() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Audit Requirements" severity="high">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <Shield size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                 <span>Log staff ID and timestamp</span>
@@ -1389,7 +1389,7 @@ function HighVolumeStatusTracking() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Performance SLAs" severity="critical">
-            <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <Zap size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
                 <span>API response time: &lt; 3 seconds</span>
@@ -1410,7 +1410,7 @@ function HighVolumeStatusTracking() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Bot Prevention">
-            <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <div className="flex items-start gap-2">
                 <Shield size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
                 <span>CAPTCHA on lookup page</span>
@@ -1427,7 +1427,7 @@ function HighVolumeStatusTracking() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Analytics Events">
-            <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
               <div className="flex items-start gap-2">
                 <BarChart3 size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
                 <span>Status lookup attempts</span>
@@ -1470,15 +1470,15 @@ function PatternHeader({ title, icon, status, version, lastUpdated }: any) {
   };
 
   return (
-    <div className="border-l-4 border-[#000080] pl-6">
+    <div className="border-l-4 border-primary pl-6">
       <div className="flex items-start justify-between">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded flex items-center justify-center text-gray-700 dark:text-gray-300 flex-shrink-0">
+          <div className="w-12 h-12 bg-muted dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded flex items-center justify-center text-muted-foreground dark:text-gray-300 flex-shrink-0">
             {icon}
           </div>
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">{title}</h2>
-            <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-2">{title}</h2>
+            <div className="flex items-center gap-4 text-sm text-muted-foreground dark:text-gray-400">
               <span>Version {version}</span>
               <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
               <span>Updated {lastUpdated}</span>
@@ -1495,9 +1495,9 @@ function PatternHeader({ title, icon, status, version, lastUpdated }: any) {
 
 function DocumentationModule({ title, children }: any) {
   return (
-    <div className="border-2 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-gray-900">
-      <div className="bg-gray-100 dark:bg-gray-800 border-b-2 border-gray-300 dark:border-gray-700 px-6 py-4">
-        <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg">{title}</h3>
+    <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden bg-card dark:bg-gray-900">
+      <div className="bg-muted dark:bg-gray-800 border-b-2 border-border dark:border-gray-700 px-6 py-4">
+        <h3 className="font-bold text-foreground dark:text-gray-100 text-lg">{title}</h3>
       </div>
       <div className="p-6">
         {children}
@@ -1510,7 +1510,7 @@ function MetadataBlock({ label, children }: any) {
   return (
     <div>
       <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{label}</div>
-      <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{children}</div>
+      <div className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed">{children}</div>
     </div>
   );
 }
@@ -1521,11 +1521,11 @@ function ProcessFlow({ steps }: any) {
       {steps.map((step: any, idx: number) => (
         <div key={idx} className="flex items-center flex-shrink-0">
           <div className="flex flex-col items-center w-24">
-            <div className="w-10 h-10 bg-[#000080] text-white rounded-full flex items-center justify-center text-sm font-bold mb-2">
+            <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mb-2">
               {step.num}
             </div>
-            <div className="text-xs font-bold text-gray-900 dark:text-gray-100 text-center mb-1">{step.label}</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400 text-center">{step.desc}</div>
+            <div className="text-xs font-bold text-foreground dark:text-gray-100 text-center mb-1">{step.label}</div>
+            <div className="text-xs text-muted-foreground dark:text-gray-400 text-center">{step.desc}</div>
           </div>
           {idx < steps.length - 1 && (
             <ChevronRight className="text-gray-400 mx-1 flex-shrink-0" size={20} />
@@ -1538,16 +1538,16 @@ function ProcessFlow({ steps }: any) {
 
 function PageSequenceCard({ num, title, elements }: any) {
   return (
-    <div className="border-2 border-gray-300 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-800 hover:border-[#000080] dark:hover:border-blue-500 transition-colors">
+    <div className="border-2 border-border dark:border-gray-700 rounded-lg p-4 bg-background dark:bg-gray-800 hover:border-primary dark:hover:border-blue-500 transition-colors">
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-6 h-6 bg-[#000080] text-white rounded text-xs font-bold flex items-center justify-center flex-shrink-0">
+        <div className="w-6 h-6 bg-primary text-white rounded text-xs font-bold flex items-center justify-center flex-shrink-0">
           {num}
         </div>
-        <div className="font-bold text-sm text-gray-900 dark:text-gray-100">{title}</div>
+        <div className="font-bold text-sm text-foreground dark:text-gray-100">{title}</div>
       </div>
       <ul className="space-y-1.5">
         {elements.map((element: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-1.5 text-xs text-gray-600 dark:text-gray-400">
+          <li key={idx} className="flex items-start gap-1.5 text-xs text-muted-foreground dark:text-gray-400">
             <div className="w-1 h-1 bg-gray-400 rounded-full mt-1.5 flex-shrink-0"></div>
             <span>{element}</span>
           </li>
@@ -1559,9 +1559,9 @@ function PageSequenceCard({ num, title, elements }: any) {
 
 function ComponentTag({ name, variants }: any) {
   return (
-    <div className="border border-gray-300 dark:border-gray-700 rounded px-3 py-2 bg-white dark:bg-gray-900">
-      <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-0.5">{name}</div>
-      <div className="text-xs text-gray-600 dark:text-gray-400">{variants}</div>
+    <div className="border border-border dark:border-gray-700 rounded px-3 py-2 bg-card dark:bg-gray-900">
+      <div className="font-bold text-sm text-foreground dark:text-gray-100 mb-0.5">{name}</div>
+      <div className="text-xs text-muted-foreground dark:text-gray-400">{variants}</div>
     </div>
   );
 }
@@ -1578,7 +1578,7 @@ function ImplementationRow({ category, requirement, priority }: any) {
       <div className="w-24 flex-shrink-0">
         <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{category}</span>
       </div>
-      <div className="flex-1 text-sm text-gray-700 dark:text-gray-300">{requirement}</div>
+      <div className="flex-1 text-sm text-muted-foreground dark:text-gray-300">{requirement}</div>
       <div className={`px-2 py-1 rounded border ${priorityConfig[priority].bg} ${priorityConfig[priority].text} ${priorityConfig[priority].border} text-xs font-bold uppercase flex-shrink-0`}>
         {priority}
       </div>
@@ -1616,12 +1616,12 @@ function GuidelineBox({ type, items }: any) {
         <div className={`w-8 h-8 ${config[type].iconBg} border-2 ${config[type].iconBorder} rounded flex items-center justify-center`}>
           {config[type].icon}
         </div>
-        <h4 className="font-bold text-gray-900 dark:text-gray-100">{config[type].title}</h4>
+        <h4 className="font-bold text-foreground dark:text-gray-100">{config[type].title}</h4>
       </div>
       <div className="p-4">
         <ul className="space-y-2">
           {items.map((item: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
               {config[type].itemIcon}
               <span>{item}</span>
             </li>
@@ -1639,12 +1639,12 @@ function AnnotationPanel({ title, children, severity }: any) {
     info: { border: 'border-blue-300', bg: 'bg-blue-50', headerBg: 'bg-blue-100 dark:bg-blue-900/30' }
   };
 
-  const config = severity ? severityConfig[severity] : { border: 'border-gray-300 dark:border-gray-700', bg: 'bg-gray-50 dark:bg-gray-800', headerBg: 'bg-gray-100 dark:bg-gray-800' };
+  const config = severity ? severityConfig[severity] : { border: 'border-border dark:border-gray-700', bg: 'bg-background dark:bg-gray-800', headerBg: 'bg-muted dark:bg-gray-800' };
 
   return (
     <div className={`border-2 ${config.border} rounded-lg overflow-hidden ${config.bg}`}>
       <div className={`${config.headerBg} border-b-2 ${config.border} px-4 py-2.5`}>
-        <h4 className="font-bold text-gray-900 dark:text-gray-100 text-sm">{title}</h4>
+        <h4 className="font-bold text-foreground dark:text-gray-100 text-sm">{title}</h4>
       </div>
       <div className="p-4">
         {children}
@@ -1656,8 +1656,8 @@ function AnnotationPanel({ title, children, severity }: any) {
 function AnnotationItem({ label, value }: any) {
   return (
     <div className="flex items-center justify-between text-sm">
-      <span className="text-gray-600 dark:text-gray-400">{label}</span>
-      <span className="font-bold text-gray-900 dark:text-gray-100">{value}</span>
+      <span className="text-muted-foreground dark:text-gray-400">{label}</span>
+      <span className="font-bold text-foreground dark:text-gray-100">{value}</span>
     </div>
   );
 }
@@ -1665,17 +1665,17 @@ function AnnotationItem({ label, value }: any) {
 function ConformanceItem({ checked, label }: any) {
   return (
     <div className="flex items-center gap-2">
-      <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 ${checked ? 'bg-green-500 border-green-600' : 'bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700'}`}>
+      <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 ${checked ? 'bg-green-500 border-green-600' : 'bg-card dark:bg-gray-900 border-border dark:border-gray-700'}`}>
         {checked && <CheckSquare size={14} className="text-white" />}
       </div>
-      <span className="text-gray-700 dark:text-gray-300">{label}</span>
+      <span className="text-muted-foreground dark:text-gray-300">{label}</span>
     </div>
   );
 }
 
 function RelatedPatternTag({ pattern }: any) {
   return (
-    <div className="px-3 py-1.5 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded text-xs font-medium text-gray-700 dark:text-gray-300 hover:border-[#000080] dark:hover:border-blue-500 transition-colors cursor-pointer">
+    <div className="px-3 py-1.5 bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded text-xs font-medium text-muted-foreground dark:text-gray-300 hover:border-primary dark:hover:border-blue-500 transition-colors cursor-pointer">
       {pattern}
     </div>
   );
@@ -1695,7 +1695,7 @@ function FieldTypeCard({ type, color, examples }: any) {
       </div>
       <ul className="space-y-1.5">
         {examples.map((example: string, idx: number) => (
-          <li key={idx} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-gray-300">
             <div className="w-1.5 h-1.5 bg-gray-600 rounded-full"></div>
             <span>{example}</span>
           </li>
@@ -1713,11 +1713,11 @@ function RejectionScenario({ issue, guidance, severity }: any) {
   };
 
   return (
-    <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg">
       <div className="flex-shrink-0 mt-0.5">{severityConfig[severity].icon}</div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-1">{issue}</div>
-        <div className="text-sm text-gray-700 dark:text-gray-300">{guidance}</div>
+        <div className="font-bold text-sm text-foreground dark:text-gray-100 mb-1">{issue}</div>
+        <div className="text-sm text-muted-foreground dark:text-gray-300">{guidance}</div>
       </div>
       <div className={`px-2 py-1 rounded text-xs font-bold ${severityConfig[severity].badge} flex-shrink-0`}>
         {severity.toUpperCase()}
@@ -1729,8 +1729,8 @@ function RejectionScenario({ issue, guidance, severity }: any) {
 function DecisionBlock({ question, answer }: any) {
   return (
     <div className="border-l-4 border-purple-600 pl-3">
-      <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-1">{question}</div>
-      <div className="text-xs text-gray-600 dark:text-gray-400">{answer}</div>
+      <div className="font-bold text-sm text-foreground dark:text-gray-100 mb-1">{question}</div>
+      <div className="text-xs text-muted-foreground dark:text-gray-400">{answer}</div>
     </div>
   );
 }
@@ -1738,24 +1738,24 @@ function DecisionBlock({ question, answer }: any) {
 function TimelineItem({ day, action }: any) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-16 flex-shrink-0 font-bold text-gray-900 dark:text-gray-100">{day}</div>
-      <div className="flex-1 text-gray-700 dark:text-gray-300">{action}</div>
+      <div className="w-16 flex-shrink-0 font-bold text-foreground dark:text-gray-100">{day}</div>
+      <div className="flex-1 text-muted-foreground dark:text-gray-300">{action}</div>
     </div>
   );
 }
 
 function EscalationLevel({ level, role, sla, description }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg">
-      <div className="w-16 h-16 bg-[#000080] text-white rounded flex items-center justify-center flex-shrink-0">
+    <div className="flex items-start gap-4 p-4 bg-background dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg">
+      <div className="w-16 h-16 bg-primary text-white rounded flex items-center justify-center flex-shrink-0">
         <div className="text-center">
           <div className="text-xs font-bold">LEVEL</div>
           <div className="text-xl font-bold">{level.slice(-1)}</div>
         </div>
       </div>
       <div className="flex-1">
-        <div className="font-bold text-gray-900 dark:text-gray-100 mb-1">{role}</div>
-        <div className="text-sm text-gray-700 dark:text-gray-300 mb-2">{description}</div>
+        <div className="font-bold text-foreground dark:text-gray-100 mb-1">{role}</div>
+        <div className="text-sm text-muted-foreground dark:text-gray-300 mb-2">{description}</div>
         <div className="inline-flex items-center gap-2 px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded text-xs font-bold">
           <Clock size={12} />
           <span>SLA: {sla}</span>
@@ -1768,10 +1768,10 @@ function EscalationLevel({ level, role, sla, description }: any) {
 function RequirementBlock({ title, items }: any) {
   return (
     <div>
-      <h4 className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-3">{title}</h4>
+      <h4 className="font-bold text-sm text-foreground dark:text-gray-100 mb-3">{title}</h4>
       <ul className="space-y-2">
         {items.map((item: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
             <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{item}</span>
           </li>
@@ -1783,11 +1783,11 @@ function RequirementBlock({ title, items }: any) {
 
 function TrainingModule({ title, items }: any) {
   return (
-    <div className="border-2 border-gray-300 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-900">
-      <h4 className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-3">{title}</h4>
+    <div className="border-2 border-border dark:border-gray-700 rounded-lg p-4 bg-card dark:bg-gray-900">
+      <h4 className="font-bold text-sm text-foreground dark:text-gray-100 mb-3">{title}</h4>
       <ul className="space-y-2">
         {items.map((item: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
             <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
             <span>{item}</span>
           </li>
@@ -1799,10 +1799,10 @@ function TrainingModule({ title, items }: any) {
 
 function ConsentMethod({ method, description, recommended }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded">
+    <div className="flex items-start gap-3 p-3 bg-card dark:bg-gray-900 border border-border dark:border-gray-700 rounded">
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-1">{method}</div>
-        <div className="text-xs text-gray-600 dark:text-gray-400">{description}</div>
+        <div className="font-bold text-sm text-foreground dark:text-gray-100 mb-1">{method}</div>
+        <div className="text-xs text-muted-foreground dark:text-gray-400">{description}</div>
       </div>
       {recommended && (
         <div className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded text-xs font-bold flex-shrink-0">
@@ -1829,7 +1829,7 @@ function StatusMessage({ status, message, color, icon }: any) {
       </div>
       <div className="flex-1">
         <div className={`font-bold text-sm mb-1 ${colorConfig[color].text}`}>{status}</div>
-        <div className="text-sm text-gray-700 dark:text-gray-300">{message}</div>
+        <div className="text-sm text-muted-foreground dark:text-gray-300">{message}</div>
       </div>
     </div>
   );
@@ -1838,10 +1838,10 @@ function StatusMessage({ status, message, color, icon }: any) {
 function OptimizationBlock({ title, strategies }: any) {
   return (
     <div>
-      <h4 className="font-bold text-sm text-gray-900 dark:text-gray-100 mb-3">{title}</h4>
+      <h4 className="font-bold text-sm text-foreground dark:text-gray-100 mb-3">{title}</h4>
       <ul className="space-y-2">
         {strategies.map((strategy: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
             <Zap size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
             <span>{strategy}</span>
           </li>

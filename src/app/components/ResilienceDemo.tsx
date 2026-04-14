@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { CheckCircle, XCircle, AlertCircle, WifiOff, RefreshCw, Clock, Save, Loader } from "lucide-react";
+import { CheckCircle, XCircle, AlertCircle, AlertTriangle, WifiOff, RefreshCw, Clock, Save, Loader } from "lucide-react";
 
 // ==================== AUTO-SAVE INDICATOR COMPONENT ====================
 
@@ -54,8 +54,8 @@ export function OfflineBanner({ visible, onSync }: { visible: boolean; onSync?: 
           <div className="flex items-center gap-3">
             <WifiOff size={20} className="text-orange-600" />
             <div>
-              <p className="font-bold text-gray-900 text-sm">You're offline</p>
-              <p className="text-xs text-gray-700">Your changes are being saved locally and will sync when you're back online.</p>
+              <p className="font-bold text-foreground text-sm">You're offline</p>
+              <p className="text-xs text-muted-foreground">Your changes are being saved locally and will sync when you're back online.</p>
             </div>
           </div>
           {onSync && (
@@ -89,15 +89,15 @@ export function ErrorBanner({ error, onRetry, onDismiss }: {
           <div className="flex items-start gap-3 flex-1">
             <AlertCircle size={20} className="text-red-600 mt-0.5 flex-shrink-0" />
             <div>
-              <p className="font-bold text-gray-900 text-sm mb-1">Error</p>
-              <p className="text-sm text-gray-700">{error.message}</p>
+              <p className="font-bold text-foreground text-sm mb-1">Error</p>
+              <p className="text-sm text-muted-foreground">{error.message}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
             {error.retryable && onRetry && (
               <button 
                 onClick={onRetry}
-                className="px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm hover:bg-[#000060]"
+                className="px-4 py-2 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
               >
                 <RefreshCw size={14} className="inline mr-2" />
                 Try Again
@@ -106,7 +106,7 @@ export function ErrorBanner({ error, onRetry, onDismiss }: {
             {onDismiss && (
               <button 
                 onClick={onDismiss}
-                className="px-4 py-2 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+                className="px-4 py-2 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
               >
                 Dismiss
               </button>
@@ -125,12 +125,12 @@ export function LoadingOverlay({ visible, message }: { visible: boolean; message
   
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
-        <Loader size={48} className="text-[#000080] mx-auto mb-4 animate-spin" />
-        <p className="text-lg font-bold text-gray-900 mb-2">
+      <div className="bg-card rounded-lg p-8 max-w-md mx-4 text-center">
+        <Loader size={48} className="text-primary mx-auto mb-4 animate-spin" />
+        <p className="text-lg font-bold text-foreground mb-2">
           {message || 'Processing...'}
         </p>
-        <p className="text-sm text-gray-600">Please wait a moment</p>
+        <p className="text-sm text-muted-foreground">Please wait a moment</p>
       </div>
     </div>
   );
@@ -150,7 +150,7 @@ export function RetryButton({ onClick, loading, attempts, maxAttempts }: {
     <button
       onClick={onClick}
       disabled={loading || !hasAttemptsLeft}
-      className="flex items-center gap-2 px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm hover:bg-[#000060] disabled:opacity-50 disabled:cursor-not-allowed"
+      className="flex items-center gap-2 px-4 py-2 bg-primary text-white font-bold rounded text-sm hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {loading ? (
         <>
@@ -183,31 +183,31 @@ export function TimeoutWarning({ visible, secondsRemaining, onExtend, onSignOut 
   
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-8 max-w-md mx-4 border-2 border-yellow-400">
+      <div className="bg-card rounded-lg p-8 max-w-md mx-4 border-2 border-yellow-400">
         <div className="text-center mb-6">
           <Clock size={48} className="text-yellow-600 mx-auto mb-3" />
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Session Expiring Soon</h3>
-          <p className="text-sm text-gray-700 mb-3">
+          <h3 className="text-xl font-bold text-foreground mb-2">Session Expiring Soon</h3>
+          <p className="text-sm text-muted-foreground mb-3">
             Your session will expire in
           </p>
           <p className="text-4xl font-bold text-red-600">
             {minutes}:{seconds.toString().padStart(2, '0')}
           </p>
         </div>
-        <div className="bg-yellow-50 border border-yellow-300 rounded p-4 mb-6 text-sm text-gray-700">
+        <div className="bg-yellow-50 border border-yellow-300 rounded p-4 mb-6 text-sm text-muted-foreground">
           <p className="mb-2"><strong>To protect your information</strong>, we'll sign you out if there's no activity.</p>
           <p>Click "Continue Session" to keep working.</p>
         </div>
         <div className="space-y-2">
           <button 
             onClick={onExtend}
-            className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-[#000060]"
+            className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90"
           >
             Continue Session
           </button>
           <button 
             onClick={onSignOut}
-            className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50"
+            className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background"
           >
             Sign Out Now
           </button>
@@ -242,7 +242,7 @@ export function NetworkStatusIndicator() {
       <div className="bg-orange-100 border-2 border-orange-400 rounded-lg px-4 py-3 shadow-lg">
         <div className="flex items-center gap-2">
           <WifiOff size={18} className="text-orange-600" />
-          <span className="font-bold text-sm text-gray-900">Offline</span>
+          <span className="font-bold text-sm text-foreground">Offline</span>
         </div>
       </div>
     </div>
@@ -264,8 +264,8 @@ export function PartialSuccessIndicator({ total, successful, failed, onRetryFail
       <div className="flex items-start gap-4">
         <AlertCircle size={24} className="text-yellow-600 flex-shrink-0" />
         <div className="flex-1">
-          <h4 className="font-bold text-gray-900 mb-2">Partial Success</h4>
-          <p className="text-sm text-gray-700 mb-3">
+          <h4 className="font-bold text-foreground mb-2">Partial Success</h4>
+          <p className="text-sm text-muted-foreground mb-3">
             {successful} of {total} items processed successfully. {failed} failed.
           </p>
           <div className="flex items-center gap-3 mb-4">
@@ -275,13 +275,13 @@ export function PartialSuccessIndicator({ total, successful, failed, onRetryFail
                 style={{ width: `${(successful / total) * 100}%` }}
               />
             </div>
-            <span className="text-xs font-bold text-gray-600">
+            <span className="text-xs font-bold text-muted-foreground">
               {Math.round((successful / total) * 100)}%
             </span>
           </div>
           <button
             onClick={onRetryFailed}
-            className="px-4 py-2 bg-[#000080] text-white font-bold rounded text-sm hover:bg-[#000060]"
+            className="px-4 py-2 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
           >
             <RefreshCw size={14} className="inline mr-2" />
             Retry Failed Items
@@ -300,15 +300,15 @@ export function SlowNetworkWarning({ onContinue, onCancel }: {
 }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-8 max-w-md mx-4">
+      <div className="bg-card rounded-lg p-8 max-w-md mx-4">
         <div className="text-center mb-6">
           <AlertTriangle size={48} className="text-yellow-600 mx-auto mb-3" />
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Slow Connection Detected</h3>
-          <p className="text-sm text-gray-700">
+          <h3 className="text-xl font-bold text-foreground mb-2">Slow Connection Detected</h3>
+          <p className="text-sm text-muted-foreground">
             You're on a slow network. Uploading large files may take longer than usual.
           </p>
         </div>
-        <div className="bg-blue-50 border border-blue-300 rounded p-4 mb-6 text-sm text-gray-700">
+        <div className="bg-blue-50 border border-blue-300 rounded p-4 mb-6 text-sm text-muted-foreground">
           <p className="mb-2"><strong>Recommendations:</strong></p>
           <ul className="list-disc ml-5 space-y-1">
             <li>Connect to Wi-Fi if available</li>
@@ -319,13 +319,13 @@ export function SlowNetworkWarning({ onContinue, onCancel }: {
         <div className="space-y-2">
           <button 
             onClick={onContinue}
-            className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-[#000060]"
+            className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90"
           >
             Continue Anyway
           </button>
           <button 
             onClick={onCancel}
-            className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50"
+            className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background"
           >
             Cancel
           </button>

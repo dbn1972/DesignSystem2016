@@ -124,13 +124,18 @@ export class UX4GSlider extends UX4GFormElement {
   }
 
   /**
-   * Set value
+   * Set value (numeric)
    */
-  set value(val: number) {
+  set value(val: number | string) {
     this.setAttribute('value', String(val));
   }
 
-  get value(): number {
+  get value(): string {
+    return this._value || '0';
+  }
+
+  /** Numeric convenience getter */
+  get numericValue(): number {
     return parseFloat(this._value || '0');
   }
 

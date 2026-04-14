@@ -3,31 +3,31 @@ import { Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft,
 
 export default function OTPVerificationPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link to="/patterns/identity" className="hover:text-[#000080]">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+            <Link to="/patterns/identity" className="hover:text-primary">
               Identity & Access Patterns
             </Link>
             <ChevronRight size={16} />
-            <span className="text-gray-900 font-medium">OTP Verification</span>
+            <span className="text-foreground font-medium">OTP Verification</span>
           </div>
 
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-16 h-16 bg-blue-100 border-2 border-blue-300 rounded flex items-center justify-center">
-                  <Hash size={32} className="text-[#000080]" />
+                  <Hash size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Identity & Access Pattern</div>
-                  <h1 className="text-3xl font-bold text-gray-900">OTP Verification (Parent Pattern)</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Identity & Access Pattern</div>
+                  <h1 className="text-3xl font-bold text-foreground">OTP Verification (Parent Pattern)</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Comprehensive parent pattern for One-Time Password verification used across sign-in, sign-up, 
                 account recovery, and transaction verification journeys. Defines shared OTP logic, UI states, 
                 validation rules, and accessibility requirements for all OTP implementations.
@@ -35,15 +35,15 @@ export default function OTPVerificationPattern() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-002-00</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002-00</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function OTPVerificationPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -78,7 +78,7 @@ export default function OTPVerificationPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -116,9 +116,9 @@ export default function OTPVerificationPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • OTP Verification Pattern</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -133,34 +133,34 @@ export default function OTPVerificationPattern() {
 function OverviewSection() {
   return (
     <section id="overview" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Pattern Overview</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Purpose */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Purpose</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Purpose</h3>
           </div>
           <div className="p-6">
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Provide a secure, accessible, and user-friendly method for verifying user identity or 
               authorizing sensitive actions using time-limited one-time passwords.
             </p>
             <div className="space-y-2">
-              <InfoItem icon={<Shield size={16} className="text-[#000080]" />} text="Verify user identity during sign-in/sign-up" />
-              <InfoItem icon={<Lock size={16} className="text-[#000080]" />} text="Authorize sensitive transactions" />
-              <InfoItem icon={<RefreshCw size={16} className="text-[#000080]" />} text="Enable secure account recovery" />
+              <InfoItem icon={<Shield size={16} className="text-primary" />} text="Verify user identity during sign-in/sign-up" />
+              <InfoItem icon={<Lock size={16} className="text-primary" />} text="Authorize sensitive transactions" />
+              <InfoItem icon={<RefreshCw size={16} className="text-primary" />} text="Enable secure account recovery" />
               <InfoItem icon={<CheckCircle size={16} className="text-green-600" />} text="Prevent unauthorized access" />
             </div>
           </div>
         </div>
 
         {/* User Goals */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">User Goals</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">User Goals</h3>
           </div>
           <div className="p-6 space-y-2">
             <GoalItem text="Receive OTP quickly and reliably" />
@@ -172,9 +172,9 @@ function OverviewSection() {
         </div>
 
         {/* When to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <Check size={18} className="text-green-600" />
               When to Use
             </h3>
@@ -190,9 +190,9 @@ function OverviewSection() {
         </div>
 
         {/* When Not to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When Not to Use
             </h3>
@@ -215,11 +215,11 @@ function OverviewSection() {
 function FlowDiagram() {
   return (
     <section id="flow" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">End-to-End Flow Diagram</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-8">
         <div className="space-y-4">
           <FlowStep 
             number={1}
@@ -292,37 +292,37 @@ function FlowDiagram() {
 function ExampleStates() {
   return (
     <section id="states" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Example States</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Example States</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Default State */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Default OTP Entry</h3>
+            <h3 className="font-bold text-foreground">Default OTP Entry</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-gray-300 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
-                <Hash size={40} className="text-[#000080] mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Enter OTP</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <Hash size={40} className="text-primary mx-auto mb-3" />
+                <h4 className="font-bold text-foreground mb-2">Enter OTP</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   We've sent a 6-digit code to<br/>
-                  <span className="font-bold text-gray-900">+91 ******* 123</span>
+                  <span className="font-bold text-foreground">+91 ******* 123</span>
                 </p>
               </div>
               <div className="flex gap-2 justify-center">
                 {[...Array(6)].map((_, i) => (
-                  <div key={i} className="w-12 h-12 border-2 border-gray-300 rounded bg-white"></div>
+                  <div key={i} className="w-12 h-12 border-2 border-border rounded bg-card"></div>
                 ))}
               </div>
-              <div className="text-center text-sm text-gray-600">
+              <div className="text-center text-sm text-muted-foreground">
                 <Clock size={14} className="inline mr-1" />
-                Code expires in <span className="font-bold text-gray-900">4:45</span>
+                Code expires in <span className="font-bold text-foreground">4:45</span>
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Ready for input</p>
               <p><strong>Timer:</strong> Counting down from 5:00</p>
               <p><strong>Resend:</strong> Disabled until 0:00</p>
@@ -331,34 +331,34 @@ function ExampleStates() {
         </div>
 
         {/* Incomplete OTP */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Incomplete OTP</h3>
+            <h3 className="font-bold text-foreground">Incomplete OTP</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-orange-300 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-orange-300 rounded p-6 space-y-4">
               <div className="text-center">
                 <Hash size={40} className="text-orange-600 mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Enter OTP</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Enter OTP</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   We've sent a 6-digit code to<br/>
-                  <span className="font-bold text-gray-900">+91 ******* 123</span>
+                  <span className="font-bold text-foreground">+91 ******* 123</span>
                 </p>
               </div>
               <div className="flex gap-2 justify-center">
-                <div className="w-12 h-12 border-2 border-orange-500 rounded bg-white flex items-center justify-center font-bold text-gray-900">1</div>
-                <div className="w-12 h-12 border-2 border-orange-500 rounded bg-white flex items-center justify-center font-bold text-gray-900">2</div>
-                <div className="w-12 h-12 border-2 border-orange-500 rounded bg-white flex items-center justify-center font-bold text-gray-900">3</div>
-                <div className="w-12 h-12 border-2 border-orange-500 rounded bg-white"></div>
-                <div className="w-12 h-12 border-2 border-gray-300 rounded bg-white"></div>
-                <div className="w-12 h-12 border-2 border-gray-300 rounded bg-white"></div>
+                <div className="w-12 h-12 border-2 border-orange-500 rounded bg-card flex items-center justify-center font-bold text-foreground">1</div>
+                <div className="w-12 h-12 border-2 border-orange-500 rounded bg-card flex items-center justify-center font-bold text-foreground">2</div>
+                <div className="w-12 h-12 border-2 border-orange-500 rounded bg-card flex items-center justify-center font-bold text-foreground">3</div>
+                <div className="w-12 h-12 border-2 border-orange-500 rounded bg-card"></div>
+                <div className="w-12 h-12 border-2 border-border rounded bg-card"></div>
+                <div className="w-12 h-12 border-2 border-border rounded bg-card"></div>
               </div>
               <div className="bg-orange-50 border border-orange-300 rounded p-3 text-sm text-orange-800">
                 <AlertCircle size={14} className="inline mr-2" />
                 Please enter all 6 digits
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Partial input (3 of 6 digits)</p>
               <p><strong>Validation:</strong> On submit attempt</p>
             </div>
@@ -366,16 +366,16 @@ function ExampleStates() {
         </div>
 
         {/* Invalid OTP */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Invalid OTP</h3>
+            <h3 className="font-bold text-foreground">Invalid OTP</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-red-400 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-red-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Incorrect OTP</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Incorrect OTP</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   The code you entered doesn't match.<br/>
                   Please try again.
                 </p>
@@ -390,7 +390,7 @@ function ExampleStates() {
                 Invalid code. 2 attempts remaining.
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Validation failed</p>
               <p><strong>Attempts:</strong> 1 of 3 used</p>
               <p><strong>Action:</strong> Clear fields, allow retry</p>
@@ -399,31 +399,31 @@ function ExampleStates() {
         </div>
 
         {/* Expired OTP */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Expired OTP</h3>
+            <h3 className="font-bold text-foreground">Expired OTP</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-yellow-400 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-yellow-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <Clock size={40} className="text-yellow-600 mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Code Expired</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Code Expired</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Your verification code has expired.<br/>
                   Please request a new one.
                 </p>
               </div>
               <div className="flex gap-2 justify-center">
                 {[...Array(6)].map((_, i) => (
-                  <div key={i} className="w-12 h-12 border-2 border-gray-300 rounded bg-gray-100 opacity-50"></div>
+                  <div key={i} className="w-12 h-12 border-2 border-border rounded bg-muted opacity-50"></div>
                 ))}
               </div>
-              <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-blue-900 flex items-center justify-center gap-2">
+              <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90 flex items-center justify-center gap-2">
                 <RefreshCw size={16} />
                 Resend OTP
               </button>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Time limit exceeded (5:00)</p>
               <p><strong>Action:</strong> Disable input, enable resend</p>
             </div>
@@ -431,35 +431,35 @@ function ExampleStates() {
         </div>
 
         {/* Resend OTP */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Resend OTP Available</h3>
+            <h3 className="font-bold text-foreground">Resend OTP Available</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-gray-300 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
-                <RefreshCw size={40} className="text-[#000080] mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Didn't receive code?</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <RefreshCw size={40} className="text-primary mx-auto mb-3" />
+                <h4 className="font-bold text-foreground mb-2">Didn't receive code?</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Check your messages or<br/>
                   request a new code
                 </p>
               </div>
               <div className="flex gap-2 justify-center opacity-50">
                 {[...Array(6)].map((_, i) => (
-                  <div key={i} className="w-12 h-12 border-2 border-gray-300 rounded bg-white"></div>
+                  <div key={i} className="w-12 h-12 border-2 border-border rounded bg-card"></div>
                 ))}
               </div>
               <div className="space-y-2">
-                <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-blue-900">
+                <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90">
                   Resend OTP
                 </button>
-                <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50">
+                <button className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background">
                   Change Mobile Number
                 </button>
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Resend enabled (timer at 0:00)</p>
               <p><strong>Options:</strong> Resend or change contact</p>
             </div>
@@ -467,30 +467,30 @@ function ExampleStates() {
         </div>
 
         {/* Attempts Exceeded */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-100 border-b-2 border-red-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Attempts Exceeded</h3>
+            <h3 className="font-bold text-foreground">Attempts Exceeded</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-red-500 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-red-500 rounded p-6 space-y-4">
               <div className="text-center">
                 <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Too Many Attempts</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Too Many Attempts</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   You've exceeded the maximum number<br/>
                   of verification attempts. Please wait.
                 </p>
               </div>
               <div className="bg-red-50 border-2 border-red-300 rounded p-4 text-sm">
                 <p className="text-red-800 font-bold mb-2">Account temporarily locked</p>
-                <p className="text-gray-700">Try again after <span className="font-bold">14 minutes</span></p>
+                <p className="text-muted-foreground">Try again after <span className="font-bold">14 minutes</span></p>
               </div>
-              <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50 flex items-center justify-center gap-2">
+              <button className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background flex items-center justify-center gap-2">
                 <HelpCircle size={16} />
                 Get Help
               </button>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Locked after 3 failed attempts</p>
               <p><strong>Cooldown:</strong> 15 minutes</p>
             </div>
@@ -498,18 +498,18 @@ function ExampleStates() {
         </div>
 
         {/* Success State */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Verification Success</h3>
+            <h3 className="font-bold text-foreground">Verification Success</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-green-400 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-green-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <CheckCircle size={40} className="text-green-600" />
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">Verified Successfully</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <h4 className="font-bold text-foreground mb-2">Verified Successfully</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Your identity has been confirmed.<br/>
                   Redirecting you now...
                 </p>
@@ -524,7 +524,7 @@ function ExampleStates() {
                 Proceeding to your account...
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Validation successful</p>
               <p><strong>Action:</strong> Auto-redirect in 2 seconds</p>
             </div>
@@ -532,16 +532,16 @@ function ExampleStates() {
         </div>
 
         {/* Change Number */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Change Contact Method</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Change Contact Method</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-gray-300 rounded p-6 space-y-4">
+            <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
-                <Smartphone size={40} className="text-[#000080] mx-auto mb-3" />
-                <h4 className="font-bold text-gray-900 mb-2">Update Mobile Number</h4>
-                <p className="text-sm text-gray-600 mb-4">
+                <Smartphone size={40} className="text-primary mx-auto mb-3" />
+                <h4 className="font-bold text-foreground mb-2">Update Mobile Number</h4>
+                <p className="text-sm text-muted-foreground mb-4">
                   Current: <span className="font-bold">+91 ******* 123</span><br/>
                   Enter new number to receive OTP
                 </p>
@@ -550,17 +550,17 @@ function ExampleStates() {
                 <input 
                   type="tel" 
                   placeholder="Enter 10-digit mobile number"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded text-center font-mono"
+                  className="w-full px-4 py-3 border-2 border-border rounded text-center font-mono"
                 />
-                <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded hover:bg-blue-900">
+                <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded hover:opacity-90">
                   Send OTP to New Number
                 </button>
-                <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded hover:bg-gray-50">
+                <button className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background">
                   Cancel
                 </button>
               </div>
             </div>
-            <div className="mt-4 text-xs text-gray-600 space-y-1">
+            <div className="mt-4 text-xs text-muted-foreground space-y-1">
               <p><strong>State:</strong> Contact change requested</p>
               <p><strong>Validation:</strong> New number must be valid</p>
             </div>
@@ -576,83 +576,83 @@ function ExampleStates() {
 function OTPPatterns() {
   return (
     <section id="patterns" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">OTP Input Patterns</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">OTP Input Patterns</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Single Field Pattern */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Single Field Pattern</h3>
+            <h3 className="font-bold text-foreground">Single Field Pattern</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-gray-300 rounded p-6 mb-4">
-              <label className="block text-sm font-bold text-gray-900 mb-2">Enter 6-digit OTP</label>
+            <div className="bg-background border-2 border-border rounded p-6 mb-4">
+              <label className="block text-sm font-bold text-foreground mb-2">Enter 6-digit OTP</label>
               <input 
                 type="text" 
                 maxLength={6}
                 placeholder="000000"
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded text-center font-mono text-2xl tracking-widest"
+                className="w-full px-4 py-3 border-2 border-border rounded text-center font-mono text-2xl tracking-widest"
               />
             </div>
             <div className="space-y-3 text-sm">
-              <h4 className="font-bold text-gray-900">Advantages</h4>
+              <h4 className="font-bold text-foreground">Advantages</h4>
               <div className="space-y-2">
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Simpler for screen readers" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Better paste behavior" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Easier keyboard navigation" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Less DOM complexity" />
               </div>
-              <h4 className="font-bold text-gray-900 mt-4">Recommended For</h4>
-              <p className="text-gray-700">Mobile-first applications, accessibility priority, simpler implementations</p>
+              <h4 className="font-bold text-foreground mt-4">Recommended For</h4>
+              <p className="text-muted-foreground">Mobile-first applications, accessibility priority, simpler implementations</p>
             </div>
           </div>
         </div>
 
         {/* Multi-Field Pattern */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Multi-Field Pattern (6 Inputs)</h3>
+            <h3 className="font-bold text-foreground">Multi-Field Pattern (6 Inputs)</h3>
           </div>
           <div className="p-6">
-            <div className="bg-gray-50 border-2 border-gray-300 rounded p-6 mb-4">
-              <label className="block text-sm font-bold text-gray-900 mb-2">Enter 6-digit OTP</label>
+            <div className="bg-background border-2 border-border rounded p-6 mb-4">
+              <label className="block text-sm font-bold text-foreground mb-2">Enter 6-digit OTP</label>
               <div className="flex gap-2 justify-center">
                 {[...Array(6)].map((_, i) => (
                   <input 
                     key={i}
                     type="text" 
                     maxLength={1}
-                    className="w-12 h-12 border-2 border-gray-300 rounded text-center font-bold text-xl"
+                    className="w-12 h-12 border-2 border-border rounded text-center font-bold text-xl"
                   />
                 ))}
               </div>
             </div>
             <div className="space-y-3 text-sm">
-              <h4 className="font-bold text-gray-900">Advantages</h4>
+              <h4 className="font-bold text-foreground">Advantages</h4>
               <div className="space-y-2">
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Visual clarity of progress" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Clear digit separation" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Familiar banking pattern" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Per-digit validation" />
               </div>
-              <h4 className="font-bold text-gray-900 mt-4">Recommended For</h4>
-              <p className="text-gray-700">Desktop applications, high-security contexts, traditional banking services</p>
+              <h4 className="font-bold text-foreground mt-4">Recommended For</h4>
+              <p className="text-muted-foreground">Desktop applications, high-security contexts, traditional banking services</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <Info size={20} className="text-[#000080]" />
+        <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+          <Info size={20} className="text-primary" />
           Pattern Selection Guidelines
         </h3>
         <div className="grid grid-cols-2 gap-6 text-sm">
           <div>
-            <p className="font-bold text-gray-900 mb-2">Use Single Field When:</p>
-            <ul className="space-y-1 text-gray-700">
+            <p className="font-bold text-foreground mb-2">Use Single Field When:</p>
+            <ul className="space-y-1 text-muted-foreground">
               <li>• Mobile is primary interface</li>
               <li>• Accessibility is critical</li>
               <li>• Auto-fill/paste is expected</li>
@@ -660,8 +660,8 @@ function OTPPatterns() {
             </ul>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-2">Use Multi-Field When:</p>
-            <ul className="space-y-1 text-gray-700">
+            <p className="font-bold text-foreground mb-2">Use Multi-Field When:</p>
+            <ul className="space-y-1 text-muted-foreground">
               <li>• Desktop is primary interface</li>
               <li>• Visual clarity is priority</li>
               <li>• Banking/financial context</li>
@@ -679,53 +679,53 @@ function OTPPatterns() {
 function ValidationLogic() {
   return (
     <section id="validation" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Validation Logic & Rules</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Validation Logic & Rules</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">OTP Generation Rules</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">OTP Generation Rules</h3>
         </div>
         <div className="p-6">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b-2 border-gray-300">
-                <th className="text-left py-3 px-4 font-bold text-gray-900">Parameter</th>
-                <th className="text-left py-3 px-4 font-bold text-gray-900">Specification</th>
-                <th className="text-left py-3 px-4 font-bold text-gray-900">Rationale</th>
+              <tr className="border-b-2 border-border">
+                <th className="text-left py-3 px-4 font-bold text-foreground">Parameter</th>
+                <th className="text-left py-3 px-4 font-bold text-foreground">Specification</th>
+                <th className="text-left py-3 px-4 font-bold text-foreground">Rationale</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Length</td>
-                <td className="py-3 px-4 text-gray-700">6 digits</td>
-                <td className="py-3 px-4 text-gray-700">Balance security & usability</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Length</td>
+                <td className="py-3 px-4 text-muted-foreground">6 digits</td>
+                <td className="py-3 px-4 text-muted-foreground">Balance security & usability</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Character Set</td>
-                <td className="py-3 px-4 text-gray-700">Numeric only (0-9)</td>
-                <td className="py-3 px-4 text-gray-700">Phone keypad compatibility</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Character Set</td>
+                <td className="py-3 px-4 text-muted-foreground">Numeric only (0-9)</td>
+                <td className="py-3 px-4 text-muted-foreground">Phone keypad compatibility</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Validity Period</td>
-                <td className="py-3 px-4 text-gray-700">5-10 minutes</td>
-                <td className="py-3 px-4 text-gray-700">Security vs. SMS delays</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Validity Period</td>
+                <td className="py-3 px-4 text-muted-foreground">5-10 minutes</td>
+                <td className="py-3 px-4 text-muted-foreground">Security vs. SMS delays</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Max Attempts</td>
-                <td className="py-3 px-4 text-gray-700">3 attempts</td>
-                <td className="py-3 px-4 text-gray-700">Prevent brute force</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Max Attempts</td>
+                <td className="py-3 px-4 text-muted-foreground">3 attempts</td>
+                <td className="py-3 px-4 text-muted-foreground">Prevent brute force</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Lockout Duration</td>
-                <td className="py-3 px-4 text-gray-700">15 minutes</td>
-                <td className="py-3 px-4 text-gray-700">Security timeout</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Lockout Duration</td>
+                <td className="py-3 px-4 text-muted-foreground">15 minutes</td>
+                <td className="py-3 px-4 text-muted-foreground">Security timeout</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-medium text-gray-900">Resend Cooldown</td>
-                <td className="py-3 px-4 text-gray-700">30 seconds</td>
-                <td className="py-3 px-4 text-gray-700">Prevent SMS spam</td>
+                <td className="py-3 px-4 font-medium text-foreground">Resend Cooldown</td>
+                <td className="py-3 px-4 text-muted-foreground">30 seconds</td>
+                <td className="py-3 px-4 text-muted-foreground">Prevent SMS spam</td>
               </tr>
             </tbody>
           </table>
@@ -734,9 +734,9 @@ function ValidationLogic() {
 
       <div className="grid grid-cols-2 gap-6">
         {/* Input Validation */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Input Validation</h3>
+            <h3 className="font-bold text-foreground">Input Validation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <ValidationRule 
@@ -763,9 +763,9 @@ function ValidationLogic() {
         </div>
 
         {/* Server Validation */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Server Validation</h3>
+            <h3 className="font-bold text-foreground">Server Validation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <ValidationRule 
@@ -793,25 +793,25 @@ function ValidationLogic() {
       </div>
 
       <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertCircle size={20} className="text-yellow-600" />
           Security Considerations
         </h3>
-        <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
+        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
-            <p className="font-bold text-gray-900 mb-1">Rate Limiting</p>
+            <p className="font-bold text-foreground mb-1">Rate Limiting</p>
             <p>Limit OTP requests to 3 per hour per contact</p>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-1">SMS Sender Verification</p>
+            <p className="font-bold text-foreground mb-1">SMS Sender Verification</p>
             <p>Use registered sender ID (e.g., "GOV-IN")</p>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-1">Browser Autocomplete</p>
+            <p className="font-bold text-foreground mb-1">Browser Autocomplete</p>
             <p>Use autocomplete="one-time-code" attribute</p>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-1">Code Masking</p>
+            <p className="font-bold text-foreground mb-1">Code Masking</p>
             <p>Optional: mask OTP after entry for privacy</p>
           </div>
         </div>
@@ -825,15 +825,15 @@ function ValidationLogic() {
 function ResendLogic() {
   return (
     <section id="resend" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Resend & Countdown Logic</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Resend & Countdown Logic</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Countdown Behavior */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Countdown Timer Behavior</h3>
+            <h3 className="font-bold text-foreground">Countdown Timer Behavior</h3>
           </div>
           <div className="p-6 space-y-4">
             <div className="text-sm space-y-3">
@@ -866,9 +866,9 @@ function ResendLogic() {
         </div>
 
         {/* Resend Flow */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Resend Flow & Messaging</h3>
+            <h3 className="font-bold text-foreground">Resend Flow & Messaging</h3>
           </div>
           <div className="p-6 space-y-4">
             <div className="text-sm space-y-3">
@@ -907,45 +907,45 @@ function ResendLogic() {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Resend Button States & Messaging</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Resend Button States & Messaging</h3>
         </div>
         <div className="p-6">
           <div className="grid grid-cols-3 gap-4">
             {/* Disabled State */}
-            <div className="bg-gray-50 border-2 border-gray-300 rounded p-4 text-center">
+            <div className="bg-background border-2 border-border rounded p-4 text-center">
               <button className="w-full px-4 py-2 bg-gray-300 text-gray-500 font-bold rounded cursor-not-allowed mb-2">
                 Resend OTP
               </button>
-              <p className="text-xs text-gray-600">Available in 0:23</p>
-              <div className="mt-2 pt-2 border-t border-gray-300">
-                <p className="text-xs text-gray-700"><strong>State:</strong> Disabled</p>
-                <p className="text-xs text-gray-700"><strong>Timer:</strong> Counting down</p>
+              <p className="text-xs text-muted-foreground">Available in 0:23</p>
+              <div className="mt-2 pt-2 border-t border-border">
+                <p className="text-xs text-muted-foreground"><strong>State:</strong> Disabled</p>
+                <p className="text-xs text-muted-foreground"><strong>Timer:</strong> Counting down</p>
               </div>
             </div>
 
             {/* Enabled State */}
-            <div className="bg-gray-50 border-2 border-blue-300 rounded p-4 text-center">
-              <button className="w-full px-4 py-2 bg-[#000080] text-white font-bold rounded hover:bg-blue-900 mb-2">
+            <div className="bg-background border-2 border-blue-300 rounded p-4 text-center">
+              <button className="w-full px-4 py-2 bg-primary text-white font-bold rounded hover:opacity-90 mb-2">
                 Resend OTP
               </button>
-              <p className="text-xs text-gray-600">Didn't receive code?</p>
-              <div className="mt-2 pt-2 border-t border-gray-300">
-                <p className="text-xs text-gray-700"><strong>State:</strong> Enabled</p>
-                <p className="text-xs text-gray-700"><strong>Timer:</strong> Expired (0:00)</p>
+              <p className="text-xs text-muted-foreground">Didn't receive code?</p>
+              <div className="mt-2 pt-2 border-t border-border">
+                <p className="text-xs text-muted-foreground"><strong>State:</strong> Enabled</p>
+                <p className="text-xs text-muted-foreground"><strong>Timer:</strong> Expired (0:00)</p>
               </div>
             </div>
 
             {/* Success State */}
-            <div className="bg-gray-50 border-2 border-green-300 rounded p-4 text-center">
+            <div className="bg-background border-2 border-green-300 rounded p-4 text-center">
               <button className="w-full px-4 py-2 bg-gray-300 text-gray-500 font-bold rounded cursor-not-allowed mb-2">
                 Resend OTP
               </button>
               <p className="text-xs text-green-700"><CheckCircle size={12} className="inline mr-1" />New code sent!</p>
-              <div className="mt-2 pt-2 border-t border-gray-300">
-                <p className="text-xs text-gray-700"><strong>State:</strong> Just sent</p>
-                <p className="text-xs text-gray-700"><strong>Timer:</strong> Reset to 5:00</p>
+              <div className="mt-2 pt-2 border-t border-border">
+                <p className="text-xs text-muted-foreground"><strong>State:</strong> Just sent</p>
+                <p className="text-xs text-muted-foreground"><strong>Timer:</strong> Reset to 5:00</p>
               </div>
             </div>
           </div>
@@ -953,11 +953,11 @@ function ResendLogic() {
       </div>
 
       <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-orange-600" />
           Accessibility Considerations for Timers
         </h3>
-        <div className="space-y-2 text-sm text-gray-700">
+        <div className="space-y-2 text-sm text-muted-foreground">
           <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Use aria-live='polite' for timer updates (announce every 30 seconds, not every second)" />
           <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Provide visible and audible alerts when timer reaches critical thresholds (30s, 10s)" />
           <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Ensure resend button is keyboard accessible and has clear focus states" />
@@ -974,15 +974,15 @@ function ResendLogic() {
 function AccessibilitySection() {
   return (
     <section id="accessibility" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Accessibility Guidelines</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Accessibility Guidelines</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Keyboard Behavior */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Keyboard Behavior</h3>
+            <h3 className="font-bold text-foreground">Keyboard Behavior</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem 
@@ -1013,9 +1013,9 @@ function AccessibilitySection() {
         </div>
 
         {/* Screen Reader Support */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Screen Reader Considerations</h3>
+            <h3 className="font-bold text-foreground">Screen Reader Considerations</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem 
@@ -1046,9 +1046,9 @@ function AccessibilitySection() {
         </div>
 
         {/* Paste Behavior */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Paste Behavior</h3>
+            <h3 className="font-bold text-foreground">Paste Behavior</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem 
@@ -1075,9 +1075,9 @@ function AccessibilitySection() {
         </div>
 
         {/* Focus Management */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Focus Management</h3>
+            <h3 className="font-bold text-foreground">Focus Management</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem 
@@ -1104,9 +1104,9 @@ function AccessibilitySection() {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">WCAG 2.1 AA Compliance Checklist</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">WCAG 2.1 AA Compliance Checklist</h3>
         </div>
         <div className="p-6">
           <div className="grid grid-cols-2 gap-4 text-sm">
@@ -1134,13 +1134,13 @@ function AccessibilitySection() {
 function ImplementationSection() {
   return (
     <section id="implementation" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Implementation Notes</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Implementation Notes</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Technical Requirements</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Technical Requirements</h3>
         </div>
         <div className="p-6 space-y-4 text-sm">
           <ImplementationItem 
@@ -1191,9 +1191,9 @@ function ImplementationSection() {
       </div>
 
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Code Example: HTML Structure</h3>
+            <h3 className="font-bold text-foreground">Code Example: HTML Structure</h3>
           </div>
           <div className="p-6">
             <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
@@ -1225,9 +1225,9 @@ function ImplementationSection() {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Code Example: JavaScript Logic</h3>
+            <h3 className="font-bold text-foreground">Code Example: JavaScript Logic</h3>
           </div>
           <div className="p-6">
             <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
@@ -1274,14 +1274,14 @@ input.addEventListener('paste', (e) => {
 function GovernanceSection() {
   return (
     <section id="governance" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Governance & Lifecycle</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Governance & Lifecycle</h2>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Lifecycle Status</h3>
+            <h3 className="font-bold text-foreground">Lifecycle Status</h3>
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
@@ -1290,17 +1290,17 @@ function GovernanceSection() {
               </div>
             </div>
             <div className="text-sm space-y-2">
-              <p className="text-gray-700"><strong>Version:</strong> 1.0.0</p>
-              <p className="text-gray-700"><strong>Released:</strong> April 2026</p>
-              <p className="text-gray-700"><strong>Last Updated:</strong> April 2026</p>
-              <p className="text-gray-700"><strong>Next Review:</strong> October 2026</p>
+              <p className="text-muted-foreground"><strong>Version:</strong> 1.0.0</p>
+              <p className="text-muted-foreground"><strong>Released:</strong> April 2026</p>
+              <p className="text-muted-foreground"><strong>Last Updated:</strong> April 2026</p>
+              <p className="text-muted-foreground"><strong>Next Review:</strong> October 2026</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Conformance Level</h3>
+            <h3 className="font-bold text-foreground">Conformance Level</h3>
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
@@ -1308,9 +1308,9 @@ function GovernanceSection() {
                 MANDATORY
               </div>
             </div>
-            <div className="text-sm space-y-2 text-gray-700">
+            <div className="text-sm space-y-2 text-muted-foreground">
               <p>All government digital services using OTP verification MUST follow this pattern.</p>
-              <p className="font-bold text-gray-900 mt-3">Compliance Required For:</p>
+              <p className="font-bold text-foreground mt-3">Compliance Required For:</p>
               <ul className="space-y-1 ml-4">
                 <li>• Citizen-facing services</li>
                 <li>• Authentication flows</li>
@@ -1320,36 +1320,36 @@ function GovernanceSection() {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Pattern Owner</h3>
+            <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
             <div>
-              <p className="font-bold text-gray-900">Team:</p>
-              <p className="text-gray-700">Identity & Access Team</p>
+              <p className="font-bold text-foreground">Team:</p>
+              <p className="text-muted-foreground">Identity & Access Team</p>
             </div>
             <div>
-              <p className="font-bold text-gray-900">Contact:</p>
-              <p className="text-gray-700">identity@ux4g.gov.in</p>
+              <p className="font-bold text-foreground">Contact:</p>
+              <p className="text-muted-foreground">identity@ux4g.gov.in</p>
             </div>
             <div>
-              <p className="font-bold text-gray-900">Support Hours:</p>
-              <p className="text-gray-700">Mon-Fri, 9 AM - 6 PM IST</p>
+              <p className="font-bold text-foreground">Support Hours:</p>
+              <p className="text-muted-foreground">Mon-Fri, 9 AM - 6 PM IST</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Support & Escalation</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Support & Escalation</h3>
         </div>
         <div className="p-6">
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-bold text-gray-900 mb-3">Implementation Questions</h4>
-              <div className="space-y-2 text-gray-700">
+              <h4 className="font-bold text-foreground mb-3">Implementation Questions</h4>
+              <div className="space-y-2 text-muted-foreground">
                 <p><strong>Email:</strong> support@ux4g.gov.in</p>
                 <p><strong>Slack:</strong> #ux4g-identity-patterns</p>
                 <p><strong>Documentation:</strong> docs.ux4g.gov.in/otp</p>
@@ -1357,8 +1357,8 @@ function GovernanceSection() {
               </div>
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-3">Compliance Issues</h4>
-              <div className="space-y-2 text-gray-700">
+              <h4 className="font-bold text-foreground mb-3">Compliance Issues</h4>
+              <div className="space-y-2 text-muted-foreground">
                 <p><strong>Email:</strong> compliance@ux4g.gov.in</p>
                 <p><strong>Escalation:</strong> UX4G Governance Board</p>
                 <p><strong>Audit Request:</strong> audit@ux4g.gov.in</p>
@@ -1370,21 +1370,21 @@ function GovernanceSection() {
       </div>
 
       <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Planned Updates & Roadmap
         </h3>
-        <div className="space-y-3 text-sm text-gray-700">
+        <div className="space-y-3 text-sm text-muted-foreground">
           <div>
-            <p className="font-bold text-gray-900">Q3 2026: Mobile-first enhancements</p>
+            <p className="font-bold text-foreground">Q3 2026: Mobile-first enhancements</p>
             <p>Biometric OTP confirmation, improved SMS auto-read</p>
           </div>
           <div>
-            <p className="font-bold text-gray-900">Q4 2026: Multilingual support</p>
+            <p className="font-bold text-foreground">Q4 2026: Multilingual support</p>
             <p>OTP messages in 22 official Indian languages</p>
           </div>
           <div>
-            <p className="font-bold text-gray-900">Q1 2027: Advanced security</p>
+            <p className="font-bold text-foreground">Q1 2027: Advanced security</p>
             <p>Device fingerprinting, behavioral analytics</p>
           </div>
         </div>
@@ -1397,38 +1397,38 @@ function GovernanceSection() {
 
 function QuickReference() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
         <div>
-          <p className="font-bold text-gray-900 mb-1">OTP Length</p>
-          <p className="text-gray-700">6 digits (numeric only)</p>
+          <p className="font-bold text-foreground mb-1">OTP Length</p>
+          <p className="text-muted-foreground">6 digits (numeric only)</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Validity Period</p>
-          <p className="text-gray-700">5-10 minutes</p>
+          <p className="font-bold text-foreground mb-1">Validity Period</p>
+          <p className="text-muted-foreground">5-10 minutes</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Max Attempts</p>
-          <p className="text-gray-700">3 attempts per OTP</p>
+          <p className="font-bold text-foreground mb-1">Max Attempts</p>
+          <p className="text-muted-foreground">3 attempts per OTP</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Lockout Duration</p>
-          <p className="text-gray-700">15 minutes after failures</p>
+          <p className="font-bold text-foreground mb-1">Lockout Duration</p>
+          <p className="text-muted-foreground">15 minutes after failures</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Resend Cooldown</p>
-          <p className="text-gray-700">30 seconds between requests</p>
+          <p className="font-bold text-foreground mb-1">Resend Cooldown</p>
+          <p className="text-muted-foreground">30 seconds between requests</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Input Mode</p>
-          <p className="text-gray-700">inputmode="numeric"</p>
+          <p className="font-bold text-foreground mb-1">Input Mode</p>
+          <p className="text-muted-foreground">inputmode="numeric"</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Autocomplete</p>
-          <p className="text-gray-700">autocomplete="one-time-code"</p>
+          <p className="font-bold text-foreground mb-1">Autocomplete</p>
+          <p className="text-muted-foreground">autocomplete="one-time-code"</p>
         </div>
       </div>
     </div>
@@ -1437,30 +1437,30 @@ function QuickReference() {
 
 function ChildPatterns() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Child Patterns</h3>
+        <h3 className="font-bold text-foreground text-sm">Child Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <Link 
           to="/patterns/identity/mobile-otp"
-          className="block p-3 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
-            <Smartphone size={16} className="text-[#000080]" />
-            <span className="font-bold text-sm text-gray-900">Mobile OTP</span>
+            <Smartphone size={16} className="text-primary" />
+            <span className="font-bold text-sm text-foreground">Mobile OTP</span>
           </div>
-          <p className="text-xs text-gray-600">SMS-based verification</p>
+          <p className="text-xs text-muted-foreground">SMS-based verification</p>
         </Link>
         <Link 
           to="/patterns/identity/otp-verification"
-          className="block p-3 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
-            <Mail size={16} className="text-[#000080]" />
-            <span className="font-bold text-sm text-gray-900">Email OTP</span>
+            <Mail size={16} className="text-primary" />
+            <span className="font-bold text-sm text-foreground">Email OTP</span>
           </div>
-          <p className="text-xs text-gray-600">Email-based verification</p>
+          <p className="text-xs text-muted-foreground">Email-based verification</p>
         </Link>
       </div>
     </div>
@@ -1469,9 +1469,9 @@ function ChildPatterns() {
 
 function RelatedPatterns() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <RelatedPatternLink to="/patterns/identity/sign-up" text="Sign Up Pattern" />
@@ -1486,9 +1486,9 @@ function RelatedPatterns() {
 
 function Resources() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Resources</h3>
+        <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <ResourceLink icon={<FileText size={14} />} text="SMS Gateway Guidelines" />
@@ -1507,7 +1507,7 @@ function InfoItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-2">
       {icon}
-      <span className="text-xs text-gray-700 flex-1">{text}</span>
+      <span className="text-xs text-muted-foreground flex-1">{text}</span>
     </div>
   );
 }
@@ -1516,7 +1516,7 @@ function GoalItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <CheckCircle size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
-      <span className="text-sm text-gray-700">{text}</span>
+      <span className="text-sm text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1525,7 +1525,7 @@ function WhenItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <ChevronRight size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1534,7 +1534,7 @@ function WhenNotItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <ChevronRight size={14} className="text-red-600 flex-shrink-0 mt-0.5" />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1549,27 +1549,27 @@ function FlowStep({ number, title, description, state, branches, variant }: {
 }) {
   const bgColor = variant === 'success' ? 'bg-green-50' : 
                   variant === 'error' ? 'bg-red-50' :
-                  variant === 'warning' ? 'bg-orange-50' : 'bg-gray-50';
+                  variant === 'warning' ? 'bg-orange-50' : 'bg-background';
   const borderColor = variant === 'success' ? 'border-green-300' : 
                       variant === 'error' ? 'border-red-300' :
-                      variant === 'warning' ? 'border-orange-300' : 'border-gray-300';
+                      variant === 'warning' ? 'border-orange-300' : 'border-border';
   
   return (
     <div className={`${bgColor} border-2 ${borderColor} rounded-lg p-4`}>
       <div className="flex items-start gap-4">
-        <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
+        <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
           {number}
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-gray-900">{title}</h4>
-            <span className="text-xs font-bold text-gray-600 px-2 py-1 bg-white border border-gray-300 rounded">
+            <h4 className="font-bold text-foreground">{title}</h4>
+            <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
           </div>
-          <p className="text-sm text-gray-700">{description}</p>
+          <p className="text-sm text-muted-foreground">{description}</p>
           {branches && (
-            <div className="mt-2 text-xs text-gray-600 flex items-center gap-2">
+            <div className="mt-2 text-xs text-muted-foreground flex items-center gap-2">
               <ArrowRight size={14} />
               <span>Branches to success or error path</span>
             </div>
@@ -1582,10 +1582,10 @@ function FlowStep({ number, title, description, state, branches, variant }: {
 
 function ValidationRule({ rule, description, timing }: { rule: string; description: string; timing: string }) {
   return (
-    <div className="bg-white border border-gray-300 rounded p-3">
-      <p className="font-bold text-gray-900 mb-1">{rule}</p>
-      <p className="text-gray-700 mb-2">{description}</p>
-      <p className="text-xs text-gray-600">
+    <div className="bg-card border border-border rounded p-3">
+      <p className="font-bold text-foreground mb-1">{rule}</p>
+      <p className="text-muted-foreground mb-2">{description}</p>
+      <p className="text-xs text-muted-foreground">
         <Clock size={12} className="inline mr-1" />
         <span className="font-bold">Timing:</span> {timing}
       </p>
@@ -1595,13 +1595,13 @@ function ValidationRule({ rule, description, timing }: { rule: string; descripti
 
 function TimerState({ time, state, display, action }: { time: string; state: string; display: string; action: string }) {
   return (
-    <div className="bg-white border border-gray-300 rounded p-3">
+    <div className="bg-card border border-border rounded p-3">
       <div className="flex items-center justify-between mb-2">
-        <span className="font-bold text-gray-900 font-mono">{time}</span>
-        <span className="text-xs font-bold text-gray-600 px-2 py-1 bg-gray-100 rounded">{state}</span>
+        <span className="font-bold text-foreground font-mono">{time}</span>
+        <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-muted rounded">{state}</span>
       </div>
-      <p className="text-gray-700 mb-1 text-xs">{display}</p>
-      <p className="text-gray-600 text-xs">
+      <p className="text-muted-foreground mb-1 text-xs">{display}</p>
+      <p className="text-muted-foreground text-xs">
         <ArrowRight size={10} className="inline mr-1" />
         {action}
       </p>
@@ -1612,12 +1612,12 @@ function TimerState({ time, state, display, action }: { time: string; state: str
 function ResendStep({ step, action, result }: { step: string; action: string; result: string }) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-6 h-6 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs">
+      <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs">
         {step}
       </div>
       <div>
-        <p className="font-bold text-gray-900 text-xs">{action}</p>
-        <p className="text-gray-600 text-xs">{result}</p>
+        <p className="font-bold text-foreground text-xs">{action}</p>
+        <p className="text-muted-foreground text-xs">{result}</p>
       </div>
     </div>
   );
@@ -1626,8 +1626,8 @@ function ResendStep({ step, action, result }: { step: string; action: string; re
 function AccessibilityItem({ label, description }: { label: string; description: string }) {
   return (
     <div>
-      <p className="font-bold text-gray-900 mb-1">{label}</p>
-      <p className="text-gray-700">{description}</p>
+      <p className="font-bold text-foreground mb-1">{label}</p>
+      <p className="text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -1637,12 +1637,12 @@ function ComplianceItem({ criterion, status, note }: { criterion: string; status
   const statusIcon = status === 'pass' ? <CheckCircle size={14} /> : status === 'partial' ? <AlertCircle size={14} /> : <XCircle size={14} />;
   
   return (
-    <div className="bg-gray-50 border border-gray-300 rounded p-3">
+    <div className="bg-background border border-border rounded p-3">
       <div className="flex items-center gap-2 mb-1">
         <span className={statusColor}>{statusIcon}</span>
-        <span className="font-bold text-gray-900 text-xs">{criterion}</span>
+        <span className="font-bold text-foreground text-xs">{criterion}</span>
       </div>
-      <p className="text-gray-600 text-xs">{note}</p>
+      <p className="text-muted-foreground text-xs">{note}</p>
     </div>
   );
 }
@@ -1650,11 +1650,11 @@ function ComplianceItem({ criterion, status, note }: { criterion: string; status
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-gray-900 mb-2">{category}</h4>
+      <h4 className="font-bold text-foreground mb-2">{category}</h4>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
-          <li key={index} className="text-gray-700 flex items-start gap-2">
-            <span className="text-[#000080] font-bold">•</span>
+          <li key={index} className="text-muted-foreground flex items-start gap-2">
+            <span className="text-primary font-bold">•</span>
             <span>{req}</span>
           </li>
         ))}
@@ -1665,10 +1665,10 @@ function ImplementationItem({ category, requirements }: { category: string; requ
 
 function RelatedPatternLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="block p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
-        <ArrowRight size={12} className="text-[#000080]" />
-        <span className="text-gray-900">{text}</span>
+        <ArrowRight size={12} className="text-primary" />
+        <span className="text-foreground">{text}</span>
       </div>
     </Link>
   );
@@ -1676,8 +1676,8 @@ function RelatedPatternLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-gray-900">
-      <span className="text-[#000080]">{icon}</span>
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+      <span className="text-primary">{icon}</span>
       <span>{text}</span>
     </a>
   );

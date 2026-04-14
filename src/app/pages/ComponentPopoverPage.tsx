@@ -120,18 +120,18 @@ const PopoverPreview = ({
   };
 
   const getArrowClasses = () => {
-    const baseClasses = 'absolute w-3 h-3 bg-white border transform rotate-45';
+    const baseClasses = 'absolute w-3 h-3 bg-card border transform rotate-45';
     switch (placement) {
       case 'top':
-        return baseClasses + ' bottom-[-6px] left-1/2 -translate-x-1/2 border-t-0 border-l-0 border-gray-300';
+        return baseClasses + ' bottom-[-6px] left-1/2 -translate-x-1/2 border-t-0 border-l-0 border-border';
       case 'bottom':
-        return baseClasses + ' top-[-6px] left-1/2 -translate-x-1/2 border-b-0 border-r-0 border-gray-300';
+        return baseClasses + ' top-[-6px] left-1/2 -translate-x-1/2 border-b-0 border-r-0 border-border';
       case 'left':
-        return baseClasses + ' right-[-6px] top-1/2 -translate-y-1/2 border-l-0 border-b-0 border-gray-300';
+        return baseClasses + ' right-[-6px] top-1/2 -translate-y-1/2 border-l-0 border-b-0 border-border';
       case 'right':
-        return baseClasses + ' left-[-6px] top-1/2 -translate-y-1/2 border-r-0 border-t-0 border-gray-300';
+        return baseClasses + ' left-[-6px] top-1/2 -translate-y-1/2 border-r-0 border-t-0 border-border';
       default:
-        return baseClasses + ' top-[-6px] left-1/2 -translate-x-1/2 border-b-0 border-r-0 border-gray-300';
+        return baseClasses + ' top-[-6px] left-1/2 -translate-x-1/2 border-b-0 border-r-0 border-border';
     }
   };
 
@@ -162,18 +162,18 @@ const PopoverPreview = ({
           onMouseEnter={trigger === 'hover' ? handleMouseEnter : undefined}
           onMouseLeave={trigger === 'hover' ? handleMouseLeave : undefined}
         >
-          <div className="bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
+          <div className="bg-card border border-border rounded-lg shadow-lg overflow-hidden">
             {showArrow && <div className={getArrowClasses()} />}
             {closeButton && (
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] rounded"
+                className="absolute top-2 right-2 p-1 text-gray-500 hover:text-muted-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] rounded"
                 aria-label="Close popover"
               >
                 <X size={16} />
               </button>
             )}
-            <div className="relative z-10 bg-white">
+            <div className="relative z-10 bg-card">
               {content}
             </div>
           </div>
@@ -188,9 +188,9 @@ const ButtonTrigger = ({ children, variant = 'primary', size = 'md', ...props }:
   <button
     className={'inline-flex items-center justify-center gap-2 rounded border font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ' + (
       variant === 'primary' ? 'bg-[#005196] text-white border-[#005196] hover:bg-[#004178]' :
-      variant === 'secondary' ? 'bg-white text-[#005196] border-[#005196] hover:bg-[#f5f5f5]' :
+      variant === 'secondary' ? 'bg-card text-[#005196] border-[#005196] hover:bg-[#f5f5f5]' :
       variant === 'tertiary' ? 'bg-transparent text-[#005196] border-transparent hover:bg-[#f5f5f5]' :
-      'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+      'bg-card text-muted-foreground border-border hover:bg-background'
     ) + ' ' + (
       size === 'sm' ? 'h-8 px-3 text-sm' :
       size === 'lg' ? 'h-12 px-6 text-lg' :
@@ -301,15 +301,15 @@ export default function ComponentPopoverPage() {
         {
           title: 'Basic Popover',
           description: 'Simple click-triggered popover with basic content and arrow indicator.',
-          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { Info } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      content={\n        <div className="p-4">\n          <h4 className="font-semibold text-gray-900 mb-2">\n            Additional Information\n          </h4>\n          <p className="text-sm text-gray-600">\n            This is a basic popover with helpful information for the user.\n            Click outside to close.\n          </p>\n        </div>\n      }\n    >\n      <button className="inline-flex items-center gap-2 px-4 py-2 bg-[#005196] text-white rounded hover:bg-[#004178]">\n        <Info size={16} />\n        Show Info\n      </button>\n    </Popover>\n  );\n}',
+          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { Info } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      content={\n        <div className="p-4">\n          <h4 className="font-semibold text-foreground mb-2">\n            Additional Information\n          </h4>\n          <p className="text-sm text-muted-foreground">\n            This is a basic popover with helpful information for the user.\n            Click outside to close.\n          </p>\n        </div>\n      }\n    >\n      <button className="inline-flex items-center gap-2 px-4 py-2 bg-[#005196] text-white rounded hover:bg-[#004178]">\n        <Info size={16} />\n        Show Info\n      </button>\n    </Popover>\n  );\n}',
           preview: (
             <PopoverPreview
               content={
                 <div className="p-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="font-semibold text-foreground mb-2">
                     Additional Information
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     This is a basic popover with helpful information for the user. Click outside to close.
                   </p>
                 </div>
@@ -325,24 +325,24 @@ export default function ComponentPopoverPage() {
         {
           title: 'Popover with Form',
           description: 'Interactive popover containing a form for quick data entry without page navigation.',
-          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { Settings } from \'lucide-react\';\n\nfunction Example() {\n  const [email, setEmail] = React.useState(\'\');\n  const [notifications, setNotifications] = React.useState(true);\n  \n  return (\n    <Popover\n      size="md"\n      closeButton\n      content={\n        <div className="p-4">\n          <h4 className="font-semibold text-gray-900 mb-4">\n            Quick Settings\n          </h4>\n          <div className="space-y-4">\n            <div>\n              <label className="block text-sm font-medium text-gray-700 mb-1">\n                Email Address\n              </label>\n              <input\n                type="email"\n                value={email}\n                onChange={(e) => setEmail(e.target.value)}\n                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"\n                placeholder="your@email.com"\n              />\n            </div>\n            <div className="flex items-center">\n              <input\n                type="checkbox"\n                id="notifications"\n                checked={notifications}\n                onChange={(e) => setNotifications(e.target.checked)}\n                className="mr-2"\n              />\n              <label htmlFor="notifications" className="text-sm text-gray-700">\n                Enable notifications\n              </label>\n            </div>\n            <button className="w-full px-4 py-2 bg-[#005196] text-white rounded hover:bg-[#004178]">\n              Save Settings\n            </button>\n          </div>\n        </div>\n      }\n    >\n      <button className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded hover:bg-gray-50">\n        <Settings size={16} />\n        Settings\n      </button>\n    </Popover>\n  );\n}',
+          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { Settings } from \'lucide-react\';\n\nfunction Example() {\n  const [email, setEmail] = React.useState(\'\');\n  const [notifications, setNotifications] = React.useState(true);\n  \n  return (\n    <Popover\n      size="md"\n      closeButton\n      content={\n        <div className="p-4">\n          <h4 className="font-semibold text-foreground mb-4">\n            Quick Settings\n          </h4>\n          <div className="space-y-4">\n            <div>\n              <label className="block text-sm font-medium text-muted-foreground mb-1">\n                Email Address\n              </label>\n              <input\n                type="email"\n                value={email}\n                onChange={(e) => setEmail(e.target.value)}\n                className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"\n                placeholder="your@email.com"\n              />\n            </div>\n            <div className="flex items-center">\n              <input\n                type="checkbox"\n                id="notifications"\n                checked={notifications}\n                onChange={(e) => setNotifications(e.target.checked)}\n                className="mr-2"\n              />\n              <label htmlFor="notifications" className="text-sm text-muted-foreground">\n                Enable notifications\n              </label>\n            </div>\n            <button className="w-full px-4 py-2 bg-[#005196] text-white rounded hover:bg-[#004178]">\n              Save Settings\n            </button>\n          </div>\n        </div>\n      }\n    >\n      <button className="inline-flex items-center gap-2 px-4 py-2 bg-card text-muted-foreground border border-border rounded hover:bg-background">\n        <Settings size={16} />\n        Settings\n      </button>\n    </Popover>\n  );\n}',
           preview: (
             <PopoverPreview
               size="md"
               closeButton
               content={
                 <div className="p-4">
-                  <h4 className="font-semibold text-gray-900 mb-4">Quick Settings</h4>
+                  <h4 className="font-semibold text-foreground mb-4">Quick Settings</h4>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-muted-foreground mb-1">
                         Email Address
                       </label>
                       <input
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
+                        className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -354,7 +354,7 @@ export default function ComponentPopoverPage() {
                         onChange={(e) => setFormData({ ...formData, notifications: e.target.checked })}
                         className="mr-2"
                       />
-                      <label htmlFor="notifications-preview" className="text-sm text-gray-700">
+                      <label htmlFor="notifications-preview" className="text-sm text-muted-foreground">
                         Enable notifications
                       </label>
                     </div>
@@ -375,20 +375,20 @@ export default function ComponentPopoverPage() {
         {
           title: 'Help Popover (Hover)',
           description: 'Hover-triggered popover for contextual help and information tooltips.',
-          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { HelpCircle } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <div className="inline-flex items-center gap-2">\n      <span className="text-sm text-gray-700">Password Requirements</span>\n      <Popover\n        trigger="hover"\n        placement="right"\n        size="sm"\n        content={\n          <div className="p-3">\n            <h4 className="font-semibold text-gray-900 text-sm mb-2">\n              Password must contain:\n            </h4>\n            <ul className="text-xs text-gray-600 space-y-1 list-disc list-inside">\n              <li>At least 8 characters</li>\n              <li>One uppercase letter</li>\n              <li>One lowercase letter</li>\n              <li>One number</li>\n              <li>One special character</li>\n            </ul>\n          </div>\n        }\n      >\n        <button className="text-gray-500 hover:text-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] rounded-full">\n          <HelpCircle size={18} />\n        </button>\n      </Popover>\n    </div>\n  );\n}',
+          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { HelpCircle } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <div className="inline-flex items-center gap-2">\n      <span className="text-sm text-muted-foreground">Password Requirements</span>\n      <Popover\n        trigger="hover"\n        placement="right"\n        size="sm"\n        content={\n          <div className="p-3">\n            <h4 className="font-semibold text-foreground text-sm mb-2">\n              Password must contain:\n            </h4>\n            <ul className="text-xs text-muted-foreground space-y-1 list-disc list-inside">\n              <li>At least 8 characters</li>\n              <li>One uppercase letter</li>\n              <li>One lowercase letter</li>\n              <li>One number</li>\n              <li>One special character</li>\n            </ul>\n          </div>\n        }\n      >\n        <button className="text-gray-500 hover:text-muted-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] rounded-full">\n          <HelpCircle size={18} />\n        </button>\n      </Popover>\n    </div>\n  );\n}',
           preview: (
             <div className="inline-flex items-center gap-2">
-              <span className="text-sm text-gray-700">Password Requirements</span>
+              <span className="text-sm text-muted-foreground">Password Requirements</span>
               <PopoverPreview
                 trigger="hover"
                 placement="right"
                 size="sm"
                 content={
                   <div className="p-3">
-                    <h4 className="font-semibold text-gray-900 text-sm mb-2">
+                    <h4 className="font-semibold text-foreground text-sm mb-2">
                       Password must contain:
                     </h4>
-                    <ul className="text-xs text-gray-600 space-y-1 list-disc list-inside">
+                    <ul className="text-xs text-muted-foreground space-y-1 list-disc list-inside">
                       <li>At least 8 characters</li>
                       <li>One uppercase letter</li>
                       <li>One lowercase letter</li>
@@ -398,7 +398,7 @@ export default function ComponentPopoverPage() {
                   </div>
                 }
               >
-                <button className="text-gray-500 hover:text-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] rounded-full">
+                <button className="text-gray-500 hover:text-muted-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] rounded-full">
                   <HelpCircle size={18} />
                 </button>
               </PopoverPreview>
@@ -408,7 +408,7 @@ export default function ComponentPopoverPage() {
         {
           title: 'User Profile Card',
           description: 'Rich popover displaying user information with avatar and actions.',
-          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { User } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      placement="bottom"\n      content={\n        <div className="p-4">\n          <div className="flex items-center gap-3 mb-4">\n            <div className="w-12 h-12 bg-[#005196] text-white rounded-full flex items-center justify-center font-semibold">\n              JD\n            </div>\n            <div>\n              <h4 className="font-semibold text-gray-900">John Doe</h4>\n              <p className="text-sm text-gray-600">john.doe@gov.uk</p>\n            </div>\n          </div>\n          <div className="border-t border-gray-200 pt-3 space-y-2">\n            <button className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">\n              View Profile\n            </button>\n            <button className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">\n              Account Settings\n            </button>\n            <button className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded">\n              Sign Out\n            </button>\n          </div>\n        </div>\n      }\n    >\n      <button className="w-10 h-10 bg-[#005196] text-white rounded-full flex items-center justify-center font-semibold hover:bg-[#004178]">\n        JD\n      </button>\n    </Popover>\n  );\n}',
+          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { User } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      placement="bottom"\n      content={\n        <div className="p-4">\n          <div className="flex items-center gap-3 mb-4">\n            <div className="w-12 h-12 bg-[#005196] text-white rounded-full flex items-center justify-center font-semibold">\n              JD\n            </div>\n            <div>\n              <h4 className="font-semibold text-foreground">John Doe</h4>\n              <p className="text-sm text-muted-foreground">john.doe@gov.uk</p>\n            </div>\n          </div>\n          <div className="border-t border-border pt-3 space-y-2">\n            <button className="w-full text-left px-3 py-2 text-sm text-muted-foreground hover:bg-muted rounded">\n              View Profile\n            </button>\n            <button className="w-full text-left px-3 py-2 text-sm text-muted-foreground hover:bg-muted rounded">\n              Account Settings\n            </button>\n            <button className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded">\n              Sign Out\n            </button>\n          </div>\n        </div>\n      }\n    >\n      <button className="w-10 h-10 bg-[#005196] text-white rounded-full flex items-center justify-center font-semibold hover:bg-[#004178]">\n        JD\n      </button>\n    </Popover>\n  );\n}',
           preview: (
             <PopoverPreview
               placement="bottom"
@@ -419,15 +419,15 @@ export default function ComponentPopoverPage() {
                       JD
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">John Doe</h4>
-                      <p className="text-sm text-gray-600">john.doe@gov.uk</p>
+                      <h4 className="font-semibold text-foreground">John Doe</h4>
+                      <p className="text-sm text-muted-foreground">john.doe@gov.uk</p>
                     </div>
                   </div>
-                  <div className="border-t border-gray-200 pt-3 space-y-2">
-                    <button className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">
+                  <div className="border-t border-border pt-3 space-y-2">
+                    <button className="w-full text-left px-3 py-2 text-sm text-muted-foreground hover:bg-muted rounded">
                       View Profile
                     </button>
-                    <button className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">
+                    <button className="w-full text-left px-3 py-2 text-sm text-muted-foreground hover:bg-muted rounded">
                       Account Settings
                     </button>
                     <button className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded">
@@ -446,30 +446,30 @@ export default function ComponentPopoverPage() {
         {
           title: 'Action Menu',
           description: 'Popover displaying a list of contextual actions for a specific item.',
-          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { MoreVertical } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      placement="left"\n      size="sm"\n      content={\n        <div className="py-2">\n          <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">\n            Edit\n          </button>\n          <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">\n            Duplicate\n          </button>\n          <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">\n            Archive\n          </button>\n          <div className="border-t border-gray-200 my-1"></div>\n          <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">\n            Delete\n          </button>\n        </div>\n      }\n    >\n      <button className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]">\n        <MoreVertical size={18} />\n      </button>\n    </Popover>\n  );\n}',
+          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { MoreVertical } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      placement="left"\n      size="sm"\n      content={\n        <div className="py-2">\n          <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">\n            Edit\n          </button>\n          <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">\n            Duplicate\n          </button>\n          <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">\n            Archive\n          </button>\n          <div className="border-t border-border my-1"></div>\n          <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">\n            Delete\n          </button>\n        </div>\n      }\n    >\n      <button className="p-2 text-gray-500 hover:text-muted-foreground hover:bg-muted rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]">\n        <MoreVertical size={18} />\n      </button>\n    </Popover>\n  );\n}',
           preview: (
             <PopoverPreview
               placement="left"
               size="sm"
               content={
                 <div className="py-2">
-                  <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">
                     Edit
                   </button>
-                  <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">
                     Duplicate
                   </button>
-                  <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">
                     Archive
                   </button>
-                  <div className="border-t border-gray-200 my-1"></div>
+                  <div className="border-t border-border my-1"></div>
                   <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
                     Delete
                   </button>
                 </div>
               }
             >
-              <button className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]">
+              <button className="p-2 text-gray-500 hover:text-muted-foreground hover:bg-muted rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]">
                 <MoreVertical size={18} />
               </button>
             </PopoverPreview>
@@ -478,14 +478,14 @@ export default function ComponentPopoverPage() {
         {
           title: 'Placement Variants',
           description: 'Popover can be positioned at top, bottom, left, or right of the trigger element.',
-          code: 'import { Popover } from \'@ux4g/react-core\';\n\nfunction Example() {\n  const content = (\n    <div className="p-3">\n      <p className="text-sm text-gray-700">Popover content</p>\n    </div>\n  );\n  \n  return (\n    <div className="flex items-center justify-center gap-8">\n      <Popover placement="top" content={content}>\n        <button className="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-50">\n          Top\n        </button>\n      </Popover>\n      \n      <Popover placement="right" content={content}>\n        <button className="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-50">\n          Right\n        </button>\n      </Popover>\n      \n      <Popover placement="bottom" content={content}>\n        <button className="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-50">\n          Bottom\n        </button>\n      </Popover>\n      \n      <Popover placement="left" content={content}>\n        <button className="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-50">\n          Left\n        </button>\n      </Popover>\n    </div>\n  );\n}',
+          code: 'import { Popover } from \'@ux4g/react-core\';\n\nfunction Example() {\n  const content = (\n    <div className="p-3">\n      <p className="text-sm text-muted-foreground">Popover content</p>\n    </div>\n  );\n  \n  return (\n    <div className="flex items-center justify-center gap-8">\n      <Popover placement="top" content={content}>\n        <button className="px-4 py-2 bg-card border border-border rounded hover:bg-background">\n          Top\n        </button>\n      </Popover>\n      \n      <Popover placement="right" content={content}>\n        <button className="px-4 py-2 bg-card border border-border rounded hover:bg-background">\n          Right\n        </button>\n      </Popover>\n      \n      <Popover placement="bottom" content={content}>\n        <button className="px-4 py-2 bg-card border border-border rounded hover:bg-background">\n          Bottom\n        </button>\n      </Popover>\n      \n      <Popover placement="left" content={content}>\n        <button className="px-4 py-2 bg-card border border-border rounded hover:bg-background">\n          Left\n        </button>\n      </Popover>\n    </div>\n  );\n}',
           preview: (
             <div className="flex items-center justify-center gap-8">
               <PopoverPreview
                 placement="top"
                 content={
                   <div className="p-3">
-                    <p className="text-sm text-gray-700">Popover content</p>
+                    <p className="text-sm text-muted-foreground">Popover content</p>
                   </div>
                 }
               >
@@ -496,7 +496,7 @@ export default function ComponentPopoverPage() {
                 placement="right"
                 content={
                   <div className="p-3">
-                    <p className="text-sm text-gray-700">Popover content</p>
+                    <p className="text-sm text-muted-foreground">Popover content</p>
                   </div>
                 }
               >
@@ -507,7 +507,7 @@ export default function ComponentPopoverPage() {
                 placement="bottom"
                 content={
                   <div className="p-3">
-                    <p className="text-sm text-gray-700">Popover content</p>
+                    <p className="text-sm text-muted-foreground">Popover content</p>
                   </div>
                 }
               >
@@ -518,7 +518,7 @@ export default function ComponentPopoverPage() {
                 placement="left"
                 content={
                   <div className="p-3">
-                    <p className="text-sm text-gray-700">Popover content</p>
+                    <p className="text-sm text-muted-foreground">Popover content</p>
                   </div>
                 }
               >
@@ -530,43 +530,43 @@ export default function ComponentPopoverPage() {
         {
           title: 'Settings Popover',
           description: 'Complex popover with multiple controls and sections for application settings.',
-          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { Settings } from \'lucide-react\';\n\nfunction Example() {\n  const [settings, setSettings] = React.useState({\n    darkMode: false,\n    notifications: true,\n    autoSave: true,\n    language: \'en\'\n  });\n  \n  return (\n    <Popover\n      size="lg"\n      closeButton\n      content={\n        <div className="p-4">\n          <h4 className="font-semibold text-gray-900 mb-4">Preferences</h4>\n          \n          <div className="space-y-4">\n            <div>\n              <h5 className="text-sm font-medium text-gray-700 mb-2">Appearance</h5>\n              <div className="flex items-center justify-between">\n                <span className="text-sm text-gray-600">Dark Mode</span>\n                <input\n                  type="checkbox"\n                  checked={settings.darkMode}\n                  onChange={(e) => setSettings({...settings, darkMode: e.target.checked})}\n                  className="toggle"\n                />\n              </div>\n            </div>\n            \n            <div className="border-t border-gray-200 pt-4">\n              <h5 className="text-sm font-medium text-gray-700 mb-2">Notifications</h5>\n              <div className="space-y-2">\n                <div className="flex items-center justify-between">\n                  <span className="text-sm text-gray-600">Enable Notifications</span>\n                  <input\n                    type="checkbox"\n                    checked={settings.notifications}\n                    onChange={(e) => setSettings({...settings, notifications: e.target.checked})}\n                  />\n                </div>\n                <div className="flex items-center justify-between">\n                  <span className="text-sm text-gray-600">Auto-save</span>\n                  <input\n                    type="checkbox"\n                    checked={settings.autoSave}\n                    onChange={(e) => setSettings({...settings, autoSave: e.target.checked})}\n                  />\n                </div>\n              </div>\n            </div>\n            \n            <div className="border-t border-gray-200 pt-4">\n              <label className="block text-sm font-medium text-gray-700 mb-2">\n                Language\n              </label>\n              <select\n                value={settings.language}\n                onChange={(e) => setSettings({...settings, language: e.target.value})}\n                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"\n              >\n                <option value="en">English</option>\n                <option value="cy">Welsh (Cymraeg)</option>\n                <option value="gd">Scottish Gaelic</option>\n              </select>\n            </div>\n          </div>\n        </div>\n      }\n    >\n      <button className="inline-flex items-center gap-2 px-4 py-2 bg-[#005196] text-white rounded hover:bg-[#004178]">\n        <Settings size={16} />\n        Preferences\n      </button>\n    </Popover>\n  );\n}',
+          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { Settings } from \'lucide-react\';\n\nfunction Example() {\n  const [settings, setSettings] = React.useState({\n    darkMode: false,\n    notifications: true,\n    autoSave: true,\n    language: \'en\'\n  });\n  \n  return (\n    <Popover\n      size="lg"\n      closeButton\n      content={\n        <div className="p-4">\n          <h4 className="font-semibold text-foreground mb-4">Preferences</h4>\n          \n          <div className="space-y-4">\n            <div>\n              <h5 className="text-sm font-medium text-muted-foreground mb-2">Appearance</h5>\n              <div className="flex items-center justify-between">\n                <span className="text-sm text-muted-foreground">Dark Mode</span>\n                <input\n                  type="checkbox"\n                  checked={settings.darkMode}\n                  onChange={(e) => setSettings({...settings, darkMode: e.target.checked})}\n                  className="toggle"\n                />\n              </div>\n            </div>\n            \n            <div className="border-t border-border pt-4">\n              <h5 className="text-sm font-medium text-muted-foreground mb-2">Notifications</h5>\n              <div className="space-y-2">\n                <div className="flex items-center justify-between">\n                  <span className="text-sm text-muted-foreground">Enable Notifications</span>\n                  <input\n                    type="checkbox"\n                    checked={settings.notifications}\n                    onChange={(e) => setSettings({...settings, notifications: e.target.checked})}\n                  />\n                </div>\n                <div className="flex items-center justify-between">\n                  <span className="text-sm text-muted-foreground">Auto-save</span>\n                  <input\n                    type="checkbox"\n                    checked={settings.autoSave}\n                    onChange={(e) => setSettings({...settings, autoSave: e.target.checked})}\n                  />\n                </div>\n              </div>\n            </div>\n            \n            <div className="border-t border-border pt-4">\n              <label className="block text-sm font-medium text-muted-foreground mb-2">\n                Language\n              </label>\n              <select\n                value={settings.language}\n                onChange={(e) => setSettings({...settings, language: e.target.value})}\n                className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]"\n              >\n                <option value="en">English</option>\n                <option value="cy">Welsh (Cymraeg)</option>\n                <option value="gd">Scottish Gaelic</option>\n              </select>\n            </div>\n          </div>\n        </div>\n      }\n    >\n      <button className="inline-flex items-center gap-2 px-4 py-2 bg-[#005196] text-white rounded hover:bg-[#004178]">\n        <Settings size={16} />\n        Preferences\n      </button>\n    </Popover>\n  );\n}',
           preview: (
             <PopoverPreview
               size="lg"
               closeButton
               content={
                 <div className="p-4">
-                  <h4 className="font-semibold text-gray-900 mb-4">Preferences</h4>
+                  <h4 className="font-semibold text-foreground mb-4">Preferences</h4>
 
                   <div className="space-y-4">
                     <div>
-                      <h5 className="text-sm font-medium text-gray-700 mb-2">Appearance</h5>
+                      <h5 className="text-sm font-medium text-muted-foreground mb-2">Appearance</h5>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-600">Dark Mode</span>
+                        <span className="text-sm text-muted-foreground">Dark Mode</span>
                         <input type="checkbox" className="toggle" />
                       </div>
                     </div>
 
-                    <div className="border-t border-gray-200 pt-4">
-                      <h5 className="text-sm font-medium text-gray-700 mb-2">Notifications</h5>
+                    <div className="border-t border-border pt-4">
+                      <h5 className="text-sm font-medium text-muted-foreground mb-2">Notifications</h5>
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Enable Notifications</span>
+                          <span className="text-sm text-muted-foreground">Enable Notifications</span>
                           <input type="checkbox" defaultChecked />
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-600">Auto-save</span>
+                          <span className="text-sm text-muted-foreground">Auto-save</span>
                           <input type="checkbox" defaultChecked />
                         </div>
                       </div>
                     </div>
 
-                    <div className="border-t border-gray-200 pt-4">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="border-t border-border pt-4">
+                      <label className="block text-sm font-medium text-muted-foreground mb-2">
                         Language
                       </label>
-                      <select className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#005196]">
+                      <select className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-[#005196]">
                         <option value="en">English</option>
                         <option value="cy">Welsh (Cymraeg)</option>
                         <option value="gd">Scottish Gaelic</option>
@@ -586,7 +586,7 @@ export default function ComponentPopoverPage() {
       ]}
 
       reactCode={{
-        component: 'import React, { useState, useRef, useEffect, forwardRef } from \'react\';\nimport { useFloating, offset, flip, shift, arrow, autoUpdate } from \'@floating-ui/react\';\nimport { cn } from \'../../utils/cn\';\nimport { popoverVariants } from \'./popover.variants\';\nimport { PopoverProps } from \'./Popover.types\';\nimport { X } from \'lucide-react\';\n\nexport const Popover = forwardRef<HTMLDivElement, PopoverProps>(\n  (\n    {\n      children,\n      content,\n      trigger = \'click\',\n      placement = \'bottom\',\n      isOpen: controlledIsOpen,\n      onOpenChange,\n      closeOnClickOutside = true,\n      showArrow = true,\n      size = \'md\',\n      closeButton = false,\n      offset: offsetValue = 8,\n      className,\n      ...props\n    },\n    ref\n  ) => {\n    const [internalIsOpen, setInternalIsOpen] = useState(false);\n    const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;\n    const arrowRef = useRef<HTMLDivElement>(null);\n    \n    const { x, y, strategy, refs, context } = useFloating({\n      open: isOpen,\n      onOpenChange: onOpenChange || setInternalIsOpen,\n      placement,\n      whileElementsMounted: autoUpdate,\n      middleware: [\n        offset(offsetValue),\n        flip(),\n        shift({ padding: 8 }),\n        showArrow && arrow({ element: arrowRef }),\n      ].filter(Boolean),\n    });\n    \n    const setIsOpen = (open: boolean) => {\n      if (onOpenChange) {\n        onOpenChange(open);\n      } else {\n        setInternalIsOpen(open);\n      }\n    };\n    \n    useEffect(() => {\n      if (!isOpen || !closeOnClickOutside) return;\n      \n      const handleClickOutside = (event: MouseEvent) => {\n        if (\n          refs.floating.current &&\n          refs.reference.current &&\n          !refs.floating.current.contains(event.target as Node) &&\n          !refs.reference.current.contains(event.target as Node)\n        ) {\n          setIsOpen(false);\n        }\n      };\n      \n      const handleEscape = (event: KeyboardEvent) => {\n        if (event.key === \'Escape\') {\n          setIsOpen(false);\n        }\n      };\n      \n      document.addEventListener(\'mousedown\', handleClickOutside);\n      document.addEventListener(\'keydown\', handleEscape);\n      \n      return () => {\n        document.removeEventListener(\'mousedown\', handleClickOutside);\n        document.removeEventListener(\'keydown\', handleEscape);\n      };\n    }, [isOpen, closeOnClickOutside, refs]);\n    \n    const handleTriggerClick = () => {\n      if (trigger === \'click\') {\n        setIsOpen(!isOpen);\n      }\n    };\n    \n    const handleMouseEnter = () => {\n      if (trigger === \'hover\') {\n        setIsOpen(true);\n      }\n    };\n    \n    const handleMouseLeave = () => {\n      if (trigger === \'hover\') {\n        setIsOpen(false);\n      }\n    };\n    \n    return (\n      <>\n        <div\n          ref={refs.setReference}\n          onClick={handleTriggerClick}\n          onMouseEnter={handleMouseEnter}\n          onMouseLeave={handleMouseLeave}\n        >\n          {children}\n        </div>\n        \n        {isOpen && (\n          <div\n            ref={refs.setFloating}\n            style={{\n              position: strategy,\n              top: y ?? 0,\n              left: x ?? 0,\n            }}\n            className={cn(popoverVariants({ size }), className)}\n            role="dialog"\n            aria-modal="false"\n            onMouseEnter={trigger === \'hover\' ? handleMouseEnter : undefined}\n            onMouseLeave={trigger === \'hover\' ? handleMouseLeave : undefined}\n            {...props}\n          >\n            {showArrow && (\n              <div\n                ref={arrowRef}\n                className="absolute w-3 h-3 bg-white border border-gray-300 transform rotate-45"\n              />\n            )}\n            \n            <div className="relative z-10 bg-white rounded-lg border border-gray-300 shadow-lg overflow-hidden">\n              {closeButton && (\n                <button\n                  onClick={() => setIsOpen(false)}\n                  className="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] rounded"\n                  aria-label="Close popover"\n                >\n                  <X size={16} />\n                </button>\n              )}\n              {content}\n            </div>\n          </div>\n        )}\n      </>\n    );\n  }\n);\n\nPopover.displayName = \'Popover\';',
+        component: 'import React, { useState, useRef, useEffect, forwardRef } from \'react\';\nimport { useFloating, offset, flip, shift, arrow, autoUpdate } from \'@floating-ui/react\';\nimport { cn } from \'../../utils/cn\';\nimport { popoverVariants } from \'./popover.variants\';\nimport { PopoverProps } from \'./Popover.types\';\nimport { X } from \'lucide-react\';\n\nexport const Popover = forwardRef<HTMLDivElement, PopoverProps>(\n  (\n    {\n      children,\n      content,\n      trigger = \'click\',\n      placement = \'bottom\',\n      isOpen: controlledIsOpen,\n      onOpenChange,\n      closeOnClickOutside = true,\n      showArrow = true,\n      size = \'md\',\n      closeButton = false,\n      offset: offsetValue = 8,\n      className,\n      ...props\n    },\n    ref\n  ) => {\n    const [internalIsOpen, setInternalIsOpen] = useState(false);\n    const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;\n    const arrowRef = useRef<HTMLDivElement>(null);\n    \n    const { x, y, strategy, refs, context } = useFloating({\n      open: isOpen,\n      onOpenChange: onOpenChange || setInternalIsOpen,\n      placement,\n      whileElementsMounted: autoUpdate,\n      middleware: [\n        offset(offsetValue),\n        flip(),\n        shift({ padding: 8 }),\n        showArrow && arrow({ element: arrowRef }),\n      ].filter(Boolean),\n    });\n    \n    const setIsOpen = (open: boolean) => {\n      if (onOpenChange) {\n        onOpenChange(open);\n      } else {\n        setInternalIsOpen(open);\n      }\n    };\n    \n    useEffect(() => {\n      if (!isOpen || !closeOnClickOutside) return;\n      \n      const handleClickOutside = (event: MouseEvent) => {\n        if (\n          refs.floating.current &&\n          refs.reference.current &&\n          !refs.floating.current.contains(event.target as Node) &&\n          !refs.reference.current.contains(event.target as Node)\n        ) {\n          setIsOpen(false);\n        }\n      };\n      \n      const handleEscape = (event: KeyboardEvent) => {\n        if (event.key === \'Escape\') {\n          setIsOpen(false);\n        }\n      };\n      \n      document.addEventListener(\'mousedown\', handleClickOutside);\n      document.addEventListener(\'keydown\', handleEscape);\n      \n      return () => {\n        document.removeEventListener(\'mousedown\', handleClickOutside);\n        document.removeEventListener(\'keydown\', handleEscape);\n      };\n    }, [isOpen, closeOnClickOutside, refs]);\n    \n    const handleTriggerClick = () => {\n      if (trigger === \'click\') {\n        setIsOpen(!isOpen);\n      }\n    };\n    \n    const handleMouseEnter = () => {\n      if (trigger === \'hover\') {\n        setIsOpen(true);\n      }\n    };\n    \n    const handleMouseLeave = () => {\n      if (trigger === \'hover\') {\n        setIsOpen(false);\n      }\n    };\n    \n    return (\n      <>\n        <div\n          ref={refs.setReference}\n          onClick={handleTriggerClick}\n          onMouseEnter={handleMouseEnter}\n          onMouseLeave={handleMouseLeave}\n        >\n          {children}\n        </div>\n        \n        {isOpen && (\n          <div\n            ref={refs.setFloating}\n            style={{\n              position: strategy,\n              top: y ?? 0,\n              left: x ?? 0,\n            }}\n            className={cn(popoverVariants({ size }), className)}\n            role="dialog"\n            aria-modal="false"\n            onMouseEnter={trigger === \'hover\' ? handleMouseEnter : undefined}\n            onMouseLeave={trigger === \'hover\' ? handleMouseLeave : undefined}\n            {...props}\n          >\n            {showArrow && (\n              <div\n                ref={arrowRef}\n                className="absolute w-3 h-3 bg-card border border-border transform rotate-45"\n              />\n            )}\n            \n            <div className="relative z-10 bg-card rounded-lg border border-border shadow-lg overflow-hidden">\n              {closeButton && (\n                <button\n                  onClick={() => setIsOpen(false)}\n                  className="absolute top-2 right-2 p-1 text-gray-500 hover:text-muted-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] rounded"\n                  aria-label="Close popover"\n                >\n                  <X size={16} />\n                </button>\n              )}\n              {content}\n            </div>\n          </div>\n        )}\n      </>\n    );\n  }\n);\n\nPopover.displayName = \'Popover\';',
         types: 'export interface PopoverProps {\n  children: React.ReactNode;\n  content: React.ReactNode;\n  trigger?: \'click\' | \'hover\';\n  placement?: \'top\' | \'bottom\' | \'left\' | \'right\' | \'auto\';\n  isOpen?: boolean;\n  onOpenChange?: (open: boolean) => void;\n  closeOnClickOutside?: boolean;\n  showArrow?: boolean;\n  size?: \'sm\' | \'md\' | \'lg\';\n  closeButton?: boolean;\n  offset?: number;\n  className?: string;\n}',
         variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const popoverVariants = cva(\n  [\n    \'z-50\',\n    \'focus:outline-none\',\n  ],\n  {\n    variants: {\n      size: {\n        sm: [\'w-48\'],\n        md: [\'w-72\'],\n        lg: [\'w-96\'],\n      },\n    },\n    defaultVariants: {\n      size: \'md\',\n    },\n  }\n);\n\nexport type PopoverVariantProps = VariantProps<typeof popoverVariants>;',
       }}
@@ -699,42 +699,42 @@ export default function ComponentPopoverPage() {
         {
           title: 'Contextual Help',
           description: 'Provide additional information or guidance for form fields, buttons, or complex interface elements without cluttering the main interface.',
-          example: 'Help icon next to National Insurance Number field that displays format requirements and example when clicked.',
+          implementation: 'Help icon next to National Insurance Number field that displays format requirements and example when clicked.',
         },
         {
           title: 'Field Information',
           description: 'Display detailed explanations, requirements, or examples for form inputs to help users complete forms correctly.',
-          example: 'Password requirements popover showing strength criteria, character requirements, and security tips.',
+          implementation: 'Password requirements popover showing strength criteria, character requirements, and security tips.',
         },
         {
           title: 'Quick Actions',
           description: 'Provide contextual action menus for list items, table rows, or cards without navigating to a new page.',
-          example: 'More actions button on application row showing Edit, Duplicate, Archive, and Delete options.',
+          implementation: 'More actions button on application row showing Edit, Duplicate, Archive, and Delete options.',
         },
         {
           title: 'User Menu',
           description: 'Display user profile information and account actions in a compact overlay triggered from the header.',
-          example: 'Avatar button in navigation that shows user profile, settings link, and sign out option.',
+          implementation: 'Avatar button in navigation that shows user profile, settings link, and sign out option.',
         },
         {
           title: 'Notification Details',
           description: 'Show expanded notification information, actions, or related content when user interacts with notification bell.',
-          example: 'Notification icon displaying list of recent alerts with quick actions and mark as read functionality.',
+          implementation: 'Notification icon displaying list of recent alerts with quick actions and mark as read functionality.',
         },
         {
           title: 'Inline Editing',
           description: 'Allow users to edit content or settings in place without modal dialogs or separate pages.',
-          example: 'Settings gear icon that opens popover with toggles and dropdowns for quick preference changes.',
+          implementation: 'Settings gear icon that opens popover with toggles and dropdowns for quick preference changes.',
         },
         {
           title: 'Data Preview',
           description: 'Show preview of linked content, document details, or related information on hover or click.',
-          example: 'Application reference number that displays case summary, status, and key dates when clicked.',
+          implementation: 'Application reference number that displays case summary, status, and key dates when clicked.',
         },
         {
           title: 'Filter Controls',
           description: 'Provide compact filter and sorting controls for data tables or search results without taking permanent space.',
-          example: 'Filter button that opens popover with checkboxes for status, date range, and category filtering.',
+          implementation: 'Filter button that opens popover with checkboxes for status, date range, and category filtering.',
         },
       ]}
     />

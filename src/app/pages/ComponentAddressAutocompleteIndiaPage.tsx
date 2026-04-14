@@ -43,17 +43,17 @@ const AddressAutocompleteIndiaPreview = ({
           value={value}
           onChange={handleChange}
           placeholder={placeholder}
-          className="w-full h-10 px-4 pr-10 border border-gray-300 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+          className="w-full h-10 px-4 pr-10 border border-border rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
           {...props}
         />
         <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
       </div>
       {suggestions.length > 0 && (
-        <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg max-h-60 overflow-auto">
+        <ul className="absolute z-10 w-full mt-1 bg-card border border-border rounded shadow-lg max-h-60 overflow-auto">
           {suggestions.map((suggestion, idx) => (
             <li
               key={idx}
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-start gap-2"
+              className="px-4 py-2 hover:bg-muted cursor-pointer flex items-start gap-2"
               onClick={() => {
                 setValue(suggestion);
                 setSuggestions([]);
@@ -240,7 +240,7 @@ function Example() {
         placeholder="Search full address..."
       />
       {addressData && (
-        <div className="mt-4 p-4 bg-gray-50 rounded">
+        <div className="mt-4 p-4 bg-background rounded">
           <p><strong>Pincode:</strong> {addressData.pincode}</p>
           <p><strong>City:</strong> {addressData.city}</p>
           <p><strong>District:</strong> {addressData.district}</p>
@@ -259,7 +259,7 @@ function Example() {
                 includeCity
                 placeholder="Search full address..."
               />
-              <div className="mt-4 p-4 bg-gray-50 rounded text-sm">
+              <div className="mt-4 p-4 bg-background rounded text-sm">
                 <p className="flex items-center gap-2">
                   <CheckCircle size={16} className="text-green-600" />
                   <span>Select an address to see structured data</span>
@@ -402,7 +402,7 @@ function Example() {
           preview: (
             <div className="w-full">
               <AddressAutocompleteIndiaPreview placeholder="Enter pincode for validation..." />
-              <p className="mt-2 text-xs text-gray-600">
+              <p className="mt-2 text-xs text-muted-foreground">
                 Validation checks pincode format and verifies with India Post API
               </p>
             </div>
@@ -598,8 +598,8 @@ export const AddressAutocompleteIndia = forwardRef<
             className={cn(
               'w-full h-10 px-4 pr-10 border rounded',
               'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2',
-              error ? 'border-red-500' : 'border-gray-300',
-              disabled && 'bg-gray-100 cursor-not-allowed opacity-60'
+              error ? 'border-red-500' : 'border-border',
+              disabled && 'bg-muted cursor-not-allowed opacity-60'
             )}
             {...props}
           />
@@ -634,7 +634,7 @@ export const AddressAutocompleteIndia = forwardRef<
           <ul
             id="address-suggestions"
             role="listbox"
-            className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg max-h-60 overflow-auto"
+            className="absolute z-50 w-full mt-1 bg-card border border-border rounded shadow-lg max-h-60 overflow-auto"
           >
             {suggestions.map((suggestion, index) => (
               <li
@@ -645,7 +645,7 @@ export const AddressAutocompleteIndia = forwardRef<
                 onClick={() => handleSelect(suggestion)}
                 className={cn(
                   'px-4 py-2 cursor-pointer flex items-start gap-2',
-                  index === selectedIndex ? 'bg-[#005196] text-white' : 'hover:bg-gray-100'
+                  index === selectedIndex ? 'bg-[#005196] text-white' : 'hover:bg-muted'
                 )}
               >
                 <svg

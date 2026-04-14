@@ -7,7 +7,7 @@ import { ComponentDocumentation } from '../components/ComponentDocumentation';
 
 const ContainerPreview = ({ maxWidth = 'lg' }: any) => (
   <div className={`mx-auto px-4 ${maxWidth === 'sm' ? 'max-w-2xl' : maxWidth === 'md' ? 'max-w-4xl' : maxWidth === 'lg' ? 'max-w-6xl' : maxWidth === 'xl' ? 'max-w-7xl' : 'max-w-full'} bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg p-6`}>
-    <p className="text-center text-gray-700">Container content ({maxWidth})</p>
+    <p className="text-center text-muted-foreground">Container content ({maxWidth})</p>
   </div>
 );
 
@@ -141,16 +141,16 @@ function Example() {
           preview: (
             <div className="space-y-4 w-full">
               <div className="mx-auto max-w-6xl bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg p-0">
-                <p className="text-center text-gray-700">No padding</p>
+                <p className="text-center text-muted-foreground">No padding</p>
               </div>
               <div className="mx-auto max-w-6xl bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg px-2 py-4">
-                <p className="text-center text-gray-700">Small padding</p>
+                <p className="text-center text-muted-foreground">Small padding</p>
               </div>
               <div className="mx-auto max-w-6xl bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg px-4 py-4">
-                <p className="text-center text-gray-700">Medium padding</p>
+                <p className="text-center text-muted-foreground">Medium padding</p>
               </div>
               <div className="mx-auto max-w-6xl bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg px-8 py-4">
-                <p className="text-center text-gray-700">Large padding</p>
+                <p className="text-center text-muted-foreground">Large padding</p>
               </div>
             </div>
           ),

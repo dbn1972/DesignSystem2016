@@ -17,16 +17,16 @@ export default function CertificateFeedback() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b-2 border-gray-300">
+    <div className="min-h-screen bg-background">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-6">
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-pink-600 rounded flex items-center justify-center">
               <MessageSquare size={28} className="text-white" />
             </div>
             <div>
-              <div className="text-sm text-gray-600">Service Feedback</div>
-              <h1 className="text-2xl font-bold text-gray-900">Share Your Experience</h1>
+              <div className="text-sm text-muted-foreground">Service Feedback</div>
+              <h1 className="text-2xl font-bold text-foreground">Share Your Experience</h1>
             </div>
           </div>
         </div>
@@ -40,26 +40,26 @@ export default function CertificateFeedback() {
             <div className="w-16 h-16 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
               <ThumbsUp size={32} className="text-white" />
             </div>
-            <h2 className="text-xl font-bold text-gray-900 mb-2">
+            <h2 className="text-xl font-bold text-foreground mb-2">
               Congratulations on Receiving Your Certificate!
             </h2>
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-muted-foreground">
               Your certificate has been successfully issued. We would love to hear about your experience.
             </p>
           </div>
 
           {/* Feedback Form */}
-          <form onSubmit={handleSubmit} className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+          <form onSubmit={handleSubmit} className="bg-card border-2 border-border rounded-lg overflow-hidden">
             
-            <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-4">
-              <h2 className="font-bold text-gray-900">Help Us Improve</h2>
+            <div className="bg-muted border-b-2 border-border px-8 py-4">
+              <h2 className="font-bold text-foreground">Help Us Improve</h2>
             </div>
 
             <div className="p-8 space-y-8">
               
               {/* Rating */}
               <div className="text-center">
-                <label className="block text-sm font-bold text-gray-900 mb-4">
+                <label className="block text-sm font-bold text-foreground mb-4">
                   How would you rate your overall experience? <span className="text-red-600">*</span>
                 </label>
                 <div className="flex items-center justify-center gap-2 mb-2">
@@ -83,7 +83,7 @@ export default function CertificateFeedback() {
                     </button>
                   ))}
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-muted-foreground">
                   {rating === 0 && "Click to rate"}
                   {rating === 1 && "Very Poor"}
                   {rating === 2 && "Poor"}
@@ -95,7 +95,7 @@ export default function CertificateFeedback() {
 
               {/* Category */}
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-3">
+                <label className="block text-sm font-bold text-foreground mb-3">
                   What aspect would you like to comment on?
                 </label>
                 <div className="grid grid-cols-2 gap-3">
@@ -111,8 +111,8 @@ export default function CertificateFeedback() {
                       key={cat}
                       className={`px-4 py-3 border-2 rounded cursor-pointer text-sm font-bold text-center transition-all ${
                         category === cat
-                          ? 'border-[#000080] bg-blue-50 text-[#000080]'
-                          : 'border-gray-300 bg-white text-gray-700 hover:border-blue-300'
+                          ? 'border-primary bg-blue-50 text-primary'
+                          : 'border-border bg-card text-muted-foreground hover:border-blue-300'
                       }`}
                     >
                       <input
@@ -131,7 +131,7 @@ export default function CertificateFeedback() {
 
               {/* Feedback Text */}
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-2">
+                <label className="block text-sm font-bold text-foreground mb-2">
                   Your Feedback
                 </label>
                 <textarea
@@ -139,9 +139,9 @@ export default function CertificateFeedback() {
                   onChange={(e) => setFeedback(e.target.value)}
                   rows={6}
                   placeholder="Please share your experience, suggestions, or any issues you faced..."
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded text-sm focus:outline-none focus:border-[#000080]"
+                  className="w-full px-4 py-3 border-2 border-border rounded text-sm focus:outline-none focus:border-primary"
                 />
-                <p className="mt-2 text-xs text-gray-600">
+                <p className="mt-2 text-xs text-muted-foreground">
                   Your feedback helps us improve our services for all citizens
                 </p>
               </div>
@@ -152,7 +152,7 @@ export default function CertificateFeedback() {
                 disabled={rating === 0}
                 className={`w-full px-6 py-4 font-bold rounded flex items-center justify-center gap-2 ${
                   rating > 0
-                    ? 'bg-[#138808] text-white hover:bg-green-700'
+                    ? 'bg-green-700 text-white hover:bg-green-600'
                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                 }`}
               >
@@ -163,7 +163,7 @@ export default function CertificateFeedback() {
               <div className="text-center">
                 <Link
                   to="/reference-service/certificate/my-applications"
-                  className="text-sm text-gray-600 hover:text-gray-900"
+                  className="text-sm text-muted-foreground hover:text-foreground"
                 >
                   Skip for now
                 </Link>
@@ -174,8 +174,8 @@ export default function CertificateFeedback() {
 
           {/* Privacy Note */}
           <div className="mt-6 bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
-            <h3 className="font-bold text-gray-900 mb-2 text-sm">Privacy & Anonymity</h3>
-            <p className="text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-2 text-sm">Privacy & Anonymity</h3>
+            <p className="text-sm text-muted-foreground">
               Your feedback is valuable and will be used only to improve our services. 
               Personal information will not be shared publicly.
             </p>
@@ -184,9 +184,9 @@ export default function CertificateFeedback() {
         </div>
       </main>
 
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>Certificate Application Service • Government of India</div>
             <div>Service Feedback</div>
           </div>

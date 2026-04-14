@@ -1,8 +1,8 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, ChangeEvent } from 'react';
 import { FormFieldProps, ChildrenProp } from '../../types/common';
 
 export interface CheckboxProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'>,
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'size' | 'aria-invalid' | 'aria-required'>,
     FormFieldProps,
     ChildrenProp {
   /**
@@ -29,5 +29,5 @@ export interface CheckboxProps
   /**
    * Change handler
    */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }

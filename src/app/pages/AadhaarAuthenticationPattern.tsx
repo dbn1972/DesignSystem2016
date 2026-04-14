@@ -3,31 +3,31 @@ import { Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRig
 
 export default function AadhaarAuthenticationPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link to="/patterns/identity" className="hover:text-[#000080]">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+            <Link to="/patterns/identity" className="hover:text-primary">
               Identity & Access Patterns
             </Link>
             <ChevronRight size={16} />
-            <span className="text-gray-900 font-medium">Aadhaar Authentication</span>
+            <span className="text-foreground font-medium">Aadhaar Authentication</span>
           </div>
 
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-16 h-16 bg-orange-100 border-2 border-orange-300 rounded flex items-center justify-center">
-                  <Shield size={32} className="text-[#000080]" />
+                  <Shield size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Identity & Access Pattern</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Aadhaar Authentication</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Identity & Access Pattern</div>
+                  <h1 className="text-3xl font-bold text-foreground">Aadhaar Authentication</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Governed identity verification pattern using Aadhaar-based authentication for authorized 
                 government services. Ensures legal compliance, informed consent, privacy protection, and 
                 accessible fallback paths. Use only when legally mandated or specifically authorized.
@@ -35,15 +35,15 @@ export default function AadhaarAuthenticationPattern() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-orange-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-002-06</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002-06</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function AadhaarAuthenticationPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -78,7 +78,7 @@ export default function AadhaarAuthenticationPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -117,9 +117,9 @@ export default function AadhaarAuthenticationPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Aadhaar Authentication Pattern</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -134,16 +134,16 @@ export default function AadhaarAuthenticationPattern() {
 function OverviewSection() {
   return (
     <section id="overview" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Pattern Overview</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
       <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6 mb-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertCircle size={20} className="text-orange-600" />
           Important: Restricted Use Pattern
         </h3>
-        <div className="text-sm text-gray-700 space-y-2">
+        <div className="text-sm text-muted-foreground space-y-2">
           <p>
             <strong>Aadhaar authentication is NOT a default authentication method.</strong> It may only be used 
             when explicitly authorized by law or UIDAI regulations. Services must provide alternative 
@@ -158,29 +158,29 @@ function OverviewSection() {
 
       <div className="grid grid-cols-2 gap-6">
         {/* Purpose */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Purpose</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Purpose</h3>
           </div>
           <div className="p-6">
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Provide secure, legally-compliant Aadhaar-based identity verification for authorized government 
               services. Ensures user consent, privacy protection, and accessible alternatives while meeting 
               UIDAI technical and regulatory requirements.
             </p>
             <div className="space-y-2">
-              <InfoItem icon={<Shield size={16} className="text-[#000080]" />} text="Verify identity via UIDAI ecosystem" />
-              <InfoItem icon={<Lock size={16} className="text-[#000080]" />} text="Ensure explicit informed consent" />
-              <InfoItem icon={<FileText size={16} className="text-[#000080]" />} text="Maintain legal compliance" />
+              <InfoItem icon={<Shield size={16} className="text-primary" />} text="Verify identity via UIDAI ecosystem" />
+              <InfoItem icon={<Lock size={16} className="text-primary" />} text="Ensure explicit informed consent" />
+              <InfoItem icon={<FileText size={16} className="text-primary" />} text="Maintain legal compliance" />
               <InfoItem icon={<CheckCircle size={16} className="text-green-600" />} text="Provide accessible fallback paths" />
             </div>
           </div>
         </div>
 
         {/* User Goals */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">User Goals</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">User Goals</h3>
           </div>
           <div className="p-6 space-y-2">
             <GoalItem text="Understand why Aadhaar is required" />
@@ -192,9 +192,9 @@ function OverviewSection() {
         </div>
 
         {/* When to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <Check size={18} className="text-green-600" />
               When to Use (ONLY if authorized)
             </h3>
@@ -209,9 +209,9 @@ function OverviewSection() {
         </div>
 
         {/* When Not to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When NOT to Use
             </h3>
@@ -235,14 +235,14 @@ function OverviewSection() {
 function ApprovedUsesSection() {
   return (
     <section id="approved-uses" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Approved Use Cases</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Approved Use Cases</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Legally Authorized Uses</h3>
+            <h3 className="font-bold text-foreground">Legally Authorized Uses</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <UseCase 
@@ -268,9 +268,9 @@ function ApprovedUsesSection() {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Conditional / Restricted Uses</h3>
+            <h3 className="font-bold text-foreground">Conditional / Restricted Uses</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <UseCase 
@@ -298,21 +298,21 @@ function ApprovedUsesSection() {
       </div>
 
       <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <XCircle size={20} className="text-red-600" />
           Prohibited Uses (Cannot Mandate Aadhaar)
         </h3>
-        <div className="grid grid-cols-3 gap-4 text-sm text-gray-700">
+        <div className="grid grid-cols-3 gap-4 text-sm text-muted-foreground">
           <div>
-            <p className="font-bold text-gray-900">Education</p>
+            <p className="font-bold text-foreground">Education</p>
             <p>Cannot deny school admission, exam entry, or certificates if no Aadhaar</p>
           </div>
           <div>
-            <p className="font-bold text-gray-900">Healthcare</p>
+            <p className="font-bold text-foreground">Healthcare</p>
             <p>Cannot deny treatment, vaccination, or health services without Aadhaar</p>
           </div>
           <div>
-            <p className="font-bold text-gray-900">General Services</p>
+            <p className="font-bold text-foreground">General Services</p>
             <p>Driving license, passport, voter ID, birth certificate (Aadhaar optional only)</p>
           </div>
         </div>
@@ -326,11 +326,11 @@ function ApprovedUsesSection() {
 function FlowDiagram() {
   return (
     <section id="flow" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">End-to-End Flow Diagram</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-8">
         <div className="space-y-4">
           <FlowStep 
             number={1}
@@ -416,8 +416,8 @@ function FlowDiagram() {
 function ExampleScreens() {
   return (
     <section id="screens" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Example Screens</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Example Screens</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
@@ -428,10 +428,10 @@ function ExampleScreens() {
         >
           <div className="space-y-4">
             <div className="text-center">
-              <Shield size={40} className="text-[#000080] mx-auto mb-3" />
-              <h4 className="font-bold text-gray-900 mb-2">Aadhaar Authentication</h4>
+              <Shield size={40} className="text-primary mx-auto mb-3" />
+              <h4 className="font-bold text-foreground mb-2">Aadhaar Authentication</h4>
             </div>
-            <div className="bg-blue-50 border border-blue-300 rounded p-4 text-sm text-gray-700 space-y-2">
+            <div className="bg-blue-50 border border-blue-300 rounded p-4 text-sm text-muted-foreground space-y-2">
               <p><strong>Why we need Aadhaar:</strong></p>
               <p>This service is authorized to use Aadhaar authentication under [Legal Act/Section].</p>
               <p><strong>How your data is used:</strong></p>
@@ -443,10 +443,10 @@ function ExampleScreens() {
               <p><strong>Your rights:</strong></p>
               <p>You may choose alternative authentication if preferred.</p>
             </div>
-            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+            <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
               Continue
             </button>
-            <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded">
+            <button className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded">
               Use Alternative Method
             </button>
           </div>
@@ -459,20 +459,20 @@ function ExampleScreens() {
         >
           <div className="space-y-4">
             <div className="text-center">
-              <FileText size={40} className="text-[#000080] mx-auto mb-3" />
-              <h4 className="font-bold text-gray-900 mb-2">Your Consent Required</h4>
+              <FileText size={40} className="text-primary mx-auto mb-3" />
+              <h4 className="font-bold text-foreground mb-2">Your Consent Required</h4>
             </div>
             <div className="bg-orange-50 border-2 border-orange-300 rounded p-4">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
-                <div className="text-sm text-gray-900">
+                <div className="text-sm text-foreground">
                   <p className="font-bold mb-2">I hereby consent to:</p>
                   <ul className="space-y-1 ml-4">
                     <li>• Use my Aadhaar number for authentication</li>
                     <li>• Share authentication request with UIDAI</li>
                     <li>• Receive OTP on my Aadhaar-linked mobile</li>
                   </ul>
-                  <p className="mt-2 text-xs text-gray-600">
+                  <p className="mt-2 text-xs text-muted-foreground">
                     This consent is voluntary. You may withdraw at any time or use alternative authentication.
                   </p>
                 </div>
@@ -491,25 +491,25 @@ function ExampleScreens() {
         >
           <div className="space-y-4">
             <div className="text-center">
-              <User size={40} className="text-[#000080] mx-auto mb-3" />
-              <h4 className="font-bold text-gray-900 mb-2">Enter Aadhaar Number</h4>
+              <User size={40} className="text-primary mx-auto mb-3" />
+              <h4 className="font-bold text-foreground mb-2">Enter Aadhaar Number</h4>
             </div>
             <div>
-              <label className="block text-sm font-bold text-gray-900 mb-2">
+              <label className="block text-sm font-bold text-foreground mb-2">
                 12-digit Aadhaar Number
               </label>
               <input 
                 type="text" 
                 placeholder="#### #### ####"
                 maxLength={14}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded text-center font-mono text-lg"
+                className="w-full px-4 py-3 border-2 border-border rounded text-center font-mono text-lg"
               />
-              <p className="text-xs text-gray-600 mt-2">
+              <p className="text-xs text-muted-foreground mt-2">
                 <Info size={12} className="inline mr-1" />
                 Enter number without spaces
               </p>
             </div>
-            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+            <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
               Send OTP
             </button>
           </div>
@@ -523,10 +523,10 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-gray-900 mb-2">Invalid Number</h4>
+              <h4 className="font-bold text-foreground mb-2">Invalid Number</h4>
             </div>
             <div>
-              <label className="block text-sm font-bold text-gray-900 mb-2">
+              <label className="block text-sm font-bold text-foreground mb-2">
                 12-digit Aadhaar Number
               </label>
               <input 
@@ -540,7 +540,7 @@ function ExampleScreens() {
                 Aadhaar number must be exactly 12 digits
               </div>
             </div>
-            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+            <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
               Send OTP
             </button>
           </div>
@@ -553,9 +553,9 @@ function ExampleScreens() {
         >
           <div className="space-y-4">
             <div className="text-center">
-              <Clock size={40} className="text-[#000080] mx-auto mb-3" />
-              <h4 className="font-bold text-gray-900 mb-2">Enter OTP</h4>
-              <p className="text-sm text-gray-600">
+              <Clock size={40} className="text-primary mx-auto mb-3" />
+              <h4 className="font-bold text-foreground mb-2">Enter OTP</h4>
+              <p className="text-sm text-muted-foreground">
                 Code sent to Aadhaar-linked mobile<br/>
                 ending in ***987
               </p>
@@ -567,15 +567,15 @@ function ExampleScreens() {
                   type="text" 
                   maxLength={1}
                   defaultValue=""
-                  className="w-12 h-12 border-2 border-gray-300 rounded text-center font-bold text-xl"
+                  className="w-12 h-12 border-2 border-border rounded text-center font-bold text-xl"
                 />
               ))}
             </div>
-            <div className="text-center text-sm text-gray-600">
+            <div className="text-center text-sm text-muted-foreground">
               <Clock size={14} className="inline mr-1" />
               Code expires in 4:45
             </div>
-            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+            <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
               Verify
             </button>
           </div>
@@ -589,24 +589,24 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-gray-900 mb-2">Authentication Failed</h4>
-              <p className="text-sm text-gray-600">
+              <h4 className="font-bold text-foreground mb-2">Authentication Failed</h4>
+              <p className="text-sm text-muted-foreground">
                 Unable to verify your Aadhaar
               </p>
             </div>
             <div className="bg-red-50 border-2 border-red-300 rounded p-4 text-sm">
               <p className="text-red-800 font-bold mb-2">Possible reasons:</p>
-              <ul className="text-gray-700 space-y-1 ml-4">
+              <ul className="text-muted-foreground space-y-1 ml-4">
                 <li>• Incorrect OTP entered</li>
                 <li>• OTP expired (5 min validity)</li>
                 <li>• Mobile number not linked to Aadhaar</li>
                 <li>• UIDAI service temporarily unavailable</li>
               </ul>
             </div>
-            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+            <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
               Try Again
             </button>
-            <button className="w-full px-4 py-3 border-2 border-[#000080] bg-white text-[#000080] font-bold rounded">
+            <button className="w-full px-4 py-3 border-2 border-primary bg-card text-primary font-bold rounded">
               Use Alternative Method
             </button>
           </div>
@@ -622,8 +622,8 @@ function ExampleScreens() {
               <CheckCircle size={40} className="text-green-600" />
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-2">Verified Successfully</h4>
-              <p className="text-sm text-gray-600">
+              <h4 className="font-bold text-foreground mb-2">Verified Successfully</h4>
+              <p className="text-sm text-muted-foreground">
                 Your identity has been authenticated<br/>
                 via Aadhaar
               </p>
@@ -632,7 +632,7 @@ function ExampleScreens() {
               <CheckCircle size={14} className="inline mr-2" />
               Authentication logged per UIDAI regulations
             </div>
-            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+            <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
               Continue to Service
             </button>
           </div>
@@ -646,13 +646,13 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <AlertCircle size={40} className="text-yellow-600 mx-auto mb-3" />
-              <h4 className="font-bold text-gray-900 mb-2">Service Temporarily Unavailable</h4>
-              <p className="text-sm text-gray-600">
+              <h4 className="font-bold text-foreground mb-2">Service Temporarily Unavailable</h4>
+              <p className="text-sm text-muted-foreground">
                 Aadhaar authentication service<br/>
                 is currently down
               </p>
             </div>
-            <div className="bg-yellow-50 border border-yellow-300 rounded p-4 text-sm text-gray-700">
+            <div className="bg-yellow-50 border border-yellow-300 rounded p-4 text-sm text-muted-foreground">
               <p className="font-bold mb-2">What you can do:</p>
               <ul className="space-y-1 ml-4">
                 <li>• Try again in a few minutes</li>
@@ -660,10 +660,10 @@ function ExampleScreens() {
                 <li>• Contact support if issue persists</li>
               </ul>
             </div>
-            <button className="w-full px-4 py-3 bg-[#000080] text-white font-bold rounded">
+            <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
               Try Again
             </button>
-            <button className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded">
+            <button className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded">
               Use Alternative Method
             </button>
           </div>
@@ -678,53 +678,53 @@ function ExampleScreens() {
 function ConsentPrivacySection() {
   return (
     <section id="consent" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Consent & Privacy Requirements</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Consent & Privacy Requirements</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Mandatory Consent Elements</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Mandatory Consent Elements</h3>
         </div>
         <div className="p-6">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b-2 border-gray-300">
-                <th className="text-left py-3 px-4 font-bold text-gray-900">Element</th>
-                <th className="text-left py-3 px-4 font-bold text-gray-900">Requirement</th>
-                <th className="text-left py-3 px-4 font-bold text-gray-900">Compliance Note</th>
+              <tr className="border-b-2 border-border">
+                <th className="text-left py-3 px-4 font-bold text-foreground">Element</th>
+                <th className="text-left py-3 px-4 font-bold text-foreground">Requirement</th>
+                <th className="text-left py-3 px-4 font-bold text-foreground">Compliance Note</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Informed Consent</td>
-                <td className="py-3 px-4 text-gray-700">Explain purpose, legal basis, data usage</td>
-                <td className="py-3 px-4 text-gray-700">UIDAI Regulation 2016</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Informed Consent</td>
+                <td className="py-3 px-4 text-muted-foreground">Explain purpose, legal basis, data usage</td>
+                <td className="py-3 px-4 text-muted-foreground">UIDAI Regulation 2016</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Explicit Opt-In</td>
-                <td className="py-3 px-4 text-gray-700">Active checkbox; not pre-checked</td>
-                <td className="py-3 px-4 text-gray-700">Cannot be implied consent</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Explicit Opt-In</td>
+                <td className="py-3 px-4 text-muted-foreground">Active checkbox; not pre-checked</td>
+                <td className="py-3 px-4 text-muted-foreground">Cannot be implied consent</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Plain Language</td>
-                <td className="py-3 px-4 text-gray-700">Clear, simple terms; avoid legal jargon</td>
-                <td className="py-3 px-4 text-gray-700">Accessibility requirement</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Plain Language</td>
+                <td className="py-3 px-4 text-muted-foreground">Clear, simple terms; avoid legal jargon</td>
+                <td className="py-3 px-4 text-muted-foreground">Accessibility requirement</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Right to Withdraw</td>
-                <td className="py-3 px-4 text-gray-700">User can revoke consent anytime</td>
-                <td className="py-3 px-4 text-gray-700">Fundamental right</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Right to Withdraw</td>
+                <td className="py-3 px-4 text-muted-foreground">User can revoke consent anytime</td>
+                <td className="py-3 px-4 text-muted-foreground">Fundamental right</td>
               </tr>
-              <tr className="border-b border-gray-300">
-                <td className="py-3 px-4 font-medium text-gray-900">Alternative Method</td>
-                <td className="py-3 px-4 text-gray-700">Offer non-Aadhaar authentication</td>
-                <td className="py-3 px-4 text-gray-700">Supreme Court mandate</td>
+              <tr className="border-b border-border">
+                <td className="py-3 px-4 font-medium text-foreground">Alternative Method</td>
+                <td className="py-3 px-4 text-muted-foreground">Offer non-Aadhaar authentication</td>
+                <td className="py-3 px-4 text-muted-foreground">Supreme Court mandate</td>
               </tr>
               <tr>
-                <td className="py-3 px-4 font-medium text-gray-900">Audit Trail</td>
-                <td className="py-3 px-4 text-gray-700">Log consent timestamp and IP</td>
-                <td className="py-3 px-4 text-gray-700">Compliance evidence</td>
+                <td className="py-3 px-4 font-medium text-foreground">Audit Trail</td>
+                <td className="py-3 px-4 text-muted-foreground">Log consent timestamp and IP</td>
+                <td className="py-3 px-4 text-muted-foreground">Compliance evidence</td>
               </tr>
             </tbody>
           </table>
@@ -732,9 +732,9 @@ function ConsentPrivacySection() {
       </div>
 
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Data Handling Rules</h3>
+            <h3 className="font-bold text-foreground">Data Handling Rules</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <DataRule 
@@ -760,9 +760,9 @@ function ConsentPrivacySection() {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Privacy Safeguards</h3>
+            <h3 className="font-bold text-foreground">Privacy Safeguards</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <DataRule 
@@ -797,16 +797,16 @@ function ConsentPrivacySection() {
 function FallbackSection() {
   return (
     <section id="fallback" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Fallback & Alternative Paths</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Fallback & Alternative Paths</h2>
       </div>
 
       <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertCircle size={20} className="text-orange-600" />
           Mandatory: Alternative Authentication Required
         </h3>
-        <p className="text-sm text-gray-700">
+        <p className="text-sm text-muted-foreground">
           <strong>Supreme Court Ruling:</strong> Services cannot be denied to citizens who choose not to use Aadhaar 
           or face authentication failures. You MUST provide at least one alternative authentication method.
         </p>
@@ -845,39 +845,39 @@ function FallbackSection() {
         />
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Assisted Recovery for Common Issues</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Assisted Recovery for Common Issues</h3>
         </div>
         <div className="p-6">
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <p className="font-bold text-gray-900 mb-2">Mobile Not Linked to Aadhaar</p>
-              <ul className="space-y-1 text-gray-700 ml-4">
+              <p className="font-bold text-foreground mb-2">Mobile Not Linked to Aadhaar</p>
+              <ul className="space-y-1 text-muted-foreground ml-4">
                 <li>• Guide user to nearest Aadhaar Enrollment Center</li>
                 <li>• Provide UIDAI helpline: 1947</li>
                 <li>• Offer alternative authentication immediately</li>
               </ul>
             </div>
             <div>
-              <p className="font-bold text-gray-900 mb-2">Aadhaar Number Not Known</p>
-              <ul className="space-y-1 text-gray-700 ml-4">
+              <p className="font-bold text-foreground mb-2">Aadhaar Number Not Known</p>
+              <ul className="space-y-1 text-muted-foreground ml-4">
                 <li>• Direct to UIDAI portal for retrieval</li>
                 <li>• Option to use enrollment number instead</li>
                 <li>• Provide non-Aadhaar authentication path</li>
               </ul>
             </div>
             <div>
-              <p className="font-bold text-gray-900 mb-2">UIDAI Service Down</p>
-              <ul className="space-y-1 text-gray-700 ml-4">
+              <p className="font-bold text-foreground mb-2">UIDAI Service Down</p>
+              <ul className="space-y-1 text-muted-foreground ml-4">
                 <li>• Display service status and expected restoration time</li>
                 <li>• Automatically redirect to fallback method</li>
                 <li>• Allow user to proceed without Aadhaar temporarily</li>
               </ul>
             </div>
             <div>
-              <p className="font-bold text-gray-900 mb-2">Multiple Failed Attempts</p>
-              <ul className="space-y-1 text-gray-700 ml-4">
+              <p className="font-bold text-foreground mb-2">Multiple Failed Attempts</p>
+              <ul className="space-y-1 text-muted-foreground ml-4">
                 <li>• After 3 failures, suggest alternative method</li>
                 <li>• Provide helpline and escalation path</li>
                 <li>• Do not lock user out of service entirely</li>
@@ -895,14 +895,14 @@ function FallbackSection() {
 function AccessibilitySection() {
   return (
     <section id="accessibility" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Accessibility Guidelines</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Accessibility Guidelines</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Screen Reader Support</h3>
+            <h3 className="font-bold text-foreground">Screen Reader Support</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem 
@@ -924,9 +924,9 @@ function AccessibilitySection() {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Keyboard & Focus</h3>
+            <h3 className="font-bold text-foreground">Keyboard & Focus</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
             <AccessibilityItem 
@@ -950,11 +950,11 @@ function AccessibilitySection() {
       </div>
 
       <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-purple-600" />
           Multilingual Support (Critical for Inclusion)
         </h3>
-        <div className="space-y-2 text-sm text-gray-700">
+        <div className="space-y-2 text-sm text-muted-foreground">
           <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Provide UI in all 22 official Indian languages (Hindi, English, regional languages)" />
           <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Consent text must be available in user's preferred language" />
           <InfoItem icon={<CheckCircle size={14} className="text-green-600" />} text="Error messages and help text localized for each language" />
@@ -970,13 +970,13 @@ function AccessibilitySection() {
 function ImplementationSection() {
   return (
     <section id="implementation" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Implementation Notes</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Implementation Notes</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">UIDAI API Integration</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">UIDAI API Integration</h3>
         </div>
         <div className="p-6 space-y-4 text-sm">
           <ImplementationItem 
@@ -1016,9 +1016,9 @@ function ImplementationSection() {
       </div>
 
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Code Example: Aadhaar Validation</h3>
+            <h3 className="font-bold text-foreground">Code Example: Aadhaar Validation</h3>
           </div>
           <div className="p-6">
             <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
@@ -1068,9 +1068,9 @@ function verhoeffCheck(num) {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">UIDAI API Call Example</h3>
+            <h3 className="font-bold text-foreground">UIDAI API Call Example</h3>
           </div>
           <div className="p-6">
             <pre className="bg-gray-900 text-green-400 p-4 rounded text-xs overflow-x-auto">
@@ -1130,14 +1130,14 @@ async function sendAadhaarOTP(
 function GovernanceSection() {
   return (
     <section id="governance" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Governance & Compliance</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Governance & Compliance</h2>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-orange-100 border-b-2 border-orange-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Lifecycle Status</h3>
+            <h3 className="font-bold text-foreground">Lifecycle Status</h3>
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
@@ -1146,17 +1146,17 @@ function GovernanceSection() {
               </div>
             </div>
             <div className="text-sm space-y-2">
-              <p className="text-gray-700"><strong>Version:</strong> 1.0.0</p>
-              <p className="text-gray-700"><strong>Released:</strong> April 2026</p>
-              <p className="text-gray-700"><strong>Last Updated:</strong> April 2026</p>
-              <p className="text-gray-700"><strong>Next Review:</strong> Quarterly</p>
+              <p className="text-muted-foreground"><strong>Version:</strong> 1.0.0</p>
+              <p className="text-muted-foreground"><strong>Released:</strong> April 2026</p>
+              <p className="text-muted-foreground"><strong>Last Updated:</strong> April 2026</p>
+              <p className="text-muted-foreground"><strong>Next Review:</strong> Quarterly</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Policy Governance</h3>
+            <h3 className="font-bold text-foreground">Policy Governance</h3>
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
@@ -1164,7 +1164,7 @@ function GovernanceSection() {
                 LEGAL APPROVAL REQUIRED
               </div>
             </div>
-            <div className="text-sm space-y-2 text-gray-700">
+            <div className="text-sm space-y-2 text-muted-foreground">
               <p><strong>Must have:</strong></p>
               <ul className="space-y-1 ml-4">
                 <li>• Legal authorization</li>
@@ -1176,36 +1176,36 @@ function GovernanceSection() {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Pattern Owner</h3>
+            <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
             <div>
-              <p className="font-bold text-gray-900">Team:</p>
-              <p className="text-gray-700">Identity & Compliance</p>
+              <p className="font-bold text-foreground">Team:</p>
+              <p className="text-muted-foreground">Identity & Compliance</p>
             </div>
             <div>
-              <p className="font-bold text-gray-900">Contact:</p>
-              <p className="text-gray-700">aadhaar@ux4g.gov.in</p>
+              <p className="font-bold text-foreground">Contact:</p>
+              <p className="text-muted-foreground">aadhaar@ux4g.gov.in</p>
             </div>
             <div>
-              <p className="font-bold text-gray-900">Legal Review:</p>
-              <p className="text-gray-700">Required before use</p>
+              <p className="font-bold text-foreground">Legal Review:</p>
+              <p className="text-muted-foreground">Required before use</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertCircle size={20} className="text-red-600" />
           Legal Compliance Checklist (Mandatory Before Implementation)
         </h3>
         <div className="grid grid-cols-2 gap-6 text-sm">
           <div>
-            <p className="font-bold text-gray-900 mb-2">Legal Requirements</p>
-            <ul className="space-y-1 text-gray-700 ml-4">
+            <p className="font-bold text-foreground mb-2">Legal Requirements</p>
+            <ul className="space-y-1 text-muted-foreground ml-4">
               <li>☐ Verify legal authorization exists (Parliament Act or UIDAI permission)</li>
               <li>☐ Obtain UIDAI AUA license and agreement signed</li>
               <li>☐ Complete mandatory security audit (STQC/CERT-IN)</li>
@@ -1214,8 +1214,8 @@ function GovernanceSection() {
             </ul>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-2">User Experience Requirements</p>
-            <ul className="space-y-1 text-gray-700 ml-4">
+            <p className="font-bold text-foreground mb-2">User Experience Requirements</p>
+            <ul className="space-y-1 text-muted-foreground ml-4">
               <li>☐ Explanation screen implemented (why Aadhaar needed)</li>
               <li>☐ Explicit consent capture mechanism in place</li>
               <li>☐ Alternative authentication method available</li>
@@ -1228,22 +1228,22 @@ function GovernanceSection() {
       </div>
 
       <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+        <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Support & Escalation
         </h3>
         <div className="grid grid-cols-2 gap-6 text-sm">
           <div>
-            <p className="font-bold text-gray-900 mb-2">For Legal/Compliance Questions:</p>
-            <ul className="space-y-1 text-gray-700 ml-4">
+            <p className="font-bold text-foreground mb-2">For Legal/Compliance Questions:</p>
+            <ul className="space-y-1 text-muted-foreground ml-4">
               <li>• Email: legal@ux4g.gov.in</li>
               <li>• UIDAI Helpline: 1947</li>
               <li>• Legal team review mandatory</li>
             </ul>
           </div>
           <div>
-            <p className="font-bold text-gray-900 mb-2">For Technical Implementation:</p>
-            <ul className="space-y-1 text-gray-700 ml-4">
+            <p className="font-bold text-foreground mb-2">For Technical Implementation:</p>
+            <ul className="space-y-1 text-muted-foreground ml-4">
               <li>• Email: aadhaar-tech@ux4g.gov.in</li>
               <li>• UIDAI Developer Portal: uidai.gov.in</li>
               <li>• Response: 48 hours</li>
@@ -1266,7 +1266,7 @@ function PolicyAlert() {
           Policy Alert
         </h3>
       </div>
-      <div className="p-4 text-xs text-gray-700 space-y-2">
+      <div className="p-4 text-xs text-muted-foreground space-y-2">
         <p className="font-bold text-red-800">Restricted Pattern</p>
         <p>Use ONLY when legally authorized. Requires UIDAI license and mandatory alternative authentication.</p>
         <p className="font-bold text-red-800 mt-2">Before Implementation:</p>
@@ -1278,30 +1278,30 @@ function PolicyAlert() {
 
 function QuickReference() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
         <div>
-          <p className="font-bold text-gray-900 mb-1">Aadhaar Format</p>
-          <p className="text-gray-700">12 digits (#### #### ####)</p>
+          <p className="font-bold text-foreground mb-1">Aadhaar Format</p>
+          <p className="text-muted-foreground">12 digits (#### #### ####)</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">OTP Validity</p>
-          <p className="text-gray-700">5 minutes</p>
+          <p className="font-bold text-foreground mb-1">OTP Validity</p>
+          <p className="text-muted-foreground">5 minutes</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Validation</p>
-          <p className="text-gray-700">Verhoeff checksum algorithm</p>
+          <p className="font-bold text-foreground mb-1">Validation</p>
+          <p className="text-muted-foreground">Verhoeff checksum algorithm</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Data Storage</p>
-          <p className="text-gray-700">Cannot store Aadhaar number</p>
+          <p className="font-bold text-foreground mb-1">Data Storage</p>
+          <p className="text-muted-foreground">Cannot store Aadhaar number</p>
         </div>
         <div>
-          <p className="font-bold text-gray-900 mb-1">Alternative Required</p>
-          <p className="text-gray-700">Mandatory by Supreme Court</p>
+          <p className="font-bold text-foreground mb-1">Alternative Required</p>
+          <p className="text-muted-foreground">Mandatory by Supreme Court</p>
         </div>
       </div>
     </div>
@@ -1310,9 +1310,9 @@ function QuickReference() {
 
 function RelatedPatterns() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <RelatedPatternLink to="/patterns/identity/sign-in" text="Sign In Pattern" />
@@ -1327,20 +1327,20 @@ function RelatedPatterns() {
 
 function InteractiveDemo() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Interactive Demo</h3>
+        <h3 className="font-bold text-foreground text-sm">Interactive Demo</h3>
       </div>
       <div className="p-4">
         <Link 
           to="/patterns/identity/aadhaar-auth"
-          className="block p-3 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
-            <Eye size={16} className="text-[#000080]" />
-            <span className="font-bold text-sm text-gray-900">View Live Demo</span>
+            <Eye size={16} className="text-primary" />
+            <span className="font-bold text-sm text-foreground">View Live Demo</span>
           </div>
-          <p className="text-xs text-gray-600">Aadhaar authentication flow</p>
+          <p className="text-xs text-muted-foreground">Aadhaar authentication flow</p>
         </Link>
       </div>
     </div>
@@ -1349,9 +1349,9 @@ function InteractiveDemo() {
 
 function Resources() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Resources</h3>
+        <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
         <ResourceLink text="UIDAI Developer Guide" />
@@ -1370,7 +1370,7 @@ function InfoItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-2">
       {icon}
-      <span className="text-xs text-gray-700 flex-1">{text}</span>
+      <span className="text-xs text-muted-foreground flex-1">{text}</span>
     </div>
   );
 }
@@ -1379,7 +1379,7 @@ function GoalItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <CheckCircle size={16} className="text-green-600 flex-shrink-0 mt-0.5" />
-      <span className="text-sm text-gray-700">{text}</span>
+      <span className="text-sm text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1388,7 +1388,7 @@ function WhenItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <ChevronRight size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -1397,23 +1397,23 @@ function WhenNotItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <ChevronRight size={14} className="text-red-600 flex-shrink-0 mt-0.5" />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
 
 function UseCase({ title, description, status }: { title: string; description: string; status: 'authorized' | 'conditional' }) {
   return (
-    <div className="bg-white border border-gray-300 rounded p-3">
+    <div className="bg-card border border-border rounded p-3">
       <div className="flex items-start gap-2 mb-1">
         {status === 'authorized' ? (
           <CheckCircle size={14} className="text-green-600 mt-0.5" />
         ) : (
           <AlertCircle size={14} className="text-yellow-600 mt-0.5" />
         )}
-        <p className="font-bold text-gray-900 flex-1">{title}</p>
+        <p className="font-bold text-foreground flex-1">{title}</p>
       </div>
-      <p className="text-gray-700">{description}</p>
+      <p className="text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -1428,27 +1428,27 @@ function FlowStep({ number, title, description, state, branches, variant }: {
 }) {
   const bgColor = variant === 'success' ? 'bg-green-50' : 
                   variant === 'error' ? 'bg-red-50' :
-                  variant === 'warning' ? 'bg-orange-50' : 'bg-gray-50';
+                  variant === 'warning' ? 'bg-orange-50' : 'bg-background';
   const borderColor = variant === 'success' ? 'border-green-300' : 
                       variant === 'error' ? 'border-red-300' :
-                      variant === 'warning' ? 'border-orange-300' : 'border-gray-300';
+                      variant === 'warning' ? 'border-orange-300' : 'border-border';
   
   return (
     <div className={`${bgColor} border-2 ${borderColor} rounded-lg p-4`}>
       <div className="flex items-start gap-4">
-        <div className="w-8 h-8 bg-[#000080] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
+        <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">
           {number}
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-gray-900">{title}</h4>
-            <span className="text-xs font-bold text-gray-600 px-2 py-1 bg-white border border-gray-300 rounded">
+            <h4 className="font-bold text-foreground">{title}</h4>
+            <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
           </div>
-          <p className="text-sm text-gray-700">{description}</p>
+          <p className="text-sm text-muted-foreground">{description}</p>
           {branches && (
-            <div className="mt-2 text-xs text-gray-600 flex items-center gap-2">
+            <div className="mt-2 text-xs text-muted-foreground flex items-center gap-2">
               <ArrowRight size={14} />
               <span>Branches to success or error path</span>
             </div>
@@ -1471,12 +1471,12 @@ function ScreenExample({ title, variant, children }: {
                       'bg-blue-50 border-blue-200';
   
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className={`${headerColor} border-b-2 px-6 py-4`}>
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
-        <div className="bg-gray-50 border-2 border-gray-300 rounded p-6">
+        <div className="bg-background border-2 border-border rounded p-6">
           {children}
         </div>
       </div>
@@ -1487,25 +1487,25 @@ function ScreenExample({ title, variant, children }: {
 function DataRule({ rule, requirement }: { rule: string; requirement: string }) {
   return (
     <div>
-      <p className="font-bold text-gray-900 mb-1">{rule}</p>
-      <p className="text-gray-700">{requirement}</p>
+      <p className="font-bold text-foreground mb-1">{rule}</p>
+      <p className="text-muted-foreground">{requirement}</p>
     </div>
   );
 }
 
 function FallbackOption({ title, description, recommended }: { title: string; description: string; recommended: boolean }) {
   return (
-    <div className={`bg-white border-2 rounded-lg overflow-hidden ${recommended ? 'border-green-300' : 'border-gray-300'}`}>
-      <div className={`px-4 py-3 border-b-2 ${recommended ? 'bg-green-50 border-green-200' : 'bg-gray-100 border-gray-300'}`}>
+    <div className={`bg-card border-2 rounded-lg overflow-hidden ${recommended ? 'border-green-300' : 'border-border'}`}>
+      <div className={`px-4 py-3 border-b-2 ${recommended ? 'bg-green-50 border-green-200' : 'bg-muted border-border'}`}>
         <div className="flex items-center justify-between">
-          <h4 className="font-bold text-gray-900 text-sm">{title}</h4>
+          <h4 className="font-bold text-foreground text-sm">{title}</h4>
           {recommended && (
             <CheckCircle size={16} className="text-green-600" />
           )}
         </div>
       </div>
       <div className="p-4">
-        <p className="text-xs text-gray-700">{description}</p>
+        <p className="text-xs text-muted-foreground">{description}</p>
       </div>
     </div>
   );
@@ -1514,8 +1514,8 @@ function FallbackOption({ title, description, recommended }: { title: string; de
 function AccessibilityItem({ label, description }: { label: string; description: string }) {
   return (
     <div>
-      <p className="font-bold text-gray-900 mb-1">{label}</p>
-      <p className="text-gray-700">{description}</p>
+      <p className="font-bold text-foreground mb-1">{label}</p>
+      <p className="text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -1523,11 +1523,11 @@ function AccessibilityItem({ label, description }: { label: string; description:
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-gray-900 mb-2">{category}</h4>
+      <h4 className="font-bold text-foreground mb-2">{category}</h4>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
-          <li key={index} className="text-gray-700 flex items-start gap-2">
-            <span className="text-[#000080] font-bold">•</span>
+          <li key={index} className="text-muted-foreground flex items-start gap-2">
+            <span className="text-primary font-bold">•</span>
             <span>{req}</span>
           </li>
         ))}
@@ -1538,10 +1538,10 @@ function ImplementationItem({ category, requirements }: { category: string; requ
 
 function RelatedPatternLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="block p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
-        <ArrowRight size={12} className="text-[#000080]" />
-        <span className="text-gray-900">{text}</span>
+        <ArrowRight size={12} className="text-primary" />
+        <span className="text-foreground">{text}</span>
       </div>
     </Link>
   );
@@ -1549,8 +1549,8 @@ function RelatedPatternLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-gray-50 border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-gray-900">
-      <ArrowRight size={12} className="text-[#000080]" />
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+      <ArrowRight size={12} className="text-primary" />
       <span className="text-xs">{text}</span>
     </a>
   );

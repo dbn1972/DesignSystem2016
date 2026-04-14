@@ -30,14 +30,14 @@ const FileUploadPreview = () => {
     <div>
       <div
         className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
-          isDragging ? 'border-[#005196] bg-blue-50' : 'border-gray-300'
+          isDragging ? 'border-[#005196] bg-blue-50' : 'border-border'
         }`}
         onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
         onDragLeave={() => setIsDragging(false)}
         onDrop={(e) => { e.preventDefault(); setIsDragging(false); }}
       >
         <Upload className="mx-auto mb-4 text-gray-400" size={48} />
-        <p className="text-gray-700 mb-2 font-semibold">
+        <p className="text-muted-foreground mb-2 font-semibold">
           Drag and drop files here, or click to browse
         </p>
         <p className="text-sm text-gray-500 mb-4">
@@ -58,10 +58,10 @@ const FileUploadPreview = () => {
       {files.length > 0 && (
         <div className="mt-4 space-y-2">
           {files.map((file, idx) => (
-            <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
-              <File size={20} className="text-gray-600" />
+            <div key={idx} className="flex items-center gap-3 p-3 bg-background rounded-lg border border-border">
+              <File size={20} className="text-muted-foreground" />
               <div className="flex-1">
-                <p className="text-sm font-semibold text-gray-900">{file.name}</p>
+                <p className="text-sm font-semibold text-foreground">{file.name}</p>
                 <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
               </div>
               <Check size={20} className="text-[#138808]" />
@@ -69,7 +69,7 @@ const FileUploadPreview = () => {
                 onClick={() => setFiles(files.filter((_, i) => i !== idx))}
                 className="p-1 hover:bg-gray-200 rounded transition-colors"
               >
-                <X size={16} className="text-gray-600" />
+                <X size={16} className="text-muted-foreground" />
               </button>
             </div>
           ))}
@@ -296,7 +296,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
       <div
         className={\`
           border-2 border-dashed rounded-lg p-8 text-center transition-colors
-          \${isDragging ? 'border-[#005196] bg-blue-50' : 'border-gray-300'}
+          \${isDragging ? 'border-[#005196] bg-blue-50' : 'border-border'}
           \${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
         \`}
         onDragOver={(e) => { e.preventDefault(); !disabled && setIsDragging(true); }}
@@ -305,7 +305,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
         onClick={() => !disabled && fileInputRef.current?.click()}
       >
         <Upload className="mx-auto mb-4 text-gray-400" size={48} />
-        <p className="text-gray-700 mb-2 font-semibold">
+        <p className="text-muted-foreground mb-2 font-semibold">
           Drag and drop files here, or click to browse
         </p>
         <p className="text-sm text-gray-500 mb-4">
@@ -338,11 +338,11 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           {files.map(file => (
             <div
               key={file.id}
-              className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200"
+              className="flex items-center gap-3 p-3 bg-background rounded-lg border border-border"
             >
-              <File size={20} className="text-gray-600" />
+              <File size={20} className="text-muted-foreground" />
               <div className="flex-1">
-                <p className="text-sm font-semibold text-gray-900">{file.name}</p>
+                <p className="text-sm font-semibold text-foreground">{file.name}</p>
                 <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
               </div>
               <Check size={20} className="text-[#138808]" />
@@ -353,7 +353,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
                 }}
                 className="p-1 hover:bg-gray-200 rounded transition-colors"
               >
-                <X size={16} className="text-gray-600" />
+                <X size={16} className="text-muted-foreground" />
               </button>
             </div>
           ))}
@@ -404,7 +404,7 @@ interface UploadedFile {
         (drop)="onDrop($event)"
         (click)="fileInput.click()">
         <div class="text-center">
-          <p class="text-gray-700 mb-2 font-semibold">Drag and drop files here</p>
+          <p class="text-muted-foreground mb-2 font-semibold">Drag and drop files here</p>
           <p class="text-sm text-gray-500 mb-4">or click to browse</p>
           <input
             #fileInput
@@ -420,7 +420,7 @@ interface UploadedFile {
       
       <div *ngIf="files.length > 0" class="mt-4 space-y-2">
         <div *ngFor="let file of files; let i = index"
-             class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border">
+             class="flex items-center gap-3 p-3 bg-background rounded-lg border">
           <span>📄</span>
           <div class="flex-1">
             <p class="text-sm font-semibold">{{ file.name }}</p>
@@ -446,7 +446,7 @@ export class FileUploadComponent {
   
   getDropZoneClasses(): string {
     let classes = 'border-2 border-dashed rounded-lg p-8 cursor-pointer transition-colors';
-    classes += this.isDragging ? ' border-blue-600 bg-blue-50' : ' border-gray-300';
+    classes += this.isDragging ? ' border-blue-600 bg-blue-50' : ' border-border';
     classes += this.disabled ? ' opacity-50 cursor-not-allowed' : '';
     return classes;
   }

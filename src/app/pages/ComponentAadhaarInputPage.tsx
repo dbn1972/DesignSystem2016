@@ -19,7 +19,7 @@ const AadhaarInputPreview = () => {
   
   return (
     <div>
-      <label className="block text-sm font-semibold text-gray-700 mb-2">
+      <label className="block text-sm font-semibold text-muted-foreground mb-2">
         Aadhaar Number
       </label>
       <input
@@ -28,7 +28,7 @@ const AadhaarInputPreview = () => {
         onChange={e => setValue(e.target.value.replace(/\D/g, ''))}
         placeholder="XXXX XXXX XXXX"
         maxLength={14}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#005196] focus:outline-none font-mono text-lg tracking-wider"
+        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-[#005196] focus:outline-none font-mono text-lg tracking-wider"
       />
       <p className="mt-2 text-sm text-gray-500">Enter your 12-digit Aadhaar number</p>
     </div>
@@ -149,8 +149,8 @@ export const AadhaarInput: React.FC<AadhaarInputProps> = ({
         className={\`
           w-full px-4 py-3 border rounded-lg font-mono text-lg tracking-wider
           focus:ring-2 focus:ring-[#005196] focus:outline-none
-          \${error ? 'border-red-500' : 'border-gray-300'}
-          \${disabled ? 'bg-gray-100 cursor-not-allowed' : ''}
+          \${error ? 'border-red-500' : 'border-border'}
+          \${disabled ? 'bg-muted cursor-not-allowed' : ''}
         \`}
       />
       {error && (
@@ -183,7 +183,7 @@ export const AadhaarInput: React.FC<AadhaarInputProps> = ({
         placeholder="XXXX XXXX XXXX"
         maxlength="14"
         [disabled]="disabled"
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg font-mono text-lg tracking-wider focus:ring-2 focus:ring-blue-500"
+        class="w-full px-4 py-3 border border-border rounded-lg font-mono text-lg tracking-wider focus:ring-2 focus:ring-blue-500"
       />
       <p *ngIf="error" class="mt-2 text-sm text-red-600">{{ error }}</p>
     </div>

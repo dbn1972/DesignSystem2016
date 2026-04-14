@@ -10,7 +10,7 @@
  * ```
  */
 
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { cn } from '../../utils/cn';
 import { TooltipProps } from './Tooltip.types';
 

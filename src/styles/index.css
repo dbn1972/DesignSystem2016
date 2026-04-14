@@ -2,3 +2,4 @@
 @import '../app/tokens-package/dist/tokens.css';
 @import './tailwind.css';
 @import './theme.css';
+@import './dark-compat.css';

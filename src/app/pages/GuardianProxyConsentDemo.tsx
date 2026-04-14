@@ -90,9 +90,9 @@ export default function GuardianProxyConsentDemo() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
@@ -101,11 +101,11 @@ export default function GuardianProxyConsentDemo() {
                   <Users size={32} className="text-purple-700" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Interactive Pattern Demo</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Guardian or Proxy Consent Flow</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Interactive Pattern Demo</div>
+                  <h1 className="text-3xl font-bold text-foreground">Guardian or Proxy Consent Flow</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Interactive demonstration of guardian/proxy consent pattern for cases where a parent, guardian, 
                 caregiver, or authorized representative is acting on behalf of another person. Shows relationship 
                 verification, authorization, and consent capture.
@@ -113,14 +113,14 @@ export default function GuardianProxyConsentDemo() {
               <div className="flex items-center gap-4">
                 <Link 
                   to="/patterns/consent"
-                  className="text-sm text-[#000080] font-bold hover:underline flex items-center gap-1"
+                  className="text-sm text-primary font-bold hover:underline flex items-center gap-1"
                 >
                   <ArrowLeft size={16} />
                   Back to Consent Patterns
                 </Link>
                 <button 
                   onClick={resetDemo}
-                  className="text-sm text-gray-600 font-bold hover:text-gray-900 flex items-center gap-1"
+                  className="text-sm text-muted-foreground font-bold hover:text-foreground flex items-center gap-1"
                 >
                   Reset Demo
                 </button>
@@ -139,7 +139,7 @@ export default function GuardianProxyConsentDemo() {
           
           {/* Interactive Flow - 8 columns */}
           <div className="col-span-8">
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
               
               {flowState === "start" && (
                 <StartScreen onProceed={() => setFlowState("relationship")} />
@@ -239,9 +239,9 @@ export default function GuardianProxyConsentDemo() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Guardian/Proxy Consent Interactive Demo</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -255,7 +255,7 @@ export default function GuardianProxyConsentDemo() {
 
 function StateIndicator({ currentState }: { currentState: FlowState }) {
   const stateConfig = {
-    start: { label: "Start", color: "bg-gray-100 text-gray-700" },
+    start: { label: "Start", color: "bg-muted text-muted-foreground" },
     relationship: { label: "Relationship", color: "bg-blue-100 text-blue-700" },
     "person-details": { label: "Person Details", color: "bg-blue-100 text-blue-700" },
     authorization: { label: "Authorization", color: "bg-purple-100 text-purple-700" },
@@ -270,8 +270,8 @@ function StateIndicator({ currentState }: { currentState: FlowState }) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="text-xs font-bold text-gray-600 text-right">CURRENT STATE</div>
-      <div className={`px-4 py-3 ${config.color} border-2 border-gray-300 rounded font-bold text-sm text-center min-w-[180px]`}>
+      <div className="text-xs font-bold text-muted-foreground text-right">CURRENT STATE</div>
+      <div className={`px-4 py-3 ${config.color} border-2 border-border rounded font-bold text-sm text-center min-w-[180px]`}>
         {config.label}
       </div>
     </div>
@@ -284,14 +284,14 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
   return (
     <>
       <div className="bg-gradient-to-r from-[#FF9933] via-white to-[#138808] p-1">
-        <div className="bg-white px-8 py-6">
+        <div className="bg-card px-8 py-6">
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 bg-purple-700 rounded flex items-center justify-center flex-shrink-0">
               <Users size={32} className="text-white" />
             </div>
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Acting on Behalf of Another Person</h2>
-              <p className="text-sm text-gray-700">
+              <h2 className="text-2xl font-bold text-foreground mb-2">Acting on Behalf of Another Person</h2>
+              <p className="text-sm text-muted-foreground">
                 This service allows guardians, parents, caregivers, or authorized representatives to complete 
                 applications and provide consent on behalf of another person
               </p>
@@ -323,8 +323,8 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
 
         {/* When to Use This Flow */}
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Info size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+            <Info size={20} className="text-primary" />
             When to Use This Flow
           </h3>
           <div className="space-y-3">
@@ -353,7 +353,7 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
 
         {/* What You'll Need */}
         <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <FileText size={20} className="text-green-600" />
             What You'll Need
           </h3>
@@ -366,13 +366,13 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
         </div>
 
         {/* Consent Notice */}
-        <div className="border-2 border-gray-300 rounded-lg p-6 bg-gray-50">
+        <div className="border-2 border-border rounded-lg p-6 bg-background">
           <label className="flex items-start gap-4 cursor-pointer">
             <input
               type="checkbox"
               className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
             />
-            <span className="text-sm text-gray-900">
+            <span className="text-sm text-foreground">
               I understand that I am acting on behalf of another person and I have the legal authority 
               or proper authorization to do so. I accept responsibility for the accuracy of the information 
               I provide.
@@ -384,13 +384,13 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onProceed}
-            className="flex-1 px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 transition-colors"
+            className="flex-1 px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90 transition-colors"
           >
             Continue as Guardian/Representative
           </button>
           <Link
             to="/patterns/consent"
-            className="flex-1 px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50 transition-colors text-center"
+            className="flex-1 px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background transition-colors text-center"
           >
             Cancel
           </Link>
@@ -405,7 +405,7 @@ function UseCase({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-3">
       {icon}
-      <span className="text-sm text-gray-700">{text}</span>
+      <span className="text-sm text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -414,7 +414,7 @@ function RequirementItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <Check size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -470,9 +470,9 @@ function RelationshipScreen({
 
   return (
     <>
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Select Your Relationship</h2>
-        <p className="text-sm text-gray-700">
+      <div className="bg-muted border-b-2 border-border px-8 py-6">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Select Your Relationship</h2>
+        <p className="text-sm text-muted-foreground">
           Choose the option that best describes your relationship to the person you're representing
         </p>
       </div>
@@ -485,8 +485,8 @@ function RelationshipScreen({
             onClick={() => onSelect(rel.id)}
             className={`w-full border-2 rounded-lg p-6 text-left transition-all ${
               selectedRelationship === rel.id
-                ? 'border-[#000080] bg-blue-50'
-                : 'border-gray-300 bg-white hover:border-blue-400 hover:bg-gray-50'
+                ? 'border-primary bg-blue-50'
+                : 'border-border bg-card hover:border-blue-400 hover:bg-background'
             }`}
           >
             <div className="flex items-start gap-4">
@@ -494,8 +494,8 @@ function RelationshipScreen({
                 {rel.icon}
               </div>
               <div className="flex-1">
-                <h3 className="font-bold text-gray-900 mb-1">{rel.title}</h3>
-                <p className="text-sm text-gray-700 mb-3">{rel.description}</p>
+                <h3 className="font-bold text-foreground mb-1">{rel.title}</h3>
+                <p className="text-sm text-muted-foreground mb-3">{rel.description}</p>
                 {rel.proofRequired && (
                   <div className="flex items-center gap-2 text-xs text-orange-700 bg-orange-50 border border-orange-200 rounded px-2 py-1 inline-block">
                     <AlertCircle size={12} />
@@ -511,7 +511,7 @@ function RelationshipScreen({
         <div className="pt-4 text-center">
           <button
             onClick={onHelp}
-            className="text-sm text-[#000080] hover:underline flex items-center gap-1 mx-auto"
+            className="text-sm text-primary hover:underline flex items-center gap-1 mx-auto"
           >
             <HelpCircle size={16} />
             Not sure which option applies to you?
@@ -550,9 +550,9 @@ function PersonDetailsScreen({
 
   return (
     <>
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Details of Person Being Represented</h2>
-        <p className="text-sm text-gray-700">
+      <div className="bg-muted border-b-2 border-border px-8 py-6">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Details of Person Being Represented</h2>
+        <p className="text-sm text-muted-foreground">
           Provide information about {relationshipLabels[relationship] || "the person"} you are representing
         </p>
       </div>
@@ -561,8 +561,8 @@ function PersonDetailsScreen({
         
         {/* Info Box */}
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
-          <Info size={20} className="text-[#000080] flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-gray-700">
+          <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-muted-foreground">
             Enter the details exactly as they appear on official documents. This information will be 
             verified during processing.
           </p>
@@ -571,7 +571,7 @@ function PersonDetailsScreen({
         {/* Form Fields */}
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-bold text-gray-900 mb-2">
+            <label className="block text-sm font-bold text-foreground mb-2">
               Full Name <span className="text-red-600">*</span>
             </label>
             <input
@@ -582,7 +582,7 @@ function PersonDetailsScreen({
               className={`w-full px-4 py-3 border-2 rounded text-sm ${
                 attemptedProceed && !personName.trim()
                   ? 'border-red-300 bg-red-50'
-                  : 'border-gray-300 bg-white'
+                  : 'border-border bg-card'
               }`}
             />
             {attemptedProceed && !personName.trim() && (
@@ -593,43 +593,43 @@ function PersonDetailsScreen({
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-gray-900 mb-2">
+            <label className="block text-sm font-bold text-foreground mb-2">
               Date of Birth <span className="text-red-600">*</span>
             </label>
             <input
               type="date"
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded text-sm"
+              className="w-full px-4 py-3 border-2 border-border rounded text-sm"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-gray-900 mb-2">
+            <label className="block text-sm font-bold text-foreground mb-2">
               Gender <span className="text-red-600">*</span>
             </label>
             <div className="grid grid-cols-3 gap-3">
-              <button className="px-4 py-3 border-2 border-gray-300 bg-white rounded text-sm hover:border-[#000080] hover:bg-blue-50">
+              <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50">
                 Male
               </button>
-              <button className="px-4 py-3 border-2 border-gray-300 bg-white rounded text-sm hover:border-[#000080] hover:bg-blue-50">
+              <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50">
                 Female
               </button>
-              <button className="px-4 py-3 border-2 border-gray-300 bg-white rounded text-sm hover:border-[#000080] hover:bg-blue-50">
+              <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50">
                 Other
               </button>
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-bold text-gray-900 mb-2">
+            <label className="block text-sm font-bold text-foreground mb-2">
               Aadhaar Number (Optional)
             </label>
             <input
               type="text"
               placeholder="XXXX XXXX XXXX"
               maxLength={14}
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded text-sm font-mono"
+              className="w-full px-4 py-3 border-2 border-border rounded text-sm font-mono"
             />
-            <p className="text-xs text-gray-600 mt-1">
+            <p className="text-xs text-muted-foreground mt-1">
               Providing Aadhaar helps in faster verification
             </p>
           </div>
@@ -639,13 +639,13 @@ function PersonDetailsScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onBack}
-            className="px-6 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Back
           </button>
           <button
             onClick={onSubmit}
-            className="flex-1 px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900"
+            className="flex-1 px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
           >
             Continue
           </button>
@@ -677,9 +677,9 @@ function AuthorizationScreen({
 }) {
   return (
     <>
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Authorization Declaration</h2>
-        <p className="text-sm text-gray-700">
+      <div className="bg-muted border-b-2 border-border px-8 py-6">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Authorization Declaration</h2>
+        <p className="text-sm text-muted-foreground">
           Declare that you have the legal authority to act on behalf of {personName || "the represented person"}
         </p>
       </div>
@@ -714,9 +714,9 @@ function AuthorizationScreen({
         </div>
 
         {/* Declaration Points */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">I Declare That:</h3>
-          <div className="space-y-3 text-sm text-gray-700">
+        <div className="bg-card border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">I Declare That:</h3>
+          <div className="space-y-3 text-sm text-muted-foreground">
             <DeclarationPoint text="I have the legal right or authorization to represent the person named above" />
             <DeclarationPoint text="All information I provide is true and accurate to the best of my knowledge" />
             <DeclarationPoint text="I am acting in the best interest of the person I represent" />
@@ -727,7 +727,7 @@ function AuthorizationScreen({
 
         {/* Authorization Checkbox */}
         <div className={`border-2 rounded-lg p-6 ${
-          attemptedProceed && !authorizationChecked ? 'border-red-300 bg-red-50' : 'border-gray-300 bg-gray-50'
+          attemptedProceed && !authorizationChecked ? 'border-red-300 bg-red-50' : 'border-border bg-background'
         }`}>
           <label className="flex items-start gap-4 cursor-pointer">
             <input
@@ -737,7 +737,7 @@ function AuthorizationScreen({
               className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
             />
             <div className="flex-1">
-              <span className="text-sm text-gray-900 font-bold leading-relaxed">
+              <span className="text-sm text-foreground font-bold leading-relaxed">
                 I solemnly declare that I have read and understood the above statements, and I confirm 
                 that I have the legal authority to act on behalf of {personName || "the represented person"}.
               </span>
@@ -754,7 +754,7 @@ function AuthorizationScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onBack}
-            className="px-6 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Back
           </button>
@@ -763,7 +763,7 @@ function AuthorizationScreen({
             disabled={!authorizationChecked}
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               authorizationChecked
-                ? 'bg-[#000080] text-white hover:bg-blue-900'
+                ? 'bg-primary text-white hover:opacity-90'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             }`}
           >
@@ -806,9 +806,9 @@ function ConsentScreen({
 }) {
   return (
     <>
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Data Processing Consent</h2>
-        <p className="text-sm text-gray-700">
+      <div className="bg-muted border-b-2 border-border px-8 py-6">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Data Processing Consent</h2>
+        <p className="text-sm text-muted-foreground">
           Provide consent for data collection and processing on behalf of {personName || "the represented person"}
         </p>
       </div>
@@ -818,10 +818,10 @@ function ConsentScreen({
         {/* Notice */}
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
           <div className="flex items-start gap-3">
-            <Info size={20} className="text-[#000080] flex-shrink-0 mt-0.5" />
+            <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Acting on Their Behalf</h3>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <h3 className="font-bold text-foreground mb-2">Acting on Their Behalf</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 You are providing consent for data collection and processing on behalf of{' '}
                 <span className="font-bold">{personName || "the represented person"}</span>. Ensure you 
                 have discussed this with them (if applicable) and you have their best interests in mind.
@@ -831,9 +831,9 @@ function ConsentScreen({
         </div>
 
         {/* Data Collection Details */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Data to be Collected</h3>
-          <div className="space-y-2 text-sm text-gray-700">
+        <div className="bg-card border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Data to be Collected</h3>
+          <div className="space-y-2 text-sm text-muted-foreground">
             <DataItem text="Personal information (name, DOB, gender, contact details)" />
             <DataItem text="Identity verification documents (Aadhaar, PAN, etc.)" />
             <DataItem text="Application and service-specific information" />
@@ -844,8 +844,8 @@ function ConsentScreen({
 
         {/* Purpose and Usage */}
         <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">Purpose of Data Collection</h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <h3 className="font-bold text-foreground mb-3">Purpose of Data Collection</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
             The data will be used to verify identity, process the application, deliver government services, 
             maintain records as per regulations, and communicate service updates. Data will not be shared 
             with third parties without consent or legal requirement.
@@ -854,7 +854,7 @@ function ConsentScreen({
 
         {/* Consent Checkbox */}
         <div className={`border-2 rounded-lg p-6 ${
-          attemptedProceed && !consentChecked ? 'border-red-300 bg-red-50' : 'border-gray-300 bg-gray-50'
+          attemptedProceed && !consentChecked ? 'border-red-300 bg-red-50' : 'border-border bg-background'
         }`}>
           <label className="flex items-start gap-4 cursor-pointer">
             <input
@@ -864,7 +864,7 @@ function ConsentScreen({
               className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
             />
             <div className="flex-1">
-              <span className="text-sm text-gray-900 leading-relaxed">
+              <span className="text-sm text-foreground leading-relaxed">
                 On behalf of <span className="font-bold">{personName || "the represented person"}</span>, 
                 I consent to the collection, processing, and storage of their personal data as described above 
                 for the purpose of accessing this government service. I understand that consent can be withdrawn 
@@ -883,7 +883,7 @@ function ConsentScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onBack}
-            className="px-6 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Back
           </button>
@@ -892,7 +892,7 @@ function ConsentScreen({
             disabled={!consentChecked}
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               consentChecked
-                ? 'bg-[#000080] text-white hover:bg-blue-900'
+                ? 'bg-primary text-white hover:opacity-90'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             }`}
           >
@@ -948,9 +948,9 @@ function ProofUploadScreen({
 
   return (
     <>
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Upload Supporting Documents</h2>
-        <p className="text-sm text-gray-700">
+      <div className="bg-muted border-b-2 border-border px-8 py-6">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Upload Supporting Documents</h2>
+        <p className="text-sm text-muted-foreground">
           Provide proof of your authorization to act as a representative
         </p>
       </div>
@@ -980,22 +980,22 @@ function ProofUploadScreen({
 
         {/* Upload Area */}
         <div className={`border-2 border-dashed rounded-lg p-8 text-center ${
-          attemptedProceed && !proofUploaded ? 'border-red-300 bg-red-50' : 'border-gray-300 bg-gray-50'
+          attemptedProceed && !proofUploaded ? 'border-red-300 bg-red-50' : 'border-border bg-background'
         }`}>
           {!proofUploaded ? (
             <>
               <Upload size={48} className="mx-auto mb-4 text-gray-400" />
-              <h3 className="font-bold text-gray-900 mb-2">Upload Documents</h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <h3 className="font-bold text-foreground mb-2">Upload Documents</h3>
+              <p className="text-sm text-muted-foreground mb-4">
                 Drag and drop files here or click to browse
               </p>
               <button
                 onClick={() => onProofUpload(true)}
-                className="px-6 py-3 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900"
+                className="px-6 py-3 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
               >
                 Select Files
               </button>
-              <p className="text-xs text-gray-600 mt-4">
+              <p className="text-xs text-muted-foreground mt-4">
                 Supported formats: PDF, JPG, PNG • Maximum size: 5MB per file
               </p>
               {attemptedProceed && !proofUploaded && (
@@ -1005,20 +1005,20 @@ function ProofUploadScreen({
               )}
             </>
           ) : (
-            <div className="bg-white border-2 border-green-300 rounded-lg p-4">
+            <div className="bg-card border-2 border-green-300 rounded-lg p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <FileText size={24} className="text-green-600" />
                   <div className="text-left">
-                    <div className="font-bold text-gray-900 text-sm">guardianship_certificate.pdf</div>
-                    <div className="text-xs text-gray-600">2.4 MB • Uploaded successfully</div>
+                    <div className="font-bold text-foreground text-sm">guardianship_certificate.pdf</div>
+                    <div className="text-xs text-muted-foreground">2.4 MB • Uploaded successfully</div>
                   </div>
                 </div>
                 <button
                   onClick={() => onProofUpload(false)}
-                  className="p-2 hover:bg-gray-100 rounded"
+                  className="p-2 hover:bg-muted rounded"
                 >
-                  <X size={20} className="text-gray-600" />
+                  <X size={20} className="text-muted-foreground" />
                 </button>
               </div>
             </div>
@@ -1028,8 +1028,8 @@ function ProofUploadScreen({
         {/* Information */}
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4">
           <div className="flex items-start gap-3">
-            <Info size={18} className="text-[#000080] flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-gray-700">
+            <Info size={18} className="text-primary flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-muted-foreground">
               <p className="mb-2">
                 Your documents will be verified by our team within 2-3 business days. You will receive a 
                 notification once verification is complete.
@@ -1046,7 +1046,7 @@ function ProofUploadScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onBack}
-            className="px-6 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Back
           </button>
@@ -1055,7 +1055,7 @@ function ProofUploadScreen({
             disabled={!proofUploaded}
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               proofUploaded
-                ? 'bg-[#000080] text-white hover:bg-blue-900'
+                ? 'bg-primary text-white hover:opacity-90'
                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             }`}
           >
@@ -1078,8 +1078,8 @@ function InvalidScreen({ onRetry, onHelp }: { onRetry: () => void; onHelp: () =>
           <AlertTriangle size={48} className="text-red-600" />
         </div>
         
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">Authorization Not Provided</h2>
-        <p className="text-gray-700 mb-8 leading-relaxed">
+        <h2 className="text-3xl font-bold text-foreground mb-3">Authorization Not Provided</h2>
+        <p className="text-muted-foreground mb-8 leading-relaxed">
           You cannot proceed without declaring your legal authority to act as a representative. 
           This declaration is mandatory for all guardian/proxy applications.
         </p>
@@ -1089,7 +1089,7 @@ function InvalidScreen({ onRetry, onHelp }: { onRetry: () => void; onHelp: () =>
             <XCircle size={20} className="text-red-600" />
             Why Authorization is Required
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <div className="flex items-start gap-3">
               <ChevronRight size={16} className="text-red-600 mt-0.5 flex-shrink-0" />
               <span>Legal protection for the person you're representing</span>
@@ -1110,11 +1110,11 @@ function InvalidScreen({ onRetry, onHelp }: { onRetry: () => void; onHelp: () =>
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-            <Info size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+            <Info size={20} className="text-primary" />
             What You Can Do
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <div className="flex items-start gap-3">
               <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
               <span>Review the authorization declaration and try again</span>
@@ -1137,13 +1137,13 @@ function InvalidScreen({ onRetry, onHelp }: { onRetry: () => void; onHelp: () =>
         <div className="space-y-3">
           <button
             onClick={onRetry}
-            className="w-full px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900"
+            className="w-full px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
           >
             Review Declaration and Try Again
           </button>
           <button
             onClick={onHelp}
-            className="w-full px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="w-full px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Get Help Understanding Requirements
           </button>
@@ -1179,18 +1179,18 @@ function SuccessScreen({
           <CheckCircle size={48} className="text-green-600" />
         </div>
         
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">Authorization Complete</h2>
-        <p className="text-gray-700 mb-8 leading-relaxed">
+        <h2 className="text-3xl font-bold text-foreground mb-3">Authorization Complete</h2>
+        <p className="text-muted-foreground mb-8 leading-relaxed">
           You are now authorized to act as {relationshipLabels[relationship] || "representative"} on behalf of{' '}
           <span className="font-bold">{personName}</span>. You can proceed with the service application.
         </p>
 
         <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <CheckCircle size={20} className="text-green-600" />
             What's Been Recorded
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <RecordItem text="Your relationship as representative has been verified" />
             <RecordItem text="Authorization declaration has been recorded with timestamp" />
             <RecordItem text="Consent for data processing has been captured" />
@@ -1202,32 +1202,32 @@ function SuccessScreen({
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-            <Info size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+            <Info size={20} className="text-primary" />
             Important Information
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <div className="flex items-start gap-3">
-              <ChevronRight size={16} className="text-[#000080] mt-0.5 flex-shrink-0" />
+              <ChevronRight size={16} className="text-primary mt-0.5 flex-shrink-0" />
               <span>
                 All actions you take will be recorded as being performed on behalf of {personName}
               </span>
             </div>
             <div className="flex items-start gap-3">
-              <ChevronRight size={16} className="text-[#000080] mt-0.5 flex-shrink-0" />
+              <ChevronRight size={16} className="text-primary mt-0.5 flex-shrink-0" />
               <span>
                 You are responsible for ensuring accuracy of all information provided
               </span>
             </div>
             <div className="flex items-start gap-3">
-              <ChevronRight size={16} className="text-[#000080] mt-0.5 flex-shrink-0" />
+              <ChevronRight size={16} className="text-primary mt-0.5 flex-shrink-0" />
               <span>
                 Any updates or changes will require re-verification of your authorization
               </span>
             </div>
             {(relationship === "legal-guardian" || relationship === "authorized-representative") && (
               <div className="flex items-start gap-3">
-                <ChevronRight size={16} className="text-[#000080] mt-0.5 flex-shrink-0" />
+                <ChevronRight size={16} className="text-primary mt-0.5 flex-shrink-0" />
                 <span>
                   Your documents will be verified within 2-3 business days
                 </span>
@@ -1251,12 +1251,12 @@ function SuccessScreen({
         </div>
 
         <div className="space-y-3">
-          <button className="w-full px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900">
+          <button className="w-full px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90">
             Proceed to Service Application
           </button>
           <button
             onClick={onReset}
-            className="w-full px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="w-full px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Reset Demo
           </button>
@@ -1286,8 +1286,8 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
             <HelpCircle size={32} className="text-orange-600" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Guardian/Proxy Consent Help</h2>
-            <p className="text-sm text-gray-600">Common questions and guidance</p>
+            <h2 className="text-2xl font-bold text-foreground">Guardian/Proxy Consent Help</h2>
+            <p className="text-sm text-muted-foreground">Common questions and guidance</p>
           </div>
         </div>
 
@@ -1327,19 +1327,19 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
         </div>
 
         <div className="mt-8 p-6 bg-blue-50 border-2 border-blue-300 rounded-lg">
-          <h3 className="font-bold text-gray-900 mb-3">Need More Help?</h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <h3 className="font-bold text-foreground mb-3">Need More Help?</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             For specific questions about your situation, contact our support team or visit the nearest 
             service center with your documents.
           </p>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <span className="font-bold text-gray-900">Email:</span>{' '}
-              <a href="#" className="text-[#000080] hover:underline">support@service.gov.in</a>
+              <span className="font-bold text-foreground">Email:</span>{' '}
+              <a href="#" className="text-primary hover:underline">support@service.gov.in</a>
             </div>
             <div>
-              <span className="font-bold text-gray-900">Helpline:</span>{' '}
-              <a href="#" className="text-[#000080] hover:underline">1800-XXX-XXXX</a>
+              <span className="font-bold text-foreground">Helpline:</span>{' '}
+              <a href="#" className="text-primary hover:underline">1800-XXX-XXXX</a>
             </div>
           </div>
         </div>
@@ -1347,7 +1347,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
         <div className="mt-8 text-center">
           <button
             onClick={onBack}
-            className="px-6 py-3 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 inline-flex items-center gap-2"
+            className="px-6 py-3 bg-primary text-white font-bold rounded text-sm hover:opacity-90 inline-flex items-center gap-2"
           >
             <ArrowLeft size={18} />
             Back to Flow
@@ -1360,12 +1360,12 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
 
 function HelpItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-2 flex items-start gap-2">
-        <HelpCircle size={18} className="text-[#000080] mt-0.5 flex-shrink-0" />
+    <div className="bg-card border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-2 flex items-start gap-2">
+        <HelpCircle size={18} className="text-primary mt-0.5 flex-shrink-0" />
         {question}
       </h3>
-      <p className="text-sm text-gray-700 leading-relaxed pl-6">{answer}</p>
+      <p className="text-sm text-muted-foreground leading-relaxed pl-6">{answer}</p>
     </div>
   );
 }
@@ -1389,8 +1389,8 @@ function ProgressTracker({ currentState, relationship }: { currentState: FlowSta
   const currentIndex = stateOrder.indexOf(currentState);
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-[#000080] text-white px-4 py-3">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-primary text-white px-4 py-3">
         <h3 className="font-bold text-sm">Progress</h3>
       </div>
       <div className="p-4 space-y-3">
@@ -1404,14 +1404,14 @@ function ProgressTracker({ currentState, relationship }: { currentState: FlowSta
               <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 ${
                 isComplete ? 'bg-green-100 text-green-700' : 
                 isActive ? 'bg-blue-100 text-blue-700' : 
-                'bg-gray-100 text-gray-600'
+                'bg-muted text-muted-foreground'
               }`}>
                 {isComplete ? <CheckCircle size={18} /> : index + 1}
               </div>
               <span className={`text-sm ${
-                isComplete ? 'text-gray-900 font-medium' : 
-                isActive ? 'text-gray-900 font-bold' : 
-                'text-gray-600'
+                isComplete ? 'text-foreground font-medium' : 
+                isActive ? 'text-foreground font-bold' : 
+                'text-muted-foreground'
               }`}>
                 {step.label}
               </span>
@@ -1439,12 +1439,12 @@ function StateExplainer({ currentState }: { currentState: FlowState }) {
   };
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">State Explanation</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">State Explanation</h3>
       </div>
       <div className="p-4">
-        <p className="text-sm text-gray-700 leading-relaxed">
+        <p className="text-sm text-muted-foreground leading-relaxed">
           {explanations[currentState]}
         </p>
       </div>
@@ -1456,11 +1456,11 @@ function StateExplainer({ currentState }: { currentState: FlowState }) {
 
 function KeyFeatures() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">Key Features</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">Key Features</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <FeatureItem text="Clear relationship selection" />
         <FeatureItem text="Formal authorization declaration" />
         <FeatureItem text="Proof upload for verification" />

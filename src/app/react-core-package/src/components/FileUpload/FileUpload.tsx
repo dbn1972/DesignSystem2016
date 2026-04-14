@@ -13,7 +13,7 @@
  * ```
  */
 
-import React, { useState, useRef } from 'react';
+import { useState, useRef, ChangeEvent, DragEvent } from 'react';
 import { cn } from '../../utils/cn';
 import { FileUploadProps } from './FileUpload.types';
 
@@ -83,7 +83,7 @@ export function FileUpload({
     onChange?.(updatedFiles);
   };
 
-  const handleDrag = (e: React.DragEvent) => {
+  const handleDrag = (e: DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (!disabled) {
@@ -95,7 +95,7 @@ export function FileUpload({
     }
   };
 
-  const handleDrop = (e: React.DragEvent) => {
+  const handleDrop = (e: DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
@@ -104,7 +104,7 @@ export function FileUpload({
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     handleFiles(e.target.files);
   };
 

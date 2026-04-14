@@ -3,27 +3,27 @@ import { Video, Upload, CheckCircle, AlertCircle, Clock, FileText, Shield, Camer
 
 export default function OfflineVideoKYCPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-gradient-to-br from-purple-50 via-white to-blue-50 border-b-2 border-gray-300">
+      <header className="bg-gradient-to-br from-purple-50 via-white to-blue-50 border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-12">
           <div className="mb-6">
-            <Link to="/patterns/identity" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/patterns/identity" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Identity & Access Patterns
             </Link>
           </div>
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 border-2 border-gray-300 rounded flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 border-2 border-border rounded flex items-center justify-center">
                   <Upload size={32} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">Identity Verification Pattern</div>
-                  <h1 className="text-4xl font-bold text-gray-900">Offline Video KYC Pattern</h1>
+                  <div className="text-sm text-muted-foreground mb-1">Identity Verification Pattern</div>
+                  <h1 className="text-4xl font-bold text-foreground">Offline Video KYC Pattern</h1>
                 </div>
               </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 Enable users to complete video-based identity verification by recording and uploading 
                 a verification video at their convenience. The video is reviewed asynchronously by 
                 verification agents, making it suitable for areas with poor connectivity.
@@ -31,15 +31,15 @@ export default function OfflineVideoKYCPattern() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Complexity: <span className="font-bold text-gray-900">Medium</span></span>
+                  <span className="text-muted-foreground">Complexity: <span className="font-bold text-foreground">Medium</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-sm"></div>
-                  <span className="text-gray-600">Type: <span className="font-bold text-gray-900">Asynchronous</span></span>
+                  <span className="text-muted-foreground">Type: <span className="font-bold text-foreground">Asynchronous</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-purple-500 rounded-sm"></div>
-                  <span className="text-gray-600">Priority: <span className="font-bold text-gray-900">High</span></span>
+                  <span className="text-muted-foreground">Priority: <span className="font-bold text-foreground">High</span></span>
                 </div>
               </div>
             </div>
@@ -61,11 +61,11 @@ export default function OfflineVideoKYCPattern() {
             
             {/* Overview */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Pattern Overview
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-                <p className="text-gray-700 mb-6">
+              <div className="bg-card border-2 border-border rounded-lg p-8">
+                <p className="text-muted-foreground mb-6">
                   Offline Video KYC allows users to record their identity verification video at their own 
                   pace and upload it when convenient. This pattern is particularly useful for users in 
                   areas with unreliable internet connectivity or those who prefer to complete verification 
@@ -73,11 +73,11 @@ export default function OfflineVideoKYCPattern() {
                 </p>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <CheckCircle size={20} className="text-green-600" />
                       When to Use
                     </h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Poor or intermittent internet connectivity</li>
                       <li>• User prefers to record at their own pace</li>
                       <li>• High volume of verification requests</li>
@@ -86,11 +86,11 @@ export default function OfflineVideoKYCPattern() {
                     </ul>
                   </div>
                   <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-                    <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <AlertCircle size={20} className="text-red-600" />
                       When Not to Use
                     </h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Immediate verification required</li>
                       <li>• Complex verification with agent guidance</li>
                       <li>• High-risk transactions needing live checks</li>
@@ -104,7 +104,7 @@ export default function OfflineVideoKYCPattern() {
 
             {/* User Journey */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 User Journey
               </h2>
               <div className="space-y-4">
@@ -159,7 +159,7 @@ export default function OfflineVideoKYCPattern() {
 
             {/* UX Requirements */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 UX Requirements
               </h2>
               <div className="grid grid-cols-1 gap-6">
@@ -212,12 +212,12 @@ export default function OfflineVideoKYCPattern() {
 
             {/* Technical Specifications */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Technical Specifications
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Implementation Requirements</h3>
+              <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Implementation Requirements</h3>
                 </div>
                 <div className="p-6 space-y-6">
                   <TechSpec
@@ -276,14 +276,14 @@ export default function OfflineVideoKYCPattern() {
 
             {/* Accessibility */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Accessibility Considerations
               </h2>
               <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3">For Users with Disabilities</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">For Users with Disabilities</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>Screen reader support for all instructions</span>
@@ -307,8 +307,8 @@ export default function OfflineVideoKYCPattern() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-3">Offline & Low Bandwidth</h3>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <h3 className="font-bold text-foreground mb-3">Offline & Low Bandwidth</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                         <span>Save recording locally before upload attempt</span>
@@ -337,13 +337,13 @@ export default function OfflineVideoKYCPattern() {
 
             {/* Code Example */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 border-l-4 border-purple-500 pl-4">
+              <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Implementation Example
               </h2>
-              <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4 flex items-center justify-between">
-                  <h3 className="font-bold text-gray-900">React Component</h3>
-                  <span className="text-xs text-gray-600 bg-gray-200 px-3 py-1 rounded">TypeScript</span>
+              <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4 flex items-center justify-between">
+                  <h3 className="font-bold text-foreground">React Component</h3>
+                  <span className="text-xs text-muted-foreground bg-gray-200 px-3 py-1 rounded">TypeScript</span>
                 </div>
                 <div className="p-6">
                   <pre className="bg-gray-900 text-green-400 p-6 rounded text-sm overflow-x-auto">
@@ -422,7 +422,7 @@ export function OfflineVideoKYC() {
       {step === 'instructions' && (
         <div className="space-y-6">
           <h2 className="text-2xl font-bold">Video KYC Instructions</h2>
-          <ul className="space-y-2 text-gray-700">
+          <ul className="space-y-2 text-muted-foreground">
             <li>• Ensure good lighting on your face</li>
             <li>• Hold your ID document clearly visible</li>
             <li>• Speak the verification text shown on screen</li>
@@ -463,7 +463,7 @@ export function OfflineVideoKYC() {
             </button>
             <button
               onClick={() => setStep('instructions')}
-              className="px-6 py-3 bg-gray-300 text-gray-900 rounded font-bold"
+              className="px-6 py-3 bg-gray-300 text-foreground rounded font-bold"
             >
               Re-record
             </button>
@@ -519,7 +519,7 @@ function JourneyStep({ step, title, description, icon }: {
   icon: React.ReactNode;
 }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 flex items-start gap-4">
+    <div className="bg-card border-2 border-border rounded-lg p-6 flex items-start gap-4">
       <div className="flex-shrink-0">
         <div className="w-12 h-12 bg-purple-100 border-2 border-purple-300 rounded-full flex items-center justify-center font-bold text-purple-700">
           {step}
@@ -528,9 +528,9 @@ function JourneyStep({ step, title, description, icon }: {
       <div className="flex-1">
         <div className="flex items-center gap-3 mb-2">
           <div className="text-purple-600">{icon}</div>
-          <h3 className="font-bold text-gray-900">{title}</h3>
+          <h3 className="font-bold text-foreground">{title}</h3>
         </div>
-        <p className="text-sm text-gray-700">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   );
@@ -550,8 +550,8 @@ function RequirementCard({ title, requirements, color }: {
 
   return (
     <div className={`${colors[color as keyof typeof colors]} border-2 rounded-lg p-6`}>
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
-      <ul className="space-y-2 text-sm text-gray-700">
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
+      <ul className="space-y-2 text-sm text-muted-foreground">
         {requirements.map((req, i) => (
           <li key={i} className="flex items-start gap-2">
             <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
@@ -566,8 +566,8 @@ function RequirementCard({ title, requirements, color }: {
 function TechSpec({ title, specs }: { title: string; specs: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-gray-900 mb-3">{title}</h4>
-      <ul className="space-y-2 text-sm text-gray-700">
+      <h4 className="font-bold text-foreground mb-3">{title}</h4>
+      <ul className="space-y-2 text-sm text-muted-foreground">
         {specs.map((spec, i) => (
           <li key={i} className="flex items-start gap-2">
             <div className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -581,26 +581,26 @@ function TechSpec({ title, specs }: { title: string; specs: string[] }) {
 
 function QuickInfo() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden sticky top-24">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden sticky top-24">
       <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Info</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Info</h3>
       </div>
       <div className="p-4 space-y-4 text-sm">
         <div>
-          <div className="text-gray-600 mb-1">Verification Time</div>
-          <div className="font-bold text-gray-900">24-48 hours</div>
+          <div className="text-muted-foreground mb-1">Verification Time</div>
+          <div className="font-bold text-foreground">24-48 hours</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Success Rate</div>
-          <div className="font-bold text-gray-900">85-90%</div>
+          <div className="text-muted-foreground mb-1">Success Rate</div>
+          <div className="font-bold text-foreground">85-90%</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">User Effort</div>
-          <div className="font-bold text-gray-900">5-10 minutes</div>
+          <div className="text-muted-foreground mb-1">User Effort</div>
+          <div className="font-bold text-foreground">5-10 minutes</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Compliance</div>
-          <div className="font-bold text-gray-900">RBI KYC Guidelines</div>
+          <div className="text-muted-foreground mb-1">Compliance</div>
+          <div className="font-bold text-foreground">RBI KYC Guidelines</div>
         </div>
       </div>
     </div>
@@ -609,20 +609,20 @@ function QuickInfo() {
 
 function RelatedPatterns() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
-        <Link to="/patterns/identity/online-video-kyc" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/patterns/identity/online-video-kyc" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>Online Video KYC</span>
         </Link>
-        <Link to="/patterns/identity/aadhaar-video-kyc" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/patterns/identity/aadhaar-video-kyc" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>Aadhaar-based Video KYC</span>
         </Link>
-        <Link to="/patterns/identity" className="flex items-center gap-2 text-gray-700 hover:text-[#000080]">
+        <Link to="/patterns/identity" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
           <ArrowRight size={14} />
           <span>All Identity Patterns</span>
         </Link>
@@ -634,8 +634,8 @@ function RelatedPatterns() {
 function BestPractices() {
   return (
     <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
-      <h3 className="font-bold text-gray-900 text-sm mb-3">Best Practices</h3>
-      <ul className="space-y-2 text-xs text-gray-700">
+      <h3 className="font-bold text-foreground text-sm mb-3">Best Practices</h3>
+      <ul className="space-y-2 text-xs text-muted-foreground">
         <li className="flex items-start gap-2">
           <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
           <span>Provide example video before recording</span>

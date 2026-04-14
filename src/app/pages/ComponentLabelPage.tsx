@@ -10,7 +10,7 @@ import { ComponentDocumentation } from '../components/ComponentDocumentation';
 const LabelPreview = ({ required, disabled, children, ...props }: any) => (
   <label
     className={`block text-sm font-medium ${
-      disabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-900'
+      disabled ? 'text-gray-400 cursor-not-allowed' : 'text-foreground'
     }`}
     {...props}
   >
@@ -21,7 +21,7 @@ const LabelPreview = ({ required, disabled, children, ...props }: any) => (
 
 const InputPreview = ({ ...props }: any) => (
   <input
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 transition-all"
+    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 transition-all"
     {...props}
   />
 );

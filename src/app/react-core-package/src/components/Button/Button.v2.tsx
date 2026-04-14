@@ -38,7 +38,7 @@
  * ```
  */
 
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../utils/cn';
 import { buttonVariants, type ButtonVariantProps } from './button.variants';
 import { ButtonProps } from './Button.types';

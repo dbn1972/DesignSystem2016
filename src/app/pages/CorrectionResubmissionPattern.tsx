@@ -2,37 +2,37 @@ import { FileEdit, CheckCircle, XCircle, AlertCircle, Info, AlertTriangle, Arrow
 
 export default function CorrectionResubmissionPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <FileEdit size={32} className="text-gray-700" />
+                <div className="w-16 h-16 bg-muted border-2 border-border rounded flex items-center justify-center">
+                  <FileEdit size={32} className="text-muted-foreground" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Service Pattern Library</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Correction and Resubmission</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Service Pattern Library</div>
+                  <h1 className="text-3xl font-bold text-foreground">Correction and Resubmission</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Recovery pattern for applications that need correction due to missing, invalid, or rejected information. 
                 Helps users understand issues clearly, make corrections confidently, and resubmit without losing progress.
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-004</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-004</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function CorrectionResubmissionPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -67,7 +67,7 @@ export default function CorrectionResubmissionPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -106,9 +106,9 @@ export default function CorrectionResubmissionPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Service Pattern Library</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -129,7 +129,7 @@ function PatternOverview() {
         <DocModule>
           <ModuleHeader title="Service Problem Solved" />
           <ModuleContent>
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Applications are rejected due to errors, but users don't understand what went wrong or how to fix it. 
               They must restart from scratch, losing all correct information and becoming frustrated.
             </p>
@@ -366,18 +366,18 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 1: Issue Summary (Overview)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-orange-100 border-b-2 border-orange-300 p-8">
               <div className="max-w-3xl">
                 <div className="flex items-center gap-3 mb-4">
                   <AlertCircle size={32} className="text-orange-600" />
-                  <h1 className="text-3xl font-bold text-gray-900">Your Application Needs Correction</h1>
+                  <h1 className="text-3xl font-bold text-foreground">Your Application Needs Correction</h1>
                 </div>
-                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                   We reviewed your application and found a few issues that need your attention. 
                   Don't worry—your correct information is saved. You only need to fix the items listed below.
                 </p>
-                <div className="flex items-center gap-6 text-sm text-gray-700">
+                <div className="flex items-center gap-6 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
                     <span>Application ID: <span className="font-bold">SCH/2026/12345</span></span>
@@ -394,8 +394,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">What You Need to Do</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">What You Need to Do</div>
+                    <div className="text-sm text-muted-foreground">
                       We found <strong>5 issues</strong> that need correction. Fix them and resubmit by <strong>30 April 2026</strong>. 
                       All your correct information is preserved—you don't need to re-enter everything.
                     </div>
@@ -424,9 +424,9 @@ function PageDesigns() {
                 />
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Issues Requiring Correction (5)</h3>
+              <div className="border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Issues Requiring Correction (5)</h3>
                 </div>
                 <div className="divide-y-2 divide-gray-200">
                   <IssueListItem
@@ -462,11 +462,11 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg hover:bg-background">
                   Need Help?
                 </button>
-                <button className="px-10 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] flex items-center gap-2">
+                <button className="px-10 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 flex items-center gap-2">
                   Start Corrections
                   <ChevronRight size={20} />
                 </button>
@@ -488,11 +488,11 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 2: Field-Level Correction" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-gray-900">Correcting: Mobile Number</h2>
-                <div className="text-sm text-gray-600">Issue 2 of 5</div>
+                <h2 className="text-xl font-bold text-foreground">Correcting: Mobile Number</h2>
+                <div className="text-sm text-muted-foreground">Issue 2 of 5</div>
               </div>
               <ProgressBar steps={5} current={2} />
             </div>
@@ -501,11 +501,11 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Issue Found</div>
-                    <div className="text-sm text-gray-700 mb-3">
+                    <div className="font-bold text-foreground mb-2">Issue Found</div>
+                    <div className="text-sm text-muted-foreground mb-3">
                       <strong>Problem:</strong> This required field was left blank in your original submission.
                     </div>
-                    <div className="text-sm text-gray-700">
+                    <div className="text-sm text-muted-foreground">
                       <strong>Why we need this:</strong> We use your mobile number to send OTP verification, 
                       application status updates, and important notifications about your scholarship.
                     </div>
@@ -516,9 +516,9 @@ function PageDesigns() {
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
                 <div className="flex items-start gap-3 mb-4">
                   <HelpCircle size={20} className="text-blue-600 flex-shrink-0" />
-                  <div className="font-bold text-gray-900">How to Fix This</div>
+                  <div className="font-bold text-foreground">How to Fix This</div>
                 </div>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 flex-shrink-0"></div>
                     <span>Enter your 10-digit mobile number (e.g., 9876543210)</span>
@@ -535,7 +535,7 @@ function PageDesigns() {
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-2">
+                <label className="block text-sm font-bold text-foreground mb-2">
                   Mobile Number <span className="text-red-600">*</span>
                 </label>
                 <div className="flex items-start gap-4">
@@ -545,26 +545,26 @@ function PageDesigns() {
                       placeholder="Enter 10-digit mobile number"
                       className="w-full px-4 py-3 border-2 border-orange-300 bg-orange-50 rounded-lg focus:border-orange-600"
                     />
-                    <div className="text-sm text-gray-600 mt-2">
+                    <div className="text-sm text-muted-foreground mt-2">
                       Format: 10 digits (no spaces or special characters)
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4">
-                <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <MessageCircle size={16} className="text-gray-600" />
+              <div className="bg-background border-2 border-border rounded-lg p-4">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <MessageCircle size={16} className="text-muted-foreground" />
                   <span><strong>Having trouble?</strong> Call our helpline at <span className="font-bold text-blue-600">1800-XXX-XXXX</span> for assistance</span>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 flex items-center gap-2">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg hover:bg-background flex items-center gap-2">
                   <ArrowLeft size={18} />
                   Previous Issue
                 </button>
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] flex items-center gap-2">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90 flex items-center gap-2">
                   Next Issue
                   <ChevronRight size={18} />
                 </button>
@@ -587,11 +587,11 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 3: Document Re-Upload (Rejected)" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-gray-900">Correcting: Income Certificate</h2>
-                <div className="text-sm text-gray-600">Issue 1 of 5</div>
+                <h2 className="text-xl font-bold text-foreground">Correcting: Income Certificate</h2>
+                <div className="text-sm text-muted-foreground">Issue 1 of 5</div>
               </div>
               <ProgressBar steps={5} current={1} />
             </div>
@@ -600,8 +600,8 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">Document Not Uploaded</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">Document Not Uploaded</div>
+                    <div className="text-sm text-muted-foreground">
                       <strong>Problem:</strong> Income certificate is mandatory for scholarship applications 
                       but was not included in your original submission.
                     </div>
@@ -609,8 +609,8 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg p-6 bg-white">
-                <h3 className="font-bold text-gray-900 mb-4">Document Requirements</h3>
+              <div className="border-2 border-border rounded-lg p-6 bg-card">
+                <h3 className="font-bold text-foreground mb-4">Document Requirements</h3>
                 <div className="grid grid-cols-2 gap-6">
                   <RequirementItem
                     label="Document Type"
@@ -643,11 +643,11 @@ function PageDesigns() {
                 <div className="flex items-start gap-3 mb-4">
                   <Info size={20} className="text-blue-600 flex-shrink-0" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">How to Get Income Certificate</div>
-                    <div className="text-sm text-gray-700 mb-3">
+                    <div className="font-bold text-foreground mb-2">How to Get Income Certificate</div>
+                    <div className="text-sm text-muted-foreground mb-3">
                       If you don't have this document yet, you can apply for it online:
                     </div>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-1.5 flex-shrink-0"></div>
                         <span>Visit your state's e-District portal</span>
@@ -666,21 +666,21 @@ function PageDesigns() {
               </div>
 
               <div className="border-2 border-orange-300 bg-orange-50 rounded-lg p-6">
-                <label className="block text-sm font-bold text-gray-900 mb-4">
+                <label className="block text-sm font-bold text-foreground mb-4">
                   Upload Income Certificate <span className="text-red-600">*</span>
                 </label>
-                <div className="border-2 border-dashed border-orange-400 rounded-lg p-8 text-center bg-white hover:bg-orange-50 cursor-pointer transition-colors">
+                <div className="border-2 border-dashed border-orange-400 rounded-lg p-8 text-center bg-card hover:bg-orange-50 cursor-pointer transition-colors">
                   <Upload size={32} className="text-orange-600 mx-auto mb-3" />
-                  <div className="text-sm text-gray-900 font-bold mb-2">Click to upload or drag and drop</div>
-                  <div className="text-xs text-gray-600">PDF, JPG, PNG (max 2 MB)</div>
+                  <div className="text-sm text-foreground font-bold mb-2">Click to upload or drag and drop</div>
+                  <div className="text-xs text-muted-foreground">PDF, JPG, PNG (max 2 MB)</div>
                 </div>
-                <div className="mt-4 text-sm text-gray-700">
+                <div className="mt-4 text-sm text-muted-foreground">
                   <strong>Tip:</strong> Make sure the document is clear, complete, and shows the official seal/signature
                 </div>
               </div>
 
               <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded-r-lg">
-                <div className="flex items-start gap-2 text-sm text-gray-700">
+                <div className="flex items-start gap-2 text-sm text-muted-foreground">
                   <AlertCircle size={16} className="text-yellow-600 mt-0.5 flex-shrink-0" />
                   <span>
                     <strong>Don't have the document yet?</strong> You can save your progress and return later. 
@@ -689,11 +689,11 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg hover:bg-background">
                   Save and Continue Later
                 </button>
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] flex items-center gap-2">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90 flex items-center gap-2">
                   Next Issue
                   <ChevronRight size={18} />
                 </button>
@@ -715,10 +715,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 4: Review Corrections" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Review Your Corrections</h2>
-              <p className="text-sm text-gray-600">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Review Your Corrections</h2>
+              <p className="text-sm text-muted-foreground">
                 Please verify all corrections before resubmitting your application.
               </p>
             </div>
@@ -727,17 +727,17 @@ function PageDesigns() {
                 <div className="flex items-start gap-3">
                   <CheckCircle size={24} className="text-green-600 flex-shrink-0" />
                   <div>
-                    <div className="font-bold text-gray-900 mb-2">All Issues Addressed</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="font-bold text-foreground mb-2">All Issues Addressed</div>
+                    <div className="text-sm text-muted-foreground">
                       You've corrected all 5 issues. Review the changes below before resubmitting.
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Corrected Fields (5)</h3>
+              <div className="border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Corrected Fields (5)</h3>
                 </div>
                 <div className="divide-y-2 divide-gray-200">
                   <CorrectionReviewItem
@@ -773,9 +773,9 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg p-6 bg-white">
-                <div className="font-bold text-gray-900 mb-4">Fields That Were Already Correct</div>
-                <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
+              <div className="border-2 border-border rounded-lg p-6 bg-card">
+                <div className="font-bold text-foreground mb-4">Fields That Were Already Correct</div>
+                <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <CheckCircle size={14} className="text-green-600 flex-shrink-0" />
                     <span>Full Name: Priya Sharma</span>
@@ -806,7 +806,7 @@ function PageDesigns() {
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
                 <div className="flex items-start gap-3">
                   <input type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
-                  <div className="text-sm text-gray-700">
+                  <div className="text-sm text-muted-foreground">
                     <p className="font-bold mb-2">Declaration</p>
                     <p className="leading-relaxed">
                       I confirm that all corrections are accurate and the uploaded documents are genuine. 
@@ -816,11 +816,11 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg hover:bg-background">
                   Back to Corrections
                 </button>
-                <button className="px-10 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 flex items-center gap-2">
+                <button className="px-10 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-600 flex items-center gap-2">
                   <CheckCircle size={20} />
                   Resubmit Application
                 </button>
@@ -842,9 +842,9 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 5: Resubmission Success" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-green-600 text-white p-12 text-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
               <h1 className="text-3xl font-bold mb-4">Application Resubmitted Successfully!</h1>
@@ -853,10 +853,10 @@ function PageDesigns() {
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6 text-center">
-                <div className="text-sm text-gray-600 mb-2">New Application Reference Number</div>
-                <div className="text-3xl font-bold text-gray-900 font-mono mb-4">SCH/2026/12345-R1</div>
-                <div className="text-sm text-gray-600">Original Application: SCH/2026/12345</div>
+              <div className="bg-background border-2 border-border rounded-lg p-6 text-center">
+                <div className="text-sm text-muted-foreground mb-2">New Application Reference Number</div>
+                <div className="text-3xl font-bold text-foreground font-mono mb-4">SCH/2026/12345-R1</div>
+                <div className="text-sm text-muted-foreground">Original Application: SCH/2026/12345</div>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
@@ -873,8 +873,8 @@ function PageDesigns() {
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
-                <div className="font-bold text-gray-900 mb-3">Corrections Submitted:</div>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">Corrections Submitted:</div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                     <span>Income certificate uploaded</span>
@@ -899,16 +899,16 @@ function PageDesigns() {
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                   Track Application Status
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Download Receipt
                 </button>
               </div>
 
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4 text-center">
-                <div className="text-sm text-gray-700">
+              <div className="bg-background border-2 border-border rounded-lg p-4 text-center">
+                <div className="text-sm text-muted-foreground">
                   <strong>Questions about your resubmission?</strong><br/>
                   Contact support at <span className="font-bold text-blue-600">1800-XXX-XXXX</span> or 
                   email <span className="font-bold text-blue-600">scholarship@education.gov.in</span>
@@ -931,18 +931,18 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 6: Updated Application Status" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Application Status</h2>
-              <div className="text-sm text-gray-600">Reference: SCH/2026/12345-R1</div>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Application Status</h2>
+              <div className="text-sm text-muted-foreground">Reference: SCH/2026/12345-R1</div>
             </div>
             <div className="p-8 space-y-6">
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
                 <div className="flex items-start justify-between">
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Current Status</div>
-                    <div className="text-2xl font-bold text-gray-900 mb-4">Under Review (After Correction)</div>
-                    <div className="text-sm text-gray-700">
+                    <div className="text-sm text-muted-foreground mb-1">Current Status</div>
+                    <div className="text-2xl font-bold text-foreground mb-4">Under Review (After Correction)</div>
+                    <div className="text-sm text-muted-foreground">
                       Your resubmitted application is being reviewed. Expected decision by <strong>20 April 2026</strong>.
                     </div>
                   </div>
@@ -952,9 +952,9 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-                <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-                  <h3 className="font-bold text-gray-900">Application Timeline</h3>
+              <div className="border-2 border-border rounded-lg overflow-hidden">
+                <div className="bg-muted border-b-2 border-border px-6 py-4">
+                  <h3 className="font-bold text-foreground">Application Timeline</h3>
                 </div>
                 <div className="p-6 space-y-4">
                   <TimelineItem
@@ -979,8 +979,8 @@ function PageDesigns() {
               </div>
 
               <div className="border-2 border-green-300 bg-green-50 rounded-lg p-6">
-                <div className="font-bold text-gray-900 mb-3">Corrections Made</div>
-                <div className="grid grid-cols-2 gap-3 text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-3">Corrections Made</div>
+                <div className="grid grid-cols-2 gap-3 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
                     <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                     <span>Income certificate uploaded</span>
@@ -1005,10 +1005,10 @@ function PageDesigns() {
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                   Download Application Copy
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Contact Support
                 </button>
               </div>
@@ -1112,8 +1112,8 @@ function ErrorPatterns() {
             <div className="flex items-start gap-3 mb-4">
               <Layers size={24} className="text-purple-600 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-2">Smart Grouping Strategy</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-2">Smart Grouping Strategy</div>
+                <div className="text-sm text-muted-foreground">
                   Group issues by type or section (not just a flat list) to reduce cognitive load and help users fix related issues together.
                 </div>
               </div>
@@ -1151,7 +1151,7 @@ function ErrorPatterns() {
             <HighlightingGuidance
               scenario="Correct field (unchanged)"
               visual="Standard gray border, no background color"
-              code='className="border-2 border-gray-300 bg-white"'
+              code='className="border-2 border-border bg-card"'
             />
             <HighlightingGuidance
               scenario="Successfully corrected field"
@@ -1330,8 +1330,8 @@ function AccessibilityGuidance() {
             <div className="flex items-start gap-3 mb-4">
               <Globe size={24} className="text-purple-600 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-2">Language Support for Error Messages</div>
-                <div className="text-sm text-gray-700">
+                <div className="font-bold text-foreground mb-2">Language Support for Error Messages</div>
+                <div className="text-sm text-muted-foreground">
                   All error messages, correction guidance, and help text must be available in Hindi and English minimum. 
                   State deployments should support regional languages.
                 </div>
@@ -1546,9 +1546,9 @@ function GovernanceConformance() {
 
 function MetadataPanel() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Pattern Metadata</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Pattern Metadata</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <MetadataRow label="Pattern ID" value="UX4G-PAT-004" />
@@ -1566,7 +1566,7 @@ function QuickRefPanel() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <QuickRefRow label="Avg. Duration" value="10-15 minutes" />
@@ -1584,9 +1584,9 @@ function DesignPrinciples() {
   return (
     <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
       <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Core Principles</h3>
+        <h3 className="font-bold text-foreground text-sm">Core Principles</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <PrincipleItem icon={<ThumbsUp size={14} />} text="Respect: Non-punitive, supportive language" />
         <PrincipleItem icon={<Target size={14} />} text="Clarity: Specific, actionable guidance" />
         <PrincipleItem icon={<Shield size={14} />} text="Preservation: Keep correct data, fix only errors" />
@@ -1601,9 +1601,9 @@ function RiskIndicators() {
     <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
       <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3 flex items-center gap-2">
         <AlertTriangle size={16} className="text-red-700" />
-        <h3 className="font-bold text-gray-900 text-sm">Risk Indicators</h3>
+        <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <RiskItem severity="high" risk="Punitive language blaming users" />
         <RiskItem severity="high" risk="Not preserving correct data" />
         <RiskItem severity="high" risk="Vague error messages" />
@@ -1616,9 +1616,9 @@ function RiskIndicators() {
 
 function RelatedResources() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <RelatedLink title="Application Submission" />
@@ -1634,15 +1634,15 @@ function RelatedResources() {
 
 function SectionHeader({ title }: any) {
   return (
-    <div className="border-l-4 border-[#000080] pl-4">
-      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+    <div className="border-l-4 border-primary pl-4">
+      <h2 className="text-2xl font-bold text-foreground">{title}</h2>
     </div>
   );
 }
 
 function DocModule({ children }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
       {children}
     </div>
   );
@@ -1650,8 +1650,8 @@ function DocModule({ children }: any) {
 
 function ModuleHeader({ title }: any) {
   return (
-    <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-      <h3 className="font-bold text-gray-900">{title}</h3>
+    <div className="bg-muted border-b-2 border-border px-6 py-4">
+      <h3 className="font-bold text-foreground">{title}</h3>
     </div>
   );
 }
@@ -1662,11 +1662,11 @@ function ModuleContent({ children }: any) {
 
 function ProblemSolutionBlock({ icon, problem, solution }: any) {
   return (
-    <div className="flex items-start gap-3 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-background border-2 border-border rounded-lg">
       <div className="flex-shrink-0 mt-0.5">{icon}</div>
       <div>
-        <div className="text-sm font-bold text-gray-900 mb-1">Problem: {problem}</div>
-        <div className="text-sm text-gray-700">Solution: {solution}</div>
+        <div className="text-sm font-bold text-foreground mb-1">Problem: {problem}</div>
+        <div className="text-sm text-muted-foreground">Solution: {solution}</div>
       </div>
     </div>
   );
@@ -1675,13 +1675,13 @@ function ProblemSolutionBlock({ icon, problem, solution }: any) {
 function UserGroup({ icon, name, description, percentage }: any) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-10 h-10 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center flex-shrink-0">
+      <div className="w-10 h-10 bg-muted border-2 border-border rounded flex items-center justify-center flex-shrink-0">
         {icon}
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{name}</div>
-        <div className="text-xs text-gray-600 mb-2">{description}</div>
-        <div className="text-xs font-bold text-gray-900">{percentage} of users</div>
+        <div className="font-bold text-sm text-foreground mb-1">{name}</div>
+        <div className="text-xs text-muted-foreground mb-2">{description}</div>
+        <div className="text-xs font-bold text-foreground">{percentage} of users</div>
       </div>
     </div>
   );
@@ -1689,11 +1689,11 @@ function UserGroup({ icon, name, description, percentage }: any) {
 
 function UseCaseCard({ title, examples }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-3">{title}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-3">{title}</div>
       <ul className="space-y-2">
         {examples.map((example: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
             <span>{example}</span>
           </li>
@@ -1706,9 +1706,9 @@ function UseCaseCard({ title, examples }: any) {
 function EntryPointCard({ method, description, example }: any) {
   return (
     <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
-      <div className="font-bold text-sm text-gray-900 mb-2">{method}</div>
-      <div className="text-sm text-gray-700 mb-3">{description}</div>
-      <div className="text-xs text-gray-600 bg-white border border-blue-200 rounded p-2 italic">
+      <div className="font-bold text-sm text-foreground mb-2">{method}</div>
+      <div className="text-sm text-muted-foreground mb-3">{description}</div>
+      <div className="text-xs text-muted-foreground bg-card border border-blue-200 rounded p-2 italic">
         {example}
       </div>
     </div>
@@ -1717,37 +1717,37 @@ function EntryPointCard({ method, description, example }: any) {
 
 function FlowStep({ number, label, status }: any) {
   const statusConfig: any = {
-    entry: { bg: 'bg-gray-100', border: 'border-gray-400', text: 'text-gray-700' },
+    entry: { bg: 'bg-muted', border: 'border-gray-400', text: 'text-muted-foreground' },
     active: { bg: 'bg-blue-50', border: 'border-blue-400', text: 'text-blue-700' },
     optional: { bg: 'bg-purple-50', border: 'border-purple-400', text: 'text-purple-700' },
     success: { bg: 'bg-green-50', border: 'border-green-400', text: 'text-green-700' },
-    info: { bg: 'bg-gray-50', border: 'border-gray-300', text: 'text-gray-600' }
+    info: { bg: 'bg-background', border: 'border-border', text: 'text-muted-foreground' }
   };
 
   return (
     <div className={`border-2 ${statusConfig[status].border} rounded-lg p-3 ${statusConfig[status].bg}`}>
       <div className={`text-xs font-bold ${statusConfig[status].text} mb-1`}>{number}</div>
-      <div className="text-xs font-medium text-gray-900">{label}</div>
+      <div className="text-xs font-medium text-foreground">{label}</div>
     </div>
   );
 }
 
 function PageSequenceRow({ number, title, description, required }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-l-4 border-[#000080] rounded">
-      <div className="w-8 h-8 bg-[#000080] text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
+    <div className="flex items-start gap-4 p-4 bg-background border-l-4 border-primary rounded">
+      <div className="w-8 h-8 bg-primary text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
         {number}
       </div>
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-1">
-          <div className="font-bold text-sm text-gray-900">{title}</div>
+          <div className="font-bold text-sm text-foreground">{title}</div>
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-gray-700 text-xs font-bold rounded">OPTIONAL</span>
+            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
         </div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1768,7 +1768,7 @@ function IssueSummaryCard({ type, count, color, icon }: any) {
           {count}
         </div>
       </div>
-      <div className="font-bold text-sm text-gray-900">{type}</div>
+      <div className="font-bold text-sm text-foreground">{type}</div>
     </div>
   );
 }
@@ -1781,13 +1781,13 @@ function IssueListItem({ severity, field, issue, guidance }: any) {
   };
 
   return (
-    <div className="p-6 hover:bg-gray-50">
+    <div className="p-6 hover:bg-background">
       <div className="flex items-start gap-4">
         <div className="flex-shrink-0 mt-0.5">{severityConfig[severity].icon}</div>
         <div className="flex-1">
-          <div className="font-bold text-sm text-gray-900 mb-1">{field}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{field}</div>
           <div className={`text-sm font-bold ${severityConfig[severity].color} mb-2`}>{issue}</div>
-          <div className="text-sm text-gray-700">{guidance}</div>
+          <div className="text-sm text-muted-foreground">{guidance}</div>
         </div>
         <ChevronRight size={20} className="text-gray-400 flex-shrink-0" />
       </div>
@@ -1801,7 +1801,7 @@ function ProgressBar({ steps, current }: any) {
       {Array.from({ length: steps }).map((_, idx) => (
         <div
           key={idx}
-          className={`flex-1 h-2 rounded ${idx < current ? 'bg-[#000080]' : 'bg-gray-300'}`}
+          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-gray-300'}`}
         ></div>
       ))}
     </div>
@@ -1811,8 +1811,8 @@ function ProgressBar({ steps, current }: any) {
 function RequirementItem({ label, value }: any) {
   return (
     <div>
-      <div className="text-sm font-bold text-gray-900 mb-1">{label}</div>
-      <div className="text-sm text-gray-700">{value}</div>
+      <div className="text-sm font-bold text-foreground mb-1">{label}</div>
+      <div className="text-sm text-muted-foreground">{value}</div>
     </div>
   );
 }
@@ -1820,15 +1820,15 @@ function RequirementItem({ label, value }: any) {
 function CorrectionReviewItem({ field, before, after, type }: any) {
   return (
     <div className="p-6">
-      <div className="font-bold text-sm text-gray-900 mb-2">{field}</div>
+      <div className="font-bold text-sm text-foreground mb-2">{field}</div>
       <div className="flex items-start gap-4">
         <div className="flex-1">
-          <div className="text-xs text-gray-600 mb-1">Before:</div>
-          <div className="text-sm text-gray-700 line-through">{before}</div>
+          <div className="text-xs text-muted-foreground mb-1">Before:</div>
+          <div className="text-sm text-muted-foreground line-through">{before}</div>
         </div>
         <ArrowRight size={20} className="text-blue-600 flex-shrink-0 mt-4" />
         <div className="flex-1">
-          <div className="text-xs text-gray-600 mb-1">After:</div>
+          <div className="text-xs text-muted-foreground mb-1">After:</div>
           <div className="text-sm text-blue-700 font-bold">{after}</div>
         </div>
       </div>
@@ -1838,12 +1838,12 @@ function CorrectionReviewItem({ field, before, after, type }: any) {
 
 function NextStepCard({ icon, title, description }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">{icon}</div>
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-          <div className="text-xs text-gray-600">{description}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+          <div className="text-xs text-muted-foreground">{description}</div>
         </div>
       </div>
     </div>
@@ -1858,9 +1858,9 @@ function TimelineItem({ date, status, description, active }: any) {
         {!active && <div className="w-0.5 h-12 bg-gray-300"></div>}
       </div>
       <div className="flex-1">
-        <div className="text-xs text-gray-600">{date}</div>
-        <div className="font-bold text-sm text-gray-900 mb-1">{status}</div>
-        <div className="text-sm text-gray-700">{description}</div>
+        <div className="text-xs text-muted-foreground">{date}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{status}</div>
+        <div className="text-sm text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1871,9 +1871,9 @@ function PageAnnotation({ items }: any) {
     <div className="mt-4 bg-blue-50 border-l-4 border-blue-600 p-4">
       <div className="flex items-start gap-2 mb-2">
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
-        <div className="font-bold text-sm text-gray-900">Design Annotations</div>
+        <div className="font-bold text-sm text-foreground">Design Annotations</div>
       </div>
-      <ul className="space-y-1.5 text-sm text-gray-700">
+      <ul className="space-y-1.5 text-sm text-muted-foreground">
         {items.map((item: string, idx: number) => (
           <li key={idx} className="flex items-start gap-2">
             <div className="w-1 h-1 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -1897,27 +1897,27 @@ function IssueTypeDefinition({ type, severity, color, icon, description, example
       <div className={`${colorConfig[color].headerBg} border-b-2 ${colorConfig[color].border} px-4 py-3 flex items-center justify-between`}>
         <div className="flex items-center gap-2">
           {icon}
-          <h4 className="font-bold text-gray-900">{type}</h4>
+          <h4 className="font-bold text-foreground">{type}</h4>
         </div>
-        <div className="text-xs font-bold text-gray-700">{severity} Severity</div>
+        <div className="text-xs font-bold text-muted-foreground">{severity} Severity</div>
       </div>
       <div className="p-4 space-y-3">
-        <div className="text-sm text-gray-700">{description}</div>
+        <div className="text-sm text-muted-foreground">{description}</div>
         <div>
-          <div className="text-xs font-bold text-gray-900 mb-2">Examples:</div>
+          <div className="text-xs font-bold text-foreground mb-2">Examples:</div>
           <ul className="space-y-1">
             {examples.map((example: string, idx: number) => (
-              <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+              <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
                 <div className="w-1 h-1 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
                 <span>{example}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="text-sm text-gray-700">
+        <div className="text-sm text-muted-foreground">
           <strong>User Action:</strong> {userAction}
         </div>
-        <div className="text-xs text-gray-600 bg-white border border-gray-300 rounded p-2">
+        <div className="text-xs text-muted-foreground bg-card border border-border rounded p-2">
           <strong>Tone:</strong> {tone}
         </div>
       </div>
@@ -1927,20 +1927,20 @@ function IssueTypeDefinition({ type, severity, color, icon, description, example
 
 function GroupingStrategy({ method, example, benefit }: any) {
   return (
-    <div className="border-2 border-purple-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-2">{method}</div>
-      <div className="text-xs text-gray-700 mb-3">{example}</div>
-      <div className="text-xs text-gray-600 italic">Benefit: {benefit}</div>
+    <div className="border-2 border-purple-300 rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-2">{method}</div>
+      <div className="text-xs text-muted-foreground mb-3">{example}</div>
+      <div className="text-xs text-muted-foreground italic">Benefit: {benefit}</div>
     </div>
   );
 }
 
 function HighlightingGuidance({ scenario, visual, code }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-2">{scenario}</div>
-      <div className="text-sm text-gray-700 mb-2">{visual}</div>
-      <div className="text-xs text-gray-600 bg-white border border-gray-300 rounded p-2 font-mono">
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-2">{scenario}</div>
+      <div className="text-sm text-muted-foreground mb-2">{visual}</div>
+      <div className="text-xs text-muted-foreground bg-card border border-border rounded p-2 font-mono">
         {code}
       </div>
     </div>
@@ -1949,21 +1949,21 @@ function HighlightingGuidance({ scenario, visual, code }: any) {
 
 function ComponentCard({ name, variants, usage }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-2">{name}</div>
-      <div className="text-xs text-gray-600 mb-2">Variants: {variants}</div>
-      <div className="text-xs text-gray-600">Usage: {usage}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-2">{name}</div>
+      <div className="text-xs text-muted-foreground mb-2">Variants: {variants}</div>
+      <div className="text-xs text-muted-foreground">Usage: {usage}</div>
     </div>
   );
 }
 
 function ToneBlock({ context, tone, good, bad }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">{context}</div>
-          <div className="text-xs text-gray-600 italic">{tone}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{context}</div>
+          <div className="text-xs text-muted-foreground italic">{tone}</div>
         </div>
       </div>
       <div className="space-y-3">
@@ -1972,14 +1972,14 @@ function ToneBlock({ context, tone, good, bad }: any) {
             <CheckCircle size={14} className="text-green-600" />
             <span className="text-xs font-bold text-green-700">Good</span>
           </div>
-          <div className="text-sm text-gray-900 bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
+          <div className="text-sm text-foreground bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
             <span className="text-xs font-bold text-red-700">Bad</span>
           </div>
-          <div className="text-sm text-gray-900 bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
+          <div className="text-sm text-foreground bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
         </div>
       </div>
     </div>
@@ -1989,9 +1989,9 @@ function ToneBlock({ context, tone, good, bad }: any) {
 function MessageFormula({ type, formula, example }: any) {
   return (
     <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
-      <div className="font-bold text-sm text-gray-900 mb-2">{type}</div>
-      <div className="text-sm text-gray-700 mb-2"><strong>Formula:</strong> {formula}</div>
-      <div className="text-xs text-gray-600 bg-white border border-blue-200 rounded p-2 italic">
+      <div className="font-bold text-sm text-foreground mb-2">{type}</div>
+      <div className="text-sm text-muted-foreground mb-2"><strong>Formula:</strong> {formula}</div>
+      <div className="text-xs text-muted-foreground bg-card border border-blue-200 rounded p-2 italic">
         <strong>Example:</strong> {example}
       </div>
     </div>
@@ -2000,11 +2000,11 @@ function MessageFormula({ type, formula, example }: any) {
 
 function AccessibilityBlock({ area, requirements }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-3">{area}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-3">{area}</div>
       <ul className="space-y-2">
         {requirements.map((req: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{req}</span>
           </li>
@@ -2017,8 +2017,8 @@ function AccessibilityBlock({ area, requirements }: any) {
 function MultilingualItem({ aspect, requirement }: any) {
   return (
     <div className="text-sm">
-      <div className="font-bold text-gray-900 mb-1">{aspect}</div>
-      <div className="text-gray-700">{requirement}</div>
+      <div className="font-bold text-foreground mb-1">{aspect}</div>
+      <div className="text-muted-foreground">{requirement}</div>
     </div>
   );
 }
@@ -2031,15 +2031,15 @@ function ImplementationItem({ category, requirement, priority }: any) {
   };
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-4 p-4 bg-background border-2 border-border rounded-lg">
       <div className="w-24 flex-shrink-0">
         <div className={`px-2 py-1 rounded text-xs font-bold text-center ${priorityConfig[priority].bg} ${priorityConfig[priority].text} ${priorityConfig[priority].border} border`}>
           {priority.toUpperCase()}
         </div>
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{category}</div>
-        <div className="text-sm text-gray-700">{requirement}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{category}</div>
+        <div className="text-sm text-muted-foreground">{requirement}</div>
       </div>
     </div>
   );
@@ -2047,24 +2047,24 @@ function ImplementationItem({ category, requirement, priority }: any) {
 
 function AnalyticsEvent({ event, description }: any) {
   return (
-    <div className="flex items-start gap-4 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <code className="px-2 py-1 bg-white border border-gray-400 rounded text-xs font-mono text-gray-900 flex-shrink-0">
+    <div className="flex items-start gap-4 p-3 bg-background border-2 border-border rounded-lg">
+      <code className="px-2 py-1 bg-card border border-gray-400 rounded text-xs font-mono text-foreground flex-shrink-0">
         {event}
       </code>
-      <div className="flex-1 text-sm text-gray-700">{description}</div>
+      <div className="flex-1 text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
 
 function ConformanceItem({ checked, label }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-3 bg-background border-2 border-border rounded-lg">
       <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${
-        checked ? 'bg-green-500 border-green-600' : 'bg-white border-gray-400'
+        checked ? 'bg-green-500 border-green-600' : 'bg-card border-gray-400'
       }`}>
         {checked && <Check size={14} className="text-white" />}
       </div>
-      <div className="text-sm text-gray-700">{label}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -2079,12 +2079,12 @@ function RiskBlock({ risk, impact, solution }: any) {
   return (
     <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
-        <div className="font-bold text-sm text-gray-900 flex-1">{risk}</div>
+        <div className="font-bold text-sm text-foreground flex-1">{risk}</div>
         <div className={`px-2 py-1 rounded text-xs font-bold ${impactConfig[impact].bg} ${impactConfig[impact].color} flex-shrink-0 ml-3`}>
           {impact} Impact
         </div>
       </div>
-      <div className="text-sm text-gray-700">
+      <div className="text-sm text-muted-foreground">
         <span className="font-bold">Solution:</span> {solution}
       </div>
     </div>
@@ -2094,9 +2094,9 @@ function RiskBlock({ risk, impact, solution }: any) {
 function MaturityBlock({ status, version, description }: any) {
   return (
     <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50">
-      <div className="font-bold text-sm text-gray-900 mb-1">{status}</div>
-      <div className="text-xs text-gray-600 mb-3">{version}</div>
-      <div className="text-sm text-gray-700">{description}</div>
+      <div className="font-bold text-sm text-foreground mb-1">{status}</div>
+      <div className="text-xs text-muted-foreground mb-3">{version}</div>
+      <div className="text-sm text-muted-foreground">{description}</div>
     </div>
   );
 }
@@ -2104,8 +2104,8 @@ function MaturityBlock({ status, version, description }: any) {
 function MetadataRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2113,8 +2113,8 @@ function MetadataRow({ label, value }: any) {
 function QuickRefRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-700">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -2145,7 +2145,7 @@ function RiskItem({ severity, risk }: any) {
 
 function RelatedLink({ title }: any) {
   return (
-    <a href="#" className="block px-3 py-2 bg-white border border-gray-300 rounded hover:border-[#000080] hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
+    <a href="#" className="block px-3 py-2 bg-card border border-border rounded hover:border-primary hover:bg-background transition-colors text-sm text-muted-foreground font-medium">
       {title}
     </a>
   );

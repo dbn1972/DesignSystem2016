@@ -8,7 +8,7 @@
  * - Polymorphic component support
  */
 
-import { AriaAttributes, ReactNode, HTMLAttributes } from 'react';
+import { ReactNode } from 'react';
 
 /**
  * Base size variants used across components

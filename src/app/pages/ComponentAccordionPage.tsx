@@ -18,20 +18,20 @@ const AccordionPreview = () => {
   return (
     <div className="space-y-2">
       {items.map((item, idx) => (
-        <div key={idx} className="border border-gray-200 rounded-lg overflow-hidden">
+        <div key={idx} className="border border-border rounded-lg overflow-hidden">
           <button
             onClick={() => setOpen(open === idx ? -1 : idx)}
-            className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+            className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-background transition-colors"
           >
-            <span className="font-semibold text-gray-900">{item.title}</span>
+            <span className="font-semibold text-foreground">{item.title}</span>
             <ChevronDown
               size={20}
-              className={`text-gray-600 transition-transform ${open === idx ? 'rotate-180' : ''}`}
+              className={`text-muted-foreground transition-transform ${open === idx ? 'rotate-180' : ''}`}
             />
           </button>
           {open === idx && (
-            <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-              <p className="text-gray-700">{item.content}</p>
+            <div className="px-6 py-4 bg-background border-t border-border">
+              <p className="text-muted-foreground">{item.content}</p>
             </div>
           )}
         </div>
@@ -138,23 +138,23 @@ export const Accordion: React.FC<AccordionProps> = ({
       {items.map((item, index) => (
         <div
           key={index}
-          className={\`\${bordered ? 'border border-gray-200' : ''} rounded-lg overflow-hidden\`}
+          className={\`\${bordered ? 'border border-border' : ''} rounded-lg overflow-hidden\`}
         >
           <button
             onClick={() => toggleItem(index)}
-            className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+            className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-background transition-colors"
           >
-            <span className="font-semibold text-gray-900">{item.title}</span>
+            <span className="font-semibold text-foreground">{item.title}</span>
             <ChevronDown
               size={20}
-              className={\`text-gray-600 transition-transform \${
+              className={\`text-muted-foreground transition-transform \${
                 openItems.includes(index) ? 'rotate-180' : ''
               }\`}
             />
           </button>
           
           {openItems.includes(index) && (
-            <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+            <div className="px-6 py-4 bg-background border-t border-border">
               {item.content}
             </div>
           )}
@@ -189,16 +189,16 @@ interface AccordionItem {
   template: \`
     <div class="space-y-2">
       <div *ngFor="let item of items; let i = index"
-           [class]="bordered ? 'border border-gray-200 rounded-lg overflow-hidden' : ''">
+           [class]="bordered ? 'border border-border rounded-lg overflow-hidden' : ''">
         <button
           (click)="toggleItem(i)"
-          class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
-          <span class="font-semibold text-gray-900">{{ item.title }}</span>
+          class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-background transition-colors">
+          <span class="font-semibold text-foreground">{{ item.title }}</span>
           <span [class]="getChevronClasses(i)">▼</span>
         </button>
         
         <div *ngIf="isOpen(i)"
-             class="px-6 py-4 bg-gray-50 border-t border-gray-200">
+             class="px-6 py-4 bg-background border-t border-border">
           {{ item.content }}
         </div>
       </div>
@@ -230,7 +230,7 @@ export class AccordionComponent {
   }
   
   getChevronClasses(index: number): string {
-    return \`text-gray-600 transition-transform \${this.isOpen(index) ? 'rotate-180' : ''}\`;
+    return \`text-muted-foreground transition-transform \${this.isOpen(index) ? 'rotate-180' : ''}\`;
   }
 }`,
         module: `import { NgModule } from '@angular/core';

@@ -165,17 +165,17 @@ export default function NotificationCenterPattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1200px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link to="/patterns/notifications" className="text-sm text-gray-600 hover:text-[#000080]">
+              <Link to="/patterns/notifications" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
               <span className="text-gray-400">|</span>
-              <span className="text-sm font-bold text-gray-900">Notification Center</span>
+              <span className="text-sm font-bold text-foreground">Notification Center</span>
             </div>
           </div>
         </div>
@@ -186,15 +186,15 @@ export default function NotificationCenterPattern() {
         
         <div className="mb-8 flex items-start justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Notifications</h1>
-            <p className="text-gray-600">
+            <h1 className="text-3xl font-bold text-foreground mb-2">Notifications</h1>
+            <p className="text-muted-foreground">
               {unreadCount > 0 ? `You have ${unreadCount} unread notification${unreadCount === 1 ? '' : 's'}` : 'All caught up!'}
             </p>
           </div>
           {unreadCount > 0 && (
             <button
               onClick={markAllAsRead}
-              className="px-4 py-2 text-sm text-[#000080] hover:underline flex items-center gap-2"
+              className="px-4 py-2 text-sm text-primary hover:underline flex items-center gap-2"
             >
               <Check size={16} />
               <span>Mark all as read</span>
@@ -203,20 +203,20 @@ export default function NotificationCenterPattern() {
         </div>
 
         {/* Filters and Search */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6 mb-6">
+        <div className="bg-card border-2 border-border rounded-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <Filter size={20} className="text-gray-600" />
-                <span className="text-sm font-bold text-gray-900">Filter:</span>
+                <Filter size={20} className="text-muted-foreground" />
+                <span className="text-sm font-bold text-foreground">Filter:</span>
               </div>
               <div className="flex gap-2">
                 <button
                   onClick={() => setFilter('all')}
                   className={`px-4 py-2 rounded font-bold text-sm ${
                     filter === 'all'
-                      ? 'bg-[#000080] text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-primary text-white'
+                      : 'bg-muted text-muted-foreground hover:bg-gray-200'
                   }`}
                 >
                   All ({notifications.length})
@@ -226,7 +226,7 @@ export default function NotificationCenterPattern() {
                   className={`px-4 py-2 rounded font-bold text-sm relative ${
                     filter === 'unread'
                       ? 'bg-blue-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-muted text-muted-foreground hover:bg-gray-200'
                   }`}
                 >
                   Unread ({unreadCount})
@@ -236,7 +236,7 @@ export default function NotificationCenterPattern() {
                   className={`px-4 py-2 rounded font-bold text-sm ${
                     filter === 'action'
                       ? 'bg-orange-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-muted text-muted-foreground hover:bg-gray-200'
                   }`}
                 >
                   Action Required
@@ -246,7 +246,7 @@ export default function NotificationCenterPattern() {
                   className={`px-4 py-2 rounded font-bold text-sm ${
                     filter === 'status'
                       ? 'bg-green-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-muted text-muted-foreground hover:bg-gray-200'
                   }`}
                 >
                   Status Updates
@@ -256,7 +256,7 @@ export default function NotificationCenterPattern() {
                   className={`px-4 py-2 rounded font-bold text-sm ${
                     filter === 'payment'
                       ? 'bg-purple-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-muted text-muted-foreground hover:bg-gray-200'
                   }`}
                 >
                   Payments
@@ -273,7 +273,7 @@ export default function NotificationCenterPattern() {
               placeholder="Search notifications..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border-2 border-gray-300 rounded focus:border-[#000080] focus:outline-none"
+              className="w-full pl-10 pr-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none"
             />
           </div>
         </div>
@@ -282,10 +282,10 @@ export default function NotificationCenterPattern() {
         {selectedIds.length > 0 && (
           <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 mb-6 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="font-bold text-gray-900">{selectedIds.length} selected</span>
+              <span className="font-bold text-foreground">{selectedIds.length} selected</span>
               <button
                 onClick={deselectAll}
-                className="text-sm text-gray-600 hover:text-gray-900"
+                className="text-sm text-muted-foreground hover:text-foreground"
               >
                 Clear selection
               </button>
@@ -293,7 +293,7 @@ export default function NotificationCenterPattern() {
             <div className="flex items-center gap-3">
               <button
                 onClick={bulkMarkRead}
-                className="px-4 py-2 bg-[#000080] text-white rounded font-bold hover:bg-[#000060] flex items-center gap-2 text-sm"
+                className="px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90 flex items-center gap-2 text-sm"
               >
                 <Check size={16} />
                 <span>Mark as Read</span>
@@ -314,7 +314,7 @@ export default function NotificationCenterPattern() {
           <div className="mb-4 flex items-center justify-between">
             <button
               onClick={selectAll}
-              className="text-sm text-[#000080] hover:underline"
+              className="text-sm text-primary hover:underline"
             >
               Select all
             </button>
@@ -337,10 +337,10 @@ export default function NotificationCenterPattern() {
             ))}
           </div>
         ) : (
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-12 text-center">
+          <div className="bg-card border-2 border-border rounded-lg p-12 text-center">
             <Bell size={48} className="text-gray-400 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-900 mb-2">No notifications found</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-bold text-foreground mb-2">No notifications found</h3>
+            <p className="text-muted-foreground">
               {searchQuery ? 'Try a different search term' : 'Try changing the filter'}
             </p>
           </div>
@@ -348,35 +348,35 @@ export default function NotificationCenterPattern() {
 
         {/* Pattern Info */}
         <div className="mt-12 bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Pattern Features Demonstrated</h3>
+          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>
-              <div className="font-bold text-gray-700 mb-2">Filtering</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Filtering</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• All notifications</li>
                 <li>• Unread only</li>
                 <li>• By category</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Search</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Search</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Full-text search</li>
                 <li>• Reference number</li>
                 <li>• Real-time filter</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Bulk Actions</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Bulk Actions</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Multi-select</li>
                 <li>• Mark as read</li>
                 <li>• Bulk delete</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Management</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Management</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Read/unread status</li>
                 <li>• Individual delete</li>
                 <li>• Quick actions</li>
@@ -410,9 +410,9 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
   const config = typeConfig[notification.type as keyof typeof typeConfig];
 
   return (
-    <div className={`bg-white border-2 ${
+    <div className={`bg-card border-2 ${
       isSelected ? 'border-blue-500 shadow-lg' :
-      notification.unread ? 'border-blue-300' : 'border-gray-300'
+      notification.unread ? 'border-blue-300' : 'border-border'
     } rounded-lg p-6 transition-all ${notification.unread ? 'bg-blue-50' : ''}`}>
       <div className="flex items-start gap-4">
         {/* Checkbox */}
@@ -433,7 +433,7 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
           <div className="flex items-start justify-between mb-2">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
-                <h3 className="font-bold text-gray-900">{notification.title}</h3>
+                <h3 className="font-bold text-foreground">{notification.title}</h3>
                 {notification.unread && (
                   <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                 )}
@@ -443,8 +443,8 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-700 mb-2">{notification.message}</p>
-              <div className="flex items-center gap-4 text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground mb-2">{notification.message}</p>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <Clock size={14} />
                   <span>{getTimeAgo(notification.timestamp)}</span>
@@ -464,7 +464,7 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
             {notification.action && (
               <a
                 href={notification.action.link}
-                className="px-4 py-2 bg-[#000080] text-white rounded font-bold hover:bg-[#000060] text-sm"
+                className="px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90 text-sm"
               >
                 {notification.action.label}
               </a>
@@ -472,7 +472,7 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
             {notification.unread && (
               <button
                 onClick={onMarkAsRead}
-                className="px-4 py-2 border-2 border-gray-300 rounded font-bold hover:border-gray-400 text-sm flex items-center gap-2"
+                className="px-4 py-2 border-2 border-border rounded font-bold hover:border-gray-400 text-sm flex items-center gap-2"
               >
                 <Check size={16} />
                 <span>Mark as Read</span>

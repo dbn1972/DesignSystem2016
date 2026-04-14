@@ -9,7 +9,7 @@ import { CreditCard, Shield, CheckCircle, XCircle, Receipt, Smartphone } from 'l
 
 // Import the actual Payment Gateway component for live preview
 const PaymentGatewayPreview = ({ amount, serviceName, showReceiptNumber, ...props }: any) => (
-  <div className="w-full max-w-md border rounded-lg p-6 bg-white shadow-sm">
+  <div className="w-full max-w-md border rounded-lg p-6 bg-card shadow-sm">
     <div className="mb-6">
       <h3 className="text-lg font-semibold text-[#1a1a1a] mb-2">{serviceName || 'Payment Details'}</h3>
       {showReceiptNumber && (
@@ -242,7 +242,7 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="w-full max-w-md border rounded-lg p-6 bg-white shadow-sm">
+            <div className="w-full max-w-md border rounded-lg p-6 bg-card shadow-sm">
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-[#1a1a1a] mb-2">Birth Certificate Fee</h3>
                 <p className="text-sm text-[#666666]">Receipt No: RCP-2026-4521</p>
@@ -410,7 +410,7 @@ function Example() {
 
   return (
     <div className="max-w-md">
-      <div className="mb-6 p-4 border rounded-lg bg-white">
+      <div className="mb-6 p-4 border rounded-lg bg-card">
         <h3 className="font-semibold text-[#1a1a1a] mb-3">Fee Breakdown</h3>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
@@ -450,7 +450,7 @@ function Example() {
 }`,
           preview: (
             <div className="space-y-6">
-              <div className="p-4 border rounded-lg bg-white">
+              <div className="p-4 border rounded-lg bg-card">
                 <h3 className="font-semibold text-[#1a1a1a] mb-3 flex items-center gap-2">
                   <Receipt size={18} />
                   Fee Breakdown

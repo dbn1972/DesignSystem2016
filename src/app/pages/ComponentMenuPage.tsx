@@ -23,7 +23,7 @@ const MenuPreview = ({ variant, items, trigger, placement, offset, ...props }: a
             onClick={() => setIsOpen(false)}
           />
           <div
-            className={`absolute z-20 min-w-[200px] bg-white border border-gray-300 rounded shadow-lg py-1 ${
+            className={`absolute z-20 min-w-[200px] bg-card border border-border rounded shadow-lg py-1 ${
               placement === 'bottom-end' ? 'right-0' : ''
             } ${placement === 'bottom-start' ? 'left-0' : ''} ${
               placement === 'top-start' ? 'left-0 bottom-full mb-2' : 'top-full mt-2'
@@ -36,7 +36,7 @@ const MenuPreview = ({ variant, items, trigger, placement, offset, ...props }: a
                   <div className="h-px bg-gray-200 my-1" />
                 ) : (
                   <button
-                    className={`w-full flex items-center gap-2 px-4 py-2 text-left text-sm hover:bg-gray-100 transition-colors ${
+                    className={`w-full flex items-center gap-2 px-4 py-2 text-left text-sm hover:bg-muted transition-colors ${
                       item.disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
                     }`}
                     onClick={() => {
@@ -427,7 +427,7 @@ export const Menu: React.FC<MenuProps> = ({
           ref={menuRef}
           className={cn(
             'absolute z-50 min-w-[200px]',
-            'bg-white border border-gray-300 rounded shadow-lg',
+            'bg-card border border-border rounded shadow-lg',
             'py-1',
             placementClasses[placement],
             className
@@ -445,10 +445,10 @@ export const Menu: React.FC<MenuProps> = ({
                   className={cn(
                     'w-full flex items-center gap-2 px-4 py-2',
                     'text-left text-sm transition-colors',
-                    'focus:outline-none focus-visible:bg-gray-100',
+                    'focus:outline-none focus-visible:bg-muted',
                     item.disabled
                       ? 'opacity-50 cursor-not-allowed'
-                      : 'hover:bg-gray-100 cursor-pointer'
+                      : 'hover:bg-muted cursor-pointer'
                   )}
                   onClick={() => handleItemClick(item)}
                   disabled={item.disabled}
@@ -502,7 +502,7 @@ export interface MenuProps {
 export const menuVariants = cva(
   [
     'absolute z-50 min-w-[200px]',
-    'bg-white border border-gray-300 rounded',
+    'bg-card border border-border rounded',
     'shadow-lg py-1',
   ],
   {
@@ -526,13 +526,13 @@ export const menuItemVariants = cva(
   [
     'w-full flex items-center gap-2 px-4 py-2',
     'text-left text-sm transition-colors',
-    'focus:outline-none focus-visible:bg-gray-100',
+    'focus:outline-none focus-visible:bg-muted',
   ],
   {
     variants: {
       disabled: {
         true: 'opacity-50 cursor-not-allowed',
-        false: 'hover:bg-gray-100 cursor-pointer',
+        false: 'hover:bg-muted cursor-pointer',
       },
     },
     defaultVariants: {
@@ -664,7 +664,7 @@ export class MenuComponent {
   }
 
   getMenuClasses(): string {
-    const baseClasses = 'absolute z-50 min-w-[200px] bg-white border border-gray-300 rounded shadow-lg py-1';
+    const baseClasses = 'absolute z-50 min-w-[200px] bg-card border border-border rounded shadow-lg py-1';
     const placementClass = this.getPlacementClass();
     return \`\${baseClasses} \${placementClass}\`;
   }
@@ -682,8 +682,8 @@ export class MenuComponent {
   }
 
   getMenuItemClasses(item: MenuItem): string {
-    const baseClasses = 'w-full flex items-center gap-2 px-4 py-2 text-left text-sm transition-colors focus:outline-none focus-visible:bg-gray-100';
-    const disabledClass = item.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-100 cursor-pointer';
+    const baseClasses = 'w-full flex items-center gap-2 px-4 py-2 text-left text-sm transition-colors focus:outline-none focus-visible:bg-muted';
+    const disabledClass = item.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-muted cursor-pointer';
     return \`\${baseClasses} \${disabledClass}\`;
   }
 }`,

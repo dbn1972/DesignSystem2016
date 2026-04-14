@@ -9,7 +9,7 @@ import { Info } from 'lucide-react';
 
 // Component previews
 const LabelPreview = ({ children, required }: any) => (
-  <label className="block text-sm font-medium text-gray-900">
+  <label className="block text-sm font-medium text-foreground">
     {children}
     {required && <span className="text-red-500 ml-1">*</span>}
   </label>
@@ -17,13 +17,13 @@ const LabelPreview = ({ children, required }: any) => (
 
 const InputPreview = ({ ...props }: any) => (
   <input
-    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 transition-all"
+    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 transition-all"
     {...props}
   />
 );
 
 const HintTextPreview = ({ children, icon }: any) => (
-  <p className="text-sm text-gray-600 flex items-start gap-2">
+  <p className="text-sm text-muted-foreground flex items-start gap-2">
     {icon && <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />}
     <span>{children}</span>
   </p>

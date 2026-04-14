@@ -135,8 +135,8 @@ export function SignInService({
       });
 
       if (!result.success) {
-        setAuthState(result.state);
-        setStatusMessage(result.message);
+        setAuthState((result as any).state);
+        setStatusMessage((result as any).message);
         return;
       }
 
@@ -167,10 +167,10 @@ export function SignInService({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader
         icon={Shield}
-        iconColor="bg-[#000080]"
+        iconColor="bg-primary"
         category={category}
         title={title}
         backLink={backLink}
@@ -179,10 +179,10 @@ export function SignInService({
 
       <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8 lg:py-12">
         <div className="max-w-2xl mx-auto space-y-6">
-          <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-            <div className="bg-blue-50 border-b-2 border-blue-300 px-6 sm:px-8 py-6">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{subtitle}</h2>
-              <p className="text-sm text-gray-700 mt-2">
+          <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+            <div className="bg-muted border-b-2 border-border px-6 sm:px-8 py-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground">{subtitle}</h2>
+              <p className="text-sm text-muted-foreground mt-2">
                 Use your registered email, mobile number, or user ID and password.
               </p>
             </div>
@@ -198,7 +198,7 @@ export function SignInService({
 
               {!authState && statusMessage && (
                 <div
-                  className="bg-green-50 border-2 border-green-300 rounded-lg p-4 text-sm text-green-800"
+                  className="bg-green-50 border-2 border-green-300 dark:bg-green-950/40 dark:border-green-800 rounded-lg p-4 text-sm text-green-800 dark:text-green-200"
                   role="status"
                   aria-live="polite"
                 >
@@ -207,7 +207,7 @@ export function SignInService({
               )}
 
               <div>
-                <label htmlFor="signin-identifier" className="block text-sm font-bold text-gray-900 mb-2">
+                <label htmlFor="signin-identifier" className="block text-sm font-bold text-foreground mb-2">
                   Email, Mobile Number, or User ID <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -219,15 +219,15 @@ export function SignInService({
                     setIdentifier(event.target.value);
                     clearIdentifierError();
                   }}
-                  className={`w-full px-4 py-3 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080] ${
-                    errors.identifier ? "border-red-300 bg-red-50" : "border-gray-300 bg-white"
+                  className={`w-full px-4 py-3 border-2 rounded text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring focus:ring-offset-background ${
+                    errors.identifier ? "border-red-300 bg-red-50 dark:bg-red-950/30 dark:border-red-800" : "border-border bg-input-background"
                   }`}
                   placeholder="Enter registered email, mobile number, or user ID"
                   aria-invalid={Boolean(errors.identifier)}
                   aria-describedby={errors.identifier ? "signin-identifier-error" : undefined}
                 />
                 {errors.identifier && (
-                  <p id="signin-identifier-error" className="mt-2 text-sm text-red-700" role="alert">
+                  <p id="signin-identifier-error" className="mt-2 text-sm text-red-700 dark:text-red-300" role="alert">
                     {errors.identifier}
                   </p>
                 )}
@@ -235,12 +235,12 @@ export function SignInService({
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label htmlFor="signin-password" className="block text-sm font-bold text-gray-900">
+                  <label htmlFor="signin-password" className="block text-sm font-bold text-foreground">
                     Password <span className="text-red-600">*</span>
                   </label>
                   <Link
                     to={forgotPasswordPath}
-                    className="text-sm font-bold text-[#000080] hover:underline"
+                    className="text-sm font-bold text-primary hover:underline"
                   >
                     Forgot password?
                   </Link>
@@ -256,8 +256,8 @@ export function SignInService({
                       setPassword(event.target.value);
                       clearPasswordError();
                     }}
-                    className={`w-full px-4 py-3 pr-12 border-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#000080] ${
-                      errors.password ? "border-red-300 bg-red-50" : "border-gray-300 bg-white"
+                    className={`w-full px-4 py-3 pr-12 border-2 rounded text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring focus:ring-offset-background ${
+                      errors.password ? "border-red-300 bg-red-50 dark:bg-red-950/30 dark:border-red-800" : "border-border bg-input-background"
                     }`}
                     placeholder="Enter your password"
                     aria-invalid={Boolean(errors.password)}
@@ -266,7 +266,7 @@ export function SignInService({
                   <button
                     type="button"
                     onClick={() => setShowPassword((prev) => !prev)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-900"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                     aria-label={showPassword ? "Hide password" : "Show password"}
                     aria-pressed={showPassword}
                   >
@@ -274,7 +274,7 @@ export function SignInService({
                   </button>
                 </div>
                 {errors.password && (
-                  <p id="signin-password-error" className="mt-2 text-sm text-red-700" role="alert">
+                  <p id="signin-password-error" className="mt-2 text-sm text-red-700 dark:text-red-300" role="alert">
                     {errors.password}
                   </p>
                 )}
@@ -283,35 +283,35 @@ export function SignInService({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3.5 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full px-6 py-3.5 bg-primary text-primary-foreground font-bold rounded text-sm hover:opacity-90 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 aria-busy={isSubmitting}
               >
                 <LogIn size={18} />
                 {isSubmitting ? "Signing in..." : "Sign In"}
               </button>
 
-              <div className="border-t-2 border-gray-200 pt-5 space-y-3">
+              <div className="border-t-2 border-border pt-5 space-y-3">
                 <Link
                   to={otpSignInPath}
-                  className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-gray-300 rounded text-sm font-bold text-gray-800 hover:bg-gray-50"
+                  className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-border rounded text-sm font-bold text-foreground hover:bg-muted"
                 >
                   <Smartphone size={16} />
                   Sign in with OTP instead
                 </Link>
 
                 {signUpPath && (
-                  <p className="text-center text-sm text-gray-700">
+                  <p className="text-center text-sm text-muted-foreground">
                     New to {serviceName}?{" "}
-                    <Link to={signUpPath} className="font-bold text-[#000080] hover:underline">
+                    <Link to={signUpPath} className="font-bold text-primary hover:underline">
                       Create an account
                     </Link>
                   </p>
                 )}
 
                 {codeDownloadPath && (
-                  <p className="text-center text-sm text-gray-700">
+                  <p className="text-center text-sm text-muted-foreground">
                     Need this service code?{" "}
-                    <Link to={codeDownloadPath} className="inline-flex items-center gap-1 font-bold text-[#000080] hover:underline">
+                    <Link to={codeDownloadPath} className="inline-flex items-center gap-1 font-bold text-primary hover:underline">
                       <Download size={14} />
                       Download React code
                     </Link>
@@ -326,14 +326,14 @@ export function SignInService({
             icon={HelpCircle}
             title="Need Help Signing In?"
             message={
-              <p className="text-sm text-gray-700">
+              <p className="text-sm text-muted-foreground">
                 Contact support if you are unable to access your account or if your account remains locked.
               </p>
             }
           >
             <Link
               to={helpPath}
-              className="inline-flex items-center gap-2 mt-3 text-sm font-bold text-[#000080] hover:underline"
+              className="inline-flex items-center gap-2 mt-3 text-sm font-bold text-primary hover:underline"
             >
               <ArrowLeft size={14} className="rotate-180" />
               Get support

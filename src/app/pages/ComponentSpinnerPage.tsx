@@ -59,7 +59,7 @@ const SpinnerPreview = ({ size, color, label, speed, ...props }: any) => {
         />
       </svg>
       {label && (
-        <span className="text-sm text-gray-600">{label}</span>
+        <span className="text-sm text-muted-foreground">{label}</span>
       )}
     </div>
   );
@@ -220,13 +220,13 @@ function Example() {
 
 function Example() {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm">
+    <div className="fixed inset-0 flex items-center justify-center bg-card/80 backdrop-blur-sm">
       <Spinner size="xl" label="Loading application..." />
     </div>
   );
 }`,
           preview: (
-            <div className="relative flex items-center justify-center bg-gray-50 p-16 rounded border-2 border-dashed border-gray-300">
+            <div className="relative flex items-center justify-center bg-background p-16 rounded border-2 border-dashed border-border">
               <SpinnerPreview size="xl" label="Loading application..." />
             </div>
           ),
@@ -307,7 +307,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
           />
         </svg>
         {label && (
-          <span className="text-sm text-gray-600" aria-live="polite">
+          <span className="text-sm text-muted-foreground" aria-live="polite">
             {label}
           </span>
         )}

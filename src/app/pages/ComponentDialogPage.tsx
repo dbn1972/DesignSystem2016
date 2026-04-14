@@ -90,14 +90,14 @@ const DialogPreview = ({
       <DialogBackdrop onClick={handleClose} />
       <div className="fixed inset-0 z-[101] flex items-center justify-center p-4">
         <div
-          className={'bg-white rounded-lg shadow-2xl w-full ' + sizeClasses + ' animate-scaleIn ' + (isClosing ? 'animate-scaleOut' : '')}
+          className={'bg-card rounded-lg shadow-2xl w-full ' + sizeClasses + ' animate-scaleIn ' + (isClosing ? 'animate-scaleOut' : '')}
           role={isAlert ? 'alertdialog' : 'dialog'}
           aria-modal="true"
           aria-labelledby="dialog-title"
           aria-describedby="dialog-description"
         >
           {/* Header */}
-          <div className={'flex items-start justify-between p-6 border-b ' + (isDestructive ? 'border-red-100' : isSuccess ? 'border-green-100' : isError ? 'border-red-100' : 'border-gray-200')}>
+          <div className={'flex items-start justify-between p-6 border-b ' + (isDestructive ? 'border-red-100' : isSuccess ? 'border-green-100' : isError ? 'border-red-100' : 'border-border')}>
             <div className="flex items-start gap-3 flex-1">
               {isDestructive && (
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
@@ -117,7 +117,7 @@ const DialogPreview = ({
               <div className="flex-1">
                 <h2
                   id="dialog-title"
-                  className={'text-lg font-semibold ' + (isDestructive || isError ? 'text-red-900' : isSuccess ? 'text-green-900' : 'text-gray-900')}
+                  className={'text-lg font-semibold ' + (isDestructive || isError ? 'text-red-900' : isSuccess ? 'text-green-900' : 'text-foreground')}
                 >
                   {title}
                 </h2>
@@ -126,7 +126,7 @@ const DialogPreview = ({
             {showCloseButton && !isAlert && (
               <button
                 onClick={handleClose}
-                className="flex-shrink-0 p-1 rounded hover:bg-gray-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                className="flex-shrink-0 p-1 rounded hover:bg-muted transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                 aria-label="Close dialog"
               >
                 <X className="w-5 h-5 text-gray-500" />
@@ -137,7 +137,7 @@ const DialogPreview = ({
           {/* Content */}
           <div className="p-6">
             {description && (
-              <p id="dialog-description" className="text-gray-600 mb-4">
+              <p id="dialog-description" className="text-muted-foreground mb-4">
                 {description}
               </p>
             )}
@@ -146,18 +146,18 @@ const DialogPreview = ({
 
           {/* Footer */}
           {(confirmText || cancelText) && (
-            <div className="flex justify-end gap-3 px-6 py-4 bg-gray-50 rounded-b-lg">
+            <div className="flex justify-end gap-3 px-6 py-4 bg-background rounded-b-lg">
               {!hideCancel && (
                 <button
                   onClick={handleClose}
-                  className="px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 min-h-[44px]"
+                  className="px-4 py-2 text-muted-foreground bg-card border border-border rounded hover:bg-background transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 min-h-[44px]"
                 >
                   {cancelText || 'Cancel'}
                 </button>
               )}
               <button
                 onClick={handleConfirm}
-                className={'px-4 py-2 text-white rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 min-h-[44px] ' + (isDestructive ? 'bg-red-600 hover:bg-red-700 focus-visible:ring-red-500' : isSuccess ? 'bg-green-600 hover:bg-green-700 focus-visible:ring-green-500' : 'bg-blue-600 hover:bg-blue-700 focus-visible:ring-blue-500')}
+                className={'px-4 py-2 text-white rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 min-h-[44px] ' + (isDestructive ? 'bg-red-600 hover:bg-red-700 focus-visible:ring-red-500' : isSuccess ? 'bg-green-600 hover:bg-green-600 focus-visible:ring-green-500' : 'bg-blue-600 hover:bg-blue-700 focus-visible:ring-blue-500')}
               >
                 {confirmText || 'Confirm'}
               </button>
@@ -273,7 +273,7 @@ export default function ComponentDialogPage() {
         {
           title: 'Simple Dialog',
           description: 'Basic dialog with title, description, and custom content.',
-          code: 'import { Dialog } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Open Dialog\n      </button>\n      <Dialog\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Important Information"\n        description="This is a simple dialog with some important information for the user."\n      >\n        <p className="text-gray-700">\n          You can include any custom content here, including text, images, or other components.\n        </p>\n      </Dialog>\n    </>\n  );\n}',
+          code: 'import { Dialog } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Open Dialog\n      </button>\n      <Dialog\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Important Information"\n        description="This is a simple dialog with some important information for the user."\n      >\n        <p className="text-muted-foreground">\n          You can include any custom content here, including text, images, or other components.\n        </p>\n      </Dialog>\n    </>\n  );\n}',
           preview: (
             <div>
               <button
@@ -288,7 +288,7 @@ export default function ComponentDialogPage() {
                 title="Important Information"
                 description="This is a simple dialog with some important information for the user."
               >
-                <p className="text-gray-700">
+                <p className="text-muted-foreground">
                   You can include any custom content here, including text, images, or other components.
                 </p>
               </DialogPreview>
@@ -348,7 +348,7 @@ export default function ComponentDialogPage() {
         {
           title: 'Form Dialog',
           description: 'Dialog containing a form for user input.',
-          code: 'import { Dialog } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault();\n    const formData = new FormData(e.target as HTMLFormElement);\n    console.log(\'Form submitted:\', Object.fromEntries(formData));\n    setIsOpen(false);\n  };\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Update Contact Details\n      </button>\n      <Dialog\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Update Contact Details"\n        description="Please provide your updated contact information."\n        size="md"\n      >\n        <form onSubmit={handleSubmit} className="space-y-4">\n          <div>\n            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">\n              Email Address\n            </label>\n            <input\n              type="email"\n              id="email"\n              name="email"\n              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"\n              required\n            />\n          </div>\n          <div>\n            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">\n              Phone Number\n            </label>\n            <input\n              type="tel"\n              id="phone"\n              name="phone"\n              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"\n              required\n            />\n          </div>\n          <div className="flex justify-end gap-3 pt-4">\n            <button\n              type="button"\n              onClick={() => setIsOpen(false)}\n              className="px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors min-h-[44px]"\n            >\n              Cancel\n            </button>\n            <button\n              type="submit"\n              className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors min-h-[44px]"\n            >\n              Save Changes\n            </button>\n          </div>\n        </form>\n      </Dialog>\n    </>\n  );\n}',
+          code: 'import { Dialog } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isOpen, setIsOpen] = useState(false);\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault();\n    const formData = new FormData(e.target as HTMLFormElement);\n    console.log(\'Form submitted:\', Object.fromEntries(formData));\n    setIsOpen(false);\n  };\n\n  return (\n    <>\n      <button onClick={() => setIsOpen(true)}>\n        Update Contact Details\n      </button>\n      <Dialog\n        isOpen={isOpen}\n        onClose={() => setIsOpen(false)}\n        title="Update Contact Details"\n        description="Please provide your updated contact information."\n        size="md"\n      >\n        <form onSubmit={handleSubmit} className="space-y-4">\n          <div>\n            <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-1">\n              Email Address\n            </label>\n            <input\n              type="email"\n              id="email"\n              name="email"\n              className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"\n              required\n            />\n          </div>\n          <div>\n            <label htmlFor="phone" className="block text-sm font-medium text-muted-foreground mb-1">\n              Phone Number\n            </label>\n            <input\n              type="tel"\n              id="phone"\n              name="phone"\n              className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"\n              required\n            />\n          </div>\n          <div className="flex justify-end gap-3 pt-4">\n            <button\n              type="button"\n              onClick={() => setIsOpen(false)}\n              className="px-4 py-2 text-muted-foreground bg-card border border-border rounded hover:bg-background transition-colors min-h-[44px]"\n            >\n              Cancel\n            </button>\n            <button\n              type="submit"\n              className="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors min-h-[44px]"\n            >\n              Save Changes\n            </button>\n          </div>\n        </form>\n      </Dialog>\n    </>\n  );\n}',
           preview: (
             <div>
               <button
@@ -366,26 +366,26 @@ export default function ComponentDialogPage() {
               >
                 <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setFormDialogOpen(false); }}>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-1">
                       Email Address
                     </label>
                     <input
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="phone" className="block text-sm font-medium text-muted-foreground mb-1">
                       Phone Number
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                       required
                     />
                   </div>
@@ -393,7 +393,7 @@ export default function ComponentDialogPage() {
                     <button
                       type="button"
                       onClick={() => setFormDialogOpen(false)}
-                      className="px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 transition-colors min-h-[44px]"
+                      className="px-4 py-2 text-muted-foreground bg-card border border-border rounded hover:bg-background transition-colors min-h-[44px]"
                     >
                       Cancel
                     </button>
@@ -443,7 +443,7 @@ export default function ComponentDialogPage() {
             <div>
               <button
                 onClick={() => setSuccessDialogOpen(true)}
-                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500 min-h-[44px]"
+                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500 min-h-[44px]"
               >
                 Show Success
               </button>
@@ -490,7 +490,7 @@ export default function ComponentDialogPage() {
       reactCode={{
         component: 'import React, { useEffect, useRef, useState } from \'react\';\nimport { createPortal } from \'react-dom\';\nimport { cn } from \'../../utils/cn\';\nimport { dialogVariants } from \'./dialog.variants\';\nimport { DialogProps } from \'./Dialog.types\';\nimport { X } from \'lucide-react\';\n\nexport const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(\n  (\n    {\n      isOpen,\n      onClose,\n      title,\n      description,\n      children,\n      variant = \'default\',\n      size = \'md\',\n      showCloseButton = true,\n      confirmText,\n      cancelText = \'Cancel\',\n      onConfirm,\n      hideCancel = false,\n      className,\n      ...props\n    },\n    ref\n  ) => {\n    const [isClosing, setIsClosing] = useState(false);\n    const dialogRef = useRef<HTMLDivElement>(null);\n    const isAlert = variant === \'alert\';\n\n    useEffect(() => {\n      if (!isOpen) return;\n\n      const handleEscape = (e: KeyboardEvent) => {\n        if (e.key === \'Escape\') {\n          handleClose();\n        }\n      };\n\n      const previouslyFocused = document.activeElement as HTMLElement;\n      document.addEventListener(\'keydown\', handleEscape);\n      document.body.style.overflow = \'hidden\';\n\n      if (dialogRef.current) {\n        const focusableElements = dialogRef.current.querySelectorAll(\n          \'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])\'\n        );\n        if (focusableElements.length > 0) {\n          (focusableElements[0] as HTMLElement).focus();\n        }\n      }\n\n      return () => {\n        document.removeEventListener(\'keydown\', handleEscape);\n        document.body.style.overflow = \'\';\n        if (previouslyFocused) {\n          previouslyFocused.focus();\n        }\n      };\n    }, [isOpen]);\n\n    const handleClose = () => {\n      setIsClosing(true);\n      setTimeout(() => {\n        onClose();\n        setIsClosing(false);\n      }, 150);\n    };\n\n    const handleBackdropClick = (e: React.MouseEvent) => {\n      if (e.target === e.currentTarget) {\n        handleClose();\n      }\n    };\n\n    const handleConfirm = () => {\n      if (onConfirm) {\n        onConfirm();\n      }\n      handleClose();\n    };\n\n    if (!isOpen) return null;\n\n    const dialogContent = (\n      <>\n        <div \n          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] animate-fadeIn"\n          onClick={handleBackdropClick}\n          aria-hidden="true"\n        />\n        <div className="fixed inset-0 z-[101] flex items-center justify-center p-4">\n          <div\n            ref={dialogRef}\n            className={cn(\n              dialogVariants({ variant, size }),\n              isClosing ? \'animate-scaleOut\' : \'animate-scaleIn\',\n              className\n            )}\n            role={isAlert ? \'alertdialog\' : \'dialog\'}\n            aria-modal="true"\n            aria-labelledby="dialog-title"\n            aria-describedby={description ? \'dialog-description\' : undefined}\n            {...props}\n          >\n            <div className="dialog-header">\n              <h2 id="dialog-title" className="dialog-title">\n                {title}\n              </h2>\n              {showCloseButton && !isAlert && (\n                <button\n                  onClick={handleClose}\n                  className="dialog-close"\n                  aria-label="Close dialog"\n                >\n                  <X className="w-5 h-5" />\n                </button>\n              )}\n            </div>\n\n            <div className="dialog-content">\n              {description && (\n                <p id="dialog-description" className="dialog-description">\n                  {description}\n                </p>\n              )}\n              {children}\n            </div>\n\n            {(confirmText || cancelText) && (\n              <div className="dialog-footer">\n                {!hideCancel && (\n                  <button\n                    onClick={handleClose}\n                    className="dialog-button dialog-button-cancel"\n                  >\n                    {cancelText}\n                  </button>\n                )}\n                <button\n                  onClick={handleConfirm}\n                  className="dialog-button dialog-button-confirm"\n                >\n                  {confirmText}\n                </button>\n              </div>\n            )}\n          </div>\n        </div>\n      </>\n    );\n\n    return createPortal(dialogContent, document.body);\n  }\n);\n\nDialog.displayName = \'Dialog\';',
         types: 'export interface DialogProps \n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \'title\'>,\n          DialogVariantProps {\n  isOpen: boolean;\n  onClose: () => void;\n  title: string;\n  description?: string;\n  children?: React.ReactNode;\n  showCloseButton?: boolean;\n  confirmText?: string;\n  cancelText?: string;\n  onConfirm?: () => void;\n  hideCancel?: boolean;\n}\n\nexport type DialogVariant = \'default\' | \'alert\' | \'destructive\' | \'success\' | \'error\';\nexport type DialogSize = \'sm\' | \'md\' | \'lg\';',
-        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const dialogVariants = cva(\n  [\n    \'bg-white rounded-lg shadow-2xl\',\n    \'w-full\',\n    \'focus:outline-none\',\n  ],\n  {\n    variants: {\n      variant: {\n        default: \'border border-gray-200\',\n        alert: \'border border-orange-200\',\n        destructive: \'border border-red-200\',\n        success: \'border border-green-200\',\n        error: \'border border-red-200\',\n      },\n      size: {\n        sm: \'max-w-sm\',\n        md: \'max-w-md\',\n        lg: \'max-w-2xl\',\n      },\n    },\n    defaultVariants: {\n      variant: \'default\',\n      size: \'md\',\n    },\n  }\n);\n\nexport type DialogVariantProps = VariantProps<typeof dialogVariants>;',
+        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const dialogVariants = cva(\n  [\n    \'bg-card rounded-lg shadow-2xl\',\n    \'w-full\',\n    \'focus:outline-none\',\n  ],\n  {\n    variants: {\n      variant: {\n        default: \'border border-border\',\n        alert: \'border border-orange-200\',\n        destructive: \'border border-red-200\',\n        success: \'border border-green-200\',\n        error: \'border border-red-200\',\n      },\n      size: {\n        sm: \'max-w-sm\',\n        md: \'max-w-md\',\n        lg: \'max-w-2xl\',\n      },\n    },\n    defaultVariants: {\n      variant: \'default\',\n      size: \'md\',\n    },\n  }\n);\n\nexport type DialogVariantProps = VariantProps<typeof dialogVariants>;',
       }}
 
       angularCode={{

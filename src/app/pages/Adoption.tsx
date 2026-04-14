@@ -2,7 +2,7 @@ import { CheckCircle, Circle, Users, Code, Palette, Eye, Building2, HelpCircle, 
 
 export default function Adoption() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
@@ -23,7 +23,7 @@ export default function Adoption() {
             </p>
 
             <div className="flex gap-4">
-              <a href="#checklist" className="px-6 py-3 bg-white text-[#000080] rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              <a href="#checklist" className="px-6 py-3 bg-card text-primary rounded-lg font-semibold hover:bg-blue-50 transition-colors">
                 View Onboarding Checklist
               </a>
               <a href="#support" className="px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-colors">
@@ -116,19 +116,19 @@ function WhyAdoptSection() {
       </div>
 
       <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">Time to Value</h3>
+        <h3 className="font-bold text-foreground mb-3">Time to Value</h3>
         <div className="grid grid-cols-3 gap-6 text-center">
           <div>
-            <div className="text-4xl font-bold text-[#000080] mb-2">5 min</div>
-            <div className="text-sm text-gray-700">Install and start building</div>
+            <div className="text-4xl font-bold text-primary mb-2">5 min</div>
+            <div className="text-sm text-muted-foreground">Install and start building</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-[#000080] mb-2">1 day</div>
-            <div className="text-sm text-gray-700">Designer onboarded</div>
+            <div className="text-4xl font-bold text-primary mb-2">1 day</div>
+            <div className="text-sm text-muted-foreground">Designer onboarded</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-[#000080] mb-2">3 days</div>
-            <div className="text-sm text-gray-700">Developer productive</div>
+            <div className="text-4xl font-bold text-primary mb-2">3 days</div>
+            <div className="text-sm text-muted-foreground">Developer productive</div>
           </div>
         </div>
       </div>
@@ -145,16 +145,16 @@ function BenefitCard({ icon, title, description, details, color }: any) {
   };
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+    <div className="border-2 border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
       <div className={`border-b-2 ${colorClasses[color as keyof typeof colorClasses]} p-6`}>
         <div className="mb-3">{icon}</div>
-        <h3 className="font-bold text-gray-900 text-xl mb-2">{title}</h3>
-        <p className="text-sm text-gray-700">{description}</p>
+        <h3 className="font-bold text-foreground text-xl mb-2">{title}</h3>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
-      <div className="p-6 bg-white">
+      <div className="p-6 bg-card">
         <ul className="space-y-2">
           {details.map((detail: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={16} />
               <span>{detail}</span>
             </li>
@@ -174,10 +174,10 @@ function OnboardingChecklistSection() {
         icon={<CheckSquare size={28} />}
       />
 
-      <div className="mt-8 border-2 border-gray-200 rounded-lg overflow-hidden">
-        <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-          <h3 className="font-bold text-gray-900">Master Onboarding Checklist</h3>
-          <p className="text-sm text-gray-600 mt-1">Track your team's progress through the adoption process</p>
+      <div className="mt-8 border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-background p-6 border-b-2 border-border">
+          <h3 className="font-bold text-foreground">Master Onboarding Checklist</h3>
+          <p className="text-sm text-muted-foreground mt-1">Track your team's progress through the adoption process</p>
         </div>
 
         <div className="divide-y-2 divide-gray-200">
@@ -235,8 +235,8 @@ function OnboardingChecklistSection() {
         <div className="flex items-start gap-3">
           <CheckCircle className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
-            <h3 className="font-bold text-gray-900 mb-2">Certification Available</h3>
-            <p className="text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-2">Certification Available</h3>
+            <p className="text-sm text-muted-foreground">
               Teams that complete the onboarding checklist and pass conformance review receive official 
               UX4G Certification, demonstrating commitment to government digital standards.
             </p>
@@ -249,14 +249,14 @@ function OnboardingChecklistSection() {
 
 function ChecklistSection({ title, items }: any) {
   return (
-    <div className="p-6 bg-white">
-      <h4 className="font-bold text-gray-900 mb-4">{title}</h4>
+    <div className="p-6 bg-card">
+      <h4 className="font-bold text-foreground mb-4">{title}</h4>
       <div className="space-y-3">
         {items.map((item: any, index: number) => (
           <div key={index} className="flex items-start gap-3">
-            <input type="checkbox" className="w-5 h-5 border-2 border-gray-300 rounded mt-0.5 flex-shrink-0" />
+            <input type="checkbox" className="w-5 h-5 border-2 border-border rounded mt-0.5 flex-shrink-0" />
             <div className="flex-1">
-              <div className="text-sm text-gray-900">{item.task}</div>
+              <div className="text-sm text-foreground">{item.task}</div>
               <div className="text-xs text-gray-500 mt-0.5">Role: {item.role}</div>
             </div>
           </div>
@@ -307,10 +307,10 @@ function MigrationPathSection() {
         </div>
 
         {/* Step-by-Step Process */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Incremental Migration Process</h3>
-            <p className="text-sm text-gray-600 mt-1">Most common approach for government services</p>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Incremental Migration Process</h3>
+            <p className="text-sm text-muted-foreground mt-1">Most common approach for government services</p>
           </div>
 
           <div className="p-8 space-y-6">
@@ -387,25 +387,25 @@ function MigrationPathSection() {
 
 function MigrationStrategy({ title, timeline, effort, description, goodFor, notGoodFor }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-4 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900 text-lg mb-2">{title}</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background p-4 border-b-2 border-border">
+        <h3 className="font-bold text-foreground text-lg mb-2">{title}</h3>
         <div className="flex gap-4 text-sm">
-          <div className="text-gray-600">
+          <div className="text-muted-foreground">
             <strong>Timeline:</strong> {timeline}
           </div>
-          <div className="text-gray-600">
+          <div className="text-muted-foreground">
             <strong>Effort:</strong> {effort}
           </div>
         </div>
       </div>
       
       <div className="p-6 space-y-4">
-        <p className="text-sm text-gray-700">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
         
         <div>
-          <h4 className="font-semibold text-gray-900 text-sm mb-2">Good for:</h4>
-          <ul className="space-y-1 text-sm text-gray-700">
+          <h4 className="font-semibold text-foreground text-sm mb-2">Good for:</h4>
+          <ul className="space-y-1 text-sm text-muted-foreground">
             {goodFor.map((item: string, index: number) => (
               <li key={index}>• {item}</li>
             ))}
@@ -413,8 +413,8 @@ function MigrationStrategy({ title, timeline, effort, description, goodFor, notG
         </div>
         
         <div>
-          <h4 className="font-semibold text-gray-900 text-sm mb-2">Not ideal for:</h4>
-          <ul className="space-y-1 text-sm text-gray-600">
+          <h4 className="font-semibold text-foreground text-sm mb-2">Not ideal for:</h4>
+          <ul className="space-y-1 text-sm text-muted-foreground">
             {notGoodFor.map((item: string, index: number) => (
               <li key={index}>• {item}</li>
             ))}
@@ -429,7 +429,7 @@ function MigrationStep({ step, title, duration, description, actions }: any) {
   return (
     <div className="flex gap-6">
       <div className="flex-shrink-0">
-        <div className="w-12 h-12 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold text-xl">
+        <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl">
           {step}
         </div>
       </div>
@@ -437,18 +437,18 @@ function MigrationStep({ step, title, duration, description, actions }: any) {
       <div className="flex-1">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h4 className="font-bold text-gray-900 text-lg">{title}</h4>
-            <p className="text-sm text-gray-600">{description}</p>
+            <h4 className="font-bold text-foreground text-lg">{title}</h4>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
           <div className="text-xs text-gray-500 flex-shrink-0 ml-4">{duration}</div>
         </div>
         
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-3">
-          <h5 className="font-semibold text-gray-900 text-sm mb-2">Actions:</h5>
+        <div className="bg-background border border-border rounded-lg p-4 mt-3">
+          <h5 className="font-semibold text-foreground text-sm mb-2">Actions:</h5>
           <ul className="space-y-1">
             {actions.map((action: string, index: number) => (
-              <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                <Circle className="flex-shrink-0 mt-1 fill-current text-[#000080]" size={8} />
+              <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Circle className="flex-shrink-0 mt-1 fill-current text-primary" size={8} />
                 <span>{action}</span>
               </li>
             ))}
@@ -543,26 +543,26 @@ function TeamRolesSection() {
       </div>
 
       <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">Recommended Team Structure</h3>
-        <p className="text-sm text-gray-700 mb-4">
+        <h3 className="font-bold text-foreground mb-3">Recommended Team Structure</h3>
+        <p className="text-sm text-muted-foreground mb-4">
           For a typical government service, we recommend a cross-functional team of:
         </p>
         <div className="grid grid-cols-4 gap-4 text-sm">
           <div className="text-center">
-            <div className="text-2xl font-bold text-[#000080] mb-1">1</div>
-            <div className="text-gray-700">Product Owner</div>
+            <div className="text-2xl font-bold text-primary mb-1">1</div>
+            <div className="text-muted-foreground">Product Owner</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-[#000080] mb-1">1-2</div>
-            <div className="text-gray-700">Designers</div>
+            <div className="text-2xl font-bold text-primary mb-1">1-2</div>
+            <div className="text-muted-foreground">Designers</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-[#000080] mb-1">2-4</div>
-            <div className="text-gray-700">Developers</div>
+            <div className="text-2xl font-bold text-primary mb-1">2-4</div>
+            <div className="text-muted-foreground">Developers</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-[#000080] mb-1">1</div>
-            <div className="text-gray-700">QA/Accessibility</div>
+            <div className="text-2xl font-bold text-primary mb-1">1</div>
+            <div className="text-muted-foreground">QA/Accessibility</div>
           </div>
         </div>
       </div>
@@ -572,17 +572,17 @@ function TeamRolesSection() {
 
 function TeamRole({ role, responsibilities, timeCommitment }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-4 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900">{role}</h3>
-        <div className="text-xs text-gray-600 mt-1">Time commitment: {timeCommitment}</div>
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background p-4 border-b-2 border-border">
+        <h3 className="font-bold text-foreground">{role}</h3>
+        <div className="text-xs text-muted-foreground mt-1">Time commitment: {timeCommitment}</div>
       </div>
       
       <div className="p-6">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">Key Responsibilities:</h4>
+        <h4 className="font-semibold text-foreground mb-3 text-sm">Key Responsibilities:</h4>
         <ul className="space-y-2">
           {responsibilities.map((resp: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={16} />
               <span>{resp}</span>
             </li>
@@ -739,8 +739,8 @@ function AccessibilityOnboardingSection() {
           <div className="flex items-start gap-3">
             <Shield className="text-[#138808] flex-shrink-0 mt-1" size={24} />
             <div>
-              <h3 className="font-bold text-gray-900 mb-2">Accessibility Built-In</h3>
-              <p className="text-sm text-gray-700">
+              <h3 className="font-bold text-foreground mb-2">Accessibility Built-In</h3>
+              <p className="text-sm text-muted-foreground">
                 All UX4G components are pre-tested for WCAG 2.1 AA compliance. However, you still need to 
                 verify your implementation, especially for custom layouts, content, and interactions.
               </p>
@@ -749,8 +749,8 @@ function AccessibilityOnboardingSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Accessibility Testing Checklist</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Accessibility Testing Checklist</h3>
             <div className="space-y-3">
               <ChecklistItem text="Keyboard navigation works for all interactive elements" />
               <ChecklistItem text="Screen reader announces content correctly (test with NVDA/VoiceOver)" />
@@ -763,8 +763,8 @@ function AccessibilityOnboardingSection() {
             </div>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Recommended Testing Tools</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Recommended Testing Tools</h3>
             <div className="space-y-3">
               <ToolItem
                 tool="axe DevTools"
@@ -807,20 +807,20 @@ function AccessibilityOnboardingSection() {
 function ChecklistItem({ text }: any) {
   return (
     <div className="flex items-start gap-3">
-      <input type="checkbox" className="w-5 h-5 border-2 border-gray-300 rounded mt-0.5 flex-shrink-0" />
-      <span className="text-sm text-gray-700">{text}</span>
+      <input type="checkbox" className="w-5 h-5 border-2 border-border rounded mt-0.5 flex-shrink-0" />
+      <span className="text-sm text-muted-foreground">{text}</span>
     </div>
   );
 }
 
 function ToolItem({ tool, type, description }: any) {
   return (
-    <div className="bg-gray-50 border border-gray-200 rounded p-3">
+    <div className="bg-background border border-border rounded p-3">
       <div className="flex items-start justify-between mb-1">
-        <div className="font-semibold text-gray-900 text-sm">{tool}</div>
+        <div className="font-semibold text-foreground text-sm">{tool}</div>
         <div className="text-xs text-gray-500">{type}</div>
       </div>
-      <div className="text-xs text-gray-600">{description}</div>
+      <div className="text-xs text-muted-foreground">{description}</div>
     </div>
   );
 }
@@ -836,30 +836,30 @@ function VendorOnboardingSection() {
 
       <div className="mt-8 space-y-8">
         <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">Vendor Requirements</h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <h3 className="font-bold text-foreground mb-3">Vendor Requirements</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             All vendor-built government services must use the UX4G Design System. Non-compliance may result 
             in application rejection during acceptance testing.
           </p>
           <div className="grid grid-cols-3 gap-4 text-sm">
-            <div className="bg-white border border-orange-200 rounded p-3">
-              <div className="font-semibold text-gray-900 mb-1">Before Development</div>
-              <div className="text-gray-700">Submit design mockups for approval</div>
+            <div className="bg-card border border-orange-200 rounded p-3">
+              <div className="font-semibold text-foreground mb-1">Before Development</div>
+              <div className="text-muted-foreground">Submit design mockups for approval</div>
             </div>
-            <div className="bg-white border border-orange-200 rounded p-3">
-              <div className="font-semibold text-gray-900 mb-1">During Development</div>
-              <div className="text-gray-700">Use UX4G components exclusively</div>
+            <div className="bg-card border border-orange-200 rounded p-3">
+              <div className="font-semibold text-foreground mb-1">During Development</div>
+              <div className="text-muted-foreground">Use UX4G components exclusively</div>
             </div>
-            <div className="bg-white border border-orange-200 rounded p-3">
-              <div className="font-semibold text-gray-900 mb-1">Before Handover</div>
-              <div className="text-gray-700">Pass conformance verification</div>
+            <div className="bg-card border border-orange-200 rounded p-3">
+              <div className="font-semibold text-foreground mb-1">Before Handover</div>
+              <div className="text-muted-foreground">Pass conformance verification</div>
             </div>
           </div>
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Vendor Onboarding Steps</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Vendor Onboarding Steps</h3>
             <div className="space-y-4">
               <VendorStep
                 number="1"
@@ -894,20 +894,20 @@ function VendorOnboardingSection() {
             </div>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-4">Vendor Support</h3>
+          <div className="border-2 border-border rounded-lg p-6">
+            <h3 className="font-bold text-foreground mb-4">Vendor Support</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2 text-sm">Technical Support Channel</h4>
-                <p className="text-sm text-gray-700 mb-2">
-                  Email: <a href="mailto:vendor-support@ux4g.gov.in" className="text-[#000080] hover:underline">vendor-support@ux4g.gov.in</a>
+                <h4 className="font-semibold text-foreground mb-2 text-sm">Technical Support Channel</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Email: <a href="mailto:vendor-support@ux4g.gov.in" className="text-primary hover:underline">vendor-support@ux4g.gov.in</a>
                 </p>
-                <p className="text-xs text-gray-600">Response time: 1-2 business days</p>
+                <p className="text-xs text-muted-foreground">Response time: 1-2 business days</p>
               </div>
 
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2 text-sm">Training Resources</h4>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <h4 className="font-semibold text-foreground mb-2 text-sm">Training Resources</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Recorded training sessions</li>
                   <li>• Vendor-specific documentation</li>
                   <li>• Q&A sessions (bi-weekly)</li>
@@ -916,8 +916,8 @@ function VendorOnboardingSection() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2 text-sm">Conformance Testing</h4>
-                <p className="text-sm text-gray-700">
+                <h4 className="font-semibold text-foreground mb-2 text-sm">Conformance Testing</h4>
+                <p className="text-sm text-muted-foreground">
                   Vendors can request pre-handover conformance review to identify issues early. 
                   Schedule at least 2 weeks before planned handover date.
                 </p>
@@ -937,8 +937,8 @@ function VendorStep({ number, title, description }: any) {
         {number}
       </div>
       <div>
-        <div className="font-semibold text-gray-900 text-sm">{title}</div>
-        <div className="text-xs text-gray-600 mt-0.5">{description}</div>
+        <div className="font-semibold text-foreground text-sm">{title}</div>
+        <div className="text-xs text-muted-foreground mt-0.5">{description}</div>
       </div>
     </div>
   );
@@ -992,9 +992,9 @@ function ConformanceExpectationsSection() {
           />
         </div>
 
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Conformance Verification Process</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Conformance Verification Process</h3>
           </div>
 
           <div className="p-6 space-y-6">
@@ -1019,13 +1019,13 @@ function ConformanceExpectationsSection() {
         </div>
 
         <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <AlertCircle className="text-red-600" size={20} />
             Non-Conformance Consequences
           </h3>
-          <div className="grid grid-cols-2 gap-6 text-sm text-gray-700">
+          <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">For Departments:</h4>
+              <h4 className="font-semibold text-foreground mb-2">For Departments:</h4>
               <ul className="space-y-1">
                 <li>• Service may not pass launch approval</li>
                 <li>• Reduced priority for UX4G support</li>
@@ -1033,7 +1033,7 @@ function ConformanceExpectationsSection() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">For Vendors:</h4>
+              <h4 className="font-semibold text-foreground mb-2">For Vendors:</h4>
               <ul className="space-y-1">
                 <li>• Application rejected in acceptance testing</li>
                 <li>• Remediation at vendor cost</li>
@@ -1050,12 +1050,12 @@ function ConformanceExpectationsSection() {
 function ConformanceLevel({ level, percentage, requirements, badge }: any) {
   const badgeColors = {
     bronze: 'bg-orange-100 text-orange-700 border-orange-300',
-    silver: 'bg-gray-200 text-gray-700 border-gray-400',
+    silver: 'bg-gray-200 text-muted-foreground border-gray-400',
     gold: 'bg-yellow-100 text-yellow-700 border-yellow-400'
   };
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
       <div className={`p-4 border-b-2 ${badgeColors[badge as keyof typeof badgeColors]}`}>
         <div className="text-center">
           <div className="font-bold text-lg mb-1">{level}</div>
@@ -1066,7 +1066,7 @@ function ConformanceLevel({ level, percentage, requirements, badge }: any) {
       <div className="p-6">
         <ul className="space-y-2">
           {requirements.map((req: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
               <span>{req}</span>
             </li>
@@ -1081,11 +1081,11 @@ function VerificationStep({ step, description, frequency }: any) {
   return (
     <div className="flex gap-6">
       <div className="flex-shrink-0 w-32">
-        <div className="font-bold text-gray-900">{step}</div>
-        <div className="text-xs text-gray-600 mt-1">{frequency}</div>
+        <div className="font-bold text-foreground">{step}</div>
+        <div className="text-xs text-muted-foreground mt-1">{frequency}</div>
       </div>
       <div className="flex-1">
-        <p className="text-sm text-gray-700">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   );
@@ -1163,14 +1163,14 @@ function SupportChannelsSection() {
       </div>
 
       <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-4">Recommended Support Path</h3>
+        <h3 className="font-bold text-foreground mb-4">Recommended Support Path</h3>
         <div className="flex items-center justify-between max-w-4xl mx-auto">
           <div className="text-center">
             <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-2">
               <BookOpen size={24} />
             </div>
-            <div className="text-sm font-semibold text-gray-900">1. Documentation</div>
-            <div className="text-xs text-gray-600">Start here</div>
+            <div className="text-sm font-semibold text-foreground">1. Documentation</div>
+            <div className="text-xs text-muted-foreground">Start here</div>
           </div>
           
           <ChevronRight className="text-gray-400" size={24} />
@@ -1179,8 +1179,8 @@ function SupportChannelsSection() {
             <div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-2">
               <MessageCircle size={24} />
             </div>
-            <div className="text-sm font-semibold text-gray-900">2. Forum Search</div>
-            <div className="text-xs text-gray-600">Check existing threads</div>
+            <div className="text-sm font-semibold text-foreground">2. Forum Search</div>
+            <div className="text-xs text-muted-foreground">Check existing threads</div>
           </div>
           
           <ChevronRight className="text-gray-400" size={24} />
@@ -1189,8 +1189,8 @@ function SupportChannelsSection() {
             <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-2">
               <Mail size={24} />
             </div>
-            <div className="text-sm font-semibold text-gray-900">3. Email Support</div>
-            <div className="text-xs text-gray-600">For specific help</div>
+            <div className="text-sm font-semibold text-foreground">3. Email Support</div>
+            <div className="text-xs text-muted-foreground">For specific help</div>
           </div>
         </div>
       </div>
@@ -1209,16 +1209,16 @@ function SupportChannel({ icon, title, description, link, linkText, responseTime
   };
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+    <div className="border-2 border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
       <div className={`mb-4 ${colorClasses[color as keyof typeof colorClasses]}`}>
         {icon}
       </div>
-      <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-sm text-gray-700 mb-4">{description}</p>
-      <a href={link} className="text-[#000080] font-semibold text-sm hover:underline flex items-center gap-1 mb-3">
+      <h3 className="font-bold text-foreground mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground mb-4">{description}</p>
+      <a href={link} className="text-primary font-semibold text-sm hover:underline flex items-center gap-1 mb-3">
         {linkText} <ExternalLink size={14} />
       </a>
-      <div className="text-xs text-gray-600 pt-3 border-t border-gray-200">
+      <div className="text-xs text-muted-foreground pt-3 border-t border-border">
         Response time: {responseTime}
       </div>
     </div>
@@ -1236,8 +1236,8 @@ function ReferenceExamplesSection() {
 
       <div className="mt-8 space-y-6">
         <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3">Exemplar Services</h3>
-          <p className="text-sm text-gray-700">
+          <h3 className="font-bold text-foreground mb-3">Exemplar Services</h3>
+          <p className="text-sm text-muted-foreground">
             These services demonstrate best practices in UX4G implementation, accessibility, and user experience. 
             Study them as models for your own implementation.
           </p>
@@ -1301,26 +1301,26 @@ function ReferenceExamplesSection() {
           />
         </div>
 
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Learning from Reference Services</h3>
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Learning from Reference Services</h3>
           <div className="grid grid-cols-3 gap-6 text-sm">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Design Patterns</h4>
-              <p className="text-gray-700">
+              <h4 className="font-semibold text-foreground mb-2">Design Patterns</h4>
+              <p className="text-muted-foreground">
                 Study how exemplar services compose UX4G components for common government use cases 
                 like application forms, dashboards, and document management.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Implementation Approaches</h4>
-              <p className="text-gray-700">
+              <h4 className="font-semibold text-foreground mb-2">Implementation Approaches</h4>
+              <p className="text-muted-foreground">
                 Learn migration strategies, performance optimization techniques, and integration 
                 patterns from teams who have successfully adopted UX4G.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Accessibility Solutions</h4>
-              <p className="text-gray-700">
+              <h4 className="font-semibold text-foreground mb-2">Accessibility Solutions</h4>
+              <p className="text-muted-foreground">
                 See real examples of accessible form validation, screen reader optimization, 
                 and keyboard navigation in complex government workflows.
               </p>
@@ -1335,47 +1335,47 @@ function ReferenceExamplesSection() {
 function ReferenceService({ name, department, url, highlights, conformance, stats }: any) {
   const conformanceBadge = conformance === 'Exemplar' 
     ? 'bg-yellow-100 text-yellow-700 border-yellow-300'
-    : 'bg-gray-100 text-gray-700 border-gray-300';
+    : 'bg-muted text-muted-foreground border-border';
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="bg-gray-50 p-4 border-b-2 border-gray-200">
+    <div className="border-2 border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+      <div className="bg-background p-4 border-b-2 border-border">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="font-bold text-gray-900">{name}</h3>
+          <h3 className="font-bold text-foreground">{name}</h3>
           <span className={`px-3 py-1 ${conformanceBadge} border rounded-full text-xs font-semibold`}>
             {conformance}
           </span>
         </div>
-        <div className="text-sm text-gray-600">{department}</div>
+        <div className="text-sm text-muted-foreground">{department}</div>
       </div>
       
       <div className="p-6">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">Key Highlights:</h4>
+        <h4 className="font-semibold text-foreground mb-3 text-sm">Key Highlights:</h4>
         <ul className="space-y-2 mb-4">
           {highlights.map((highlight: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808]" size={14} />
               <span>{highlight}</span>
             </li>
           ))}
         </ul>
         
-        <div className="pt-4 border-t border-gray-200 grid grid-cols-3 gap-4 text-xs text-gray-600 mb-4">
+        <div className="pt-4 border-t border-border grid grid-cols-3 gap-4 text-xs text-muted-foreground mb-4">
           <div>
-            <div className="font-semibold text-gray-900">{stats.pages}</div>
+            <div className="font-semibold text-foreground">{stats.pages}</div>
             <div>Pages</div>
           </div>
           <div>
-            <div className="font-semibold text-gray-900">{stats.components}</div>
+            <div className="font-semibold text-foreground">{stats.components}</div>
             <div>Components</div>
           </div>
           <div>
-            <div className="font-semibold text-gray-900">{stats.traffic}</div>
+            <div className="font-semibold text-foreground">{stats.traffic}</div>
             <div>Traffic</div>
           </div>
         </div>
         
-        <a href={url} target="_blank" rel="noopener noreferrer" className="text-[#000080] font-semibold text-sm hover:underline flex items-center gap-1">
+        <a href={url} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold text-sm hover:underline flex items-center gap-1">
           Visit Service <ExternalLink size={14} />
         </a>
       </div>
@@ -1389,19 +1389,19 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-[#000080]">{icon}</div>
-        <h2 className="text-4xl font-bold text-gray-900">{title}</h2>
+        <div className="text-primary">{icon}</div>
+        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
       </div>
-      <p className="text-lg text-gray-600">{description}</p>
+      <p className="text-lg text-muted-foreground">{description}</p>
     </div>
   );
 }
 
 function OnboardingPath({ pathTitle, steps }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 border-b-2 border-gray-200">
-        <h3 className="font-bold text-gray-900">{pathTitle}</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 border-b-2 border-border">
+        <h3 className="font-bold text-foreground">{pathTitle}</h3>
       </div>
       
       <div className="p-8">
@@ -1409,7 +1409,7 @@ function OnboardingPath({ pathTitle, steps }: any) {
           {steps.map((step: any, index: number) => (
             <div key={index} className="flex gap-6">
               <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold">
+                <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
                   {index + 1}
                 </div>
               </div>
@@ -1417,8 +1417,8 @@ function OnboardingPath({ pathTitle, steps }: any) {
               <div className="flex-1">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <h4 className="font-bold text-gray-900">{step.title}</h4>
-                    <p className="text-sm text-gray-600">{step.description}</p>
+                    <h4 className="font-bold text-foreground">{step.title}</h4>
+                    <p className="text-sm text-muted-foreground">{step.description}</p>
                   </div>
                   <div className="text-xs text-gray-500 flex-shrink-0 ml-4">{step.duration}</div>
                 </div>
@@ -1441,14 +1441,14 @@ function OnboardingPath({ pathTitle, steps }: any) {
 
 function ResourceCard({ title, resources }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
+    <div className="border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <div className="space-y-3">
         {resources.map((resource: any, index: number) => (
-          <a key={index} href={resource.url} className="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded hover:bg-blue-50 hover:border-blue-200 transition-colors">
+          <a key={index} href={resource.url} className="flex items-center justify-between p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-200 transition-colors">
             <div>
-              <div className="font-semibold text-gray-900 text-sm">{resource.name}</div>
-              <div className="text-xs text-gray-600">{resource.type}</div>
+              <div className="font-semibold text-foreground text-sm">{resource.name}</div>
+              <div className="text-xs text-muted-foreground">{resource.type}</div>
             </div>
             <ChevronRight className="text-gray-400" size={20} />
           </a>

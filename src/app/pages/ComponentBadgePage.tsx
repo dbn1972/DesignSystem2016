@@ -8,10 +8,10 @@ import { ComponentDocumentation } from '../components/ComponentDocumentation';
 const BadgePreview = ({ variant, children }: any) => {
   const variants = {
     primary: 'bg-[#005196] text-white',
-    success: 'bg-[#138808] text-white',
+    success: 'bg-green-700 text-white',
     warning: 'bg-yellow-500 text-white',
     error: 'bg-red-600 text-white',
-    neutral: 'bg-gray-100 text-gray-700',
+    neutral: 'bg-muted text-muted-foreground',
   };
   
   return (
@@ -118,10 +118,10 @@ export const badgeVariants = cva(
     variants: {
       variant: {
         primary: 'bg-[#005196] text-white',
-        success: 'bg-[#138808] text-white',
+        success: 'bg-green-700 text-white',
         warning: 'bg-yellow-500 text-white',
         error: 'bg-red-600 text-white',
-        neutral: 'bg-gray-100 text-gray-700',
+        neutral: 'bg-muted text-muted-foreground',
       },
       size: {
         sm: 'px-2 py-0.5 text-xs',

@@ -18,16 +18,16 @@ const SwitchPreview = ({ label, disabled = false }: any) => {
         onClick={() => !disabled && setChecked(!checked)}
         disabled={disabled}
         className={`relative w-11 h-6 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196] ${
-          checked ? 'bg-[#138808]' : 'bg-gray-300'
+          checked ? 'bg-green-700' : 'bg-gray-300'
         } ${!disabled && 'cursor-pointer'}`}
       >
         <span
-          className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform shadow-sm ${
+          className={`absolute top-0.5 left-0.5 w-5 h-5 bg-card rounded-full transition-transform shadow-sm ${
             checked ? 'translate-x-5' : 'translate-x-0'
           }`}
         />
       </button>
-      <span className="text-gray-900">{label}</span>
+      <span className="text-foreground">{label}</span>
     </label>
   );
 };
@@ -180,7 +180,7 @@ function Example() {
           preview: (
             <div>
               <SwitchPreview label="Two-factor authentication" />
-              <p className="ml-14 mt-1 text-sm text-gray-600">Add an extra layer of security to your account</p>
+              <p className="ml-14 mt-1 text-sm text-muted-foreground">Add an extra layer of security to your account</p>
             </div>
           ),
         },
@@ -221,12 +221,12 @@ function Example() {
             <div className="space-y-4">
               <SwitchPreview label="Label on right (default)" />
               <div className="flex items-center gap-3 flex-row-reverse justify-end">
-                <span className="text-gray-900">Label on left</span>
+                <span className="text-foreground">Label on left</span>
                 <button
                   type="button"
                   className="relative w-11 h-6 rounded-full transition-colors bg-gray-300"
                 >
-                  <span className="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm" />
+                  <span className="absolute top-0.5 left-0.5 w-5 h-5 bg-card rounded-full shadow-sm" />
                 </button>
               </div>
             </div>
@@ -280,7 +280,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         onClick={handleChange}
         className={cn(
           switchVariants({ size }),
-          isChecked ? 'bg-[#138808]' : 'bg-gray-300',
+          isChecked ? 'bg-green-700' : 'bg-gray-300',
           disabled && 'opacity-60 cursor-not-allowed',
           className
         )}
@@ -288,7 +288,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
       >
         <span
           className={cn(
-            'absolute top-0.5 left-0.5 bg-white rounded-full shadow-sm transition-transform',
+            'absolute top-0.5 left-0.5 bg-card rounded-full shadow-sm transition-transform',
             size === 'sm' && 'w-4 h-4',
             size === 'md' && 'w-5 h-5',
             size === 'lg' && 'w-6 h-6',
@@ -311,7 +311,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         >
           {switchElement}
           {label && (
-            <span className="text-gray-900 select-none">
+            <span className="text-foreground select-none">
               {label}
             </span>
           )}
@@ -319,7 +319,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
 
         {helperText && (
           <p className={cn(
-            'text-sm text-gray-600',
+            'text-sm text-muted-foreground',
             labelPosition === 'right' ? 'ml-14' : 'mr-14'
           )}>
             {helperText}
@@ -385,7 +385,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
           <span [class]="getThumbClasses()"></span>
         </button>
 
-        <span *ngIf="label" class="text-gray-900 select-none">
+        <span *ngIf="label" class="text-foreground select-none">
           {{ label }}
         </span>
       </label>
@@ -434,7 +434,7 @@ export class SwitchComponent implements ControlValueAccessor {
   }
 
   getThumbClasses(): string {
-    const base = 'absolute top-0.5 left-0.5 bg-white rounded-full shadow-sm transition-transform';
+    const base = 'absolute top-0.5 left-0.5 bg-card rounded-full shadow-sm transition-transform';
     const size = this.size === 'sm' ? 'w-4 h-4' : this.size === 'lg' ? 'w-6 h-6' : 'w-5 h-5';
     const translate = this.checked 
       ? (this.size === 'sm' ? 'translate-x-4' : this.size === 'lg' ? 'translate-x-6' : 'translate-x-5')
@@ -444,7 +444,7 @@ export class SwitchComponent implements ControlValueAccessor {
   }
 
   getHelperTextClasses(): string {
-    const base = 'text-sm text-gray-600';
+    const base = 'text-sm text-muted-foreground';
     const margin = this.labelPosition === 'right' ? 'ml-14' : 'mr-14';
     return \`\${base} \${margin}\`;
   }

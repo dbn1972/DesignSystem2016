@@ -24,21 +24,21 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-card border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo and Title */}
           <Link to="/" className="flex items-center gap-3">
             <div className="flex items-center justify-center w-10 h-10 rounded bg-gradient-to-br from-[#FF9933] via-white to-[#138808]">
-              <div className="w-8 h-8 rounded bg-[#000080] flex items-center justify-center">
+              <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
                 <div className="w-6 h-6 border-2 border-white rounded-full flex items-center justify-center">
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-card rounded-full"></div>
                 </div>
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-semibold text-[#000080]">UX4G</span>
-              <span className="text-xs text-gray-600">Design System</span>
+              <span className="text-sm font-semibold text-primary">UX4G</span>
+              <span className="text-xs text-muted-foreground">Design System</span>
             </div>
           </Link>
 
@@ -50,8 +50,8 @@ export default function Header() {
                 to={item.href}
                 className={`px-4 py-2 rounded-md text-sm transition-colors ${
                   isActive(item.href)
-                    ? "bg-[#000080] text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-primary text-white"
+                    : "text-muted-foreground hover:bg-muted"
                 }`}
               >
                 {item.name}
@@ -62,7 +62,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
+            className="md:hidden p-2 rounded-md text-muted-foreground hover:bg-muted"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -70,7 +70,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-gray-200">
+          <nav className="md:hidden py-4 border-t border-border">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -78,8 +78,8 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-2 rounded-md text-sm transition-colors ${
                   isActive(item.href)
-                    ? "bg-[#000080] text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-primary text-white"
+                    : "text-muted-foreground hover:bg-muted"
                 }`}
               >
                 {item.name}

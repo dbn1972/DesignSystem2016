@@ -1,0 +1,299 @@
+/**
+ * Legacy Tailwind utility dark-mode compatibility.
+ *
+ * Many pages still use light-first utility classes (`bg-white`, `text-gray-900`, etc.).
+ * This layer keeps dark mode consistent app-wide while we progressively migrate to semantic tokens.
+ */
+
+@layer utilities {
+  .dark .bg-white {
+    background-color: var(--legacy-surface-raised) !important;
+  }
+
+  .dark .bg-gray-50,
+  .dark .bg-gray-100,
+  .dark .bg-gray-200 {
+    background-color: var(--legacy-surface-muted) !important;
+  }
+
+  .dark .bg-gray-300 {
+    background-color: color-mix(in srgb, var(--legacy-border) 92%, var(--legacy-surface-raised)) !important;
+  }
+
+  .dark .bg-gray-700 {
+    background-color: var(--legacy-surface-contrast) !important;
+  }
+
+  .dark .bg-gray-800 {
+    background-color: color-mix(in srgb, var(--legacy-surface-inverse) 72%, var(--legacy-surface-base)) !important;
+  }
+
+  .dark .bg-gray-900 {
+    background-color: var(--legacy-surface-inverse) !important;
+  }
+
+  .dark .text-gray-100,
+  .dark .text-gray-200,
+  .dark .text-gray-300 {
+    color: var(--legacy-text-contrast) !important;
+  }
+
+  .dark .text-gray-900,
+  .dark .text-gray-800,
+  .dark .text-gray-700 {
+    color: var(--legacy-text-primary) !important;
+  }
+
+  .dark .text-gray-600,
+  .dark .text-gray-500,
+  .dark .text-gray-400 {
+    color: var(--legacy-text-secondary) !important;
+  }
+
+  .dark .border-gray-100,
+  .dark .border-gray-200,
+  .dark .border-gray-300,
+  .dark .border-gray-400,
+  .dark .border-gray-500,
+  .dark .border-gray-600,
+  .dark .border-gray-700,
+  .dark .divide-gray-400,
+  .dark .divide-gray-500,
+  .dark .divide-gray-600,
+  .dark .divide-gray-100,
+  .dark .divide-gray-200,
+  .dark .divide-gray-300 {
+    border-color: var(--legacy-border) !important;
+  }
+
+  .dark .ring-gray-100,
+  .dark .ring-gray-200,
+  .dark .ring-gray-300,
+  .dark .ring-gray-400,
+  .dark .ring-gray-500 {
+    --tw-ring-color: color-mix(in srgb, var(--ring) 55%, transparent) !important;
+  }
+
+  .dark .placeholder\:text-gray-400::placeholder,
+  .dark .placeholder\:text-gray-500::placeholder,
+  .dark .placeholder\:text-gray-600::placeholder {
+    color: color-mix(in srgb, var(--legacy-text-secondary) 80%, transparent) !important;
+  }
+
+  .dark .hover\:bg-gray-50:hover,
+  .dark .hover\:bg-gray-100:hover,
+  .dark .hover\:bg-gray-200:hover,
+  .dark .hover\:bg-blue-50:hover,
+  .dark .hover\:bg-indigo-50:hover {
+    background-color: color-mix(in srgb, var(--legacy-accent-soft) 78%, var(--legacy-surface-raised)) !important;
+  }
+
+  .dark .bg-blue-50,
+  .dark .bg-blue-100,
+  .dark .bg-blue-200,
+  .dark .bg-blue-300,
+  .dark .bg-indigo-50,
+  .dark .bg-indigo-100,
+  .dark .bg-indigo-200,
+  .dark .bg-indigo-300,
+  .dark .bg-purple-50,
+  .dark .bg-purple-100,
+  .dark .bg-purple-200,
+  .dark .bg-purple-300,
+  .dark .bg-cyan-50,
+  .dark .bg-cyan-100,
+  .dark .bg-cyan-200,
+  .dark .bg-green-50,
+  .dark .bg-green-100,
+  .dark .bg-green-200,
+  .dark .bg-green-300,
+  .dark .bg-emerald-50,
+  .dark .bg-emerald-100,
+  .dark .bg-emerald-200,
+  .dark .bg-red-50,
+  .dark .bg-red-100,
+  .dark .bg-red-200,
+  .dark .bg-red-300,
+  .dark .bg-orange-50,
+  .dark .bg-orange-100,
+  .dark .bg-orange-200,
+  .dark .bg-orange-300,
+  .dark .bg-yellow-50,
+  .dark .bg-yellow-100,
+  .dark .bg-yellow-200,
+  .dark .bg-yellow-300,
+  .dark .bg-pink-50,
+  .dark .bg-pink-100,
+  .dark .bg-pink-200,
+  .dark .bg-sky-50 {
+    background-color: color-mix(in srgb, var(--legacy-accent-soft) 64%, var(--legacy-surface-raised)) !important;
+  }
+
+  .dark .bg-green-400,
+  .dark .bg-green-500,
+  .dark .bg-green-600,
+  .dark .bg-green-700 {
+    background-color: var(--legacy-success-border) !important;
+    color: var(--primary-foreground) !important;
+  }
+
+  .dark .bg-blue-400,
+  .dark .bg-blue-500,
+  .dark .bg-blue-600,
+  .dark .bg-blue-700,
+  .dark .bg-indigo-400,
+  .dark .bg-indigo-500,
+  .dark .bg-indigo-600,
+  .dark .bg-indigo-700,
+  .dark .bg-purple-500,
+  .dark .bg-purple-600,
+  .dark .bg-purple-700 {
+    background-color: var(--legacy-info-border) !important;
+    color: var(--primary-foreground) !important;
+  }
+
+  .dark .bg-orange-400,
+  .dark .bg-orange-500,
+  .dark .bg-orange-600,
+  .dark .bg-orange-700,
+  .dark .bg-yellow-400,
+  .dark .bg-yellow-500,
+  .dark .bg-yellow-600 {
+    background-color: var(--legacy-warning-border) !important;
+    color: var(--foreground) !important;
+  }
+
+  .dark .bg-red-400,
+  .dark .bg-red-500,
+  .dark .bg-red-600,
+  .dark .bg-red-700 {
+    background-color: var(--legacy-error-border) !important;
+    color: var(--primary-foreground) !important;
+  }
+
+  .dark .border-blue-100,
+  .dark .border-blue-200,
+  .dark .border-blue-300,
+  .dark .border-blue-400,
+  .dark .border-blue-500,
+  .dark .border-indigo-200,
+  .dark .border-indigo-300,
+  .dark .border-indigo-400,
+  .dark .border-green-200,
+  .dark .border-green-300,
+  .dark .border-green-400,
+  .dark .border-red-200,
+  .dark .border-red-300,
+  .dark .border-red-400,
+  .dark .border-orange-200,
+  .dark .border-orange-300,
+  .dark .border-orange-400,
+  .dark .border-yellow-200,
+  .dark .border-yellow-300,
+  .dark .border-yellow-400 {
+    border-color: color-mix(in srgb, var(--legacy-border) 70%, var(--primary)) !important;
+  }
+
+  .dark .text-blue-500,
+  .dark .text-blue-600,
+  .dark .text-blue-700,
+  .dark .text-blue-800,
+  .dark .text-indigo-500,
+  .dark .text-indigo-600,
+  .dark .text-indigo-700,
+  .dark .text-purple-500,
+  .dark .text-purple-600,
+  .dark .text-purple-700,
+  .dark .text-cyan-500,
+  .dark .text-cyan-600,
+  .dark .text-cyan-700 {
+    color: var(--legacy-info-text) !important;
+  }
+
+  .dark .text-green-500,
+  .dark .text-green-600,
+  .dark .text-green-700,
+  .dark .text-green-800,
+  .dark .text-emerald-500,
+  .dark .text-emerald-600,
+  .dark .text-emerald-700 {
+    color: var(--legacy-success-text) !important;
+  }
+
+  .dark .text-red-500,
+  .dark .text-red-600,
+  .dark .text-orange-500,
+  .dark .text-orange-600,
+  .dark .text-orange-700,
+  .dark .text-orange-800,
+  .dark .text-yellow-600,
+  .dark .text-yellow-700,
+  .dark .text-yellow-800 {
+    color: var(--legacy-warning-text) !important;
+  }
+
+  .dark .text-red-700,
+  .dark .text-red-800,
+  .dark .text-red-500,
+  .dark .text-red-600 {
+    color: var(--legacy-error-text) !important;
+  }
+
+  .dark .text-black {
+    color: var(--legacy-text-primary) !important;
+  }
+
+  .dark .text-white {
+    color: var(--legacy-text-contrast) !important;
+  }
+
+  .dark .bg-gradient-to-r,
+  .dark .bg-gradient-to-br,
+  .dark .bg-gradient-to-b {
+    background-image: none !important;
+    background-color: var(--legacy-surface-raised) !important;
+  }
+
+  /* Legacy brand hex utilities used across older pages */
+  .dark .bg-\[\#000080\],
+  .dark .bg-\[\#005196\] {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+  }
+
+  .dark .hover\:bg-\[\#000060\]:hover,
+  .dark .hover\:bg-\[\#000066\]:hover,
+  .dark .hover\:bg-\[\#004178\]:hover {
+    background-color: color-mix(in srgb, var(--primary) 88%, black) !important;
+  }
+
+  .dark .text-\[\#000080\],
+  .dark .text-\[\#005196\] {
+    color: color-mix(in srgb, var(--primary) 78%, white) !important;
+  }
+
+  .dark .border-\[\#000080\],
+  .dark .border-\[\#005196\] {
+    border-color: color-mix(in srgb, var(--primary) 64%, var(--legacy-border)) !important;
+  }
+
+  .dark .bg-\[\#138808\] {
+    background-color: var(--legacy-success-border) !important;
+    color: var(--primary-foreground) !important;
+  }
+
+  .dark .text-\[\#138808\] {
+    color: var(--legacy-success-text) !important;
+  }
+
+  .dark .border-\[\#138808\] {
+    border-color: var(--legacy-success-border) !important;
+  }
+
+  .dark .focus\:ring-\[\#000080\]:focus,
+  .dark .focus-visible\:ring-\[\#000080\]:focus-visible,
+  .dark .focus\:ring-\[\#005196\]:focus,
+  .dark .focus-visible\:ring-\[\#005196\]:focus-visible {
+    --tw-ring-color: color-mix(in srgb, var(--ring) 60%, transparent) !important;
+  }
+}

@@ -12,7 +12,7 @@
  * ```
  */
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { cn } from '../../utils/cn';
 import { PaginationProps } from './Pagination.types';
 
@@ -130,7 +130,7 @@ export function Pagination({
           </li>
         )}
 
-        {pageNumbers.map((pageNumber, index) => {
+        {pageNumbers.map((pageNumber, _index) => {
           if (typeof pageNumber === 'string' && pageNumber.startsWith('ellipsis')) {
             return (
               <li key={pageNumber}>

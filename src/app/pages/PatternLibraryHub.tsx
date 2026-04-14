@@ -3,21 +3,21 @@ import { BookOpen, User, FileCheck, CreditCard, FileText, Shield, CheckCircle, M
 
 export default function PatternLibraryHub() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-background dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-green-900/20 dark:via-gray-800 dark:to-blue-900/20 border-b-2 border-gray-300 dark:border-gray-700">
+      <header className="bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-green-900/20 dark:via-gray-800 dark:to-blue-900/20 border-b-2 border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-12 py-12">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 border-2 border-gray-300 dark:border-gray-700 rounded flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 border-2 border-border dark:border-gray-700 rounded flex items-center justify-center">
                 <BookOpen size={32} className="text-white" />
               </div>
               <div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Live Demonstrations</div>
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">Pattern Library</h1>
+                <div className="text-sm text-muted-foreground dark:text-gray-400 mb-1">Live Demonstrations</div>
+                <h1 className="text-4xl font-bold text-foreground dark:text-gray-100">Pattern Library</h1>
               </div>
             </div>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-lg text-muted-foreground dark:text-gray-300 leading-relaxed">
               Production-ready patterns for common government service scenarios. Each pattern includes
               live demonstrations, code examples, and implementation guidelines. Use these patterns
               as-is or customize for your specific needs.
@@ -388,9 +388,9 @@ export default function PatternLibraryHub() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-12 mt-12 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">See Patterns in Action</h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+        <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 border-2 border-border dark:border-gray-700 rounded-lg p-12 mt-12 text-center">
+          <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-4">See Patterns in Action</h2>
+          <p className="text-lg text-muted-foreground dark:text-gray-300 mb-8 max-w-2xl mx-auto">
             Explore our complete reference service - a certificate application with 51 pages
             demonstrating all these patterns in a real government service context.
           </p>
@@ -417,9 +417,9 @@ export default function PatternLibraryHub() {
 
 function StatCard({ number, label }: { number: string; label: string }) {
   return (
-    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6 text-center">
+    <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-6 text-center">
       <div className="text-3xl font-bold mb-2" style={{ color: 'var(--ux4g-color-brand-primary)' }}>{number}</div>
-      <div className="text-sm text-gray-700 dark:text-gray-300">{label}</div>
+      <div className="text-sm text-muted-foreground dark:text-gray-300">{label}</div>
     </div>
   );
 }
@@ -447,13 +447,13 @@ function PatternCategory({ icon, title, description, color, patterns }: {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
-      <div className={`${colorClasses[color as keyof typeof colorClasses]} border-b-2 border-gray-300 dark:border-gray-700 p-6`}>
+    <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
+      <div className={`${colorClasses[color as keyof typeof colorClasses]} border-b-2 border-border dark:border-gray-700 p-6`}>
         <div className="flex items-center gap-4">
           <div>{icon}</div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{title}</h2>
-            <p className="text-gray-700 dark:text-gray-300 mt-1">{description}</p>
+            <h2 className="text-2xl font-bold text-foreground dark:text-gray-100">{title}</h2>
+            <p className="text-muted-foreground dark:text-gray-300 mt-1">{description}</p>
           </div>
         </div>
       </div>
@@ -463,7 +463,7 @@ function PatternCategory({ icon, title, description, color, patterns }: {
             <Link
               key={i}
               to={pattern.path}
-              className="p-4 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:shadow-md transition-all group"
+              className="p-4 border-2 border-border dark:border-gray-700 rounded-lg hover:shadow-md transition-all group"
               style={{
                 '--hover-border-color': 'var(--ux4g-color-brand-primary)',
                 '--hover-text-color': 'var(--ux4g-color-brand-primary)'
@@ -477,7 +477,7 @@ function PatternCategory({ icon, title, description, color, patterns }: {
             >
               <div className="flex items-start justify-between mb-2">
                 <h3
-                  className="font-bold text-gray-900 dark:text-gray-100 transition-colors"
+                  className="font-bold text-foreground dark:text-gray-100 transition-colors"
                   onMouseOver={(e) => {
                     e.currentTarget.style.color = 'var(--ux4g-color-brand-primary)';
                   }}
@@ -487,14 +487,14 @@ function PatternCategory({ icon, title, description, color, patterns }: {
                 >
                   {pattern.name}
                 </h3>
-                <span className="text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                <span className="text-xs text-muted-foreground dark:text-gray-400 bg-muted dark:bg-gray-700 px-2 py-1 rounded">
                   {pattern.demos.length} demos
                 </span>
               </div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{pattern.description}</p>
+              <p className="text-sm text-muted-foreground dark:text-gray-300 mb-3">{pattern.description}</p>
               <div className="flex flex-wrap gap-2">
                 {pattern.demos.map((demo, j) => (
-                  <span key={j} className="flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 px-2 py-1 rounded">
+                  <span key={j} className="flex items-center gap-1 text-xs text-muted-foreground dark:text-gray-400 bg-background dark:bg-gray-700 px-2 py-1 rounded">
                     <CheckCircle size={12} className="text-green-600 dark:text-green-400" />
                     {demo}
                   </span>

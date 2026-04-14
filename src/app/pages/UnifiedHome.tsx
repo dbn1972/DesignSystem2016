@@ -7,31 +7,31 @@ import {
 
 export default function UnifiedHome() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-card dark:bg-gray-900">
 
       {/* ==================== HERO SECTION ==================== */}
-      <section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 border-b border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] gap-10 lg:gap-12 items-center">
             <div className="max-w-4xl">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#000080] dark:bg-blue-600 text-white rounded-full mb-6 shadow-lg">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary dark:bg-blue-600 text-white rounded-full mb-6 shadow-lg">
                 <Shield size={16} />
                 <span className="text-sm font-bold">Government of India • Digital India Initiative</span>
               </div>
 
               {/* Heading */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground dark:text-gray-100 mb-6 leading-tight">
                 UX4G Design System Platform
               </h1>
 
               {/* Subheading */}
-              <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground dark:text-gray-300 mb-4 leading-relaxed">
                 Official design system for building consistent, accessible, and user-centered
                 government digital services across India.
               </p>
 
-              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400 mb-8 leading-relaxed">
                 Production-ready foundations, components, patterns, and complete service implementations
                 with built-in accessibility, multilingual support, and compliance standards.
               </p>
@@ -41,7 +41,7 @@ export default function UnifiedHome() {
                 {/* Primary CTA */}
                 <Link
                   to="/resources/getting-started"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#000080] hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto"
                 >
                   <Download size={20} />
                   Get Started
@@ -51,14 +51,14 @@ export default function UnifiedHome() {
                 <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                   <Link
                     to="/components"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-[#000080] dark:hover:border-blue-500 text-gray-900 dark:text-gray-100 font-semibold rounded-lg transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-600 hover:border-primary dark:hover:border-blue-500 text-foreground dark:text-gray-100 font-semibold rounded-lg transition-colors"
                   >
                     <Box size={20} />
                     Components
                   </Link>
                   <Link
                     to="/reference-service/demo"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-[#000080] dark:hover:border-blue-500 text-gray-900 dark:text-gray-100 font-semibold rounded-lg transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-600 hover:border-primary dark:hover:border-blue-500 text-foreground dark:text-gray-100 font-semibold rounded-lg transition-colors"
                   >
                     <FileText size={20} />
                     Demo
@@ -67,7 +67,7 @@ export default function UnifiedHome() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-border dark:border-gray-700">
                 <StatItem number="28+" label="Core Components" />
                 <StatItem number="109" label="Pattern Examples" />
                 <StatItem number="47" label="Gov Departments" />
@@ -84,11 +84,11 @@ export default function UnifiedHome() {
       </section>
 
       {/* ==================== QUICK START BY ROLE ==================== */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <section className="bg-card dark:bg-gray-900 border-b border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Quick Start by Role</h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">Choose your role to get started with the right resources</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Quick Start by Role</h2>
+            <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400">Choose your role to get started with the right resources</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -140,11 +140,11 @@ export default function UnifiedHome() {
       </section>
 
       {/* ==================== CORE PLATFORM LAYERS ==================== */}
-      <section className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <section className="bg-background dark:bg-gray-800 border-b border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Platform Architecture</h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">Eight foundational layers that power government digital services</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Platform Architecture</h2>
+            <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400">Eight foundational layers that power government digital services</p>
           </div>
 
           <div className="space-y-4">
@@ -224,15 +224,15 @@ export default function UnifiedHome() {
       </section>
 
       {/* ==================== FEATURED PATTERNS & REFERENCE SERVICES ==================== */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <section className="bg-card dark:bg-gray-900 border-b border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
             {/* Featured Patterns */}
             <div>
               <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Featured Patterns</h2>
-                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">Common interaction patterns used across government services</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Featured Patterns</h2>
+                <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400">Common interaction patterns used across government services</p>
               </div>
 
               <div className="space-y-4">
@@ -270,7 +270,7 @@ export default function UnifiedHome() {
 
               <Link
                 to="/pattern-library"
-                className="inline-flex items-center gap-2 mt-6 text-[#000080] dark:text-blue-400 font-bold hover:underline"
+                className="inline-flex items-center gap-2 mt-6 text-primary dark:text-blue-400 font-bold hover:underline"
               >
                 Browse All Patterns <ArrowRight size={16} />
               </Link>
@@ -279,13 +279,13 @@ export default function UnifiedHome() {
             {/* Reference Service */}
             <div>
               <div className="mb-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Reference Service</h2>
-                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">Complete certificate service implementation with 31 pages</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Reference Service</h2>
+                <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400">Complete certificate service implementation with 31 pages</p>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-8 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Certificate Application Service</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-2 border-border dark:border-gray-700 rounded-lg p-8 mb-6">
+                <h3 className="text-xl font-bold text-foreground dark:text-gray-100 mb-4">Certificate Application Service</h3>
+                <p className="text-muted-foreground dark:text-gray-300 mb-6">
                   A complete end-to-end reference implementation demonstrating best practices
                   for a government certificate application service.
                 </p>
@@ -303,13 +303,13 @@ export default function UnifiedHome() {
                 <div className="flex gap-3">
                   <Link
                     to="/reference-service/overview"
-                    className="flex-1 px-4 py-3 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-[#000080] dark:hover:border-blue-500 text-gray-900 dark:text-gray-100 text-center font-bold rounded transition-colors"
+                    className="flex-1 px-4 py-3 bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-600 hover:border-primary dark:hover:border-blue-500 text-foreground dark:text-gray-100 text-center font-bold rounded transition-colors"
                   >
                     View Blueprint
                   </Link>
                   <Link
                     to="/reference-service/demo"
-                    className="flex-1 px-4 py-3 bg-[#000080] dark:bg-blue-600 hover:bg-[#000066] dark:hover:bg-blue-700 text-white text-center font-bold rounded transition-colors"
+                    className="flex-1 px-4 py-3 bg-primary dark:bg-blue-600 hover:bg-[#000066] dark:hover:bg-blue-700 text-white text-center font-bold rounded transition-colors"
                   >
                     Try Demo
                   </Link>
@@ -322,11 +322,11 @@ export default function UnifiedHome() {
       </section>
 
       {/* ==================== IMPLEMENTATION & DOCUMENTATION ==================== */}
-      <section className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <section className="bg-background dark:bg-gray-800 border-b border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Implementation & Documentation</h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">Everything you need to build with UX4G</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Implementation & Documentation</h2>
+            <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400">Everything you need to build with UX4G</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -379,14 +379,14 @@ export default function UnifiedHome() {
       </section>
 
       {/* ==================== GOVERNANCE & ADOPTION ==================== */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <section className="bg-card dark:bg-gray-900 border-b border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
             {/* Governance */}
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Governance & Compliance</h2>
-              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Governance & Compliance</h2>
+              <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400 mb-8">
                 All government digital services must conform to UX4G standards
               </p>
 
@@ -394,8 +394,8 @@ export default function UnifiedHome() {
                 <div className="flex items-start gap-3 mb-4">
                   <AlertCircle size={24} className="text-red-600 dark:text-red-400 flex-shrink-0" />
                   <div>
-                    <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">Mandatory Compliance</h3>
-                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                    <h3 className="font-bold text-foreground dark:text-gray-100 mb-2">Mandatory Compliance</h3>
+                    <p className="text-sm text-muted-foreground dark:text-gray-300">
                       As per government directives, all new digital services must use UX4G
                       design system components and patterns.
                     </p>
@@ -424,8 +424,8 @@ export default function UnifiedHome() {
 
             {/* Adoption Stats */}
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Adoption Status</h2>
-              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Adoption Status</h2>
+              <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400 mb-8">
                 Current adoption across government departments and vendors
               </p>
 
@@ -437,7 +437,7 @@ export default function UnifiedHome() {
               </div>
 
               <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-4">Key Benefits Realized</h3>
+                <h3 className="font-bold text-foreground dark:text-gray-100 mb-4">Key Benefits Realized</h3>
                 <div className="space-y-3">
                   <BenefitItem text="32% reduction in development time" />
                   <BenefitItem text="95% accessibility compliance achieved" />
@@ -452,11 +452,11 @@ export default function UnifiedHome() {
       </section>
 
       {/* ==================== LATEST UPDATES ==================== */}
-      <section className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <section className="bg-background dark:bg-gray-800 border-b border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Latest Updates</h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">Recent releases and announcements</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Latest Updates</h2>
+            <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400">Recent releases and announcements</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -488,11 +488,11 @@ export default function UnifiedHome() {
       </section>
 
       {/* ==================== SUPPORT & CONTACT ==================== */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <section className="bg-card dark:bg-gray-900 border-b border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Support & Contact</h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">Get help and connect with the UX4G team</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Support & Contact</h2>
+            <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400">Get help and connect with the UX4G team</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -521,22 +521,22 @@ export default function UnifiedHome() {
           <div className="mt-12 bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-4">For Departments</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+                <h3 className="font-bold text-foreground dark:text-gray-100 mb-4">For Departments</h3>
+                <p className="text-sm text-muted-foreground dark:text-gray-300 mb-4">
                   Government departments implementing UX4G should contact the platform team
                   for onboarding support, training, and compliance guidance.
                 </p>
-                <a href="mailto:departments@ux4g.gov.in" className="text-[#000080] dark:text-blue-400 font-bold hover:underline">
+                <a href="mailto:departments@ux4g.gov.in" className="text-primary dark:text-blue-400 font-bold hover:underline">
                   departments@ux4g.gov.in
                 </a>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-4">For Vendors</h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+                <h3 className="font-bold text-foreground dark:text-gray-100 mb-4">For Vendors</h3>
+                <p className="text-sm text-muted-foreground dark:text-gray-300 mb-4">
                   Vendors building government services must register and demonstrate UX4G
                   conformance. Contact the vendor relations team to get started.
                 </p>
-                <a href="mailto:vendors@ux4g.gov.in" className="text-[#000080] dark:text-blue-400 font-bold hover:underline">
+                <a href="mailto:vendors@ux4g.gov.in" className="text-primary dark:text-blue-400 font-bold hover:underline">
                   vendors@ux4g.gov.in
                 </a>
               </div>
@@ -551,25 +551,25 @@ export default function UnifiedHome() {
 
 function HeroBannerImage() {
   return (
-    <div className="relative w-full max-w-[520px] rounded-[28px] border border-gray-200/80 dark:border-gray-700/80 bg-white/90 dark:bg-gray-800/90 shadow-2xl overflow-hidden backdrop-blur-sm">
+    <div className="relative w-full max-w-[520px] rounded-[28px] border border-border/80 dark:border-gray-700/80 bg-card/90 dark:bg-gray-800/90 shadow-2xl overflow-hidden backdrop-blur-sm">
       <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#FF9933] via-white to-[#138808]" />
 
       <div className="p-6 sm:p-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#000080] dark:text-blue-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary dark:text-blue-400">
               Unified Delivery
             </p>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-2">
+            <h3 className="text-2xl font-bold text-foreground dark:text-gray-100 mt-2">
               Build Trusted Public Services
             </h3>
           </div>
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#000080] text-white shadow-lg dark:bg-blue-600">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-lg dark:bg-blue-600">
             <Building2 size={28} />
           </div>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950/40 p-5 border border-gray-200 dark:border-gray-700">
+        <div className="rounded-2xl bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950/40 p-5 border border-border dark:border-gray-700">
           <svg
             viewBox="0 0 420 260"
             className="w-full h-auto"
@@ -629,17 +629,17 @@ function HeroBannerImage() {
         </div>
 
         <div className="grid grid-cols-3 gap-3 mt-5">
-          <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-gray-200 dark:border-gray-700">
+          <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-border dark:border-gray-700">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Tokens</p>
-            <p className="mt-1 text-sm font-bold text-gray-900 dark:text-gray-100">Unified</p>
+            <p className="mt-1 text-sm font-bold text-foreground dark:text-gray-100">Unified</p>
           </div>
-          <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-gray-200 dark:border-gray-700">
+          <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-border dark:border-gray-700">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Components</p>
-            <p className="mt-1 text-sm font-bold text-gray-900 dark:text-gray-100">Accessible</p>
+            <p className="mt-1 text-sm font-bold text-foreground dark:text-gray-100">Accessible</p>
           </div>
-          <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-gray-200 dark:border-gray-700">
+          <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-border dark:border-gray-700">
             <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Services</p>
-            <p className="mt-1 text-sm font-bold text-gray-900 dark:text-gray-100">Scalable</p>
+            <p className="mt-1 text-sm font-bold text-foreground dark:text-gray-100">Scalable</p>
           </div>
         </div>
       </div>
@@ -652,8 +652,8 @@ function HeroBannerImage() {
 function StatItem({ number, label }: { number: string; label: string }) {
   return (
     <div className="text-center md:text-left">
-      <div className="text-2xl sm:text-3xl font-bold text-[#000080] dark:text-blue-400 mb-1">{number}</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">{label}</div>
+      <div className="text-2xl sm:text-3xl font-bold text-primary dark:text-blue-400 mb-1">{number}</div>
+      <div className="text-sm text-muted-foreground dark:text-gray-400">{label}</div>
     </div>
   );
 }
@@ -665,16 +665,16 @@ function RoleCard({ icon, role, description, links }: {
   links: Array<{ label: string; path: string }>;
 }) {
   return (
-    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6 hover:border-[#000080] dark:hover:border-blue-500 transition-colors">
-      <div className="text-[#000080] dark:text-blue-400 mb-4">{icon}</div>
-      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">{role}</h3>
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{description}</p>
+    <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-6 hover:border-primary dark:hover:border-blue-500 transition-colors">
+      <div className="text-primary dark:text-blue-400 mb-4">{icon}</div>
+      <h3 className="text-xl font-bold text-foreground dark:text-gray-100 mb-2">{role}</h3>
+      <p className="text-sm text-muted-foreground dark:text-gray-400 mb-4">{description}</p>
       <div className="space-y-2">
         {links.map((link, i) => (
           <Link
             key={i}
             to={link.path}
-            className="flex items-center gap-2 text-sm text-[#000080] dark:text-blue-400 font-medium hover:underline"
+            className="flex items-center gap-2 text-sm text-primary dark:text-blue-400 font-medium hover:underline"
           >
             <ArrowRight size={14} />
             {link.label}
@@ -707,24 +707,24 @@ function LayerCard({ number, title, description, path, color, items }: {
   return (
     <Link
       to={path}
-      className="bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6 hover:border-[#000080] dark:hover:border-blue-500 transition-colors group"
+      className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-6 hover:border-primary dark:hover:border-blue-500 transition-colors group"
     >
       <div className="flex items-start gap-4">
         <div className={`flex-shrink-0 w-10 h-10 ${colorClasses[color as keyof typeof colorClasses]} text-white rounded flex items-center justify-center font-bold`}>
           {number}
         </div>
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-[#000080] dark:group-hover:text-blue-400">{title}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{description}</p>
+          <h3 className="text-xl font-bold text-foreground dark:text-gray-100 mb-2 group-hover:text-primary dark:group-hover:text-blue-400">{title}</h3>
+          <p className="text-sm text-muted-foreground dark:text-gray-400 mb-3">{description}</p>
           <div className="flex flex-wrap gap-2">
             {items.map((item, i) => (
-              <span key={i} className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded">
+              <span key={i} className="text-xs px-2 py-1 bg-muted dark:bg-gray-800 text-muted-foreground dark:text-gray-300 rounded">
                 {item}
               </span>
             ))}
           </div>
         </div>
-        <ArrowRight size={20} className="text-gray-400 dark:text-gray-600 group-hover:text-[#000080] dark:group-hover:text-blue-400 flex-shrink-0" />
+        <ArrowRight size={20} className="text-gray-400 dark:text-muted-foreground group-hover:text-primary dark:group-hover:text-blue-400 flex-shrink-0" />
       </div>
     </Link>
   );
@@ -739,15 +739,15 @@ function PatternItem({ title, description, path, count }: {
   return (
     <Link
       to={path}
-      className="block bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-4 hover:border-[#000080] dark:hover:border-blue-500 transition-colors group"
+      className="block bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-4 hover:border-primary dark:hover:border-blue-500 transition-colors group"
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1">
-          <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-1 group-hover:text-[#000080] dark:group-hover:text-blue-400">{title}</h4>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{description}</p>
+          <h4 className="font-bold text-foreground dark:text-gray-100 mb-1 group-hover:text-primary dark:group-hover:text-blue-400">{title}</h4>
+          <p className="text-sm text-muted-foreground dark:text-gray-400 mb-2">{description}</p>
           <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded font-medium">{count}</span>
         </div>
-        <ArrowRight size={16} className="text-gray-400 dark:text-gray-600 group-hover:text-[#000080] dark:group-hover:text-blue-400 flex-shrink-0 mt-1" />
+        <ArrowRight size={16} className="text-gray-400 dark:text-muted-foreground group-hover:text-primary dark:group-hover:text-blue-400 flex-shrink-0 mt-1" />
       </div>
     </Link>
   );
@@ -755,9 +755,9 @@ function PatternItem({ title, description, path, count }: {
 
 function ServiceFlowItem({ label, count }: { label: string; count: string }) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-700 last:border-0">
-      <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{label}</span>
-      <span className="text-xs px-2 py-1 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded">{count}</span>
+    <div className="flex items-center justify-between py-2 border-b border-border dark:border-gray-700 last:border-0">
+      <span className="text-sm font-medium text-foreground dark:text-gray-100">{label}</span>
+      <span className="text-xs px-2 py-1 bg-card dark:bg-gray-800 text-muted-foreground dark:text-gray-300 rounded">{count}</span>
     </div>
   );
 }
@@ -770,13 +770,13 @@ function ImplementationCard({ icon, title, description, items, cta }: {
   cta: { label: string; path: string };
 }) {
   return (
-    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6">
-      <div className="text-[#000080] dark:text-blue-400 mb-4">{icon}</div>
-      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">{title}</h3>
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{description}</p>
+    <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-6">
+      <div className="text-primary dark:text-blue-400 mb-4">{icon}</div>
+      <h3 className="text-xl font-bold text-foreground dark:text-gray-100 mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground dark:text-gray-400 mb-4">{description}</p>
       <ul className="space-y-2 mb-6">
         {items.map((item, i) => (
-          <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
             <CheckCircle size={16} className="text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
             {item}
           </li>
@@ -784,7 +784,7 @@ function ImplementationCard({ icon, title, description, items, cta }: {
       </ul>
       <Link
         to={cta.path}
-        className="inline-flex items-center gap-2 text-[#000080] dark:text-blue-400 font-bold hover:underline"
+        className="inline-flex items-center gap-2 text-primary dark:text-blue-400 font-bold hover:underline"
       >
         {cta.label} <ArrowRight size={16} />
       </Link>
@@ -800,22 +800,22 @@ function GovernanceItem({ label, description, path }: {
   return (
     <Link
       to={path}
-      className="flex items-start gap-3 p-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-[#000080] dark:hover:border-blue-500 transition-colors group"
+      className="flex items-start gap-3 p-4 bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-blue-500 transition-colors group"
     >
       <div className="flex-1">
-        <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-1 group-hover:text-[#000080] dark:group-hover:text-blue-400">{label}</h4>
-        <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+        <h4 className="font-bold text-foreground dark:text-gray-100 mb-1 group-hover:text-primary dark:group-hover:text-blue-400">{label}</h4>
+        <p className="text-sm text-muted-foreground dark:text-gray-400">{description}</p>
       </div>
-      <ArrowRight size={16} className="text-gray-400 dark:text-gray-600 group-hover:text-[#000080] dark:group-hover:text-blue-400 flex-shrink-0 mt-1" />
+      <ArrowRight size={16} className="text-gray-400 dark:text-muted-foreground group-hover:text-primary dark:group-hover:text-blue-400 flex-shrink-0 mt-1" />
     </Link>
   );
 }
 
 function AdoptionStat({ number, label }: { number: string; label: string }) {
   return (
-    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-4 text-center">
-      <div className="text-3xl font-bold text-[#000080] dark:text-blue-400 mb-1">{number}</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">{label}</div>
+    <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-4 text-center">
+      <div className="text-3xl font-bold text-primary dark:text-blue-400 mb-1">{number}</div>
+      <div className="text-sm text-muted-foreground dark:text-gray-400">{label}</div>
     </div>
   );
 }
@@ -824,7 +824,7 @@ function BenefitItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <CheckCircle size={16} className="text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
-      <span className="text-sm text-gray-700 dark:text-gray-300">{text}</span>
+      <span className="text-sm text-muted-foreground dark:text-gray-300">{text}</span>
     </div>
   );
 }
@@ -843,15 +843,15 @@ function UpdateCard({ date, title, description, badge, badgeColor }: {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6">
+    <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-6">
       <div className="flex items-center gap-2 mb-3">
         <span className={`text-xs px-2 py-1 ${badgeColors[badgeColor as keyof typeof badgeColors]} rounded font-bold`}>
           {badge}
         </span>
         <span className="text-xs text-gray-500 dark:text-gray-400">{date}</span>
       </div>
-      <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{title}</h3>
-      <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+      <h3 className="font-bold text-foreground dark:text-gray-100 mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground dark:text-gray-400">{description}</p>
     </div>
   );
 }
@@ -866,13 +866,13 @@ function SupportCard({ icon, title, description, link }: {
   const props = link.external ? { href: link.path } : { to: link.path };
 
   return (
-    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6">
-      <div className="text-[#000080] dark:text-blue-400 mb-4">{icon}</div>
-      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">{title}</h3>
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{description}</p>
+    <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-6">
+      <div className="text-primary dark:text-blue-400 mb-4">{icon}</div>
+      <h3 className="text-xl font-bold text-foreground dark:text-gray-100 mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground dark:text-gray-400 mb-4">{description}</p>
       <Component
         {...props}
-        className="inline-flex items-center gap-2 text-[#000080] dark:text-blue-400 font-bold hover:underline"
+        className="inline-flex items-center gap-2 text-primary dark:text-blue-400 font-bold hover:underline"
       >
         {link.label} <ArrowRight size={16} />
       </Component>

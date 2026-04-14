@@ -107,17 +107,17 @@ export default function StepProgressPattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link to="/patterns/status-lifecycle" className="text-sm text-gray-600 hover:text-[#000080]">
+              <Link to="/patterns/status-lifecycle" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
               <span className="text-gray-400">|</span>
-              <span className="text-sm font-bold text-gray-900">Step Progress Tracker</span>
+              <span className="text-sm font-bold text-foreground">Step Progress Tracker</span>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ export default function StepProgressPattern() {
             </div>
             <div className="w-full h-3 bg-white/30 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-white transition-all duration-500"
+                className="h-full bg-card transition-all duration-500"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
@@ -158,15 +158,15 @@ export default function StepProgressPattern() {
           
           {/* Step Progress Visualization */}
           <div className="col-span-4">
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-8 sticky top-24">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Application Journey</h2>
+            <div className="bg-card border-2 border-border rounded-lg p-8 sticky top-24">
+              <h2 className="text-xl font-bold text-foreground mb-6">Application Journey</h2>
               
               {/* Vertical Progress Tracker */}
               <div className="relative">
                 {/* Progress Line */}
                 <div className="absolute left-[19px] top-[20px] bottom-[20px] w-1 bg-gray-200"></div>
                 <div 
-                  className="absolute left-[19px] top-[20px] w-1 bg-[#138808] transition-all duration-500"
+                  className="absolute left-[19px] top-[20px] w-1 bg-green-700 transition-all duration-500"
                   style={{ 
                     height: `${(completedSteps / STEPS.length) * 100}%` 
                   }}
@@ -189,7 +189,7 @@ export default function StepProgressPattern() {
                         <div className="flex items-start gap-4">
                           {/* Step Icon */}
                           <div className={`relative flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center border-4 border-white shadow-md z-10 ${
-                            step.status === 'completed' ? 'bg-[#138808]' :
+                            step.status === 'completed' ? 'bg-green-700' :
                             step.status === 'current' ? 'bg-blue-500' :
                             'bg-gray-300'
                           }`}>
@@ -204,7 +204,7 @@ export default function StepProgressPattern() {
 
                           {/* Step Info */}
                           <div className={`flex-1 pt-1 ${isSelected ? 'bg-blue-50 -ml-2 -mr-2 px-2 py-1 rounded' : ''}`}>
-                            <div className="font-bold text-gray-900 text-sm mb-1">
+                            <div className="font-bold text-foreground text-sm mb-1">
                               {step.title}
                             </div>
                             <div className={`text-xs font-bold ${
@@ -223,14 +223,14 @@ export default function StepProgressPattern() {
               </div>
 
               {/* Summary Stats */}
-              <div className="mt-8 pt-8 border-t-2 border-gray-300 grid grid-cols-2 gap-4">
+              <div className="mt-8 pt-8 border-t-2 border-border grid grid-cols-2 gap-4">
                 <div>
                   <div className="text-2xl font-bold text-[#138808]">{completedSteps}</div>
-                  <div className="text-xs text-gray-600">Completed</div>
+                  <div className="text-xs text-muted-foreground">Completed</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-gray-400">{STEPS.length - completedSteps - 1}</div>
-                  <div className="text-xs text-gray-600">Remaining</div>
+                  <div className="text-xs text-muted-foreground">Remaining</div>
                 </div>
               </div>
             </div>
@@ -242,12 +242,12 @@ export default function StepProgressPattern() {
               const status = getStepStatus(step);
               
               return (
-                <div key={step.id} className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+                <div key={step.id} className="bg-card border-2 border-border rounded-lg overflow-hidden">
                   {/* Header */}
-                  <div className={`p-8 border-b-2 border-gray-300 ${
+                  <div className={`p-8 border-b-2 border-border ${
                     status.color === 'green' ? 'bg-green-50' :
                     status.color === 'blue' ? 'bg-blue-50' :
-                    'bg-gray-50'
+                    'bg-background'
                   }`}>
                     <div className="flex items-start gap-4 mb-4">
                       <div className={`p-4 rounded-lg ${
@@ -259,7 +259,7 @@ export default function StepProgressPattern() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <h2 className="text-2xl font-bold text-gray-900">{step.title}</h2>
+                          <h2 className="text-2xl font-bold text-foreground">{step.title}</h2>
                           <span className={`px-3 py-1 text-sm font-bold rounded ${
                             status.color === 'green' ? 'bg-green-500 text-white' :
                             status.color === 'blue' ? 'bg-blue-500 text-white' :
@@ -268,7 +268,7 @@ export default function StepProgressPattern() {
                             {status.label}
                           </span>
                         </div>
-                        <p className="text-gray-700">{step.description}</p>
+                        <p className="text-muted-foreground">{step.description}</p>
                       </div>
                     </div>
                   </div>
@@ -278,19 +278,19 @@ export default function StepProgressPattern() {
                     <div className="grid grid-cols-2 gap-8 mb-8">
                       {/* Responsible Party */}
                       <div>
-                        <div className="text-sm font-bold text-gray-600 mb-2">Responsible Party</div>
+                        <div className="text-sm font-bold text-muted-foreground mb-2">Responsible Party</div>
                         <div className="flex items-center gap-2">
                           <User size={20} className="text-gray-500" />
-                          <span className="font-bold text-gray-900">{step.actor}</span>
+                          <span className="font-bold text-foreground">{step.actor}</span>
                         </div>
                       </div>
 
                       {/* Estimated Duration */}
                       <div>
-                        <div className="text-sm font-bold text-gray-600 mb-2">Estimated Duration</div>
+                        <div className="text-sm font-bold text-muted-foreground mb-2">Estimated Duration</div>
                         <div className="flex items-center gap-2">
                           <Clock size={20} className="text-gray-500" />
-                          <span className="font-bold text-gray-900">{step.estimatedDuration}</span>
+                          <span className="font-bold text-foreground">{step.estimatedDuration}</span>
                         </div>
                       </div>
                     </div>
@@ -300,9 +300,9 @@ export default function StepProgressPattern() {
                       <div className="mb-6 p-4 bg-green-50 border-2 border-green-200 rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
                           <CheckCircle size={20} className="text-green-600" />
-                          <span className="font-bold text-gray-900">Completed</span>
+                          <span className="font-bold text-foreground">Completed</span>
                         </div>
-                        <div className="text-sm text-gray-700">
+                        <div className="text-sm text-muted-foreground">
                           {formatDate(step.completedDate)}
                         </div>
                       </div>
@@ -314,9 +314,9 @@ export default function StepProgressPattern() {
                           <div>
                             <div className="flex items-center gap-2 mb-2">
                               <Clock size={20} className="text-blue-600" />
-                              <span className="font-bold text-gray-900">Started</span>
+                              <span className="font-bold text-foreground">Started</span>
                             </div>
-                            <div className="text-sm text-gray-700">
+                            <div className="text-sm text-muted-foreground">
                               {formatDate(step.startedDate)}
                             </div>
                           </div>
@@ -324,9 +324,9 @@ export default function StepProgressPattern() {
                             <div>
                               <div className="flex items-center gap-2 mb-2">
                                 <TrendingUp size={20} className="text-blue-600" />
-                                <span className="font-bold text-gray-900">Expected By</span>
+                                <span className="font-bold text-foreground">Expected By</span>
                               </div>
-                              <div className="text-sm text-gray-700">
+                              <div className="text-sm text-muted-foreground">
                                 {formatDate(step.estimatedCompletion)}
                               </div>
                             </div>
@@ -336,12 +336,12 @@ export default function StepProgressPattern() {
                     )}
 
                     {step.status === 'pending' && (
-                      <div className="mb-6 p-4 bg-gray-50 border-2 border-gray-200 rounded-lg">
+                      <div className="mb-6 p-4 bg-background border-2 border-border rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
                           <AlertCircle size={20} className="text-gray-500" />
-                          <span className="font-bold text-gray-900">Awaiting Previous Step</span>
+                          <span className="font-bold text-foreground">Awaiting Previous Step</span>
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-muted-foreground">
                           This step will begin once the current stage is complete
                         </div>
                       </div>
@@ -349,26 +349,26 @@ export default function StepProgressPattern() {
 
                     {/* Details */}
                     <div>
-                      <div className="text-sm font-bold text-gray-600 mb-3">Details</div>
-                      <p className="text-gray-700 bg-gray-50 p-4 rounded-lg border-2 border-gray-200">
+                      <div className="text-sm font-bold text-muted-foreground mb-3">Details</div>
+                      <p className="text-muted-foreground bg-background p-4 rounded-lg border-2 border-border">
                         {step.details}
                       </p>
                     </div>
                   </div>
 
                   {/* Navigation */}
-                  <div className="p-6 bg-gray-50 border-t-2 border-gray-300 flex items-center justify-between">
+                  <div className="p-6 bg-background border-t-2 border-border flex items-center justify-between">
                     <button
                       onClick={() => setSelectedStep(Math.max(1, selectedStep - 1))}
                       disabled={selectedStep === 1}
-                      className="px-4 py-2 border-2 border-gray-300 rounded font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:border-gray-400"
+                      className="px-4 py-2 border-2 border-border rounded font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:border-gray-400"
                     >
                       ← Previous Step
                     </button>
                     <button
                       onClick={() => setSelectedStep(Math.min(STEPS.length, selectedStep + 1))}
                       disabled={selectedStep === STEPS.length}
-                      className="px-4 py-2 bg-[#000080] text-white rounded font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#000060] flex items-center gap-2"
+                      className="px-4 py-2 bg-primary text-white rounded font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:opacity-90 flex items-center gap-2"
                     >
                       <span>Next Step</span>
                       <ChevronRight size={16} />
@@ -383,35 +383,35 @@ export default function StepProgressPattern() {
 
         {/* Pattern Info */}
         <div className="mt-12 bg-green-50 border-2 border-green-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Pattern Features Demonstrated</h3>
+          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>
-              <div className="font-bold text-gray-700 mb-2">Visual Progress</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Visual Progress</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Vertical step tracker</li>
                 <li>• Progress percentage</li>
                 <li>• Completion indicator</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Step States</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Step States</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Completed (green)</li>
                 <li>• In Progress (blue)</li>
                 <li>• Pending (gray)</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Time Intelligence</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Time Intelligence</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Estimated duration</li>
                 <li>• Completion dates</li>
                 <li>• Expected timeline</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Accountability</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Accountability</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Responsible party</li>
                 <li>• Step details</li>
                 <li>• Navigation</li>

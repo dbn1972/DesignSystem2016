@@ -56,21 +56,21 @@ export default function GeneralContactPattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1200px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link to="/patterns/contact-support" className="text-sm text-gray-600 hover:text-[#000080]">
+              <Link to="/patterns/contact-support" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
               <span className="text-gray-400">|</span>
-              <span className="text-sm font-bold text-gray-900">General Contact Form</span>
+              <span className="text-sm font-bold text-foreground">General Contact Form</span>
             </div>
             <button
               onClick={() => setShowHelp(!showHelp)}
-              className="flex items-center gap-2 text-sm text-[#000080] hover:underline"
+              className="flex items-center gap-2 text-sm text-primary hover:underline"
             >
               <HelpCircle size={16} />
               <span>Need Help?</span>
@@ -80,20 +80,20 @@ export default function GeneralContactPattern() {
       </header>
 
       {/* Progress Indicator */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-card border-b border-border">
         <div className="max-w-[1200px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <ProgressStep number={1} label="Select Intent" active={step === 'intent'} completed={step !== 'intent'} />
             <div className="flex-1 h-0.5 bg-gray-300 mx-2">
-              <div className={`h-full bg-[#138808] transition-all ${step !== 'intent' ? 'w-full' : 'w-0'}`}></div>
+              <div className={`h-full bg-green-700 transition-all ${step !== 'intent' ? 'w-full' : 'w-0'}`}></div>
             </div>
             <ProgressStep number={2} label="Fill Form" active={step === 'form'} completed={step === 'review' || step === 'success'} />
             <div className="flex-1 h-0.5 bg-gray-300 mx-2">
-              <div className={`h-full bg-[#138808] transition-all ${step === 'review' || step === 'success' ? 'w-full' : 'w-0'}`}></div>
+              <div className={`h-full bg-green-700 transition-all ${step === 'review' || step === 'success' ? 'w-full' : 'w-0'}`}></div>
             </div>
             <ProgressStep number={3} label="Review" active={step === 'review'} completed={step === 'success'} />
             <div className="flex-1 h-0.5 bg-gray-300 mx-2">
-              <div className={`h-full bg-[#138808] transition-all ${step === 'success' ? 'w-full' : 'w-0'}`}></div>
+              <div className={`h-full bg-green-700 transition-all ${step === 'success' ? 'w-full' : 'w-0'}`}></div>
             </div>
             <ProgressStep number={4} label="Confirmation" active={step === 'success'} completed={false} />
           </div>
@@ -107,16 +107,16 @@ export default function GeneralContactPattern() {
             <div className="flex items-start gap-3">
               <Info size={20} className="text-blue-600 mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <h3 className="font-bold text-gray-900 mb-2">How to use this form</h3>
-                <p className="text-sm text-gray-700 mb-2">
+                <h3 className="font-bold text-foreground mb-2">How to use this form</h3>
+                <p className="text-sm text-muted-foreground mb-2">
                   Use this form for general questions, information requests, or non-urgent inquiries. 
                   For urgent matters or existing case follow-ups, please use the appropriate specialized forms.
                 </p>
-                <div className="text-sm text-gray-700">
+                <div className="text-sm text-muted-foreground">
                   <strong>Expected response time:</strong> 5-7 business days
                 </div>
               </div>
-              <button onClick={() => setShowHelp(false)} className="text-gray-500 hover:text-gray-700">
+              <button onClick={() => setShowHelp(false)} className="text-gray-500 hover:text-muted-foreground">
                 <X size={20} />
               </button>
             </div>
@@ -134,8 +134,8 @@ export default function GeneralContactPattern() {
               <div className="inline-block p-4 bg-blue-100 rounded-full mb-4">
                 <MessageSquare size={48} className="text-blue-600" />
               </div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-3">What can we help you with?</h1>
-              <p className="text-gray-600">
+              <h1 className="text-3xl font-bold text-foreground mb-3">What can we help you with?</h1>
+              <p className="text-muted-foreground">
                 Select the category that best matches your inquiry to help us route your message appropriately
               </p>
             </div>
@@ -183,7 +183,7 @@ export default function GeneralContactPattern() {
               <button
                 onClick={() => setStep('form')}
                 disabled={!intent}
-                className="px-8 py-3 bg-[#000080] text-white rounded font-bold disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-8 py-3 bg-primary text-white rounded font-bold disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 <span>Continue</span>
                 <ArrowRight size={20} />
@@ -197,12 +197,12 @@ export default function GeneralContactPattern() {
         {/* Step 2: Form */}
         {step === 'form' && (
           <div className="max-w-[800px] mx-auto">
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-8 mb-6">
+            <div className="bg-card border-2 border-border rounded-lg p-8 mb-6">
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Contact Details</h2>
-                <p className="text-sm text-gray-600">
-                  Selected category: <span className="font-bold text-gray-900">{intent}</span>
-                  <button onClick={() => setStep('intent')} className="ml-2 text-[#000080] hover:underline text-xs">
+                <h2 className="text-2xl font-bold text-foreground mb-2">Contact Details</h2>
+                <p className="text-sm text-muted-foreground">
+                  Selected category: <span className="font-bold text-foreground">{intent}</span>
+                  <button onClick={() => setStep('intent')} className="ml-2 text-primary hover:underline text-xs">
                     Change
                   </button>
                 </p>
@@ -243,7 +243,7 @@ export default function GeneralContactPattern() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">
+                  <label className="block text-sm font-bold text-foreground mb-2">
                     Preferred Contact Method <span className="text-red-600">*</span>
                   </label>
                   <div className="flex gap-4">
@@ -256,7 +256,7 @@ export default function GeneralContactPattern() {
                         onChange={(e) => setFormData({ ...formData, preferredContact: e.target.value })}
                         className="w-4 h-4"
                       />
-                      <span className="text-sm text-gray-700">Email</span>
+                      <span className="text-sm text-muted-foreground">Email</span>
                     </label>
                     <label className="flex items-center gap-2">
                       <input
@@ -267,7 +267,7 @@ export default function GeneralContactPattern() {
                         onChange={(e) => setFormData({ ...formData, preferredContact: e.target.value })}
                         className="w-4 h-4"
                       />
-                      <span className="text-sm text-gray-700">Phone</span>
+                      <span className="text-sm text-muted-foreground">Phone</span>
                     </label>
                     <label className="flex items-center gap-2">
                       <input
@@ -278,7 +278,7 @@ export default function GeneralContactPattern() {
                         onChange={(e) => setFormData({ ...formData, preferredContact: e.target.value })}
                         className="w-4 h-4"
                       />
-                      <span className="text-sm text-gray-700">Either</span>
+                      <span className="text-sm text-muted-foreground">Either</span>
                     </label>
                   </div>
                 </div>
@@ -294,7 +294,7 @@ export default function GeneralContactPattern() {
                 />
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-gray-900 mb-2">
+                  <label htmlFor="message" className="block text-sm font-bold text-foreground mb-2">
                     Message <span className="text-red-600">*</span>
                   </label>
                   <textarea
@@ -302,7 +302,7 @@ export default function GeneralContactPattern() {
                     rows={6}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className={`w-full px-4 py-3 border-2 rounded ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-[#000080]`}
+                    className={`w-full px-4 py-3 border-2 rounded ${errors.message ? 'border-red-500' : 'border-border'} focus:outline-none focus:border-primary`}
                     placeholder="Please describe your inquiry in detail (minimum 20 characters)"
                     aria-describedby={errors.message ? 'message-error' : undefined}
                   />
@@ -322,14 +322,14 @@ export default function GeneralContactPattern() {
             <div className="flex justify-between">
               <button
                 onClick={() => setStep('intent')}
-                className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded font-bold flex items-center gap-2 hover:border-gray-400"
+                className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold flex items-center gap-2 hover:border-gray-400"
               >
                 <ArrowLeft size={20} />
                 <span>Back</span>
               </button>
               <button
                 onClick={handleContinue}
-                className="px-8 py-3 bg-[#000080] text-white rounded font-bold flex items-center gap-2"
+                className="px-8 py-3 bg-primary text-white rounded font-bold flex items-center gap-2"
               >
                 <span>Review & Submit</span>
                 <ArrowRight size={20} />
@@ -341,8 +341,8 @@ export default function GeneralContactPattern() {
         {/* Step 3: Review */}
         {step === 'review' && (
           <div className="max-w-[800px] mx-auto">
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-8 mb-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Review Your Information</h2>
+            <div className="bg-card border-2 border-border rounded-lg p-8 mb-6">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Review Your Information</h2>
               
               <div className="space-y-6">
                 <ReviewField label="Category" value={intent} />
@@ -357,7 +357,7 @@ export default function GeneralContactPattern() {
               <div className="mt-8 bg-yellow-50 border-2 border-yellow-300 rounded-lg p-4">
                 <div className="flex items-start gap-3">
                   <Info size={20} className="text-yellow-600 mt-0.5 flex-shrink-0" />
-                  <div className="text-sm text-gray-700">
+                  <div className="text-sm text-muted-foreground">
                     <p className="font-bold mb-1">Before submitting:</p>
                     <ul className="space-y-1">
                       <li>• Please verify all information is correct</li>
@@ -372,14 +372,14 @@ export default function GeneralContactPattern() {
             <div className="flex justify-between">
               <button
                 onClick={() => setStep('form')}
-                className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded font-bold flex items-center gap-2 hover:border-gray-400"
+                className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold flex items-center gap-2 hover:border-gray-400"
               >
                 <ArrowLeft size={20} />
                 <span>Edit Information</span>
               </button>
               <button
                 onClick={handleSubmit}
-                className="px-8 py-3 bg-[#138808] text-white rounded font-bold flex items-center gap-2 hover:bg-[#0f6b06]"
+                className="px-8 py-3 bg-green-700 text-white rounded font-bold flex items-center gap-2 hover:bg-[#0f6b06]"
               >
                 <CheckCircle size={20} />
                 <span>Submit Request</span>
@@ -391,28 +391,28 @@ export default function GeneralContactPattern() {
         {/* Step 4: Success */}
         {step === 'success' && (
           <div className="max-w-[800px] mx-auto">
-            <div className="bg-white border-2 border-green-300 rounded-lg p-12 text-center">
+            <div className="bg-card border-2 border-green-300 rounded-lg p-12 text-center">
               <div className="inline-block p-4 bg-green-100 rounded-full mb-6">
                 <CheckCircle size={64} className="text-green-600" />
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Request Submitted Successfully!</h2>
-              <p className="text-lg text-gray-700 mb-6">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Request Submitted Successfully!</h2>
+              <p className="text-lg text-muted-foreground mb-6">
                 Your inquiry has been received and assigned a reference number
               </p>
               
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6 mb-8">
-                <div className="text-sm text-gray-600 mb-2">Reference ID</div>
-                <div className="text-3xl font-bold text-[#000080] font-mono mb-4">
+              <div className="bg-background border-2 border-border rounded-lg p-6 mb-8">
+                <div className="text-sm text-muted-foreground mb-2">Reference ID</div>
+                <div className="text-3xl font-bold text-primary font-mono mb-4">
                   GC-2026-{Math.random().toString(36).substring(2, 9).toUpperCase()}
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-muted-foreground">
                   Submitted on: {new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
                 </div>
               </div>
 
               <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 text-left mb-8">
-                <h3 className="font-bold text-gray-900 mb-3">What happens next?</h3>
-                <ul className="space-y-2 text-sm text-gray-700">
+                <h3 className="font-bold text-foreground mb-3">What happens next?</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                     <span>Confirmation email sent to {formData.email}</span>
@@ -447,13 +447,13 @@ export default function GeneralContactPattern() {
                     });
                     setErrors({});
                   }}
-                  className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded font-bold hover:border-gray-400"
+                  className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold hover:border-gray-400"
                 >
                   Submit Another Request
                 </button>
                 <Link
                   to="/patterns/contact-support"
-                  className="px-6 py-3 bg-[#000080] text-white rounded font-bold hover:bg-[#000060]"
+                  className="px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90"
                 >
                   Back to Patterns
                 </Link>
@@ -478,13 +478,13 @@ function ProgressStep({ number, label, active, completed }: {
   return (
     <div className="flex items-center gap-2">
       <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold text-sm ${
-        completed ? 'bg-[#138808] border-[#138808] text-white' :
-        active ? 'bg-white border-[#000080] text-[#000080]' :
-        'bg-white border-gray-300 text-gray-400'
+        completed ? 'bg-green-700 border-[#138808] text-white' :
+        active ? 'bg-card border-primary text-primary' :
+        'bg-card border-border text-gray-400'
       }`}>
         {completed ? <CheckCircle size={20} /> : number}
       </div>
-      <span className={`text-sm font-medium ${active ? 'text-gray-900' : 'text-gray-500'}`}>
+      <span className={`text-sm font-medium ${active ? 'text-foreground' : 'text-gray-500'}`}>
         {label}
       </span>
     </div>
@@ -502,19 +502,19 @@ function IntentOption({ title, description, selected, onClick }: {
       onClick={onClick}
       className={`text-left p-6 border-2 rounded-lg transition-all ${
         selected
-          ? 'border-[#000080] bg-blue-50'
-          : 'border-gray-300 bg-white hover:border-gray-400'
+          ? 'border-primary bg-blue-50'
+          : 'border-border bg-card hover:border-gray-400'
       }`}
     >
       <div className="flex items-start gap-3">
         <div className={`w-5 h-5 rounded-full border-2 flex-shrink-0 mt-0.5 ${
-          selected ? 'border-[#000080] bg-[#000080]' : 'border-gray-300'
+          selected ? 'border-primary bg-primary' : 'border-border'
         }`}>
           {selected && <CheckCircle size={20} className="text-white -m-0.5" />}
         </div>
         <div>
-          <h3 className="font-bold text-gray-900 mb-1">{title}</h3>
-          <p className="text-sm text-gray-600">{description}</p>
+          <h3 className="font-bold text-foreground mb-1">{title}</h3>
+          <p className="text-sm text-muted-foreground">{description}</p>
         </div>
       </div>
     </button>
@@ -533,7 +533,7 @@ function FormField({ label, id, type = 'text', required = false, error, value, o
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-bold text-gray-900 mb-2">
+      <label htmlFor={id} className="block text-sm font-bold text-foreground mb-2">
         {label} {required && <span className="text-red-600">*</span>}
       </label>
       <input
@@ -541,7 +541,7 @@ function FormField({ label, id, type = 'text', required = false, error, value, o
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full px-4 py-3 border-2 rounded ${error ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-[#000080]`}
+        className={`w-full px-4 py-3 border-2 rounded ${error ? 'border-red-500' : 'border-border'} focus:outline-none focus:border-primary`}
         placeholder={placeholder}
         aria-describedby={error ? `${id}-error` : undefined}
         aria-invalid={error ? 'true' : 'false'}
@@ -562,9 +562,9 @@ function ReviewField({ label, value, multiline = false }: {
   multiline?: boolean;
 }) {
   return (
-    <div className="pb-4 border-b border-gray-200">
-      <div className="text-sm font-bold text-gray-600 mb-1">{label}</div>
-      <div className={`text-gray-900 ${multiline ? 'whitespace-pre-wrap' : ''}`}>
+    <div className="pb-4 border-b border-border">
+      <div className="text-sm font-bold text-muted-foreground mb-1">{label}</div>
+      <div className={`text-foreground ${multiline ? 'whitespace-pre-wrap' : ''}`}>
         {value}
       </div>
     </div>
@@ -574,19 +574,19 @@ function ReviewField({ label, value, multiline = false }: {
 function PatternInfo() {
   return (
     <div className="mt-12 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-3">Pattern Information</h3>
+      <h3 className="font-bold text-foreground mb-3">Pattern Information</h3>
       <div className="grid grid-cols-3 gap-6 text-sm">
         <div>
-          <div className="text-gray-600 mb-1">Pattern Type</div>
-          <div className="font-bold text-gray-900">Standard Contact</div>
+          <div className="text-muted-foreground mb-1">Pattern Type</div>
+          <div className="font-bold text-foreground">Standard Contact</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Complexity</div>
-          <div className="font-bold text-gray-900">Low</div>
+          <div className="text-muted-foreground mb-1">Complexity</div>
+          <div className="font-bold text-foreground">Low</div>
         </div>
         <div>
-          <div className="text-gray-600 mb-1">Time to Complete</div>
-          <div className="font-bold text-gray-900">3-5 minutes</div>
+          <div className="text-muted-foreground mb-1">Time to Complete</div>
+          <div className="font-bold text-foreground">3-5 minutes</div>
         </div>
       </div>
     </div>

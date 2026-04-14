@@ -12,7 +12,7 @@
  * ```
  */
 
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../utils/cn';
 import { AlertProps } from './Alert.types';
 
@@ -39,7 +39,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
     },
     ref
   ) => {
-    const iconContent = icon ?? defaultIcons[variant];
+    const iconContent = icon ?? (defaultIcons as Record<string, string>)[variant];
 
     return (
       <div

@@ -3,21 +3,21 @@ import { Package, Rocket, Code, Figma, BookOpen, Download, CheckCircle, ArrowRig
 
 export default function ResourcesHub() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-background dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-gradient-to-br from-orange-50 via-white to-yellow-50 dark:from-orange-900/20 dark:via-gray-800 dark:to-yellow-900/20 border-b-2 border-gray-300 dark:border-gray-700">
+      <header className="bg-gradient-to-br from-orange-50 via-white to-yellow-50 dark:from-orange-900/20 dark:via-gray-800 dark:to-yellow-900/20 border-b-2 border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-12 py-12">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-500 border-2 border-gray-300 dark:border-gray-700 rounded flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-500 border-2 border-border dark:border-gray-700 rounded flex items-center justify-center">
                 <Package size={32} className="text-white" />
               </div>
               <div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Developer Tools</div>
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">Resources</h1>
+                <div className="text-sm text-muted-foreground dark:text-gray-400 mb-1">Developer Tools</div>
+                <h1 className="text-4xl font-bold text-foreground dark:text-gray-100">Resources</h1>
               </div>
             </div>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-lg text-muted-foreground dark:text-gray-300 leading-relaxed">
               Everything you need to start building with UX4G. Installation guides, starter kits,
               component specifications, and design tools to accelerate your development.
             </p>
@@ -101,8 +101,8 @@ export default function ResourcesHub() {
           >
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
-                <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-3">What's Included</h4>
-                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <h4 className="font-bold text-foreground dark:text-gray-100 mb-3">What's Included</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
                   <li className="flex items-start gap-2">
                     <CheckCircle size={16} className="text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
                     <span>30+ reusable components</span>
@@ -129,34 +129,34 @@ export default function ResourcesHub() {
                   </li>
                 </ul>
               </div>
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6">
-                <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-3">Quick Start</h4>
+              <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-6">
+                <h4 className="font-bold text-foreground dark:text-gray-100 mb-3">Quick Start</h4>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-[#000080] dark:bg-blue-700 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs">1</div>
+                    <div className="w-6 h-6 bg-primary dark:bg-blue-700 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs">1</div>
                     <div>
-                      <p className="font-bold text-gray-900 dark:text-gray-100">Copy files</p>
-                      <p className="text-gray-600 dark:text-gray-400">Copy starter kit to your project</p>
+                      <p className="font-bold text-foreground dark:text-gray-100">Copy files</p>
+                      <p className="text-muted-foreground dark:text-gray-400">Copy starter kit to your project</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-[#000080] dark:bg-blue-700 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs">2</div>
+                    <div className="w-6 h-6 bg-primary dark:bg-blue-700 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs">2</div>
                     <div>
-                      <p className="font-bold text-gray-900 dark:text-gray-100">Install dependencies</p>
-                      <p className="text-gray-600 dark:text-gray-400">npm install react-router lucide-react</p>
+                      <p className="font-bold text-foreground dark:text-gray-100">Install dependencies</p>
+                      <p className="text-muted-foreground dark:text-gray-400">npm install react-router lucide-react</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-[#000080] dark:bg-blue-700 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs">3</div>
+                    <div className="w-6 h-6 bg-primary dark:bg-blue-700 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs">3</div>
                     <div>
-                      <p className="font-bold text-gray-900 dark:text-gray-100">Start building</p>
-                      <p className="text-gray-600 dark:text-gray-400">Use components and patterns</p>
+                      <p className="font-bold text-foreground dark:text-gray-100">Start building</p>
+                      <p className="text-muted-foreground dark:text-gray-400">Use components and patterns</p>
                     </div>
                   </div>
                 </div>
                 <Link
                   to="/resources/starter-kit"
-                  className="block w-full mt-6 px-4 py-2 bg-[#000080] dark:bg-blue-600 hover:bg-[#000066] dark:hover:bg-blue-700 text-white text-center font-bold rounded transition-colors"
+                  className="block w-full mt-6 px-4 py-2 bg-primary dark:bg-blue-600 hover:bg-[#000066] dark:hover:bg-blue-700 text-white text-center font-bold rounded transition-colors"
                 >
                   View Starter Kit →
                 </Link>
@@ -179,8 +179,8 @@ export default function ResourcesHub() {
                 path="/resources/component-specs"
               />
               <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
-                <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-3">Covered Components</h4>
-                <div className="grid grid-cols-3 gap-4 text-sm text-gray-700 dark:text-gray-300">
+                <h4 className="font-bold text-foreground dark:text-gray-100 mb-3">Covered Components</h4>
+                <div className="grid grid-cols-3 gap-4 text-sm text-muted-foreground dark:text-gray-300">
                   <ul className="space-y-1">
                     <li>• Button</li>
                     <li>• Form Field</li>
@@ -238,27 +238,27 @@ export default function ResourcesHub() {
 
           {/* Additional Resources */}
           <ResourceSection
-            icon={<BookOpen size={32} className="text-gray-600" />}
+            icon={<BookOpen size={32} className="text-muted-foreground" />}
             title="Additional Resources"
             description="Documentation and guides"
             color="gray"
           >
             <div className="grid grid-cols-2 gap-4">
-              <Link to="/accessibility" className="p-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-[#000080] dark:hover:border-blue-500 hover:shadow-md transition-all">
-                <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-1">Accessibility Guide</h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300">WCAG 2.1 AA compliance guidelines</p>
+              <Link to="/accessibility" className="p-4 bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-blue-500 hover:shadow-md transition-all">
+                <h4 className="font-bold text-foreground dark:text-gray-100 mb-1">Accessibility Guide</h4>
+                <p className="text-sm text-muted-foreground dark:text-gray-300">WCAG 2.1 AA compliance guidelines</p>
               </Link>
-              <Link to="/content-system" className="p-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-[#000080] dark:hover:border-blue-500 hover:shadow-md transition-all">
-                <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-1">Content Design System</h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300">Standardized labels and messages</p>
+              <Link to="/content-system" className="p-4 bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-blue-500 hover:shadow-md transition-all">
+                <h4 className="font-bold text-foreground dark:text-gray-100 mb-1">Content Design System</h4>
+                <p className="text-sm text-muted-foreground dark:text-gray-300">Standardized labels and messages</p>
               </Link>
-              <Link to="/patterns" className="p-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-[#000080] dark:hover:border-blue-500 hover:shadow-md transition-all">
-                <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-1">Pattern Documentation</h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300">Design pattern guidelines</p>
+              <Link to="/patterns" className="p-4 bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-blue-500 hover:shadow-md transition-all">
+                <h4 className="font-bold text-foreground dark:text-gray-100 mb-1">Pattern Documentation</h4>
+                <p className="text-sm text-muted-foreground dark:text-gray-300">Design pattern guidelines</p>
               </Link>
-              <Link to="/governance" className="p-4 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-[#000080] dark:hover:border-blue-500 hover:shadow-md transition-all">
-                <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-1">Governance Guidelines</h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300">Adoption and compliance tracking</p>
+              <Link to="/governance" className="p-4 bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-blue-500 hover:shadow-md transition-all">
+                <h4 className="font-bold text-foreground dark:text-gray-100 mb-1">Governance Guidelines</h4>
+                <p className="text-sm text-muted-foreground dark:text-gray-300">Adoption and compliance tracking</p>
               </Link>
             </div>
           </ResourceSection>
@@ -290,11 +290,11 @@ function QuickLinkCard({ icon, title, description, path, color }: {
       to={path}
       className={`${colorClasses[color as keyof typeof colorClasses]} border-2 rounded-lg p-6 hover:shadow-md transition-all group`}
     >
-      <div className="mb-3 text-[#000080] dark:text-blue-400 group-hover:scale-110 transition-transform">
+      <div className="mb-3 text-primary dark:text-blue-400 group-hover:scale-110 transition-transform">
         {icon}
       </div>
-      <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-1">{title}</h3>
-      <p className="text-sm text-gray-700 dark:text-gray-300">{description}</p>
+      <h3 className="font-bold text-foreground dark:text-gray-100 mb-1">{title}</h3>
+      <p className="text-sm text-muted-foreground dark:text-gray-300">{description}</p>
     </Link>
   );
 }
@@ -311,17 +311,17 @@ function ResourceSection({ icon, title, description, color, children }: {
     green: 'bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-800',
     purple: 'bg-purple-50 dark:bg-purple-900/20 border-purple-300 dark:border-purple-800',
     orange: 'bg-orange-50 dark:bg-orange-900/20 border-orange-300 dark:border-orange-800',
-    gray: 'bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-700'
+    gray: 'bg-background dark:bg-gray-800 border-border dark:border-gray-700'
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
-      <div className={`${colorClasses[color as keyof typeof colorClasses]} border-b-2 border-gray-300 dark:border-gray-700 p-6`}>
+    <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
+      <div className={`${colorClasses[color as keyof typeof colorClasses]} border-b-2 border-border dark:border-gray-700 p-6`}>
         <div className="flex items-center gap-4">
           <div>{icon}</div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{title}</h2>
-            <p className="text-gray-700 dark:text-gray-300 mt-1">{description}</p>
+            <h2 className="text-2xl font-bold text-foreground dark:text-gray-100">{title}</h2>
+            <p className="text-muted-foreground dark:text-gray-300 mt-1">{description}</p>
           </div>
         </div>
       </div>
@@ -341,18 +341,18 @@ function ResourceItem({ title, description, topics, path }: {
   return (
     <Link
       to={path}
-      className="block p-4 border-2 border-gray-300 dark:border-gray-700 rounded-lg hover:border-[#000080] dark:hover:border-blue-500 hover:shadow-md transition-all group"
+      className="block p-4 border-2 border-border dark:border-gray-700 rounded-lg hover:border-primary dark:hover:border-blue-500 hover:shadow-md transition-all group"
     >
       <div className="flex items-start justify-between mb-2">
         <div className="flex-1">
-          <h4 className="font-bold text-gray-900 dark:text-gray-100 group-hover:text-[#000080] dark:group-hover:text-blue-400 mb-1">{title}</h4>
-          <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{description}</p>
+          <h4 className="font-bold text-foreground dark:text-gray-100 group-hover:text-primary dark:group-hover:text-blue-400 mb-1">{title}</h4>
+          <p className="text-sm text-muted-foreground dark:text-gray-300 mb-3">{description}</p>
         </div>
-        <ArrowRight size={20} className="text-gray-400 group-hover:text-[#000080] dark:group-hover:text-blue-400 flex-shrink-0 ml-4" />
+        <ArrowRight size={20} className="text-gray-400 group-hover:text-primary dark:group-hover:text-blue-400 flex-shrink-0 ml-4" />
       </div>
       <div className="flex flex-wrap gap-2">
         {topics.map((topic, i) => (
-          <span key={i} className="text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+          <span key={i} className="text-xs text-muted-foreground dark:text-gray-400 bg-muted dark:bg-gray-700 px-2 py-1 rounded">
             {topic}
           </span>
         ))}

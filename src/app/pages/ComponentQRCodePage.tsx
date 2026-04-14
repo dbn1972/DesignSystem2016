@@ -12,12 +12,12 @@ const QRCodePreview = ({ value, size = 200, level = 'M', color = '#000000', logo
   // Simple preview representation (in actual implementation, use qrcode library)
   return (
     <div
-      className="inline-flex items-center justify-center bg-white border-2 border-gray-200 p-4 rounded"
+      className="inline-flex items-center justify-center bg-card border-2 border-border p-4 rounded"
       style={{ width: size + 32, height: size + 32 }}
       {...props}
     >
       <div className="flex flex-col items-center justify-center gap-2">
-        <QrCode size={size * 0.6} className="text-gray-700" />
+        <QrCode size={size * 0.6} className="text-muted-foreground" />
         <span className="text-xs text-gray-500 text-center break-all max-w-full px-2">
           {value?.substring(0, 20)}...
         </span>
@@ -156,14 +156,14 @@ function Example() {
                   value="https://uidai.gov.in/my-aadhaar/12345678901"
                   size={180}
                 />
-                <span className="text-sm text-gray-600">Aadhaar Verification</span>
+                <span className="text-sm text-muted-foreground">Aadhaar Verification</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <QRCodePreview
                   value="Application ID: APP2024001234"
                   size={180}
                 />
-                <span className="text-sm text-gray-600">Application Tracking</span>
+                <span className="text-sm text-muted-foreground">Application Tracking</span>
               </div>
             </div>
           ),
@@ -191,7 +191,7 @@ function Example() {
                 size={220}
                 logo="/logos/digital-india.png"
               />
-              <span className="text-sm text-gray-600">Digital Certificate with Logo</span>
+              <span className="text-sm text-muted-foreground">Digital Certificate with Logo</span>
             </div>
           ),
         },
@@ -233,7 +233,7 @@ function Example() {
                     size={140}
                     level={level}
                   />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-muted-foreground">
                     {level === 'L' && 'Low (7%)'}
                     {level === 'M' && 'Medium (15%)'}
                     {level === 'Q' && 'Quartile (25%)'}
@@ -292,10 +292,10 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="space-y-4 p-4 border rounded bg-gray-50">
+            <div className="space-y-4 p-4 border rounded bg-background">
               <div className="flex items-center gap-3">
                 <Scan className="text-blue-600" size={24} />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-muted-foreground">
                   Scanner mode activates device camera for QR code reading
                 </span>
               </div>
@@ -315,7 +315,7 @@ function Example() {
   const paymentData = 'upi://pay?pa=treasury@sbi&pn=TreasuryDept&am=500&cu=INR&tn=ApplicationFee';
 
   return (
-    <div className="max-w-sm border rounded-lg p-6 bg-white shadow-md">
+    <div className="max-w-sm border rounded-lg p-6 bg-card shadow-md">
       <div className="flex items-center gap-2 mb-4">
         <CreditCard className="text-green-600" size={24} />
         <h3 className="font-semibold">Pay Application Fee</h3>
@@ -331,14 +331,14 @@ function Example() {
 
       <div className="mt-4 text-center">
         <p className="text-lg font-bold">₹500.00</p>
-        <p className="text-sm text-gray-600">Application Fee</p>
+        <p className="text-sm text-muted-foreground">Application Fee</p>
         <p className="text-xs text-gray-500 mt-2">Scan with any UPI app</p>
       </div>
     </div>
   );
 }`,
           preview: (
-            <div className="max-w-sm border rounded-lg p-6 bg-white shadow-md">
+            <div className="max-w-sm border rounded-lg p-6 bg-card shadow-md">
               <div className="flex items-center gap-2 mb-4">
                 <CreditCard className="text-green-600" size={24} />
                 <h3 className="font-semibold">Pay Application Fee</h3>
@@ -353,7 +353,7 @@ function Example() {
 
               <div className="mt-4 text-center">
                 <p className="text-lg font-bold">₹500.00</p>
-                <p className="text-sm text-gray-600">Application Fee</p>
+                <p className="text-sm text-muted-foreground">Application Fee</p>
                 <p className="text-xs text-gray-500 mt-2">Scan with any UPI app</p>
               </div>
             </div>
@@ -381,7 +381,7 @@ function Example() {
           <Award className="text-blue-600" size={28} />
           <div>
             <h3 className="font-bold text-lg">Birth Certificate</h3>
-            <p className="text-xs text-gray-600">Government of Maharashtra</p>
+            <p className="text-xs text-muted-foreground">Government of Maharashtra</p>
           </div>
         </div>
       </div>
@@ -413,7 +413,7 @@ function Example() {
                   <Award className="text-blue-600" size={28} />
                   <div>
                     <h3 className="font-bold text-lg">Birth Certificate</h3>
-                    <p className="text-xs text-gray-600">Government of Maharashtra</p>
+                    <p className="text-xs text-muted-foreground">Government of Maharashtra</p>
                   </div>
                 </div>
               </div>
@@ -555,7 +555,7 @@ export const QRCode: React.FC<QRCodeProps> = ({
       {downloadable && (
         <button
           onClick={handleDownload}
-          className="mt-2 px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded"
+          className="mt-2 px-3 py-1 text-sm bg-muted hover:bg-gray-200 rounded"
           aria-label="Download QR code"
         >
           Download QR Code
@@ -641,7 +641,7 @@ type RenderAs = 'canvas' | 'svg';
       <button
         *ngIf="downloadable && !enableScanner"
         (click)="handleDownload()"
-        class="mt-2 px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded"
+        class="mt-2 px-3 py-1 text-sm bg-muted hover:bg-gray-200 rounded"
         aria-label="Download QR code"
       >
         Download QR Code

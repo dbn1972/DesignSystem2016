@@ -18,14 +18,14 @@ const MapLocationPickerPreview = ({
   ...props
 }: any) => (
   <div
-    className="relative w-full bg-gray-100 border border-gray-300 rounded overflow-hidden"
+    className="relative w-full bg-muted border border-border rounded overflow-hidden"
     style={{ height: '300px' }}
     {...props}
   >
     <div className="absolute inset-0 flex items-center justify-center">
       <div className="text-center">
         <Map className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-        <p className="text-sm text-gray-600">Map Container</p>
+        <p className="text-sm text-muted-foreground">Map Container</p>
         <p className="text-xs text-gray-500 mt-1">
           {center.lat.toFixed(4)}, {center.lng.toFixed(4)}
         </p>
@@ -37,7 +37,7 @@ const MapLocationPickerPreview = ({
       </div>
     )}
     {searchEnabled && (
-      <div className="absolute top-4 left-4 right-4 bg-white rounded shadow-lg p-3 flex items-center gap-2">
+      <div className="absolute top-4 left-4 right-4 bg-card rounded shadow-lg p-3 flex items-center gap-2">
         <Search className="w-4 h-4 text-gray-400" />
         <input
           type="text"
@@ -47,7 +47,7 @@ const MapLocationPickerPreview = ({
       </div>
     )}
     {currentLocationButton && (
-      <button className="absolute bottom-4 right-4 bg-white p-2 rounded shadow-lg hover:bg-gray-50 min-h-[44px] min-w-[44px] flex items-center justify-center">
+      <button className="absolute bottom-4 right-4 bg-card p-2 rounded shadow-lg hover:bg-background min-h-[44px] min-w-[44px] flex items-center justify-center">
         <Navigation className="w-5 h-5 text-[#005196]" />
       </button>
     )}
@@ -183,7 +183,7 @@ function Example() {
           preview: (
             <div>
               <MapLocationPickerPreview />
-              <p className="mt-4 text-sm text-gray-600">
+              <p className="mt-4 text-sm text-muted-foreground">
                 Click on the map to select a location
               </p>
             </div>
@@ -259,7 +259,7 @@ function Example() {
           preview: (
             <div>
               <MapLocationPickerPreview searchEnabled />
-              <p className="mt-2 text-xs text-gray-600">
+              <p className="mt-2 text-xs text-muted-foreground">
                 Restricted to: New Delhi District, Delhi
               </p>
             </div>
@@ -487,7 +487,7 @@ export const MapLocationPicker: React.FC<MapLocationPickerProps> = ({
           <input
             type="text"
             placeholder="Search location..."
-            className="w-full px-4 py-2 bg-white rounded shadow-lg focus:outline-none focus:ring-2 focus:ring-[#005196]"
+            className="w-full px-4 py-2 bg-card rounded shadow-lg focus:outline-none focus:ring-2 focus:ring-[#005196]"
             aria-label="Search for location"
           />
         </div>
@@ -496,7 +496,7 @@ export const MapLocationPicker: React.FC<MapLocationPickerProps> = ({
       {currentLocationButton && (
         <button
           onClick={handleCurrentLocation}
-          className="absolute bottom-4 right-4 bg-white p-3 rounded shadow-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#005196] min-h-[44px] min-w-[44px]"
+          className="absolute bottom-4 right-4 bg-card p-3 rounded shadow-lg hover:bg-background focus:outline-none focus:ring-2 focus:ring-[#005196] min-h-[44px] min-w-[44px]"
           aria-label="Use my current location"
         >
           <svg className="w-5 h-5 text-[#005196]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

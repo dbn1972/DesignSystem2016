@@ -73,21 +73,21 @@ export function DocumentUploadService({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader icon={Upload} iconColor="bg-blue-600" category={category} title={title} />
 
       <main className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8">
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-4">
-          <p className="text-sm text-gray-600">Upload required documents (PDF/JPEG/PNG, max 2MB each)</p>
+        <div className="bg-card border-2 border-border rounded-lg p-6 space-y-4">
+          <p className="text-sm text-muted-foreground">Upload required documents (PDF/JPEG/PNG, max 2MB each)</p>
 
           {documents.map((doc) => (
-            <div key={doc.id} className="border-2 border-gray-200 rounded-lg p-4">
+            <div key={doc.id} className="border-2 border-border rounded-lg p-4">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-bold text-gray-900">{doc.name}</p>
-                  <p className="text-sm text-gray-600">{doc.required ? "Required" : "Optional"}</p>
+                  <p className="font-bold text-foreground">{doc.name}</p>
+                  <p className="text-sm text-muted-foreground">{doc.required ? "Required" : "Optional"}</p>
                   {doc.fileName ? (
-                    <p className="text-sm text-gray-700 mt-1">
+                    <p className="text-sm text-muted-foreground mt-1">
                       {doc.fileName} ({doc.size})
                     </p>
                   ) : null}
@@ -101,7 +101,7 @@ export function DocumentUploadService({
               </div>
 
               <div className="flex items-center gap-3 mt-3">
-                <label className="inline-flex items-center gap-2 px-3 py-2 border-2 border-[#000080] text-[#000080] font-bold text-sm rounded cursor-pointer hover:bg-blue-50">
+                <label className="inline-flex items-center gap-2 px-3 py-2 border-2 border-primary text-primary font-bold text-sm rounded cursor-pointer hover:bg-blue-50">
                   <Upload size={16} />
                   {doc.status === "uploaded" ? "Replace" : "Upload"}
                   <input
@@ -131,7 +131,7 @@ export function DocumentUploadService({
         <div className="flex items-center justify-between mt-6">
           <Link
             to={previousPath}
-            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-gray-700 hover:bg-gray-50"
+            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-muted-foreground hover:bg-muted"
           >
             <ArrowLeft size={16} />
             Previous
@@ -141,7 +141,7 @@ export function DocumentUploadService({
             {codeDownloadPath && (
               <Link
                 to={codeDownloadPath}
-                className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-[#000080] hover:bg-gray-50"
+                className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-primary hover:bg-muted"
               >
                 <Download size={15} />
                 Download React code
@@ -151,7 +151,7 @@ export function DocumentUploadService({
             <button
               type="button"
               onClick={continueFlow}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-[#000080] text-white rounded font-bold text-sm hover:bg-blue-900"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-white rounded font-bold text-sm hover:opacity-90"
             >
               Continue to Review
               <ArrowRight size={16} />

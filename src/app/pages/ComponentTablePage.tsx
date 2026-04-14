@@ -8,31 +8,31 @@ import { ComponentDocumentation } from '../components/ComponentDocumentation';
 const TablePreview = () => (
   <div className="overflow-x-auto">
     <table className="min-w-full divide-y divide-gray-200">
-      <thead className="bg-gray-50">
+      <thead className="bg-background">
         <tr>
-          <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Name</th>
-          <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Status</th>
-          <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">Date</th>
+          <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Name</th>
+          <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Status</th>
+          <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Date</th>
         </tr>
       </thead>
-      <tbody className="divide-y divide-gray-200 bg-white">
-        <tr className="hover:bg-gray-50">
-          <td className="px-6 py-4 text-sm text-gray-900">Application #001</td>
+      <tbody className="divide-y divide-gray-200 bg-card">
+        <tr className="hover:bg-background">
+          <td className="px-6 py-4 text-sm text-foreground">Application #001</td>
           <td className="px-6 py-4 text-sm">
             <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
               Approved
             </span>
           </td>
-          <td className="px-6 py-4 text-sm text-gray-600">2024-03-15</td>
+          <td className="px-6 py-4 text-sm text-muted-foreground">2024-03-15</td>
         </tr>
-        <tr className="hover:bg-gray-50">
-          <td className="px-6 py-4 text-sm text-gray-900">Application #002</td>
+        <tr className="hover:bg-background">
+          <td className="px-6 py-4 text-sm text-foreground">Application #002</td>
           <td className="px-6 py-4 text-sm">
             <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold">
               Pending
             </span>
           </td>
-          <td className="px-6 py-4 text-sm text-gray-600">2024-03-14</td>
+          <td className="px-6 py-4 text-sm text-muted-foreground">2024-03-14</td>
         </tr>
       </tbody>
     </table>
@@ -130,12 +130,12 @@ export const Table: React.FC<TableProps> = ({
 }) => {
   const TableContent = (
     <table className="min-w-full divide-y divide-gray-200">
-      <thead className="bg-gray-50">
+      <thead className="bg-background">
         <tr>
           {columns.map((column) => (
             <th
               key={column.key}
-              className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+              className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider"
             >
               {column.label}
             </th>
@@ -147,14 +147,14 @@ export const Table: React.FC<TableProps> = ({
           <tr
             key={rowIndex}
             className={\`
-              \${striped && rowIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}
-              \${hoverable ? 'hover:bg-gray-100' : ''}
+              \${striped && rowIndex % 2 === 0 ? 'bg-background' : 'bg-card'}
+              \${hoverable ? 'hover:bg-muted' : ''}
             \`}
           >
             {columns.map((column) => (
               <td
                 key={column.key}
-                className="px-6 py-4 text-sm text-gray-900"
+                className="px-6 py-4 text-sm text-foreground"
               >
                 {row[column.key]}
               </td>
@@ -167,7 +167,7 @@ export const Table: React.FC<TableProps> = ({
   
   if (responsive) {
     return (
-      <div className={\`overflow-x-auto \${bordered ? 'border border-gray-200 rounded-lg' : ''}\`}>
+      <div className={\`overflow-x-auto \${bordered ? 'border border-border rounded-lg' : ''}\`}>
         {TableContent}
       </div>
     );
@@ -205,10 +205,10 @@ interface TableColumn {
   template: \`
     <div [class]="getWrapperClasses()">
       <table class="min-w-full divide-y divide-gray-200">
-        <thead class="bg-gray-50">
+        <thead class="bg-background">
           <tr>
             <th *ngFor="let column of columns"
-                class="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase">
+                class="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">
               {{ column.label }}
             </th>
           </tr>
@@ -217,7 +217,7 @@ interface TableColumn {
           <tr *ngFor="let row of data; let i = index"
               [class]="getRowClasses(i)">
             <td *ngFor="let column of columns"
-                class="px-6 py-4 text-sm text-gray-900">
+                class="px-6 py-4 text-sm text-foreground">
               {{ row[column.key] }}
             </td>
           </tr>
@@ -237,7 +237,7 @@ export class TableComponent {
   getWrapperClasses(): string {
     let classes = '';
     if (this.responsive) classes += 'overflow-x-auto ';
-    if (this.bordered) classes += 'border border-gray-200 rounded-lg';
+    if (this.bordered) classes += 'border border-border rounded-lg';
     return classes;
   }
   
@@ -248,11 +248,11 @@ export class TableComponent {
   getRowClasses(index: number): string {
     let classes = '';
     if (this.striped) {
-      classes += index % 2 === 0 ? 'bg-gray-50' : 'bg-white';
+      classes += index % 2 === 0 ? 'bg-background' : 'bg-card';
     } else {
-      classes += 'bg-white';
+      classes += 'bg-card';
     }
-    if (this.hoverable) classes += ' hover:bg-gray-100';
+    if (this.hoverable) classes += ' hover:bg-muted';
     return classes;
   }
 }`,

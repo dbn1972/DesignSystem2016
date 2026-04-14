@@ -12,7 +12,7 @@
  * ```
  */
 
-import React, { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import { cn } from '../../utils/cn';
 import { CheckboxProps } from './Checkbox.types';
 import { useFieldContext } from '../Field/Field.context';

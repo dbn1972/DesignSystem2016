@@ -87,17 +87,17 @@ export default function TaskListPattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1200px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link to="/patterns/dashboard" className="text-sm text-gray-600 hover:text-[#000080]">
+              <Link to="/patterns/dashboard" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
               <span className="text-gray-400">|</span>
-              <span className="text-sm font-bold text-gray-900">Task List (Pending Actions)</span>
+              <span className="text-sm font-bold text-foreground">Task List (Pending Actions)</span>
             </div>
           </div>
         </div>
@@ -107,27 +107,27 @@ export default function TaskListPattern() {
       <main className="max-w-[1200px] mx-auto px-8 py-12">
         
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Pending Tasks</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-bold text-foreground mb-2">Pending Tasks</h1>
+          <p className="text-muted-foreground">
             You have {sortedTasks.length} pending {sortedTasks.length === 1 ? 'task' : 'tasks'} that need your attention
           </p>
         </div>
 
         {/* Filters and Sort */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6 mb-6">
+        <div className="bg-card border-2 border-border rounded-lg p-6 mb-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <Filter size={20} className="text-gray-600" />
-                <span className="text-sm font-bold text-gray-900">Filter:</span>
+                <Filter size={20} className="text-muted-foreground" />
+                <span className="text-sm font-bold text-foreground">Filter:</span>
               </div>
               <div className="flex gap-2">
                 <button
                   onClick={() => setFilter('all')}
                   className={`px-4 py-2 rounded font-bold text-sm ${
                     filter === 'all'
-                      ? 'bg-[#000080] text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-primary text-white'
+                      : 'bg-muted text-muted-foreground hover:bg-gray-200'
                   }`}
                 >
                   All Tasks
@@ -137,7 +137,7 @@ export default function TaskListPattern() {
                   className={`px-4 py-2 rounded font-bold text-sm ${
                     filter === 'high'
                       ? 'bg-red-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-muted text-muted-foreground hover:bg-gray-200'
                   }`}
                 >
                   High Priority
@@ -147,7 +147,7 @@ export default function TaskListPattern() {
                   className={`px-4 py-2 rounded font-bold text-sm ${
                     filter === 'medium'
                       ? 'bg-orange-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-muted text-muted-foreground hover:bg-gray-200'
                   }`}
                 >
                   Medium
@@ -156,8 +156,8 @@ export default function TaskListPattern() {
                   onClick={() => setFilter('low')}
                   className={`px-4 py-2 rounded font-bold text-sm ${
                     filter === 'low'
-                      ? 'bg-gray-500 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-background0 text-white'
+                      : 'bg-muted text-muted-foreground hover:bg-gray-200'
                   }`}
                 >
                   Low
@@ -165,11 +165,11 @@ export default function TaskListPattern() {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-700">Sort by:</span>
+              <span className="text-sm text-muted-foreground">Sort by:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as 'deadline' | 'priority')}
-                className="px-3 py-2 border-2 border-gray-300 rounded text-sm"
+                className="px-3 py-2 border-2 border-border rounded text-sm"
               >
                 <option value="deadline">Deadline</option>
                 <option value="priority">Priority</option>
@@ -184,18 +184,18 @@ export default function TaskListPattern() {
             {sortedTasks.map((task) => (
               <div
                 key={task.id}
-                className={`bg-white border-2 rounded-lg p-6 transition-all ${
+                className={`bg-card border-2 rounded-lg p-6 transition-all ${
                   task.priority === 'high'
                     ? 'border-red-300 bg-red-50'
                     : task.priority === 'medium'
                     ? 'border-orange-300 bg-orange-50'
-                    : 'border-gray-300'
+                    : 'border-border'
                 }`}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-lg font-bold text-gray-900">{task.title}</h3>
+                      <h3 className="text-lg font-bold text-foreground">{task.title}</h3>
                       <span
                         className={`px-3 py-1 text-xs font-bold rounded ${
                           task.priority === 'high'
@@ -207,31 +207,31 @@ export default function TaskListPattern() {
                       >
                         {task.priority.toUpperCase()} PRIORITY
                       </span>
-                      <span className="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded">
+                      <span className="px-3 py-1 text-xs bg-muted text-muted-foreground rounded">
                         {task.type.toUpperCase()}
                       </span>
                     </div>
-                    <div className="text-sm text-gray-600 mb-2">
-                      Service: <span className="font-bold text-gray-900">{task.service}</span>
+                    <div className="text-sm text-muted-foreground mb-2">
+                      Service: <span className="font-bold text-foreground">{task.service}</span>
                     </div>
-                    <div className="text-sm text-gray-600 mb-3">
-                      Reference: <span className="font-mono text-gray-900">{task.ref}</span>
+                    <div className="text-sm text-muted-foreground mb-3">
+                      Reference: <span className="font-mono text-foreground">{task.ref}</span>
                     </div>
-                    <p className="text-sm text-gray-700 mb-4">{task.description}</p>
+                    <p className="text-sm text-muted-foreground mb-4">{task.description}</p>
                     <div className="flex items-center gap-4 text-sm">
                       <div className="flex items-center gap-2">
                         <Clock size={16} className="text-gray-500" />
                         <span className={`font-bold ${
                           getDaysLeft(task.deadline).includes('Today') || getDaysLeft(task.deadline).includes('Tomorrow')
                             ? 'text-red-600'
-                            : 'text-gray-700'
+                            : 'text-muted-foreground'
                         }`}>
                           Due: {getDaysLeft(task.deadline)}
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar size={16} className="text-gray-500" />
-                        <span className="text-gray-600">
+                        <span className="text-muted-foreground">
                           {task.deadline.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                         </span>
                       </div>
@@ -240,12 +240,12 @@ export default function TaskListPattern() {
                   <div className="flex flex-col gap-2 ml-4">
                     <button
                       onClick={() => handleComplete(task.id)}
-                      className="px-6 py-2 bg-[#138808] text-white rounded font-bold hover:bg-[#0f6b06] flex items-center gap-2"
+                      className="px-6 py-2 bg-green-700 text-white rounded font-bold hover:bg-[#0f6b06] flex items-center gap-2"
                     >
                       <CheckCircle size={16} />
                       <span>Complete Task</span>
                     </button>
-                    <button className="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded font-bold hover:border-gray-400">
+                    <button className="px-6 py-2 border-2 border-border text-muted-foreground rounded font-bold hover:border-gray-400">
                       View Application
                     </button>
                   </div>
@@ -254,17 +254,17 @@ export default function TaskListPattern() {
             ))}
           </div>
         ) : (
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-12 text-center">
+          <div className="bg-card border-2 border-border rounded-lg p-12 text-center">
             <div className="inline-block p-4 bg-green-100 rounded-full mb-4">
               <CheckCircle size={48} className="text-green-600" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">All Tasks Completed!</h3>
-            <p className="text-gray-600 mb-6">
+            <h3 className="text-2xl font-bold text-foreground mb-2">All Tasks Completed!</h3>
+            <p className="text-muted-foreground mb-6">
               Great job! You have no pending tasks at the moment.
             </p>
             <Link
               to="/patterns/dashboard/citizen-dashboard"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#000080] text-white rounded font-bold hover:bg-[#000060]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90"
             >
               <span>Back to Dashboard</span>
               <ArrowRight size={20} />
@@ -275,15 +275,15 @@ export default function TaskListPattern() {
         {/* Completed Tasks */}
         {completedTasks.length > 0 && (
           <div className="mt-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Completed Tasks ({completedTasks.length})</h2>
+            <h2 className="text-xl font-bold text-foreground mb-4">Completed Tasks ({completedTasks.length})</h2>
             <div className="space-y-2">
               {ALL_TASKS.filter(t => completedTasks.includes(t.id)).map((task) => (
                 <div key={task.id} className="bg-green-50 border-2 border-green-300 rounded-lg p-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <CheckCircle size={24} className="text-green-600" />
                     <div>
-                      <div className="font-bold text-gray-900 line-through">{task.title}</div>
-                      <div className="text-sm text-gray-600">{task.service}</div>
+                      <div className="font-bold text-foreground line-through">{task.title}</div>
+                      <div className="text-sm text-muted-foreground">{task.service}</div>
                     </div>
                   </div>
                   <button
@@ -301,35 +301,35 @@ export default function TaskListPattern() {
 
         {/* Pattern Info */}
         <div className="mt-12 bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Pattern Features Demonstrated</h3>
+          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>
-              <div className="font-bold text-gray-700 mb-2">Prioritization</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Prioritization</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• High/Medium/Low priority</li>
                 <li>• Visual indicators</li>
                 <li>• Color-coded urgency</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Deadline Management</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Deadline Management</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Days left calculation</li>
                 <li>• Deadline sorting</li>
                 <li>• Urgent highlighting</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Filtering & Sorting</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Filtering & Sorting</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Filter by priority</li>
                 <li>• Sort by deadline/priority</li>
                 <li>• Dynamic updates</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Task Completion</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Task Completion</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Mark as complete</li>
                 <li>• Completed tasks list</li>
                 <li>• Undo capability</li>

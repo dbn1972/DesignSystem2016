@@ -169,7 +169,7 @@ export abstract class UX4GElement extends HTMLElement {
  * Form-associated UX4G element base class
  * For form controls that participate in form submission
  */
-export abstract class UX4GFormElement extends UX4GElement implements ElementInternals {
+export abstract class UX4GFormElement extends UX4GElement {
   static formAssociated = true;
 
   protected _value: string = '';

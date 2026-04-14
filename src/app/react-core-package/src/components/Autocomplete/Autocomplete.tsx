@@ -13,9 +13,9 @@
  * ```
  */
 
-import React, { useState, useRef, useEffect, forwardRef, useId } from 'react';
+import { useState, useRef, useEffect, forwardRef, useId, KeyboardEvent } from 'react';
 import { cn } from '../../utils/cn';
-import { AutocompleteProps } from './Autocomplete.types';
+import { AutocompleteProps, AutocompleteOption } from './Autocomplete.types';
 import { useFieldContext } from '../Field/Field.context';
 
 function mergeDescribedBy(...values: Array<string | undefined>): string | undefined {
@@ -75,7 +75,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       .slice(0, maxOptions);
 
     useEffect(() => {
-      const handleClickOutside = (event: MouseEvent) => {
+      const handleClickOutside = (event: globalThis.MouseEvent) => {
         if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
           setIsOpen(false);
         }
@@ -106,7 +106,7 @@ export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
       setHighlightedIndex(-1);
     };
 
-    const handleKeyDown = (event: React.KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (!isOpen) {
         if (event.key === 'ArrowDown') {
           event.preventDefault();

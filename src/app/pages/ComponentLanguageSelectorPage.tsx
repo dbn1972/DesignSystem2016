@@ -13,7 +13,7 @@ const LanguageSelectorPreview = ({ variant, showFlags, position, languages, curr
     return (
       <div className={`relative inline-block ${position === 'right' ? 'ml-auto' : ''}`}>
         <button
-          className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 rounded bg-white hover:bg-gray-50 transition-all min-h-[44px]"
+          className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded bg-card hover:bg-background transition-all min-h-[44px]"
           {...props}
         >
           {showFlags && <span className="text-xl">🇮🇳</span>}
@@ -27,14 +27,14 @@ const LanguageSelectorPreview = ({ variant, showFlags, position, languages, curr
 
   if (variant === 'tabs') {
     return (
-      <div className={`flex gap-1 border-b border-gray-200 ${position === 'right' ? 'ml-auto' : ''}`}>
+      <div className={`flex gap-1 border-b border-border ${position === 'right' ? 'ml-auto' : ''}`}>
         {languages.map((lang: any) => (
           <button
             key={lang.code}
             className={`px-4 py-2 border-b-2 transition-all min-h-[44px] ${
               currentLanguage?.code === lang.code
                 ? 'border-[#005196] text-[#005196] bg-blue-50'
-                : 'border-transparent text-gray-600 hover:bg-gray-50'
+                : 'border-transparent text-muted-foreground hover:bg-background'
             }`}
             onClick={() => onChange?.(lang)}
           >
@@ -55,7 +55,7 @@ const LanguageSelectorPreview = ({ variant, showFlags, position, languages, curr
           className={`inline-flex items-center gap-2 px-4 py-2 border rounded transition-all min-h-[44px] ${
             currentLanguage?.code === lang.code
               ? 'bg-[#005196] text-white border-[#005196]'
-              : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+              : 'bg-card text-muted-foreground border-border hover:bg-background'
           }`}
           onClick={() => onChange?.(lang)}
         >
@@ -543,7 +543,7 @@ export const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps
               aria-label={ariaLabel}
               aria-expanded={isOpen}
               aria-haspopup="listbox"
-              className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 rounded bg-white hover:bg-gray-50 transition-all min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]"
+              className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded bg-card hover:bg-background transition-all min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]"
             >
               {showFlags && currentLanguage.flag && (
                 <span className="text-xl" aria-hidden="true">{currentLanguage.flag}</span>
@@ -559,7 +559,7 @@ export const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps
               <div
                 role="listbox"
                 aria-label="Available languages"
-                className="absolute top-full mt-2 right-0 bg-white border border-gray-300 rounded shadow-lg z-50 min-w-[200px] max-h-[400px] overflow-auto"
+                className="absolute top-full mt-2 right-0 bg-card border border-border rounded shadow-lg z-50 min-w-[200px] max-h-[400px] overflow-auto"
               >
                 {languages.slice(0, maxVisibleLanguages).map((lang) => (
                   <button
@@ -568,7 +568,7 @@ export const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps
                     aria-selected={lang.code === currentLanguage.code}
                     onClick={() => handleLanguageChange(lang)}
                     className={cn(
-                      'w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors flex items-center gap-2 min-h-[44px]',
+                      'w-full text-left px-4 py-3 hover:bg-background transition-colors flex items-center gap-2 min-h-[44px]',
                       lang.code === currentLanguage.code && 'bg-blue-50 text-[#005196] font-medium'
                     )}
                   >
@@ -605,7 +605,7 @@ export const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps
           aria-label={ariaLabel}
           {...props}
         >
-          <div className="flex gap-1 border-b border-gray-200">
+          <div className="flex gap-1 border-b border-border">
             {languages.map((lang) => (
               <button
                 key={lang.code}
@@ -616,7 +616,7 @@ export const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps
                   'px-4 py-2 border-b-2 transition-all min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]',
                   lang.code === currentLanguage.code
                     ? 'border-[#005196] text-[#005196] bg-blue-50 font-medium'
-                    : 'border-transparent text-gray-600 hover:bg-gray-50'
+                    : 'border-transparent text-muted-foreground hover:bg-background'
                 )}
               >
                 {showFlags && lang.flag && (
@@ -650,7 +650,7 @@ export const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps
                 'inline-flex items-center gap-2 px-4 py-2 border rounded transition-all min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]',
                 lang.code === currentLanguage.code
                   ? 'bg-[#005196] text-white border-[#005196]'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                  : 'bg-card text-muted-foreground border-border hover:bg-background'
               )}
             >
               {showFlags && lang.flag && (
@@ -740,7 +740,7 @@ type LanguageSelectorPosition = 'left' | 'center' | 'right';
           [attr.aria-label]="ariaLabel"
           [attr.aria-expanded]="isOpen"
           [attr.aria-haspopup]="'listbox'"
-          class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 rounded bg-white hover:bg-gray-50 transition-all min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]"
+          class="inline-flex items-center gap-2 px-4 py-2 border border-border rounded bg-card hover:bg-background transition-all min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]"
         >
           <span *ngIf="showFlags && currentLanguage.flag" class="text-xl" aria-hidden="true">
             {{ currentLanguage.flag }}
@@ -760,7 +760,7 @@ type LanguageSelectorPosition = 'left' | 'center' | 'right';
           *ngIf="isOpen"
           role="listbox"
           aria-label="Available languages"
-          class="absolute top-full mt-2 right-0 bg-white border border-gray-300 rounded shadow-lg z-50 min-w-[200px] max-h-[400px] overflow-auto"
+          class="absolute top-full mt-2 right-0 bg-card border border-border rounded shadow-lg z-50 min-w-[200px] max-h-[400px] overflow-auto"
         >
           <button
             *ngFor="let lang of getVisibleLanguages()"
@@ -784,7 +784,7 @@ type LanguageSelectorPosition = 'left' | 'center' | 'right';
 
       <!-- Tabs Variant -->
       <div *ngIf="variant === 'tabs'" role="tablist" [attr.aria-label]="ariaLabel">
-        <div class="flex gap-1 border-b border-gray-200">
+        <div class="flex gap-1 border-b border-border">
           <button
             *ngFor="let lang of languages"
             role="tab"
@@ -892,7 +892,7 @@ export class LanguageSelectorComponent implements OnInit {
 
   getLanguageItemClasses(lang: Language): string {
     const isSelected = lang.code === this.currentLanguage.code;
-    const baseClasses = 'w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors flex items-center gap-2 min-h-[44px]';
+    const baseClasses = 'w-full text-left px-4 py-3 hover:bg-background transition-colors flex items-center gap-2 min-h-[44px]';
     const selectedClasses = isSelected ? 'bg-blue-50 text-[#005196] font-medium' : '';
     return \`\${baseClasses} \${selectedClasses}\`;
   }
@@ -902,7 +902,7 @@ export class LanguageSelectorComponent implements OnInit {
     const baseClasses = 'px-4 py-2 border-b-2 transition-all min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]';
     const selectedClasses = isSelected
       ? 'border-[#005196] text-[#005196] bg-blue-50 font-medium'
-      : 'border-transparent text-gray-600 hover:bg-gray-50';
+      : 'border-transparent text-muted-foreground hover:bg-background';
     return \`\${baseClasses} \${selectedClasses}\`;
   }
 
@@ -911,7 +911,7 @@ export class LanguageSelectorComponent implements OnInit {
     const baseClasses = 'inline-flex items-center gap-2 px-4 py-2 border rounded transition-all min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]';
     const selectedClasses = isSelected
       ? 'bg-[#005196] text-white border-[#005196]'
-      : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50';
+      : 'bg-card text-muted-foreground border-border hover:bg-background';
     return \`\${baseClasses} \${selectedClasses}\`;
   }
 }`,

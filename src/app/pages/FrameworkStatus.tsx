@@ -133,7 +133,7 @@ export default function FrameworkStatus() {
         );
       case 'planned':
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full">
+          <span className="inline-flex items-center gap-1 px-2 py-1 bg-muted text-muted-foreground text-xs font-medium rounded-full">
             <AlertCircle size={12} />
             Planned
           </span>
@@ -144,7 +144,7 @@ export default function FrameworkStatus() {
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-card min-h-screen">
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#000080] to-[#000050] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -156,109 +156,109 @@ export default function FrameworkStatus() {
       </section>
 
       {/* Overview Cards */}
-      <section className="py-12 bg-gray-50 border-b border-gray-200">
+      <section className="py-12 bg-background border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* React Status */}
-            <div className="bg-white rounded-xl p-6 border-2 border-green-200 shadow-sm">
+            <div className="bg-card rounded-xl p-6 border-2 border-green-200 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Check className="text-green-600" size={24} />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900">React</h2>
+                  <h2 className="text-2xl font-bold text-foreground">React</h2>
                   <p className="text-sm text-green-600 font-medium">Production Ready</p>
                 </div>
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Total Components</span>
-                  <span className="font-bold text-2xl text-gray-900">73</span>
+                  <span className="text-muted-foreground">Total Components</span>
+                  <span className="font-bold text-2xl text-foreground">73</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Version</span>
-                  <span className="font-semibold text-gray-900">v1.0.0</span>
+                  <span className="text-muted-foreground">Version</span>
+                  <span className="font-semibold text-foreground">v1.0.0</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Status</span>
+                  <span className="text-muted-foreground">Status</span>
                   <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
                     <Check size={14} />
                     100% Complete
                   </span>
                 </div>
               </div>
-              <div className="mt-4 pt-4 border-t border-gray-200">
-                <p className="text-sm text-gray-600">
+              <div className="mt-4 pt-4 border-t border-border">
+                <p className="text-sm text-muted-foreground">
                   All 73 components are production-ready with full documentation, accessibility support, and design token integration.
                 </p>
               </div>
             </div>
 
             {/* Angular Status */}
-            <div className="bg-white rounded-xl p-6 border-2 border-green-200 shadow-sm">
+            <div className="bg-card rounded-xl p-6 border-2 border-green-200 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Check className="text-green-600" size={24} />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900">Angular</h2>
+                  <h2 className="text-2xl font-bold text-foreground">Angular</h2>
                   <p className="text-sm text-green-600 font-medium">Production Ready</p>
                 </div>
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Total Components</span>
-                  <span className="font-bold text-2xl text-gray-900">73</span>
+                  <span className="text-muted-foreground">Total Components</span>
+                  <span className="font-bold text-2xl text-foreground">73</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Version</span>
-                  <span className="font-semibold text-gray-900">v1.0.0</span>
+                  <span className="text-muted-foreground">Version</span>
+                  <span className="font-semibold text-foreground">v1.0.0</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Status</span>
+                  <span className="text-muted-foreground">Status</span>
                   <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
                     <Check size={14} />
                     100% Complete
                   </span>
                 </div>
               </div>
-              <div className="mt-4 pt-4 border-t border-gray-200">
-                <p className="text-sm text-gray-600">
+              <div className="mt-4 pt-4 border-t border-border">
+                <p className="text-sm text-muted-foreground">
                   All 73 components are production-ready with complete feature parity with React implementation.
                 </p>
               </div>
             </div>
 
             {/* Web Components Status */}
-            <div className="bg-white rounded-xl p-6 border-2 border-green-200 shadow-sm">
+            <div className="bg-card rounded-xl p-6 border-2 border-green-200 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Check className="text-green-600" size={24} />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900">Web Components</h2>
+                  <h2 className="text-2xl font-bold text-foreground">Web Components</h2>
                   <p className="text-sm text-green-600 font-medium">Production Ready</p>
                 </div>
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Total Components</span>
-                  <span className="font-bold text-2xl text-gray-900">73</span>
+                  <span className="text-muted-foreground">Total Components</span>
+                  <span className="font-bold text-2xl text-foreground">73</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Version</span>
-                  <span className="font-semibold text-gray-900">v1.0.0</span>
+                  <span className="text-muted-foreground">Version</span>
+                  <span className="font-semibold text-foreground">v1.0.0</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Status</span>
+                  <span className="text-muted-foreground">Status</span>
                   <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
                     <Check size={14} />
                     100% Complete
                   </span>
                 </div>
               </div>
-              <div className="mt-4 pt-4 border-t border-gray-200">
-                <p className="text-sm text-gray-600 mb-2">
+              <div className="mt-4 pt-4 border-t border-border">
+                <p className="text-sm text-muted-foreground mb-2">
                   Framework-agnostic components for vanilla HTML, React, Angular, Vue, and more. All 73 components are production-ready.
                 </p>
                 <Link
@@ -277,43 +277,43 @@ export default function FrameworkStatus() {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Component Status by Category</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl font-bold text-foreground mb-2">Component Status by Category</h2>
+            <p className="text-muted-foreground">
               Detailed breakdown of component availability across frameworks.
             </p>
           </div>
 
           <div className="space-y-8">
             {componentsByCategory.map((category, idx) => (
-              <div key={idx} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-                <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
-                  <h3 className="text-xl font-bold text-gray-900">{category.category}</h3>
-                  <p className="text-sm text-gray-600 mt-1">
+              <div key={idx} className="bg-card rounded-xl border border-border overflow-hidden">
+                <div className="bg-background px-6 py-4 border-b border-border">
+                  <h3 className="text-xl font-bold text-foreground">{category.category}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">
                     {category.components.length} components
                   </p>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-gray-50 border-b border-gray-200">
+                    <thead className="bg-background border-b border-border">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                           Component
                         </th>
-                        <th className="px-6 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                           React
                         </th>
-                        <th className="px-6 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                           Angular
                         </th>
-                        <th className="px-6 py-3 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-center text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                           Web
                         </th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                       {category.components.map((component, compIdx) => (
-                        <tr key={compIdx} className="hover:bg-gray-50 transition-colors">
-                          <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                        <tr key={compIdx} className="hover:bg-background transition-colors">
+                          <td className="px-6 py-4 text-sm font-medium text-foreground">
                             {component.name}
                           </td>
                           <td className="px-6 py-4 text-center">
@@ -337,34 +337,34 @@ export default function FrameworkStatus() {
       </section>
 
       {/* Legend */}
-      <section className="py-12 bg-gray-50 border-t border-gray-200">
+      <section className="py-12 bg-background border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Status Legend</h3>
+          <h3 className="text-lg font-bold text-foreground mb-4">Status Legend</h3>
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-white rounded-lg p-4 border border-gray-200">
+            <div className="bg-card rounded-lg p-4 border border-border">
               <div className="flex items-center gap-2 mb-2">
                 {getStatusBadge('ready')}
-                <span className="font-semibold text-gray-900">Production Ready</span>
+                <span className="font-semibold text-foreground">Production Ready</span>
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Fully implemented, tested, documented, and available for production use.
               </p>
             </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-200">
+            <div className="bg-card rounded-lg p-4 border border-border">
               <div className="flex items-center gap-2 mb-2">
                 {getStatusBadge('in-progress')}
-                <span className="font-semibold text-gray-900">In Progress</span>
+                <span className="font-semibold text-foreground">In Progress</span>
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Currently under active development. Alpha/beta versions may be available.
               </p>
             </div>
-            <div className="bg-white rounded-lg p-4 border border-gray-200">
+            <div className="bg-card rounded-lg p-4 border border-border">
               <div className="flex items-center gap-2 mb-2">
                 {getStatusBadge('planned')}
-                <span className="font-semibold text-gray-900">Planned</span>
+                <span className="font-semibold text-foreground">Planned</span>
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Scheduled for future implementation. See roadmap for timeline details.
               </p>
             </div>
@@ -386,7 +386,7 @@ export default function FrameworkStatus() {
                 <a
                   href="/workspaces/default/code/src/app/react-core-package/README.md"
                   target="_blank"
-                  className="inline-block px-4 py-2 bg-white text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
+                  className="inline-block px-4 py-2 bg-card text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
                 >
                   View React Docs
                 </a>
@@ -399,7 +399,7 @@ export default function FrameworkStatus() {
                 <a
                   href="/workspaces/default/code/src/app/angular-core-package/ROADMAP.md"
                   target="_blank"
-                  className="inline-block px-4 py-2 bg-white text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
+                  className="inline-block px-4 py-2 bg-card text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
                 >
                   View Angular Roadmap
                 </a>

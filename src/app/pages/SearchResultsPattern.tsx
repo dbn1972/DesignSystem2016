@@ -75,24 +75,24 @@ export default function SearchResultsPattern() {
   const categories = [...new Set(MOCK_RESULTS.map(r => r.category))];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link to="/patterns/search-discovery" className="text-sm text-gray-600 hover:text-[#000080]">
+              <Link to="/patterns/search-discovery" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
               <span className="text-gray-400">|</span>
-              <span className="text-sm font-bold text-gray-900">Search Results</span>
+              <span className="text-sm font-bold text-foreground">Search Results</span>
             </div>
           </div>
         </div>
       </header>
 
       {/* Search Bar */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-card border-b border-border">
         <div className="max-w-[1400px] mx-auto px-8 py-6">
           <div className="relative max-w-[600px]">
             <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -100,7 +100,7 @@ export default function SearchResultsPattern() {
               type="text"
               value={query}
               readOnly
-              className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-lg bg-gray-50"
+              className="w-full pl-12 pr-4 py-3 border-2 border-border rounded-lg bg-background"
             />
           </div>
         </div>
@@ -113,15 +113,15 @@ export default function SearchResultsPattern() {
           
           {/* Sidebar - Filters */}
           <aside className="col-span-3">
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-6 sticky top-24">
+            <div className="bg-card border-2 border-border rounded-lg p-6 sticky top-24">
               <div className="flex items-center gap-2 mb-6">
-                <Filter size={20} className="text-gray-700" />
-                <h2 className="font-bold text-gray-900">Filters</h2>
+                <Filter size={20} className="text-muted-foreground" />
+                <h2 className="font-bold text-foreground">Filters</h2>
               </div>
 
               {/* Category Filter */}
               <div className="mb-6">
-                <h3 className="font-bold text-sm text-gray-900 mb-3">Category</h3>
+                <h3 className="font-bold text-sm text-foreground mb-3">Category</h3>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -131,7 +131,7 @@ export default function SearchResultsPattern() {
                       onChange={() => setSelectedCategory(null)}
                       className="w-4 h-4"
                     />
-                    <span className="text-sm text-gray-700">All Categories</span>
+                    <span className="text-sm text-muted-foreground">All Categories</span>
                   </label>
                   {categories.map(cat => (
                     <label key={cat} className="flex items-center gap-2 cursor-pointer">
@@ -142,7 +142,7 @@ export default function SearchResultsPattern() {
                         onChange={() => setSelectedCategory(cat)}
                         className="w-4 h-4"
                       />
-                      <span className="text-sm text-gray-700">{cat}</span>
+                      <span className="text-sm text-muted-foreground">{cat}</span>
                       <span className="ml-auto text-xs text-gray-500">
                         ({MOCK_RESULTS.filter(r => r.category === cat).length})
                       </span>
@@ -153,11 +153,11 @@ export default function SearchResultsPattern() {
 
               {/* Department Filter */}
               <div>
-                <h3 className="font-bold text-sm text-gray-900 mb-3">Department</h3>
+                <h3 className="font-bold text-sm text-foreground mb-3">Department</h3>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" className="w-4 h-4" defaultChecked />
-                    <span className="text-sm text-gray-700">Ministry of External Affairs</span>
+                    <span className="text-sm text-muted-foreground">Ministry of External Affairs</span>
                     <span className="ml-auto text-xs text-gray-500">(4)</span>
                   </label>
                 </div>
@@ -167,7 +167,7 @@ export default function SearchResultsPattern() {
               {selectedCategory && (
                 <button
                   onClick={() => setSelectedCategory(null)}
-                  className="mt-6 w-full py-2 text-sm text-[#000080] hover:underline"
+                  className="mt-6 w-full py-2 text-sm text-primary hover:underline"
                 >
                   Clear all filters
                 </button>
@@ -181,21 +181,21 @@ export default function SearchResultsPattern() {
             {/* Results Header */}
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-1">
+                <h1 className="text-2xl font-bold text-foreground mb-1">
                   Search Results for "{query}"
                 </h1>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-muted-foreground">
                   {sortedResults.length} {sortedResults.length === 1 ? 'service' : 'services'} found
                 </p>
               </div>
               <div className="flex items-center gap-4">
                 {/* Sort */}
                 <div className="flex items-center gap-2">
-                  <span className="text-sm text-gray-700">Sort by:</span>
+                  <span className="text-sm text-muted-foreground">Sort by:</span>
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="px-3 py-2 border-2 border-gray-300 rounded text-sm"
+                    className="px-3 py-2 border-2 border-border rounded text-sm"
                   >
                     <option value="relevance">Relevance</option>
                     <option value="popular">Most Popular</option>
@@ -204,17 +204,17 @@ export default function SearchResultsPattern() {
                 </div>
                 
                 {/* View Toggle */}
-                <div className="flex border-2 border-gray-300 rounded">
+                <div className="flex border-2 border-border rounded">
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-2 ${viewMode === 'list' ? 'bg-gray-200' : 'bg-white'}`}
+                    className={`p-2 ${viewMode === 'list' ? 'bg-gray-200' : 'bg-card'}`}
                     aria-label="List view"
                   >
                     <ListIcon size={20} />
                   </button>
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-2 border-l-2 border-gray-300 ${viewMode === 'grid' ? 'bg-gray-200' : 'bg-white'}`}
+                    className={`p-2 border-l-2 border-border ${viewMode === 'grid' ? 'bg-gray-200' : 'bg-card'}`}
                     aria-label="Grid view"
                   >
                     <Grid size={20} />
@@ -232,11 +232,11 @@ export default function SearchResultsPattern() {
 
             {/* No Results */}
             {sortedResults.length === 0 && (
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-12 text-center">
-                <div className="text-gray-600 mb-4">No services found with current filters</div>
+              <div className="bg-card border-2 border-border rounded-lg p-12 text-center">
+                <div className="text-muted-foreground mb-4">No services found with current filters</div>
                 <button
                   onClick={() => setSelectedCategory(null)}
-                  className="px-6 py-3 bg-[#000080] text-white rounded font-bold"
+                  className="px-6 py-3 bg-primary text-white rounded font-bold"
                 >
                   Clear Filters
                 </button>
@@ -248,36 +248,36 @@ export default function SearchResultsPattern() {
         </div>
 
         {/* Pattern Info */}
-        <div className="mt-12 bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Pattern Features Demonstrated</h3>
+        <div className="mt-12 bg-card border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>
-              <div className="font-bold text-gray-700 mb-2">Filtering</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Filtering</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Category filter</li>
                 <li>• Department filter</li>
                 <li>• Clear filters</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Sorting</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Sorting</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• By relevance</li>
                 <li>• By popularity</li>
                 <li>• By name</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Views</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Views</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• List view</li>
                 <li>• Grid view</li>
                 <li>• Responsive layout</li>
               </ul>
             </div>
             <div>
-              <div className="font-bold text-gray-700 mb-2">Display</div>
-              <ul className="space-y-1 text-gray-600">
+              <div className="font-bold text-muted-foreground mb-2">Display</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• Relevance score</li>
                 <li>• Keyword highlight</li>
                 <li>• Service details</li>
@@ -310,11 +310,11 @@ function ResultCard({ result, viewMode, query }: {
   };
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 hover:border-[#000080] hover:shadow-md transition-all">
+    <div className="bg-card border-2 border-border rounded-lg p-6 hover:border-primary hover:shadow-md transition-all">
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-lg font-bold text-gray-900">
+            <h3 className="text-lg font-bold text-foreground">
               {highlightText(result.name)}
             </h3>
             {result.popular && (
@@ -323,7 +323,7 @@ function ResultCard({ result, viewMode, query }: {
               </span>
             )}
           </div>
-          <p className="text-sm text-gray-600 mb-2">{result.department}</p>
+          <p className="text-sm text-muted-foreground mb-2">{result.department}</p>
         </div>
         <div className="text-right">
           <div className="text-xs text-gray-500 mb-1">Relevance</div>
@@ -331,30 +331,30 @@ function ResultCard({ result, viewMode, query }: {
         </div>
       </div>
 
-      <p className="text-sm text-gray-700 mb-4">{result.description}</p>
+      <p className="text-sm text-muted-foreground mb-4">{result.description}</p>
 
       <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
         <div className="flex items-center gap-2">
           <Clock size={16} className="text-gray-500" />
           <div>
             <div className="text-xs text-gray-500">Processing Time</div>
-            <div className="font-bold text-gray-900">{result.processingTime}</div>
+            <div className="font-bold text-foreground">{result.processingTime}</div>
           </div>
         </div>
         <div className="flex items-center gap-2">
           <MapPin size={16} className="text-gray-500" />
           <div>
             <div className="text-xs text-gray-500">Application Fee</div>
-            <div className="font-bold text-gray-900">{result.fee}</div>
+            <div className="font-bold text-foreground">{result.fee}</div>
           </div>
         </div>
       </div>
 
       <div className="mb-4">
-        <div className="text-xs font-bold text-gray-600 mb-2">Eligibility:</div>
+        <div className="text-xs font-bold text-muted-foreground mb-2">Eligibility:</div>
         <div className="flex flex-wrap gap-2">
           {result.eligibility.map((req, i) => (
-            <span key={i} className="text-xs bg-gray-100 px-2 py-1 rounded flex items-center gap-1">
+            <span key={i} className="text-xs bg-muted px-2 py-1 rounded flex items-center gap-1">
               <CheckCircle size={12} className="text-green-600" />
               {req}
             </span>
@@ -363,10 +363,10 @@ function ResultCard({ result, viewMode, query }: {
       </div>
 
       <div className="flex gap-3">
-        <button className="flex-1 px-4 py-2 bg-[#000080] text-white rounded font-bold hover:bg-[#000060]">
+        <button className="flex-1 px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90">
           Apply Now
         </button>
-        <button className="px-4 py-2 border-2 border-gray-300 text-gray-700 rounded font-bold hover:border-gray-400 flex items-center gap-2">
+        <button className="px-4 py-2 border-2 border-border text-muted-foreground rounded font-bold hover:border-gray-400 flex items-center gap-2">
           <span>Learn More</span>
           <ArrowRight size={16} />
         </button>

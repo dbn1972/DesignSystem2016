@@ -80,13 +80,13 @@ import { CheckCircle } from 'lucide-react';
 
 function Example() {
   return (
-    <Center className="bg-gray-50 border border-gray-200 rounded">
+    <Center className="bg-background border border-border rounded">
       <CheckCircle size={48} className="text-green-600" />
     </Center>
   );
 }`,
           preview: (
-            <CenterPreview className="bg-gray-50 border border-gray-200 rounded">
+            <CenterPreview className="bg-background border border-border rounded">
               <CheckCircle size={48} className="text-green-600" />
             </CenterPreview>
           ),
@@ -99,19 +99,19 @@ import { Loader2 } from 'lucide-react';
 
 function Example() {
   return (
-    <Center className="bg-white" minHeight="300px">
+    <Center className="bg-card" minHeight="300px">
       <div className="flex flex-col items-center gap-3">
         <Loader2 size={40} className="text-blue-600 animate-spin" />
-        <p className="text-gray-600">Loading your data...</p>
+        <p className="text-muted-foreground">Loading your data...</p>
       </div>
     </Center>
   );
 }`,
           preview: (
-            <CenterPreview className="bg-white border border-gray-200 rounded" minHeight="300px">
+            <CenterPreview className="bg-card border border-border rounded" minHeight="300px">
               <div className="flex flex-col items-center gap-3">
                 <Loader2 size={40} className="text-blue-600 animate-spin" />
-                <p className="text-gray-600">Loading your data...</p>
+                <p className="text-muted-foreground">Loading your data...</p>
               </div>
             </CenterPreview>
           ),
@@ -124,12 +124,12 @@ import { FileQuestion } from 'lucide-react';
 
 function Example() {
   return (
-    <Center className="bg-gray-50" minHeight="400px">
+    <Center className="bg-background" minHeight="400px">
       <div className="flex flex-col items-center gap-4 max-w-md text-center">
         <FileQuestion size={64} className="text-gray-400" />
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">No documents found</h3>
-          <p className="text-gray-600 mt-1">
+          <h3 className="text-lg font-semibold text-foreground">No documents found</h3>
+          <p className="text-muted-foreground mt-1">
             Upload your first document to get started.
           </p>
         </div>
@@ -141,12 +141,12 @@ function Example() {
   );
 }`,
           preview: (
-            <CenterPreview className="bg-gray-50 border border-gray-200 rounded" minHeight="400px">
+            <CenterPreview className="bg-background border border-border rounded" minHeight="400px">
               <div className="flex flex-col items-center gap-4 max-w-md text-center">
                 <FileQuestion size={64} className="text-gray-400" />
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">No documents found</h3>
-                  <p className="text-gray-600 mt-1">
+                  <h3 className="text-lg font-semibold text-foreground">No documents found</h3>
+                  <p className="text-muted-foreground mt-1">
                     Upload your first document to get started.
                   </p>
                 </div>
@@ -165,20 +165,20 @@ import { AlertCircle } from 'lucide-react';
 
 function Example() {
   return (
-    <div className="bg-white rounded-lg shadow-xl p-6 max-w-md">
+    <div className="bg-card rounded-lg shadow-xl p-6 max-w-md">
       <Center minHeight="200px">
         <div className="flex flex-col items-center gap-4 text-center">
           <AlertCircle size={56} className="text-amber-500" />
           <div>
-            <h2 className="text-xl font-semibold text-gray-900">
+            <h2 className="text-xl font-semibold text-foreground">
               Confirm Action
             </h2>
-            <p className="text-gray-600 mt-2">
+            <p className="text-muted-foreground mt-2">
               Are you sure you want to proceed with this action?
             </p>
           </div>
           <div className="flex gap-3 mt-2">
-            <button className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50">
+            <button className="px-4 py-2 border border-border rounded hover:bg-background">
               Cancel
             </button>
             <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
@@ -191,20 +191,20 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="bg-white rounded-lg shadow-xl p-6 max-w-md mx-auto">
+            <div className="bg-card rounded-lg shadow-xl p-6 max-w-md mx-auto">
               <CenterPreview minHeight="200px">
                 <div className="flex flex-col items-center gap-4 text-center">
                   <AlertCircle size={56} className="text-amber-500" />
                   <div>
-                    <h2 className="text-xl font-semibold text-gray-900">
+                    <h2 className="text-xl font-semibold text-foreground">
                       Confirm Action
                     </h2>
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-muted-foreground mt-2">
                       Are you sure you want to proceed with this action?
                     </p>
                   </div>
                   <div className="flex gap-3 mt-2">
-                    <button className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[44px]">
+                    <button className="px-4 py-2 border border-border rounded hover:bg-background focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[44px]">
                       Cancel
                     </button>
                     <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-h-[44px]">
@@ -225,10 +225,10 @@ function Example() {
   return (
     <Center as="section" className="bg-blue-50 py-12">
       <div className="max-w-2xl px-4 text-center">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-foreground">
           Welcome to UX4Gov
         </h1>
-        <p className="text-lg text-gray-600 mt-4">
+        <p className="text-lg text-muted-foreground mt-4">
           Building accessible, consistent government digital services.
         </p>
       </div>
@@ -238,10 +238,10 @@ function Example() {
           preview: (
             <CenterPreview as="section" className="bg-blue-50 border border-blue-200 rounded py-12">
               <div className="max-w-2xl px-4 text-center">
-                <h1 className="text-3xl font-bold text-gray-900">
+                <h1 className="text-3xl font-bold text-foreground">
                   Welcome to UX4Gov
                 </h1>
-                <p className="text-lg text-gray-600 mt-4">
+                <p className="text-lg text-muted-foreground mt-4">
                   Building accessible, consistent government digital services.
                 </p>
               </div>
@@ -259,10 +259,10 @@ function Example() {
     <Center as="main" minHeight="100vh">
       <div className="flex flex-col items-center gap-4 text-center">
         <CheckCircle size={72} className="text-green-600" />
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-foreground">
           Application Submitted
         </h1>
-        <p className="text-gray-600 max-w-md">
+        <p className="text-muted-foreground max-w-md">
           Your application has been successfully submitted.
           You will receive a confirmation email shortly.
         </p>
@@ -274,10 +274,10 @@ function Example() {
             <CenterPreview as="main" minHeight="400px" className="bg-gradient-to-b from-green-50 to-white border border-green-200 rounded">
               <div className="flex flex-col items-center gap-4 text-center">
                 <CheckCircle size={72} className="text-green-600" />
-                <h1 className="text-2xl font-bold text-gray-900">
+                <h1 className="text-2xl font-bold text-foreground">
                   Application Submitted
                 </h1>
-                <p className="text-gray-600 max-w-md px-4">
+                <p className="text-muted-foreground max-w-md px-4">
                   Your application has been successfully submitted.
                   You will receive a confirmation email shortly.
                 </p>

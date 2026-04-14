@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router";
 import { 
   FileText, 
@@ -33,15 +34,15 @@ import {
 
 export default function ReferenceServiceBlueprint() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-800 dark:bg-gray-900">
+    <div className="min-h-screen bg-background dark:bg-gray-800 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-900 dark:bg-gray-900 border-b-2 border-gray-300 dark:border-gray-700 dark:border-gray-700">
+      <header className="bg-card dark:bg-gray-900 border-b-2 border-border dark:border-gray-700">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 border-2 border-gray-300 dark:border-gray-700 rounded flex items-center justify-center"
+                  className="w-16 h-16 border-2 border-border dark:border-gray-700 rounded flex items-center justify-center"
                   style={{
                     background: 'linear-gradient(to bottom right, var(--ux4g-color-saffron-500), white, var(--ux4g-color-green-600))'
                   }}
@@ -49,11 +50,11 @@ export default function ReferenceServiceBlueprint() {
                   <FileText size={32} style={{ color: 'var(--ux4g-color-brand-primary)' }} />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">UX4G Complete Reference Service</div>
-                  <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Certificate Application Service Blueprint</h1>
+                  <div className="text-sm text-muted-foreground dark:text-gray-400 mb-1">UX4G Complete Reference Service</div>
+                  <h1 className="text-3xl font-bold text-foreground dark:text-gray-100">Certificate Application Service Blueprint</h1>
                 </div>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              <p className="text-muted-foreground dark:text-gray-300 leading-relaxed mb-4">
                 A complete, end-to-end reference implementation showing how all UX4G patterns, components, and flows 
                 integrate into a production-ready government service. This blueprint documents the full citizen and 
                 officer journey from service discovery to certificate issuance, including all success, failure, and 
@@ -62,20 +63,20 @@ export default function ReferenceServiceBlueprint() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-full"></div>
-                  <span className="text-gray-600 dark:text-gray-400">
-                    Service Type: <span className="font-bold text-gray-900 dark:text-gray-100">Generic Certificate Application</span>
+                  <span className="text-muted-foreground dark:text-gray-400">
+                    Service Type: <span className="font-bold text-foreground dark:text-gray-100">Generic Certificate Application</span>
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-blue-50 dark:bg-blue-900/200 rounded-full"></div>
-                  <span className="text-gray-600 dark:text-gray-400">
-                    Patterns Used: <span className="font-bold text-gray-900 dark:text-gray-100">15+</span>
+                  <span className="text-muted-foreground dark:text-gray-400">
+                    Patterns Used: <span className="font-bold text-foreground dark:text-gray-100">15+</span>
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-purple-50 dark:bg-purple-900/200 rounded-full"></div>
-                  <span className="text-gray-600 dark:text-gray-400">
-                    Total Pages: <span className="font-bold text-gray-900 dark:text-gray-100">51</span>
+                  <span className="text-muted-foreground dark:text-gray-400">
+                    Total Pages: <span className="font-bold text-foreground dark:text-gray-100">51</span>
                   </span>
                 </div>
               </div>
@@ -103,11 +104,11 @@ export default function ReferenceServiceBlueprint() {
       </header>
 
       {/* Service Overview */}
-      <section className="bg-white dark:bg-gray-900 border-b-2 border-gray-300 dark:border-gray-700">
+      <section className="bg-card dark:bg-gray-900 border-b-2 border-border dark:border-gray-700">
         <div className="max-w-[1600px] mx-auto px-12 py-12">
           <div className="pl-4 mb-8" style={{ borderLeft: '4px solid var(--ux4g-color-brand-primary)' }}>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">Service Overview</h2>
-            <p className="text-gray-600 dark:text-gray-400">Complete blueprint for a generic government certificate application service</p>
+            <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-2">Service Overview</h2>
+            <p className="text-muted-foreground dark:text-gray-400">Complete blueprint for a generic government certificate application service</p>
           </div>
 
           <div className="grid grid-cols-4 gap-6">
@@ -118,9 +119,9 @@ export default function ReferenceServiceBlueprint() {
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                   <Target size={24} className="text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-gray-100">Purpose</h3>
+                <h3 className="font-bold text-foreground dark:text-gray-100">Purpose</h3>
               </div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed">
                 Enable citizens to apply for government-issued certificates online, track application status, 
                 and receive digital certificates upon approval.
               </p>
@@ -132,9 +133,9 @@ export default function ReferenceServiceBlueprint() {
                 <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
                   <User size={24} className="text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-gray-100">Who This Is For</h3>
+                <h3 className="font-bold text-foreground dark:text-gray-100">Who This Is For</h3>
               </div>
-              <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-2">
+              <ul className="text-sm text-muted-foreground dark:text-gray-300 space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span>Indian citizens 18+ years</span>
@@ -156,9 +157,9 @@ export default function ReferenceServiceBlueprint() {
                 <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
                   <Activity size={24} className="text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-gray-100">Use Cases</h3>
+                <h3 className="font-bold text-foreground dark:text-gray-100">Use Cases</h3>
               </div>
-              <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-2">
+              <ul className="text-sm text-muted-foreground dark:text-gray-300 space-y-2">
                 <li className="flex items-start gap-2">
                   <ChevronRight size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
                   <span>Birth/Death certificates</span>
@@ -184,9 +185,9 @@ export default function ReferenceServiceBlueprint() {
                 <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
                   <Award size={24} className="text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-gray-100">Outcome</h3>
+                <h3 className="font-bold text-foreground dark:text-gray-100">Outcome</h3>
               </div>
-              <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-2">
+              <ul className="text-sm text-muted-foreground dark:text-gray-300 space-y-2">
                 <li className="flex items-start gap-2">
                   <CheckCircle size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                   <span>Digital certificate issued</span>
@@ -209,8 +210,8 @@ export default function ReferenceServiceBlueprint() {
       {/* Journey Phases */}
       <section className="max-w-[1600px] mx-auto px-12 py-12">
         <div className="pl-4 mb-8" style={{ borderLeft: '4px solid var(--ux4g-color-brand-primary)' }}>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">End-to-End Journey Phases</h2>
-          <p className="text-gray-600 dark:text-gray-400">12 phases covering complete citizen and officer journey</p>
+          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-2">End-to-End Journey Phases</h2>
+          <p className="text-muted-foreground dark:text-gray-400">12 phases covering complete citizen and officer journey</p>
         </div>
 
         <div className="space-y-6">
@@ -440,11 +441,11 @@ export default function ReferenceServiceBlueprint() {
       {/* Journey Diagram */}
       <section className="max-w-[1600px] mx-auto px-12 py-12 bg-gradient-to-r from-blue-50 to-green-50">
         <div className="pl-4 mb-8" style={{ borderLeft: '4px solid var(--ux4g-color-brand-primary)' }}>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">Complete Journey Flow Diagram</h2>
-          <p className="text-gray-600 dark:text-gray-400">Visual representation of all phases, states, and transitions</p>
+          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-2">Complete Journey Flow Diagram</h2>
+          <p className="text-muted-foreground dark:text-gray-400">Visual representation of all phases, states, and transitions</p>
         </div>
 
-        <div className="bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-8">
+        <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-8">
           <div className="flex flex-col items-center gap-4">
             
             <FlowNode label="Entry & Awareness" icon={<MapPin size={20} />} color="bg-blue-100" />
@@ -465,20 +466,20 @@ export default function ReferenceServiceBlueprint() {
               <div className="bg-pink-50 border-2 border-pink-300 rounded-lg p-4 text-center">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <CreditCard size={20} className="text-pink-700" />
-                  <span className="font-bold text-gray-900 dark:text-gray-100">Payment (Optional)</span>
+                  <span className="font-bold text-foreground dark:text-gray-100">Payment (Optional)</span>
                 </div>
                 <div className="flex items-center justify-center gap-4 text-xs">
                   <div className="flex items-center gap-1">
                     <CheckCircle size={12} className="text-green-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Success</span>
+                    <span className="text-muted-foreground dark:text-gray-300">Success</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <XCircle size={12} className="text-red-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Failure → Retry</span>
+                    <span className="text-muted-foreground dark:text-gray-300">Failure → Retry</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock size={12} className="text-blue-600" />
-                    <span className="text-gray-700 dark:text-gray-300">Pending</span>
+                    <span className="text-muted-foreground dark:text-gray-300">Pending</span>
                   </div>
                 </div>
               </div>
@@ -497,18 +498,18 @@ export default function ReferenceServiceBlueprint() {
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-300 dark:border-green-800 rounded-lg p-4 text-center">
                   <CheckCircle size={24} className="text-green-600 mx-auto mb-2" />
-                  <div className="font-bold text-gray-900 dark:text-gray-100 text-sm mb-1">Approved</div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Certificate Issued</div>
+                  <div className="font-bold text-foreground dark:text-gray-100 text-sm mb-1">Approved</div>
+                  <div className="text-xs text-muted-foreground dark:text-gray-400">Certificate Issued</div>
                 </div>
                 <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-300 dark:border-orange-800 rounded-lg p-4 text-center">
                   <AlertCircle size={24} className="text-orange-600 mx-auto mb-2" />
-                  <div className="font-bold text-gray-900 dark:text-gray-100 text-sm mb-1">Correction</div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Resubmit</div>
+                  <div className="font-bold text-foreground dark:text-gray-100 text-sm mb-1">Correction</div>
+                  <div className="text-xs text-muted-foreground dark:text-gray-400">Resubmit</div>
                 </div>
                 <div className="bg-red-50 border-2 border-red-300 rounded-lg p-4 text-center">
                   <XCircle size={24} className="text-red-600 mx-auto mb-2" />
-                  <div className="font-bold text-gray-900 dark:text-gray-100 text-sm mb-1">Rejected</div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Appeal/Support</div>
+                  <div className="font-bold text-foreground dark:text-gray-100 text-sm mb-1">Rejected</div>
+                  <div className="text-xs text-muted-foreground dark:text-gray-400">Appeal/Support</div>
                 </div>
               </div>
             </div>
@@ -525,11 +526,11 @@ export default function ReferenceServiceBlueprint() {
             background: 'linear-gradient(to right, var(--ux4g-color-saffron-500), white, var(--ux4g-color-green-600))'
           }}
         >
-          <div className="bg-white dark:bg-gray-900 rounded p-8 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+          <div className="bg-card dark:bg-gray-900 rounded p-8 text-center">
+            <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-3">
               Ready to Explore the Complete Service?
             </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+            <p className="text-muted-foreground dark:text-gray-300 mb-6 max-w-2xl mx-auto">
               Launch the interactive certificate application service to experience all 51 pages,
               15+ UX4G patterns, and 20+ executable flows in action.
             </p>
@@ -551,9 +552,9 @@ export default function ReferenceServiceBlueprint() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white dark:bg-gray-900 border-t-2 border-gray-300 dark:border-gray-700 mt-24">
+      <footer className="bg-card dark:bg-gray-900 border-t-2 border-border dark:border-gray-700 mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex items-center justify-between text-sm text-muted-foreground dark:text-gray-400">
             <div>UX4G Design System Platform • Reference Service Blueprint</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -587,16 +588,16 @@ function JourneyPhase({
   keyStates: string[];
 }) {
   return (
-    <div className="bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+    <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
       {/* Phase Header */}
-      <div className="bg-gray-100 dark:bg-gray-800 border-b-2 border-gray-300 dark:border-gray-700 px-6 py-4">
+      <div className="bg-muted dark:bg-gray-800 border-b-2 border-border dark:border-gray-700 px-6 py-4">
         <div className="flex items-center gap-4">
           <div className={`w-14 h-14 ${iconBg} rounded-lg flex items-center justify-center flex-shrink-0`}>
             {icon}
           </div>
           <div className="flex-1">
-            <div className="text-xs text-gray-600 dark:text-gray-400 mb-1">PHASE {phaseNumber}</div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{phaseName}</h3>
+            <div className="text-xs text-muted-foreground dark:text-gray-400 mb-1">PHASE {phaseNumber}</div>
+            <h3 className="text-xl font-bold text-foreground dark:text-gray-100">{phaseName}</h3>
           </div>
           <div className="px-4 py-2 bg-blue-100 border-2 border-blue-300 dark:border-blue-800 rounded text-xs font-bold text-blue-900">
             {pages.length} PAGES
@@ -611,30 +612,30 @@ function JourneyPhase({
           {/* Goals and Actions - 4 columns */}
           <div className="col-span-4 space-y-4">
             <div>
-              <h4 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-2 flex items-center gap-2">
+              <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-2 flex items-center gap-2">
                 <User size={14} className="text-blue-600" />
                 User Goal
               </h4>
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{userGoal}</p>
+              <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed">{userGoal}</p>
             </div>
             <div>
-              <h4 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-2 flex items-center gap-2">
+              <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-2 flex items-center gap-2">
                 <Settings size={14} className="text-green-600" />
                 System Action
               </h4>
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{systemAction}</p>
+              <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed">{systemAction}</p>
             </div>
           </div>
 
           {/* Pages - 5 columns */}
           <div className="col-span-5">
-            <h4 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-3">Pages in this Phase</h4>
+            <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-3">Pages in this Phase</h4>
             <div className="space-y-2">
               {pages.map((page, idx) => (
                 <Link
                   key={idx}
                   to={page.route}
-                  className="block bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded p-3 hover:bg-blue-50 dark:bg-blue-900/20 transition-all group"
+                  className="block bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded p-3 hover:bg-blue-50 dark:bg-blue-900/20 transition-all group"
                   style={{
                     '--hover-border-color': 'var(--ux4g-color-brand-primary)',
                     '--hover-text-color': 'var(--ux4g-color-brand-primary)'
@@ -649,7 +650,7 @@ function JourneyPhase({
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex-1">
                       <div
-                        className="text-sm font-bold text-gray-900 dark:text-gray-100 transition-colors mb-1 group-hover-text"
+                        className="text-sm font-bold text-foreground dark:text-gray-100 transition-colors mb-1 group-hover-text"
                         style={{
                           color: 'inherit'
                         }}
@@ -662,7 +663,7 @@ function JourneyPhase({
                       >
                         {page.name}
                       </div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">{page.pattern}</div>
+                      <div className="text-xs text-muted-foreground dark:text-gray-400">{page.pattern}</div>
                     </div>
                     <ArrowRight
                       size={16}
@@ -686,23 +687,23 @@ function JourneyPhase({
           {/* Patterns & States - 3 columns */}
           <div className="col-span-3 space-y-4">
             <div>
-              <h4 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-2">UX4G Patterns</h4>
+              <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-2">UX4G Patterns</h4>
               <div className="space-y-1">
                 {patterns.map((pattern, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-xs">
                     <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
-                    <span className="text-gray-700 dark:text-gray-300">{pattern}</span>
+                    <span className="text-muted-foreground dark:text-gray-300">{pattern}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <h4 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase mb-2">Key States</h4>
+              <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-2">Key States</h4>
               <div className="space-y-1">
                 {keyStates.map((state, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-xs">
                     <CheckCircle size={12} className="text-green-600 flex-shrink-0" />
-                    <span className="text-gray-700 dark:text-gray-300">{state}</span>
+                    <span className="text-muted-foreground dark:text-gray-300">{state}</span>
                   </div>
                 ))}
               </div>
@@ -719,11 +720,11 @@ function JourneyPhase({
 
 function FlowNode({ label, icon, color }: { label: string; icon: React.ReactNode; color: string }) {
   return (
-    <div className={`${color} border-2 border-gray-300 dark:border-gray-700 rounded-lg px-6 py-4 flex items-center gap-3 min-w-[280px]`}>
-      <div className="w-10 h-10 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-700 rounded flex items-center justify-center">
+    <div className={`${color} border-2 border-border dark:border-gray-700 rounded-lg px-6 py-4 flex items-center gap-3 min-w-[280px]`}>
+      <div className="w-10 h-10 bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded flex items-center justify-center">
         {icon}
       </div>
-      <span className="font-bold text-gray-900 dark:text-gray-100">{label}</span>
+      <span className="font-bold text-foreground dark:text-gray-100">{label}</span>
     </div>
   );
 }

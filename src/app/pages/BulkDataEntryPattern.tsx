@@ -22,11 +22,11 @@ export default function BulkDataEntryPattern() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <header className="bg-gradient-to-br from-amber-50 via-white to-yellow-50 border-b-4 border-[#FF9933]">
         <div className="max-w-[1400px] mx-auto px-12 py-16">
           <div className="mb-6">
-            <Link to="/patterns/data-input" className="text-sm text-gray-600 hover:text-[#000080]">
+            <Link to="/patterns/data-input" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Data Input Patterns
             </Link>
           </div>
@@ -36,11 +36,11 @@ export default function BulkDataEntryPattern() {
                 <Table size={40} className="text-white" />
               </div>
               <div>
-                <div className="text-sm font-bold text-[#000080] mb-2 uppercase tracking-wide">Data Input Pattern</div>
-                <h1 className="text-5xl font-bold text-gray-900">Bulk Data Entry</h1>
+                <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Data Input Pattern</div>
+                <h1 className="text-5xl font-bold text-foreground">Bulk Data Entry</h1>
               </div>
             </div>
-            <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            <p className="text-xl text-muted-foreground leading-relaxed mb-6">
               Spreadsheet-like interface for entering multiple records at once with CSV import/export,
               inline editing, and batch validation for efficient mass data entry.
             </p>
@@ -52,73 +52,73 @@ export default function BulkDataEntryPattern() {
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
             <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-6 mb-6">
-              <h2 className="font-bold text-gray-900 mb-2">Interactive Demo</h2>
-              <p className="text-sm text-gray-700">
+              <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
+              <p className="text-sm text-muted-foreground">
                 Add, edit, or delete multiple employee records. Try importing from CSV or entering data manually.
               </p>
             </div>
 
             {/* Toolbar */}
-            <div className="bg-white border-2 border-gray-300 rounded-lg p-4 mb-4">
+            <div className="bg-card border-2 border-border rounded-lg p-4 mb-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <button
                     onClick={addRow}
-                    className="px-4 py-2 bg-[#000080] text-white rounded font-bold hover:bg-blue-900 flex items-center gap-2 text-sm"
+                    className="px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90 flex items-center gap-2 text-sm"
                   >
                     <Plus size={16} />
                     Add Row
                   </button>
-                  <button className="px-4 py-2 border-2 border-gray-300 rounded font-bold hover:bg-gray-50 flex items-center gap-2 text-sm">
+                  <button className="px-4 py-2 border-2 border-border rounded font-bold hover:bg-background flex items-center gap-2 text-sm">
                     <Upload size={16} />
                     Import CSV
                   </button>
-                  <button className="px-4 py-2 border-2 border-gray-300 rounded font-bold hover:bg-gray-50 flex items-center gap-2 text-sm">
+                  <button className="px-4 py-2 border-2 border-border rounded font-bold hover:bg-background flex items-center gap-2 text-sm">
                     <Download size={16} />
                     Export CSV
                   </button>
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-muted-foreground">
                   <strong>{rows.length}</strong> rows
                 </div>
               </div>
             </div>
 
             {/* Spreadsheet Table */}
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="bg-gray-100 border-b-2 border-gray-300">
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase w-8">#</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                    <tr className="bg-muted border-b-2 border-border">
+                      <th className="px-4 py-3 text-left text-xs font-bold text-muted-foreground uppercase w-8">#</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-muted-foreground uppercase">
                         Name <span className="text-red-600">*</span>
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-bold text-muted-foreground uppercase">
                         Email <span className="text-red-600">*</span>
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-bold text-muted-foreground uppercase">
                         Phone
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase">
+                      <th className="px-4 py-3 text-left text-xs font-bold text-muted-foreground uppercase">
                         Department
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-700 uppercase w-16">
+                      <th className="px-4 py-3 text-left text-xs font-bold text-muted-foreground uppercase w-16">
                         Actions
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     {rows.map((row, idx) => (
-                      <tr key={row.id} className={`border-b border-gray-200 ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-blue-50`}>
-                        <td className="px-4 py-2 text-sm text-gray-600">{idx + 1}</td>
+                      <tr key={row.id} className={`border-b border-border ${idx % 2 === 0 ? 'bg-card' : 'bg-background'} hover:bg-blue-50`}>
+                        <td className="px-4 py-2 text-sm text-muted-foreground">{idx + 1}</td>
                         <td className="px-4 py-2">
                           <input
                             type="text"
                             value={row.name}
                             onChange={(e) => updateRow(row.id, 'name', e.target.value)}
                             placeholder="Enter name"
-                            className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm focus:border-[#000080] focus:outline-none"
+                            className="w-full px-2 py-1.5 border border-border rounded text-sm focus:border-primary focus:outline-none"
                           />
                         </td>
                         <td className="px-4 py-2">
@@ -127,7 +127,7 @@ export default function BulkDataEntryPattern() {
                             value={row.email}
                             onChange={(e) => updateRow(row.id, 'email', e.target.value)}
                             placeholder="email@example.com"
-                            className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm focus:border-[#000080] focus:outline-none"
+                            className="w-full px-2 py-1.5 border border-border rounded text-sm focus:border-primary focus:outline-none"
                           />
                         </td>
                         <td className="px-4 py-2">
@@ -136,14 +136,14 @@ export default function BulkDataEntryPattern() {
                             value={row.phone}
                             onChange={(e) => updateRow(row.id, 'phone', e.target.value)}
                             placeholder="9876543210"
-                            className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm focus:border-[#000080] focus:outline-none"
+                            className="w-full px-2 py-1.5 border border-border rounded text-sm focus:border-primary focus:outline-none"
                           />
                         </td>
                         <td className="px-4 py-2">
                           <select
                             value={row.department}
                             onChange={(e) => updateRow(row.id, 'department', e.target.value)}
-                            className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm focus:border-[#000080] focus:outline-none"
+                            className="w-full px-2 py-1.5 border border-border rounded text-sm focus:border-primary focus:outline-none"
                           >
                             <option value="">Select...</option>
                             <option value="IT">IT</option>
@@ -167,10 +167,10 @@ export default function BulkDataEntryPattern() {
                 </table>
               </div>
 
-              <div className="border-t-2 border-gray-300 px-4 py-3 bg-gray-50">
+              <div className="border-t-2 border-border px-4 py-3 bg-background">
                 <button
                   onClick={addRow}
-                  className="text-sm text-[#000080] hover:underline flex items-center gap-1"
+                  className="text-sm text-primary hover:underline flex items-center gap-1"
                 >
                   <Plus size={14} />
                   Add another row
@@ -180,24 +180,24 @@ export default function BulkDataEntryPattern() {
 
             {/* Actions */}
             <div className="mt-6 flex items-center justify-between">
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-muted-foreground">
                 <CheckCircle size={14} className="inline text-green-600 mr-1" />
                 Auto-saves as you type
               </div>
               <div className="flex gap-3">
-                <button className="px-6 py-3 border-2 border-gray-300 rounded font-bold hover:bg-gray-50">
+                <button className="px-6 py-3 border-2 border-border rounded font-bold hover:bg-background">
                   Cancel
                 </button>
-                <button className="px-6 py-3 bg-[#000080] text-white rounded font-bold hover:bg-blue-900">
+                <button className="px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90">
                   Save All Records
                 </button>
               </div>
             </div>
 
             {/* CSV Import Example */}
-            <div className="mt-8 bg-white border-2 border-gray-300 rounded-lg p-6">
-              <h3 className="font-bold text-gray-900 mb-4">CSV Import Format</h3>
-              <p className="text-sm text-gray-700 mb-4">
+            <div className="mt-8 bg-card border-2 border-border rounded-lg p-6">
+              <h3 className="font-bold text-foreground mb-4">CSV Import Format</h3>
+              <p className="text-sm text-muted-foreground mb-4">
                 Download the template or format your CSV file with these columns:
               </p>
 
@@ -209,7 +209,7 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
               </div>
 
               <div className="flex gap-3">
-                <button className="px-4 py-2 border-2 border-gray-300 rounded font-bold hover:bg-gray-50 text-sm flex items-center gap-2">
+                <button className="px-4 py-2 border-2 border-border rounded font-bold hover:bg-background text-sm flex items-center gap-2">
                   <Download size={16} />
                   Download Template
                 </button>
@@ -223,36 +223,36 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
             {/* Implementation Guide */}
             <div className="mt-8 space-y-6">
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Key Features</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Key Features</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6">
                   <div className="space-y-4 text-sm">
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1">1. Inline Editing</h3>
-                      <p className="text-gray-700">
+                      <h3 className="font-bold text-foreground mb-1">1. Inline Editing</h3>
+                      <p className="text-muted-foreground">
                         Edit cells directly without modal dialogs. Tab/Enter to move between cells like Excel.
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1">2. CSV Import/Export</h3>
-                      <p className="text-gray-700">
+                      <h3 className="font-bold text-foreground mb-1">2. CSV Import/Export</h3>
+                      <p className="text-muted-foreground">
                         Allow bulk upload via CSV. Validate format and show errors before import.
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1">3. Batch Validation</h3>
-                      <p className="text-gray-700">
+                      <h3 className="font-bold text-foreground mb-1">3. Batch Validation</h3>
+                      <p className="text-muted-foreground">
                         Validate all rows on submit. Highlight rows with errors and prevent submission until fixed.
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1">4. Auto-save</h3>
-                      <p className="text-gray-700">
+                      <h3 className="font-bold text-foreground mb-1">4. Auto-save</h3>
+                      <p className="text-muted-foreground">
                         Save progress automatically every few seconds to prevent data loss.
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-1">5. Keyboard Shortcuts</h3>
-                      <p className="text-gray-700">
+                      <h3 className="font-bold text-foreground mb-1">5. Keyboard Shortcuts</h3>
+                      <p className="text-muted-foreground">
                         Ctrl+Enter for new row, Ctrl+S to save, Delete to remove row. Power user efficiency.
                       </p>
                     </div>
@@ -261,11 +261,11 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Libraries & Tools</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-4 text-sm">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Libraries & Tools</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6 space-y-4 text-sm">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">AG Grid / React Data Grid</h3>
-                    <p className="text-gray-700 mb-2">
+                    <h3 className="font-bold text-foreground mb-2">AG Grid / React Data Grid</h3>
+                    <p className="text-muted-foreground mb-2">
                       Professional-grade data grid with Excel-like features, inline editing, CSV export.
                     </p>
                     <div className="bg-gray-900 text-gray-100 rounded p-3 text-xs font-mono">
@@ -274,8 +274,8 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">React Table</h3>
-                    <p className="text-gray-700 mb-2">
+                    <h3 className="font-bold text-foreground mb-2">React Table</h3>
+                    <p className="text-muted-foreground mb-2">
                       Lightweight, headless table library for custom bulk entry interfaces.
                     </p>
                     <div className="bg-gray-900 text-gray-100 rounded p-3 text-xs font-mono">
@@ -284,8 +284,8 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">PapaParse (CSV Parsing)</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-2">PapaParse (CSV Parsing)</h3>
+                    <p className="text-muted-foreground">
                       Fast, in-browser CSV parser for import/export functionality.
                     </p>
                   </div>
@@ -293,41 +293,41 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Best Practices</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-3 text-sm">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Best Practices</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6 space-y-3 text-sm">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">1. Provide CSV Template</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">1. Provide CSV Template</h3>
+                    <p className="text-muted-foreground">
                       Offer downloadable CSV template with correct column headers and example data.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">2. Show Row Numbers</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">2. Show Row Numbers</h3>
+                    <p className="text-muted-foreground">
                       Display row numbers for easy reference when reporting errors ("Error in row 15").
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">3. Highlight Validation Errors</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">3. Highlight Validation Errors</h3>
+                    <p className="text-muted-foreground">
                       Use red borders/backgrounds on invalid cells. Show error message on hover.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">4. Limit Initial Rows</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">4. Limit Initial Rows</h3>
+                    <p className="text-muted-foreground">
                       Start with 3-5 empty rows. Add more on demand. Don't overwhelm with 50 blank rows.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">5. Pagination for Large Datasets</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">5. Pagination for Large Datasets</h3>
+                    <p className="text-muted-foreground">
                       For 100+ rows, use pagination or virtual scrolling to maintain performance.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">6. Confirm Before Delete</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-bold text-foreground mb-1">6. Confirm Before Delete</h3>
+                    <p className="text-muted-foreground">
                       Ask confirmation when deleting rows with data. Easy to accidentally click delete.
                     </p>
                   </div>
@@ -335,8 +335,8 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Performance Tips</h2>
-                <div className="bg-white border-2 border-gray-300 rounded-lg p-6 space-y-2 text-sm text-gray-700">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Performance Tips</h2>
+                <div className="bg-card border-2 border-border rounded-lg p-6 space-y-2 text-sm text-muted-foreground">
                   <p>• Use virtualization for tables with 100+ rows (react-window, react-virtualized)</p>
                   <p>• Debounce validation to avoid checking on every keystroke</p>
                   <p>• Implement client-side validation before submitting to server</p>
@@ -349,31 +349,31 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
 
           <aside className="col-span-4">
             <div className="sticky top-8 space-y-6">
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Pattern Information</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Pattern Information</h3>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Complexity</div>
+                    <div className="text-xs text-muted-foreground mb-1">Complexity</div>
                     <div className="font-bold">Medium-High</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Time Saved</div>
+                    <div className="text-xs text-muted-foreground mb-1">Time Saved</div>
                     <div className="font-bold">10x faster than one-by-one</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">Ideal For</div>
+                    <div className="text-xs text-muted-foreground mb-1">Ideal For</div>
                     <div className="font-bold">10+ similar records</div>
                   </div>
                   <div>
-                    <div className="text-xs text-gray-600 mb-1">User Skill</div>
+                    <div className="text-xs text-muted-foreground mb-1">User Skill</div>
                     <div className="font-bold">Intermediate</div>
                   </div>
                 </div>
               </div>
 
               <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-3">When to Use</h3>
-                <ul className="space-y-2 text-xs text-gray-700">
+                <h3 className="font-bold text-foreground mb-3">When to Use</h3>
+                <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Adding multiple employees</li>
                   <li>✓ Uploading beneficiary lists</li>
                   <li>✓ Batch student enrollment</li>
@@ -384,8 +384,8 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
               </div>
 
               <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-3">When NOT to Use</h3>
-                <ul className="space-y-2 text-xs text-gray-700">
+                <h3 className="font-bold text-foreground mb-3">When NOT to Use</h3>
+                <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✗ Single/few records (1-3)</li>
                   <li>✗ Complex nested forms</li>
                   <li>✗ Mobile-first applications</li>
@@ -393,30 +393,30 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
                 </ul>
               </div>
 
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Impact Metrics</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Impact Metrics</h3>
                 <div className="space-y-3 text-sm">
                   <div>
                     <div className="text-2xl font-bold text-green-600 mb-1">-90%</div>
-                    <div className="text-xs text-gray-600">Time for 50+ records</div>
+                    <div className="text-xs text-muted-foreground">Time for 50+ records</div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-green-600 mb-1">10x</div>
-                    <div className="text-xs text-gray-600">Faster than individual forms</div>
+                    <div className="text-xs text-muted-foreground">Faster than individual forms</div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-4">Related Patterns</h3>
+              <div className="bg-card border-2 border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-4">Related Patterns</h3>
                 <div className="space-y-2">
-                  <Link to="/patterns/data-input/repeatable-sections" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/data-input/repeatable-sections" className="block text-sm text-primary hover:underline">
                     → Repeatable Sections
                   </Link>
-                  <Link to="/patterns/data-input/upload-extract" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/data-input/upload-extract" className="block text-sm text-primary hover:underline">
                     → Upload → Auto-extract
                   </Link>
-                  <Link to="/patterns/form-validation" className="block text-sm text-[#000080] hover:underline">
+                  <Link to="/patterns/form-validation" className="block text-sm text-primary hover:underline">
                     → Form Validation
                   </Link>
                 </div>

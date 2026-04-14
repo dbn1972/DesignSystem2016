@@ -10,6 +10,7 @@
 
 :root {
   --font-size: 16px;
+  color-scheme: light;
 
   /* ========================================
      SEMANTIC COLOR MAPPINGS
@@ -17,7 +18,7 @@
      ======================================== */
 
   /* Background & Foreground */
-  --background: var(--ux4g-color-background-primary);
+  --background: var(--ux4g-color-background-secondary);
   --foreground: var(--ux4g-color-text-primary);
 
   /* Card surfaces */
@@ -33,15 +34,15 @@
   --primary-foreground: var(--ux4g-color-text-inverse);
 
   /* Secondary */
-  --secondary: var(--ux4g-color-background-secondary);
+  --secondary: var(--ux4g-color-surface-secondary);
   --secondary-foreground: var(--ux4g-color-text-primary);
 
   /* Muted */
-  --muted: var(--ux4g-color-background-tertiary);
+  --muted: var(--ux4g-color-surface-tertiary);
   --muted-foreground: var(--ux4g-color-text-secondary);
 
   /* Accent */
-  --accent: var(--ux4g-color-background-secondary);
+  --accent: var(--ux4g-color-surface-secondary);
   --accent-foreground: var(--ux4g-color-text-primary);
 
   /* Destructive (Error) */
@@ -51,7 +52,7 @@
   /* Borders & Inputs */
   --border: var(--ux4g-color-border-default);
   --input: transparent;
-  --input-background: var(--ux4g-color-background-secondary);
+  --input-background: var(--ux4g-color-surface-primary);
   --switch-background: var(--ux4g-color-neutral-300);
 
   /* Typography */
@@ -72,14 +73,41 @@
   --radius: var(--ux4g-radius-lg);
 
   /* Sidebar specific (for dashboard/admin interfaces) */
-  --sidebar: var(--ux4g-color-background-primary);
+  --sidebar: var(--ux4g-color-surface-primary);
   --sidebar-foreground: var(--ux4g-color-text-primary);
   --sidebar-primary: var(--ux4g-color-brand-primary);
   --sidebar-primary-foreground: var(--ux4g-color-text-inverse);
-  --sidebar-accent: var(--ux4g-color-background-secondary);
+  --sidebar-accent: var(--ux4g-color-surface-secondary);
   --sidebar-accent-foreground: var(--ux4g-color-text-secondary);
   --sidebar-border: var(--ux4g-color-border-default);
   --sidebar-ring: var(--ux4g-color-focus-ring);
+
+  /* Legacy utility compatibility palette */
+  --legacy-surface-base: var(--background);
+  --legacy-surface-raised: var(--card);
+  --legacy-surface-muted: var(--muted);
+  --legacy-surface-contrast: color-mix(in srgb, var(--foreground) 8%, var(--background));
+  --legacy-surface-inverse: color-mix(in srgb, black 78%, var(--primary) 22%);
+  --legacy-border: var(--border);
+  --legacy-text-primary: var(--foreground);
+  --legacy-text-secondary: var(--muted-foreground);
+  --legacy-text-contrast: color-mix(in srgb, var(--foreground) 78%, white 22%);
+  --legacy-accent-soft: color-mix(in srgb, var(--primary) 14%, var(--background));
+  --legacy-info-surface: color-mix(in srgb, var(--primary) 10%, var(--background));
+  --legacy-info-border: color-mix(in srgb, var(--primary) 30%, var(--border));
+  --legacy-info-text: color-mix(in srgb, var(--primary) 76%, #0f172a);
+  --legacy-success-surface: color-mix(in srgb, var(--ux4g-color-feedback-success) 11%, var(--background));
+  --legacy-success-border: color-mix(in srgb, var(--ux4g-color-feedback-success) 36%, var(--border));
+  --legacy-success-text: color-mix(in srgb, var(--ux4g-color-feedback-success) 72%, #052e16);
+  --legacy-warning-surface: color-mix(in srgb, var(--ux4g-color-feedback-warning) 13%, var(--background));
+  --legacy-warning-border: color-mix(in srgb, var(--ux4g-color-feedback-warning) 35%, var(--border));
+  --legacy-warning-text: color-mix(in srgb, var(--ux4g-color-feedback-warning) 86%, #431407);
+  --legacy-error-surface: color-mix(in srgb, var(--ux4g-color-feedback-error) 11%, var(--background));
+  --legacy-error-border: color-mix(in srgb, var(--ux4g-color-feedback-error) 34%, var(--border));
+  --legacy-error-text: color-mix(in srgb, var(--ux4g-color-feedback-error) 80%, #450a0a);
+  --legacy-neutral-surface: color-mix(in srgb, var(--foreground) 3%, var(--background));
+  --legacy-neutral-border: color-mix(in srgb, var(--foreground) 16%, var(--border));
+  --legacy-neutral-text: var(--muted-foreground);
 }
 
 .dark {
@@ -143,6 +171,34 @@
   --sidebar-accent-foreground: var(--ux4g-color-text-primary);
   --sidebar-border: var(--ux4g-color-border-default);
   --sidebar-ring: var(--ux4g-color-focus-ring);
+  color-scheme: dark;
+
+  /* Legacy utility compatibility palette */
+  --legacy-surface-base: var(--background);
+  --legacy-surface-raised: var(--card);
+  --legacy-surface-muted: var(--muted);
+  --legacy-surface-contrast: color-mix(in srgb, var(--foreground) 10%, var(--background));
+  --legacy-surface-inverse: color-mix(in srgb, black 70%, var(--background) 30%);
+  --legacy-border: var(--border);
+  --legacy-text-primary: var(--foreground);
+  --legacy-text-secondary: var(--muted-foreground);
+  --legacy-text-contrast: color-mix(in srgb, var(--foreground) 84%, white 16%);
+  --legacy-accent-soft: color-mix(in srgb, var(--primary) 24%, var(--background));
+  --legacy-info-surface: color-mix(in srgb, var(--primary) 22%, var(--background));
+  --legacy-info-border: color-mix(in srgb, var(--primary) 50%, var(--border));
+  --legacy-info-text: color-mix(in srgb, var(--primary) 56%, white 44%);
+  --legacy-success-surface: color-mix(in srgb, var(--ux4g-color-feedback-success) 26%, var(--background));
+  --legacy-success-border: color-mix(in srgb, var(--ux4g-color-feedback-success) 50%, var(--border));
+  --legacy-success-text: color-mix(in srgb, var(--ux4g-color-feedback-success) 42%, white 58%);
+  --legacy-warning-surface: color-mix(in srgb, var(--ux4g-color-feedback-warning) 26%, var(--background));
+  --legacy-warning-border: color-mix(in srgb, var(--ux4g-color-feedback-warning) 52%, var(--border));
+  --legacy-warning-text: color-mix(in srgb, var(--ux4g-color-feedback-warning) 42%, white 58%);
+  --legacy-error-surface: color-mix(in srgb, var(--ux4g-color-feedback-error) 24%, var(--background));
+  --legacy-error-border: color-mix(in srgb, var(--ux4g-color-feedback-error) 52%, var(--border));
+  --legacy-error-text: color-mix(in srgb, var(--ux4g-color-feedback-error) 45%, white 55%);
+  --legacy-neutral-surface: color-mix(in srgb, var(--foreground) 9%, var(--background));
+  --legacy-neutral-border: color-mix(in srgb, var(--foreground) 24%, var(--border));
+  --legacy-neutral-text: var(--muted-foreground);
 }
 
 /* ========================================
@@ -253,6 +309,17 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply bg-input-background text-foreground border-border;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--primary) 28%, transparent);
+    color: var(--foreground);
   }
 }
 

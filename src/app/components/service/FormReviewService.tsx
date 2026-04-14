@@ -32,7 +32,7 @@ export function FormReviewService({
   const data = loadApplicationReviewData();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ServiceHeader icon={FileCheck} iconColor="bg-teal-600" category={category} title={title} />
 
       <main className="max-w-[1100px] mx-auto px-4 sm:px-6 py-8 space-y-5">
@@ -68,14 +68,14 @@ export function FormReviewService({
         </Section>
 
         <div className="flex items-center justify-between gap-3 flex-wrap">
-          <Link to={backPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-gray-700 hover:bg-gray-50">
+          <Link to={backPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-muted-foreground hover:bg-muted">
             <ArrowLeft size={16} />
             Previous
           </Link>
 
           <div className="flex items-center gap-3">
             {codeDownloadPath && (
-              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-gray-300 rounded font-bold text-sm text-[#000080] hover:bg-gray-50">
+              <Link to={codeDownloadPath} className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border rounded font-bold text-sm text-primary hover:bg-muted">
                 <Download size={15} />
                 Download React code
               </Link>
@@ -84,7 +84,7 @@ export function FormReviewService({
             <button
               type="button"
               onClick={() => navigate(nextPath)}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-[#000080] text-white rounded font-bold text-sm hover:bg-blue-900"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-white rounded font-bold text-sm hover:opacity-90"
             >
               Confirm and Continue
               <ArrowRight size={16} />
@@ -108,10 +108,10 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="px-5 py-4 border-b-2 border-gray-200 flex items-center justify-between">
-        <h2 className="font-bold text-gray-900">{title}</h2>
-        <Link to={editPath} className="inline-flex items-center gap-1 text-sm text-[#000080] font-bold hover:underline">
+    <section className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="px-5 py-4 border-b-2 border-border flex items-center justify-between">
+        <h2 className="font-bold text-foreground">{title}</h2>
+        <Link to={editPath} className="inline-flex items-center gap-1 text-sm text-primary font-bold hover:underline">
           <Edit2 size={14} />
           Edit
         </Link>
@@ -124,8 +124,8 @@ function Section({
 function ReviewItem({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <p className="text-xs text-gray-600">{label}</p>
-      <p className="text-sm font-bold text-gray-900">{value || "-"}</p>
+      <p className="text-xs text-muted-foreground">{label}</p>
+      <p className="text-sm font-bold text-foreground">{value || "-"}</p>
     </div>
   );
 }

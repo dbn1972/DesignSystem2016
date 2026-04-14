@@ -2,37 +2,37 @@ import { FileText, CheckCircle, AlertCircle, Info, Clock, Users, Shield, Eye, Gl
 
 export default function ApplicationSubmissionPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <FileText size={32} className="text-gray-700" />
+                <div className="w-16 h-16 bg-muted border-2 border-border rounded flex items-center justify-center">
+                  <FileText size={32} className="text-muted-foreground" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Service Pattern Library</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Application Submission</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Service Pattern Library</div>
+                  <h1 className="text-3xl font-bold text-foreground">Application Submission</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Complete service archetype for citizen-initiated applications requiring structured data collection, 
                 document submission, validation, and acknowledgment with status tracking capability.
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-001</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-001</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.2.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.2.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">March 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">March 2026</span></span>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function ApplicationSubmissionPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -67,7 +67,7 @@ export default function ApplicationSubmissionPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -105,9 +105,9 @@ export default function ApplicationSubmissionPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Service Pattern Library</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -128,10 +128,10 @@ function PatternOverview() {
         <DocModule>
           <ModuleHeader title="Purpose and Service Problem Solved" />
           <ModuleContent>
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Citizens need to apply for government services, licenses, certificates, or benefits that require:
             </p>
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
                 <span>Structured personal and service-specific data collection</span>
@@ -216,7 +216,7 @@ function JourneyAndFlow() {
       <DocModule>
         <ModuleHeader title="Journey Summary" />
         <ModuleContent>
-          <div className="flex items-center gap-2 text-sm text-gray-700 bg-gray-50 border-2 border-gray-300 rounded-lg p-6">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground bg-background border-2 border-border rounded-lg p-6">
             <span className="font-medium">User learns about service</span>
             <ArrowRight size={16} className="text-gray-400" />
             <span className="font-medium">Checks eligibility</span>
@@ -366,8 +366,8 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 1: Start Page" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-[#000080] text-white p-8">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-primary text-white p-8">
               <div className="max-w-3xl">
                 <div className="text-sm mb-2 text-blue-200">Government of India • Ministry of XYZ</div>
                 <h1 className="text-3xl font-bold mb-4">Apply for [Service Name]</h1>
@@ -397,10 +397,10 @@ function PageDesigns() {
                 <InfoBox icon={<Clock size={20} />} title="Processing time" text="7-10 working days after submission" />
               </div>
               <div className="flex items-center gap-4">
-                <button className="px-8 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060] transition-colors">
+                <button className="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors">
                   Start New Application
                 </button>
-                <button className="px-8 py-4 bg-gray-100 text-gray-900 font-bold rounded-lg hover:bg-gray-200 transition-colors">
+                <button className="px-8 py-4 bg-muted text-foreground font-bold rounded-lg hover:bg-gray-200 transition-colors">
                   Resume Saved Application
                 </button>
               </div>
@@ -419,11 +419,11 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 2-4: Multi-Step Form Pages" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-gray-900">Personal Details</h2>
-                <div className="text-sm text-gray-600">Step 1 of 3</div>
+                <h2 className="text-xl font-bold text-foreground">Personal Details</h2>
+                <div className="text-sm text-muted-foreground">Step 1 of 3</div>
               </div>
               <ProgressBar steps={3} current={1} />
             </div>
@@ -438,15 +438,15 @@ function PageDesigns() {
                 <FormFieldExample label="Mobile Number" required={true} type="tel" helpText="Will receive OTP" />
                 <FormFieldExample label="Email Address" required={true} type="email" />
               </div>
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg hover:bg-background">
                   Save & Continue Later
                 </button>
                 <div className="flex items-center gap-3">
-                  <button className="px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200">
+                  <button className="px-6 py-3 bg-muted text-muted-foreground font-medium rounded-lg hover:bg-gray-200">
                     Previous
                   </button>
-                  <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+                  <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                     Save & Continue
                   </button>
                 </div>
@@ -467,10 +467,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 5: Document Upload" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Upload Required Documents</h2>
-              <p className="text-sm text-gray-600">All documents must be in PDF, JPG, or PNG format. Max file size: 2MB per file.</p>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Upload Required Documents</h2>
+              <p className="text-sm text-muted-foreground">All documents must be in PDF, JPG, or PNG format. Max file size: 2MB per file.</p>
             </div>
             <div className="p-8 space-y-6">
               <DocumentUploadBox
@@ -501,15 +501,15 @@ function PageDesigns() {
                 maxSize="2MB"
                 status="pending"
               />
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg">
                   Save & Continue Later
                 </button>
                 <div className="flex items-center gap-3">
-                  <button className="px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-lg">
+                  <button className="px-6 py-3 bg-muted text-muted-foreground font-medium rounded-lg">
                     Previous
                   </button>
-                  <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg">
+                  <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg">
                     Continue to Review
                   </button>
                 </div>
@@ -530,10 +530,10 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 6: Review and Confirm" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Review Your Application</h2>
-              <p className="text-sm text-gray-600">Please review all information carefully before final submission. You can edit any section if needed.</p>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Review Your Application</h2>
+              <p className="text-sm text-muted-foreground">Please review all information carefully before final submission. You can edit any section if needed.</p>
             </div>
             <div className="p-8 space-y-6">
               <ReviewSection
@@ -566,7 +566,7 @@ function PageDesigns() {
               <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
                 <div className="flex items-start gap-3">
                   <input type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
-                  <div className="text-sm text-gray-700">
+                  <div className="text-sm text-muted-foreground">
                     <p className="font-bold mb-2">Declaration</p>
                     <p className="leading-relaxed">
                       I hereby declare that all information provided in this application is true and correct to the best of my knowledge. 
@@ -575,11 +575,11 @@ function PageDesigns() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center justify-between pt-6 border-t-2 border-gray-200">
-                <button className="px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg">
+              <div className="flex items-center justify-between pt-6 border-t-2 border-border">
+                <button className="px-6 py-3 bg-card border-2 border-border text-muted-foreground font-medium rounded-lg">
                   Previous
                 </button>
-                <button className="px-10 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 flex items-center gap-2">
+                <button className="px-10 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-600 flex items-center gap-2">
                   <CheckCircle size={20} />
                   Submit Application
                 </button>
@@ -600,19 +600,19 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 7: Submission Acknowledgment" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-green-600 text-white p-12 text-center">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
               <h1 className="text-3xl font-bold mb-4">Application Submitted Successfully!</h1>
               <p className="text-lg text-green-100">Your application has been received and is being processed.</p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6 text-center">
-                <div className="text-sm text-gray-600 mb-2">Application Reference Number</div>
-                <div className="text-3xl font-bold text-gray-900 font-mono mb-4">APP/2026/123456</div>
-                <div className="text-sm text-gray-600">Please save this reference number for future tracking</div>
+              <div className="bg-background border-2 border-border rounded-lg p-6 text-center">
+                <div className="text-sm text-muted-foreground mb-2">Application Reference Number</div>
+                <div className="text-3xl font-bold text-foreground font-mono mb-4">APP/2026/123456</div>
+                <div className="text-sm text-muted-foreground">Please save this reference number for future tracking</div>
               </div>
               <div className="grid grid-cols-2 gap-6">
                 <NextStepCard
@@ -637,10 +637,10 @@ function PageDesigns() {
                 />
               </div>
               <div className="flex items-center justify-center gap-4 pt-6">
-                <button className="px-8 py-3 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+                <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                   Track Application Status
                 </button>
-                <button className="px-8 py-3 bg-white border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50">
+                <button className="px-8 py-3 bg-card border-2 border-border text-muted-foreground font-bold rounded-lg hover:bg-background">
                   Download Receipt
                 </button>
               </div>
@@ -660,48 +660,48 @@ function PageDesigns() {
       <DocModule>
         <ModuleHeader title="Page 8: Status Tracking Entry" />
         <ModuleContent>
-          <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-            <div className="bg-gray-50 border-b-2 border-gray-300 p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Track Application Status</h2>
-              <p className="text-sm text-gray-600">Enter your application reference number or registered mobile number to check status.</p>
+          <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+            <div className="bg-background border-b-2 border-border p-6">
+              <h2 className="text-xl font-bold text-foreground mb-2">Track Application Status</h2>
+              <p className="text-sm text-muted-foreground">Enter your application reference number or registered mobile number to check status.</p>
             </div>
             <div className="p-8 space-y-6 max-w-2xl mx-auto">
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-2">
+                <label className="block text-sm font-bold text-foreground mb-2">
                   Application Reference Number
                 </label>
                 <input
                   type="text"
                   placeholder="APP/2026/123456"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg font-mono"
+                  className="w-full px-4 py-3 border-2 border-border rounded-lg text-lg font-mono"
                 />
-                <div className="text-xs text-gray-600 mt-2">Format: APP/YYYY/XXXXXX</div>
+                <div className="text-xs text-muted-foreground mt-2">Format: APP/YYYY/XXXXXX</div>
               </div>
               <div className="text-center text-gray-500 font-medium">OR</div>
               <div>
-                <label className="block text-sm font-bold text-gray-900 mb-2">
+                <label className="block text-sm font-bold text-foreground mb-2">
                   Registered Mobile Number
                 </label>
                 <input
                   type="tel"
                   placeholder="+91 98765-43210"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg"
+                  className="w-full px-4 py-3 border-2 border-border rounded-lg"
                 />
               </div>
-              <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4">
-                <div className="text-sm text-gray-700">Enter the characters shown below</div>
+              <div className="bg-background border-2 border-border rounded-lg p-4">
+                <div className="text-sm text-muted-foreground">Enter the characters shown below</div>
                 <div className="flex items-center gap-4 mt-3">
-                  <div className="bg-gray-200 px-6 py-3 rounded font-mono text-xl font-bold text-gray-900">
+                  <div className="bg-gray-200 px-6 py-3 rounded font-mono text-xl font-bold text-foreground">
                     A3K9P
                   </div>
                   <input
                     type="text"
                     placeholder="Enter CAPTCHA"
-                    className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg"
+                    className="flex-1 px-4 py-3 border-2 border-border rounded-lg"
                   />
                 </div>
               </div>
-              <button className="w-full px-8 py-4 bg-[#000080] text-white font-bold rounded-lg hover:bg-[#000060]">
+              <button className="w-full px-8 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90">
                 Check Status
               </button>
             </div>
@@ -848,32 +848,32 @@ function ValidationRules() {
       <DocModule>
         <ModuleHeader title="Auto-Save Behavior" />
         <ModuleContent>
-          <div className="space-y-4 text-sm text-gray-700">
+          <div className="space-y-4 text-sm text-muted-foreground">
             <div className="flex items-start gap-3">
               <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-1">Auto-save trigger</div>
+                <div className="font-bold text-foreground mb-1">Auto-save trigger</div>
                 <div>Save form data every 30 seconds or on field blur (whichever comes first)</div>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-1">Visual feedback</div>
+                <div className="font-bold text-foreground mb-1">Visual feedback</div>
                 <div>Show "Saving..." indicator, then "Saved" with timestamp</div>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-1">Save & Continue Later</div>
+                <div className="font-bold text-foreground mb-1">Save & Continue Later</div>
                 <div>Manual save option always visible. Send email/SMS with resume link.</div>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
               <div>
-                <div className="font-bold text-gray-900 mb-1">Session expiry</div>
+                <div className="font-bold text-foreground mb-1">Session expiry</div>
                 <div>Warn user 5 minutes before session expires. Allow extension or save & exit.</div>
               </div>
             </div>
@@ -1094,8 +1094,8 @@ function AccessibilityGuidance() {
               <div className="flex items-start gap-3 mb-4">
                 <Globe size={24} className="text-purple-600 flex-shrink-0" />
                 <div>
-                  <div className="font-bold text-gray-900 mb-2">Language Requirements</div>
-                  <div className="text-sm text-gray-700">
+                  <div className="font-bold text-foreground mb-2">Language Requirements</div>
+                  <div className="text-sm text-muted-foreground">
                     UI must be available in Hindi and English at minimum. State-specific services should support 
                     regional languages (Tamil, Telugu, Bengali, Marathi, etc.) based on deployment.
                   </div>
@@ -1361,9 +1361,9 @@ function GovernanceConformance() {
 
 function MetadataPanel() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Pattern Metadata</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Pattern Metadata</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <MetadataRow label="Pattern ID" value="UX4G-PAT-001" />
@@ -1381,7 +1381,7 @@ function QuickRefPanel() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <QuickRefItem label="Avg. Completion Time" value="15-20 minutes" />
@@ -1400,9 +1400,9 @@ function RiskIndicators() {
     <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
       <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3 flex items-center gap-2">
         <AlertTriangle size={16} className="text-red-700" />
-        <h3 className="font-bold text-gray-900 text-sm">Risk Indicators</h3>
+        <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <RiskItem severity="high" risk="Data loss from session timeout" />
         <RiskItem severity="high" risk="User abandonment due to missing documents" />
         <RiskItem severity="medium" risk="Duplicate submissions if acknowledgment unclear" />
@@ -1415,9 +1415,9 @@ function RiskIndicators() {
 
 function RelatedResources() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <RelatedLink title="Eligibility & Screening" />
@@ -1433,15 +1433,15 @@ function RelatedResources() {
 
 function SectionHeader({ title }: any) {
   return (
-    <div className="border-l-4 border-[#000080] pl-4">
-      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+    <div className="border-l-4 border-primary pl-4">
+      <h2 className="text-2xl font-bold text-foreground">{title}</h2>
     </div>
   );
 }
 
 function DocModule({ children }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
       {children}
     </div>
   );
@@ -1449,8 +1449,8 @@ function DocModule({ children }: any) {
 
 function ModuleHeader({ title }: any) {
   return (
-    <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-      <h3 className="font-bold text-gray-900">{title}</h3>
+    <div className="bg-muted border-b-2 border-border px-6 py-4">
+      <h3 className="font-bold text-foreground">{title}</h3>
     </div>
   );
 }
@@ -1466,13 +1466,13 @@ function ModuleContent({ children }: any) {
 function UserGroup({ icon, name, description, percentage }: any) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-10 h-10 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center flex-shrink-0">
+      <div className="w-10 h-10 bg-muted border-2 border-border rounded flex items-center justify-center flex-shrink-0">
         {icon}
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{name}</div>
-        <div className="text-xs text-gray-600 mb-2">{description}</div>
-        <div className="text-xs font-bold text-gray-900">{percentage} of users</div>
+        <div className="font-bold text-sm text-foreground mb-1">{name}</div>
+        <div className="text-xs text-muted-foreground mb-2">{description}</div>
+        <div className="text-xs font-bold text-foreground">{percentage} of users</div>
       </div>
     </div>
   );
@@ -1480,11 +1480,11 @@ function UserGroup({ icon, name, description, percentage }: any) {
 
 function UseCaseCard({ title, examples }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-3">{title}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-3">{title}</div>
       <ul className="space-y-2">
         {examples.map((example: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
             <span>{example}</span>
           </li>
@@ -1496,7 +1496,7 @@ function UseCaseCard({ title, examples }: any) {
 
 function FlowStep({ number, label, status }: any) {
   const statusConfig: any = {
-    entry: { bg: 'bg-gray-100', border: 'border-gray-400', text: 'text-gray-700' },
+    entry: { bg: 'bg-muted', border: 'border-gray-400', text: 'text-muted-foreground' },
     active: { bg: 'bg-blue-50', border: 'border-blue-400', text: 'text-blue-700' },
     success: { bg: 'bg-green-50', border: 'border-green-400', text: 'text-green-700' },
     info: { bg: 'bg-purple-50', border: 'border-purple-400', text: 'text-purple-700' },
@@ -1506,27 +1506,27 @@ function FlowStep({ number, label, status }: any) {
   return (
     <div className={`border-2 ${statusConfig[status].border} rounded-lg p-3 ${statusConfig[status].bg}`}>
       <div className={`text-xs font-bold ${statusConfig[status].text} mb-1`}>{number}</div>
-      <div className="text-xs font-medium text-gray-900">{label}</div>
+      <div className="text-xs font-medium text-foreground">{label}</div>
     </div>
   );
 }
 
 function PageSequenceRow({ number, title, description, required }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-l-4 border-[#000080] rounded">
-      <div className="w-8 h-8 bg-[#000080] text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
+    <div className="flex items-start gap-4 p-4 bg-background border-l-4 border-primary rounded">
+      <div className="w-8 h-8 bg-primary text-white rounded font-bold text-sm flex items-center justify-center flex-shrink-0">
         {number}
       </div>
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-1">
-          <div className="font-bold text-sm text-gray-900">{title}</div>
+          <div className="font-bold text-sm text-foreground">{title}</div>
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-gray-700 text-xs font-bold rounded">OPTIONAL</span>
+            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
         </div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -1534,11 +1534,11 @@ function PageSequenceRow({ number, title, description, required }: any) {
 
 function InfoBox({ icon, title, text }: any) {
   return (
-    <div className="flex items-start gap-3 p-4 bg-white border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-3 p-4 bg-card border-2 border-border rounded-lg">
       <div className="text-blue-600 flex-shrink-0">{icon}</div>
       <div>
-        <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-        <div className="text-xs text-gray-600">{text}</div>
+        <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+        <div className="text-xs text-muted-foreground">{text}</div>
       </div>
     </div>
   );
@@ -1550,7 +1550,7 @@ function ProgressBar({ steps, current }: any) {
       {Array.from({ length: steps }).map((_, idx) => (
         <div
           key={idx}
-          className={`flex-1 h-2 rounded ${idx < current ? 'bg-[#000080]' : 'bg-gray-300'}`}
+          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-gray-300'}`}
         ></div>
       ))}
     </div>
@@ -1560,33 +1560,33 @@ function ProgressBar({ steps, current }: any) {
 function FormFieldExample({ label, required, type, helpText }: any) {
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-900 mb-2">
+      <label className="block text-sm font-bold text-foreground mb-2">
         {label} {required && <span className="text-red-600">*</span>}
       </label>
       {type === 'select' ? (
-        <select className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg bg-white">
+        <select className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card">
           <option>Select an option</option>
         </select>
       ) : type === 'date' ? (
         <input
           type="text"
           placeholder="DD/MM/YYYY"
-          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg"
+          className="w-full px-4 py-3 border-2 border-border rounded-lg"
         />
       ) : (
         <input
           type={type}
-          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg"
+          className="w-full px-4 py-3 border-2 border-border rounded-lg"
         />
       )}
-      {helpText && <div className="text-xs text-gray-600 mt-1">{helpText}</div>}
+      {helpText && <div className="text-xs text-muted-foreground mt-1">{helpText}</div>}
     </div>
   );
 }
 
 function DocumentUploadBox({ title, required, formats, maxSize, status }: any) {
   const statusConfig: any = {
-    pending: { border: 'border-gray-300', bg: 'bg-gray-50' },
+    pending: { border: 'border-border', bg: 'bg-background' },
     uploaded: { border: 'border-green-300', bg: 'bg-green-50' }
   };
 
@@ -1594,10 +1594,10 @@ function DocumentUploadBox({ title, required, formats, maxSize, status }: any) {
     <div className={`border-2 ${statusConfig[status].border} ${statusConfig[status].bg} rounded-lg p-4`}>
       <div className="flex items-start justify-between mb-3">
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">
+          <div className="font-bold text-sm text-foreground mb-1">
             {title} {required && <span className="text-red-600">*</span>}
           </div>
-          <div className="text-xs text-gray-600">
+          <div className="text-xs text-muted-foreground">
             Accepted: {formats} • Max: {maxSize}
           </div>
         </div>
@@ -1609,13 +1609,13 @@ function DocumentUploadBox({ title, required, formats, maxSize, status }: any) {
         )}
       </div>
       {status === 'pending' ? (
-        <button className="w-full px-4 py-3 border-2 border-dashed border-gray-400 rounded-lg text-sm font-medium text-gray-700 hover:bg-white flex items-center justify-center gap-2">
+        <button className="w-full px-4 py-3 border-2 border-dashed border-gray-400 rounded-lg text-sm font-medium text-muted-foreground hover:bg-card flex items-center justify-center gap-2">
           <Upload size={16} />
           Click to upload or drag and drop
         </button>
       ) : (
         <div className="flex items-center justify-between">
-          <div className="text-sm text-gray-700">document.pdf (1.2 MB)</div>
+          <div className="text-sm text-muted-foreground">document.pdf (1.2 MB)</div>
           <div className="flex items-center gap-2">
             <button className="text-sm text-blue-600 hover:underline">Preview</button>
             <button className="text-sm text-red-600 hover:underline">Remove</button>
@@ -1628,9 +1628,9 @@ function DocumentUploadBox({ title, required, formats, maxSize, status }: any) {
 
 function ReviewSection({ title, items }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 border-b-2 border-gray-300 px-4 py-3 flex items-center justify-between">
-        <h3 className="font-bold text-sm text-gray-900">{title}</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background border-b-2 border-border px-4 py-3 flex items-center justify-between">
+        <h3 className="font-bold text-sm text-foreground">{title}</h3>
         <button className="text-sm text-blue-600 hover:underline font-medium flex items-center gap-1">
           <Edit size={14} />
           Edit
@@ -1639,8 +1639,8 @@ function ReviewSection({ title, items }: any) {
       <div className="p-4 space-y-3">
         {items.map((item: any, idx: number) => (
           <div key={idx} className="flex items-start justify-between text-sm">
-            <div className="text-gray-600">{item.label}</div>
-            <div className="font-medium text-gray-900 text-right">{item.value}</div>
+            <div className="text-muted-foreground">{item.label}</div>
+            <div className="font-medium text-foreground text-right">{item.value}</div>
           </div>
         ))}
       </div>
@@ -1650,12 +1650,12 @@ function ReviewSection({ title, items }: any) {
 
 function NextStepCard({ icon, title, description }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">{icon}</div>
         <div>
-          <div className="font-bold text-sm text-gray-900 mb-1">{title}</div>
-          <div className="text-xs text-gray-600">{description}</div>
+          <div className="font-bold text-sm text-foreground mb-1">{title}</div>
+          <div className="text-xs text-muted-foreground">{description}</div>
         </div>
       </div>
     </div>
@@ -1667,9 +1667,9 @@ function PageAnnotation({ items }: any) {
     <div className="mt-4 bg-blue-50 border-l-4 border-blue-600 p-4">
       <div className="flex items-start gap-2 mb-2">
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
-        <div className="font-bold text-sm text-gray-900">Design Annotations</div>
+        <div className="font-bold text-sm text-foreground">Design Annotations</div>
       </div>
-      <ul className="space-y-1.5 text-sm text-gray-700">
+      <ul className="space-y-1.5 text-sm text-muted-foreground">
         {items.map((item: string, idx: number) => (
           <li key={idx} className="flex items-start gap-2">
             <div className="w-1 h-1 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
@@ -1683,21 +1683,21 @@ function PageAnnotation({ items }: any) {
 
 function ComponentCard({ name, variants, usage }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-2">{name}</div>
-      <div className="text-xs text-gray-600 mb-2">Variants: {variants}</div>
-      <div className="text-xs text-gray-600">Usage: {usage}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-2">{name}</div>
+      <div className="text-xs text-muted-foreground mb-2">Variants: {variants}</div>
+      <div className="text-xs text-muted-foreground">Usage: {usage}</div>
     </div>
   );
 }
 
 function UsageMapRow({ page, components }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <div className="w-32 flex-shrink-0 font-bold text-sm text-gray-900">{page}</div>
+    <div className="flex items-start gap-4 p-4 bg-background border-2 border-border rounded-lg">
+      <div className="w-32 flex-shrink-0 font-bold text-sm text-foreground">{page}</div>
       <div className="flex-1 flex flex-wrap gap-2">
         {components.map((comp: string, idx: number) => (
-          <span key={idx} className="px-2 py-1 bg-white border border-gray-300 rounded text-xs text-gray-700">
+          <span key={idx} className="px-2 py-1 bg-card border border-border rounded text-xs text-muted-foreground">
             {comp}
           </span>
         ))}
@@ -1708,21 +1708,21 @@ function UsageMapRow({ page, components }: any) {
 
 function ValidationRule({ field, rules, trigger, errorMessage }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
       <div className="flex items-start justify-between mb-3">
-        <div className="font-bold text-sm text-gray-900">{field}</div>
+        <div className="font-bold text-sm text-foreground">{field}</div>
         <div className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded">{trigger}</div>
       </div>
       <div className="space-y-2 mb-3">
         {rules.map((rule: string, idx: number) => (
-          <div key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+          <div key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
             <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{rule}</span>
           </div>
         ))}
       </div>
-      <div className="pt-3 border-t border-gray-300">
-        <div className="text-xs font-medium text-gray-600 mb-1">Error Message:</div>
+      <div className="pt-3 border-t border-border">
+        <div className="text-xs font-medium text-muted-foreground mb-1">Error Message:</div>
         <div className="text-xs text-red-600 italic">"{errorMessage}"</div>
       </div>
     </div>
@@ -1732,13 +1732,13 @@ function ValidationRule({ field, rules, trigger, errorMessage }: any) {
 function ErrorHandlingBlock({ type, description, example, implementation }: any) {
   return (
     <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
-      <div className="font-bold text-sm text-gray-900 mb-2">{type}</div>
-      <div className="text-sm text-gray-700 mb-3">{description}</div>
-      <div className="bg-white border border-red-200 rounded p-3 mb-3">
-        <div className="text-xs font-medium text-gray-600 mb-1">Example:</div>
-        <div className="text-xs text-gray-900 italic">"{example}"</div>
+      <div className="font-bold text-sm text-foreground mb-2">{type}</div>
+      <div className="text-sm text-muted-foreground mb-3">{description}</div>
+      <div className="bg-card border border-red-200 rounded p-3 mb-3">
+        <div className="text-xs font-medium text-muted-foreground mb-1">Example:</div>
+        <div className="text-xs text-foreground italic">"{example}"</div>
       </div>
-      <div className="text-xs text-gray-600">
+      <div className="text-xs text-muted-foreground">
         <span className="font-bold">Implementation:</span> {implementation}
       </div>
     </div>
@@ -1747,22 +1747,22 @@ function ErrorHandlingBlock({ type, description, example, implementation }: any)
 
 function PrincipleBlock({ title, good, bad }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-3">{title}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-3">{title}</div>
       <div className="space-y-3">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <CheckCircle size={14} className="text-green-600" />
             <span className="text-xs font-bold text-green-700">Good</span>
           </div>
-          <div className="text-sm text-gray-900 bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
+          <div className="text-sm text-foreground bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
             <span className="text-xs font-bold text-red-700">Bad</span>
           </div>
-          <div className="text-sm text-gray-900 bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
+          <div className="text-sm text-foreground bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
         </div>
       </div>
     </div>
@@ -1771,21 +1771,21 @@ function PrincipleBlock({ title, good, bad }: any) {
 
 function ToneCard({ tone, description, example }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-2">{tone}</div>
-      <div className="text-xs text-gray-700 mb-3">{description}</div>
-      <div className="text-xs text-gray-900 italic bg-white border border-gray-300 rounded p-2">{example}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-2">{tone}</div>
+      <div className="text-xs text-muted-foreground mb-3">{description}</div>
+      <div className="text-xs text-foreground italic bg-card border border-border rounded p-2">{example}</div>
     </div>
   );
 }
 
 function LabelGuideline({ element, guideline, example }: any) {
   return (
-    <div className="flex items-start gap-4 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <div className="w-32 flex-shrink-0 text-sm font-bold text-gray-900">{element}</div>
+    <div className="flex items-start gap-4 p-3 bg-background border-2 border-border rounded-lg">
+      <div className="w-32 flex-shrink-0 text-sm font-bold text-foreground">{element}</div>
       <div className="flex-1">
-        <div className="text-sm text-gray-700 mb-1">{guideline}</div>
-        <div className="text-xs text-gray-900 bg-white border border-gray-300 rounded px-2 py-1 inline-block">
+        <div className="text-sm text-muted-foreground mb-1">{guideline}</div>
+        <div className="text-xs text-foreground bg-card border border-border rounded px-2 py-1 inline-block">
           Example: "{example}"
         </div>
       </div>
@@ -1795,11 +1795,11 @@ function LabelGuideline({ element, guideline, example }: any) {
 
 function AccessibilityBlock({ principle, requirements }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
-      <div className="font-bold text-sm text-gray-900 mb-3">{principle}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-card">
+      <div className="font-bold text-sm text-foreground mb-3">{principle}</div>
       <ul className="space-y-2">
         {requirements.map((req: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <CheckCircle size={12} className="text-green-600 mt-0.5 flex-shrink-0" />
             <span>{req}</span>
           </li>
@@ -1811,12 +1811,12 @@ function AccessibilityBlock({ principle, requirements }: any) {
 
 function ScreenReaderGuideline({ element, implementation, ariaAttributes }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
-      <div className="font-bold text-sm text-gray-900 mb-2">{element}</div>
-      <div className="text-xs text-gray-700 mb-3">{implementation}</div>
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
+      <div className="font-bold text-sm text-foreground mb-2">{element}</div>
+      <div className="text-xs text-muted-foreground mb-3">{implementation}</div>
       <div className="flex flex-wrap gap-2">
         {ariaAttributes.split(', ').map((attr: string, idx: number) => (
-          <code key={idx} className="px-2 py-1 bg-white border border-gray-300 rounded text-xs text-gray-900 font-mono">
+          <code key={idx} className="px-2 py-1 bg-card border border-border rounded text-xs text-foreground font-mono">
             {attr}
           </code>
         ))}
@@ -1829,11 +1829,11 @@ function KeyboardAction({ action, behavior }: any) {
   return (
     <div className="flex items-start gap-4">
       <div className="w-32 flex-shrink-0">
-        <kbd className="px-3 py-1 bg-gray-200 border border-gray-400 rounded text-xs font-bold text-gray-900 shadow-sm">
+        <kbd className="px-3 py-1 bg-gray-200 border border-gray-400 rounded text-xs font-bold text-foreground shadow-sm">
           {action}
         </kbd>
       </div>
-      <div className="flex-1 text-gray-700">{behavior}</div>
+      <div className="flex-1 text-muted-foreground">{behavior}</div>
     </div>
   );
 }
@@ -1841,8 +1841,8 @@ function KeyboardAction({ action, behavior }: any) {
 function MultilingualGuideline({ aspect, guidance }: any) {
   return (
     <div className="text-sm">
-      <div className="font-bold text-gray-900 mb-1">{aspect}</div>
-      <div className="text-gray-700">{guidance}</div>
+      <div className="font-bold text-foreground mb-1">{aspect}</div>
+      <div className="text-muted-foreground">{guidance}</div>
     </div>
   );
 }
@@ -1855,16 +1855,16 @@ function ImplementationItem({ category, requirement, priority, notes }: any) {
   };
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+    <div className="flex items-start gap-4 p-4 bg-background border-2 border-border rounded-lg">
       <div className="w-24 flex-shrink-0">
         <div className={`px-2 py-1 rounded text-xs font-bold text-center ${priorityConfig[priority].bg} ${priorityConfig[priority].text} ${priorityConfig[priority].border} border`}>
           {priority.toUpperCase()}
         </div>
       </div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-gray-900 mb-1">{category}</div>
-        <div className="text-sm text-gray-700 mb-2">{requirement}</div>
-        {notes && <div className="text-xs text-gray-600 italic">{notes}</div>}
+        <div className="font-bold text-sm text-foreground mb-1">{category}</div>
+        <div className="text-sm text-muted-foreground mb-2">{requirement}</div>
+        {notes && <div className="text-xs text-muted-foreground italic">{notes}</div>}
       </div>
     </div>
   );
@@ -1872,11 +1872,11 @@ function ImplementationItem({ category, requirement, priority, notes }: any) {
 
 function AnalyticsEvent({ event, description, category }: any) {
   return (
-    <div className="flex items-start gap-4 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <code className="px-2 py-1 bg-white border border-gray-400 rounded text-xs font-mono text-gray-900 flex-shrink-0">
+    <div className="flex items-start gap-4 p-3 bg-background border-2 border-border rounded-lg">
+      <code className="px-2 py-1 bg-card border border-gray-400 rounded text-xs font-mono text-foreground flex-shrink-0">
         {event}
       </code>
-      <div className="flex-1 text-sm text-gray-700">{description}</div>
+      <div className="flex-1 text-sm text-muted-foreground">{description}</div>
       <div className="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded flex-shrink-0">
         {category}
       </div>
@@ -1886,14 +1886,14 @@ function AnalyticsEvent({ event, description, category }: any) {
 
 function PerformanceGuideline({ metric, target, strategies }: any) {
   return (
-    <div className="border-2 border-gray-300 rounded-lg p-4 bg-gray-50">
+    <div className="border-2 border-border rounded-lg p-4 bg-background">
       <div className="flex items-center justify-between mb-3">
-        <div className="font-bold text-sm text-gray-900">{metric}</div>
+        <div className="font-bold text-sm text-foreground">{metric}</div>
         <div className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">{target}</div>
       </div>
       <ul className="space-y-2">
         {strategies.map((strategy: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
             <Zap size={12} className="text-blue-600 mt-0.5 flex-shrink-0" />
             <span>{strategy}</span>
           </li>
@@ -1905,11 +1905,11 @@ function PerformanceGuideline({ metric, target, strategies }: any) {
 
 function ConformanceChecklistItem({ checked, label }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-gray-50 border-2 border-gray-300 rounded-lg">
-      <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${checked ? 'bg-green-500 border-green-600' : 'bg-white border-gray-400'}`}>
+    <div className="flex items-start gap-3 p-3 bg-background border-2 border-border rounded-lg">
+      <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${checked ? 'bg-green-500 border-green-600' : 'bg-card border-gray-400'}`}>
         {checked && <Check size={14} className="text-white" />}
       </div>
-      <div className="text-sm text-gray-700">{label}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -1924,12 +1924,12 @@ function MistakeBlock({ mistake, impact, solution }: any) {
   return (
     <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
-        <div className="font-bold text-sm text-gray-900 flex-1">{mistake}</div>
+        <div className="font-bold text-sm text-foreground flex-1">{mistake}</div>
         <div className={`px-2 py-1 rounded text-xs font-bold ${impactConfig[impact].bg} ${impactConfig[impact].color} flex-shrink-0 ml-3`}>
           {impact} Impact
         </div>
       </div>
-      <div className="text-sm text-gray-700">
+      <div className="text-sm text-muted-foreground">
         <span className="font-bold">Solution:</span> {solution}
       </div>
     </div>
@@ -1939,10 +1939,10 @@ function MistakeBlock({ mistake, impact, solution }: any) {
 function MaturityBlock({ status, version, description, usedBy }: any) {
   return (
     <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50">
-      <div className="font-bold text-sm text-gray-900 mb-1">{status}</div>
-      {version !== '—' && <div className="text-xs text-gray-600 mb-3">{version}</div>}
-      <div className="text-sm text-gray-700 mb-3">{description}</div>
-      <div className="text-xs text-gray-600 italic">{usedBy}</div>
+      <div className="font-bold text-sm text-foreground mb-1">{status}</div>
+      {version !== '—' && <div className="text-xs text-muted-foreground mb-3">{version}</div>}
+      <div className="text-sm text-muted-foreground mb-3">{description}</div>
+      <div className="text-xs text-muted-foreground italic">{usedBy}</div>
     </div>
   );
 }
@@ -1950,8 +1950,8 @@ function MaturityBlock({ status, version, description, usedBy }: any) {
 function MetadataRow({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -1959,8 +1959,8 @@ function MetadataRow({ label, value }: any) {
 function QuickRefItem({ label, value }: any) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-700">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -1982,7 +1982,7 @@ function RiskItem({ severity, risk }: any) {
 
 function RelatedLink({ title }: any) {
   return (
-    <a href="#" className="block px-3 py-2 bg-white border border-gray-300 rounded hover:border-[#000080] hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium">
+    <a href="#" className="block px-3 py-2 bg-card border border-border rounded hover:border-primary hover:bg-background transition-colors text-sm text-muted-foreground font-medium">
       {title}
     </a>
   );

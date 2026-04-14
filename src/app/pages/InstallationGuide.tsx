@@ -2,7 +2,7 @@ import { Check, AlertCircle, Info, Download, Code, Package, Terminal, FileText, 
 
 export default function InstallationGuide() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-card">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
@@ -23,7 +23,7 @@ export default function InstallationGuide() {
             </p>
 
             <div className="flex gap-4">
-              <a href="#quick-start" className="px-6 py-3 bg-white text-[#000080] rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              <a href="#quick-start" className="px-6 py-3 bg-card text-primary rounded-lg font-semibold hover:bg-blue-50 transition-colors">
                 Quick Start Guide
               </a>
               <a href="#support" className="px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-colors">
@@ -87,8 +87,8 @@ function GettingStartedSection() {
         <div className="flex items-start gap-3">
           <CheckCircle className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
-            <h3 className="font-bold text-gray-900 mb-2">Ready in 5 Minutes</h3>
-            <p className="text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-2">Ready in 5 Minutes</h3>
+            <p className="text-sm text-muted-foreground">
               Most teams can integrate UX4G components into an existing project in under 5 minutes. 
               New projects can be bootstrapped using our starter templates in even less time.
             </p>
@@ -101,15 +101,15 @@ function GettingStartedSection() {
 
 function StepCard({ number, title, description, icon }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-[#000080] hover:shadow-lg transition-all">
+    <div className="border-2 border-border rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all">
       <div className="flex items-start justify-between mb-4">
-        <div className="w-12 h-12 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold text-xl">
+        <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl">
           {number}
         </div>
         <div className="text-blue-600">{icon}</div>
       </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-sm text-gray-600">{description}</p>
+      <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -186,13 +186,13 @@ function AudienceCard({ title, description, responsibilities, color }: any) {
 
   return (
     <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-6`}>
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-sm text-gray-700 mb-4">{description}</p>
+      <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground mb-4">{description}</p>
       <div className="border-t-2 border-white pt-4">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">You'll need to:</h4>
+        <h4 className="font-semibold text-foreground mb-3 text-sm">You'll need to:</h4>
         <ul className="space-y-2">
           {responsibilities.map((item: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <Check className="flex-shrink-0 mt-0.5 text-gray-500" size={16} />
               <span>{item}</span>
             </li>
@@ -255,17 +255,17 @@ npm start`}
           />
           
           <div className="mt-4 grid grid-cols-3 gap-4 text-sm">
-            <div className="bg-gray-50 border border-gray-200 rounded p-3">
-              <div className="font-semibold text-gray-900 mb-1">React + TypeScript</div>
-              <div className="text-gray-600">Pre-configured setup</div>
+            <div className="bg-background border border-border rounded p-3">
+              <div className="font-semibold text-foreground mb-1">React + TypeScript</div>
+              <div className="text-muted-foreground">Pre-configured setup</div>
             </div>
-            <div className="bg-gray-50 border border-gray-200 rounded p-3">
-              <div className="font-semibold text-gray-900 mb-1">Routing Included</div>
-              <div className="text-gray-600">React Router v6</div>
+            <div className="bg-background border border-border rounded p-3">
+              <div className="font-semibold text-foreground mb-1">Routing Included</div>
+              <div className="text-muted-foreground">React Router v6</div>
             </div>
-            <div className="bg-gray-50 border border-gray-200 rounded p-3">
-              <div className="font-semibold text-gray-900 mb-1">Sample Pages</div>
-              <div className="text-gray-600">Common patterns</div>
+            <div className="bg-background border border-border rounded p-3">
+              <div className="font-semibold text-foreground mb-1">Sample Pages</div>
+              <div className="text-muted-foreground">Common patterns</div>
             </div>
           </div>
         </InstallPathway>
@@ -302,18 +302,18 @@ npm start`}
 function InstallPathway({ title, description, recommended, warning, children }: any) {
   return (
     <div className={`border-2 rounded-lg overflow-hidden ${
-      warning ? 'border-red-200' : recommended ? 'border-green-300' : 'border-gray-200'
+      warning ? 'border-red-200' : recommended ? 'border-green-300' : 'border-border'
     }`}>
       <div className={`p-6 border-b-2 ${
-        warning ? 'bg-red-50 border-red-200' : recommended ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200'
+        warning ? 'bg-red-50 border-red-200' : recommended ? 'bg-green-50 border-green-200' : 'bg-background border-border'
       }`}>
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-1">{title}</h3>
-            <p className="text-sm text-gray-700">{description}</p>
+            <h3 className="text-xl font-bold text-foreground mb-1">{title}</h3>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
           {recommended && (
-            <span className="px-3 py-1 bg-[#138808] text-white rounded-full text-xs font-semibold uppercase">
+            <span className="px-3 py-1 bg-green-700 text-white rounded-full text-xs font-semibold uppercase">
               Recommended
             </span>
           )}
@@ -396,11 +396,11 @@ function ApplicationForm() {
 
         {/* TypeScript Support */}
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info className="text-blue-600" size={20} />
             TypeScript Support
           </h3>
-          <p className="text-sm text-gray-700 mb-3">
+          <p className="text-sm text-muted-foreground mb-3">
             All UX4G React components include TypeScript definitions. You'll get full type safety 
             and IntelliSense support in VS Code and other TypeScript-aware editors.
           </p>
@@ -524,22 +524,22 @@ export class AppModule { }`}
 
         {/* Version Compatibility */}
         <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info className="text-purple-600" size={20} />
             Angular Version Compatibility
           </h3>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <div className="font-semibold text-gray-900 mb-2">Supported Versions:</div>
-              <ul className="space-y-1 text-gray-700">
+              <div className="font-semibold text-foreground mb-2">Supported Versions:</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>✓ Angular 15+</li>
                 <li>✓ Angular 16+</li>
                 <li>✓ Angular 17+ (recommended)</li>
               </ul>
             </div>
             <div>
-              <div className="font-semibold text-gray-900 mb-2">Requirements:</div>
-              <ul className="space-y-1 text-gray-700">
+              <div className="font-semibold text-foreground mb-2">Requirements:</div>
+              <ul className="space-y-1 text-muted-foreground">
                 <li>• TypeScript 4.9+</li>
                 <li>• Node.js 16+</li>
                 <li>• RxJS 7+</li>
@@ -563,9 +563,9 @@ function TokenUsageSection() {
 
       <div className="mt-8 space-y-8">
         {/* CSS Variables */}
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">CSS Variables (Recommended)</h3>
-          <p className="text-sm text-gray-700 mb-4">
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="text-xl font-bold text-foreground mb-4">CSS Variables (Recommended)</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             UX4G tokens are available as CSS custom properties. Import the stylesheet and use variables in your CSS.
           </p>
           
@@ -580,23 +580,23 @@ function TokenUsageSection() {
 }`}
           />
 
-          <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
-            <h4 className="font-semibold text-gray-900 mb-3 text-sm">Available Token Categories:</h4>
+          <div className="mt-4 bg-background border border-border rounded-lg p-4">
+            <h4 className="font-semibold text-foreground mb-3 text-sm">Available Token Categories:</h4>
             <div className="grid grid-cols-3 gap-3 text-sm">
-              <div className="text-gray-700">• Colors</div>
-              <div className="text-gray-700">• Spacing</div>
-              <div className="text-gray-700">• Typography</div>
-              <div className="text-gray-700">• Border Radius</div>
-              <div className="text-gray-700">• Shadows</div>
-              <div className="text-gray-700">• Breakpoints</div>
+              <div className="text-muted-foreground">• Colors</div>
+              <div className="text-muted-foreground">• Spacing</div>
+              <div className="text-muted-foreground">• Typography</div>
+              <div className="text-muted-foreground">• Border Radius</div>
+              <div className="text-muted-foreground">• Shadows</div>
+              <div className="text-muted-foreground">• Breakpoints</div>
             </div>
           </div>
         </div>
 
         {/* JavaScript/TypeScript */}
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">JavaScript/TypeScript Tokens</h3>
-          <p className="text-sm text-gray-700 mb-4">
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="text-xl font-bold text-foreground mb-4">JavaScript/TypeScript Tokens</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             Access tokens programmatically for dynamic styling or styled-components.
           </p>
           
@@ -619,14 +619,14 @@ const StyledButton = styled.button\`
 
         {/* Token Reference */}
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <FileText className="text-blue-600" size={20} />
             Complete Token Reference
           </h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <p className="text-sm text-muted-foreground mb-4">
             For a complete list of all available design tokens, values, and usage examples:
           </p>
-          <a href="/design-tokens" className="inline-flex items-center gap-2 text-[#000080] font-semibold hover:underline">
+          <a href="/design-tokens" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline">
             View Design Tokens Documentation <ChevronRight size={16} />
           </a>
         </div>
@@ -726,15 +726,15 @@ function LoginForm() {
 
         {/* Accessibility Pattern */}
         <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Shield className="text-[#138808]" size={20} />
             Accessibility Built-In
           </h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <p className="text-sm text-muted-foreground mb-4">
             All UX4G components include accessibility features by default. You don't need to add ARIA 
             attributes manually—they're already configured for WCAG 2.1 AA compliance.
           </p>
-          <ul className="space-y-2 text-sm text-gray-700">
+          <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
               <span>Semantic HTML elements</span>
@@ -760,9 +760,9 @@ function LoginForm() {
 
 function ComponentPattern({ title, description, children }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-sm text-gray-700 mb-4">{description}</p>
+    <div className="border-2 border-border rounded-lg p-6">
+      <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground mb-4">{description}</p>
       {children}
     </div>
   );
@@ -808,27 +808,27 @@ function StarterAppSection() {
       </div>
 
       <div className="mt-6 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-3">What's Included?</h3>
+        <h3 className="font-bold text-foreground mb-3">What's Included?</h3>
         <div className="grid grid-cols-3 gap-6 text-sm">
           <div>
-            <div className="font-semibold text-gray-900 mb-2">Core Setup</div>
-            <ul className="space-y-1 text-gray-700">
+            <div className="font-semibold text-foreground mb-2">Core Setup</div>
+            <ul className="space-y-1 text-muted-foreground">
               <li>• UX4G components installed</li>
               <li>• Design tokens configured</li>
               <li>• Routing setup</li>
             </ul>
           </div>
           <div>
-            <div className="font-semibold text-gray-900 mb-2">Sample Pages</div>
-            <ul className="space-y-1 text-gray-700">
+            <div className="font-semibold text-foreground mb-2">Sample Pages</div>
+            <ul className="space-y-1 text-muted-foreground">
               <li>• Dashboard</li>
               <li>• Form examples</li>
               <li>• Login page</li>
             </ul>
           </div>
           <div>
-            <div className="font-semibold text-gray-900 mb-2">Development Tools</div>
-            <ul className="space-y-1 text-gray-700">
+            <div className="font-semibold text-foreground mb-2">Development Tools</div>
+            <ul className="space-y-1 text-muted-foreground">
               <li>• Hot reload</li>
               <li>• Linting configured</li>
               <li>• Build scripts</li>
@@ -842,17 +842,17 @@ function StarterAppSection() {
 
 function StarterTemplate({ title, description, features, command }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden hover:border-[#000080] hover:shadow-lg transition-all">
-      <div className="bg-gray-50 border-b-2 border-gray-200 p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-        <p className="text-sm text-gray-700">{description}</p>
+    <div className="border-2 border-border rounded-lg overflow-hidden hover:border-primary hover:shadow-lg transition-all">
+      <div className="bg-background border-b-2 border-border p-6">
+        <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
       
       <div className="p-6">
-        <h4 className="font-semibold text-gray-900 mb-3 text-sm">Features:</h4>
+        <h4 className="font-semibold text-foreground mb-3 text-sm">Features:</h4>
         <ul className="space-y-2 mb-6">
           {features.map((feature: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
               <Check className="text-[#138808] flex-shrink-0 mt-0.5" size={16} />
               <span>{feature}</span>
             </li>
@@ -886,7 +886,7 @@ function MigrationNotesSection() {
       <div className="mt-8 space-y-6">
         {/* Migration Strategy */}
         <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Recommended Migration Strategy</h3>
+          <h3 className="font-bold text-foreground mb-4">Recommended Migration Strategy</h3>
           <div className="space-y-4">
             <MigrationStep
               number="1"
@@ -912,9 +912,9 @@ function MigrationNotesSection() {
         </div>
 
         {/* Common Migrations */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-4 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Common Library Migrations</h3>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-4 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Common Library Migrations</h3>
           </div>
           
           <div className="divide-y divide-gray-200">
@@ -959,8 +959,8 @@ function MigrationStep({ number, title, description }: any) {
         {number}
       </div>
       <div>
-        <div className="font-semibold text-gray-900">{title}</div>
-        <div className="text-sm text-gray-700">{description}</div>
+        <div className="font-semibold text-foreground">{title}</div>
+        <div className="text-sm text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -970,14 +970,14 @@ function MigrationGuide({ from, compatibility, notes }: any) {
   return (
     <div className="p-6">
       <div className="flex items-start justify-between mb-3">
-        <h4 className="font-bold text-gray-900">From {from}</h4>
+        <h4 className="font-bold text-foreground">From {from}</h4>
         <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
           {compatibility}
         </span>
       </div>
       <ul className="space-y-2">
         {notes.map((note: string, index: number) => (
-          <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+          <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
             <ChevronRight className="flex-shrink-0 mt-0.5 text-gray-400" size={16} />
             <span>{note}</span>
           </li>
@@ -1001,33 +1001,33 @@ function ReleaseVersionSection() {
         <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900">v1.0.0</h3>
-              <p className="text-sm text-gray-700">Current Stable Release</p>
+              <h3 className="text-2xl font-bold text-foreground">v1.0.0</h3>
+              <p className="text-sm text-muted-foreground">Current Stable Release</p>
             </div>
-            <span className="px-4 py-2 bg-[#138808] text-white rounded-lg font-semibold">
+            <span className="px-4 py-2 bg-green-700 text-white rounded-lg font-semibold">
               Latest
             </span>
           </div>
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
-              <div className="font-semibold text-gray-900 mb-1">Released</div>
-              <div className="text-gray-700">April 9, 2024</div>
+              <div className="font-semibold text-foreground mb-1">Released</div>
+              <div className="text-muted-foreground">April 9, 2024</div>
             </div>
             <div>
-              <div className="font-semibold text-gray-900 mb-1">Components</div>
-              <div className="text-gray-700">30+ Production Ready</div>
+              <div className="font-semibold text-foreground mb-1">Components</div>
+              <div className="text-muted-foreground">30+ Production Ready</div>
             </div>
             <div>
-              <div className="font-semibold text-gray-900 mb-1">Stability</div>
-              <div className="text-gray-700">Production Grade</div>
+              <div className="font-semibold text-foreground mb-1">Stability</div>
+              <div className="text-muted-foreground">Production Grade</div>
             </div>
           </div>
         </div>
 
         {/* Semantic Versioning */}
-        <div className="border-2 border-gray-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Semantic Versioning</h3>
-          <p className="text-sm text-gray-700 mb-4">
+        <div className="border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Semantic Versioning</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             UX4G follows semantic versioning (semver): MAJOR.MINOR.PATCH
           </p>
           
@@ -1049,11 +1049,11 @@ function ReleaseVersionSection() {
 
         {/* Update Notifications */}
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info className="text-blue-600" size={20} />
             Staying Updated
           </h3>
-          <ul className="space-y-3 text-sm text-gray-700">
+          <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Check className="text-blue-600 flex-shrink-0 mt-0.5" size={16} />
               <span>Check for updates: <code className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-mono text-xs">npm outdated @ux4g/react</code></span>
@@ -1140,8 +1140,8 @@ function ImplementationChecklistSection() {
         <div className="flex items-start gap-3">
           <CheckCircle className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
-            <h3 className="font-bold text-gray-900 mb-2">Ready for Production?</h3>
-            <p className="text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-2">Ready for Production?</h3>
+            <p className="text-sm text-muted-foreground">
               Once all checklist items are complete, your application is ready for production deployment. 
               Consider conducting a final accessibility audit and security review before launch.
             </p>
@@ -1154,13 +1154,13 @@ function ImplementationChecklistSection() {
 
 function ChecklistCard({ title, items }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-4">{title}</h3>
+    <div className="border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <ul className="space-y-3">
         {items.map((item: string, index: number) => (
           <li key={index} className="flex items-start gap-3">
-            <input type="checkbox" className="w-5 h-5 border-2 border-gray-300 rounded mt-0.5 flex-shrink-0" />
-            <span className="text-sm text-gray-700">{item}</span>
+            <input type="checkbox" className="w-5 h-5 border-2 border-border rounded mt-0.5 flex-shrink-0" />
+            <span className="text-sm text-muted-foreground">{item}</span>
           </li>
         ))}
       </ul>
@@ -1209,10 +1209,10 @@ function SupportEscalationSection() {
         </div>
 
         {/* Escalation Path */}
-        <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-6 border-b-2 border-gray-200">
-            <h3 className="font-bold text-gray-900">Escalation Path</h3>
-            <p className="text-sm text-gray-600 mt-1">Follow this sequence for technical support</p>
+        <div className="border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-background p-6 border-b-2 border-border">
+            <h3 className="font-bold text-foreground">Escalation Path</h3>
+            <p className="text-sm text-muted-foreground mt-1">Follow this sequence for technical support</p>
           </div>
           
           <div className="p-6 space-y-4">
@@ -1251,23 +1251,23 @@ function SupportEscalationSection() {
 
         {/* Contact Information */}
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Contact Information</h3>
+          <h3 className="font-bold text-foreground mb-4">Contact Information</h3>
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <div className="font-semibold text-gray-900 mb-2">General Inquiries</div>
-              <div className="text-gray-700">Email: info@ux4g.gov.in</div>
+              <div className="font-semibold text-foreground mb-2">General Inquiries</div>
+              <div className="text-muted-foreground">Email: info@ux4g.gov.in</div>
             </div>
             <div>
-              <div className="font-semibold text-gray-900 mb-2">Technical Support</div>
-              <div className="text-gray-700">Email: support@ux4g.gov.in</div>
+              <div className="font-semibold text-foreground mb-2">Technical Support</div>
+              <div className="text-muted-foreground">Email: support@ux4g.gov.in</div>
             </div>
             <div>
-              <div className="font-semibold text-gray-900 mb-2">Governance Team</div>
-              <div className="text-gray-700">Email: governance@ux4g.gov.in</div>
+              <div className="font-semibold text-foreground mb-2">Governance Team</div>
+              <div className="text-muted-foreground">Email: governance@ux4g.gov.in</div>
             </div>
             <div>
-              <div className="font-semibold text-gray-900 mb-2">Office Hours</div>
-              <div className="text-gray-700">Mon-Fri, 9:00 AM - 5:00 PM IST</div>
+              <div className="font-semibold text-foreground mb-2">Office Hours</div>
+              <div className="text-muted-foreground">Mon-Fri, 9:00 AM - 5:00 PM IST</div>
             </div>
           </div>
         </div>
@@ -1288,9 +1288,9 @@ function SupportChannel({ icon, title, description, action, href, color }: any) 
       <div className={`${colorClasses[color as keyof typeof colorClasses]} mb-4`}>
         {icon}
       </div>
-      <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-sm text-gray-700 mb-4">{description}</p>
-      <a href={href} className="inline-flex items-center gap-2 text-[#000080] font-semibold text-sm hover:underline">
+      <h3 className="font-bold text-foreground mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground mb-4">{description}</p>
+      <a href={href} className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline">
         {action} <ExternalLink size={14} />
       </a>
     </div>
@@ -1301,15 +1301,15 @@ function EscalationStep({ level, title, description, estimatedTime }: any) {
   return (
     <div className="flex gap-4">
       <div className="flex flex-col items-center">
-        <div className="w-10 h-10 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+        <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
           {level}
         </div>
         {level !== "5" && <div className="w-0.5 h-full bg-gray-200 mt-2"></div>}
       </div>
       <div className="flex-1 pb-4">
-        <h4 className="font-semibold text-gray-900 mb-1">{title}</h4>
-        <p className="text-sm text-gray-700 mb-2">{description}</p>
-        <div className="text-xs text-gray-600">
+        <h4 className="font-semibold text-foreground mb-1">{title}</h4>
+        <p className="text-sm text-muted-foreground mb-2">{description}</p>
+        <div className="text-xs text-muted-foreground">
           <strong>Est. Response Time:</strong> {estimatedTime}
         </div>
       </div>
@@ -1323,24 +1323,24 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-[#000080]">{icon}</div>
-        <h2 className="text-4xl font-bold text-gray-900">{title}</h2>
+        <div className="text-primary">{icon}</div>
+        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
       </div>
-      <p className="text-lg text-gray-600">{description}</p>
+      <p className="text-lg text-muted-foreground">{description}</p>
     </div>
   );
 }
 
 function UsageStep({ step, title, description, children }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
-      <div className="bg-gray-50 p-4 border-b-2 border-gray-200 flex items-center gap-4">
-        <div className="w-10 h-10 bg-[#000080] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-background p-4 border-b-2 border-border flex items-center gap-4">
+        <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
           {step}
         </div>
         <div>
-          <h3 className="font-bold text-gray-900">{title}</h3>
-          <p className="text-sm text-gray-600">{description}</p>
+          <h3 className="font-bold text-foreground">{title}</h3>
+          <p className="text-sm text-muted-foreground">{description}</p>
         </div>
       </div>
       <div className="p-6">
@@ -1352,7 +1352,7 @@ function UsageStep({ step, title, description, children }: any) {
 
 function CodeBlock({ language, code }: any) {
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+    <div className="border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-gray-900 text-white p-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Terminal size={16} />
@@ -1363,8 +1363,8 @@ function CodeBlock({ language, code }: any) {
           Copy
         </button>
       </div>
-      <pre className="bg-gray-50 p-4 overflow-x-auto">
-        <code className="text-sm font-mono text-gray-900 whitespace-pre">{code}</code>
+      <pre className="bg-background p-4 overflow-x-auto">
+        <code className="text-sm font-mono text-foreground whitespace-pre">{code}</code>
       </pre>
     </div>
   );

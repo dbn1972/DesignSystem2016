@@ -41,10 +41,14 @@ const STORAGE_KEYS = {
 } as const;
 
 const DEFAULT_PREFERENCES: ThemePreferences = {
-  colorScheme: 'system',
+  colorScheme: 'light',
   motionPreference: 'full',
   densityPreference: 'comfortable',
 };
+
+function isValidColorScheme(value: string | null): value is ColorScheme {
+  return value === 'light' || value === 'dark' || value === 'system';
+}
 
 /**
  * Get system color scheme preference
@@ -66,11 +70,23 @@ function getSystemMotionPreference(): MotionPreference {
  * Theme Provider Component
  */
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const applyColorScheme = useCallback((scheme: ColorScheme) => {
+    const effectiveDarkMode = scheme === 'system'
+      ? getSystemColorScheme() === 'dark'
+      : scheme === 'dark';
+
+    document.documentElement.setAttribute('data-theme', effectiveDarkMode ? 'dark' : 'light');
+    document.documentElement.style.colorScheme = effectiveDarkMode ? 'dark' : 'light';
+    document.documentElement.classList.toggle('dark', effectiveDarkMode);
+
+    return effectiveDarkMode;
+  }, []);
+
   // Initialize color scheme
   const [colorScheme, setColorSchemeState] = useState<ColorScheme>(() => {
-    if (typeof window === 'undefined') return 'system';
+    if (typeof window === 'undefined') return DEFAULT_PREFERENCES.colorScheme;
     const stored = localStorage.getItem(STORAGE_KEYS.colorScheme);
-    return (stored as ColorScheme) || DEFAULT_PREFERENCES.colorScheme;
+    return isValidColorScheme(stored) ? stored : DEFAULT_PREFERENCES.colorScheme;
   });
 
   // Initialize motion preference
@@ -90,24 +106,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Calculate effective dark mode based on color scheme
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     if (typeof window === 'undefined') return false;
-    const scheme = localStorage.getItem(STORAGE_KEYS.colorScheme) as ColorScheme || 'system';
+    const stored = localStorage.getItem(STORAGE_KEYS.colorScheme);
+    const scheme = isValidColorScheme(stored) ? stored : DEFAULT_PREFERENCES.colorScheme;
     return scheme === 'system' ? getSystemColorScheme() === 'dark' : scheme === 'dark';
   });
 
   // Apply dark mode class to document
   useEffect(() => {
-    const effectiveDarkMode = colorScheme === 'system'
-      ? getSystemColorScheme() === 'dark'
-      : colorScheme === 'dark';
-
+    const effectiveDarkMode = applyColorScheme(colorScheme);
     setIsDarkMode(effectiveDarkMode);
-
-    if (effectiveDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [colorScheme]);
+  }, [applyColorScheme, colorScheme]);
 
   // Apply motion preference
   useEffect(() => {
@@ -136,23 +144,35 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-      if (e.matches) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      const effectiveDarkMode = applyColorScheme('system');
+      setIsDarkMode(effectiveDarkMode);
     };
 
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [colorScheme]);
+  }, [applyColorScheme, colorScheme]);
+
+  // Keep theme in sync across tabs/windows.
+  useEffect(() => {
+    const onStorage = (event: StorageEvent) => {
+      if (event.key !== STORAGE_KEYS.colorScheme) return;
+      const nextScheme = isValidColorScheme(event.newValue) ? event.newValue : DEFAULT_PREFERENCES.colorScheme;
+      setColorSchemeState(nextScheme);
+      const effectiveDarkMode = applyColorScheme(nextScheme);
+      setIsDarkMode(effectiveDarkMode);
+    };
+
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, [applyColorScheme]);
 
   // Color scheme setter
   const setColorScheme = useCallback((scheme: ColorScheme) => {
     setColorSchemeState(scheme);
     localStorage.setItem(STORAGE_KEYS.colorScheme, scheme);
-  }, []);
+    const effectiveDarkMode = applyColorScheme(scheme);
+    setIsDarkMode(effectiveDarkMode);
+  }, [applyColorScheme]);
 
   // Toggle dark mode (legacy support)
   const toggleDarkMode = useCallback(() => {

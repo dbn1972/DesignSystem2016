@@ -26,7 +26,7 @@ const PANCardInputPreview = ({
 
   return (
     <div className="w-full max-w-md">
-      <label className="block text-sm font-medium text-gray-700 mb-2">
+      <label className="block text-sm font-medium text-muted-foreground mb-2">
         PAN Card Number {required && <span className="text-red-600">*</span>}
       </label>
       <div className="relative">
@@ -40,8 +40,8 @@ const PANCardInputPreview = ({
           className={`w-full h-11 px-4 py-2 text-base border rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196] transition-all ${
             error
               ? 'border-red-500 focus-visible:ring-red-500'
-              : 'border-gray-300'
-          } ${disabled ? 'bg-gray-100 cursor-not-allowed opacity-60' : 'bg-white'}`}
+              : 'border-border'
+          } ${disabled ? 'bg-muted cursor-not-allowed opacity-60' : 'bg-card'}`}
           aria-invalid={error ? 'true' : 'false'}
           aria-describedby={helperText ? 'pan-helper-text' : undefined}
           {...props}
@@ -59,7 +59,7 @@ const PANCardInputPreview = ({
       {helperText && (
         <p
           id="pan-helper-text"
-          className={`mt-1.5 text-sm ${error ? 'text-red-600' : 'text-gray-600'}`}
+          className={`mt-1.5 text-sm ${error ? 'text-red-600' : 'text-muted-foreground'}`}
         >
           {helperText}
         </p>
@@ -498,13 +498,13 @@ function Example() {
           preview: (
             <form className="space-y-4 w-full max-w-md">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Full Name (as per PAN Card) <span className="text-red-600">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Enter your full name"
-                  className="w-full h-11 px-4 py-2 border border-gray-300 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]"
+                  className="w-full h-11 px-4 py-2 border border-border rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]"
                   required
                 />
               </div>
@@ -516,12 +516,12 @@ function Example() {
               />
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   Date of Birth <span className="text-red-600">*</span>
                 </label>
                 <input
                   type="date"
-                  className="w-full h-11 px-4 py-2 border border-gray-300 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]"
+                  className="w-full h-11 px-4 py-2 border border-border rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#005196]"
                   required
                 />
               </div>
@@ -656,7 +656,7 @@ export const PANCardInput = forwardRef<HTMLInputElement, PANCardInputProps>(
       <div className={cn('w-full', className)}>
         <label
           htmlFor={id}
-          className="block text-sm font-medium text-gray-700 mb-2"
+          className="block text-sm font-medium text-muted-foreground mb-2"
         >
           PAN Card Number
           {required && <span className="text-red-600 ml-1">*</span>}
@@ -682,9 +682,9 @@ export const PANCardInput = forwardRef<HTMLInputElement, PANCardInputProps>(
               'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
               showError
                 ? 'border-red-500 focus-visible:ring-red-500'
-                : 'border-gray-300 focus-visible:ring-[#005196]',
-              disabled && 'bg-gray-100 cursor-not-allowed opacity-60',
-              !disabled && 'bg-white'
+                : 'border-border focus-visible:ring-[#005196]',
+              disabled && 'bg-muted cursor-not-allowed opacity-60',
+              !disabled && 'bg-card'
             )}
             aria-invalid={showError ? 'true' : 'false'}
             aria-describedby={helperText ? \`\${id}-helper-text\` : undefined}
@@ -712,7 +712,7 @@ export const PANCardInput = forwardRef<HTMLInputElement, PANCardInputProps>(
             id={\`\${id}-helper-text\`}
             className={cn(
               'mt-1.5 text-sm',
-              showError ? 'text-red-600' : 'text-gray-600'
+              showError ? 'text-red-600' : 'text-muted-foreground'
             )}
           >
             {helperText}
@@ -765,18 +765,18 @@ export const panCardInputVariants = cva(
           'focus-visible:ring-red-500',
         ],
         false: [
-          'border-gray-300',
+          'border-border',
           'focus-visible:ring-[#005196]',
         ],
       },
       disabled: {
         true: [
-          'bg-gray-100',
+          'bg-muted',
           'cursor-not-allowed',
           'opacity-60',
         ],
         false: [
-          'bg-white',
+          'bg-card',
         ],
       },
     },
@@ -1112,7 +1112,7 @@ export interface PANCardInputConfig {
               PAN Card Format Specification
             </h3>
             <div className="space-y-3 text-amber-900">
-              <div className="font-mono text-lg bg-white p-3 rounded border border-amber-300">
+              <div className="font-mono text-lg bg-card p-3 rounded border border-amber-300">
                 <span className="text-blue-600">AAAAA</span>
                 <span className="text-green-600">9999</span>
                 <span className="text-purple-600">A</span>

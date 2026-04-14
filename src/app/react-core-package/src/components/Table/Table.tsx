@@ -16,7 +16,7 @@
  * ```
  */
 
-import React, { ReactNode, useState, useMemo } from 'react';
+import { ReactNode, useState, useMemo } from 'react';
 import { cn } from '../../utils/cn';
 import { TableProps, SortState, TableColumn } from './Table.types';
 

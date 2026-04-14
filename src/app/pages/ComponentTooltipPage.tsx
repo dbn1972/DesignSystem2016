@@ -326,7 +326,7 @@ function Example() {
 }`,
           preview: (
             <div className="space-y-4">
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-muted-foreground">
                 (Tooltip always enabled in preview)
               </div>
               <TooltipPreview content="This tooltip can be toggled">

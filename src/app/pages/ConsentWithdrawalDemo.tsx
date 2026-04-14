@@ -94,9 +94,9 @@ export default function ConsentWithdrawalDemo() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
@@ -105,11 +105,11 @@ export default function ConsentWithdrawalDemo() {
                   <Settings size={32} className="text-green-700" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Interactive Pattern Demo</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Consent Withdrawal & Review Flow</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Interactive Pattern Demo</div>
+                  <h1 className="text-3xl font-bold text-foreground">Consent Withdrawal & Review Flow</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Interactive demonstration of consent review and withdrawal pattern. Users can view their active 
                 consents, understand implications of withdrawal, and manage their data permissions with full 
                 transparency and control.
@@ -117,14 +117,14 @@ export default function ConsentWithdrawalDemo() {
               <div className="flex items-center gap-4">
                 <Link 
                   to="/patterns/consent"
-                  className="text-sm text-[#000080] font-bold hover:underline flex items-center gap-1"
+                  className="text-sm text-primary font-bold hover:underline flex items-center gap-1"
                 >
                   <ArrowLeft size={16} />
                   Back to Consent Patterns
                 </Link>
                 <button 
                   onClick={resetDemo}
-                  className="text-sm text-gray-600 font-bold hover:text-gray-900 flex items-center gap-1"
+                  className="text-sm text-muted-foreground font-bold hover:text-foreground flex items-center gap-1"
                 >
                   Reset Demo
                 </button>
@@ -143,7 +143,7 @@ export default function ConsentWithdrawalDemo() {
           
           {/* Interactive Flow - 8 columns */}
           <div className="col-span-8">
-            <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+            <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
               
               {flowState === "summary" && (
                 <SummaryScreen 
@@ -230,9 +230,9 @@ export default function ConsentWithdrawalDemo() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Consent Withdrawal & Review Interactive Demo</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -246,7 +246,7 @@ export default function ConsentWithdrawalDemo() {
 
 function StateIndicator({ currentState }: { currentState: FlowState }) {
   const stateConfig = {
-    summary: { label: "Summary", color: "bg-gray-100 text-gray-700" },
+    summary: { label: "Summary", color: "bg-muted text-muted-foreground" },
     details: { label: "Details", color: "bg-blue-100 text-blue-700" },
     "change-options": { label: "Change Options", color: "bg-purple-100 text-purple-700" },
     "withdraw-impact": { label: "Impact Review", color: "bg-orange-100 text-orange-700" },
@@ -261,8 +261,8 @@ function StateIndicator({ currentState }: { currentState: FlowState }) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="text-xs font-bold text-gray-600 text-right">CURRENT STATE</div>
-      <div className={`px-4 py-3 ${config.color} border-2 border-gray-300 rounded font-bold text-sm text-center min-w-[180px]`}>
+      <div className="text-xs font-bold text-muted-foreground text-right">CURRENT STATE</div>
+      <div className={`px-4 py-3 ${config.color} border-2 border-border rounded font-bold text-sm text-center min-w-[180px]`}>
         {config.label}
       </div>
     </div>
@@ -283,14 +283,14 @@ function SummaryScreen({
   return (
     <>
       <div className="bg-gradient-to-r from-[#FF9933] via-white to-[#138808] p-1">
-        <div className="bg-white px-8 py-6">
+        <div className="bg-card px-8 py-6">
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 bg-green-700 rounded flex items-center justify-center flex-shrink-0">
               <Shield size={32} className="text-white" />
             </div>
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Manage Your Consents</h2>
-              <p className="text-sm text-gray-700">
+              <h2 className="text-2xl font-bold text-foreground mb-2">Manage Your Consents</h2>
+              <p className="text-sm text-muted-foreground">
                 Review and manage data processing consents you've provided to government services
               </p>
             </div>
@@ -302,10 +302,10 @@ function SummaryScreen({
         
         {/* Info Notice */}
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
-          <Info size={20} className="text-[#000080] flex-shrink-0 mt-0.5" />
+          <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
           <div className="flex-1">
-            <h3 className="font-bold text-gray-900 mb-1 text-sm">Your Data, Your Control</h3>
-            <p className="text-sm text-gray-700">
+            <h3 className="font-bold text-foreground mb-1 text-sm">Your Data, Your Control</h3>
+            <p className="text-sm text-muted-foreground">
               You have the right to review and withdraw your consent for data processing. Some consents 
               cannot be withdrawn if they are legally required or tied to active services.
             </p>
@@ -314,7 +314,7 @@ function SummaryScreen({
 
         {/* Consent List */}
         <div className="space-y-4">
-          <h3 className="font-bold text-gray-900">Active Consents ({consents.length})</h3>
+          <h3 className="font-bold text-foreground">Active Consents ({consents.length})</h3>
           
           {consents.map((consent) => (
             <ConsentCard
@@ -329,7 +329,7 @@ function SummaryScreen({
         <div className="pt-4 text-center">
           <button
             onClick={onHelp}
-            className="text-sm text-[#000080] hover:underline flex items-center gap-1 mx-auto"
+            className="text-sm text-primary hover:underline flex items-center gap-1 mx-auto"
           >
             <HelpCircle size={16} />
             Understanding consent withdrawal
@@ -351,18 +351,18 @@ function ConsentCard({
   return (
     <button
       onClick={onViewDetails}
-      className="w-full bg-white border-2 border-gray-300 hover:border-[#000080] rounded-lg p-6 text-left transition-all group"
+      className="w-full bg-card border-2 border-border hover:border-primary rounded-lg p-6 text-left transition-all group"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">
-          <h4 className="font-bold text-gray-900 mb-1 group-hover:text-[#000080]">{consent.service}</h4>
-          <p className="text-sm text-gray-600">{consent.purpose}</p>
+          <h4 className="font-bold text-foreground mb-1 group-hover:text-primary">{consent.service}</h4>
+          <p className="text-sm text-muted-foreground">{consent.purpose}</p>
         </div>
-        <ChevronRight size={20} className="text-gray-400 group-hover:text-[#000080] group-hover:translate-x-1 transition-all flex-shrink-0 ml-4" />
+        <ChevronRight size={20} className="text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-4" />
       </div>
       
       <div className="flex items-center gap-4 text-xs">
-        <div className="flex items-center gap-1 text-gray-600">
+        <div className="flex items-center gap-1 text-muted-foreground">
           <Clock size={14} />
           <span>Granted: {consent.dateGranted}</span>
         </div>
@@ -392,24 +392,24 @@ function DetailsScreen({
 }) {
   return (
     <>
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-6">
+      <div className="bg-muted border-b-2 border-border px-8 py-6">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-3"
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-3"
         >
           <ArrowLeft size={16} />
           Back to all consents
         </button>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">{consent.service}</h2>
-        <p className="text-sm text-gray-700">{consent.purpose}</p>
+        <h2 className="text-2xl font-bold text-foreground mb-2">{consent.service}</h2>
+        <p className="text-sm text-muted-foreground">{consent.purpose}</p>
       </div>
 
       <div className="p-8 space-y-6">
         
         {/* Consent Details */}
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Info size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+            <Info size={20} className="text-primary" />
             Consent Details
           </h3>
           <div className="space-y-3 text-sm">
@@ -421,16 +421,16 @@ function DetailsScreen({
         </div>
 
         {/* Data Types */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Database size={20} className="text-gray-700" />
+        <div className="bg-card border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+            <Database size={20} className="text-muted-foreground" />
             Data Being Processed
           </h3>
           <div className="space-y-2">
             {consent.dataTypes.map((type, idx) => (
               <div key={idx} className="flex items-start gap-2">
                 <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-gray-700">{type}</span>
+                <span className="text-sm text-muted-foreground">{type}</span>
               </div>
             ))}
           </div>
@@ -438,11 +438,11 @@ function DetailsScreen({
 
         {/* Your Rights */}
         <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Shield size={20} className="text-green-600" />
             Your Rights
           </h3>
-          <div className="space-y-2 text-sm text-gray-700">
+          <div className="space-y-2 text-sm text-muted-foreground">
             <RightItem text="View all data collected under this consent" />
             <RightItem text="Request correction of inaccurate data" />
             <RightItem text="Export your data in portable format" />
@@ -467,7 +467,7 @@ function DetailsScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onChangeOptions}
-            className="flex-1 px-6 py-4 border-2 border-[#000080] bg-white text-[#000080] font-bold rounded text-sm hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
+            className="flex-1 px-6 py-4 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
           >
             <Edit size={18} />
             Modify Preferences
@@ -476,8 +476,8 @@ function DetailsScreen({
             onClick={onWithdraw}
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-colors flex items-center justify-center gap-2 ${
               consent.canWithdraw
-                ? 'border-2 border-red-600 bg-white text-red-700 hover:bg-red-50'
-                : 'border-2 border-gray-300 bg-gray-100 text-gray-500 cursor-not-allowed'
+                ? 'border-2 border-red-600 bg-card text-red-700 hover:bg-red-50'
+                : 'border-2 border-border bg-muted text-gray-500 cursor-not-allowed'
             }`}
           >
             <Trash2 size={18} />
@@ -493,8 +493,8 @@ function DetailsScreen({
 function DetailRow({ label, value, badge }: { label: string; value: string; badge?: "success" | "warning" }) {
   return (
     <div className="flex items-start justify-between">
-      <span className="text-gray-600">{label}:</span>
-      <span className="font-bold text-gray-900">
+      <span className="text-muted-foreground">{label}:</span>
+      <span className="font-bold text-foreground">
         {badge ? (
           <span className={`px-2 py-1 rounded text-xs ${
             badge === "success" ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'
@@ -534,30 +534,30 @@ function ChangeOptionsScreen({
 
   return (
     <>
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-8 py-6">
+      <div className="bg-muted border-b-2 border-border px-8 py-6">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-3"
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-3"
         >
           <ArrowLeft size={16} />
           Back to details
         </button>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Modify Consent Preferences</h2>
-        <p className="text-sm text-gray-700">Adjust how your data is used for {consent.service}</p>
+        <h2 className="text-2xl font-bold text-foreground mb-2">Modify Consent Preferences</h2>
+        <p className="text-sm text-muted-foreground">Adjust how your data is used for {consent.service}</p>
       </div>
 
       <div className="p-8 space-y-6">
         
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
-          <Info size={20} className="text-[#000080] flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-gray-700">
+          <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-muted-foreground">
             Some data processing is required for the service to function. Optional preferences can be adjusted below.
           </p>
         </div>
 
         {/* Required Processing */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Required Data Processing</h3>
+        <div className="bg-card border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Required Data Processing</h3>
           <div className="space-y-3">
             <RequiredItem 
               text="Identity verification and authentication" 
@@ -572,14 +572,14 @@ function ChangeOptionsScreen({
               locked={true}
             />
           </div>
-          <p className="text-xs text-gray-600 mt-3">
+          <p className="text-xs text-muted-foreground mt-3">
             These cannot be disabled as they are essential for service operation
           </p>
         </div>
 
         {/* Optional Preferences */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">Optional Preferences</h3>
+        <div className="bg-card border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">Optional Preferences</h3>
           <div className="space-y-4">
             <PreferenceToggle
               label="Service notifications and updates"
@@ -600,13 +600,13 @@ function ChangeOptionsScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onBack}
-            className="px-6 py-3 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Cancel
           </button>
           <button
             onClick={onComplete}
-            className="flex-1 px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900"
+            className="flex-1 px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
           >
             Save Preferences
           </button>
@@ -619,8 +619,8 @@ function ChangeOptionsScreen({
 
 function RequiredItem({ text, locked }: { text: string; locked: boolean }) {
   return (
-    <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
-      <span className="text-sm text-gray-700">{text}</span>
+    <div className="flex items-center justify-between p-3 bg-background rounded">
+      <span className="text-sm text-muted-foreground">{text}</span>
       {locked && (
         <div className="flex items-center gap-1 text-xs text-gray-500">
           <Lock size={14} />
@@ -643,7 +643,7 @@ function PreferenceToggle({
   onChange: (checked: boolean) => void;
 }) {
   return (
-    <label className="flex items-start gap-4 cursor-pointer p-3 hover:bg-gray-50 rounded">
+    <label className="flex items-start gap-4 cursor-pointer p-3 hover:bg-background rounded">
       <input
         type="checkbox"
         checked={checked}
@@ -651,8 +651,8 @@ function PreferenceToggle({
         className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
       />
       <div className="flex-1">
-        <div className="font-bold text-gray-900 text-sm mb-1">{label}</div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="font-bold text-foreground text-sm mb-1">{label}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </label>
   );
@@ -678,13 +678,13 @@ function WithdrawImpactScreen({
       <div className="bg-orange-100 border-b-2 border-orange-300 px-8 py-6">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-3"
+          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-3"
         >
           <ArrowLeft size={16} />
           Back to details
         </button>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Impact of Withdrawal</h2>
-        <p className="text-sm text-gray-700">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Impact of Withdrawal</h2>
+        <p className="text-sm text-muted-foreground">
           Understand what will happen if you withdraw consent for {consent.service}
         </p>
       </div>
@@ -706,8 +706,8 @@ function WithdrawImpactScreen({
         </div>
 
         {/* What Will Happen */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <div className="bg-card border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <XCircle size={20} className="text-red-600" />
             What Will Happen
           </h3>
@@ -732,9 +732,9 @@ function WithdrawImpactScreen({
         </div>
 
         {/* What Will NOT Happen */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Info size={20} className="text-[#000080]" />
+        <div className="bg-card border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+            <Info size={20} className="text-primary" />
             What Will NOT Happen
           </h3>
           <div className="space-y-3 text-sm">
@@ -755,25 +755,25 @@ function WithdrawImpactScreen({
 
         {/* Data Retention */}
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-            <Database size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+            <Database size={20} className="text-primary" />
             Data Retention After Withdrawal
           </h3>
-          <p className="text-sm text-gray-700 leading-relaxed mb-3">
+          <p className="text-sm text-muted-foreground leading-relaxed mb-3">
             Even after consent withdrawal, we are legally required to retain certain data for:
           </p>
-          <div className="space-y-2 text-sm text-gray-700">
+          <div className="space-y-2 text-sm text-muted-foreground">
             <RetentionItem text="Audit and compliance purposes: 5 years" />
             <RetentionItem text="Fraud prevention and investigation: As needed" />
             <RetentionItem text="Legal disputes or ongoing proceedings: Duration of case" />
           </div>
-          <p className="text-xs text-gray-600 mt-3">
+          <p className="text-xs text-muted-foreground mt-3">
             All retained data will be marked as withdrawn and will not be used for any new processing
           </p>
         </div>
 
         {/* Understanding Checkbox */}
-        <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6">
+        <div className="bg-background border-2 border-border rounded-lg p-6">
           <label className="flex items-start gap-4 cursor-pointer">
             <input
               type="checkbox"
@@ -781,7 +781,7 @@ function WithdrawImpactScreen({
               onChange={(e) => onUnderstandChange(e.target.checked)}
               className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
             />
-            <span className="text-sm text-gray-900 font-bold">
+            <span className="text-sm text-foreground font-bold">
               I understand the consequences of withdrawing my consent and wish to proceed
             </span>
           </label>
@@ -791,7 +791,7 @@ function WithdrawImpactScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onBack}
-            className="flex-1 px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="flex-1 px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Keep My Consent Active
           </button>
@@ -821,7 +821,7 @@ function ImpactItem({ type, text }: { type: "negative" | "neutral"; text: string
       ) : (
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
       )}
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -853,8 +853,8 @@ function WithdrawConfirmScreen({
   return (
     <>
       <div className="bg-red-100 border-b-2 border-red-300 px-8 py-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Final Confirmation</h2>
-        <p className="text-sm text-gray-700">
+        <h2 className="text-2xl font-bold text-foreground mb-2">Final Confirmation</h2>
+        <p className="text-sm text-muted-foreground">
           This is your last chance to cancel before withdrawing consent
         </p>
       </div>
@@ -877,30 +877,30 @@ function WithdrawConfirmScreen({
         </div>
 
         {/* What You're Withdrawing */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-          <h3 className="font-bold text-gray-900 mb-4">You Are Withdrawing Consent For:</h3>
+        <div className="bg-card border-2 border-border rounded-lg p-6">
+          <h3 className="font-bold text-foreground mb-4">You Are Withdrawing Consent For:</h3>
           <div className="space-y-3 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-600">Service:</span>
-              <span className="font-bold text-gray-900">{consent.service}</span>
+              <span className="text-muted-foreground">Service:</span>
+              <span className="font-bold text-foreground">{consent.service}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Purpose:</span>
-              <span className="font-bold text-gray-900">{consent.purpose}</span>
+              <span className="text-muted-foreground">Purpose:</span>
+              <span className="font-bold text-foreground">{consent.purpose}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Originally Granted:</span>
-              <span className="font-bold text-gray-900">{consent.dateGranted}</span>
+              <span className="text-muted-foreground">Originally Granted:</span>
+              <span className="font-bold text-foreground">{consent.dateGranted}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Withdrawal Date:</span>
-              <span className="font-bold text-gray-900">April 9, 2026</span>
+              <span className="text-muted-foreground">Withdrawal Date:</span>
+              <span className="font-bold text-foreground">April 9, 2026</span>
             </div>
           </div>
         </div>
 
         {/* Confirmation Required */}
-        <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6">
+        <div className="bg-background border-2 border-border rounded-lg p-6">
           <label className="flex items-start gap-4 cursor-pointer">
             <input
               type="checkbox"
@@ -909,10 +909,10 @@ function WithdrawConfirmScreen({
               className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
             />
             <div className="flex-1">
-              <span className="text-sm text-gray-900 font-bold block mb-2">
+              <span className="text-sm text-foreground font-bold block mb-2">
                 I confirm that I want to withdraw my consent for {consent.service}
               </span>
-              <span className="text-xs text-gray-600">
+              <span className="text-xs text-muted-foreground">
                 I understand this will deactivate my account and cancel any active applications
               </span>
             </div>
@@ -922,10 +922,10 @@ function WithdrawConfirmScreen({
         {/* Alternative Options */}
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4">
           <div className="flex items-start gap-3">
-            <Info size={18} className="text-[#000080] flex-shrink-0 mt-0.5" />
+            <Info size={18} className="text-primary flex-shrink-0 mt-0.5" />
             <div className="flex-1">
-              <h4 className="font-bold text-gray-900 mb-1 text-sm">Not Sure?</h4>
-              <p className="text-xs text-gray-700">
+              <h4 className="font-bold text-foreground mb-1 text-sm">Not Sure?</h4>
+              <p className="text-xs text-muted-foreground">
                 Instead of withdrawing entirely, you can modify your consent preferences to limit how 
                 your data is used while keeping the service active.
               </p>
@@ -937,7 +937,7 @@ function WithdrawConfirmScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onBack}
-            className="flex-1 px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="flex-1 px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Go Back
           </button>
@@ -969,18 +969,18 @@ function WithdrawSuccessScreen({ consent, onReset }: { consent: ConsentItem; onR
           <CheckCircle size={48} className="text-green-600" />
         </div>
         
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">Consent Withdrawn Successfully</h2>
-        <p className="text-gray-700 mb-8 leading-relaxed">
+        <h2 className="text-3xl font-bold text-foreground mb-3">Consent Withdrawn Successfully</h2>
+        <p className="text-muted-foreground mb-8 leading-relaxed">
           Your consent for <span className="font-bold">{consent.service}</span> has been withdrawn. 
           Your account has been deactivated and active applications have been cancelled.
         </p>
 
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Info size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
+            <Info size={20} className="text-primary" />
             What Happens Next
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <NextStepItem text="Confirmation email sent to your registered email address" />
             <NextStepItem text="Service access deactivated immediately" />
             <NextStepItem text="Historical data retained for legal compliance (5 years)" />
@@ -1013,16 +1013,16 @@ function WithdrawSuccessScreen({ consent, onReset }: { consent: ConsentItem; onR
         <div className="space-y-3">
           <button
             onClick={onReset}
-            className="w-full px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900"
+            className="w-full px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
           >
             Return to Consent Management
           </button>
-          <button className="w-full px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50">
+          <button className="w-full px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background">
             Download Withdrawal Confirmation
           </button>
         </div>
 
-        <p className="text-xs text-gray-600 mt-6">
+        <p className="text-xs text-muted-foreground mt-6">
           Reference ID: WD-{consent.id}-{Date.now()}
         </p>
       </div>
@@ -1049,18 +1049,18 @@ function ChangeSuccessScreen({ consent, onReset }: { consent: ConsentItem; onRes
           <CheckCircle size={48} className="text-green-600" />
         </div>
         
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">Preferences Updated</h2>
-        <p className="text-gray-700 mb-8 leading-relaxed">
+        <h2 className="text-3xl font-bold text-foreground mb-3">Preferences Updated</h2>
+        <p className="text-muted-foreground mb-8 leading-relaxed">
           Your consent preferences for <span className="font-bold">{consent.service}</span> have been 
           successfully updated. Changes are effective immediately.
         </p>
 
         <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
-          <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <CheckCircle size={20} className="text-green-600" />
             Changes Applied
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <ChangeItem text="Service notifications and updates: Enabled" status="updated" />
             <ChangeItem text="Surveys and feedback requests: Disabled" status="updated" />
             <ChangeItem text="Core service functionality: Active (Required)" status="unchanged" />
@@ -1069,9 +1069,9 @@ function ChangeSuccessScreen({ consent, onReset }: { consent: ConsentItem; onRes
 
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 mb-8">
           <div className="flex items-start gap-3 text-left">
-            <Info size={20} className="text-[#000080] flex-shrink-0 mt-0.5" />
+            <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
             <div className="flex-1">
-              <p className="text-sm text-gray-700">
+              <p className="text-sm text-muted-foreground">
                 A confirmation email has been sent to your registered email address. 
                 You can modify these preferences anytime from your account settings.
               </p>
@@ -1082,7 +1082,7 @@ function ChangeSuccessScreen({ consent, onReset }: { consent: ConsentItem; onRes
         <div className="space-y-3">
           <button
             onClick={onReset}
-            className="w-full px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900"
+            className="w-full px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
           >
             Return to Consent Management
           </button>
@@ -1095,9 +1095,9 @@ function ChangeSuccessScreen({ consent, onReset }: { consent: ConsentItem; onRes
 function ChangeItem({ text, status }: { text: string; status: "updated" | "unchanged" }) {
   return (
     <div className="flex items-start justify-between">
-      <span className="text-gray-700">{text}</span>
+      <span className="text-muted-foreground">{text}</span>
       <span className={`text-xs font-bold px-2 py-1 rounded ${
-        status === "updated" ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
+        status === "updated" ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'
       }`}>
         {status === "updated" ? "Updated" : "No change"}
       </span>
@@ -1123,8 +1123,8 @@ function RestrictedScreen({
           <Lock size={48} className="text-orange-600" />
         </div>
         
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">Withdrawal Not Available</h2>
-        <p className="text-gray-700 mb-8 leading-relaxed">
+        <h2 className="text-3xl font-bold text-foreground mb-3">Withdrawal Not Available</h2>
+        <p className="text-muted-foreground mb-8 leading-relaxed">
           Consent for <span className="font-bold">{consent.service}</span> cannot be withdrawn at this time.
         </p>
 
@@ -1139,11 +1139,11 @@ function RestrictedScreen({
         </div>
 
         <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-            <Info size={20} className="text-[#000080]" />
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+            <Info size={20} className="text-primary" />
             Your Options
           </h3>
-          <div className="space-y-3 text-sm text-gray-700">
+          <div className="space-y-3 text-sm text-muted-foreground">
             <OptionItem text="Complete or cancel your active application first" />
             <OptionItem text="Modify consent preferences without full withdrawal" />
             <OptionItem text="Contact support for special circumstances" />
@@ -1154,13 +1154,13 @@ function RestrictedScreen({
         <div className="space-y-3">
           <button
             onClick={onBack}
-            className="w-full px-6 py-4 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900"
+            className="w-full px-6 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
           >
             Return to Consent Details
           </button>
           <button
             onClick={onHelp}
-            className="w-full px-6 py-4 border-2 border-gray-300 bg-white text-gray-700 font-bold rounded text-sm hover:bg-gray-50"
+            className="w-full px-6 py-4 border-2 border-border bg-card text-muted-foreground font-bold rounded text-sm hover:bg-background"
           >
             Contact Support
           </button>
@@ -1173,7 +1173,7 @@ function RestrictedScreen({
 function OptionItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
-      <ChevronRight size={16} className="text-[#000080] mt-0.5 flex-shrink-0" />
+      <ChevronRight size={16} className="text-primary mt-0.5 flex-shrink-0" />
       <span>{text}</span>
     </div>
   );
@@ -1190,8 +1190,8 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
             <HelpCircle size={32} className="text-orange-600" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Consent Withdrawal Help</h2>
-            <p className="text-sm text-gray-600">Common questions about managing consent</p>
+            <h2 className="text-2xl font-bold text-foreground">Consent Withdrawal Help</h2>
+            <p className="text-sm text-muted-foreground">Common questions about managing consent</p>
           </div>
         </div>
 
@@ -1231,18 +1231,18 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
         </div>
 
         <div className="mt-8 p-6 bg-blue-50 border-2 border-blue-300 rounded-lg">
-          <h3 className="font-bold text-gray-900 mb-3">Still Have Questions?</h3>
-          <p className="text-sm text-gray-700 mb-4">
+          <h3 className="font-bold text-foreground mb-3">Still Have Questions?</h3>
+          <p className="text-sm text-muted-foreground mb-4">
             Contact our Data Protection Officer for personalized assistance with consent management.
           </p>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <span className="font-bold text-gray-900">Email:</span>{' '}
-              <a href="#" className="text-[#000080] hover:underline">privacy@service.gov.in</a>
+              <span className="font-bold text-foreground">Email:</span>{' '}
+              <a href="#" className="text-primary hover:underline">privacy@service.gov.in</a>
             </div>
             <div>
-              <span className="font-bold text-gray-900">Helpline:</span>{' '}
-              <a href="#" className="text-[#000080] hover:underline">1800-XXX-XXXX</a>
+              <span className="font-bold text-foreground">Helpline:</span>{' '}
+              <a href="#" className="text-primary hover:underline">1800-XXX-XXXX</a>
             </div>
           </div>
         </div>
@@ -1250,7 +1250,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
         <div className="mt-8 text-center">
           <button
             onClick={onBack}
-            className="px-6 py-3 bg-[#000080] text-white font-bold rounded text-sm hover:bg-blue-900 inline-flex items-center gap-2"
+            className="px-6 py-3 bg-primary text-white font-bold rounded text-sm hover:opacity-90 inline-flex items-center gap-2"
           >
             <ArrowLeft size={18} />
             Back to Consent Summary
@@ -1263,12 +1263,12 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
 
 function HelpItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-      <h3 className="font-bold text-gray-900 mb-2 flex items-start gap-2">
-        <HelpCircle size={18} className="text-[#000080] mt-0.5 flex-shrink-0" />
+    <div className="bg-card border-2 border-border rounded-lg p-6">
+      <h3 className="font-bold text-foreground mb-2 flex items-start gap-2">
+        <HelpCircle size={18} className="text-primary mt-0.5 flex-shrink-0" />
         {question}
       </h3>
-      <p className="text-sm text-gray-700 leading-relaxed pl-6">{answer}</p>
+      <p className="text-sm text-muted-foreground leading-relaxed pl-6">{answer}</p>
     </div>
   );
 }
@@ -1281,8 +1281,8 @@ function QuickStats({ consents }: { consents: ConsentItem[] }) {
   const restrictedConsents = consents.filter(c => !c.canWithdraw).length;
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-[#000080] text-white px-4 py-3">
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-primary text-white px-4 py-3">
         <h3 className="font-bold text-sm">Your Consents</h3>
       </div>
       <div className="p-4 space-y-4">
@@ -1297,11 +1297,11 @@ function QuickStats({ consents }: { consents: ConsentItem[] }) {
 function StatItem({ label, value, color }: { label: string; value: string; color?: "green" | "orange" }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-sm text-gray-700">{label}</span>
+      <span className="text-sm text-muted-foreground">{label}</span>
       <span className={`font-bold text-lg ${
         color === "green" ? "text-green-600" :
         color === "orange" ? "text-orange-600" :
-        "text-gray-900"
+        "text-foreground"
       }`}>
         {value}
       </span>
@@ -1325,12 +1325,12 @@ function StateExplainer({ currentState }: { currentState: FlowState }) {
   };
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">State Explanation</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">State Explanation</h3>
       </div>
       <div className="p-4">
-        <p className="text-sm text-gray-700 leading-relaxed">
+        <p className="text-sm text-muted-foreground leading-relaxed">
           {explanations[currentState]}
         </p>
       </div>
@@ -1342,11 +1342,11 @@ function StateExplainer({ currentState }: { currentState: FlowState }) {
 
 function KeyPrinciples() {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-sm text-gray-900">Key Principles</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-sm text-foreground">Key Principles</h3>
       </div>
-      <div className="p-4 space-y-3 text-sm text-gray-700">
+      <div className="p-4 space-y-3 text-sm text-muted-foreground">
         <PrincipleItem text="Transparent impact explanation" />
         <PrincipleItem text="Avoid accidental withdrawal" />
         <PrincipleItem text="Multiple confirmation steps" />

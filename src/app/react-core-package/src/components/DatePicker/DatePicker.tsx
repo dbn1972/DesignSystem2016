@@ -13,7 +13,7 @@
  * ```
  */
 
-import React, { forwardRef } from 'react';
+import { forwardRef, ChangeEvent } from 'react';
 import { cn } from '../../utils/cn';
 import { DatePickerProps } from './DatePicker.types';
 
@@ -31,7 +31,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     },
     ref
   ) => {
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       onChange?.(event.target.value);
     };
 

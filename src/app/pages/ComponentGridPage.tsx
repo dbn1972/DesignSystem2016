@@ -9,7 +9,7 @@ const GridPreview = ({ cols = 3 }: any) => (
   <div className={`grid ${cols === 2 ? 'grid-cols-2' : cols === 3 ? 'grid-cols-3' : 'grid-cols-4'} gap-4`}>
     {Array.from({ length: cols === 2 ? 4 : cols === 3 ? 6 : 8 }).map((_, i) => (
       <div key={i} className="bg-blue-100 border-2 border-blue-300 rounded-lg p-4 text-center">
-        <span className="text-gray-700 font-semibold">Item {i + 1}</span>
+        <span className="text-muted-foreground font-semibold">Item {i + 1}</span>
       </div>
     ))}
   </div>
@@ -182,7 +182,7 @@ function Example() {
           preview: (
             <div className="space-y-6">
               <div>
-                <p className="text-sm font-semibold text-gray-600 mb-2">Extra Small Gap</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Extra Small Gap</p>
                 <div className="grid grid-cols-3 gap-1">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="bg-blue-100 border-2 border-blue-300 rounded p-2 text-center text-sm">
@@ -192,7 +192,7 @@ function Example() {
                 </div>
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-600 mb-2">Medium Gap</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Medium Gap</p>
                 <div className="grid grid-cols-3 gap-4">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="bg-blue-100 border-2 border-blue-300 rounded p-2 text-center text-sm">
@@ -202,7 +202,7 @@ function Example() {
                 </div>
               </div>
               <div>
-                <p className="text-sm font-semibold text-gray-600 mb-2">Large Gap</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Large Gap</p>
                 <div className="grid grid-cols-3 gap-6">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="bg-blue-100 border-2 border-blue-300 rounded p-2 text-center text-sm">

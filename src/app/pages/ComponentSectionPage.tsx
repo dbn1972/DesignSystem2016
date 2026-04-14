@@ -11,15 +11,15 @@ const SectionPreview = ({ variant, spacing, background, containerized, children,
   const getBackgroundColor = () => {
     switch (background) {
       case 'white':
-        return 'bg-white';
+        return 'bg-card';
       case 'gray':
-        return 'bg-gray-50';
+        return 'bg-background';
       case 'primary':
         return 'bg-[#005196]';
       case 'transparent':
         return 'bg-transparent';
       default:
-        return 'bg-white';
+        return 'bg-card';
     }
   };
 
@@ -157,7 +157,7 @@ function Example() {
         <p className="text-xl mb-8">
           Access essential services and information
         </p>
-        <button className="bg-white text-[#005196] px-6 py-3 rounded">
+        <button className="bg-card text-[#005196] px-6 py-3 rounded">
           Get Started
         </button>
       </div>
@@ -178,7 +178,7 @@ function Example() {
                 <p className="text-xl mb-8">
                   Access essential services and information
                 </p>
-                <button className="bg-white text-[#005196] px-6 py-3 rounded">
+                <button className="bg-card text-[#005196] px-6 py-3 rounded">
                   Get Started
                 </button>
               </div>
@@ -198,11 +198,11 @@ function Example() {
       ariaLabel="Main content"
     >
       <h2 className="text-2xl font-bold mb-4">Our Services</h2>
-      <p className="text-gray-700 mb-4">
+      <p className="text-muted-foreground mb-4">
         We provide a wide range of government services to help
         citizens access the information and support they need.
       </p>
-      <ul className="list-disc pl-6 text-gray-700">
+      <ul className="list-disc pl-6 text-muted-foreground">
         <li>License and permit applications</li>
         <li>Tax filing and payment</li>
         <li>Healthcare enrollment</li>
@@ -218,11 +218,11 @@ function Example() {
               ariaLabel="Main content"
             >
               <h2 className="text-2xl font-bold mb-4">Our Services</h2>
-              <p className="text-gray-700 mb-4">
+              <p className="text-muted-foreground mb-4">
                 We provide a wide range of government services to help
                 citizens access the information and support they need.
               </p>
-              <ul className="list-disc pl-6 text-gray-700">
+              <ul className="list-disc pl-6 text-muted-foreground">
                 <li>License and permit applications</li>
                 <li>Tax filing and payment</li>
                 <li>Healthcare enrollment</li>
@@ -247,15 +247,15 @@ function Example() {
       <div className="grid grid-cols-3 gap-8 text-center">
         <div>
           <div className="text-4xl font-bold text-[#005196] mb-2">1.2M</div>
-          <div className="text-gray-600">Active Users</div>
+          <div className="text-muted-foreground">Active Users</div>
         </div>
         <div>
           <div className="text-4xl font-bold text-[#005196] mb-2">50K</div>
-          <div className="text-gray-600">Services Provided</div>
+          <div className="text-muted-foreground">Services Provided</div>
         </div>
         <div>
           <div className="text-4xl font-bold text-[#005196] mb-2">98%</div>
-          <div className="text-gray-600">Satisfaction Rate</div>
+          <div className="text-muted-foreground">Satisfaction Rate</div>
         </div>
       </div>
     </Section>
@@ -271,15 +271,15 @@ function Example() {
               <div className="grid grid-cols-3 gap-8 text-center">
                 <div>
                   <div className="text-4xl font-bold text-[#005196] mb-2">1.2M</div>
-                  <div className="text-gray-600">Active Users</div>
+                  <div className="text-muted-foreground">Active Users</div>
                 </div>
                 <div>
                   <div className="text-4xl font-bold text-[#005196] mb-2">50K</div>
-                  <div className="text-gray-600">Services Provided</div>
+                  <div className="text-muted-foreground">Services Provided</div>
                 </div>
                 <div>
                   <div className="text-4xl font-bold text-[#005196] mb-2">98%</div>
-                  <div className="text-gray-600">Satisfaction Rate</div>
+                  <div className="text-muted-foreground">Satisfaction Rate</div>
                 </div>
               </div>
             </SectionPreview>
@@ -388,7 +388,7 @@ function Example() {
         <div className="border rounded-lg p-6">
           <FileText className="w-12 h-12 text-[#005196] mb-4" />
           <h3 className="text-xl font-semibold mb-2">Document Services</h3>
-          <p className="text-gray-600 mb-4">
+          <p className="text-muted-foreground mb-4">
             Apply for permits, licenses, and official documents online.
           </p>
           <a href="#" className="text-[#005196] hover:underline">
@@ -398,7 +398,7 @@ function Example() {
         <div className="border rounded-lg p-6">
           <Users className="w-12 h-12 text-[#005196] mb-4" />
           <h3 className="text-xl font-semibold mb-2">Citizen Portal</h3>
-          <p className="text-gray-600 mb-4">
+          <p className="text-muted-foreground mb-4">
             Access your personal information and service history.
           </p>
           <a href="#" className="text-[#005196] hover:underline">
@@ -408,7 +408,7 @@ function Example() {
         <div className="border rounded-lg p-6">
           <Calendar className="w-12 h-12 text-[#005196] mb-4" />
           <h3 className="text-xl font-semibold mb-2">Appointments</h3>
-          <p className="text-gray-600 mb-4">
+          <p className="text-muted-foreground mb-4">
             Schedule appointments with government offices.
           </p>
           <a href="#" className="text-[#005196] hover:underline">
@@ -433,7 +433,7 @@ function Example() {
                 <div className="border rounded-lg p-6">
                   <div className="w-12 h-12 bg-[#005196] rounded mb-4"></div>
                   <h3 className="text-xl font-semibold mb-2">Document Services</h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-muted-foreground mb-4">
                     Apply for permits, licenses, and official documents online.
                   </p>
                   <a href="#" className="text-[#005196] hover:underline">
@@ -443,7 +443,7 @@ function Example() {
                 <div className="border rounded-lg p-6">
                   <div className="w-12 h-12 bg-[#005196] rounded mb-4"></div>
                   <h3 className="text-xl font-semibold mb-2">Citizen Portal</h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-muted-foreground mb-4">
                     Access your personal information and service history.
                   </p>
                   <a href="#" className="text-[#005196] hover:underline">
@@ -453,7 +453,7 @@ function Example() {
                 <div className="border rounded-lg p-6">
                   <div className="w-12 h-12 bg-[#005196] rounded mb-4"></div>
                   <h3 className="text-xl font-semibold mb-2">Appointments</h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-muted-foreground mb-4">
                     Schedule appointments with government offices.
                   </p>
                   <a href="#" className="text-[#005196] hover:underline">
@@ -553,8 +553,8 @@ export const sectionVariants = cva(
         xl: ['py-16'],
       },
       background: {
-        white: ['bg-white'],
-        gray: ['bg-gray-50'],
+        white: ['bg-card'],
+        gray: ['bg-background'],
         primary: ['bg-[#005196]', 'text-white'],
         transparent: ['bg-transparent'],
       },

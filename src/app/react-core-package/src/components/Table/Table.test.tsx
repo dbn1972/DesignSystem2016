@@ -7,7 +7,7 @@ import { Table } from './Table';
 const columns = [
   { key: 'name', header: 'Name', accessor: 'name', sortable: true },
   { key: 'status', header: 'Status', accessor: 'status' },
-] as const;
+] satisfies import('./Table.types').TableColumn<{ id: number; name: string; status: string }>[];
 
 const data = [
   { id: 1, name: 'Zeta', status: 'Pending' },

@@ -10,8 +10,8 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Youtube } from 'lucid
 // Import the actual Footer component for live preview
 const FooterPreview = ({ variant, showSocial, columns }: any) => (
   <footer className={`w-full ${
-    variant === 'government' ? 'bg-[#000080] text-white' :
-    variant === 'light' ? 'bg-gray-100 text-gray-900' :
+    variant === 'government' ? 'bg-primary text-white' :
+    variant === 'light' ? 'bg-muted text-foreground' :
     'bg-gray-900 text-white'
   }`}>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -255,7 +255,7 @@ export const Footer: React.FC<FooterProps> = ({
   const baseClasses = cn(
     'w-full',
     variant === 'government' && 'bg-[#005196] text-white',
-    variant === 'light' && 'bg-gray-100 text-gray-900',
+    variant === 'light' && 'bg-muted text-foreground',
     variant === 'dark' && 'bg-gray-900 text-white',
     className
   );
@@ -419,7 +419,7 @@ export const footerVariants = cva(
     variants: {
       variant: {
         government: 'bg-[#005196] text-white',
-        light: 'bg-gray-100 text-gray-900',
+        light: 'bg-muted text-foreground',
         dark: 'bg-gray-900 text-white',
       },
     },
@@ -523,7 +523,7 @@ export class FooterComponent {
     if (this.variant === 'government') {
       classes.push('bg-[#005196]', 'text-white');
     } else if (this.variant === 'light') {
-      classes.push('bg-gray-100', 'text-gray-900');
+      classes.push('bg-muted', 'text-foreground');
     } else {
       classes.push('bg-gray-900', 'text-white');
     }

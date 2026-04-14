@@ -3,22 +3,22 @@ import { Lock, Shield, CheckCircle, AlertCircle, Info, XCircle, Eye, EyeOff, Clo
 
 export default function SignInPattern() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-300">
+      <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-16 h-16 bg-gray-100 border-2 border-gray-300 rounded flex items-center justify-center">
-                  <Lock size={32} className="text-[#000080]" />
+                <div className="w-16 h-16 bg-muted border-2 border-border rounded flex items-center justify-center">
+                  <Lock size={32} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">UX4G Identity & Access Pattern</div>
-                  <h1 className="text-3xl font-bold text-gray-900">Sign In</h1>
+                  <div className="text-sm text-muted-foreground mb-1">UX4G Identity & Access Pattern</div>
+                  <h1 className="text-3xl font-bold text-foreground">Sign In</h1>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Standard authentication pattern for returning users to access government digital services using 
                 username/mobile number and password. Includes error handling, password recovery entry point, 
                 and account lockout protection.
@@ -26,15 +26,15 @@ export default function SignInPattern() {
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
-                  <span className="text-gray-600">Pattern ID: <span className="font-bold text-gray-900">UX4G-PAT-009-02</span></span>
+                  <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-009-02</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Version: <span className="font-bold text-gray-900">1.0.0</span></span>
+                  <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                  <span className="text-gray-600">Updated: <span className="font-bold text-gray-900">April 2026</span></span>
+                  <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function SignInPattern() {
       </header>
 
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-300 sticky top-0 z-20">
+      <nav className="bg-card border-b border-border sticky top-0 z-20">
         <div className="max-w-[1600px] mx-auto px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
@@ -69,7 +69,7 @@ export default function SignInPattern() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#000080] hover:bg-gray-100 rounded whitespace-nowrap transition-colors"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded whitespace-nowrap transition-colors"
               >
                 {item.label}
               </a>
@@ -107,9 +107,9 @@ export default function SignInPattern() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-300 mt-24">
+      <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Sign In Pattern</div>
             <div>Government of India • Digital India Initiative</div>
           </div>
@@ -124,18 +124,18 @@ export default function SignInPattern() {
 function OverviewSection() {
   return (
     <section id="overview" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Pattern Overview</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Purpose */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-          <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Purpose</h3>
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+          <div className="bg-muted border-b-2 border-border px-6 py-4">
+            <h3 className="font-bold text-foreground">Purpose</h3>
           </div>
           <div className="p-6">
-            <p className="text-sm text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Provide a secure, familiar authentication experience for citizens returning to government digital services. 
               Sign In validates user credentials and grants access to personalized dashboards, saved applications, and service history.
             </p>
@@ -149,12 +149,12 @@ function OverviewSection() {
         </div>
 
         {/* When to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">When to Use</h3>
+            <h3 className="font-bold text-foreground">When to Use</h3>
           </div>
           <div className="p-6">
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <WhenToUseItem text="User has an existing account" />
               <WhenToUseItem text="Service requires authentication for personalized access" />
               <WhenToUseItem text="User needs to access saved applications or history" />
@@ -165,12 +165,12 @@ function OverviewSection() {
         </div>
 
         {/* When NOT to Use */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-100 border-b-2 border-red-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">When NOT to Use</h3>
+            <h3 className="font-bold text-foreground">When NOT to Use</h3>
           </div>
           <div className="p-6">
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <WhenNotToUseItem text="User is a first-time visitor (use Sign Up)" />
               <WhenNotToUseItem text="Service is fully public and doesn't require authentication" />
               <WhenNotToUseItem text="Guest checkout or tracking-only access is sufficient" />
@@ -180,12 +180,12 @@ function OverviewSection() {
         </div>
 
         {/* Primary User Goals */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-100 border-b-2 border-blue-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Primary User Goals</h3>
+            <h3 className="font-bold text-foreground">Primary User Goals</h3>
           </div>
           <div className="p-6">
-            <ul className="space-y-2 text-sm text-gray-700">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <UserGoalItem text="Sign in quickly (< 30 seconds)" />
               <UserGoalItem text="Access my saved applications and data" />
               <UserGoalItem text="Understand why sign in failed (if errors occur)" />
@@ -197,8 +197,8 @@ function OverviewSection() {
       </div>
 
       {/* Pattern Characteristics */}
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
-        <h3 className="font-bold text-gray-900 mb-6">Pattern Characteristics</h3>
+      <div className="bg-card border-2 border-border rounded-lg p-8">
+        <h3 className="font-bold text-foreground mb-6">Pattern Characteristics</h3>
         <div className="grid grid-cols-3 gap-6">
           <CharacteristicItem
             icon={<Clock size={24} className="text-blue-600" />}
@@ -240,7 +240,7 @@ function PurposeItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
       <CheckCircle size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
-      <span className="text-sm text-gray-700">{text}</span>
+      <span className="text-sm text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -277,8 +277,8 @@ function CharacteristicItem({ icon, label, value }: { icon: React.ReactNode; lab
     <div className="flex items-start gap-3">
       {icon}
       <div>
-        <div className="text-sm text-gray-600">{label}</div>
-        <div className="font-bold text-gray-900">{value}</div>
+        <div className="text-sm text-muted-foreground">{label}</div>
+        <div className="font-bold text-foreground">{value}</div>
       </div>
     </div>
   );
@@ -289,15 +289,15 @@ function CharacteristicItem({ icon, label, value }: { icon: React.ReactNode; lab
 function FlowDiagram() {
   return (
     <section id="flow" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">End-to-End Flow Diagram</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-8">
         <div className="space-y-8">
           {/* Happy Path */}
           <div>
-            <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <CheckCircle size={20} className="text-green-600" />
               Happy Path (Successful Sign In)
             </h3>
@@ -314,7 +314,7 @@ function FlowDiagram() {
 
           {/* Error Path */}
           <div>
-            <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <XCircle size={20} className="text-red-600" />
               Error Path (Invalid Credentials)
             </h3>
@@ -331,7 +331,7 @@ function FlowDiagram() {
 
           {/* Lockout Path */}
           <div>
-            <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <Lock size={20} className="text-orange-600" />
               Lockout Path (5 Failed Attempts)
             </h3>
@@ -348,7 +348,7 @@ function FlowDiagram() {
 
           {/* Recovery Path */}
           <div>
-            <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <Key size={20} className="text-blue-600" />
               Recovery Path (Forgot Password)
             </h3>
@@ -367,8 +367,8 @@ function FlowDiagram() {
         <div className="mt-8 p-5 bg-blue-50 border-2 border-blue-200 rounded-lg">
           <div className="flex items-start gap-3">
             <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-gray-700">
-              <div className="font-bold text-gray-900 mb-2">Flow Decision Points</div>
+            <div className="text-sm text-muted-foreground">
+              <div className="font-bold text-foreground mb-2">Flow Decision Points</div>
               <ul className="space-y-1">
                 <li>• After 3 failed attempts, show warning message</li>
                 <li>• After 5 failed attempts, trigger 15-minute account lock</li>
@@ -386,14 +386,14 @@ function FlowDiagram() {
 function FlowStep({ number, label, description }: { number: string; label: string; description: string }) {
   return (
     <div className="flex-1 min-w-0">
-      <div className="p-4 bg-gray-50 border-2 border-gray-300 rounded-lg">
+      <div className="p-4 bg-background border-2 border-border rounded-lg">
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-6 h-6 bg-[#000080] text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
+          <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
             {number}
           </div>
-          <div className="font-bold text-gray-900 text-sm">{label}</div>
+          <div className="font-bold text-foreground text-sm">{label}</div>
         </div>
-        <div className="text-xs text-gray-600">{description}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -413,9 +413,9 @@ function ExampleScreens() {
 
   return (
     <section id="screens" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Example Screens</h2>
-        <p className="text-gray-600 mt-2">Visual representations of key sign-in states</p>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Example Screens</h2>
+        <p className="text-muted-foreground mt-2">Visual representations of key sign-in states</p>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
@@ -424,17 +424,17 @@ function ExampleScreens() {
         ))}
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+      <div className="bg-card border-2 border-border rounded-lg p-6">
         <div className="flex items-start gap-3">
           <Eye size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-gray-700">
-            <div className="font-bold text-gray-900 mb-2">Interactive Prototype Available</div>
+          <div className="text-sm text-muted-foreground">
+            <div className="font-bold text-foreground mb-2">Interactive Prototype Available</div>
             <p className="mb-3">
               View the full working prototype with realistic form behavior, validation, and state transitions.
             </p>
             <Link
               to="/patterns/identity/sign-in"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[#000080] text-white font-bold rounded hover:bg-[#000060] transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white font-bold rounded hover:opacity-90 transition-colors"
             >
               View Interactive Prototype
               <ArrowRight size={16} />
@@ -448,12 +448,12 @@ function ExampleScreens() {
 
 function ScreenExample({ state, label, description }: { state: string; label: string; description: string }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3 flex items-center justify-between">
-        <h3 className="font-bold text-gray-900 text-sm">{label}</h3>
-        <span className="text-xs text-gray-600">{description}</span>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-4 py-3 flex items-center justify-between">
+        <h3 className="font-bold text-foreground text-sm">{label}</h3>
+        <span className="text-xs text-muted-foreground">{description}</span>
       </div>
-      <div className="p-6 bg-gray-50 min-h-[300px] flex items-center justify-center">
+      <div className="p-6 bg-background min-h-[300px] flex items-center justify-center">
         <ScreenMockup state={state} />
       </div>
     </div>
@@ -462,24 +462,24 @@ function ScreenExample({ state, label, description }: { state: string; label: st
 
 function ScreenMockup({ state }: { state: string }) {
   return (
-    <div className="w-full max-w-md bg-white border-2 border-gray-300 rounded-lg overflow-hidden shadow-lg">
+    <div className="w-full max-w-md bg-card border-2 border-border rounded-lg overflow-hidden shadow-lg">
       {/* Tricolor */}
       <div className="h-2 bg-gradient-to-r from-orange-500 via-white to-green-500"></div>
       
       {/* Header */}
-      <div className="p-4 border-b-2 border-gray-300 flex items-center gap-2">
-        <div className="w-8 h-8 bg-[#000080] rounded flex items-center justify-center">
+      <div className="p-4 border-b-2 border-border flex items-center gap-2">
+        <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
           <Shield size={16} className="text-white" />
         </div>
         <div>
-          <div className="text-xs font-bold text-gray-900">Digital India Portal</div>
-          <div className="text-xs text-gray-600">Government of India</div>
+          <div className="text-xs font-bold text-foreground">Digital India Portal</div>
+          <div className="text-xs text-muted-foreground">Government of India</div>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Sign In</h2>
+        <h2 className="text-xl font-bold text-foreground mb-4">Sign In</h2>
         
         {/* State-specific error messages */}
         {state === "wrong" && (
@@ -525,30 +525,30 @@ function ScreenMockup({ state }: { state: string }) {
         {/* Form */}
         <div className="space-y-4">
           <div>
-            <label className="block text-xs font-bold text-gray-900 mb-1">
+            <label className="block text-xs font-bold text-foreground mb-1">
               Username or Mobile Number
             </label>
             <input
               type="text"
-              className="w-full px-3 py-2 border-2 border-gray-300 rounded text-sm"
+              className="w-full px-3 py-2 border-2 border-border rounded text-sm"
               placeholder="+91 XXXXX XXXXX"
               disabled
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-gray-900 mb-1">
+            <label className="block text-xs font-bold text-foreground mb-1">
               Password
             </label>
             <input
               type="password"
-              className="w-full px-3 py-2 border-2 border-gray-300 rounded text-sm"
+              className="w-full px-3 py-2 border-2 border-border rounded text-sm"
               placeholder="••••••••"
               disabled
             />
           </div>
           
           <button
-            className="w-full py-2 bg-[#000080] text-white font-bold text-sm rounded"
+            className="w-full py-2 bg-primary text-white font-bold text-sm rounded"
             disabled
           >
             Sign In
@@ -556,7 +556,7 @@ function ScreenMockup({ state }: { state: string }) {
 
           {state === "forgot" && (
             <div className="text-center">
-              <a href="#" className="text-sm font-bold text-[#000080] underline">
+              <a href="#" className="text-sm font-bold text-primary underline">
                 Forgot Password?
               </a>
             </div>
@@ -572,13 +572,13 @@ function ScreenMockup({ state }: { state: string }) {
 function FieldsAndContent() {
   return (
     <section id="fields" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Fields & Content Guidance</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Fields & Content Guidance</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">Required Form Fields</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">Required Form Fields</h3>
         </div>
         <div className="divide-y-2 divide-gray-200">
           <FieldGuidance
@@ -602,8 +602,8 @@ function FieldsAndContent() {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-4">Content Guidance</h3>
+      <div className="bg-card border-2 border-border rounded-lg p-6">
+        <h3 className="font-bold text-foreground mb-4">Content Guidance</h3>
         <div className="space-y-4">
           <ContentItem
             element="Page Title"
@@ -649,29 +649,29 @@ function FieldGuidance({ field, type, required, placeholder, helpText, maxLength
     <div className="p-6">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <div className="font-bold text-gray-900 flex items-center gap-2">
+          <div className="font-bold text-foreground flex items-center gap-2">
             {field}
             {required && <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">Required</span>}
           </div>
-          <div className="text-sm text-gray-600 mt-1">{type}</div>
+          <div className="text-sm text-muted-foreground mt-1">{type}</div>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4 text-sm">
         <div>
-          <div className="font-bold text-gray-700 mb-1">Placeholder</div>
-          <div className="text-gray-600">{placeholder}</div>
+          <div className="font-bold text-muted-foreground mb-1">Placeholder</div>
+          <div className="text-muted-foreground">{placeholder}</div>
         </div>
         <div>
-          <div className="font-bold text-gray-700 mb-1">Max Length</div>
-          <div className="text-gray-600">{maxLength}</div>
+          <div className="font-bold text-muted-foreground mb-1">Max Length</div>
+          <div className="text-muted-foreground">{maxLength}</div>
         </div>
         <div>
-          <div className="font-bold text-gray-700 mb-1">Help Text</div>
-          <div className="text-gray-600">{helpText}</div>
+          <div className="font-bold text-muted-foreground mb-1">Help Text</div>
+          <div className="text-muted-foreground">{helpText}</div>
         </div>
         <div>
-          <div className="font-bold text-gray-700 mb-1">Validation</div>
-          <div className="text-gray-600">{validation}</div>
+          <div className="font-bold text-muted-foreground mb-1">Validation</div>
+          <div className="text-muted-foreground">{validation}</div>
         </div>
       </div>
     </div>
@@ -680,11 +680,11 @@ function FieldGuidance({ field, type, required, placeholder, helpText, maxLength
 
 function ContentItem({ element, content, rationale }: { element: string; content: string; rationale: string }) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-gray-50 border-2 border-gray-200 rounded">
+    <div className="flex items-start gap-4 p-4 bg-background border-2 border-border rounded">
       <div className="flex-1">
-        <div className="font-bold text-gray-900 text-sm mb-1">{element}</div>
-        <div className="text-sm text-gray-700 mb-2">"{content}"</div>
-        <div className="text-xs text-gray-600 italic">Rationale: {rationale}</div>
+        <div className="font-bold text-foreground text-sm mb-1">{element}</div>
+        <div className="text-sm text-muted-foreground mb-2">"{content}"</div>
+        <div className="text-xs text-muted-foreground italic">Rationale: {rationale}</div>
       </div>
     </div>
   );
@@ -695,15 +695,15 @@ function ContentItem({ element, content, rationale }: { element: string; content
 function ValidationRules() {
   return (
     <section id="validation" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Validation Rules</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Validation Rules</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
         {/* Client-Side Validation */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-100 border-b-2 border-blue-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Client-Side Validation</h3>
+            <h3 className="font-bold text-foreground">Client-Side Validation</h3>
           </div>
           <div className="p-6 space-y-3">
             <ValidationItem
@@ -725,9 +725,9 @@ function ValidationRules() {
         </div>
 
         {/* Server-Side Validation */}
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Server-Side Validation</h3>
+            <h3 className="font-bold text-foreground">Server-Side Validation</h3>
           </div>
           <div className="p-6 space-y-3">
             <ValidationItem
@@ -754,8 +754,8 @@ function ValidationRules() {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-4">Security Best Practices</h3>
+      <div className="bg-card border-2 border-border rounded-lg p-6">
+        <h3 className="font-bold text-foreground mb-4">Security Best Practices</h3>
         <div className="grid grid-cols-2 gap-4">
           <SecurityPractice
             title="Rate Limiting"
@@ -789,10 +789,10 @@ function ValidationRules() {
 
 function ValidationItem({ rule, trigger, message }: { rule: string; trigger: string; message: string }) {
   return (
-    <div className="p-3 bg-gray-50 border-l-4 border-blue-600 rounded-r">
-      <div className="font-bold text-gray-900 text-sm mb-1">{rule}</div>
-      <div className="text-xs text-gray-600 mb-2">Trigger: {trigger}</div>
-      <div className="text-xs text-gray-700 italic">{message}</div>
+    <div className="p-3 bg-background border-l-4 border-blue-600 rounded-r">
+      <div className="font-bold text-foreground text-sm mb-1">{rule}</div>
+      <div className="text-xs text-muted-foreground mb-2">Trigger: {trigger}</div>
+      <div className="text-xs text-muted-foreground italic">{message}</div>
     </div>
   );
 }
@@ -802,8 +802,8 @@ function SecurityPractice({ title, description }: { title: string; description: 
     <div className="flex items-start gap-2 p-3 bg-red-50 border-2 border-red-200 rounded">
       <Shield size={16} className="text-red-600 flex-shrink-0 mt-0.5" />
       <div>
-        <div className="font-bold text-gray-900 text-sm mb-1">{title}</div>
-        <div className="text-xs text-gray-700">{description}</div>
+        <div className="font-bold text-foreground text-sm mb-1">{title}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -814,8 +814,8 @@ function SecurityPractice({ title, description }: { title: string; description: 
 function ErrorStates() {
   return (
     <section id="errors" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Error States & Handling</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Error States & Handling</h2>
       </div>
 
       <div className="space-y-4">
@@ -886,8 +886,8 @@ function ErrorStates() {
       <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
         <div className="flex items-start gap-3">
           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-gray-700">
-            <div className="font-bold text-gray-900 mb-2">Error Message Principles</div>
+          <div className="text-sm text-muted-foreground">
+            <div className="font-bold text-foreground mb-2">Error Message Principles</div>
             <ul className="space-y-1">
               <li>• Use plain language; avoid technical jargon</li>
               <li>• Explain what happened and why (when safe to reveal)</li>
@@ -925,9 +925,9 @@ function ErrorStateCard({ title, severity, message, attemptCounter, lockDuration
   };
 
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-3 flex items-center justify-between">
-        <h3 className="font-bold text-gray-900">{title}</h3>
+    <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+      <div className="bg-muted border-b-2 border-border px-6 py-3 flex items-center justify-between">
+        <h3 className="font-bold text-foreground">{title}</h3>
         <span className={`px-2 py-1 text-xs font-bold rounded uppercase ${
           severity === 'error' ? 'bg-red-100 text-red-700' :
           severity === 'warning' ? 'bg-orange-100 text-orange-700' :
@@ -940,17 +940,17 @@ function ErrorStateCard({ title, severity, message, attemptCounter, lockDuration
         <div className={`p-4 border-2 ${severityStyles[severity]} rounded-lg flex items-start gap-3`}>
           {iconStyles[severity]}
           <div className="flex-1">
-            <div className="font-bold text-gray-900 mb-1">{message}</div>
-            {attemptCounter && <div className="text-sm text-gray-700">{attemptCounter}</div>}
-            {lockDuration && <div className="text-sm text-gray-700 mt-1">{lockDuration}</div>}
+            <div className="font-bold text-foreground mb-1">{message}</div>
+            {attemptCounter && <div className="text-sm text-muted-foreground">{attemptCounter}</div>}
+            {lockDuration && <div className="text-sm text-muted-foreground mt-1">{lockDuration}</div>}
           </div>
         </div>
 
         <div>
-          <div className="font-bold text-gray-900 mb-2 text-sm">Available Actions</div>
+          <div className="font-bold text-foreground mb-2 text-sm">Available Actions</div>
           <ul className="space-y-1">
             {actions.map((action, idx) => (
-              <li key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+              <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
                 <ArrowRight size={14} className="text-gray-400" />
                 {action}
               </li>
@@ -958,7 +958,7 @@ function ErrorStateCard({ title, severity, message, attemptCounter, lockDuration
           </ul>
         </div>
 
-        <div className="text-xs text-gray-600 italic p-3 bg-gray-50 border-l-4 border-gray-400 rounded-r">
+        <div className="text-xs text-muted-foreground italic p-3 bg-background border-l-4 border-gray-400 rounded-r">
           <span className="font-bold">Implementation Note:</span> {notes}
         </div>
       </div>
@@ -971,13 +971,13 @@ function ErrorStateCard({ title, severity, message, attemptCounter, lockDuration
 function AccessibilitySection() {
   return (
     <section id="accessibility" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Accessibility Requirements</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Accessibility Requirements</h2>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
-        <div className="bg-gray-100 border-b-2 border-gray-300 px-6 py-4">
-          <h3 className="font-bold text-gray-900">WCAG 2.1 AA Compliance</h3>
+      <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
+        <div className="bg-muted border-b-2 border-border px-6 py-4">
+          <h3 className="font-bold text-foreground">WCAG 2.1 AA Compliance</h3>
         </div>
         <div className="p-6 space-y-6">
           <AccessibilityBlock
@@ -1037,10 +1037,10 @@ function AccessibilitySection() {
 function AccessibilityBlock({ title, requirements }: { title: string; requirements: string[] }) {
   return (
     <div>
-      <div className="font-bold text-gray-900 mb-3">{title}</div>
+      <div className="font-bold text-foreground mb-3">{title}</div>
       <ul className="space-y-2">
         {requirements.map((req, idx) => (
-          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
             <CheckCircle size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
             <span>{req}</span>
           </li>
@@ -1055,8 +1055,8 @@ function AccessibilityBlock({ title, requirements }: { title: string; requiremen
 function ImplementationSection() {
   return (
     <section id="implementation" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Implementation Notes</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Implementation Notes</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
@@ -1110,8 +1110,8 @@ function ImplementationSection() {
         />
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-4">Sample API Contract</h3>
+      <div className="bg-card border-2 border-border rounded-lg p-6">
+        <h3 className="font-bold text-foreground mb-4">Sample API Contract</h3>
         <div className="bg-gray-900 text-green-400 font-mono text-xs p-4 rounded overflow-x-auto">
           <pre>{`POST /api/auth/signin
 Content-Type: application/json
@@ -1158,14 +1158,14 @@ Content-Type: application/json
 
 function ImplementationCard({ icon, title, items }: { icon: React.ReactNode; title: string; items: string[] }) {
   return (
-    <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
+    <div className="bg-card border-2 border-border rounded-lg p-6">
       <div className="flex items-center gap-3 mb-4">
         {icon}
-        <h3 className="font-bold text-gray-900">{title}</h3>
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <ul className="space-y-2">
         {items.map((item, idx) => (
-          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0 mt-1.5"></div>
             <span>{item}</span>
           </li>
@@ -1180,14 +1180,14 @@ function ImplementationCard({ icon, title, items }: { icon: React.ReactNode; tit
 function GovernanceSection() {
   return (
     <section id="governance" className="space-y-6 scroll-mt-24">
-      <div className="border-l-4 border-[#000080] pl-4">
-        <h2 className="text-2xl font-bold text-gray-900">Governance & Support</h2>
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Governance & Support</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-100 border-b-2 border-red-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Conformance Requirements</h3>
+            <h3 className="font-bold text-foreground">Conformance Requirements</h3>
           </div>
           <div className="p-6 space-y-3">
             <ConformanceItem
@@ -1217,9 +1217,9 @@ function GovernanceSection() {
           </div>
         </div>
 
-        <div className="bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+        <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-100 border-b-2 border-blue-300 px-6 py-4">
-            <h3 className="font-bold text-gray-900">Support & Escalation</h3>
+            <h3 className="font-bold text-foreground">Support & Escalation</h3>
           </div>
           <div className="p-6 space-y-4">
             <SupportChannel
@@ -1246,8 +1246,8 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-lg p-6">
-        <h3 className="font-bold text-gray-900 mb-4">Adoption Tracking</h3>
+      <div className="bg-card border-2 border-border rounded-lg p-6">
+        <h3 className="font-bold text-foreground mb-4">Adoption Tracking</h3>
         <div className="grid grid-cols-4 gap-6">
           <AdoptionStat label="Services Using" value="120" />
           <AdoptionStat label="Daily Sign-Ins" value="5M+" />
@@ -1267,17 +1267,17 @@ function ConformanceItem({ level, requirement }: { level: string; requirement: s
       }`}>
         {level}
       </span>
-      <span className="text-sm text-gray-700">{requirement}</span>
+      <span className="text-sm text-muted-foreground">{requirement}</span>
     </div>
   );
 }
 
 function SupportChannel({ channel, details, availability }: { channel: string; details: string; availability: string }) {
   return (
-    <div className="p-3 bg-gray-50 border-2 border-gray-200 rounded">
-      <div className="font-bold text-gray-900 text-sm mb-1">{channel}</div>
-      <div className="text-sm text-gray-700 mb-1">{details}</div>
-      <div className="text-xs text-gray-600">Available: {availability}</div>
+    <div className="p-3 bg-background border-2 border-border rounded">
+      <div className="font-bold text-foreground text-sm mb-1">{channel}</div>
+      <div className="text-sm text-muted-foreground mb-1">{details}</div>
+      <div className="text-xs text-muted-foreground">Available: {availability}</div>
     </div>
   );
 }
@@ -1285,8 +1285,8 @@ function SupportChannel({ channel, details, availability }: { channel: string; d
 function AdoptionStat({ label, value }: { label: string; value: string }) {
   return (
     <div className="text-center">
-      <div className="text-3xl font-bold text-[#000080] mb-1">{value}</div>
-      <div className="text-sm text-gray-600">{label}</div>
+      <div className="text-3xl font-bold text-primary mb-1">{value}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -1295,9 +1295,9 @@ function AdoptionStat({ label, value }: { label: string; value: string }) {
 
 function QuickReference() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Quick Reference</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
         <QuickRefRow label="Pattern ID" value="UX4G-PAT-009-02" />
@@ -1314,8 +1314,8 @@ function QuickReference() {
 function QuickRefRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-600">{label}</span>
-      <span className="font-bold text-gray-900">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -1324,15 +1324,15 @@ function InteractivePrototype() {
   return (
     <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
       <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Interactive Prototype</h3>
+        <h3 className="font-bold text-foreground text-sm">Interactive Prototype</h3>
       </div>
       <div className="p-4">
-        <p className="text-sm text-gray-700 mb-4">
+        <p className="text-sm text-muted-foreground mb-4">
           Try the working Sign In flow with realistic form behavior and validation
         </p>
         <Link
           to="/patterns/identity/sign-in"
-          className="block w-full py-2 px-4 bg-[#000080] text-white font-bold text-sm rounded text-center hover:bg-[#000060] transition-colors"
+          className="block w-full py-2 px-4 bg-primary text-white font-bold text-sm rounded text-center hover:opacity-90 transition-colors"
         >
           Launch Prototype →
         </Link>
@@ -1343,9 +1343,9 @@ function InteractivePrototype() {
 
 function RelatedPatterns() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Related Patterns</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
         <RelatedLink title="Sign Up" href="/identity-signup" />
@@ -1362,7 +1362,7 @@ function RelatedLink({ title, href }: { title: string; href: string }) {
   return (
     <Link
       to={href}
-      className="block px-3 py-2 bg-white border border-gray-300 rounded hover:border-[#000080] hover:bg-gray-50 transition-colors text-sm text-gray-700 font-medium"
+      className="block px-3 py-2 bg-card border border-border rounded hover:border-primary hover:bg-background transition-colors text-sm text-muted-foreground font-medium"
     >
       {title}
     </Link>
@@ -1371,9 +1371,9 @@ function RelatedLink({ title, href }: { title: string; href: string }) {
 
 function Resources() {
   return (
-    <div className="border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
-      <div className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3">
-        <h3 className="font-bold text-gray-900 text-sm">Resources</h3>
+    <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
+      <div className="bg-muted border-b-2 border-border px-4 py-3">
+        <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
         <ResourceLink icon={<FileText size={14} />} label="Starter Kit" />
@@ -1387,7 +1387,7 @@ function Resources() {
 
 function ResourceLink({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 text-[#000080] hover:underline">
+    <a href="#" className="flex items-center gap-2 text-primary hover:underline">
       {icon}
       <span>{label}</span>
     </a>

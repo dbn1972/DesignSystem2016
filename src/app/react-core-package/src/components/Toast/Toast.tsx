@@ -12,7 +12,7 @@
  * ```
  */
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { cn } from '../../utils/cn';
 import { ToastProps } from './Toast.types';
 
@@ -42,7 +42,7 @@ export function Toast({
     error: '✕',
   };
 
-  const displayIcon = icon ?? defaultIcons[variant];
+  const displayIcon = icon ?? (defaultIcons as Record<string, string>)[variant];
 
   return (
     <div
