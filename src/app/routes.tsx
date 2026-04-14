@@ -12,6 +12,14 @@ const FigmaDesignSystem = lazy(() => import("./pages/FigmaDesignSystem"));
 const MigrationGuides = lazy(() => import("./pages/MigrationGuides"));
 const MigrationMaterialUI = lazy(() => import("./pages/MigrationMaterialUI"));
 const ServiceCodeDownloads = lazy(() => import("./pages/ServiceCodeDownloads"));
+const ApiReference = lazy(() => import("./pages/ApiReference"));
+const AngularCoreDocs = lazy(() => import("./pages/AngularCoreDocs"));
+const AngularPatternsDocs = lazy(() => import("./pages/AngularPatternsDocs"));
+const WebComponentsDocs = lazy(() => import("./pages/WebComponentsDocs"));
+const AngularDocsPage = lazy(() => import("./pages/AngularDocsPage"));
+const AngularDocDetail = lazy(() => import("./pages/AngularDocDetail"));
+const WebComponentsDocsPage = lazy(() => import("./pages/WebComponentsDocsPage"));
+const WebComponentsDocDetail = lazy(() => import("./pages/WebComponentsDocDetail"));
 
 import { componentsRoutes } from "./routes/domains/componentsRoutes";
 import { foundationsRoutes } from "./routes/domains/foundationsRoutes";
@@ -53,6 +61,17 @@ export const router = createBrowserRouter([
       { path: "resources/figma", Component: FigmaDesignSystem },
       { path: "resources/migration-guides", Component: MigrationGuides },
       { path: "resources/migration-material-ui", Component: MigrationMaterialUI },
+      { path: "api-reference", Component: ApiReference },
+      { path: "resources/angular-core", Component: AngularCoreDocs },
+      { path: "resources/angular-patterns", Component: AngularPatternsDocs },
+      { path: "resources/web-components", Component: WebComponentsDocs },
+
+      // Angular & Web Components Documentation Hubs
+      { path: "docs/angular", Component: AngularDocsPage },
+      { path: "docs/angular/:slug", Component: AngularDocDetail },
+      { path: "docs/web-components", Component: WebComponentsDocsPage },
+      { path: "docs/web-components/:slug", Component: WebComponentsDocDetail },
+
       { path: "design-system", element: <Navigate to="/" replace /> },
       { path: "reference-service", element: <Navigate to="/reference-service/overview" replace /> },
 
@@ -197,6 +216,10 @@ export const router = createBrowserRouter([
       { path: "migration-guides", element: <Navigate to="/resources/migration-guides" replace /> },
       { path: "changelog", element: <Navigate to="/resources/migration-guides" replace /> },
       { path: "contribution-guidelines", element: <Navigate to="/contributing" replace /> },
+      { path: "api-docs", element: <Navigate to="/api-reference" replace /> },
+      { path: "angular-core", element: <Navigate to="/resources/angular-core" replace /> },
+      { path: "angular-patterns", element: <Navigate to="/resources/angular-patterns" replace /> },
+      { path: "web-components-docs", element: <Navigate to="/resources/web-components" replace /> },
       { path: "contact-support-overview", element: <Navigate to="/patterns/contact-support/overview" replace /> },
       { path: "faq", element: <Navigate to="/patterns/contact-support/overview" replace /> },
       { path: "faqs", element: <Navigate to="/patterns/contact-support/overview" replace /> },

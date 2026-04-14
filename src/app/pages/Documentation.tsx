@@ -19,7 +19,9 @@ import {
   Shield,
   Globe,
   Download,
-  TrendingUp
+  TrendingUp,
+  Package,
+  Workflow
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
@@ -68,6 +70,30 @@ export default function Documentation() {
       href: "/api-reference",
       color: "bg-primary",
       badge: "Technical"
+    },
+    {
+      icon: Package,
+      title: "Angular Core Docs",
+      description: "Angular component package overview, quick start, API reference, and parity notes",
+      href: "/resources/angular-core",
+      color: "bg-blue-700",
+      badge: "@ux4g/angular-core"
+    },
+    {
+      icon: Workflow,
+      title: "Angular Patterns Docs",
+      description: "Reusable Angular service-flow patterns for auth, forms, submission, tracking, and payment",
+      href: "/resources/angular-patterns",
+      color: "bg-purple-700",
+      badge: "@ux4g/angular-patterns"
+    },
+    {
+      icon: Globe,
+      title: "Web Components Docs",
+      description: "Framework-agnostic package guidance for native custom elements and shared contracts",
+      href: "/resources/web-components",
+      color: "bg-cyan-700",
+      badge: "@ux4g/web-components"
     },
     {
       icon: GitBranch,

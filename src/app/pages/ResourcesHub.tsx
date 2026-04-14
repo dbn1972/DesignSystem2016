@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Package, Rocket, Code, Figma, BookOpen, Download, CheckCircle, ArrowRight } from "lucide-react";
+import { Package, Rocket, Code, Figma, BookOpen, Download, CheckCircle, ArrowRight, Globe, Workflow } from "lucide-react";
 
 export default function ResourcesHub() {
   return (
@@ -29,7 +29,7 @@ export default function ResourcesHub() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         
         {/* Quick Links */}
-        <div className="grid grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6 mb-12">
           <QuickLinkCard
             icon={<Rocket size={24} />}
             title="Getting Started"
@@ -57,6 +57,27 @@ export default function ResourcesHub() {
             description="Design files"
             path="/resources/figma"
             color="orange"
+          />
+          <QuickLinkCard
+            icon={<Package size={24} />}
+            title="Angular Core"
+            description="Package docs"
+            path="/resources/angular-core"
+            color="blue"
+          />
+          <QuickLinkCard
+            icon={<Workflow size={24} />}
+            title="Angular Patterns"
+            description="Service flows"
+            path="/resources/angular-patterns"
+            color="purple"
+          />
+          <QuickLinkCard
+            icon={<Globe size={24} />}
+            title="Web Components"
+            description="Custom elements"
+            path="/resources/web-components"
+            color="green"
           />
         </div>
 

@@ -393,13 +393,13 @@ export default function FrameworkStatus() {
               <div>
                 <h4 className="font-bold mb-2">Angular Developers</h4>
                 <p className="text-blue-100 mb-3">
-                  Follow our development progress and contribute to the Angular implementation roadmap.
+                  Review the Angular package docs, component API guidance, and parity notes.
                 </p>
                 <Link
-                  to="/resources/migration-guides"
+                  to="/resources/angular-core"
                   className="inline-block px-4 py-2 bg-card text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
                 >
-                  View Angular Roadmap
+                  View Angular Docs
                 </Link>
               </div>
             </div>

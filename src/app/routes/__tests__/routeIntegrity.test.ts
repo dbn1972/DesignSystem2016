@@ -32,5 +32,9 @@ describe('route integrity', () => {
     expect(paths.has(toChildPath(ROUTE_PATHS.CERTIFICATE.PAYMENT_SUMMARY))).toBe(true);
     expect(paths.has(toChildPath(ROUTE_PATHS.GOVERNANCE.ROOT))).toBe(true);
     expect(paths.has(toChildPath(ROUTE_PATHS.FOUNDATIONS.ACCESSIBILITY))).toBe(true);
+    expect(paths.has("api-reference")).toBe(true);
+    expect(paths.has("resources/angular-core")).toBe(true);
+    expect(paths.has("resources/angular-patterns")).toBe(true);
+    expect(paths.has("resources/web-components")).toBe(true);
   });
 });
