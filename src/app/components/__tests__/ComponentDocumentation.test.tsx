@@ -100,29 +100,29 @@ describe('ComponentDocumentation', () => {
 
   it('renders category badge', () => {
     renderDocs();
-    expect(screen.getByText('Category: Form')).toBeInTheDocument();
+    expect(screen.getByText('Form')).toBeInTheDocument();
   });
 
   it('renders since badge', () => {
     renderDocs();
-    expect(screen.getByText('Since: v1.0.0')).toBeInTheDocument();
+    expect(screen.getByText('Since v1.0.0')).toBeInTheDocument();
   });
 
   // ── Tabs ──────────────────────────────────────────────────────────────────
 
   it('renders all tab buttons', () => {
     renderDocs();
-    expect(screen.getByRole('button', { name: 'Overview' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Props API' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Examples' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Code Downloads' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Design System Comparison' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Overview/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Props API/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Examples/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Code Downloads/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Comparison/ })).toBeInTheDocument();
   });
 
   it('shows Overview tab content by default', () => {
     renderDocs();
-    expect(screen.getByText('Installation')).toBeInTheDocument();
-    expect(screen.getByText('Accessibility')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Installation' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Accessibility' })).toBeInTheDocument();
   });
 
   // ── Props API tab ─────────────────────────────────────────────────────────
@@ -130,7 +130,7 @@ describe('ComponentDocumentation', () => {
   it('shows props table when Props API tab is clicked', async () => {
     const user = userEvent.setup();
     renderDocs();
-    await user.click(screen.getByRole('button', { name: 'Props API' }));
+    await user.click(screen.getByRole('button', { name: /Props API/ }));
     expect(screen.getByText('variant')).toBeInTheDocument();
     expect(screen.getByText('disabled')).toBeInTheDocument();
     expect(screen.getByText('onClick')).toBeInTheDocument();
@@ -139,7 +139,7 @@ describe('ComponentDocumentation', () => {
   it('marks required props correctly', async () => {
     const user = userEvent.setup();
     renderDocs();
-    await user.click(screen.getByRole('button', { name: 'Props API' }));
+    await user.click(screen.getByRole('button', { name: /Props API/ }));
     // "Required" appears as both a column header and a badge — check the badge specifically
     const requiredBadges = screen.getAllByText('Required');
     // At least one badge (for onClick prop) plus the column header
@@ -151,7 +151,7 @@ describe('ComponentDocumentation', () => {
   it('shows examples when Examples tab is clicked', async () => {
     const user = userEvent.setup();
     renderDocs();
-    await user.click(screen.getByRole('button', { name: 'Examples' }));
+    await user.click(screen.getByRole('button', { name: /Examples/ }));
     expect(screen.getByText('Basic Button')).toBeInTheDocument();
     expect(screen.getByText('<Button>Click me</Button>')).toBeInTheDocument();
   });
@@ -161,7 +161,7 @@ describe('ComponentDocumentation', () => {
   it('shows React and Angular code when Code Downloads tab is clicked', async () => {
     const user = userEvent.setup();
     renderDocs();
-    await user.click(screen.getByRole('button', { name: 'Code Downloads' }));
+    await user.click(screen.getByRole('button', { name: /Code Downloads/ }));
     expect(screen.getByText('React implementation')).toBeInTheDocument();
     expect(screen.getByText('Angular implementation')).toBeInTheDocument();
     expect(screen.getByText('Web Components / HTML')).toBeInTheDocument();
@@ -170,7 +170,7 @@ describe('ComponentDocumentation', () => {
   it('renders Download React Code button', async () => {
     const user = userEvent.setup();
     renderDocs();
-    await user.click(screen.getByRole('button', { name: 'Code Downloads' }));
+    await user.click(screen.getByRole('button', { name: /Code Downloads/ }));
     expect(screen.getByRole('button', { name: /Download React Code/i })).toBeInTheDocument();
   });
 
@@ -178,7 +178,7 @@ describe('ComponentDocumentation', () => {
     const user = userEvent.setup();
 
     renderDocs();
-    await user.click(screen.getByRole('button', { name: 'Code Downloads' }));
+    await user.click(screen.getByRole('button', { name: /Code Downloads/ }));
 
     const { anchor, click, createObjectURL, revokeObjectURL } = mockDownload();
 
@@ -203,7 +203,7 @@ describe('ComponentDocumentation', () => {
   it('shows comparison table when Design System Comparison tab is clicked', async () => {
     const user = userEvent.setup();
     renderDocs();
-    await user.click(screen.getByRole('button', { name: 'Design System Comparison' }));
+    await user.click(screen.getByRole('button', { name: /Comparison/ }));
     expect(screen.getByText('Material UI')).toBeInTheDocument();
   });
 
@@ -229,11 +229,11 @@ describe('ComponentDocumentation', () => {
         mappings: [{ property: 'background', token: 'color.brand.primary', value: '#005196' }],
       },
     });
-    expect(screen.getByRole('button', { name: 'Token Mappings' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Tokens/ })).toBeInTheDocument();
   });
 
   it('does not show Token Mappings tab when tokens are not provided', () => {
     renderDocs();
-    expect(screen.queryByRole('button', { name: 'Token Mappings' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^Tokens/ })).not.toBeInTheDocument();
   });
 });

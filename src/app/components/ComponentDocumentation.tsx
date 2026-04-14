@@ -10,8 +10,8 @@
  * - Accessibility documentation
  */
 
-import React, { useState } from 'react';
-import { Download, Check, Copy, ExternalLink, Info } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Download, Check, Copy, ExternalLink, Info, Eye, List, Code2, GitCompare, Palette, BookOpen } from 'lucide-react';
 import { Link } from 'react-router';
 
 interface PropDefinition {
@@ -140,6 +140,8 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
   accessibility,
   tokens,
   useCases,
+  additionalContent,
+  governmentContext,
 }) => {
   const [activeTab, setActiveTab] = useState<'overview' | 'props' | 'examples' | 'code' | 'comparison' | 'tokens'>('overview');
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -170,12 +172,12 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
   };
 
   const tabs = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'props', label: 'Props API' },
-    { id: 'examples', label: 'Examples' },
-    { id: 'code', label: 'Code Downloads' },
-    { id: 'comparison', label: 'Design System Comparison' },
-    ...(tokens ? [{ id: 'tokens', label: 'Token Mappings' }] : []),
+    { id: 'overview', label: 'Overview', icon: Eye },
+    { id: 'props', label: 'Props API', icon: List, badge: props.length },
+    { id: 'examples', label: 'Examples', icon: BookOpen },
+    { id: 'code', label: 'Code Downloads', icon: Code2 },
+    { id: 'comparison', label: 'Comparison', icon: GitCompare },
+    ...(tokens ? [{ id: 'tokens', label: 'Tokens', icon: Palette }] : []),
   ];
 
   const codeSections: Array<{
@@ -234,43 +236,43 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-card border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="bg-gradient-to-br from-card via-card to-[#005196]/5 border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 py-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-            <Link to="/" className="hover:text-[#005196]">Home</Link>
-            <span>/</span>
-            <Link to="/components" className="hover:text-[#005196]">Components</Link>
-            <span>/</span>
+          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6" aria-label="Breadcrumb">
+            <Link to="/" className="hover:text-[#005196] transition-colors">Home</Link>
+            <span className="text-border">/</span>
+            <Link to="/components" className="hover:text-[#005196] transition-colors">Components</Link>
+            <span className="text-border">/</span>
             <span className="text-foreground font-medium">{name}</span>
           </nav>
 
           {/* Title and badges */}
-          <div className="flex items-start justify-between mb-4">
+          <div className="flex items-start justify-between mb-5">
             <div>
-              <h1 className="text-4xl font-bold text-foreground mb-2">{name}</h1>
-              <p className="text-lg text-muted-foreground max-w-3xl">{description}</p>
+              <h1 className="text-4xl font-extrabold tracking-tight text-foreground mb-3">{name}</h1>
+              <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">{description}</p>
             </div>
           </div>
 
           {/* Metadata badges */}
-          <div className="flex flex-wrap gap-3">
-            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium ${currentMaturity.color}`}>
+          <div className="flex flex-wrap gap-2.5">
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${currentMaturity.color} shadow-sm`}>
               <span>{currentMaturity.icon}</span>
               {currentMaturity.label}
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-muted text-foreground">
-              Tier: {tier.charAt(0).toUpperCase() + tier.slice(1)}
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-muted text-foreground shadow-sm">
+              {tier.charAt(0).toUpperCase() + tier.slice(1)}
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-muted text-foreground">
-              Category: {category}
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-muted text-foreground shadow-sm">
+              {category}
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-muted text-foreground">
-              Since: {since}
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-muted text-muted-foreground shadow-sm">
+              Since {since}
             </span>
             {updated && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-muted text-foreground">
-                Updated: {updated}
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-muted text-muted-foreground shadow-sm">
+                Updated {updated}
               </span>
             )}
           </div>
@@ -278,20 +280,29 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
 
         {/* Tabs */}
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex gap-1 border-b border-border">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
-                  activeTab === tab.id
-                    ? 'border-[#005196] text-[#005196]'
-                    : 'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+          <div className="flex gap-1 border-b border-border overflow-x-auto scrollbar-none">
+            {tabs.map((tab) => {
+              const TabIcon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as typeof activeTab)}
+                  className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+                    activeTab === tab.id
+                      ? 'border-[#005196] text-[#005196]'
+                      : 'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
+                  }`}
+                >
+                  {TabIcon && <TabIcon size={15} />}
+                  {tab.label}
+                  {'badge' in tab && tab.badge != null && (
+                    <span className="ml-1 inline-flex items-center justify-center h-5 min-w-[20px] px-1.5 rounded-full text-[11px] font-bold bg-[#005196]/10 text-[#005196]">
+                      {tab.badge}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -300,9 +311,11 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Overview Tab */}
         {activeTab === 'overview' && (
-          <div className="space-y-8">
+          <div className="flex gap-8">
+            {/* Main content */}
+            <div className="flex-1 min-w-0 space-y-8">
             {/* Installation */}
-            <section className="bg-card rounded-lg border border-border p-6">
+            <section id="section-installation" className="bg-card rounded-xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-2xl font-bold text-foreground mb-4">Installation</h2>
               <div className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -337,7 +350,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
             </section>
 
             {/* Accessibility */}
-            <section className="bg-card rounded-lg border border-border p-6">
+            <section id="section-accessibility" className="bg-card rounded-xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-2xl font-bold text-foreground mb-4">Accessibility</h2>
               <div className="space-y-6">
                 <div>
@@ -395,13 +408,16 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
 
             {/* Use Cases */}
             {useCases && useCases.length > 0 && (
-              <section className="bg-card rounded-lg border border-border p-6">
+              <section id="section-usecases" className="bg-card rounded-xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h2 className="text-2xl font-bold text-foreground mb-4">Government Service Use Cases</h2>
-                <div className="grid gap-6">
+                <div className="grid gap-4 md:grid-cols-2">
                   {useCases.map((useCase, idx) => (
-                    <div key={idx} className="border border-border rounded-lg p-5 hover:border-[#005196] transition-colors">
-                      <h3 className="text-lg font-semibold text-foreground mb-2">{useCase.title}</h3>
-                      <p className="text-muted-foreground mb-3">{useCase.description}</p>
+                    <div key={idx} className="group border border-border rounded-xl p-5 hover:border-[#005196] hover:shadow-md transition-all bg-gradient-to-br from-transparent to-[#005196]/[0.02]">
+                      <div className="flex items-start gap-3 mb-3">
+                        <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#005196]/10 text-[#005196] text-sm font-bold shrink-0">{idx + 1}</span>
+                        <h3 className="text-base font-semibold text-foreground group-hover:text-[#005196] transition-colors">{useCase.title}</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{useCase.description}</p>
                       <div className="space-y-2">
                         <div className="flex gap-2">
                           <span className="text-sm font-semibold text-muted-foreground min-w-[120px]">Scenario:</span>
@@ -417,12 +433,41 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                 </div>
               </section>
             )}
+
+            {/* Additional premium content (When to use, Related, Changelog, Research) */}
+            {additionalContent && (
+              <div id="section-premium" className="space-y-0">
+                {additionalContent}
+              </div>
+            )}
+            </div>
+
+            {/* Sticky sidebar TOC — desktop only */}
+            <aside className="hidden xl:block w-56 shrink-0">
+              <nav className="sticky top-24 space-y-1" aria-label="On this page">
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">On this page</p>
+                {[
+                  { id: 'section-installation', label: 'Installation' },
+                  { id: 'section-accessibility', label: 'Accessibility' },
+                  ...(useCases && useCases.length > 0 ? [{ id: 'section-usecases', label: 'Use Cases' }] : []),
+                  ...(additionalContent ? [{ id: 'section-premium', label: 'Guidance & Research' }] : []),
+                ].map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="block text-sm text-muted-foreground hover:text-[#005196] py-1.5 pl-3 border-l-2 border-transparent hover:border-[#005196] transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            </aside>
           </div>
         )}
 
         {/* Props API Tab */}
         {activeTab === 'props' && (
-          <div className="bg-card rounded-lg border border-border overflow-hidden">
+          <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-background">
@@ -464,7 +509,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         {activeTab === 'examples' && (
           <div className="space-y-8">
             {examples.map((example, idx) => (
-              <div key={idx} className="bg-card rounded-lg border border-border overflow-hidden">
+              <div key={idx} className="bg-card rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="p-6 border-b border-border">
                   <h3 className="text-lg font-semibold text-foreground mb-2">{example.title}</h3>
                   <p className="text-sm text-muted-foreground">{example.description}</p>
@@ -521,10 +566,10 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
             </section>
 
             <div className="grid gap-6 lg:grid-cols-3">
-              {codeSections.map((section) => (
+              {codeSections.map((section, sectionIdx) => (
                 <section
                   key={section.key}
-                  className="flex min-w-0 h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm"
+                  className={`flex min-w-0 h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-shadow hover:shadow-md ${sectionIdx === 0 ? 'lg:col-span-1' : ''}`}
                 >
                   <div className="h-1 bg-[#005196]" />
                   <div className="flex flex-1 flex-col p-6">
@@ -578,7 +623,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
 
         {/* Design System Comparison Tab */}
         {activeTab === 'comparison' && (
-          <div className="bg-card rounded-lg border border-border overflow-hidden">
+          <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm">
             <div className="p-6 border-b border-border">
               <h2 className="text-2xl font-bold text-foreground mb-2">Design System Comparison</h2>
               <p className="text-muted-foreground">
@@ -598,8 +643,13 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  <tr className="bg-primary/10">
-                    <td className="px-6 py-4 text-sm font-semibold text-primary">UX4G (Current)</td>
+                  <tr className="bg-[#005196]/10 ring-2 ring-[#005196]/20 ring-inset">
+                    <td className="px-6 py-4 text-sm font-bold text-[#005196]">
+                      <span className="flex items-center gap-2">
+                        UX4G
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#005196] text-white uppercase tracking-wider">Current</span>
+                      </span>
+                    </td>
                     <td className="px-6 py-4 text-sm font-mono font-medium text-foreground">{name}</td>
                     <td className="px-6 py-4 text-sm font-medium text-foreground">{props.find(p => p.name === 'variant')?.type || 'N/A'}</td>
                     <td className="px-6 py-4 text-sm font-medium text-foreground">{accessibility.wcagLevel}</td>
@@ -649,7 +699,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         {/* Token Mappings Tab */}
         {activeTab === 'tokens' && tokens && (
           <div className="space-y-6">
-            <div className="bg-card rounded-lg border border-border p-6">
+            <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
               <h2 className="text-2xl font-bold text-foreground mb-4">Token Mappings</h2>
               <p className="text-muted-foreground mb-6">
                 This component uses design tokens from: <code className="px-2 py-1 bg-muted rounded text-sm font-mono">{tokens.file}</code>
@@ -676,11 +726,13 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               </div>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <div className="bg-gradient-to-r from-blue-50 to-[#005196]/5 dark:from-blue-950/30 dark:to-[#005196]/10 border border-blue-200 dark:border-blue-800 rounded-xl p-6 shadow-sm">
               <div className="flex gap-3">
-                <Info className="text-[#005196] shrink-0 mt-0.5" size={20} />
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#005196]/10 shrink-0">
+                  <Info className="text-[#005196]" size={20} />
+                </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-2">Token-Driven Component</h3>
+                  <h3 className="font-semibold text-foreground mb-1">Token-Driven Component</h3>
                   <p className="text-sm text-muted-foreground">
                     This component is part of our Phase 2 token integration. All visual styles are derived from design tokens,
                     ensuring consistency across the design system and making global updates easier.
@@ -711,21 +763,22 @@ function InstallCard({
   onCopy: (code: string, id: string) => void;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-muted/20 p-5 shadow-sm">
+    <div className="rounded-2xl border border-border bg-gradient-to-br from-muted/20 to-transparent p-5 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold text-foreground">{title}</p>
-          <p className="mt-1 text-sm text-muted-foreground">{body}</p>
+          <p className="text-sm font-bold text-foreground">{title}</p>
+          <p className="mt-1 text-sm text-muted-foreground font-mono">{body}</p>
         </div>
         <button
           onClick={() => onCopy(code, copyId)}
-          className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+          aria-label={`Copy ${title} install command`}
+          className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-[#005196] hover:text-[#005196]"
         >
-          {copiedCode === copyId ? <Check size={16} /> : <Copy size={16} />}
+          {copiedCode === copyId ? <Check size={16} className="text-green-600" /> : <Copy size={16} />}
           Copy
         </button>
       </div>
-      <div className="mt-4 rounded-xl bg-gray-900 p-4 text-sm font-mono text-gray-100 overflow-x-auto">
+      <div className="mt-4 rounded-xl bg-slate-950 p-4 text-sm font-mono text-slate-100 overflow-x-auto shadow-inner">
         <code>{code}</code>
       </div>
     </div>
