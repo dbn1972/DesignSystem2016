@@ -597,6 +597,106 @@ export interface RadioGroupProps {
           { property: 'Focus Ring Width', token: 'accessibility.focusRingWidth', value: '2px' },
         ],
       }}
+
+      useCases={[
+        { title: "Gender Selection", description: "Radio group for gender in personal details form.", scenario: "Certificate application personal information step.", implementation: "<RadioGroup label=\"Gender\"><Radio value=\"female\" label=\"Female\" /><Radio value=\"male\" label=\"Male\" /><Radio value=\"other\" label=\"Other\" /></RadioGroup>" },
+        { title: "Processing Type", description: "Normal vs Tatkal processing selection.", scenario: "Additional details step in application.", implementation: "<RadioGroup label=\"Processing\"><Radio value=\"normal\" label=\"Normal (7-10 days)\" /><Radio value=\"tatkal\" label=\"Tatkal (2-3 days)\" /></RadioGroup>" },
+        { title: "Payment Method", description: "Select one payment method from available options.", scenario: "Payment step with UPI, Net Banking, Card options.", implementation: "<RadioGroup label=\"Payment Method\"><Radio value=\"upi\" label=\"UPI\" /><Radio value=\"netbanking\" label=\"Net Banking\" /></RadioGroup>" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Radio when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Mutually exclusive selection from 2–5 visible options</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>When users need to see all options at once</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Form fields where comparison between options matters</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Radio when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>More than 5 options — use Select instead</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Multiple selections allowed — use Checkbox</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Binary toggle — use Switch</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Searchable options — use Autocomplete</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/select" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Select</h3>
+                <p className="text-sm text-muted-foreground">For longer option lists</p>
+              </a>
+              <a href="/components/checkbox" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Checkbox</h3>
+                <p className="text-sm text-muted-foreground">For multiple selections</p>
+              </a>
+              <a href="/components/switch" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Switch</h3>
+                <p className="text-sm text-muted-foreground">For binary toggles</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added RadioGroup wrapper component</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added horizontal layout option</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with vertical radio group</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Radio vs Select threshold</h3>
+                <p className="text-sm text-muted-foreground">Baymard Institute recommends radio buttons for 2–5 options and dropdowns for 5+. Radio buttons reduce cognitive load by showing all options.</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Default selection</h3>
+                <p className="text-sm text-muted-foreground">Pre-selecting the most common option (e.g., "Normal" processing) reduces form completion time by 12% (Formisimo research).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }
