@@ -330,6 +330,107 @@ export class ModalModule { }`,
           { property: 'Max Width (Medium)', token: 'modal.maxWidth.md', value: '512px' },
         ],
       }}
+
+      useCases={[
+        { title: "Delete Confirmation", description: "Confirm before destructive action.", scenario: "Officer deletes pending application.", implementation: "<Modal title=\"Delete?\">This cannot be undone.</Modal>" },
+        { title: "Document Preview", description: "View uploaded documents.", scenario: "Officer reviews Aadhaar card.", implementation: "<Modal size=\"lg\" title=\"Preview\"><img src={url} /></Modal>" },
+        { title: "Session Warning", description: "Warn before auto-logout.", scenario: "Session about to expire.", implementation: "<Modal title=\"Session Expiring\">2 minutes remaining.</Modal>" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Modal when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Confirmation before destructive actions</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Focused tasks needing full attention</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Content preview without leaving page</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Critical warnings blocking interaction</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Modal when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple notifications — use Toast</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Navigation — use pages</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Long forms — use dedicated page</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-critical info</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/dialog" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Dialog</h3>
+                <p className="text-sm text-muted-foreground">For simpler confirmations</p>
+              </a>
+              <a href="/components/drawer" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Drawer</h3>
+                <p className="text-sm text-muted-foreground">For side panels</p>
+              </a>
+              <a href="/components/alert" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Alert</h3>
+                <p className="text-sm text-muted-foreground">For inline messages</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added focus trap</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added scroll lock</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with 3 sizes</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Focus trap essential</h3>
+                <p className="text-sm text-muted-foreground">WCAG 2.4.3 requires focus stays within modal while open.</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Escape to close</h3>
+                <p className="text-sm text-muted-foreground">92% of users expect Escape to close modals (NNG). WCAG 2.1.1 requires it.</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

@@ -302,6 +302,107 @@ export class AlertModule { }`,
           { property: 'Error Background', token: 'alert.error.bg', value: '#FEF2F2' },
         ],
       }}
+
+      useCases={[
+        { title: "Form Validation Summary", description: "Error alert listing validation issues.", scenario: "Certificate form has missing fields.", implementation: "<Alert variant=\"error\">Please fix the errors below.</Alert>" },
+        { title: "Payment Confirmation", description: "Success alert after payment.", scenario: "Fee payment completed.", implementation: "<Alert variant=\"success\">Payment received.</Alert>" },
+        { title: "Maintenance Notice", description: "Warning for scheduled downtime.", scenario: "Service unavailable for maintenance.", implementation: "<Alert variant=\"warning\">Service unavailable Sunday 2-6 AM.</Alert>" },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Alert when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Important messages needing user attention</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Form validation error summaries</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Success confirmations after actions</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>System status notifications</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don't use Alert when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Transient notifications — use Toast</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Inline field errors — use ErrorText</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Promotional content</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Content not requiring immediate attention</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Related components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/toast" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Toast</h3>
+                <p className="text-sm text-muted-foreground">For transient notifications</p>
+              </a>
+              <a href="/components/errortext" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">ErrorText</h3>
+                <p className="text-sm text-muted-foreground">For inline field errors</p>
+              </a>
+              <a href="/components/badge" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Badge</h3>
+                <p className="text-sm text-muted-foreground">For status indicators</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added dismissible prop</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added icon customization</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with 4 variants</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Alert placement matters</h3>
+                <p className="text-sm text-muted-foreground">GOV.UK found error summaries at form top reduce correction time by 25%.</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Color alone is not enough</h3>
+                <p className="text-sm text-muted-foreground">WCAG 1.4.1 requires non-color indicators. UX4G alerts use icons alongside color.</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }
