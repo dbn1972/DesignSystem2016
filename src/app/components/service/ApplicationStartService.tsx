@@ -105,8 +105,8 @@ export function ApplicationStartService({
 
           <Link
             to={startFormPath}
-            className={`w-full block px-8 py-4 text-white font-bold rounded text-center transition-colors ${
-              acceptedTerms ? "bg-green-700 hover:bg-green-600" : "bg-gray-400 pointer-events-none"
+            className={`w-full block px-8 py-4 text-primary-foreground font-bold rounded text-center transition-colors ${
+              acceptedTerms ? "bg-green-700 hover:opacity-90" : "bg-gray-400 pointer-events-none"
             }`}
             aria-disabled={!acceptedTerms}
           >
@@ -170,7 +170,7 @@ function InstructionStep({
 }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">{number}</div>
+      <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center flex-shrink-0 font-bold">{number}</div>
       <div>
         <h4 className="font-bold text-foreground mb-1">{title}</h4>
         <p className="text-sm text-muted-foreground">{description}</p>

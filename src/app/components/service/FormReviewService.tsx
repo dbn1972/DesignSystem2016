@@ -84,7 +84,7 @@ export function FormReviewService({
             <button
               type="button"
               onClick={() => navigate(nextPath)}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-white rounded font-bold text-sm hover:opacity-90"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground rounded font-bold text-sm hover:opacity-90"
             >
               Confirm and Continue
               <ArrowRight size={16} />

@@ -51,7 +51,7 @@ export default function CertificateService() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 bg-[var(--ux4g-color-feedback-success)] rounded-lg flex items-center justify-center flex-shrink-0">
                 <FileText size={24} className="text-white" />
               </div>
               <div>
@@ -117,7 +117,7 @@ export default function CertificateService() {
             <div className="mt-6 pt-6 border-t-2 border-border dark:border-gray-700">
               <Link 
                 to="/reference-service/certificate/eligibility"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded text-sm hover:opacity-90 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-bold rounded text-sm hover:opacity-90 transition-colors"
               >
                 Check Your Eligibility
                 <ArrowRight size={18} />
@@ -266,7 +266,7 @@ export default function CertificateService() {
             <div className="flex items-center justify-center gap-4">
               <Link
                 to="/reference-service/certificate/sign-in"
-                className="px-8 py-4 bg-primary text-white font-bold rounded text-sm hover:opacity-90 transition-colors flex items-center gap-2"
+                className="px-8 py-4 bg-primary text-primary-foreground font-bold rounded text-sm hover:opacity-90 transition-colors flex items-center gap-2"
               >
                 <Shield size={18} />
                 Sign In to Apply
@@ -334,7 +334,7 @@ function DocumentItem({ text, optional }: { text: string; optional?: boolean }) 
 function ProcessStep({ number, title, description }: { number: number; title: string; description: string }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">
+      <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center flex-shrink-0 font-bold">
         {number}
       </div>
       <div className="flex-1">

@@ -260,7 +260,7 @@ export function ForgotPasswordService({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3.5 bg-primary text-white font-bold rounded text-sm hover:opacity-90 disabled:opacity-70"
+                  className="w-full px-6 py-3.5 bg-primary text-primary-foreground font-bold rounded text-sm hover:opacity-90 disabled:opacity-70"
                   aria-busy={isSubmitting}
                 >
                   {isSubmitting ? "Sending OTP..." : "Send OTP"}
@@ -309,7 +309,7 @@ export function ForgotPasswordService({
                 <button
                   type="button"
                   onClick={continueFromOtpStep}
-                  className="w-full px-6 py-3.5 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
+                  className="w-full px-6 py-3.5 bg-primary text-primary-foreground font-bold rounded text-sm hover:opacity-90"
                 >
                   Continue
                 </button>
@@ -401,7 +401,7 @@ export function ForgotPasswordService({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-6 py-3.5 bg-green-700 text-white font-bold rounded text-sm hover:bg-green-600 disabled:opacity-70"
+                  className="w-full px-6 py-3.5 bg-[var(--ux4g-color-feedback-success)] text-primary-foreground font-bold rounded text-sm hover:opacity-90 disabled:opacity-70"
                   aria-busy={isSubmitting}
                 >
                   {isSubmitting ? "Resetting Password..." : "Reset Password"}
@@ -440,9 +440,9 @@ function StepBadge({ number, label, active, completed }: { number: number; label
       <div
         className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mb-1 ${
           completed
-            ? "bg-green-600 text-white"
+            ? "bg-green-600 text-primary-foreground"
             : active
-            ? "bg-primary text-white"
+            ? "bg-primary text-primary-foreground"
             : "bg-gray-200 text-muted-foreground"
         }`}
       >

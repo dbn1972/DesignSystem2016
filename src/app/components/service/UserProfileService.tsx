@@ -83,7 +83,7 @@ export function UserProfileService({
                     <button
                       type="button"
                       onClick={() => setEditMode(true)}
-                      className="px-4 py-2 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
+                      className="px-4 py-2 bg-primary text-primary-foreground font-bold rounded text-sm hover:opacity-90"
                     >
                       Edit Profile
                     </button>
@@ -109,7 +109,7 @@ export function UserProfileService({
 
                   {editMode && (
                     <div className="pt-4 border-t-2 border-border flex items-center gap-3">
-                      <button type="button" onClick={handleSave} className="px-5 py-2 bg-green-700 text-white rounded font-bold text-sm hover:bg-green-600">Save Changes</button>
+                      <button type="button" onClick={handleSave} className="px-5 py-2 bg-[var(--ux4g-color-feedback-success)] text-primary-foreground rounded font-bold text-sm hover:opacity-90">Save Changes</button>
                       <button type="button" onClick={() => setEditMode(false)} className="px-5 py-2 border-2 border-border rounded font-bold text-sm text-muted-foreground hover:bg-muted">Cancel</button>
                     </div>
                   )}
@@ -128,7 +128,7 @@ export function UserProfileService({
                         <p className="text-sm text-muted-foreground">Update your password regularly to keep your account secure.</p>
                       </div>
                     </div>
-                    <Link to={forgotPasswordPath} className="px-4 py-2 bg-primary text-white rounded font-bold text-sm hover:opacity-90 whitespace-nowrap">Change Password</Link>
+                    <Link to={forgotPasswordPath} className="px-4 py-2 bg-primary text-primary-foreground rounded font-bold text-sm hover:opacity-90 whitespace-nowrap">Change Password</Link>
                   </div>
                 </div>
 
@@ -154,7 +154,7 @@ export function UserProfileService({
                 <NotificationToggle label="Promotional Emails" description="New service announcements" checked={notificationSettings.promotionalEmails} onChange={(value) => setNotificationSettings((prev) => ({ ...prev, promotionalEmails: value }))} />
 
                 <div className="pt-4 border-t-2 border-border">
-                  <button type="button" onClick={handleSave} className="px-5 py-2 bg-green-700 text-white rounded font-bold text-sm hover:bg-green-600">Save Preferences</button>
+                  <button type="button" onClick={handleSave} className="px-5 py-2 bg-[var(--ux4g-color-feedback-success)] text-primary-foreground rounded font-bold text-sm hover:opacity-90">Save Preferences</button>
                 </div>
               </div>
             )}
@@ -193,7 +193,7 @@ function TabButton({
       type="button"
       onClick={onClick}
       className={`w-full px-4 py-3 flex items-center gap-2 text-left border-b-2 border-border ${
-        active ? "bg-primary text-white" : "bg-card text-muted-foreground hover:bg-muted"
+        active ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:bg-muted"
       }`}
     >
       {icon}
@@ -259,7 +259,7 @@ function NotificationToggle({
           onChange={(event) => onChange(event.target.checked)}
           className="sr-only peer"
         />
-        <span className="absolute inset-0 bg-gray-300 rounded-full peer-checked:bg-green-600 transition-colors" />
+        <span className="absolute inset-0 bg-muted rounded-full peer-checked:bg-green-600 transition-colors" />
         <span className={`absolute left-1 top-1 w-4 h-4 bg-card rounded-full transition-transform ${checked ? "translate-x-5" : ""}`} />
       </label>
     </div>

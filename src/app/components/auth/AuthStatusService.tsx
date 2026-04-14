@@ -91,7 +91,7 @@ export function AuthStatusService({
             <div className="space-y-3">
               <Link
                 to={`${signInPath}${config.actionTo}`}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-white font-bold rounded text-sm hover:opacity-90"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-primary-foreground font-bold rounded text-sm hover:opacity-90"
               >
                 <LogIn size={16} />
                 {config.actionLabel}

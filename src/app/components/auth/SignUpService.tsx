@@ -257,7 +257,7 @@ export function SignUpService({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3.5 bg-green-700 text-white font-bold rounded text-sm hover:bg-green-600 disabled:opacity-70"
+                className="w-full px-6 py-3.5 bg-[var(--ux4g-color-feedback-success)] text-primary-foreground font-bold rounded text-sm hover:opacity-90 disabled:opacity-70"
                 aria-busy={isSubmitting}
               >
                 {isSubmitting ? "Creating Account..." : "Create Account"}

@@ -1,0 +1,169 @@
+import { lazy } from "react";
+import type { RouteObject } from "react-router";
+
+import { ROUTE_PATHS, toChildPath } from "../pathSource";
+
+const Components = lazy(() => import("../../pages/Components"));
+const FrameworkStatus = lazy(() => import("../../pages/FrameworkStatus"));
+const WebComponentsDemo = lazy(() => import("../../pages/WebComponentsDemo"));
+const ComponentButtonPage = lazy(() => import("../../pages/ComponentButtonPage"));
+const ComponentInputPage = lazy(() => import("../../pages/ComponentInputPage"));
+const ComponentFieldPage = lazy(() => import("../../pages/ComponentFieldPage"));
+const ComponentLabelPage = lazy(() => import("../../pages/ComponentLabelPage"));
+const ComponentHintTextPage = lazy(() => import("../../pages/ComponentHintTextPage"));
+const ComponentErrorTextPage = lazy(() => import("../../pages/ComponentErrorTextPage"));
+const ComponentCheckboxPage = lazy(() => import("../../pages/ComponentCheckboxPage"));
+const ComponentSelectPage = lazy(() => import("../../pages/ComponentSelectPage"));
+const ComponentTextareaPage = lazy(() => import("../../pages/ComponentTextareaPage"));
+const ComponentSwitchPage = lazy(() => import("../../pages/ComponentSwitchPage"));
+const ComponentRadioPage = lazy(() => import("../../pages/ComponentRadioPage"));
+const ComponentAutocompletePage = lazy(() => import("../../pages/ComponentAutocompletePage"));
+const ComponentSegmentedControlPage = lazy(() => import("../../pages/ComponentSegmentedControlPage"));
+const ComponentBreadcrumbPage = lazy(() => import("../../pages/ComponentBreadcrumbPage"));
+const ComponentAlertPage = lazy(() => import("../../pages/ComponentAlertPage"));
+const ComponentBadgePage = lazy(() => import("../../pages/ComponentBadgePage"));
+const ComponentModalPage = lazy(() => import("../../pages/ComponentModalPage"));
+const ComponentDialogPage = lazy(() => import("../../pages/ComponentDialogPage"));
+const ComponentCardPage = lazy(() => import("../../pages/ComponentCardPage"));
+const ComponentTablePage = lazy(() => import("../../pages/ComponentTablePage"));
+const ComponentAccordionPage = lazy(() => import("../../pages/ComponentAccordionPage"));
+const ComponentListPage = lazy(() => import("../../pages/ComponentListPage"));
+const ComponentContainerPage = lazy(() => import("../../pages/ComponentContainerPage"));
+const ComponentGridPage = lazy(() => import("../../pages/ComponentGridPage"));
+const ComponentStackPage = lazy(() => import("../../pages/ComponentStackPage"));
+const ComponentDividerPage = lazy(() => import("../../pages/ComponentDividerPage"));
+const ComponentSpacerPage = lazy(() => import("../../pages/ComponentSpacerPage"));
+const ComponentDatePickerPage = lazy(() => import("../../pages/ComponentDatePickerPage"));
+const ComponentFileUploadPage = lazy(() => import("../../pages/ComponentFileUploadPage"));
+const ComponentStepperPage = lazy(() => import("../../pages/ComponentStepperPage"));
+const ComponentOTPInputPage = lazy(() => import("../../pages/ComponentOTPInputPage"));
+const ComponentApplicationTrackerPage = lazy(() => import("../../pages/ComponentApplicationTrackerPage"));
+const ComponentDataGridPage = lazy(() => import("../../pages/ComponentDataGridPage"));
+const ComponentAadhaarInputPage = lazy(() => import("../../pages/ComponentAadhaarInputPage"));
+const ComponentHeaderPage = lazy(() => import("../../pages/ComponentHeaderPage"));
+const ComponentFooterPage = lazy(() => import("../../pages/ComponentFooterPage"));
+const ComponentTabsPage = lazy(() => import("../../pages/ComponentTabsPage"));
+const ComponentPaginationPage = lazy(() => import("../../pages/ComponentPaginationPage"));
+const ComponentMenuPage = lazy(() => import("../../pages/ComponentMenuPage"));
+const ComponentDropdownPage = lazy(() => import("../../pages/ComponentDropdownPage"));
+const ComponentDrawerPage = lazy(() => import("../../pages/ComponentDrawerPage"));
+const ComponentBackToTopPage = lazy(() => import("../../pages/ComponentBackToTopPage"));
+const ComponentToastPage = lazy(() => import("../../pages/ComponentToastPage"));
+const ComponentProgressPage = lazy(() => import("../../pages/ComponentProgressPage"));
+const ComponentSpinnerPage = lazy(() => import("../../pages/ComponentSpinnerPage"));
+const ComponentSkeletonPage = lazy(() => import("../../pages/ComponentSkeletonPage"));
+const ComponentTooltipPage = lazy(() => import("../../pages/ComponentTooltipPage"));
+const ComponentPopoverPage = lazy(() => import("../../pages/ComponentPopoverPage"));
+const ComponentAvatarPage = lazy(() => import("../../pages/ComponentAvatarPage"));
+const ComponentTagPage = lazy(() => import("../../pages/ComponentTagPage"));
+const ComponentTimelinePage = lazy(() => import("../../pages/ComponentTimelinePage"));
+const ComponentStatisticPage = lazy(() => import("../../pages/ComponentStatisticPage"));
+const ComponentDescriptionListPage = lazy(() => import("../../pages/ComponentDescriptionListPage"));
+const ComponentEmptyStatePage = lazy(() => import("../../pages/ComponentEmptyStatePage"));
+const ComponentCodeBlockPage = lazy(() => import("../../pages/ComponentCodeBlockPage"));
+const ComponentTreeViewPage = lazy(() => import("../../pages/ComponentTreeViewPage"));
+const ComponentDocumentViewerPage = lazy(() => import("../../pages/ComponentDocumentViewerPage"));
+const ComponentDigitalSignaturePage = lazy(() => import("../../pages/ComponentDigitalSignaturePage"));
+const ComponentMapLocationPickerPage = lazy(() => import("../../pages/ComponentMapLocationPickerPage"));
+const ComponentQRCodePage = lazy(() => import("../../pages/ComponentQRCodePage"));
+const ComponentLanguageSelectorPage = lazy(() => import("../../pages/ComponentLanguageSelectorPage"));
+const ComponentPaymentGatewayPage = lazy(() => import("../../pages/ComponentPaymentGatewayPage"));
+const ComponentChatbotPage = lazy(() => import("../../pages/ComponentChatbotPage"));
+const ComponentRichTextEditorPage = lazy(() => import("../../pages/ComponentRichTextEditorPage"));
+const ComponentChartLibraryPage = lazy(() => import("../../pages/ComponentChartLibraryPage"));
+const ComponentCalendarSchedulerPage = lazy(() => import("../../pages/ComponentCalendarSchedulerPage"));
+const ComponentAddressAutocompleteIndiaPage = lazy(() => import("../../pages/ComponentAddressAutocompleteIndiaPage"));
+const ComponentPANCardInputPage = lazy(() => import("../../pages/ComponentPANCardInputPage"));
+const ComponentFeedbackRatingWidgetPage = lazy(() => import("../../pages/ComponentFeedbackRatingWidgetPage"));
+const ComponentCaptchaPage = lazy(() => import("../../pages/ComponentCaptchaPage"));
+const ComponentVideoPlayerPage = lazy(() => import("../../pages/ComponentVideoPlayerPage"));
+const ComponentFormBuilderPage = lazy(() => import("../../pages/ComponentFormBuilderPage"));
+const ComponentFlexPage = lazy(() => import("../../pages/ComponentFlexPage"));
+const ComponentCenterPage = lazy(() => import("../../pages/ComponentCenterPage"));
+const ComponentAspectRatioPage = lazy(() => import("../../pages/ComponentAspectRatioPage"));
+const ComponentShowHidePage = lazy(() => import("../../pages/ComponentShowHidePage"));
+const ComponentSectionPage = lazy(() => import("../../pages/ComponentSectionPage"));
+
+export const componentsRoutes: RouteObject[] = [
+  { path: toChildPath(ROUTE_PATHS.COMPONENTS.ROOT), Component: Components },
+  { path: toChildPath(ROUTE_PATHS.COMPONENTS.FRAMEWORK_STATUS), Component: FrameworkStatus },
+  { path: toChildPath(ROUTE_PATHS.COMPONENTS.WEB_COMPONENTS), Component: WebComponentsDemo },
+  { path: "components/button", Component: ComponentButtonPage },
+  { path: "components/input", Component: ComponentInputPage },
+  { path: "components/field", Component: ComponentFieldPage },
+  { path: "components/label", Component: ComponentLabelPage },
+  { path: "components/hint-text", Component: ComponentHintTextPage },
+  { path: "components/error-text", Component: ComponentErrorTextPage },
+  { path: "components/checkbox", Component: ComponentCheckboxPage },
+  { path: "components/select", Component: ComponentSelectPage },
+  { path: "components/textarea", Component: ComponentTextareaPage },
+  { path: "components/switch", Component: ComponentSwitchPage },
+  { path: "components/radio", Component: ComponentRadioPage },
+  { path: "components/autocomplete", Component: ComponentAutocompletePage },
+  { path: "components/segmented-control", Component: ComponentSegmentedControlPage },
+  { path: "components/breadcrumb", Component: ComponentBreadcrumbPage },
+  { path: "components/alert", Component: ComponentAlertPage },
+  { path: "components/badge", Component: ComponentBadgePage },
+  { path: "components/modal", Component: ComponentModalPage },
+  { path: "components/dialog", Component: ComponentDialogPage },
+  { path: "components/card", Component: ComponentCardPage },
+  { path: "components/table", Component: ComponentTablePage },
+  { path: "components/accordion", Component: ComponentAccordionPage },
+  { path: "components/list", Component: ComponentListPage },
+  { path: "components/container", Component: ComponentContainerPage },
+  { path: "components/grid", Component: ComponentGridPage },
+  { path: "components/stack", Component: ComponentStackPage },
+  { path: "components/divider", Component: ComponentDividerPage },
+  { path: "components/spacer", Component: ComponentSpacerPage },
+  { path: "components/date-picker", Component: ComponentDatePickerPage },
+  { path: "components/file-upload", Component: ComponentFileUploadPage },
+  { path: "components/stepper", Component: ComponentStepperPage },
+  { path: "components/otp-input", Component: ComponentOTPInputPage },
+  { path: "components/application-tracker", Component: ComponentApplicationTrackerPage },
+  { path: "components/data-grid", Component: ComponentDataGridPage },
+  { path: "components/aadhaar-input", Component: ComponentAadhaarInputPage },
+  { path: "components/header", Component: ComponentHeaderPage },
+  { path: "components/footer", Component: ComponentFooterPage },
+  { path: "components/tabs", Component: ComponentTabsPage },
+  { path: "components/pagination", Component: ComponentPaginationPage },
+  { path: "components/menu", Component: ComponentMenuPage },
+  { path: "components/dropdown", Component: ComponentDropdownPage },
+  { path: "components/drawer", Component: ComponentDrawerPage },
+  { path: "components/back-to-top", Component: ComponentBackToTopPage },
+  { path: "components/toast", Component: ComponentToastPage },
+  { path: "components/progress", Component: ComponentProgressPage },
+  { path: "components/spinner", Component: ComponentSpinnerPage },
+  { path: "components/skeleton", Component: ComponentSkeletonPage },
+  { path: "components/tooltip", Component: ComponentTooltipPage },
+  { path: "components/popover", Component: ComponentPopoverPage },
+  { path: "components/avatar", Component: ComponentAvatarPage },
+  { path: "components/tag", Component: ComponentTagPage },
+  { path: "components/timeline", Component: ComponentTimelinePage },
+  { path: "components/statistic", Component: ComponentStatisticPage },
+  { path: "components/description-list", Component: ComponentDescriptionListPage },
+  { path: "components/empty-state", Component: ComponentEmptyStatePage },
+  { path: "components/code-block", Component: ComponentCodeBlockPage },
+  { path: "components/tree-view", Component: ComponentTreeViewPage },
+  { path: "components/document-viewer", Component: ComponentDocumentViewerPage },
+  { path: "components/digital-signature", Component: ComponentDigitalSignaturePage },
+  { path: "components/map-location-picker", Component: ComponentMapLocationPickerPage },
+  { path: "components/qr-code", Component: ComponentQRCodePage },
+  { path: "components/language-selector", Component: ComponentLanguageSelectorPage },
+  { path: "components/payment-gateway", Component: ComponentPaymentGatewayPage },
+  { path: "components/chatbot", Component: ComponentChatbotPage },
+  { path: "components/rich-text-editor", Component: ComponentRichTextEditorPage },
+  { path: "components/chart-library", Component: ComponentChartLibraryPage },
+  { path: "components/calendar-scheduler", Component: ComponentCalendarSchedulerPage },
+  { path: "components/address-autocomplete-india", Component: ComponentAddressAutocompleteIndiaPage },
+  { path: "components/pan-card-input", Component: ComponentPANCardInputPage },
+  { path: "components/feedback-rating-widget", Component: ComponentFeedbackRatingWidgetPage },
+  { path: "components/captcha", Component: ComponentCaptchaPage },
+  { path: "components/video-player", Component: ComponentVideoPlayerPage },
+  { path: "components/form-builder", Component: ComponentFormBuilderPage },
+  { path: "components/flex", Component: ComponentFlexPage },
+  { path: "components/center", Component: ComponentCenterPage },
+  { path: "components/aspect-ratio", Component: ComponentAspectRatioPage },
+  { path: "components/show-hide", Component: ComponentShowHidePage },
+  { path: "components/section", Component: ComponentSectionPage },
+];
+

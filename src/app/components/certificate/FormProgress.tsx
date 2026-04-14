@@ -20,9 +20,9 @@ export function FormProgress({ currentStep, totalSteps, steps }: FormProgressPro
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mb-2 ${
                       isCompleted
-                        ? 'bg-green-600 text-white'
+                        ? 'bg-green-600 text-primary-foreground'
                         : isActive
-                        ? 'bg-primary text-white'
+                        ? 'bg-primary text-primary-foreground'
                         : 'bg-gray-300 text-muted-foreground'
                     }`}
                   >

@@ -202,7 +202,7 @@ export default function Documentation() {
   return (
     <div className="bg-card min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#000080] via-[#000060] to-[#000080] text-white py-20">
+      <section className="bg-gradient-to-br from-[#000080] via-[#000060] to-[#000080] text-primary-foreground py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -218,13 +218,13 @@ export default function Documentation() {
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={20} />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search documentation... (e.g., 'button component', 'accessibility')"
-                className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-white/20 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:border-[#FF9933] focus:bg-white/20 transition-all"
+                className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-white/20 bg-card/10 text-primary-foreground placeholder-white/60 focus:outline-none focus:border-[#FF9933] focus:bg-white/20 transition-all"
                 aria-label="Search documentation"
               />
             </div>
@@ -280,9 +280,9 @@ export default function Documentation() {
             {/* FAQ Card */}
             <Link
               to="/faq"
-              className="group bg-gradient-to-br from-[#138808] to-[#0d6006] text-white rounded-xl p-6 hover:shadow-xl transition-all duration-200"
+              className="group bg-gradient-to-br from-[#138808] to-[#0d6006] text-primary-foreground rounded-xl p-6 hover:shadow-xl transition-all duration-200"
             >
-              <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 bg-card/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <HelpCircle className="text-white" size={28} />
               </div>
 
@@ -318,7 +318,7 @@ export default function Documentation() {
                 className="bg-card rounded-xl p-6 border border-border hover:border-primary hover:shadow-lg transition-all group"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm text-gray-500">{update.date}</span>
+                  <span className="text-sm text-muted-foreground">{update.date}</span>
                   <span className={`px-2 py-1 rounded text-xs font-semibold ${
                     update.type === "Feature"
                       ? "bg-green-700/10 text-[#138808]"
@@ -329,7 +329,7 @@ export default function Documentation() {
                 </div>
 
                 <div className="mb-2">
-                  <span className="inline-block px-2 py-0.5 bg-primary text-white text-xs font-mono rounded mb-2">
+                  <span className="inline-block px-2 py-0.5 bg-primary text-primary-foreground text-xs font-mono rounded mb-2">
                     {update.version}
                   </span>
                 </div>
@@ -347,7 +347,7 @@ export default function Documentation() {
           <div className="mt-8 text-center">
             <Link
               to="/changelog"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:opacity-90 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-colors"
             >
               View Full Changelog
               <ExternalLink size={18} />
@@ -468,7 +468,7 @@ export default function Documentation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <AlertCircle className="mx-auto mb-4 text-[#FF9933]" size={48} />
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-bold text-primary-foreground mb-4">
               Need Additional Help?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
@@ -477,7 +477,7 @@ export default function Documentation() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 to="/contact-support-overview"
-                className="px-8 py-3 bg-[#FF9933] text-white font-semibold rounded-lg hover:bg-[#e68a2e] transition-colors inline-flex items-center gap-2"
+                className="px-8 py-3 bg-[#FF9933] text-primary-foreground font-semibold rounded-lg hover:bg-[#e68a2e] transition-colors inline-flex items-center gap-2"
               >
                 <Users size={20} />
                 Contact Support
@@ -493,7 +493,7 @@ export default function Documentation() {
                 href="https://github.com/ux4g"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors inline-flex items-center gap-2"
+                className="px-8 py-3 border-2 border-white text-primary-foreground font-semibold rounded-lg hover:bg-white/10 transition-colors inline-flex items-center gap-2"
               >
                 <ExternalLink size={20} />
                 GitHub Repository

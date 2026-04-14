@@ -1,0 +1,135 @@
+import { lazy } from "react";
+import type { RouteObject } from "react-router";
+
+import { ROUTE_PATHS, toChildPath } from "../pathSource";
+
+const ReferenceServiceBlueprint = lazy(() => import("../../pages/ReferenceServiceBlueprint"));
+const CertificateService = lazy(() => import("../../pages/CertificateService"));
+const ReferenceServiceSignIn = lazy(() => import("../../pages/ReferenceServiceSignIn"));
+const ReferenceServiceSignUp = lazy(() => import("../../pages/ReferenceServiceSignUp"));
+const ReferenceServiceForgotPassword = lazy(() => import("../../pages/ReferenceServiceForgotPassword"));
+const ReferenceServiceVerifyOTP = lazy(() => import("../../pages/ReferenceServiceVerifyOTP"));
+const ReferenceServiceAuthStatus = lazy(() => import("../../pages/ReferenceServiceAuthStatus"));
+const ReferenceServiceEligibility = lazy(() => import("../../pages/ReferenceServiceEligibility"));
+const ReferenceServiceStart = lazy(() => import("../../pages/ReferenceServiceStart"));
+const ReferenceServiceStatusTracker = lazy(() => import("../../pages/ReferenceServiceStatusTracker"));
+const ReferenceServiceDocumentUpload = lazy(() => import("../../pages/ReferenceServiceDocumentUpload"));
+const ReferenceServiceReviewSummary = lazy(() => import("../../pages/ReferenceServiceReviewSummary"));
+const ReferenceServiceDeclaration = lazy(() => import("../../pages/ReferenceServiceDeclaration"));
+const ReferenceServiceUserProfile = lazy(() => import("../../pages/ReferenceServiceUserProfile"));
+const ReferenceServiceFormPersonal = lazy(() => import("../../pages/ReferenceServiceFormPersonal"));
+const ReferenceServiceFormAddress = lazy(() => import("../../pages/ReferenceServiceFormAddress"));
+const ReferenceServiceFormAdditional = lazy(() => import("../../pages/ReferenceServiceFormAdditional"));
+const ReferenceServiceFormReview = lazy(() => import("../../pages/ReferenceServiceFormReview"));
+const ReferenceServicePaymentSummary = lazy(() => import("../../pages/ReferenceServicePaymentSummary"));
+const ReferenceServicePaymentReceipt = lazy(() => import("../../pages/ReferenceServicePaymentReceipt"));
+const CertificateStart = lazy(() => import("../../pages/CertificateStart"));
+const CertificateEligibility = lazy(() => import("../../pages/CertificateEligibility"));
+const CertificateHelp = lazy(() => import("../../pages/CertificateHelp"));
+const CertificateDocumentGuidelines = lazy(() => import("../../pages/CertificateDocumentGuidelines"));
+const CertificatePrivacyPolicy = lazy(() => import("../../pages/CertificatePrivacyPolicy"));
+const CertificateSignIn = lazy(() => import("../../pages/CertificateSignIn"));
+const CertificateSignUp = lazy(() => import("../../pages/CertificateSignUp"));
+const CertificateVerifyOTP = lazy(() => import("../../pages/CertificateVerifyOTP"));
+const CertificateForgotPassword = lazy(() => import("../../pages/CertificateForgotPassword"));
+const CertificateSessionTimeout = lazy(() => import("../../pages/CertificateSessionTimeout"));
+const CertificateUserProfile = lazy(() => import("../../pages/CertificateUserProfile"));
+const CertificateFormPersonal = lazy(() => import("../../pages/CertificateFormPersonal"));
+const CertificateFormAddress = lazy(() => import("../../pages/CertificateFormAddress"));
+const CertificateFormAdditional = lazy(() => import("../../pages/CertificateFormAdditional"));
+const CertificateFormReview = lazy(() => import("../../pages/CertificateFormReview"));
+const CertificateDocumentUpload = lazy(() => import("../../pages/CertificateDocumentUpload"));
+const CertificateReviewSummary = lazy(() => import("../../pages/CertificateReviewSummary"));
+const CertificateDeclaration = lazy(() => import("../../pages/CertificateDeclaration"));
+const CertificatePaymentSummary = lazy(() => import("../../pages/CertificatePaymentSummary"));
+const CertificatePaymentReceipt = lazy(() => import("../../pages/CertificatePaymentReceipt"));
+const CertificateSubmissionSuccess = lazy(() => import("../../pages/CertificateSubmissionSuccess"));
+const CertificateStatusTracker = lazy(() => import("../../pages/CertificateStatusTracker"));
+const CertificateNotifications = lazy(() => import("../../pages/CertificateNotifications"));
+const CertificateMyApplications = lazy(() => import("../../pages/CertificateMyApplications"));
+const CertificateIssued = lazy(() => import("../../pages/CertificateIssued"));
+const CertificateFeedback = lazy(() => import("../../pages/CertificateFeedback"));
+const CertificateVerification = lazy(() => import("../../pages/CertificateVerification"));
+const CertificateCorrectionRequest = lazy(() => import("../../pages/CertificateCorrectionRequest"));
+const CertificateRejected = lazy(() => import("../../pages/CertificateRejected"));
+const CertificateAppeal = lazy(() => import("../../pages/CertificateAppeal"));
+const CertificateOfficerDashboard = lazy(() => import("../../pages/CertificateOfficerDashboard"));
+const CertificateOfficerCases = lazy(() => import("../../pages/CertificateOfficerCases"));
+const CertificateOfficerReview = lazy(() => import("../../pages/CertificateOfficerReview"));
+const IdentitySignIn = lazy(() => import("../../pages/IdentitySignIn"));
+const IdentitySignUp = lazy(() => import("../../pages/IdentitySignUp"));
+const IdentityMobileOTP = lazy(() => import("../../pages/IdentityMobileOTP"));
+const IdentityEmailOTP = lazy(() => import("../../pages/IdentityEmailOTP"));
+const IdentityForgotPassword = lazy(() => import("../../pages/IdentityForgotPassword"));
+const IdentityAccountRecovery = lazy(() => import("../../pages/IdentityAccountRecovery"));
+const IdentitySessionTimeout = lazy(() => import("../../pages/IdentitySessionTimeout"));
+const IdentityErrorLockout = lazy(() => import("../../pages/IdentityErrorLockout"));
+const IdentityAadhaar = lazy(() => import("../../pages/IdentityAadhaar"));
+
+export const servicesRoutes: RouteObject[] = [
+  { path: toChildPath(ROUTE_PATHS.SERVICES.OVERVIEW), Component: ReferenceServiceBlueprint },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.DEMO), Component: CertificateService },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.SIGN_IN), Component: ReferenceServiceSignIn },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.SIGN_UP), Component: ReferenceServiceSignUp },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.FORGOT_PASSWORD), Component: ReferenceServiceForgotPassword },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.VERIFY_OTP), Component: ReferenceServiceVerifyOTP },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.AUTH_STATUS), Component: ReferenceServiceAuthStatus },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.ELIGIBILITY), Component: ReferenceServiceEligibility },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.START), Component: ReferenceServiceStart },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.STATUS_TRACKER), Component: ReferenceServiceStatusTracker },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.DOCUMENT_UPLOAD), Component: ReferenceServiceDocumentUpload },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.REVIEW_SUMMARY), Component: ReferenceServiceReviewSummary },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.DECLARATION), Component: ReferenceServiceDeclaration },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.USER_PROFILE), Component: ReferenceServiceUserProfile },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.FORM_PERSONAL), Component: ReferenceServiceFormPersonal },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.FORM_ADDRESS), Component: ReferenceServiceFormAddress },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.FORM_ADDITIONAL), Component: ReferenceServiceFormAdditional },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.FORM_REVIEW), Component: ReferenceServiceFormReview },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.PAYMENT_SUMMARY), Component: ReferenceServicePaymentSummary },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.PAYMENT_RECEIPT), Component: ReferenceServicePaymentReceipt },
+
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.START), Component: CertificateStart },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.ELIGIBILITY), Component: CertificateEligibility },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.HELP), Component: CertificateHelp },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.DOCUMENT_GUIDELINES), Component: CertificateDocumentGuidelines },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.PRIVACY_POLICY), Component: CertificatePrivacyPolicy },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.SIGN_IN), Component: CertificateSignIn },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.SIGN_UP), Component: CertificateSignUp },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.VERIFY_OTP), Component: CertificateVerifyOTP },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.FORGOT_PASSWORD), Component: CertificateForgotPassword },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.SESSION_TIMEOUT), Component: CertificateSessionTimeout },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.USER_PROFILE), Component: CertificateUserProfile },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.FORM_PERSONAL), Component: CertificateFormPersonal },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.FORM_ADDRESS), Component: CertificateFormAddress },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.FORM_ADDITIONAL), Component: CertificateFormAdditional },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.FORM_REVIEW), Component: CertificateFormReview },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.DOCUMENT_UPLOAD), Component: CertificateDocumentUpload },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.REVIEW_SUMMARY), Component: CertificateReviewSummary },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.DECLARATION), Component: CertificateDeclaration },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.PAYMENT_SUMMARY), Component: CertificatePaymentSummary },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.PAYMENT_RECEIPT), Component: CertificatePaymentReceipt },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.SUBMISSION_SUCCESS), Component: CertificateSubmissionSuccess },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.STATUS_TRACKER), Component: CertificateStatusTracker },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.NOTIFICATIONS), Component: CertificateNotifications },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.MY_APPLICATIONS), Component: CertificateMyApplications },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.ISSUED), Component: CertificateIssued },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.FEEDBACK), Component: CertificateFeedback },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.VERIFICATION), Component: CertificateVerification },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.CORRECTION_REQUEST), Component: CertificateCorrectionRequest },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.REJECTED), Component: CertificateRejected },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.APPEAL), Component: CertificateAppeal },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.OFFICER_DASHBOARD), Component: CertificateOfficerDashboard },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.OFFICER_CASES), Component: CertificateOfficerCases },
+  { path: toChildPath(ROUTE_PATHS.CERTIFICATE.OFFICER_REVIEW), Component: CertificateOfficerReview },
+
+  { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_IN), Component: IdentitySignIn },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_UP), Component: IdentitySignUp },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_MOBILE_OTP), Component: IdentityMobileOTP },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_EMAIL_OTP), Component: IdentityEmailOTP },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_FORGOT_PASSWORD), Component: IdentityForgotPassword },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_ACCOUNT_RECOVERY), Component: IdentityAccountRecovery },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SESSION_TIMEOUT), Component: IdentitySessionTimeout },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_ERROR_LOCKOUT), Component: IdentityErrorLockout },
+  { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_AADHAAR), Component: IdentityAadhaar },
+];
+

@@ -88,7 +88,7 @@ export function DeclarationService({
               type="button"
               onClick={continueFlow}
               disabled={!accepted}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-green-700 text-white rounded font-bold text-sm hover:bg-green-600 disabled:bg-gray-300 disabled:text-gray-500"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-[var(--ux4g-color-feedback-success)] text-primary-foreground rounded font-bold text-sm hover:opacity-90 disabled:bg-gray-300 disabled:text-gray-500"
             >
               Accept and Continue
               <ArrowRight size={16} />

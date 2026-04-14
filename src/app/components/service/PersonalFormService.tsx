@@ -147,7 +147,7 @@ export function PersonalFormService({
             <button
               type="button"
               onClick={continueFlow}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-white rounded font-bold text-sm hover:opacity-90"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground rounded font-bold text-sm hover:opacity-90"
             >
               Save and Continue
               <ArrowRight size={16} />

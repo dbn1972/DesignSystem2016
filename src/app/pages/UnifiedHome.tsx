@@ -15,7 +15,7 @@ export default function UnifiedHome() {
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] gap-10 lg:gap-12 items-center">
             <div className="max-w-4xl">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary dark:bg-blue-600 text-white rounded-full mb-6 shadow-lg">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary dark:bg-blue-600 text-primary-foreground rounded-full mb-6 shadow-lg">
                 <Shield size={16} />
                 <span className="text-sm font-bold">Government of India • Digital India Initiative</span>
               </div>
@@ -41,7 +41,7 @@ export default function UnifiedHome() {
                 {/* Primary CTA */}
                 <Link
                   to="/resources/getting-started"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700 text-primary-foreground font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto"
                 >
                   <Download size={20} />
                   Get Started
@@ -309,7 +309,7 @@ export default function UnifiedHome() {
                   </Link>
                   <Link
                     to="/reference-service/demo"
-                    className="flex-1 px-4 py-3 bg-primary dark:bg-blue-600 hover:bg-[#000066] dark:hover:bg-blue-700 text-white text-center font-bold rounded transition-colors"
+                    className="flex-1 px-4 py-3 bg-primary dark:bg-blue-600 hover:bg-[#000066] dark:hover:bg-blue-700 text-primary-foreground text-center font-bold rounded transition-colors"
                   >
                     Try Demo
                   </Link>
@@ -564,7 +564,7 @@ function HeroBannerImage() {
               Build Trusted Public Services
             </h3>
           </div>
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-lg dark:bg-blue-600">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg dark:bg-blue-600">
             <Building2 size={28} />
           </div>
         </div>
@@ -630,15 +630,15 @@ function HeroBannerImage() {
 
         <div className="grid grid-cols-3 gap-3 mt-5">
           <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-border dark:border-gray-700">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Tokens</p>
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground dark:text-gray-400">Tokens</p>
             <p className="mt-1 text-sm font-bold text-foreground dark:text-gray-100">Unified</p>
           </div>
           <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-border dark:border-gray-700">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Components</p>
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground dark:text-gray-400">Components</p>
             <p className="mt-1 text-sm font-bold text-foreground dark:text-gray-100">Accessible</p>
           </div>
           <div className="rounded-xl bg-slate-50 dark:bg-gray-900/70 p-3 border border-border dark:border-gray-700">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Services</p>
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground dark:text-gray-400">Services</p>
             <p className="mt-1 text-sm font-bold text-foreground dark:text-gray-100">Scalable</p>
           </div>
         </div>
@@ -710,7 +710,7 @@ function LayerCard({ number, title, description, path, color, items }: {
       className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-6 hover:border-primary dark:hover:border-blue-500 transition-colors group"
     >
       <div className="flex items-start gap-4">
-        <div className={`flex-shrink-0 w-10 h-10 ${colorClasses[color as keyof typeof colorClasses]} text-white rounded flex items-center justify-center font-bold`}>
+        <div className={`flex-shrink-0 w-10 h-10 ${colorClasses[color as keyof typeof colorClasses]} text-primary-foreground rounded flex items-center justify-center font-bold`}>
           {number}
         </div>
         <div className="flex-1">
@@ -838,7 +838,7 @@ function UpdateCard({ date, title, description, badge, badgeColor }: {
 }) {
   const badgeColors = {
     blue: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
-    green: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
+    green: 'bg-green-100 dark:bg-green-900/30 text-[var(--ux4g-color-feedback-success)] dark:text-green-400',
     purple: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400'
   };
 
@@ -848,7 +848,7 @@ function UpdateCard({ date, title, description, badge, badgeColor }: {
         <span className={`text-xs px-2 py-1 ${badgeColors[badgeColor as keyof typeof badgeColors]} rounded font-bold`}>
           {badge}
         </span>
-        <span className="text-xs text-gray-500 dark:text-gray-400">{date}</span>
+        <span className="text-xs text-muted-foreground dark:text-gray-400">{date}</span>
       </div>
       <h3 className="font-bold text-foreground dark:text-gray-100 mb-2">{title}</h3>
       <p className="text-sm text-muted-foreground dark:text-gray-400">{description}</p>

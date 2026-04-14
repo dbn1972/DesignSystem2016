@@ -94,7 +94,7 @@ export function EligibilityService({
 
               <div className="border-b-2 border-border pb-6">
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">5</div>
+                  <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">5</div>
                   <div className="flex-1">
                     <p className="font-bold text-foreground mb-3">Which certificate do you want to apply for?</p>
                     <select
@@ -118,7 +118,7 @@ export function EligibilityService({
                 onClick={() => setShowResult(true)}
                 disabled={!allAnswered}
                 className={`w-full px-6 py-3.5 font-bold rounded text-sm ${
-                  allAnswered ? "bg-primary text-white hover:opacity-90" : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  allAnswered ? "bg-primary text-primary-foreground hover:opacity-90" : "bg-gray-300 text-muted-foreground cursor-not-allowed"
                 }`}
               >
                 Check Eligibility
@@ -149,8 +149,8 @@ export function EligibilityService({
                       <NextStep text="Track progress and download issued certificate" />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <Link to={signInPath} className="px-6 py-3.5 bg-green-700 text-white font-bold rounded text-center hover:bg-green-600">Sign In to Apply</Link>
-                      <Link to={signUpPath} className="px-6 py-3.5 border-2 border-green-700 text-green-700 dark:text-green-400 font-bold rounded text-center hover:bg-green-50 dark:hover:bg-green-950/30">Create Account</Link>
+                      <Link to={signInPath} className="px-6 py-3.5 bg-[var(--ux4g-color-feedback-success)] text-primary-foreground font-bold rounded text-center hover:opacity-90">Sign In to Apply</Link>
+                      <Link to={signUpPath} className="px-6 py-3.5 border-2 border-green-700 text-[var(--ux4g-color-feedback-success)] dark:text-green-400 font-bold rounded text-center hover:bg-green-50 dark:hover:bg-green-950/30">Create Account</Link>
                     </div>
                   </>
                 ) : (
@@ -206,7 +206,7 @@ function YesNoQuestion({
   return (
     <div className="border-b-2 border-border pb-6">
       <div className="flex items-start gap-3 mb-3">
-        <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">{number}</div>
+        <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">{number}</div>
         <p className="font-bold text-foreground flex-1">{text}</p>
       </div>
       <div className="ml-11 flex items-center gap-4">

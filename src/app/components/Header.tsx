@@ -50,7 +50,7 @@ export default function Header() {
                 to={item.href}
                 className={`px-4 py-2 rounded-md text-sm transition-colors ${
                   isActive(item.href)
-                    ? "bg-primary text-white"
+                    ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:bg-muted"
                 }`}
               >
@@ -78,7 +78,7 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-2 rounded-md text-sm transition-colors ${
                   isActive(item.href)
-                    ? "bg-primary text-white"
+                    ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:bg-muted"
                 }`}
               >

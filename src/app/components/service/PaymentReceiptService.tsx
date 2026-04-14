@@ -44,7 +44,7 @@ export function PaymentReceiptService({
             <button
               type="button"
               onClick={() => window.print()}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded bg-primary text-white text-sm font-bold hover:opacity-90"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded bg-primary text-primary-foreground text-sm font-bold hover:opacity-90"
             >
               <Download size={16} />
               Download PDF
@@ -55,7 +55,7 @@ export function PaymentReceiptService({
 
       <main className="max-w-[1000px] mx-auto px-4 sm:px-6 py-8 space-y-6">
         <section className="bg-green-50 border-2 border-green-300 rounded-lg p-6 text-center">
-          <div className="w-16 h-16 mx-auto mb-3 bg-green-600 rounded-full flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-3 bg-[var(--ux4g-color-feedback-success)] rounded-full flex items-center justify-center">
             <CheckCircle size={32} className="text-white" />
           </div>
           <h2 className="text-xl font-bold text-foreground">Payment Successful</h2>
@@ -74,7 +74,7 @@ export function PaymentReceiptService({
             </div>
             <div>
               <p className="text-xs text-muted-foreground">Status</p>
-              <p className="font-bold text-green-700">{receipt.paymentStatus}</p>
+              <p className="font-bold text-[var(--ux4g-color-feedback-success)]">{receipt.paymentStatus}</p>
             </div>
           </div>
 
@@ -109,7 +109,7 @@ export function PaymentReceiptService({
           <div className="grid sm:grid-cols-2 gap-3">
             <Link
               to={statusTrackerPath}
-              className="inline-flex items-center justify-center px-4 py-3 bg-green-700 text-white rounded font-bold text-sm hover:bg-green-600"
+              className="inline-flex items-center justify-center px-4 py-3 bg-[var(--ux4g-color-feedback-success)] text-primary-foreground rounded font-bold text-sm hover:opacity-90"
             >
               Track Application Status
             </Link>
