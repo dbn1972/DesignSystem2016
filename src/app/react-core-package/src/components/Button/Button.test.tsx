@@ -21,7 +21,7 @@ describe('Button', () => {
 
   // ── Variants ─────────────────────────────────────────────────────────────
 
-  it.each(['primary', 'secondary', 'tertiary', 'ghost', 'destructive'] as const)(
+  it.each(['primary', 'secondary', 'tertiary', 'danger', 'success'] as const)(
     'applies %s variant class',
     (variant) => {
       render(<Button variant={variant}>Action</Button>);

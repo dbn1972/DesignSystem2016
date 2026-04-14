@@ -25,8 +25,12 @@ describe("auth service unit coverage", () => {
 
     expect(locked.success).toBe(false);
     expect(unavailable.success).toBe(false);
-    if (!locked.success) expect(locked.state).toBe("locked-account");
-    if (!unavailable.success) expect(unavailable.state).toBe("service-unavailable");
+    if (locked.success === false) {
+      expect(locked.state).toBe("locked-account");
+    }
+    if (unavailable.success === false) {
+      expect(unavailable.state).toBe("service-unavailable");
+    }
   });
 
   it("maps wrong credentials and success sign-in outcomes", async () => {
@@ -34,7 +38,9 @@ describe("auth service unit coverage", () => {
     const success = await signInWithIdentifier({ identifier: "PRIYA001", password: "StrongPass#1" });
 
     expect(wrong.success).toBe(false);
-    if (!wrong.success) expect(wrong.state).toBe("wrong-credentials");
+    if (wrong.success === false) {
+      expect(wrong.state).toBe("wrong-credentials");
+    }
     expect(success.success).toBe(true);
   });
 

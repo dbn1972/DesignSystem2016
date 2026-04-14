@@ -1031,30 +1031,9 @@ export type LanguageSelectorPosition = 'left' | 'center' | 'right';`,
 
       governmentContext={{
         description: 'India recognizes 22 official languages under the Eighth Schedule of the Constitution. Government digital services must provide multilingual support to ensure accessibility for all citizens, regardless of their primary language. The Language Selector component enables seamless language switching across government portals.',
-        languages: [
-          'English and Hindi (primary administrative languages)',
-          '22 official Indian languages: Assamese, Bengali, Bodo, Dogri, Gujarati, Hindi, Kannada, Kashmiri, Konkani, Maithili, Malayalam, Manipuri, Marathi, Nepali, Odia, Punjabi, Sanskrit, Santali, Sindhi, Tamil, Telugu, Urdu',
-          'Regional language support for state-specific services',
-          'Multiple scripts: Devanagari, Bengali, Tamil, Telugu, Kannada, Malayalam, Gujarati, Gurmukhi, Odia, and more',
-        ],
-        useCases: [
-          'Central government portals (e.g., India.gov.in, Digital India)',
-          'State government websites with regional language support',
-          'E-governance platforms (e.g., UMANG, mParivahan)',
-          'Public service delivery portals',
-          'Citizen service applications',
-          'Educational and information portals',
-          'Healthcare and welfare systems',
-        ],
-        considerations: [
-          'Persistent language selection across sessions improves user experience',
-          'Native script display helps non-English speakers identify their language',
-          'Right-to-left (RTL) text direction support for Urdu',
-          'Font loading for regional scripts (consider performance)',
-          'Translation quality assurance for critical government communications',
-          'Browser and device compatibility for various scripts',
-          'Fallback mechanisms when translations are unavailable',
-        ],
+        languages: "English and Hindi (primary administrative languages); 22 official Indian languages: Assamese, Bengali, Bodo, Dogri, Gujarati, Hindi, Kannada, Kashmiri, Konkani, Maithili, Malayalam, Manipuri, Marathi, Nepali, Odia, Punjabi, Sanskrit, Santali, Sindhi, Tamil, Telugu, Urdu; Regional language support for state-specific services; Multiple scripts: Devanagari, Bengali, Tamil, Telugu, Kannada, Malayalam, Gujarati, Gurmukhi, Odia, and more",
+        useCases: "Central government portals (e.g., India.gov.in, Digital India); State government websites with regional language support; E-governance platforms (e.g., UMANG, mParivahan); Public service delivery portals; Citizen service applications; Educational and information portals; Healthcare and welfare systems",
+        considerations: "Persistent language selection across sessions improves user experience; Native script display helps non-English speakers identify their language; Right-to-left (RTL) text direction support for Urdu; Font loading for regional scripts (consider performance); Translation quality assurance for critical government communications; Browser and device compatibility for various scripts; Fallback mechanisms when translations are unavailable",
       }}
     />
   );

@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Smartphone, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, ChevronRight, Clock, RefreshCw, Hash, Shield, Signal, MessageSquare, HelpCircle, Check, X, Phone } from "lucide-react";
+import { Smartphone, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, ChevronRight, Clock, RefreshCw, Hash, Shield, Signal, MessageSquare, HelpCircle, Check, X, Phone, Code } from "lucide-react";
 
 export default function MobileOTPPattern() {
   return (

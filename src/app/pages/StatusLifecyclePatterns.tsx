@@ -504,6 +504,7 @@ function GuidelineCard({ title, points }: {
 function StatusExample({ status, color, description }: {
   status: string;
   color: string;
+  description: string;
 }) {
   const colors = {
     blue: 'bg-blue-100 text-blue-800 border-blue-300',

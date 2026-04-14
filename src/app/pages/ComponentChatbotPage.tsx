@@ -1153,41 +1153,8 @@ export interface DepartmentContext {
 
       governmentContext={{
         description: 'The Chatbot component serves as an intelligent virtual assistant for government services, automating responses to citizen queries, providing 24/7 support, and reducing the load on human support staff.',
-        useCases: [
-          {
-            title: 'Citizen Query Handling',
-            description: 'Automated responses to common questions about government services, office hours, required documents, and procedures.',
-          },
-          {
-            title: 'Service Information',
-            description: 'Providing detailed information about available government services, eligibility criteria, and application processes.',
-          },
-          {
-            title: 'Complaint Resolution',
-            description: 'Initial triage and routing of citizen complaints with file upload support for evidence documentation.',
-          },
-          {
-            title: 'FAQ Automation',
-            description: 'Instantly answering frequently asked questions based on department-specific knowledge bases.',
-          },
-          {
-            title: 'Multilingual Support',
-            description: 'Serving diverse populations by providing support in multiple languages.',
-          },
-          {
-            title: 'Appointment Scheduling',
-            description: 'Helping citizens schedule appointments with government offices and departments.',
-          },
-        ],
-        considerations: [
-          'Privacy and data security: Ensure all citizen interactions are encrypted and compliant with data protection regulations.',
-          'Transparency: Clearly indicate that users are interacting with an AI system, not a human.',
-          'Escalation paths: Provide clear mechanisms to escalate to human support when needed.',
-          'Accessibility: Support multiple input modalities (text, voice) and ensure compatibility with assistive technologies.',
-          'Department context: Configure chatbots with department-specific knowledge for accurate, relevant responses.',
-          'Conversation logging: Maintain audit trails of interactions for quality assurance and compliance.',
-          'Performance monitoring: Track response accuracy, resolution rates, and user satisfaction metrics.',
-        ],
+        useCases: "Citizen Query Handling: Automated responses to common questions about government services, office hours, required documents, and procedures; Service Information: Providing detailed information about available government services, eligibility criteria, and application processes; Complaint Resolution: Initial triage and routing of citizen complaints with file upload support for evidence documentation; FAQ Automation: Instantly answering frequently asked questions based on department-specific knowledge bases; Multilingual Support: Serving diverse populations by providing support in multiple languages; Appointment Scheduling: Helping citizens schedule appointments with government offices and departments",
+        considerations: "Privacy and data security: Ensure all citizen interactions are encrypted and compliant with data protection regulations; Transparency: Clearly indicate that users are interacting with an AI system, not a human; Escalation paths: Provide clear mechanisms to escalate to human support when needed; Accessibility: Support multiple input modalities (text, voice) and ensure compatibility with assistive technologies; Department context: Configure chatbots with department-specific knowledge for accurate, relevant responses; Conversation logging: Maintain audit trails of interactions for quality assurance and compliance; Performance monitoring: Track response accuracy, resolution rates, and user satisfaction metrics",
       }}
     />
   );

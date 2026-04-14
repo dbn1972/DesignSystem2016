@@ -838,60 +838,8 @@ export type CaptchaProvider = 'recaptcha' | 'hcaptcha' | 'turnstile';`,
       }}
 
       governmentContext={{
-        useCases: [
-          {
-            title: 'Online Form Submission',
-            description: 'Prevent automated spam and fraudulent submissions on government application forms.',
-            example: 'Visa applications, permit requests, public feedback forms',
-          },
-          {
-            title: 'Citizen Portal Login Protection',
-            description: 'Protect user accounts from brute-force attacks and unauthorized access attempts.',
-            example: 'MyGov portals, tax filing systems, social security access',
-          },
-          {
-            title: 'Event and Service Booking',
-            description: 'Prevent ticket scalping and automated booking by bots for government services.',
-            example: 'Passport appointments, court hearings, vaccination slots',
-          },
-          {
-            title: 'Public Service Applications',
-            description: 'Ensure legitimate citizens access benefits and services, not automated bots.',
-            example: 'License renewals, welfare applications, subsidy registrations',
-          },
-          {
-            title: 'Voting and Survey Systems',
-            description: 'Maintain integrity of online polls, surveys, and e-voting platforms.',
-            example: 'Public consultations, citizen feedback surveys, budget voting',
-          },
-          {
-            title: 'Document Download Protection',
-            description: 'Prevent bulk automated downloads of sensitive or rate-limited documents.',
-            example: 'Official certificates, legal documents, public records',
-          },
-        ],
-        regulations: [
-          {
-            regulation: 'WCAG 2.1 Level AA',
-            requirement: 'Must provide accessible alternatives for users with disabilities',
-            compliance: 'Audio alternative for visual CAPTCHA, visual alternative for audio CAPTCHA',
-          },
-          {
-            regulation: 'Section 508',
-            requirement: 'Federal systems must be accessible to people with disabilities',
-            compliance: 'Keyboard navigation, screen reader compatibility, alternative input methods',
-          },
-          {
-            regulation: 'GDPR/Privacy Laws',
-            requirement: 'User data must be processed lawfully and protected',
-            compliance: 'No personal data stored in CAPTCHA challenges, privacy-focused providers available',
-          },
-          {
-            regulation: 'ADA Compliance',
-            requirement: 'Government services must be accessible to all citizens',
-            compliance: 'Multiple CAPTCHA types accommodate different abilities and preferences',
-          },
-        ],
+        useCases: "Online Form Submission: Prevent automated spam and fraudulent submissions on government application forms (e.g., Visa applications, permit requests, public feedback forms); Citizen Portal Login Protection: Protect user accounts from brute-force attacks and unauthorized access attempts (e.g., MyGov portals, tax filing systems, social security access); Event and Service Booking: Prevent ticket scalping and automated booking by bots for government services (e.g., Passport appointments, court hearings, vaccination slots); Public Service Applications: Ensure legitimate citizens access benefits and services, not automated bots (e.g., License renewals, welfare applications, subsidy registrations); Voting and Survey Systems: Maintain integrity of online polls, surveys, and e-voting platforms (e.g., Public consultations, citizen feedback surveys, budget voting); Document Download Protection: Prevent bulk automated downloads of sensitive or rate-limited documents (e.g., Official certificates, legal documents, public records)",
+        regulations: "WCAG 2.1 Level AA: Must provide accessible alternatives for users with disabilities — Audio alternative for visual CAPTCHA, visual alternative for audio CAPTCHA; Section 508: Federal systems must be accessible to people with disabilities — Keyboard navigation, screen reader compatibility, alternative input methods; GDPR/Privacy Laws: User data must be processed lawfully and protected — No personal data stored in CAPTCHA challenges, privacy-focused providers available; ADA Compliance: Government services must be accessible to all citizens — Multiple CAPTCHA types accommodate different abilities and preferences",
       }}
     />
   );

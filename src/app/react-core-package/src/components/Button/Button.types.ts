@@ -6,7 +6,6 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 import {
   ComponentSize,
-  ComponentVariant,
   InteractiveComponentProps,
   LoadingStateProps,
   ChildrenProp
@@ -21,7 +20,7 @@ export interface ButtonProps
    * Button visual variant
    * @default 'primary'
    */
-  variant?: ComponentVariant;
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'success';
 
   /**
    * Button size

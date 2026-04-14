@@ -1199,56 +1199,9 @@ export type FormLayout = 'vertical' | 'horizontal' | 'grid';`,
 
       governmentContext={{
         description: 'Form Builder is essential for government services requiring data collection from citizens, businesses, and other stakeholders. It enables rapid creation of accessible, compliant forms for various service delivery scenarios.',
-        useCases: [
-          {
-            title: 'Service Applications',
-            description: 'License applications, permit requests, benefit enrollments, and other service requests requiring structured data collection.',
-            examples: ['Driver license renewal', 'Business license application', 'Building permit request', 'Food handler permit'],
-          },
-          {
-            title: 'Public Surveys',
-            description: 'Gathering public feedback on policies, services, community planning, and satisfaction surveys.',
-            examples: ['Community needs assessment', 'Service satisfaction survey', 'Public comment collection', 'Budget priority survey'],
-          },
-          {
-            title: 'Registrations',
-            description: 'Event registrations, program enrollments, volunteer sign-ups, and other registration workflows.',
-            examples: ['Recreation program registration', 'Public meeting registration', 'Volunteer application', 'Workshop enrollment'],
-          },
-          {
-            title: 'Permit Applications',
-            description: 'Complex permit applications with multi-step workflows, document uploads, and conditional requirements.',
-            examples: ['Construction permit', 'Special event permit', 'Filming permit', 'Encroachment permit'],
-          },
-          {
-            title: 'License Applications',
-            description: 'Professional licenses, business licenses, and other regulatory compliance forms.',
-            examples: ['Professional license renewal', 'Business tax certificate', 'Vendor license', 'Contractor license'],
-          },
-          {
-            title: 'Benefit Applications',
-            description: 'Social services, financial assistance, and benefit program applications with eligibility screening.',
-            examples: ['Housing assistance', 'Food assistance', 'Utility assistance', 'Senior services enrollment'],
-          },
-        ],
-        compliance: [
-          'Section 508 compliance for federal accessibility requirements',
-          'WCAG 2.1 AA for international accessibility standards',
-          'Privacy compliance with data encryption and secure transmission',
-          'Records retention policies with audit trails',
-          'Multi-language support for diverse populations',
-          'Mobile-responsive design for accessibility across devices',
-        ],
-        considerations: [
-          'Plain language form labels and instructions for readability',
-          'Progressive disclosure to avoid overwhelming users',
-          'Auto-save functionality for long forms to prevent data loss',
-          'Clear error messaging with specific remediation instructions',
-          'Accessibility testing with assistive technologies',
-          'Performance optimization for low-bandwidth connections',
-          'Integration with government authentication systems',
-          'Secure data handling and transmission protocols',
-        ],
+        useCases: "Service Applications: License applications, permit requests, benefit enrollments, and other service requests requiring structured data collection (e.g., Driver license renewal, Business license application, Building permit request, Food handler permit); Public Surveys: Gathering public feedback on policies, services, community planning, and satisfaction surveys (e.g., Community needs assessment, Service satisfaction survey, Public comment collection, Budget priority survey); Registrations: Event registrations, program enrollments, volunteer sign-ups, and other registration workflows (e.g., Recreation program registration, Public meeting registration, Volunteer application, Workshop enrollment); Permit Applications: Complex permit applications with multi-step workflows, document uploads, and conditional requirements (e.g., Construction permit, Special event permit, Filming permit, Encroachment permit); License Applications: Professional licenses, business licenses, and other regulatory compliance forms (e.g., Professional license renewal, Business tax certificate, Vendor license, Contractor license); Benefit Applications: Social services, financial assistance, and benefit program applications with eligibility screening (e.g., Housing assistance, Food assistance, Utility assistance, Senior services enrollment)",
+        compliance: "Section 508 compliance for federal accessibility requirements; WCAG 2.1 AA for international accessibility standards; Privacy compliance with data encryption and secure transmission; Records retention policies with audit trails; Multi-language support for diverse populations; Mobile-responsive design for accessibility across devices",
+        considerations: "Plain language form labels and instructions for readability; Progressive disclosure to avoid overwhelming users; Auto-save functionality for long forms to prevent data loss; Clear error messaging with specific remediation instructions; Accessibility testing with assistive technologies; Performance optimization for low-bandwidth connections; Integration with government authentication systems; Secure data handling and transmission protocols",
       }}
     />
   );

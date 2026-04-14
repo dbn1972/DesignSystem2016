@@ -326,30 +326,35 @@ export default function ComponentEmptyStatePage() {
       useCases={[
         {
           title: 'No Applications Found',
+          description: 'Citizen portal showing empty application list for a user who has not submitted any applications yet.',
           scenario: 'Citizen portal showing empty application list for a user who has not submitted any applications yet.',
           implementation: 'Display empty state with FileX icon, encouraging message, and prominent "Start New Application" button.',
           code: 'import { EmptyState } from \'@ux4g/react-core\';\nimport { FileX } from \'lucide-react\';\n\nfunction ApplicationList() {\n  const applications = [];\n  \n  if (applications.length === 0) {\n    return (\n      <EmptyState\n        icon={<FileX size={48} />}\n        title="No applications found"\n        description="You have not submitted any applications. Start a new application to access government services and benefits."\n        actionLabel="Start new application"\n        onAction={() => router.push(\'/applications/new\')}\n      />\n    );\n  }\n  \n  return <ApplicationGrid applications={applications} />;\n}',
         },
         {
           title: 'No Pending Approvals',
+          description: 'Government employee dashboard showing no pending approval requests in their queue.',
           scenario: 'Government employee dashboard showing no pending approval requests in their queue.',
           implementation: 'Use default variant with Inbox icon and informative message about the empty queue state.',
           code: 'import { EmptyState } from \'@ux4g/react-core\';\nimport { Inbox } from \'lucide-react\';\n\nfunction ApprovalQueue() {\n  const pendingApprovals = [];\n  \n  if (pendingApprovals.length === 0) {\n    return (\n      <EmptyState\n        icon={<Inbox size={48} />}\n        title="No pending approvals"\n        description="Your approval queue is empty. New approval requests will appear here as they are submitted."\n      />\n    );\n  }\n  \n  return <ApprovalList items={pendingApprovals} />;\n}',
         },
         {
           title: 'Search Returned Zero Results',
+          description: 'User searching for government services or documents with no matching results found.',
           scenario: 'User searching for government services or documents with no matching results found.',
           implementation: 'Use search variant with Search icon, helpful message, and action to clear or modify search.',
           code: 'import { EmptyState } from \'@ux4g/react-core\';\nimport { Search } from \'lucide-react\';\n\nfunction ServiceSearch({ query, onClearSearch }) {\n  const results = [];\n  \n  if (query && results.length === 0) {\n    return (\n      <EmptyState\n        variant="search"\n        icon={<Search size={48} />}\n        title="No services found"\n        description={"We could not find any services matching \\"" + query + "\\". Try different keywords or browse all services."}\n        actionLabel="Clear search"\n        onAction={onClearSearch}\n        secondaryActionLabel="Browse all"\n        onSecondaryAction={() => router.push(\'/services\')}\n      />\n    );\n  }\n  \n  return <ServiceResults results={results} />;\n}',
         },
         {
           title: 'No Documents in Folder',
+          description: 'Document management system showing an empty folder with no uploaded files.',
           scenario: 'Document management system showing an empty folder with no uploaded files.',
           implementation: 'Display empty state with Upload icon and action button to upload first document.',
           code: 'import { EmptyState } from \'@ux4g/react-core\';\nimport { Upload } from \'lucide-react\';\n\nfunction DocumentFolder({ folderId, onUpload }) {\n  const documents = [];\n  \n  if (documents.length === 0) {\n    return (\n      <EmptyState\n        icon={<Upload size={48} />}\n        title="No documents in this folder"\n        description="Upload documents to organize and manage your files. Supported formats: PDF, DOC, DOCX, JPG, PNG. Maximum size: 25MB."\n        actionLabel="Upload document"\n        onAction={onUpload}\n      />\n    );\n  }\n  \n  return <DocumentGrid documents={documents} />;\n}',
         },
         {
           title: 'First-Time Citizen Portal',
+          description: 'New user accessing the citizen portal for the first time with no history or saved items.',
           scenario: 'New user accessing the citizen portal for the first time with no history or saved items.',
           implementation: 'Use first-time variant with welcoming message and onboarding action to complete profile.',
           code: 'import { EmptyState } from \'@ux4g/react-core\';\nimport { FolderOpen } from \'lucide-react\';\n\nfunction Dashboard({ isFirstTime, onStartOnboarding }) {\n  if (isFirstTime) {\n    return (\n      <EmptyState\n        variant="first-time"\n        icon={<FolderOpen size={48} />}\n        title="Welcome to the Citizen Portal"\n        description="Get started by completing your profile to access personalized government services, track applications, and receive important notifications."\n        actionLabel="Complete your profile"\n        onAction={onStartOnboarding}\n        secondaryActionLabel="Explore services"\n        onSecondaryAction={() => router.push(\'/services\')}\n      />\n    );\n  }\n  \n  return <DashboardContent />;\n}',

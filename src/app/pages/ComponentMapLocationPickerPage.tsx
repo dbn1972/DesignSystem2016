@@ -811,24 +811,8 @@ export class MapLocationPickerModule { }`,
       }}
 
       governmentContext={{
-        useCases: [
-          'Service Center Locator - Citizens can find nearest government service centers',
-          'Land Registration - Plot and property location marking for registration',
-          'Address Verification - Confirm residential or business addresses for benefits',
-          'Polling Station Finder - Locate voting centers based on voter address',
-          'Emergency Response - Report location of incidents to authorities',
-          'Infrastructure Planning - Mark locations for proposed projects',
-          'Agricultural Land Survey - Map farm boundaries and crop areas',
-          'Public Transport Routes - Plan and display bus/metro routes',
-        ],
-        considerations: [
-          'Data Privacy: Do not store precise coordinates without user consent',
-          'Offline Support: Consider offline maps for areas with poor connectivity',
-          'Regional Coverage: Ensure map data covers rural and remote areas',
-          'Language Support: Provide search and results in regional languages',
-          'Mobile-First: Optimize for mobile devices as primary access point',
-          'Integration: Connect with address databases and postal systems',
-        ],
+        useCases: "Service Center Locator - Citizens can find nearest government service centers; Land Registration - Plot and property location marking for registration; Address Verification - Confirm residential or business addresses for benefits; Polling Station Finder - Locate voting centers based on voter address; Emergency Response - Report location of incidents to authorities; Infrastructure Planning - Mark locations for proposed projects; Agricultural Land Survey - Map farm boundaries and crop areas; Public Transport Routes - Plan and display bus/metro routes",
+        considerations: "Data Privacy: Do not store precise coordinates without user consent; Offline Support: Consider offline maps for areas with poor connectivity; Regional Coverage: Ensure map data covers rural and remote areas; Language Support: Provide search and results in regional languages; Mobile-First: Optimize for mobile devices as primary access point; Integration: Connect with address databases and postal systems",
       }}
     />
   );

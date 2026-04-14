@@ -502,7 +502,7 @@ function PaymentMethodCard({
   description: string;
   features: string[];
   recommended?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }) {
   return (
     <button

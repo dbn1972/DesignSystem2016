@@ -64,7 +64,7 @@ export default function ComponentFlexPage() {
       description="Fundamental layout component providing flexbox utilities for creating responsive, flexible layouts. Essential building block for navigation bars, card layouts, form rows, button groups, and toolbars."
       category="Layout"
       maturity="stable"
-      tier="foundations"
+      tier="foundation"
       since="v1.0.0"
       updated="v2.3.0"
 

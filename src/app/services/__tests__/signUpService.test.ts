@@ -75,7 +75,7 @@ describe('registerUser', () => {
 
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.state).toBe('service-unavailable');
+      expect((result as any).state).toBe('service-unavailable');
     }
     expect(signUpSpy()).not.toHaveBeenCalled();
   });
@@ -96,7 +96,7 @@ describe('registerUser', () => {
 
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.state).toBe('mobile-already-registered');
+      expect((result as any).state).toBe('mobile-already-registered');
     }
   });
 
@@ -116,7 +116,7 @@ describe('registerUser', () => {
 
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.state).toBe('validation-error');
+      expect((result as any).state).toBe('validation-error');
     }
   });
 
@@ -131,7 +131,7 @@ describe('registerUser', () => {
 
     expect(result.success).toBe(false);
     if (!result.success) {
-      expect(result.state).toBe('validation-error');
+      expect((result as any).state).toBe('validation-error');
     }
   });
 });

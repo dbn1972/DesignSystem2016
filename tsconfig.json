@@ -33,6 +33,8 @@
     "**/*.stories.tsx",
     "**/*.stories.ts",
     "src/app/angular-core-package/**",
+    "src/app/angular-patterns-package/**",
+    "src/app/react-patterns-package/**",
     "src/app/styles-package/examples/**"
   ]
 }

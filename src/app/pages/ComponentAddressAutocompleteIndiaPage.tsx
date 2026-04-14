@@ -1094,43 +1094,9 @@ export class AddressAutocompleteService {
       }}
 
       governmentContext={{
-        useCases: [
-          'Service application forms requiring beneficiary address',
-          'Correspondence address collection for government communications',
-          'Beneficiary address verification for subsidy schemes',
-          'Office location lookup for government departments',
-          'Citizen registration with accurate pincode-based addressing',
-          'Address validation for document delivery and notifications',
-        ],
-        compliance: [
-          'Uses official India Post API for pincode validation',
-          'Supports 6-digit Indian pincode format',
-          'Compatible with Indian administrative divisions (State, District, City)',
-          'Ensures data accuracy for government databases',
-          'Reduces manual entry errors in citizen-facing applications',
-        ],
-        examples: [
-          {
-            scenario: 'Aadhaar Address Update',
-            description: 'Citizens updating their residential address in Aadhaar database',
-          },
-          {
-            scenario: 'Ration Card Application',
-            description: 'Collecting accurate address for ration card delivery and distribution',
-          },
-          {
-            scenario: 'Pension Disbursement',
-            description: 'Verifying beneficiary address for pension delivery',
-          },
-          {
-            scenario: 'Tax Filing',
-            description: 'Address autocomplete in income tax return filing portals',
-          },
-          {
-            scenario: 'Government Service Centers',
-            description: 'Locating nearest government service centers by pincode',
-          },
-        ],
+        useCases: "Service application forms requiring beneficiary address; Correspondence address collection for government communications; Beneficiary address verification for subsidy schemes; Office location lookup for government departments; Citizen registration with accurate pincode-based addressing; Address validation for document delivery and notifications",
+        compliance: "Uses official India Post API for pincode validation; Supports 6-digit Indian pincode format; Compatible with Indian administrative divisions (State, District, City); Ensures data accuracy for government databases; Reduces manual entry errors in citizen-facing applications",
+        examples: "Aadhaar Address Update: Citizens updating their residential address in Aadhaar database; Ration Card Application: Collecting accurate address for ration card delivery and distribution; Pension Disbursement: Verifying beneficiary address for pension delivery; Tax Filing: Address autocomplete in income tax return filing portals; Government Service Centers: Locating nearest government service centers by pincode",
       }}
     />
   );

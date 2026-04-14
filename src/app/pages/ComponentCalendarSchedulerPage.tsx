@@ -1282,42 +1282,9 @@ export type CalendarView = 'month' | 'week' | 'day';`,
       }}
 
       governmentContext={{
-        useCases: [
-          'Schedule appointments for DMV services (license renewals, vehicle registration)',
-          'Book time slots for building permits and inspections',
-          'Manage public hearing schedules for city council and planning commission',
-          'Track officer availability for police, fire, and emergency services',
-          'Schedule tax consultation appointments during filing season',
-          'Manage court hearing dates and legal proceedings',
-          'Book slots for passport and immigration services',
-          'Track government office hours and holiday closures',
-          'Schedule mobile service unit visits to communities',
-          'Manage multi-department resource allocation',
-        ],
-        considerations: [
-          'Support for multiple timezones across different jurisdictions',
-          'Holiday calendar integration for federal, state, and local holidays',
-          'Working hours configuration for different government departments',
-          'Appointment confirmation via email and SMS',
-          'Waitlist management for high-demand services',
-          'Recurring event support for regular meetings and hearings',
-          'Multi-location scheduling for branch offices',
-          'Department-specific booking rules and constraints',
-          'Public vs internal calendar views',
-          'Integration with citizen portal authentication',
-          'Accessibility compliance for diverse citizen needs',
-          'Data privacy and HIPAA compliance for sensitive appointments',
-        ],
-        integrations: [
-          'Government authentication systems (Login.gov, state SSO)',
-          'Email and SMS notification services',
-          'Payment gateways for appointment fees',
-          'Document management systems for appointment-related files',
-          'CRM systems for citizen relationship management',
-          'GIS systems for location-based services',
-          'Video conferencing platforms for virtual appointments',
-          'Analytics platforms for service utilization tracking',
-        ],
+        useCases: "Schedule appointments for DMV services (license renewals, vehicle registration); Book time slots for building permits and inspections; Manage public hearing schedules for city council and planning commission; Track officer availability for police, fire, and emergency services; Schedule tax consultation appointments during filing season; Manage court hearing dates and legal proceedings; Book slots for passport and immigration services; Track government office hours and holiday closures; Schedule mobile service unit visits to communities; Manage multi-department resource allocation",
+        considerations: "Support for multiple timezones across different jurisdictions; Holiday calendar integration for federal, state, and local holidays; Working hours configuration for different government departments; Appointment confirmation via email and SMS; Waitlist management for high-demand services; Recurring event support for regular meetings and hearings; Multi-location scheduling for branch offices; Department-specific booking rules and constraints; Public vs internal calendar views; Integration with citizen portal authentication; Accessibility compliance for diverse citizen needs; Data privacy and HIPAA compliance for sensitive appointments",
+        integrations: "Government authentication systems (Login.gov, state SSO); Email and SMS notification services; Payment gateways for appointment fees; Document management systems for appointment-related files; CRM systems for citizen relationship management; GIS systems for location-based services; Video conferencing platforms for virtual appointments; Analytics platforms for service utilization tracking",
       }}
     />
   );

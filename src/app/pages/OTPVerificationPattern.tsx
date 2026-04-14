@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, ChevronRight, Clock, RefreshCw, Smartphone, Mail, Hash, Eye, Lock, HelpCircle, Check, X } from "lucide-react";
+import { Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, ChevronRight, Clock, RefreshCw, Smartphone, Mail, Hash, Eye, Lock, HelpCircle, Check, X, FileText, Code } from "lucide-react";
 
 export default function OTPVerificationPattern() {
   return (

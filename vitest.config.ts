@@ -8,6 +8,13 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
+    exclude: [
+      'node_modules/**',
+      'dist/**',
+      'src/app/angular-core-package/**',
+      'src/app/angular-patterns-package/**',
+      'src/app/react-patterns-package/**',
+    ],
     css: true,
     coverage: {
       provider: 'v8',

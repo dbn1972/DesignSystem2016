@@ -77,7 +77,7 @@ export default function ComponentSectionPage() {
       description="Semantic page section component for structuring content blocks, hero banners, service areas, and footer regions. Provides consistent spacing, backgrounds, and containerization with proper accessibility landmarks."
       category="Layout"
       maturity="stable"
-      tier="foundations"
+      tier="foundation"
       since="v1.0.0"
       updated="v2.3.0"
 

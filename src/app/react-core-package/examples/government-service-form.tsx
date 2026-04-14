@@ -62,10 +62,10 @@ export function GovernmentServiceForm() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const steps = [
-    { label: 'Personal Details', description: 'Enter your personal information' },
-    { label: 'Document Details', description: 'Provide document information' },
-    { label: 'Supporting Documents', description: 'Upload required documents' },
-    { label: 'Review & Submit', description: 'Review your application' }
+    { key: 'personal', label: 'Personal Details', description: 'Enter your personal information' },
+    { key: 'document', label: 'Document Details', description: 'Provide document information' },
+    { key: 'supporting', label: 'Supporting Documents', description: 'Upload required documents' },
+    { key: 'review', label: 'Review & Submit', description: 'Review your application' }
   ];
 
   const updateField = (field: keyof FormData, value: any) => {
@@ -189,8 +189,7 @@ export function GovernmentServiceForm() {
         <div className="ux4g-mb-8">
           <Stepper
             steps={steps}
-            activeStep={currentStep}
-            completedSteps={Array.from({ length: currentStep }, (_, i) => i)}
+            current={currentStep}
           />
         </div>
 
@@ -284,18 +283,18 @@ export function GovernmentServiceForm() {
                 <Select
                   id="documentType"
                   value={formData.documentType}
-                  onChange={(value) => updateField('documentType', value)}
+                  onChange={(e) => updateField('documentType', e.target.value)}
                   error={!!errors.documentType}
                   placeholder="Select document type"
-                  options={[
-                    { label: 'Aadhaar Card', value: 'aadhaar' },
-                    { label: 'PAN Card', value: 'pan' },
-                    { label: 'Voter ID', value: 'voter' },
-                    { label: 'Passport', value: 'passport' },
-                    { label: 'Driving License', value: 'license' }
-                  ]}
                   aria-describedby={errors.documentType ? 'documentType-error' : undefined}
-                />
+                >
+                  <option value="">Select document type</option>
+                  <option value="aadhaar">Aadhaar Card</option>
+                  <option value="pan">PAN Card</option>
+                  <option value="voter">Voter ID</option>
+                  <option value="passport">Passport</option>
+                  <option value="license">Driving License</option>
+                </Select>
                 {errors.documentType && (
                   <ErrorText id="documentType-error">{errors.documentType}</ErrorText>
                 )}
@@ -342,13 +341,11 @@ export function GovernmentServiceForm() {
               <Field error={!!errors.supportingDocuments}>
                 <Label htmlFor="documents" required>Upload Documents</Label>
                 <FileUpload
-                  id="documents"
                   accept=".pdf,.jpg,.jpeg,.png"
                   multiple
                   maxSize={5 * 1024 * 1024} // 5MB
                   onChange={(files) => updateField('supportingDocuments', files)}
                   error={!!errors.supportingDocuments}
-                  aria-describedby={errors.supportingDocuments ? 'documents-error' : 'documents-hint'}
                 />
                 {errors.supportingDocuments ? (
                   <ErrorText id="documents-error">{errors.supportingDocuments}</ErrorText>
@@ -371,7 +368,7 @@ export function GovernmentServiceForm() {
             <div className="ux4g-stack-6">
               <h2>Review & Submit</h2>
 
-              <Card variant="flat" padding="md">
+              <Card variant="outlined" padding="md">
                 <h3 className="ux4g-mb-4">Personal Details</h3>
                 <dl className="ux4g-stack-2">
                   <div>
@@ -393,7 +390,7 @@ export function GovernmentServiceForm() {
                 </dl>
               </Card>
 
-              <Card variant="flat" padding="md">
+              <Card variant="outlined" padding="md">
                 <h3 className="ux4g-mb-4">Document Details</h3>
                 <dl className="ux4g-stack-2">
                   <div>

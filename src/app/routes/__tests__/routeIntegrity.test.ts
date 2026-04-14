@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { router } from '../../routes.tsx';
+import { router } from '../../routes';
 import { ROUTE_PATHS, toChildPath } from '../pathSource';
 
 type RouteLike = {

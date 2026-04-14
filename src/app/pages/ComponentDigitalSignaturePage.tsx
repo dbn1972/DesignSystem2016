@@ -1050,34 +1050,9 @@ export interface DigitalSignatureConfig {
       }}
 
       governmentContext={{
-        useCases: [
-          'Application Forms - Capture applicant signatures on permit applications, license requests, and registration forms',
-          'Legal Declarations - Record signatures on statutory declarations, affidavits, and legal attestations',
-          'Consent Documents - Obtain consent signatures for data processing, medical procedures, and information sharing',
-          'Contract Execution - Sign service agreements, procurement contracts, and vendor agreements',
-          'Authorization Forms - Approve requests, authorizations, and delegations of authority',
-          'Compliance Documents - Sign acknowledgment of policies, code of conduct, and compliance certifications',
-        ],
-        regulations: [
-          'Electronic Signatures Directive (EU) - Compliant with eIDAS regulation for electronic signatures',
-          'ESIGN Act (US) - Meets requirements for electronic signatures in interstate commerce',
-          'UETA (Uniform Electronic Transactions Act) - Compliant with state-level electronic transaction laws',
-          'GDPR - Signature capture follows data minimization and consent principles',
-          'Section 508 - Accessibility compliance for federal government use',
-          'PIPEDA (Canada) - Meets privacy requirements for signature data collection',
-        ],
-        bestPractices: [
-          'Offer multiple signature methods to accommodate different user needs and abilities',
-          'Display clear instructions and examples for each signature method',
-          'Validate signature presence before form submission for required fields',
-          'Store signatures securely with encryption at rest and in transit',
-          'Implement audit trails tracking when, where, and by whom signatures were captured',
-          'Provide preview and confirmation before finalizing signature',
-          'Support responsive sizing for mobile, tablet, and desktop devices',
-          'Include timestamp and IP address metadata with stored signatures',
-          'Allow signature modification or replacement before final submission',
-          'Ensure signature data complies with retention and deletion policies',
-        ],
+        useCases: "Application Forms - Capture applicant signatures on permit applications, license requests, and registration forms; Legal Declarations - Record signatures on statutory declarations, affidavits, and legal attestations; Consent Documents - Obtain consent signatures for data processing, medical procedures, and information sharing; Contract Execution - Sign service agreements, procurement contracts, and vendor agreements; Authorization Forms - Approve requests, authorizations, and delegations of authority; Compliance Documents - Sign acknowledgment of policies, code of conduct, and compliance certifications",
+        regulations: "Electronic Signatures Directive (EU) - Compliant with eIDAS regulation for electronic signatures; ESIGN Act (US) - Meets requirements for electronic signatures in interstate commerce; UETA (Uniform Electronic Transactions Act) - Compliant with state-level electronic transaction laws; GDPR - Signature capture follows data minimization and consent principles; Section 508 - Accessibility compliance for federal government use; PIPEDA (Canada) - Meets privacy requirements for signature data collection",
+        bestPractices: "Offer multiple signature methods to accommodate different user needs and abilities; Display clear instructions and examples for each signature method; Validate signature presence before form submission for required fields; Store signatures securely with encryption at rest and in transit; Implement audit trails tracking when, where, and by whom signatures were captured; Provide preview and confirmation before finalizing signature; Support responsive sizing for mobile, tablet, and desktop devices; Include timestamp and IP address metadata with stored signatures; Allow signature modification or replacement before final submission; Ensure signature data complies with retention and deletion policies",
       }}
     />
   );

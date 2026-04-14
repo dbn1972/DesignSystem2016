@@ -606,72 +606,58 @@ export default function ComponentDialogPage() {
         ],
       }}
 
-      useCases={{
-        title: 'Government Service Use Cases',
-        description: 'Common dialog patterns in government digital services',
-        scenarios: [
+      useCases={[
           {
             title: 'Delete Application Confirmation',
             description: 'Confirm destructive action before permanently deleting a citizen application.',
-            example: 'User clicks delete button on their business license application. Dialog appears with "Delete Application" title, warning about permanent deletion, and red "Delete Application" / "Keep Application" buttons.',
-            variant: 'destructive',
+            scenario: 'User clicks delete button on their business license application. Dialog appears with "Delete Application" title, warning about permanent deletion, and red "Delete Application" / "Keep Application" buttons.',
           },
           {
             title: 'Logout Confirmation',
             description: 'Confirm user wants to logout and lose unsaved work.',
-            example: 'User clicks logout while filling a tax form. Dialog warns "You have unsaved changes. Logging out will lose your progress." with "Logout" / "Stay Logged In" options.',
-            variant: 'default',
+            scenario: 'User clicks logout while filling a tax form. Dialog warns "You have unsaved changes. Logging out will lose your progress." with "Logout" / "Stay Logged In" options.',
           },
           {
             title: 'Unsaved Changes Warning',
             description: 'Alert user about losing unsaved data when navigating away.',
-            example: 'User tries to leave permit application page. Alert dialog states "You have unsaved changes" with "Leave Page" / "Continue Editing" buttons.',
-            variant: 'alert',
+            scenario: 'User tries to leave permit application page. Alert dialog states "You have unsaved changes" with "Leave Page" / "Continue Editing" buttons.',
           },
           {
             title: 'Submit Application Confirmation',
             description: 'Final confirmation before submitting important application.',
-            example: 'User completes passport application. Dialog confirms "Submit Application? You cannot make changes after submission." with "Submit" / "Review Again" options.',
-            variant: 'default',
+            scenario: 'User completes passport application. Dialog confirms "Submit Application? You cannot make changes after submission." with "Submit" / "Review Again" options.',
           },
           {
             title: 'Cancel Booking/Appointment',
             description: 'Confirm cancellation of government service appointment.',
-            example: 'User cancels DMV appointment. Dialog asks "Cancel your appointment on March 15 at 2:00 PM?" with "Yes, Cancel" / "Keep Appointment" buttons.',
-            variant: 'destructive',
+            scenario: 'User cancels DMV appointment. Dialog asks "Cancel your appointment on March 15 at 2:00 PM?" with "Yes, Cancel" / "Keep Appointment" buttons.',
           },
           {
             title: 'Revoke Permission',
             description: 'Confirm removal of access or permissions.',
-            example: 'Admin removes user access to sensitive records. Dialog warns "Revoke access for John Smith? This user will immediately lose access to all citizen data." with "Revoke Access" / "Cancel" buttons.',
-            variant: 'destructive',
+            scenario: 'Admin removes user access to sensitive records. Dialog warns "Revoke access for John Smith? This user will immediately lose access to all citizen data." with "Revoke Access" / "Cancel" buttons.',
           },
           {
             title: 'Session Timeout Alert',
             description: 'Alert user of impending session timeout.',
-            example: 'After 25 minutes of inactivity during tax filing, alert dialog states "Your session will expire in 5 minutes. Please save your work." with "Continue Session" button only.',
-            variant: 'alert',
+            scenario: 'After 25 minutes of inactivity during tax filing, alert dialog states "Your session will expire in 5 minutes. Please save your work." with "Continue Session" button only.',
           },
           {
             title: 'Submission Success',
             description: 'Confirm successful form submission with next steps.',
-            example: 'After submitting building permit, success dialog shows "Application Submitted Successfully. Reference number: BP-2024-1234. You will receive email confirmation within 24 hours." with "View My Applications" / "Close" options.',
-            variant: 'success',
+            scenario: 'After submitting building permit, success dialog shows "Application Submitted Successfully. Reference number: BP-2024-1234. You will receive email confirmation within 24 hours." with "View My Applications" / "Close" options.',
           },
           {
             title: 'Payment Confirmation',
             description: 'Confirm payment details before processing.',
-            example: 'User about to pay $150 license fee. Dialog shows "Confirm Payment: $150.00 for Business License Renewal. Payment will be charged to card ending in 4242." with "Confirm Payment" / "Cancel" buttons.',
-            variant: 'default',
+            scenario: 'User about to pay $150 license fee. Dialog shows "Confirm Payment: $150.00 for Business License Renewal. Payment will be charged to card ending in 4242." with "Confirm Payment" / "Cancel" buttons.',
           },
           {
             title: 'Document Download Warning',
             description: 'Inform user about sensitive document download.',
-            example: 'User downloads tax records. Dialog states "You are about to download sensitive personal information. Keep this document secure." with "Download" / "Cancel" options.',
-            variant: 'alert',
+            scenario: 'User downloads tax records. Dialog states "You are about to download sensitive personal information. Keep this document secure." with "Download" / "Cancel" options.',
           },
-        ],
-      }}
+      ]}
     />
   );
 }

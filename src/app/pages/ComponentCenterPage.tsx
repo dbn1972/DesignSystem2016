@@ -32,7 +32,7 @@ export default function ComponentCenterPage() {
       description="Utility component for centering content both horizontally and vertically. Simplifies layout patterns for loading states, empty states, icons, modal content, and error messages with accessibility built-in."
       category="Layout"
       maturity="stable"
-      tier="foundations"
+      tier="foundation"
       since="v1.0.0"
       updated="v2.3.0"
 

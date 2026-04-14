@@ -813,43 +813,6 @@ export interface FeedbackRatingWidgetProps {
   className?: string;
   'aria-label'?: string;
 }`,
-        usage: `import { FeedbackRatingWidget } from '@ux4g/react-core';
-import { useState } from 'react';
-
-function ServiceFeedbackForm() {
-  const [rating, setRating] = useState(0);
-  const [feedback, setFeedback] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = async () => {
-    // Submit to backend API
-    await fetch('/api/feedback', {
-      method: 'POST',
-      body: JSON.stringify({ rating, feedback }),
-    });
-    setSubmitted(true);
-  };
-
-  if (submitted) {
-    return <div>Thank you for your feedback!</div>;
-  }
-
-  return (
-    <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
-      <FeedbackRatingWidget
-        type="stars"
-        maxRating={5}
-        value={rating}
-        onChange={setRating}
-        required
-        label="Rate our service"
-      />
-      <button type="submit" disabled={rating === 0}>
-        Submit
-      </button>
-    </form>
-  );
-}`,
       }}
 
       angularCode={{
@@ -1126,49 +1089,9 @@ export type RatingSize = 'sm' | 'md' | 'lg';`,
 
       governmentContext={{
         description: 'The Feedback Rating Widget is essential for collecting citizen feedback, measuring service satisfaction, and continuously improving government service delivery. It provides multiple rating formats to accommodate different types of feedback collection scenarios.',
-        useCases: [
-          {
-            title: 'Service Satisfaction Surveys',
-            description: 'Collect feedback on government services such as license renewals, permit applications, and public assistance programs. Star or emoji ratings provide quick satisfaction measurements.',
-            example: '"How satisfied are you with your driver\'s license renewal experience?" with 5-star rating.',
-          },
-          {
-            title: 'Complaint Resolution Feedback',
-            description: 'Measure citizen satisfaction with how complaints were handled. Thumbs up/down provides quick binary feedback on resolution effectiveness.',
-            example: '"Was your complaint resolved satisfactorily?" with thumbs up/down rating.',
-          },
-          {
-            title: 'Officer Performance Evaluation',
-            description: 'Allow citizens to rate interactions with government employees. Numeric scales (1-10) provide granular feedback similar to Net Promoter Score.',
-            example: '"How likely are you to recommend this service to others?" with 1-10 numeric scale.',
-          },
-          {
-            title: 'Public Feedback on Initiatives',
-            description: 'Gather public opinion on new government programs, policy changes, or infrastructure projects. Multi-question surveys with different rating types provide comprehensive feedback.',
-            example: 'Survey with multiple questions rating service speed, quality, and staff helpfulness using star ratings.',
-          },
-          {
-            title: 'Website and Digital Service Feedback',
-            description: 'Collect real-time feedback on government websites and digital portals. Thumbs rating on help articles or FAQ pages measures content usefulness.',
-            example: '"Was this information helpful?" with thumbs up/down at the bottom of help articles.',
-          },
-        ],
-        compliance: [
-          'WCAG 2.1 Level AA for accessibility to all citizens including those with disabilities',
-          'Section 508 compliance for federal government digital services',
-          'Privacy considerations: feedback collection must comply with data protection regulations',
-          'Transparent feedback usage: citizens should know how their feedback will be used',
-          'Anonymous option: allow anonymous feedback to encourage honest responses',
-        ],
-        bestPractices: [
-          'Keep surveys short: limit to 3-5 questions to maximize completion rates',
-          'Provide context: explain why feedback is being collected and how it will be used',
-          'Offer text feedback option: allow citizens to provide detailed comments beyond ratings',
-          'Display thank you message: acknowledge feedback submission with clear confirmation',
-          'Act on feedback: regularly review feedback data and make visible improvements',
-          'Make feedback accessible: provide multiple ways to submit feedback (online, phone, in-person)',
-          'Report results: share aggregated feedback results with the public to demonstrate responsiveness',
-        ],
+        useCases: "Service Satisfaction Surveys: Collect feedback on government services such as license renewals, permit applications, and public assistance programs. Star or emoji ratings provide quick satisfaction measurements; Complaint Resolution Feedback: Measure citizen satisfaction with how complaints were handled. Thumbs up/down provides quick binary feedback on resolution effectiveness; Officer Performance Evaluation: Allow citizens to rate interactions with government employees. Numeric scales (1-10) provide granular feedback similar to Net Promoter Score; Public Feedback on Initiatives: Gather public opinion on new government programs, policy changes, or infrastructure projects. Multi-question surveys with different rating types provide comprehensive feedback; Website and Digital Service Feedback: Collect real-time feedback on government websites and digital portals. Thumbs rating on help articles or FAQ pages measures content usefulness",
+        compliance: "WCAG 2.1 Level AA for accessibility to all citizens including those with disabilities; Section 508 compliance for federal government digital services; Privacy considerations: feedback collection must comply with data protection regulations; Transparent feedback usage: citizens should know how their feedback will be used; Anonymous option: allow anonymous feedback to encourage honest responses",
+        bestPractices: "Keep surveys short: limit to 3-5 questions to maximize completion rates; Provide context: explain why feedback is being collected and how it will be used; Offer text feedback option: allow citizens to provide detailed comments beyond ratings; Display thank you message: acknowledge feedback submission with clear confirmation; Act on feedback: regularly review feedback data and make visible improvements; Make feedback accessible: provide multiple ways to submit feedback (online, phone, in-person); Report results: share aggregated feedback results with the public to demonstrate responsiveness",
       }}
     />
   );

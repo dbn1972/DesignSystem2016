@@ -41,7 +41,7 @@ export default function ComponentAspectRatioPage() {
       description="Layout component for maintaining consistent aspect ratios across responsive designs. Essential for video embeds, images, maps, and document viewers where maintaining proportions is critical."
       category="Layout"
       maturity="stable"
-      tier="foundations"
+      tier="foundation"
       since="v1.5.0"
       updated="v2.3.0"
 

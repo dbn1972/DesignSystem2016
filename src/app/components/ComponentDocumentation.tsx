@@ -98,6 +98,9 @@ interface ComponentDocumentationProps {
   // Government service use cases
   useCases?: UseCase[];
 
+  // Additional content to render after the main documentation
+  additionalContent?: React.ReactNode;
+
   // Government-specific context (India-specific usage notes)
   governmentContext?: {
     relevance?: string;

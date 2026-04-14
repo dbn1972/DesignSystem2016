@@ -571,57 +571,6 @@ function buildToolbarConfig(
   onImageUpload?: (file: File) => Promise<string>;
   className?: string;
 }`,
-        styles: `.ux4g-rich-text-editor {
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  background: white;
-}
-
-.ux4g-rich-text-editor .ql-toolbar {
-  border: none;
-  border-bottom: 1px solid #d1d5db;
-  background: #f9fafb;
-  padding: 8px;
-}
-
-.ux4g-rich-text-editor .ql-container {
-  border: none;
-  font-family: inherit;
-  font-size: 16px;
-  min-height: 150px;
-}
-
-.ux4g-rich-text-editor .ql-editor {
-  padding: 12px;
-  min-height: 150px;
-}
-
-.ux4g-rich-text-editor .ql-editor.ql-blank::before {
-  color: #9ca3af;
-  font-style: normal;
-}
-
-.ux4g-rich-text-editor.read-only .ql-editor {
-  background: #f9fafb;
-  cursor: not-allowed;
-}
-
-.ux4g-rich-text-editor .character-counter {
-  padding: 8px 12px;
-  border-top: 1px solid #d1d5db;
-  text-align: right;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.ux4g-rich-text-editor .ql-toolbar button:hover,
-.ux4g-rich-text-editor .ql-toolbar button:focus {
-  color: #005196;
-}
-
-.ux4g-rich-text-editor .ql-toolbar button.ql-active {
-  color: #005196;
-}`,
       }}
 
       angularCode={{
@@ -877,44 +826,9 @@ export class RichTextEditorModule { }`,
       }}
 
       governmentContext={{
-        useCases: [
-          'Drafting official government notices and circulars',
-          'Creating and publishing policy documents',
-          'Composing public announcements and press releases',
-          'Editing department guidelines and regulations',
-          'Preparing multilingual content for diverse populations',
-          'Creating structured reports with tables and formatting',
-          'Documenting meeting minutes and official records',
-          'Publishing citizen-facing information and FAQs',
-        ],
-        examples: [
-          {
-            title: 'Official Notice Editor',
-            description: 'Department heads drafting public notices with proper formatting and structure.',
-          },
-          {
-            title: 'Policy Document Management',
-            description: 'Policy teams creating comprehensive documents with headings, lists, and tables.',
-          },
-          {
-            title: 'Multilingual Circulars',
-            description: 'Administrative staff preparing circulars in multiple regional languages.',
-          },
-          {
-            title: 'Public Announcement System',
-            description: 'Communications team publishing formatted announcements on government portals.',
-          },
-        ],
-        considerations: [
-          'Support for right-to-left (RTL) languages for regional content',
-          'Version control integration for document history tracking',
-          'Content approval workflows before publication',
-          'Export capabilities to PDF and other standard formats',
-          'Template support for common document types',
-          'Accessibility compliance for diverse user needs',
-          'Offline editing capabilities for remote locations',
-          'Content sanitization to prevent security vulnerabilities',
-        ],
+        useCases: "Drafting official government notices and circulars; Creating and publishing policy documents; Composing public announcements and press releases; Editing department guidelines and regulations; Preparing multilingual content for diverse populations; Creating structured reports with tables and formatting; Documenting meeting minutes and official records; Publishing citizen-facing information and FAQs",
+        examples: "Official Notice Editor: Department heads drafting public notices with proper formatting and structure; Policy Document Management: Policy teams creating comprehensive documents with headings, lists, and tables; Multilingual Circulars: Administrative staff preparing circulars in multiple regional languages; Public Announcement System: Communications team publishing formatted announcements on government portals",
+        considerations: "Support for right-to-left (RTL) languages for regional content; Version control integration for document history tracking; Content approval workflows before publication; Export capabilities to PDF and other standard formats; Template support for common document types; Accessibility compliance for diverse user needs; Offline editing capabilities for remote locations; Content sanitization to prevent security vulnerabilities",
       }}
     />
   );

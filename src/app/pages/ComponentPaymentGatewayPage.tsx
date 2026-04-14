@@ -680,79 +680,6 @@ export interface PaymentGatewayProps {
   environment?: 'production' | 'sandbox';
   className?: string;
 }`,
-        hooks: `import { useCallback } from 'react';
-
-interface RazorpayOptions {
-  merchantId: string;
-  environment: 'production' | 'sandbox';
-}
-
-interface PaymentOptions {
-  amount: number;
-  currency: string;
-  orderId: string;
-  method: PaymentMethod;
-  metadata: {
-    serviceName: string;
-    departmentCode: string;
-    receiptNumber: string;
-  };
-}
-
-export const useRazorpay = ({ merchantId, environment }: RazorpayOptions) => {
-  const initiatePayment = useCallback(
-    async (options: PaymentOptions) => {
-      // Load Razorpay SDK
-      const script = document.createElement('script');
-      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      document.body.appendChild(script);
-
-      await new Promise((resolve) => {
-        script.onload = resolve;
-      });
-
-      // Create Razorpay order via backend
-      const orderResponse = await fetch('/api/payment/create-order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          amount: options.amount,
-          currency: options.currency,
-          receipt: options.metadata.receiptNumber,
-          notes: {
-            serviceName: options.metadata.serviceName,
-            departmentCode: options.metadata.departmentCode,
-          },
-        }),
-      });
-
-      const orderData = await orderResponse.json();
-
-      return new Promise((resolve, reject) => {
-        const rzp = new (window as any).Razorpay({
-          key: environment === 'production' ? merchantId : 'rzp_test_' + merchantId,
-          order_id: orderData.id,
-          amount: options.amount,
-          currency: options.currency,
-          name: 'Government Services',
-          description: options.metadata.serviceName,
-          prefill: {
-            method: options.method,
-          },
-          handler: (response: any) => resolve(response),
-          modal: {
-            ondismiss: () => reject(new Error('Payment cancelled')),
-          },
-        });
-
-        rzp.open();
-      });
-    },
-    [merchantId, environment]
-  );
-
-  return { initiatePayment };
-};`,
       }}
 
       angularCode={{
@@ -1026,41 +953,10 @@ export interface PaymentError {
       }}
 
       governmentContext={{
-        useCases: [
-          'Processing service fees for passport, driving license, and other government document applications',
-          'Payment of property tax, water tax, electricity bills, and other municipal charges',
-          'Collection of application fees for tenders, registrations, and certifications',
-          'Processing fines, penalties, and court fees',
-          'Payment for government examination fees and educational services',
-          'e-Mudra digital signature certificate fees',
-          'Revenue stamp and duty payments',
-        ],
-        integrations: [
-          'Government e-Marketplace (GeM) payment integration',
-          'Bharat Bill Payment System (BBPS) for utility payments',
-          'Integration with State Bank of India (SBI) ePay',
-          'National Payments Corporation of India (NPCI) UPI integration',
-          'RuPay card network for domestic payments',
-          'Government e-Payment Gateway for central and state departments',
-        ],
-        compliance: [
-          'PCI DSS 3.2.1 compliance for card payment security',
-          'Reserve Bank of India (RBI) payment gateway regulations',
-          'IT Act 2000 compliance for electronic transactions',
-          'GST invoicing and receipt generation',
-          'Digital India initiative alignment',
-          'Government Financial Regulations (GFR) compliance',
-          'Reconciliation and settlement as per government accounting standards',
-        ],
-        security: [
-          'Two-factor authentication for transactions above threshold',
-          'End-to-end encryption for payment data',
-          'Tokenization for card details to prevent data breaches',
-          'Fraud detection and prevention mechanisms',
-          'Transaction monitoring and anomaly detection',
-          'Secure webhook callbacks for payment status updates',
-          'Auto-logout after payment completion or timeout',
-        ],
+        useCases: "Processing service fees for passport, driving license, and other government document applications; Payment of property tax, water tax, electricity bills, and other municipal charges; Collection of application fees for tenders, registrations, and certifications; Processing fines, penalties, and court fees; Payment for government examination fees and educational services; e-Mudra digital signature certificate fees; Revenue stamp and duty payments",
+        integrations: "Government e-Marketplace (GeM) payment integration; Bharat Bill Payment System (BBPS) for utility payments; Integration with State Bank of India (SBI) ePay; National Payments Corporation of India (NPCI) UPI integration; RuPay card network for domestic payments; Government e-Payment Gateway for central and state departments",
+        compliance: "PCI DSS 3.2.1 compliance for card payment security; Reserve Bank of India (RBI) payment gateway regulations; IT Act 2000 compliance for electronic transactions; GST invoicing and receipt generation; Digital India initiative alignment; Government Financial Regulations (GFR) compliance; Reconciliation and settlement as per government accounting standards",
+        security: "Two-factor authentication for transactions above threshold; End-to-end encryption for payment data; Tokenization for card details to prevent data breaches; Fraud detection and prevention mechanisms; Transaction monitoring and anomaly detection; Secure webhook callbacks for payment status updates; Auto-logout after payment completion or timeout",
       }}
     />
   );

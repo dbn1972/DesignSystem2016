@@ -862,20 +862,26 @@ function SupportCard({ icon, title, description, link }: {
   description: string;
   link: { label: string; path: string; external?: boolean };
 }) {
-  const Component = link.external ? 'a' : Link;
-  const props = link.external ? { href: link.path } : { to: link.path };
-
   return (
     <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-6">
       <div className="text-primary dark:text-blue-400 mb-4">{icon}</div>
       <h3 className="text-xl font-bold text-foreground dark:text-gray-100 mb-2">{title}</h3>
       <p className="text-sm text-muted-foreground dark:text-gray-400 mb-4">{description}</p>
-      <Component
-        {...props}
-        className="inline-flex items-center gap-2 text-primary dark:text-blue-400 font-bold hover:underline"
-      >
-        {link.label} <ArrowRight size={16} />
-      </Component>
+      {link.external ? (
+        <a
+          href={link.path}
+          className="inline-flex items-center gap-2 text-primary dark:text-blue-400 font-bold hover:underline"
+        >
+          {link.label} <ArrowRight size={16} />
+        </a>
+      ) : (
+        <Link
+          to={link.path}
+          className="inline-flex items-center gap-2 text-primary dark:text-blue-400 font-bold hover:underline"
+        >
+          {link.label} <ArrowRight size={16} />
+        </Link>
+      )}
     </div>
   );
 }
