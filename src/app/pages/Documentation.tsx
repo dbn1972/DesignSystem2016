@@ -75,8 +75,8 @@ export default function Documentation() {
       icon: Package,
       title: "Angular Core Docs",
       description: "Angular component package overview, quick start, API reference, and parity notes",
-      href: "/resources/angular-core",
-      color: "bg-blue-700",
+      href: "/docs/angular",
+      color: "bg-red-700",
       badge: "@ux4g/angular-core"
     },
     {
@@ -90,8 +90,8 @@ export default function Documentation() {
     {
       icon: Globe,
       title: "Web Components Docs",
-      description: "Framework-agnostic package guidance for native custom elements and shared contracts",
-      href: "/resources/web-components",
+      description: "Framework-agnostic Web Components — 73 primitives plus 18 service compositions",
+      href: "/docs/web-components",
       color: "bg-cyan-700",
       badge: "@ux4g/web-components"
     },

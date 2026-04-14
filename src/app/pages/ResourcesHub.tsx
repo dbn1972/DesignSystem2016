@@ -62,7 +62,7 @@ export default function ResourcesHub() {
             icon={<Package size={24} />}
             title="Angular Core"
             description="Package docs"
-            path="/resources/angular-core"
+            path="/docs/angular"
             color="blue"
           />
           <QuickLinkCard
@@ -76,7 +76,7 @@ export default function ResourcesHub() {
             icon={<Globe size={24} />}
             title="Web Components"
             description="Custom elements"
-            path="/resources/web-components"
+            path="/docs/web-components"
             color="green"
           />
         </div>
