@@ -257,37 +257,37 @@ function ComponentsSection() {
         <ComponentCategory
           title="Form Components"
           components={[
-            { name: "FormField", desc: "Labeled input with error/helper text", path: "/src/app/components/FormField.tsx" },
-            { name: "ProgressSteps", desc: "Multi-step form progress indicator", path: "/src/app/components/ProgressSteps.tsx" },
-            { name: "AutoSaveIndicator", desc: "Shows auto-save status", path: "/src/app/components/AutoSaveIndicator.tsx" },
-            { name: "ValidationMessage", desc: "Real-time validation feedback", path: "/src/app/components/ValidationMessage.tsx" }
+            { name: "FormField", desc: "Labeled input with error/helper text", path: "components/FormField.tsx" },
+            { name: "ProgressSteps", desc: "Multi-step form progress indicator", path: "components/ProgressSteps.tsx" },
+            { name: "AutoSaveIndicator", desc: "Shows auto-save status", path: "components/AutoSaveIndicator.tsx" },
+            { name: "ValidationMessage", desc: "Real-time validation feedback", path: "components/ValidationMessage.tsx" }
           ]}
         />
         <ComponentCategory
           title="State Management"
           components={[
-            { name: "LoadingState", desc: "Loading indicators and skeletons", path: "/src/app/components/LoadingState.tsx" },
-            { name: "ErrorBoundary", desc: "Error recovery component", path: "/src/app/components/ErrorBoundary.tsx" },
-            { name: "EmptyState", desc: "No data / empty states", path: "/src/app/components/EmptyState.tsx" },
-            { name: "OfflineIndicator", desc: "Network status indicator", path: "/src/app/components/OfflineIndicator.tsx" }
+            { name: "LoadingState", desc: "Loading indicators and skeletons", path: "components/LoadingState.tsx" },
+            { name: "ErrorBoundary", desc: "Error recovery component", path: "components/ErrorBoundary.tsx" },
+            { name: "EmptyState", desc: "No data / empty states", path: "components/EmptyState.tsx" },
+            { name: "OfflineIndicator", desc: "Network status indicator", path: "components/OfflineIndicator.tsx" }
           ]}
         />
         <ComponentCategory
           title="Navigation"
           components={[
-            { name: "Breadcrumb", desc: "Breadcrumb navigation", path: "/src/app/components/Breadcrumb.tsx" },
-            { name: "TabNavigation", desc: "Tab navigation component", path: "/src/app/components/TabNavigation.tsx" },
-            { name: "Pagination", desc: "List pagination", path: "/src/app/components/Pagination.tsx" },
-            { name: "Stepper", desc: "Step-by-step navigation", path: "/src/app/components/Stepper.tsx" }
+            { name: "Breadcrumb", desc: "Breadcrumb navigation", path: "components/Breadcrumb.tsx" },
+            { name: "TabNavigation", desc: "Tab navigation component", path: "components/TabNavigation.tsx" },
+            { name: "Pagination", desc: "List pagination", path: "components/Pagination.tsx" },
+            { name: "Stepper", desc: "Step-by-step navigation", path: "components/Stepper.tsx" }
           ]}
         />
         <ComponentCategory
           title="Feedback"
           components={[
-            { name: "Alert", desc: "Inline alerts and notifications", path: "/src/app/components/Alert.tsx" },
-            { name: "Toast", desc: "Toast notifications", path: "/src/app/components/Toast.tsx" },
-            { name: "Modal", desc: "Modal dialogs", path: "/src/app/components/Modal.tsx" },
-            { name: "ConfirmDialog", desc: "Confirmation dialogs", path: "/src/app/components/ConfirmDialog.tsx" }
+            { name: "Alert", desc: "Inline alerts and notifications", path: "components/Alert.tsx" },
+            { name: "Toast", desc: "Toast notifications", path: "components/Toast.tsx" },
+            { name: "Modal", desc: "Modal dialogs", path: "components/Modal.tsx" },
+            { name: "ConfirmDialog", desc: "Confirmation dialogs", path: "components/ConfirmDialog.tsx" }
           ]}
         />
       </div>

@@ -1,0 +1,70 @@
+<div class="svc-page">
+  <ux4g-service-header icon="👤" iconColor="#9333ea" category="Government Service Access" title="Step 1 of 3: Personal Information">
+    <button type="button" class="svc-btn svc-btn--outline" (click)="saveDraft()">💾 Save Draft</button>
+  </ux4g-service-header>
+
+  <div *ngIf="draftSaved" class="svc-toast" role="status">✅ Draft saved successfully.</div>
+
+  <main class="svc-form-main">
+    <form [formGroup]="form" (ngSubmit)="onContinue()" novalidate class="svc-card">
+      <div class="ux4g-field">
+        <label class="ux4g-label" for="pf-name">Full Name <span class="req">*</span></label>
+        <input id="pf-name" class="ux4g-input" [class.ux4g-input--error]="f['fullName'].touched && f['fullName'].invalid" formControlName="fullName" />
+        <div class="ux4g-error-text" *ngIf="f['fullName'].touched && f['fullName'].invalid" role="alert">Full name is required</div>
+      </div>
+
+      <div class="ux4g-field__row">
+        <div class="ux4g-field">
+          <label class="ux4g-label" for="pf-dob">Date of Birth <span class="req">*</span></label>
+          <input id="pf-dob" class="ux4g-input" type="date" formControlName="dateOfBirth" />
+          <div class="ux4g-error-text" *ngIf="f['dateOfBirth'].touched && f['dateOfBirth'].invalid" role="alert">Date of birth is required</div>
+        </div>
+        <div class="ux4g-field">
+          <label class="ux4g-label" for="pf-gender">Gender <span class="req">*</span></label>
+          <select id="pf-gender" class="ux4g-select" formControlName="gender">
+            <option value="" disabled>Select</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+          </select>
+          <div class="ux4g-error-text" *ngIf="f['gender'].touched && f['gender'].invalid" role="alert">Gender is required</div>
+        </div>
+      </div>
+
+      <div class="ux4g-field__row">
+        <div class="ux4g-field">
+          <label class="ux4g-label" for="pf-father">Father's Name <span class="req">*</span></label>
+          <input id="pf-father" class="ux4g-input" formControlName="fatherName" />
+        </div>
+        <div class="ux4g-field">
+          <label class="ux4g-label" for="pf-mother">Mother's Name <span class="req">*</span></label>
+          <input id="pf-mother" class="ux4g-input" formControlName="motherName" />
+        </div>
+      </div>
+
+      <div class="ux4g-field__row">
+        <div class="ux4g-field">
+          <label class="ux4g-label" for="pf-mobile">Mobile Number <span class="req">*</span></label>
+          <input id="pf-mobile" class="ux4g-input" inputmode="numeric" maxlength="10" formControlName="mobileNumber" />
+          <div class="ux4g-error-text" *ngIf="f['mobileNumber'].touched && f['mobileNumber'].invalid" role="alert">Valid 10-digit mobile required</div>
+        </div>
+        <div class="ux4g-field">
+          <label class="ux4g-label" for="pf-email">Email</label>
+          <input id="pf-email" class="ux4g-input" type="email" formControlName="email" />
+        </div>
+      </div>
+
+      <div class="ux4g-field">
+        <label class="ux4g-label" for="pf-aadhaar">Aadhaar Number</label>
+        <input id="pf-aadhaar" class="ux4g-input" inputmode="numeric" maxlength="12" formControlName="aadhaarNumber" />
+      </div>
+
+      <div class="svc-form-actions">
+        <a [href]="backPath" class="svc-btn svc-btn--outline">← Back</a>
+        <button type="submit" class="svc-btn svc-btn--primary">Save and Continue →</button>
+      </div>
+    </form>
+  </main>
+
+  <ux4g-service-footer [leftText]="serviceName + ' • Government of India'" rightText="Personal Information"></ux4g-service-footer>
+</div>

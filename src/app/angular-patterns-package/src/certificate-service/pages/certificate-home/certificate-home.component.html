@@ -1,0 +1,198 @@
+<div class="cert-page">
+
+  <!-- ═══════════ TRICOLOR BAND + HERO ═══════════ -->
+  <header class="cert-hero">
+    <div class="cert-hero__tricolor" aria-hidden="true"></div>
+    <div class="cert-hero__inner">
+      <div class="cert-hero__content">
+        <cert-breadcrumb [items]="breadcrumbs"></cert-breadcrumb>
+
+        <div class="cert-hero__row">
+          <div class="cert-hero__icon" aria-hidden="true">📄</div>
+          <div>
+            <div class="cert-hero__subtitle">{{ page.subtitle }}</div>
+            <h1 class="cert-hero__title">{{ page.title }}</h1>
+          </div>
+        </div>
+
+        <p class="cert-hero__desc">
+          Apply for government-issued certificates online. Complete application, track status,
+          and receive digital certificates from the comfort of your home.
+        </p>
+      </div>
+
+      <div class="cert-hero__badge">
+        <span class="cert-status-badge cert-status-badge--active">SERVICE ACTIVE</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════ QUICK INFO BANNER ═══════════ -->
+  <section class="cert-quick-info" aria-label="Service quick facts">
+    <div class="cert-container cert-quick-info__grid">
+      <cert-info-card
+        *ngFor="let info of page.quickInfo"
+        [icon]="info.icon"
+        [label]="info.label"
+        [value]="info.value"
+        [accentColor]="info.color"
+      ></cert-info-card>
+    </div>
+  </section>
+
+  <!-- ═══════════ MAIN CONTENT ═══════════ -->
+  <main class="cert-container cert-main">
+
+    <!-- About This Service -->
+    <section class="cert-section" aria-labelledby="about-heading">
+      <cert-section-heading text="About This Service" anchorId="about-heading"></cert-section-heading>
+      <div class="cert-card">
+        <p *ngFor="let para of page.description" class="cert-text">{{ para }}</p>
+      </div>
+    </section>
+
+    <!-- Eligibility Criteria -->
+    <section class="cert-section" aria-labelledby="eligibility-heading">
+      <cert-section-heading text="Eligibility Criteria" anchorId="eligibility-heading"></cert-section-heading>
+      <div class="cert-card">
+        <div class="cert-list">
+          <div *ngFor="let item of page.eligibility" class="cert-list__item">
+            <span class="cert-list__icon cert-list__icon--check" aria-hidden="true">✓</span>
+            <span>{{ item.text }}</span>
+          </div>
+        </div>
+        <div class="cert-card__footer">
+          <cert-cta-button
+            variant="primary"
+            href="/reference-service/certificate/eligibility"
+            iconAfter="→"
+          >Check Your Eligibility</cert-cta-button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Required Documents -->
+    <section class="cert-section" aria-labelledby="docs-heading">
+      <cert-section-heading text="Required Documents" anchorId="docs-heading"></cert-section-heading>
+      <div class="cert-card">
+        <div class="cert-docs-grid">
+          <div>
+            <h3 class="cert-docs-grid__title">Mandatory Documents</h3>
+            <div class="cert-list">
+              <div *ngFor="let doc of page.mandatoryDocs" class="cert-list__item">
+                <span class="cert-list__icon cert-list__icon--arrow" aria-hidden="true">›</span>
+                <span>{{ doc.text }}</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="cert-docs-grid__title">Additional Documents (If Applicable)</h3>
+            <div class="cert-list">
+              <div *ngFor="let doc of page.additionalDocs" class="cert-list__item cert-list__item--muted">
+                <span class="cert-list__icon cert-list__icon--arrow-muted" aria-hidden="true">›</span>
+                <span>{{ doc.text }} <em class="cert-optional">(Optional)</em></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card__footer">
+          <div class="cert-info-banner">
+            <span class="cert-info-banner__icon" aria-hidden="true">ℹ</span>
+            <div>
+              <strong>Document Upload Guidelines</strong>
+              <p>All documents must be uploaded in PDF, JPEG, or PNG format. Maximum file size: 2 MB per document. Ensure all documents are clear and readable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="cert-section" aria-labelledby="process-heading">
+      <cert-section-heading text="Application Process" anchorId="process-heading"></cert-section-heading>
+      <div class="cert-card">
+        <div class="cert-steps">
+          <div *ngFor="let step of page.processSteps" class="cert-steps__item">
+            <div class="cert-steps__number" aria-hidden="true">{{ step.number }}</div>
+            <div class="cert-steps__body">
+              <h4 class="cert-steps__title">{{ step.title }}</h4>
+              <p class="cert-steps__desc">{{ step.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Important Information -->
+    <section class="cert-section" aria-labelledby="important-heading">
+      <cert-section-heading text="Important Information" anchorId="important-heading"></cert-section-heading>
+      <div class="cert-important-grid">
+        <div class="cert-important-card cert-important-card--warning">
+          <h3 class="cert-important-card__title">
+            <span aria-hidden="true">⚠</span> Before You Apply
+          </h3>
+          <div class="cert-list cert-list--sm">
+            <div *ngFor="let item of page.beforeApply" class="cert-list__item">
+              <span class="cert-list__icon cert-list__icon--arrow" aria-hidden="true">›</span>
+              <span>{{ item.text }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="cert-important-card cert-important-card--success">
+          <h3 class="cert-important-card__title">
+            <span aria-hidden="true">✅</span> After Submission
+          </h3>
+          <div class="cert-list cert-list--sm">
+            <div *ngFor="let item of page.afterSubmission" class="cert-list__item">
+              <span class="cert-list__icon cert-list__icon--arrow" aria-hidden="true">›</span>
+              <span>{{ item.text }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="cert-section" aria-labelledby="faq-heading">
+      <cert-section-heading text="Frequently Asked Questions" anchorId="faq-heading"></cert-section-heading>
+      <cert-faq-accordion [items]="faqs"></cert-faq-accordion>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cert-cta-banner" aria-label="Apply now">
+      <div class="cert-cta-banner__tricolor" aria-hidden="true"></div>
+      <div class="cert-cta-banner__inner">
+        <h2 class="cert-cta-banner__title">Ready to Apply?</h2>
+        <p class="cert-cta-banner__desc">
+          Start your certificate application now. The entire process takes approximately 15–20 minutes to complete online.
+        </p>
+        <div class="cert-cta-banner__actions">
+          <cert-cta-button variant="primary" href="/reference-service/certificate/sign-in" iconBefore="🛡">
+            Sign In to Apply
+          </cert-cta-button>
+          <cert-cta-button variant="secondary" href="/reference-service/certificate/help" iconBefore="❓">
+            Need Help?
+          </cert-cta-button>
+        </div>
+        <p class="cert-cta-banner__signup">
+          Don't have an account?
+          <a href="/reference-service/certificate/sign-up" class="cert-link">Sign Up Here</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="cert-footer">
+    <div class="cert-container cert-footer__inner">
+      <span>Certificate Application Service • Government of India</span>
+      <span>
+        <a href="/reference-service/overview" class="cert-link">View Service Blueprint</a>
+        &nbsp;·&nbsp; Digital India Initiative
+      </span>
+    </div>
+  </footer>
+
+</div>

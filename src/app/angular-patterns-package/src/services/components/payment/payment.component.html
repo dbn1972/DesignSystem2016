@@ -1,0 +1,67 @@
+<div class="ux4g-service-card ux4g-service-card--wide">
+  <div class="ux4g-service-card__header">
+    <h1 class="ux4g-service-card__title">Payment</h1>
+    <p class="ux4g-service-card__subtitle">Complete your application fee payment</p>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loadingSummary" class="ux4g-loading" role="status">
+    <span class="ux4g-spinner ux4g-spinner--md" aria-hidden="true"></span>
+    <span>Loading payment details…</span>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="ux4g-alert ux4g-alert--error" role="alert">
+    <span class="ux4g-alert__icon" aria-hidden="true">⚠</span>
+    <span>{{ error }}</span>
+  </div>
+
+  <!-- Success -->
+  <div *ngIf="result?.success" class="ux4g-alert ux4g-alert--success" role="status">
+    <span class="ux4g-alert__icon" aria-hidden="true">✅</span>
+    <div>
+      <strong>Payment Successful</strong>
+      <p style="margin: 0.25rem 0 0; font-size: 0.8125rem;">Transaction ID: {{ result.transactionId }}</p>
+    </div>
+  </div>
+
+  <ng-container *ngIf="summary && !loadingSummary && !result?.success">
+    <!-- Fee Summary -->
+    <table class="ux4g-summary-table" aria-label="Fee breakdown">
+      <tr>
+        <td>Application Fee</td>
+        <td>₹{{ summary.applicationFee }}</td>
+      </tr>
+      <tr>
+        <td>Processing Fee</td>
+        <td>₹{{ summary.processingFee }}</td>
+      </tr>
+      <tr>
+        <td>GST (18%)</td>
+        <td>₹{{ summary.gst }}</td>
+      </tr>
+      <tr class="ux4g-summary-table__total">
+        <td>Total Payable</td>
+        <td>₹{{ summary.total }}</td>
+      </tr>
+    </table>
+
+    <!-- Payment Method -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate style="margin-top: 1.5rem;">
+      <div class="ux4g-field">
+        <label class="ux4g-label">Select Payment Method</label>
+        <div class="ux4g-radio-group">
+          <label *ngFor="let m of paymentMethods" class="ux4g-radio">
+            <input type="radio" formControlName="method" [value]="m.value" />
+            <span>{{ m.icon }} {{ m.label }}</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="ux4g-button ux4g-button--primary ux4g-button--full-width" [disabled]="loading" [attr.aria-busy]="loading">
+        <span *ngIf="loading" class="ux4g-spinner ux4g-spinner--sm" aria-hidden="true"></span>
+        {{ loading ? 'Processing…' : 'Pay ₹' + summary.total }}
+      </button>
+    </form>
+  </ng-container>
+</div>

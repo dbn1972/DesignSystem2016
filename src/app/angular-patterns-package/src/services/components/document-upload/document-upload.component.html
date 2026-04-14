@@ -1,0 +1,65 @@
+<div class="ux4g-service-card ux4g-service-card--wide">
+  <div class="ux4g-service-card__header">
+    <h1 class="ux4g-service-card__title">Upload Documents</h1>
+    <p class="ux4g-service-card__subtitle">Upload required documents for your application</p>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="ux4g-loading" role="status">
+    <span class="ux4g-spinner ux4g-spinner--md" aria-hidden="true"></span>
+    <span>Loading requirements…</span>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="ux4g-alert ux4g-alert--error" role="alert">
+    <span class="ux4g-alert__icon" aria-hidden="true">⚠</span>
+    <span>{{ error }}</span>
+  </div>
+
+  <ng-container *ngIf="!loading">
+    <div *ngFor="let req of requirements" style="margin-bottom: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+        <label class="ux4g-label" style="margin-bottom: 0;">{{ req.label }}</label>
+        <span *ngIf="req.required" class="ux4g-badge ux4g-badge--error" style="font-size: 0.625rem;">Required</span>
+        <span *ngIf="!req.required" class="ux4g-badge ux4g-badge--info" style="font-size: 0.625rem;">Optional</span>
+      </div>
+      <div class="ux4g-hint-text" style="margin-bottom: 0.5rem;">
+        {{ req.description }} — Max {{ req.maxSizeMB }}MB ({{ req.acceptedFormats.join(', ') }})
+      </div>
+
+      <!-- Uploaded file -->
+      <div *ngIf="getUpload(req.id) as doc" class="ux4g-file-item">
+        <span aria-hidden="true">📄</span>
+        <div class="ux4g-file-item__info">
+          <div class="ux4g-file-item__name">{{ doc.name }}</div>
+          <div class="ux4g-file-item__size">{{ formatSize(doc.size) }}</div>
+        </div>
+        <span class="ux4g-badge ux4g-badge--success">Uploaded</span>
+        <button class="ux4g-file-item__remove" (click)="removeUpload(req.id)" aria-label="Remove {{ doc.name }}">×</button>
+      </div>
+
+      <!-- Upload area -->
+      <div *ngIf="!getUpload(req.id)" class="ux4g-file-drop" [class.ux4g-file-drop--active]="uploading === req.id">
+        <div *ngIf="uploading === req.id" class="ux4g-loading" style="padding: 1rem;">
+          <span class="ux4g-spinner ux4g-spinner--sm" aria-hidden="true"></span>
+          <span>Uploading…</span>
+        </div>
+        <ng-container *ngIf="uploading !== req.id">
+          <div class="ux4g-file-drop__icon" aria-hidden="true">📁</div>
+          <div class="ux4g-file-drop__text">
+            <label [for]="'file-' + req.id" class="ux4g-link" style="cursor: pointer;">Choose file</label>
+            or drag and drop
+          </div>
+          <input
+            [id]="'file-' + req.id"
+            type="file"
+            [accept]="req.acceptedFormats.map(f => '.' + f).join(',')"
+            (change)="onFileSelected($event, req.id)"
+            style="display: none;"
+            [attr.aria-label]="'Upload ' + req.label"
+          />
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,45 @@
+<div class="ux4g-service-card">
+  <div class="ux4g-service-card__header">
+    <div class="ux4g-service-card__emblem" aria-hidden="true">🔐</div>
+    <h1 class="ux4g-service-card__title">Verify OTP</h1>
+    <p class="ux4g-service-card__subtitle">Enter the 6-digit code sent to {{ destination }}</p>
+  </div>
+
+  <div *ngIf="error" class="ux4g-alert ux4g-alert--error" role="alert">
+    <span class="ux4g-alert__icon" aria-hidden="true">⚠</span>
+    <span>{{ error }}</span>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="ux4g-field">
+      <label class="ux4g-label" for="otp-input">One-Time Password</label>
+      <input
+        id="otp-input"
+        class="ux4g-input"
+        [class.ux4g-input--error]="f['otp'].touched && f['otp'].invalid"
+        type="text"
+        inputmode="numeric"
+        maxlength="6"
+        formControlName="otp"
+        placeholder="Enter 6-digit OTP"
+        autocomplete="one-time-code"
+        aria-describedby="otp-error otp-hint"
+      />
+      <div id="otp-hint" class="ux4g-hint-text">
+        <span *ngIf="!canResend">Resend OTP in {{ countdown }}s</span>
+        <button *ngIf="canResend" type="button" class="ux4g-link" (click)="onResend()">
+          Resend OTP
+        </button>
+      </div>
+      <div id="otp-error" class="ux4g-error-text" *ngIf="f['otp'].touched && f['otp'].invalid" role="alert">
+        <span *ngIf="f['otp'].errors?.['required']">OTP is required</span>
+        <span *ngIf="f['otp'].errors?.['pattern']">Enter a valid 6-digit OTP</span>
+      </div>
+    </div>
+
+    <button type="submit" class="ux4g-button ux4g-button--primary ux4g-button--full-width" [disabled]="loading" [attr.aria-busy]="loading">
+      <span *ngIf="loading" class="ux4g-spinner ux4g-spinner--sm" aria-hidden="true"></span>
+      {{ loading ? 'Verifying…' : 'Verify OTP' }}
+    </button>
+  </form>
+</div>

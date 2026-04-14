@@ -1,0 +1,37 @@
+<div class="cp">
+  <ux4g-service-header icon="❓" iconColor="#ea580c" category="Certificate Application Service" title="Help & Support"></ux4g-service-header>
+  <main class="cp-container cp-main">
+    <!-- Contact Cards -->
+    <div class="cp-grid-3">
+      <div *ngFor="let c of contacts" class="cp-card">
+        <div class="cp-card__icon" [style.background]="c.bg" aria-hidden="true">{{ c.icon }}</div>
+        <h3 class="cp-card__title">{{ c.title }}</h3>
+        <div class="cp-card__detail">{{ c.detail }}</div>
+        <div class="cp-card__sub">{{ c.sub }}</div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="cp-section">
+      <div class="cp-card cp-card--full">
+        <div class="cp-card__header">
+          <h2>Frequently Asked Questions</h2>
+          <input class="cp-search" type="text" [(ngModel)]="searchQuery" placeholder="Search for answers…" aria-label="Search FAQs" />
+        </div>
+        <div class="cp-card__body">
+          <cert-faq-accordion [items]="filteredFaqs"></cert-faq-accordion>
+          <div *ngIf="searchQuery && filteredFaqs.length === 0" class="cp-empty">No results found for "{{ searchQuery }}"</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="cp-section cp-links-box">
+      <h3>Quick Links</h3>
+      <div class="cp-links-grid">
+        <a *ngFor="let link of quickLinks" [href]="link.href" class="cp-link-item">› {{ link.label }}</a>
+      </div>
+    </section>
+  </main>
+  <ux4g-service-footer leftText="Certificate Application Service • Government of India" rightText="Help & Support"></ux4g-service-footer>
+</div>

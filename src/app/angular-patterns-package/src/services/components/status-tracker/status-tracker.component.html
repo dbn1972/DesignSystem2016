@@ -1,0 +1,70 @@
+<div class="ux4g-service-card ux4g-service-card--wide">
+  <div class="ux4g-service-card__header">
+    <h1 class="ux4g-service-card__title">Application Status</h1>
+    <p class="ux4g-service-card__subtitle">Track your application progress</p>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="ux4g-loading" role="status">
+    <span class="ux4g-spinner ux4g-spinner--md" aria-hidden="true"></span>
+    <span>Loading status…</span>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="ux4g-alert ux4g-alert--error" role="alert">
+    <span class="ux4g-alert__icon" aria-hidden="true">⚠</span>
+    <span>{{ error }}</span>
+  </div>
+
+  <!-- Empty -->
+  <div *ngIf="!loading && !error && !tracker" class="ux4g-empty">
+    <div class="ux4g-empty__icon" aria-hidden="true">📋</div>
+    <div class="ux4g-empty__title">No Application Found</div>
+    <div class="ux4g-empty__description">We couldn't find an application with this ID.</div>
+  </div>
+
+  <!-- Tracker -->
+  <ng-container *ngIf="tracker">
+    <!-- Summary -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+      <div>
+        <div style="font-size: 0.75rem; color: var(--ux4g-svc-fg-muted);">Application ID</div>
+        <div style="font-weight: 600;">{{ tracker.applicationId }}</div>
+      </div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--ux4g-svc-fg-muted);">Service Type</div>
+        <div style="font-weight: 600;">{{ tracker.serviceType }}</div>
+      </div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--ux4g-svc-fg-muted);">Current Status</div>
+        <span class="ux4g-badge" [ngClass]="getStatusBadgeClass(tracker.currentStatus)">
+          {{ tracker.currentStatus | titlecase }}
+        </span>
+      </div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--ux4g-svc-fg-muted);">Estimated Completion</div>
+        <div style="font-weight: 600;">{{ tracker.estimatedCompletion | date:'mediumDate' }}</div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <h2 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem;">Timeline</h2>
+    <div class="ux4g-timeline" role="list" aria-label="Application timeline">
+      <div
+        *ngFor="let item of tracker.timeline; let i = index; let last = last"
+        class="ux4g-timeline__item"
+        [class.ux4g-timeline__item--active]="isTimelineItemActive(i)"
+        role="listitem"
+      >
+        <div
+          class="ux4g-timeline__dot"
+          [class.ux4g-timeline__dot--active]="i === tracker.timeline.length - 1"
+          [class.ux4g-timeline__dot--success]="i < tracker.timeline.length - 1"
+        ></div>
+        <div class="ux4g-timeline__label">{{ item.description }}</div>
+        <div *ngIf="item.officer" class="ux4g-timeline__description">Officer: {{ item.officer }}</div>
+        <div class="ux4g-timeline__time">{{ item.timestamp | date:'medium' }}</div>
+      </div>
+    </div>
+  </ng-container>
+</div>

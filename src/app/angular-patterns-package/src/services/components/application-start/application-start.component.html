@@ -1,0 +1,70 @@
+<div class="svc-page">
+  <ux4g-service-header icon="📝" iconColor="#16a34a" [category]="'Welcome, ' + applicantName" title="Start New Application">
+    <span class="svc-badge svc-badge--success">AUTHENTICATED</span>
+  </ux4g-service-header>
+
+  <main class="svc-container svc-main">
+    <!-- Before You Begin -->
+    <section class="svc-section">
+      <h2 class="svc-heading">Before You Begin</h2>
+      <div class="svc-info-grid">
+        <div *ngFor="let c of infoCards" class="svc-info-tile">
+          <div class="svc-info-tile__icon" [style.background]="c.bg" aria-hidden="true">{{ c.icon }}</div>
+          <h3 class="svc-info-tile__title">{{ c.title }}</h3>
+          <p class="svc-info-tile__text">{{ c.text }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructions -->
+    <section class="svc-section">
+      <div class="svc-card">
+        <div class="svc-card__header">Application Instructions</div>
+        <div class="svc-card__body">
+          <div *ngFor="let step of instructions" class="svc-step">
+            <div class="svc-step__number" aria-hidden="true">{{ step.n }}</div>
+            <div>
+              <h4 class="svc-step__title">{{ step.title }}</h4>
+              <p class="svc-step__desc">{{ step.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warnings -->
+    <div class="svc-alert svc-alert--warning">
+      <span class="svc-alert__icon" aria-hidden="true">⚠</span>
+      <div>
+        <strong>Important Notes</strong>
+        <ul class="svc-alert__list">
+          <li *ngFor="let w of warnings">{{ w }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Terms + CTA -->
+    <section class="svc-section">
+      <div class="svc-card">
+        <div class="svc-card__body">
+          <div class="svc-terms-box">
+            <strong>Terms and Conditions</strong>
+            <p>By continuing, you confirm all information provided is accurate and can be verified.</p>
+          </div>
+          <label class="ux4g-checkbox" style="margin: 1rem 0;">
+            <input type="checkbox" [(ngModel)]="acceptedTerms" />
+            <span><strong>I have read and understood</strong> the instructions and terms.</span>
+          </label>
+          <a
+            [href]="startFormPath"
+            class="svc-btn svc-btn--success svc-btn--full"
+            [class.svc-btn--disabled]="!acceptedTerms"
+            [attr.aria-disabled]="!acceptedTerms"
+          >I Agree — Start Application →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <ux4g-service-footer [leftText]="serviceName + ' • Government of India'" rightText="Application Start"></ux4g-service-footer>
+</div>

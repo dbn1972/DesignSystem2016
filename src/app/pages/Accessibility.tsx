@@ -766,7 +766,7 @@ function SemanticStructure() {
               reason="Use semantic button element for interactive actions"
             />
             <SemanticExample
-              correct={`<a href="/page">Navigate</a>`}
+              correct={`<a href="/documentation">Navigate</a>`}
               incorrect={`<button onclick="navigate()">Navigate</button>`}
               reason="Use anchor tags for navigation, buttons for actions"
             />

@@ -383,26 +383,24 @@ export default function FrameworkStatus() {
                 <p className="text-blue-100 mb-3">
                   Start using production-ready components today with full TypeScript support and comprehensive documentation.
                 </p>
-                <a
-                  href="/workspaces/default/code/src/app/react-core-package/README.md"
-                  target="_blank"
+                <Link
+                  to="/resources/component-specs"
                   className="inline-block px-4 py-2 bg-card text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
                 >
                   View React Docs
-                </a>
+                </Link>
               </div>
               <div>
                 <h4 className="font-bold mb-2">Angular Developers</h4>
                 <p className="text-blue-100 mb-3">
                   Follow our development progress and contribute to the Angular implementation roadmap.
                 </p>
-                <a
-                  href="/workspaces/default/code/src/app/angular-core-package/ROADMAP.md"
-                  target="_blank"
+                <Link
+                  to="/resources/migration-guides"
                   className="inline-block px-4 py-2 bg-card text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
                 >
                   View Angular Roadmap
-                </a>
+                </Link>
               </div>
             </div>
           </div>

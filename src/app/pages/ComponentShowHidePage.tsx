@@ -45,7 +45,7 @@ export default function ComponentShowHidePage() {
       description="Responsive visibility utility component for controlling element display across different screen sizes. Enables mobile-first design patterns with declarative breakpoint-based visibility controls and server-side rendering support."
       category="Layout"
       maturity="stable"
-      tier="foundations"
+      tier="foundation"
       since="v1.0.0"
       updated="v2.3.0"
 

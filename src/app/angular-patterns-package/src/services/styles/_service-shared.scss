@@ -1,0 +1,679 @@
+/**
+ * UX4G Angular Services — Shared Styles
+ * Uses CSS custom properties for light/dark mode support.
+ */
+
+// ── CSS Custom Properties (light defaults, dark overrides via .dark class) ──
+:host {
+  --ux4g-svc-bg: #ffffff;
+  --ux4g-svc-bg-muted: #f8fafc;
+  --ux4g-svc-fg: #0f172a;
+  --ux4g-svc-fg-muted: #64748b;
+  --ux4g-svc-border: #e2e8f0;
+  --ux4g-svc-primary: #000080;
+  --ux4g-svc-primary-hover: #000066;
+  --ux4g-svc-primary-fg: #ffffff;
+  --ux4g-svc-error: #dc2626;
+  --ux4g-svc-error-bg: #fef2f2;
+  --ux4g-svc-success: #16a34a;
+  --ux4g-svc-success-bg: #f0fdf4;
+  --ux4g-svc-warning: #d97706;
+  --ux4g-svc-warning-bg: #fffbeb;
+  --ux4g-svc-radius: 8px;
+  --ux4g-svc-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --ux4g-svc-font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  display: block;
+  font-family: var(--ux4g-svc-font);
+  color: var(--ux4g-svc-fg);
+}
+
+:host-context(.dark) {
+  --ux4g-svc-bg: #1e293b;
+  --ux4g-svc-bg-muted: #0f172a;
+  --ux4g-svc-fg: #f1f5f9;
+  --ux4g-svc-fg-muted: #94a3b8;
+  --ux4g-svc-border: #334155;
+  --ux4g-svc-primary: #3b82f6;
+  --ux4g-svc-primary-hover: #2563eb;
+  --ux4g-svc-error-bg: #450a0a;
+  --ux4g-svc-success-bg: #052e16;
+  --ux4g-svc-warning-bg: #451a03;
+  --ux4g-svc-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+// ── Service Card ──
+.ux4g-service-card {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--ux4g-svc-bg);
+  border: 1px solid var(--ux4g-svc-border);
+  border-radius: var(--ux4g-svc-radius);
+  box-shadow: var(--ux4g-svc-shadow);
+
+  &--wide {
+    max-width: 720px;
+  }
+
+  &--full {
+    max-width: 960px;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__emblem {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ux4g-svc-fg);
+    margin: 0 0 0.25rem;
+  }
+
+  &__subtitle {
+    font-size: 0.875rem;
+    color: var(--ux4g-svc-fg-muted);
+    margin: 0;
+  }
+
+  &__footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--ux4g-svc-fg-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+// ── Field ──
+.ux4g-field {
+  margin-bottom: 1.25rem;
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.ux4g-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ux4g-svc-fg);
+  margin-bottom: 0.375rem;
+}
+
+.ux4g-hint-text {
+  font-size: 0.75rem;
+  color: var(--ux4g-svc-fg-muted);
+  margin-top: 0.25rem;
+}
+
+// ── Input ──
+.ux4g-input {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--ux4g-svc-fg);
+  background: var(--ux4g-svc-bg);
+  border: 1px solid var(--ux4g-svc-border);
+  border-radius: var(--ux4g-svc-radius);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: var(--ux4g-svc-fg-muted);
+  }
+
+  &:focus {
+    border-color: var(--ux4g-svc-primary);
+    box-shadow: 0 0 0 3px rgba(0, 0, 128, 0.15);
+  }
+
+  &--error {
+    border-color: var(--ux4g-svc-error);
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+    }
+  }
+}
+
+.ux4g-select {
+  @extend .ux4g-input;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+}
+
+.ux4g-textarea {
+  @extend .ux4g-input;
+  min-height: 80px;
+  resize: vertical;
+}
+
+.ux4g-input-group {
+  position: relative;
+  display: flex;
+
+  .ux4g-input {
+    flex: 1;
+    padding-right: 2.5rem;
+  }
+
+  &__toggle {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+}
+
+// ── Error Text ──
+.ux4g-error-text {
+  font-size: 0.75rem;
+  color: var(--ux4g-svc-error);
+  margin-top: 0.25rem;
+}
+
+// ── Alert ──
+.ux4g-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--ux4g-svc-radius);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+
+  &--error {
+    background: var(--ux4g-svc-error-bg);
+    color: var(--ux4g-svc-error);
+    border: 1px solid var(--ux4g-svc-error);
+  }
+
+  &--success {
+    background: var(--ux4g-svc-success-bg);
+    color: var(--ux4g-svc-success);
+    border: 1px solid var(--ux4g-svc-success);
+  }
+
+  &--warning {
+    background: var(--ux4g-svc-warning-bg);
+    color: var(--ux4g-svc-warning);
+    border: 1px solid var(--ux4g-svc-warning);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+  }
+}
+
+// ── Button ──
+.ux4g-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: var(--ux4g-svc-radius);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+  line-height: 1.5;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background: var(--ux4g-svc-primary);
+    color: var(--ux4g-svc-primary-fg);
+
+    &:hover:not(:disabled) {
+      background: var(--ux4g-svc-primary-hover);
+    }
+  }
+
+  &--secondary {
+    background: var(--ux4g-svc-bg);
+    color: var(--ux4g-svc-fg);
+    border-color: var(--ux4g-svc-border);
+
+    &:hover:not(:disabled) {
+      background: var(--ux4g-svc-bg-muted);
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: var(--ux4g-svc-primary);
+
+    &:hover:not(:disabled) {
+      background: var(--ux4g-svc-bg-muted);
+    }
+  }
+
+  &--destructive {
+    background: var(--ux4g-svc-error);
+    color: #fff;
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+// ── Link ──
+.ux4g-link {
+  background: none;
+  border: none;
+  color: var(--ux4g-svc-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ── Spinner ──
+.ux4g-spinner {
+  display: inline-block;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: ux4g-spin 0.6s linear infinite;
+
+  &--sm {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--md {
+    width: 24px;
+    height: 24px;
+  }
+
+  &--lg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@keyframes ux4g-spin {
+  to { transform: rotate(360deg); }
+}
+
+// ── Loading State ──
+.ux4g-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  gap: 1rem;
+  color: var(--ux4g-svc-fg-muted);
+  font-size: 0.875rem;
+}
+
+// ── Empty State ──
+.ux4g-empty {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--ux4g-svc-fg-muted);
+
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ux4g-svc-fg);
+    margin-bottom: 0.5rem;
+  }
+
+  &__description {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// ── Checkbox ──
+.ux4g-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    margin-top: 0.125rem;
+    accent-color: var(--ux4g-svc-primary);
+  }
+}
+
+// ── Radio ──
+.ux4g-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ux4g-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+
+  input[type='radio'] {
+    accent-color: var(--ux4g-svc-primary);
+  }
+}
+
+// ── Timeline ──
+.ux4g-timeline {
+  position: relative;
+  padding-left: 2rem;
+
+  &__item {
+    position: relative;
+    padding-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--ux4g-svc-border);
+
+    &:last-child {
+      border-left-color: transparent;
+      padding-bottom: 0;
+    }
+
+    &--active {
+      border-left-color: var(--ux4g-svc-primary);
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    left: -0.5rem;
+    top: 0.125rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--ux4g-svc-border);
+    border: 2px solid var(--ux4g-svc-bg);
+
+    &--active {
+      background: var(--ux4g-svc-primary);
+    }
+
+    &--success {
+      background: var(--ux4g-svc-success);
+    }
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ux4g-svc-fg);
+  }
+
+  &__description {
+    font-size: 0.75rem;
+    color: var(--ux4g-svc-fg-muted);
+    margin-top: 0.125rem;
+  }
+
+  &__time {
+    font-size: 0.6875rem;
+    color: var(--ux4g-svc-fg-muted);
+    margin-top: 0.25rem;
+  }
+}
+
+// ── Summary Table ──
+.ux4g-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+
+  tr {
+    border-bottom: 1px solid var(--ux4g-svc-border);
+  }
+
+  td {
+    padding: 0.625rem 0;
+  }
+
+  td:last-child {
+    text-align: right;
+    font-weight: 600;
+  }
+
+  &__total {
+    td {
+      font-weight: 700;
+      font-size: 1rem;
+      padding-top: 0.75rem;
+    }
+  }
+}
+
+// ── Badge ──
+.ux4g-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+
+  &--success {
+    background: var(--ux4g-svc-success-bg);
+    color: var(--ux4g-svc-success);
+  }
+
+  &--error {
+    background: var(--ux4g-svc-error-bg);
+    color: var(--ux4g-svc-error);
+  }
+
+  &--warning {
+    background: var(--ux4g-svc-warning-bg);
+    color: var(--ux4g-svc-warning);
+  }
+
+  &--info {
+    background: #eff6ff;
+    color: #2563eb;
+  }
+}
+
+// ── Stepper ──
+.ux4g-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2rem;
+
+  &__step {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--ux4g-svc-fg-muted);
+
+    &--active {
+      color: var(--ux4g-svc-primary);
+      font-weight: 600;
+    }
+
+    &--completed {
+      color: var(--ux4g-svc-success);
+    }
+  }
+
+  &__number {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: var(--ux4g-svc-bg-muted);
+    border: 2px solid var(--ux4g-svc-border);
+
+    .ux4g-stepper__step--active & {
+      background: var(--ux4g-svc-primary);
+      color: var(--ux4g-svc-primary-fg);
+      border-color: var(--ux4g-svc-primary);
+    }
+
+    .ux4g-stepper__step--completed & {
+      background: var(--ux4g-svc-success);
+      color: #fff;
+      border-color: var(--ux4g-svc-success);
+    }
+  }
+
+  &__connector {
+    flex: 1;
+    height: 2px;
+    background: var(--ux4g-svc-border);
+    margin: 0 0.5rem;
+
+    &--completed {
+      background: var(--ux4g-svc-success);
+    }
+  }
+}
+
+// ── File Upload ──
+.ux4g-file-drop {
+  border: 2px dashed var(--ux4g-svc-border);
+  border-radius: var(--ux4g-svc-radius);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+
+  &:hover,
+  &--active {
+    border-color: var(--ux4g-svc-primary);
+    background: var(--ux4g-svc-bg-muted);
+  }
+
+  &__icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    color: var(--ux4g-svc-fg-muted);
+  }
+
+  &__hint {
+    font-size: 0.75rem;
+    color: var(--ux4g-svc-fg-muted);
+    margin-top: 0.25rem;
+  }
+}
+
+.ux4g-file-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--ux4g-svc-border);
+  border-radius: var(--ux4g-svc-radius);
+  margin-top: 0.75rem;
+
+  &__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ux4g-svc-fg);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__size {
+    font-size: 0.75rem;
+    color: var(--ux4g-svc-fg-muted);
+  }
+
+  &__remove {
+    background: none;
+    border: none;
+    color: var(--ux4g-svc-error);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+}
+
+// ── Responsive ──
+@media (max-width: 640px) {
+  .ux4g-service-card {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+
+  .ux4g-stepper {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}

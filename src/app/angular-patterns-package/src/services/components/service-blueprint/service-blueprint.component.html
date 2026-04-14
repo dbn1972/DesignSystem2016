@@ -1,0 +1,57 @@
+<div class="svc-page">
+  <ux4g-service-header icon="🗺" iconColor="#2563eb" [category]="category" [title]="title">
+    <a [href]="demoPath" class="svc-btn svc-btn--primary">Try Demo →</a>
+  </ux4g-service-header>
+
+  <main class="svc-container svc-main">
+    <!-- Overview -->
+    <section class="svc-section">
+      <h2 class="svc-heading">Service Overview</h2>
+      <div class="svc-card">
+        <p class="svc-text">This reference service demonstrates a complete end-to-end government certificate application flow — from eligibility check through authentication, multi-step forms, document upload, payment, and status tracking.</p>
+        <p class="svc-text">All {{ totalPages }} pages are fully implemented with responsive design, accessibility, dark mode, and reusable components.</p>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="svc-section">
+      <div class="svc-stats">
+        <div class="svc-stat"><div class="svc-stat__number">{{ totalPages }}</div><div class="svc-stat__label">Total Pages</div></div>
+        <div class="svc-stat"><div class="svc-stat__number">{{ phases.length }}</div><div class="svc-stat__label">Journey Phases</div></div>
+        <div class="svc-stat"><div class="svc-stat__number">15+</div><div class="svc-stat__label">Patterns Used</div></div>
+        <div class="svc-stat"><div class="svc-stat__number">100%</div><div class="svc-stat__label">Accessible</div></div>
+      </div>
+    </section>
+
+    <!-- Journey Phases -->
+    <section class="svc-section">
+      <h2 class="svc-heading">User Journey</h2>
+      <div class="svc-phases">
+        <div *ngFor="let phase of phases" class="svc-phase" [style.--phase-color]="phase.color">
+          <div class="svc-phase__header">
+            <span class="svc-phase__icon" aria-hidden="true">{{ phase.icon }}</span>
+            <h3 class="svc-phase__title">{{ phase.title }}</h3>
+            <span class="svc-phase__count">{{ phase.pages.length }} pages</span>
+          </div>
+          <div class="svc-phase__pages">
+            <a *ngFor="let page of phase.pages" [href]="page.href" class="svc-phase__link">
+              {{ page.label }} →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="svc-section svc-cta-box">
+      <h2 class="svc-cta-box__title">Explore the Reference Service</h2>
+      <p class="svc-cta-box__desc">Walk through the complete citizen journey from start to finish.</p>
+      <div class="svc-cta-box__actions">
+        <a [href]="demoPath" class="svc-btn svc-btn--primary">Launch Demo →</a>
+        <a [href]="signInPath" class="svc-btn svc-btn--secondary">Sign In →</a>
+      </div>
+    </section>
+  </main>
+
+  <ux4g-service-footer [leftText]="serviceName + ' • Government of India'" rightText="Service Blueprint"></ux4g-service-footer>
+</div>

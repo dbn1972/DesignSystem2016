@@ -1,0 +1,6 @@
+{
+  "dest": "../../dist/angular-patterns",
+  "lib": {
+    "entryFile": "src/services/index.ts"
+  }
+}

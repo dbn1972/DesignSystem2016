@@ -1,0 +1,64 @@
+<div class="ux4g-service-card ux4g-service-card--wide">
+  <div class="ux4g-service-card__header">
+    <h1 class="ux4g-service-card__title">Eligibility Check</h1>
+    <p class="ux4g-service-card__subtitle">Verify your eligibility before applying</p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="ux4g-field__row">
+      <div class="ux4g-field">
+        <label class="ux4g-label" for="elig-age">Age</label>
+        <input id="elig-age" class="ux4g-input" type="number" formControlName="age" min="1" max="120" placeholder="Your age" />
+        <div class="ux4g-error-text" *ngIf="f['age'].touched && f['age'].invalid" role="alert">Enter a valid age</div>
+      </div>
+      <div class="ux4g-field">
+        <label class="ux4g-label" for="elig-nationality">Nationality</label>
+        <select id="elig-nationality" class="ux4g-select" formControlName="nationality">
+          <option value="Indian">Indian</option>
+          <option value="NRI">NRI</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="ux4g-field__row">
+      <div class="ux4g-field">
+        <label class="ux4g-label" for="elig-state">State / UT</label>
+        <select id="elig-state" class="ux4g-select" formControlName="state">
+          <option value="" disabled>Select state</option>
+          <option *ngFor="let s of states" [value]="s">{{ s }}</option>
+        </select>
+        <div class="ux4g-error-text" *ngIf="f['state'].touched && f['state'].invalid" role="alert">Select a state</div>
+      </div>
+      <div class="ux4g-field">
+        <label class="ux4g-label" for="elig-purpose">Purpose</label>
+        <select id="elig-purpose" class="ux4g-select" formControlName="purpose">
+          <option value="" disabled>Select purpose</option>
+          <option value="birth">Birth Certificate</option>
+          <option value="death">Death Certificate</option>
+          <option value="income">Income Certificate</option>
+          <option value="caste">Caste Certificate</option>
+          <option value="domicile">Domicile Certificate</option>
+        </select>
+        <div class="ux4g-error-text" *ngIf="f['purpose'].touched && f['purpose'].invalid" role="alert">Select a purpose</div>
+      </div>
+    </div>
+
+    <button type="submit" class="ux4g-button ux4g-button--primary ux4g-button--full-width" [disabled]="loading" [attr.aria-busy]="loading">
+      <span *ngIf="loading" class="ux4g-spinner ux4g-spinner--sm" aria-hidden="true"></span>
+      {{ loading ? 'Checking…' : 'Check Eligibility' }}
+    </button>
+  </form>
+
+  <!-- Result -->
+  <div *ngIf="result" class="ux4g-alert" [class.ux4g-alert--success]="result.eligible" [class.ux4g-alert--error]="!result.eligible" role="status" style="margin-top: 1.5rem;">
+    <span class="ux4g-alert__icon" aria-hidden="true">{{ result.eligible ? '✅' : '❌' }}</span>
+    <div>
+      <strong>{{ result.eligible ? 'Eligible' : 'Not Eligible' }}</strong>
+      <p style="margin: 0.25rem 0 0; font-size: 0.8125rem;">{{ result.reason }}</p>
+      <ul *ngIf="result.requirements.length" style="margin: 0.5rem 0 0; padding-left: 1.25rem; font-size: 0.8125rem;">
+        <li *ngFor="let req of result.requirements">{{ req }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

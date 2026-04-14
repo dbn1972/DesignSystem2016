@@ -1,0 +1,98 @@
+<div class="ux4g-service-card">
+  <div class="ux4g-service-card__header">
+    <div class="ux4g-service-card__emblem" aria-hidden="true">🇮🇳</div>
+    <h1 class="ux4g-service-card__title">Sign In</h1>
+    <p class="ux4g-service-card__subtitle">Access your Government Services account</p>
+  </div>
+
+  <!-- Error Banner -->
+  <div *ngIf="error" class="ux4g-alert ux4g-alert--error" role="alert">
+    <span class="ux4g-alert__icon" aria-hidden="true">⚠</span>
+    <span>{{ error }}</span>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Email -->
+    <div class="ux4g-field">
+      <label class="ux4g-label" for="signin-email">Email Address</label>
+      <input
+        id="signin-email"
+        class="ux4g-input"
+        [class.ux4g-input--error]="f['email'].touched && f['email'].invalid"
+        type="email"
+        formControlName="email"
+        placeholder="you&#64;example.com"
+        autocomplete="email"
+        aria-describedby="signin-email-error"
+      />
+      <div
+        id="signin-email-error"
+        class="ux4g-error-text"
+        *ngIf="f['email'].touched && f['email'].invalid"
+        role="alert"
+      >
+        <span *ngIf="f['email'].errors?.['required']">Email is required</span>
+        <span *ngIf="f['email'].errors?.['email']">Enter a valid email address</span>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="ux4g-field">
+      <label class="ux4g-label" for="signin-password">Password</label>
+      <div class="ux4g-input-group">
+        <input
+          id="signin-password"
+          class="ux4g-input"
+          [class.ux4g-input--error]="f['password'].touched && f['password'].invalid"
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          aria-describedby="signin-password-error"
+        />
+        <button
+          type="button"
+          class="ux4g-input-group__toggle"
+          (click)="togglePassword()"
+          [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+        >
+          {{ showPassword ? '🙈' : '👁' }}
+        </button>
+      </div>
+      <div
+        id="signin-password-error"
+        class="ux4g-error-text"
+        *ngIf="f['password'].touched && f['password'].invalid"
+        role="alert"
+      >
+        <span *ngIf="f['password'].errors?.['required']">Password is required</span>
+        <span *ngIf="f['password'].errors?.['minlength']">Minimum 8 characters</span>
+      </div>
+    </div>
+
+    <!-- Forgot Password -->
+    <div class="ux4g-field__actions">
+      <button type="button" class="ux4g-link" (click)="navigateForgotPassword.emit()">
+        Forgot password?
+      </button>
+    </div>
+
+    <!-- Submit -->
+    <button
+      type="submit"
+      class="ux4g-button ux4g-button--primary ux4g-button--full-width"
+      [disabled]="loading"
+      [attr.aria-busy]="loading"
+    >
+      <span *ngIf="loading" class="ux4g-spinner ux4g-spinner--sm" aria-hidden="true"></span>
+      {{ loading ? 'Signing in…' : 'Sign In' }}
+    </button>
+  </form>
+
+  <div class="ux4g-service-card__footer">
+    <span>Don't have an account?</span>
+    <button type="button" class="ux4g-link" (click)="navigateSignUp.emit()">
+      Create Account
+    </button>
+  </div>
+</div>

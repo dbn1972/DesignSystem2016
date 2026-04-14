@@ -1,0 +1,78 @@
+<div class="ux4g-service-card">
+  <div class="ux4g-service-card__header">
+    <div class="ux4g-service-card__emblem" aria-hidden="true">🇮🇳</div>
+    <h1 class="ux4g-service-card__title">Create Account</h1>
+    <p class="ux4g-service-card__subtitle">Register for Government Services</p>
+  </div>
+
+  <div *ngIf="error" class="ux4g-alert ux4g-alert--error" role="alert">
+    <span class="ux4g-alert__icon" aria-hidden="true">⚠</span>
+    <span>{{ error }}</span>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="ux4g-field">
+      <label class="ux4g-label" for="signup-name">Full Name</label>
+      <input id="signup-name" class="ux4g-input" [class.ux4g-input--error]="f['fullName'].touched && f['fullName'].invalid" type="text" formControlName="fullName" placeholder="As per Aadhaar card" autocomplete="name" />
+      <div class="ux4g-error-text" *ngIf="f['fullName'].touched && f['fullName'].invalid" role="alert">
+        <span *ngIf="f['fullName'].errors?.['required']">Full name is required</span>
+      </div>
+    </div>
+
+    <div class="ux4g-field">
+      <label class="ux4g-label" for="signup-email">Email Address</label>
+      <input id="signup-email" class="ux4g-input" [class.ux4g-input--error]="f['email'].touched && f['email'].invalid" type="email" formControlName="email" placeholder="you&#64;example.com" autocomplete="email" />
+      <div class="ux4g-error-text" *ngIf="f['email'].touched && f['email'].invalid" role="alert">
+        <span *ngIf="f['email'].errors?.['required']">Email is required</span>
+        <span *ngIf="f['email'].errors?.['email']">Enter a valid email</span>
+      </div>
+    </div>
+
+    <div class="ux4g-field">
+      <label class="ux4g-label" for="signup-mobile">Mobile Number</label>
+      <input id="signup-mobile" class="ux4g-input" [class.ux4g-input--error]="f['mobile'].touched && f['mobile'].invalid" type="tel" formControlName="mobile" placeholder="10-digit mobile number" autocomplete="tel" />
+      <div class="ux4g-error-text" *ngIf="f['mobile'].touched && f['mobile'].invalid" role="alert">
+        <span *ngIf="f['mobile'].errors?.['required']">Mobile number is required</span>
+        <span *ngIf="f['mobile'].errors?.['pattern']">Enter a valid 10-digit Indian mobile number</span>
+      </div>
+    </div>
+
+    <div class="ux4g-field__row">
+      <div class="ux4g-field">
+        <label class="ux4g-label" for="signup-pw">Password</label>
+        <input id="signup-pw" class="ux4g-input" [class.ux4g-input--error]="f['password'].touched && f['password'].invalid" [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Min 8 characters" autocomplete="new-password" />
+        <div class="ux4g-error-text" *ngIf="f['password'].touched && f['password'].invalid" role="alert">
+          <span *ngIf="f['password'].errors?.['required']">Password is required</span>
+          <span *ngIf="f['password'].errors?.['minlength']">Minimum 8 characters</span>
+        </div>
+      </div>
+      <div class="ux4g-field">
+        <label class="ux4g-label" for="signup-cpw">Confirm Password</label>
+        <input id="signup-cpw" class="ux4g-input" [class.ux4g-input--error]="f['confirmPassword'].touched && (f['confirmPassword'].invalid || form.errors?.['passwordMismatch'])" type="password" formControlName="confirmPassword" placeholder="Re-enter password" autocomplete="new-password" />
+        <div class="ux4g-error-text" *ngIf="f['confirmPassword'].touched && form.errors?.['passwordMismatch']" role="alert">
+          Passwords do not match
+        </div>
+      </div>
+    </div>
+
+    <div class="ux4g-field">
+      <label class="ux4g-checkbox">
+        <input type="checkbox" formControlName="acceptTerms" />
+        <span>I accept the <a href="#" class="ux4g-link">Terms of Service</a> and <a href="#" class="ux4g-link">Privacy Policy</a></span>
+      </label>
+      <div class="ux4g-error-text" *ngIf="f['acceptTerms'].touched && f['acceptTerms'].invalid" role="alert">
+        You must accept the terms to continue
+      </div>
+    </div>
+
+    <button type="submit" class="ux4g-button ux4g-button--primary ux4g-button--full-width" [disabled]="loading" [attr.aria-busy]="loading">
+      <span *ngIf="loading" class="ux4g-spinner ux4g-spinner--sm" aria-hidden="true"></span>
+      {{ loading ? 'Creating account…' : 'Create Account' }}
+    </button>
+  </form>
+
+  <div class="ux4g-service-card__footer">
+    <span>Already have an account?</span>
+    <button type="button" class="ux4g-link" (click)="navigateSignIn.emit()">Sign In</button>
+  </div>
+</div>
