@@ -21,6 +21,34 @@ const BadgePreview = ({ variant, children }: any) => {
   );
 };
 
+function BadgePlayground() {
+  const [variant, setVariant] = React.useState('primary');
+  const [label, setLabel] = React.useState('Under Review');
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[120px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <BadgePreview variant={variant}>{label}</BadgePreview>
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Variant</label>
+          <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+            {['primary', 'success', 'warning', 'error', 'neutral'].map(v => <option key={v} value={v}>{v}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Label</label>
+          <input value={label} onChange={e => setLabel(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">{`<Badge variant="${variant}">${label}</Badge>`}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentBadgePage() {
   return (
     <ComponentDocumentation
@@ -30,6 +58,16 @@ export default function ComponentBadgePage() {
       maturity="stable"
       tier="foundation"
       since="v1.0.0"
+
+      preview={
+        <div className="flex flex-wrap items-center gap-3">
+          <BadgePreview variant="primary">Submitted</BadgePreview>
+          <BadgePreview variant="warning">Under Review</BadgePreview>
+          <BadgePreview variant="success">Approved</BadgePreview>
+          <BadgePreview variant="error">Rejected</BadgePreview>
+          <BadgePreview variant="neutral">Draft</BadgePreview>
+        </div>
+      }
       
       props={[
         {
@@ -262,6 +300,34 @@ export type BadgeSize = 'sm' | 'md' | 'lg';`,
                 </ul>
               </div>
             </div>
+          </section>
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="flex items-center gap-2"><BadgePreview variant="warning">Under Review</BadgePreview><span className="text-sm text-foreground">Application CERT-2026-001</span></div>
+                  <p className="text-sm text-muted-foreground">Use badges with both color and text to convey status — color alone fails WCAG 1.4.1.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-yellow-500" /><span className="text-sm text-foreground">Application CERT-2026-001</span></div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t use color-only indicators — they are inaccessible to users with color vision deficiency.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Badge configurations in real time.</p>
+            <BadgePlayground />
           </section>
 
           {/* Related components */}

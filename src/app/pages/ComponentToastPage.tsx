@@ -43,6 +43,39 @@ const ToastPreview = ({ variant, message, description, position, action, ...prop
   </div>
 );
 
+function ToastPlayground() {
+  const [variant, setVariant] = React.useState('success');
+  const [message, setMessage] = React.useState('Draft saved successfully.');
+  const [description, setDescription] = React.useState('');
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <ToastPreview variant={variant} message={message} description={description || undefined} />
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Variant</label>
+          <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+            {['success', 'error', 'warning', 'info'].map(v => <option key={v} value={v}>{v}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Message</label>
+          <input value={message} onChange={e => setMessage(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Description (optional)</label>
+          <input value={description} onChange={e => setDescription(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">{`<Toast variant="${variant}">${message}</Toast>`}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentToastPage() {
   return (
     <ComponentDocumentation
@@ -53,6 +86,14 @@ export default function ComponentToastPage() {
       tier="core"
       since="v1.2.0"
       updated="v2.0.0"
+
+      preview={
+        <div className="flex flex-col gap-3">
+          <ToastPreview variant="success" message="Payment received." description="Reference: PAY-2026-001" />
+          <ToastPreview variant="error" message="Network error. Try again." />
+          <ToastPreview variant="info" message="Copied to clipboard." />
+        </div>
+      }
 
       props={[
         {
@@ -719,6 +760,34 @@ export interface ToastConfig {
                 </ul>
               </div>
             </div>
+          </section>
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <ToastPreview variant="success" message="Application submitted." description="Reference: CERT-2026-042" />
+                  <p className="text-sm text-muted-foreground">Use toasts for transient confirmations that don&apos;t need user action. Include a reference number when relevant.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <ToastPreview variant="error" message="Payment failed. Your card was declined. Please try a different payment method or contact your bank." />
+                  <p className="text-sm text-muted-foreground">Don&apos;t use toasts for critical errors that need user action — use Alert or Dialog instead. Toasts auto-dismiss.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Toast configurations in real time.</p>
+            <ToastPlayground />
           </section>
 
           {/* Related components */}

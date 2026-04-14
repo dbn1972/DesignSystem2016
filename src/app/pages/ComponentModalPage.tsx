@@ -6,6 +6,43 @@ import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { X } from 'lucide-react';
 
+function ModalPlayground() {
+  const [size, setSize] = React.useState('md');
+  const [showClose, setShowClose] = React.useState(true);
+
+  const sizeClasses: Record<string, string> = { sm: 'max-w-sm', md: 'max-w-md', lg: 'max-w-lg' };
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <div className={`w-full ${sizeClasses[size]} bg-card border border-border rounded-xl shadow-lg`}>
+          <div className="flex items-center justify-between p-4 border-b border-border">
+            <h3 className="font-semibold text-foreground">Confirm Deletion</h3>
+            {showClose && <button className="text-muted-foreground hover:text-foreground"><X size={18} /></button>}
+          </div>
+          <div className="p-4"><p className="text-sm text-muted-foreground">Are you sure you want to delete this application? This action cannot be undone.</p></div>
+          <div className="flex justify-end gap-2 p-4 border-t border-border">
+            <button className="px-4 py-2 text-sm border border-border rounded-lg hover:bg-muted">Cancel</button>
+            <button className="px-4 py-2 text-sm bg-red-600 text-white rounded-lg hover:bg-red-700">Delete</button>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Size</label>
+          <select value={size} onChange={e => setSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+            {['sm', 'md', 'lg'].map(s => <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
+        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showClose} onChange={e => setShowClose(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show close button</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">{`<Modal size="${size}"${showClose ? '' : ' hideClose'} title="Confirm">...</Modal>`}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentModalPage() {
   return (
     <ComponentDocumentation
@@ -15,6 +52,20 @@ export default function ComponentModalPage() {
       maturity="beta"
       tier="composite"
       since="v1.0.0"
+
+      preview={
+        <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-lg">
+          <div className="flex items-center justify-between p-4 border-b border-border">
+            <h3 className="font-semibold text-foreground">Session Expiring</h3>
+            <button className="text-muted-foreground"><X size={18} /></button>
+          </div>
+          <div className="p-4"><p className="text-sm text-muted-foreground">Your session will expire in 2 minutes. Save your work.</p></div>
+          <div className="flex justify-end gap-2 p-4 border-t border-border">
+            <button className="px-4 py-2 text-sm border border-border rounded-lg">Dismiss</button>
+            <button className="px-4 py-2 text-sm bg-[#005196] text-white rounded-lg">Extend Session</button>
+          </div>
+        </div>
+      }
       
       props={[
         {
@@ -368,6 +419,34 @@ export class ModalModule { }`,
                 </ul>
               </div>
             </div>
+          </section>
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="flex justify-end gap-2"><button className="px-3 py-1.5 text-sm border border-border rounded">Cancel</button><button className="px-3 py-1.5 text-sm bg-red-600 text-white rounded">Delete Application</button></div>
+                  <p className="text-sm text-muted-foreground">Use specific action labels in modal footers — &quot;Delete Application&quot; is clearer than &quot;OK&quot;.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <div className="flex justify-end gap-2"><button className="px-3 py-1.5 text-sm border border-border rounded">No</button><button className="px-3 py-1.5 text-sm bg-[#005196] text-white rounded">OK</button></div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t use generic labels like &quot;OK&quot; / &quot;No&quot; — users should know what each button does without reading the modal body.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Modal configurations in real time.</p>
+            <ModalPlayground />
           </section>
 
           {/* Related components */}

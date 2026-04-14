@@ -29,6 +29,40 @@ const AlertPreview = ({ variant = 'info', children }: any) => {
   );
 };
 
+function AlertPlayground() {
+  const [variant, setVariant] = React.useState('info');
+  const [dismissible, setDismissible] = React.useState(true);
+  const [message, setMessage] = React.useState('Your application has been submitted successfully.');
+
+  return (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+        <div className="w-full max-w-lg">
+          <AlertPreview variant={variant}>{message}</AlertPreview>
+        </div>
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Variant</label>
+          <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+            {['info', 'success', 'warning', 'error'].map(v => <option key={v} value={v}>{v}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Message</label>
+          <input value={message} onChange={e => setMessage(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={dismissible} onChange={e => setDismissible(e.target.checked)} className="accent-primary" /><span className="text-foreground">Dismissible</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Alert variant="${variant}"${dismissible ? ' dismissible' : ''}>${message}</Alert>`}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ComponentAlertPage() {
   return (
     <ComponentDocumentation
@@ -38,6 +72,14 @@ export default function ComponentAlertPage() {
       maturity="stable"
       tier="core"
       since="v1.0.0"
+
+      preview={
+        <div className="flex flex-col gap-3 w-full max-w-lg">
+          <AlertPreview variant="success">Payment received successfully.</AlertPreview>
+          <AlertPreview variant="error">Please fix the errors below.</AlertPreview>
+          <AlertPreview variant="warning">Service unavailable Sunday 2-6 AM.</AlertPreview>
+        </div>
+      }
       
       props={[
         {
@@ -340,6 +382,34 @@ export class AlertModule { }`,
                 </ul>
               </div>
             </div>
+          </section>
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <AlertPreview variant="error">Please fix 3 errors before submitting: Name is required, Aadhaar must be 12 digits, Photo is missing.</AlertPreview>
+                  <p className="text-sm text-muted-foreground">Place error summaries at the top of the form with specific, actionable messages.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <AlertPreview variant="error">Something went wrong.</AlertPreview>
+                  <p className="text-sm text-muted-foreground">Don&apos;t use vague error messages — tell the user exactly what failed and how to fix it.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Alert configurations in real time.</p>
+            <AlertPlayground />
           </section>
 
           {/* Related components */}
