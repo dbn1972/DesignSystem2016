@@ -1003,6 +1003,11 @@ export class AddressAutocompleteService {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-address-autocomplete-india> custom element",
+        html: "<ux4g-address-autocomplete-india variant=\"primary\" size=\"md\"><!-- AddressAutocompleteIndia --></ux4g-address-autocomplete-india>",
+      }}
       comparisons={[
         {
           system: 'Google Places API',

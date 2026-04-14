@@ -772,6 +772,11 @@ export interface QualityOption {
 export type VideoQuality = 'auto' | '240p' | '360p' | '480p' | '720p' | '1080p';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-video-player> custom element",
+        html: "<ux4g-video-player variant=\"primary\" size=\"md\"><!-- VideoPlayer --></ux4g-video-player>",
+      }}
       comparisons={[
         {
           system: 'Video.js',

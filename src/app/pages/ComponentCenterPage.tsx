@@ -429,6 +429,11 @@ export class CenterModule { }`,
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-center> custom element",
+        html: "<ux4g-center variant=\"primary\" size=\"md\"><!-- Center --></ux4g-center>",
+      }}
       comparisons={[
         {
           system: 'Chakra UI',

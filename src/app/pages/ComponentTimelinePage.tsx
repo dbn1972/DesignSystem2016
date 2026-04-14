@@ -337,6 +337,11 @@ export default function ComponentTimelinePage() {
         types: 'export interface TimelineItem {\n  title: string;\n  description?: string;\n  date: string;\n  status?: \'completed\' | \'current\' | \'pending\' | \'upcoming\' | \'error\';\n  metadata?: string;\n}\n\nexport type TimelineVariant = \'default\' | \'alternate\' | \'left-aligned\';\nexport type TimelineOrientation = \'vertical\' | \'horizontal\';',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-timeline> custom element",
+        html: "<ux4g-timeline variant=\"primary\" size=\"md\"><!-- Timeline --></ux4g-timeline>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

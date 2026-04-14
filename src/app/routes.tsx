@@ -26,6 +26,7 @@ import { foundationsRoutes } from "./routes/domains/foundationsRoutes";
 import { governanceRoutes } from "./routes/domains/governanceRoutes";
 import { patternsRoutes } from "./routes/domains/patternsRoutes";
 import { servicesRoutes } from "./routes/domains/servicesRoutes";
+import { systemsRoutes } from "./routes/domains/systemsRoutes";
 import { ROUTE_PATHS, toChildPath } from "./routes/pathSource";
 import Layout from "./components/Layout";
 
@@ -46,8 +47,7 @@ export const router = createBrowserRouter([
       ...componentsRoutes,
       ...patternsRoutes,
       ...servicesRoutes,
-
-      { path: toChildPath(ROUTE_PATHS.SYSTEMS.ROOT), element: <Navigate to={ROUTE_PATHS.SYSTEMS.MULTILINGUAL} replace /> },
+      ...systemsRoutes,
 
       // ======================================================================
       // 7. RESOURCES
@@ -230,8 +230,7 @@ export const router = createBrowserRouter([
       { path: "careers", element: <Navigate to="/documentation" replace /> },
       { path: "docs", element: <Navigate to="/documentation" replace /> },
       { path: "docs/*", element: <Navigate to="/documentation" replace /> },
-      { path: "services", element: <Navigate to="/reference-service/overview" replace /> },
-      { path: "services/*", element: <Navigate to="/reference-service/overview" replace /> },
+      { path: "services/*", element: <Navigate to="/services" replace /> },
       { path: "service/*", element: <Navigate to="/reference-service/demo" replace /> },
       { path: "dashboard", element: <Navigate to="/patterns/dashboard" replace /> },
       { path: "dashboard/*", element: <Navigate to="/patterns/dashboard" replace /> },

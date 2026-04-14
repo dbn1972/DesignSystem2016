@@ -354,6 +354,11 @@ export class FieldModule { }`,
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-field> custom element",
+        html: "<ux4g-field variant=\"primary\" size=\"md\"><!-- Field --></ux4g-field>",
+      }}
       comparisons={[
         {
           system: 'GOV.UK Design System',

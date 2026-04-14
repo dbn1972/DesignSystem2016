@@ -595,6 +595,11 @@ export type AvatarShape = 'circle' | 'square';
 export type AvatarStatus = 'online' | 'offline' | 'away' | 'busy';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-avatar> custom element",
+        html: "<ux4g-avatar variant=\"primary\" size=\"md\"><!-- Avatar --></ux4g-avatar>",
+      }}
       comparisons={[
         {
           system: 'Chakra UI',

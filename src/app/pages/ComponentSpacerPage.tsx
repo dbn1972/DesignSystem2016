@@ -332,6 +332,11 @@ export interface SpacerProps {
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-spacer> custom element",
+        html: "<ux4g-spacer variant=\"primary\" size=\"md\"><!-- Spacer --></ux4g-spacer>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

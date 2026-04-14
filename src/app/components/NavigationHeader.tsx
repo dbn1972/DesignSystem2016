@@ -24,7 +24,7 @@ export default function NavigationHeader() {
       patterns: ["/patterns", "/pattern-library"],
       archetypes: ["/archetypes"],
       systems: ["/systems"],
-      "reference-services": ["/reference-service"],
+      "reference-services": ["/services", "/reference-service"],
       resources: ["/resources"],
       governance: ["/governance"]
     };
@@ -116,13 +116,13 @@ export default function NavigationHeader() {
             />
             <NavItem
               label="Systems"
-              href="/systems/multilingual"
+              href="/systems"
               active={isSectionActive('systems')}
               onMouseEnter={() => setActiveDropdown('systems')}
             />
             <NavItem
               label="Services"
-              href="/reference-service/overview"
+              href="/services"
               active={isSectionActive('reference-services')}
               onMouseEnter={() => setActiveDropdown('reference-services')}
             />
@@ -555,6 +555,10 @@ function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
               Systems are cross-cutting capabilities that work across multiple patterns and service archetypes. They provide foundational functionality for complex government services.
             </p>
             <div className="grid grid-cols-2 gap-4 text-xs">
+              <Link to="/systems" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors col-span-2">
+                <div className="font-bold text-muted-foreground">Systems Overview</div>
+                <div className="text-muted-foreground">Premium hub for shared UX4G capabilities</div>
+              </Link>
               <Link to="/systems/multilingual" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
                 <div className="font-bold text-muted-foreground">Multilingual</div>
                 <div className="text-muted-foreground">22 official languages support</div>
@@ -595,16 +599,17 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
 
           {/* Col 1 — Overview + Auth */}
           <div className="space-y-5">
-            <div>
-              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                Overview
-              </div>
-              <div className="space-y-0.5">
-                <MegaMenuItem icon={<Map size={14} className="text-blue-600" />} label="Service Blueprint" href="/reference-service/overview" />
-                <MegaMenuItem icon={<Box size={14} className="text-green-600" />} label="Certificate Service Demo" href="/reference-service/demo" />
-                <MegaMenuItem icon={<User size={14} className="text-purple-700" />} label="User Profile" href="/reference-service/user-profile" />
-                <MegaMenuItem icon={<BarChart3 size={14} className="text-indigo-600" />} label="Status Tracker" href="/reference-service/status-tracker" />
-              </div>
+          <div>
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+              Overview
+            </div>
+            <div className="space-y-0.5">
+              <MegaMenuItem icon={<Layers size={14} className="text-blue-600" />} label="Services Hub" href="/services" />
+              <MegaMenuItem icon={<Map size={14} className="text-blue-600" />} label="Service Blueprint" href="/reference-service/overview" />
+              <MegaMenuItem icon={<Box size={14} className="text-green-600" />} label="Certificate Service Demo" href="/reference-service/demo" />
+              <MegaMenuItem icon={<User size={14} className="text-purple-700" />} label="User Profile" href="/reference-service/user-profile" />
+              <MegaMenuItem icon={<BarChart3 size={14} className="text-indigo-600" />} label="Status Tracker" href="/reference-service/status-tracker" />
+            </div>
             </div>
             <div>
               <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
@@ -947,11 +952,12 @@ function MobileNavigation({ onClose }: { onClose: () => void }) {
         </MobileSection>
 
         {/* Systems */}
-        <MobileSection
+          <MobileSection
           title="Systems"
           expanded={expandedSection === 'systems'}
           onToggle={() => toggleSection('systems')}
         >
+          <MobileLink label="Systems Overview" href="/systems" onClose={onClose} />
           <MobileLink label="Multilingual Guidance" href="/systems/multilingual" onClose={onClose} />
           <MobileLink label="Form Intelligence" href="/systems/form-intelligence" onClose={onClose} />
           <MobileLink label="State Resilience" href="/systems/state-resilience" onClose={onClose} />
@@ -963,6 +969,7 @@ function MobileNavigation({ onClose }: { onClose: () => void }) {
           expanded={expandedSection === 'reference-services'}
           onToggle={() => toggleSection('reference-services')}
         >
+          <MobileLink label="Services Hub" href="/services" onClose={onClose} />
           <MobileLink label="Service Blueprint" href="/reference-service/overview" onClose={onClose} />
           <MobileLink label="Certificate Service Demo" href="/reference-service/demo" onClose={onClose} />
           <MobileLink label="Reusable Sign In" href="/reference-service/sign-in" onClose={onClose} />

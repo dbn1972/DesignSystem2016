@@ -431,6 +431,11 @@ export default function ComponentSegmentedControlPage() {
         types: 'export interface SegmentedControlOption {\n  value: string;\n  label: string;\n  icon?: string;\n}\n\nexport type SegmentedControlVariant = \'default\' | \'primary\';\nexport type SegmentedControlSize = \'sm\' | \'md\' | \'lg\';\nexport type SegmentedControlOrientation = \'horizontal\' | \'vertical\';',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-segmented-control> custom element",
+        html: "<ux4g-segmented-control variant=\"primary\" size=\"md\"><!-- SegmentedControl --></ux4g-segmented-control>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

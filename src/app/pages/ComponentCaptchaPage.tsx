@@ -746,6 +746,11 @@ export type CaptchaTheme = 'light' | 'dark';
 export type CaptchaProvider = 'recaptcha' | 'hcaptcha' | 'turnstile';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-captcha> custom element",
+        html: "<ux4g-captcha variant=\"primary\" size=\"md\"><!-- Captcha --></ux4g-captcha>",
+      }}
       comparisons={[
         {
           system: 'Google reCAPTCHA',

@@ -311,6 +311,11 @@ export class ErrorTextModule { }`,
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-error-text> custom element",
+        html: "<ux4g-error-text variant=\"primary\" size=\"md\"><!-- ErrorText --></ux4g-error-text>",
+      }}
       comparisons={[
         {
           system: 'GOV.UK Design System',

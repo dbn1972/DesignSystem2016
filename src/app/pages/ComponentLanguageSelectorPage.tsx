@@ -936,6 +936,11 @@ export type LanguageSelectorVariant = 'dropdown' | 'tabs' | 'buttons';
 export type LanguageSelectorPosition = 'left' | 'center' | 'right';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-language-selector> custom element",
+        html: "<ux4g-language-selector variant=\"primary\" size=\"md\"><!-- LanguageSelector --></ux4g-language-selector>",
+      }}
       comparisons={[
         {
           system: 'react-i18next',

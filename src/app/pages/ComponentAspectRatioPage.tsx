@@ -426,6 +426,11 @@ export interface AspectRatioConfig {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-aspect-ratio> custom element",
+        html: "<ux4g-aspect-ratio variant=\"primary\" size=\"md\"><!-- AspectRatio --></ux4g-aspect-ratio>",
+      }}
       comparisons={[
         {
           system: 'Chakra UI',

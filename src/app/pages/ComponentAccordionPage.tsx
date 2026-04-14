@@ -249,6 +249,11 @@ export class AccordionModule { }`,
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-accordion> custom element",
+        html: "<ux4g-accordion variant=\"primary\" size=\"md\"><!-- Accordion --></ux4g-accordion>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

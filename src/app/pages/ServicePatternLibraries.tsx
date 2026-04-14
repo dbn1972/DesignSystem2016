@@ -2,63 +2,63 @@ import { FileText, Users, RefreshCw, AlertCircle, CheckCircle, FileCheck, UserCh
 
 export default function ServicePatternLibraries() {
   return (
-    <div className="min-h-screen bg-background dark:bg-gray-800 dark:bg-gray-900">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-[#000080] to-[#000050] dark:from-blue-900 dark:to-blue-950 text-white">
-        <div className="max-w-[1400px] mx-auto px-12 py-12">
-          <div className="flex items-start justify-between">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-card dark:bg-gray-900/15 rounded text-xs font-medium mb-4 border border-white/20">
-                <Layers size={14} />
-                <span>UX4G Service Pattern Library</span>
-              </div>
-              
-              <h1 className="text-4xl font-bold mb-4 leading-tight">
-                Full Service Pattern Libraries
-              </h1>
-              
-              <p className="text-lg text-blue-100 leading-relaxed mb-6">
-                Structured, repeatable service archetypes for assembling government digital services. 
-                Implementation-ready patterns for consistent, accessible, and conformant service delivery.
-              </p>
-
-              <div className="flex items-center gap-6 text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                  <span className="text-blue-200">8 Service Archetypes</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                  <span className="text-blue-200">WCAG AA Compliant</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                  <span className="text-blue-200">Production Ready</span>
-                </div>
-              </div>
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.10),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14 xl:grid-cols-[1.2fr_0.8fr] xl:items-start">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
+              <Layers size={14} className="text-primary" />
+              UX4G service pattern library
             </div>
 
-            <div className="bg-card dark:bg-gray-900/10 backdrop-blur border border-white/20 rounded-lg p-6">
-              <div className="text-xs font-medium text-blue-200 mb-3">Pattern Status</div>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-sm"></div>
-                  <span>Stable (6)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue-400 rounded-sm"></div>
-                  <span>Evolving (2)</span>
-                </div>
-              </div>
+            <div className="space-y-4">
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Service archetypes that feel ready for production</h1>
+              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                Structured, repeatable service patterns for assembling government digital journeys. The library keeps service flows accessible,
+                consistent, and easy to adapt across departments.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <a href="#application" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
+                Explore archetypes
+              </a>
+              <a href="#eligibility" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
+                Eligibility flow
+              </a>
+              <a href="#tracking" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
+                Status tracking
+              </a>
             </div>
           </div>
+
+          <aside className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
+            <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Pattern health</p>
+                <h2 className="mt-2 text-2xl font-bold text-foreground">What is covered</h2>
+              </div>
+              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">8 archetypes</div>
+            </div>
+
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              <PatternMetric value="6" label="Stable" />
+              <PatternMetric value="2" label="Evolving" />
+              <PatternMetric value="AA" label="Accessibility" />
+              <PatternMetric value="100%" label="Production ready" />
+            </div>
+
+            <div className="mt-6 space-y-3 rounded-2xl bg-muted/40 p-4">
+              <PatternNote title="Reusable flows" text="Each archetype maps to a service journey that can be reused across departments." />
+              <PatternNote title="Implementation-ready" text="Pattern guidance is written for teams building the real application, not a demo." />
+            </div>
+          </aside>
         </div>
       </header>
 
-      {/* Navigation */}
-      <nav className="bg-card dark:bg-gray-900 border-b-2 border-border dark:border-gray-700 sticky top-0 z-20">
-        <div className="max-w-[1400px] mx-auto px-12">
-          <div className="flex items-center gap-1 py-3 overflow-x-auto">
+      <nav className="sticky top-4 z-20 border-b border-border bg-card/95 shadow-sm backdrop-blur">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12">
+          <div className="flex items-center gap-1 overflow-x-auto py-3">
             {[
               { id: "application", label: "Application" },
               { id: "eligibility", label: "Eligibility" },
@@ -72,7 +72,7 @@ export default function ServicePatternLibraries() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground dark:text-gray-300 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 hover:bg-muted dark:bg-gray-800 dark:hover:bg-gray-800 rounded whitespace-nowrap transition-colors"
+                className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
               >
                 {item.label}
               </a>
@@ -81,9 +81,8 @@ export default function ServicePatternLibraries() {
         </div>
       </nav>
 
-      {/* Content */}
-      <main className="max-w-[1400px] mx-auto px-12 py-16">
-        <div className="space-y-24">
+      <main className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-12">
+        <div className="space-y-20">
           <ApplicationSubmission />
           <EligibilityScreening />
           <Renewal />
@@ -95,13 +94,12 @@ export default function ServicePatternLibraries() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-card dark:bg-gray-900 border-t-2 border-border dark:border-gray-700 mt-24">
-        <div className="max-w-[1400px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-muted-foreground dark:text-gray-400">
+      <footer className="mt-20 border-t border-border bg-card">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-2 px-6 py-8 text-sm text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+          <div>
             <div>UX4G Design System Platform • Service Pattern Library v1.0</div>
-            <div>Government of India • Digital India Initiative</div>
           </div>
+          <div>Government of India • Digital India Initiative</div>
         </div>
       </footer>
     </div>
@@ -1464,40 +1462,69 @@ function HighVolumeStatusTracking() {
 
 function PatternHeader({ title, icon, status, version, lastUpdated }: any) {
   const statusConfig: any = {
-    stable: { bg: 'bg-green-100 dark:bg-green-900/30', border: 'border-green-300', text: 'text-green-800 dark:text-green-400', label: 'Stable' },
-    evolving: { bg: 'bg-blue-100 dark:bg-blue-900/30', border: 'border-blue-300', text: 'text-blue-800', label: 'Evolving' },
-    experimental: { bg: 'bg-yellow-100', border: 'border-yellow-300', text: 'text-yellow-800', label: 'Experimental' }
+    stable: { bg: 'bg-green-50 dark:bg-green-950/20', border: 'border-green-200 dark:border-green-800', text: 'text-green-700 dark:text-green-400', label: 'Stable' },
+    evolving: { bg: 'bg-blue-50 dark:bg-blue-950/20', border: 'border-blue-200 dark:border-blue-800', text: 'text-blue-700 dark:text-blue-400', label: 'Evolving' },
+    experimental: { bg: 'bg-yellow-50 dark:bg-yellow-950/20', border: 'border-yellow-200 dark:border-yellow-800', text: 'text-yellow-700 dark:text-yellow-400', label: 'Experimental' }
   };
 
   return (
-    <div className="border-l-4 border-primary pl-6">
-      <div className="flex items-start justify-between">
+    <div className="rounded-[28px] border border-border bg-card p-6 shadow-sm">
+      <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr] xl:items-center">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 bg-muted dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded flex items-center justify-center text-muted-foreground dark:text-gray-300 flex-shrink-0">
+          <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-border bg-muted text-muted-foreground shadow-sm">
             {icon}
           </div>
-          <div>
-            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-2">{title}</h2>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground dark:text-gray-400">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">{title}</h2>
+            <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <span>Version {version}</span>
-              <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+              <span className="hidden h-1 w-1 rounded-full bg-muted-foreground/40 sm:inline-block" />
               <span>Updated {lastUpdated}</span>
             </div>
           </div>
         </div>
-        <div className={`px-4 py-2 rounded border-2 ${statusConfig[status].bg} ${statusConfig[status].border} ${statusConfig[status].text} text-sm font-bold`}>
-          {statusConfig[status].label}
+        <div className="grid gap-3 sm:grid-cols-3">
+          <div className={`rounded-2xl border px-4 py-3 ${statusConfig[status].bg} ${statusConfig[status].border}`}>
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Status</div>
+            <div className={`mt-1 text-base font-bold ${statusConfig[status].text}`}>{statusConfig[status].label}</div>
+          </div>
+          <div className="rounded-2xl border border-border bg-muted/30 px-4 py-3">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Version</div>
+            <div className="mt-1 text-base font-bold text-foreground">{version}</div>
+          </div>
+          <div className="rounded-2xl border border-border bg-muted/30 px-4 py-3">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Updated</div>
+            <div className="mt-1 text-base font-bold text-foreground">{lastUpdated}</div>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
+function PatternMetric({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-muted/40 p-4">
+      <div className="text-2xl font-bold tracking-tight text-foreground">{value}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+}
+
+function PatternNote({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <p className="text-sm font-semibold text-foreground">{title}</p>
+      <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
+    </div>
+  );
+}
+
 function DocumentationModule({ title, children }: any) {
   return (
-    <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden bg-card dark:bg-gray-900">
-      <div className="bg-muted dark:bg-gray-800 border-b-2 border-border dark:border-gray-700 px-6 py-4">
-        <h3 className="font-bold text-foreground dark:text-gray-100 text-lg">{title}</h3>
+    <div className="overflow-hidden rounded-[24px] border border-border bg-card shadow-sm">
+      <div className="border-b border-border bg-muted/35 px-6 py-4">
+        <h3 className="text-lg font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
         {children}
@@ -1509,27 +1536,25 @@ function DocumentationModule({ title, children }: any) {
 function MetadataBlock({ label, children }: any) {
   return (
     <div>
-      <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{label}</div>
-      <div className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed">{children}</div>
+      <div className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">{label}</div>
+      <div className="text-sm leading-relaxed text-muted-foreground">{children}</div>
     </div>
   );
 }
 
 function ProcessFlow({ steps }: any) {
   return (
-    <div className="flex items-center gap-2 overflow-x-auto pb-2">
+    <div className="grid gap-3 overflow-x-auto pb-2 xl:grid-cols-4">
       {steps.map((step: any, idx: number) => (
-        <div key={idx} className="flex items-center flex-shrink-0">
-          <div className="flex flex-col items-center w-24">
-            <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mb-2">
+        <div key={idx} className="flex items-start gap-3 rounded-2xl border border-border bg-muted/20 p-4">
+          <div className="flex flex-col items-center">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
               {step.num}
             </div>
-            <div className="text-xs font-bold text-foreground dark:text-gray-100 text-center mb-1">{step.label}</div>
-            <div className="text-xs text-muted-foreground dark:text-gray-400 text-center">{step.desc}</div>
+            <div className="text-center text-xs font-bold text-foreground">{step.label}</div>
           </div>
-          {idx < steps.length - 1 && (
-            <ChevronRight className="text-gray-400 mx-1 flex-shrink-0" size={20} />
-          )}
+          <div className="min-w-0 flex-1 pt-1 text-sm text-muted-foreground">{step.desc}</div>
+          {idx < steps.length - 1 && <ChevronRight className="mt-3 flex-shrink-0 text-muted-foreground" size={20} />}
         </div>
       ))}
     </div>
@@ -1538,17 +1563,17 @@ function ProcessFlow({ steps }: any) {
 
 function PageSequenceCard({ num, title, elements }: any) {
   return (
-    <div className="border-2 border-border dark:border-gray-700 rounded-lg p-4 bg-background dark:bg-gray-800 hover:border-primary dark:hover:border-blue-500 transition-colors">
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-lg">
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-6 h-6 bg-primary text-white rounded text-xs font-bold flex items-center justify-center flex-shrink-0">
+        <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded bg-primary text-xs font-bold text-primary-foreground">
           {num}
         </div>
-        <div className="font-bold text-sm text-foreground dark:text-gray-100">{title}</div>
+        <div className="text-sm font-bold text-foreground">{title}</div>
       </div>
       <ul className="space-y-1.5">
         {elements.map((element: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-1.5 text-xs text-muted-foreground dark:text-gray-400">
-            <div className="w-1 h-1 bg-gray-400 rounded-full mt-1.5 flex-shrink-0"></div>
+          <li key={idx} className="flex items-start gap-1.5 text-xs text-muted-foreground">
+            <div className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-muted-foreground/50"></div>
             <span>{element}</span>
           </li>
         ))}
@@ -1559,27 +1584,27 @@ function PageSequenceCard({ num, title, elements }: any) {
 
 function ComponentTag({ name, variants }: any) {
   return (
-    <div className="border border-border dark:border-gray-700 rounded px-3 py-2 bg-card dark:bg-gray-900">
-      <div className="font-bold text-sm text-foreground dark:text-gray-100 mb-0.5">{name}</div>
-      <div className="text-xs text-muted-foreground dark:text-gray-400">{variants}</div>
+    <div className="rounded-2xl border border-border bg-card px-4 py-3 shadow-sm">
+      <div className="mb-0.5 text-sm font-bold text-foreground">{name}</div>
+      <div className="text-xs text-muted-foreground">{variants}</div>
     </div>
   );
 }
 
 function ImplementationRow({ category, requirement, priority }: any) {
   const priorityConfig: any = {
-    critical: { bg: 'bg-red-100', text: 'text-red-700', border: 'border-red-300' },
-    required: { bg: 'bg-orange-100 dark:bg-orange-900/30', text: 'text-orange-700', border: 'border-orange-300' },
-    recommended: { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-700 dark:text-blue-400', border: 'border-blue-300' }
+    critical: { bg: 'bg-red-50 dark:bg-red-950/20', text: 'text-red-700 dark:text-red-400', border: 'border-red-200 dark:border-red-800' },
+    required: { bg: 'bg-orange-50 dark:bg-orange-950/20', text: 'text-orange-700 dark:text-orange-400', border: 'border-orange-200 dark:border-orange-800' },
+    recommended: { bg: 'bg-blue-50 dark:bg-blue-950/20', text: 'text-blue-700 dark:text-blue-400', border: 'border-blue-200 dark:border-blue-800' }
   };
 
   return (
-    <div className="flex items-start gap-4">
+    <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 shadow-sm">
       <div className="w-24 flex-shrink-0">
-        <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{category}</span>
+        <span className="text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">{category}</span>
       </div>
-      <div className="flex-1 text-sm text-muted-foreground dark:text-gray-300">{requirement}</div>
-      <div className={`px-2 py-1 rounded border ${priorityConfig[priority].bg} ${priorityConfig[priority].text} ${priorityConfig[priority].border} text-xs font-bold uppercase flex-shrink-0`}>
+      <div className="flex-1 text-sm leading-6 text-muted-foreground">{requirement}</div>
+      <div className={`flex-shrink-0 rounded-full border px-3 py-1 text-xs font-bold uppercase ${priorityConfig[priority].bg} ${priorityConfig[priority].text} ${priorityConfig[priority].border}`}>
         {priority}
       </div>
     </div>
@@ -1589,39 +1614,39 @@ function ImplementationRow({ category, requirement, priority }: any) {
 function GuidelineBox({ type, items }: any) {
   const config: any = {
     do: {
-      bg: 'bg-green-50',
-      border: 'border-green-300',
-      headerBg: 'bg-green-100 dark:bg-green-900/30',
+      bg: 'bg-green-50 dark:bg-green-950/20',
+      border: 'border-green-200 dark:border-green-800',
+      headerBg: 'bg-green-100/80 dark:bg-green-900/30',
       icon: <ThumbsUp size={18} className="text-green-700 dark:text-green-400" />,
-      iconBg: 'bg-green-200',
-      iconBorder: 'border-green-400',
-      itemIcon: <CheckCircle size={14} className="text-green-600" />,
+      iconBg: 'bg-green-100 dark:bg-green-900/30',
+      iconBorder: 'border-green-200 dark:border-green-800',
+      itemIcon: <CheckCircle size={14} className="text-green-600 dark:text-green-400" />,
       title: 'Do'
     },
     dont: {
-      bg: 'bg-red-50',
-      border: 'border-red-300',
-      headerBg: 'bg-red-100',
-      icon: <ThumbsDown size={18} className="text-red-700" />,
-      iconBg: 'bg-red-200',
-      iconBorder: 'border-red-400',
-      itemIcon: <XCircle size={14} className="text-red-600" />,
+      bg: 'bg-red-50 dark:bg-red-950/20',
+      border: 'border-red-200 dark:border-red-800',
+      headerBg: 'bg-red-100/80 dark:bg-red-900/30',
+      icon: <ThumbsDown size={18} className="text-red-700 dark:text-red-400" />,
+      iconBg: 'bg-red-100 dark:bg-red-900/30',
+      iconBorder: 'border-red-200 dark:border-red-800',
+      itemIcon: <XCircle size={14} className="text-red-600 dark:text-red-400" />,
       title: "Don't"
     }
   };
 
   return (
-    <div className={`border-2 ${config[type].border} rounded-lg overflow-hidden ${config[type].bg}`}>
-      <div className={`${config[type].headerBg} border-b-2 ${config[type].border} px-4 py-3 flex items-center gap-3`}>
-        <div className={`w-8 h-8 ${config[type].iconBg} border-2 ${config[type].iconBorder} rounded flex items-center justify-center`}>
+    <div className={`overflow-hidden rounded-[24px] border ${config[type].border} ${config[type].bg} shadow-sm`}>
+      <div className={`${config[type].headerBg} border-b ${config[type].border} px-4 py-3 flex items-center gap-3`}>
+        <div className={`flex h-8 w-8 items-center justify-center rounded-lg border ${config[type].iconBg} ${config[type].iconBorder}`}>
           {config[type].icon}
         </div>
-        <h4 className="font-bold text-foreground dark:text-gray-100">{config[type].title}</h4>
+        <h4 className="font-bold text-foreground">{config[type].title}</h4>
       </div>
       <div className="p-4">
         <ul className="space-y-2">
           {items.map((item: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
+            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
               {config[type].itemIcon}
               <span>{item}</span>
             </li>
@@ -1634,17 +1659,17 @@ function GuidelineBox({ type, items }: any) {
 
 function AnnotationPanel({ title, children, severity }: any) {
   const severityConfig: any = {
-    critical: { border: 'border-red-300', bg: 'bg-red-50', headerBg: 'bg-red-100' },
-    high: { border: 'border-orange-300', bg: 'bg-orange-50', headerBg: 'bg-orange-100 dark:bg-orange-900/30' },
-    info: { border: 'border-blue-300', bg: 'bg-blue-50', headerBg: 'bg-blue-100 dark:bg-blue-900/30' }
+    critical: { border: 'border-red-200 dark:border-red-800', bg: 'bg-red-50 dark:bg-red-950/20', headerBg: 'bg-red-100/80 dark:bg-red-900/30' },
+    high: { border: 'border-orange-200 dark:border-orange-800', bg: 'bg-orange-50 dark:bg-orange-950/20', headerBg: 'bg-orange-100/80 dark:bg-orange-900/30' },
+    info: { border: 'border-blue-200 dark:border-blue-800', bg: 'bg-blue-50 dark:bg-blue-950/20', headerBg: 'bg-blue-100/80 dark:bg-blue-900/30' }
   };
 
-  const config = severity ? severityConfig[severity] : { border: 'border-border dark:border-gray-700', bg: 'bg-background dark:bg-gray-800', headerBg: 'bg-muted dark:bg-gray-800' };
+  const config = severity ? severityConfig[severity] : { border: 'border-border', bg: 'bg-card', headerBg: 'bg-muted/35' };
 
   return (
-    <div className={`border-2 ${config.border} rounded-lg overflow-hidden ${config.bg}`}>
-      <div className={`${config.headerBg} border-b-2 ${config.border} px-4 py-2.5`}>
-        <h4 className="font-bold text-foreground dark:text-gray-100 text-sm">{title}</h4>
+    <div className={`overflow-hidden rounded-[24px] border ${config.border} ${config.bg} shadow-sm`}>
+      <div className={`${config.headerBg} border-b ${config.border} px-4 py-2.5`}>
+        <h4 className="text-sm font-bold text-foreground">{title}</h4>
       </div>
       <div className="p-4">
         {children}
@@ -1656,8 +1681,8 @@ function AnnotationPanel({ title, children, severity }: any) {
 function AnnotationItem({ label, value }: any) {
   return (
     <div className="flex items-center justify-between text-sm">
-      <span className="text-muted-foreground dark:text-gray-400">{label}</span>
-      <span className="font-bold text-foreground dark:text-gray-100">{value}</span>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-bold text-foreground">{value}</span>
     </div>
   );
 }
@@ -1665,17 +1690,17 @@ function AnnotationItem({ label, value }: any) {
 function ConformanceItem({ checked, label }: any) {
   return (
     <div className="flex items-center gap-2">
-      <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 ${checked ? 'bg-green-500 border-green-600' : 'bg-card dark:bg-gray-900 border-border dark:border-gray-700'}`}>
+      <div className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border-2 ${checked ? 'border-green-600 bg-green-500' : 'border-border bg-card'}`}>
         {checked && <CheckSquare size={14} className="text-white" />}
       </div>
-      <span className="text-muted-foreground dark:text-gray-300">{label}</span>
+      <span className="text-muted-foreground">{label}</span>
     </div>
   );
 }
 
 function RelatedPatternTag({ pattern }: any) {
   return (
-    <div className="px-3 py-1.5 bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded text-xs font-medium text-muted-foreground dark:text-gray-300 hover:border-primary dark:hover:border-blue-500 transition-colors cursor-pointer">
+    <div className="cursor-pointer rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary">
       {pattern}
     </div>
   );
@@ -1683,20 +1708,20 @@ function RelatedPatternTag({ pattern }: any) {
 
 function FieldTypeCard({ type, color, examples }: any) {
   const colorConfig: any = {
-    red: { bg: 'bg-red-50', border: 'border-red-300', text: 'text-red-700', iconBg: 'bg-red-100' },
-    green: { bg: 'bg-green-50', border: 'border-green-300', text: 'text-green-700 dark:text-green-400', iconBg: 'bg-green-100 dark:bg-green-900/30' },
-    yellow: { bg: 'bg-yellow-50', border: 'border-yellow-300', text: 'text-yellow-700', iconBg: 'bg-yellow-100' }
+    red: { bg: 'bg-red-50 dark:bg-red-950/20', border: 'border-red-200 dark:border-red-800', text: 'text-red-700 dark:text-red-400', iconBg: 'bg-red-100 dark:bg-red-900/30' },
+    green: { bg: 'bg-green-50 dark:bg-green-950/20', border: 'border-green-200 dark:border-green-800', text: 'text-green-700 dark:text-green-400', iconBg: 'bg-green-100 dark:bg-green-900/30' },
+    yellow: { bg: 'bg-yellow-50 dark:bg-yellow-950/20', border: 'border-yellow-200 dark:border-yellow-800', text: 'text-yellow-700 dark:text-yellow-400', iconBg: 'bg-yellow-100 dark:bg-yellow-900/30' }
   };
 
   return (
-    <div className={`border-2 ${colorConfig[color].border} rounded-lg p-4 ${colorConfig[color].bg}`}>
-      <div className={`inline-flex px-3 py-1 rounded ${colorConfig[color].iconBg} ${colorConfig[color].text} text-xs font-bold mb-3`}>
+    <div className={`rounded-2xl border ${colorConfig[color].border} p-4 shadow-sm ${colorConfig[color].bg}`}>
+      <div className={`mb-3 inline-flex rounded-full px-3 py-1 text-xs font-bold ${colorConfig[color].iconBg} ${colorConfig[color].text}`}>
         {type}
       </div>
       <ul className="space-y-1.5">
         {examples.map((example: string, idx: number) => (
-          <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground dark:text-gray-300">
-            <div className="w-1.5 h-1.5 bg-gray-600 rounded-full"></div>
+          <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="h-1.5 w-1.5 rounded-full bg-muted-foreground/60"></div>
             <span>{example}</span>
           </li>
         ))}
@@ -1707,19 +1732,19 @@ function FieldTypeCard({ type, color, examples }: any) {
 
 function RejectionScenario({ issue, guidance, severity }: any) {
   const severityConfig: any = {
-    high: { icon: <AlertTriangle size={16} className="text-red-600" />, badge: 'bg-red-100 text-red-700' },
-    medium: { icon: <AlertCircle size={16} className="text-orange-600" />, badge: 'bg-orange-100 dark:bg-orange-900/30 text-orange-700' },
-    low: { icon: <Info size={16} className="text-blue-600" />, badge: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400' }
+    high: { icon: <AlertTriangle size={16} className="text-red-600" />, badge: 'border-red-200 bg-red-50 text-red-700 dark:border-red-800 dark:bg-red-950/20 dark:text-red-400' },
+    medium: { icon: <AlertCircle size={16} className="text-orange-600" />, badge: 'border-orange-200 bg-orange-50 text-orange-700 dark:border-orange-800 dark:bg-orange-950/20 dark:text-orange-400' },
+    low: { icon: <Info size={16} className="text-blue-600" />, badge: 'border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-800 dark:bg-blue-950/20 dark:text-blue-400' }
   };
 
   return (
-    <div className="flex items-start gap-3 p-4 bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg">
+    <div className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm">
       <div className="flex-shrink-0 mt-0.5">{severityConfig[severity].icon}</div>
       <div className="flex-1">
-        <div className="font-bold text-sm text-foreground dark:text-gray-100 mb-1">{issue}</div>
-        <div className="text-sm text-muted-foreground dark:text-gray-300">{guidance}</div>
+        <div className="mb-1 text-sm font-bold text-foreground">{issue}</div>
+        <div className="text-sm text-muted-foreground">{guidance}</div>
       </div>
-      <div className={`px-2 py-1 rounded text-xs font-bold ${severityConfig[severity].badge} flex-shrink-0`}>
+      <div className={`flex-shrink-0 rounded-full border px-2 py-1 text-xs font-bold ${severityConfig[severity].badge}`}>
         {severity.toUpperCase()}
       </div>
     </div>
@@ -1728,9 +1753,9 @@ function RejectionScenario({ issue, guidance, severity }: any) {
 
 function DecisionBlock({ question, answer }: any) {
   return (
-    <div className="border-l-4 border-purple-600 pl-3">
-      <div className="font-bold text-sm text-foreground dark:text-gray-100 mb-1">{question}</div>
-      <div className="text-xs text-muted-foreground dark:text-gray-400">{answer}</div>
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <div className="mb-1 text-sm font-bold text-foreground">{question}</div>
+      <div className="text-xs text-muted-foreground">{answer}</div>
     </div>
   );
 }
@@ -1738,25 +1763,25 @@ function DecisionBlock({ question, answer }: any) {
 function TimelineItem({ day, action }: any) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-16 flex-shrink-0 font-bold text-foreground dark:text-gray-100">{day}</div>
-      <div className="flex-1 text-muted-foreground dark:text-gray-300">{action}</div>
+      <div className="w-16 flex-shrink-0 font-bold text-foreground">{day}</div>
+      <div className="flex-1 text-muted-foreground">{action}</div>
     </div>
   );
 }
 
 function EscalationLevel({ level, role, sla, description }: any) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-background dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg">
-      <div className="w-16 h-16 bg-primary text-white rounded flex items-center justify-center flex-shrink-0">
+    <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
         <div className="text-center">
           <div className="text-xs font-bold">LEVEL</div>
           <div className="text-xl font-bold">{level.slice(-1)}</div>
         </div>
       </div>
       <div className="flex-1">
-        <div className="font-bold text-foreground dark:text-gray-100 mb-1">{role}</div>
-        <div className="text-sm text-muted-foreground dark:text-gray-300 mb-2">{description}</div>
-        <div className="inline-flex items-center gap-2 px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded text-xs font-bold">
+        <div className="mb-1 font-bold text-foreground">{role}</div>
+        <div className="mb-2 text-sm text-muted-foreground">{description}</div>
+        <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700 dark:border-blue-800 dark:bg-blue-950/20 dark:text-blue-400">
           <Clock size={12} />
           <span>SLA: {sla}</span>
         </div>
@@ -1768,11 +1793,11 @@ function EscalationLevel({ level, role, sla, description }: any) {
 function RequirementBlock({ title, items }: any) {
   return (
     <div>
-      <h4 className="font-bold text-sm text-foreground dark:text-gray-100 mb-3">{title}</h4>
+      <h4 className="mb-3 text-sm font-bold text-foreground">{title}</h4>
       <ul className="space-y-2">
         {items.map((item: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-            <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
+          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+            <CheckCircle size={14} className="mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" />
             <span>{item}</span>
           </li>
         ))}
@@ -1783,12 +1808,12 @@ function RequirementBlock({ title, items }: any) {
 
 function TrainingModule({ title, items }: any) {
   return (
-    <div className="border-2 border-border dark:border-gray-700 rounded-lg p-4 bg-card dark:bg-gray-900">
-      <h4 className="font-bold text-sm text-foreground dark:text-gray-100 mb-3">{title}</h4>
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <h4 className="mb-3 text-sm font-bold text-foreground">{title}</h4>
       <ul className="space-y-2">
         {items.map((item: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-            <div className="w-1.5 h-1.5 bg-gray-600 rounded-full mt-1.5 flex-shrink-0"></div>
+          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+            <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-muted-foreground/60"></div>
             <span>{item}</span>
           </li>
         ))}
@@ -1799,13 +1824,13 @@ function TrainingModule({ title, items }: any) {
 
 function ConsentMethod({ method, description, recommended }: any) {
   return (
-    <div className="flex items-start gap-3 p-3 bg-card dark:bg-gray-900 border border-border dark:border-gray-700 rounded">
+    <div className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm">
       <div className="flex-1">
-        <div className="font-bold text-sm text-foreground dark:text-gray-100 mb-1">{method}</div>
-        <div className="text-xs text-muted-foreground dark:text-gray-400">{description}</div>
+        <div className="mb-1 text-sm font-bold text-foreground">{method}</div>
+        <div className="text-xs text-muted-foreground">{description}</div>
       </div>
       {recommended && (
-        <div className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded text-xs font-bold flex-shrink-0">
+        <div className="flex-shrink-0 rounded-full border border-green-200 bg-green-50 px-2 py-1 text-xs font-bold text-green-700 dark:border-green-800 dark:bg-green-950/20 dark:text-green-400">
           RECOMMENDED
         </div>
       )}
@@ -1815,21 +1840,21 @@ function ConsentMethod({ method, description, recommended }: any) {
 
 function StatusMessage({ status, message, color, icon }: any) {
   const colorConfig: any = {
-    blue: { bg: 'bg-blue-50', border: 'border-blue-300', iconBg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-700 dark:text-blue-400' },
-    yellow: { bg: 'bg-yellow-50', border: 'border-yellow-300', iconBg: 'bg-yellow-100', text: 'text-yellow-700' },
-    green: { bg: 'bg-green-50', border: 'border-green-300', iconBg: 'bg-green-100 dark:bg-green-900/30', text: 'text-green-700 dark:text-green-400' },
-    red: { bg: 'bg-red-50', border: 'border-red-300', iconBg: 'bg-red-100', text: 'text-red-700' },
-    orange: { bg: 'bg-orange-50', border: 'border-orange-300', iconBg: 'bg-orange-100 dark:bg-orange-900/30', text: 'text-orange-700' }
+    blue: { bg: 'bg-blue-50 dark:bg-blue-950/20', border: 'border-blue-200 dark:border-blue-800', iconBg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-700 dark:text-blue-400' },
+    yellow: { bg: 'bg-yellow-50 dark:bg-yellow-950/20', border: 'border-yellow-200 dark:border-yellow-800', iconBg: 'bg-yellow-100 dark:bg-yellow-900/30', text: 'text-yellow-700 dark:text-yellow-400' },
+    green: { bg: 'bg-green-50 dark:bg-green-950/20', border: 'border-green-200 dark:border-green-800', iconBg: 'bg-green-100 dark:bg-green-900/30', text: 'text-green-700 dark:text-green-400' },
+    red: { bg: 'bg-red-50 dark:bg-red-950/20', border: 'border-red-200 dark:border-red-800', iconBg: 'bg-red-100 dark:bg-red-900/30', text: 'text-red-700 dark:text-red-400' },
+    orange: { bg: 'bg-orange-50 dark:bg-orange-950/20', border: 'border-orange-200 dark:border-orange-800', iconBg: 'bg-orange-100 dark:bg-orange-900/30', text: 'text-orange-700 dark:text-orange-400' }
   };
 
   return (
-    <div className={`flex items-start gap-3 p-4 ${colorConfig[color].bg} border-2 ${colorConfig[color].border} rounded-lg`}>
-      <div className={`w-10 h-10 ${colorConfig[color].iconBg} rounded flex items-center justify-center flex-shrink-0 ${colorConfig[color].text}`}>
+    <div className={`flex items-start gap-3 rounded-2xl border p-4 shadow-sm ${colorConfig[color].bg} ${colorConfig[color].border}`}>
+      <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl ${colorConfig[color].iconBg} ${colorConfig[color].text}`}>
         {icon}
       </div>
       <div className="flex-1">
-        <div className={`font-bold text-sm mb-1 ${colorConfig[color].text}`}>{status}</div>
-        <div className="text-sm text-muted-foreground dark:text-gray-300">{message}</div>
+        <div className={`mb-1 text-sm font-bold ${colorConfig[color].text}`}>{status}</div>
+        <div className="text-sm text-muted-foreground">{message}</div>
       </div>
     </div>
   );
@@ -1838,11 +1863,11 @@ function StatusMessage({ status, message, color, icon }: any) {
 function OptimizationBlock({ title, strategies }: any) {
   return (
     <div>
-      <h4 className="font-bold text-sm text-foreground dark:text-gray-100 mb-3">{title}</h4>
+      <h4 className="mb-3 text-sm font-bold text-foreground">{title}</h4>
       <ul className="space-y-2">
         {strategies.map((strategy: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-            <Zap size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
+          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+            <Zap size={14} className="mt-0.5 flex-shrink-0 text-blue-600 dark:text-blue-400" />
             <span>{strategy}</span>
           </li>
         ))}

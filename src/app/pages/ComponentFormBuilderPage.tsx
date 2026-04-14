@@ -1094,6 +1094,11 @@ export class FormBuilderModule { }`,
 export type FormLayout = 'vertical' | 'horizontal' | 'grid';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-form-builder> custom element",
+        html: "<ux4g-form-builder variant=\"primary\" size=\"md\"><!-- FormBuilder --></ux4g-form-builder>",
+      }}
       comparisons={[
         {
           system: 'Formik',

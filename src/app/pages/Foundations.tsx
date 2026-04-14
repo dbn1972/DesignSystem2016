@@ -1,4 +1,5 @@
-import { Palette, Type, Layers, Grid, Sparkles, Ruler } from "lucide-react";
+import { Link } from "react-router";
+import { ArrowRight, Building2, CheckCircle, Grid, Layers, Palette, Ruler, Shield, Sparkles, Type } from "lucide-react";
 
 export default function Foundations() {
   const colorPalette = [
@@ -55,262 +56,400 @@ export default function Foundations() {
   ];
 
   return (
-    <div className="bg-card dark:bg-gray-900">
+    <div className="min-h-screen bg-background text-foreground dark:bg-gray-900">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#000080] to-[#000050] dark:from-blue-900 dark:to-blue-950 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Palette size={32} />
-            <h1 className="text-4xl lg:text-5xl font-bold">Design Foundations</h1>
+      <section className="relative overflow-hidden border-b border-border bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-gray-900 dark:to-blue-950/30">
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#FF9933] via-white to-[#138808]" />
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] items-start">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
+                <Sparkles size={14} />
+                Foundational design language
+              </div>
+
+              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground dark:text-gray-50">
+                Foundations
+              </h1>
+
+              <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-gray-300">
+                The principles, tokens, and baseline decisions that keep UX4G consistent,
+                accessible, and scalable across every government digital service.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/components"
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700"
+                >
+                  <Layers size={16} />
+                  View components
+                </Link>
+                <Link
+                  to="/accessibility"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
+                >
+                  <Shield size={16} />
+                  View accessibility guidance
+                </Link>
+                <Link
+                  to="/content-system"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
+                >
+                  <Type size={16} />
+                  View content system
+                </Link>
+              </div>
+
+              <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <StatTile value="4" label="core principles" />
+                <StatTile value="6" label="palette anchors" />
+                <StatTile value="9" label="type styles" />
+                <StatTile value="6" label="spacing tokens" />
+              </div>
+            </div>
+
+            <div className="lg:justify-self-end">
+              <div className="rounded-[32px] border border-border bg-card/95 p-7 shadow-xl backdrop-blur-sm dark:bg-gray-800/95">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                      Foundation summary
+                    </p>
+                    <h2 className="mt-2 text-2xl font-bold text-foreground dark:text-gray-50">
+                      The base layer for every UX4G experience
+                    </h2>
+                  </div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm dark:bg-blue-600">
+                    <Building2 size={26} />
+                  </div>
+                </div>
+
+                <div className="mt-5 space-y-3">
+                  <SummaryRow title="Color" description="Saffron, navy, green, and neutral surfaces tuned for contrast." />
+                  <SummaryRow title="Typography" description="Clear readable hierarchy across desktop, tablet, and mobile." />
+                  <SummaryRow title="Spacing" description="Simple scale that creates rhythm and balance throughout the UI." />
+                </div>
+
+                <div className="mt-5 rounded-2xl border border-border bg-gradient-to-br from-blue-50 to-emerald-50 p-4 dark:from-blue-950/30 dark:to-emerald-950/20">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-100">
+                    <CheckCircle size={16} className="text-emerald-600 dark:text-emerald-400" />
+                    Foundation-first system
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+                    Use this page to understand the shared design rules before moving into
+                    components, patterns, and service flows.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="text-xl text-blue-100 dark:text-blue-200 max-w-3xl">
-            The principles, tokens, and baseline decisions that create consistency,
-            accessibility, and usability across all Government of India digital services.
-          </p>
         </div>
       </section>
 
       {/* Design Principles */}
-      <section className="py-16 bg-card dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-8">Design Principles</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {principles.map((principle, index) => (
-              <div
-                key={index}
-                className="bg-card dark:bg-gray-800 border border-border dark:border-gray-700 rounded-xl p-8 hover:border-primary dark:hover:border-blue-500 transition-colors"
-              >
-                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                  <principle.icon className="text-white" size={24} />
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.78fr)_minmax(0,1.22fr)] items-start">
+            <aside className="space-y-4 lg:sticky lg:top-24">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                Design principles
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
+                Four principles that guide the system
+              </h2>
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+                The foundations page is the rulebook for every surface in UX4G, from
+                tokens and layout to hierarchy and accessibility.
+              </p>
+            </aside>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              {principles.map((principle, index) => (
+                <div
+                  key={index}
+                  className="rounded-[28px] border border-border bg-card p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-gray-800"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-300">
+                      <principle.icon size={22} />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                        Principle {String(index + 1).padStart(2, "0")}
+                      </p>
+                      <h3 className="mt-1 text-xl font-bold text-foreground dark:text-gray-50">
+                        {principle.title}
+                      </h3>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+                    {principle.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground dark:text-gray-100 mb-3">
-                  {principle.title}
-                </h3>
-                <p className="text-muted-foreground dark:text-gray-400 leading-relaxed">
-                  {principle.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Color System */}
-      <section className="py-16 bg-background dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-2">Color System</h2>
-            <p className="text-lg text-muted-foreground dark:text-gray-400">
-              Inspired by the Indian national flag, our color palette ensures visual consistency
-              and accessibility across all government digital services.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {colorPalette.map((color, index) => (
-              <div
-                key={index}
-                className="bg-card dark:bg-gray-900 rounded-xl overflow-hidden border border-border dark:border-gray-700 hover:shadow-lg transition-shadow"
-              >
-                <div
-                  className="h-32 flex items-center justify-center"
-                  style={{ backgroundColor: color.hex }}
-                >
-                  <span
-                    className={`font-mono text-sm font-semibold px-3 py-1 rounded ${
-                      color.hex === "#FFFFFF" ? "bg-gray-900 text-white" : "bg-card text-foreground"
-                    }`}
-                  >
-                    {color.hex}
-                  </span>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-foreground dark:text-gray-100 mb-1">{color.name}</h3>
-                  <p className="text-sm text-muted-foreground dark:text-gray-400">{color.desc}</p>
-                </div>
+      <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
+            <aside>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                Color system
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
+                A balanced palette with civic clarity
+              </h2>
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+                Inspired by the Indian national flag and grounded in accessible neutral
+                surfaces, this palette keeps the interface calm, recognisable, and easy to scan.
+              </p>
+              <div className="mt-6 rounded-[24px] border border-border bg-card p-5 shadow-sm dark:bg-gray-900">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Accessibility note
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+                  All color combinations are intended to meet WCAG 2.1 AA contrast requirements.
+                  Use semantic tokens and avoid hardcoding one-off values in product screens.
+                </p>
               </div>
-            ))}
-          </div>
+            </aside>
 
-          <div className="mt-8 p-6 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-gray-700 rounded-xl">
-            <h3 className="font-semibold text-foreground dark:text-gray-100 mb-2">Accessibility Note</h3>
-            <p className="text-muted-foreground dark:text-gray-300">
-              All color combinations meet WCAG 2.1 AA contrast requirements. Use the color
-              contrast checker to validate custom combinations.
-            </p>
+            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              {colorPalette.map((color) => (
+                <div
+                  key={color.name}
+                  className="overflow-hidden rounded-[28px] border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-gray-900"
+                >
+                  <div className="h-32 flex items-center justify-center" style={{ backgroundColor: color.hex }}>
+                    <span
+                      className={`font-mono text-sm font-semibold px-3 py-1 rounded ${
+                        color.hex === "#FFFFFF" ? "bg-gray-900 text-white" : "bg-card text-foreground"
+                      }`}
+                    >
+                      {color.hex}
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-semibold text-foreground dark:text-gray-50 mb-1">{color.name}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground dark:text-gray-300">{color.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Typography */}
-      <section className="py-16 bg-card dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-2">
-              <Type size={28} className="text-foreground dark:text-gray-100" />
-              <h2 className="text-3xl font-bold text-foreground dark:text-gray-100">Typography</h2>
-            </div>
-            <p className="text-lg text-muted-foreground dark:text-gray-400">
-              A clear, accessible type system designed for readability across devices and contexts.
-            </p>
-          </div>
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
+            <aside>
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-300">
+                  <Type size={22} />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                    Typography
+                  </p>
+                  <h2 className="mt-1 text-3xl font-bold text-foreground dark:text-gray-50">
+                    A readable hierarchy for government services
+                  </h2>
+                </div>
+              </div>
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+                The type scale balances clarity, density, and performance so long-form
+                content remains readable across devices and languages.
+              </p>
+              <div className="mt-6 rounded-[24px] border border-border bg-card p-5 shadow-sm dark:bg-gray-800">
+                <h3 className="font-semibold text-foreground dark:text-gray-50 mb-2">Font family</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+                  System font stack for optimal performance: -apple-system, BlinkMacSystemFont,
+                  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+                </p>
+              </div>
+            </aside>
 
-          <div className="bg-card dark:bg-gray-800 border border-border dark:border-gray-700 rounded-xl overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-background dark:bg-gray-900 border-b border-border dark:border-gray-700">
-                  <tr>
-                    <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-100">Style</th>
-                    <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-100">Size</th>
-                    <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-100">Weight</th>
-                    <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-100">Usage</th>
-                    <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-100">Example</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {typography.map((type, index) => (
-                    <tr key={index} className="hover:bg-background dark:hover:bg-gray-700">
-                      <td className="px-6 py-4 font-medium text-foreground dark:text-gray-100">{type.name}</td>
-                      <td className="px-6 py-4 text-muted-foreground dark:text-gray-400">{type.size}</td>
-                      <td className="px-6 py-4 text-muted-foreground dark:text-gray-400">{type.weight}</td>
-                      <td className="px-6 py-4 text-muted-foreground dark:text-gray-400">{type.usage}</td>
-                      <td className="px-6 py-4">
-                        <span style={{ fontSize: type.size, fontWeight: type.weight }} className="text-foreground dark:text-gray-100">Aa</span>
-                      </td>
+            <div className="rounded-[28px] border border-border bg-card shadow-sm dark:bg-gray-800 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-background border-b border-border dark:bg-gray-900 dark:border-gray-700">
+                    <tr>
+                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">Style</th>
+                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">Size</th>
+                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">Weight</th>
+                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">Usage</th>
+                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">Example</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                    {typography.map((type, index) => (
+                      <tr key={index} className="transition-colors hover:bg-background dark:hover:bg-gray-700">
+                        <td className="px-6 py-4 font-medium text-foreground dark:text-gray-100">{type.name}</td>
+                        <td className="px-6 py-4 text-muted-foreground dark:text-gray-400">{type.size}</td>
+                        <td className="px-6 py-4 text-muted-foreground dark:text-gray-400">{type.weight}</td>
+                        <td className="px-6 py-4 text-muted-foreground dark:text-gray-400">{type.usage}</td>
+                        <td className="px-6 py-4">
+                          <span style={{ fontSize: type.size, fontWeight: type.weight }} className="text-foreground dark:text-gray-100">
+                            Aa
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-
-          <div className="mt-6 p-6 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-gray-700 rounded-xl">
-            <h3 className="font-semibold text-foreground dark:text-gray-100 mb-2">Font Family</h3>
-            <p className="text-muted-foreground dark:text-gray-300">
-              System font stack for optimal performance: -apple-system, BlinkMacSystemFont,
-              "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
-            </p>
           </div>
         </div>
       </section>
 
       {/* Spacing */}
-      <section className="py-16 bg-background dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-2">Spacing System</h2>
-            <p className="text-lg text-muted-foreground dark:text-gray-400">
-              Consistent spacing creates visual rhythm and improves content hierarchy.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {spacing.map((space, index) => (
-              <div
-                key={index}
-                className="bg-card dark:bg-gray-900 rounded-xl p-6 border border-border dark:border-gray-700"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div
-                    className="bg-primary"
-                    style={{ width: space.value, height: space.value }}
-                  ></div>
-                  <div>
-                    <div className="font-mono text-sm font-semibold text-foreground dark:text-gray-100">
-                      {space.value}
-                    </div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">{space.token}</div>
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground dark:text-gray-400">{space.usage}</p>
+      <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
+            <aside>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                Spacing system
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
+                Consistent spacing builds calm, readable interfaces
+              </h2>
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+                The spacing scale creates rhythm and predictability across layouts, forms,
+                and content-heavy experiences.
+              </p>
+              <div className="mt-6 rounded-[24px] border border-border bg-card p-5 shadow-sm dark:bg-gray-900">
+                <h3 className="font-semibold text-foreground dark:text-gray-50 mb-2">Implementation</h3>
+                <p className="text-sm text-muted-foreground dark:text-gray-300 mb-3">
+                  Use spacing tokens in your code for consistency:
+                </p>
+                <code className="block rounded-lg border border-border bg-background px-4 py-3 text-sm font-mono text-foreground dark:bg-gray-800 dark:text-gray-100">
+                  className="p-spacing-4 m-spacing-2"
+                </code>
               </div>
-            ))}
-          </div>
+            </aside>
 
-          <div className="mt-8 p-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-gray-700 rounded-xl">
-            <h3 className="font-semibold text-foreground dark:text-gray-100 mb-2">Implementation</h3>
-            <p className="text-muted-foreground dark:text-gray-300 mb-2">
-              Use spacing tokens in your code for consistency:
-            </p>
-            <code className="block bg-card dark:bg-gray-800 px-4 py-3 rounded border border-green-300 dark:border-gray-700 text-sm font-mono text-foreground dark:text-gray-100">
-              className="p-spacing-4 m-spacing-2"
-            </code>
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {spacing.map((space) => (
+                <div key={space.token} className="rounded-[28px] border border-border bg-card p-5 shadow-sm dark:bg-gray-900">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div
+                      className="bg-primary rounded"
+                      style={{ width: space.value, height: space.value }}
+                    />
+                    <div>
+                      <div className="font-mono text-sm font-semibold text-foreground dark:text-gray-50">
+                        {space.value}
+                      </div>
+                      <div className="text-xs text-muted-foreground dark:text-gray-400">{space.token}</div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground dark:text-gray-300">{space.usage}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Grid System */}
-      <section className="py-16 bg-card dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-2">
-              <Grid size={28} className="text-foreground dark:text-gray-100" />
-              <h2 className="text-3xl font-bold text-foreground dark:text-gray-100">Grid & Layout</h2>
-            </div>
-            <p className="text-lg text-muted-foreground dark:text-gray-400">
-              Responsive grid system that adapts to different screen sizes and devices.
-            </p>
-          </div>
-
-          <div className="bg-card dark:bg-gray-800 rounded-xl p-8 border border-border dark:border-gray-700">
-            <div className="grid grid-cols-12 gap-4 mb-6">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <div 
-                  key={i}
-                  className="h-16 bg-primary rounded flex items-center justify-center text-white text-sm font-semibold"
-                >
-                  {i + 1}
+      <section className="py-16 lg:py-20">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
+            <aside>
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-300">
+                  <Grid size={22} />
                 </div>
-              ))}
-            </div>
-
-            <div className="space-y-4">
-              <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded flex items-center justify-center text-sm text-muted-foreground dark:text-gray-300">
-                  12 Columns
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                    Grid & layout
+                  </p>
+                  <h2 className="mt-1 text-3xl font-bold text-foreground dark:text-gray-50">
+                    Responsive layout rules for every screen size
+                  </h2>
                 </div>
               </div>
-              <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-6 h-12 bg-blue-100 dark:bg-blue-900/30 rounded flex items-center justify-center text-sm text-muted-foreground dark:text-gray-300">
-                  6 Columns
-                </div>
-                <div className="col-span-6 h-12 bg-blue-100 dark:bg-blue-900/30 rounded flex items-center justify-center text-sm text-muted-foreground dark:text-gray-300">
-                  6 Columns
-                </div>
-              </div>
-              <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-4 h-12 bg-blue-100 dark:bg-blue-900/30 rounded flex items-center justify-center text-sm text-muted-foreground dark:text-gray-300">
-                  4 Columns
-                </div>
-                <div className="col-span-4 h-12 bg-blue-100 dark:bg-blue-900/30 rounded flex items-center justify-center text-sm text-muted-foreground dark:text-gray-300">
-                  4 Columns
-                </div>
-                <div className="col-span-4 h-12 bg-blue-100 dark:bg-blue-900/30 rounded flex items-center justify-center text-sm text-muted-foreground dark:text-gray-300">
-                  4 Columns
-                </div>
-              </div>
-            </div>
-          </div>
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+                The grid system adapts from stacked mobile layouts to dense desktop views
+                while keeping the same design language intact.
+              </p>
+            </aside>
 
-          <div className="mt-6 grid md:grid-cols-3 gap-6">
-            <div className="p-6 bg-background dark:bg-gray-900 rounded-xl border border-border dark:border-gray-700">
-              <h3 className="font-semibold text-foreground dark:text-gray-100 mb-2">Mobile</h3>
-              <p className="text-sm text-muted-foreground dark:text-gray-400 mb-1">320px - 767px</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">Stack content vertically</p>
-            </div>
-            <div className="p-6 bg-background dark:bg-gray-900 rounded-xl border border-border dark:border-gray-700">
-              <h3 className="font-semibold text-foreground dark:text-gray-100 mb-2">Tablet</h3>
-              <p className="text-sm text-muted-foreground dark:text-gray-400 mb-1">768px - 1023px</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">2-column layouts</p>
-            </div>
-            <div className="p-6 bg-background dark:bg-gray-900 rounded-xl border border-border dark:border-gray-700">
-              <h3 className="font-semibold text-foreground dark:text-gray-100 mb-2">Desktop</h3>
-              <p className="text-sm text-muted-foreground dark:text-gray-400 mb-1">1024px+</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">Full grid layouts</p>
+            <div className="space-y-5">
+              <div className="rounded-[28px] border border-border bg-card p-6 shadow-sm dark:bg-gray-800">
+                <div className="grid grid-cols-12 gap-4">
+                  {Array.from({ length: 12 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="flex h-16 items-center justify-center rounded-xl bg-primary text-sm font-semibold text-primary-foreground"
+                    >
+                      {i + 1}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-3">
+                <LayoutCard title="Mobile" range="320px - 767px" description="Stack content vertically" />
+                <LayoutCard title="Tablet" range="768px - 1023px" description="Two-column layouts" />
+                <LayoutCard title="Desktop" range="1024px+" description="Full grid layouts" />
+              </div>
             </div>
           </div>
         </div>
       </section>
+    </div>
+  );
+}
+
+function StatTile({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card px-4 py-4 shadow-sm dark:bg-gray-800">
+      <div className="text-2xl font-bold text-foreground dark:text-gray-50">{value}</div>
+      <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function SummaryRow({ title, description }: { title: string; description: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-background p-4 dark:bg-gray-900">
+      <p className="font-semibold text-foreground dark:text-gray-50">{title}</p>
+      <p className="mt-1 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+function LayoutCard({
+  title,
+  range,
+  description,
+}: {
+  title: string;
+  range: string;
+  description: string;
+}) {
+  return (
+    <div className="rounded-[28px] border border-border bg-card p-6 shadow-sm dark:bg-gray-900">
+      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        {title}
+      </p>
+      <p className="mt-2 text-lg font-bold text-foreground dark:text-gray-50">{range}</p>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+        {description}
+      </p>
     </div>
   );
 }

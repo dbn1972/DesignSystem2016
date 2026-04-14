@@ -920,6 +920,11 @@ export interface AxisConfig {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-chart-library> custom element",
+        html: "<ux4g-chart-library variant=\"primary\" size=\"md\"><!-- ChartLibrary --></ux4g-chart-library>",
+      }}
       comparisons={[
         {
           system: 'Recharts',

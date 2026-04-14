@@ -1184,6 +1184,11 @@ export interface Department {
 export type CalendarView = 'month' | 'week' | 'day';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-calendar-scheduler> custom element",
+        html: "<ux4g-calendar-scheduler variant=\"primary\" size=\"md\"><!-- CalendarScheduler --></ux4g-calendar-scheduler>",
+      }}
       comparisons={[
         {
           system: 'FullCalendar',

@@ -367,6 +367,11 @@ export interface GridProps {
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-grid> custom element",
+        html: "<ux4g-grid variant=\"primary\" size=\"md\"><!-- Grid --></ux4g-grid>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

@@ -731,6 +731,11 @@ export class RichTextEditorModule { }`,
   | 'background';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-rich-text-editor> custom element",
+        html: "<ux4g-rich-text-editor variant=\"primary\" size=\"md\"><!-- RichTextEditor --></ux4g-rich-text-editor>",
+      }}
       comparisons={[
         {
           system: 'Quill',

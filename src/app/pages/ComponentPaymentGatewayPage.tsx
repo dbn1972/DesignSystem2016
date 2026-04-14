@@ -860,6 +860,11 @@ export interface PaymentError {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-payment-gateway> custom element",
+        html: "<ux4g-payment-gateway variant=\"primary\" size=\"md\"><!-- PaymentGateway --></ux4g-payment-gateway>",
+      }}
       comparisons={[
         {
           system: 'Razorpay',

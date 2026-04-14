@@ -325,6 +325,11 @@ export class StepperModule { }`,
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-stepper> custom element",
+        html: "<ux4g-stepper variant=\"primary\" size=\"md\"><!-- Stepper --></ux4g-stepper>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

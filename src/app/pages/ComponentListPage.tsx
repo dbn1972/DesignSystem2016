@@ -176,6 +176,11 @@ export class ListModule { }`,
 export type ListSpacing = 'compact' | 'normal' | 'relaxed';`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-list> custom element",
+        html: "<ux4g-list variant=\"primary\" size=\"md\"><!-- List --></ux4g-list>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

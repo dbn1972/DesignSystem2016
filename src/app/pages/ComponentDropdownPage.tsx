@@ -407,6 +407,11 @@ export default function ComponentDropdownPage() {
         types: 'export interface DropdownItem {\n  label?: string;\n  icon?: string;\n  badge?: string;\n  type?: \'item\' | \'divider\' | \'header\';\n  variant?: \'default\' | \'danger\';\n  disabled?: boolean;\n  closeOnSelect?: boolean;\n  onClick?: () => void;\n}\n\nexport type DropdownPlacement = \'bottom-start\' | \'bottom-end\' | \'top-start\' | \'top-end\';\nexport type DropdownSize = \'sm\' | \'md\' | \'lg\';',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-dropdown> custom element",
+        html: "<ux4g-dropdown variant=\"primary\" size=\"md\"><!-- Dropdown --></ux4g-dropdown>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

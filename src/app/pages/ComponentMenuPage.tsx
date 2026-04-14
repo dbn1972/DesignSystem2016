@@ -710,6 +710,11 @@ export type MenuVariant = 'dropdown' | 'context';
 export type MenuPlacement = 'bottom-start' | 'bottom-end' | 'top-start' | 'top-end' | 'left-start' | 'right-start';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-menu> custom element",
+        html: "<ux4g-menu variant=\"primary\" size=\"md\"><!-- Menu --></ux4g-menu>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

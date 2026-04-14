@@ -49,6 +49,7 @@ export const ROUTE_PATHS = {
     STATE_RESILIENCE: "/systems/state-resilience",
   },
   SERVICES: {
+    ROOT: "/services",
     OVERVIEW: "/reference-service/overview",
     DEMO: "/reference-service/demo",
     SIGN_IN: "/reference-service/sign-in",

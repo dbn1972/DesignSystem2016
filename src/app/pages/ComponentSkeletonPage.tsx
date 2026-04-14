@@ -620,7 +620,12 @@ export default function ComponentSkeletonPage() {
           types: 'export type SkeletonVariant = \'text\' | \'circle\' | \'rectangle\' | \'custom\';\nexport type SkeletonAnimation = \'pulse\' | \'wave\' | false;',
         }}
 
-        comparisons={[
+        webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-skeleton> custom element",
+        html: "<ux4g-skeleton variant=\"primary\" size=\"md\"><!-- Skeleton --></ux4g-skeleton>",
+      }}
+      comparisons={[
           {
             system: 'Material UI (Google)',
             component: 'Skeleton',

@@ -436,6 +436,11 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
 export type ButtonType = 'button' | 'submit' | 'reset';`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-button> custom element",
+        html: "<ux4g-button variant=\"primary\" size=\"md\"><!-- Button --></ux4g-button>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

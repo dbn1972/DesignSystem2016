@@ -264,6 +264,11 @@ export class HintTextModule { }`,
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-hint-text> custom element",
+        html: "<ux4g-hint-text variant=\"primary\" size=\"md\"><!-- HintText --></ux4g-hint-text>",
+      }}
       comparisons={[
         {
           system: 'GOV.UK Design System',

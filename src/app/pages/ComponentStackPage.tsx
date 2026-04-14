@@ -351,6 +351,11 @@ export type StackAlign = 'start' | 'center' | 'end' | 'stretch';
 export type StackJustify = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-stack> custom element",
+        html: "<ux4g-stack variant=\"primary\" size=\"md\"><!-- Stack --></ux4g-stack>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

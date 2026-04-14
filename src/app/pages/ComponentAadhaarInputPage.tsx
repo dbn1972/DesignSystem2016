@@ -229,6 +229,11 @@ export class AadhaarInputModule { }`,
         types: ``,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-aadhaar-input> custom element",
+        html: "<ux4g-aadhaar-input variant=\"primary\" size=\"md\"><!-- AadhaarInput --></ux4g-aadhaar-input>",
+      }}
       comparisons={[
         {
           system: 'Custom Implementation',

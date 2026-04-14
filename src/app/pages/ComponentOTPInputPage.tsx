@@ -340,6 +340,11 @@ export class OTPInputModule { }`,
         types: ``,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-o-t-p-input> custom element",
+        html: "<ux4g-o-t-p-input variant=\"primary\" size=\"md\"><!-- OTPInput --></ux4g-o-t-p-input>",
+      }}
       comparisons={[
         {
           system: 'Ant Design (Alibaba)',

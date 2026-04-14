@@ -549,6 +549,11 @@ export default function ComponentDrawerPage() {
         types: 'export type DrawerPlacement = \'left\' | \'right\' | \'top\' | \'bottom\';\nexport type DrawerSize = \'sm\' | \'md\' | \'lg\' | \'full\';\n\nexport interface DrawerConfig {\n  isOpen: boolean;\n  placement?: DrawerPlacement;\n  size?: DrawerSize;\n  title?: string;\n  showOverlay?: boolean;\n  closeOnOverlayClick?: boolean;\n  closeOnEscape?: boolean;\n}',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-drawer> custom element",
+        html: "<ux4g-drawer variant=\"primary\" size=\"md\"><!-- Drawer --></ux4g-drawer>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

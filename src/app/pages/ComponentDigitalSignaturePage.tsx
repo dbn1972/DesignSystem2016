@@ -959,6 +959,11 @@ export interface DigitalSignatureConfig {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-digital-signature> custom element",
+        html: "<ux4g-digital-signature variant=\"primary\" size=\"md\"><!-- DigitalSignature --></ux4g-digital-signature>",
+      }}
       comparisons={[
         {
           system: 'react-signature-canvas',

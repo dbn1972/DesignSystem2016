@@ -227,6 +227,11 @@ export default function ComponentEmptyStatePage() {
         types: 'export type EmptyStateVariant = \'default\' | \'error\' | \'search\' | \'first-time\';',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-empty-state> custom element",
+        html: "<ux4g-empty-state variant=\"primary\" size=\"md\"><!-- EmptyState --></ux4g-empty-state>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

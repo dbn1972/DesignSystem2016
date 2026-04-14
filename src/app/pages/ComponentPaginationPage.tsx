@@ -468,6 +468,11 @@ export class PaginationModule { }`,
         types: `export type PaginationSize = 'sm' | 'md' | 'lg';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-pagination> custom element",
+        html: "<ux4g-pagination variant=\"primary\" size=\"md\"><!-- Pagination --></ux4g-pagination>",
+      }}
       comparisons={[
         {
           system: 'Material UI',

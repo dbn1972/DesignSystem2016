@@ -166,6 +166,11 @@ export class BadgeModule { }`,
 export type BadgeSize = 'sm' | 'md' | 'lg';`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-badge> custom element",
+        html: "<ux4g-badge variant=\"primary\" size=\"md\"><!-- Badge --></ux4g-badge>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

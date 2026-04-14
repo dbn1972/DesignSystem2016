@@ -520,6 +520,11 @@ export interface ShowHideConfig {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-show-hide> custom element",
+        html: "<ux4g-show-hide variant=\"primary\" size=\"md\"><!-- ShowHide --></ux4g-show-hide>",
+      }}
       comparisons={[
         {
           system: 'Chakra UI',

@@ -785,6 +785,11 @@ export interface DocumentViewerConfig {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-document-viewer> custom element",
+        html: "<ux4g-document-viewer variant=\"primary\" size=\"md\"><!-- DocumentViewer --></ux4g-document-viewer>",
+      }}
       comparisons={[
         {
           system: 'react-pdf',

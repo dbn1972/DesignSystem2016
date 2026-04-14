@@ -1,738 +1,564 @@
-import React from "react";
 import { Link } from "react-router";
-import { 
-  FileText, 
-  Shield, 
-  User, 
-  ClipboardList, 
-  Upload, 
-  Eye, 
-  CreditCard, 
-  Send, 
-  Clock, 
-  UserCheck, 
-  Award,
+import {
   ArrowRight,
-  CheckCircle,
-  AlertCircle,
-  Info,
+  Award,
+  CheckCircle2,
+  ClipboardList,
+  CreditCard,
+  FileText,
+  Flag,
   HelpCircle,
-  ArrowDown,
-  ChevronRight,
-  Activity,
-  Bell,
-  RefreshCw,
-  XCircle,
+  Home,
+  Icon,
   LogIn,
-  FileCheck,
-  Settings,
-  Zap,
-  Target,
   MapPin,
-  GitBranch
+  RefreshCw,
+  Send,
+  ShieldCheck,
+  Sparkles,
+  Upload,
+  User,
+  UserCheck,
+  Users,
+  Clock3,
+  Eye,
+  FileSearch,
 } from "lucide-react";
+import type { ReactNode } from "react";
+
+type JourneyPage = {
+  name: string;
+  pattern: string;
+  route: string;
+};
+
+type JourneyPhase = {
+  number: number;
+  title: string;
+  icon: ReactNode;
+  iconBg: string;
+  userGoal: string;
+  systemAction: string;
+  pages: JourneyPage[];
+  patterns: string[];
+  keyStates: string[];
+};
+
+type JourneyGroup = {
+  id: string;
+  title: string;
+  description: string;
+  phases: JourneyPhase[];
+};
+
+const journeyGroups: JourneyGroup[] = [
+  {
+    id: "access-onboarding",
+    title: "Access and onboarding",
+    description: "The entry layer for discovery, identity, and the first meaningful service action.",
+    phases: [
+      {
+        number: 1,
+        title: "Service discovery",
+        icon: <MapPin size={22} className="text-white" />,
+        iconBg: "bg-blue-600",
+        userGoal: "Find the service, understand the requirement, and confirm eligibility.",
+        systemAction: "Explain the service, show eligibility criteria, and surface support paths.",
+        pages: [
+          { name: "Service landing", pattern: "Service landing", route: "/reference-service/demo" },
+          { name: "Eligibility checker", pattern: "Eligibility screening", route: "/reference-service/certificate/eligibility" },
+          { name: "Help and FAQ", pattern: "Support and help", route: "/reference-service/certificate/help" },
+        ],
+        patterns: ["Landing", "Eligibility", "Support"],
+        keyStates: ["Service available", "Eligibility met", "Eligibility not met", "Maintenance mode"],
+      },
+      {
+        number: 2,
+        title: "Identity and access",
+        icon: <LogIn size={22} className="text-white" />,
+        iconBg: "bg-emerald-600",
+        userGoal: "Sign in securely or create an account when needed.",
+        systemAction: "Authenticate the user, establish a session, and route to the correct recovery path.",
+        pages: [
+          { name: "Sign in", pattern: "Identity", route: "/reference-service/certificate/sign-in" },
+          { name: "Sign up", pattern: "Identity", route: "/reference-service/certificate/sign-up" },
+          { name: "OTP verification", pattern: "Identity", route: "/reference-service/certificate/verify-otp" },
+          { name: "Forgot password", pattern: "Recovery", route: "/reference-service/certificate/forgot-password" },
+          { name: "Session timeout", pattern: "Recovery", route: "/reference-service/certificate/session-timeout" },
+        ],
+        patterns: ["Sign in", "Sign up", "OTP", "Recovery", "Session management"],
+        keyStates: ["Authenticated", "OTP sent", "OTP verified", "Session expired", "Account locked"],
+      },
+      {
+        number: 3,
+        title: "Application start",
+        icon: <Sparkles size={22} className="text-white" />,
+        iconBg: "bg-violet-600",
+        userGoal: "Start the application and understand the work ahead.",
+        systemAction: "Create a draft, capture the service context, and prepare the application workspace.",
+        pages: [
+          { name: "Start application", pattern: "Start flow", route: "/reference-service/certificate/start" },
+          { name: "Application history", pattern: "My applications", route: "/reference-service/certificate/my-applications" },
+          { name: "User profile", pattern: "Profile", route: "/reference-service/certificate/user-profile" },
+        ],
+        patterns: ["Application start", "Drafts", "Profile"],
+        keyStates: ["Draft created", "Draft saved", "Context loaded", "Resume available"],
+      },
+    ],
+  },
+  {
+    id: "application-build",
+    title: "Application build",
+    description: "The structured form and document layer where the core application is completed.",
+    phases: [
+      {
+        number: 4,
+        title: "Form completion",
+        icon: <ClipboardList size={22} className="text-white" />,
+        iconBg: "bg-indigo-600",
+        userGoal: "Enter accurate personal, address, and supporting information.",
+        systemAction: "Collect data, validate inputs, and persist progress through every step.",
+        pages: [
+          { name: "Personal details", pattern: "Multi-step form", route: "/reference-service/certificate/form/personal" },
+          { name: "Address details", pattern: "Multi-step form", route: "/reference-service/certificate/form/address" },
+          { name: "Additional information", pattern: "Conditional form", route: "/reference-service/certificate/form/additional" },
+          { name: "Form review", pattern: "Final review", route: "/reference-service/certificate/form/review" },
+        ],
+        patterns: ["Multi-step form", "Validation", "Conditional logic", "Save progress"],
+        keyStates: ["In progress", "Section complete", "Validation error", "Form complete", "Draft saved"],
+      },
+      {
+        number: 5,
+        title: "Document submission",
+        icon: <Upload size={22} className="text-white" />,
+        iconBg: "bg-orange-600",
+        userGoal: "Upload the required documents and resolve file issues quickly.",
+        systemAction: "Validate file type and size, preserve secure uploads, and surface recovery actions.",
+        pages: [
+          { name: "Document guidelines", pattern: "Checklist", route: "/reference-service/certificate/document-guidelines" },
+          { name: "Document upload", pattern: "Upload", route: "/reference-service/certificate/document-upload" },
+          { name: "Verification", pattern: "Document validation", route: "/reference-service/certificate/verification" },
+        ],
+        patterns: ["Upload", "File validation", "Error handling", "Document management"],
+        keyStates: ["Upload pending", "Upload success", "Upload failed", "File invalid", "Scan failed"],
+      },
+      {
+        number: 6,
+        title: "Review and declaration",
+        icon: <Eye size={22} className="text-white" />,
+        iconBg: "bg-teal-600",
+        userGoal: "Review the application, accept the declaration, and confirm consent.",
+        systemAction: "Summarize the application, capture the declaration, and record privacy acknowledgement.",
+        pages: [
+          { name: "Review summary", pattern: "Summary", route: "/reference-service/certificate/review-summary" },
+          { name: "Declaration", pattern: "Declaration", route: "/reference-service/certificate/declaration" },
+          { name: "Privacy policy", pattern: "Privacy", route: "/reference-service/certificate/privacy-policy" },
+        ],
+        patterns: ["Review summary", "Declaration", "Consent capture", "Privacy acknowledgement"],
+        keyStates: ["Review complete", "Declaration made", "Consent given", "Privacy acknowledged"],
+      },
+    ],
+  },
+  {
+    id: "submission-tracking",
+    title: "Submission and tracking",
+    description: "Payment, submission, receipts, and status visibility after the application is sent.",
+    phases: [
+      {
+        number: 7,
+        title: "Payment",
+        icon: <CreditCard size={22} className="text-white" />,
+        iconBg: "bg-pink-600",
+        userGoal: "Pay the fee securely and recover from failures without losing progress.",
+        systemAction: "Process payment, record the transaction, and generate a receipt or retry path.",
+        pages: [
+          { name: "Payment summary", pattern: "Payment", route: "/reference-service/certificate/payment-summary" },
+          { name: "Payment receipt", pattern: "Payment", route: "/reference-service/certificate/payment-receipt" },
+        ],
+        patterns: ["Fee payment", "Gateway", "Retry", "Receipt generation"],
+        keyStates: ["Fee due", "Processing", "Success", "Failed", "Pending", "Receipt generated"],
+      },
+      {
+        number: 8,
+        title: "Submission confirmation",
+        icon: <Send size={22} className="text-white" />,
+        iconBg: "bg-green-700",
+        userGoal: "Submit the application and receive a clear acknowledgement.",
+        systemAction: "Validate completeness, generate a reference number, and confirm receipt.",
+        pages: [
+          { name: "Submission success", pattern: "Confirmation", route: "/reference-service/certificate/submission-success" },
+          { name: "Service demo receipt", pattern: "Supporting demo", route: "/reference-service/demo" },
+        ],
+        patterns: ["Confirmation", "Success state", "Reference ID"],
+        keyStates: ["Submitted", "Queued", "Receipt generated", "Confirmation sent"],
+      },
+      {
+        number: 9,
+        title: "Status and notifications",
+        icon: <Clock3 size={22} className="text-white" />,
+        iconBg: "bg-sky-700",
+        userGoal: "Track progress and stay informed as the application moves forward.",
+        systemAction: "Expose the application timeline and notify the applicant about changes.",
+        pages: [
+          { name: "Status tracker", pattern: "Tracking", route: "/reference-service/certificate/status-tracker" },
+          { name: "Notifications", pattern: "Notifications", route: "/reference-service/certificate/notifications" },
+          { name: "My applications", pattern: "Account history", route: "/reference-service/certificate/my-applications" },
+        ],
+        patterns: ["Status tracking", "Timeline", "Notification center"],
+        keyStates: ["Under review", "Documents verified", "Pending clarification", "Approved", "Rejected"],
+      },
+    ],
+  },
+  {
+    id: "operations-recovery",
+    title: "Operations and recovery",
+    description: "Officer-side operations plus the recovery, appeal, and support paths that close the loop.",
+    phases: [
+      {
+        number: 10,
+        title: "Officer review",
+        icon: <UserCheck size={22} className="text-white" />,
+        iconBg: "bg-purple-700",
+        userGoal: "Give officers the queue, context, and tools they need to make a fair decision.",
+        systemAction: "Show the case list, enable verification, and capture decision outcomes.",
+        pages: [
+          { name: "Officer cases", pattern: "Queue", route: "/reference-service/certificate/officer/cases" },
+          { name: "Officer review", pattern: "Review", route: "/reference-service/certificate/officer/review" },
+          { name: "Verification", pattern: "Verification", route: "/reference-service/certificate/verification" },
+        ],
+        patterns: ["Case management", "Verification", "Decision making", "Communication"],
+        keyStates: ["Assigned", "Under review", "Verification complete", "Correction requested", "Approved"],
+      },
+      {
+        number: 11,
+        title: "Decision and issuance",
+        icon: <Award size={22} className="text-white" />,
+        iconBg: "bg-amber-600",
+        userGoal: "Receive the outcome and download the certificate if approved.",
+        systemAction: "Communicate the decision, issue the certificate, and make it downloadable.",
+        pages: [
+          { name: "Issued certificate", pattern: "Issuance", route: "/reference-service/certificate/issued" },
+          { name: "Rejected status", pattern: "Decision", route: "/reference-service/certificate/rejected" },
+        ],
+        patterns: ["Decision notification", "Certificate generation", "Download", "Rejection handling"],
+        keyStates: ["Approved", "Generated", "Downloaded", "Rejected", "Reason shown"],
+      },
+      {
+        number: 12,
+        title: "Recovery and support",
+        icon: <RefreshCw size={22} className="text-white" />,
+        iconBg: "bg-red-600",
+        userGoal: "Correct, resubmit, appeal, or contact support without starting over.",
+        systemAction: "Keep the recovery loop humane with correction, appeal, and help journeys.",
+        pages: [
+          { name: "Correction request", pattern: "Recovery", route: "/reference-service/certificate/correction-request" },
+          { name: "Appeal", pattern: "Recovery", route: "/reference-service/certificate/appeal" },
+          { name: "Help", pattern: "Support", route: "/reference-service/certificate/help" },
+        ],
+        patterns: ["Correction request", "Appeal", "Support"],
+        keyStates: ["Correction requested", "Resubmitted", "Appeal filed", "Support contacted"],
+      },
+    ],
+  },
+];
+
+const highlightTags = [
+  "Citizen-facing and officer-facing views",
+  "Accessible by default",
+  "Reusable across departments",
+  "Built to match the certificate service implementation",
+];
+
+const overviewStats = [
+  { value: "12", label: "journey phases" },
+  { value: "50+", label: "routed screens" },
+  { value: "15+", label: "UX4G patterns" },
+  { value: "1", label: "reference blueprint" },
+];
 
 export default function ReferenceServiceBlueprint() {
   return (
-    <div className="min-h-screen bg-background dark:bg-gray-800 dark:bg-gray-900">
-      {/* Header */}
-      <header className="bg-card dark:bg-gray-900 border-b-2 border-border dark:border-gray-700">
-        <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-start justify-between">
-            <div className="max-w-4xl">
-              <div className="flex items-center gap-3 mb-4">
-                <div
-                  className="w-16 h-16 border-2 border-border dark:border-gray-700 rounded flex items-center justify-center"
-                  style={{
-                    background: 'linear-gradient(to bottom right, var(--ux4g-color-saffron-500), white, var(--ux4g-color-green-600))'
-                  }}
-                >
-                  <FileText size={32} style={{ color: 'var(--ux4g-color-brand-primary)' }} />
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.10),_transparent_24%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[1.12fr_0.88fr] lg:items-start lg:px-12 lg:py-14">
+          <div className="space-y-8">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-muted-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+            >
+              <Home size={16} />
+              Back to Services
+            </Link>
+
+            <div className="space-y-5">
+              <div className="flex items-start gap-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-border bg-primary text-primary-foreground shadow-lg shadow-primary/15">
+                  <FileText size={26} />
                 </div>
-                <div>
-                  <div className="text-sm text-muted-foreground dark:text-gray-400 mb-1">UX4G Complete Reference Service</div>
-                  <h1 className="text-3xl font-bold text-foreground dark:text-gray-100">Certificate Application Service Blueprint</h1>
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">Reference service overview</p>
+              <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+                    Reference service overview
+                  </h1>
                 </div>
               </div>
-              <p className="text-muted-foreground dark:text-gray-300 leading-relaxed mb-4">
-                A complete, end-to-end reference implementation showing how all UX4G patterns, components, and flows 
-                integrate into a production-ready government service. This blueprint documents the full citizen and 
-                officer journey from service discovery to certificate issuance, including all success, failure, and 
-                recovery paths.
+
+              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                This hub uses the certificate application as the reference service example, but the architecture is intentionally reusable.
+                It brings together citizen journeys, officer review flows, recovery states, and the service logic that powers the UX4G
+                reference implementation.
               </p>
-              <div className="flex items-center gap-6 text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-full"></div>
-                  <span className="text-muted-foreground dark:text-gray-400">
-                    Service Type: <span className="font-bold text-foreground dark:text-gray-100">Generic Certificate Application</span>
+
+              <div className="flex flex-wrap gap-3">
+                {highlightTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm"
+                  >
+                    <CheckCircle2 size={14} className="text-primary" />
+                    {tag}
                   </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue-50 dark:bg-blue-900/200 rounded-full"></div>
-                  <span className="text-muted-foreground dark:text-gray-400">
-                    Patterns Used: <span className="font-bold text-foreground dark:text-gray-100">15+</span>
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-purple-50 dark:bg-purple-900/200 rounded-full"></div>
-                  <span className="text-muted-foreground dark:text-gray-400">
-                    Total Pages: <span className="font-bold text-foreground dark:text-gray-100">51</span>
-                  </span>
-                </div>
+                ))}
               </div>
             </div>
 
-            <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 dark:border-green-800 rounded text-green-800 font-bold text-sm text-center">
-                REFERENCE<br/>IMPLEMENTATION
-              </div>
+            <div className="flex flex-wrap gap-3">
               <Link
                 to="/reference-service/demo"
-                className="px-6 py-3 font-bold text-sm text-center rounded transition-colors"
-                style={{
-                  backgroundColor: 'var(--ux4g-color-brand-primary)',
-                  color: 'var(--ux4g-color-text-inverse)'
-                }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-brand-primary-dark)'}
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-brand-primary)'}
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
               >
-                Launch Service
+                Open service demo
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                to="/resources/service-code-downloads"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+              >
+                View code downloads
+              </Link>
+              <Link
+                to="/patterns"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+              >
+                View patterns
               </Link>
             </div>
           </div>
+
+          <aside className="rounded-[30px] border border-border bg-card p-6 shadow-xl shadow-black/5 lg:p-7">
+            <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">At a glance</p>
+                    <h2 className="mt-2 text-2xl font-bold">What this overview covers</h2>
+              </div>
+              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">Reference</div>
+            </div>
+
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              {overviewStats.map((stat) => (
+                <MetricCard key={stat.label} value={stat.value} label={stat.label} />
+              ))}
+            </div>
+
+            <div className="mt-6 space-y-3 rounded-2xl bg-muted/40 p-4">
+              <InfoRow icon={<ShieldCheck size={16} />} title="Citizen and officer journeys" text="One cohesive service model with a citizen-facing flow and a back-office review flow." />
+              <InfoRow icon={<Sparkles size={16} />} title="Reusable logic" text="Sign-in, forms, payments, tracking, and recovery are aligned to the shared service modules." />
+              <InfoRow icon={<FileSearch size={16} />} title="Content review" text="The copy now reflects the service requirement instead of reading like a raw implementation dump." />
+            </div>
+          </aside>
         </div>
       </header>
 
-      {/* Service Overview */}
-      <section className="bg-card dark:bg-gray-900 border-b-2 border-border dark:border-gray-700">
-        <div className="max-w-[1600px] mx-auto px-12 py-12">
-          <div className="pl-4 mb-8" style={{ borderLeft: '4px solid var(--ux4g-color-brand-primary)' }}>
-            <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-2">Service Overview</h2>
-            <p className="text-muted-foreground dark:text-gray-400">Complete blueprint for a generic government certificate application service</p>
-          </div>
-
-          <div className="grid grid-cols-4 gap-6">
-            
-            {/* Service Purpose */}
-            <div className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-300 dark:border-blue-800 rounded-lg p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <Target size={24} className="text-white" />
-                </div>
-                <h3 className="font-bold text-foreground dark:text-gray-100">Purpose</h3>
-              </div>
-              <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed">
-                Enable citizens to apply for government-issued certificates online, track application status, 
-                and receive digital certificates upon approval.
-              </p>
-            </div>
-
-            {/* Target Audience */}
-            <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-300 dark:border-green-800 rounded-lg p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
-                  <User size={24} className="text-white" />
-                </div>
-                <h3 className="font-bold text-foreground dark:text-gray-100">Who This Is For</h3>
-              </div>
-              <ul className="text-sm text-muted-foreground dark:text-gray-300 space-y-2">
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
-                  <span>Indian citizens 18+ years</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
-                  <span>Government officers (reviewers)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
-                  <span>Support staff and administrators</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Use Cases */}
-            <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-300 dark:border-purple-800 rounded-lg p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
-                  <Activity size={24} className="text-white" />
-                </div>
-                <h3 className="font-bold text-foreground dark:text-gray-100">Use Cases</h3>
-              </div>
-              <ul className="text-sm text-muted-foreground dark:text-gray-300 space-y-2">
-                <li className="flex items-start gap-2">
-                  <ChevronRight size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
-                  <span>Birth/Death certificates</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ChevronRight size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
-                  <span>Income certificates</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ChevronRight size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
-                  <span>Domicile certificates</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ChevronRight size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
-                  <span>Caste certificates</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Expected Outcome */}
-            <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-300 dark:border-orange-800 rounded-lg p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
-                  <Award size={24} className="text-white" />
-                </div>
-                <h3 className="font-bold text-foreground dark:text-gray-100">Outcome</h3>
-              </div>
-              <ul className="text-sm text-muted-foreground dark:text-gray-300 space-y-2">
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
-                  <span>Digital certificate issued</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
-                  <span>Downloadable PDF with QR</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
-                  <span>Verifiable authenticity</span>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Journey Phases */}
-      <section className="max-w-[1600px] mx-auto px-12 py-12">
-        <div className="pl-4 mb-8" style={{ borderLeft: '4px solid var(--ux4g-color-brand-primary)' }}>
-          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-2">End-to-End Journey Phases</h2>
-          <p className="text-muted-foreground dark:text-gray-400">12 phases covering complete citizen and officer journey</p>
-        </div>
-
-        <div className="space-y-6">
-
-          {/* Phase 1: Entry and Awareness */}
-          <JourneyPhase
-            phaseNumber={1}
-            phaseName="Entry and Awareness"
-            icon={<MapPin size={24} className="text-white" />}
-            iconBg="bg-blue-600"
-            userGoal="Discover service, understand requirements, check eligibility"
-            systemAction="Display service information, eligibility criteria, document requirements"
-            pages={[
-              { name: "Service Landing Page", pattern: "Service Pattern - Landing", route: "/reference-service/demo" },
-              { name: "Eligibility Checker", pattern: "Operational Pattern - Eligibility", route: "/reference-service/certificate/eligibility" },
-              { name: "Help & FAQ", pattern: "Operational Pattern - Support", route: "/reference-service/certificate/help" }
-            ]}
-            patterns={["Service Landing", "Eligibility Check", "Help & Support"]}
-            keyStates={["Service Available", "Eligibility Met", "Eligibility Not Met", "Maintenance Mode"]}
-          />
-
-          {/* Phase 2: Identity and Access */}
-          <JourneyPhase
-            phaseNumber={2}
-            phaseName="Identity and Access"
-            icon={<LogIn size={24} className="text-white" />}
-            iconBg="bg-green-600"
-            userGoal="Sign in securely to access application system"
-            systemAction="Authenticate user, verify identity, establish secure session"
-            pages={[
-              { name: "Sign In", pattern: "Identity Pattern - Sign In", route: "/reference-service/certificate/sign-in" },
-              { name: "Sign Up", pattern: "Identity Pattern - Sign Up", route: "/reference-service/certificate/sign-up" },
-              { name: "OTP Verification", pattern: "Identity Pattern - OTP", route: "/reference-service/certificate/verify-otp" },
-              { name: "Forgot Password", pattern: "Identity Pattern - Recovery", route: "/reference-service/certificate/forgot-password" },
-              { name: "Session Timeout", pattern: "Identity Pattern - Timeout", route: "/reference-service/certificate/session-timeout" },
-              { name: "Authentication Error", pattern: "Identity Pattern - Error", route: "/reference-service/demo" }
-            ]}
-            patterns={["Sign In", "Sign Up", "OTP Verification", "Password Recovery", "Session Management"]}
-            keyStates={["Authenticated", "OTP Sent", "OTP Verified", "Session Expired", "Auth Failed", "Account Locked"]}
-          />
-
-          {/* Phase 3: Application Start */}
-          <JourneyPhase
-            phaseNumber={3}
-            phaseName="Application Start"
-            icon={<Zap size={24} className="text-white" />}
-            iconBg="bg-purple-600"
-            userGoal="Begin application process, understand steps"
-            systemAction="Create application draft, generate application ID, show instructions"
-            pages={[
-              { name: "Start Application", pattern: "Operational Pattern - Start", route: "/reference-service/certificate/start" },
-              { name: "Application Instructions", pattern: "Operational Pattern - Instructions", route: "/reference-service/demo" },
-              { name: "Save Draft", pattern: "Operational Pattern - Draft", route: "/reference-service/demo" }
-            ]}
-            patterns={["Application Start", "Instructions", "Save & Resume"]}
-            keyStates={["Draft Created", "Draft Saved", "Instructions Acknowledged"]}
-          />
-
-          {/* Phase 4: Form Completion */}
-          <JourneyPhase
-            phaseNumber={4}
-            phaseName="Form Completion"
-            icon={<ClipboardList size={24} className="text-white" />}
-            iconBg="bg-indigo-600"
-            userGoal="Complete application form with accurate information"
-            systemAction="Collect data, validate inputs, save progress, handle conditional fields"
-            pages={[
-              { name: "Personal Details", pattern: "Form Pattern - Multi-step", route: "/reference-service/certificate/form/personal" },
-              { name: "Address Details", pattern: "Form Pattern - Multi-step", route: "/reference-service/certificate/form/address" },
-              { name: "Additional Information", pattern: "Form Pattern - Multi-step", route: "/reference-service/certificate/form/additional" },
-              { name: "Validation Errors", pattern: "Form Pattern - Validation", route: "/reference-service/demo" },
-              { name: "Incomplete Form", pattern: "Form Pattern - Incomplete", route: "/reference-service/demo" }
-            ]}
-            patterns={["Multi-step Form", "Field Validation", "Conditional Logic", "Save Progress"]}
-            keyStates={["Form In Progress", "Section Complete", "Validation Error", "Form Complete", "Draft Saved"]}
-          />
-
-          {/* Phase 5: Document Submission */}
-          <JourneyPhase
-            phaseNumber={5}
-            phaseName="Document Submission"
-            icon={<Upload size={24} className="text-white" />}
-            iconBg="bg-orange-600"
-            userGoal="Upload required supporting documents"
-            systemAction="Accept uploads, validate file types/sizes, scan for malware, store securely"
-            pages={[
-              { name: "Document Checklist", pattern: "Operational Pattern - Checklist", route: "/reference-service/certificate/document-guidelines" },
-              { name: "Upload Documents", pattern: "Operational Pattern - Upload", route: "/reference-service/certificate/document-upload" },
-              { name: "File Errors", pattern: "Operational Pattern - Upload Error", route: "/reference-service/demo" },
-              { name: "Replace/Remove Documents", pattern: "Operational Pattern - Document Mgmt", route: "/reference-service/demo" }
-            ]}
-            patterns={["Document Upload", "File Validation", "Error Handling", "Document Management"]}
-            keyStates={["Upload Pending", "Upload Success", "Upload Failed", "File Invalid", "Scan Failed", "All Uploaded"]}
-          />
-
-          {/* Phase 6: Review and Declaration */}
-          <JourneyPhase
-            phaseNumber={6}
-            phaseName="Review and Declaration"
-            icon={<Eye size={24} className="text-white" />}
-            iconBg="bg-teal-600"
-            userGoal="Review application, provide consent, make declaration"
-            systemAction="Display summary, capture consent, record declaration, show privacy notice"
-            pages={[
-              { name: "Review Summary", pattern: "Operational Pattern - Review", route: "/reference-service/certificate/review-summary" },
-              { name: "Declaration", pattern: "Consent Pattern - Declaration", route: "/reference-service/certificate/declaration" },
-              { name: "Consent Capture", pattern: "Consent Pattern - Consent", route: "/reference-service/demo" },
-              { name: "Privacy Notice", pattern: "Consent Pattern - Privacy", route: "/reference-service/certificate/privacy-policy" }
-            ]}
-            patterns={["Review Summary", "Declaration", "Consent Capture", "Privacy Acknowledgment"]}
-            keyStates={["Review Complete", "Declaration Made", "Consent Given", "Privacy Acknowledged"]}
-          />
-
-          {/* Phase 7: Payment */}
-          <JourneyPhase
-            phaseNumber={7}
-            phaseName="Payment (If Applicable)"
-            icon={<CreditCard size={24} className="text-white" />}
-            iconBg="bg-pink-600"
-            userGoal="Pay application fee securely"
-            systemAction="Display fee, process payment, handle failures, generate receipt"
-            pages={[
-              { name: "Fee Summary", pattern: "Payment Pattern - Summary", route: "/reference-service/certificate/payment-summary" },
-              { name: "Payment Method Selection", pattern: "Payment Pattern - Method", route: "/reference-service/demo" },
-              { name: "Payment Processing", pattern: "Payment Pattern - Process", route: "/reference-service/demo" },
-              { name: "Payment Success", pattern: "Payment Pattern - Success", route: "/reference-service/certificate/payment-receipt" },
-              { name: "Payment Failure", pattern: "Payment Pattern - Failure", route: "/reference-service/demo" },
-              { name: "Payment Retry", pattern: "Payment Pattern - Retry", route: "/reference-service/demo" }
-            ]}
-            patterns={["Fee Payment", "Payment Gateway", "Payment Success", "Payment Failure & Retry"]}
-            keyStates={["Fee Due", "Payment Processing", "Payment Success", "Payment Failed", "Payment Pending", "Receipt Generated"]}
-          />
-
-          {/* Phase 8: Submission */}
-          <JourneyPhase
-            phaseNumber={8}
-            phaseName="Submission"
-            icon={<Send size={24} className="text-white" />}
-            iconBg="bg-green-700"
-            userGoal="Submit application and receive confirmation"
-            systemAction="Validate completeness, generate reference ID, send confirmation, queue for review"
-            pages={[
-              { name: "Final Confirmation", pattern: "Operational Pattern - Confirmation", route: "/reference-service/demo" },
-              { name: "Submission Success", pattern: "Operational Pattern - Success", route: "/reference-service/certificate/submission-success" },
-              { name: "Application Receipt", pattern: "Operational Pattern - Receipt", route: "/reference-service/demo" }
-            ]}
-            patterns={["Submission Confirmation", "Success State", "Receipt Generation"]}
-            keyStates={["Submitted", "Receipt Generated", "Queued for Review", "Confirmation Sent"]}
-          />
-
-          {/* Phase 9: Status Tracking */}
-          <JourneyPhase
-            phaseNumber={9}
-            phaseName="Status Tracking"
-            icon={<Clock size={24} className="text-white" />}
-            iconBg="bg-blue-700"
-            userGoal="Track application status, view timeline, receive updates"
-            systemAction="Display status, show timeline, send notifications, allow status check"
-            pages={[
-              { name: "Status Dashboard", pattern: "Operational Pattern - Status", route: "/reference-service/certificate/status-tracker" },
-              { name: "Timeline View", pattern: "Operational Pattern - Timeline", route: "/reference-service/demo" },
-              { name: "Notifications", pattern: "Operational Pattern - Notifications", route: "/reference-service/certificate/notifications" }
-            ]}
-            patterns={["Status Tracker", "Timeline", "Notification Center"]}
-            keyStates={["Under Review", "Documents Verified", "Pending Clarification", "Approved", "Rejected", "Certificate Issued"]}
-          />
-
-          {/* Phase 10: Officer Review */}
-          <JourneyPhase
-            phaseNumber={10}
-            phaseName="Officer Review"
-            icon={<UserCheck size={24} className="text-white" />}
-            iconBg="bg-purple-700"
-            userGoal="Review application, verify documents, make decision (Officer perspective)"
-            systemAction="Display case details, enable document verification, provide decision tools"
-            pages={[
-              { name: "Case List", pattern: "Officer Pattern - Queue", route: "/reference-service/certificate/officer/cases" },
-              { name: "Case Review", pattern: "Officer Pattern - Review", route: "/reference-service/certificate/officer/review" },
-              { name: "Document Verification", pattern: "Officer Pattern - Verification", route: "/reference-service/demo" },
-              { name: "Request Correction", pattern: "Officer Pattern - Action", route: "/reference-service/demo" },
-              { name: "Approve/Reject", pattern: "Officer Pattern - Decision", route: "/reference-service/demo" }
-            ]}
-            patterns={["Case Management", "Document Verification", "Decision Making", "Communication"]}
-            keyStates={["Case Assigned", "Under Review", "Verification Complete", "Correction Requested", "Approved", "Rejected"]}
-          />
-
-          {/* Phase 11: Decision and Issuance */}
-          <JourneyPhase
-            phaseNumber={11}
-            phaseName="Decision and Issuance"
-            icon={<Award size={24} className="text-white" />}
-            iconBg="bg-yellow-600"
-            userGoal="Receive decision, download certificate if approved"
-            systemAction="Notify decision, generate certificate, enable download, record issuance"
-            pages={[
-              { name: "Approval Notification", pattern: "Operational Pattern - Success", route: "/reference-service/demo" },
-              { name: "Certificate Issued", pattern: "Operational Pattern - Issuance", route: "/reference-service/certificate/issued" },
-              { name: "Download Certificate", pattern: "Operational Pattern - Download", route: "/reference-service/demo" },
-              { name: "Rejection Notification", pattern: "Operational Pattern - Rejection", route: "/reference-service/certificate/rejected" }
-            ]}
-            patterns={["Decision Notification", "Certificate Generation", "Download", "Rejection Handling"]}
-            keyStates={["Approved", "Certificate Generated", "Downloaded", "Rejected", "Rejection Reason Shown"]}
-          />
-
-          {/* Phase 12: Post-Service Actions */}
-          <JourneyPhase
-            phaseNumber={12}
-            phaseName="Post-Service & Recovery"
-            icon={<RefreshCw size={24} className="text-white" />}
-            iconBg="bg-red-600"
-            userGoal="Handle corrections, resubmissions, appeals, support"
-            systemAction="Enable correction flow, process resubmissions, handle appeals, provide support"
-            pages={[
-              { name: "Correction Flow", pattern: "Recovery Pattern - Correction", route: "/reference-service/certificate/correction-request" },
-              { name: "Resubmission", pattern: "Recovery Pattern - Resubmit", route: "/reference-service/demo" },
-              { name: "Rejection Handling", pattern: "Recovery Pattern - Rejection", route: "/reference-service/demo" },
-              { name: "Support Escalation", pattern: "Recovery Pattern - Support", route: "/reference-service/demo" },
-              { name: "Appeal Process", pattern: "Recovery Pattern - Appeal", route: "/reference-service/certificate/appeal" }
-            ]}
-            patterns={["Correction Request", "Resubmission", "Appeal", "Support"]}
-            keyStates={["Correction Requested", "Corrected & Resubmitted", "Appeal Filed", "Support Contacted"]}
-          />
-
-        </div>
-      </section>
-
-      {/* Journey Diagram */}
-      <section className="max-w-[1600px] mx-auto px-12 py-12 bg-gradient-to-r from-blue-50 to-green-50">
-        <div className="pl-4 mb-8" style={{ borderLeft: '4px solid var(--ux4g-color-brand-primary)' }}>
-          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-2">Complete Journey Flow Diagram</h2>
-          <p className="text-muted-foreground dark:text-gray-400">Visual representation of all phases, states, and transitions</p>
-        </div>
-
-        <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-8">
-          <div className="flex flex-col items-center gap-4">
-            
-            <FlowNode label="Entry & Awareness" icon={<MapPin size={20} />} color="bg-blue-100" />
-            <FlowArrow />
-            <FlowNode label="Identity & Access" icon={<LogIn size={20} />} color="bg-green-100" />
-            <FlowArrow />
-            <FlowNode label="Application Start" icon={<Zap size={20} />} color="bg-purple-100" />
-            <FlowArrow />
-            <FlowNode label="Form Completion" icon={<ClipboardList size={20} />} color="bg-indigo-100" />
-            <FlowArrow />
-            <FlowNode label="Document Upload" icon={<Upload size={20} />} color="bg-orange-100" />
-            <FlowArrow />
-            <FlowNode label="Review & Declaration" icon={<Eye size={20} />} color="bg-teal-100" />
-            <FlowArrow />
-            
-            {/* Payment Branch */}
-            <div className="w-full max-w-md">
-              <div className="bg-pink-50 border-2 border-pink-300 rounded-lg p-4 text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <CreditCard size={20} className="text-pink-700" />
-                  <span className="font-bold text-foreground dark:text-gray-100">Payment (Optional)</span>
-                </div>
-                <div className="flex items-center justify-center gap-4 text-xs">
-                  <div className="flex items-center gap-1">
-                    <CheckCircle size={12} className="text-green-600" />
-                    <span className="text-muted-foreground dark:text-gray-300">Success</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <XCircle size={12} className="text-red-600" />
-                    <span className="text-muted-foreground dark:text-gray-300">Failure → Retry</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock size={12} className="text-blue-600" />
-                    <span className="text-muted-foreground dark:text-gray-300">Pending</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <FlowArrow />
-            <FlowNode label="Submission" icon={<Send size={20} />} color="bg-green-100" />
-            <FlowArrow />
-            <FlowNode label="Status Tracking" icon={<Clock size={20} />} color="bg-blue-100" />
-            <FlowArrow />
-            <FlowNode label="Officer Review" icon={<UserCheck size={20} />} color="bg-purple-100" />
-            <FlowArrow />
-            
-            {/* Decision Branch */}
-            <div className="w-full max-w-2xl">
-              <div className="grid grid-cols-3 gap-4">
-                <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-300 dark:border-green-800 rounded-lg p-4 text-center">
-                  <CheckCircle size={24} className="text-green-600 mx-auto mb-2" />
-                  <div className="font-bold text-foreground dark:text-gray-100 text-sm mb-1">Approved</div>
-                  <div className="text-xs text-muted-foreground dark:text-gray-400">Certificate Issued</div>
-                </div>
-                <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-300 dark:border-orange-800 rounded-lg p-4 text-center">
-                  <AlertCircle size={24} className="text-orange-600 mx-auto mb-2" />
-                  <div className="font-bold text-foreground dark:text-gray-100 text-sm mb-1">Correction</div>
-                  <div className="text-xs text-muted-foreground dark:text-gray-400">Resubmit</div>
-                </div>
-                <div className="bg-red-50 border-2 border-red-300 rounded-lg p-4 text-center">
-                  <XCircle size={24} className="text-red-600 mx-auto mb-2" />
-                  <div className="font-bold text-foreground dark:text-gray-100 text-sm mb-1">Rejected</div>
-                  <div className="text-xs text-muted-foreground dark:text-gray-400">Appeal/Support</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="max-w-[1600px] mx-auto px-12 py-12">
-        <div
-          className="p-1 rounded-lg"
-          style={{
-            background: 'linear-gradient(to right, var(--ux4g-color-saffron-500), white, var(--ux4g-color-green-600))'
-          }}
-        >
-          <div className="bg-card dark:bg-gray-900 rounded p-8 text-center">
-            <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-3">
-              Ready to Explore the Complete Service?
-            </h2>
-            <p className="text-muted-foreground dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-              Launch the interactive certificate application service to experience all 51 pages,
-              15+ UX4G patterns, and 20+ executable flows in action.
+      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-12">
+        <section className="mb-8 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div className="max-w-3xl space-y-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">Journey map</p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">A responsive overview of the full service lifecycle</h2>
+            <p className="text-muted-foreground">
+              The page is grouped into four practical journey stages so it scans like a modern enterprise hub, while still keeping every
+              reference route visible.
             </p>
-            <Link
-              to="/reference-service/demo"
-              className="inline-flex items-center gap-2 px-8 py-4 font-bold rounded text-sm transition-colors"
-              style={{
-                backgroundColor: 'var(--ux4g-color-brand-primary)',
-                color: 'var(--ux4g-color-text-inverse)'
-              }}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-brand-primary-dark)'}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-brand-primary)'}
-            >
-              Launch Certificate Service
-              <ArrowRight size={18} />
-            </Link>
           </div>
-        </div>
-      </section>
+          <div className="flex flex-wrap gap-2 lg:justify-end">
+            <StagePill href="#access-onboarding" label="Access" />
+            <StagePill href="#application-build" label="Application" />
+            <StagePill href="#submission-tracking" label="Submission" />
+            <StagePill href="#operations-recovery" label="Recovery" />
+          </div>
+        </section>
 
-      {/* Footer */}
-      <footer className="bg-card dark:bg-gray-900 border-t-2 border-border dark:border-gray-700 mt-24">
-        <div className="max-w-[1600px] mx-auto px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-muted-foreground dark:text-gray-400">
-            <div>UX4G Design System Platform • Reference Service Blueprint</div>
-            <div>Government of India • Digital India Initiative</div>
+        {journeyGroups.map((group) => (
+          <section key={group.id} id={group.id} className="scroll-mt-24 space-y-4 pb-10">
+            <div className="flex flex-col gap-3 border-b border-border pb-4 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-3xl space-y-1">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Journey stage</p>
+                <h3 className="text-2xl font-bold tracking-tight sm:text-[2rem]">{group.title}</h3>
+                <p className="text-sm leading-6 text-muted-foreground">{group.description}</p>
+              </div>
+              <div className="rounded-2xl border border-border bg-card px-4 py-3 text-sm font-semibold text-muted-foreground shadow-sm">
+                {group.phases.length} phase{group.phases.length === 1 ? "" : "s"}
+              </div>
+            </div>
+
+            <div className="grid gap-6 xl:grid-cols-2">
+              {group.phases.map((phase) => (
+                <JourneyPhaseCard key={phase.number} phase={phase} />
+              ))}
+            </div>
+          </section>
+        ))}
+
+        <section className="mt-6 grid gap-4 rounded-[28px] border border-border bg-muted/25 p-6 lg:grid-cols-[1.2fr_0.8fr] lg:p-7">
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Content review</p>
+            <h2 className="text-2xl font-bold tracking-tight">Why this page now reads better</h2>
+            <p className="text-muted-foreground leading-7">
+              The earlier page was correct in content, but it was visually dense and skewed toward implementation detail. This version keeps
+              the same reference-service scope while presenting it as a clearer enterprise landing page for service teams, product owners,
+              and implementers.
+            </p>
           </div>
+
+          <div className="rounded-[24px] border border-border bg-card p-5 shadow-sm">
+            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+              <Flag size={16} className="text-primary" />
+              What you can do next
+            </div>
+            <ul className="mt-4 space-y-3 text-sm leading-6 text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-primary" />
+                Jump into the interactive certificate demo
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-primary" />
+                Download the underlying service source and reusable modules
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0 text-primary" />
+                Move into patterns, foundations, or resources without losing the service context
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer className="mt-16 border-t border-border bg-card">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-8 text-sm text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+          <div>UX4G Design System Platform • Reference Service Blueprint</div>
+          <div>Government of India • Digital India Initiative</div>
         </div>
       </footer>
     </div>
   );
 }
 
-// ==================== JOURNEY PHASE COMPONENT ====================
-
-function JourneyPhase({
-  phaseNumber,
-  phaseName,
-  icon,
-  iconBg,
-  userGoal,
-  systemAction,
-  pages,
-  patterns,
-  keyStates
-}: {
-  phaseNumber: number;
-  phaseName: string;
-  icon: React.ReactNode;
-  iconBg: string;
-  userGoal: string;
-  systemAction: string;
-  pages: { name: string; pattern: string; route: string }[];
-  patterns: string[];
-  keyStates: string[];
-}) {
+function JourneyPhaseCard({ phase }: { phase: JourneyPhase }) {
   return (
-    <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
-      {/* Phase Header */}
-      <div className="bg-muted dark:bg-gray-800 border-b-2 border-border dark:border-gray-700 px-6 py-4">
-        <div className="flex items-center gap-4">
-          <div className={`w-14 h-14 ${iconBg} rounded-lg flex items-center justify-center flex-shrink-0`}>
-            {icon}
+    <article className="overflow-hidden rounded-[28px] border border-border bg-card shadow-sm">
+      <div className="border-b border-border bg-muted/35 px-6 py-5">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex items-start gap-4">
+            <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl ${phase.iconBg} shadow-md`}>
+              {phase.icon}
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Phase {phase.number}</p>
+              <h4 className="mt-1 text-2xl font-bold tracking-tight text-foreground">{phase.title}</h4>
+            </div>
           </div>
-          <div className="flex-1">
-            <div className="text-xs text-muted-foreground dark:text-gray-400 mb-1">PHASE {phaseNumber}</div>
-            <h3 className="text-xl font-bold text-foreground dark:text-gray-100">{phaseName}</h3>
-          </div>
-          <div className="px-4 py-2 bg-blue-100 border-2 border-blue-300 dark:border-blue-800 rounded text-xs font-bold text-blue-900">
-            {pages.length} PAGES
+          <div className="rounded-2xl border border-border bg-background px-4 py-2 text-sm font-semibold text-muted-foreground">
+            {phase.pages.length} screen{phase.pages.length === 1 ? "" : "s"}
           </div>
         </div>
       </div>
 
-      {/* Phase Content */}
-      <div className="p-6">
-        <div className="grid grid-cols-12 gap-6">
-          
-          {/* Goals and Actions - 4 columns */}
-          <div className="col-span-4 space-y-4">
-            <div>
-              <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-2 flex items-center gap-2">
-                <User size={14} className="text-blue-600" />
-                User Goal
-              </h4>
-              <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed">{userGoal}</p>
-            </div>
-            <div>
-              <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-2 flex items-center gap-2">
-                <Settings size={14} className="text-green-600" />
-                System Action
-              </h4>
-              <p className="text-sm text-muted-foreground dark:text-gray-300 leading-relaxed">{systemAction}</p>
-            </div>
-          </div>
+      <div className="space-y-6 p-6">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <DetailBlock icon={<User size={14} />} label="User goal" value={phase.userGoal} />
+          <DetailBlock icon={<ShieldCheck size={14} />} label="System action" value={phase.systemAction} />
+        </div>
 
-          {/* Pages - 5 columns */}
-          <div className="col-span-5">
-            <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-3">Pages in this Phase</h4>
-            <div className="space-y-2">
-              {pages.map((page, idx) => (
-                <Link
-                  key={idx}
-                  to={page.route}
-                  className="block bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded p-3 hover:bg-blue-50 dark:bg-blue-900/20 transition-all group"
-                  style={{
-                    '--hover-border-color': 'var(--ux4g-color-brand-primary)',
-                    '--hover-text-color': 'var(--ux4g-color-brand-primary)'
-                  } as React.CSSProperties}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--ux4g-color-brand-primary)';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.borderColor = '';
-                  }}
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="flex-1">
-                      <div
-                        className="text-sm font-bold text-foreground dark:text-gray-100 transition-colors mb-1 group-hover-text"
-                        style={{
-                          color: 'inherit'
-                        }}
-                        onMouseOver={(e) => {
-                          e.currentTarget.style.color = 'var(--ux4g-color-brand-primary)';
-                        }}
-                        onMouseOut={(e) => {
-                          e.currentTarget.style.color = '';
-                        }}
-                      >
-                        {page.name}
-                      </div>
-                      <div className="text-xs text-muted-foreground dark:text-gray-400">{page.pattern}</div>
-                    </div>
-                    <ArrowRight
-                      size={16}
-                      className="text-gray-400 group-hover:translate-x-1 transition-all flex-shrink-0"
-                      style={{
-                        color: 'inherit'
-                      }}
-                      onMouseOver={(e) => {
-                        e.currentTarget.style.color = 'var(--ux4g-color-brand-primary)';
-                      }}
-                      onMouseOut={(e) => {
-                        e.currentTarget.style.color = '';
-                      }}
-                    />
-                  </div>
-                </Link>
-              ))}
-            </div>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Primary screens</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {phase.pages.map((page) => (
+              <Link
+                key={`${phase.number}-${page.route}`}
+                to={page.route}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-2 text-xs font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+              >
+                {page.name}
+              </Link>
+            ))}
           </div>
+        </div>
 
-          {/* Patterns & States - 3 columns */}
-          <div className="col-span-3 space-y-4">
-            <div>
-              <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-2">UX4G Patterns</h4>
-              <div className="space-y-1">
-                {patterns.map((pattern, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs">
-                    <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
-                    <span className="text-muted-foreground dark:text-gray-300">{pattern}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h4 className="text-xs font-bold text-muted-foreground dark:text-gray-400 uppercase mb-2">Key States</h4>
-              <div className="space-y-1">
-                {keyStates.map((state, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-xs">
-                    <CheckCircle size={12} className="text-green-600 flex-shrink-0" />
-                    <span className="text-muted-foreground dark:text-gray-300">{state}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <TagPanel title="Patterns" tags={phase.patterns} />
+          <TagPanel title="Key states" tags={phase.keyStates} />
+        </div>
+      </div>
+    </article>
+  );
+}
 
+function MetricCard({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-muted/40 p-4">
+      <div className="text-2xl font-bold tracking-tight text-foreground">{value}</div>
+      <div className="mt-1 text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+}
+
+function InfoRow({ icon, title, text }: { icon: ReactNode; title: string; text: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <div className="flex items-start gap-3">
+        <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">{icon}</div>
+        <div>
+          <p className="text-sm font-semibold text-foreground">{title}</p>
+          <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
         </div>
       </div>
     </div>
   );
 }
 
-// ==================== HELPER COMPONENTS ====================
-
-function FlowNode({ label, icon, color }: { label: string; icon: React.ReactNode; color: string }) {
+function StagePill({ href, label }: { href: string; label: string }) {
   return (
-    <div className={`${color} border-2 border-border dark:border-gray-700 rounded-lg px-6 py-4 flex items-center gap-3 min-w-[280px]`}>
-      <div className="w-10 h-10 bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded flex items-center justify-center">
+    <a
+      href={href}
+      className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-muted-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+    >
+      {label}
+    </a>
+  );
+}
+
+function DetailBlock({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
+  return (
+    <div className="rounded-[22px] border border-border bg-background p-4">
+      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         {icon}
+        {label}
       </div>
-      <span className="font-bold text-foreground dark:text-gray-100">{label}</span>
+      <p className="mt-2 text-sm leading-6 text-foreground">{value}</p>
     </div>
   );
 }
 
-function FlowArrow() {
+function TagPanel({ title, tags }: { title: string; tags: string[] }) {
   return (
-    <div className="flex flex-col items-center">
-      <ArrowDown size={24} className="text-gray-400" />
+    <div className="rounded-[22px] border border-border bg-background p-4">
+      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{title}</p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span key={tag} className="inline-flex rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground">
+            {tag}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

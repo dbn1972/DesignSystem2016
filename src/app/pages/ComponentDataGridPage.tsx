@@ -439,6 +439,11 @@ export class DataGridModule { }`,
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-data-grid> custom element",
+        html: "<ux4g-data-grid variant=\"primary\" size=\"md\"><!-- DataGrid --></ux4g-data-grid>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

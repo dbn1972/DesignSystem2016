@@ -524,6 +524,11 @@ export interface SelectProps {
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-select> custom element",
+        html: "<ux4g-select variant=\"primary\" size=\"md\"><!-- Select --></ux4g-select>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

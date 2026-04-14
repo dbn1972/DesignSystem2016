@@ -241,6 +241,11 @@ export class AlertModule { }`,
         types: `export type AlertVariant = 'success' | 'info' | 'warning' | 'error';`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-alert> custom element",
+        html: "<ux4g-alert variant=\"primary\" size=\"md\"><!-- Alert --></ux4g-alert>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

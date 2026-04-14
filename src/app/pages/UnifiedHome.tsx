@@ -142,83 +142,146 @@ export default function UnifiedHome() {
       {/* ==================== CORE PLATFORM LAYERS ==================== */}
       <section className="bg-background dark:bg-gray-800 border-b border-border dark:border-gray-700">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="mb-12">
+          <div className="mb-12 max-w-4xl">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-gray-100 mb-3">Platform Architecture</h2>
-            <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400">Eight foundational layers that power government digital services</p>
+            <p className="text-base sm:text-lg text-muted-foreground dark:text-gray-400 max-w-3xl">
+              Eight foundational layers that power government digital services, organized to help teams move from foundations to live reference services without losing design-system discipline.
+            </p>
           </div>
 
-          <div className="space-y-4">
-            <LayerCard
-              number="1"
-              title="Foundations"
-              description="Design tokens, typography, color systems, spacing, and accessibility guidelines"
-              path="/foundations"
-              color="blue"
-              items={["Design Tokens", "Typography", "Color System", "Spacing", "Accessibility"]}
-            />
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.95fr)] items-start">
+            <div className="space-y-4">
+              <LayerCard
+                number="1"
+                title="Foundations"
+                description="Design tokens, typography, color systems, spacing, and accessibility guidelines"
+                path="/foundations"
+                color="blue"
+                items={["Design Tokens", "Typography", "Color System", "Spacing", "Accessibility"]}
+              />
 
-            <LayerCard
-              number="2"
-              title="Components"
-              description="28+ production-ready, accessible UI components for React and Angular"
-              path="/components"
-              color="green"
-              items={["Buttons", "Forms", "Navigation", "Feedback", "Data Display"]}
-            />
+              <LayerCard
+                number="2"
+                title="Components"
+                description="Production-ready, accessible UI components for React, Angular, and Web Components"
+                path="/components"
+                color="green"
+                items={["Buttons", "Forms", "Navigation", "Feedback", "Data Display"]}
+              />
 
-            <LayerCard
-              number="3"
-              title="Patterns"
-              description="Reusable interaction patterns for common government service workflows"
-              path="/patterns"
-              color="purple"
-              items={["Identity & Access", "Consent", "Payment", "Search", "Dashboard", "Notifications"]}
-            />
+              <LayerCard
+                number="3"
+                title="Patterns"
+                description="Reusable interaction patterns for common government service workflows"
+                path="/patterns"
+                color="purple"
+                items={["Identity & Access", "Consent", "Payment", "Search", "Dashboard", "Notifications"]}
+              />
 
-            <LayerCard
-              number="4"
-              title="Service Archetypes"
-              description="High-level service workflow templates for common government service types"
-              path="/archetypes"
-              color="orange"
-              items={["Application Submission", "Renewal", "Approval & Issuance", "Status Tracking"]}
-            />
+              <LayerCard
+                number="4"
+                title="Service Archetypes"
+                description="High-level service workflow templates for common government service types"
+                path="/archetypes"
+                color="orange"
+                items={["Application Submission", "Renewal", "Approval & Issuance", "Status Tracking"]}
+              />
 
-            <LayerCard
-              number="5"
-              title="Systems"
-              description="Cross-cutting capabilities that work across patterns and services"
-              path="/systems/multilingual"
-              color="teal"
-              items={["Multilingual Support", "Form Intelligence", "State Resilience"]}
-            />
+              <div className="grid gap-4 md:grid-cols-2">
+                <LayerCard
+                  number="5"
+                  title="Systems"
+                  description="Cross-cutting capabilities that work across patterns and services"
+                  path="/systems"
+                  color="teal"
+                  items={["Multilingual Support", "Form Intelligence", "State Resilience"]}
+                />
 
-            <LayerCard
-              number="6"
-              title="Reference Services"
-              description="Complete end-to-end service implementations as reference examples"
-              path="/reference-service/overview"
-              color="indigo"
-              items={["Certificate Service (31 pages)", "Authentication Flow", "Payment Integration"]}
-            />
+                <LayerCard
+                  number="6"
+                  title="Reference Services"
+                  description="Complete end-to-end service implementations as reference examples"
+                  path="/reference-service/overview"
+                  color="indigo"
+                  items={["Certificate Service", "Authentication Flow", "Payment Integration"]}
+                />
+              </div>
 
-            <LayerCard
-              number="7"
-              title="Resources"
-              description="Developer tools, starter kits, documentation, and implementation guides"
-              path="/resources"
-              color="pink"
-              items={["Getting Started", "React/Angular Starters", "Component Specs", "Figma Integration"]}
-            />
+              <div className="grid gap-4 md:grid-cols-2">
+                <LayerCard
+                  number="7"
+                  title="Resources"
+                  description="Developer tools, starter kits, documentation, and implementation guides"
+                  path="/resources"
+                  color="pink"
+                  items={["Getting Started", "Starter Kits", "Component Specs", "Figma Integration"]}
+                />
 
-            <LayerCard
-              number="8"
-              title="Governance"
-              description="Adoption tracking, compliance monitoring, and analytics dashboard"
-              path="/governance"
-              color="red"
-              items={["Adoption Dashboard", "Conformance Metrics", "Service Analytics"]}
-            />
+                <LayerCard
+                  number="8"
+                  title="Governance"
+                  description="Adoption tracking, compliance monitoring, and analytics dashboard"
+                  path="/governance"
+                  color="red"
+                  items={["Adoption Dashboard", "Conformance Metrics", "Service Analytics"]}
+                />
+              </div>
+            </div>
+
+            <div className="lg:sticky lg:top-24 space-y-5">
+              <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-[0.2em]">
+                  Architecture map
+                </div>
+                <h3 className="mt-4 text-2xl font-bold text-foreground dark:text-gray-100">
+                  A cleaner path from design to delivery
+                </h3>
+                <p className="mt-3 text-sm sm:text-base text-muted-foreground dark:text-gray-400 leading-relaxed">
+                  The platform is intentionally layered so teams can start with tokens and components,
+                  move into patterns, and then assemble end-to-end reference services without reinventing
+                  layout or behavior.
+                </p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <MiniStat label="Layers" value="8" />
+                  <MiniStat label="Frameworks" value="3" />
+                  <MiniStat label="Reference service" value="31 pages" />
+                  <MiniStat label="Production focus" value="Government" />
+                </div>
+              </div>
+
+              <div className="rounded-3xl border border-border bg-gradient-to-br from-blue-50 via-white to-emerald-50 p-6 dark:from-blue-900/20 dark:via-gray-800 dark:to-emerald-900/10">
+                <h4 className="text-lg font-bold text-foreground dark:text-gray-100">Best for enterprise teams</h4>
+                <ul className="mt-4 space-y-3 text-sm text-muted-foreground dark:text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="mt-0.5 text-green-600 dark:text-green-400" />
+                    Strong hierarchy for executives, designers, and developers
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="mt-0.5 text-green-600 dark:text-green-400" />
+                    Compact summary panel keeps the desktop layout balanced
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle size={16} className="mt-0.5 text-green-600 dark:text-green-400" />
+                    Clear entry points into docs, patterns, and reference services
+                  </li>
+                </ul>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link
+                    to="/resources"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+                  >
+                    Explore resources
+                    <ArrowRight size={16} />
+                  </Link>
+                  <Link
+                    to="/pattern-library"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-card text-foreground font-semibold hover:border-primary transition-colors"
+                  >
+                    View patterns
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -654,6 +717,17 @@ function StatItem({ number, label }: { number: string; label: string }) {
     <div className="text-center md:text-left">
       <div className="text-2xl sm:text-3xl font-bold text-primary dark:text-blue-400 mb-1">{number}</div>
       <div className="text-sm text-muted-foreground dark:text-gray-400">{label}</div>
+    </div>
+  );
+}
+
+function MiniStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-background px-4 py-3 shadow-sm dark:bg-gray-900">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground dark:text-gray-400">
+        {label}
+      </p>
+      <p className="mt-1 text-sm font-bold text-foreground dark:text-gray-100">{value}</p>
     </div>
   );
 }

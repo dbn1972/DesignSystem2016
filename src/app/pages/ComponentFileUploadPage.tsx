@@ -523,6 +523,11 @@ export class FileUploadModule { }`,
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-file-upload> custom element",
+        html: "<ux4g-file-upload variant=\"primary\" size=\"md\"><!-- FileUpload --></ux4g-file-upload>",
+      }}
       comparisons={[
         {
           system: 'Ant Design (Alibaba)',

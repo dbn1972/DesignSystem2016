@@ -610,6 +610,11 @@ export interface TooltipConfig {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-tooltip> custom element",
+        html: "<ux4g-tooltip variant=\"primary\" size=\"md\"><!-- Tooltip --></ux4g-tooltip>",
+      }}
       comparisons={[
         {
           system: 'Radix UI',

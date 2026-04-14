@@ -552,6 +552,11 @@ export class FooterModule { }`,
 export type FooterVariant = 'government' | 'light' | 'dark';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-footer> custom element",
+        html: "<ux4g-footer variant=\"primary\" size=\"md\"><!-- Footer --></ux4g-footer>",
+      }}
       comparisons={[
         {
           system: 'GOV.UK Design System',

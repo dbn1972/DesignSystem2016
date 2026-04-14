@@ -49,6 +49,12 @@ interface UseCase {
   [key: string]: unknown;
 }
 
+interface CodeBlockEntry {
+  title: string;
+  code: string;
+  copyId: string;
+}
+
 interface ComponentDocumentationProps {
   name: string;
   description: string;
@@ -76,6 +82,13 @@ interface ComponentDocumentationProps {
     component: string;
     module: string;
     types: string;
+  };
+
+  // Web Components / HTML code
+  webComponentsCode?: {
+    component: string;
+    html: string;
+    package?: string;
   };
   
   // Design system comparisons
@@ -122,6 +135,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
   examples,
   reactCode,
   angularCode,
+  webComponentsCode,
   comparisons,
   accessibility,
   tokens,
@@ -163,6 +177,59 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
     { id: 'comparison', label: 'Design System Comparison' },
     ...(tokens ? [{ id: 'tokens', label: 'Token Mappings' }] : []),
   ];
+
+  const codeSections: Array<{
+    key: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+    downloadLabel: string;
+    downloadFilename: string;
+    blocks: CodeBlockEntry[];
+  }> = [
+    {
+      key: 'react',
+      eyebrow: 'Framework lane',
+      title: 'React implementation',
+      description: '@ux4g/react-core with typed variants and token-driven styles.',
+      downloadLabel: 'Download React code',
+      downloadFilename: `${name}.tsx`,
+      blocks: [
+        { title: `Component (${name}.tsx)`, code: reactCode.component, copyId: 'react-component' },
+        ...(reactCode.variants
+          ? [{ title: `Variants (${name.toLowerCase()}.variants.ts)`, code: reactCode.variants, copyId: 'react-variants' }]
+          : []),
+        { title: `Types (${name}.types.ts)`, code: reactCode.types, copyId: 'react-types' },
+      ],
+    },
+    {
+      key: 'angular',
+      eyebrow: 'Framework lane',
+      title: 'Angular implementation',
+      description: '@ux4g/angular-core with the same component contract and states.',
+      downloadLabel: 'Download Angular code',
+      downloadFilename: `${name.toLowerCase()}.component.ts`,
+      blocks: [
+        { title: `Component (${name.toLowerCase()}.component.ts)`, code: angularCode.component, copyId: 'angular-component' },
+        { title: `Module (${name.toLowerCase()}.module.ts)`, code: angularCode.module, copyId: 'angular-module' },
+      ],
+    },
+  ];
+
+  if (webComponentsCode) {
+    codeSections.push({
+      key: 'web',
+      eyebrow: 'Framework-neutral lane',
+      title: 'Web Components / HTML',
+      description: '@ux4g/web-components with plain HTML starter markup.',
+      downloadLabel: 'Download Web code',
+      downloadFilename: `${name.toLowerCase()}.web.ts`,
+      blocks: [
+        { title: 'Package source', code: webComponentsCode.component, copyId: 'web-component' },
+        { title: 'HTML starter', code: webComponentsCode.html, copyId: 'web-html' },
+      ],
+    });
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -238,29 +305,33 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
             <section className="bg-card rounded-lg border border-border p-6">
               <h2 className="text-2xl font-bold text-foreground mb-4">Installation</h2>
               <div className="space-y-4">
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">React</h3>
-                  <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm relative">
-                    <code>npm install @ux4g/react-core</code>
-                    <button
-                      onClick={() => copyToClipboard('npm install @ux4g/react-core', 'install-react')}
-                      className="absolute top-2 right-2 p-2 hover:bg-gray-800 rounded"
-                    >
-                      {copiedCode === 'install-react' ? <Check size={16} /> : <Copy size={16} />}
-                    </button>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Angular</h3>
-                  <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm relative">
-                    <code>npm install @ux4g/angular-core</code>
-                    <button
-                      onClick={() => copyToClipboard('npm install @ux4g/angular-core', 'install-angular')}
-                      className="absolute top-2 right-2 p-2 hover:bg-gray-800 rounded"
-                    >
-                      {copiedCode === 'install-angular' ? <Check size={16} /> : <Copy size={16} />}
-                    </button>
-                  </div>
+                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  <InstallCard
+                    title="React"
+                    body="@ux4g/react-core"
+                    code="npm install @ux4g/react-core @ux4g/tokens @ux4g/styles react react-dom"
+                    copyId="install-react"
+                    copiedCode={copiedCode}
+                    onCopy={copyToClipboard}
+                  />
+                  <InstallCard
+                    title="Angular"
+                    body="@ux4g/angular-core"
+                    code="npm install @ux4g/angular-core @ux4g/tokens @ux4g/styles"
+                    copyId="install-angular"
+                    copiedCode={copiedCode}
+                    onCopy={copyToClipboard}
+                  />
+                  {webComponentsCode && (
+                    <InstallCard
+                      title="Web Components"
+                      body="@ux4g/web-components"
+                      code={webComponentsCode.package || "npm install @ux4g/web-components @ux4g/styles"}
+                      copyId="install-web"
+                      copiedCode={copiedCode}
+                      onCopy={copyToClipboard}
+                    />
+                  )}
                 </div>
               </div>
             </section>
@@ -426,119 +497,82 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         {/* Code Downloads Tab */}
         {activeTab === 'code' && (
           <div className="space-y-6">
-            {/* React Code */}
-            <section className="bg-card rounded-lg border border-border p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-foreground">React Implementation</h2>
-                <button
-                  onClick={() => downloadCode(reactCode.component, `${name}.tsx`)}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#005196] text-white rounded-lg hover:bg-[#004178] transition-colors"
-                >
-                  <Download size={16} />
-                  Download React Code
-                </button>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Component ({name}.tsx)</h3>
-                  <div className="relative">
-                    <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
-                      <pre className="text-sm font-mono">
-                        <code>{reactCode.component}</code>
-                      </pre>
-                    </div>
-                    <button
-                      onClick={() => copyToClipboard(reactCode.component, 'react-component')}
-                      className="absolute top-2 right-2 p-2 bg-gray-800 hover:bg-gray-700 rounded text-white"
-                    >
-                      {copiedCode === 'react-component' ? <Check size={16} /> : <Copy size={16} />}
-                    </button>
-                  </div>
+            <section className="rounded-3xl border border-border bg-card px-6 py-5 shadow-sm">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                <div className="max-w-3xl space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                    Implementation matrix
+                  </p>
+                  <h2 className="text-2xl font-bold text-foreground">Download the same component across React, Angular, and Web Components</h2>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    Each lane uses the same contract and is packaged with its own starter code so teams can copy,
+                    review, and ship the implementation that fits their stack.
+                  </p>
                 </div>
-                {reactCode.variants && (
-                  <div>
-                    <h3 className="text-sm font-semibold text-muted-foreground mb-2">Variants ({name.toLowerCase()}.variants.ts)</h3>
-                    <div className="relative">
-                      <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
-                        <pre className="text-sm font-mono">
-                          <code>{reactCode.variants}</code>
-                        </pre>
-                      </div>
-                      <button
-                        onClick={() => copyToClipboard(reactCode.variants, 'react-variants')}
-                        className="absolute top-2 right-2 p-2 bg-gray-800 hover:bg-gray-700 rounded text-white"
-                      >
-                        {copiedCode === 'react-variants' ? <Check size={16} /> : <Copy size={16} />}
-                      </button>
+                <div className="grid grid-cols-3 gap-3 sm:max-w-lg">
+                  {codeSections.map((section) => (
+                    <div key={section.key} className="rounded-2xl border border-border bg-background px-4 py-3 text-center shadow-sm">
+                      <div className="text-sm font-semibold text-foreground">{section.title.split(' ')[0]}</div>
+                      <div className="mt-1 text-xs text-muted-foreground">{section.blocks.length} snippet{section.blocks.length > 1 ? 's' : ''}</div>
                     </div>
-                  </div>
-                )}
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Types ({name}.types.ts)</h3>
-                  <div className="relative">
-                    <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
-                      <pre className="text-sm font-mono">
-                        <code>{reactCode.types}</code>
-                      </pre>
-                    </div>
-                    <button
-                      onClick={() => copyToClipboard(reactCode.types, 'react-types')}
-                      className="absolute top-2 right-2 p-2 bg-gray-800 hover:bg-gray-700 rounded text-white"
-                    >
-                      {copiedCode === 'react-types' ? <Check size={16} /> : <Copy size={16} />}
-                    </button>
-                  </div>
+                  ))}
                 </div>
               </div>
             </section>
 
-            {/* Angular Code */}
-            <section className="bg-card rounded-lg border border-border p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-foreground">Angular Implementation</h2>
-                <button
-                  onClick={() => downloadCode(angularCode.component, `${name.toLowerCase()}.component.ts`)}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#005196] text-white rounded-lg hover:bg-[#004178] transition-colors"
+            <div className="grid gap-6 lg:grid-cols-3">
+              {codeSections.map((section) => (
+                <section
+                  key={section.key}
+                  className="flex min-w-0 h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm"
                 >
-                  <Download size={16} />
-                  Download Angular Code
-                </button>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Component ({name.toLowerCase()}.component.ts)</h3>
-                  <div className="relative">
-                    <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
-                      <pre className="text-sm font-mono">
-                        <code>{angularCode.component}</code>
-                      </pre>
+                  <div className="h-1 bg-[#005196]" />
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-5 flex items-start justify-between gap-4">
+                      <div className="space-y-2">
+                        <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                          {section.eyebrow}
+                        </span>
+                        <div>
+                          <h2 className="text-xl font-bold text-foreground">{section.title}</h2>
+                          <p className="mt-1 text-sm leading-6 text-muted-foreground">{section.description}</p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => downloadCode(section.blocks[0]?.code || '', section.downloadFilename)}
+                        aria-label={section.downloadLabel}
+                        title={section.downloadLabel}
+                        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] transition-colors hover:border-[#005196] hover:bg-[#005196] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
+                      >
+                        <Download size={16} />
+                      </button>
                     </div>
-                    <button
-                      onClick={() => copyToClipboard(angularCode.component, 'angular-component')}
-                      className="absolute top-2 right-2 p-2 bg-gray-800 hover:bg-gray-700 rounded text-white"
-                    >
-                      {copiedCode === 'angular-component' ? <Check size={16} /> : <Copy size={16} />}
-                    </button>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">Module ({name.toLowerCase()}.module.ts)</h3>
-                  <div className="relative">
-                    <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto max-h-96">
-                      <pre className="text-sm font-mono">
-                        <code>{angularCode.module}</code>
-                      </pre>
+
+                    <div className="flex-1 space-y-4">
+                      {section.blocks.map((block) => (
+                        <div key={block.copyId} className="space-y-2">
+                          <div className="flex items-center justify-between gap-3">
+                            <h3 className="text-sm font-semibold text-muted-foreground">{block.title}</h3>
+                            <button
+                              onClick={() => copyToClipboard(block.code, block.copyId)}
+                              className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                            >
+                              {copiedCode === block.copyId ? <Check size={14} /> : <Copy size={14} />}
+                              Copy
+                            </button>
+                          </div>
+                          <div className="rounded-2xl border border-border bg-slate-950 p-4 text-sm text-slate-100 shadow-inner">
+                            <pre className="overflow-x-auto font-mono leading-6">
+                              <code>{block.code}</code>
+                            </pre>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                    <button
-                      onClick={() => copyToClipboard(angularCode.module, 'angular-module')}
-                      className="absolute top-2 right-2 p-2 bg-gray-800 hover:bg-gray-700 rounded text-white"
-                    >
-                      {copiedCode === 'angular-module' ? <Check size={16} /> : <Copy size={16} />}
-                    </button>
                   </div>
-                </div>
-              </div>
-            </section>
+                </section>
+              ))}
+            </div>
           </div>
         )}
 
@@ -564,18 +598,18 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  <tr className="bg-[#005196] bg-opacity-5">
-                    <td className="px-6 py-4 text-sm font-semibold text-foreground">UX4G (Current)</td>
-                    <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{name}</td>
-                    <td className="px-6 py-4 text-sm text-muted-foreground">{props.find(p => p.name === 'variant')?.type || 'N/A'}</td>
-                    <td className="px-6 py-4 text-sm text-muted-foreground">{accessibility.wcagLevel}</td>
+                  <tr className="bg-primary/10">
+                    <td className="px-6 py-4 text-sm font-semibold text-primary">UX4G (Current)</td>
+                    <td className="px-6 py-4 text-sm font-mono font-medium text-foreground">{name}</td>
+                    <td className="px-6 py-4 text-sm font-medium text-foreground">{props.find(p => p.name === 'variant')?.type || 'N/A'}</td>
+                    <td className="px-6 py-4 text-sm font-medium text-foreground">{accessibility.wcagLevel}</td>
                     <td className="px-6 py-4 text-sm">
                       <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800">
                         Comprehensive
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm">
-                      <span className="text-gray-400">Current Page</span>
+                      <span className="font-medium text-primary">Current Page</span>
                     </td>
                   </tr>
                   {comparisons.map((comp, idx) => (
@@ -660,3 +694,40 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
     </div>
   );
 };
+
+function InstallCard({
+  title,
+  body,
+  code,
+  copyId,
+  copiedCode,
+  onCopy,
+}: {
+  title: string;
+  body: string;
+  code: string;
+  copyId: string;
+  copiedCode: string | null;
+  onCopy: (code: string, id: string) => void;
+}) {
+  return (
+    <div className="rounded-2xl border border-border bg-muted/20 p-5 shadow-sm">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="text-sm font-semibold text-foreground">{title}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{body}</p>
+        </div>
+        <button
+          onClick={() => onCopy(code, copyId)}
+          className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+        >
+          {copiedCode === copyId ? <Check size={16} /> : <Copy size={16} />}
+          Copy
+        </button>
+      </div>
+      <div className="mt-4 rounded-xl bg-gray-900 p-4 text-sm font-mono text-gray-100 overflow-x-auto">
+        <code>{code}</code>
+      </div>
+    </div>
+  );
+}

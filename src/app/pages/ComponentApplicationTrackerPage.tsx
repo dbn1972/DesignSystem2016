@@ -344,6 +344,11 @@ export interface ApplicationStage {
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-application-tracker> custom element",
+        html: "<ux4g-application-tracker variant=\"primary\" size=\"md\"><!-- ApplicationTracker --></ux4g-application-tracker>",
+      }}
       comparisons={[
         {
           system: 'Ant Design (Alibaba)',

@@ -1,4 +1,5 @@
-import { ArrowLeft, Download, FileCode2 } from "lucide-react";
+import { ArrowLeft, Download, FileCode2, Search, X } from "lucide-react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router";
 
 import certificateSignInCode from "./CertificateSignIn.tsx?raw";
@@ -37,6 +38,19 @@ import certificateVerifyOtpCode from "./CertificateVerifyOTP.tsx?raw";
 import referenceVerifyOtpCode from "./ReferenceServiceVerifyOTP.tsx?raw";
 import certificateAuthStatusCode from "./CertificateSessionTimeout.tsx?raw";
 import referenceAuthStatusCode from "./ReferenceServiceAuthStatus.tsx?raw";
+import certificateIssuedCode from "./CertificateIssued.tsx?raw";
+import certificateNotificationsCode from "./CertificateNotifications.tsx?raw";
+import certificateOfficerDashboardCode from "./CertificateOfficerDashboard.tsx?raw";
+import certificateOfficerCasesCode from "./CertificateOfficerCases.tsx?raw";
+import certificateOfficerReviewCode from "./CertificateOfficerReview.tsx?raw";
+import certificateMyApplicationsCode from "./CertificateMyApplications.tsx?raw";
+import certificateVerificationCode from "./CertificateVerification.tsx?raw";
+import certificateFeedbackCode from "./CertificateFeedback.tsx?raw";
+import certificateCorrectionRequestCode from "./CertificateCorrectionRequest.tsx?raw";
+import certificateRejectedCode from "./CertificateRejected.tsx?raw";
+import certificateAppealCode from "./CertificateAppeal.tsx?raw";
+import certificateHelpCode from "./CertificateHelp.tsx?raw";
+import certificatePrivacyPolicyCode from "./CertificatePrivacyPolicy.tsx?raw";
 import reusableSignInComponentCode from "../components/auth/SignInService.tsx?raw";
 import reusableSignUpComponentCode from "../components/auth/SignUpService.tsx?raw";
 import reusableForgotPasswordComponentCode from "../components/auth/ForgotPasswordService.tsx?raw";
@@ -77,6 +91,12 @@ type DownloadGroup = {
   title: string;
   description: string;
   items: DownloadItem[];
+};
+
+type JourneyStage = {
+  id: string;
+  title: string;
+  description: string;
 };
 
 const downloadGroups: DownloadGroup[] = [
@@ -844,7 +864,192 @@ const downloadGroups: DownloadGroup[] = [
       },
     ],
   },
+  {
+    id: "certificate-issued",
+    title: "Certificate Issued Page",
+    description: "Post-issuance certificate landing page for confirmation and download flows.",
+    items: [
+      {
+        label: "Download Certificate Issued Page",
+        filename: "CertificateIssued.tsx",
+        code: certificateIssuedCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-notifications",
+    title: "Certificate Notifications Page",
+    description: "Notification center for service updates, reminders, and action prompts.",
+    items: [
+      {
+        label: "Download Certificate Notifications Page",
+        filename: "CertificateNotifications.tsx",
+        code: certificateNotificationsCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-my-applications",
+    title: "Certificate My Applications Page",
+    description: "Application history and saved drafts for the certificate journey.",
+    items: [
+      {
+        label: "Download Certificate My Applications Page",
+        filename: "CertificateMyApplications.tsx",
+        code: certificateMyApplicationsCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-officer-dashboard",
+    title: "Certificate Officer Dashboard",
+    description: "Back-office dashboard for reviewing and managing incoming certificate cases.",
+    items: [
+      {
+        label: "Download Certificate Officer Dashboard",
+        filename: "CertificateOfficerDashboard.tsx",
+        code: certificateOfficerDashboardCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-officer-cases",
+    title: "Certificate Officer Cases",
+    description: "List and queue management for officer review workloads.",
+    items: [
+      {
+        label: "Download Certificate Officer Cases",
+        filename: "CertificateOfficerCases.tsx",
+        code: certificateOfficerCasesCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-officer-review",
+    title: "Certificate Officer Review",
+    description: "Decision and adjudication screen used by reviewing officers.",
+    items: [
+      {
+        label: "Download Certificate Officer Review",
+        filename: "CertificateOfficerReview.tsx",
+        code: certificateOfficerReviewCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-verification",
+    title: "Certificate Verification Page",
+    description: "Verification and issuance lookup page for residents and officials.",
+    items: [
+      {
+        label: "Download Certificate Verification Page",
+        filename: "CertificateVerification.tsx",
+        code: certificateVerificationCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-feedback",
+    title: "Certificate Feedback Page",
+    description: "Feedback collection page for post-completion service improvement.",
+    items: [
+      {
+        label: "Download Certificate Feedback Page",
+        filename: "CertificateFeedback.tsx",
+        code: certificateFeedbackCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-correction-request",
+    title: "Certificate Correction Request",
+    description: "Correction and resubmission entry point for rejected or updated submissions.",
+    items: [
+      {
+        label: "Download Certificate Correction Request Page",
+        filename: "CertificateCorrectionRequest.tsx",
+        code: certificateCorrectionRequestCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-rejected",
+    title: "Certificate Rejected Page",
+    description: "Clear rejection outcome with next-step guidance.",
+    items: [
+      {
+        label: "Download Certificate Rejected Page",
+        filename: "CertificateRejected.tsx",
+        code: certificateRejectedCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-appeal",
+    title: "Certificate Appeal Page",
+    description: "Appeal and escalation flow for post-decision review.",
+    items: [
+      {
+        label: "Download Certificate Appeal Page",
+        filename: "CertificateAppeal.tsx",
+        code: certificateAppealCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-help",
+    title: "Certificate Help Page",
+    description: "Contextual support and contact guidance for the certificate service.",
+    items: [
+      {
+        label: "Download Certificate Help Page",
+        filename: "CertificateHelp.tsx",
+        code: certificateHelpCode,
+      },
+    ],
+  },
+  {
+    id: "certificate-privacy-policy",
+    title: "Certificate Privacy Policy Page",
+    description: "Service-specific privacy policy and data-handling information.",
+    items: [
+      {
+        label: "Download Certificate Privacy Policy Page",
+        filename: "CertificatePrivacyPolicy.tsx",
+        code: certificatePrivacyPolicyCode,
+      },
+    ],
+  },
 ];
+
+const journeyStages: JourneyStage[] = [
+  {
+    id: "entry-access",
+    title: "Entry and access",
+    description: "Authentication, onboarding, eligibility, and initial service entry flows.",
+  },
+  {
+    id: "application-build",
+    title: "Application build",
+    description: "Core form steps, document upload, review, and declaration journeys.",
+  },
+  {
+    id: "submission-status",
+    title: "Submission and status",
+    description: "Payment, tracking, receipts, and confirmation after the form is submitted.",
+  },
+  {
+    id: "operations-support",
+    title: "Operations and support",
+    description: "Officer review, issuance, appeals, help, and public service follow-up pages.",
+  },
+];
+
+const DOWNLOAD_GROUP_COUNT = downloadGroups.length;
+const DOWNLOAD_FILE_COUNT = downloadGroups.reduce((sum, group) => sum + group.items.length, 0);
+const CERTIFICATE_GROUP_COUNT = downloadGroups.filter((group) => group.id.startsWith("certificate-")).length;
+const REUSABLE_GROUP_COUNT = downloadGroups.filter((group) => group.id.startsWith("reusable-")).length;
+const SINGLE_FILE_GROUP_COUNT = downloadGroups.filter((group) => group.items.length === 1).length;
 
 function triggerDownload(filename: string, code: string) {
   const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
@@ -858,56 +1063,360 @@ function triggerDownload(filename: string, code: string) {
   URL.revokeObjectURL(url);
 }
 
+function getJourneyStageId(groupId: string) {
+  if (
+    groupId.includes("sign-in") ||
+    groupId.includes("sign-up") ||
+    groupId.includes("eligibility") ||
+    groupId.includes("start") ||
+    groupId.includes("user-profile") ||
+    groupId.includes("forgot-password") ||
+    groupId.includes("otp") ||
+    groupId.includes("auth-status")
+  ) {
+    return "entry-access";
+  }
+
+  if (groupId.includes("form-") || groupId.includes("document-upload") || groupId.includes("review-summary") || groupId.includes("declaration")) {
+    return "application-build";
+  }
+
+  if (groupId.includes("payment-summary") || groupId.includes("payment-receipt") || groupId.includes("status-tracker")) {
+    return "submission-status";
+  }
+
+  return "operations-support";
+}
+
 export default function ServiceCodeDownloads() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [scope, setScope] = useState<"all" | "certificate" | "reusable" | "single">("all");
+
+  const filteredGroups = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
+    return downloadGroups.filter((group) => {
+      const matchesScope =
+        scope === "all" ||
+        (scope === "certificate" && group.id.startsWith("certificate-")) ||
+        (scope === "reusable" && group.id.startsWith("reusable-")) ||
+        (scope === "single" && group.items.length === 1);
+
+      if (!matchesScope) return false;
+      if (!query) return true;
+
+      const haystack = [
+        group.title,
+        group.description,
+        group.id,
+        ...group.items.map((item) => `${item.label} ${item.filename}`),
+      ]
+        .join(" ")
+        .toLowerCase();
+
+      return haystack.includes(query);
+    });
+  }, [scope, searchTerm]);
+
+  const visibleGroupCount = filteredGroups.length;
+  const visibleFileCount = filteredGroups.reduce((sum, group) => sum + group.items.length, 0);
+  const groupedByStage = journeyStages
+    .map((stage) => ({
+      ...stage,
+      groups: filteredGroups.filter((group) => getJourneyStageId(group.id) === stage.id),
+    }))
+    .filter((stage) => stage.groups.length > 0);
+  const visibleStageCount = groupedByStage.length;
+
   return (
     <div className="min-h-screen bg-background">
-      <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
-          <Link
-            to="/reference-service/overview"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4"
-          >
-            <ArrowLeft size={16} />
-            Back to Reference Services
-          </Link>
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded bg-primary text-white flex items-center justify-center">
-              <FileCode2 size={22} />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-foreground">Service Code Downloads</h1>
-              <p className="text-sm text-muted-foreground mt-1">
-                Download React source code for sign-up, sign-in, eligibility, application start, user profile, personal/address/additional/review forms, document upload, review summary, declaration, payment summary, payment receipt, status tracker, forgot-password, OTP, and auth-status services.
+      <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-12 sm:px-8 lg:px-12 xl:grid-cols-[1.15fr_0.85fr] xl:items-center xl:py-16">
+          <div className="space-y-6">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+            >
+              <ArrowLeft size={16} />
+              Back to Services
+            </Link>
+
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-border bg-primary text-primary-foreground shadow-lg shadow-primary/15">
+                  <FileCode2 size={24} />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">Service source downloads</p>
+                  <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Service code downloads for reference journeys</h1>
+                </div>
+              </div>
+              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                Download the React source behind the service flows, shared components, and supporting logic used across the certificate
+                reference service and reusable government patterns.
               </p>
             </div>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#entry-access"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+              >
+                Start with access
+              </a>
+              <a
+                href="#application-build"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+              >
+                Jump to applications
+              </a>
+              <a
+                href="#submission-status"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+              >
+                Payment and status
+              </a>
+            </div>
           </div>
+
+          <aside className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
+            <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Catalogue snapshot</p>
+                <h2 className="mt-2 text-2xl font-bold text-foreground">What’s available</h2>
+              </div>
+              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">{DOWNLOAD_GROUP_COUNT} bundles</div>
+            </div>
+
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              <SummaryCard value={DOWNLOAD_GROUP_COUNT.toString()} label="Bundles" />
+              <SummaryCard value={DOWNLOAD_FILE_COUNT.toString()} label="Download files" />
+              <SummaryCard value={CERTIFICATE_GROUP_COUNT.toString()} label="Certificate groups" />
+              <SummaryCard value={REUSABLE_GROUP_COUNT.toString()} label="Reusable groups" />
+              <SummaryCard value={journeyStages.length.toString()} label="Journey stages" />
+            </div>
+
+            <div className="mt-6 space-y-3 rounded-2xl bg-muted/40 p-4">
+              <ReviewNote title="Content review" text="The catalogue now includes later-stage certificate pages like issued, officer review, appeal, and privacy policy." />
+              <ReviewNote title="Structure" text="Bundles are consistently split between certificate-specific wrappers and reusable government flows." />
+            </div>
+          </aside>
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8 lg:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {downloadGroups.map((group) => (
-            <section id={group.id} key={group.title} className="bg-card border-2 border-border rounded-lg p-6 scroll-mt-24">
-              <h2 className="text-xl font-bold text-foreground">{group.title}</h2>
-              <p className="text-sm text-muted-foreground mt-2 mb-5">{group.description}</p>
+      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-12">
+        <section className="mb-8">
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">Jump to a bundle</p>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Browse by journey stage or implementation concern</h2>
+              <p className="text-muted-foreground">
+                Use search to narrow the catalogue, then jump to the exact bundle you need. The filters keep the page usable as the catalogue grows.
+              </p>
+            </div>
+            <div className="hidden flex-wrap gap-2 lg:flex">
+              <AnchorPill href="#entry-access" label="Entry" />
+              <AnchorPill href="#application-build" label="Applications" />
+              <AnchorPill href="#submission-status" label="Submission" />
+              <AnchorPill href="#operations-support" label="Operations" />
+            </div>
+          </div>
 
-              <div className="space-y-3">
-                {group.items.map((item) => (
-                  <button
-                    key={`${group.title}-${item.filename}`}
-                    type="button"
-                    onClick={() => triggerDownload(item.filename, item.code)}
-                    className="w-full inline-flex items-center justify-between gap-3 px-4 py-3 border-2 border-border rounded text-sm font-bold text-foreground hover:bg-background focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring"
-                  >
-                    <span className="text-left">{item.label}</span>
-                    <Download size={16} aria-hidden="true" />
-                  </button>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
+          <div className="mt-6 grid gap-3 rounded-[24px] border border-border bg-card p-4 shadow-sm lg:grid-cols-[1fr_auto] lg:items-center">
+            <label className="relative block">
+              <span className="sr-only">Search service bundles</span>
+              <Search size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type="search"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                placeholder="Search by bundle name, file name, or journey stage"
+                className="w-full rounded-2xl border border-border bg-background py-3 pl-10 pr-10 text-sm text-foreground shadow-sm outline-none transition-colors placeholder:text-muted-foreground/80 focus:border-primary focus:ring-2 focus:ring-ring"
+              />
+              {searchTerm ? (
+                <button
+                  type="button"
+                  onClick={() => setSearchTerm("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  aria-label="Clear search"
+                >
+                  <X size={16} />
+                </button>
+              ) : null}
+            </label>
+
+            <div className="flex flex-wrap gap-2">
+              <FilterChip active={scope === "all"} onClick={() => setScope("all")} label="All bundles" />
+              <FilterChip active={scope === "certificate"} onClick={() => setScope("certificate")} label="Certificate" />
+              <FilterChip active={scope === "reusable"} onClick={() => setScope("reusable")} label="Reusable" />
+              <FilterChip active={scope === "single"} onClick={() => setScope("single")} label="Single file" />
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <CalloutCard
+            title="Certificate-specific"
+            text="Wrapper pages for the certificate reference service, including submission, post-submission, and support flows."
+          />
+          <CalloutCard
+            title="Reusable services"
+            text="Generic government flows that can be adopted across departments without certificate-specific copy."
+          />
+          <CalloutCard
+            title="Shared logic"
+            text="Auth, form flow, review, payment, and status helpers are surfaced alongside the page wrappers."
+          />
+          <CalloutCard
+            title="Content review"
+            text={`${SINGLE_FILE_GROUP_COUNT} single-file service screens are now exposed in the catalogue for completeness.`}
+          />
+        </section>
+
+        <section className="mb-6 flex items-center justify-between gap-4 rounded-[24px] border border-border bg-muted/30 px-5 py-4">
+          <div>
+            <p className="text-sm font-semibold text-foreground">
+              Showing {visibleGroupCount} bundle{visibleGroupCount === 1 ? "" : "s"} across {visibleStageCount} stage
+              {visibleStageCount === 1 ? "" : "s"} and {visibleFileCount} file{visibleFileCount === 1 ? "" : "s"}
+            </p>
+            <p className="text-xs text-muted-foreground">Search term: {searchTerm.trim() ? searchTerm.trim() : "none"} • Scope: {scope}</p>
+          </div>
+          <div className="text-right text-xs text-muted-foreground">
+            Tip: use the anchor pills for fast jumping once you’ve narrowed the list
+          </div>
+        </section>
+
+        {groupedByStage.length > 0 ? (
+          <div className="space-y-8">
+            {groupedByStage.map((stage) => (
+              <section key={stage.id} id={stage.id} className="scroll-mt-24 space-y-4">
+                <div className="flex flex-col gap-3 border-b border-border pb-4 lg:flex-row lg:items-end lg:justify-between">
+                  <div className="max-w-3xl space-y-1">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Journey stage</p>
+                    <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-[2rem]">{stage.title}</h2>
+                    <p className="text-sm leading-6 text-muted-foreground">{stage.description}</p>
+                  </div>
+                  <div className="rounded-2xl border border-border bg-card px-4 py-3 text-sm font-semibold text-muted-foreground shadow-sm">
+                    {stage.groups.length} bundle{stage.groups.length === 1 ? "" : "s"}
+                  </div>
+                </div>
+
+                <div className="grid gap-6 xl:grid-cols-2">
+                  {stage.groups.map((group) => (
+                    <section
+                      id={group.id}
+                      key={group.title}
+                      className="overflow-hidden rounded-[28px] border border-border bg-card shadow-sm"
+                    >
+                      <div className="border-b border-border bg-muted/35 px-6 py-5">
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <h3 className="text-2xl font-bold tracking-tight text-foreground">{group.title}</h3>
+                            <p className="mt-2 text-sm leading-6 text-muted-foreground">{group.description}</p>
+                          </div>
+                          <div className="rounded-2xl border border-border bg-background px-4 py-2 text-sm font-semibold text-muted-foreground">
+                            {group.items.length} file{group.items.length === 1 ? "" : "s"}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-3 p-6">
+                        {group.items.map((item) => (
+                          <button
+                            key={`${group.title}-${item.filename}`}
+                            type="button"
+                            onClick={() => triggerDownload(item.filename, item.code)}
+                            className="group inline-flex w-full items-center justify-between gap-3 rounded-[20px] border border-border bg-background px-4 py-3 text-sm font-semibold text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                          >
+                            <span className="text-left leading-6">{item.label}</span>
+                            <Download
+                              size={16}
+                              aria-hidden="true"
+                              className="flex-shrink-0 text-muted-foreground transition-transform group-hover:translate-y-0.5 group-hover:text-primary"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-[28px] border border-border bg-card p-10 text-center shadow-sm">
+            <h3 className="text-xl font-bold text-foreground">No bundles match your search</h3>
+            <p className="mx-auto mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+              Try a broader search term or switch back to All bundles. The current catalogue is organized around service journeys,
+              reusable flows, and certificate-specific wrappers.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchTerm("");
+                setScope("all");
+              }}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+            >
+              Reset filters
+            </button>
+          </div>
+        )}
       </main>
+    </div>
+  );
+}
+
+function FilterChip({ active, onClick, label }: { active: boolean; onClick: () => void; label: string }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+        active
+          ? "border-primary bg-primary text-primary-foreground shadow-sm"
+          : "border-border bg-card text-muted-foreground hover:border-primary hover:text-primary"
+      }`}
+    >
+      {label}
+    </button>
+  );
+}
+
+function SummaryCard({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-muted/40 p-4">
+      <div className="text-2xl font-bold tracking-tight text-foreground">{value}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+}
+
+function ReviewNote({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <p className="text-sm font-semibold text-foreground">{title}</p>
+      <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
+    </div>
+  );
+}
+
+function AnchorPill({ href, label }: { href: string; label: string }) {
+  return (
+    <a
+      href={href}
+      className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-semibold text-muted-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+    >
+      {label}
+    </a>
+  );
+}
+
+function CalloutCard({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-[24px] border border-border bg-card p-5 shadow-sm">
+      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{title}</p>
+      <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
     </div>
   );
 }

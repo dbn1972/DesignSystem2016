@@ -499,6 +499,11 @@ export default function ComponentDialogPage() {
         types: 'export type DialogVariant = \'default\' | \'alert\' | \'destructive\' | \'success\' | \'error\';\nexport type DialogSize = \'sm\' | \'md\' | \'lg\';\n\nexport interface DialogConfig {\n  isOpen: boolean;\n  title: string;\n  description?: string;\n  variant?: DialogVariant;\n  size?: DialogSize;\n  showCloseButton?: boolean;\n  confirmText?: string;\n  cancelText?: string;\n  hideCancel?: boolean;\n}',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-dialog> custom element",
+        html: "<ux4g-dialog variant=\"primary\" size=\"md\"><!-- Dialog --></ux4g-dialog>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

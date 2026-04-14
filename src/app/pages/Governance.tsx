@@ -2,46 +2,59 @@ import { Users, GitBranch, CheckCircle, AlertCircle, Clock, XCircle, ChevronRigh
 
 export default function Governance() {
   return (
-    <div className="min-h-screen bg-card dark:bg-gray-900">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] dark:from-blue-900 dark:via-blue-950 dark:to-blue-950 text-white">
-        <div className="max-w-7xl mx-auto px-8 py-16">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
-              <Shield size={16} />
-              <span>Design System Governance</span>
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
+              <Shield size={14} className="text-primary" />
+              Design system governance
             </div>
-            
-            <h1 className="text-5xl font-bold mb-6">
-              Governance & Lifecycle
-            </h1>
-            
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              UX4G is governed as a product platform, not just a component library. This framework ensures quality, 
-              consistency, and scalability across all government digital services while enabling collaborative contribution 
-              from departments and vendors.
-            </p>
 
-            <div className="grid grid-cols-3 gap-6 mt-8">
-              <div className="bg-white/10 dark:bg-white/5 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Clear Ownership</div>
-                <div className="text-blue-200 dark:text-blue-300 text-sm">Defined roles and responsibilities</div>
-              </div>
-              <div className="bg-white/10 dark:bg-white/5 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Quality Gates</div>
-                <div className="text-blue-200 dark:text-blue-300 text-sm">Multi-stage review process</div>
-              </div>
-              <div className="bg-white/10 dark:bg-white/5 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Lifecycle Model</div>
-                <div className="text-blue-200 dark:text-blue-300 text-sm">Alpha to production workflow</div>
-              </div>
+            <div className="space-y-4">
+              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Governance & lifecycle for a production design system</h1>
+              <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
+                UX4G is governed as a product platform, not just a component library. This framework keeps quality,
+                consistency, and scalability visible while supporting contribution from departments and vendors.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <a href="#ownership" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
+                Review ownership
+              </a>
+              <a href="#approval" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
+                Quality gates
+              </a>
+              <a href="#lifecycle" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
+                Lifecycle states
+              </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16 space-y-24">
+          <aside className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
+            <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Governance snapshot</p>
+                <h2 className="mt-2 text-2xl font-bold text-foreground">What this page communicates</h2>
+              </div>
+              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">10 sections</div>
+            </div>
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              <GovernanceMetric value="3" label="Review lanes" />
+              <GovernanceMetric value="4" label="Lifecycle states" />
+              <GovernanceMetric value="2" label="Release tracks" />
+              <GovernanceMetric value="AA" label="Accessibility target" />
+            </div>
+            <div className="mt-6 space-y-3 rounded-2xl bg-muted/40 p-4">
+              <GovernanceNote title="Clear stewardship" text="Roles, decision rights, and approval responsibilities are easy to scan." />
+              <GovernanceNote title="Stable release model" text="Promotion, deprecation, and exception paths are written for delivery teams." />
+            </div>
+          </aside>
+        </div>
+      </header>
+
+      <main className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-12">
         <OwnershipModelSection />
         <ReviewLanesSection />
         <ApprovalGatesSection />
@@ -52,7 +65,25 @@ export default function Governance() {
         <DeprecationProcessSection />
         <ExceptionProcessSection />
         <ConformanceExpectationsSection />
-      </div>
+      </main>
+    </div>
+  );
+}
+
+function GovernanceMetric({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-muted/40 p-4">
+      <div className="text-2xl font-bold tracking-tight text-foreground">{value}</div>
+      <div className="text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+}
+
+function GovernanceNote({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+      <p className="text-sm font-semibold text-foreground">{title}</p>
+      <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
     </div>
   );
 }
@@ -68,23 +99,23 @@ function OwnershipModelSection() {
 
       <div className="mt-8 space-y-8">
         {/* Governance Structure Diagram */}
-        <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
-          <div className="bg-background dark:bg-gray-800 p-6 border-b-2 border-border dark:border-gray-700">
-            <h3 className="font-bold text-foreground dark:text-gray-100">Governance Structure</h3>
+        <div className="overflow-hidden rounded-[28px] border border-border bg-card shadow-sm">
+          <div className="border-b border-border bg-muted/35 p-6">
+            <h3 className="font-bold text-foreground">Governance Structure</h3>
           </div>
 
-          <div className="p-12 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+          <div className="bg-[linear-gradient(to_bottom,rgba(255,255,255,0.65),rgba(255,255,255,0.92))] p-8 dark:bg-[linear-gradient(to_bottom,rgba(15,23,42,0.6),rgba(15,23,42,0.9))] sm:p-10">
             {/* Core Team */}
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
-                <div className="inline-block bg-primary text-white rounded-lg p-6 shadow-lg">
-                  <div className="font-bold text-xl mb-1">UX4G Core Team</div>
-                  <div className="text-sm text-blue-200">Strategic Direction & Final Authority</div>
+                <div className="inline-flex flex-col items-center rounded-[28px] border border-border bg-primary px-8 py-6 text-primary-foreground shadow-xl shadow-primary/15">
+                  <div className="text-xl font-bold">UX4G Core Team</div>
+                  <div className="text-sm text-primary-foreground/80">Strategic direction & final authority</div>
                 </div>
               </div>
 
               {/* Three Pillars */}
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid gap-6 lg:grid-cols-3">
                 <OwnershipPillar
                   title="Design Lead"
                   responsibilities={[
@@ -118,9 +149,9 @@ function OwnershipModelSection() {
               </div>
 
               {/* Supporting Roles */}
-              <div className="mt-8 pt-8 border-t-2 border-border dark:border-gray-700">
-                <h4 className="font-bold text-foreground dark:text-gray-100 mb-4 text-center">Supporting Roles</h4>
-                <div className="grid grid-cols-4 gap-4">
+              <div className="mt-8 border-t border-border pt-8">
+                <h4 className="mb-4 text-center font-bold text-foreground">Supporting roles</h4>
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                   <SupportRole
                     title="Documentation"
                     description="Maintains guides and examples"
@@ -213,18 +244,18 @@ function OwnershipModelSection() {
 
 function OwnershipPillar({ title, responsibilities, color }: any) {
   const colorClasses = {
-    blue: 'bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-800',
-    purple: 'bg-purple-50 dark:bg-purple-900/20 border-purple-300 dark:border-purple-800',
-    green: 'bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-800'
+    blue: 'bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800',
+    purple: 'bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800',
+    green: 'bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800'
   };
 
   return (
-    <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-6`}>
-      <h3 className="font-bold text-foreground dark:text-gray-100 mb-4 text-lg">{title}</h3>
+    <div className={`rounded-[24px] border p-6 shadow-sm ${colorClasses[color as keyof typeof colorClasses]}`}>
+      <h3 className="mb-4 text-lg font-bold text-foreground">{title}</h3>
       <ul className="space-y-2">
         {responsibilities.map((resp: string, index: number) => (
-          <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-            <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={16} />
+          <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+            <CheckCircle className="mt-0.5 flex-shrink-0 text-gray-400 dark:text-gray-500" size={16} />
             <span>{resp}</span>
           </li>
         ))}
@@ -235,9 +266,9 @@ function OwnershipPillar({ title, responsibilities, color }: any) {
 
 function SupportRole({ title, description }: any) {
   return (
-    <div className="bg-muted dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg p-3 text-center">
-      <div className="font-semibold text-foreground dark:text-gray-100 text-sm mb-1">{title}</div>
-      <div className="text-xs text-muted-foreground dark:text-gray-400">{description}</div>
+    <div className="rounded-2xl border border-border bg-card p-4 text-center shadow-sm">
+      <div className="mb-1 text-sm font-semibold text-foreground">{title}</div>
+      <div className="text-xs text-muted-foreground">{description}</div>
     </div>
   );
 }
@@ -245,20 +276,20 @@ function SupportRole({ title, description }: any) {
 function RACIRow({ activity, roles }: any) {
   const getRoleColor = (role: string) => {
     switch (role) {
-      case 'R': return 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-blue-300 dark:border-blue-700';
-      case 'A': return 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-300 dark:border-green-700';
-      case 'C': return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-yellow-300 dark:border-yellow-700';
-      case 'I': return 'bg-muted dark:bg-gray-800 text-muted-foreground dark:text-gray-300 border-border dark:border-gray-700';
+      case 'R': return 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/20 dark:text-blue-400 dark:border-blue-800';
+      case 'A': return 'bg-green-50 text-green-700 border-green-200 dark:bg-green-950/20 dark:text-green-400 dark:border-green-800';
+      case 'C': return 'bg-yellow-50 text-yellow-700 border-yellow-200 dark:bg-yellow-950/20 dark:text-yellow-400 dark:border-yellow-800';
+      case 'I': return 'bg-muted text-muted-foreground border-border';
       default: return '';
     }
   };
 
   return (
-    <tr className="hover:bg-background dark:hover:bg-gray-800">
-      <td className="p-4 font-semibold text-foreground dark:text-gray-100">{activity}</td>
+    <tr className="hover:bg-muted/30">
+      <td className="p-4 font-semibold text-foreground">{activity}</td>
       {roles.map((role: string, index: number) => (
         <td key={index} className="p-4 text-center">
-          <span className={`inline-block px-3 py-1 rounded-full font-bold text-xs border ${getRoleColor(role)}`}>
+          <span className={`inline-block rounded-full border px-3 py-1 text-xs font-bold ${getRoleColor(role)}`}>
             {role}
           </span>
         </td>
@@ -276,7 +307,7 @@ function ReviewLanesSection() {
         icon={<GitBranch size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-3 gap-6">
+      <div className="mt-8 grid gap-6 lg:grid-cols-3">
         <ReviewLane
           title="Design Review"
           owner="Design Lead"
@@ -317,28 +348,28 @@ function ReviewLanesSection() {
         />
       </div>
 
-      <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
-        <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Parallel Review Process</h3>
-        <p className="text-sm text-muted-foreground dark:text-gray-300 mb-4">
+      <div className="mt-8 rounded-[24px] border border-blue-200 bg-blue-50 p-6 shadow-sm dark:border-blue-800 dark:bg-blue-950/20">
+        <h3 className="mb-3 font-bold text-foreground">Parallel review process</h3>
+        <p className="mb-4 text-sm text-muted-foreground">
           All three review lanes run in parallel to minimize total review time. A contribution must pass
           all applicable reviews before advancing to approval gates.
         </p>
 
-        <div className="bg-card dark:bg-gray-900 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+        <div className="rounded-2xl border border-blue-200 bg-card p-4 shadow-sm dark:border-blue-800">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded font-semibold text-sm">
+              <div className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700 dark:border-blue-800 dark:bg-blue-950/20 dark:text-blue-400">
                 Design ✓
               </div>
-              <div className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded font-semibold text-sm">
+              <div className="rounded-full border border-purple-200 bg-purple-50 px-3 py-1 text-sm font-semibold text-purple-700 dark:border-purple-800 dark:bg-purple-950/20 dark:text-purple-400">
                 Engineering ✓
               </div>
-              <div className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded font-semibold text-sm">
+              <div className="rounded-full border border-green-200 bg-green-50 px-3 py-1 text-sm font-semibold text-green-700 dark:border-green-800 dark:bg-green-950/20 dark:text-green-400">
                 Documentation ✓
               </div>
             </div>
-            <ArrowRight className="text-gray-400 dark:text-muted-foreground" size={24} />
-            <div className="px-4 py-2 bg-green-700 dark:bg-green-700 text-white rounded-lg font-bold">
+            <ArrowRight className="text-muted-foreground" size={24} />
+            <div className="rounded-full bg-green-700 px-4 py-2 font-bold text-white">
               Ready for Approval
             </div>
           </div>
@@ -350,32 +381,32 @@ function ReviewLanesSection() {
 
 function ReviewLane({ title, owner, focuses, timeline, color }: any) {
   const colorClasses = {
-    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20',
-    purple: 'border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20',
-    green: 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20'
+    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/20',
+    purple: 'border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-950/20',
+    green: 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/20'
   };
 
   return (
-    <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg overflow-hidden`}>
-      <div className="bg-card dark:bg-gray-900 border-b-2 border-border dark:border-gray-700 p-4">
-        <h3 className="font-bold text-foreground dark:text-gray-100 text-lg mb-1">{title}</h3>
-        <div className="text-sm text-muted-foreground dark:text-gray-400">Owner: {owner}</div>
+    <div className={`overflow-hidden rounded-[24px] border shadow-sm ${colorClasses[color as keyof typeof colorClasses]}`}>
+      <div className="border-b border-border bg-card p-4">
+        <h3 className="mb-1 text-lg font-bold text-foreground">{title}</h3>
+        <div className="text-sm text-muted-foreground">Owner: {owner}</div>
       </div>
 
       <div className="p-4">
-        <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3 text-sm">Review Focus:</h4>
+        <h4 className="mb-3 text-sm font-semibold text-foreground">Review focus:</h4>
         <ul className="space-y-2 mb-4">
           {focuses.map((focus: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <CheckCircle className="mt-0.5 flex-shrink-0 text-gray-400 dark:text-gray-500" size={14} />
               <span>{focus}</span>
             </li>
           ))}
         </ul>
 
-        <div className="pt-4 border-t border-border dark:border-gray-700 flex items-center gap-2 text-sm">
-          <Clock size={14} className="text-gray-500" />
-          <span className="text-muted-foreground dark:text-gray-400">Timeline: {timeline}</span>
+        <div className="flex items-center gap-2 border-t border-border pt-4 text-sm">
+          <Clock size={14} className="text-muted-foreground" />
+          <span className="text-muted-foreground">Timeline: {timeline}</span>
         </div>
       </div>
     </div>
@@ -393,11 +424,11 @@ function ApprovalGatesSection() {
 
       <div className="mt-8 space-y-6">
         {/* Approval Flow Diagram */}
-        <div className="border-2 border-border dark:border-gray-700 rounded-lg p-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-          <h3 className="font-bold text-foreground dark:text-gray-100 mb-6 text-center">Approval Flow</h3>
+        <div className="rounded-[28px] border border-border bg-gradient-to-b from-card to-muted/20 p-8 shadow-sm">
+          <h3 className="mb-6 text-center font-bold text-foreground">Approval flow</h3>
           
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center justify-between">
+            <div className="grid gap-4 xl:grid-cols-7 xl:items-center">
               <ApprovalGate
                 title="Submission"
                 status="start"
@@ -408,7 +439,7 @@ function ApprovalGatesSection() {
                 ]}
               />
               
-              <ArrowRight className="text-gray-300" size={32} />
+              <ArrowRight className="hidden justify-self-center text-muted-foreground xl:block" size={32} />
               
               <ApprovalGate
                 title="Technical Review"
@@ -420,7 +451,7 @@ function ApprovalGatesSection() {
                 ]}
               />
               
-              <ArrowRight className="text-gray-300" size={32} />
+              <ArrowRight className="hidden justify-self-center text-muted-foreground xl:block" size={32} />
               
               <ApprovalGate
                 title="Governance Approval"
@@ -432,7 +463,7 @@ function ApprovalGatesSection() {
                 ]}
               />
               
-              <ArrowRight className="text-gray-300" size={32} />
+              <ArrowRight className="hidden justify-self-center text-muted-foreground xl:block" size={32} />
               
               <ApprovalGate
                 title="Release"
@@ -448,7 +479,7 @@ function ApprovalGatesSection() {
         </div>
 
         {/* Gate Details */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid gap-6 xl:grid-cols-2">
           <GateDetails
             title="Alpha → Beta Gate"
             criteria={[
@@ -480,18 +511,18 @@ function ApprovalGatesSection() {
 
 function ApprovalGate({ title, status, requirements }: any) {
   const statusColors = {
-    start: 'bg-muted dark:bg-gray-800 border-border dark:border-gray-700',
-    review: 'bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-800',
-    approval: 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-300 dark:border-yellow-700',
-    complete: 'bg-green-50 dark:bg-green-900/20 border-green-300 dark:border-green-800'
+    start: 'bg-muted/30 border-border',
+    review: 'bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800',
+    approval: 'bg-yellow-50 dark:bg-yellow-950/20 border-yellow-200 dark:border-yellow-800',
+    complete: 'bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800'
   };
 
   return (
-    <div className={`border-2 ${statusColors[status as keyof typeof statusColors]} rounded-lg p-4 min-w-[200px]`}>
-      <h4 className="font-bold text-foreground dark:text-gray-100 mb-3 text-center">{title}</h4>
+    <div className={`min-w-[200px] rounded-2xl border p-4 shadow-sm ${statusColors[status as keyof typeof statusColors]}`}>
+      <h4 className="mb-3 text-center font-bold text-foreground">{title}</h4>
       <ul className="space-y-1">
         {requirements.map((req: string, index: number) => (
-          <li key={index} className="text-xs text-muted-foreground dark:text-gray-300">• {req}</li>
+          <li key={index} className="text-xs text-muted-foreground">• {req}</li>
         ))}
       </ul>
     </div>
@@ -500,25 +531,25 @@ function ApprovalGate({ title, status, requirements }: any) {
 
 function GateDetails({ title, criteria, approver }: any) {
   return (
-    <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
-      <div className="bg-background dark:bg-gray-800 p-4 border-b-2 border-border dark:border-gray-700">
-        <h3 className="font-bold text-foreground dark:text-gray-100">{title}</h3>
+    <div className="overflow-hidden rounded-[24px] border border-border bg-card shadow-sm">
+      <div className="border-b border-border bg-muted/35 p-4">
+        <h3 className="font-bold text-foreground">{title}</h3>
       </div>
 
       <div className="p-6">
-        <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3 text-sm">Approval Criteria:</h4>
+        <h4 className="mb-3 text-sm font-semibold text-foreground">Approval criteria:</h4>
         <ul className="space-y-2 mb-6">
           {criteria.map((criterion: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <CheckCircle className="mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" size={16} />
               <span>{criterion}</span>
             </li>
           ))}
         </ul>
 
-        <div className="pt-4 border-t border-border dark:border-gray-700">
-          <div className="text-xs text-muted-foreground dark:text-gray-400 mb-1">Final Approver:</div>
-          <div className="font-semibold text-foreground dark:text-gray-100">{approver}</div>
+        <div className="border-t border-border pt-4">
+          <div className="mb-1 text-xs text-muted-foreground">Final approver:</div>
+          <div className="font-semibold text-foreground">{approver}</div>
         </div>
       </div>
     </div>
@@ -536,10 +567,10 @@ function ContributionPathwaySection() {
 
       <div className="mt-8 space-y-8">
         {/* Contribution Flow */}
-        <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 border-b-2 border-border dark:border-gray-700">
-            <h3 className="font-bold text-foreground dark:text-gray-100 mb-2">Contribution Workflow</h3>
-            <p className="text-sm text-muted-foreground dark:text-gray-300">End-to-end process for contributing components, patterns, or improvements</p>
+        <div className="overflow-hidden rounded-[28px] border border-border bg-card shadow-sm">
+          <div className="border-b border-border bg-gradient-to-r from-blue-50 to-purple-50 p-6 dark:from-blue-950/20 dark:to-purple-950/20">
+            <h3 className="mb-2 font-bold text-foreground">Contribution workflow</h3>
+            <p className="text-sm text-muted-foreground">End-to-end process for contributing components, patterns, or improvements</p>
           </div>
           
           <div className="p-8">
@@ -552,7 +583,7 @@ function ContributionPathwaySection() {
                 actions={['Describe use case', 'Provide examples', 'Justify need']}
               />
               
-              <div className="ml-6 border-l-2 border-border dark:border-gray-700 h-8"></div>
+              <div className="ml-6 h-8 border-l-2 border-border"></div>
               
               <ContributionStep
                 number="2"
@@ -562,7 +593,7 @@ function ContributionPathwaySection() {
                 actions={['Team discussion', 'Feasibility assessment', 'Priority determination']}
               />
               
-              <div className="ml-6 border-l-2 border-border dark:border-gray-700 h-8"></div>
+              <div className="ml-6 h-8 border-l-2 border-border"></div>
               
               <ContributionStep
                 number="3"
@@ -572,7 +603,7 @@ function ContributionPathwaySection() {
                 actions={['Design in Figma', 'Code implementation', 'Write documentation']}
               />
               
-              <div className="ml-6 border-l-2 border-border dark:border-gray-700 h-8"></div>
+              <div className="ml-6 h-8 border-l-2 border-border"></div>
               
               <ContributionStep
                 number="4"
@@ -582,7 +613,7 @@ function ContributionPathwaySection() {
                 actions={['Design review', 'Code review', 'Documentation review']}
               />
               
-              <div className="ml-6 border-l-2 border-border dark:border-gray-700 h-8"></div>
+              <div className="ml-6 h-8 border-l-2 border-border"></div>
               
               <ContributionStep
                 number="5"
@@ -596,7 +627,7 @@ function ContributionPathwaySection() {
         </div>
 
         {/* Contribution Types */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid gap-6 xl:grid-cols-3">
           <ContributionType
             title="New Component"
             description="Propose entirely new component not in the system"
@@ -628,20 +659,20 @@ function ContributionPathwaySection() {
 
 function ContributionStep({ number, title, description, duration, actions }: any) {
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-6 rounded-[24px] border border-border bg-card p-5 shadow-sm">
       <div className="flex-shrink-0">
-        <div className="w-12 h-12 bg-primary dark:bg-blue-700 text-white rounded-full flex items-center justify-center font-bold text-xl">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary font-bold text-xl text-primary-foreground">
           {number}
         </div>
       </div>
 
-      <div className="flex-1 bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg p-4">
+      <div className="flex-1">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h4 className="font-bold text-foreground dark:text-gray-100 text-lg">{title}</h4>
-            <p className="text-sm text-muted-foreground dark:text-gray-400">{description}</p>
+            <h4 className="text-lg font-bold text-foreground">{title}</h4>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
-          <div className="text-xs text-gray-500 dark:text-gray-500 flex items-center gap-1 flex-shrink-0 ml-4">
+          <div className="ml-4 flex flex-shrink-0 items-center gap-1 text-xs text-muted-foreground">
             <Clock size={12} />
             {duration}
           </div>
@@ -649,7 +680,7 @@ function ContributionStep({ number, title, description, duration, actions }: any
 
         <div className="flex gap-2 mt-3">
           {actions.map((action: string, index: number) => (
-            <span key={index} className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded text-xs">
+            <span key={index} className="rounded-full border border-blue-200 bg-blue-50 px-2 py-1 text-xs text-blue-700 dark:border-blue-800 dark:bg-blue-950/20 dark:text-blue-400">
               {action}
             </span>
           ))}
@@ -661,24 +692,24 @@ function ContributionStep({ number, title, description, duration, actions }: any
 
 function ContributionType({ title, description, effort, approval, color }: any) {
   const colorClasses = {
-    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20',
-    purple: 'border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20',
-    green: 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20'
+    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/20',
+    purple: 'border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-950/20',
+    green: 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/20'
   };
 
   return (
-    <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-6`}>
-      <h3 className="font-bold text-foreground dark:text-gray-100 text-lg mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground dark:text-gray-300 mb-4">{description}</p>
+    <div className={`rounded-[24px] border p-6 shadow-sm ${colorClasses[color as keyof typeof colorClasses]}`}>
+      <h3 className="mb-2 text-lg font-bold text-foreground">{title}</h3>
+      <p className="mb-4 text-sm text-muted-foreground">{description}</p>
 
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
-          <span className="text-muted-foreground dark:text-gray-400">Effort Level:</span>
-          <span className="font-semibold text-foreground dark:text-gray-100">{effort}</span>
+          <span className="text-muted-foreground">Effort level:</span>
+          <span className="font-semibold text-foreground">{effort}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-muted-foreground dark:text-gray-400">Approval:</span>
-          <span className="font-semibold text-foreground dark:text-gray-100 text-right">{approval}</span>
+          <span className="text-muted-foreground">Approval:</span>
+          <span className="text-right font-semibold text-foreground">{approval}</span>
         </div>
       </div>
     </div>
@@ -696,7 +727,7 @@ function ReleaseGovernanceSection() {
 
       <div className="mt-8 space-y-8">
         {/* Release Cadence */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid gap-6 xl:grid-cols-3">
           <ReleaseType
             title="Major Releases"
             version="v2.0.0"
@@ -786,30 +817,30 @@ function ReleaseGovernanceSection() {
 
 function ReleaseType({ title, version, frequency, description, planning, color }: any) {
   const colorClasses = {
-    red: 'border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20',
-    yellow: 'border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900/20',
-    green: 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20'
+    red: 'border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/20',
+    yellow: 'border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-950/20',
+    green: 'border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/20'
   };
 
   return (
-    <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-6`}>
+    <div className={`rounded-[24px] border p-6 shadow-sm ${colorClasses[color as keyof typeof colorClasses]}`}>
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-bold text-foreground dark:text-gray-100 text-lg">{title}</h3>
-        <code className="px-2 py-1 bg-gray-900 dark:bg-gray-800 text-white dark:text-gray-100 rounded text-xs font-mono">{version}</code>
+        <h3 className="text-lg font-bold text-foreground">{title}</h3>
+        <code className="rounded-full bg-foreground px-2 py-1 font-mono text-xs text-background">{version}</code>
       </div>
 
       <div className="space-y-3 text-sm">
         <div>
-          <div className="text-muted-foreground dark:text-gray-400 text-xs mb-1">Frequency:</div>
-          <div className="font-semibold text-foreground dark:text-gray-100">{frequency}</div>
+          <div className="mb-1 text-xs text-muted-foreground">Frequency:</div>
+          <div className="font-semibold text-foreground">{frequency}</div>
         </div>
         <div>
-          <div className="text-muted-foreground dark:text-gray-400 text-xs mb-1">Includes:</div>
-          <div className="text-muted-foreground dark:text-gray-300">{description}</div>
+          <div className="mb-1 text-xs text-muted-foreground">Includes:</div>
+          <div className="text-muted-foreground">{description}</div>
         </div>
         <div>
-          <div className="text-muted-foreground dark:text-gray-400 text-xs mb-1">Planning:</div>
-          <div className="text-muted-foreground dark:text-gray-300">{planning}</div>
+          <div className="mb-1 text-xs text-muted-foreground">Planning:</div>
+          <div className="text-muted-foreground">{planning}</div>
         </div>
       </div>
     </div>
@@ -818,17 +849,17 @@ function ReleaseType({ title, version, frequency, description, planning, color }
 
 function ReleasePhase({ phase, duration, activities }: any) {
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-6 rounded-[24px] border border-border bg-card p-5 shadow-sm">
       <div className="flex-shrink-0 text-right" style={{ width: '120px' }}>
-        <div className="font-bold text-foreground dark:text-gray-100">{phase}</div>
-        <div className="text-sm text-muted-foreground dark:text-gray-400">{duration}</div>
+        <div className="font-bold text-foreground">{phase}</div>
+        <div className="text-sm text-muted-foreground">{duration}</div>
       </div>
 
-      <div className="flex-1 border-l-4 border-primary dark:border-blue-700 pl-6">
+      <div className="flex-1 border-l-4 border-primary pl-6">
         <ul className="space-y-2">
           {activities.map((activity: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-              <Circle className="flex-shrink-0 mt-1 fill-current text-primary dark:text-blue-700" size={8} />
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <Circle className="mt-1 flex-shrink-0 fill-current text-primary" size={8} />
               <span>{activity}</span>
             </li>
           ))}
@@ -849,7 +880,7 @@ function LifecycleStatusesSection() {
 
       <div className="mt-8 space-y-8">
         {/* Status Overview */}
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid gap-4 xl:grid-cols-4">
           <StatusBadgeCard
             status="Alpha"
             color="yellow"
@@ -937,15 +968,15 @@ function LifecycleStatusesSection() {
 
 function StatusBadgeCard({ status, color, description }: any) {
   const colorClasses = {
-    yellow: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-yellow-300 dark:border-yellow-700',
-    blue: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-blue-300 dark:border-blue-700',
-    green: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-300 dark:border-green-700',
-    red: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border-red-300 dark:border-red-700'
+    yellow: 'bg-yellow-50 dark:bg-yellow-950/20 text-yellow-700 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800',
+    blue: 'bg-blue-50 dark:bg-blue-950/20 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800',
+    green: 'bg-green-50 dark:bg-green-950/20 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800',
+    red: 'bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800'
   };
 
   return (
-    <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-4 text-center`}>
-      <div className="font-bold text-lg mb-2">{status}</div>
+    <div className={`rounded-2xl border p-4 text-center shadow-sm ${colorClasses[color as keyof typeof colorClasses]}`}>
+      <div className="mb-2 text-lg font-bold">{status}</div>
       <div className="text-xs">{description}</div>
     </div>
   );
@@ -953,21 +984,21 @@ function StatusBadgeCard({ status, color, description }: any) {
 
 function StatusDetail({ status, badge, characteristics, usage, support }: any) {
   return (
-    <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
-      <div className="bg-background dark:bg-gray-800 p-4 border-b-2 border-border dark:border-gray-700 flex items-center gap-3">
-        <span className={`px-4 py-2 ${badge.bg} ${badge.text} border ${badge.border} rounded-full font-bold text-sm uppercase`}>
+    <div className="overflow-hidden rounded-[24px] border border-border bg-card shadow-sm">
+      <div className="flex items-center gap-3 border-b border-border bg-muted/35 p-4">
+        <span className={`rounded-full border px-4 py-2 text-sm font-bold uppercase ${badge.bg} ${badge.text} ${badge.border}`}>
           {status}
         </span>
-        <h3 className="font-bold text-foreground dark:text-gray-100">Status Details</h3>
+        <h3 className="font-bold text-foreground">Status details</h3>
       </div>
 
-      <div className="p-6 grid grid-cols-2 gap-6">
+      <div className="grid gap-6 p-6 xl:grid-cols-2">
         <div>
-          <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3">Characteristics:</h4>
+          <h4 className="mb-3 font-semibold text-foreground">Characteristics:</h4>
           <ul className="space-y-2">
             {characteristics.map((char: string, index: number) => (
-              <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
+              <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <CheckCircle className="mt-0.5 flex-shrink-0 text-gray-400 dark:text-gray-500" size={14} />
                 <span>{char}</span>
               </li>
             ))}
@@ -976,12 +1007,12 @@ function StatusDetail({ status, badge, characteristics, usage, support }: any) {
 
         <div className="space-y-4">
           <div>
-            <h4 className="font-semibold text-foreground dark:text-gray-100 mb-2">Usage Guidance:</h4>
-            <p className="text-sm text-muted-foreground dark:text-gray-300">{usage}</p>
+            <h4 className="mb-2 font-semibold text-foreground">Usage guidance:</h4>
+            <p className="text-sm text-muted-foreground">{usage}</p>
           </div>
           <div>
-            <h4 className="font-semibold text-foreground dark:text-gray-100 mb-2">Support Level:</h4>
-            <p className="text-sm text-muted-foreground dark:text-gray-300">{support}</p>
+            <h4 className="mb-2 font-semibold text-foreground">Support level:</h4>
+            <p className="text-sm text-muted-foreground">{support}</p>
           </div>
         </div>
       </div>
@@ -1036,7 +1067,7 @@ function PromotionRulesSection() {
         </div>
 
         {/* Promotion Criteria */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid gap-6 xl:grid-cols-2">
           <PromotionCriteria
             from="Alpha"
             to="Beta"
@@ -1090,20 +1121,20 @@ function PromotionRulesSection() {
 
 function PromotionCriteria({ from, to, requirements, timeline }: any) {
   return (
-    <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-4 border-b-2 border-border dark:border-gray-700">
-        <h3 className="font-bold text-foreground dark:text-gray-100 flex items-center gap-2">
+    <div className="overflow-hidden rounded-[24px] border border-border bg-card shadow-sm">
+      <div className="border-b border-border bg-gradient-to-r from-muted/30 to-background p-4">
+        <h3 className="flex items-center gap-2 font-bold text-foreground">
           {from} <ChevronRight size={20} className="text-gray-400 dark:text-muted-foreground" /> {to}
         </h3>
-        <div className="text-xs text-muted-foreground dark:text-gray-400 mt-1">{timeline}</div>
+        <div className="mt-1 text-xs text-muted-foreground">{timeline}</div>
       </div>
 
       <div className="p-6">
-        <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3 text-sm">Requirements:</h4>
+        <h4 className="mb-3 text-sm font-semibold text-foreground">Requirements:</h4>
         <ul className="space-y-2">
           {requirements.map((req: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <CheckCircle className="mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" size={16} />
               <span>{req}</span>
             </li>
           ))}
@@ -1124,8 +1155,8 @@ function DeprecationProcessSection() {
 
       <div className="mt-8 space-y-8">
         {/* Deprecation Timeline */}
-        <div className="border-2 border-border dark:border-gray-700 rounded-lg p-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-          <h3 className="font-bold text-foreground dark:text-gray-100 mb-6 text-center">Deprecation Timeline (Minimum 6 Months)</h3>
+        <div className="rounded-[28px] border border-border bg-gradient-to-b from-card to-muted/20 p-8 shadow-sm">
+          <h3 className="mb-6 text-center font-bold text-foreground">Deprecation timeline (minimum 6 months)</h3>
           
           <div className="max-w-5xl mx-auto space-y-4">
             <DeprecationPhase
@@ -1179,54 +1210,54 @@ function DeprecationProcessSection() {
         </div>
 
         {/* Deprecation Criteria */}
-        <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-border dark:border-gray-700 rounded-lg p-6">
-            <h3 className="font-bold text-foreground dark:text-gray-100 mb-4">Valid Reasons for Deprecation</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+        <div className="grid gap-6 xl:grid-cols-2">
+          <div className="rounded-[24px] border border-border bg-card p-6 shadow-sm">
+            <h3 className="mb-4 font-bold text-foreground">Valid reasons for deprecation</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
+                <CheckCircle className="mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" size={16} />
                 <span>Better alternative component available</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
+                <CheckCircle className="mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" size={16} />
                 <span>Security vulnerability that cannot be patched</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
+                <CheckCircle className="mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" size={16} />
                 <span>Component no longer meets accessibility standards</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
+                <CheckCircle className="mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" size={16} />
                 <span>Technology platform no longer supported</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="flex-shrink-0 mt-0.5 text-[#138808] dark:text-green-500" size={16} />
+                <CheckCircle className="mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" size={16} />
                 <span>Low usage and high maintenance cost</span>
               </li>
             </ul>
           </div>
 
-          <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
-            <h3 className="font-bold text-foreground dark:text-gray-100 mb-4">Deprecation Safeguards</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+          <div className="rounded-[24px] border border-red-200 bg-red-50 p-6 shadow-sm dark:border-red-800 dark:bg-red-950/20">
+            <h3 className="mb-4 font-bold text-foreground">Deprecation safeguards</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
+                <Shield className="mt-0.5 flex-shrink-0 text-red-600 dark:text-red-400" size={16} />
                 <span>Minimum 6-month notice period</span>
               </li>
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
+                <Shield className="mt-0.5 flex-shrink-0 text-red-600 dark:text-red-400" size={16} />
                 <span>Clear migration path required</span>
               </li>
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
+                <Shield className="mt-0.5 flex-shrink-0 text-red-600 dark:text-red-400" size={16} />
                 <span>No deprecation in minor/patch releases</span>
               </li>
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
+                <Shield className="mt-0.5 flex-shrink-0 text-red-600 dark:text-red-400" size={16} />
                 <span>Direct support during migration</span>
               </li>
               <li className="flex items-start gap-2">
-                <Shield className="flex-shrink-0 mt-0.5 text-red-600 dark:text-red-500" size={16} />
+                <Shield className="mt-0.5 flex-shrink-0 text-red-600 dark:text-red-400" size={16} />
                 <span>Product Lead must approve all deprecations</span>
               </li>
             </ul>
@@ -1239,23 +1270,23 @@ function DeprecationProcessSection() {
 
 function DeprecationPhase({ month, phase, actions, status }: any) {
   const statusColors = {
-    red: 'border-red-400 dark:border-red-700 bg-red-50 dark:bg-red-900/20',
-    orange: 'border-orange-400 dark:border-orange-700 bg-orange-50 dark:bg-orange-900/20',
-    yellow: 'border-yellow-400 dark:border-yellow-700 bg-yellow-50 dark:bg-yellow-900/20',
-    gray: 'border-gray-400 dark:border-gray-700 bg-background dark:bg-gray-800'
+    red: 'border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/20',
+    orange: 'border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950/20',
+    yellow: 'border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-950/20',
+    gray: 'border-border bg-card'
   };
 
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-6 rounded-[24px] border border-border bg-card p-4 shadow-sm">
       <div className="flex-shrink-0 text-right" style={{ width: '100px' }}>
-        <div className="font-bold text-foreground dark:text-gray-100">{month}</div>
-        <div className="text-sm text-muted-foreground dark:text-gray-400">{phase}</div>
+        <div className="font-bold text-foreground">{month}</div>
+        <div className="text-sm text-muted-foreground">{phase}</div>
       </div>
 
       <div className={`flex-1 border-l-4 ${statusColors[status as keyof typeof statusColors]} pl-6 py-3`}>
         <ul className="space-y-1">
           {actions.map((action: string, index: number) => (
-            <li key={index} className="text-sm text-muted-foreground dark:text-gray-300">• {action}</li>
+            <li key={index} className="text-sm text-muted-foreground">• {action}</li>
           ))}
         </ul>
       </div>
@@ -1274,12 +1305,12 @@ function ExceptionProcessSection() {
 
       <div className="mt-8 space-y-8">
         {/* When to Request Exception */}
-        <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
-          <h3 className="font-bold text-foreground dark:text-gray-100 mb-4">When Exceptions May Be Granted</h3>
+        <div className="rounded-[24px] border border-orange-200 bg-orange-50 p-6 shadow-sm dark:border-orange-800 dark:bg-orange-950/20">
+          <h3 className="mb-4 font-bold text-foreground">When exceptions may be granted</h3>
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-semibold text-foreground dark:text-gray-100 mb-2">Valid Exception Scenarios:</h4>
-              <ul className="space-y-2 text-muted-foreground dark:text-gray-300">
+              <h4 className="mb-2 font-semibold text-foreground">Valid exception scenarios:</h4>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>• Critical security vulnerability requiring immediate patch</li>
                 <li>• Urgent government directive or policy change</li>
                 <li>• Time-sensitive citizen-facing emergency</li>
@@ -1287,8 +1318,8 @@ function ExceptionProcessSection() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground dark:text-gray-100 mb-2">Invalid Exception Requests:</h4>
-              <ul className="space-y-2 text-muted-foreground dark:text-gray-300">
+              <h4 className="mb-2 font-semibold text-foreground">Invalid exception requests:</h4>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>• Missed project deadlines</li>
                 <li>• Preference for non-standard design</li>
                 <li>• Lack of planning or resources</li>
@@ -1299,9 +1330,9 @@ function ExceptionProcessSection() {
         </div>
 
         {/* Exception Request Process */}
-        <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
-          <div className="bg-background dark:bg-gray-800 p-6 border-b-2 border-border dark:border-gray-700">
-            <h3 className="font-bold text-foreground dark:text-gray-100">Exception Request Workflow</h3>
+        <div className="overflow-hidden rounded-[24px] border border-border bg-card shadow-sm">
+          <div className="border-b border-border bg-muted/35 p-6">
+            <h3 className="font-bold text-foreground">Exception request workflow</h3>
           </div>
           
           <div className="p-8 space-y-6">
@@ -1344,7 +1375,7 @@ function ExceptionProcessSection() {
         </div>
 
         {/* Exception Types */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid gap-6 xl:grid-cols-3">
           <ExceptionType
             title="Temporary Exception"
             duration="3-6 months"
@@ -1373,15 +1404,15 @@ function ExceptionProcessSection() {
 
 function ExceptionStep({ step, title, description, required }: any) {
   return (
-    <div className="flex gap-6">
-      <div className="w-10 h-10 bg-orange-600 dark:bg-orange-700 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+    <div className="flex gap-6 rounded-[24px] border border-border bg-card p-5 shadow-sm">
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-orange-600 text-sm font-bold text-white">
         {step}
       </div>
 
       <div className="flex-1">
-        <h4 className="font-bold text-foreground dark:text-gray-100 mb-1">{title}</h4>
-        <p className="text-sm text-muted-foreground dark:text-gray-400 mb-3">{description}</p>
-        <ul className="space-y-1 text-sm text-muted-foreground dark:text-gray-300">
+        <h4 className="mb-1 font-bold text-foreground">{title}</h4>
+        <p className="mb-3 text-sm text-muted-foreground">{description}</p>
+        <ul className="space-y-1 text-sm text-muted-foreground">
           {required.map((item: string, index: number) => (
             <li key={index}>• {item}</li>
           ))}
@@ -1393,11 +1424,11 @@ function ExceptionStep({ step, title, description, required }: any) {
 
 function ExceptionType({ title, duration, description, examples }: any) {
   return (
-    <div className="border-2 border-border dark:border-gray-700 rounded-lg p-6">
-      <h3 className="font-bold text-foreground dark:text-gray-100 mb-2">{title}</h3>
-      <div className="text-sm text-orange-600 dark:text-orange-500 font-semibold mb-3">{duration}</div>
-      <p className="text-sm text-muted-foreground dark:text-gray-300 mb-4">{description}</p>
-      <div className="text-xs text-muted-foreground dark:text-gray-400">
+    <div className="rounded-[24px] border border-border bg-card p-6 shadow-sm">
+      <h3 className="mb-2 font-bold text-foreground">{title}</h3>
+      <div className="mb-3 text-sm font-semibold text-orange-600 dark:text-orange-400">{duration}</div>
+      <p className="mb-4 text-sm text-muted-foreground">{description}</p>
+      <div className="text-xs text-muted-foreground">
         <strong>Examples:</strong> {examples.join(', ')}
       </div>
     </div>
@@ -1415,7 +1446,7 @@ function ConformanceExpectationsSection() {
 
       <div className="mt-8 space-y-8">
         {/* Conformance Levels */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid gap-6 xl:grid-cols-3">
           <ConformanceLevel
             level="Full Conformance"
             badge="gold"
@@ -1520,31 +1551,31 @@ function ConformanceExpectationsSection() {
 
 function ConformanceLevel({ level, badge, requirements, benefits }: any) {
   const badgeColors = {
-    gold: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-yellow-300 dark:border-yellow-700',
-    silver: 'bg-muted dark:bg-gray-800 text-muted-foreground dark:text-gray-300 border-border dark:border-gray-700',
-    bronze: 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 border-orange-300 dark:border-orange-700'
+    gold: 'bg-yellow-50 dark:bg-yellow-950/20 text-yellow-700 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800',
+    silver: 'bg-muted/40 text-muted-foreground border-border',
+    bronze: 'bg-orange-50 dark:bg-orange-950/20 text-orange-700 dark:text-orange-400 border-orange-200 dark:border-orange-800'
   };
 
   return (
-    <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
-      <div className={`p-4 border-b-2 ${badgeColors[badge as keyof typeof badgeColors]} border-border dark:border-gray-700`}>
-        <h3 className="font-bold text-center text-lg">{level}</h3>
+    <div className="overflow-hidden rounded-[24px] border border-border bg-card shadow-sm">
+      <div className={`border-b border-border p-4 ${badgeColors[badge as keyof typeof badgeColors]}`}>
+        <h3 className="text-center text-lg font-bold">{level}</h3>
       </div>
 
       <div className="p-6">
-        <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3 text-sm">Requirements:</h4>
+        <h4 className="mb-3 text-sm font-semibold text-foreground">Requirements:</h4>
         <ul className="space-y-2 mb-6">
           {requirements.map((req: string, index: number) => (
-            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
+            <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <CheckCircle className="mt-0.5 flex-shrink-0 text-gray-400 dark:text-gray-500" size={14} />
               <span>{req}</span>
             </li>
           ))}
         </ul>
 
-        <div className="pt-4 border-t border-border dark:border-gray-700">
-          <div className="text-xs text-muted-foreground dark:text-gray-400 mb-1">Benefits:</div>
-          <div className="text-sm font-semibold text-foreground dark:text-gray-100">{benefits}</div>
+        <div className="border-t border-border pt-4">
+          <div className="mb-1 text-xs text-muted-foreground">Benefits:</div>
+          <div className="text-sm font-semibold text-foreground">{benefits}</div>
         </div>
       </div>
     </div>
@@ -1553,17 +1584,17 @@ function ConformanceLevel({ level, badge, requirements, benefits }: any) {
 
 function VerificationMethod({ method, frequency, description, tools }: any) {
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-6 rounded-[24px] border border-border bg-card p-5 shadow-sm">
       <div className="flex-shrink-0 w-32">
-        <div className="font-bold text-foreground dark:text-gray-100">{method}</div>
-        <div className="text-sm text-muted-foreground dark:text-gray-400">{frequency}</div>
+        <div className="font-bold text-foreground">{method}</div>
+        <div className="text-sm text-muted-foreground">{frequency}</div>
       </div>
 
       <div className="flex-1">
-        <p className="text-sm text-muted-foreground dark:text-gray-300 mb-3">{description}</p>
+        <p className="mb-3 text-sm text-muted-foreground">{description}</p>
         <div className="flex gap-2 flex-wrap">
           {tools.map((tool: string, index: number) => (
-            <span key={index} className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded text-xs">
+            <span key={index} className="rounded-full border border-blue-200 bg-blue-50 px-2 py-1 text-xs text-blue-700 dark:border-blue-800 dark:bg-blue-950/20 dark:text-blue-400">
               {tool}
             </span>
           ))}
@@ -1577,12 +1608,13 @@ function VerificationMethod({ method, frequency, description, tools }: any) {
 
 function SectionHeader({ title, description, icon }: any) {
   return (
-    <div>
-      <div className="flex items-center gap-3 mb-3">
-        <div className="text-primary dark:text-blue-400">{icon}</div>
-        <h2 className="text-4xl font-bold text-foreground dark:text-gray-100">{title}</h2>
+    <div className="max-w-3xl space-y-3">
+      <div className="inline-flex items-center gap-3 rounded-full border border-border bg-card px-4 py-2 shadow-sm">
+        <div className="text-primary">{icon}</div>
+        <span className="text-sm font-semibold text-muted-foreground">Governance section</span>
       </div>
-      <p className="text-lg text-muted-foreground dark:text-gray-400">{description}</p>
+      <h2 className="text-4xl font-bold tracking-tight text-foreground">{title}</h2>
+      <p className="text-lg leading-8 text-muted-foreground">{description}</p>
     </div>
   );
 }

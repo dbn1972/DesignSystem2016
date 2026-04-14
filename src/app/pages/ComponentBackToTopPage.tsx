@@ -404,6 +404,11 @@ export default function ComponentBackToTopPage() {
         types: 'export type BackToTopPosition = \'bottom-right\' | \'bottom-left\' | \'bottom-center\';\nexport type BackToTopShape = \'circle\' | \'square\' | \'rounded\';\nexport type BackToTopSize = \'sm\' | \'md\' | \'lg\';\nexport type BackToTopColor = \'default\' | \'primary\';',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-back-to-top> custom element",
+        html: "<ux4g-back-to-top variant=\"primary\" size=\"md\"><!-- BackToTop --></ux4g-back-to-top>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

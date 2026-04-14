@@ -507,6 +507,11 @@ export interface RadioGroupProps {
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-radio> custom element",
+        html: "<ux4g-radio variant=\"primary\" size=\"md\"><!-- Radio --></ux4g-radio>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

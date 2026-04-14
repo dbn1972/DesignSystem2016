@@ -284,6 +284,11 @@ export interface ContainerProps {
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-container> custom element",
+        html: "<ux4g-container variant=\"primary\" size=\"md\"><!-- Container --></ux4g-container>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

@@ -597,6 +597,11 @@ export default function ComponentPopoverPage() {
         types: 'export type PopoverTrigger = \'click\' | \'hover\';\nexport type PopoverPlacement = \'top\' | \'bottom\' | \'left\' | \'right\';\nexport type PopoverSize = \'sm\' | \'md\' | \'lg\';',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-popover> custom element",
+        html: "<ux4g-popover variant=\"primary\" size=\"md\"><!-- Popover --></ux4g-popover>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

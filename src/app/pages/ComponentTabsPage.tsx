@@ -369,6 +369,11 @@ export class TabsModule { }`,
 export type TabVariant = 'underline' | 'pills' | 'enclosed';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-tabs> custom element",
+        html: "<ux4g-tabs variant=\"primary\" size=\"md\"><!-- Tabs --></ux4g-tabs>",
+      }}
       comparisons={[
         {
           system: 'Material UI',

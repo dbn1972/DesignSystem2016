@@ -594,6 +594,11 @@ export default function ComponentTreeViewPage() {
         types: 'export interface TreeNode {\n  key: string;\n  title: string;\n  children?: TreeNode[];\n  icon?: string;\n  disabled?: boolean;\n}\n\nexport type TreeSize = \'sm\' | \'md\' | \'lg\';',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-tree-view> custom element",
+        html: "<ux4g-tree-view variant=\"primary\" size=\"md\"><!-- TreeView --></ux4g-tree-view>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

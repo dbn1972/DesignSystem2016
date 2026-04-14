@@ -974,6 +974,11 @@ export interface PANCardInputConfig {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-p-a-n-card-input> custom element",
+        html: "<ux4g-p-a-n-card-input variant=\"primary\" size=\"md\"><!-- PANCardInput --></ux4g-p-a-n-card-input>",
+      }}
       comparisons={[
         {
           system: 'GOV.UK Design System',

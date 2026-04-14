@@ -467,6 +467,11 @@ export type FlexAlign = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 export type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-flex> custom element",
+        html: "<ux4g-flex variant=\"primary\" size=\"md\"><!-- Flex --></ux4g-flex>",
+      }}
       comparisons={[
         {
           system: 'Chakra UI',

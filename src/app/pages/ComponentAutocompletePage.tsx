@@ -782,6 +782,11 @@ export default function ComponentAutocompletePage() {
         types: 'export type AutocompleteSize = \'sm\' | \'md\' | \'lg\';\n\nexport interface AutocompleteOption {\n  id: any;\n  name: string;\n  [key: string]: any;\n}\n\nexport interface AutocompleteGroupedOption {\n  label: string;\n  options: AutocompleteOption[];\n}',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-autocomplete> custom element",
+        html: "<ux4g-autocomplete variant=\"primary\" size=\"md\"><!-- Autocomplete --></ux4g-autocomplete>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

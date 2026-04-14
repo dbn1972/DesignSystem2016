@@ -1061,6 +1061,11 @@ export interface DepartmentContext {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-chatbot> custom element",
+        html: "<ux4g-chatbot variant=\"primary\" size=\"md\"><!-- Chatbot --></ux4g-chatbot>",
+      }}
       comparisons={[
         {
           system: 'Dialogflow (Google)',

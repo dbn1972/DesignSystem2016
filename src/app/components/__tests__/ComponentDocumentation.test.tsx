@@ -1,5 +1,5 @@
 import React from 'react';
-import { describe, it, expect } from 'vitest';
+import { beforeEach, describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
@@ -29,6 +29,11 @@ const BASE_PROPS = {
     module: '@NgModule({}) export class ButtonModule {}',
     types: 'export interface ButtonProps {}',
   },
+  webComponentsCode: {
+    component: "import '@ux4g/web-components';",
+    html: '<ux4g-button>Click me</ux4g-button>',
+    package: 'npm install @ux4g/web-components @ux4g/styles',
+  },
   comparisons: [
     { system: 'Material UI', component: 'Button', variants: 'contained, outlined, text', accessibility: 'WCAG 2.1 AA', documentation: 'Comprehensive', link: 'https://mui.com' },
   ],
@@ -49,6 +54,30 @@ function renderDocs(props = {}) {
       <ComponentDocumentation {...BASE_PROPS} {...props} />
     </MemoryRouter>
   );
+}
+
+beforeEach(() => {
+  vi.restoreAllMocks();
+});
+
+function mockDownload() {
+  const click = vi.fn();
+  const anchor = {
+    href: '',
+    download: '',
+    click,
+  } as unknown as HTMLAnchorElement;
+
+  const originalCreateElement = document.createElement.bind(document);
+  vi.spyOn(document, 'createElement').mockImplementation((tagName: string) => {
+    if (tagName === 'a') return anchor;
+    return originalCreateElement(tagName);
+  });
+
+  const createObjectURL = vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:mock');
+  const revokeObjectURL = vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => {});
+
+  return { anchor, click, createObjectURL, revokeObjectURL };
 }
 
 describe('ComponentDocumentation', () => {
@@ -133,8 +162,9 @@ describe('ComponentDocumentation', () => {
     const user = userEvent.setup();
     renderDocs();
     await user.click(screen.getByRole('button', { name: 'Code Downloads' }));
-    expect(screen.getByText('React Implementation')).toBeInTheDocument();
-    expect(screen.getByText('Angular Implementation')).toBeInTheDocument();
+    expect(screen.getByText('React implementation')).toBeInTheDocument();
+    expect(screen.getByText('Angular implementation')).toBeInTheDocument();
+    expect(screen.getByText('Web Components / HTML')).toBeInTheDocument();
   });
 
   it('renders Download React Code button', async () => {
@@ -142,6 +172,30 @@ describe('ComponentDocumentation', () => {
     renderDocs();
     await user.click(screen.getByRole('button', { name: 'Code Downloads' }));
     expect(screen.getByRole('button', { name: /Download React Code/i })).toBeInTheDocument();
+  });
+
+  it('downloads bundled code for React, Angular, and Web Components', async () => {
+    const user = userEvent.setup();
+
+    renderDocs();
+    await user.click(screen.getByRole('button', { name: 'Code Downloads' }));
+
+    const { anchor, click, createObjectURL, revokeObjectURL } = mockDownload();
+
+    await user.click(screen.getByRole('button', { name: /Download React code/i }));
+    expect(createObjectURL).toHaveBeenCalled();
+    expect(anchor.download).toBe('Button.tsx');
+    expect(click).toHaveBeenCalled();
+
+    await user.click(screen.getByRole('button', { name: /Download Angular code/i }));
+    expect(anchor.download).toBe('button.component.ts');
+    expect(click).toHaveBeenCalledTimes(2);
+
+    await user.click(screen.getByRole('button', { name: /Download Web code/i }));
+    expect(anchor.download).toBe('button.web.ts');
+    expect(click).toHaveBeenCalledTimes(3);
+
+    expect(revokeObjectURL).toHaveBeenCalledTimes(3);
   });
 
   // ── Comparison tab ────────────────────────────────────────────────────────

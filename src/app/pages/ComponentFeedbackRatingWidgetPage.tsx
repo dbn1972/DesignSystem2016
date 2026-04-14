@@ -990,6 +990,11 @@ export class FeedbackRatingWidgetModule { }`,
 export type RatingSize = 'sm' | 'md' | 'lg';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-feedback-rating-widget> custom element",
+        html: "<ux4g-feedback-rating-widget variant=\"primary\" size=\"md\"><!-- FeedbackRatingWidget --></ux4g-feedback-rating-widget>",
+      }}
       comparisons={[
         {
           system: 'SurveyMonkey',

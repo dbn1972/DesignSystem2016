@@ -211,6 +211,11 @@ export class CardModule { }`,
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-card> custom element",
+        html: "<ux4g-card variant=\"primary\" size=\"md\"><!-- Card --></ux4g-card>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

@@ -398,6 +398,11 @@ export default function ComponentStatisticPage() {
         types: 'export type StatisticVariant = \'default\' | \'primary\' | \'success\' | \'danger\' | \'warning\';\nexport type StatisticSize = \'sm\' | \'md\' | \'lg\';\nexport type StatisticTrend = \'up\' | \'down\';\nexport type StatisticLayout = \'default\' | \'card\';',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-statistic> custom element",
+        html: "<ux4g-statistic variant=\"primary\" size=\"md\"><!-- Statistic --></ux4g-statistic>",
+      }}
       comparisons={[
         {
           system: 'Ant Design (Alibaba)',

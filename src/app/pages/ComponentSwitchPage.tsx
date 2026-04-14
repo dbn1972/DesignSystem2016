@@ -497,6 +497,11 @@ export interface SwitchProps {
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-switch> custom element",
+        html: "<ux4g-switch variant=\"primary\" size=\"md\"><!-- Switch --></ux4g-switch>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

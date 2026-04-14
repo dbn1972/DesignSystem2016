@@ -563,6 +563,11 @@ export class DatePickerModule { }`,
         types: `export type DateFormat = 'DD/MM/YYYY' | 'MM/DD/YYYY' | 'YYYY-MM-DD';`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-date-picker> custom element",
+        html: "<ux4g-date-picker variant=\"primary\" size=\"md\"><!-- DatePicker --></ux4g-date-picker>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

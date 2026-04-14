@@ -273,6 +273,11 @@ export class TableModule { }`,
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-table> custom element",
+        html: "<ux4g-table variant=\"primary\" size=\"md\"><!-- Table --></ux4g-table>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

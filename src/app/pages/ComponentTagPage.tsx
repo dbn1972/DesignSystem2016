@@ -301,6 +301,11 @@ export default function ComponentTagPage() {
         types: 'export type TagVariant = \'default\' | \'primary\' | \'success\' | \'warning\' | \'error\' | \'info\';\nexport type TagSize = \'sm\' | \'md\' | \'lg\';\n\nexport interface TagConfig {\n  variant?: TagVariant;\n  size?: TagSize;\n  outlined?: boolean;\n  closeable?: boolean;\n  disabled?: boolean;\n  icon?: boolean;\n  content: string;\n  ariaLabel?: string;\n}',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-tag> custom element",
+        html: "<ux4g-tag variant=\"primary\" size=\"md\"><!-- Tag --></ux4g-tag>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

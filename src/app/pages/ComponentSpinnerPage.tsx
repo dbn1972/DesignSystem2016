@@ -452,6 +452,11 @@ export interface SpinnerConfig {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-spinner> custom element",
+        html: "<ux4g-spinner variant=\"primary\" size=\"md\"><!-- Spinner --></ux4g-spinner>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

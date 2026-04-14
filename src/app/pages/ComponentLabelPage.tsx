@@ -303,6 +303,11 @@ export class LabelModule { }`,
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-label> custom element",
+        html: "<ux4g-label variant=\"primary\" size=\"md\"><!-- Label --></ux4g-label>",
+      }}
       comparisons={[
         {
           system: 'GOV.UK Design System',

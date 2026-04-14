@@ -524,6 +524,11 @@ export interface InputProps {
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-input> custom element",
+        html: "<ux4g-input variant=\"primary\" size=\"md\"><!-- Input --></ux4g-input>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

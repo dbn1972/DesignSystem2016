@@ -4,6 +4,7 @@ import type { RouteObject } from "react-router";
 import { ROUTE_PATHS, toChildPath } from "../pathSource";
 
 const ReferenceServiceBlueprint = lazy(() => import("../../pages/ReferenceServiceBlueprint"));
+const ServicesHub = lazy(() => import("../../pages/ServicesHub"));
 const CertificateService = lazy(() => import("../../pages/CertificateService"));
 const ReferenceServiceSignIn = lazy(() => import("../../pages/ReferenceServiceSignIn"));
 const ReferenceServiceSignUp = lazy(() => import("../../pages/ReferenceServiceSignUp"));
@@ -67,6 +68,7 @@ const IdentityErrorLockout = lazy(() => import("../../pages/IdentityErrorLockout
 const IdentityAadhaar = lazy(() => import("../../pages/IdentityAadhaar"));
 
 export const servicesRoutes: RouteObject[] = [
+  { path: toChildPath(ROUTE_PATHS.SERVICES.ROOT), Component: ServicesHub },
   { path: toChildPath(ROUTE_PATHS.SERVICES.OVERVIEW), Component: ReferenceServiceBlueprint },
   { path: toChildPath(ROUTE_PATHS.SERVICES.DEMO), Component: CertificateService },
   { path: toChildPath(ROUTE_PATHS.SERVICES.SIGN_IN), Component: ReferenceServiceSignIn },
@@ -132,4 +134,3 @@ export const servicesRoutes: RouteObject[] = [
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_ERROR_LOCKOUT), Component: IdentityErrorLockout },
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_AADHAAR), Component: IdentityAadhaar },
 ];
-

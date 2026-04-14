@@ -329,6 +329,11 @@ export type DividerLabelPosition = 'left' | 'center' | 'right';
 export type DividerSpacing = 'none' | 'sm' | 'md' | 'lg';`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-divider> custom element",
+        html: "<ux4g-divider variant=\"primary\" size=\"md\"><!-- Divider --></ux4g-divider>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

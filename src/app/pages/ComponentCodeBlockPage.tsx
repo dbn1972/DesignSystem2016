@@ -346,6 +346,11 @@ export default function ComponentCodeBlockPage() {
         types: 'export type CodeBlockLanguage = \'typescript\' | \'javascript\' | \'json\' | \'html\' | \'css\' | \'python\' | \'java\' | \'bash\' | \'text\';\nexport type CodeBlockSize = \'sm\' | \'md\' | \'lg\';',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-code-block> custom element",
+        html: "<ux4g-code-block variant=\"primary\" size=\"md\"><!-- CodeBlock --></ux4g-code-block>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

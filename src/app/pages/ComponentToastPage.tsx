@@ -585,6 +585,11 @@ export interface ToastConfig {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-toast> custom element",
+        html: "<ux4g-toast variant=\"primary\" size=\"md\"><!-- Toast --></ux4g-toast>",
+      }}
       comparisons={[
         {
           system: 'Sonner',

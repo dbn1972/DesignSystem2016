@@ -516,6 +516,11 @@ export interface TextareaProps {
 }`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-textarea> custom element",
+        html: "<ux4g-textarea variant=\"primary\" size=\"md\"><!-- Textarea --></ux4g-textarea>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

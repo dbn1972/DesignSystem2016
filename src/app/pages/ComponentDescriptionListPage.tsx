@@ -382,6 +382,11 @@ export default function ComponentDescriptionListPage() {
         types: 'export type DescriptionListVariant = \'horizontal\' | \'vertical\';\nexport type TermWidth = \'narrow\' | \'medium\' | \'wide\';\n\nexport interface DescriptionListItem {\n  term: string;\n  definition: string;\n  icon?: string;\n}',
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-description-list> custom element",
+        html: "<ux4g-description-list variant=\"primary\" size=\"md\"><!-- DescriptionList --></ux4g-description-list>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

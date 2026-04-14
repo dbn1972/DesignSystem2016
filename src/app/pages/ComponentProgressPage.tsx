@@ -655,6 +655,11 @@ export type ProgressSize = 'sm' | 'md' | 'lg';
 export type ProgressColor = 'primary' | 'success' | 'warning' | 'danger';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-progress> custom element",
+        html: "<ux4g-progress variant=\"primary\" size=\"md\"><!-- Progress --></ux4g-progress>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',

@@ -751,6 +751,11 @@ export interface QRCodeData {
 }`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-q-r-code> custom element",
+        html: "<ux4g-q-r-code variant=\"primary\" size=\"md\"><!-- QRCode --></ux4g-q-r-code>",
+      }}
       comparisons={[
         {
           system: 'qrcode.react',

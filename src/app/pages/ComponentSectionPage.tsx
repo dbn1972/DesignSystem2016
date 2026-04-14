@@ -639,6 +639,11 @@ export type SectionSpacing = 'sm' | 'md' | 'lg' | 'xl';
 export type SectionBackground = 'white' | 'gray' | 'primary' | 'transparent';`,
       }}
 
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-section> custom element",
+        html: "<ux4g-section variant=\"primary\" size=\"md\"><!-- Section --></ux4g-section>",
+      }}
       comparisons={[
         {
           system: 'Chakra UI',

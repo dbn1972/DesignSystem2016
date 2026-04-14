@@ -259,6 +259,11 @@ export class ModalModule { }`,
         types: `export type ModalSize = 'sm' | 'md' | 'lg' | 'xl';`,
       }}
       
+      webComponentsCode={{
+        package: "npm install @ux4g/web-components @ux4g/tokens",
+        component: "import '@ux4g/web-components';\n// Registers <ux4g-modal> custom element",
+        html: "<ux4g-modal variant=\"primary\" size=\"md\"><!-- Modal --></ux4g-modal>",
+      }}
       comparisons={[
         {
           system: 'Material UI (Google)',
