@@ -132,9 +132,15 @@ export { UX4GUserProfileService } from './services/ux4g-user-profile-service';
 // 31 certificate-specific pages composing the reusable service components.
 export { UX4GCertDemo } from './services/certificate-flow/cert-demo';
 export { UX4GCertOfficerDashboard, UX4GCertOfficerCases, UX4GCertOfficerReview } from './services/certificate-flow/cert-officer';
+export { UX4GIdentitySignIn, UX4GIdentitySignUp, UX4GIdentityMobileOTP } from './services/certificate-flow/identity-auth';
+export { UX4GIdentityEmailOTP, UX4GIdentityForgotPassword, UX4GIdentityAccountRecovery } from './services/certificate-flow/identity-recovery';
+export { UX4GIdentitySessionTimeout, UX4GIdentityErrorLockout, UX4GIdentityAadhaar } from './services/certificate-flow/identity-security';
 import './services/certificate-flow/cert-pages';
 import './services/certificate-flow/cert-unique-pages';
 import './services/certificate-flow/cert-officer';
+import './services/certificate-flow/identity-auth';
+import './services/certificate-flow/identity-recovery';
+import './services/certificate-flow/identity-security';
 
 /**
  * Auto-register all components
