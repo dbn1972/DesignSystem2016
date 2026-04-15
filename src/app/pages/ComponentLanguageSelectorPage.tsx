@@ -1050,6 +1050,14 @@ export type LanguageSelectorPosition = 'left' | 'center' | 'right';`,
         useCases: "Central government portals (e.g., India.gov.in, Digital India); State government websites with regional language support; E-governance platforms (e.g., UMANG, mParivahan); Public service delivery portals; Citizen service applications; Educational and information portals; Healthcare and welfare systems",
         considerations: "Persistent language selection across sessions improves user experience; Native script display helps non-English speakers identify their language; Right-to-left (RTL) text direction support for Urdu; Font loading for regional scripts (consider performance); Translation quality assurance for critical government communications; Browser and device compatibility for various scripts; Fallback mechanisms when translations are unavailable",
       }}
+
+      useCases={[
+        { title: 'Portal Language Switch', description: 'Switch between Hindi and English on government portal.', scenario: 'Citizen switches portal language from English to Hindi.', implementation: '<LanguageSelector languages={["en","hi"]} current="en" onChange={switchLang} />' },
+        { title: 'Regional Language Selection', description: 'Select from 22 scheduled languages for state portals.', scenario: 'Tamil Nadu portal user switches to Tamil language.', implementation: '<LanguageSelector languages={["en","hi","ta","te","kn"]} showNativeNames />' },
+        { title: 'Form Language Toggle', description: 'Toggle form labels and hints between languages.', scenario: 'Citizen fills certificate form with labels in their preferred language.', implementation: '<LanguageSelector compact position="inline" onChange={updateFormLang} />' },
+        { title: 'Accessibility Language', description: 'Language selector with screen reader announcements.', scenario: 'Visually impaired user changes language using keyboard navigation.', implementation: '<LanguageSelector accessible announceChange ariaLabel="Select language" />' },
+      ]}
+
       additionalContent={
         <>
 

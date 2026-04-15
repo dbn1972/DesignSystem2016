@@ -349,6 +349,8 @@ export class AlertModule { }`,
         { title: "Form Validation Summary", description: "Error alert listing validation issues.", scenario: "Certificate form has missing fields.", implementation: "<Alert variant=\"error\">Please fix the errors below.</Alert>" },
         { title: "Payment Confirmation", description: "Success alert after payment.", scenario: "Fee payment completed.", implementation: "<Alert variant=\"success\">Payment received.</Alert>" },
         { title: "Maintenance Notice", description: "Warning for scheduled downtime.", scenario: "Service unavailable for maintenance.", implementation: "<Alert variant=\"warning\">Service unavailable Sunday 2-6 AM.</Alert>" },
+      
+        { title: 'Scheduled Maintenance Notice', description: 'Info alert for planned system downtime.', scenario: 'Portal shows advance notice of weekend maintenance window.', implementation: '<Alert variant="info" dismissible>Portal maintenance scheduled Saturday 2-6 AM IST.</Alert>' },
       ]}
 
       additionalContent={

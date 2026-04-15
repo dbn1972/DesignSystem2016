@@ -267,6 +267,8 @@ export type BadgeSize = 'sm' | 'md' | 'lg';`,
         { title: "Application Status", description: "Status badge on application cards.", scenario: "My Applications list shows status.", implementation: "<Badge variant=\"warning\">Under Review</Badge>" },
         { title: "Notification Count", description: "Numeric badge on bell icon.", scenario: "Header shows unread count.", implementation: "<Badge variant=\"error\">3</Badge>" },
         { title: "Maturity Indicator", description: "Stability level on component docs.", scenario: "Component page shows maturity.", implementation: "<Badge variant=\"success\">Stable</Badge>" },
+      
+        { title: 'Priority Indicator', description: 'Badge showing case priority level on officer dashboard.', scenario: 'High-priority cases show red badge for immediate attention.', implementation: '<Badge variant="error">High Priority</Badge>' },
       ]}
 
       additionalContent={

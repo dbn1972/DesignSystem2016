@@ -460,6 +460,9 @@ export type StackJustify = 'start' | 'center' | 'end' | 'between' | 'around' | '
       useCases={[
         { title: "Form Layout", description: "Vertical stack of form fields.", scenario: "Certificate application form.", implementation: "<Stack gap={4}><Input /><Select /><Button>Submit</Button></Stack>" },
         { title: "Card Content", description: "Stack content inside a card.", scenario: "Service information card.", implementation: "<Stack gap={2}><h3>Title</h3><p>Description</p><Badge>Status</Badge></Stack>" },
+      
+        { title: 'Form Field Stack', description: 'Vertical stack of form fields with consistent spacing.', scenario: 'Certificate application stacks input fields vertically.', implementation: '<Stack gap={4}><Input label="Name" /><Input label="Email" /><Button>Submit</Button></Stack>' },
+        { title: 'Card Content Stack', description: 'Stack content elements inside a service card.', scenario: 'Service card stacks title, description, and status badge.', implementation: '<Stack gap={2}><h3>Birth Certificate</h3><p>Apply online</p><Badge>Available</Badge></Stack>' },
       ]}
 
       additionalContent={

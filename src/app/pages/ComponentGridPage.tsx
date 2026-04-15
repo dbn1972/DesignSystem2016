@@ -491,6 +491,9 @@ export interface GridProps {
       useCases={[
         { title: "Service Card Grid", description: "Grid layout for service cards.", scenario: "Home page service listing.", implementation: "<Grid columns={3} gap={6}>{services.map(s => <Card key={s.id} />)}</Grid>" },
         { title: "Dashboard Layout", description: "Multi-column dashboard layout.", scenario: "Officer dashboard widgets.", implementation: "<Grid columns={{ sm: 1, md: 2, lg: 3 }} gap={4}>{widgets}</Grid>" },
+      
+        { title: 'Dashboard Widget Grid', description: 'Multi-column grid for dashboard widgets.', scenario: 'Officer dashboard shows metrics, charts, and tasks in grid.', implementation: '<Grid columns={{ sm: 1, md: 2, lg: 3 }} gap={4}>{widgets}</Grid>' },
+        { title: 'Document Gallery Grid', description: 'Grid layout for uploaded document thumbnails.', scenario: 'Verification page shows all uploaded documents in grid.', implementation: '<Grid columns={4} gap={2}>{documents.map(d => <DocCard key={d.id} />)}</Grid>' },
       ]}
 
       additionalContent={

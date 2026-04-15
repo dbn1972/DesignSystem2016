@@ -1082,6 +1082,14 @@ export interface DigitalSignatureConfig {
         regulations: "Electronic Signatures Directive (EU) - Compliant with eIDAS regulation for electronic signatures; ESIGN Act (US) - Meets requirements for electronic signatures in interstate commerce; UETA (Uniform Electronic Transactions Act) - Compliant with state-level electronic transaction laws; GDPR - Signature capture follows data minimization and consent principles; Section 508 - Accessibility compliance for federal government use; PIPEDA (Canada) - Meets privacy requirements for signature data collection",
         bestPractices: "Offer multiple signature methods to accommodate different user needs and abilities; Display clear instructions and examples for each signature method; Validate signature presence before form submission for required fields; Store signatures securely with encryption at rest and in transit; Implement audit trails tracking when, where, and by whom signatures were captured; Provide preview and confirmation before finalizing signature; Support responsive sizing for mobile, tablet, and desktop devices; Include timestamp and IP address metadata with stored signatures; Allow signature modification or replacement before final submission; Ensure signature data complies with retention and deletion policies",
       }}
+
+      useCases={[
+        { title: 'Certificate Approval Signing', description: 'Officer digitally signs approved certificates using DSC token.', scenario: 'Tehsildar signs approved income certificate with Class 3 DSC.', implementation: '<DigitalSignature type="dsc" onSign={handleApproval} certificate={cert} />' },
+        { title: 'Aadhaar eSign Consent', description: 'Citizen signs consent form using Aadhaar-based eSign.', scenario: 'Citizen provides eSign consent for data sharing in KYC flow.', implementation: '<DigitalSignature type="aadhaar-esign" onSign={handleConsent} />' },
+        { title: 'Contract Execution', description: 'Digital signature on government procurement contracts.', scenario: 'Procurement officer signs vendor contract on GeM portal.', implementation: '<DigitalSignature type="dsc" document={contractPdf} multiParty />' },
+        { title: 'Affidavit Attestation', description: 'Digital attestation of affidavits and declarations.', scenario: 'Notary digitally attests citizen affidavit for court submission.', implementation: '<DigitalSignature type="dsc" attestation onComplete={notarize} />' },
+      ]}
+
       additionalContent={
         <>
 

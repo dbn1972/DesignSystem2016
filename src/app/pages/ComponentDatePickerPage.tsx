@@ -185,6 +185,9 @@ function Example() {
       useCases={[
         { title: "Date of Birth", description: "DOB picker in personal details form.", scenario: "Certificate application personal info.", implementation: "<DatePicker label=\"Date of Birth\" required />" },
         { title: "Application Deadline", description: "Date selection for submission deadline.", scenario: "Tatkal processing deadline selection.", implementation: "<DatePicker label=\"Deadline\" minDate={today} />" },
+      
+        { title: 'Appointment Date Selection', description: 'Select appointment date from available slots.', scenario: 'Citizen picks passport appointment date from calendar.', implementation: '<DatePicker label="Appointment Date" minDate={today} availableDates={slots} />' },
+        { title: 'Document Issue Date', description: 'Officer selects certificate issue date.', scenario: 'Officer sets issue date while approving certificate.', implementation: '<DatePicker label="Issue Date" defaultValue={today} />' },
       ]}
 
       additionalContent={

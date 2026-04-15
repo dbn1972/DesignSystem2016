@@ -609,6 +609,14 @@ export type HeaderVariant = 'government' | 'light' | 'dark';`,
           { property: 'Z-Index (Sticky)', token: 'header.zIndex', value: '50' },
         ],
       }}
+
+      useCases={[
+        { title: 'Government Portal Header', description: 'Standard header with emblem, ministry name, and navigation.', scenario: 'All pages show header with India emblem and ministry branding.', implementation: '<Header logo={<Emblem />} title="Ministry of Electronics & IT" navigation={navLinks} />' },
+        { title: 'Citizen Service Header', description: 'Header with user profile, notifications, and language selector.', scenario: 'Logged-in citizen sees profile menu and notification bell.', implementation: '<Header user={currentUser} notifications={3} languageSelector />' },
+        { title: 'Accessible Header', description: 'Header with skip-to-content link and high contrast toggle.', scenario: 'Screen reader user navigates directly to main content.', implementation: '<Header skipToContent accessibilityTools showFontSize />' },
+        { title: 'Mobile Responsive Header', description: 'Header that collapses to hamburger menu on mobile.', scenario: 'Mobile user accesses full navigation via slide-out menu.', implementation: '<Header responsive mobileMenu="drawer" />' },
+      ]}
+
       additionalContent={
         <>
 

@@ -189,6 +189,8 @@ function Example() {
         { title: "State/UT Selection", description: "Dropdown for selecting Indian state or union territory.", scenario: "Address form in certificate application.", implementation: "<Select label=\"State / UT\" options={INDIAN_STATES} required />" },
         { title: "Certificate Type", description: "Select the type of certificate being applied for.", scenario: "Pre-application eligibility check.", implementation: "<Select label=\"Certificate Type\" options={CERT_TYPES} />" },
         { title: "Payment Method", description: "Choose payment method for application fee.", scenario: "Payment step in service flow.", implementation: "<Select label=\"Payment Method\" options={PAYMENT_METHODS} />" },
+      
+        { title: 'District Selection', description: 'Select district after choosing state.', scenario: 'Address form shows districts filtered by selected state.', implementation: '<Select label="District" options={filteredDistricts} required />' },
       ]}
 
       additionalContent={

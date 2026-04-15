@@ -158,6 +158,9 @@ function Example() {
       useCases={[
         { title: "Dark Mode Toggle", description: "Toggle between light and dark themes.", scenario: "Header theme switcher.", implementation: "<Switch label=\"Dark mode\" checked={isDark} onChange={toggle} />" },
         { title: "Notification Preference", description: "Toggle SMS/email notifications.", scenario: "User profile notification settings.", implementation: "<Switch label=\"SMS notifications\" />" },
+      
+        { title: 'Notification Preferences', description: 'Toggle SMS/email notification settings.', scenario: 'Citizen enables SMS notifications for application updates.', implementation: '<Switch label="SMS notifications" onChange={updatePreference} />' },
+        { title: 'Accessibility Settings', description: 'Toggle high contrast and large text modes.', scenario: 'Visually impaired user enables high contrast mode.', implementation: '<Switch label="High contrast mode" checked={highContrast} onChange={toggleContrast} />' },
       ]}
 
       additionalContent={

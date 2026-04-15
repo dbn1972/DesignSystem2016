@@ -641,6 +641,9 @@ export interface ShowHideConfig {
       useCases={[
         { title: "Password Visibility", description: "Toggle password field visibility.", scenario: "Login and registration forms.", implementation: "<ShowHide><Input type=\"password\" /></ShowHide>" },
         { title: "Sensitive Data", description: "Hide/show Aadhaar number.", scenario: "Profile page with masked data.", implementation: "<ShowHide masked>{aadhaarNumber}</ShowHide>" },
+      
+        { title: 'Advanced Search Filters', description: 'Toggle visibility of advanced search options.', scenario: 'Citizen expands advanced filters on service search page.', implementation: '<ShowHide label="Advanced Filters"><FilterForm /></ShowHide>' },
+        { title: 'Sensitive Data Masking', description: 'Hide/show Aadhaar number on profile page.', scenario: 'Citizen toggles Aadhaar visibility on their profile.', implementation: '<ShowHide masked>{aadhaarNumber}</ShowHide>' },
       ]}
 
       additionalContent={

@@ -781,6 +781,8 @@ export type ProgressColor = 'primary' | 'success' | 'warning' | 'danger';`,
         { title: "Document Upload Progress", description: "Upload progress bar for each document.", scenario: "User uploads Aadhaar card during application.", implementation: "<Progress value={65} label=\"Uploading Aadhaar Card...\" />" },
         { title: "Application Completion", description: "Overall form completion percentage.", scenario: "Dashboard shows how much of the application is filled.", implementation: "<Progress value={40} label=\"Application 40% complete\" />" },
         { title: "Processing Status", description: "Indeterminate progress during API calls.", scenario: "Payment processing in progress.", implementation: "<Progress indeterminate label=\"Processing payment...\" />" },
+      
+        { title: 'Form Completion Tracker', description: 'Show overall application form completion percentage.', scenario: 'Dashboard shows citizen has completed 60% of application.', implementation: '<Progress value={60} label="Application 60% complete" showPercentage />' },
       ]}
 
       additionalContent={

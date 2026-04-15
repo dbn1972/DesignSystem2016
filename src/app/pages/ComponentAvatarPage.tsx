@@ -730,6 +730,9 @@ export type AvatarStatus = 'online' | 'offline' | 'away' | 'busy';`,
       useCases={[
         { title: "User Profile", description: "User avatar in header and profile page.", scenario: "Logged-in user sees their initials.", implementation: "<Avatar name=\"Rajesh Kumar\" size=\"md\" />" },
         { title: "Officer Badge", description: "Officer avatar in case review.", scenario: "Case assigned to Officer Suresh Mehta.", implementation: "<Avatar name=\"Suresh Mehta\" size=\"sm\" />" },
+      
+        { title: 'Citizen Profile Display', description: 'Show citizen photo or initials in portal header.', scenario: 'Logged-in citizen sees their initials in the header.', implementation: '<Avatar name="Rajesh Kumar" size="md" />' },
+        { title: 'Case Assignment Badge', description: 'Show assigned officer avatar on case cards.', scenario: 'Case card shows assigned officer identity.', implementation: '<Avatar name="Officer Mehta" size="sm" status="online" />' },
       ]}
 
       additionalContent={

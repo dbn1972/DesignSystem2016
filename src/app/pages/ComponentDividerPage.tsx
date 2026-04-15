@@ -262,6 +262,9 @@ export const Divider: React.FC<DividerProps> = ({
       useCases={[
         { title: "Section Separator", description: "Visual break between page sections.", scenario: "Certificate service landing page sections.", implementation: "<Divider />" },
         { title: "List Item Separator", description: "Thin line between list items.", scenario: "Notification list items.", implementation: "<Divider variant=\"subtle\" />" },
+      
+        { title: 'Form Section Separator', description: 'Visual break between form sections.', scenario: 'Application form separates Personal and Address sections.', implementation: '<Divider />' },
+        { title: 'Footer Separator', description: 'Divider above page footer.', scenario: 'Government portal separates content from footer links.', implementation: '<Divider variant="subtle" />' },
       ]}
 
       additionalContent={

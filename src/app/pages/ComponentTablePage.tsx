@@ -371,6 +371,8 @@ export class TableModule { }`,
         { title: "Application Case Queue", description: "Sortable table of pending applications for officers.", scenario: "Officer dashboard shows all assigned cases.", implementation: "<Table columns={columns} data={cases} sortable />" },
         { title: "Fee Structure Display", description: "Read-only table showing service fees.", scenario: "Certificate service information page.", implementation: "<Table columns={feeColumns} data={fees} />" },
         { title: "Document Checklist", description: "Table with status indicators per document.", scenario: "Review summary shows uploaded document status.", implementation: "<Table columns={docColumns} data={documents} />" },
+      
+        { title: 'Scheme Beneficiary List', description: 'Table listing scheme beneficiaries with status.', scenario: 'Block officer reviews MGNREGA beneficiary list with payment status.', implementation: '<Table columns={beneficiaryColumns} data={beneficiaries} sortable />' },
       ]}
 
       additionalContent={

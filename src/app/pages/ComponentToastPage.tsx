@@ -727,6 +727,8 @@ export interface ToastConfig {
         { title: "Draft Saved", description: "Success notification after auto-save.", scenario: "Form auto-saves every 30 seconds.", implementation: "<Toast variant=\"success\">Draft saved.</Toast>" },
         { title: "Network Error", description: "Error toast on API failure.", scenario: "Payment fails due to timeout.", implementation: "<Toast variant=\"error\">Network error. Try again.</Toast>" },
         { title: "Copy Confirmation", description: "Brief confirmation after copy.", scenario: "User copies reference number.", implementation: "<Toast variant=\"info\">Copied to clipboard.</Toast>" },
+      
+        { title: 'Application Auto-Save', description: 'Success toast confirming form auto-save.', scenario: 'Form auto-saves every 30 seconds with confirmation toast.', implementation: '<Toast variant="success">Draft saved at 3:45 PM</Toast>' },
       ]}
 
       additionalContent={

@@ -746,6 +746,9 @@ export interface TooltipConfig {
       useCases={[
         { title: "Icon Button Label", description: "Tooltip on icon-only buttons.", scenario: "Toolbar with icon-only actions.", implementation: "<Tooltip content=\"Delete\"><Button variant=\"ghost\"><Trash /></Button></Tooltip>" },
         { title: "Truncated Text", description: "Show full text on hover.", scenario: "Table cell with truncated application ID.", implementation: "<Tooltip content={fullId}><span>{truncatedId}</span></Tooltip>" },
+      
+        { title: 'Form Field Help', description: 'Tooltip explaining what a form field requires.', scenario: 'Citizen hovers info icon next to Aadhaar field for format help.', implementation: '<Tooltip content="Enter 12-digit Aadhaar number"><InfoIcon /></Tooltip>' },
+        { title: 'Action Button Label', description: 'Tooltip on icon-only action buttons in toolbars.', scenario: 'Officer hovers over icon buttons to see action labels.', implementation: '<Tooltip content="Approve application"><Button variant="ghost"><Check /></Button></Tooltip>' },
       ]}
 
       additionalContent={

@@ -554,6 +554,9 @@ export class CenterModule { }`,
       useCases={[
         { title: "Loading State", description: "Center a spinner in a container.", scenario: "Page loading state.", implementation: "<Center><Spinner /></Center>" },
         { title: "Empty State", description: "Center empty state content.", scenario: "No results found page.", implementation: "<Center height=\"400px\"><EmptyState /></Center>" },
+      
+        { title: 'Loading State Container', description: 'Center spinner during page data loading.', scenario: 'Dashboard shows centered spinner while fetching data.', implementation: '<Center minHeight="300px"><Spinner label="Loading..." /></Center>' },
+        { title: 'Success Confirmation', description: 'Center success message after form submission.', scenario: 'Citizen sees centered success message after application.', implementation: '<Center><div className="text-center"><CheckCircle /><h2>Application Submitted</h2></div></Center>' },
       ]}
 
       additionalContent={

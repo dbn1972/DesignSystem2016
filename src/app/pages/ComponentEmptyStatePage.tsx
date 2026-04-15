@@ -394,6 +394,10 @@ export default function ComponentEmptyStatePage() {
           implementation: 'Use first-time variant with welcoming message and onboarding action to complete profile.',
           code: 'import { EmptyState } from \'@ux4g/react-core\';\nimport { FolderOpen } from \'lucide-react\';\n\nfunction Dashboard({ isFirstTime, onStartOnboarding }) {\n  if (isFirstTime) {\n    return (\n      <EmptyState\n        variant="first-time"\n        icon={<FolderOpen size={48} />}\n        title="Welcome to the Citizen Portal"\n        description="Get started by completing your profile to access personalized government services, track applications, and receive important notifications."\n        actionLabel="Complete your profile"\n        onAction={onStartOnboarding}\n        secondaryActionLabel="Explore services"\n        onSecondaryAction={() => router.push(\'/services\')}\n      />\n    );\n  }\n  \n  return <DashboardContent />;\n}',
         },
+      
+        { title: 'First-Time User Dashboard', description: 'Welcome state for new portal users.', scenario: 'New citizen sees onboarding prompt on first login.', implementation: '<EmptyState title="Welcome!" description="Complete your profile to get started." action="Complete Profile" />' },
+        { title: 'Filtered Results Empty', description: 'No results after applying search filters.', scenario: 'Officer filters cases and gets no matches.', implementation: '<EmptyState title="No matching cases" description="Try adjusting your filters." />' },
+        { title: 'Offline State', description: 'No internet connection state.', scenario: 'Citizen loses connectivity during form filling.', implementation: '<EmptyState title="You are offline" description="Check your connection and try again." icon={<WifiOff />} />' },
       ]}
 
       additionalContent={

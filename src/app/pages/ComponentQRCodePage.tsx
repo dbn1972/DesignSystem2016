@@ -880,6 +880,13 @@ export interface QRCodeData {
           { property: 'Border Radius', token: 'qrcode.borderRadius', value: '4px' },
         ],
       }}
+      useCases={[
+        { title: 'UPI Payment QR', description: 'QR code for UPI payment of government fees.', scenario: 'Payment page shows QR for citizen to scan with UPI app.', implementation: '<QRCode value={upiLink} size={200} />' },
+        { title: 'Certificate Verification', description: 'QR on issued certificate for authenticity verification.', scenario: 'Employer scans QR on certificate to verify authenticity.', implementation: '<QRCode value={verificationUrl} logo={emblemUrl} />' },
+        { title: 'Digital Pass QR', description: 'QR code on e-pass for entry verification.', scenario: 'Security scans visitor e-pass QR at government building.', implementation: '<QRCode value={passUrl} size={150} level="H" />' },
+        { title: 'Document Download Link', description: 'QR linking to downloadable government document.', scenario: 'Printed notice includes QR linking to full digital document.', implementation: '<QRCode value={documentUrl} downloadable />' },
+      ]}
+
       additionalContent={
         <>
 

@@ -829,6 +829,14 @@ export type MenuPlacement = 'bottom-start' | 'bottom-end' | 'top-start' | 'top-e
           { property: 'Offset', token: 'base.offset', value: '8px' },
         ],
       }}
+
+      useCases={[
+        { title: 'Application Actions Menu', description: 'Context menu for application card actions.', scenario: 'Citizen sees Track, Download, Print options on application card.', implementation: '<Menu trigger={<Button variant="ghost">Actions</Button>}><MenuItem>Track</MenuItem><MenuItem>Download</MenuItem><MenuItem>Print</MenuItem></Menu>' },
+        { title: 'User Profile Menu', description: 'Profile dropdown in header with account options.', scenario: 'Logged-in user accesses Profile, Settings, Logout from header.', implementation: '<Menu trigger={<Avatar />}><MenuItem>Profile</MenuItem><MenuItem>Settings</MenuItem><MenuItem>Logout</MenuItem></Menu>' },
+        { title: 'Officer Quick Actions', description: 'Action menu for case management operations.', scenario: 'Officer selects Approve, Reject, or Request Info on a case.', implementation: '<Menu trigger={<Button>Review</Button>}><MenuItem>Approve</MenuItem><MenuItem>Reject</MenuItem><MenuItem>Request Info</MenuItem></Menu>' },
+        { title: 'Export Options Menu', description: 'Menu for data export format selection.', scenario: 'Admin exports report as PDF, Excel, or CSV.', implementation: '<Menu trigger={<Button variant="secondary">Export</Button>}><MenuItem>PDF</MenuItem><MenuItem>Excel</MenuItem><MenuItem>CSV</MenuItem></Menu>' },
+      ]}
+
       additionalContent={
         <>
 

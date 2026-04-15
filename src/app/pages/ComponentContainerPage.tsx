@@ -400,6 +400,9 @@ export interface ContainerProps {
       useCases={[
         { title: "Page Content Wrapper", description: "Max-width container for page content.", scenario: "All documentation pages.", implementation: "<Container maxWidth=\"1200px\"><PageContent /></Container>" },
         { title: "Form Container", description: "Centered form with max width.", scenario: "Certificate application form.", implementation: "<Container maxWidth=\"600px\"><ApplicationForm /></Container>" },
+      
+        { title: 'Form Page Container', description: 'Max-width container for application forms.', scenario: 'Certificate form is contained within readable width.', implementation: '<Container maxWidth="600px"><ApplicationForm /></Container>' },
+        { title: 'Content Page Container', description: 'Readable width container for policy documents.', scenario: 'Citizen reads RTI guidelines within comfortable line length.', implementation: '<Container maxWidth="800px"><PolicyContent /></Container>' },
       ]}
 
       additionalContent={

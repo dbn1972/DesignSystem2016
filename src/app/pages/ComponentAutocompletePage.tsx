@@ -933,6 +933,9 @@ export default function ComponentAutocompletePage() {
       useCases={[
         { title: "Address Search", description: "Type-ahead for Indian addresses.", scenario: "Address form with PIN code lookup.", implementation: "<Autocomplete label=\"Search Address\" options={addresses} />" },
         { title: "Service Search", description: "Search across available government services.", scenario: "Home page service finder.", implementation: "<Autocomplete label=\"Find a Service\" options={services} />" },
+      
+        { title: 'Department Search', description: 'Search across government departments and ministries.', scenario: 'Citizen finds the right department for their query.', implementation: '<Autocomplete label="Search Department" options={departments} />' },
+        { title: 'Scheme Finder', description: 'Search eligible government schemes by keyword.', scenario: 'Citizen searches for applicable welfare schemes.', implementation: '<Autocomplete label="Find Scheme" options={schemes} groupBy="ministry" />' },
       ]}
 
       additionalContent={

@@ -419,6 +419,14 @@ export class StepperModule { }`,
           { property: 'Connector Inactive', token: 'stepper.connector.inactive', value: '#E5E7EB' },
         ],
       }}
+
+      useCases={[
+        { title: 'Certificate Application Flow', description: 'Step indicator for multi-step certificate application.', scenario: 'Citizen sees progress: Personal > Address > Documents > Review.', implementation: '<Stepper steps={formSteps} currentStep={2} />' },
+        { title: 'Payment Processing Flow', description: 'Steps through fee payment process.', scenario: 'Summary > Payment Method > Confirmation > Receipt.', implementation: '<Stepper steps={paymentSteps} currentStep={1} />' },
+        { title: 'Account Recovery Flow', description: 'Multi-step identity verification for account recovery.', scenario: 'Citizen recovers locked account: Verify > OTP > Reset > Success.', implementation: '<Stepper steps={recoverySteps} currentStep={3} />' },
+        { title: 'Document Verification Flow', description: 'Officer verification workflow with approval stages.', scenario: 'Officer processes: Receive > Verify > Approve > Issue.', implementation: '<Stepper steps={verificationSteps} currentStep={2} orientation="vertical" />' },
+      ]}
+
       additionalContent={
         <>
 

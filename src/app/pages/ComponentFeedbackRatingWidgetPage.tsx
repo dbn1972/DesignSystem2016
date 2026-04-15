@@ -1127,6 +1127,14 @@ export type RatingSize = 'sm' | 'md' | 'lg';`,
         compliance: "WCAG 2.1 Level AA for accessibility to all citizens including those with disabilities; Section 508 compliance for federal government digital services; Privacy considerations: feedback collection must comply with data protection regulations; Transparent feedback usage: citizens should know how their feedback will be used; Anonymous option: allow anonymous feedback to encourage honest responses",
         bestPractices: "Keep surveys short: limit to 3-5 questions to maximize completion rates; Provide context: explain why feedback is being collected and how it will be used; Offer text feedback option: allow citizens to provide detailed comments beyond ratings; Display thank you message: acknowledge feedback submission with clear confirmation; Act on feedback: regularly review feedback data and make visible improvements; Make feedback accessible: provide multiple ways to submit feedback (online, phone, in-person); Report results: share aggregated feedback results with the public to demonstrate responsiveness",
       }}
+
+      useCases={[
+        { title: 'Service Satisfaction Rating', description: 'Star rating after completing a government service.', scenario: 'Citizen rates certificate issuance experience after receiving document.', implementation: '<FeedbackRatingWidget type="stars" onSubmit={handleFeedback} />' },
+        { title: 'Page Helpfulness', description: 'Thumbs up/down rating on documentation and help pages.', scenario: 'User rates whether the FAQ page answered their question.', implementation: '<FeedbackRatingWidget type="thumbs" question="Was this helpful?" />' },
+        { title: 'Officer Performance Rating', description: 'Citizen rates interaction with government officer.', scenario: 'Citizen rates counter staff behavior after in-person visit.', implementation: '<FeedbackRatingWidget type="stars" maxRating={5} showComment />' },
+        { title: 'Portal Usability Feedback', description: 'Emoji-based quick feedback on portal usability.', scenario: 'User provides quick feedback on new portal redesign.', implementation: '<FeedbackRatingWidget type="emoji" question="How was your experience?" />' },
+      ]}
+
       additionalContent={
         <>
 

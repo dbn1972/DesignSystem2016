@@ -386,6 +386,8 @@ export class ModalModule { }`,
         { title: "Delete Confirmation", description: "Confirm before destructive action.", scenario: "Officer deletes pending application.", implementation: "<Modal title=\"Delete?\">This cannot be undone.</Modal>" },
         { title: "Document Preview", description: "View uploaded documents.", scenario: "Officer reviews Aadhaar card.", implementation: "<Modal size=\"lg\" title=\"Preview\"><img src={url} /></Modal>" },
         { title: "Session Warning", description: "Warn before auto-logout.", scenario: "Session about to expire.", implementation: "<Modal title=\"Session Expiring\">2 minutes remaining.</Modal>" },
+      
+        { title: 'Document Preview Modal', description: 'Large modal for previewing uploaded documents.', scenario: 'Officer opens full-screen preview of uploaded Aadhaar scan.', implementation: '<Modal size="lg" title="Document Preview"><DocumentViewer src={docUrl} /></Modal>' },
       ]}
 
       additionalContent={

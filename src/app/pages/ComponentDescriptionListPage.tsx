@@ -513,6 +513,10 @@ export default function ComponentDescriptionListPage() {
       useCases={[
         { title: "Application Summary", description: "Key-value display of application details.", scenario: "Review page before submission.", implementation: "<DescriptionList items={[{term:\"Name\",detail:\"Rajesh Kumar\"}]} />" },
         { title: "Service Information", description: "Service details display.", scenario: "Certificate service info page.", implementation: "<DescriptionList items={serviceDetails} />" },
+      
+        { title: 'Service Fee Details', description: 'Display fee structure for government services.', scenario: 'Citizen views certificate fee breakdown before payment.', implementation: '<DescriptionList items={[{term:"Application Fee",detail:"₹50"},{term:"Processing",detail:"₹25"}]} />' },
+        { title: 'Officer Case Summary', description: 'Key details of assigned case for officer review.', scenario: 'Officer reviews case summary before making decision.', implementation: '<DescriptionList items={caseDetails} layout="horizontal" />' },
+        { title: 'Scheme Eligibility Criteria', description: 'Display eligibility requirements for welfare schemes.', scenario: 'Citizen checks PM-KISAN eligibility criteria.', implementation: '<DescriptionList items={eligibilityCriteria} />' },
       ]}
 
       additionalContent={

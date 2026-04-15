@@ -762,6 +762,9 @@ export type SectionBackground = 'white' | 'gray' | 'primary' | 'transparent';`,
       useCases={[
         { title: "Page Section", description: "Semantic section for page content.", scenario: "Documentation page sections.", implementation: "<Section title=\"Getting Started\" id=\"getting-started\">...</Section>" },
         { title: "Form Section", description: "Group related form fields.", scenario: "Multi-section application form.", implementation: "<Section title=\"Personal Details\">...</Section>" },
+      
+        { title: 'Application Form Section', description: 'Semantic section grouping related form fields.', scenario: 'Certificate form groups Personal Details fields together.', implementation: '<Section title="Personal Details" id="personal">...</Section>' },
+        { title: 'Policy Document Section', description: 'Anchor-linkable section in long policy documents.', scenario: 'RTI guidelines page has linkable sections for each clause.', implementation: '<Section title="Section 4: Information Disclosure" id="section-4">...</Section>' },
       ]}
 
       additionalContent={

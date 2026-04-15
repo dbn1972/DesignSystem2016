@@ -204,6 +204,9 @@ function Example() {
       useCases={[
         { title: "Document Upload", description: "Upload Aadhaar, photo, address proof.", scenario: "Certificate application document step.", implementation: "<FileUpload accept=\".pdf,.jpg,.png\" maxSize={2} label=\"Upload Aadhaar\" />" },
         { title: "Bulk Document Upload", description: "Multiple file upload for supporting docs.", scenario: "Officer uploads batch verification documents.", implementation: "<FileUpload multiple maxFiles={5} />" },
+      
+        { title: 'Bulk Document Upload', description: 'Multiple file upload for supporting documents.', scenario: 'Officer uploads batch verification documents.', implementation: '<FileUpload multiple maxFiles={5} accept=".pdf,.jpg" />' },
+        { title: 'Photo Upload with Preview', description: 'Single photo upload with crop and preview.', scenario: 'Citizen uploads passport-size photo for application.', implementation: '<FileUpload accept=".jpg,.png" maxSize={2} preview crop />' },
       ]}
 
       additionalContent={

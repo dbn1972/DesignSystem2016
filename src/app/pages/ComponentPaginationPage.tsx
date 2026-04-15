@@ -196,6 +196,8 @@ function Example() {
         { title: "Application List Paging", description: "Navigate through pages of applications.", scenario: "My Applications shows 10 per page.", implementation: "<Pagination total={50} pageSize={10} current={1} />" },
         { title: "Search Results", description: "Page through search results.", scenario: "Service search returns many results.", implementation: "<Pagination total={120} pageSize={20} current={3} />" },
         { title: "Officer Case Queue", description: "Navigate through assigned cases.", scenario: "Officer dashboard with 47 total cases.", implementation: "<Pagination total={47} pageSize={10} current={1} />" },
+      
+        { title: 'Gazette Search Results', description: 'Paginate through gazette notification search results.', scenario: 'Citizen browses 200+ gazette notifications with page navigation.', implementation: '<Pagination total={200} pageSize={20} current={3} onChange={setPage} />' },
       ]}
 
       additionalContent={

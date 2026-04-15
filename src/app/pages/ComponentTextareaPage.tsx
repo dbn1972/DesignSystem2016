@@ -207,6 +207,8 @@ function Example() {
         { title: "Additional Remarks", description: "Free-text field for supplementary information.", scenario: "Additional details step in certificate application.", implementation: "<Textarea label=\"Additional Remarks\" rows={4} placeholder=\"Any additional information...\" />" },
         { title: "Appeal Reason", description: "Required text area for explaining appeal grounds.", scenario: "Citizen files appeal against rejected application.", implementation: "<Textarea label=\"Reason for Appeal\" required rows={6} />" },
         { title: "Officer Comments", description: "Review comments from processing officer.", scenario: "Officer review decision with mandatory comments.", implementation: "<Textarea label=\"Officer Comments\" required rows={5} />" },
+      
+        { title: 'RTI Application Details', description: 'Text area for detailed RTI information request.', scenario: 'Citizen describes specific information sought under RTI Act.', implementation: '<Textarea label="Information Sought" required rows={6} maxLength={2000} />' },
       ]}
 
       additionalContent={

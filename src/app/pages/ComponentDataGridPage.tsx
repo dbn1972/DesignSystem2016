@@ -505,6 +505,14 @@ export class DataGridModule { }`,
           { property: 'Border Color', token: 'datagrid.border', value: '#E5E7EB' },
         ],
       }}
+
+      useCases={[
+        { title: 'Officer Case Management', description: 'Advanced data grid for managing assigned cases with sort and filter.', scenario: 'Officer reviews 500+ pending applications with priority sorting.', implementation: '<DataGrid columns={caseColumns} data={cases} sortable filterable />' },
+        { title: 'Audit Log Viewer', description: 'Paginated audit trail with search for compliance review.', scenario: 'Auditor searches system logs for specific transaction records.', implementation: '<DataGrid columns={auditColumns} data={auditLog} searchable />' },
+        { title: 'Beneficiary Database', description: 'Large dataset of scheme beneficiaries with export capability.', scenario: 'Block officer manages MGNREGA beneficiary records.', implementation: '<DataGrid columns={beneficiaryColumns} data={beneficiaries} exportable />' },
+        { title: 'Revenue Collection Report', description: 'Tabular report of tax and fee collections by category.', scenario: 'Revenue department reviews monthly collection figures.', implementation: '<DataGrid columns={revenueColumns} data={collections} summary />' },
+      ]}
+
       additionalContent={
         <>
 

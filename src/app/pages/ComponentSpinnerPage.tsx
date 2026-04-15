@@ -584,6 +584,8 @@ export interface SpinnerConfig {
         { title: "Button Loading State", description: "Inline spinner inside a loading button.", scenario: "User clicks Submit and waits for API response.", implementation: "<Spinner size=\"sm\" /> inside <Button loading>" },
         { title: "Page Loading", description: "Full-page spinner during route transitions.", scenario: "Lazy-loaded page is being fetched.", implementation: "<Spinner size=\"lg\" label=\"Loading page...\" />" },
         { title: "Data Fetching", description: "Spinner while fetching application status.", scenario: "Status tracker loads timeline data.", implementation: "<Spinner size=\"md\" label=\"Loading status...\" />" },
+      
+        { title: 'Payment Processing', description: 'Spinner during payment gateway processing.', scenario: 'Citizen sees spinner while UPI payment is being verified.', implementation: '<Spinner size="lg" label="Verifying payment..." />' },
       ]}
 
       additionalContent={

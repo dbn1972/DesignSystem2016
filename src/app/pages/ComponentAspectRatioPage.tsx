@@ -555,6 +555,9 @@ export interface AspectRatioConfig {
       useCases={[
         { title: "Document Preview", description: "Maintain aspect ratio for document thumbnails.", scenario: "Document upload preview area.", implementation: "<AspectRatio ratio={4/3}><img src={docUrl} /></AspectRatio>" },
         { title: "Video Embed", description: "Responsive video container.", scenario: "Training video on help page.", implementation: "<AspectRatio ratio={16/9}><iframe src={videoUrl} /></AspectRatio>" },
+      
+        { title: 'Passport Photo Preview', description: 'Maintain 35x45mm aspect ratio for passport photos.', scenario: 'Citizen previews uploaded passport photo in correct ratio.', implementation: '<AspectRatio ratio={35/45}><img src={photoUrl} /></AspectRatio>' },
+        { title: 'Government Video Embed', description: 'Responsive 16:9 video container for announcements.', scenario: 'Ministry website embeds press conference video.', implementation: '<AspectRatio ratio={16/9}><iframe src={videoUrl} /></AspectRatio>' },
       ]}
 
       additionalContent={

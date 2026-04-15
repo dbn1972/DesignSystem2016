@@ -600,6 +600,9 @@ export type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';`,
       useCases={[
         { title: "Button Group", description: "Horizontal button layout with gap.", scenario: "Form action buttons.", implementation: "<Flex gap={4} justify=\"end\"><Button variant=\"secondary\">Cancel</Button><Button>Submit</Button></Flex>" },
         { title: "Header Layout", description: "Logo and navigation in flex row.", scenario: "Page header layout.", implementation: "<Flex justify=\"between\" align=\"center\"><Logo /><Nav /></Flex>" },
+      
+        { title: 'Form Action Buttons', description: 'Horizontal button layout for form actions.', scenario: 'Application form shows Cancel and Submit buttons aligned right.', implementation: '<Flex gap={4} justify="end"><Button variant="secondary">Cancel</Button><Button>Submit</Button></Flex>' },
+        { title: 'Status Bar Layout', description: 'Horizontal layout for status indicators.', scenario: 'Dashboard header shows key metrics in a row.', implementation: '<Flex gap={6} align="center"><Statistic label="Pending" value={42} /><Statistic label="Approved" value={156} /></Flex>' },
       ]}
 
       additionalContent={

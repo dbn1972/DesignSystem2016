@@ -655,6 +655,14 @@ export type FooterVariant = 'government' | 'light' | 'dark';`,
           { property: 'Link Size', token: 'footer.link.fontSize', value: '14px (0.875rem)' },
         ],
       }}
+
+      useCases={[
+        { title: 'Government Portal Footer', description: 'Standard footer with ministry links, helpline, and NIC branding.', scenario: 'All pages show footer with ministry contact and accessibility links.', implementation: '<Footer links={govLinks} copyright="Government of India" helpline="1800-XXX-XXXX" />' },
+        { title: 'Service Portal Footer', description: 'Footer with social media links and app download badges.', scenario: 'Citizen portal footer shows mobile app links and social handles.', implementation: '<Footer socialLinks={social} appLinks={appStores} />' },
+        { title: 'Multilingual Footer', description: 'Footer with language selector and regional office links.', scenario: 'State portal footer shows regional language options and district offices.', implementation: '<Footer languageSelector showRegionalOffices />' },
+        { title: 'Compliance Footer', description: 'Footer with privacy policy, terms, and GIGW compliance badge.', scenario: 'All government sites show GIGW compliance and accessibility statement.', implementation: '<Footer compliance={["GIGW","WCAG-AA"]} privacyPolicy termsOfUse />' },
+      ]}
+
       additionalContent={
         <>
 

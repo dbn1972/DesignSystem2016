@@ -1101,6 +1101,13 @@ export interface PANCardInputConfig {
         ],
       }}
 
+      useCases={[
+        { title: 'Income Tax Filing', description: 'PAN entry for income tax return filing.', scenario: 'Citizen enters PAN to file annual income tax return.', implementation: '<PANCardInput label="PAN Number" required onValidate={validatePAN} />' },
+        { title: 'KYC Verification', description: 'PAN for Know Your Customer compliance.', scenario: 'Bank collects PAN during account opening KYC process.', implementation: '<PANCardInput label="PAN" required hint="As per Income Tax records" />' },
+        { title: 'GST Registration', description: 'PAN linkage for GST registration.', scenario: 'Business owner links PAN to GST registration application.', implementation: '<PANCardInput label="Business PAN" required />' },
+        { title: 'Subsidy Linkage', description: 'PAN for Direct Benefit Transfer linkage.', scenario: 'Beneficiary links PAN to bank account for LPG subsidy.', implementation: '<PANCardInput label="PAN Number" onVerify={linkDBT} />' },
+      ]}
+
       additionalContent={
         <div className="mt-8 space-y-6">
           {/* When to use */}

@@ -179,6 +179,8 @@ function Example() {
         { title: "Terms & Conditions Acceptance", description: "Required consent checkbox before form submission.", scenario: "Declaration step in certificate application.", implementation: "<Checkbox label=\"I accept the Terms of Service\" required />" },
         { title: "Document Checklist", description: "Multiple checkboxes for document upload verification.", scenario: "Officer verifies uploaded documents.", implementation: "<Checkbox label=\"Aadhaar Card verified\" />" },
         { title: "Notification Preferences", description: "Optional checkboxes for communication channels.", scenario: "User profile notification settings.", implementation: "<Checkbox label=\"Receive SMS updates\" defaultChecked />" },
+      
+        { title: 'Scheme Selection', description: 'Multiple checkboxes for selecting applicable welfare schemes.', scenario: 'Citizen selects all applicable schemes during registration.', implementation: '<Checkbox label="PM-KISAN" /><Checkbox label="MGNREGA" /><Checkbox label="Ayushman Bharat" />' },
       ]}
 
       additionalContent={

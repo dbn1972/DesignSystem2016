@@ -971,6 +971,13 @@ export interface PaymentError {
         ],
       }}
 
+      useCases={[
+        { title: 'Certificate Application Fee', description: 'Pay application fee for government certificates.', scenario: 'Citizen pays ₹50 fee for birth certificate application.', implementation: '<PaymentGateway amount={50} currency="INR" serviceName="Birth Certificate" onSuccess={handleSuccess} />' },
+        { title: 'Challan Payment', description: 'Pay traffic fines and government challans online.', scenario: 'Citizen pays traffic fine challan via UPI.', implementation: '<PaymentGateway amount={challanAmount} methods={["upi","netbanking","card"]} />' },
+        { title: 'Property Tax Payment', description: 'Online property tax payment for municipal corporation.', scenario: 'Property owner pays annual property tax via portal.', implementation: '<PaymentGateway amount={taxAmount} serviceName="Property Tax" showReceipt />' },
+        { title: 'Exam Fee Payment', description: 'Pay examination fees for government competitive exams.', scenario: 'Candidate pays UPSC exam application fee online.', implementation: '<PaymentGateway amount={examFee} serviceName="UPSC Exam Fee" />' },
+      ]}
+
       governmentContext={{
         useCases: "Processing service fees for passport, driving license, and other government document applications; Payment of property tax, water tax, electricity bills, and other municipal charges; Collection of application fees for tenders, registrations, and certifications; Processing fines, penalties, and court fees; Payment for government examination fees and educational services; e-Mudra digital signature certificate fees; Revenue stamp and duty payments",
         integrations: "Government e-Marketplace (GeM) payment integration; Bharat Bill Payment System (BBPS) for utility payments; Integration with State Bank of India (SBI) ePay; National Payments Corporation of India (NPCI) UPI integration; RuPay card network for domestic payments; Government e-Payment Gateway for central and state departments",

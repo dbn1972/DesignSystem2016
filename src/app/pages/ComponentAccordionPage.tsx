@@ -347,6 +347,8 @@ export class AccordionModule { }`,
         { title: "FAQ Section", description: "Expandable FAQ items on help pages.", scenario: "Certificate service help page.", implementation: "<Accordion><AccordionItem title=\"How long does processing take?\">7-10 days.</AccordionItem></Accordion>" },
         { title: "Document Guidelines", description: "Collapsible sections for each document type.", scenario: "Document requirements page.", implementation: "<Accordion><AccordionItem title=\"Identity Proof\">Aadhaar, Voter ID...</AccordionItem></Accordion>" },
         { title: "Application Details", description: "Expandable sections in review summary.", scenario: "Review page before submission.", implementation: "<Accordion><AccordionItem title=\"Personal Details\">...</AccordionItem></Accordion>" },
+      
+        { title: 'Scheme Eligibility FAQ', description: 'Expandable FAQ for welfare scheme eligibility questions.', scenario: 'Citizen checks PM-KISAN eligibility criteria in FAQ format.', implementation: '<Accordion><AccordionItem title="Who is eligible?">Small and marginal farmers...</AccordionItem></Accordion>' },
       ]}
 
       additionalContent={

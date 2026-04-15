@@ -861,6 +861,13 @@ export class RichTextEditorModule { }`,
         ],
       }}
 
+      useCases={[
+        { title: 'Official Notice Drafting', description: 'Rich text editor for drafting government notices and circulars.', scenario: 'Admin drafts public notice with bold headings and numbered lists.', implementation: '<RichTextEditor toolbar={["bold","italic","list","link"]} onChange={handleChange} />' },
+        { title: 'Appeal Description', description: 'Formatted text for citizen appeal submissions.', scenario: 'Citizen writes detailed appeal with structured paragraphs.', implementation: '<RichTextEditor maxLength={5000} placeholder="Describe your appeal..." />' },
+        { title: 'Policy Document Editing', description: 'Edit policy documents with tables and formatting.', scenario: 'Policy officer updates department guidelines document.', implementation: '<RichTextEditor toolbar={["bold","italic","table","heading","link"]} />' },
+        { title: 'Meeting Minutes', description: 'Record meeting minutes with structured formatting.', scenario: 'Secretary records committee meeting decisions and action items.', implementation: '<RichTextEditor toolbar={["bold","list","heading"]} autoSave />' },
+      ]}
+
       governmentContext={{
         useCases: "Drafting official government notices and circulars; Creating and publishing policy documents; Composing public announcements and press releases; Editing department guidelines and regulations; Preparing multilingual content for diverse populations; Creating structured reports with tables and formatting; Documenting meeting minutes and official records; Publishing citizen-facing information and FAQs",
         examples: "Official Notice Editor: Department heads drafting public notices with proper formatting and structure; Policy Document Management: Policy teams creating comprehensive documents with headings, lists, and tables; Multilingual Circulars: Administrative staff preparing circulars in multiple regional languages; Public Announcement System: Communications team publishing formatted announcements on government portals",

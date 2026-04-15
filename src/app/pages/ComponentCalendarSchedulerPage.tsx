@@ -1299,6 +1299,14 @@ export type CalendarView = 'month' | 'week' | 'day';`,
         considerations: "Support for multiple timezones across different jurisdictions; Holiday calendar integration for federal, state, and local holidays; Working hours configuration for different government departments; Appointment confirmation via email and SMS; Waitlist management for high-demand services; Recurring event support for regular meetings and hearings; Multi-location scheduling for branch offices; Department-specific booking rules and constraints; Public vs internal calendar views; Integration with citizen portal authentication; Accessibility compliance for diverse citizen needs; Data privacy and HIPAA compliance for sensitive appointments",
         integrations: "Government authentication systems (Login.gov, state SSO); Email and SMS notification services; Payment gateways for appointment fees; Document management systems for appointment-related files; CRM systems for citizen relationship management; GIS systems for location-based services; Video conferencing platforms for virtual appointments; Analytics platforms for service utilization tracking",
       }}
+
+      useCases={[
+        { title: 'Passport Appointment Booking', description: 'Schedule appointment at Passport Seva Kendra.', scenario: 'Citizen books slot for passport document verification.', implementation: '<CalendarScheduler availableSlots={slots} onBook={handleBook} />' },
+        { title: 'Court Hearing Schedule', description: 'View and manage court hearing dates.', scenario: 'Advocate checks upcoming hearing dates for cases.', implementation: '<CalendarScheduler events={hearings} view="month" />' },
+        { title: 'Vaccination Slot Booking', description: 'Book vaccination appointment at government health center.', scenario: 'Citizen books COVID/routine vaccination slot via CoWIN-style interface.', implementation: '<CalendarScheduler type="appointment" minSlotDuration={15} />' },
+        { title: 'RTI Hearing Calendar', description: 'Schedule and track RTI appeal hearing dates.', scenario: 'Information Commissioner schedules RTI appeal hearings.', implementation: '<CalendarScheduler events={rtiHearings} view="week" />' },
+      ]}
+
       additionalContent={
         <>
 

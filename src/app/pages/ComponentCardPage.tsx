@@ -307,6 +307,8 @@ export class CardModule { }`,
         { title: "Service Information Card", description: "Card displaying a government service summary.", scenario: "Home page shows available services as cards.", implementation: "<Card title=\"Birth Certificate\" description=\"Apply online\" />" },
         { title: "Application Status Card", description: "Card showing application progress.", scenario: "My Applications dashboard.", implementation: "<Card><Badge>Under Review</Badge><p>CERT-2026-001</p></Card>" },
         { title: "Quick Action Card", description: "Clickable card for navigation.", scenario: "Officer dashboard quick actions.", implementation: "<Card as=\"a\" href=\"/cases\">View Cases</Card>" },
+      
+        { title: 'Officer Dashboard Widget', description: 'Card displaying key metric with trend indicator.', scenario: 'Officer dashboard shows pending cases count with weekly trend.', implementation: '<Card><Statistic label="Pending Cases" value={42} trend="+5" /></Card>' },
       ]}
 
       additionalContent={

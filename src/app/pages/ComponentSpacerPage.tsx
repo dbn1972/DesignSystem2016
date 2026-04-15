@@ -293,6 +293,9 @@ export const Spacer: React.FC<SpacerProps> = ({
       useCases={[
         { title: "Section Spacing", description: "Add vertical space between sections.", scenario: "Documentation page layout.", implementation: "<Spacer size=\"lg\" />" },
         { title: "Inline Spacing", description: "Add horizontal space between elements.", scenario: "Button group spacing.", implementation: "<Spacer size=\"md\" direction=\"horizontal\" />" },
+      
+        { title: 'Form Section Spacing', description: 'Consistent vertical space between form sections.', scenario: 'Application form has uniform spacing between field groups.', implementation: '<Spacer size="lg" />' },
+        { title: 'Card Grid Spacing', description: 'Vertical space between card rows on dashboard.', scenario: 'Service cards have consistent spacing on home page.', implementation: '<Spacer size="md" />' },
       ]}
 
       additionalContent={

@@ -471,6 +471,9 @@ export default function ComponentTimelinePage() {
       useCases={[
         { title: "Application Status Timeline", description: "Timeline showing application progress.", scenario: "Status tracker page.", implementation: "<Timeline items={statusUpdates} />" },
         { title: "Activity Log", description: "Chronological activity feed.", scenario: "Officer dashboard recent activity.", implementation: "<Timeline items={activities} />" },
+      
+        { title: 'Application Status History', description: 'Chronological timeline of application status changes.', scenario: 'Citizen views full history: Submitted > Verified > Approved > Issued.', implementation: '<Timeline items={statusHistory} />' },
+        { title: 'Audit Trail', description: 'Officer action log showing who did what and when.', scenario: 'Supervisor reviews audit trail of case processing actions.', implementation: '<Timeline items={auditTrail} variant="compact" />' },
       ]}
 
       additionalContent={

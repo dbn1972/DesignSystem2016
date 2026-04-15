@@ -311,6 +311,10 @@ export class BreadcrumbModule { }`,
         { title: "Service Navigation", description: "Breadcrumb trail in certificate service flow.", scenario: "User navigates through multi-step application.", implementation: "<Breadcrumb items={[{label:\"Home\",href:\"/\"},{label:\"Services\"},{label:\"Certificate\"}]} />" },
         { title: "Component Documentation", description: "Breadcrumb on component docs pages.", scenario: "Developer browses component library.", implementation: "<Breadcrumb items={[{label:\"Home\"},{label:\"Components\"},{label:\"Button\"}]} />" },
         { title: "Governance Pages", description: "Breadcrumb in governance section.", scenario: "Admin navigates compliance dashboard.", implementation: "<Breadcrumb items={[{label:\"Home\"},{label:\"Governance\"},{label:\"Conformance\"}]} />" },
+      
+        { title: 'Component Documentation', description: 'Breadcrumb on component docs pages.', scenario: 'Developer browses component library hierarchy.', implementation: '<Breadcrumb items={[{label:"Home"},{label:"Components"},{label:"Button"}]} />' },
+        { title: 'Governance Pages', description: 'Breadcrumb in governance section.', scenario: 'Admin navigates compliance dashboard hierarchy.', implementation: '<Breadcrumb items={[{label:"Home"},{label:"Governance"},{label:"Conformance"}]} />' },
+        { title: 'Certificate Service Flow', description: 'Breadcrumb trail in multi-step application.', scenario: 'Citizen sees navigation path during certificate application.', implementation: '<Breadcrumb items={[{label:"Home",href:"/"},{label:"Services"},{label:"Certificate"}]} />' },
       ]}
 
       additionalContent={

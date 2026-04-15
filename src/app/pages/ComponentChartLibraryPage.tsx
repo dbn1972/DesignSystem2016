@@ -1039,6 +1039,14 @@ export interface AxisConfig {
           { property: 'Title Font Weight', token: 'chart.title.fontWeight', value: '600' },
         ],
       }}
+
+      useCases={[
+        { title: 'Application Analytics Dashboard', description: 'Bar chart showing monthly application volumes by department.', scenario: 'District collector reviews certificate application trends.', implementation: '<ChartLibrary type="bar" data={monthlyApplications} />' },
+        { title: 'Budget Utilization Report', description: 'Pie chart showing department-wise budget allocation and spending.', scenario: 'Finance officer reviews quarterly budget utilization.', implementation: '<ChartLibrary type="pie" data={budgetData} />' },
+        { title: 'Service Delivery Trends', description: 'Line chart showing service delivery time improvements over quarters.', scenario: 'Admin tracks average processing time reduction.', implementation: '<ChartLibrary type="line" data={deliveryTrends} />' },
+        { title: 'Citizen Satisfaction Scores', description: 'Donut chart showing satisfaction ratings across services.', scenario: 'Department head reviews citizen feedback scores.', implementation: '<ChartLibrary type="donut" data={satisfactionData} />' },
+      ]}
+
       additionalContent={
         <>
 

@@ -171,6 +171,9 @@ function Example() {
       useCases={[
         { title: "Mobile OTP Verification", description: "6-digit OTP for mobile verification.", scenario: "Sign-up flow OTP step.", implementation: "<OTPInput length={6} onComplete={handleVerify} />" },
         { title: "Aadhaar OTP", description: "OTP sent to Aadhaar-linked mobile.", scenario: "Aadhaar authentication flow.", implementation: "<OTPInput length={6} autoFocus />" },
+      
+        { title: 'Aadhaar OTP Verification', description: 'OTP sent to Aadhaar-linked mobile for eKYC.', scenario: 'Citizen enters 6-digit OTP received on Aadhaar-linked number.', implementation: '<OTPInput length={6} autoFocus onComplete={verifyAadhaar} />' },
+        { title: 'Transaction OTP', description: 'OTP for payment authorization.', scenario: 'Citizen enters bank OTP to authorize fee payment.', implementation: '<OTPInput length={6} onComplete={authorizePayment} resendTimer={30} />' },
       ]}
 
       additionalContent={

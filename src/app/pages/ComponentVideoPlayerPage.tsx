@@ -980,6 +980,8 @@ export type VideoQuality = 'auto' | '240p' | '360p' | '480p' | '720p' | '1080p';
           scenario: 'Officer training portal shows video walkthroughs of the case management system.',
           implementation: '<VideoPlayer src="/videos/officer-training.mp4" controls playbackSpeed />',
         },
+      
+        { title: 'Scheme Awareness Video', description: 'Video explaining welfare scheme benefits and enrollment.', scenario: 'PM-KISAN page shows explainer video about scheme benefits.', implementation: '<VideoPlayer src="/videos/pm-kisan-explainer.mp4" captions poster />' },
       ]}
 
       additionalContent={

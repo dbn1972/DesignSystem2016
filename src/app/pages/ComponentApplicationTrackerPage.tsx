@@ -417,6 +417,14 @@ export interface ApplicationStage {
           { property: 'Connector Inactive', token: 'tracker.connector.inactive', value: '#E5E7EB' },
         ],
       }}
+
+      useCases={[
+        { title: 'Certificate Status Tracking', description: 'Track birth/death certificate application progress.', scenario: 'Citizen checks certificate status after submission.', implementation: '<ApplicationTracker applicationId="CERT-2026-001" />' },
+        { title: 'Grievance Resolution Tracking', description: 'Track grievance resolution through government portal.', scenario: 'Citizen follows up on filed grievance with tracking ID.', implementation: '<ApplicationTracker applicationId="GRV-2026-042" showTimeline />' },
+        { title: 'Passport Application Status', description: 'Track passport application through processing stages.', scenario: 'Citizen monitors passport from Applied to Dispatched.', implementation: '<ApplicationTracker applicationId="PSP-2026-100" stages={passportStages} />' },
+        { title: 'Pension Claim Tracking', description: 'Track pension claim approval and disbursement status.', scenario: 'Retired employee tracks pension claim through HR department.', implementation: '<ApplicationTracker applicationId="PEN-2026-055" showDates />' },
+      ]}
+
       additionalContent={
         <>
 

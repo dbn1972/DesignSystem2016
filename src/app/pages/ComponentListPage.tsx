@@ -266,6 +266,9 @@ export type ListSpacing = 'compact' | 'normal' | 'relaxed';`,
       useCases={[
         { title: "Document Checklist", description: "List of required documents with status.", scenario: "Document upload requirements page.", implementation: "<List><ListItem>Aadhaar Card</ListItem><ListItem>Photo</ListItem></List>" },
         { title: "Notification List", description: "List of recent notifications.", scenario: "Notification center page.", implementation: "<List>{notifications.map(n => <ListItem key={n.id}>{n.title}</ListItem>)}</List>" },
+      
+        { title: 'Notification List', description: 'List of recent notifications with status.', scenario: 'Citizen views unread notifications in notification center.', implementation: '<List>{notifications.map(n => <ListItem key={n.id} icon={n.icon}>{n.title}</ListItem>)}</List>' },
+        { title: 'Required Documents Checklist', description: 'Checklist of documents needed for application.', scenario: 'Citizen reviews required documents before starting application.', implementation: '<List variant="checklist">{requiredDocs.map(d => <ListItem key={d.id} checked={d.uploaded}>{d.name}</ListItem>)}</List>' },
       ]}
 
       additionalContent={

@@ -907,6 +907,14 @@ export interface DocumentViewerConfig {
           { property: 'Focus Ring Width', token: 'accessibility.focusRingWidth', value: '2px' },
         ],
       }}
+
+      useCases={[
+        { title: 'Certificate Preview', description: 'Preview generated certificate before download.', scenario: 'Citizen previews birth certificate PDF before downloading.', implementation: '<DocumentViewer src={certificateUrl} type="pdf" />' },
+        { title: 'Uploaded Document Review', description: 'Officer reviews citizen-uploaded documents during verification.', scenario: 'Verification officer reviews Aadhaar card scan for identity check.', implementation: '<DocumentViewer src={docUrl} zoom controls />' },
+        { title: 'Gazette Notification Viewer', description: 'View official gazette notifications and government orders.', scenario: 'Citizen reads published gazette notification about policy change.', implementation: '<DocumentViewer src={gazetteUrl} type="pdf" pagination />' },
+        { title: 'Land Record Document', description: 'View digitized land ownership records and maps.', scenario: 'Citizen views 7/12 extract from land records department.', implementation: '<DocumentViewer src={landRecordUrl} type="image" zoom />' },
+      ]}
+
       additionalContent={
         <>
 

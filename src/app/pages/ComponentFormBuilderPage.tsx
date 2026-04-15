@@ -1205,6 +1205,14 @@ export type FormLayout = 'vertical' | 'horizontal' | 'grid';`,
         compliance: "Section 508 compliance for federal accessibility requirements; WCAG 2.1 AA for international accessibility standards; Privacy compliance with data encryption and secure transmission; Records retention policies with audit trails; Multi-language support for diverse populations; Mobile-responsive design for accessibility across devices",
         considerations: "Plain language form labels and instructions for readability; Progressive disclosure to avoid overwhelming users; Auto-save functionality for long forms to prevent data loss; Clear error messaging with specific remediation instructions; Accessibility testing with assistive technologies; Performance optimization for low-bandwidth connections; Integration with government authentication systems; Secure data handling and transmission protocols",
       }}
+
+      useCases={[
+        { title: 'Dynamic Certificate Application', description: 'JSON-schema-driven form for different certificate types.', scenario: 'Admin configures birth/death/income certificate forms without coding.', implementation: '<FormBuilder schema={certFormSchema} onSubmit={handleSubmit} />' },
+        { title: 'Citizen Feedback Survey', description: 'Configurable survey form for post-service feedback.', scenario: 'Department creates satisfaction survey for recently served citizens.', implementation: '<FormBuilder schema={surveySchema} preview />' },
+        { title: 'Scheme Eligibility Form', description: 'Dynamic eligibility checker with conditional fields.', scenario: 'Citizen fills eligibility form that shows/hides fields based on answers.', implementation: '<FormBuilder schema={eligibilitySchema} conditional />' },
+        { title: 'Event Registration Form', description: 'Multi-step registration form for government events.', scenario: 'Citizen registers for Republic Day parade viewing with seat selection.', implementation: '<FormBuilder schema={eventSchema} multiStep />' },
+      ]}
+
       additionalContent={
         <>
 

@@ -478,6 +478,14 @@ export type TabVariant = 'underline' | 'pills' | 'enclosed';`,
           { property: 'Inactive Text Color', token: 'tabs.text.inactive', value: '#6B7280 (Gray 600)' },
         ],
       }}
+
+      useCases={[
+        { title: 'Component Documentation Tabs', description: 'Tabs for Overview, Props, Examples, Code sections.', scenario: 'Developer browses component documentation by section.', implementation: '<Tabs><Tab label="Overview">...</Tab><Tab label="Props">...</Tab></Tabs>' },
+        { title: 'Application Form Sections', description: 'Tab navigation between form sections.', scenario: 'Citizen switches between Personal, Address, Documents tabs.', implementation: '<Tabs><Tab label="Personal">...</Tab><Tab label="Address">...</Tab></Tabs>' },
+        { title: 'Dashboard Views', description: 'Switch between dashboard perspectives.', scenario: 'Officer toggles between Pending, Approved, Rejected case views.', implementation: '<Tabs><Tab label="Pending">...</Tab><Tab label="Approved">...</Tab></Tabs>' },
+        { title: 'Service Information Tabs', description: 'Organize service details into tabbed sections.', scenario: 'Citizen views Eligibility, Documents Required, Fees, FAQs tabs.', implementation: '<Tabs><Tab label="Eligibility">...</Tab><Tab label="Fees">...</Tab></Tabs>' },
+      ]}
+
       additionalContent={
         <>
 
