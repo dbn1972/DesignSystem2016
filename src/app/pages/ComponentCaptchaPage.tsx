@@ -32,17 +32,27 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
               <RefreshCw size={16} className={theme === 'dark' ? 'text-gray-300' : 'text-muted-foreground'} />
             </button>
           </div>
-          <div className="grid grid-cols-3 gap-1 w-64 h-64 bg-gray-200">
-            {[...Array(9)].map((_, i) => (
-              <div
-                key={`${refreshKey}-${i}`}
-                className="bg-gray-300 hover:bg-gray-400 cursor-pointer border border-gray-400"
-              />
-            ))}
+          <div className="grid grid-cols-3 gap-1 w-64 h-64">
+            {[...Array(9)].map((_, i) => {
+              const hasTarget = [1, 4, 7].includes(i);
+              return (
+                <div
+                  key={`${refreshKey}-${i}`}
+                  className={`flex items-center justify-center text-2xl cursor-pointer border border-gray-300 rounded transition-colors ${
+                    hasTarget ? 'bg-amber-50 hover:bg-amber-100' : 'bg-gray-100 hover:bg-gray-200'
+                  }`}
+                >
+                  {hasTarget ? '🚦' : ['🏠', '🚗', '🌳', '🏢', '🛣️', '🚶'][i % 6]}
+                </div>
+              );
+            })}
           </div>
           <button className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700">
             <Volume2 size={14} />
             <span>Audio challenge</span>
+          </button>
+          <button className="w-full py-2 bg-[#005196] text-white text-sm font-medium rounded hover:bg-[#004178] transition-colors">
+            Verify
           </button>
         </div>
       )}
