@@ -1,46 +1,85 @@
-import { Check, AlertCircle, Info, Download, Code, Package, Terminal, FileText, Users, Zap, GitBranch, HelpCircle, ExternalLink, ChevronRight, Copy, CheckCircle } from "lucide-react";
+import { Check, AlertCircle, Info, Download, Code, Package, Terminal, FileText, Users, Zap, GitBranch, HelpCircle, ExternalLink, ChevronRight, Copy, CheckCircle, Layers, Shield } from "lucide-react";
 
 export default function InstallationGuide() {
   return (
-    <div className="min-h-screen bg-card">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
-        <div className="max-w-7xl mx-auto px-8 py-16">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
-              <Package size={16} />
-              <span>Implementation Guide</span>
-            </div>
-            
-            <h1 className="text-5xl font-bold mb-6">
-              Installation & Implementation
-            </h1>
-            
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              Everything you need to integrate the UX4G Design System into your government digital service. 
-              From installation to production deployment, this guide provides clear pathways for both new projects 
-              and existing applications.
-            </p>
+      <div className="border-b border-border bg-gradient-to-b from-muted/40 via-background to-background">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-8 pb-12">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.8fr)] items-start">
+            <div className="pt-1">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-full text-sm text-muted-foreground shadow-sm mb-5">
+                <Package size={16} />
+                <span>Implementation Guide</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl">
+                Getting started with UX4G
+              </h1>
+              
+              <p className="mt-5 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
+                A premium onboarding guide for teams adopting UX4G in production. Choose the right framework path,
+                install the design system cleanly, and move from first setup to a stable government-ready release.
+              </p>
 
-            <div className="flex gap-4">
-              <a href="#quick-start" className="px-6 py-3 bg-card text-primary rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                Quick Start Guide
-              </a>
-              <a href="#support" className="px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-colors">
-                Get Support
-              </a>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a href="#before-you-start" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted/60">
+                  Before you start
+                </a>
+                <a href="#quick-start" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted/60">
+                  Quick start
+                </a>
+                <a href="#install" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted/60">
+                  Install options
+                </a>
+                <a href="#support" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted/60">
+                  Support
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">Quick path</p>
+                  <h2 className="mt-2 text-2xl font-semibold text-foreground">What this guide covers</h2>
+                </div>
+                <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  5 min start
+                </span>
+              </div>
+
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <HeroStat label="Frameworks" value="React, Angular, Web" />
+                <HeroStat label="Best path" value="NPM install" />
+                <HeroStat label="Use cases" value="New builds, migration" />
+                <HeroStat label="Support" value="Checklist + escalation" />
+              </div>
+
+              <div className="mt-6 space-y-3 rounded-2xl border border-border bg-muted/30 p-4">
+                <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                  <Shield size={16} className="text-primary" />
+                  Production-first guidance
+                </div>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  The recommended path is package installation with tokens and component docs wired in early.
+                  CDN usage is only for prototypes and should stay out of production services.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16 space-y-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-14 space-y-20">
+        <BeforeYouStartSection />
         <GettingStartedSection />
         <WhoThisIsForSection />
         <InstallPathwaysSection />
         <ReactUsageSection />
         <AngularUsageSection />
+        <WebComponentsUsageSection />
         <TokenUsageSection />
         <ComponentUsageSection />
         <StarterAppSection />
@@ -58,32 +97,32 @@ function GettingStartedSection() {
     <section id="quick-start">
       <SectionHeader
         title="Getting Started"
-        description="Three simple steps to start building with UX4G"
+        description="The fastest path from first install to a production-ready foundation"
         icon={<Zap size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-3 gap-6">
+      <div className="mt-8 grid gap-5 lg:grid-cols-3">
         <StepCard
           number="1"
-          title="Choose Your Framework"
-          description="Select React or Angular based on your project requirements"
+          title="Choose your delivery path"
+          description="Start with React, Angular, or Web Components depending on your stack and team workflow"
           icon={<Code size={32} />}
         />
         <StepCard
           number="2"
-          title="Install Dependencies"
-          description="Install the UX4G package and design tokens via NPM"
+          title="Install the packages"
+          description="Add the design tokens first, then bring in the framework package you actually need"
           icon={<Download size={32} />}
         />
         <StepCard
           number="3"
-          title="Start Building"
-          description="Import components and start creating accessible interfaces"
+          title="Start building safely"
+          description="Use the reference examples, accessibility defaults, and checklist before going live"
           icon={<Zap size={32} />}
         />
       </div>
 
-      <div className="mt-8 bg-green-50 border-2 border-green-200 rounded-lg p-6">
+      <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-6 shadow-sm">
         <div className="flex items-start gap-3">
           <CheckCircle className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
@@ -99,17 +138,78 @@ function GettingStartedSection() {
   );
 }
 
+function BeforeYouStartSection() {
+  return (
+    <section id="before-you-start">
+      <SectionHeader
+        title="Before You Start"
+        description="The essential decisions and prerequisites that strong design systems surface up front"
+        icon={<CheckCircle size={28} />}
+      />
+
+      <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <MiniInfoCard
+          title="Prerequisites"
+          eyebrow="Step zero"
+          points={['Node.js 16+', 'npm or Yarn', 'A clean app shell', 'Access to the UX4G packages']}
+        />
+        <MiniInfoCard
+          title="Choose a path"
+          eyebrow="Framework first"
+          points={['React for app teams', 'Angular for enterprise estates', 'Web Components for framework-neutral delivery', 'Use the same tokens everywhere']}
+        />
+        <MiniInfoCard
+          title="Plan the rollout"
+          eyebrow="Adoption"
+          points={['Install tokens first', 'Start with one page or flow', 'Verify accessibility early', 'Remove legacy UI in stages']}
+        />
+        <MiniInfoCard
+          title="Get help early"
+          eyebrow="Support"
+          points={['Use the checklist', 'Review migration notes', 'Escalate blockers before release', 'Keep a clear owner for upgrades']}
+        />
+      </div>
+    </section>
+  );
+}
+
+function MiniInfoCard({ title, eyebrow, points }: any) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">{eyebrow}</p>
+      <h3 className="mt-2 text-lg font-semibold text-foreground">{title}</h3>
+      <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+        {points.map((point: string) => (
+          <li key={point} className="flex items-start gap-2">
+            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function HeroStat({ label, value }: any) {
+  return (
+    <div className="rounded-2xl border border-border bg-muted/30 p-4">
+      <div className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">{label}</div>
+      <div className="mt-2 text-sm font-semibold leading-snug text-foreground">{value}</div>
+    </div>
+  );
+}
+
 function StepCard({ number, title, description, icon }: any) {
   return (
-    <div className="border-2 border-border rounded-lg p-6 hover:border-primary hover:shadow-lg transition-all">
+    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
       <div className="flex items-start justify-between mb-4">
-        <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl">
+        <div className="w-11 h-11 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
           {number}
         </div>
-        <div className="text-blue-600">{icon}</div>
+        <div className="text-primary">{icon}</div>
       </div>
-      <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground">{description}</p>
+      <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
+      <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
     </div>
   );
 }
@@ -123,7 +223,7 @@ function WhoThisIsForSection() {
         icon={<Users size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-6">
+      <div className="mt-8 grid gap-5 md:grid-cols-2">
         <AudienceCard
           title="Frontend Developers"
           description="You'll implement UX4G components in React or Angular applications"
@@ -178,22 +278,22 @@ function WhoThisIsForSection() {
 
 function AudienceCard({ title, description, responsibilities, color }: any) {
   const colorClasses = {
-    blue: 'border-blue-200 bg-blue-50',
-    purple: 'border-purple-200 bg-purple-50',
-    orange: 'border-orange-200 bg-orange-50',
-    green: 'border-green-200 bg-green-50'
+    blue: 'border-sky-200 bg-sky-50/60',
+    purple: 'border-violet-200 bg-violet-50/60',
+    orange: 'border-amber-200 bg-amber-50/60',
+    green: 'border-emerald-200 bg-emerald-50/60'
   };
 
   return (
-    <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-6`}>
-      <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground mb-4">{description}</p>
-      <div className="border-t-2 border-white pt-4">
+    <div className={`rounded-2xl border ${colorClasses[color as keyof typeof colorClasses]} p-6 shadow-sm`}>
+      <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
+      <p className="text-sm leading-relaxed text-muted-foreground mb-4">{description}</p>
+      <div className="border-t border-border/70 pt-4">
         <h4 className="font-semibold text-foreground mb-3 text-sm">You'll need to:</h4>
         <ul className="space-y-2">
           {responsibilities.map((item: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <Check className="flex-shrink-0 mt-0.5 text-gray-500" size={16} />
+              <Check className="flex-shrink-0 mt-0.5 text-primary" size={16} />
               <span>{item}</span>
             </li>
           ))}
@@ -212,7 +312,7 @@ function InstallPathwaysSection() {
         icon={<Download size={28} />}
       />
 
-      <div className="mt-8 space-y-6">
+      <div className="mt-8 space-y-5">
         {/* NPM Installation */}
         <InstallPathway
           title="NPM Package (Recommended)"
@@ -224,8 +324,8 @@ function InstallPathwaysSection() {
             code="npm install @ux4g/react @ux4g/tokens"
           />
           
-          <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm">
-            <strong className="text-blue-900">Prerequisites:</strong> Node.js 16+ and npm 8+
+          <div className="mt-4 rounded-xl border border-border bg-muted/30 p-4 text-sm">
+            <strong className="text-foreground">Prerequisites:</strong> Node.js 16+ and npm 8+
           </div>
         </InstallPathway>
 
@@ -254,19 +354,34 @@ cd my-government-service
 npm start`}
           />
           
-          <div className="mt-4 grid grid-cols-3 gap-4 text-sm">
-            <div className="bg-background border border-border rounded p-3">
+          <div className="mt-4 grid gap-3 text-sm md:grid-cols-3">
+            <div className="rounded-xl border border-border bg-background p-3">
               <div className="font-semibold text-foreground mb-1">React + TypeScript</div>
               <div className="text-muted-foreground">Pre-configured setup</div>
             </div>
-            <div className="bg-background border border-border rounded p-3">
+            <div className="rounded-xl border border-border bg-background p-3">
               <div className="font-semibold text-foreground mb-1">Routing Included</div>
               <div className="text-muted-foreground">React Router v6</div>
             </div>
-            <div className="bg-background border border-border rounded p-3">
+            <div className="rounded-xl border border-border bg-background p-3">
               <div className="font-semibold text-foreground mb-1">Sample Pages</div>
               <div className="text-muted-foreground">Common patterns</div>
             </div>
+          </div>
+        </InstallPathway>
+
+        <InstallPathway
+          title="Web Components / HTML"
+          description="Use the framework-neutral package for cross-stack delivery and simple markup integration"
+          recommended={false}
+        >
+          <CodeBlock
+            language="bash"
+            code="npm install @ux4g/web-components @ux4g/tokens"
+          />
+
+          <div className="mt-4 rounded-xl border border-border bg-muted/30 p-4 text-sm">
+            <strong className="text-foreground">Best for:</strong> shared enterprise services, CMS-backed experiences, and framework-agnostic delivery.
           </div>
         </InstallPathway>
 
@@ -397,7 +512,7 @@ function ApplicationForm() {
         {/* TypeScript Support */}
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
-            <Info className="text-blue-600" size={20} />
+            <Info className="text-primary" size={20} />
             TypeScript Support
           </h3>
           <p className="text-sm text-muted-foreground mb-3">
@@ -523,9 +638,9 @@ export class AppModule { }`}
         </UsageStep>
 
         {/* Version Compatibility */}
-        <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50/60 p-6 shadow-sm">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
-            <Info className="text-purple-600" size={20} />
+            <Info className="text-primary" size={20} />
             Angular Version Compatibility
           </h3>
           <div className="grid grid-cols-2 gap-4 text-sm">
@@ -546,6 +661,67 @@ export class AppModule { }`}
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WebComponentsUsageSection() {
+  return (
+    <section id="web-components">
+      <SectionHeader
+        title="Web Components Usage Guide"
+        description="Framework-neutral delivery for shared services, CMS pages, and mixed-stack environments"
+        icon={<Layers size={28} />}
+      />
+
+      <div className="mt-8 space-y-8">
+        <UsageStep
+          step="1"
+          title="Install the Web Components package"
+          description="Add UX4G web components and tokens to your project"
+        >
+          <CodeBlock
+            language="bash"
+            code="npm install @ux4g/web-components @ux4g/tokens"
+          />
+        </UsageStep>
+
+        <UsageStep
+          step="2"
+          title="Register the elements"
+          description="Load the web components bundle once in your application shell"
+        >
+          <CodeBlock
+            language="html"
+            code={`<!-- app shell or entry point -->
+<script type="module" src="/node_modules/@ux4g/web-components/dist/ux4g.esm.js"></script>`}
+          />
+        </UsageStep>
+
+        <UsageStep
+          step="3"
+          title="Use the HTML tags"
+          description="Compose UI with the same UX4G design language across stacks"
+        >
+          <CodeBlock
+            language="html"
+            code={`<ux4g-button variant="primary">Submit application</ux4g-button>
+<ux4g-text-input label="Full name" required></ux4g-text-input>
+<ux4g-alert variant="info">Keep this information accurate</ux4g-alert>`}
+          />
+        </UsageStep>
+
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-6 shadow-sm">
+          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+            <Shield className="text-primary" size={20} />
+            Best fit for mixed environments
+          </h3>
+          <p className="text-sm text-muted-foreground">
+            Web Components are ideal when the design system must be shared across frameworks, embedded in
+            existing portals, or delivered as a consistent HTML-first layer.
+          </p>
         </div>
       </div>
     </section>
@@ -618,9 +794,9 @@ const StyledButton = styled.button\`
         </div>
 
         {/* Token Reference */}
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-6 shadow-sm">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
-            <FileText className="text-blue-600" size={20} />
+            <FileText className="text-primary" size={20} />
             Complete Token Reference
           </h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -725,9 +901,9 @@ function LoginForm() {
         </ComponentPattern>
 
         {/* Accessibility Pattern */}
-        <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6 shadow-sm">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
-            <Shield className="text-[#138808]" size={20} />
+            <Shield className="text-primary" size={20} />
             Accessibility Built-In
           </h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -760,9 +936,9 @@ function LoginForm() {
 
 function ComponentPattern({ title, description, children }: any) {
   return (
-    <div className="border-2 border-border rounded-lg p-6">
-      <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground mb-4">{description}</p>
+    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+      <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
+      <p className="text-sm leading-relaxed text-muted-foreground mb-4">{description}</p>
       {children}
     </div>
   );
@@ -777,7 +953,7 @@ function StarterAppSection() {
         icon={<Zap size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-6">
+      <div className="mt-8 grid gap-5 lg:grid-cols-2">
         <StarterTemplate
           title="React + TypeScript Starter"
           description="Full-featured React application with routing, form handling, and sample pages"
@@ -807,9 +983,9 @@ function StarterAppSection() {
         />
       </div>
 
-      <div className="mt-6 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+      <div className="mt-6 rounded-2xl border border-sky-200 bg-sky-50/60 p-6 shadow-sm">
         <h3 className="font-bold text-foreground mb-3">What's Included?</h3>
-        <div className="grid grid-cols-3 gap-6 text-sm">
+        <div className="grid gap-4 text-sm md:grid-cols-3">
           <div>
             <div className="font-semibold text-foreground mb-2">Core Setup</div>
             <ul className="space-y-1 text-muted-foreground">
@@ -842,10 +1018,10 @@ function StarterAppSection() {
 
 function StarterTemplate({ title, description, features, command }: any) {
   return (
-    <div className="border-2 border-border rounded-lg overflow-hidden hover:border-primary hover:shadow-lg transition-all">
-      <div className="bg-background border-b-2 border-border p-6">
-        <h3 className="text-xl font-bold text-foreground mb-2">{title}</h3>
-        <p className="text-sm text-muted-foreground">{description}</p>
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+      <div className="border-b border-border p-6">
+        <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
+        <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
       </div>
       
       <div className="p-6">
@@ -859,7 +1035,7 @@ function StarterTemplate({ title, description, features, command }: any) {
           ))}
         </ul>
         
-        <div className="bg-gray-900 text-white rounded-lg p-4">
+        <div className="rounded-xl bg-slate-950 text-white p-4 shadow-sm">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs text-gray-400">Installation Command</span>
             <button className="text-xs text-gray-400 hover:text-white flex items-center gap-1">
@@ -883,11 +1059,19 @@ function MigrationNotesSection() {
         icon={<GitBranch size={28} />}
       />
 
-      <div className="mt-8 space-y-6">
+      <div className="mt-8 grid gap-5 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
         {/* Migration Strategy */}
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
-          <h3 className="font-bold text-foreground mb-4">Recommended Migration Strategy</h3>
-          <div className="space-y-4">
+        <div className="rounded-2xl border border-amber-200 bg-amber-50/50 p-5 shadow-sm">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Recommended path</p>
+              <h3 className="mt-2 text-lg font-semibold text-foreground">Incremental migration</h3>
+            </div>
+            <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-foreground">
+              Low risk
+            </span>
+          </div>
+          <div className="mt-4 space-y-3">
             <MigrationStep
               number="1"
               title="Incremental Adoption"
@@ -912,12 +1096,13 @@ function MigrationNotesSection() {
         </div>
 
         {/* Common Migrations */}
-        <div className="border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-background p-4 border-b-2 border-border">
-            <h3 className="font-bold text-foreground">Common Library Migrations</h3>
+        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+          <div className="border-b border-border p-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Examples</p>
+            <h3 className="mt-2 text-lg font-semibold text-foreground">Common library migrations</h3>
           </div>
           
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-border">
             <MigrationGuide
               from="Material UI"
               compatibility="High - Similar component API and prop patterns"
@@ -954,13 +1139,13 @@ function MigrationNotesSection() {
 
 function MigrationStep({ number, title, description }: any) {
   return (
-    <div className="flex gap-4">
-      <div className="w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
+    <div className="flex gap-3 rounded-xl border border-border bg-background/70 p-3">
+      <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
         {number}
       </div>
       <div>
-        <div className="font-semibold text-foreground">{title}</div>
-        <div className="text-sm text-muted-foreground">{description}</div>
+        <div className="font-semibold text-foreground text-sm">{title}</div>
+        <div className="text-sm leading-relaxed text-muted-foreground">{description}</div>
       </div>
     </div>
   );
@@ -968,17 +1153,17 @@ function MigrationStep({ number, title, description }: any) {
 
 function MigrationGuide({ from, compatibility, notes }: any) {
   return (
-    <div className="p-6">
+    <div className="p-5">
       <div className="flex items-start justify-between mb-3">
-        <h4 className="font-bold text-foreground">From {from}</h4>
-        <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+        <h4 className="font-semibold text-foreground">From {from}</h4>
+        <span className="px-2 py-1 bg-muted text-muted-foreground text-xs font-semibold rounded-full border border-border">
           {compatibility}
         </span>
       </div>
       <ul className="space-y-2">
         {notes.map((note: string, index: number) => (
           <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-            <ChevronRight className="flex-shrink-0 mt-0.5 text-gray-400" size={16} />
+            <ChevronRight className="flex-shrink-0 mt-0.5 text-primary" size={16} />
             <span>{note}</span>
           </li>
         ))}
@@ -996,80 +1181,93 @@ function ReleaseVersionSection() {
         icon={<GitBranch size={28} />}
       />
 
-      <div className="mt-8 space-y-6">
+      <div className="mt-8 space-y-5">
         {/* Current Version */}
-        <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-          <div className="flex items-center justify-between mb-4">
+        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5 shadow-sm">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <h3 className="text-2xl font-bold text-foreground">v1.0.0</h3>
-              <p className="text-sm text-muted-foreground">Current Stable Release</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Current stable release</p>
+              <h3 className="mt-2 text-xl font-semibold text-foreground">v1.0.0</h3>
             </div>
-            <span className="px-4 py-2 bg-green-700 text-white rounded-lg font-semibold">
+            <span className="rounded-full bg-emerald-700 px-3 py-1 text-xs font-semibold text-white">
               Latest
             </span>
           </div>
-          <div className="grid grid-cols-3 gap-4 text-sm">
-            <div>
-              <div className="font-semibold text-foreground mb-1">Released</div>
-              <div className="text-muted-foreground">April 9, 2024</div>
-            </div>
-            <div>
-              <div className="font-semibold text-foreground mb-1">Components</div>
-              <div className="text-muted-foreground">30+ Production Ready</div>
-            </div>
-            <div>
-              <div className="font-semibold text-foreground mb-1">Stability</div>
-              <div className="text-muted-foreground">Production Grade</div>
-            </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-3 text-sm">
+            <VersionStat label="Released" value="April 9, 2024" />
+            <VersionStat label="Components" value="30+ production-ready" />
+            <VersionStat label="Stability" value="Production grade" />
           </div>
         </div>
 
         {/* Semantic Versioning */}
-        <div className="border-2 border-border rounded-lg p-6">
-          <h3 className="font-bold text-foreground mb-4">Semantic Versioning</h3>
-          <p className="text-sm text-muted-foreground mb-4">
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Versioning</p>
+              <h3 className="mt-2 text-lg font-semibold text-foreground">Semantic versioning</h3>
+            </div>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             UX4G follows semantic versioning (semver): MAJOR.MINOR.PATCH
           </p>
           
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-red-50 border border-red-200 rounded p-4">
-              <div className="font-bold text-red-900 mb-2">MAJOR (1.x.x)</div>
-              <div className="text-sm text-red-800">Breaking changes requiring code updates</div>
-            </div>
-            <div className="bg-yellow-50 border border-yellow-200 rounded p-4">
-              <div className="font-bold text-yellow-900 mb-2">MINOR (x.1.x)</div>
-              <div className="text-sm text-yellow-800">New features, backward compatible</div>
-            </div>
-            <div className="bg-green-50 border border-green-200 rounded p-4">
-              <div className="font-bold text-green-900 mb-2">PATCH (x.x.1)</div>
-              <div className="text-sm text-green-800">Bug fixes, no breaking changes</div>
-            </div>
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            <VersionBand label="MAJOR" tone="rose" detail="Breaking changes requiring code updates" />
+            <VersionBand label="MINOR" tone="amber" detail="New features, backward compatible" />
+            <VersionBand label="PATCH" tone="emerald" detail="Bug fixes, no breaking changes" />
           </div>
         </div>
 
         {/* Update Notifications */}
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
-            <Info className="text-blue-600" size={20} />
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 shadow-sm">
+          <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
+            <Info className="text-primary" size={20} />
             Staying Updated
           </h3>
-          <ul className="space-y-3 text-sm text-muted-foreground">
+          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
-              <Check className="text-blue-600 flex-shrink-0 mt-0.5" size={16} />
-              <span>Check for updates: <code className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-mono text-xs">npm outdated @ux4g/react</code></span>
+              <Check className="text-primary flex-shrink-0 mt-0.5" size={16} />
+              <span>
+                Check for updates: <code className="px-2 py-0.5 bg-muted text-foreground rounded font-mono text-xs border border-border">npm outdated @ux4g/react</code>
+              </span>
             </li>
             <li className="flex items-start gap-2">
-              <Check className="text-blue-600 flex-shrink-0 mt-0.5" size={16} />
+              <Check className="text-primary flex-shrink-0 mt-0.5" size={16} />
               <span>Subscribe to release notifications on GitHub</span>
             </li>
             <li className="flex items-start gap-2">
-              <Check className="text-blue-600 flex-shrink-0 mt-0.5" size={16} />
+              <Check className="text-primary flex-shrink-0 mt-0.5" size={16} />
               <span>Review migration guides before major version updates</span>
             </li>
           </ul>
         </div>
       </div>
     </section>
+  );
+}
+
+function VersionStat({ label, value }: any) {
+  return (
+    <div className="rounded-xl border border-border bg-background/70 px-4 py-3">
+      <div className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">{label}</div>
+      <div className="mt-2 text-sm font-medium leading-snug text-foreground">{value}</div>
+    </div>
+  );
+}
+
+function VersionBand({ label, tone, detail }: any) {
+  const tones = {
+    rose: 'border-rose-200 bg-rose-50/70',
+    amber: 'border-amber-200 bg-amber-50/70',
+    emerald: 'border-emerald-200 bg-emerald-50/70'
+  };
+
+  return (
+    <div className={`rounded-xl border ${tones[tone as keyof typeof tones]} p-4`}>
+      <div className="font-semibold text-foreground">{label}</div>
+      <div className="mt-2 text-sm leading-relaxed text-muted-foreground">{detail}</div>
+    </div>
   );
 }
 
@@ -1082,7 +1280,7 @@ function ImplementationChecklistSection() {
         icon={<CheckCircle size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-6">
+      <div className="mt-8 grid gap-5 lg:grid-cols-2">
         {/* Setup Checklist */}
         <ChecklistCard
           title="Setup & Installation"
@@ -1136,7 +1334,7 @@ function ImplementationChecklistSection() {
         />
       </div>
 
-      <div className="mt-6 bg-green-50 border-2 border-green-200 rounded-lg p-6">
+      <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6 shadow-sm">
         <div className="flex items-start gap-3">
           <CheckCircle className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
@@ -1154,7 +1352,7 @@ function ImplementationChecklistSection() {
 
 function ChecklistCard({ title, items }: any) {
   return (
-    <div className="border-2 border-border rounded-lg p-6">
+    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
       <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <ul className="space-y-3">
         {items.map((item: string, index: number) => (
@@ -1177,9 +1375,21 @@ function SupportEscalationSection() {
         icon={<HelpCircle size={28} />}
       />
 
-      <div className="mt-8 space-y-6">
+      <div className="mt-8 space-y-5">
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 shadow-sm">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Help at a glance</p>
+              <h3 className="mt-2 text-lg font-semibold text-foreground">Use self-service first, then escalate with context</h3>
+            </div>
+            <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-foreground">
+              Production support
+            </span>
+          </div>
+        </div>
+
         {/* Support Channels */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid gap-4 lg:grid-cols-3">
           <SupportChannel
             icon={<FileText size={32} />}
             title="Documentation"
@@ -1209,13 +1419,13 @@ function SupportEscalationSection() {
         </div>
 
         {/* Escalation Path */}
-        <div className="border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-background p-6 border-b-2 border-border">
-            <h3 className="font-bold text-foreground">Escalation Path</h3>
-            <p className="text-sm text-muted-foreground mt-1">Follow this sequence for technical support</p>
+        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+          <div className="border-b border-border p-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Escalation path</p>
+            <h3 className="mt-2 text-lg font-semibold text-foreground">Follow this sequence for technical support</h3>
           </div>
           
-          <div className="p-6 space-y-4">
+          <div className="p-5 space-y-3">
             <EscalationStep
               level="1"
               title="Self-Service Documentation"
@@ -1250,9 +1460,17 @@ function SupportEscalationSection() {
         </div>
 
         {/* Contact Information */}
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-          <h3 className="font-bold text-foreground mb-4">Contact Information</h3>
-          <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 shadow-sm">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Contact</p>
+              <h3 className="mt-2 text-lg font-semibold text-foreground">Support contacts</h3>
+            </div>
+            <span className="rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-foreground">
+              Mon-Fri, IST
+            </span>
+          </div>
+          <div className="mt-4 grid gap-4 text-sm md:grid-cols-2">
             <div>
               <div className="font-semibold text-foreground mb-2">General Inquiries</div>
               <div className="text-muted-foreground">Email: info@ux4g.gov.in</div>
@@ -1278,19 +1496,19 @@ function SupportEscalationSection() {
 
 function SupportChannel({ icon, title, description, action, href, color }: any) {
   const colorClasses = {
-    blue: 'border-blue-200 bg-blue-50 text-blue-600',
-    purple: 'border-purple-200 bg-purple-50 text-purple-600',
-    orange: 'border-orange-200 bg-orange-50 text-orange-600'
+    blue: 'border-sky-200 bg-sky-50/60 text-primary',
+    purple: 'border-violet-200 bg-violet-50/60 text-primary',
+    orange: 'border-amber-200 bg-amber-50/60 text-primary'
   };
 
   return (
-    <div className={`border-2 ${colorClasses[color as keyof typeof colorClasses]} rounded-lg p-6 hover:shadow-lg transition-all`}>
-      <div className={`${colorClasses[color as keyof typeof colorClasses]} mb-4`}>
+    <div className={`rounded-2xl border ${colorClasses[color as keyof typeof colorClasses]} p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md`}>
+      <div className="mb-3">
         {icon}
       </div>
-      <h3 className="font-bold text-foreground mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground mb-4">{description}</p>
-      <a href={href} className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline">
+      <h3 className="font-semibold text-foreground mb-2">{title}</h3>
+      <p className="text-sm leading-relaxed text-muted-foreground mb-4">{description}</p>
+      <a href={href} className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:underline">
         {action} <ExternalLink size={14} />
       </a>
     </div>
@@ -1299,16 +1517,16 @@ function SupportChannel({ icon, title, description, action, href, color }: any) 
 
 function EscalationStep({ level, title, description, estimatedTime }: any) {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 rounded-xl border border-border bg-muted/20 p-4">
       <div className="flex flex-col items-center">
         <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
           {level}
         </div>
-        {level !== "5" && <div className="w-0.5 h-full bg-gray-200 mt-2"></div>}
+        {level !== "5" && <div className="w-0.5 h-full bg-border mt-2"></div>}
       </div>
       <div className="flex-1 pb-4">
-        <h4 className="font-semibold text-foreground mb-1">{title}</h4>
-        <p className="text-sm text-muted-foreground mb-2">{description}</p>
+        <h4 className="font-semibold text-foreground mb-1 text-sm">{title}</h4>
+        <p className="text-sm leading-relaxed text-muted-foreground mb-2">{description}</p>
         <div className="text-xs text-muted-foreground">
           <strong>Est. Response Time:</strong> {estimatedTime}
         </div>
@@ -1324,17 +1542,17 @@ function SectionHeader({ title, description, icon }: any) {
     <div>
       <div className="flex items-center gap-3 mb-3">
         <div className="text-primary">{icon}</div>
-        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">{title}</h2>
       </div>
-      <p className="text-lg text-muted-foreground">{description}</p>
+      <p className="max-w-3xl text-base md:text-lg leading-relaxed text-muted-foreground">{description}</p>
     </div>
   );
 }
 
 function UsageStep({ step, title, description, children }: any) {
   return (
-    <div className="border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-background p-4 border-b-2 border-border flex items-center gap-4">
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+      <div className="border-b border-border p-4 flex items-center gap-4">
         <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
           {step}
         </div>
@@ -1352,13 +1570,13 @@ function UsageStep({ step, title, description, children }: any) {
 
 function CodeBlock({ language, code }: any) {
   return (
-    <div className="border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-gray-900 text-white p-3 flex items-center justify-between">
+    <div className="overflow-hidden rounded-2xl border border-border shadow-sm">
+      <div className="bg-slate-950 text-white p-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Terminal size={16} />
           <span className="text-xs font-mono">{language}</span>
         </div>
-        <button className="text-xs text-gray-400 hover:text-white flex items-center gap-1">
+        <button className="text-xs text-slate-400 hover:text-white flex items-center gap-1">
           <Copy size={12} />
           Copy
         </button>
@@ -1369,5 +1587,3 @@ function CodeBlock({ language, code }: any) {
     </div>
   );
 }
-
-import { Layers, Shield } from "lucide-react";

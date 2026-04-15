@@ -28,19 +28,29 @@ const InputPreview = ({ ...props }: any) => (
 
 function LabelPlayground() {
   const [required, setRequired] = React.useState(false);
+  const [disabled, setDisabled] = React.useState(false);
+  const [labelText, setLabelText] = React.useState('Full Name');
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="w-full flex items-center justify-center">
-          <LabelPreview />
+        <div className="w-full max-w-sm space-y-2">
+          <LabelPreview htmlFor="pg-input" required={required} disabled={disabled}>{labelText}</LabelPreview>
+          <InputPreview id="pg-input" placeholder={`Enter ${labelText.toLowerCase()}`} disabled={disabled} />
         </div>
       </div>
       <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Label Text</label>
+          <input value={labelText} onChange={e => setLabelText(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <div className="flex flex-col gap-2">
           <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+        </div>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Label${required ? ' required' : ''} />`}
+            {`<Label htmlFor="input"${required ? ' required' : ''}${disabled ? ' disabled' : ''}>${labelText}</Label>\n<Input id="input" />`}
           </p>
         </div>
       </div>
@@ -60,8 +70,19 @@ export default function ComponentLabelPage() {
       updated="v2.0.0"
 
       preview={
-        <div className="w-full max-w-2xl">
-          <LabelPreview />
+        <div className="flex flex-wrap items-end gap-8">
+          <div className="space-y-2">
+            <LabelPreview htmlFor="p1">Full Name</LabelPreview>
+            <InputPreview id="p1" placeholder="Enter your name" />
+          </div>
+          <div className="space-y-2">
+            <LabelPreview htmlFor="p2" required>Email Address</LabelPreview>
+            <InputPreview id="p2" type="email" placeholder="email@gov.in" />
+          </div>
+          <div className="space-y-2">
+            <LabelPreview htmlFor="p3" disabled>Username</LabelPreview>
+            <InputPreview id="p3" defaultValue="john_doe" disabled />
+          </div>
         </div>
       }
 
@@ -463,16 +484,42 @@ export class LabelModule { }`,
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Always associate labels with inputs using htmlFor — missing labels are the #1 accessibility failure.</p>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <LabelPreview htmlFor="do-name" required>Full Name</LabelPreview>
+                    <InputPreview id="do-name" placeholder="As per Aadhaar card" />
+                  </div>
+                  <p className="text-sm text-muted-foreground">Always use a visible label with htmlFor linking it to the input. Add required indicator for mandatory fields.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t use placeholder text as the only label — it disappears on focus.</p>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <InputPreview placeholder="Full Name" />
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t use placeholder as the only label — it disappears on focus and fails WCAG 1.3.1. Screen readers may not announce it.</p>
+                </div>
+              </div>
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <LabelPreview htmlFor="do-aadhaar" required>Aadhaar Number</LabelPreview>
+                    <InputPreview id="do-aadhaar" placeholder="XXXX-XXXX-XXXX" />
+                    <p className="text-xs text-muted-foreground">Enter your 12-digit Aadhaar number</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Pair labels with hint text for fields that need format guidance. Keep label text concise.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-foreground">Please enter your twelve digit Aadhaar Unique Identification Number as printed on your Aadhaar card issued by UIDAI <span className="text-red-500">*</span></label>
+                    <InputPreview placeholder="Enter here" />
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t write overly long labels — keep them short and use hint text for additional guidance.</p>
                 </div>
               </div>
             </div>

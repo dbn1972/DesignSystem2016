@@ -1277,6 +1277,25 @@ export interface PANCardInputConfig {
             </ul>
           </section>
 
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/aadhaarinput" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">AadhaarInput</h3>
+                <p className="text-sm text-muted-foreground">For Aadhaar number entry</p>
+              </a>
+              <a href="/components/input" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Input</h3>
+                <p className="text-sm text-muted-foreground">For general text input</p>
+              </a>
+              <a href="/components/field" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Field</h3>
+                <p className="text-sm text-muted-foreground">For wrapping inputs with label and error</p>
+              </a>
+            </div>
+          </section>
+
           {/* Changelog */}
           <section className="bg-card rounded-lg border border-border p-6">
             <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
