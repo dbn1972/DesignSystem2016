@@ -97,9 +97,28 @@ function DrawerPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="w-full flex items-center justify-center">
-          <DrawerPreview position="right" size="md" />
+      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-4">
+        <div className="relative w-full h-48 rounded-lg overflow-hidden border border-border bg-background">
+          {/* Mini page content */}
+          <div className="absolute inset-0 p-3 space-y-2">
+            <div className="h-2 bg-muted rounded w-3/4" />
+            <div className="h-2 bg-muted rounded w-full" />
+            <div className="h-2 bg-muted rounded w-1/2" />
+          </div>
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/20" />
+          {/* Drawer panel */}
+          <div className={`absolute top-0 bottom-0 ${position === 'left' ? 'left-0' : 'right-0'} ${size === 'sm' ? 'w-1/4' : size === 'lg' ? 'w-1/2' : 'w-1/3'} bg-card shadow-xl border-${position === 'left' ? 'r' : 'l'} border-border flex flex-col`}>
+            <div className="flex items-center justify-between px-3 py-2 border-b border-border">
+              <span className="text-xs font-semibold text-foreground">Drawer ({position}, {size})</span>
+              <span className="text-muted-foreground text-xs">✕</span>
+            </div>
+            <div className="flex-1 p-3 space-y-2">
+              <div className="h-2 bg-muted rounded w-full" />
+              <div className="h-2 bg-muted rounded w-3/4" />
+              <div className="h-2 bg-muted rounded w-1/2" />
+            </div>
+          </div>
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -150,7 +169,60 @@ export default function ComponentDrawerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <DrawerPreview position="right" size="md" />
+          {/* CSS-only drawer mockup showing an open right-side drawer */}
+          <div className="relative rounded-xl overflow-hidden border border-border shadow-lg h-72 bg-background">
+            {/* Main content area (dimmed) */}
+            <div className="absolute inset-0 bg-background p-4 space-y-3">
+              <div className="h-3 bg-muted rounded w-3/4" />
+              <div className="h-3 bg-muted rounded w-full" />
+              <div className="h-3 bg-muted rounded w-2/3" />
+              <div className="h-3 bg-muted rounded w-5/6" />
+              <div className="h-3 bg-muted rounded w-1/2" />
+              <div className="h-3 bg-muted rounded w-4/5" />
+            </div>
+            {/* Backdrop overlay */}
+            <div className="absolute inset-0 bg-black/30" />
+            {/* Drawer panel sliding from right */}
+            <div className="absolute top-0 right-0 bottom-0 w-64 bg-card shadow-2xl border-l border-border flex flex-col">
+              {/* Drawer header */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-border shrink-0">
+                <div className="flex items-center gap-2">
+                  <Filter size={16} className="text-[#005196]" />
+                  <h3 className="text-sm font-semibold text-foreground">Filters</h3>
+                </div>
+                <button className="p-1 rounded hover:bg-muted text-muted-foreground">
+                  <X size={16} />
+                </button>
+              </div>
+              {/* Drawer content */}
+              <div className="flex-1 p-4 space-y-4 overflow-auto">
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">Status</label>
+                  <div className="space-y-1.5">
+                    <label className="flex items-center gap-2 text-xs"><input type="checkbox" className="accent-[#005196]" defaultChecked readOnly /><span className="text-foreground">Pending</span></label>
+                    <label className="flex items-center gap-2 text-xs"><input type="checkbox" className="accent-[#005196]" readOnly /><span className="text-foreground">Approved</span></label>
+                    <label className="flex items-center gap-2 text-xs"><input type="checkbox" className="accent-[#005196]" readOnly /><span className="text-foreground">Rejected</span></label>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">Date Range</label>
+                  <input className="w-full px-2 py-1 border border-border rounded text-xs" placeholder="From" readOnly />
+                  <input className="w-full px-2 py-1 border border-border rounded text-xs mt-1" placeholder="To" readOnly />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">Department</label>
+                  <select className="w-full px-2 py-1 border border-border rounded text-xs bg-card">
+                    <option>All Departments</option>
+                  </select>
+                </div>
+              </div>
+              {/* Drawer footer */}
+              <div className="flex gap-2 px-4 py-3 border-t border-border shrink-0">
+                <button className="flex-1 px-3 py-1.5 text-xs border border-border rounded hover:bg-muted">Reset</button>
+                <button className="flex-1 px-3 py-1.5 text-xs bg-[#005196] text-white rounded hover:bg-[#004178]">Apply Filters</button>
+              </div>
+            </div>
+          </div>
         </div>
       }
 
