@@ -230,8 +230,10 @@ function Example() {
       placeholder="Enter pincode (e.g., 110001)"
 
       useCases={[
-        { title: "PIN Code Lookup", description: "Auto-fill city and state from PIN code.", scenario: "Address form in certificate application.", implementation: "<AddressAutocompleteIndia onSelect={handleAddress} />" },
-        { title: "Service Center Locator", description: "Find nearest government service center.", scenario: "Citizen locates nearest CSC.", implementation: "<AddressAutocompleteIndia placeholder=\"Enter PIN or area\" />" },
+        { title: 'Certificate Application Address', description: 'Auto-fill city, district, and state from 6-digit PIN code in certificate application forms.', scenario: 'Citizen enters PIN code 110001 and city auto-fills to New Delhi, Delhi.', implementation: '<AddressAutocompleteIndia onSelect={handleAddress} required />' },
+        { title: 'Ration Card Address Verification', description: 'Verify and standardize beneficiary address for ration card delivery and distribution.', scenario: 'Citizen updates residential address for ration card with PIN-based auto-fill.', implementation: '<AddressAutocompleteIndia placeholder="Enter PIN or area name" />' },
+        { title: 'Service Center Locator', description: 'Find nearest Common Service Centre (CSC) or government office by PIN code or area name.', scenario: 'Citizen searches for nearest passport office by entering their locality.', implementation: '<AddressAutocompleteIndia mode="search" placeholder="Find nearest office..." />' },
+        { title: 'Pension Disbursement Address', description: 'Collect and verify pensioner address for Direct Benefit Transfer (DBT) disbursement.', scenario: 'Pensioner confirms delivery address with PIN code validation for monthly pension.', implementation: '<AddressAutocompleteIndia validatePIN onSelect={confirmAddress} />' },
       ]}
 
       additionalContent={
@@ -274,16 +276,27 @@ function Example() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Auto-fill city and state from PIN code to reduce errors by 60%.</p>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <label className="block text-xs font-medium text-foreground">PIN Code</label>
+                    <input className="w-full px-3 py-2 border border-border rounded text-sm" value="110001" readOnly />
+                    <div className="grid grid-cols-2 gap-2">
+                      <div><label className="block text-[10px] text-muted-foreground">City</label><input className="w-full px-2 py-1 border border-border rounded text-xs bg-muted/30" value="New Delhi" readOnly /></div>
+                      <div><label className="block text-[10px] text-muted-foreground">State</label><input className="w-full px-2 py-1 border border-border rounded text-xs bg-muted/30" value="Delhi" readOnly /></div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Auto-fill city and state from PIN code — reduces address errors by 60% and saves time.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t require manual city/state entry when PIN code can auto-fill them.</p>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <div><label className="block text-xs font-medium text-foreground">PIN Code</label><input className="w-full px-3 py-2 border border-border rounded text-sm" placeholder="Enter PIN" readOnly /></div>
+                    <div><label className="block text-xs font-medium text-foreground">City</label><input className="w-full px-3 py-2 border border-border rounded text-sm" placeholder="Type city name" readOnly /></div>
+                    <div><label className="block text-xs font-medium text-foreground">State</label><input className="w-full px-3 py-2 border border-border rounded text-sm" placeholder="Type state name" readOnly /></div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t require manual city/state entry when PIN code can auto-fill them — it causes spelling errors and inconsistent data.</p>
                 </div>
               </div>
             </div>
