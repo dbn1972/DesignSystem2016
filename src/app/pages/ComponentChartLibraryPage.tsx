@@ -301,148 +301,11 @@ export default function ComponentChartLibraryPage() {
         {
           title: 'Bar Chart (Budget)',
           description: 'Visualize department budget allocations for fiscal planning.',
-          code: `import { ChartLibrary } from '@ux4g/react-charts';
+          code: `import { ChartLibrary } from '@ux4g/react-core';
 
 function Example() {
-  const budgetData = [45000000, 32000000, 28000000, 19000000, 15000000];
-  const departments = ['Education', 'Healthcare', 'Infrastructure', 'Public Safety', 'Admin'];
-
   return (
-    <ChartLibrary
-      type="bar"
-      data={budgetData}
-      labels={departments}
-      title="2026 Department Budget Allocation"
-      colors={['#005196', '#004178', '#00315a', '#008800', '#006600']}
-      height={400}
-      downloadable
-      yAxis={{ label: 'Budget ($)', grid: true }}
-
-      useCases={[
-        { title: "Dashboard Analytics", description: "Charts for application statistics.", scenario: "Officer dashboard with approval rates.", implementation: "<ChartLibrary type=\"bar\" data={stats} />" },
-        { title: "Service Usage Trends", description: "Line chart showing service usage over time.", scenario: "Admin analytics page.", implementation: "<ChartLibrary type=\"line\" data={trends} />" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use ChartLibrary when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Data visualization dashboards</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Trend analysis displays</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Comparative data charts</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Statistical reporting interfaces</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don&apos;t use ChartLibrary when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple numbers — use Statistic component</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Tabular data — use Table</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Single values — use text display</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-numeric data — use other visualizations</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Provide text alternatives for charts — color-only encoding excludes 8% of users.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t use charts for simple numbers — use Statistic component instead.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different ChartLibrary configurations in real time.</p>
-            <ChartLibraryPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/statistic" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Statistic</h3>
-                <p className="text-sm text-muted-foreground">For single numeric values</p>
-              </a>
-              <a href="/components/table" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Table</h3>
-                <p className="text-sm text-muted-foreground">For tabular data</p>
-              </a>
-              <a href="/components/card" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Card</h3>
-                <p className="text-sm text-muted-foreground">For chart containers</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added pie and donut chart types</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added responsive sizing</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with bar and line charts</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Chart accessibility</h3>
-                <p className="text-sm text-muted-foreground">Charts must provide text alternatives and keyboard navigation. Color-only encoding excludes 8% of male users with color vision deficiency (WCAG 1.4.1).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <ChartLibrary />
   );
 }`,
           preview: (
@@ -1172,6 +1035,117 @@ export interface AxisConfig {
           { property: 'Title Font Weight', token: 'chart.title.fontWeight', value: '600' },
         ],
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use ChartLibrary when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Data visualization dashboards</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Trend analysis displays</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Comparative data charts</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Statistical reporting interfaces</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use ChartLibrary when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple numbers — use Statistic component</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Tabular data — use Table</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Single values — use text display</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-numeric data — use other visualizations</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Provide text alternatives for charts — color-only encoding excludes 8% of users.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use charts for simple numbers — use Statistic component instead.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/statistic" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Statistic</h3>
+                <p className="text-sm text-muted-foreground">For single numeric values</p>
+              </a>
+              <a href="/components/table" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Table</h3>
+                <p className="text-sm text-muted-foreground">For tabular data</p>
+              </a>
+              <a href="/components/card" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Card</h3>
+                <p className="text-sm text-muted-foreground">For chart containers</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added pie and donut chart types</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added responsive sizing</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with bar and line charts</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Chart accessibility</h3>
+                <p className="text-sm text-muted-foreground">Charts must provide text alternatives and keyboard navigation. Color-only encoding excludes 8% of male users with color vision deficiency (WCAG 1.4.1).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

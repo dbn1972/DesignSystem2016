@@ -177,144 +177,8 @@ export default function ComponentMenuPage() {
           code: `import { Menu } from '@ux4g/react-core';
 
 function Example() {
-  const items = [
-    { label: 'Profile', onClick: () => console.log('Profile') },
-    { label: 'Settings', onClick: () => console.log('Settings') },
-    { divider: true },
-    { label: 'Sign Out', onClick: () => console.log('Sign Out') },
-  ];
-
   return (
-    <Menu
-      items={items}
-      trigger={<button>Account Menu</button>}
-      placement="bottom-start"
-
-      useCases={[
-        { title: "Action Menu", description: "Context menu for application actions.", scenario: "My Applications card has Track, Download, Delete options.", implementation: "<Menu><MenuItem>Track</MenuItem><MenuItem>Download</MenuItem></Menu>" },
-        { title: "User Menu", description: "Profile dropdown in header.", scenario: "Logged-in user sees profile, settings, logout.", implementation: "<Menu trigger={<Avatar />}><MenuItem>Profile</MenuItem><MenuItem>Logout</MenuItem></Menu>" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use Menu when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multiple actions for a single item</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>User profile dropdown</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Context menus on right-click or button</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Navigation submenus</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don't use Menu when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Single action — use Button</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Form selection — use Select</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Navigation links — use regular links</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Fewer than 3 actions — show them directly</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="inline-block mb-3"><button className="px-3 py-1.5 text-xs border border-border rounded flex items-center gap-1">Actions ▾</button><div className="mt-1 border border-border rounded shadow-sm bg-card"><div className="px-3 py-1.5 text-xs hover:bg-muted cursor-pointer">View</div><div className="px-3 py-1.5 text-xs hover:bg-muted cursor-pointer">Edit</div><div className="px-3 py-1.5 text-xs text-red-600 hover:bg-muted cursor-pointer">Delete</div></div></div>
-                  <p className="text-sm text-muted-foreground">Label menu triggers with text when possible — icon-only menus are discovered by only 50% of users.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="inline-block mb-3"><button className="p-1.5 text-xs border border-border rounded">⋮</button></div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t use menus for form selection — use Select instead.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Menu configurations in real time.</p>
-            <MenuPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/dropdown" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Dropdown</h3>
-                <p className="text-sm text-muted-foreground">For simpler dropdowns</p>
-              </a>
-              <a href="/components/select" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Select</h3>
-                <p className="text-sm text-muted-foreground">For form selections</p>
-              </a>
-              <a href="/components/button" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Button</h3>
-                <p className="text-sm text-muted-foreground">For single actions</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added keyboard navigation</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added menu item icons</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic menu</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Menu discoverability</h3>
-                <p className="text-sm text-muted-foreground">Menus hidden behind icons (hamburger, kebab) are discovered by only 50% of users. Label them when possible (NNG).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <Menu />
   );
 }`,
           preview: (
@@ -961,6 +825,117 @@ export type MenuPlacement = 'bottom-start' | 'bottom-end' | 'top-start' | 'top-e
           { property: 'Offset', token: 'base.offset', value: '8px' },
         ],
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Menu when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multiple actions for a single item</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>User profile dropdown</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Context menus on right-click or button</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Navigation submenus</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use Menu when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Single action — use Button</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Form selection — use Select</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Navigation links — use regular links</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Fewer than 3 actions — show them directly</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Label menu triggers with text when possible — icon-only menus are discovered by only 50% of users.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use menus for form selection — use Select instead.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/dropdown" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Dropdown</h3>
+                <p className="text-sm text-muted-foreground">For simpler dropdowns</p>
+              </a>
+              <a href="/components/select" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Select</h3>
+                <p className="text-sm text-muted-foreground">For form selections</p>
+              </a>
+              <a href="/components/button" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Button</h3>
+                <p className="text-sm text-muted-foreground">For single actions</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added keyboard navigation</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added menu item icons</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic menu</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Menu discoverability</h3>
+                <p className="text-sm text-muted-foreground">Menus hidden behind icons (hamburger, kebab) are discovered by only 50% of users. Label them when possible (NNG).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

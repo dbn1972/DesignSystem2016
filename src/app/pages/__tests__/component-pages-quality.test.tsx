@@ -121,7 +121,7 @@ describe('Component Page Quality Audit', () => {
 
       // ── 5. Related Components ─────────────────────────────────────────────
       it('has Related Components section', () => {
-        expect(content).toContain('Related Components');
+        expect(content).toMatch(/>Related Components</);
       });
 
       it('has at least 2 component links', () => {
@@ -131,7 +131,7 @@ describe('Component Page Quality Audit', () => {
 
       // ── 6. Changelog ──────────────────────────────────────────────────────
       it('has Changelog section', () => {
-        expect(content).toContain('Changelog');
+        expect(content).toMatch(/>Changelog</);
       });
 
       it('has at least one version number', () => {
@@ -140,7 +140,7 @@ describe('Component Page Quality Audit', () => {
 
       // ── 7. Research & Evidence ────────────────────────────────────────────
       it('has Research section', () => {
-        expect(content).toMatch(/Research/);
+        expect(content).toMatch(/Research on this component/);
       });
     });
   }

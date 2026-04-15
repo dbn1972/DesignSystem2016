@@ -273,167 +273,11 @@ export default function ComponentCalendarSchedulerPage() {
         {
           title: 'Monthly View',
           description: 'Standard month grid view showing events and available slots for public services.',
-          code: `import { CalendarScheduler } from '@ux4g/react-composite';
-import { useState } from 'react';
+          code: `import { CalendarScheduler } from '@ux4g/react-core';
 
 function Example() {
-  const [events] = useState([
-    {
-      id: '1',
-      title: 'Public Hearing: Zoning Amendment',
-      start: new Date(2026, 3, 15, 14, 0),
-      end: new Date(2026, 3, 15, 16, 0),
-      department: 'Planning Commission',
-      location: 'City Hall, Room 201',
-      color: 'bg-blue-100 text-blue-800'
-    },
-    {
-      id: '2',
-      title: 'Tax Filing Deadline',
-      start: new Date(2026, 3, 15),
-      end: new Date(2026, 3, 15),
-      department: 'Revenue Services',
-      allDay: true,
-      color: 'bg-red-100 text-red-800'
-    },
-  ]);
-
   return (
-    <CalendarScheduler
-      view="month"
-      events={events}
-      onSelectSlot={(slotInfo) => {
-        console.log('Selected slot:', slotInfo);
-      }}
-      onSelectEvent={(event) => {
-        console.log('Selected event:', event);
-      }}
-
-      useCases={[
-        { title: "Appointment Booking", description: "Schedule appointment at government office.", scenario: "Citizen books slot for document verification.", implementation: "<CalendarScheduler availableSlots={slots} onBook={handleBook} />" },
-        { title: "Hearing Schedule", description: "View and manage hearing dates.", scenario: "Legal case hearing calendar.", implementation: "<CalendarScheduler events={hearings} view=\"month\" />" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use CalendarScheduler when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Appointment booking interfaces</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Event scheduling and management</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Date-based availability display</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Calendar views with time slots</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don&apos;t use CalendarScheduler when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple date selection — use DatePicker</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Date of birth entry — use DatePicker</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-date scheduling — use a form</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Read-only date display — use text</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Show available time slots clearly and disable unavailable dates.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t use a calendar for simple date selection — use DatePicker instead.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different CalendarScheduler configurations in real time.</p>
-            <CalendarSchedulerPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/datepicker" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">DatePicker</h3>
-                <p className="text-sm text-muted-foreground">For simple date selection</p>
-              </a>
-              <a href="/components/timeline" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Timeline</h3>
-                <p className="text-sm text-muted-foreground">For chronological events</p>
-              </a>
-              <a href="/components/table" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Table</h3>
-                <p className="text-sm text-muted-foreground">For tabular schedule data</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added time slot selection</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added recurring events</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with month/week views</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Online scheduling reduces wait times</h3>
-                <p className="text-sm text-muted-foreground">Government offices with online appointment booking see 50% reduction in citizen wait times (India Digital Gov report).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <CalendarScheduler />
   );
 }`,
           preview: (
@@ -1451,6 +1295,117 @@ export type CalendarView = 'month' | 'week' | 'day';`,
         considerations: "Support for multiple timezones across different jurisdictions; Holiday calendar integration for federal, state, and local holidays; Working hours configuration for different government departments; Appointment confirmation via email and SMS; Waitlist management for high-demand services; Recurring event support for regular meetings and hearings; Multi-location scheduling for branch offices; Department-specific booking rules and constraints; Public vs internal calendar views; Integration with citizen portal authentication; Accessibility compliance for diverse citizen needs; Data privacy and HIPAA compliance for sensitive appointments",
         integrations: "Government authentication systems (Login.gov, state SSO); Email and SMS notification services; Payment gateways for appointment fees; Document management systems for appointment-related files; CRM systems for citizen relationship management; GIS systems for location-based services; Video conferencing platforms for virtual appointments; Analytics platforms for service utilization tracking",
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use CalendarScheduler when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Appointment booking interfaces</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Event scheduling and management</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Date-based availability display</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Calendar views with time slots</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use CalendarScheduler when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple date selection — use DatePicker</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Date of birth entry — use DatePicker</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-date scheduling — use a form</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Read-only date display — use text</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Show available time slots clearly and disable unavailable dates.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use a calendar for simple date selection — use DatePicker instead.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/datepicker" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">DatePicker</h3>
+                <p className="text-sm text-muted-foreground">For simple date selection</p>
+              </a>
+              <a href="/components/timeline" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Timeline</h3>
+                <p className="text-sm text-muted-foreground">For chronological events</p>
+              </a>
+              <a href="/components/table" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Table</h3>
+                <p className="text-sm text-muted-foreground">For tabular schedule data</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added time slot selection</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added recurring events</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with month/week views</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Online scheduling reduces wait times</h3>
+                <p className="text-sm text-muted-foreground">Government offices with online appointment booking see 50% reduction in citizen wait times (India Digital Gov report).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

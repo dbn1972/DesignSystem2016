@@ -168,140 +168,11 @@ export default function ComponentVideoPlayerPage() {
         {
           title: 'Basic Player',
           description: 'Simple video player with standard controls and poster image.',
-          code: `import { VideoPlayer } from '@ux4g/react-composite';
+          code: `import { VideoPlayer } from '@ux4g/react-core';
 
 function Example() {
   return (
-    <VideoPlayer
-      src="https://example.gov/videos/announcement.mp4"
-      poster="https://example.gov/images/poster.jpg"
-      controls
-
-      useCases={[
-        { title: "Training Video", description: "Embedded training video on help page.", scenario: "How-to video for certificate application.", implementation: "<VideoPlayer src={videoUrl} captions={captionUrl} />" },
-        { title: "Public Address", description: "Government announcement video.", scenario: "Home page featured video.", implementation: "<VideoPlayer src={addressUrl} poster={posterUrl} />" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use VideoPlayer when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Embedded video playback</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Training and tutorial videos</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Government announcement videos</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Accessible video with captions</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don&apos;t use VideoPlayer when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Audio-only content — use an audio player</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Image galleries — use a gallery component</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Live streaming — use a streaming service</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Background video — use CSS video background</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Always include captions — 80% of users watch video with captions on.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t auto-play videos — it violates WCAG 1.4.2 and annoys users.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different VideoPlayer configurations in real time.</p>
-            <VideoPlayerPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/aspectratio" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">AspectRatio</h3>
-                <p className="text-sm text-muted-foreground">For responsive video sizing</p>
-              </a>
-              <a href="/components/card" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Card</h3>
-                <p className="text-sm text-muted-foreground">For video card containers</p>
-              </a>
-              <a href="/components/modal" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Modal</h3>
-                <p className="text-sm text-muted-foreground">For video lightbox</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added caption/subtitle support</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added playback speed control</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic video controls</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Captions are essential</h3>
-                <p className="text-sm text-muted-foreground">WCAG 1.2.2 requires captions for all video content. 80% of users watch video with captions on, not just those with hearing impairments (Verizon Media study).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <VideoPlayer />
   );
 }`,
           preview: (
@@ -1035,6 +906,117 @@ export type VideoQuality = 'auto' | '240p' | '360p' | '480p' | '720p' | '1080p';
           { property: 'Focus Ring Width', token: 'accessibility.focusRing.width', value: '2px' },
         ],
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use VideoPlayer when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Embedded video playback</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Training and tutorial videos</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Government announcement videos</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Accessible video with captions</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use VideoPlayer when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Audio-only content — use an audio player</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Image galleries — use a gallery component</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Live streaming — use a streaming service</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Background video — use CSS video background</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Always include captions — 80% of users watch video with captions on.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t auto-play videos — it violates WCAG 1.4.2 and annoys users.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/aspectratio" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">AspectRatio</h3>
+                <p className="text-sm text-muted-foreground">For responsive video sizing</p>
+              </a>
+              <a href="/components/card" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Card</h3>
+                <p className="text-sm text-muted-foreground">For video card containers</p>
+              </a>
+              <a href="/components/modal" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Modal</h3>
+                <p className="text-sm text-muted-foreground">For video lightbox</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added caption/subtitle support</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added playback speed control</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic video controls</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Captions are essential</h3>
+                <p className="text-sm text-muted-foreground">WCAG 1.2.2 requires captions for all video content. 80% of users watch video with captions on, not just those with hearing impairments (Verizon Media study).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

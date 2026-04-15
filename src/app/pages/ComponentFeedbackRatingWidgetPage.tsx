@@ -286,145 +286,10 @@ export default function ComponentFeedbackRatingWidgetPage() {
           title: 'Star Rating',
           description: 'Classic 5-star rating system for general satisfaction measurement.',
           code: `import { FeedbackRatingWidget } from '@ux4g/react-core';
-import { useState } from 'react';
 
 function Example() {
-  const [rating, setRating] = useState(0);
-
   return (
-    <FeedbackRatingWidget
-      type="stars"
-      maxRating={5}
-      value={rating}
-      onChange={setRating}
-      showLabels
-      label="How satisfied are you with this service?"
-
-      useCases={[
-        { title: "Service Feedback", description: "Rate government service experience.", scenario: "Post-service completion feedback.", implementation: "<FeedbackRatingWidget onSubmit={handleFeedback} />" },
-        { title: "Page Helpfulness", description: "Was this page helpful rating.", scenario: "Documentation page footer.", implementation: "<FeedbackRatingWidget type=\"thumbs\" question=\"Was this helpful?\" />" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use FeedbackRatingWidget when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Service satisfaction surveys</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Page helpfulness ratings</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Post-transaction feedback</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>User experience measurement</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don&apos;t use FeedbackRatingWidget when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Detailed surveys — use a form builder</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Bug reports — use a dedicated form</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Comments — use Textarea</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Binary choices — use Switch or Checkbox</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Keep feedback forms short — 1-2 questions maximum for inline widgets.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t require detailed feedback for simple satisfaction ratings.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different FeedbackRatingWidget configurations in real time.</p>
-            <FeedbackRatingWidgetPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/button" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Button</h3>
-                <p className="text-sm text-muted-foreground">For submit actions</p>
-              </a>
-              <a href="/components/textarea" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Textarea</h3>
-                <p className="text-sm text-muted-foreground">For detailed feedback</p>
-              </a>
-              <a href="/components/toast" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Toast</h3>
-                <p className="text-sm text-muted-foreground">For submission confirmation</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added star and thumbs rating types</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added optional comment field</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with 5-star rating</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Feedback improves services</h3>
-                <p className="text-sm text-muted-foreground">Government services with citizen feedback loops show 30% improvement in satisfaction scores over 12 months (World Bank).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <FeedbackRatingWidget />
   );
 }`,
           preview: (
@@ -1258,6 +1123,117 @@ export type RatingSize = 'sm' | 'md' | 'lg';`,
         compliance: "WCAG 2.1 Level AA for accessibility to all citizens including those with disabilities; Section 508 compliance for federal government digital services; Privacy considerations: feedback collection must comply with data protection regulations; Transparent feedback usage: citizens should know how their feedback will be used; Anonymous option: allow anonymous feedback to encourage honest responses",
         bestPractices: "Keep surveys short: limit to 3-5 questions to maximize completion rates; Provide context: explain why feedback is being collected and how it will be used; Offer text feedback option: allow citizens to provide detailed comments beyond ratings; Display thank you message: acknowledge feedback submission with clear confirmation; Act on feedback: regularly review feedback data and make visible improvements; Make feedback accessible: provide multiple ways to submit feedback (online, phone, in-person); Report results: share aggregated feedback results with the public to demonstrate responsiveness",
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use FeedbackRatingWidget when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Service satisfaction surveys</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Page helpfulness ratings</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Post-transaction feedback</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>User experience measurement</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use FeedbackRatingWidget when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Detailed surveys — use a form builder</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Bug reports — use a dedicated form</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Comments — use Textarea</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Binary choices — use Switch or Checkbox</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Keep feedback forms short — 1-2 questions maximum for inline widgets.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t require detailed feedback for simple satisfaction ratings.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/button" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Button</h3>
+                <p className="text-sm text-muted-foreground">For submit actions</p>
+              </a>
+              <a href="/components/textarea" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Textarea</h3>
+                <p className="text-sm text-muted-foreground">For detailed feedback</p>
+              </a>
+              <a href="/components/toast" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Toast</h3>
+                <p className="text-sm text-muted-foreground">For submission confirmation</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added star and thumbs rating types</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added optional comment field</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with 5-star rating</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Feedback improves services</h3>
+                <p className="text-sm text-muted-foreground">Government services with citizen feedback loops show 30% improvement in satisfaction scores over 12 months (World Bank).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

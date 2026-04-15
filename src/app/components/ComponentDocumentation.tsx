@@ -192,6 +192,9 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
     description: string;
     downloadLabel: string;
     downloadFilename: string;
+    accent: string;
+    accentSoft: string;
+    accentText: string;
     blocks: CodeBlockEntry[];
   }> = [
     {
@@ -201,6 +204,9 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       description: '@ux4g/react-core with typed variants and token-driven styles.',
       downloadLabel: 'Download React code',
       downloadFilename: `${name}.tsx`,
+      accent: 'bg-blue-500',
+      accentSoft: 'bg-blue-500/10',
+      accentText: 'text-blue-600',
       blocks: [
         { title: `Component (${name}.tsx)`, code: reactCode.component, copyId: 'react-component' },
         ...(reactCode.variants
@@ -216,6 +222,9 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       description: '@ux4g/angular-core with the same component contract and states.',
       downloadLabel: 'Download Angular code',
       downloadFilename: `${name.toLowerCase()}.component.ts`,
+      accent: 'bg-emerald-500',
+      accentSoft: 'bg-emerald-500/10',
+      accentText: 'text-emerald-600',
       blocks: [
         { title: `Component (${name.toLowerCase()}.component.ts)`, code: angularCode.component, copyId: 'angular-component' },
         { title: `Module (${name.toLowerCase()}.module.ts)`, code: angularCode.module, copyId: 'angular-module' },
@@ -231,6 +240,9 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       description: '@ux4g/web-components with plain HTML starter markup.',
       downloadLabel: 'Download Web code',
       downloadFilename: `${name.toLowerCase()}.web.ts`,
+      accent: 'bg-amber-500',
+      accentSoft: 'bg-amber-500/10',
+      accentText: 'text-amber-600',
       blocks: [
         { title: 'Package source', code: webComponentsCode.component, copyId: 'web-component' },
         { title: 'HTML starter', code: webComponentsCode.html, copyId: 'web-html' },
@@ -572,15 +584,23 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   </p>
                   <h2 className="text-2xl font-bold text-foreground">Download the same component across React, Angular, and Web Components</h2>
                   <p className="text-sm leading-6 text-muted-foreground">
-                    Each lane uses the same contract and is packaged with its own starter code so teams can copy,
-                    review, and ship the implementation that fits their stack.
+                  Each lane uses the same contract and is packaged with its own starter code so teams can copy,
+                  review, and ship the implementation that fits their stack.
                   </p>
                 </div>
-                <div className="grid grid-cols-3 gap-3 sm:max-w-lg">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:max-w-2xl">
                   {codeSections.map((section) => (
-                    <div key={section.key} className="rounded-2xl border border-border bg-background px-4 py-3 text-center shadow-sm">
-                      <div className="text-sm font-semibold text-foreground">{section.title.split(' ')[0]}</div>
-                      <div className="mt-1 text-xs text-muted-foreground">{section.blocks.length} snippet{section.blocks.length > 1 ? 's' : ''}</div>
+                    <div key={section.key} className="rounded-2xl border border-border bg-background p-4 text-left shadow-sm transition-shadow hover:shadow-md">
+                      <div className={`h-1 rounded-full ${section.accent}`} />
+                      <div className="mt-3 flex items-start justify-between gap-3">
+                        <div>
+                          <div className="text-sm font-semibold text-foreground">{section.title.split(' ')[0]}</div>
+                          <div className="mt-1 text-xs text-muted-foreground">{section.blocks.length} snippet{section.blocks.length > 1 ? 's' : ''}</div>
+                        </div>
+                        <div className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${section.accentSoft} ${section.accentText}`}>
+                          <Code2 size={14} />
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -606,7 +626,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               </div>
               {codeSections[mobileCodeFramework] && (
                 <section className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
-                  <div className="h-1 bg-[#005196]" />
+                  <div className={`h-1 ${codeSections[mobileCodeFramework].accent}`} />
                   <div className="flex flex-1 flex-col p-6">
                     <div className="mb-5 flex items-start justify-between gap-4">
                       <div className="space-y-2">
@@ -660,7 +680,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   key={section.key}
                   className={`flex min-w-0 h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-shadow hover:shadow-md ${sectionIdx === 0 ? 'lg:col-span-1' : ''}`}
                 >
-                  <div className="h-1 bg-[#005196]" />
+                  <div className={`h-1 ${section.accent}`} />
                   <div className="flex flex-1 flex-col p-6">
                     <div className="mb-5 flex items-start justify-between gap-4">
                       <div className="space-y-2">
@@ -732,11 +752,12 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  <tr className="bg-[#005196]/10 ring-2 ring-[#005196]/20 ring-inset">
-                    <td className="px-6 py-4 text-sm font-bold text-[#005196]">
-                      <span className="flex items-center gap-2">
+                  <tr className="bg-primary/5 ring-1 ring-primary/15 ring-inset">
+                    <td className="px-6 py-4 text-sm font-bold text-foreground">
+                      <span className="inline-flex items-center gap-2">
+                        <span className="inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
                         UX4G
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#005196] text-white uppercase tracking-wider">Current</span>
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary/10 text-primary uppercase tracking-wider">Current</span>
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm font-mono font-medium text-foreground">{name}</td>
@@ -748,7 +769,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm">
-                      <span className="font-medium text-primary">Current Page</span>
+                      <span className="font-medium text-primary">Current page</span>
                     </td>
                   </tr>
                   {comparisons.map((comp, idx) => (

@@ -232,149 +232,8 @@ export default function ComponentCaptchaPage() {
           code: `import { Captcha } from '@ux4g/react-core';
 
 function Example() {
-  const handleVerify = (token: string, success: boolean) => {
-    if (success) {
-      console.log('Verification successful:', token);
-      // Proceed with form submission
-    } else {
-      console.log('Verification failed');
-    }
-  };
-
   return (
-    <Captcha
-      type="image"
-      difficulty="medium"
-      onVerify={handleVerify}
-      siteKey="your-site-key"
-      audioEnabled={true}
-      refreshable={true}
-
-      useCases={[
-        { title: "Form Submission Protection", description: "CAPTCHA before form submission.", scenario: "Certificate application final step.", implementation: "<Captcha onVerify={handleVerify} />" },
-        { title: "Login Protection", description: "CAPTCHA on login after failed attempts.", scenario: "User login with brute-force protection.", implementation: "<Captcha type=\"image\" onVerify={setVerified} />" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use Captcha when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Form submission bot protection</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Login brute-force prevention</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Public-facing forms without authentication</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>High-value transaction verification</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don&apos;t use Captcha when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Authenticated user actions — already verified</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Internal admin tools — use other auth</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Low-risk forms — adds friction</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Accessibility-critical flows — consider alternatives</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Provide audio CAPTCHA alternative for accessibility (WCAG 1.1.1).</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t use CAPTCHA on authenticated user actions — they are already verified.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Captcha configurations in real time.</p>
-            <CaptchaPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/button" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Button</h3>
-                <p className="text-sm text-muted-foreground">For form submission</p>
-              </a>
-              <a href="/components/otpinput" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">OTPInput</h3>
-                <p className="text-sm text-muted-foreground">For verification codes</p>
-              </a>
-              <a href="/components/alert" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Alert</h3>
-                <p className="text-sm text-muted-foreground">For error messages</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added audio CAPTCHA for accessibility</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added refresh option</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with image CAPTCHA</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">CAPTCHA accessibility</h3>
-                <p className="text-sm text-muted-foreground">Audio CAPTCHA alternatives are required by WCAG 1.1.1. Image-only CAPTCHA excludes 15% of users with visual impairments.</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <Captcha />
   );
 }`,
           preview: (
@@ -1006,6 +865,117 @@ export type CaptchaProvider = 'recaptcha' | 'hcaptcha' | 'turnstile';`,
         useCases: "Online Form Submission: Prevent automated spam and fraudulent submissions on government application forms (e.g., Visa applications, permit requests, public feedback forms); Citizen Portal Login Protection: Protect user accounts from brute-force attacks and unauthorized access attempts (e.g., MyGov portals, tax filing systems, social security access); Event and Service Booking: Prevent ticket scalping and automated booking by bots for government services (e.g., Passport appointments, court hearings, vaccination slots); Public Service Applications: Ensure legitimate citizens access benefits and services, not automated bots (e.g., License renewals, welfare applications, subsidy registrations); Voting and Survey Systems: Maintain integrity of online polls, surveys, and e-voting platforms (e.g., Public consultations, citizen feedback surveys, budget voting); Document Download Protection: Prevent bulk automated downloads of sensitive or rate-limited documents (e.g., Official certificates, legal documents, public records)",
         regulations: "WCAG 2.1 Level AA: Must provide accessible alternatives for users with disabilities — Audio alternative for visual CAPTCHA, visual alternative for audio CAPTCHA; Section 508: Federal systems must be accessible to people with disabilities — Keyboard navigation, screen reader compatibility, alternative input methods; GDPR/Privacy Laws: User data must be processed lawfully and protected — No personal data stored in CAPTCHA challenges, privacy-focused providers available; ADA Compliance: Government services must be accessible to all citizens — Multiple CAPTCHA types accommodate different abilities and preferences",
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Captcha when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Form submission bot protection</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Login brute-force prevention</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Public-facing forms without authentication</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>High-value transaction verification</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use Captcha when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Authenticated user actions — already verified</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Internal admin tools — use other auth</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Low-risk forms — adds friction</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Accessibility-critical flows — consider alternatives</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Provide audio CAPTCHA alternative for accessibility (WCAG 1.1.1).</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use CAPTCHA on authenticated user actions — they are already verified.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/button" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Button</h3>
+                <p className="text-sm text-muted-foreground">For form submission</p>
+              </a>
+              <a href="/components/otpinput" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">OTPInput</h3>
+                <p className="text-sm text-muted-foreground">For verification codes</p>
+              </a>
+              <a href="/components/alert" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Alert</h3>
+                <p className="text-sm text-muted-foreground">For error messages</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added audio CAPTCHA for accessibility</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added refresh option</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with image CAPTCHA</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">CAPTCHA accessibility</h3>
+                <p className="text-sm text-muted-foreground">Audio CAPTCHA alternatives are required by WCAG 1.1.1. Image-only CAPTCHA excludes 15% of users with visual impairments.</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

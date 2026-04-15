@@ -202,157 +202,10 @@ export default function ComponentLanguageSelectorPage() {
           title: 'Dropdown Selector',
           description: 'Compact dropdown variant ideal for header placement with minimal space usage.',
           code: `import { LanguageSelector } from '@ux4g/react-core';
-import { useState } from 'react';
 
 function Example() {
-  const [currentLang, setCurrentLang] = useState({
-    code: 'en',
-    name: 'English',
-    nativeName: 'English',
-    flag: '🇬🇧'
-  });
-
-  const languages = [
-    { code: 'en', name: 'English', nativeName: 'English', flag: '🇬🇧' },
-    { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', flag: '🇮🇳' },
-    { code: 'ta', name: 'Tamil', nativeName: 'தமிழ்', flag: '🇮🇳' },
-    { code: 'bn', name: 'Bengali', nativeName: 'বাংলা', flag: '🇮🇳' },
-  ];
-
   return (
-    <LanguageSelector
-      variant="dropdown"
-      languages={languages}
-      currentLanguage={currentLang}
-      onChange={setCurrentLang}
-      showFlags
-      position="right"
-
-      useCases={[
-        { title: "Site Language Switch", description: "Switch between Hindi and English.", scenario: "Header language selector.", implementation: "<LanguageSelector languages={[\"en\",\"hi\"]} current=\"en\" />" },
-        { title: "Regional Language", description: "Select regional language for content.", scenario: "State-specific portal.", implementation: "<LanguageSelector languages={[\"en\",\"hi\",\"ta\",\"te\"]} />" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use LanguageSelector when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multi-language site navigation</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Header language switching</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Regional language selection</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Accessibility language preferences</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don&apos;t use LanguageSelector when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Content translation — handle in i18n layer</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Form locale — use locale-aware inputs</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Single-language sites — not needed</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Currency selection — use a separate selector</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Offer regional languages — sites with them see 3x higher engagement from non-English speakers.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t auto-detect language without offering a manual override.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different LanguageSelector configurations in real time.</p>
-            <LanguageSelectorPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/header" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Header</h3>
-                <p className="text-sm text-muted-foreground">Often contains language selector</p>
-              </a>
-              <a href="/components/select" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Select</h3>
-                <p className="text-sm text-muted-foreground">For generic dropdowns</p>
-              </a>
-              <a href="/components/dropdown" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Dropdown</h3>
-                <p className="text-sm text-muted-foreground">For action menus</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added 22 Indian language support</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added RTL language support</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with Hindi and English</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Language access is essential</h3>
-                <p className="text-sm text-muted-foreground">India has 22 official languages. Government sites offering regional languages see 3x higher engagement from non-English speakers (India Digital Gov).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <LanguageSelector />
   );
 }`,
           preview: (
@@ -1193,6 +1046,117 @@ export type LanguageSelectorPosition = 'left' | 'center' | 'right';`,
         useCases: "Central government portals (e.g., India.gov.in, Digital India); State government websites with regional language support; E-governance platforms (e.g., UMANG, mParivahan); Public service delivery portals; Citizen service applications; Educational and information portals; Healthcare and welfare systems",
         considerations: "Persistent language selection across sessions improves user experience; Native script display helps non-English speakers identify their language; Right-to-left (RTL) text direction support for Urdu; Font loading for regional scripts (consider performance); Translation quality assurance for critical government communications; Browser and device compatibility for various scripts; Fallback mechanisms when translations are unavailable",
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use LanguageSelector when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multi-language site navigation</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Header language switching</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Regional language selection</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Accessibility language preferences</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use LanguageSelector when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Content translation — handle in i18n layer</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Form locale — use locale-aware inputs</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Single-language sites — not needed</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Currency selection — use a separate selector</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Offer regional languages — sites with them see 3x higher engagement from non-English speakers.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t auto-detect language without offering a manual override.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/header" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Header</h3>
+                <p className="text-sm text-muted-foreground">Often contains language selector</p>
+              </a>
+              <a href="/components/select" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Select</h3>
+                <p className="text-sm text-muted-foreground">For generic dropdowns</p>
+              </a>
+              <a href="/components/dropdown" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Dropdown</h3>
+                <p className="text-sm text-muted-foreground">For action menus</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added 22 Indian language support</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added RTL language support</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with Hindi and English</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Language access is essential</h3>
+                <p className="text-sm text-muted-foreground">India has 22 official languages. Government sites offering regional languages see 3x higher engagement from non-English speakers (India Digital Gov).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

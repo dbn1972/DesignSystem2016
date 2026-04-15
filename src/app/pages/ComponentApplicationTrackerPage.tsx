@@ -125,145 +125,8 @@ export default function ComponentApplicationTrackerPage() {
           code: `import { ApplicationTracker } from '@ux4g/react-core';
 
 function Example() {
-  const stages = [
-    { id: '1', label: 'Application Submitted', status: 'completed', date: '10 Mar 2024' },
-    { id: '2', label: 'Document Verification', status: 'completed', date: '12 Mar 2024' },
-    { id: '3', label: 'Police Verification', status: 'active', date: 'In Progress' },
-    { id: '4', label: 'Passport Printing', status: 'pending' },
-    { id: '5', label: 'Dispatch', status: 'pending' },
-  ];
-  
   return (
-    <ApplicationTracker
-      applicationId="PP202400001234"
-      stages={stages}
-      currentStage="3"
-
-      useCases={[
-        { title: "Certificate Status Tracking", description: "Track certificate application progress.", scenario: "Citizen checks birth certificate status.", implementation: "<ApplicationTracker applicationId=\"CERT-2026-001\" />" },
-        { title: "Grievance Tracking", description: "Track grievance resolution progress.", scenario: "Citizen follows up on filed grievance.", implementation: "<ApplicationTracker applicationId=\"GRV-2026-042\" />" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use ApplicationTracker when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Application status tracking pages</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multi-step process visualization</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Citizen-facing status dashboards</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Service delivery tracking</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don&apos;t use ApplicationTracker when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple progress — use Progress bar</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Step-by-step forms — use Stepper</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Activity logs — use Timeline</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Static status display — use Badge</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Show estimated completion dates alongside status to set expectations.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t show status without context — include dates and next steps.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different ApplicationTracker configurations in real time.</p>
-            <ApplicationTrackerPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/timeline" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Timeline</h3>
-                <p className="text-sm text-muted-foreground">For chronological event display</p>
-              </a>
-              <a href="/components/stepper" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Stepper</h3>
-                <p className="text-sm text-muted-foreground">For form step progress</p>
-              </a>
-              <a href="/components/badge" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Badge</h3>
-                <p className="text-sm text-muted-foreground">For status indicators</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added real-time status updates</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added estimated completion date</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic status display</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Status transparency builds trust</h3>
-                <p className="text-sm text-muted-foreground">Citizens who can track application status report 45% higher satisfaction with government services (World Bank e-Gov study).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <ApplicationTracker />
   );
 }`,
           preview: <TrackerPreview />,
@@ -550,6 +413,117 @@ export interface ApplicationStage {
           { property: 'Connector Inactive', token: 'tracker.connector.inactive', value: '#E5E7EB' },
         ],
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use ApplicationTracker when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Application status tracking pages</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multi-step process visualization</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Citizen-facing status dashboards</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Service delivery tracking</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use ApplicationTracker when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple progress — use Progress bar</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Step-by-step forms — use Stepper</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Activity logs — use Timeline</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Static status display — use Badge</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Show estimated completion dates alongside status to set expectations.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t show status without context — include dates and next steps.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/timeline" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Timeline</h3>
+                <p className="text-sm text-muted-foreground">For chronological event display</p>
+              </a>
+              <a href="/components/stepper" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Stepper</h3>
+                <p className="text-sm text-muted-foreground">For form step progress</p>
+              </a>
+              <a href="/components/badge" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Badge</h3>
+                <p className="text-sm text-muted-foreground">For status indicators</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added real-time status updates</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added estimated completion date</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic status display</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Status transparency builds trust</h3>
+                <p className="text-sm text-muted-foreground">Citizens who can track application status report 45% higher satisfaction with government services (World Bank e-Gov study).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

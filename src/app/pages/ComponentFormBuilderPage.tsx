@@ -190,171 +190,11 @@ export default function ComponentFormBuilderPage() {
         {
           title: 'Basic Form Builder',
           description: 'Simple form with text inputs, email, and textarea fields.',
-          code: `import { FormBuilder } from '@ux4g/react-composite';
-
-const fields = [
-  {
-    name: 'fullName',
-    type: 'text',
-    label: 'Full Name',
-    required: true,
-  },
-  {
-    name: 'email',
-    type: 'email',
-    label: 'Email Address',
-    required: true,
-  },
-  {
-    name: 'phone',
-    type: 'tel',
-    label: 'Phone Number',
-    required: false,
-  },
-  {
-    name: 'message',
-    type: 'textarea',
-    label: 'Message',
-    required: true,
-  },
-];
+          code: `import { FormBuilder } from '@ux4g/react-core';
 
 function Example() {
-  const handleSubmit = (data) => {
-    console.log('Form submitted:', data);
-  };
-
   return (
-    <FormBuilder
-      fields={fields}
-      onSubmit={handleSubmit}
-      layout="vertical"
-
-      useCases={[
-        { title: "Dynamic Application Form", description: "JSON-driven form for different certificate types.", scenario: "Admin configures form fields per service.", implementation: "<FormBuilder schema={formSchema} onSubmit={handleSubmit} />" },
-        { title: "Survey Form", description: "Configurable survey form.", scenario: "Post-service feedback survey.", implementation: "<FormBuilder schema={surveySchema} />" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use FormBuilder when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Dynamic forms from JSON schema</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Admin-configurable form layouts</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Survey and questionnaire builders</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multi-step form generation</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don&apos;t use FormBuilder when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Static forms — build with form components directly</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple single-field forms — use Input</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-form content — not applicable</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Complex custom layouts — build manually</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Use JSON-schema-driven forms to reduce development time by 60%.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t use FormBuilder for simple static forms — build them directly.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different FormBuilder configurations in real time.</p>
-            <FormBuilderPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/field" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Field</h3>
-                <p className="text-sm text-muted-foreground">For individual form fields</p>
-              </a>
-              <a href="/components/input" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Input</h3>
-                <p className="text-sm text-muted-foreground">For text inputs</p>
-              </a>
-              <a href="/components/select" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Select</h3>
-                <p className="text-sm text-muted-foreground">For dropdown selections</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added conditional field logic</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added multi-step form support</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic field types</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Dynamic forms reduce development time</h3>
-                <p className="text-sm text-muted-foreground">JSON-schema-driven forms reduce form development time by 60% for government services with varying requirements (GDS research).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <FormBuilder />
   );
 }`,
           preview: (
@@ -1361,6 +1201,117 @@ export type FormLayout = 'vertical' | 'horizontal' | 'grid';`,
         compliance: "Section 508 compliance for federal accessibility requirements; WCAG 2.1 AA for international accessibility standards; Privacy compliance with data encryption and secure transmission; Records retention policies with audit trails; Multi-language support for diverse populations; Mobile-responsive design for accessibility across devices",
         considerations: "Plain language form labels and instructions for readability; Progressive disclosure to avoid overwhelming users; Auto-save functionality for long forms to prevent data loss; Clear error messaging with specific remediation instructions; Accessibility testing with assistive technologies; Performance optimization for low-bandwidth connections; Integration with government authentication systems; Secure data handling and transmission protocols",
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use FormBuilder when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Dynamic forms from JSON schema</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Admin-configurable form layouts</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Survey and questionnaire builders</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multi-step form generation</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use FormBuilder when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Static forms — build with form components directly</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple single-field forms — use Input</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-form content — not applicable</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Complex custom layouts — build manually</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Use JSON-schema-driven forms to reduce development time by 60%.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use FormBuilder for simple static forms — build them directly.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/field" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Field</h3>
+                <p className="text-sm text-muted-foreground">For individual form fields</p>
+              </a>
+              <a href="/components/input" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Input</h3>
+                <p className="text-sm text-muted-foreground">For text inputs</p>
+              </a>
+              <a href="/components/select" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Select</h3>
+                <p className="text-sm text-muted-foreground">For dropdown selections</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added conditional field logic</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added multi-step form support</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic field types</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Dynamic forms reduce development time</h3>
+                <p className="text-sm text-muted-foreground">JSON-schema-driven forms reduce form development time by 60% for government services with varying requirements (GDS research).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }

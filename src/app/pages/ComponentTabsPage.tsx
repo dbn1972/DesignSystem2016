@@ -140,144 +140,7 @@ export default function ComponentTabsPage() {
 
 function Example() {
   return (
-    <Tabs
-      variant="underline"
-      items={[
-        { label: 'Overview', content: <div>Overview content</div> },
-        { label: 'Details', content: <div>Details content</div> },
-        { label: 'Documents', content: <div>Documents content</div> },
-      ]}
-
-      useCases={[
-        { title: "Component Documentation Tabs", description: "Tabs for Overview, Props, Examples, Code sections.", scenario: "Component documentation page.", implementation: "<Tabs><Tab label=\"Overview\">...</Tab><Tab label=\"Props\">...</Tab></Tabs>" },
-        { title: "Application Form Sections", description: "Tab navigation between form sections.", scenario: "Multi-section application form.", implementation: "<Tabs><Tab label=\"Personal\">...</Tab><Tab label=\"Address\">...</Tab></Tabs>" },
-        { title: "Dashboard Views", description: "Switch between dashboard perspectives.", scenario: "Officer dashboard with different case views.", implementation: "<Tabs><Tab label=\"Pending\">...</Tab><Tab label=\"Completed\">...</Tab></Tabs>" },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use Tabs when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Organizing content into parallel sections</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>When users need to switch between views</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Reducing page length by hiding inactive content</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Related content that shares the same context</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don't use Tabs when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Sequential steps — use Stepper instead</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Navigation between pages — use links</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Comparing content side by side — show both</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Very few sections (1-2) — just show them</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4">
-                  <div className="flex border-b border-border mb-3"><button className="px-3 py-1.5 text-xs font-medium border-b-2 border-[#005196] text-[#005196]">Personal</button><button className="px-3 py-1.5 text-xs text-muted-foreground">Address</button><button className="px-3 py-1.5 text-xs text-muted-foreground">Documents</button></div>
-                  <p className="text-sm text-muted-foreground">Use tabs for parallel content sections. Keep labels short (1-2 words).</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4">
-                  <div className="flex border-b border-border mb-3"><button className="px-3 py-1.5 text-xs font-medium border-b-2 border-[#005196] text-[#005196]">Step 1: Personal Info</button><button className="px-3 py-1.5 text-xs text-muted-foreground">Step 2: Address Details</button><button className="px-3 py-1.5 text-xs text-muted-foreground">Step 3: Review</button></div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t use tabs for sequential steps — use Stepper instead.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Tabs configurations in real time.</p>
-            <TabsPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/stepper" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Stepper</h3>
-                <p className="text-sm text-muted-foreground">For sequential steps</p>
-              </a>
-              <a href="/components/accordion" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Accordion</h3>
-                <p className="text-sm text-muted-foreground">For expandable sections</p>
-              </a>
-              <a href="/components/breadcrumb" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Breadcrumb</h3>
-                <p className="text-sm text-muted-foreground">For page hierarchy</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added vertical tab orientation</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added lazy loading for tab content</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with horizontal tabs</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Tab label clarity</h3>
-                <p className="text-sm text-muted-foreground">Tabs with 1-2 word labels have 30% higher click rates than long labels (NNG).</p>
-              </div>
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Active tab indication</h3>
-                <p className="text-sm text-muted-foreground">WCAG requires both color and position to indicate the active tab. UX4G uses underline + color.</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
-    />
+    <Tabs />
   );
 }`,
           preview: <TabsPreview variant="underline" items={sampleTabs} />,
@@ -611,6 +474,121 @@ export type TabVariant = 'underline' | 'pills' | 'enclosed';`,
           { property: 'Inactive Text Color', token: 'tabs.text.inactive', value: '#6B7280 (Gray 600)' },
         ],
       }}
+      additionalContent={
+        <>
+
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Tabs when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Organizing content into parallel sections</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>When users need to switch between views</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Reducing page length by hiding inactive content</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Related content that shares the same context</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use Tabs when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Sequential steps — use Stepper instead</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Navigation between pages — use links</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Comparing content side by side — show both</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Very few sections (1-2) — just show them</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Use short 1-2 word tab labels — they have 30% higher click rates than long labels.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground">Don&apos;t use tabs for sequential steps — use Stepper instead.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/stepper" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Stepper</h3>
+                <p className="text-sm text-muted-foreground">For sequential steps</p>
+              </a>
+              <a href="/components/accordion" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Accordion</h3>
+                <p className="text-sm text-muted-foreground">For expandable sections</p>
+              </a>
+              <a href="/components/breadcrumb" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Breadcrumb</h3>
+                <p className="text-sm text-muted-foreground">For page hierarchy</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added vertical tab orientation</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added lazy loading for tab content</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                    <span className="text-xs text-muted-foreground">October 2025</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with horizontal tabs</li>
+                  </ul>
+                </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Tab label clarity</h3>
+                <p className="text-sm text-muted-foreground">Tabs with 1-2 word labels have 30% higher click rates than long labels (NNG).</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Active tab indication</h3>
+                <p className="text-sm text-muted-foreground">WCAG requires both color and position to indicate the active tab. UX4G uses underline + color.</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
     />
   );
 }
