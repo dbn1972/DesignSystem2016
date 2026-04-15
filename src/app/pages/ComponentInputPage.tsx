@@ -344,6 +344,12 @@ function Example() {
           scenario: 'Citizen enters reference number to check certificate status.',
           implementation: '<Input type="search" label="Reference Number" placeholder="CERT-2026-..." />',
         },
+        {
+          title: 'PAN / Tax ID Collection',
+          description: 'Uppercase alphanumeric input with format validation for PAN card numbers.',
+          scenario: 'Income tax filing form collects PAN for identity and tax linkage.',
+          implementation: '<Input type="text" label="PAN Number" placeholder="ABCDE1234F" maxLength={10} style={{textTransform:"uppercase"}} />',
+        },
       ]}
 
       additionalContent={
