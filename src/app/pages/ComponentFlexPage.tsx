@@ -689,6 +689,16 @@ export type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';`,
             <div className="space-y-4">
                 <div className="border-l-2 border-primary pl-4">
                   <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added responsive variants</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Improved dark mode support</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
                     <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
                     <span className="text-xs text-muted-foreground">October 2025</span>
                   </div>

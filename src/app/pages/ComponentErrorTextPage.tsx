@@ -35,6 +35,8 @@ const ErrorTextPreview = ({ children, icon }: any) => (
 
 function ErrorTextPlayground() {
   const [visible, setVisible] = React.useState(false);
+  const [icon, setIcon] = React.useState(true);
+  const [message, setMessage] = React.useState('This field is required');
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -45,6 +47,8 @@ function ErrorTextPlayground() {
       </div>
       <div className="space-y-4 text-sm">
           <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={visible} onChange={e => setVisible(e.target.checked)} className="accent-primary" /><span className="text-foreground">Visible</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={icon} onChange={e => setIcon(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show icon</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Message</label><input value={message} onChange={e => setMessage(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" /></div>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<ErrorText${visible ? ' visible' : ''} />`}
@@ -516,6 +520,16 @@ export class ErrorTextModule { }`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
             <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added responsive variants</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Improved dark mode support</li>
+                  </ul>
+                </div>
                 <div className="border-l-2 border-primary pl-4">
                   <div className="flex items-center gap-3 mb-1">
                     <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>

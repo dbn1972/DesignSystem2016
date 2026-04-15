@@ -105,6 +105,8 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
 
 function CaptchaPlayground() {
   const [type, setType] = React.useState('image');
+  const [difficulty, setDifficulty] = React.useState('medium');
+  const [showRefresh, setShowRefresh] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -122,6 +124,8 @@ function CaptchaPlayground() {
               <option value="math">math</option>
             </select>
           </div>
+          <div><label className="block font-semibold text-foreground mb-1">Difficulty</label><select value={difficulty} onChange={e => setDifficulty(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showRefresh} onChange={e => setShowRefresh(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show refresh button</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Captcha ${type} />`}

@@ -35,6 +35,8 @@ const SpacerPreview = ({ size = 'md', axis = 'vertical' }: any) => {
 
 function SpacerPlayground() {
   const [size, setSize] = React.useState('sm');
+  const [axis, setAxis] = React.useState('vertical');
+  const [showGuide, setShowGuide] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -53,6 +55,8 @@ function SpacerPlayground() {
               <option value="xl">xl</option>
             </select>
           </div>
+          <div><label className="block font-semibold text-foreground mb-1">Axis</label><select value={axis} onChange={e => setAxis(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="vertical">Vertical</option><option value="horizontal">Horizontal</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showGuide} onChange={e => setShowGuide(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show guide lines</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Spacer ${size} />`}
@@ -376,6 +380,16 @@ export const Spacer: React.FC<SpacerProps> = ({
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
             <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added responsive variants</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Improved dark mode support</li>
+                  </ul>
+                </div>
                 <div className="border-l-2 border-primary pl-4">
                   <div className="flex items-center gap-3 mb-1">
                     <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>

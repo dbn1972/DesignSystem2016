@@ -136,6 +136,8 @@ const DigitalSignaturePreview = ({
 
 function DigitalSignaturePlayground() {
   const [type, setType] = React.useState('dsc');
+  const [showTimestamp, setShowTimestamp] = React.useState(true);
+  const [required, setRequired] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -152,6 +154,8 @@ function DigitalSignaturePlayground() {
               <option value="aadhaar-esign">aadhaar-esign</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showTimestamp} onChange={e => setShowTimestamp(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show timestamp</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<DigitalSignature ${type} />`}

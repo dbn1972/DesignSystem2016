@@ -70,6 +70,8 @@ const PaginationPreview = ({ totalPages, showFirstLast }: any) => {
 
 function PaginationPlayground() {
   const [pageSize, setPageSize] = React.useState('5');
+  const [showFirstLast, setShowFirstLast] = React.useState(true);
+  const [showTotal, setShowTotal] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -88,6 +90,8 @@ function PaginationPlayground() {
               <option value="50">50</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showFirstLast} onChange={e => setShowFirstLast(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show first/last</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showTotal} onChange={e => setShowTotal(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show total count</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Pagination ${pageSize} />`}

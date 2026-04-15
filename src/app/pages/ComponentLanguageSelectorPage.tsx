@@ -69,6 +69,8 @@ const LanguageSelectorPreview = ({ variant, showFlags, position, languages, curr
 
 function LanguageSelectorPlayground() {
   const [showFlag, setShowFlag] = React.useState(false);
+  const [position, setPosition] = React.useState('header');
+  const [showLabel, setShowLabel] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -79,6 +81,8 @@ function LanguageSelectorPlayground() {
       </div>
       <div className="space-y-4 text-sm">
           <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showFlag} onChange={e => setShowFlag(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Flag</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Position</label><select value={position} onChange={e => setPosition(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="header">Header</option><option value="footer">Footer</option><option value="sidebar">Sidebar</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLabel} onChange={e => setShowLabel(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show label</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<LanguageSelector${showFlag ? ' showFlag' : ''} />`}

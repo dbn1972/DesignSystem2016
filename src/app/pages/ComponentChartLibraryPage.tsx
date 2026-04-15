@@ -161,6 +161,8 @@ const ChartPreview = ({ type, data, labels, title, height = 300, width = 500, co
 
 function ChartLibraryPlayground() {
   const [type, setType] = React.useState('bar');
+  const [showLegend, setShowLegend] = React.useState(true);
+  const [animated, setAnimated] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -179,6 +181,8 @@ function ChartLibraryPlayground() {
               <option value="donut">donut</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLegend} onChange={e => setShowLegend(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show legend</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={animated} onChange={e => setAnimated(e.target.checked)} className="accent-primary" /><span className="text-foreground">Animated</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<ChartLibrary ${type} />`}

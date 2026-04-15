@@ -40,6 +40,8 @@ const ShowHidePreview = ({ above, below, breakpoint, children, className, ssr, .
 
 function ShowHidePlayground() {
   const [defaultVisible, setDefaultVisible] = React.useState(false);
+  const [animated, setAnimated] = React.useState(true);
+  const [label, setLabel] = React.useState('Show more');
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -50,6 +52,8 @@ function ShowHidePlayground() {
       </div>
       <div className="space-y-4 text-sm">
           <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={defaultVisible} onChange={e => setDefaultVisible(e.target.checked)} className="accent-primary" /><span className="text-foreground">Default Visible</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={animated} onChange={e => setAnimated(e.target.checked)} className="accent-primary" /><span className="text-foreground">Animated</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Toggle label</label><input value={label} onChange={e => setLabel(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" /></div>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<ShowHide${defaultVisible ? ' defaultVisible' : ''} />`}
@@ -724,6 +728,16 @@ export interface ShowHideConfig {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
             <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added responsive variants</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Improved dark mode support</li>
+                  </ul>
+                </div>
                 <div className="border-l-2 border-primary pl-4">
                   <div className="flex items-center gap-3 mb-1">
                     <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>

@@ -70,6 +70,8 @@ const AvatarPreview = ({ src, alt, name, size, shape, status, fallback, ...props
 
 function AvatarPlayground() {
   const [size, setSize] = React.useState('sm');
+  const [shape, setShape] = React.useState('circle');
+  const [showStatus, setShowStatus] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -87,6 +89,8 @@ function AvatarPlayground() {
               <option value="lg">lg</option>
             </select>
           </div>
+          <div><label className="block font-semibold text-foreground mb-1">Shape</label><select value={shape} onChange={e => setShape(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="circle">Circle</option><option value="square">Square</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showStatus} onChange={e => setShowStatus(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show status dot</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Avatar ${size} />`}

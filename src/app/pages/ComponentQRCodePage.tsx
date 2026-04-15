@@ -28,6 +28,8 @@ const QRCodePreview = ({ value, size = 200, level = 'M', color = '#000000', logo
 
 function QRCodePlayground() {
   const [size, setSize] = React.useState('128');
+  const [level, setLevel] = React.useState('M');
+  const [showLogo, setShowLogo] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -46,6 +48,8 @@ function QRCodePlayground() {
               <option value="320">320</option>
             </select>
           </div>
+          <div><label className="block font-semibold text-foreground mb-1">Error correction</label><select value={level} onChange={e => setLevel(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="L">Low</option><option value="M">Medium</option><option value="Q">Quartile</option><option value="H">High</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLogo} onChange={e => setShowLogo(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show logo overlay</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<QRCode ${size} />`}

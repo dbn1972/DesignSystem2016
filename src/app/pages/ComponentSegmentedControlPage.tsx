@@ -133,6 +133,8 @@ const SegmentedControlPreview = ({
 
 function SegmentedControlPlayground() {
   const [size, setSize] = React.useState('sm');
+  const [disabled, setDisabled] = React.useState(false);
+  const [fullWidth, setFullWidth] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -150,6 +152,8 @@ function SegmentedControlPlayground() {
               <option value="lg">lg</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={fullWidth} onChange={e => setFullWidth(e.target.checked)} className="accent-primary" /><span className="text-foreground">Full width</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<SegmentedControl ${size} />`}

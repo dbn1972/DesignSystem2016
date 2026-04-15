@@ -57,6 +57,8 @@ const TrackerPreview = () => {
 
 function ApplicationTrackerPlayground() {
   const [showTimeline, setShowTimeline] = React.useState(false);
+  const [showDates, setShowDates] = React.useState(true);
+  const [compact, setCompact] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -67,6 +69,8 @@ function ApplicationTrackerPlayground() {
       </div>
       <div className="space-y-4 text-sm">
           <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showTimeline} onChange={e => setShowTimeline(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Timeline</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showDates} onChange={e => setShowDates(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show dates</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={compact} onChange={e => setCompact(e.target.checked)} className="accent-primary" /><span className="text-foreground">Compact mode</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<ApplicationTracker${showTimeline ? ' showTimeline' : ''} />`}

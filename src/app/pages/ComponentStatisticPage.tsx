@@ -92,6 +92,8 @@ const StatisticPreview = ({
 
 function StatisticPlayground() {
   const [showTrend, setShowTrend] = React.useState(false);
+  const [prefix, setPrefix] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -102,6 +104,8 @@ function StatisticPlayground() {
       </div>
       <div className="space-y-4 text-sm">
           <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showTrend} onChange={e => setShowTrend(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Trend</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Prefix</label><input value={prefix} onChange={e => setPrefix(e.target.value)} placeholder="₹, #, etc." className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" /></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={loading} onChange={e => setLoading(e.target.checked)} className="accent-primary" /><span className="text-foreground">Loading state</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Statistic${showTrend ? ' showTrend' : ''} />`}

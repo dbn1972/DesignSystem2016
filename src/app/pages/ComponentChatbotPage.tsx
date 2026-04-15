@@ -67,6 +67,8 @@ const ChatbotPreview = ({ position, minimized, botName, greeting, ...props }: an
 
 function ChatbotPlayground() {
   const [position, setPosition] = React.useState('bottom-right');
+  const [minimized, setMinimized] = React.useState(false);
+  const [showAvatar, setShowAvatar] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -83,6 +85,8 @@ function ChatbotPlayground() {
               <option value="bottom-left">bottom-left</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={minimized} onChange={e => setMinimized(e.target.checked)} className="accent-primary" /><span className="text-foreground">Minimized</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showAvatar} onChange={e => setShowAvatar(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show avatar</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Chatbot ${position} />`}

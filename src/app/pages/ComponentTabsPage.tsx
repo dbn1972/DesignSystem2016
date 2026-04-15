@@ -40,6 +40,8 @@ const TabsPreview = ({ variant, items }: any) => {
 
 function TabsPlayground() {
   const [orientation, setOrientation] = React.useState('horizontal');
+  const [variant, setVariant] = React.useState('default');
+  const [disabled, setDisabled] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -56,6 +58,8 @@ function TabsPlayground() {
               <option value="vertical">vertical</option>
             </select>
           </div>
+          <div><label className="block font-semibold text-foreground mb-1">Variant</label><select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="default">Default</option><option value="pills">Pills</option><option value="underline">Underline</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Tabs ${orientation} />`}

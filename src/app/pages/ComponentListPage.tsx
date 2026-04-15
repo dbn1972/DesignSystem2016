@@ -8,6 +8,8 @@ import { Check } from 'lucide-react';
 
 function ListPlayground() {
   const [variant, setVariant] = React.useState('default');
+  const [showIcons, setShowIcons] = React.useState(true);
+  const [interactive, setInteractive] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -25,6 +27,8 @@ function ListPlayground() {
               <option value="striped">striped</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showIcons} onChange={e => setShowIcons(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show icons</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={interactive} onChange={e => setInteractive(e.target.checked)} className="accent-primary" /><span className="text-foreground">Interactive items</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<List ${variant} />`}

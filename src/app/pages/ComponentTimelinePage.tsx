@@ -62,6 +62,8 @@ const TimelinePreview = ({ items, variant = 'default', ...props }: any) => (
 
 function TimelinePlayground() {
   const [orientation, setOrientation] = React.useState('vertical');
+  const [variant, setVariant] = React.useState('default');
+  const [showConnectors, setShowConnectors] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -78,6 +80,8 @@ function TimelinePlayground() {
               <option value="horizontal">horizontal</option>
             </select>
           </div>
+          <div><label className="block font-semibold text-foreground mb-1">Variant</label><select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="default">Default</option><option value="alternate">Alternate</option><option value="compact">Compact</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showConnectors} onChange={e => setShowConnectors(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show connectors</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Timeline ${orientation} />`}

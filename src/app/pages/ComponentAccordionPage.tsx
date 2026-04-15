@@ -42,6 +42,8 @@ const AccordionPreview = () => {
 
 function AccordionPlayground() {
   const [allowMultiple, setAllowMultiple] = React.useState(false);
+  const [bordered, setBordered] = React.useState(true);
+  const [defaultOpen, setDefaultOpen] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -52,6 +54,8 @@ function AccordionPlayground() {
       </div>
       <div className="space-y-4 text-sm">
           <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={allowMultiple} onChange={e => setAllowMultiple(e.target.checked)} className="accent-primary" /><span className="text-foreground">Allow Multiple</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={bordered} onChange={e => setBordered(e.target.checked)} className="accent-primary" /><span className="text-foreground">Bordered</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={defaultOpen} onChange={e => setDefaultOpen(e.target.checked)} className="accent-primary" /><span className="text-foreground">First item open</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Accordion${allowMultiple ? ' allowMultiple' : ''} />`}

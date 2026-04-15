@@ -55,6 +55,8 @@ const TooltipPreview = ({ content, placement = 'top', arrow = false, delay = 0, 
 
 function TooltipPlayground() {
   const [position, setPosition] = React.useState('top');
+  const [delay, setDelay] = React.useState('0');
+  const [arrow, setArrow] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -73,6 +75,8 @@ function TooltipPlayground() {
               <option value="right">right</option>
             </select>
           </div>
+          <div><label className="block font-semibold text-foreground mb-1">Delay (ms)</label><select value={delay} onChange={e => setDelay(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="0">0</option><option value="200">200</option><option value="500">500</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={arrow} onChange={e => setArrow(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show arrow</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Tooltip ${position} />`}

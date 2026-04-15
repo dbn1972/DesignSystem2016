@@ -13,6 +13,8 @@ const ContainerPreview = ({ maxWidth = 'lg' }: any) => (
 
 function ContainerPlayground() {
   const [maxWidth, setMaxWidth] = React.useState('sm');
+  const [centered, setCentered] = React.useState(true);
+  const [padding, setPadding] = React.useState('md');
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -32,6 +34,8 @@ function ContainerPlayground() {
               <option value="full">full</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={centered} onChange={e => setCentered(e.target.checked)} className="accent-primary" /><span className="text-foreground">Centered</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Padding</label><select value={padding} onChange={e => setPadding(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="none">None</option><option value="sm">Small</option><option value="md">Medium</option><option value="lg">Large</option></select></div>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Container ${maxWidth} />`}
@@ -483,6 +487,16 @@ export interface ContainerProps {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
             <div className="space-y-4">
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                    <span className="text-xs text-muted-foreground">March 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added responsive variants</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Improved dark mode support</li>
+                  </ul>
+                </div>
                 <div className="border-l-2 border-primary pl-4">
                   <div className="flex items-center gap-3 mb-1">
                     <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>

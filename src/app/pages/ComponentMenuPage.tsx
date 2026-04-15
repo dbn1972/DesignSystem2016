@@ -72,6 +72,8 @@ const TriggerButton = ({ children, ...props }: any) => (
 
 function MenuPlayground() {
   const [disabled, setDisabled] = React.useState(false);
+  const [placement, setPlacement] = React.useState('bottom');
+  const [showIcons, setShowIcons] = React.useState(true);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -82,6 +84,8 @@ function MenuPlayground() {
       </div>
       <div className="space-y-4 text-sm">
           <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Placement</label><select value={placement} onChange={e => setPlacement(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="bottom">Bottom</option><option value="top">Top</option><option value="right">Right</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showIcons} onChange={e => setShowIcons(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show icons</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Menu${disabled ? ' disabled' : ''} />`}

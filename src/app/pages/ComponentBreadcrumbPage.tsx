@@ -23,6 +23,8 @@ const BreadcrumbPreview = () => (
 
 function BreadcrumbPlayground() {
   const [separator, setSeparator] = React.useState('/');
+  const [showHome, setShowHome] = React.useState(true);
+  const [maxItems, setMaxItems] = React.useState('5');
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -40,6 +42,8 @@ function BreadcrumbPlayground() {
               <option value="→">→</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showHome} onChange={e => setShowHome(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show home link</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Max items</label><select value={maxItems} onChange={e => setMaxItems(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Breadcrumb ${separator} />`}

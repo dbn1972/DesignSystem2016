@@ -119,6 +119,8 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
 
 function CalendarSchedulerPlayground() {
   const [view, setView] = React.useState('month');
+  const [showWeekends, setShowWeekends] = React.useState(true);
+  const [timeSlots, setTimeSlots] = React.useState('30');
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -136,6 +138,8 @@ function CalendarSchedulerPlayground() {
               <option value="day">day</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showWeekends} onChange={e => setShowWeekends(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show weekends</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Time slot (min)</label><select value={timeSlots} onChange={e => setTimeSlots(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="15">15</option><option value="30">30</option><option value="60">60</option></select></div>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<CalendarScheduler ${view} />`}

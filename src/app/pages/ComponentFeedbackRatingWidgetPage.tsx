@@ -148,6 +148,8 @@ const FeedbackRatingWidgetPreview = ({ type, maxRating = 5, value, onChange, siz
 
 function FeedbackRatingWidgetPlayground() {
   const [type, setType] = React.useState('stars');
+  const [maxRating, setMaxRating] = React.useState('5');
+  const [showLabels, setShowLabels] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -165,6 +167,8 @@ function FeedbackRatingWidgetPlayground() {
               <option value="emoji">emoji</option>
             </select>
           </div>
+          <div><label className="block font-semibold text-foreground mb-1">Max rating</label><select value={maxRating} onChange={e => setMaxRating(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="3">3</option><option value="5">5</option><option value="10">10</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLabels} onChange={e => setShowLabels(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show labels</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<FeedbackRatingWidget ${type} />`}

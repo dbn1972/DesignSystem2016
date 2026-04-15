@@ -67,6 +67,8 @@ const SpinnerPreview = ({ size, color, label, speed, ...props }: any) => {
 
 function SpinnerPlayground() {
   const [size, setSize] = React.useState('sm');
+  const [label, setLabel] = React.useState('Loading...');
+  const [overlay, setOverlay] = React.useState(false);
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
@@ -84,6 +86,8 @@ function SpinnerPlayground() {
               <option value="lg">lg</option>
             </select>
           </div>
+          <div><label className="block font-semibold text-foreground mb-1">Label</label><input value={label} onChange={e => setLabel(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" /></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={overlay} onChange={e => setOverlay(e.target.checked)} className="accent-primary" /><span className="text-foreground">Overlay mode</span></label>
         <div className="p-3 rounded-lg bg-muted/50 border border-border">
           <p className="font-mono text-xs text-muted-foreground break-all">
             {`<Spinner ${size} />`}
