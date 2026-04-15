@@ -65,7 +65,55 @@ export default function ComponentVideoPlayerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <VideoPlayerPreview controls />
+          {/* Realistic video player mockup */}
+          <div className="relative rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#0a1628] via-[#0d2847] to-[#0a1628] aspect-video">
+            {/* Poster image area with gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+            {/* Decorative scene elements */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center space-y-2">
+                {/* Government emblem placeholder */}
+                <div className="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                  <span className="text-2xl">🏛️</span>
+                </div>
+                <p className="text-white/60 text-sm font-medium">Digital India Initiative</p>
+                <p className="text-white/40 text-xs">Government of India • 2026</p>
+              </div>
+            </div>
+            {/* Big play button */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <button className="w-20 h-20 rounded-full bg-[#005196]/90 hover:bg-[#005196] flex items-center justify-center shadow-2xl transition-all hover:scale-105 backdrop-blur-sm border border-white/20">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21" /></svg>
+              </button>
+            </div>
+            {/* Top bar — title */}
+            <div className="absolute top-0 left-0 right-0 p-4 flex items-center justify-between">
+              <span className="text-white/80 text-sm font-medium">How to Apply for Birth Certificate Online</span>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-red-600 text-white">LIVE</span>
+              </div>
+            </div>
+            {/* Bottom controls bar */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 space-y-2">
+              {/* Progress bar */}
+              <div className="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+                <div className="h-full bg-[#005196] rounded-full" style={{width: '35%'}} />
+              </div>
+              {/* Controls */}
+              <div className="flex items-center justify-between text-white/80">
+                <div className="flex items-center gap-3">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /></svg>
+                  <span className="text-xs font-mono">2:15 / 6:30</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs px-1.5 py-0.5 border border-white/30 rounded">CC</span>
+                  <span className="text-xs px-1.5 py-0.5 border border-white/30 rounded">HD</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 3 21 3 21 9" /><polyline points="9 21 3 21 3 15" /><line x1="21" y1="3" x2="14" y2="10" /><line x1="3" y1="21" x2="10" y2="14" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       }
 
