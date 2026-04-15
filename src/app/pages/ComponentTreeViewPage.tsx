@@ -476,7 +476,7 @@ export default function ComponentTreeViewPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <TreeViewPreview />
+          <TreeViewPreview data={[{label:"Ministry of IT",children:[{label:"Digital India"},{label:"MeitY"}]},{label:"Ministry of Finance",children:[{label:"Tax Department"}]}]} expandable />
         </div>
       }
 

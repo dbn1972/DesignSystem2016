@@ -161,7 +161,7 @@ export default function ComponentDropdownPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <DropdownPreview />
+          <DropdownPreview items={["View","Edit","Download","Delete"]} label="Actions" />
         </div>
       }
 

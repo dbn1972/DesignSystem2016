@@ -108,7 +108,7 @@ export default function ComponentFlexPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <FlexPreview />
+          <FlexPreview direction="row" gap="4"><div className="px-4 py-2 bg-[#005196]/10 rounded text-sm">Item 1</div><div className="px-4 py-2 bg-[#005196]/10 rounded text-sm">Item 2</div><div className="px-4 py-2 bg-[#005196]/10 rounded text-sm">Item 3</div></FlexPreview>
         </div>
       }
 

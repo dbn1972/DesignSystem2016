@@ -75,7 +75,7 @@ export default function ComponentStackPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <StackPreview />
+          <StackPreview direction="vertical" spacing="md"><div className="px-4 py-2 bg-[#005196]/10 rounded text-sm">Item 1</div><div className="px-4 py-2 bg-[#005196]/10 rounded text-sm">Item 2</div><div className="px-4 py-2 bg-[#005196]/10 rounded text-sm">Item 3</div></StackPreview>
         </div>
       }
       

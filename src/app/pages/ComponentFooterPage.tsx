@@ -126,7 +126,7 @@ export default function ComponentFooterPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <FooterPreview />
+          <FooterPreview variant="default" showSocial />
         </div>
       }
 

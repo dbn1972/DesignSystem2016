@@ -109,7 +109,7 @@ export default function ComponentMenuPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <MenuPreview />
+          <MenuPreview items={[{label:"Profile"},{label:"Settings"},{label:"Logout"}]} trigger="User Menu" />
         </div>
       }
 

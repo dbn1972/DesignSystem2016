@@ -111,7 +111,7 @@ export default function ComponentSpinnerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <SpinnerPreview />
+          <div className="flex items-center gap-6"><SpinnerPreview size="sm" label="Loading..." /><SpinnerPreview size="md" label="Loading..." /><SpinnerPreview size="lg" label="Loading..." /></div>
         </div>
       }
 

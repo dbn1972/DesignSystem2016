@@ -96,7 +96,7 @@ export default function ComponentPaymentGatewayPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <PaymentGatewayPreview />
+          <PaymentGatewayPreview amount={500} serviceName="Certificate Application Fee" />
         </div>
       }
 

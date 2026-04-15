@@ -73,7 +73,7 @@ export default function ComponentQRCodePage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <QRCodePreview />
+          <QRCodePreview value="https://ux4g.gov.in/verify/CERT-2026-001" size={180} />
         </div>
       }
 

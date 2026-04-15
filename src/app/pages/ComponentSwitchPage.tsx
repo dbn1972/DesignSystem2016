@@ -76,7 +76,7 @@ export default function ComponentSwitchPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <SwitchPreview />
+          <SwitchPreview label="Dark mode" />
         </div>
       }
       

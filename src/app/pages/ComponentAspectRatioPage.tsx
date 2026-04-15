@@ -81,7 +81,7 @@ export default function ComponentAspectRatioPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <AspectRatioPreview />
+          <div className="flex gap-4"><AspectRatioPreview ratio={16/9} maxWidth="200px"><div className="bg-[#005196]/10 w-full h-full flex items-center justify-center text-sm text-[#005196]">16:9</div></AspectRatioPreview><AspectRatioPreview ratio={1} maxWidth="120px"><div className="bg-[#005196]/10 w-full h-full flex items-center justify-center text-sm text-[#005196]">1:1</div></AspectRatioPreview></div>
         </div>
       }
 

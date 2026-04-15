@@ -51,7 +51,7 @@ export default function ComponentCardPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <CardPreview />
+          <div className="flex gap-4"><CardPreview title="Birth Certificate"><p className="text-sm text-muted-foreground">Apply online</p></CardPreview><CardPreview title="Income Certificate"><p className="text-sm text-muted-foreground">Verify income</p></CardPreview></div>
         </div>
       }
       

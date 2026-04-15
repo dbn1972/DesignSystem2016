@@ -111,7 +111,7 @@ export default function ComponentDescriptionListPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <DescriptionListPreview />
+          <DescriptionListPreview items={[{term:"Name",detail:"Rajesh Kumar"},{term:"Application",detail:"CERT-2026-001"},{term:"Status",detail:"Under Review"}]} />
         </div>
       }
 

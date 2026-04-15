@@ -99,7 +99,7 @@ export default function ComponentHeaderPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <HeaderPreview />
+          <HeaderPreview variant="default" withSearch showProfile />
         </div>
       }
 

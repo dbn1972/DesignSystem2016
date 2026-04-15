@@ -71,7 +71,7 @@ export default function ComponentCenterPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <CenterPreview />
+          <CenterPreview minHeight="120px"><p className="text-sm text-muted-foreground">Centered content</p></CenterPreview>
         </div>
       }
 

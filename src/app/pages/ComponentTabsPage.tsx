@@ -89,7 +89,7 @@ export default function ComponentTabsPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <TabsPreview />
+          <TabsPreview variant="default" items={["Overview","Documents","Status"]} />
         </div>
       }
 

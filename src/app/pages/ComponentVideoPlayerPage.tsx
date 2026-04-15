@@ -65,7 +65,7 @@ export default function ComponentVideoPlayerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <VideoPlayerPreview />
+          <VideoPlayerPreview controls />
         </div>
       }
 

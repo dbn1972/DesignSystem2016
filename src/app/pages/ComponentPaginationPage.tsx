@@ -115,7 +115,7 @@ export default function ComponentPaginationPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <PaginationPreview />
+          <PaginationPreview totalPages={10} />
         </div>
       }
 

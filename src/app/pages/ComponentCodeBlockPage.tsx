@@ -149,7 +149,7 @@ export default function ComponentCodeBlockPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <CodeBlockPreview />
+          <CodeBlockPreview language="tsx" code={'import { Button } from "@ux4g/react-core";\n\n<Button variant="primary">Submit</Button>'} showLineNumbers />
         </div>
       }
 

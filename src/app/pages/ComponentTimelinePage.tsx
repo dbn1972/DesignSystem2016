@@ -105,7 +105,7 @@ export default function ComponentTimelinePage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <TimelinePreview />
+          <TimelinePreview items={[{title:"Submitted",date:"12 Apr 2026",status:"complete"},{title:"Under Review",date:"14 Apr 2026",status:"active"},{title:"Approved",date:"",status:"pending"}]} />
         </div>
       }
 

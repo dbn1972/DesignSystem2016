@@ -78,7 +78,7 @@ export default function ComponentErrorTextPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <ErrorTextPreview />
+          <ErrorTextPreview icon><span>This field is required</span></ErrorTextPreview>
         </div>
       }
 

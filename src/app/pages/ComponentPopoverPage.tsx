@@ -255,7 +255,7 @@ export default function ComponentPopoverPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <PopoverPreview />
+          <PopoverPreview content="This is additional help text with a link." placement="top" />
         </div>
       }
 

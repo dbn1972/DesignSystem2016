@@ -68,7 +68,7 @@ export default function ComponentHintTextPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <HintTextPreview />
+          <HintTextPreview>Enter your 12-digit Aadhaar number without spaces</HintTextPreview>
         </div>
       }
 

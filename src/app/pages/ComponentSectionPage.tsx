@@ -109,7 +109,7 @@ export default function ComponentSectionPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <SectionPreview />
+          <SectionPreview variant="default" containerized><p className="text-sm text-muted-foreground">Section content with proper semantic markup</p></SectionPreview>
         </div>
       }
 

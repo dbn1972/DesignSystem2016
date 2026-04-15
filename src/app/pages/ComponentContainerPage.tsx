@@ -58,7 +58,7 @@ export default function ComponentContainerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <ContainerPreview />
+          <ContainerPreview maxWidth="md"><div className="bg-muted/30 rounded p-4 text-sm text-muted-foreground text-center">Content within max-width container</div></ContainerPreview>
         </div>
       }
       

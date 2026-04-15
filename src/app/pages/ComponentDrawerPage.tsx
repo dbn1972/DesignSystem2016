@@ -150,7 +150,7 @@ export default function ComponentDrawerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <DrawerPreview />
+          <DrawerPreview position="right" size="md" />
         </div>
       }
 

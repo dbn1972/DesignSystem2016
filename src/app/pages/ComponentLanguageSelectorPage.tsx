@@ -122,7 +122,7 @@ export default function ComponentLanguageSelectorPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <LanguageSelectorPreview />
+          <LanguageSelectorPreview languages={[{code:"en",label:"English"},{code:"hi",label:"हिन्दी"},{code:"ta",label:"தமிழ்"}]} currentLanguage="en" showFlags />
         </div>
       }
 

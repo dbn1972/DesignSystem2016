@@ -129,7 +129,7 @@ export default function ComponentStatisticPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <StatisticPreview />
+          <div className="flex gap-6"><StatisticPreview label="Pending Cases" value={42} trend="+12%" /><StatisticPreview label="Approved Today" value={156} /></div>
         </div>
       }
 

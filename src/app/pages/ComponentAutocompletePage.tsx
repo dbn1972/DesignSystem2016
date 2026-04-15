@@ -569,7 +569,7 @@ export default function ComponentAutocompletePage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <AutocompletePreview />
+          <AutocompletePreview options={["Delhi","Mumbai","Bangalore","Chennai","Kolkata"]} placeholder="Search city..." />
         </div>
       }
 

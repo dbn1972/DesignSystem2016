@@ -77,7 +77,7 @@ export default function ComponentShowHidePage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <ShowHidePreview />
+          <ShowHidePreview above={200}><p className="text-sm text-muted-foreground">This content can be toggled</p></ShowHidePreview>
         </div>
       }
 

@@ -152,7 +152,7 @@ export default function ComponentProgressPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <ProgressPreview />
+          <div className="w-full max-w-md space-y-4"><ProgressPreview value={75} label="Uploading Aadhaar..." showPercentage /><ProgressPreview value={30} label="Processing..." variant="default" /></div>
         </div>
       }
 

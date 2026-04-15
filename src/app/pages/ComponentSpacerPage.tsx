@@ -79,7 +79,7 @@ export default function ComponentSpacerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <SpacerPreview />
+          <div className="w-full max-w-sm"><div className="bg-muted/30 rounded p-3 text-sm text-muted-foreground">Content above</div><SpacerPreview size="lg" /><div className="bg-muted/30 rounded p-3 text-sm text-muted-foreground">Content below</div></div>
         </div>
       }
       

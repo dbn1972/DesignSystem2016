@@ -199,7 +199,7 @@ export default function ComponentFeedbackRatingWidgetPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <FeedbackRatingWidgetPreview />
+          <FeedbackRatingWidgetPreview type="stars" maxRating={5} />
         </div>
       }
 

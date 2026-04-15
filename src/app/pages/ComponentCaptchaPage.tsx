@@ -112,7 +112,7 @@ function CaptchaPlayground() {
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
         <div className="w-full flex items-center justify-center">
-          <CaptchaPreview type={type} />
+          <CaptchaPreview type={type} difficulty={difficulty} />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -148,8 +148,9 @@ export default function ComponentCaptchaPage() {
       updated="v2.3.0"
 
       preview={
-        <div className="w-full max-w-2xl">
-          <CaptchaPreview />
+        <div className="flex flex-wrap items-start gap-6">
+          <CaptchaPreview type="image" difficulty="medium" />
+          <CaptchaPreview type="math" difficulty="easy" />
         </div>
       }
 

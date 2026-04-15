@@ -73,7 +73,7 @@ export default function ComponentDividerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <DividerPreview />
+          <div className="w-full max-w-sm space-y-3"><p className="text-sm text-muted-foreground">Section A content</p><DividerPreview /><p className="text-sm text-muted-foreground">Section B content</p></div>
         </div>
       }
       

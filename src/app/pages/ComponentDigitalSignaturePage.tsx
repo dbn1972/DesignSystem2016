@@ -179,7 +179,7 @@ export default function ComponentDigitalSignaturePage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <DigitalSignaturePreview />
+          <DigitalSignaturePreview type="dsc" />
         </div>
       }
 

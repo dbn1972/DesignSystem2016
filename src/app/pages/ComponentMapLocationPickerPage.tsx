@@ -91,7 +91,7 @@ export default function ComponentMapLocationPickerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <MapLocationPickerPreview />
+          <MapLocationPickerPreview editable showSearch />
         </div>
       }
 

@@ -113,7 +113,7 @@ export default function ComponentDocumentViewerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <DocumentViewerPreview />
+          <DocumentViewerPreview fileType="pdf" showToolbar />
         </div>
       }
 

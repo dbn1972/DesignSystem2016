@@ -67,7 +67,7 @@ export default function ComponentGridPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <GridPreview />
+          <GridPreview cols={3}><div className="p-4 bg-[#005196]/10 rounded text-sm text-center">1</div><div className="p-4 bg-[#005196]/10 rounded text-sm text-center">2</div><div className="p-4 bg-[#005196]/10 rounded text-sm text-center">3</div></GridPreview>
         </div>
       }
       

@@ -81,7 +81,7 @@ export default function ComponentEmptyStatePage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <EmptyStatePreview />
+          <EmptyStatePreview title="No applications yet" description="Start your first application to see it here." actionLabel="Start Application" />
         </div>
       }
 

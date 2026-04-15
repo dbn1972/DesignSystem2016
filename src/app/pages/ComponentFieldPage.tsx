@@ -76,7 +76,7 @@ export default function ComponentFieldPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <FieldPreview />
+          <FieldPreview error={false}><input className="w-full px-3 py-2 border border-border rounded" placeholder="Full Name" /></FieldPreview>
         </div>
       }
 

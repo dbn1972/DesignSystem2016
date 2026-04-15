@@ -125,7 +125,7 @@ export default function ComponentTagPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <TagPreview />
+          <div className="flex gap-2"><TagPreview variant="default">PDF</TagPreview><TagPreview variant="success">Verified</TagPreview><TagPreview variant="warning">Pending</TagPreview><TagPreview closeable>Filter</TagPreview></div>
         </div>
       }
 

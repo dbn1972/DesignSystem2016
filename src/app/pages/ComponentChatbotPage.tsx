@@ -110,7 +110,7 @@ export default function ComponentChatbotPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <ChatbotPreview />
+          <ChatbotPreview position="bottom-right" botName="UX4G Assistant" greeting="How can I help you today?" />
         </div>
       }
 

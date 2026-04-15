@@ -128,7 +128,7 @@ export default function ComponentRichTextEditorPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <RichTextEditorPreview />
+          <RichTextEditorPreview toolbar={["bold","italic","underline","list","link"]} />
         </div>
       }
 

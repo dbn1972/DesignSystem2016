@@ -163,7 +163,7 @@ export default function ComponentCalendarSchedulerPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <CalendarSchedulerPreview />
+          <CalendarSchedulerPreview view="month" />
         </div>
       }
 

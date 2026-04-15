@@ -114,7 +114,7 @@ export default function ComponentAvatarPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <AvatarPreview />
+          <div className="flex items-center gap-4"><AvatarPreview name="Rajesh Kumar" size="lg" /><AvatarPreview name="Suresh M" size="md" /><AvatarPreview size="sm" /></div>
         </div>
       }
 

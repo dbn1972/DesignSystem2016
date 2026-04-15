@@ -100,7 +100,7 @@ export default function ComponentTooltipPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <TooltipPreview />
+          <TooltipPreview content="Delete this application" placement="top"><button className="px-3 py-2 border border-border rounded text-sm hover:bg-muted">Hover me</button></TooltipPreview>
         </div>
       }
 

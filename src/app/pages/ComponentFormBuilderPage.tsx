@@ -112,7 +112,7 @@ export default function ComponentFormBuilderPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <FormBuilderPreview />
+          <FormBuilderPreview layout="vertical" />
         </div>
       }
 

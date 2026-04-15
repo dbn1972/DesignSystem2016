@@ -493,7 +493,7 @@ export default function ComponentSkeletonPage() {
 
       preview={
         <div className="w-full max-w-2xl">
-          <SkeletonPreview />
+          <div className="w-full max-w-sm space-y-3"><SkeletonPreview variant="text" width="75%" /><SkeletonPreview variant="text" width="100%" /><SkeletonPreview variant="text" width="50%" /></div>
         </div>
       }
 
