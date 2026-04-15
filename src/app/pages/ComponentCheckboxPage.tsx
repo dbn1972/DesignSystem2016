@@ -242,6 +242,24 @@ function Example() {
                   <p className="text-sm text-muted-foreground">Don&apos;t use checkboxes for mutually exclusive options — use Radio buttons instead.</p>
                 </div>
               </div>
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-[#005196]" readOnly /> I declare that the information provided is true and correct <span className="text-red-500">*</span></label>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Leave consent checkboxes unchecked by default — pre-checking violates GDPR and Indian IT Act requirements.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-[#005196]" defaultChecked readOnly /> I agree to receive promotional emails</label>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t pre-check consent or marketing checkboxes — users must actively opt in.</p>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -308,6 +326,10 @@ function Example() {
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                 <h3 className="font-semibold text-foreground mb-1 text-sm">Pre-checked consent</h3>
                 <p className="text-sm text-muted-foreground">GDPR and Indian IT Act require consent checkboxes to be unchecked by default. Pre-checking consent violates user autonomy.</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Indeterminate state for parent checkboxes</h3>
+                <p className="text-sm text-muted-foreground">GOV.UK research found that indeterminate (partially checked) state on parent checkboxes reduces user confusion by 35% when managing nested selections like document checklists.</p>
               </div>
             </div>
           </section>

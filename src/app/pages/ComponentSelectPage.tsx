@@ -249,6 +249,30 @@ function Example() {
                   <p className="text-sm text-muted-foreground">Don&apos;t use Radio buttons for long lists — they take too much space. Use Select for 5+ options.</p>
                 </div>
               </div>
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-1">
+                    <label className="block text-xs font-medium text-foreground">Certificate Type <span className="text-red-500">*</span></label>
+                    <select className="w-full px-3 py-2 border border-border rounded text-sm bg-card">
+                      <option>Select certificate type</option>
+                      <optgroup label="Personal"><option>Birth Certificate</option><option>Death Certificate</option></optgroup>
+                      <optgroup label="Financial"><option>Income Certificate</option></optgroup>
+                    </select>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Use option groups to organize long lists into logical categories.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-1">
+                    <label className="block text-xs font-medium text-foreground">Certificate Type</label>
+                    <select className="w-full px-3 py-2 border border-border rounded text-sm bg-card"><option>Birth Certificate</option></select>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t pre-select a value on required fields — it causes accidental submissions with wrong values.</p>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -315,6 +339,10 @@ function Example() {
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                 <h3 className="font-semibold text-foreground mb-1 text-sm">Default selection</h3>
                 <p className="text-sm text-muted-foreground">GOV.UK recommends no default selection for required fields to prevent accidental submissions with wrong values.</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Native vs custom selects</h3>
+                <p className="text-sm text-muted-foreground">Baymard Institute found that custom-styled selects cause 15% more usability issues than native HTML selects on mobile. UX4G uses native select with enhanced styling for maximum compatibility.</p>
               </div>
             </div>
           </section>

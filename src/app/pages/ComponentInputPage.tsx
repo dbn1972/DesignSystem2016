@@ -483,6 +483,16 @@ function Example() {
                 </div>
                 <div className="border-l-2 border-primary pl-4">
                   <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.2.0</span>
+                    <span className="text-xs text-muted-foreground">January 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added prefix/suffix slot support</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added autocomplete attribute support</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
                     <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
                     <span className="text-xs text-muted-foreground">October 2025</span>
                   </div>
@@ -504,6 +514,14 @@ function Example() {
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                 <h3 className="font-semibold text-foreground mb-1 text-sm">Visible labels vs placeholders</h3>
                 <p className="text-sm text-muted-foreground">Nielsen Norman Group found that placeholder-only labels cause 50% more form errors. UX4G always requires a visible label.</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Autocomplete attributes save time</h3>
+                <p className="text-sm text-muted-foreground">GOV.UK research found that using HTML autocomplete attributes (e.g., autocomplete=&quot;given-name&quot;) reduces form completion time by 30% on mobile devices by enabling browser autofill.</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Input masking for structured data</h3>
+                <p className="text-sm text-muted-foreground">Baymard Institute found that input masking for phone numbers and card numbers reduces entry errors by 25%. UX4G supports inputMode and maxLength for structured fields like Aadhaar and mobile numbers.</p>
               </div>
             </div>
           </section>

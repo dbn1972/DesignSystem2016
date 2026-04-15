@@ -79,14 +79,30 @@ export default function ComponentRadioPage() {
       updated="v2.0.0"
 
       preview={
-        <fieldset className="flex flex-row gap-8">
-          {['Normal', 'Tatkal', 'Super Tatkal'].map((opt, i) => (
-            <label key={i} className="flex items-center gap-2 text-sm cursor-pointer">
-              <input type="radio" name="preview-radio" defaultChecked={i === 0} className="accent-[#005196] w-4 h-4" />
-              <span className="text-foreground">{opt}</span>
-            </label>
-          ))}
-        </fieldset>
+        <div className="space-y-6">
+          <div>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Horizontal</p>
+            <fieldset className="flex flex-row gap-6">
+              {['Normal', 'Tatkal', 'Super Tatkal'].map((opt, i) => (
+                <label key={i} className="flex items-center gap-2 text-sm cursor-pointer">
+                  <input type="radio" name="preview-h" defaultChecked={i === 0} className="accent-[#005196] w-4 h-4" />
+                  <span className="text-foreground">{opt}</span>
+                </label>
+              ))}
+            </fieldset>
+          </div>
+          <div>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Vertical</p>
+            <fieldset className="flex flex-col gap-3">
+              {['UPI', 'Net Banking', 'Credit/Debit Card'].map((opt, i) => (
+                <label key={i} className="flex items-center gap-2 text-sm cursor-pointer">
+                  <input type="radio" name="preview-v" defaultChecked={i === 0} className="accent-[#005196] w-4 h-4" />
+                  <span className="text-foreground">{opt}</span>
+                </label>
+              ))}
+            </fieldset>
+          </div>
+        </div>
       }
       
       props={[
@@ -706,6 +722,33 @@ export interface RadioGroupProps {
                   <p className="text-sm text-muted-foreground">Don&apos;t hide 2-3 options in a dropdown — Radio buttons let users compare all options at once.</p>
                 </div>
               </div>
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <fieldset className="space-y-2">
+                    <legend className="text-xs font-medium text-foreground mb-1">Gender</legend>
+                    <label className="flex items-center gap-2 text-sm"><input type="radio" name="do-gender" defaultChecked className="accent-[#005196]" />Female</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="radio" name="do-gender" className="accent-[#005196]" />Male</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="radio" name="do-gender" className="accent-[#005196]" />Other</label>
+                  </fieldset>
+                  <p className="text-sm text-muted-foreground">Pre-select the most common option to reduce form completion time by 12% (Formisimo research).</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <fieldset className="space-y-2">
+                    <legend className="text-xs font-medium text-foreground mb-1">Gender</legend>
+                    <label className="flex items-center gap-2 text-sm"><input type="radio" name="dont-gender" className="accent-[#005196]" />Female</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="radio" name="dont-gender" className="accent-[#005196]" />Male</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="radio" name="dont-gender" className="accent-[#005196]" />Other</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="radio" name="dont-gender" className="accent-[#005196]" />Prefer not to say</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="radio" name="dont-gender" className="accent-[#005196]" />Non-binary</label>
+                    <label className="flex items-center gap-2 text-sm"><input type="radio" name="dont-gender" className="accent-[#005196]" />Custom...</label>
+                  </fieldset>
+                  <p className="text-sm text-muted-foreground">Don&apos;t use Radio for 6+ options — it takes too much vertical space. Use Select instead.</p>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -771,7 +814,11 @@ export interface RadioGroupProps {
               </div>
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                 <h3 className="font-semibold text-foreground mb-1 text-sm">Default selection</h3>
-                <p className="text-sm text-muted-foreground">Pre-selecting the most common option (e.g., "Normal" processing) reduces form completion time by 12% (Formisimo research).</p>
+                <p className="text-sm text-muted-foreground">Pre-selecting the most common option (e.g., &quot;Normal&quot; processing) reduces form completion time by 12% (Formisimo research).</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Horizontal vs vertical layout</h3>
+                <p className="text-sm text-muted-foreground">NNG research shows horizontal radio groups work well for 2-3 short-label options, while vertical layout is preferred for 4+ options or options with descriptions. UX4G supports both orientations.</p>
               </div>
             </div>
           </section>
