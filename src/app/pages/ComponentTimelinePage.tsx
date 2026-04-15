@@ -69,7 +69,35 @@ function TimelinePlayground() {
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
         <div className="w-full flex items-center justify-center">
-          <TimelinePreview items={[{title:"Submitted",date:"12 Apr",status:"complete"},{title:"Under Review",date:"14 Apr",status:"active"},{title:"Approved",date:"",status:"pending"}]} variant={variant} />
+          {orientation === 'horizontal' ? (
+            <div className="flex items-start gap-0 w-full max-w-md">
+              {[{title:"Submitted",date:"12 Apr",color:"bg-green-500"},{title:"Under Review",date:"14 Apr",color:"bg-yellow-500"},{title:"Approved",date:"—",color:"bg-muted"}].map((item, i, arr) => (
+                <React.Fragment key={i}>
+                  <div className="flex flex-col items-center text-center flex-shrink-0">
+                    <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center text-white text-xs font-bold`}>{i === 0 ? '✓' : i === 1 ? '⏳' : (i+1)}</div>
+                    <p className="text-xs font-medium text-foreground mt-1">{item.title}</p>
+                    <p className="text-[10px] text-muted-foreground">{item.date}</p>
+                  </div>
+                  {i < arr.length - 1 && showConnectors && <div className="flex-1 h-0.5 bg-border mt-4 mx-1" />}
+                </React.Fragment>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-0 w-full max-w-sm">
+              {[{title:"Submitted",date:"12 Apr",color:"bg-green-500",status:"complete"},{title:"Under Review",date:"14 Apr",color:"bg-yellow-500",status:"active"},{title:"Approved",date:"—",color:"bg-muted",status:"pending"}].map((item, i, arr) => (
+                <div key={i} className={`relative flex gap-4 ${variant === 'alternate' && i % 2 === 0 ? 'flex-row-reverse' : ''}`}>
+                  <div className="flex flex-col items-center">
+                    <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center text-white text-xs font-bold`}>{i === 0 ? '✓' : i === 1 ? '⏳' : (i+1)}</div>
+                    {i < arr.length - 1 && showConnectors && <div className="w-0.5 h-10 bg-border" />}
+                  </div>
+                  <div className="pb-8">
+                    <p className="text-sm font-medium text-foreground">{item.title}</p>
+                    <p className="text-xs text-muted-foreground">{item.date}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <div className="space-y-4 text-sm">
