@@ -649,6 +649,7 @@ export interface RadioGroupProps {
         { title: "Gender Selection", description: "Radio group for gender in personal details form.", scenario: "Certificate application personal information step.", implementation: "<RadioGroup label=\"Gender\"><Radio value=\"female\" label=\"Female\" /><Radio value=\"male\" label=\"Male\" /><Radio value=\"other\" label=\"Other\" /></RadioGroup>" },
         { title: "Processing Type", description: "Normal vs Tatkal processing selection.", scenario: "Additional details step in application.", implementation: "<RadioGroup label=\"Processing\"><Radio value=\"normal\" label=\"Normal (7-10 days)\" /><Radio value=\"tatkal\" label=\"Tatkal (2-3 days)\" /></RadioGroup>" },
         { title: "Payment Method", description: "Select one payment method from available options.", scenario: "Payment step with UPI, Net Banking, Card options.", implementation: "<RadioGroup label=\"Payment Method\"><Radio value=\"upi\" label=\"UPI\" /><Radio value=\"netbanking\" label=\"Net Banking\" /></RadioGroup>" },
+        { title: "Delivery Preference", description: "Choose certificate delivery method — digital download, postal, or in-person collection.", scenario: "Citizen selects how to receive the issued certificate after approval.", implementation: "<RadioGroup label=\"Delivery Method\"><Radio value=\"digital\" label=\"Digital Download (Instant)\" /><Radio value=\"postal\" label=\"Speed Post (3-5 days)\" /><Radio value=\"collect\" label=\"Collect from Office\" /></RadioGroup>" },
       ]}
 
       additionalContent={
