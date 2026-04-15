@@ -205,10 +205,7 @@ export default function ComponentChartLibraryPage() {
       updated="v2.3.0"
 
       preview={
-        <div className="text-center space-y-3">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#005196]/10 text-[#005196] text-2xl font-bold">Ch</div>
-          <p className="text-sm text-muted-foreground">ChartLibrary component in its default state</p>
-        </div>
+        <div className="w-full max-w-md"><div className="flex items-end gap-2 h-32"><div className="flex-1 bg-[#005196] rounded-t" style={{height:"80%"}} /><div className="flex-1 bg-[#005196]/80 rounded-t" style={{height:"60%"}} /><div className="flex-1 bg-[#005196]/60 rounded-t" style={{height:"90%"}} /><div className="flex-1 bg-[#005196]/40 rounded-t" style={{height:"45%"}} /><div className="flex-1 bg-[#005196]/70 rounded-t" style={{height:"70%"}} /></div><div className="flex justify-between text-xs text-muted-foreground mt-2"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span></div></div>
       }
 
       props={[

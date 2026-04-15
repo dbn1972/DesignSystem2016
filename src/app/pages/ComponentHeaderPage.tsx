@@ -103,9 +103,8 @@ export default function ComponentHeaderPage() {
       updated="v2.1.0"
 
       preview={
-        <div className="text-center space-y-3">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#005196]/10 text-[#005196] text-2xl font-bold">He</div>
-          <p className="text-sm text-muted-foreground">Header component in its default state</p>
+        <div className="w-full max-w-2xl">
+          <HeaderPreview />
         </div>
       }
 

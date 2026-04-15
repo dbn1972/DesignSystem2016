@@ -92,10 +92,7 @@ export default function ComponentApplicationTrackerPage() {
       since="v2.0.0"
 
       preview={
-        <div className="text-center space-y-3">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#005196]/10 text-[#005196] text-2xl font-bold">Ap</div>
-          <p className="text-sm text-muted-foreground">ApplicationTracker component in its default state</p>
-        </div>
+        <div className="w-full max-w-md"><div className="flex items-center gap-4 mb-4"><div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 text-sm font-bold">✓</div><div className="flex-1 h-1 bg-green-500 rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 text-sm font-bold">✓</div><div className="flex-1 h-1 bg-yellow-400 rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-100 text-yellow-700 text-sm font-bold">⏳</div><div className="flex-1 h-1 bg-muted rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-muted text-muted-foreground text-sm font-bold">4</div></div><div className="flex justify-between text-xs text-muted-foreground"><span>Submitted</span><span>Verified</span><span>Processing</span><span>Complete</span></div></div>
       }
       
       props={[
