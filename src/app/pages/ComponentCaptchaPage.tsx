@@ -876,6 +876,33 @@ export type CaptchaProvider = 'recaptcha' | 'hcaptcha' | 'turnstile';`,
         ],
       }}
 
+      useCases={[
+        {
+          title: 'Online Form Submission Protection',
+          description: 'Prevent automated spam on government application forms like visa, permit, and public feedback submissions.',
+          scenario: 'Citizen submits a certificate application — CAPTCHA verifies human before processing.',
+          implementation: '<Captcha type="image" onVerify={handleSubmit} />',
+        },
+        {
+          title: 'Citizen Portal Login Protection',
+          description: 'Protect user accounts from brute-force attacks on MyGov portals and tax filing systems.',
+          scenario: 'After 3 failed login attempts, CAPTCHA is shown before the next attempt.',
+          implementation: '<Captcha type="math" difficulty="easy" onVerify={allowLogin} />',
+        },
+        {
+          title: 'Appointment Booking Anti-Bot',
+          description: 'Prevent automated booking of passport appointments, court hearings, and vaccination slots.',
+          scenario: 'Citizen books a passport appointment — CAPTCHA ensures a real person is booking.',
+          implementation: '<Captcha type="puzzle" onVerify={confirmBooking} />',
+        },
+        {
+          title: 'Document Download Rate Limiting',
+          description: 'Prevent bulk automated downloads of official certificates and legal documents.',
+          scenario: 'User downloads an issued certificate — CAPTCHA prevents bot scraping.',
+          implementation: '<Captcha type="audio" onVerify={startDownload} />',
+        },
+      ]}
+
       governmentContext={{
         useCases: "Online Form Submission: Prevent automated spam and fraudulent submissions on government application forms (e.g., Visa applications, permit requests, public feedback forms); Citizen Portal Login Protection: Protect user accounts from brute-force attacks and unauthorized access attempts (e.g., MyGov portals, tax filing systems, social security access); Event and Service Booking: Prevent ticket scalping and automated booking by bots for government services (e.g., Passport appointments, court hearings, vaccination slots); Public Service Applications: Ensure legitimate citizens access benefits and services, not automated bots (e.g., License renewals, welfare applications, subsidy registrations); Voting and Survey Systems: Maintain integrity of online polls, surveys, and e-voting platforms (e.g., Public consultations, citizen feedback surveys, budget voting); Document Download Protection: Prevent bulk automated downloads of sensitive or rate-limited documents (e.g., Official certificates, legal documents, public records)",
         regulations: "WCAG 2.1 Level AA: Must provide accessible alternatives for users with disabilities — Audio alternative for visual CAPTCHA, visual alternative for audio CAPTCHA; Section 508: Federal systems must be accessible to people with disabilities — Keyboard navigation, screen reader compatibility, alternative input methods; GDPR/Privacy Laws: User data must be processed lawfully and protected — No personal data stored in CAPTCHA challenges, privacy-focused providers available; ADA Compliance: Government services must be accessible to all citizens — Multiple CAPTCHA types accommodate different abilities and preferences",
