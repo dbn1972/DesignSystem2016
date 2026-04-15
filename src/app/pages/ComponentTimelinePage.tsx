@@ -132,8 +132,41 @@ export default function ComponentTimelinePage() {
       updated="v2.1.0"
 
       preview={
-        <div className="w-full max-w-2xl">
-          <TimelinePreview items={[{title:"Submitted",date:"12 Apr 2026",status:"complete"},{title:"Under Review",date:"14 Apr 2026",status:"active"},{title:"Approved",date:"",status:"pending"}]} />
+        <div className="w-full max-w-2xl space-y-6">
+          {/* Vertical timeline */}
+          <div>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Vertical</p>
+            <div className="space-y-0">
+              {[{title:"Application Submitted",date:"12 Apr 2026",color:"bg-green-500",icon:"✓"},{title:"Under Review",date:"14 Apr 2026",color:"bg-[#005196]",icon:"⏳"},{title:"Approved",date:"—",color:"bg-muted",icon:"3"}].map((item, i, arr) => (
+                <div key={i} className="relative flex gap-4">
+                  <div className="flex flex-col items-center">
+                    <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center text-white text-xs font-bold shadow-sm`}>{item.icon}</div>
+                    {i < arr.length - 1 && <div className="w-0.5 h-10 bg-border" />}
+                  </div>
+                  <div className="pb-6">
+                    <p className="text-sm font-medium text-foreground">{item.title}</p>
+                    <p className="text-xs text-muted-foreground">{item.date}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Horizontal timeline */}
+          <div>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Horizontal</p>
+            <div className="flex items-start gap-0">
+              {[{title:"Submitted",date:"12 Apr",color:"bg-green-500",icon:"✓"},{title:"Verified",date:"13 Apr",color:"bg-green-500",icon:"✓"},{title:"Processing",date:"14 Apr",color:"bg-[#005196]",icon:"⏳"},{title:"Complete",date:"—",color:"bg-muted",icon:"4"}].map((item, i, arr) => (
+                <React.Fragment key={i}>
+                  <div className="flex flex-col items-center text-center shrink-0">
+                    <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center text-white text-xs font-bold shadow-sm`}>{item.icon}</div>
+                    <p className="text-xs font-medium text-foreground mt-1.5">{item.title}</p>
+                    <p className="text-[10px] text-muted-foreground">{item.date}</p>
+                  </div>
+                  {i < arr.length - 1 && <div className="flex-1 h-0.5 bg-border mt-4 mx-1 min-w-[24px]" />}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
         </div>
       }
 
