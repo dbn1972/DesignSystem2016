@@ -106,8 +106,27 @@ export default function ComponentDatePickerPage() {
       since="v2.0.0"
 
       preview={
-        <div className="w-full max-w-2xl">
-          <DatePickerPreview />
+        <div className="w-full max-w-sm">
+          {/* CSS mockup showing date picker with calendar open */}
+          <div className="relative">
+            <div className="relative">
+              <input type="text" value="15/04/2026" readOnly className="w-full px-4 py-3 pr-10 border border-[#005196] rounded-lg text-sm focus:outline-none ring-2 ring-[#005196]/20" />
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[#005196]">📅</span>
+            </div>
+            <div className="absolute top-full left-0 mt-2 bg-card rounded-xl shadow-xl border border-border p-4 z-10 w-72">
+              <div className="flex items-center justify-between mb-3">
+                <button className="p-1 hover:bg-muted rounded text-muted-foreground">◀</button>
+                <span className="text-sm font-semibold text-foreground">April 2026</span>
+                <button className="p-1 hover:bg-muted rounded text-muted-foreground">▶</button>
+              </div>
+              <div className="grid grid-cols-7 gap-1 text-center text-xs">
+                {['Su','Mo','Tu','We','Th','Fr','Sa'].map(d => <div key={d} className="p-1.5 font-semibold text-muted-foreground">{d}</div>)}
+                {['','','','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'].map((d, i) => (
+                  <div key={i} className={`p-1.5 rounded cursor-pointer ${d === '15' ? 'bg-[#005196] text-white font-bold' : d === '' ? '' : 'hover:bg-muted text-foreground'}`}>{d}</div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       }
       
