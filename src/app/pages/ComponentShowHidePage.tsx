@@ -47,7 +47,7 @@ function ShowHidePlayground() {
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
         <div className="w-full flex items-center justify-center">
-          <ShowHidePreview above={400}><p className="text-sm text-muted-foreground">Hidden content revealed</p></ShowHidePreview>
+          <div className="w-full max-w-sm space-y-2"><p className="text-sm text-foreground">Visible content above</p>{defaultVisible && <div className={`p-3 bg-muted/30 rounded text-sm text-muted-foreground ${animated ? "transition-all duration-300" : ""}`}>This content is toggled by ShowHide. It can contain any elements.</div>}{!defaultVisible && <button className="text-xs text-[#005196]">{label}</button>}</div>
         </div>
       </div>
       <div className="space-y-4 text-sm">

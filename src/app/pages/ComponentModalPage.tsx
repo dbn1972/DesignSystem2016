@@ -15,16 +15,8 @@ function ModalPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className={`w-full ${sizeClasses[size]} bg-card border border-border rounded-xl shadow-lg`}>
-          <div className="flex items-center justify-between p-4 border-b border-border">
-            <h3 className="font-semibold text-foreground">Confirm Deletion</h3>
-            {showClose && <button className="text-muted-foreground hover:text-foreground"><X size={18} /></button>}
-          </div>
-          <div className="p-4"><p className="text-sm text-muted-foreground">Are you sure you want to delete this application? This action cannot be undone.</p></div>
-          <div className="flex justify-end gap-2 p-4 border-t border-border">
-            <button className="px-4 py-2 text-sm border border-border rounded-lg hover:bg-muted">Cancel</button>
-            <button className="px-4 py-2 text-sm bg-red-600 text-white rounded-lg hover:bg-red-700">Delete</button>
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-lg"><div className="flex items-center justify-between p-4 border-b border-border"><h3 className="font-semibold text-foreground text-sm">{size === "lg" ? "Document Preview" : "Confirm Action"}</h3>{showClose && <span className="text-muted-foreground cursor-pointer">✕</span>}</div><div className="p-4"><p className="text-sm text-muted-foreground">Modal content goes here.</p></div><div className="flex justify-end gap-2 p-4 border-t border-border"><button className="px-3 py-1.5 text-xs border border-border rounded">Cancel</button><button className="px-3 py-1.5 text-xs bg-[#005196] text-white rounded">Confirm</button></div></div>
         </div>
       </div>
       <div className="space-y-4 text-sm">

@@ -74,7 +74,7 @@ function StepperPlayground() {
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
         <div className="w-full flex items-center justify-center">
-          <StepperPreview />
+          <div className="flex items-center gap-2 w-full">{[1,2,3,4].map(s => <React.Fragment key={s}><div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${s < Number(currentStep) ? "bg-green-100 text-green-700" : s === Number(currentStep) ? "bg-[#005196] text-white" : "bg-muted text-muted-foreground"}`}>{s < Number(currentStep) ? "✓" : s}</div>{s < 4 && <div className={`flex-1 h-1 rounded ${s < Number(currentStep) ? "bg-green-500" : "bg-muted"}`} />}</React.Fragment>)}</div>
         </div>
       </div>
       <div className="space-y-4 text-sm">

@@ -52,7 +52,7 @@ function EmptyStatePlayground() {
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
         <div className="w-full flex items-center justify-center">
-          <EmptyStatePreview title="No applications yet" description="Start your first application" actionLabel="Get Started" />
+          <EmptyStatePreview title="No applications yet" description="Start your first application" actionLabel={showAction ? "Get Started" : undefined} />
         </div>
       </div>
       <div className="space-y-4 text-sm">

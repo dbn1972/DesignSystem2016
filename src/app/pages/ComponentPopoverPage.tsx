@@ -210,7 +210,7 @@ function PopoverPlayground() {
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
         <div className="w-full flex items-center justify-center">
-          <PopoverPreview content="Help text content" placement="top" />
+          <div className="relative inline-flex flex-col items-start"><div className="w-56 bg-card border border-border rounded-lg shadow-lg p-3 mb-2"><p className="text-xs font-semibold text-foreground mb-1">Help</p><p className="text-xs text-muted-foreground">Enter your 12-digit Aadhaar number.</p></div><button className="px-3 py-1.5 text-xs border border-border rounded">ⓘ Help ({position})</button></div>
         </div>
       </div>
       <div className="space-y-4 text-sm">

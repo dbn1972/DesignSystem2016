@@ -99,7 +99,7 @@ function StatisticPlayground() {
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
         <div className="w-full flex items-center justify-center">
-          <StatisticPreview label="Pending Cases" value={42} trend={showTrend ? "+12%" : undefined} prefix={prefix || undefined} />
+          <div className="flex gap-6"><div className="space-y-1"><p className="text-xs text-muted-foreground">{prefix}Pending Cases</p><p className="text-2xl font-bold text-foreground">{prefix}42</p>{showTrend && <span className="text-xs text-green-600">↑ +12%</span>}{loading && <div className="h-6 w-16 bg-muted rounded animate-pulse" />}</div></div>
         </div>
       </div>
       <div className="space-y-4 text-sm">

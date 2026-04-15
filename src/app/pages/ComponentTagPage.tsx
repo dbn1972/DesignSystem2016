@@ -80,7 +80,7 @@ function TagPlayground() {
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
         <div className="w-full flex items-center justify-center">
-          <div className="flex flex-wrap gap-2"><TagPreview>PDF</TagPreview><TagPreview variant="success">Verified</TagPreview><TagPreview removable>Filter Tag</TagPreview></div>
+          <div className="flex flex-wrap gap-2"><TagPreview variant={variant} closeable={removable}>PDF</TagPreview><TagPreview variant="success">Verified</TagPreview><TagPreview variant="warning">Pending</TagPreview></div>
         </div>
       </div>
       <div className="space-y-4 text-sm">
