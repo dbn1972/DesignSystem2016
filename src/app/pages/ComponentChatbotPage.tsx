@@ -109,8 +109,44 @@ export default function ComponentChatbotPage() {
       updated="v2.3.0"
 
       preview={
-        <div className="w-full max-w-2xl">
-          <ChatbotPreview position="bottom-right" botName="UX4G Assistant" greeting="How can I help you today?" />
+        <div className="w-full max-w-sm mx-auto">
+          {/* CSS mockup of chatbot widget */}
+          <div className="bg-card rounded-xl shadow-xl border border-border overflow-hidden h-80 flex flex-col">
+            {/* Header */}
+            <div className="bg-[#005196] text-white p-3 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm">🤖</div>
+              <div>
+                <div className="text-sm font-semibold">UX4G Assistant</div>
+                <div className="text-[10px] text-white/70">Online</div>
+              </div>
+              <button className="ml-auto text-white/70 hover:text-white">—</button>
+            </div>
+            {/* Messages */}
+            <div className="flex-1 p-3 space-y-3 bg-muted/20 overflow-auto">
+              <div className="flex gap-2">
+                <div className="w-6 h-6 rounded-full bg-[#005196]/10 flex items-center justify-center text-xs shrink-0">🤖</div>
+                <div className="bg-card border border-border rounded-lg rounded-tl-none px-3 py-2 text-xs text-foreground max-w-[80%]">
+                  Hello! How can I help you today? I can assist with certificate applications, status tracking, and more.
+                </div>
+              </div>
+              <div className="flex gap-2 justify-end">
+                <div className="bg-[#005196] text-white rounded-lg rounded-tr-none px-3 py-2 text-xs max-w-[80%]">
+                  How do I apply for a birth certificate?
+                </div>
+              </div>
+              <div className="flex gap-2">
+                <div className="w-6 h-6 rounded-full bg-[#005196]/10 flex items-center justify-center text-xs shrink-0">🤖</div>
+                <div className="bg-card border border-border rounded-lg rounded-tl-none px-3 py-2 text-xs text-foreground max-w-[80%]">
+                  You can apply online through the e-District portal. You will need Aadhaar, address proof, and hospital records.
+                </div>
+              </div>
+            </div>
+            {/* Input */}
+            <div className="p-2 border-t border-border flex gap-2">
+              <input className="flex-1 px-3 py-1.5 border border-border rounded-full text-xs" placeholder="Type a message..." readOnly />
+              <button className="w-8 h-8 rounded-full bg-[#005196] text-white flex items-center justify-center text-xs">➤</button>
+            </div>
+          </div>
         </div>
       }
 

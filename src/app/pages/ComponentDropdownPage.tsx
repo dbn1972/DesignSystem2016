@@ -160,8 +160,20 @@ export default function ComponentDropdownPage() {
       updated="v2.1.0"
 
       preview={
-        <div className="w-full max-w-2xl">
-          <DropdownPreview items={["View","Edit","Download","Delete"]} label="Actions" />
+        <div className="w-full max-w-2xl flex justify-center">
+          {/* CSS mockup showing dropdown open */}
+          <div className="relative inline-block">
+            <button className="px-4 py-2 text-sm font-medium border border-border rounded-lg bg-card hover:bg-muted flex items-center gap-2">
+              Actions <span className="text-muted-foreground">▾</span>
+            </button>
+            <div className="absolute left-0 top-full mt-1 w-44 bg-card border border-border rounded-lg shadow-xl py-1 z-10">
+              <div className="px-3 py-2 text-sm text-foreground hover:bg-muted cursor-pointer">👁 View</div>
+              <div className="px-3 py-2 text-sm text-foreground hover:bg-muted cursor-pointer">✏️ Edit</div>
+              <div className="px-3 py-2 text-sm text-foreground hover:bg-muted cursor-pointer">⬇ Download</div>
+              <div className="h-px bg-border my-1" />
+              <div className="px-3 py-2 text-sm text-red-600 hover:bg-muted cursor-pointer">🗑 Delete</div>
+            </div>
+          </div>
         </div>
       }
 

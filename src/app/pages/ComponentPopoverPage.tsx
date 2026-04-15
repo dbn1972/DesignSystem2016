@@ -254,8 +254,19 @@ export default function ComponentPopoverPage() {
       updated="v2.1.0"
 
       preview={
-        <div className="w-full max-w-2xl">
-          <PopoverPreview content="This is additional help text with a link." placement="top" />
+        <div className="w-full max-w-2xl flex justify-center">
+          {/* CSS mockup showing popover visible above a trigger */}
+          <div className="relative inline-flex flex-col items-start pt-24">
+            <div className="absolute top-0 left-0 w-64 bg-card border border-border rounded-xl shadow-xl p-4 space-y-2">
+              <h4 className="text-sm font-semibold text-foreground">Need help?</h4>
+              <p className="text-xs text-muted-foreground">Enter your 12-digit Aadhaar number without spaces or dashes.</p>
+              <a href="#" className="text-xs text-[#005196] hover:underline">Learn more about Aadhaar →</a>
+              <div className="absolute left-6 top-full w-0 h-0 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-border" />
+            </div>
+            <button className="px-3 py-2 border border-border rounded-lg text-sm flex items-center gap-2 hover:bg-muted">
+              ⓘ Help
+            </button>
+          </div>
         </div>
       }
 

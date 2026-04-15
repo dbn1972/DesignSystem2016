@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { Settings, User, LogOut, FileText, Copy, Trash2, ChevronRight } from 'lucide-react';
+import { Settings, User, LogOut, FileText, Copy, Trash2, ChevronRight, ChevronDown, Menu, X } from 'lucide-react';
 
 // Import the actual Menu component for live preview
 const MenuPreview = ({ variant, items, trigger, placement, offset, ...props }: any) => {
@@ -108,8 +108,28 @@ export default function ComponentMenuPage() {
       updated="v2.0.0"
 
       preview={
-        <div className="w-full max-w-2xl">
-          <MenuPreview items={[{label:"Profile"},{label:"Settings"},{label:"Logout"}]} trigger="User Menu" />
+        <div className="w-full max-w-2xl flex justify-center">
+          {/* CSS mockup of an open menu */}
+          <div className="relative inline-block">
+            <button className="px-4 py-2 text-sm font-medium border border-border rounded-lg bg-card hover:bg-muted flex items-center gap-2">
+              <Menu size={16} />
+              User Menu
+              <ChevronDown size={14} className="text-muted-foreground" />
+            </button>
+            {/* Open dropdown */}
+            <div className="absolute left-0 top-full mt-1 w-52 bg-card border border-border rounded-lg shadow-xl py-1 z-10">
+              <div className="px-3 py-2 text-sm text-foreground hover:bg-muted cursor-pointer flex items-center gap-2">
+                <User size={14} className="text-muted-foreground" /> Profile
+              </div>
+              <div className="px-3 py-2 text-sm text-foreground hover:bg-muted cursor-pointer flex items-center gap-2">
+                <Settings size={14} className="text-muted-foreground" /> Settings
+              </div>
+              <div className="h-px bg-border my-1" />
+              <div className="px-3 py-2 text-sm text-red-600 hover:bg-muted cursor-pointer flex items-center gap-2">
+                <X size={14} /> Logout
+              </div>
+            </div>
+          </div>
         </div>
       }
 
