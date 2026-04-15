@@ -228,144 +228,6 @@ function Example() {
       onSelect={(data) => console.log('Selected:', data)}
       includePincode
       placeholder="Enter pincode (e.g., 110001)"
-
-      useCases={[
-        { title: 'Certificate Application Address', description: 'Auto-fill city, district, and state from 6-digit PIN code in certificate application forms.', scenario: 'Citizen enters PIN code 110001 and city auto-fills to New Delhi, Delhi.', implementation: '<AddressAutocompleteIndia onSelect={handleAddress} required />' },
-        { title: 'Ration Card Address Verification', description: 'Verify and standardize beneficiary address for ration card delivery and distribution.', scenario: 'Citizen updates residential address for ration card with PIN-based auto-fill.', implementation: '<AddressAutocompleteIndia placeholder="Enter PIN or area name" />' },
-        { title: 'Service Center Locator', description: 'Find nearest Common Service Centre (CSC) or government office by PIN code or area name.', scenario: 'Citizen searches for nearest passport office by entering their locality.', implementation: '<AddressAutocompleteIndia mode="search" placeholder="Find nearest office..." />' },
-        { title: 'Pension Disbursement Address', description: 'Collect and verify pensioner address for Direct Benefit Transfer (DBT) disbursement.', scenario: 'Pensioner confirms delivery address with PIN code validation for monthly pension.', implementation: '<AddressAutocompleteIndia validatePIN onSelect={confirmAddress} />' },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use AddressAutocompleteIndia when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Indian address collection forms</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>PIN code to city/state auto-fill</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Location-based service lookups</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Address standardization</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don&apos;t use AddressAutocompleteIndia when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-Indian addresses — use generic Autocomplete</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple text address — use Textarea</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>GPS-based location — use MapLocationPicker</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Known fixed addresses — use Select</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4 space-y-3">
-                  <div className="space-y-2">
-                    <label className="block text-xs font-medium text-foreground">PIN Code</label>
-                    <input className="w-full px-3 py-2 border border-border rounded text-sm" value="110001" readOnly />
-                    <div className="grid grid-cols-2 gap-2">
-                      <div><label className="block text-[10px] text-muted-foreground">City</label><input className="w-full px-2 py-1 border border-border rounded text-xs bg-muted/30" value="New Delhi" readOnly /></div>
-                      <div><label className="block text-[10px] text-muted-foreground">State</label><input className="w-full px-2 py-1 border border-border rounded text-xs bg-muted/30" value="Delhi" readOnly /></div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Auto-fill city and state from PIN code — reduces address errors by 60% and saves time.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4 space-y-3">
-                  <div className="space-y-2">
-                    <div><label className="block text-xs font-medium text-foreground">PIN Code</label><input className="w-full px-3 py-2 border border-border rounded text-sm" placeholder="Enter PIN" readOnly /></div>
-                    <div><label className="block text-xs font-medium text-foreground">City</label><input className="w-full px-3 py-2 border border-border rounded text-sm" placeholder="Type city name" readOnly /></div>
-                    <div><label className="block text-xs font-medium text-foreground">State</label><input className="w-full px-3 py-2 border border-border rounded text-sm" placeholder="Type state name" readOnly /></div>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t require manual city/state entry when PIN code can auto-fill them — it causes spelling errors and inconsistent data.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different AddressAutocompleteIndia configurations in real time.</p>
-            <AddressAutocompleteIndiaPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/autocomplete" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Autocomplete</h3>
-                <p className="text-sm text-muted-foreground">For generic search suggestions</p>
-              </a>
-              <a href="/components/maplocationpicker" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">MapLocationPicker</h3>
-                <p className="text-sm text-muted-foreground">For map-based location</p>
-              </a>
-              <a href="/components/input" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Input</h3>
-                <p className="text-sm text-muted-foreground">For simple address fields</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added India Post PIN code database</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added state/district auto-fill</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic address search</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Auto-fill reduces errors</h3>
-                <p className="text-sm text-muted-foreground">Address auto-completion from PIN codes reduces form errors by 60% and completion time by 40% (India Post study).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
     />
   );
 }`,
@@ -1265,6 +1127,137 @@ export class AddressAutocompleteService {
           { property: 'Max Dropdown Height', token: 'base.maxHeight.dropdown', value: '240px (15rem)' },
         ],
       }}
+
+
+      useCases={[
+        { title: 'Certificate Application Address', description: 'Auto-fill city, district, and state from 6-digit PIN code in certificate application forms.', scenario: 'Citizen enters PIN code 110001 and city auto-fills to New Delhi, Delhi.', implementation: '<AddressAutocompleteIndia onSelect={handleAddress} required />' },
+        { title: 'Ration Card Address Verification', description: 'Verify and standardize beneficiary address for ration card delivery and distribution.', scenario: 'Citizen updates residential address for ration card with PIN-based auto-fill.', implementation: '<AddressAutocompleteIndia placeholder="Enter PIN or area name" />' },
+        { title: 'Service Center Locator', description: 'Find nearest Common Service Centre (CSC) or government office by PIN code or area name.', scenario: 'Citizen searches for nearest passport office by entering their locality.', implementation: '<AddressAutocompleteIndia mode="search" placeholder="Find nearest office..." />' },
+        { title: 'Pension Disbursement Address', description: 'Collect and verify pensioner address for Direct Benefit Transfer (DBT) disbursement.', scenario: 'Pensioner confirms delivery address with PIN code validation for monthly pension.', implementation: '<AddressAutocompleteIndia validatePIN onSelect={confirmAddress} />' },
+      ]}
+
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use AddressAutocompleteIndia when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Indian address collection forms</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>PIN code to city/state auto-fill</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Location-based service lookups</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Address standardization</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use AddressAutocompleteIndia when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Non-Indian addresses — use generic Autocomplete</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Simple text address — use Textarea</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>GPS-based location — use MapLocationPicker</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Known fixed addresses — use Select</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Do / Don't */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <label className="block text-xs font-medium text-foreground">PIN Code</label>
+                    <input className="w-full px-3 py-2 border border-border rounded text-sm" value="110001" readOnly />
+                    <div className="grid grid-cols-2 gap-2">
+                      <div><label className="block text-[10px] text-muted-foreground">City</label><input className="w-full px-2 py-1 border border-border rounded text-xs bg-muted/30" value="New Delhi" readOnly /></div>
+                      <div><label className="block text-[10px] text-muted-foreground">State</label><input className="w-full px-2 py-1 border border-border rounded text-xs bg-muted/30" value="Delhi" readOnly /></div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Auto-fill city and state from PIN code — reduces address errors by 60%.</p>
+                </div>
+              </div>
+              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="p-4 space-y-3">
+                  <div className="space-y-2">
+                    <div><label className="block text-xs font-medium text-foreground">PIN Code</label><input className="w-full px-3 py-2 border border-border rounded text-sm" placeholder="Enter PIN" readOnly /></div>
+                    <div><label className="block text-xs font-medium text-foreground">City</label><input className="w-full px-3 py-2 border border-border rounded text-sm" placeholder="Type city name" readOnly /></div>
+                    <div><label className="block text-xs font-medium text-foreground">State</label><input className="w-full px-3 py-2 border border-border rounded text-sm" placeholder="Type state name" readOnly /></div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Don&apos;t require manual city/state entry when PIN code can auto-fill them.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Related Components */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <a href="/components/autocomplete" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Autocomplete</h3>
+                <p className="text-sm text-muted-foreground">For generic search suggestions</p>
+              </a>
+              <a href="/components/map-location-picker" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">MapLocationPicker</h3>
+                <p className="text-sm text-muted-foreground">For map-based location</p>
+              </a>
+              <a href="/components/input" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                <h3 className="font-semibold text-foreground mb-1">Input</h3>
+                <p className="text-sm text-muted-foreground">For simple address fields</p>
+              </a>
+            </div>
+          </section>
+
+          {/* Changelog */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
+            <div className="space-y-4">
+              <div className="border-l-2 border-primary pl-4">
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
+                  <span className="text-xs text-muted-foreground">March 2026</span>
+                </div>
+                <ul className="space-y-1">
+                  <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added India Post PIN code database</li>
+                  <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added state/district auto-fill</li>
+                </ul>
+              </div>
+              <div className="border-l-2 border-primary pl-4">
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
+                  <span className="text-xs text-muted-foreground">October 2025</span>
+                </div>
+                <ul className="space-y-1">
+                  <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with basic address search</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Research */}
+          <section className="bg-card rounded-lg border border-border p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Auto-fill reduces errors</h3>
+                <p className="text-sm text-muted-foreground">Address auto-completion from PIN codes reduces form errors by 60% and completion time by 40% (India Post study).</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
 
       governmentContext={{
         useCases: "Service application forms requiring beneficiary address; Correspondence address collection for government communications; Beneficiary address verification for subsidy schemes; Office location lookup for government departments; Citizen registration with accurate pincode-based addressing; Address validation for document delivery and notifications",
