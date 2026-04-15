@@ -906,6 +906,34 @@ export type VideoQuality = 'auto' | '240p' | '360p' | '480p' | '720p' | '1080p';
           { property: 'Focus Ring Width', token: 'accessibility.focusRing.width', value: '2px' },
         ],
       }}
+
+      useCases={[
+        {
+          title: 'Training & Tutorial Videos',
+          description: 'Embedded how-to videos for government service applications like passport, Aadhaar, and certificate processes.',
+          scenario: 'Citizen watches a step-by-step video guide on how to apply for a birth certificate online.',
+          implementation: '<VideoPlayer src="/videos/certificate-guide.mp4" captions="/captions/certificate-guide.vtt" poster="/images/certificate-poster.jpg" />',
+        },
+        {
+          title: 'Government Announcements',
+          description: 'Official video addresses and policy announcements from ministers and department heads.',
+          scenario: 'Home page features a video message from the Minister about a new digital initiative.',
+          implementation: '<VideoPlayer src={announcementUrl} poster={posterUrl} controls />',
+        },
+        {
+          title: 'Accessibility Compliance Videos',
+          description: 'Videos with mandatory captions and audio descriptions for WCAG compliance.',
+          scenario: 'All government portal videos include Hindi and English captions for hearing-impaired users.',
+          implementation: '<VideoPlayer src={videoUrl} captions={[{src: "/hi.vtt", label: "Hindi"}, {src: "/en.vtt", label: "English"}]} />',
+        },
+        {
+          title: 'Service Demo Walkthroughs',
+          description: 'Interactive demo videos showing how to use government digital services.',
+          scenario: 'Officer training portal shows video walkthroughs of the case management system.',
+          implementation: '<VideoPlayer src="/videos/officer-training.mp4" controls playbackSpeed />',
+        },
+      ]}
+
       additionalContent={
         <>
 
