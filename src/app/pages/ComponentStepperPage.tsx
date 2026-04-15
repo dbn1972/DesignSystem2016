@@ -73,13 +73,8 @@ function StepperPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live Stepper preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{orientation}</span>
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{currentStep}</span>
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <StepperPreview />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -229,12 +224,14 @@ function Example() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="flex items-center gap-2 mb-3"><div className="w-6 h-6 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs">✓</div><div className="flex-1 h-0.5 bg-green-500" /><div className="w-6 h-6 rounded-full bg-[#005196] text-white flex items-center justify-center text-xs">2</div><div className="flex-1 h-0.5 bg-muted" /><div className="w-6 h-6 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-xs">3</div></div>
                   <p className="text-sm text-muted-foreground">Use steppers for multi-step forms with 3-5 visible steps.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="flex items-center gap-1 mb-3">{Array.from({length:8}).map((_,i) => <div key={i} className="w-5 h-5 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-[10px]">{i+1}</div>)}</div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use more than 7 steps — it causes anxiety. Break into sub-flows.</p>
                 </div>
               </div>

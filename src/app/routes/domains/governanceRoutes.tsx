@@ -4,6 +4,7 @@ import type { RouteObject } from "react-router";
 import { ROUTE_PATHS, toChildPath } from "../pathSource";
 
 const Governance = lazy(() => import("../../pages/Governance"));
+const SiteMap = lazy(() => import("../../pages/SiteMap"));
 const Adoption = lazy(() => import("../../pages/Adoption"));
 const ConformanceDashboard = lazy(() => import("../../pages/ConformanceDashboard"));
 const ServiceAnalytics = lazy(() => import("../../pages/ServiceAnalytics"));
@@ -18,6 +19,7 @@ const Contact = lazy(() => import("../../pages/Contact"));
 
 export const governanceRoutes: RouteObject[] = [
   { path: toChildPath(ROUTE_PATHS.GOVERNANCE.ROOT), Component: Governance },
+  { path: toChildPath(ROUTE_PATHS.GOVERNANCE.SITE_MAP), Component: SiteMap },
   { path: toChildPath(ROUTE_PATHS.GOVERNANCE.ADOPTION), Component: Adoption },
   { path: toChildPath(ROUTE_PATHS.GOVERNANCE.CONFORMANCE), Component: ConformanceDashboard },
   { path: toChildPath(ROUTE_PATHS.GOVERNANCE.ANALYTICS), Component: ServiceAnalytics },
@@ -30,4 +32,3 @@ export const governanceRoutes: RouteObject[] = [
   { path: toChildPath(ROUTE_PATHS.GOVERNANCE.TERMS_OF_USE), Component: TermsOfUse },
   { path: toChildPath(ROUTE_PATHS.GOVERNANCE.CONTACT), Component: Contact },
 ];
-

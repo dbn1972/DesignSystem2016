@@ -58,13 +58,8 @@ function OTPInputPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live OTPInput preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{length}</span>
-            {disabled && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">disabled</span>}
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <OTPInputPreview />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -217,12 +212,14 @@ function Example() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="flex gap-2 mb-3">{[1,2,3,4,5,6].map(i => <div key={i} className="w-8 h-10 border-2 border-border rounded flex items-center justify-center text-sm font-mono text-foreground">{i <= 3 ? "•" : ""}</div>)}</div>
                   <p className="text-sm text-muted-foreground">Auto-advance to the next digit field and support paste for faster entry.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="mb-3"><input className="w-full border border-border rounded px-3 py-1.5 text-xs" placeholder="Enter 6-digit OTP" readOnly /></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use a single text input for OTP — individual digit fields are 35% faster.</p>
                 </div>
               </div>

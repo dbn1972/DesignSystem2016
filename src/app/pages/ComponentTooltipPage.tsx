@@ -59,12 +59,8 @@ function TooltipPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live Tooltip preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{position}</span>
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <TooltipPreview />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -789,12 +785,14 @@ export interface TooltipConfig {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="inline-flex flex-col items-center mb-3"><div className="px-2 py-1 bg-gray-900 text-white text-xs rounded shadow-lg mb-1">Delete application</div><button className="p-2 border border-border rounded text-muted-foreground text-xs">🗑</button></div>
                   <p className="text-sm text-muted-foreground">Use tooltips for supplementary info on icon-only buttons and truncated text.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="mb-3"><button className="p-2 border border-border rounded text-muted-foreground text-xs">🗑</button></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t put essential information in tooltips — they require hover and are invisible on mobile.</p>
                 </div>
               </div>

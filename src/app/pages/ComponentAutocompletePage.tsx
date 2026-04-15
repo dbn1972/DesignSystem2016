@@ -539,13 +539,8 @@ function AutocompletePlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live Autocomplete preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {disabled && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">disabled</span>}
-            {loading && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">loading</span>}
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <AutocompletePreview />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -980,12 +975,14 @@ export default function ComponentAutocompletePage() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="w-48 mb-3"><div className="border border-border rounded px-3 py-1.5 text-xs">Del<span className="text-[#005196]">hi</span></div><div className="border border-border border-t-0 rounded-b shadow-sm"><div className="px-3 py-1.5 text-xs hover:bg-muted cursor-pointer">Delhi</div><div className="px-3 py-1.5 text-xs hover:bg-muted cursor-pointer">Dehradun</div></div></div>
                   <p className="text-sm text-muted-foreground">Use autocomplete for large option lists (10+) that need filtering.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="w-48 mb-3"><select className="w-full border border-border rounded px-3 py-1.5 text-xs bg-card"><option>Search 600+ cities...</option></select></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use autocomplete for fewer than 10 options — use Select instead.</p>
                 </div>
               </div>

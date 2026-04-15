@@ -85,6 +85,9 @@ export default function Footer() {
                 <Link to="/disclaimer" className="transition-colors hover:text-foreground focus-visible:text-foreground">Disclaimer</Link>
               </li>
               <li>
+                <Link to="/site-map" className="transition-colors hover:text-foreground focus-visible:text-foreground">Site Map</Link>
+              </li>
+              <li>
                 <Link to="/contact" className="flex items-center gap-2 transition-colors hover:text-foreground focus-visible:text-foreground">
                   <Mail size={16} aria-hidden="true" />
                   <span>Contact Support</span>
@@ -110,6 +113,8 @@ export default function Footer() {
                 <Link to="/copyright" className="transition-colors hover:text-foreground focus-visible:text-foreground">Copyright</Link>
                 <span>•</span>
                 <Link to="/accessibility" className="transition-colors hover:text-foreground focus-visible:text-foreground">Accessibility</Link>
+                <span>•</span>
+                <Link to="/site-map" className="transition-colors hover:text-foreground focus-visible:text-foreground">Site Map</Link>
               </div>
             </div>
             <div className="flex items-center gap-4">

@@ -117,6 +117,7 @@ export const ROUTE_PATHS = {
   },
   GOVERNANCE: {
     ROOT: "/governance",
+    SITE_MAP: "/site-map",
     ADOPTION: "/governance/adoption",
     CONFORMANCE: "/governance/conformance",
     ANALYTICS: "/governance/analytics",

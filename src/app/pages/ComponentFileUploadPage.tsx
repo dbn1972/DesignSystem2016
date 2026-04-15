@@ -86,13 +86,8 @@ function FileUploadPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live FileUpload preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {multiple && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">multiple</span>}
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{accept}</span>
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <FileUploadPreview />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -250,12 +245,14 @@ function Example() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="w-full border-2 border-dashed border-border rounded-lg p-4 text-center mb-3"><p className="text-xs text-muted-foreground">Drag & drop or click to upload</p><p className="text-[10px] text-muted-foreground mt-1">PDF, JPG, PNG • Max 2MB</p></div>
                   <p className="text-sm text-muted-foreground">Show max file size and accepted formats before upload to prevent failed attempts.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="w-full border border-border rounded p-2 mb-3"><input type="file" className="text-xs" disabled /></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t allow uploads without showing progress — users need feedback.</p>
                 </div>
               </div>

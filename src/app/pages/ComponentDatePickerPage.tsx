@@ -78,13 +78,8 @@ function DatePickerPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live DatePicker preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {required && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">required</span>}
-            {disabled && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">disabled</span>}
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <DatePickerPreview />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -231,12 +226,14 @@ function Example() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="w-48 mb-3"><label className="block text-xs font-medium text-foreground mb-1">Date of Birth</label><div className="flex items-center border border-border rounded px-3 py-1.5 text-xs"><span className="text-muted-foreground">DD/MM/YYYY</span><span className="ml-auto text-muted-foreground">📅</span></div></div>
                   <p className="text-sm text-muted-foreground">Use a calendar picker for unknown dates. For known dates (DOB), allow text input too.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="w-48 mb-3"><div className="border border-border rounded px-3 py-1.5 text-xs text-muted-foreground">Select date</div></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t force calendar-only input for dates users know by heart — it&apos;s slower.</p>
                 </div>
               </div>

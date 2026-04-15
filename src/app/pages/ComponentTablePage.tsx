@@ -46,13 +46,8 @@ function TablePlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live Table preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {striped && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">striped</span>}
-            {bordered && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">bordered</span>}
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <TablePreview />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -419,12 +414,14 @@ export class TableModule { }`,
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="overflow-hidden rounded border border-border text-sm mb-3"><table className="w-full"><thead className="bg-muted"><tr><th className="px-3 py-2 text-left text-xs font-semibold">Name</th><th className="px-3 py-2 text-left text-xs font-semibold">Status</th></tr></thead><tbody><tr className="border-t"><td className="px-3 py-2">Rajesh Kumar</td><td className="px-3 py-2"><span className="px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-800">Approved</span></td></tr><tr className="border-t bg-muted/30"><td className="px-3 py-2">Suresh Mehta</td><td className="px-3 py-2"><span className="px-2 py-0.5 rounded-full text-xs bg-yellow-100 text-yellow-800">Pending</span></td></tr></tbody></table></div>
                   <p className="text-sm text-muted-foreground">Use zebra striping and column headers for data tables with 5+ rows.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="text-sm space-y-1 mb-3"><p className="text-muted-foreground">Rajesh Kumar - Approved - 12 Apr</p><p className="text-muted-foreground">Suresh Mehta - Pending - 10 Apr</p></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t display tabular data as plain text — use a proper Table for structured data.</p>
                 </div>
               </div>

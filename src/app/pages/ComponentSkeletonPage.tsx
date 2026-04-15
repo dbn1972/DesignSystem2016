@@ -399,13 +399,8 @@ function SkeletonPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live Skeleton preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{variant}</span>
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{animation}</span>
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <SkeletonPreview />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -829,12 +824,14 @@ export default function ComponentSkeletonPage() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="space-y-2 mb-3"><div className="h-4 bg-muted rounded animate-pulse w-3/4" /><div className="h-4 bg-muted rounded animate-pulse w-full" /><div className="h-4 bg-muted rounded animate-pulse w-1/2" /></div>
                   <p className="text-sm text-muted-foreground">Use skeleton screens for content loading — they feel 15% faster than spinners.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="flex items-center justify-center h-16 mb-3"><div className="w-6 h-6 border-2 border-muted border-t-muted-foreground rounded-full animate-spin" /></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use skeletons for brief loading under 1 second — it causes flicker.</p>
                 </div>
               </div>

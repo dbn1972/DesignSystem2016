@@ -44,6 +44,13 @@ describe('Footer', () => {
     expect(screen.getByRole('link', { name: /^patterns$/i })).toBeInTheDocument();
   });
 
+  it('should render the site map link', () => {
+    renderFooter();
+    const siteMapLinks = screen.getAllByRole('link', { name: /site map/i });
+    expect(siteMapLinks.length).toBeGreaterThanOrEqual(1);
+    expect(siteMapLinks.some((link) => link.getAttribute('href') === '/site-map')).toBe(true);
+  });
+
   it('should render Resources navigation', () => {
     renderFooter();
     const resourcesNav = screen.getByRole('navigation', { name: /resources/i });

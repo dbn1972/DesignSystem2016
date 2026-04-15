@@ -74,12 +74,8 @@ function PaginationPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live Pagination preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{pageSize}</span>
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <PaginationPreview totalPages={10} />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -239,12 +235,14 @@ function Example() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="flex items-center gap-1 mb-3"><button className="px-2 py-1 text-xs border border-border rounded">←</button><button className="px-2 py-1 text-xs bg-[#005196] text-white rounded">1</button><button className="px-2 py-1 text-xs border border-border rounded">2</button><button className="px-2 py-1 text-xs border border-border rounded">3</button><span className="text-xs text-muted-foreground">of 12</span><button className="px-2 py-1 text-xs border border-border rounded">→</button></div>
                   <p className="text-sm text-muted-foreground">Use pagination for large data sets. Show total count to help users estimate effort.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="flex items-center gap-1 mb-3"><button className="px-2 py-1 text-xs border border-border rounded">Previous</button><button className="px-2 py-1 text-xs border border-border rounded">Next</button></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t paginate lists with fewer than 20 items — show them all.</p>
                 </div>
               </div>

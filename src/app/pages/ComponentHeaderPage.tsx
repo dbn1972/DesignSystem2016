@@ -69,13 +69,8 @@ function HeaderPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live Header preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {showSearch && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">showSearch</span>}
-            {showLanguage && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">showLanguage</span>}
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <HeaderPreview />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -246,12 +241,14 @@ function Example() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
                   <p className="text-sm text-muted-foreground">Include a skip-to-content link — government sites without it fail accessibility audits.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
                   <p className="text-sm text-muted-foreground">Don&apos;t hide the mobile menu behind an unlabeled icon — add a text label.</p>
                 </div>
               </div>

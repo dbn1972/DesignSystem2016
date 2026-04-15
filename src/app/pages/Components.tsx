@@ -133,61 +133,44 @@ export default function Components() {
             </div>
           </div>
 
-          <aside className="rounded-[1.75rem] border border-border/70 bg-card/90 p-5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] backdrop-blur">
+          <aside className="rounded-[1.5rem] border border-border/70 bg-card/90 p-4.5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] backdrop-blur">
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Component map</p>
-                <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-foreground">What the hub covers</h2>
+                <h2 className="mt-1.5 text-lg font-semibold tracking-tight text-foreground">What the hub covers</h2>
               </div>
               <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Premium</span>
             </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-2.5">
+            <div className="mt-4 grid grid-cols-2 gap-2">
               {componentStats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl border border-border/70 bg-background/70 p-3.5">
-                  <div className="text-xl font-semibold tracking-tight text-foreground">{stat.value}</div>
-                  <div className="mt-1 text-xs leading-5 text-muted-foreground">{stat.label}</div>
+                <div key={stat.label} className="rounded-2xl border border-border/70 bg-background/70 p-3">
+                  <div className="text-lg font-semibold tracking-tight text-foreground">{stat.value}</div>
+                  <div className="mt-1 text-[11px] leading-4 text-muted-foreground">{stat.label}</div>
                 </div>
               ))}
             </div>
 
             <div className="mt-4 rounded-2xl border border-border/70 bg-muted/40 p-3.5">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Delivery lanes</p>
-                  <p className="mt-1.5 text-sm font-semibold text-foreground">React, Angular, Web Components</p>
-                </div>
-                <Info className="h-5 w-5 text-primary" />
-              </div>
-              <p className="mt-2.5 text-xs leading-5 text-muted-foreground">
-                Each component page now presents the same premium download and guidance structure, so teams can compare
-                implementations without losing context.
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Includes</p>
+              <p className="mt-1.5 text-sm leading-6 text-foreground">
+                Component pages, live examples, accessibility notes, and implementation guidance for teams shipping
+                government services.
               </p>
-            </div>
-
-            <div className="mt-3 grid gap-2.5">
-              {frameworkCards.map((card) => (
-                <div key={card.name} className="rounded-2xl border border-border/70 bg-background/80 p-3.5">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className={`h-2.5 w-2.5 rounded-full ${card.accent}`} />
-                        <h3 className="text-sm font-semibold text-foreground">{card.name}</h3>
-                      </div>
-                      <p className="mt-1.5 text-xs leading-5 text-muted-foreground">{card.summary}</p>
-                    </div>
-                    <Link
-                      to={card.name === 'Web Components' ? '/web-components' : '/components'}
-                      className="shrink-0 rounded-full border border-border px-2.5 py-1 text-[11px] font-semibold text-foreground transition hover:bg-muted/60"
-                    >
-                      View
-                    </Link>
-                  </div>
-                  <p className="mt-2.5 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                    {card.details}
-                  </p>
-                </div>
-              ))}
+              <div className="mt-3 flex flex-wrap gap-2">
+                <span className="rounded-full bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground">
+                  Docs
+                </span>
+                <span className="rounded-full bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground">
+                  Examples
+                </span>
+                <span className="rounded-full bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground">
+                  Accessibility
+                </span>
+                <span className="rounded-full bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground">
+                  Download
+                </span>
+              </div>
             </div>
           </aside>
         </div>

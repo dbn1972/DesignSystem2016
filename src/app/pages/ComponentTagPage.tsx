@@ -79,13 +79,8 @@ function TagPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live Tag preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {removable && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">removable</span>}
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{variant}</span>
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <div className="flex flex-wrap gap-2"><TagPreview>PDF</TagPreview><TagPreview variant="success">Verified</TagPreview><TagPreview removable>Filter Tag</TagPreview></div>
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -524,12 +519,14 @@ export default function ComponentTagPage() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="flex gap-2 mb-3"><span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-muted text-foreground">PDF <button className="text-muted-foreground hover:text-foreground">×</button></span><span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-800">Verified</span></div>
                   <p className="text-sm text-muted-foreground">Use an X icon on removable tags — it is 60% more likely to be understood as removable.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="flex gap-2 mb-3"><span className="px-2 py-0.5 rounded-full text-xs bg-muted text-foreground">Income Certificate</span></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use tags for status indicators — use Badge instead.</p>
                 </div>
               </div>

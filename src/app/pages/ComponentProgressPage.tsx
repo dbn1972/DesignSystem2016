@@ -113,13 +113,8 @@ function ProgressPlayground() {
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
-        <div className="text-center space-y-3">
-          <div className="text-4xl">🧩</div>
-          <p className="text-sm text-muted-foreground">Live Progress preview with current settings</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            <span className="px-2 py-0.5 rounded-full text-xs bg-muted text-muted-foreground font-medium">{value}</span>
-            {indeterminate && <span className="px-2 py-0.5 rounded-full text-xs bg-[#005196]/10 text-[#005196] font-medium">indeterminate</span>}
-          </div>
+        <div className="w-full flex items-center justify-center">
+          <ProgressPreview value={50} label="Uploading..." showPercentage />
         </div>
       </div>
       <div className="space-y-4 text-sm">
@@ -829,12 +824,14 @@ export type ProgressColor = 'primary' | 'success' | 'warning' | 'danger';`,
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
+                  <div className="w-full mb-3"><div className="flex justify-between text-xs mb-1"><span className="text-muted-foreground">Uploading Aadhaar...</span><span className="text-muted-foreground">65%</span></div><div className="w-full h-2 bg-muted rounded-full overflow-hidden"><div className="h-full bg-[#005196] rounded-full" style={{width:"65%"}} /></div></div>
                   <p className="text-sm text-muted-foreground">Show progress bars for file uploads and known-duration operations.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
+                  <div className="w-full mb-3"><div className="w-full h-2 bg-muted rounded-full overflow-hidden"><div className="h-full bg-[#005196] rounded-full" style={{width:"65%"}} /></div></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use progress bars for brief operations under 2 seconds — use Spinner.</p>
                 </div>
               </div>
