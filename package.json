@@ -88,7 +88,7 @@
     "@angular/core": "^18.2.14",
     "@angular/forms": "^18.2.14",
     "@angular/platform-browser": "^18.2.14",
-    "@angular/platform-browser-dynamic": "^21.2.8",
+    "@angular/platform-browser-dynamic": "^18.2.14",
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.2",
     "@babel/preset-typescript": "^7.28.5",
