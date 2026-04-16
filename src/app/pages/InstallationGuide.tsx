@@ -280,7 +280,7 @@ function AudienceCard({ title, description, responsibilities, color }: any) {
   const colorClasses = {
     blue: 'border-sky-200 bg-sky-50/60',
     purple: 'border-violet-200 bg-violet-50/60',
-    orange: 'border-amber-200 bg-amber-50/60',
+    orange: 'border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-950/30',
     green: 'border-emerald-200 bg-emerald-50/60'
   };
 
@@ -401,7 +401,7 @@ npm start`}
 <script src="https://cdn.ux4g.gov.in/v1.0.0/ux4g.min.js"></script>`}
           />
           
-          <div className="mt-4 bg-red-50 border border-red-200 rounded-lg p-4 text-sm flex items-start gap-2">
+          <div className="mt-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-4 text-sm flex items-start gap-2">
             <AlertCircle className="text-red-600 flex-shrink-0 mt-0.5" size={16} />
             <div className="text-red-800">
               <strong>Warning:</strong> CDN usage is not recommended for production government services. 
@@ -420,7 +420,7 @@ function InstallPathway({ title, description, recommended, warning, children }: 
       warning ? 'border-red-200' : recommended ? 'border-green-300' : 'border-border'
     }`}>
       <div className={`p-6 border-b-2 ${
-        warning ? 'bg-red-50 border-red-200' : recommended ? 'bg-green-50 border-green-200' : 'bg-background border-border'
+        warning ? 'bg-red-50 border-red-200' : recommended ? 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800' : 'bg-background border-border'
       }`}>
         <div className="flex items-start justify-between">
           <div>
@@ -510,7 +510,7 @@ function ApplicationForm() {
         </UsageStep>
 
         {/* TypeScript Support */}
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info className="text-primary" size={20} />
             TypeScript Support
@@ -1061,7 +1061,7 @@ function MigrationNotesSection() {
 
       <div className="mt-8 grid gap-5 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
         {/* Migration Strategy */}
-        <div className="rounded-2xl border border-amber-200 bg-amber-50/50 p-5 shadow-sm">
+        <div className="rounded-2xl border border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/30 p-5 shadow-sm">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Recommended path</p>
@@ -1259,7 +1259,7 @@ function VersionStat({ label, value }: any) {
 function VersionBand({ label, tone, detail }: any) {
   const tones = {
     rose: 'border-rose-200 bg-rose-50/70',
-    amber: 'border-amber-200 bg-amber-50/70',
+    amber: 'border-amber-200 dark:border-amber-800 bg-amber-50/70 dark:bg-amber-950/30',
     emerald: 'border-emerald-200 bg-emerald-50/70'
   };
 
@@ -1498,7 +1498,7 @@ function SupportChannel({ icon, title, description, action, href, color }: any) 
   const colorClasses = {
     blue: 'border-sky-200 bg-sky-50/60 text-primary',
     purple: 'border-violet-200 bg-violet-50/60 text-primary',
-    orange: 'border-amber-200 bg-amber-50/60 text-primary'
+    orange: 'border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-950/30 text-primary'
   };
 
   return (
