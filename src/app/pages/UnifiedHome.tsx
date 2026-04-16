@@ -67,13 +67,14 @@ export default function UnifiedHome() {
                     <button className="px-4 py-2 text-[#005196] text-sm rounded-lg font-medium hover:bg-muted">Tertiary</button>
                     <button className="px-4 py-2 bg-red-600 text-white text-sm rounded-lg font-medium">Destructive</button>
                   </div>
-                  {/* Input preview */}
+                  {/* Progress bar preview */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-foreground">Aadhaar Number</label>
-                    <div className="flex gap-2">
-                      <div className="flex-1 px-3 py-2 border border-border rounded-lg text-sm font-mono text-muted-foreground">1234</div>
-                      <div className="flex-1 px-3 py-2 border border-border rounded-lg text-sm font-mono text-muted-foreground">5678</div>
-                      <div className="flex-1 px-3 py-2 border border-border rounded-lg text-sm font-mono text-muted-foreground">9012</div>
+                    <div className="flex justify-between text-xs">
+                      <span className="font-medium text-foreground">Application Progress</span>
+                      <span className="text-muted-foreground">65%</span>
+                    </div>
+                    <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-[#005196] rounded-full" style={{width: '65%'}} />
                     </div>
                   </div>
                   {/* Badge row */}
