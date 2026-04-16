@@ -7,10 +7,15 @@ import {
   ArrowRight, Box, Layers, Code, Palette, Shield, Globe,
   Zap, Users, BookOpen, CheckCircle, BarChart3, Building2
 } from "lucide-react";
+import SEOHead from "../components/SEOHead";
 
 export default function UnifiedHome() {
   return (
     <main className="min-h-screen bg-background">
+      <SEOHead
+        title="Home"
+        description="India's open-source design system for building consistent, accessible digital public services. 77 components across React, Angular, and Web Components."
+      />
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden">

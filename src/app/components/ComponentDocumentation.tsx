@@ -13,6 +13,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Download, Check, Copy, ExternalLink, Info, Eye, List, Code2, GitCompare, Palette, BookOpen } from 'lucide-react';
 import { Link } from 'react-router';
+import SEOHead from './SEOHead';
 
 interface PropDefinition {
   name: string;
@@ -252,6 +253,10 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={name}
+        description={`${name} component — ${description}`}
+      />
       {/* Header */}
       <div className="bg-gradient-to-br from-card via-card to-[#005196]/5 border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-10">
