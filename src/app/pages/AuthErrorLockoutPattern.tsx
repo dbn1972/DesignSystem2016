@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { AlertTriangle, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, Lock, HelpCircle, Check, X, Phone, Mail, RefreshCw, Eye } from "lucide-react";
+import { AlertTriangle, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, Lock, HelpCircle, Check, X, Phone, Mail, RefreshCw, Eye, Download, Copy } from "lucide-react";
 
 export default function AuthErrorLockoutPattern() {
   return (
@@ -73,6 +74,7 @@ export default function AuthErrorLockoutPattern() {
               { id: "recovery", label: "Recovery Paths" },
               { id: "accessibility", label: "Accessibility" },
               { id: "implementation", label: "Implementation" },
+              { id: "code-downloads", label: "Code Downloads" },
               { id: "governance", label: "Governance" }
             ].map((item) => (
               <a
@@ -101,6 +103,7 @@ export default function AuthErrorLockoutPattern() {
             <RecoveryPathsSection />
             <AccessibilitySection />
             <ImplementationSection />
+            <CodeDownloadsSection />
             <GovernanceSection />
           </div>
 
@@ -1278,6 +1281,303 @@ app.post('/api/auth/login',
     </section>
   );
 }
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const LOCKOUT_REACT_CODE = `import React, { useState, useEffect } from 'react';
+
+type LockoutState = 'normal' | 'warning' | 'locked' | 'support';
+
+export function AuthErrorLockoutPage() {
+  const [state, setState] = useState<LockoutState>('normal');
+  const [attempts, setAttempts] = useState(0);
+  const [lockTimer, setLockTimer] = useState(0);
+  const [error, setError] = useState('');
+  const maxAttempts = 5;
+  const lockDuration = 900; // 15 minutes
+
+  useEffect(() => {
+    if (lockTimer > 0) {
+      const t = setInterval(() => setLockTimer(v => { if (v <= 1) { clearInterval(t); setState('normal'); setAttempts(0); return 0; } return v - 1; }), 1000);
+      return () => clearInterval(t);
+    }
+  }, [lockTimer]);
+
+  const handleLogin = async (username: string, password: string) => {
+    if (state === 'locked') return;
+    setError('');
+    try {
+      const res = await fetch('/api/auth/signin', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+      if (!res.ok) {
+        const newAttempts = attempts + 1;
+        setAttempts(newAttempts);
+        if (newAttempts >= maxAttempts) {
+          setState('locked');
+          setLockTimer(lockDuration);
+          setError('Account locked for 15 minutes due to too many failed attempts.');
+        } else if (newAttempts >= 3) {
+          setState('warning');
+          setError(\`Invalid credentials. \${maxAttempts - newAttempts} attempts remaining before account lock.\`);
+        } else {
+          setError('Invalid username or password. Please try again.');
+        }
+      }
+    } catch { setError('Network error. Please try again.'); }
+  };
+
+  const mins = Math.floor(lockTimer / 60);
+  const secs = lockTimer % 60;
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Sign In</h1>
+        {state === 'locked' ? (
+          <div className="space-y-4">
+            <div role="alert" className="p-4 bg-red-50 border border-red-200 rounded-xl">
+              <div className="flex items-center gap-2 mb-2">
+                <svg className="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                <span className="font-bold text-red-700">Account Temporarily Locked</span>
+              </div>
+              <p className="text-sm text-red-600">Too many failed sign-in attempts. Your account is locked for security.</p>
+              <div className="mt-3 text-center">
+                <div className="text-2xl font-bold text-red-700" aria-live="polite">{mins}:{String(secs).padStart(2, '0')}</div>
+                <p className="text-xs text-red-500 mt-1">Time until unlock</p>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <a href="/forgot-password" className="block w-full py-3 text-center border border-border rounded-lg font-semibold text-foreground hover:bg-muted">Reset Password</a>
+              <button onClick={() => setState('support')} className="block w-full py-3 text-center text-primary hover:underline text-sm font-semibold">Contact Support</button>
+            </div>
+          </div>
+        ) : state === 'support' ? (
+          <div className="space-y-4">
+            <h2 className="text-lg font-bold text-foreground">Contact Support</h2>
+            <div className="space-y-3">
+              <div className="p-3 bg-muted rounded-lg"><div className="font-semibold text-sm">Helpline</div><div className="text-sm text-muted-foreground">1800-XXX-XXXX (Mon-Fri, 9AM-6PM IST)</div></div>
+              <div className="p-3 bg-muted rounded-lg"><div className="font-semibold text-sm">Email</div><div className="text-sm text-muted-foreground">support@digitalindia.gov.in</div></div>
+            </div>
+            <button onClick={() => setState(attempts >= maxAttempts ? 'locked' : 'normal')} className="w-full py-3 border border-border rounded-lg font-semibold">Back</button>
+          </div>
+        ) : (
+          <LoginForm onSubmit={handleLogin} error={error} state={state} attemptsLeft={maxAttempts - attempts} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+function LoginForm({ onSubmit, error, state, attemptsLeft }: { onSubmit: (u: string, p: string) => void; error: string; state: string; attemptsLeft: number }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); setLoading(true); await onSubmit(username, password); setLoading(false);
+  };
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4 mt-4" noValidate>
+      {error && <div role="alert" className={\`p-3 rounded-lg text-sm \${state === 'warning' ? 'bg-yellow-50 border border-yellow-200 text-yellow-700' : 'bg-red-50 border border-red-200 text-red-700'}\`}>{error}</div>}
+      <div>
+        <label htmlFor="username" className="block text-sm font-medium mb-1">Email or Mobile <span className="text-red-500">*</span></label>
+        <input id="username" type="text" value={username} onChange={e => setUsername(e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" />
+      </div>
+      <div>
+        <label htmlFor="password" className="block text-sm font-medium mb-1">Password <span className="text-red-500">*</span></label>
+        <input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" />
+      </div>
+      <button type="submit" disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Signing in...' : 'Sign In'}</button>
+      <a href="/forgot-password" className="block text-center text-sm text-primary hover:underline">Forgot password?</a>
+    </form>
+  );
+}`;
+
+const LOCKOUT_ANGULAR_CODE = `import { Component, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-auth-error-lockout',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-2">Sign In</h1>
+        <div *ngIf="error" role="alert" [class]="'mb-4 p-3 rounded-lg text-sm ' + (state === 'warning' ? 'bg-yellow-50 border border-yellow-200 text-yellow-700' : 'bg-red-50 border border-red-200 text-red-700')">{{ error }}</div>
+        <div *ngIf="state === 'locked'" class="space-y-4">
+          <div class="p-4 bg-red-50 border border-red-200 rounded-xl text-center">
+            <p class="font-bold text-red-700 mb-2">Account Temporarily Locked</p>
+            <div class="text-2xl font-bold text-red-700" aria-live="polite">{{ formatTime() }}</div>
+            <p class="text-xs text-red-500 mt-1">Time until unlock</p>
+          </div>
+          <a href="/forgot-password" class="block w-full py-3 text-center border border-border rounded-lg font-semibold">Reset Password</a>
+        </div>
+        <form *ngIf="state !== 'locked'" [formGroup]="form" (ngSubmit)="login()" class="space-y-4 mt-4">
+          <div><label class="block text-sm font-medium mb-1">Email or Mobile</label><input formControlName="username" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <div><label class="block text-sm font-medium mb-1">Password</label><input type="password" formControlName="password" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <button type="submit" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Signing in...' : 'Sign In' }}</button>
+        </form>
+      </div>
+    </div>
+  \`
+})
+export class AuthErrorLockoutComponent implements OnDestroy {
+  form = new FormGroup({ username: new FormControl('', Validators.required), password: new FormControl('', Validators.required) });
+  state: 'normal' | 'warning' | 'locked' = 'normal';
+  attempts = 0; maxAttempts = 5; lockTimer = 0; loading = false; error = '';
+  private interval: any;
+
+  ngOnDestroy() { clearInterval(this.interval); }
+  formatTime() { return Math.floor(this.lockTimer/60)+':'+String(this.lockTimer%60).padStart(2,'0'); }
+
+  async login() {
+    if (this.state === 'locked' || this.form.invalid) return;
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/signin', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(this.form.value) });
+      if (!res.ok) {
+        this.attempts++;
+        if (this.attempts >= this.maxAttempts) { this.state = 'locked'; this.lockTimer = 900; this.error = 'Account locked for 15 minutes.'; this.startTimer(); }
+        else if (this.attempts >= 3) { this.state = 'warning'; this.error = \`Invalid credentials. \${this.maxAttempts - this.attempts} attempts left.\`; }
+        else this.error = 'Invalid credentials.';
+      }
+    } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+
+  startTimer() {
+    this.interval = setInterval(() => { this.lockTimer--; if (this.lockTimer <= 0) { clearInterval(this.interval); this.state = 'normal'; this.attempts = 0; } }, 1000);
+  }
+}`;
+
+const LOCKOUT_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auth Error & Lockout — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 28rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    input { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; margin-bottom: 1rem; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:disabled { opacity: 0.6; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; border-radius: 0.5rem; font-size: 0.875rem; display: none; }
+    .error-red { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; }
+    .error-yellow { background: #fefce8; border: 1px solid #fde68a; color: #a16207; }
+    .locked-box { text-align: center; padding: 1.5rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.75rem; margin-bottom: 1rem; }
+    .timer { font-size: 2rem; font-weight: 700; color: #b91c1c; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sign In</h1>
+    <div id="error" class="error" role="alert"></div>
+    <div id="lockedView" class="hidden">
+      <div class="locked-box">
+        <p style="font-weight:700;color:#b91c1c;margin-bottom:0.5rem">Account Temporarily Locked</p>
+        <div class="timer" id="lockTimer" aria-live="polite">15:00</div>
+        <p style="font-size:0.75rem;color:#b91c1c;margin-top:0.25rem">Time until unlock</p>
+      </div>
+      <a href="/forgot-password" class="btn" style="display:block;text-align:center;text-decoration:none;margin-bottom:0.5rem">Reset Password</a>
+    </div>
+    <form id="loginForm">
+      <label for="username">Email or Mobile</label>
+      <input type="text" id="username" required />
+      <label for="password">Password</label>
+      <input type="password" id="password" required />
+      <button type="submit" class="btn" id="submitBtn">Sign In</button>
+    </form>
+  </div>
+  <script>
+    let attempts = 0, maxAttempts = 5, lockTimer = 0, lockInterval;
+    function showError(msg, type) { const e = document.getElementById('error'); e.textContent = msg; e.className = 'error ' + (type === 'warning' ? 'error-yellow' : 'error-red'); e.style.display = 'block'; }
+    function hideError() { document.getElementById('error').style.display = 'none'; }
+    function lockAccount() {
+      document.getElementById('loginForm').classList.add('hidden');
+      document.getElementById('lockedView').classList.remove('hidden');
+      lockTimer = 900;
+      lockInterval = setInterval(() => {
+        lockTimer--;
+        document.getElementById('lockTimer').textContent = Math.floor(lockTimer/60)+':'+String(lockTimer%60).padStart(2,'0');
+        if (lockTimer <= 0) { clearInterval(lockInterval); attempts = 0; document.getElementById('loginForm').classList.remove('hidden'); document.getElementById('lockedView').classList.add('hidden'); hideError(); }
+      }, 1000);
+    }
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+      e.preventDefault(); hideError();
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true; btn.textContent = 'Signing in...';
+      try {
+        const res = await fetch('/api/auth/signin', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: document.getElementById('username').value, password: document.getElementById('password').value }) });
+        if (!res.ok) {
+          attempts++;
+          if (attempts >= maxAttempts) { showError('Account locked for 15 minutes.', 'error'); lockAccount(); }
+          else if (attempts >= 3) showError('Invalid credentials. '+(maxAttempts-attempts)+' attempts left.', 'warning');
+          else showError('Invalid username or password.', 'error');
+        }
+      } catch { showError('Network error.', 'error'); }
+      finally { btn.disabled = false; btn.textContent = 'Sign In'; }
+    });
+  </script>
+</body>
+</html>`;
+
+function CodeDownloadsSection() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks + Lockout Timer', code: LOCKOUT_REACT_CODE, filename: 'AuthErrorLockoutPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: LOCKOUT_ANGULAR_CODE, filename: 'auth-error-lockout.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: LOCKOUT_HTML_CODE, filename: 'auth-error-lockout.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Auth Error & Lockout implementations for your framework.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== GOVERNANCE SECTION ====================
 

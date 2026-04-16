@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { Clock, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, RefreshCw, HelpCircle, Check, X, Save, AlertTriangle, Eye } from "lucide-react";
+import { Clock, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, RefreshCw, HelpCircle, Check, X, Save, AlertTriangle, Eye, Download, Copy } from "lucide-react";
 
 export default function SessionTimeoutPattern() {
   return (
@@ -72,6 +73,7 @@ export default function SessionTimeoutPattern() {
               { id: "save-progress", label: "Save Progress" },
               { id: "accessibility", label: "Accessibility" },
               { id: "implementation", label: "Implementation" },
+              { id: "code-downloads", label: "Code Downloads" },
               { id: "governance", label: "Governance" }
             ].map((item) => (
               <a
@@ -99,6 +101,7 @@ export default function SessionTimeoutPattern() {
             <SaveProgressSection />
             <AccessibilitySection />
             <ImplementationSection />
+            <CodeDownloadsSection />
             <GovernanceSection />
           </div>
 
@@ -1085,6 +1088,285 @@ formElement.addEventListener(
     </section>
   );
 }
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const TIMEOUT_REACT_CODE = `import React, { useState, useEffect, useCallback, useRef } from 'react';
+
+interface SessionConfig {
+  timeoutMs: number;
+  warningMs: number;
+  onTimeout: () => void;
+  onExtend: () => void;
+}
+
+export function SessionTimeoutPage({ timeoutMs = 1800000, warningMs = 300000, onTimeout, onExtend }: SessionConfig) {
+  const [showWarning, setShowWarning] = useState(false);
+  const [countdown, setCountdown] = useState(0);
+  const [expired, setExpired] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const warningRef = useRef<NodeJS.Timeout | null>(null);
+
+  const resetTimers = useCallback(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (warningRef.current) clearTimeout(warningRef.current);
+    setShowWarning(false);
+    warningRef.current = setTimeout(() => {
+      setShowWarning(true);
+      setCountdown(Math.floor(warningMs / 1000));
+    }, timeoutMs - warningMs);
+    timerRef.current = setTimeout(() => {
+      setExpired(true);
+      onTimeout?.();
+    }, timeoutMs);
+  }, [timeoutMs, warningMs, onTimeout]);
+
+  useEffect(() => {
+    resetTimers();
+    const events = ['mousedown', 'keydown', 'scroll', 'touchstart'];
+    const handleActivity = () => { if (!showWarning) resetTimers(); };
+    events.forEach(e => window.addEventListener(e, handleActivity));
+    return () => {
+      events.forEach(e => window.removeEventListener(e, handleActivity));
+      if (timerRef.current) clearTimeout(timerRef.current);
+      if (warningRef.current) clearTimeout(warningRef.current);
+    };
+  }, [resetTimers, showWarning]);
+
+  useEffect(() => {
+    if (!showWarning || countdown <= 0) return;
+    const t = setInterval(() => setCountdown(c => { if (c <= 1) { clearInterval(t); return 0; } return c - 1; }), 1000);
+    return () => clearInterval(t);
+  }, [showWarning, countdown]);
+
+  const handleExtend = () => { resetTimers(); onExtend?.(); };
+  const handleSignOut = () => { setExpired(true); onTimeout?.(); };
+
+  if (expired) {
+    return (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full text-center" role="alertdialog" aria-labelledby="expired-title">
+          <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h2 id="expired-title" className="text-xl font-bold text-foreground mb-2">Session Expired</h2>
+          <p className="text-muted-foreground mb-6">Your session has expired due to inactivity. Please sign in again to continue.</p>
+          <a href="/sign-in" className="inline-block py-3 px-8 bg-primary text-primary-foreground rounded-lg font-semibold">Sign In Again</a>
+        </div>
+      </div>
+    );
+  }
+
+  if (!showWarning) return null;
+
+  const mins = Math.floor(countdown / 60);
+  const secs = countdown % 60;
+
+  return (
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" role="alertdialog" aria-labelledby="timeout-title" aria-describedby="timeout-desc">
+      <div className="bg-card border border-border rounded-2xl p-8 max-w-md w-full">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+            <svg className="w-6 h-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div>
+            <h2 id="timeout-title" className="text-lg font-bold text-foreground">Session Expiring Soon</h2>
+            <p id="timeout-desc" className="text-sm text-muted-foreground">Your session will expire due to inactivity</p>
+          </div>
+        </div>
+        <div className="text-center py-6">
+          <div className="text-4xl font-bold text-foreground" aria-live="polite">{mins}:{String(secs).padStart(2, '0')}</div>
+          <p className="text-sm text-muted-foreground mt-2">Time remaining</p>
+        </div>
+        <div className="flex gap-3">
+          <button onClick={handleSignOut} className="flex-1 py-3 border border-border rounded-lg font-semibold text-foreground hover:bg-muted">Sign Out</button>
+          <button onClick={handleExtend} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold" autoFocus>Continue Session</button>
+        </div>
+        <p className="text-xs text-muted-foreground text-center mt-4">Your unsaved work will be preserved if you continue.</p>
+      </div>
+    </div>
+  );
+}`;
+
+const TIMEOUT_ANGULAR_CODE = `import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'ux4g-session-timeout',
+  standalone: true,
+  imports: [CommonModule],
+  template: \`
+    <div *ngIf="showWarning && !expired" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" role="alertdialog" aria-labelledby="timeout-title">
+      <div class="bg-card border border-border rounded-2xl p-8 max-w-md w-full">
+        <h2 id="timeout-title" class="text-lg font-bold text-foreground mb-4">Session Expiring Soon</h2>
+        <div class="text-center py-6">
+          <div class="text-4xl font-bold text-foreground" aria-live="polite">{{ formatTime() }}</div>
+          <p class="text-sm text-muted-foreground mt-2">Time remaining</p>
+        </div>
+        <div class="flex gap-3">
+          <button (click)="signOut()" class="flex-1 py-3 border border-border rounded-lg font-semibold">Sign Out</button>
+          <button (click)="extend()" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Continue</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="expired" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" role="alertdialog">
+      <div class="bg-card border border-border rounded-2xl p-8 max-w-md w-full text-center">
+        <h2 class="text-xl font-bold text-foreground mb-2">Session Expired</h2>
+        <p class="text-muted-foreground mb-6">Please sign in again to continue.</p>
+        <a href="/sign-in" class="inline-block py-3 px-8 bg-primary text-primary-foreground rounded-lg font-semibold">Sign In</a>
+      </div>
+    </div>
+  \`
+})
+export class SessionTimeoutComponent implements OnInit, OnDestroy {
+  @Input() timeoutMs = 1800000;
+  @Input() warningMs = 300000;
+  @Output() onTimeout = new EventEmitter<void>();
+  @Output() onExtend = new EventEmitter<void>();
+
+  showWarning = false; expired = false; countdown = 0;
+  private timer: any; private warning: any; private countdownInterval: any;
+
+  ngOnInit() { this.resetTimers(); }
+  ngOnDestroy() { this.clearAll(); }
+
+  formatTime() { return Math.floor(this.countdown/60)+':'+String(this.countdown%60).padStart(2,'0'); }
+
+  resetTimers() {
+    this.clearAll(); this.showWarning = false;
+    this.warning = setTimeout(() => {
+      this.showWarning = true;
+      this.countdown = Math.floor(this.warningMs / 1000);
+      this.countdownInterval = setInterval(() => { if (this.countdown > 0) this.countdown--; }, 1000);
+    }, this.timeoutMs - this.warningMs);
+    this.timer = setTimeout(() => { this.expired = true; this.onTimeout.emit(); }, this.timeoutMs);
+  }
+
+  extend() { this.resetTimers(); this.onExtend.emit(); }
+  signOut() { this.expired = true; this.onTimeout.emit(); }
+  private clearAll() { clearTimeout(this.timer); clearTimeout(this.warning); clearInterval(this.countdownInterval); }
+}`;
+
+const TIMEOUT_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session Timeout — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; }
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 1rem; }
+    .modal { width: 100%; max-width: 28rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+    .timer { text-align: center; padding: 1.5rem 0; }
+    .timer-value { font-size: 2.5rem; font-weight: 700; }
+    .timer-label { font-size: 0.875rem; color: #6b7280; margin-top: 0.5rem; }
+    .actions { display: flex; gap: 0.75rem; }
+    .btn { flex: 1; padding: 0.75rem; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn-outline { background: #fff; border: 1px solid #d1d5db; color: #111; }
+    .btn-primary { background: #005196; border: none; color: #fff; }
+    .hidden { display: none; }
+    .note { text-align: center; font-size: 0.75rem; color: #6b7280; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="overlay hidden" id="warningModal" role="alertdialog" aria-labelledby="timeout-title">
+    <div class="modal">
+      <h2 id="timeout-title">Session Expiring Soon</h2>
+      <div class="timer">
+        <div class="timer-value" id="countdown" aria-live="polite">5:00</div>
+        <div class="timer-label">Time remaining</div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-outline" onclick="signOut()">Sign Out</button>
+        <button class="btn btn-primary" onclick="extendSession()">Continue Session</button>
+      </div>
+      <p class="note">Your unsaved work will be preserved if you continue.</p>
+    </div>
+  </div>
+  <div class="overlay hidden" id="expiredModal" role="alertdialog">
+    <div class="modal" style="text-align:center">
+      <h2>Session Expired</h2>
+      <p style="color:#6b7280;margin-bottom:1.5rem">Please sign in again to continue.</p>
+      <a href="/sign-in" class="btn btn-primary" style="display:inline-block;width:auto;padding:0.75rem 2rem;text-decoration:none">Sign In</a>
+    </div>
+  </div>
+  <div style="padding:2rem;text-align:center">
+    <h1>Government Service Portal</h1>
+    <p style="color:#6b7280;margin-top:1rem">Session timeout demo — warning appears 5 minutes before expiry.</p>
+    <button onclick="simulateWarning()" style="margin-top:2rem;padding:0.75rem 2rem;background:#005196;color:#fff;border:none;border-radius:0.5rem;font-weight:600;cursor:pointer">Simulate Timeout Warning</button>
+  </div>
+  <script>
+    const TIMEOUT = 1800; const WARNING = 300;
+    let countdown = WARNING, interval;
+    function showModal(id) { document.getElementById(id).classList.remove('hidden'); }
+    function hideModal(id) { document.getElementById(id).classList.add('hidden'); }
+    function updateDisplay() {
+      const m = Math.floor(countdown/60), s = countdown%60;
+      document.getElementById('countdown').textContent = m+':'+String(s).padStart(2,'0');
+    }
+    function startCountdown() {
+      countdown = WARNING; updateDisplay();
+      interval = setInterval(() => { countdown--; updateDisplay(); if (countdown <= 0) { clearInterval(interval); hideModal('warningModal'); showModal('expiredModal'); } }, 1000);
+    }
+    function simulateWarning() { showModal('warningModal'); startCountdown(); }
+    function extendSession() { clearInterval(interval); hideModal('warningModal'); }
+    function signOut() { clearInterval(interval); hideModal('warningModal'); showModal('expiredModal'); }
+  </script>
+</body>
+</html>`;
+
+function CodeDownloadsSection() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks + Timer', code: TIMEOUT_REACT_CODE, filename: 'SessionTimeoutPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: TIMEOUT_ANGULAR_CODE, filename: 'session-timeout.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: TIMEOUT_HTML_CODE, filename: 'session-timeout.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Session Timeout implementations for your framework.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== GOVERNANCE SECTION ====================
 

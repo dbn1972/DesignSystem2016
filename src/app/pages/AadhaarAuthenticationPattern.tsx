@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, Clock, HelpCircle, Check, X, User, Lock, FileText, Eye } from "lucide-react";
+import { Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, Clock, HelpCircle, Check, X, User, Lock, FileText, Eye, Download, Copy } from "lucide-react";
 
 export default function AadhaarAuthenticationPattern() {
   return (
@@ -73,6 +74,7 @@ export default function AadhaarAuthenticationPattern() {
               { id: "fallback", label: "Fallback Paths" },
               { id: "accessibility", label: "Accessibility" },
               { id: "implementation", label: "Implementation" },
+              { id: "code-downloads", label: "Code Downloads" },
               { id: "governance", label: "Governance" }
             ].map((item) => (
               <a
@@ -101,6 +103,7 @@ export default function AadhaarAuthenticationPattern() {
             <FallbackSection />
             <AccessibilitySection />
             <ImplementationSection />
+            <CodeDownloadsSection />
             <GovernanceSection />
           </div>
 
@@ -1124,6 +1127,333 @@ async function sendAadhaarOTP(
     </section>
   );
 }
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const AADHAAR_REACT_CODE = `import React, { useState, useCallback } from 'react';
+
+type AuthMode = 'otp' | 'biometric';
+type Step = 'input' | 'consent' | 'verify' | 'done';
+
+export function AadhaarAuthenticationPage() {
+  const [step, setStep] = useState<Step>('input');
+  const [mode, setMode] = useState<AuthMode>('otp');
+  const [aadhaar, setAadhaar] = useState('');
+  const [otp, setOtp] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const formatAadhaar = (val: string) => {
+    const digits = val.replace(/\\D/g, '').slice(0, 12);
+    return digits.replace(/(\\d{4})(?=\\d)/g, '$1 ');
+  };
+
+  const validateAadhaar = useCallback(() => {
+    const digits = aadhaar.replace(/\\s/g, '');
+    if (!digits) return 'Aadhaar number is required';
+    if (digits.length !== 12) return 'Aadhaar must be exactly 12 digits';
+    if (/^0/.test(digits)) return 'Aadhaar cannot start with 0';
+    return '';
+  }, [aadhaar]);
+
+  const handleSubmitAadhaar = () => {
+    const err = validateAadhaar();
+    if (err) { setError(err); return; }
+    setError(''); setStep('consent');
+  };
+
+  const handleConsent = async () => {
+    if (!consent) { setError('You must provide consent to proceed'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/auth/aadhaar/initiate', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ aadhaar: aadhaar.replace(/\\s/g, ''), mode, consent: true }),
+      });
+      if (!res.ok) { const d = await res.json(); setError(d.message || 'Failed to initiate'); return; }
+      setStep('verify');
+    } catch { setError('Network error.'); }
+    finally { setLoading(false); }
+  };
+
+  const handleVerify = async () => {
+    if (mode === 'otp' && otp.length < 6) { setError('Enter the complete 6-digit OTP'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/auth/aadhaar/verify', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ aadhaar: aadhaar.replace(/\\s/g, ''), mode, otp }),
+      });
+      if (!res.ok) { setError('Verification failed. Please try again.'); return; }
+      setStep('done');
+    } catch { setError('Network error.'); }
+    finally { setLoading(false); }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+            <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-foreground">Aadhaar Authentication</h1>
+            <p className="text-sm text-muted-foreground">UIDAI-compliant identity verification</p>
+          </div>
+        </div>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {step === 'input' && (
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="aadhaar" className="block text-sm font-medium mb-1">Aadhaar Number <span className="text-red-500">*</span></label>
+              <input id="aadhaar" type="text" value={aadhaar} onChange={e => setAadhaar(formatAadhaar(e.target.value))} placeholder="XXXX XXXX XXXX" maxLength={14} className="w-full px-4 py-3 border border-border rounded-lg text-lg tracking-wider font-mono" aria-required="true" />
+              <p className="mt-1 text-xs text-muted-foreground">Your 12-digit Aadhaar number as issued by UIDAI</p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2">Authentication Mode</label>
+              <div className="grid grid-cols-2 gap-3">
+                <button onClick={() => setMode('otp')} className={\`p-3 rounded-xl border-2 text-center \${mode === 'otp' ? 'border-primary bg-primary/5' : 'border-border'}\`}>
+                  <div className="font-semibold text-sm">OTP</div>
+                  <div className="text-xs text-muted-foreground">Via registered mobile</div>
+                </button>
+                <button onClick={() => setMode('biometric')} className={\`p-3 rounded-xl border-2 text-center \${mode === 'biometric' ? 'border-primary bg-primary/5' : 'border-border'}\`}>
+                  <div className="font-semibold text-sm">Biometric</div>
+                  <div className="text-xs text-muted-foreground">Fingerprint scan</div>
+                </button>
+              </div>
+            </div>
+            <button onClick={handleSubmitAadhaar} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Proceed</button>
+          </div>
+        )}
+        {step === 'consent' && (
+          <div className="space-y-4">
+            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
+              <h3 className="font-bold text-sm text-yellow-800 mb-2">Consent Required</h3>
+              <p className="text-xs text-yellow-700">As per UIDAI guidelines, your explicit consent is required before Aadhaar authentication. Your data will be used solely for identity verification.</p>
+            </div>
+            <label className="flex items-start gap-3 p-3 border border-border rounded-lg cursor-pointer">
+              <input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} className="mt-1 accent-primary" />
+              <span className="text-sm text-muted-foreground">I voluntarily provide my Aadhaar number for authentication and consent to the verification of my identity through UIDAI.</span>
+            </label>
+            <div className="flex gap-3">
+              <button onClick={() => setStep('input')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+              <button onClick={handleConsent} disabled={loading || !consent} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Processing...' : 'Authenticate'}</button>
+            </div>
+          </div>
+        )}
+        {step === 'verify' && mode === 'otp' && (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">Enter the OTP sent to your Aadhaar-registered mobile number</p>
+            <input type="text" value={otp} onChange={e => setOtp(e.target.value.replace(/\\D/g, '').slice(0, 6))} placeholder="Enter 6-digit OTP" maxLength={6} className="w-full px-4 py-3 border border-border rounded-lg text-center text-lg font-bold tracking-widest" aria-label="Aadhaar OTP" />
+            <button onClick={handleVerify} disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Verifying...' : 'Verify OTP'}</button>
+          </div>
+        )}
+        {step === 'verify' && mode === 'biometric' && (
+          <div className="space-y-4 text-center">
+            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
+              <svg className="w-10 h-10 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" /></svg>
+            </div>
+            <p className="text-muted-foreground">Place your finger on the biometric scanner</p>
+            <button onClick={handleVerify} disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Scanning...' : 'Capture Fingerprint'}</button>
+          </div>
+        )}
+        {step === 'done' && (
+          <div className="text-center py-6 space-y-4">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+            <h2 className="text-xl font-bold text-foreground">Identity Verified</h2>
+            <p className="text-muted-foreground">Your Aadhaar authentication was successful.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const AADHAAR_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-aadhaar-auth',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-6">Aadhaar Authentication</h1>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="step === 'input'" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Aadhaar Number</label>
+            <input [formControl]="aadhaarCtrl" placeholder="XXXX XXXX XXXX" maxlength="14" class="w-full px-4 py-3 border border-border rounded-lg text-lg tracking-wider font-mono" />
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <button (click)="mode='otp'" [class]="'p-3 rounded-xl border-2 text-center '+(mode==='otp'?'border-primary bg-primary/5':'border-border')"><div class="font-semibold text-sm">OTP</div></button>
+            <button (click)="mode='biometric'" [class]="'p-3 rounded-xl border-2 text-center '+(mode==='biometric'?'border-primary bg-primary/5':'border-border')"><div class="font-semibold text-sm">Biometric</div></button>
+          </div>
+          <button (click)="proceed()" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Proceed</button>
+        </div>
+        <div *ngIf="step === 'consent'" class="space-y-4">
+          <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-xs text-yellow-700">Consent required per UIDAI guidelines.</div>
+          <label class="flex items-start gap-3"><input type="checkbox" [(ngModel)]="consent" /><span class="text-sm">I consent to Aadhaar verification</span></label>
+          <button (click)="authenticate()" [disabled]="loading||!consent" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Processing...' : 'Authenticate' }}</button>
+        </div>
+        <div *ngIf="step === 'verify'" class="space-y-4">
+          <input [formControl]="otpCtrl" placeholder="Enter 6-digit OTP" maxlength="6" class="w-full px-4 py-3 border border-border rounded-lg text-center text-lg font-bold" />
+          <button (click)="verify()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Verifying...' : 'Verify' }}</button>
+        </div>
+        <div *ngIf="step === 'done'" class="text-center py-8">
+          <h2 class="text-xl font-bold mb-2">Identity Verified</h2>
+          <p class="text-muted-foreground">Aadhaar authentication successful.</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class AadhaarAuthComponent {
+  aadhaarCtrl = new FormControl('', [Validators.required, Validators.pattern(/^\\d{4}\\s?\\d{4}\\s?\\d{4}$/)]);
+  otpCtrl = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  step: 'input'|'consent'|'verify'|'done' = 'input';
+  mode: 'otp'|'biometric' = 'otp';
+  consent = false; loading = false; error = '';
+
+  proceed() { if (this.aadhaarCtrl.invalid) { this.error = 'Enter valid Aadhaar'; return; } this.error = ''; this.step = 'consent'; }
+  async authenticate() {
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/aadhaar/initiate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ aadhaar: this.aadhaarCtrl.value, mode: this.mode }) });
+      if (!res.ok) { this.error = 'Failed'; return; }
+      this.step = 'verify';
+    } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+  async verify() {
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/aadhaar/verify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ otp: this.otpCtrl.value }) });
+      if (!res.ok) { this.error = 'Invalid OTP'; return; }
+      this.step = 'done';
+    } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+}`;
+
+const AADHAAR_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aadhaar Authentication — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 28rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    input[type="text"] { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1.125rem; letter-spacing: 0.15em; font-family: monospace; outline: none; margin-bottom: 1rem; }
+    input:focus { border-color: #005196; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:disabled { opacity: 0.6; }
+    .modes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+    .mode-btn { padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.75rem; background: #fff; cursor: pointer; text-align: center; font-weight: 600; font-size: 0.875rem; }
+    .mode-btn.active { border-color: #005196; background: rgba(0,81,150,0.05); }
+    .consent-box { padding: 1rem; background: #fefce8; border: 1px solid #fde68a; border-radius: 0.75rem; margin-bottom: 1rem; font-size: 0.75rem; color: #a16207; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Aadhaar Authentication</h1>
+    <div id="error" class="error" role="alert"></div>
+    <div id="stepInput">
+      <label for="aadhaar">Aadhaar Number <span style="color:#ef4444">*</span></label>
+      <input type="text" id="aadhaar" placeholder="XXXX XXXX XXXX" maxlength="14" required aria-required="true" />
+      <div class="modes">
+        <button class="mode-btn active" id="modeOtp" onclick="selectMode('otp')">OTP</button>
+        <button class="mode-btn" id="modeBio" onclick="selectMode('biometric')">Biometric</button>
+      </div>
+      <button class="btn" onclick="proceed()">Proceed</button>
+    </div>
+    <div id="stepConsent" class="hidden">
+      <div class="consent-box">Consent required per UIDAI guidelines for Aadhaar authentication.</div>
+      <label style="display:flex;align-items:flex-start;gap:0.5rem;margin-bottom:1rem;font-size:0.875rem"><input type="checkbox" id="consent" /><span>I consent to Aadhaar verification through UIDAI</span></label>
+      <button class="btn" onclick="authenticate()">Authenticate</button>
+    </div>
+    <div id="stepVerify" class="hidden">
+      <label for="otp">Enter OTP</label>
+      <input type="text" id="otp" placeholder="6-digit OTP" maxlength="6" style="text-align:center;font-weight:700" />
+      <button class="btn" onclick="verifyOtp()">Verify</button>
+    </div>
+    <div id="stepDone" class="hidden success">
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem">Identity Verified</h2>
+      <p style="color:#6b7280">Aadhaar authentication successful.</p>
+    </div>
+  </div>
+  <script>
+    let mode = 'otp';
+    function showError(m) { const e=document.getElementById('error'); e.textContent=m; e.style.display='block'; }
+    function hideError() { document.getElementById('error').style.display='none'; }
+    function showStep(id) { ['stepInput','stepConsent','stepVerify','stepDone'].forEach(s=>document.getElementById(s).classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); }
+    function selectMode(m) { mode=m; document.getElementById('modeOtp').classList.toggle('active',m==='otp'); document.getElementById('modeBio').classList.toggle('active',m==='biometric'); }
+    function proceed() { hideError(); const v=document.getElementById('aadhaar').value.replace(/\\s/g,''); if(v.length!==12){showError('Enter 12-digit Aadhaar');return;} showStep('stepConsent'); }
+    async function authenticate() { hideError(); if(!document.getElementById('consent').checked){showError('Consent required');return;} try{const r=await fetch('/api/auth/aadhaar/initiate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({aadhaar:document.getElementById('aadhaar').value,mode})}); if(!r.ok){showError('Failed');return;} showStep('stepVerify');}catch{showError('Network error');} }
+    async function verifyOtp() { hideError(); const c=document.getElementById('otp').value; if(c.length<6){showError('Enter complete OTP');return;} try{const r=await fetch('/api/auth/aadhaar/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({otp:c})}); if(!r.ok){showError('Invalid OTP');return;} showStep('stepDone');}catch{showError('Network error');} }
+  </script>
+</body>
+</html>`;
+
+function CodeDownloadsSection() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks + UIDAI Flow', code: AADHAAR_REACT_CODE, filename: 'AadhaarAuthPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: AADHAAR_ANGULAR_CODE, filename: 'aadhaar-auth.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: AADHAAR_HTML_CODE, filename: 'aadhaar-auth.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Aadhaar Authentication implementations for your framework.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== GOVERNANCE SECTION ====================
 

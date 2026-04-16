@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { CheckSquare, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, FileText, Globe, Code, Settings, HelpCircle, ChevronRight, Database, Check, X, Eye, User, Lock, Clock, UserX } from "lucide-react";
+import { CheckSquare, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, FileText, Globe, Code, Settings, HelpCircle, ChevronRight, Database, Check, X, Eye, User, Lock, Clock, UserX, Download, Copy } from "lucide-react";
 
 export default function ConsentCapturePattern() {
   return (
@@ -72,6 +73,7 @@ export default function ConsentCapturePattern() {
               { id: "states", label: "Consent States" },
               { id: "accessibility", label: "Accessibility" },
               { id: "implementation", label: "Implementation" },
+              { id: "code-downloads", label: "Code Downloads" },
               { id: "governance", label: "Governance" }
             ].map((item) => (
               <a
@@ -106,6 +108,7 @@ export default function ConsentCapturePattern() {
             <ConsentStates />
             <AccessibilitySection />
             <ImplementationSection />
+            <CodeDownloadsSection />
             <GovernanceSection />
           </div>
 
@@ -1375,6 +1378,276 @@ function ImplementationItem({ text }: { text: string }) {
     </div>
   );
 }
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const CONSENT_REACT_CODE = `import React, { useState } from 'react';
+
+interface ConsentItem {
+  id: string;
+  title: string;
+  description: string;
+  required: boolean;
+}
+
+const CONSENT_ITEMS: ConsentItem[] = [
+  { id: 'data-collection', title: 'Data Collection & Storage', description: 'I consent to the collection and secure storage of my personal data including name, address, Aadhaar number, and contact details for the purpose of this government service.', required: true },
+  { id: 'data-sharing', title: 'Data Sharing with Departments', description: 'I consent to sharing my verified data with relevant government departments for processing my application and delivering the requested service.', required: true },
+  { id: 'aadhaar-verification', title: 'Aadhaar-based Verification', description: 'I consent to the verification of my identity through UIDAI Aadhaar authentication as required for this service.', required: true },
+  { id: 'communication', title: 'Service Communications', description: 'I agree to receive SMS, email, and push notifications regarding my application status, service updates, and important deadlines.', required: false },
+  { id: 'analytics', title: 'Service Improvement Analytics', description: 'I consent to anonymized usage data being collected to improve government digital services.', required: false },
+];
+
+export function ConsentCapturePage() {
+  const [consents, setConsents] = useState<Record<string, boolean>>({});
+  const [expanded, setExpanded] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const toggleConsent = (id: string) => {
+    setConsents(prev => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const allRequiredChecked = CONSENT_ITEMS.filter(c => c.required).every(c => consents[c.id]);
+
+  const handleSubmit = async () => {
+    if (!allRequiredChecked) { setError('Please accept all mandatory consent items'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/consent/capture', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ consents, timestamp: new Date().toISOString() }),
+      });
+      if (!res.ok) { setError('Failed to record consent'); return; }
+      setSubmitted(true);
+    } catch { setError('Network error.'); }
+    finally { setLoading(false); }
+  };
+
+  if (submitted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background p-4">
+        <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 text-center">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <h2 className="text-xl font-bold text-foreground mb-2">Consent Recorded</h2>
+          <p className="text-muted-foreground mb-4">Your consent preferences have been securely recorded.</p>
+          <p className="text-xs text-muted-foreground">You can modify your consent at any time from your account settings.</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Consent & Permissions</h1>
+        <p className="text-sm text-muted-foreground mb-6">Review and provide your consent for data processing as required by this government service.</p>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        <div className="space-y-3 mb-6">
+          {CONSENT_ITEMS.map(item => (
+            <div key={item.id} className="border border-border rounded-xl overflow-hidden">
+              <div className="flex items-start gap-3 p-4 cursor-pointer" onClick={() => setExpanded(expanded === item.id ? null : item.id)}>
+                <input type="checkbox" checked={!!consents[item.id]} onChange={() => toggleConsent(item.id)} onClick={e => e.stopPropagation()} className="mt-1 accent-primary" aria-label={item.title} />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-sm text-foreground">{item.title}</span>
+                    {item.required && <span className="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-semibold">Required</span>}
+                  </div>
+                  {expanded === item.id && <p className="text-sm text-muted-foreground mt-2">{item.description}</p>}
+                </div>
+                <svg className={\`w-4 h-4 text-muted-foreground transition-transform \${expanded === item.id ? 'rotate-180' : ''}\`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button onClick={handleSubmit} disabled={loading || !allRequiredChecked} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Recording...' : 'Accept & Continue'}</button>
+        <p className="text-xs text-muted-foreground text-center mt-4">Your consent is recorded securely and can be withdrawn at any time.</p>
+      </div>
+    </div>
+  );
+}`;
+
+const CONSENT_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+interface ConsentItem { id: string; title: string; description: string; required: boolean; }
+
+@Component({
+  selector: 'ux4g-consent-capture',
+  standalone: true,
+  imports: [CommonModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-2">Consent & Permissions</h1>
+        <p class="text-sm text-muted-foreground mb-6">Review and provide your consent for data processing.</p>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="!submitted" class="space-y-3 mb-6">
+          <div *ngFor="let item of items" class="border border-border rounded-xl overflow-hidden">
+            <div class="flex items-start gap-3 p-4 cursor-pointer" (click)="toggle(item.id)">
+              <input type="checkbox" [checked]="consents[item.id]" (change)="consents[item.id] = !consents[item.id]" (click)="$event.stopPropagation()" class="mt-1 accent-primary" />
+              <div class="flex-1">
+                <span class="font-semibold text-sm">{{ item.title }}</span>
+                <span *ngIf="item.required" class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full ml-2">Required</span>
+                <p *ngIf="expanded === item.id" class="text-sm text-muted-foreground mt-2">{{ item.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button *ngIf="!submitted" (click)="submit()" [disabled]="loading || !allRequired()" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Recording...' : 'Accept & Continue' }}</button>
+        <div *ngIf="submitted" class="text-center py-8">
+          <h2 class="text-xl font-bold mb-2">Consent Recorded</h2>
+          <p class="text-muted-foreground">Your preferences have been saved.</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class ConsentCaptureComponent {
+  items: ConsentItem[] = [
+    { id: 'data', title: 'Data Collection & Storage', description: 'Consent to collect and store personal data.', required: true },
+    { id: 'sharing', title: 'Data Sharing', description: 'Consent to share data with departments.', required: true },
+    { id: 'aadhaar', title: 'Aadhaar Verification', description: 'Consent to UIDAI verification.', required: true },
+    { id: 'comms', title: 'Communications', description: 'Receive service notifications.', required: false },
+  ];
+  consents: Record<string, boolean> = {};
+  expanded: string | null = null;
+  loading = false; error = ''; submitted = false;
+
+  toggle(id: string) { this.expanded = this.expanded === id ? null : id; }
+  allRequired() { return this.items.filter(i => i.required).every(i => this.consents[i.id]); }
+
+  async submit() {
+    if (!this.allRequired()) { this.error = 'Accept all required items'; return; }
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/consent/capture', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ consents: this.consents }) });
+      if (!res.ok) { this.error = 'Failed'; return; }
+      this.submitted = true;
+    } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+}`;
+
+const CONSENT_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consent Capture — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 32rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .sub { font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem; }
+    .consent-item { border: 1px solid #e5e7eb; border-radius: 0.75rem; margin-bottom: 0.75rem; overflow: hidden; }
+    .consent-header { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; cursor: pointer; }
+    .consent-header input { margin-top: 0.25rem; }
+    .consent-title { font-weight: 600; font-size: 0.875rem; }
+    .required-badge { font-size: 0.75rem; background: #fef2f2; color: #b91c1c; padding: 0.125rem 0.5rem; border-radius: 1rem; margin-left: 0.5rem; }
+    .consent-desc { padding: 0 1rem 1rem 2.75rem; font-size: 0.875rem; color: #6b7280; display: none; }
+    .consent-desc.show { display: block; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:disabled { opacity: 0.6; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .note { text-align: center; font-size: 0.75rem; color: #6b7280; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Consent & Permissions</h1>
+    <p class="sub">Review and provide your consent for data processing.</p>
+    <div id="error" class="error" role="alert"></div>
+    <div id="consentList"></div>
+    <button class="btn" id="submitBtn" onclick="submitConsent()">Accept & Continue</button>
+    <p class="note">Your consent is recorded securely and can be withdrawn at any time.</p>
+  </div>
+  <script>
+    const items = [
+      { id: 'data', title: 'Data Collection & Storage', desc: 'I consent to the collection and secure storage of my personal data for this government service.', required: true },
+      { id: 'sharing', title: 'Data Sharing with Departments', desc: 'I consent to sharing my data with relevant government departments.', required: true },
+      { id: 'aadhaar', title: 'Aadhaar Verification', desc: 'I consent to identity verification through UIDAI.', required: true },
+      { id: 'comms', title: 'Service Communications', desc: 'I agree to receive notifications about my application.', required: false },
+      { id: 'analytics', title: 'Service Improvement', desc: 'I consent to anonymized usage data collection.', required: false },
+    ];
+    const list = document.getElementById('consentList');
+    items.forEach(item => {
+      const div = document.createElement('div'); div.className = 'consent-item';
+      div.innerHTML = '<div class="consent-header" onclick="toggleDesc(\\'' + item.id + '\\')"><input type="checkbox" id="c-'+item.id+'" onclick="event.stopPropagation()"><div><span class="consent-title">'+item.title+'</span>'+(item.required?'<span class="required-badge">Required</span>':'')+'</div></div><div class="consent-desc" id="desc-'+item.id+'">'+item.desc+'</div>';
+      list.appendChild(div);
+    });
+    function toggleDesc(id) { const el = document.getElementById('desc-'+id); el.classList.toggle('show'); }
+    function showError(m) { const e=document.getElementById('error'); e.textContent=m; e.style.display='block'; }
+    async function submitConsent() {
+      document.getElementById('error').style.display='none';
+      const missing = items.filter(i => i.required && !document.getElementById('c-'+i.id).checked);
+      if (missing.length) { showError('Please accept all required consent items'); return; }
+      const consents = {}; items.forEach(i => consents[i.id] = document.getElementById('c-'+i.id).checked);
+      const btn = document.getElementById('submitBtn'); btn.disabled = true; btn.textContent = 'Recording...';
+      try {
+        const res = await fetch('/api/consent/capture', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ consents }) });
+        if (!res.ok) { showError('Failed to record consent'); return; }
+        document.querySelector('.card').innerHTML = '<div style="text-align:center;padding:2rem 0"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem">Consent Recorded</h2><p style="color:#6b7280">Your preferences have been saved securely.</p></div>';
+      } catch { showError('Network error'); }
+      finally { btn.disabled = false; btn.textContent = 'Accept & Continue'; }
+    }
+  </script>
+</body>
+</html>`;
+
+function CodeDownloadsSection() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks + Expandable Items', code: CONSENT_REACT_CODE, filename: 'ConsentCapturePage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: CONSENT_ANGULAR_CODE, filename: 'consent-capture.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: CONSENT_HTML_CODE, filename: 'consent-capture.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Consent Capture implementations for your framework.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== GOVERNANCE SECTION ====================
 
