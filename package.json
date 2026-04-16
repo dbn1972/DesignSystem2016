@@ -124,7 +124,7 @@
     "typescript": "^5.9.3",
     "vite": "6.3.5",
     "vitest": "^4.1.4",
-    "zone.js": "^0.16.1"
+    "zone.js": "~0.14.10"
   },
   "peerDependencies": {
     "react": "18.3.1",
