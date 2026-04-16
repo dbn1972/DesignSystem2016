@@ -7,11 +7,13 @@ const config: Config = {
   tagline: 'Indian Government Design System - Building accessible digital services',
   favicon: 'img/favicon.ico',
 
-  url: 'https://ux4g.github.io',
-  baseUrl: '/',
+  url: 'https://dbn1972.github.io',
+  baseUrl: '/DesignSystem2016/',
 
-  organizationName: 'ux4g',
-  projectName: 'ux4g',
+  organizationName: 'dbn1972',
+  projectName: 'DesignSystem2016',
+  trailingSlash: false,
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
