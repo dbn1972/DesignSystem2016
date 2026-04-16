@@ -11,6 +11,36 @@ const sidebars: SidebarsConfig = {
         'getting-started/quick-start',
       ],
     },
+    {
+      type: 'category',
+      label: 'Components',
+      items: [
+        'components/overview',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Foundations',
+      items: [
+        'foundations/design-tokens',
+        'foundations/accessibility',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Patterns',
+      items: [
+        'patterns/overview',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Guidelines',
+      items: [
+        'guidelines/contributing',
+        'guidelines/architecture',
+      ],
+    },
   ],
 };
 
