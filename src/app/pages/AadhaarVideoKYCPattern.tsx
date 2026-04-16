@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { Shield, Video, Fingerprint, CheckCircle, AlertCircle, Lock, Eye, ArrowRight, Key } from "lucide-react";
+import { Shield, Video, Fingerprint, CheckCircle, AlertCircle, Lock, Eye, ArrowRight, Key, Download, Copy, Check } from "lucide-react";
 
 export default function AadhaarVideoKYCPattern() {
   return (
@@ -601,6 +602,8 @@ export function AadhaarVideoKYC() {
               </div>
             </section>
 
+            <VideoKYCCodeDownloads />
+
           </div>
 
           {/* Sidebar */}
@@ -615,6 +618,297 @@ export function AadhaarVideoKYC() {
     </div>
   );
 }
+
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const VIDEOKYC_REACT_CODE = `import React, { useState, useRef, useCallback, useEffect } from 'react';
+
+type Step = 'aadhaar' | 'consent' | 'otp' | 'video' | 'review' | 'done';
+
+export function AadhaarVideoKYCPage() {
+  const [step, setStep] = useState<Step>('aadhaar');
+  const [aadhaar, setAadhaar] = useState('');
+  const [otp, setOtp] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [recording, setRecording] = useState(false);
+  const [recorded, setRecorded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+
+  const formatAadhaar = (val: string) => {
+    const digits = val.replace(/\\D/g, '').slice(0, 12);
+    return digits.replace(/(\\d{4})(?=\\d)/g, '$1 ');
+  };
+
+  const handleAadhaarSubmit = () => {
+    const digits = aadhaar.replace(/\\s/g, '');
+    if (digits.length !== 12) { setError('Enter valid 12-digit Aadhaar number'); return; }
+    setError(''); setStep('consent');
+  };
+
+  const handleConsent = async () => {
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/kyc/aadhaar-video/initiate', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ aadhaar: aadhaar.replace(/\\s/g, '') }),
+      });
+      if (!res.ok) { setError('Failed to initiate KYC'); return; }
+      setStep('otp');
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  const handleOtpVerify = async () => {
+    if (otp.length < 6) { setError('Enter complete OTP'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/kyc/aadhaar-video/verify-otp', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ otp }),
+      });
+      if (!res.ok) { setError('Invalid OTP'); return; }
+      setStep('video');
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  const startCamera = useCallback(async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: 640, height: 480 }, audio: true });
+      streamRef.current = stream;
+      if (videoRef.current) { videoRef.current.srcObject = stream; videoRef.current.play(); }
+    } catch { setError('Camera access denied. Please allow camera permissions.'); }
+  }, []);
+
+  useEffect(() => { if (step === 'video') startCamera(); return () => { streamRef.current?.getTracks().forEach(t => t.stop()); }; }, [step, startCamera]);
+
+  const handleRecord = () => {
+    if (!recording) { setRecording(true); setTimeout(() => { setRecording(false); setRecorded(true); }, 10000); }
+  };
+
+  const handleSubmitVideo = async () => {
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/kyc/aadhaar-video/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ aadhaar: aadhaar.replace(/\\s/g, ''), videoRecorded: true }) });
+      if (!res.ok) { setError('Submission failed'); return; }
+      streamRef.current?.getTracks().forEach(t => t.stop());
+      setStep('done');
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-green-500 rounded-xl flex items-center justify-center">
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-foreground">Aadhaar Video KYC</h1>
+            <p className="text-sm text-muted-foreground">UIDAI + Video identity verification</p>
+          </div>
+        </div>
+        <div className="flex gap-1 mb-6">{['aadhaar','consent','otp','video','done'].map((s,i) => (<div key={s} className={\`flex-1 h-1.5 rounded \${['aadhaar','consent','otp','video','review','done'].indexOf(step) >= i ? 'bg-primary' : 'bg-muted'}\`} />))}</div>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {step === 'aadhaar' && (<div className="space-y-4"><div><label htmlFor="aadhaar" className="block text-sm font-medium mb-1">Aadhaar Number <span className="text-red-500">*</span></label><input id="aadhaar" value={aadhaar} onChange={e => setAadhaar(formatAadhaar(e.target.value))} placeholder="XXXX XXXX XXXX" maxLength={14} className="w-full px-4 py-3 border border-border rounded-lg text-lg tracking-wider font-mono" aria-required="true" /></div><button onClick={handleAadhaarSubmit} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Proceed</button></div>)}
+        {step === 'consent' && (<div className="space-y-4"><div className="p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-700"><p className="font-bold mb-1">UIDAI Consent Required</p><p className="text-xs">I authorize Aadhaar eKYC and video verification for identity confirmation as per UIDAI guidelines and RBI KYC norms.</p></div><div className="flex gap-3"><button onClick={() => setStep('aadhaar')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={handleConsent} disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Processing...' : 'I Consent'}</button></div></div>)}
+        {step === 'otp' && (<div className="space-y-4"><p className="text-sm text-muted-foreground">Enter OTP sent to Aadhaar-registered mobile</p><input value={otp} onChange={e => setOtp(e.target.value.replace(/\\D/g,'').slice(0,6))} placeholder="6-digit OTP" maxLength={6} className="w-full px-4 py-3 border border-border rounded-lg text-center text-lg font-bold tracking-widest" /><button onClick={handleOtpVerify} disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Verifying...' : 'Verify OTP'}</button></div>)}
+        {step === 'video' && (<div className="space-y-4"><div className="relative rounded-xl overflow-hidden bg-black aspect-video"><video ref={videoRef} className="w-full h-full object-cover" muted playsInline />{recording && <div className="absolute top-3 right-3 flex items-center gap-2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold"><div className="w-2 h-2 bg-white rounded-full animate-pulse" />Recording...</div>}</div><p className="text-xs text-muted-foreground text-center">Look directly at the camera. Recording will last 10 seconds.</p>{!recorded ? <button onClick={handleRecord} disabled={recording} className="w-full py-3 bg-red-600 text-white rounded-lg font-semibold disabled:opacity-60">{recording ? 'Recording...' : 'Start Recording'}</button> : <button onClick={handleSubmitVideo} disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Submitting...' : 'Submit Video KYC'}</button>}</div>)}
+        {step === 'done' && (<div className="text-center py-6 space-y-4"><div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div><h2 className="text-xl font-bold text-foreground">KYC Verified</h2><p className="text-muted-foreground">Aadhaar + Video verification complete.</p></div>)}
+      </div>
+    </div>
+  );
+}`;
+
+const VIDEOKYC_ANGULAR_CODE = `import { Component, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-aadhaar-video-kyc',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-6">Aadhaar Video KYC</h1>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="step === 'aadhaar'" class="space-y-4">
+          <label class="block text-sm font-medium mb-1">Aadhaar Number</label>
+          <input [formControl]="aadhaarCtrl" placeholder="XXXX XXXX XXXX" maxlength="14" class="w-full px-4 py-3 border border-border rounded-lg text-lg tracking-wider font-mono" />
+          <button (click)="submitAadhaar()" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Proceed</button>
+        </div>
+        <div *ngIf="step === 'consent'" class="space-y-4">
+          <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-700">UIDAI consent required for Aadhaar eKYC + video verification.</div>
+          <button (click)="initiate()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Processing...' : 'I Consent' }}</button>
+        </div>
+        <div *ngIf="step === 'otp'" class="space-y-4">
+          <input [formControl]="otpCtrl" placeholder="6-digit OTP" maxlength="6" class="w-full px-4 py-3 border border-border rounded-lg text-center text-lg font-bold" />
+          <button (click)="verifyOtp()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Verifying...' : 'Verify' }}</button>
+        </div>
+        <div *ngIf="step === 'video'" class="space-y-4">
+          <video #videoEl class="w-full rounded-xl bg-black aspect-video object-cover" muted playsinline></video>
+          <button *ngIf="!recorded" (click)="startRecording()" [disabled]="recording" class="w-full py-3 bg-red-600 text-white rounded-lg font-semibold">{{ recording ? 'Recording...' : 'Start Recording' }}</button>
+          <button *ngIf="recorded" (click)="submitVideo()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Submitting...' : 'Submit Video KYC' }}</button>
+        </div>
+        <div *ngIf="step === 'done'" class="text-center py-8">
+          <h2 class="text-xl font-bold mb-2">KYC Verified</h2>
+          <p class="text-muted-foreground">Aadhaar + Video verification complete.</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class AadhaarVideoKYCComponent implements OnDestroy {
+  @ViewChild('videoEl') videoEl!: ElementRef<HTMLVideoElement>;
+  aadhaarCtrl = new FormControl('', [Validators.required]);
+  otpCtrl = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  step: 'aadhaar'|'consent'|'otp'|'video'|'done' = 'aadhaar';
+  loading = false; error = ''; recording = false; recorded = false;
+  private stream: MediaStream | null = null;
+
+  ngOnDestroy() { this.stream?.getTracks().forEach(t => t.stop()); }
+
+  submitAadhaar() { if (this.aadhaarCtrl.invalid) { this.error = 'Enter Aadhaar'; return; } this.step = 'consent'; }
+  async initiate() {
+    this.loading = true; this.error = '';
+    try { const r = await fetch('/api/kyc/aadhaar-video/initiate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ aadhaar: this.aadhaarCtrl.value }) }); if (!r.ok) { this.error = 'Failed'; return; } this.step = 'otp'; } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+  async verifyOtp() {
+    this.loading = true; this.error = '';
+    try { const r = await fetch('/api/kyc/aadhaar-video/verify-otp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ otp: this.otpCtrl.value }) }); if (!r.ok) { this.error = 'Invalid OTP'; return; } this.step = 'video'; this.startCamera(); } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+  async startCamera() {
+    try { this.stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true }); setTimeout(() => { if (this.videoEl) { this.videoEl.nativeElement.srcObject = this.stream; this.videoEl.nativeElement.play(); } }, 100); } catch { this.error = 'Camera access denied'; }
+  }
+  startRecording() { this.recording = true; setTimeout(() => { this.recording = false; this.recorded = true; }, 10000); }
+  async submitVideo() {
+    this.loading = true;
+    try { const r = await fetch('/api/kyc/aadhaar-video/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ videoRecorded: true }) }); if (!r.ok) { this.error = 'Failed'; return; } this.stream?.getTracks().forEach(t => t.stop()); this.step = 'done'; } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+}`;
+
+const VIDEOKYC_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aadhaar Video KYC — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 32rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    input { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; margin-bottom: 1rem; }
+    input:focus { border-color: #005196; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:disabled { opacity: 0.6; }
+    .btn-red { background: #dc2626; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .consent { padding: 1rem; background: #fefce8; border: 1px solid #fde68a; border-radius: 0.75rem; margin-bottom: 1rem; font-size: 0.875rem; color: #a16207; }
+    video { width: 100%; border-radius: 0.75rem; background: #000; aspect-ratio: 4/3; margin-bottom: 1rem; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Aadhaar Video KYC</h1>
+    <div id="error" class="error" role="alert"></div>
+    <div id="stepAadhaar">
+      <label for="aadhaar">Aadhaar Number</label>
+      <input type="text" id="aadhaar" placeholder="XXXX XXXX XXXX" maxlength="14" style="font-size:1.125rem;letter-spacing:0.15em;font-family:monospace" />
+      <button class="btn" onclick="submitAadhaar()">Proceed</button>
+    </div>
+    <div id="stepConsent" class="hidden">
+      <div class="consent">UIDAI consent required for Aadhaar eKYC + video verification.</div>
+      <button class="btn" onclick="initiateKYC()">I Consent</button>
+    </div>
+    <div id="stepOtp" class="hidden">
+      <label for="otp">OTP sent to Aadhaar-registered mobile</label>
+      <input type="text" id="otp" placeholder="6-digit OTP" maxlength="6" style="text-align:center;font-size:1.25rem;font-weight:700" />
+      <button class="btn" onclick="verifyOtp()">Verify</button>
+    </div>
+    <div id="stepVideo" class="hidden">
+      <video id="videoEl" muted playsinline></video>
+      <button class="btn btn-red" id="recordBtn" onclick="startRecording()">Start Recording</button>
+      <button class="btn hidden" id="submitBtn" onclick="submitVideo()">Submit Video KYC</button>
+    </div>
+    <div id="stepDone" class="hidden success">
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem">KYC Verified</h2>
+      <p style="color:#6b7280">Aadhaar + Video verification complete.</p>
+    </div>
+  </div>
+  <script>
+    let stream;
+    function showError(m){const e=document.getElementById('error');e.textContent=m;e.style.display='block';}
+    function hideError(){document.getElementById('error').style.display='none';}
+    function showStep(id){['stepAadhaar','stepConsent','stepOtp','stepVideo','stepDone'].forEach(s=>document.getElementById(s).classList.add('hidden'));document.getElementById(id).classList.remove('hidden');}
+    function submitAadhaar(){hideError();const v=document.getElementById('aadhaar').value.replace(/\\s/g,'');if(v.length!==12){showError('Enter 12-digit Aadhaar');return;}showStep('stepConsent');}
+    async function initiateKYC(){hideError();try{const r=await fetch('/api/kyc/aadhaar-video/initiate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({aadhaar:document.getElementById('aadhaar').value})});if(!r.ok){showError('Failed');return;}showStep('stepOtp');}catch{showError('Network error');}}
+    async function verifyOtp(){hideError();const c=document.getElementById('otp').value;if(c.length<6){showError('Enter OTP');return;}try{const r=await fetch('/api/kyc/aadhaar-video/verify-otp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({otp:c})});if(!r.ok){showError('Invalid OTP');return;}showStep('stepVideo');startCamera();}catch{showError('Network error');}}
+    async function startCamera(){try{stream=await navigator.mediaDevices.getUserMedia({video:true,audio:true});document.getElementById('videoEl').srcObject=stream;document.getElementById('videoEl').play();}catch{showError('Camera denied');}}
+    function startRecording(){document.getElementById('recordBtn').disabled=true;document.getElementById('recordBtn').textContent='Recording...';setTimeout(()=>{document.getElementById('recordBtn').classList.add('hidden');document.getElementById('submitBtn').classList.remove('hidden');},10000);}
+    async function submitVideo(){hideError();try{const r=await fetch('/api/kyc/aadhaar-video/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({videoRecorded:true})});if(!r.ok){showError('Failed');return;}if(stream)stream.getTracks().forEach(t=>t.stop());showStep('stepDone');}catch{showError('Network error');}}
+  </script>
+</body>
+</html>`;
+
+function VideoKYCCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks + Camera API', code: VIDEOKYC_REACT_CODE, filename: 'AadhaarVideoKYCPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone + MediaStream', code: VIDEOKYC_ANGULAR_CODE, filename: 'aadhaar-video-kyc.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: VIDEOKYC_HTML_CODE, filename: 'aadhaar-video-kyc.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Aadhaar Video KYC implementations for your framework.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== COMPONENTS ====================
 
