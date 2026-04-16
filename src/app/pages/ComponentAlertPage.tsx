@@ -7,13 +7,15 @@ import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { CheckCircle, Info, AlertCircle, X } from 'lucide-react';
 
 const AlertPreview = ({ variant = 'info', children }: any) => {
+  const [visible, setVisible] = React.useState(true);
   const variants = {
-    success: { bg: 'bg-green-50', border: 'border-green-200 dark:border-green-800', icon: <CheckCircle className="text-[#138808]" size={20} /> },
-    info: { bg: 'bg-blue-50', border: 'border-blue-200', icon: <Info className="text-[#005196]" size={20} /> },
-    warning: { bg: 'bg-yellow-50', border: 'border-yellow-200 dark:border-yellow-800', icon: <AlertCircle className="text-yellow-600" size={20} /> },
-    error: { bg: 'bg-red-50', border: 'border-red-200 dark:border-red-800', icon: <AlertCircle className="text-red-600" size={20} /> },
+    success: { bg: 'bg-green-50 dark:bg-green-950/30', border: 'border-green-200 dark:border-green-800', icon: <CheckCircle className="text-[#138808]" size={20} /> },
+    info: { bg: 'bg-blue-50 dark:bg-blue-950/30', border: 'border-blue-200 dark:border-blue-800', icon: <Info className="text-[#005196]" size={20} /> },
+    warning: { bg: 'bg-yellow-50 dark:bg-yellow-950/30', border: 'border-yellow-200 dark:border-yellow-800', icon: <AlertCircle className="text-yellow-600" size={20} /> },
+    error: { bg: 'bg-red-50 dark:bg-red-950/30', border: 'border-red-200 dark:border-red-800', icon: <AlertCircle className="text-red-600" size={20} /> },
   };
   
+  if (!visible) return null;
   const config = variants[variant as keyof typeof variants];
   
   return (
@@ -22,7 +24,7 @@ const AlertPreview = ({ variant = 'info', children }: any) => {
       <div className="flex-1">
         {children}
       </div>
-      <button className="text-gray-400 hover:text-muted-foreground">
+      <button onClick={() => setVisible(false)} className="text-gray-400 hover:text-foreground transition-colors" aria-label="Dismiss alert">
         <X size={20} />
       </button>
     </div>
