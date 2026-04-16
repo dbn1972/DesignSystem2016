@@ -37,13 +37,10 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/ux4g/ux4g/tree/main/ux4g-docs/',
+          editUrl: 'https://github.com/dbn1972/DesignSystem2016/tree/main/ux4g-docs/',
           routeBasePath: '/',
         },
-        blog: {
-          showReadingTime: true,
-          editUrl: 'https://github.com/ux4g/ux4g/tree/main/ux4g-docs/',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -66,13 +63,12 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'localeDropdown',
           position: 'right',
         },
         {
-          href: 'https://github.com/ux4g/ux4g',
+          href: 'https://github.com/dbn1972/DesignSystem2016',
           label: 'GitHub',
           position: 'right',
         },
@@ -119,12 +115,8 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
               label: 'GitHub',
-              href: 'https://github.com/ux4g/ux4g',
+              href: 'https://github.com/dbn1972/DesignSystem2016',
             },
             {
               label: 'Contribute',
@@ -139,12 +131,6 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['bash', 'typescript', 'tsx', 'jsx'],
-    },
-    algolia: {
-      appId: 'YOUR_APP_ID',
-      apiKey: 'YOUR_SEARCH_API_KEY',
-      indexName: 'ux4g',
-      contextualSearch: true,
     },
   } satisfies Preset.ThemeConfig,
 };
