@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
               Back to Home
             </Link>
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-16 bg-white/10 backdrop-blur rounded-lg flex items-center justify-center">
+              <div className="w-16 h-16 bg-card/10 backdrop-blur rounded-lg flex items-center justify-center">
                 <Shield size={32} className="text-white" />
               </div>
               <div>

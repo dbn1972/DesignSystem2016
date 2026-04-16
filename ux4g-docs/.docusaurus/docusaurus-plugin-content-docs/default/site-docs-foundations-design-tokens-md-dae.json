@@ -1,0 +1,28 @@
+{
+  "id": "foundations/design-tokens",
+  "title": "Design Tokens",
+  "description": "UX4G uses CSS custom properties (design tokens) with the --ux4g-* prefix for consistent styling across all frameworks.",
+  "source": "@site/docs/foundations/design-tokens.md",
+  "sourceDirName": "foundations",
+  "slug": "/foundations/design-tokens",
+  "permalink": "/DesignSystem2016/foundations/design-tokens",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/dbn1972/DesignSystem2016/tree/main/ux4g-docs/docs/foundations/design-tokens.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Design Tokens"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Components Overview",
+    "permalink": "/DesignSystem2016/components/overview"
+  },
+  "next": {
+    "title": "Accessibility",
+    "permalink": "/DesignSystem2016/foundations/accessibility"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "/DesignSystem2016/-eb1": {
+    "__comp": "5e95c892",
+    "__context": {
+      "plugin": "aba21aa0"
+    }
+  },
+  "/DesignSystem2016/-083": {
+    "__comp": "a7bd4aaa",
+    "__props": "fe1edcf8"
+  },
+  "/DesignSystem2016/-615": {
+    "__comp": "a94703ab"
+  },
+  "/DesignSystem2016/components/overview-b67": {
+    "__comp": "17896441",
+    "content": "89486910"
+  },
+  "/DesignSystem2016/foundations/accessibility-5a2": {
+    "__comp": "17896441",
+    "content": "805e2ffc"
+  },
+  "/DesignSystem2016/foundations/design-tokens-e87": {
+    "__comp": "17896441",
+    "content": "dae3adb4"
+  },
+  "/DesignSystem2016/getting-started/installation-c5e": {
+    "__comp": "17896441",
+    "content": "54f44165"
+  },
+  "/DesignSystem2016/getting-started/introduction-ab4": {
+    "__comp": "17896441",
+    "content": "9ff4038f"
+  },
+  "/DesignSystem2016/getting-started/quick-start-010": {
+    "__comp": "17896441",
+    "content": "588bd741"
+  },
+  "/DesignSystem2016/guidelines/architecture-c3e": {
+    "__comp": "17896441",
+    "content": "40e6915e"
+  },
+  "/DesignSystem2016/guidelines/contributing-e68": {
+    "__comp": "17896441",
+    "content": "8bb5021d"
+  },
+  "/DesignSystem2016/patterns/overview-d67": {
+    "__comp": "17896441",
+    "content": "0e3a50a4"
+  }
+}

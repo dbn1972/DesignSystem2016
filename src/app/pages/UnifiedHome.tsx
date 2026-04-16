@@ -104,7 +104,7 @@ export default function UnifiedHome() {
                 {/* Floating card — Toggle */}
                 <div className="absolute -top-4 -right-4 bg-card border border-border rounded-xl shadow-lg p-3 flex items-center gap-3">
                   <div className="w-10 h-5 bg-[#005196] rounded-full relative">
-                    <div className="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow" />
+                    <div className="absolute right-0.5 top-0.5 w-4 h-4 bg-card rounded-full shadow" />
                   </div>
                   <span className="text-xs font-medium text-foreground">Dark mode</span>
                 </div>

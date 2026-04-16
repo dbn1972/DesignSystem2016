@@ -7,7 +7,7 @@ export default function Copyright() {
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <CopyrightIcon size={16} />
               <span>Copyright & Licensing</span>
             </div>
@@ -23,15 +23,15 @@ export default function Copyright() {
             </p>
 
             <div className="grid grid-cols-3 gap-6 mt-8">
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Open Source</div>
                 <div className="text-blue-200 text-sm">MIT License</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Free to Use</div>
                 <div className="text-blue-200 text-sm">Government & Public Services</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Attribution</div>
                 <div className="text-blue-200 text-sm">Required for commercial use</div>
               </div>
@@ -525,7 +525,7 @@ function ThirdPartyLicensesSection() {
                   <th className="text-left p-4 font-semibold text-foreground">Link</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-border">
                 <DependencyRow
                   package="React"
                   license="MIT"

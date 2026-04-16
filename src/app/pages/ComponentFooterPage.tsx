@@ -59,16 +59,16 @@ const FooterPreview = ({ variant, showSocial, columns }: any) => (
           <div>
             <h3 className="font-semibold text-lg mb-4">Follow Us</h3>
             <div className="flex gap-3">
-              <a href="#" className="p-2 hover:bg-white/10 rounded" aria-label="Facebook">
+              <a href="#" className="p-2 hover:bg-card/10 rounded" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="p-2 hover:bg-white/10 rounded" aria-label="Twitter">
+              <a href="#" className="p-2 hover:bg-card/10 rounded" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="p-2 hover:bg-white/10 rounded" aria-label="LinkedIn">
+              <a href="#" className="p-2 hover:bg-card/10 rounded" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="p-2 hover:bg-white/10 rounded" aria-label="YouTube">
+              <a href="#" className="p-2 hover:bg-card/10 rounded" aria-label="YouTube">
                 <Youtube size={20} />
               </a>
             </div>
@@ -352,7 +352,7 @@ export const Footer: React.FC<FooterProps> = ({
                 {socialLinks.facebook && (
                   <a
                     href={socialLinks.facebook}
-                    className="p-2 hover:bg-white/10 rounded"
+                    className="p-2 hover:bg-card/10 rounded"
                     aria-label="Facebook"
                   >
                     <Facebook size={20} />
@@ -361,7 +361,7 @@ export const Footer: React.FC<FooterProps> = ({
                 {socialLinks.twitter && (
                   <a
                     href={socialLinks.twitter}
-                    className="p-2 hover:bg-white/10 rounded"
+                    className="p-2 hover:bg-card/10 rounded"
                     aria-label="Twitter"
                   >
                     <Twitter size={20} />
@@ -370,7 +370,7 @@ export const Footer: React.FC<FooterProps> = ({
                 {socialLinks.linkedin && (
                   <a
                     href={socialLinks.linkedin}
-                    className="p-2 hover:bg-white/10 rounded"
+                    className="p-2 hover:bg-card/10 rounded"
                     aria-label="LinkedIn"
                   >
                     <Linkedin size={20} />
@@ -379,7 +379,7 @@ export const Footer: React.FC<FooterProps> = ({
                 {socialLinks.youtube && (
                   <a
                     href={socialLinks.youtube}
-                    className="p-2 hover:bg-white/10 rounded"
+                    className="p-2 hover:bg-card/10 rounded"
                     aria-label="YouTube"
                   >
                     <Youtube size={20} />
@@ -497,7 +497,7 @@ interface FooterColumn {
               <a
                 *ngIf="socialLinks.facebook"
                 [href]="socialLinks.facebook"
-                class="p-2 hover:bg-white/10 rounded"
+                class="p-2 hover:bg-card/10 rounded"
                 aria-label="Facebook"
               >
                 <ux4g-icon name="facebook" size="20"></ux4g-icon>
@@ -505,7 +505,7 @@ interface FooterColumn {
               <a
                 *ngIf="socialLinks.twitter"
                 [href]="socialLinks.twitter"
-                class="p-2 hover:bg-white/10 rounded"
+                class="p-2 hover:bg-card/10 rounded"
                 aria-label="Twitter"
               >
                 <ux4g-icon name="twitter" size="20"></ux4g-icon>

@@ -22,7 +22,7 @@ const ChatbotPreview = ({ position, minimized, botName, greeting, ...props }: an
       <div className="bg-card rounded-lg shadow-xl flex flex-col h-full border border-border">
         <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-card/20 flex items-center justify-center">
               <MessageCircle size={20} />
             </div>
             <div>
@@ -114,7 +114,7 @@ export default function ComponentChatbotPage() {
           <div className="bg-card rounded-xl shadow-xl border border-border overflow-hidden h-80 flex flex-col">
             {/* Header */}
             <div className="bg-[#005196] text-white p-3 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm">🤖</div>
+              <div className="w-8 h-8 rounded-full bg-card/20 flex items-center justify-center text-sm">🤖</div>
               <div>
                 <div className="text-sm font-semibold">UX4G Assistant</div>
                 <div className="text-[10px] text-white/70">Online</div>
@@ -290,7 +290,7 @@ function Example() {
               <div className="absolute bottom-4 right-4 w-96 bg-card rounded-lg shadow-xl border border-border">
                 <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-card/20 flex items-center justify-center">
                       <MessageCircle size={20} />
                     </div>
                     <div>
@@ -341,7 +341,7 @@ function Example() {
               <div className="absolute bottom-4 right-4 w-96 bg-card rounded-lg shadow-xl border border-border">
                 <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-card/20 flex items-center justify-center">
                       <MessageCircle size={20} />
                     </div>
                     <div>
@@ -415,7 +415,7 @@ function Example() {
               <div className="absolute bottom-4 right-4 w-96 bg-card rounded-lg shadow-xl border border-border">
                 <div className="bg-[#005196] text-white p-4 rounded-t-lg flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-card/20 flex items-center justify-center">
                       <MessageCircle size={20} />
                     </div>
                     <div>
@@ -670,7 +670,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({
                   botAvatar
                 )
               ) : (
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-card/20 flex items-center justify-center">
                   <MessageCircle size={20} />
                 </div>
               )}

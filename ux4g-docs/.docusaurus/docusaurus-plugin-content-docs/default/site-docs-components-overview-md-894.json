@@ -1,0 +1,28 @@
+{
+  "id": "components/overview",
+  "title": "Components Overview",
+  "description": "UX4G provides 77 production-ready components across 8 categories.",
+  "source": "@site/docs/components/overview.md",
+  "sourceDirName": "components",
+  "slug": "/components/overview",
+  "permalink": "/DesignSystem2016/components/overview",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/dbn1972/DesignSystem2016/tree/main/ux4g-docs/docs/components/overview.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Components Overview"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Quick Start",
+    "permalink": "/DesignSystem2016/getting-started/quick-start"
+  },
+  "next": {
+    "title": "Design Tokens",
+    "permalink": "/DesignSystem2016/foundations/design-tokens"
+  }
+}

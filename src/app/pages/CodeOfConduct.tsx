@@ -7,7 +7,7 @@ export default function CodeOfConduct() {
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <Heart size={16} />
               <span>Community Standards</span>
             </div>
@@ -22,15 +22,15 @@ export default function CodeOfConduct() {
             </p>
 
             <div className="grid grid-cols-3 gap-6 mt-8">
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Inclusive</div>
                 <div className="text-blue-200 text-sm">Everyone is welcome</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Respectful</div>
                 <div className="text-blue-200 text-sm">Treat all with dignity</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Collaborative</div>
                 <div className="text-blue-200 text-sm">Work together effectively</div>
               </div>
@@ -772,7 +772,7 @@ function ConsequencesSection() {
                   <th className="text-left p-3 font-semibold text-foreground w-1/3">Repeat Offense</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-border">
                 <ConsequenceRow
                   violation="Minor unprofessional behavior"
                   first="Correction"

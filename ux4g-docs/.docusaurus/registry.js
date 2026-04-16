@@ -1,0 +1,16 @@
+export default {
+  "0e3a50a4": [() => import(/* webpackChunkName: "0e3a50a4" */ "@site/docs/patterns/overview.md"), "@site/docs/patterns/overview.md", require.resolveWeak("@site/docs/patterns/overview.md")],
+  "17896441": [() => import(/* webpackChunkName: "17896441" */ "@theme/DocItem"), "@theme/DocItem", require.resolveWeak("@theme/DocItem")],
+  "40e6915e": [() => import(/* webpackChunkName: "40e6915e" */ "@site/docs/guidelines/architecture.md"), "@site/docs/guidelines/architecture.md", require.resolveWeak("@site/docs/guidelines/architecture.md")],
+  "54f44165": [() => import(/* webpackChunkName: "54f44165" */ "@site/docs/getting-started/installation.md"), "@site/docs/getting-started/installation.md", require.resolveWeak("@site/docs/getting-started/installation.md")],
+  "588bd741": [() => import(/* webpackChunkName: "588bd741" */ "@site/docs/getting-started/quick-start.md"), "@site/docs/getting-started/quick-start.md", require.resolveWeak("@site/docs/getting-started/quick-start.md")],
+  "5e95c892": [() => import(/* webpackChunkName: "5e95c892" */ "@theme/DocsRoot"), "@theme/DocsRoot", require.resolveWeak("@theme/DocsRoot")],
+  "805e2ffc": [() => import(/* webpackChunkName: "805e2ffc" */ "@site/docs/foundations/accessibility.md"), "@site/docs/foundations/accessibility.md", require.resolveWeak("@site/docs/foundations/accessibility.md")],
+  "89486910": [() => import(/* webpackChunkName: "89486910" */ "@site/docs/components/overview.md"), "@site/docs/components/overview.md", require.resolveWeak("@site/docs/components/overview.md")],
+  "8bb5021d": [() => import(/* webpackChunkName: "8bb5021d" */ "@site/docs/guidelines/contributing.md"), "@site/docs/guidelines/contributing.md", require.resolveWeak("@site/docs/guidelines/contributing.md")],
+  "9ff4038f": [() => import(/* webpackChunkName: "9ff4038f" */ "@site/docs/getting-started/introduction.md"), "@site/docs/getting-started/introduction.md", require.resolveWeak("@site/docs/getting-started/introduction.md")],
+  "a7bd4aaa": [() => import(/* webpackChunkName: "a7bd4aaa" */ "@theme/DocVersionRoot"), "@theme/DocVersionRoot", require.resolveWeak("@theme/DocVersionRoot")],
+  "a94703ab": [() => import(/* webpackChunkName: "a94703ab" */ "@theme/DocRoot"), "@theme/DocRoot", require.resolveWeak("@theme/DocRoot")],
+  "aba21aa0": [() => import(/* webpackChunkName: "aba21aa0" */ "@generated/docusaurus-plugin-content-docs/default/__plugin.json"), "@generated/docusaurus-plugin-content-docs/default/__plugin.json", require.resolveWeak("@generated/docusaurus-plugin-content-docs/default/__plugin.json")],
+  "dae3adb4": [() => import(/* webpackChunkName: "dae3adb4" */ "@site/docs/foundations/design-tokens.md"), "@site/docs/foundations/design-tokens.md", require.resolveWeak("@site/docs/foundations/design-tokens.md")],
+  "fe1edcf8": [() => import(/* webpackChunkName: "fe1edcf8" */ "@generated/docusaurus-plugin-content-docs/default/p/design-system-2016-8de.json"), "@generated/docusaurus-plugin-content-docs/default/p/design-system-2016-8de.json", require.resolveWeak("@generated/docusaurus-plugin-content-docs/default/p/design-system-2016-8de.json")],};

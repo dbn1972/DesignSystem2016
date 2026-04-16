@@ -18,7 +18,7 @@ const HeaderPreview = ({ variant, withSearch, showNotifications, showProfile }: 
       <div className="flex items-center justify-between h-16">
         {/* Logo and Title */}
         <div className="flex items-center gap-4">
-          <button className="lg:hidden p-2 hover:bg-white/10 rounded">
+          <button className="lg:hidden p-2 hover:bg-card/10 rounded">
             <Menu size={24} />
           </button>
           <div className="flex items-center gap-3">
@@ -40,18 +40,18 @@ const HeaderPreview = ({ variant, withSearch, showNotifications, showProfile }: 
         {/* Actions */}
         <div className="flex items-center gap-3">
           {withSearch && (
-            <button className="p-2 hover:bg-white/10 rounded">
+            <button className="p-2 hover:bg-card/10 rounded">
               <Search size={20} />
             </button>
           )}
           {showNotifications && (
-            <button className="p-2 hover:bg-white/10 rounded relative">
+            <button className="p-2 hover:bg-card/10 rounded relative">
               <Bell size={20} />
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
             </button>
           )}
           {showProfile && (
-            <button className="flex items-center gap-2 px-3 py-2 hover:bg-white/10 rounded">
+            <button className="flex items-center gap-2 px-3 py-2 hover:bg-card/10 rounded">
               <User size={20} />
               <ChevronDown size={16} />
             </button>
@@ -288,7 +288,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center justify-between h-16">
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-2 hover:bg-white/10 rounded"
+            className="lg:hidden p-2 hover:bg-card/10 rounded"
             aria-label="Open menu"
           >
             <Menu size={24} />
@@ -331,7 +331,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center gap-3">
             {withSearch && (
               <button
-                className="p-2 hover:bg-white/10 rounded"
+                className="p-2 hover:bg-card/10 rounded"
                 onClick={onSearchClick}
                 aria-label="Search"
               >
@@ -341,7 +341,7 @@ export const Header: React.FC<HeaderProps> = ({
 
             {showNotifications && (
               <button
-                className="p-2 hover:bg-white/10 rounded relative"
+                className="p-2 hover:bg-card/10 rounded relative"
                 aria-label={\`\${notificationCount} unread notifications\`}
               >
                 <Bell size={20} />
@@ -352,7 +352,7 @@ export const Header: React.FC<HeaderProps> = ({
             )}
 
             {showProfile && (
-              <button className="flex items-center gap-2 px-3 py-2 hover:bg-white/10 rounded">
+              <button className="flex items-center gap-2 px-3 py-2 hover:bg-card/10 rounded">
                 <User size={20} />
                 {userName && (
                   <span className="hidden md:inline">{userName}</span>
@@ -425,7 +425,7 @@ interface NavLink {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <!-- Mobile menu -->
-          <button class="lg:hidden p-2 hover:bg-white/10 rounded">
+          <button class="lg:hidden p-2 hover:bg-card/10 rounded">
             <ux4g-icon name="menu" size="24"></ux4g-icon>
           </button>
 
@@ -453,7 +453,7 @@ interface NavLink {
           <div class="flex items-center gap-3">
             <button
               *ngIf="withSearch"
-              class="p-2 hover:bg-white/10 rounded"
+              class="p-2 hover:bg-card/10 rounded"
               (click)="searchClick.emit()"
             >
               <ux4g-icon name="search" size="20"></ux4g-icon>
@@ -461,7 +461,7 @@ interface NavLink {
 
             <button
               *ngIf="showNotifications"
-              class="p-2 hover:bg-white/10 rounded relative"
+              class="p-2 hover:bg-card/10 rounded relative"
             >
               <ux4g-icon name="bell" size="20"></ux4g-icon>
               <span
@@ -470,7 +470,7 @@ interface NavLink {
               ></span>
             </button>
 
-            <button *ngIf="showProfile" class="flex items-center gap-2 px-3 py-2 hover:bg-white/10 rounded">
+            <button *ngIf="showProfile" class="flex items-center gap-2 px-3 py-2 hover:bg-card/10 rounded">
               <ux4g-icon name="user" size="20"></ux4g-icon>
               <span *ngIf="userName" class="hidden md:inline">{{ userName }}</span>
               <ux4g-icon name="chevron-down" size="16"></ux4g-icon>

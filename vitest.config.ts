@@ -10,6 +10,7 @@ export default defineConfig({
     setupFiles: './src/test/setup.ts',
     exclude: [
       'node_modules/**',
+      'ux4g-docs/**',
       'dist/**',
       'src/app/angular-core-package/**',
       'src/app/angular-patterns-package/**',

@@ -27,7 +27,7 @@ const DataGridPreview = () => {
   
   return (
     <div className="border border-border rounded-lg overflow-hidden">
-      <table className="min-w-full divide-y divide-gray-200">
+      <table className="min-w-full divide-y divide-border">
         <thead className="bg-background">
           <tr>
             <th
@@ -52,7 +52,7 @@ const DataGridPreview = () => {
             </th>
           </tr>
         </thead>
-        <tbody className="bg-card divide-y divide-gray-200">
+        <tbody className="bg-card divide-y divide-border">
           {data.map(row => (
             <tr key={row.id} className="hover:bg-background">
               <td className="px-6 py-4 text-sm font-semibold text-foreground">{row.name}</td>
@@ -249,7 +249,7 @@ export const DataGrid: React.FC<DataGridProps> = ({
   return (
     <div className="border border-border rounded-lg overflow-hidden">
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
+        <table className="min-w-full divide-y divide-border">
           <thead className="bg-background">
             <tr>
               {selectable && (
@@ -288,7 +288,7 @@ export const DataGrid: React.FC<DataGridProps> = ({
             </tr>
           </thead>
           
-          <tbody className="bg-card divide-y divide-gray-200">
+          <tbody className="bg-card divide-y divide-border">
             {paginatedData.map((row, rowIndex) => (
               <tr
                 key={rowIndex}
@@ -377,7 +377,7 @@ export interface DataGridProps {
   selector: 'ux4g-datagrid',
   template: \`
     <div class="border border-border rounded-lg overflow-hidden">
-      <table class="min-w-full divide-y divide-gray-200">
+      <table class="min-w-full divide-y divide-border">
         <thead class="bg-background">
           <tr>
             <th *ngFor="let column of columns"
@@ -387,7 +387,7 @@ export interface DataGridProps {
             </th>
           </tr>
         </thead>
-        <tbody class="bg-card divide-y divide-gray-200">
+        <tbody class="bg-card divide-y divide-border">
           <tr *ngFor="let row of paginatedData" class="hover:bg-background">
             <td *ngFor="let column of columns" class="px-6 py-4 text-sm text-foreground">
               {{ row[column.key] }}

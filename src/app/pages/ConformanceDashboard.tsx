@@ -7,7 +7,7 @@ export default function ConformanceDashboard() {
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <Activity size={16} />
               <span>UX4G Governance Portal</span>
             </div>
@@ -22,30 +22,30 @@ export default function ConformanceDashboard() {
             </p>
 
             <div className="flex items-center gap-4 mb-8">
-              <div className="flex items-center gap-2 text-sm bg-white/10 rounded-full px-4 py-2">
+              <div className="flex items-center gap-2 text-sm bg-card/10 rounded-full px-4 py-2">
                 <Calendar size={16} />
                 <span>Last Updated: 8 April 2026, 09:30 IST</span>
               </div>
-              <button className="flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 rounded-full px-4 py-2 transition-colors">
+              <button className="flex items-center gap-2 text-sm bg-card/10 hover:bg-card/20 rounded-full px-4 py-2 transition-colors">
                 <Download size={16} />
                 <span>Export Report</span>
               </button>
             </div>
 
             <div className="grid grid-cols-4 gap-4">
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">47</div>
                 <div className="text-blue-200 text-sm">Departments Onboarded</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">312</div>
                 <div className="text-blue-200 text-sm">Active Services</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">78%</div>
                 <div className="text-blue-200 text-sm">Avg Conformance</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">23</div>
                 <div className="text-blue-200 text-sm">Open Issues</div>
               </div>
@@ -219,7 +219,7 @@ function DepartmentsOnboarded() {
                   <th className="text-center p-4 text-sm font-bold text-foreground">Last Audit</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-border">
                 <DepartmentRow
                   name="Ministry of Electronics & IT"
                   code="MeitY"
@@ -958,7 +958,7 @@ function ExceptionsWaivers() {
                   <th className="text-center p-4 text-sm font-bold text-foreground">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-border">
                 <ExceptionRow
                   service="Income Tax E-Filing"
                   type="Custom Authentication Flow"
@@ -1203,7 +1203,7 @@ function NonConformanceLog() {
                   <th className="text-center p-4 text-sm font-bold text-foreground">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-border">
                 <IssueRow
                   id="NC-2026-089"
                   service="Vehicle Registration (MH)"

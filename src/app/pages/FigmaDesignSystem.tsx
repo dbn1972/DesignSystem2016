@@ -106,7 +106,7 @@ function CoverPage() {
     }}>
       <div className="max-w-6xl w-full">
         <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 backdrop-blur-sm rounded-full text-sm mb-6">
             <span className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--ux4g-color-saffron-500)' }}></span>
             Government of India
           </div>
@@ -143,7 +143,7 @@ function CoverPage() {
           {pages.map((page, index) => (
             <div 
               key={index}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:bg-white/15 transition-colors"
+              className="bg-card/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:bg-card/15 transition-colors"
             >
               <div className="text-4xl font-bold mb-2" style={{ color: 'var(--ux4g-color-saffron-500)' }}>{page.num}</div>
               <div className="font-semibold mb-1">{page.title}</div>
@@ -173,7 +173,7 @@ function CoverPage() {
           </div>
         </div>
 
-        <div className="mt-12 p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+        <div className="mt-12 p-6 bg-card/5 backdrop-blur-sm rounded-lg border border-white/10">
           <h3 className="font-semibold mb-3">File Structure Guidelines</h3>
           <ul className="space-y-2 text-sm text-blue-100">
             <li>• All components use Auto Layout for responsive behavior</li>
@@ -285,7 +285,7 @@ function FoundationsPage() {
         {/* Typography Scale */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-foreground mb-8">Typography Scale</h3>
-          <div className="border border-border rounded-lg divide-y divide-gray-200">
+          <div className="border border-border rounded-lg divide-y divide-border">
             {[
               { name: "Display Large", size: "48px", weight: "700", line: "56px", usage: "Hero headlines" },
               { name: "Display", size: "36px", weight: "700", line: "44px", usage: "Page titles" },
@@ -439,7 +439,7 @@ function DesignTokensPage() {
           </p>
           <div className="grid grid-cols-4 gap-3">
             {["JSON", "CSS", "SCSS", "JS/TS"].map((format, index) => (
-              <div key={index} className="px-3 py-2 bg-white/10 rounded text-sm text-center">
+              <div key={index} className="px-3 py-2 bg-card/10 rounded text-sm text-center">
                 {format}
               </div>
             ))}

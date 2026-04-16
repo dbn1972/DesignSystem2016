@@ -142,7 +142,7 @@ function ColorContrast() {
             <h3 className="text-xl font-bold text-foreground">WCAG Contrast Requirements</h3>
           </div>
           
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-border">
             <ContrastExample
               title="Normal Text (WCAG AA)"
               ratio="4.5:1"
@@ -452,7 +452,7 @@ function KeyboardInteraction() {
             <h3 className="text-xl font-bold text-foreground">Standard Keyboard Controls</h3>
           </div>
           
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-border">
             {[
               { key: "Tab", function: "Move focus forward to next interactive element" },
               { key: "Shift + Tab", function: "Move focus backward to previous interactive element" },
@@ -551,7 +551,7 @@ function ScreenReader() {
             <h3 className="text-xl font-bold text-foreground">Essential ARIA Attributes</h3>
           </div>
           
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-border">
             {[
               { 
                 attr: "aria-label", 
@@ -759,7 +759,7 @@ function SemanticStructure() {
             <h3 className="text-xl font-bold text-foreground">Semantic HTML Patterns</h3>
           </div>
           
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-border">
             <SemanticExample
               correct={`<button type="submit">Submit</button>`}
               incorrect={`<div onclick="submit()">Submit</div>`}
@@ -1095,7 +1095,7 @@ function TableAccessibility() {
                   <th scope="col" className="text-left p-4 font-semibold text-foreground">Date</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-border">
                 <tr>
                   <td className="p-4 font-mono text-sm">APP-001</td>
                   <td className="p-4">Rajesh Kumar</td>

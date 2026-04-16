@@ -63,7 +63,7 @@ export default function Foundations() {
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] items-start">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-card/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
                 <Sparkles size={14} />
                 Foundational design language
               </div>
@@ -288,7 +288,7 @@ export default function Foundations() {
                       <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">Example</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                  <tbody className="divide-y divide-border dark:divide-gray-700">
                     {typography.map((type, index) => (
                       <tr key={index} className="transition-colors hover:bg-background dark:hover:bg-gray-700">
                         <td className="px-6 py-4 font-medium text-foreground dark:text-gray-100">{type.name}</td>

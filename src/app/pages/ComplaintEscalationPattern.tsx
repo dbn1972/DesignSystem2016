@@ -1424,7 +1424,7 @@ function EscalationLogic() {
                   <th className="px-4 py-3 text-left font-bold text-foreground">Level 3 SLA</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-border">
                 <tr className="hover:bg-background">
                   <td className="px-4 py-3 font-bold text-red-700">Critical</td>
                   <td className="px-4 py-3">24-48 hours</td>

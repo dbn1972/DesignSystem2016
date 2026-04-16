@@ -7,7 +7,7 @@ export default function ServiceAnalytics() {
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <BarChart3 size={16} />
               <span>UX4G Analytics Framework</span>
             </div>
@@ -23,15 +23,15 @@ export default function ServiceAnalytics() {
             </p>
 
             <div className="grid grid-cols-3 gap-4">
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">12 Patterns</div>
                 <div className="text-blue-200 text-sm">Analytics frameworks</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">Privacy-First</div>
                 <div className="text-blue-200 text-sm">Citizen data protected</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">Service-Oriented</div>
                 <div className="text-blue-200 text-sm">Improvement focused</div>
               </div>

@@ -310,7 +310,7 @@ export default function FrameworkStatus() {
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200">
+                    <tbody className="divide-y divide-border">
                       {category.components.map((component, compIdx) => (
                         <tr key={compIdx} className="hover:bg-background transition-colors">
                           <td className="px-6 py-4 text-sm font-medium text-foreground">

@@ -7,7 +7,7 @@ export default function Contributing() {
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <Heart size={16} />
               <span>Contributing to UX4G</span>
             </div>
@@ -23,15 +23,15 @@ export default function Contributing() {
             </p>
 
             <div className="grid grid-cols-3 gap-6 mt-8">
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Open Source</div>
                 <div className="text-blue-200 text-sm">MIT Licensed</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Community Driven</div>
                 <div className="text-blue-200 text-sm">Contributors welcome</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">73 Components</div>
                 <div className="text-blue-200 text-sm">And growing</div>
               </div>

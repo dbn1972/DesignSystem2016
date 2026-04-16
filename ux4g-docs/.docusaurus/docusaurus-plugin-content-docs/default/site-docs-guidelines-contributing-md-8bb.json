@@ -1,0 +1,28 @@
+{
+  "id": "guidelines/contributing",
+  "title": "Contributing",
+  "description": "Adding a New Component",
+  "source": "@site/docs/guidelines/contributing.md",
+  "sourceDirName": "guidelines",
+  "slug": "/guidelines/contributing",
+  "permalink": "/DesignSystem2016/guidelines/contributing",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/dbn1972/DesignSystem2016/tree/main/ux4g-docs/docs/guidelines/contributing.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Contributing"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Patterns Overview",
+    "permalink": "/DesignSystem2016/patterns/overview"
+  },
+  "next": {
+    "title": "Architecture",
+    "permalink": "/DesignSystem2016/guidelines/architecture"
+  }
+}

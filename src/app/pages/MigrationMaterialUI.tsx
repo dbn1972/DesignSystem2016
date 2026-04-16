@@ -103,7 +103,7 @@ export default function MigrationMaterialUI() {
                   <th className="text-left p-4 font-bold text-foreground">Migration Notes</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-border">
                 <ComponentMappingRow
                   muiComponent="Button"
                   ux4gComponent="Button"
@@ -829,7 +829,7 @@ function CodeExample({ title, before, after, notes }: CodeExampleProps) {
         </h3>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-0 divide-x divide-gray-200">
+      <div className="grid md:grid-cols-2 gap-0 divide-x divide-border">
         <div className="p-4">
           <div className="text-xs font-semibold text-muted-foreground mb-2">Material-UI (Before)</div>
           <pre className="bg-gray-900 text-gray-100 p-4 rounded text-xs overflow-x-auto">

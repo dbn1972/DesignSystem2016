@@ -191,7 +191,7 @@ function OwnershipModelSection() {
                   <th className="text-center p-4 font-semibold text-foreground dark:text-gray-100">Contributors</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+              <tbody className="divide-y divide-border dark:divide-gray-700">
                 <RACIRow
                   activity="Component Design"
                   roles={['R', 'C', 'I', 'C']}

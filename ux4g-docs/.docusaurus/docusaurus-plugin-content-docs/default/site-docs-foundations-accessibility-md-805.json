@@ -1,0 +1,28 @@
+{
+  "id": "foundations/accessibility",
+  "title": "Accessibility",
+  "description": "UX4G targets WCAG 2.1 Level AA compliance across all components.",
+  "source": "@site/docs/foundations/accessibility.md",
+  "sourceDirName": "foundations",
+  "slug": "/foundations/accessibility",
+  "permalink": "/DesignSystem2016/foundations/accessibility",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/dbn1972/DesignSystem2016/tree/main/ux4g-docs/docs/foundations/accessibility.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "Accessibility"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Design Tokens",
+    "permalink": "/DesignSystem2016/foundations/design-tokens"
+  },
+  "next": {
+    "title": "Patterns Overview",
+    "permalink": "/DesignSystem2016/patterns/overview"
+  }
+}

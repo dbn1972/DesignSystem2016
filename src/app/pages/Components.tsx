@@ -589,7 +589,7 @@ export default function Components() {
             <div className="rounded-[1.75rem] border border-border/70 bg-gradient-to-br from-primary via-primary/95 to-slate-950 p-6 text-primary-foreground shadow-sm">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <Bell size={24} />
-                <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">Active</span>
+                <span className="rounded-full bg-card/15 px-3 py-1 text-xs font-semibold">Active</span>
               </div>
               <div className="text-3xl font-semibold tracking-tight">1,234</div>
               <p className="mt-2 text-sm text-primary-foreground/80">Total services</p>

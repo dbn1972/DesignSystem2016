@@ -73,7 +73,7 @@ export default function ComponentVideoPlayerPage() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center space-y-2">
                 {/* Government emblem placeholder */}
-                <div className="w-16 h-16 mx-auto rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                <div className="w-16 h-16 mx-auto rounded-full bg-card/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
                   <span className="text-2xl">🏛️</span>
                 </div>
                 <p className="text-white/60 text-sm font-medium">Digital India Initiative</p>
@@ -96,7 +96,7 @@ export default function ComponentVideoPlayerPage() {
             {/* Bottom controls bar */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 space-y-2">
               {/* Progress bar */}
-              <div className="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+              <div className="w-full h-1 bg-card/20 rounded-full overflow-hidden">
                 <div className="h-full bg-[#005196] rounded-full" style={{width: '35%'}} />
               </div>
               {/* Controls */}

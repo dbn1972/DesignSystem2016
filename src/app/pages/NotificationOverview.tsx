@@ -191,7 +191,7 @@ export default function NotificationOverview() {
                       <th className="text-center p-4 font-bold text-foreground">Push</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
+                  <tbody className="divide-y divide-border">
                     <MatrixRow
                       scenario="Critical Alert (payment failed, deadline today)"
                       sms="✓ Primary"

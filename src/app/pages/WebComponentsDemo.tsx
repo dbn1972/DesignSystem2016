@@ -325,7 +325,7 @@ export default {
           <h2 className="text-2xl font-bold text-foreground mb-4">🎨 Available Components (46/73)</h2>
           
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
+            <table className="min-w-full divide-y divide-border">
               <thead className="bg-background">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Component</th>
@@ -333,7 +333,7 @@ export default {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                 </tr>
               </thead>
-              <tbody className="bg-card divide-y divide-gray-200">
+              <tbody className="bg-card divide-y divide-border">
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-button&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Primary interactive element for user actions</td>

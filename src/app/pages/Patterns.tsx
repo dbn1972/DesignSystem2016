@@ -104,7 +104,7 @@ export default function Patterns() {
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.14fr)_minmax(320px,0.86fr)] items-start">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-card/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
                 <Sparkles size={14} />
                 Reusable interaction patterns
               </div>
@@ -552,7 +552,7 @@ function Field({
 
 function MetricCard({ title, value }: { title: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
+    <div className="rounded-2xl border border-white/15 bg-card/10 p-5 backdrop-blur-sm">
       <div className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-200">{title}</div>
       <div className="mt-2 text-lg font-bold text-white">{value}</div>
     </div>

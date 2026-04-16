@@ -7,7 +7,7 @@ import { ComponentDocumentation } from '../components/ComponentDocumentation';
 
 const TablePreview = () => (
   <div className="overflow-x-auto">
-    <table className="min-w-full divide-y divide-gray-200">
+    <table className="min-w-full divide-y divide-border">
       <thead className="bg-background">
         <tr>
           <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Name</th>
@@ -15,7 +15,7 @@ const TablePreview = () => (
           <th className="px-6 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Date</th>
         </tr>
       </thead>
-      <tbody className="divide-y divide-gray-200 bg-card">
+      <tbody className="divide-y divide-border bg-card">
         <tr className="hover:bg-background">
           <td className="px-6 py-4 text-sm text-foreground">Application #001</td>
           <td className="px-6 py-4 text-sm">
@@ -159,7 +159,7 @@ export const Table: React.FC<TableProps> = ({
   responsive = true,
 }) => {
   const TableContent = (
-    <table className="min-w-full divide-y divide-gray-200">
+    <table className="min-w-full divide-y divide-border">
       <thead className="bg-background">
         <tr>
           {columns.map((column) => (
@@ -172,7 +172,7 @@ export const Table: React.FC<TableProps> = ({
           ))}
         </tr>
       </thead>
-      <tbody className={\`divide-y divide-gray-200 \${striped ? 'divide-y-0' : ''}\`}>
+      <tbody className={\`divide-y divide-border \${striped ? 'divide-y-0' : ''}\`}>
         {data.map((row, rowIndex) => (
           <tr
             key={rowIndex}
@@ -234,7 +234,7 @@ interface TableColumn {
   selector: 'ux4g-table',
   template: \`
     <div [class]="getWrapperClasses()">
-      <table class="min-w-full divide-y divide-gray-200">
+      <table class="min-w-full divide-y divide-border">
         <thead class="bg-background">
           <tr>
             <th *ngFor="let column of columns"
@@ -272,7 +272,7 @@ export class TableComponent {
   }
   
   getBodyClasses(): string {
-    return this.striped ? '' : 'divide-y divide-gray-200';
+    return this.striped ? '' : 'divide-y divide-border';
   }
   
   getRowClasses(index: number): string {

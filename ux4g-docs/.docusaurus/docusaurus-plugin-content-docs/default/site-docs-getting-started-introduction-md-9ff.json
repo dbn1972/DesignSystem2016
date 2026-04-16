@@ -1,0 +1,24 @@
+{
+  "id": "getting-started/introduction",
+  "title": "Introduction",
+  "description": "A government-grade design system platform for building consistent, accessible digital public services across Indian government ministries, departments, and agencies.",
+  "source": "@site/docs/getting-started/introduction.md",
+  "sourceDirName": "getting-started",
+  "slug": "/getting-started/introduction",
+  "permalink": "/DesignSystem2016/getting-started/introduction",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/dbn1972/DesignSystem2016/tree/main/ux4g-docs/docs/getting-started/introduction.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Introduction"
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Installation",
+    "permalink": "/DesignSystem2016/getting-started/installation"
+  }
+}

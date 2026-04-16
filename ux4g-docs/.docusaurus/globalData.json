@@ -1,0 +1,73 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/DesignSystem2016/",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/DesignSystem2016/",
+          "mainDocId": "getting-started/introduction",
+          "docs": [
+            {
+              "id": "components/overview",
+              "path": "/DesignSystem2016/components/overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "foundations/accessibility",
+              "path": "/DesignSystem2016/foundations/accessibility",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "foundations/design-tokens",
+              "path": "/DesignSystem2016/foundations/design-tokens",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/installation",
+              "path": "/DesignSystem2016/getting-started/installation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/introduction",
+              "path": "/DesignSystem2016/getting-started/introduction",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/quick-start",
+              "path": "/DesignSystem2016/getting-started/quick-start",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "guidelines/architecture",
+              "path": "/DesignSystem2016/guidelines/architecture",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "guidelines/contributing",
+              "path": "/DesignSystem2016/guidelines/contributing",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "patterns/overview",
+              "path": "/DesignSystem2016/patterns/overview",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/DesignSystem2016/getting-started/introduction",
+                "label": "getting-started/introduction"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

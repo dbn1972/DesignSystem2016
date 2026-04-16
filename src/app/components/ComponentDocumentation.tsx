@@ -413,14 +413,14 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                 <div>
                   <h3 className="text-sm font-semibold text-muted-foreground mb-3">Keyboard Support</h3>
                   <div className="overflow-x-auto">
-                    <table className="min-w-full divide-y divide-gray-200">
+                    <table className="min-w-full divide-y divide-border">
                       <thead className="bg-background">
                         <tr>
                           <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Key</th>
                           <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Action</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-gray-200">
+                      <tbody className="divide-y divide-border">
                         {accessibility.keyboardSupport.map((item, idx) => (
                           <tr key={idx}>
                             <td className="px-4 py-3 text-sm font-mono bg-background">{item.key}</td>
@@ -503,7 +503,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         {activeTab === 'props' && (
           <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
+              <table className="min-w-full divide-y divide-border">
                 <thead className="bg-background">
                   <tr>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Prop</th>
@@ -513,7 +513,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                     <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Description</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-border">
                   {props.map((prop, idx) => (
                     <tr key={idx} className="hover:bg-background">
                       <td className="px-6 py-4 text-sm font-mono font-semibold text-foreground">{prop.name}</td>
@@ -740,7 +740,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               </p>
             </div>
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
+              <table className="min-w-full divide-y divide-border">
                 <thead className="bg-background">
                   <tr>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Design System</th>
@@ -751,7 +751,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                     <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Link</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-border">
                   <tr className="bg-primary/5 ring-1 ring-primary/15 ring-inset">
                     <td className="px-6 py-4 text-sm font-bold text-foreground">
                       <span className="inline-flex items-center gap-2">
@@ -815,7 +815,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                 This component uses design tokens from: <code className="px-2 py-1 bg-muted rounded text-sm font-mono">{tokens.file}</code>
               </p>
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
+                <table className="min-w-full divide-y divide-border">
                   <thead className="bg-background">
                     <tr>
                       <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Property</th>
@@ -823,7 +823,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                       <th className="px-6 py-4 text-left text-xs font-semibold text-muted-foreground uppercase">Value</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
+                  <tbody className="divide-y divide-border">
                     {tokens.mappings.map((mapping, idx) => (
                       <tr key={idx} className="hover:bg-background">
                         <td className="px-6 py-4 text-sm font-semibold text-foreground">{mapping.property}</td>

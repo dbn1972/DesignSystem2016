@@ -23,9 +23,9 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
           </h3>
         </div>
         <div className="flex gap-2">
-          <button className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30">Today</button>
-          <button className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30">Prev</button>
-          <button className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30">Next</button>
+          <button className="px-3 py-1 text-sm bg-card/20 rounded hover:bg-card/30">Today</button>
+          <button className="px-3 py-1 text-sm bg-card/20 rounded hover:bg-card/30">Prev</button>
+          <button className="px-3 py-1 text-sm bg-card/20 rounded hover:bg-card/30">Next</button>
         </div>
       </div>
 
@@ -842,7 +842,7 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
         </div>
         <div className="flex gap-2">
           <button
-            className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
+            className="px-3 py-1 text-sm bg-card/20 rounded hover:bg-card/30 transition-colors"
             onClick={() => {
               setCurrentDate(new Date());
               onNavigate?.(new Date(), selectedView);
@@ -851,7 +851,7 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
             Today
           </button>
           <button
-            className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
+            className="px-3 py-1 text-sm bg-card/20 rounded hover:bg-card/30 transition-colors"
             onClick={() => {
               const newDate = addMonths(currentDate, -1);
               setCurrentDate(newDate);
@@ -861,7 +861,7 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
             Prev
           </button>
           <button
-            className="px-3 py-1 text-sm bg-white/20 rounded hover:bg-white/30 transition-colors"
+            className="px-3 py-1 text-sm bg-card/20 rounded hover:bg-card/30 transition-colors"
             onClick={() => {
               const newDate = addMonths(currentDate, 1);
               setCurrentDate(newDate);

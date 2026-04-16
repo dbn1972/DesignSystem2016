@@ -250,7 +250,7 @@ export default function Documentation() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search documentation... (e.g., 'button component', 'accessibility')"
-                className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-white/20 bg-card/10 text-primary-foreground placeholder-white/60 focus:outline-none focus:border-[#FF9933] focus:bg-white/20 transition-all"
+                className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-white/20 bg-card/10 text-primary-foreground placeholder-white/60 focus:outline-none focus:border-[#FF9933] focus:bg-card/20 transition-all"
                 aria-label="Search documentation"
               />
             </div>
@@ -519,7 +519,7 @@ export default function Documentation() {
                 href="https://github.com/ux4g"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 border-2 border-white text-primary-foreground font-semibold rounded-lg hover:bg-white/10 transition-colors inline-flex items-center gap-2"
+                className="px-8 py-3 border-2 border-white text-primary-foreground font-semibold rounded-lg hover:bg-card/10 transition-colors inline-flex items-center gap-2"
               >
                 <ExternalLink size={20} />
                 GitHub Repository

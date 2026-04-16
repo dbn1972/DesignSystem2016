@@ -809,7 +809,7 @@ function FieldsAndContent() {
               <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Help Text</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-border">
             <FieldRow 
               field="Full Name"
               required={true}
@@ -1113,7 +1113,7 @@ function ValidationRules() {
               <th className="px-6 py-3 text-left text-sm font-bold text-foreground">Timing</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-border">
             <ValidationRow 
               field="Full Name"
               rule="Must contain at least 2 characters, letters only"

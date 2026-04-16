@@ -221,7 +221,7 @@ export default function CertificateOfficerDashboard() {
               <div className="bg-muted border-b-2 border-border px-8 py-4">
                 <h2 className="font-bold text-foreground">Recent Activity</h2>
               </div>
-              <div className="divide-y-2 divide-gray-200">
+              <div className="divide-y-2 divide-border">
                 {recentActivity.map((activity, idx) => (
                   <ActivityItem key={idx} activity={activity} />
                 ))}

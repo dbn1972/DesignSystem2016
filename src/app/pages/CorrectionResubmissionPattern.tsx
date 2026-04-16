@@ -428,7 +428,7 @@ function PageDesigns() {
                 <div className="bg-muted border-b-2 border-border px-6 py-4">
                   <h3 className="font-bold text-foreground">Issues Requiring Correction (5)</h3>
                 </div>
-                <div className="divide-y-2 divide-gray-200">
+                <div className="divide-y-2 divide-border">
                   <IssueListItem
                     severity="high"
                     field="Income Certificate"
@@ -739,7 +739,7 @@ function PageDesigns() {
                 <div className="bg-muted border-b-2 border-border px-6 py-4">
                   <h3 className="font-bold text-foreground">Corrected Fields (5)</h3>
                 </div>
-                <div className="divide-y-2 divide-gray-200">
+                <div className="divide-y-2 divide-border">
                   <CorrectionReviewItem
                     field="Income Certificate"
                     before="Not uploaded"

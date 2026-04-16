@@ -1,0 +1,28 @@
+{
+  "id": "patterns/overview",
+  "title": "Patterns Overview",
+  "description": "Reusable interaction patterns for common government service workflows.",
+  "source": "@site/docs/patterns/overview.md",
+  "sourceDirName": "patterns",
+  "slug": "/patterns/overview",
+  "permalink": "/DesignSystem2016/patterns/overview",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/dbn1972/DesignSystem2016/tree/main/ux4g-docs/docs/patterns/overview.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Patterns Overview"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Accessibility",
+    "permalink": "/DesignSystem2016/foundations/accessibility"
+  },
+  "next": {
+    "title": "Contributing",
+    "permalink": "/DesignSystem2016/guidelines/contributing"
+  }
+}

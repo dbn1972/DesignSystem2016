@@ -7,7 +7,7 @@ export default function Disclaimer() {
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <AlertTriangle size={16} />
               <span>Legal Disclaimer</span>
             </div>
@@ -22,7 +22,7 @@ export default function Disclaimer() {
               in your projects.
             </p>
 
-            <div className="bg-white/10 rounded-lg p-4">
+            <div className="bg-card/10 rounded-lg p-4">
               <p className="text-sm text-blue-200">
                 <strong>Last Updated:</strong> April 12, 2026 | <strong>Effective Date:</strong> January 1, 2024
               </p>

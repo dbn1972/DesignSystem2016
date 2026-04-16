@@ -131,7 +131,7 @@ export default function StepProgressPattern() {
               <div className="text-sm opacity-90">Application Progress</div>
               <div className="text-lg font-bold">{Math.round(progress)}% Complete</div>
             </div>
-            <div className="w-full h-3 bg-white/30 rounded-full overflow-hidden">
+            <div className="w-full h-3 bg-card/30 rounded-full overflow-hidden">
               <div 
                 className="h-full bg-card transition-all duration-500"
                 style={{ width: `${progress}%` }}

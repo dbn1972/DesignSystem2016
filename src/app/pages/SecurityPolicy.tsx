@@ -7,7 +7,7 @@ export default function SecurityPolicy() {
       <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
         <div className="max-w-7xl mx-auto px-8 py-16">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <Shield size={16} />
               <span>Security & Privacy</span>
             </div>
@@ -22,15 +22,15 @@ export default function SecurityPolicy() {
             </p>
 
             <div className="grid grid-cols-3 gap-6 mt-8">
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">WCAG 2.1 AA</div>
                 <div className="text-blue-200 text-sm">Accessibility Compliance</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">OWASP Top 10</div>
                 <div className="text-blue-200 text-sm">Security Standards</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-4">
+              <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">24-Hour SLA</div>
                 <div className="text-blue-200 text-sm">Critical Vulnerability Response</div>
               </div>

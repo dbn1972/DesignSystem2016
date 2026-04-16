@@ -1,0 +1,31 @@
+{
+  "defaultLocale": "en",
+  "locales": [
+    "en",
+    "hi"
+  ],
+  "path": "i18n",
+  "currentLocale": "en",
+  "localeConfigs": {
+    "en": {
+      "label": "English",
+      "direction": "ltr",
+      "htmlLang": "en",
+      "calendar": "gregory",
+      "path": "en",
+      "translate": false,
+      "url": "https://dbn1972.github.io",
+      "baseUrl": "/DesignSystem2016/"
+    },
+    "hi": {
+      "label": "हिन्दी",
+      "direction": "ltr",
+      "htmlLang": "hi",
+      "calendar": "gregory",
+      "path": "hi",
+      "translate": false,
+      "url": "https://dbn1972.github.io",
+      "baseUrl": "/DesignSystem2016/hi/"
+    }
+  }
+}

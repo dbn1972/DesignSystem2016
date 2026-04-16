@@ -204,7 +204,7 @@ function Example() {
               <div className="border-2 border-green-200 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
-                  <div className="flex items-center gap-3 mb-3"><div className="w-10 h-5 bg-[#005196] rounded-full relative"><div className="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow" /></div><span className="text-xs text-foreground">Dark mode</span></div>
+                  <div className="flex items-center gap-3 mb-3"><div className="w-10 h-5 bg-[#005196] rounded-full relative"><div className="absolute right-0.5 top-0.5 w-4 h-4 bg-card rounded-full shadow" /></div><span className="text-xs text-foreground">Dark mode</span></div>
                   <p className="text-sm text-muted-foreground">Use switches for settings that take effect immediately without a save button.</p>
                 </div>
               </div>

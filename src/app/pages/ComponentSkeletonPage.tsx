@@ -127,7 +127,7 @@ const TableLoadingExample = () => {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-border">
             {!isLoaded ? (
               Array.from({ length: 5 }).map((_, i) => (
                 <tr key={i}>
@@ -250,7 +250,7 @@ const ListLoadingExample = () => {
         {isLoaded ? 'Show Loading' : 'Show Loaded'}
       </button>
 
-      <div className="border border-border rounded-lg bg-card divide-y divide-gray-200">
+      <div className="border border-border rounded-lg bg-card divide-y divide-border">
         {!isLoaded ? (
           Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="p-4 flex items-center gap-4">

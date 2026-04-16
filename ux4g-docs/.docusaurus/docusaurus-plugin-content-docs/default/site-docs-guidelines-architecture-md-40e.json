@@ -1,0 +1,24 @@
+{
+  "id": "guidelines/architecture",
+  "title": "Architecture",
+  "description": "System Overview",
+  "source": "@site/docs/guidelines/architecture.md",
+  "sourceDirName": "guidelines",
+  "slug": "/guidelines/architecture",
+  "permalink": "/DesignSystem2016/guidelines/architecture",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/dbn1972/DesignSystem2016/tree/main/ux4g-docs/docs/guidelines/architecture.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "Architecture"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Contributing",
+    "permalink": "/DesignSystem2016/guidelines/contributing"
+  }
+}
