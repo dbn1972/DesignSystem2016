@@ -122,7 +122,7 @@ function GettingStartedSection() {
         />
       </div>
 
-      <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-6 shadow-sm">
+      <div className="mt-8 rounded-2xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-950/30 p-6 shadow-sm">
         <div className="flex items-start gap-3">
           <CheckCircle className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
@@ -278,10 +278,10 @@ function WhoThisIsForSection() {
 
 function AudienceCard({ title, description, responsibilities, color }: any) {
   const colorClasses = {
-    blue: 'border-sky-200 bg-sky-50/60',
-    purple: 'border-violet-200 bg-violet-50/60',
+    blue: 'border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30',
+    purple: 'border-violet-200 dark:border-violet-800 bg-violet-50/60 dark:bg-violet-950/30',
     orange: 'border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-950/30',
-    green: 'border-emerald-200 bg-emerald-50/60'
+    green: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/60 dark:bg-emerald-950/30'
   };
 
   return (
@@ -638,7 +638,7 @@ export class AppModule { }`}
         </UsageStep>
 
         {/* Version Compatibility */}
-        <div className="rounded-2xl border border-violet-200 bg-violet-50/60 p-6 shadow-sm">
+        <div className="rounded-2xl border border-violet-200 dark:border-violet-800 bg-violet-50/60 dark:bg-violet-950/30 p-6 shadow-sm">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info className="text-primary" size={20} />
             Angular Version Compatibility
@@ -713,7 +713,7 @@ function WebComponentsUsageSection() {
           />
         </UsageStep>
 
-        <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-6 shadow-sm">
+        <div className="rounded-2xl border border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30 p-6 shadow-sm">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Shield className="text-primary" size={20} />
             Best fit for mixed environments
@@ -794,7 +794,7 @@ const StyledButton = styled.button\`
         </div>
 
         {/* Token Reference */}
-        <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-6 shadow-sm">
+        <div className="rounded-2xl border border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30 p-6 shadow-sm">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <FileText className="text-primary" size={20} />
             Complete Token Reference
@@ -901,7 +901,7 @@ function LoginForm() {
         </ComponentPattern>
 
         {/* Accessibility Pattern */}
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6 shadow-sm">
+        <div className="rounded-2xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/60 dark:bg-emerald-950/30 p-6 shadow-sm">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Shield className="text-primary" size={20} />
             Accessibility Built-In
@@ -983,7 +983,7 @@ function StarterAppSection() {
         />
       </div>
 
-      <div className="mt-6 rounded-2xl border border-sky-200 bg-sky-50/60 p-6 shadow-sm">
+      <div className="mt-6 rounded-2xl border border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30 p-6 shadow-sm">
         <h3 className="font-bold text-foreground mb-3">What's Included?</h3>
         <div className="grid gap-4 text-sm md:grid-cols-3">
           <div>
@@ -1183,7 +1183,7 @@ function ReleaseVersionSection() {
 
       <div className="mt-8 space-y-5">
         {/* Current Version */}
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5 shadow-sm">
+        <div className="rounded-2xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-950/30 p-5 shadow-sm">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Current stable release</p>
@@ -1220,7 +1220,7 @@ function ReleaseVersionSection() {
         </div>
 
         {/* Update Notifications */}
-        <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 shadow-sm">
+        <div className="rounded-2xl border border-sky-200 dark:border-sky-800 bg-sky-50/50 dark:bg-sky-950/30 p-5 shadow-sm">
           <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
             <Info className="text-primary" size={20} />
             Staying Updated
@@ -1260,7 +1260,7 @@ function VersionBand({ label, tone, detail }: any) {
   const tones = {
     rose: 'border-rose-200 bg-rose-50/70',
     amber: 'border-amber-200 dark:border-amber-800 bg-amber-50/70 dark:bg-amber-950/30',
-    emerald: 'border-emerald-200 bg-emerald-50/70'
+    emerald: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/70'
   };
 
   return (
@@ -1334,7 +1334,7 @@ function ImplementationChecklistSection() {
         />
       </div>
 
-      <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6 shadow-sm">
+      <div className="mt-6 rounded-2xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/60 dark:bg-emerald-950/30 p-6 shadow-sm">
         <div className="flex items-start gap-3">
           <CheckCircle className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
@@ -1376,7 +1376,7 @@ function SupportEscalationSection() {
       />
 
       <div className="mt-8 space-y-5">
-        <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 shadow-sm">
+        <div className="rounded-2xl border border-sky-200 dark:border-sky-800 bg-sky-50/50 dark:bg-sky-950/30 p-5 shadow-sm">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Help at a glance</p>
@@ -1460,7 +1460,7 @@ function SupportEscalationSection() {
         </div>
 
         {/* Contact Information */}
-        <div className="rounded-2xl border border-sky-200 bg-sky-50/50 p-5 shadow-sm">
+        <div className="rounded-2xl border border-sky-200 dark:border-sky-800 bg-sky-50/50 dark:bg-sky-950/30 p-5 shadow-sm">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Contact</p>
@@ -1496,8 +1496,8 @@ function SupportEscalationSection() {
 
 function SupportChannel({ icon, title, description, action, href, color }: any) {
   const colorClasses = {
-    blue: 'border-sky-200 bg-sky-50/60 text-primary',
-    purple: 'border-violet-200 bg-violet-50/60 text-primary',
+    blue: 'border-sky-200 dark:border-sky-800 bg-sky-50/60 text-primary',
+    purple: 'border-violet-200 dark:border-violet-800 bg-violet-50/60 text-primary',
     orange: 'border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-950/30 text-primary'
   };
 
