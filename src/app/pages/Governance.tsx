@@ -220,19 +220,19 @@ function OwnershipModelSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
               <div>
                 <strong className="text-foreground dark:text-gray-100">R - Responsible:</strong>
-                <span className="text-muted-foreground dark:text-gray-300 ml-1">Does the work</span>
+                <span className="text-muted-foreground dark:text-muted-foreground ml-1">Does the work</span>
               </div>
               <div>
                 <strong className="text-foreground dark:text-gray-100">A - Accountable:</strong>
-                <span className="text-muted-foreground dark:text-gray-300 ml-1">Final approval</span>
+                <span className="text-muted-foreground dark:text-muted-foreground ml-1">Final approval</span>
               </div>
               <div>
                 <strong className="text-foreground dark:text-gray-100">C - Consulted:</strong>
-                <span className="text-muted-foreground dark:text-gray-300 ml-1">Provides input</span>
+                <span className="text-muted-foreground dark:text-muted-foreground ml-1">Provides input</span>
               </div>
               <div>
                 <strong className="text-foreground dark:text-gray-100">I - Informed:</strong>
-                <span className="text-muted-foreground dark:text-gray-300 ml-1">Kept updated</span>
+                <span className="text-muted-foreground dark:text-muted-foreground ml-1">Kept updated</span>
               </div>
             </div>
           </div>
@@ -255,7 +255,7 @@ function OwnershipPillar({ title, responsibilities, color }: any) {
       <ul className="space-y-2">
         {responsibilities.map((resp: string, index: number) => (
           <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-            <CheckCircle className="mt-0.5 flex-shrink-0 text-gray-400 dark:text-gray-500" size={16} />
+            <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-gray-500" size={16} />
             <span>{resp}</span>
           </li>
         ))}
@@ -398,7 +398,7 @@ function ReviewLane({ title, owner, focuses, timeline, color }: any) {
         <ul className="space-y-2 mb-4">
           {focuses.map((focus: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <CheckCircle className="mt-0.5 flex-shrink-0 text-gray-400 dark:text-gray-500" size={14} />
+              <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-gray-500" size={14} />
               <span>{focus}</span>
             </li>
           ))}
@@ -998,7 +998,7 @@ function StatusDetail({ status, badge, characteristics, usage, support }: any) {
           <ul className="space-y-2">
             {characteristics.map((char: string, index: number) => (
               <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                <CheckCircle className="mt-0.5 flex-shrink-0 text-gray-400 dark:text-gray-500" size={14} />
+                <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-gray-500" size={14} />
                 <span>{char}</span>
               </li>
             ))}
@@ -1037,11 +1037,11 @@ function PromotionRulesSection() {
               <div className="px-4 py-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 border-2 border-yellow-300 dark:border-yellow-700 rounded-full font-bold mb-2">
                 ALPHA
               </div>
-              <div className="text-xs text-muted-foreground dark:text-gray-400">Initial development</div>
+              <div className="text-xs text-muted-foreground dark:text-muted-foreground">Initial development</div>
             </div>
 
             <div className="flex flex-col items-center">
-              <ChevronRight className="text-gray-400 dark:text-muted-foreground" size={32} />
+              <ChevronRight className="text-muted-foreground dark:text-muted-foreground" size={32} />
               <div className="text-xs text-gray-500">Promote</div>
             </div>
 
@@ -1049,11 +1049,11 @@ function PromotionRulesSection() {
               <div className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border-2 border-blue-300 dark:border-blue-700 rounded-full font-bold mb-2">
                 BETA
               </div>
-              <div className="text-xs text-muted-foreground dark:text-gray-400">Testing period</div>
+              <div className="text-xs text-muted-foreground dark:text-muted-foreground">Testing period</div>
             </div>
 
             <div className="flex flex-col items-center">
-              <ChevronRight className="text-gray-400 dark:text-muted-foreground" size={32} />
+              <ChevronRight className="text-muted-foreground dark:text-muted-foreground" size={32} />
               <div className="text-xs text-gray-500">Promote</div>
             </div>
 
@@ -1061,7 +1061,7 @@ function PromotionRulesSection() {
               <div className="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-2 border-green-300 dark:border-green-700 rounded-full font-bold mb-2">
                 PRODUCTION
               </div>
-              <div className="text-xs text-muted-foreground dark:text-gray-400">Full release</div>
+              <div className="text-xs text-muted-foreground dark:text-muted-foreground">Full release</div>
             </div>
           </div>
         </div>
@@ -1104,11 +1104,11 @@ function PromotionRulesSection() {
             <Zap className="text-orange-600 dark:text-orange-500 flex-shrink-0 mt-1" size={24} />
             <div>
               <h3 className="font-bold text-foreground dark:text-gray-100 mb-2">Fast-Track Promotion</h3>
-              <p className="text-sm text-muted-foreground dark:text-gray-300 mb-3">
+              <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">
                 Critical bug fixes and minor variants can be fast-tracked through lifecycle stages with
                 approval from both Design and Engineering Leads.
               </p>
-              <div className="text-xs text-muted-foreground dark:text-gray-400">
+              <div className="text-xs text-muted-foreground dark:text-muted-foreground">
                 Fast-track requires: clear justification, minimal risk assessment, and full regression testing
               </div>
             </div>
@@ -1124,7 +1124,7 @@ function PromotionCriteria({ from, to, requirements, timeline }: any) {
     <div className="overflow-hidden rounded-[24px] border border-border bg-card shadow-sm">
       <div className="border-b border-border bg-gradient-to-r from-muted/30 to-background p-4">
         <h3 className="flex items-center gap-2 font-bold text-foreground">
-          {from} <ChevronRight size={20} className="text-gray-400 dark:text-muted-foreground" /> {to}
+          {from} <ChevronRight size={20} className="text-muted-foreground dark:text-muted-foreground" /> {to}
         </h3>
         <div className="mt-1 text-xs text-muted-foreground">{timeline}</div>
       </div>
@@ -1488,7 +1488,7 @@ function ConformanceExpectationsSection() {
         <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
           <div className="bg-background dark:bg-gray-800 p-6 border-b-2 border-border dark:border-gray-700">
             <h3 className="font-bold text-foreground dark:text-gray-100">Conformance Verification</h3>
-            <p className="text-sm text-muted-foreground dark:text-gray-400 mt-1">How conformance is measured and verified</p>
+            <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-1">How conformance is measured and verified</p>
           </div>
           
           <div className="p-6 space-y-6">
@@ -1525,7 +1525,7 @@ function ConformanceExpectationsSection() {
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
               <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3">For Government Departments:</h4>
-              <ul className="space-y-2 text-muted-foreground dark:text-gray-300">
+              <ul className="space-y-2 text-muted-foreground dark:text-muted-foreground">
                 <li>• Reduced support priority</li>
                 <li>• Excluded from beta testing programs</li>
                 <li>• May not influence design system roadmap</li>
@@ -1535,7 +1535,7 @@ function ConformanceExpectationsSection() {
 
             <div>
               <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3">For Vendor Partners:</h4>
-              <ul className="space-y-2 text-muted-foreground dark:text-gray-300">
+              <ul className="space-y-2 text-muted-foreground dark:text-muted-foreground">
                 <li>• Application may be rejected in acceptance testing</li>
                 <li>• Remediation work required before go-live</li>
                 <li>• Future contract consideration affected</li>
@@ -1567,7 +1567,7 @@ function ConformanceLevel({ level, badge, requirements, benefits }: any) {
         <ul className="space-y-2 mb-6">
           {requirements.map((req: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <CheckCircle className="mt-0.5 flex-shrink-0 text-gray-400 dark:text-gray-500" size={14} />
+              <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-gray-500" size={14} />
               <span>{req}</span>
             </li>
           ))}

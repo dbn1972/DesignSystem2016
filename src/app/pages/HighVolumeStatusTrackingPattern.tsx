@@ -288,7 +288,7 @@ function JourneyFlow() {
               <FlowStep number="05" label="Timeline View" status="info" />
             </div>
             <div className="flex items-center justify-center">
-              <ArrowRight className="text-gray-400" size={24} />
+              <ArrowRight className="text-muted-foreground" size={24} />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06a" label="Completed" status="success" />
@@ -298,7 +298,7 @@ function JourneyFlow() {
               <FlowStep number="06e" label="Rejected" status="error" />
             </div>
             <div className="flex items-center justify-center">
-              <ArrowRight className="text-gray-400" size={24} />
+              <ArrowRight className="text-muted-foreground" size={24} />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <FlowStep number="07" label="Next Actions" status="info" />
@@ -591,7 +591,7 @@ function PageDesigns() {
                   stage="Passport Printing"
                   description="Once police verification is complete and approved, your passport will be printed at the Central Passport Printing Facility."
                   status="pending"
-                  icon={<Clock size={20} className="text-gray-400" />}
+                  icon={<Clock size={20} className="text-muted-foreground" />}
                   progress="future"
                 />
                 <TimelineItem
@@ -599,7 +599,7 @@ function PageDesigns() {
                   stage="Dispatch and Delivery"
                   description="Your passport will be dispatched via registered post to your address. You'll receive tracking number via SMS."
                   status="pending"
-                  icon={<Clock size={20} className="text-gray-400" />}
+                  icon={<Clock size={20} className="text-muted-foreground" />}
                   progress="future"
                 />
               </div>
@@ -1775,7 +1775,7 @@ function ProgressStage({ label, status }: any) {
   const statusColors: any = {
     complete: 'text-green-600',
     active: 'text-blue-600 font-bold',
-    pending: 'text-gray-400'
+    pending: 'text-muted-foreground'
   };
 
   return (

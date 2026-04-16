@@ -504,7 +504,7 @@ function PatternCard({
             <div className="text-xs text-muted-foreground mb-1">{patternId}</div>
             <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">{title}</h3>
           </div>
-          <ArrowRight size={20} className="text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+          <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
         </div>
       </div>
 

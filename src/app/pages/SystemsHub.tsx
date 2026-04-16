@@ -29,7 +29,7 @@ export default function SystemsHub() {
                 Systems
               </h1>
 
-              <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 UX4G systems are shared capabilities that improve every service journey:
                 multilingual delivery, intelligent forms, and resilience patterns that keep
                 people moving even when networks or services fail.
@@ -104,7 +104,7 @@ export default function SystemsHub() {
                     <Shield size={16} className="text-blue-700 dark:text-blue-300" />
                     Enterprise-ready foundation
                   </div>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
                     These systems are shared platform layers, so teams can build once and
                     apply the same UX4G standards across all citizen-facing services.
                   </p>
@@ -217,7 +217,7 @@ export default function SystemsHub() {
               <p className="text-sm font-semibold text-foreground dark:text-gray-100">
                 Recommended starting point
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 If you are designing content for regional audiences first, begin with
                 multilingual guidance and then layer in form intelligence and resilience.
               </p>
@@ -263,7 +263,7 @@ function OverviewRow({
       </div>
       <div>
         <p className="font-semibold text-foreground dark:text-gray-50">{title}</p>
-        <p className="mt-1 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+        <p className="mt-1 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
           {description}
         </p>
       </div>
@@ -314,7 +314,7 @@ function SystemCard({
         </div>
       </div>
 
-      <p className="mt-4 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+      <p className="mt-4 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
         {description}
       </p>
 
@@ -342,7 +342,7 @@ function FeaturePanel({ title, description }: { title: string; description: stri
         <Activity size={16} className="text-primary dark:text-blue-300" />
         {title}
       </div>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
         {description}
       </p>
     </div>

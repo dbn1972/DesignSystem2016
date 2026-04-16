@@ -29,7 +29,7 @@ const SelectPreview = ({ placeholder, options, disabled = false, error = false }
           ))}
         </select>
         <ChevronDown 
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" 
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground pointer-events-none" 
           size={20} 
         />
       </div>
@@ -542,7 +542,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         </select>
 
         <ChevronDown
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground pointer-events-none"
           size={20}
         />
 
@@ -647,7 +647,7 @@ export interface SelectOption {
       </select>
 
       <svg
-        class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"
+        class="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground pointer-events-none"
         width="20"
         height="20"
         viewBox="0 0 24 24"

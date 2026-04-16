@@ -2003,7 +2003,7 @@ function ProgressItem({ title, status, description }: any) {
   const statusConfig: any = {
     complete: { icon: <CheckCircle size={18} className="text-green-600" />, bg: 'bg-green-50' },
     pending: { icon: <Clock size={18} className="text-orange-600" />, bg: 'bg-orange-50' },
-    locked: { icon: <AlertCircle size={18} className="text-gray-400" />, bg: 'bg-background' }
+    locked: { icon: <AlertCircle size={18} className="text-muted-foreground" />, bg: 'bg-background' }
   };
 
   return (

@@ -30,13 +30,13 @@ export default function TermsOfUse() {
                   Home
                 </Link>
               </li>
-              <li className="text-gray-400">/</li>
+              <li className="text-muted-foreground">/</li>
               <li>
                 <Link to="/governance" className="text-primary hover:underline font-medium">
                   Governance
                 </Link>
               </li>
-              <li className="text-gray-400">/</li>
+              <li className="text-muted-foreground">/</li>
               <li className="text-muted-foreground" aria-current="page">Terms of Use</li>
             </ol>
           </nav>

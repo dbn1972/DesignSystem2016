@@ -46,7 +46,7 @@ const AddressAutocompleteIndiaPreview = ({
           className="w-full h-10 px-4 pr-10 border border-border rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2"
           {...props}
         />
-        <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+        <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
       </div>
       {suggestions.length > 0 && (
         <ul className="absolute z-10 w-full mt-1 bg-card border border-border rounded shadow-lg max-h-60 overflow-auto">
@@ -638,7 +638,7 @@ export const AddressAutocompleteIndia = forwardRef<
               <div className="w-4 h-4 border-2 border-[#005196] border-t-transparent rounded-full animate-spin" />
             ) : (
               <svg
-                className="w-4 h-4 text-gray-400"
+                className="w-4 h-4 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

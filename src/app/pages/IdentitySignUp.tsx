@@ -81,7 +81,7 @@ export default function IdentitySignUp() {
                         Full Name <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
-                        <User size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <User size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input
                           type="text"
                           id="fullName"
@@ -101,7 +101,7 @@ export default function IdentitySignUp() {
                         Mobile Number <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
-                        <Phone size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <Phone size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <div className="absolute left-12 top-1/2 -translate-y-1/2 text-muted-foreground font-bold">+91</div>
                         <input
                           type="tel"
@@ -123,7 +123,7 @@ export default function IdentitySignUp() {
                         Email Address <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
-                        <Mail size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <Mail size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input
                           type="email"
                           id="email"
@@ -143,7 +143,7 @@ export default function IdentitySignUp() {
                         Create Password <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
-                        <Lock size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <Lock size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input
                           type={showPassword ? "text" : "password"}
                           id="password"
@@ -175,7 +175,7 @@ export default function IdentitySignUp() {
                                 {req.met ? (
                                   <Check size={14} className="text-green-600" />
                                 ) : (
-                                  <X size={14} className="text-gray-400" />
+                                  <X size={14} className="text-muted-foreground" />
                                 )}
                                 <span className={req.met ? "text-green-700" : "text-muted-foreground"}>{req.label}</span>
                               </div>
@@ -191,7 +191,7 @@ export default function IdentitySignUp() {
                         Confirm Password <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
-                        <Lock size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <Lock size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input
                           type={showConfirmPassword ? "text" : "password"}
                           id="confirmPassword"

@@ -503,7 +503,7 @@ function RelationshipScreen({
                   </div>
                 )}
               </div>
-              <ChevronRight size={20} className="text-gray-400" />
+              <ChevronRight size={20} className="text-muted-foreground" />
             </div>
           </button>
         ))}
@@ -984,7 +984,7 @@ function ProofUploadScreen({
         }`}>
           {!proofUploaded ? (
             <>
-              <Upload size={48} className="mx-auto mb-4 text-gray-400" />
+              <Upload size={48} className="mx-auto mb-4 text-muted-foreground" />
               <h3 className="font-bold text-foreground mb-2">Upload Documents</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Drag and drop files here or click to browse

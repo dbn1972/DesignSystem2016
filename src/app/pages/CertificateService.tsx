@@ -15,11 +15,11 @@ export default function CertificateService() {
                     <FileText size={32} className="text-white" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground dark:text-gray-400 mb-1">Government of India</div>
+                    <div className="text-sm text-muted-foreground dark:text-muted-foreground mb-1">Government of India</div>
                     <h1 className="text-3xl font-bold text-foreground dark:text-gray-100">Certificate Application Service</h1>
                   </div>
                 </div>
-                <p className="text-muted-foreground dark:text-gray-300 leading-relaxed">
+                <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">
                   Apply for government-issued certificates online. Complete application, track status, and receive 
                   digital certificates from the comfort of your home.
                 </p>
@@ -45,7 +45,7 @@ export default function CertificateService() {
                 <Clock size={24} className="text-white" />
               </div>
               <div>
-                <div className="text-xs text-muted-foreground dark:text-gray-400">Processing Time</div>
+                <div className="text-xs text-muted-foreground dark:text-muted-foreground">Processing Time</div>
                 <div className="font-bold text-foreground dark:text-gray-100">7-10 Days</div>
               </div>
             </div>
@@ -55,7 +55,7 @@ export default function CertificateService() {
                 <FileText size={24} className="text-white" />
               </div>
               <div>
-                <div className="text-xs text-muted-foreground dark:text-gray-400">Application Mode</div>
+                <div className="text-xs text-muted-foreground dark:text-muted-foreground">Application Mode</div>
                 <div className="font-bold text-foreground dark:text-gray-100">100% Online</div>
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function CertificateService() {
                 <Users size={24} className="text-white" />
               </div>
               <div>
-                <div className="text-xs text-muted-foreground dark:text-gray-400">Eligibility</div>
+                <div className="text-xs text-muted-foreground dark:text-muted-foreground">Eligibility</div>
                 <div className="font-bold text-foreground dark:text-gray-100">All Citizens</div>
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function CertificateService() {
                 <Award size={24} className="text-white" />
               </div>
               <div>
-                <div className="text-xs text-muted-foreground dark:text-gray-400">Certificate Type</div>
+                <div className="text-xs text-muted-foreground dark:text-muted-foreground">Certificate Type</div>
                 <div className="font-bold text-foreground dark:text-gray-100">Digital + Print</div>
               </div>
             </div>
@@ -91,12 +91,12 @@ export default function CertificateService() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">About This Service</h2>
           <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-8">
-            <p className="text-muted-foreground dark:text-gray-300 leading-relaxed mb-4">
+            <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed mb-4">
               This is a generic government certificate application service that can be used for various types 
               of certificates including birth certificates, death certificates, income certificates, domicile 
               certificates, and caste certificates.
             </p>
-            <p className="text-muted-foreground dark:text-gray-300 leading-relaxed">
+            <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">
               The service provides a complete digital experience from application submission to certificate 
               download, with real-time status tracking and notifications at every step.
             </p>
@@ -153,7 +153,7 @@ export default function CertificateService() {
             <div className="mt-6 pt-6 border-t-2 border-border dark:border-gray-700">
               <div className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-300 dark:border-blue-800 rounded-lg p-4 flex items-start gap-3">
                 <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                <div className="text-sm text-muted-foreground dark:text-gray-300">
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground">
                   <p className="font-bold text-foreground dark:text-gray-100 mb-1">Document Upload Guidelines</p>
                   <p>All documents must be uploaded in PDF, JPEG, or PNG format. Maximum file size: 2MB per document. 
                   Ensure all documents are clear and readable.</p>
@@ -231,7 +231,7 @@ export default function CertificateService() {
                 <AlertCircle size={20} className="text-orange-600" />
                 Before You Apply
               </h3>
-              <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+              <div className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
                 <ImportantPoint text="Keep all required documents ready in digital format" />
                 <ImportantPoint text="Ensure your mobile number is active for OTP verification" />
                 <ImportantPoint text="Have a valid email address for notifications" />
@@ -244,7 +244,7 @@ export default function CertificateService() {
                 <CheckCircle size={20} className="text-green-600" />
                 After Submission
               </h3>
-              <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+              <div className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
                 <ImportantPoint text="You will receive SMS and email confirmation" />
                 <ImportantPoint text="Track status using your reference number" />
                 <ImportantPoint text="Officer may request additional documents if needed" />
@@ -259,7 +259,7 @@ export default function CertificateService() {
         <section className="bg-gradient-to-r from-[#FF9933] via-white to-[#138808] p-1 rounded-lg">
           <div className="bg-card dark:bg-gray-900 rounded p-12 text-center">
             <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-4">Ready to Apply?</h2>
-            <p className="text-muted-foreground dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-muted-foreground dark:text-muted-foreground mb-8 max-w-2xl mx-auto">
               Start your certificate application now. The entire process takes approximately 15-20 minutes 
               to complete online.
             </p>
@@ -279,7 +279,7 @@ export default function CertificateService() {
                 Need Help?
               </Link>
             </div>
-            <p className="text-sm text-muted-foreground dark:text-gray-400 mt-6">
+            <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-6">
               Don't have an account?{" "}
               <Link to="/reference-service/certificate/sign-up" className="text-primary font-bold hover:underline">
                 Sign Up Here
@@ -293,7 +293,7 @@ export default function CertificateService() {
       {/* Footer */}
       <footer className="bg-card dark:bg-gray-900 border-t-2 border-border dark:border-gray-700 mt-24">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-muted-foreground dark:text-gray-400">
+          <div className="flex items-center justify-between text-sm text-muted-foreground dark:text-muted-foreground">
             <div>Certificate Application Service • Government of India</div>
             <div>
               <Link to="/reference-service-blueprint" className="text-primary font-bold hover:underline mr-6">
@@ -314,7 +314,7 @@ function EligibilityItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-3">
       <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
-      <span className="text-muted-foreground dark:text-gray-300">{text}</span>
+      <span className="text-muted-foreground dark:text-muted-foreground">{text}</span>
     </div>
   );
 }
@@ -322,8 +322,8 @@ function EligibilityItem({ text }: { text: string }) {
 function DocumentItem({ text, optional }: { text: string; optional?: boolean }) {
   return (
     <div className="flex items-start gap-3">
-      <ChevronRight size={16} className={`${optional ? 'text-gray-400' : 'text-primary'} flex-shrink-0 mt-0.5`} />
-      <span className={`text-sm ${optional ? 'text-muted-foreground dark:text-gray-400' : 'text-muted-foreground dark:text-gray-300'}`}>
+      <ChevronRight size={16} className={`${optional ? 'text-muted-foreground' : 'text-primary'} flex-shrink-0 mt-0.5`} />
+      <span className={`text-sm ${optional ? 'text-muted-foreground dark:text-muted-foreground' : 'text-muted-foreground dark:text-muted-foreground'}`}>
         {text}
         {optional && <span className="text-gray-500 ml-2">(Optional)</span>}
       </span>
@@ -339,7 +339,7 @@ function ProcessStep({ number, title, description }: { number: number; title: st
       </div>
       <div className="flex-1">
         <h4 className="font-bold text-foreground dark:text-gray-100 mb-1">{title}</h4>
-        <p className="text-sm text-muted-foreground dark:text-gray-300">{description}</p>
+        <p className="text-sm text-muted-foreground dark:text-muted-foreground">{description}</p>
       </div>
     </div>
   );

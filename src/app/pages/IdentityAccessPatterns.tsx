@@ -666,7 +666,7 @@ function JourneyCard({ title, steps, duration, complexity }: {
               </div>
             </div>
             {idx < steps.length - 1 && (
-              <ArrowRight size={16} className="text-gray-400 flex-shrink-0" />
+              <ArrowRight size={16} className="text-muted-foreground flex-shrink-0" />
             )}
           </div>
         ))}

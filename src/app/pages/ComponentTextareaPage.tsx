@@ -569,7 +569,7 @@ Textarea.displayName = 'Textarea';`,
 export const textareaVariants = cva(
   [
     'px-4 py-3 rounded-lg border',
-    'text-base text-foreground placeholder:text-gray-400',
+    'text-base text-foreground placeholder:text-muted-foreground',
     'transition-all duration-150',
     'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
     'disabled:bg-muted disabled:cursor-not-allowed disabled:opacity-60',

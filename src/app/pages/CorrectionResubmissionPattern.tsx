@@ -265,7 +265,7 @@ function JourneyFlow() {
               <FlowStep number="05" label="Doc Re-upload" status="optional" />
             </div>
             <div className="flex items-center justify-center">
-              <ArrowRight className="text-gray-400" size={24} />
+              <ArrowRight className="text-muted-foreground" size={24} />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06" label="Review Changes" status="active" />
@@ -1789,7 +1789,7 @@ function IssueListItem({ severity, field, issue, guidance }: any) {
           <div className={`text-sm font-bold ${severityConfig[severity].color} mb-2`}>{issue}</div>
           <div className="text-sm text-muted-foreground">{guidance}</div>
         </div>
-        <ChevronRight size={20} className="text-gray-400 flex-shrink-0" />
+        <ChevronRight size={20} className="text-muted-foreground flex-shrink-0" />
       </div>
     </div>
   );

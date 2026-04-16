@@ -160,7 +160,7 @@ function ApplicationSubmission() {
                 "Ration card applications",
                 "Government housing schemes"
               ].map((useCase, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
+                <div key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
                   <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{useCase}</span>
                 </div>
@@ -171,7 +171,7 @@ function ApplicationSubmission() {
           {/* Journey Flow */}
           <DocumentationModule title="End-to-End Service Flow">
             <div className="space-y-4">
-              <div className="text-sm text-muted-foreground dark:text-gray-400 mb-4">
+              <div className="text-sm text-muted-foreground dark:text-muted-foreground mb-4">
                 User learns about service → checks eligibility → completes multi-step form → uploads documents → 
                 reviews submission → receives acknowledgment → tracks status
               </div>
@@ -296,7 +296,7 @@ function ApplicationSubmission() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Accessibility Requirements">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Eye size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                 <span>Keyboard navigation on all steps</span>
@@ -321,7 +321,7 @@ function ApplicationSubmission() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Multilingual Support">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Globe size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
                 <span>UI in 12+ scheduled languages</span>
@@ -342,7 +342,7 @@ function ApplicationSubmission() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Risk Indicators" severity="high">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <AlertTriangle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
                 <span>Data loss from session timeout</span>
@@ -429,7 +429,7 @@ function EligibilityScreening() {
                 "Income-based service access",
                 "Category-specific schemes"
               ].map((useCase, idx) => (
-                <div key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-gray-300">
+                <div key={idx} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
                   <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{useCase}</span>
                 </div>
@@ -508,7 +508,7 @@ function EligibilityScreening() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Content Tone Guidance">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <MessageSquare size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
                 <span>Use encouraging, supportive language</span>
@@ -529,19 +529,19 @@ function EligibilityScreening() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Implementation Notes">
-            <div className="space-y-3 text-sm text-muted-foreground dark:text-gray-300">
+            <div className="space-y-3 text-sm text-muted-foreground dark:text-muted-foreground">
               <div className="flex items-start gap-2">
                 <Code size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                 <div>
                   <div className="font-medium text-foreground dark:text-gray-100">Rule Engine</div>
-                  <div className="text-xs text-muted-foreground dark:text-gray-400">Implement conditional logic for question branching</div>
+                  <div className="text-xs text-muted-foreground dark:text-muted-foreground">Implement conditional logic for question branching</div>
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <Code size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                 <div>
                   <div className="font-medium text-foreground dark:text-gray-100">Policy Alignment</div>
-                  <div className="text-xs text-muted-foreground dark:text-gray-400">Work with policy team to define criteria</div>
+                  <div className="text-xs text-muted-foreground dark:text-muted-foreground">Work with policy team to define criteria</div>
                 </div>
               </div>
             </div>
@@ -665,7 +665,7 @@ function Renewal() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Notification Strategy">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Clock size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
                 <span>30 days before expiry (first reminder)</span>
@@ -796,7 +796,7 @@ function CorrectionResubmission() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Content Tone" severity="info">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <MessageSquare size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
                 <span>Be empathetic (never punitive)</span>
@@ -935,7 +935,7 @@ function ComplaintEscalation() {
           </AnnotationPanel>
 
           <AnnotationPanel title="SLA Monitoring">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Clock size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                 <span>Track days since submission</span>
@@ -956,7 +956,7 @@ function ComplaintEscalation() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Analytics Events">
-            <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <div className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <div className="flex items-start gap-2">
                 <BarChart3 size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
                 <span>Complaint submission rate</span>
@@ -1083,7 +1083,7 @@ function ApprovalIssuance() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Security Requirements" severity="critical">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Lock size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
                 <span>PDF encryption (AES-256)</span>
@@ -1104,7 +1104,7 @@ function ApprovalIssuance() {
           </AnnotationPanel>
 
           <AnnotationPanel title="DigiLocker Integration">
-            <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <div className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <div className="flex items-start gap-2">
                 <Database size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                 <span>Auto-upload to DigiLocker</span>
@@ -1233,7 +1233,7 @@ function AssistedOfflineToOnline() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Audit Requirements" severity="high">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Shield size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                 <span>Log staff ID and timestamp</span>
@@ -1387,7 +1387,7 @@ function HighVolumeStatusTracking() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Performance SLAs" severity="critical">
-            <ul className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Zap size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
                 <span>API response time: &lt; 3 seconds</span>
@@ -1408,7 +1408,7 @@ function HighVolumeStatusTracking() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Bot Prevention">
-            <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <div className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <div className="flex items-start gap-2">
                 <Shield size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
                 <span>CAPTCHA on lookup page</span>
@@ -1425,7 +1425,7 @@ function HighVolumeStatusTracking() {
           </AnnotationPanel>
 
           <AnnotationPanel title="Analytics Events">
-            <div className="space-y-2 text-sm text-muted-foreground dark:text-gray-300">
+            <div className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
               <div className="flex items-start gap-2">
                 <BarChart3 size={14} className="text-purple-600 mt-0.5 flex-shrink-0" />
                 <span>Status lookup attempts</span>

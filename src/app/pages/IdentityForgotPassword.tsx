@@ -148,9 +148,9 @@ export default function IdentityForgotPassword() {
                         </label>
                         <div className="relative">
                           {recoveryMethod === "mobile" ? (
-                            <Phone size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                            <Phone size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                           ) : (
-                            <Mail size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                            <Mail size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                           )}
                           <input
                             type={recoveryMethod === "mobile" ? "tel" : "email"}
@@ -232,7 +232,7 @@ export default function IdentityForgotPassword() {
                           New Password <span className="text-red-600">*</span>
                         </label>
                         <div className="relative">
-                          <Key size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                          <Key size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                           <input
                             type={showNewPassword ? "text" : "password"}
                             id="newPassword"
@@ -244,7 +244,7 @@ export default function IdentityForgotPassword() {
                           <button
                             type="button"
                             onClick={() => setShowNewPassword(!showNewPassword)}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-muted-foreground"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                           >
                             {showNewPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                           </button>
@@ -260,7 +260,7 @@ export default function IdentityForgotPassword() {
                               {req.met ? (
                                 <Check size={14} className="text-green-600" />
                               ) : (
-                                <X size={14} className="text-gray-400" />
+                                <X size={14} className="text-muted-foreground" />
                               )}
                               <span className={req.met ? "text-green-700" : "text-muted-foreground"}>{req.label}</span>
                             </div>
@@ -274,7 +274,7 @@ export default function IdentityForgotPassword() {
                           Confirm New Password <span className="text-red-600">*</span>
                         </label>
                         <div className="relative">
-                          <Key size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                          <Key size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                           <input
                             type={showConfirmPassword ? "text" : "password"}
                             id="confirmPassword"
@@ -286,7 +286,7 @@ export default function IdentityForgotPassword() {
                           <button
                             type="button"
                             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-muted-foreground"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                           >
                             {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                           </button>
@@ -395,7 +395,7 @@ function ProgressStep({ number, label, active, completed }: { number: number; la
           ? 'bg-green-500 border-green-500 text-white'
           : active
           ? 'bg-primary border-primary text-white'
-          : 'bg-card border-border text-gray-400'
+          : 'bg-card border-border text-muted-foreground'
       }`}>
         {completed ? <Check size={18} /> : number}
       </div>

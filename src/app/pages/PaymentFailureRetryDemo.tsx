@@ -1101,7 +1101,7 @@ function AlternatePaymentMethodCard({
           </div>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
-        <ChevronRight size={20} className="text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+        <ChevronRight size={20} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
       </div>
     </button>
   );

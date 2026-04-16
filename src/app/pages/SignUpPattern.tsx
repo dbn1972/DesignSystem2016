@@ -422,7 +422,7 @@ function FlowConnector({ label }: { label?: string }) {
   return (
     <div className="flex items-center justify-center py-2">
       <div className="flex flex-col items-center">
-        <ArrowRight size={24} className="text-gray-400 rotate-90" />
+        <ArrowRight size={24} className="text-muted-foreground rotate-90" />
         {label && <span className="text-xs text-muted-foreground mt-1">{label}</span>}
       </div>
     </div>
@@ -1055,7 +1055,7 @@ function RequirementItem({ text, met }: { text: string; met: boolean }) {
       {met ? (
         <CheckCircle size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
       ) : (
-        <XCircle size={16} className="text-gray-400 mt-0.5 flex-shrink-0" />
+        <XCircle size={16} className="text-muted-foreground mt-0.5 flex-shrink-0" />
       )}
       <span className={`text-sm ${met ? 'text-muted-foreground' : 'text-gray-500'}`}>{text}</span>
     </div>
@@ -1358,7 +1358,7 @@ function ErrorCard({ title, severity, trigger, behavior, example }: {
           <div className="space-y-1">
             {behavior.map((item, i) => (
               <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                <ChevronRight size={14} className="mt-0.5 flex-shrink-0 text-gray-400" />
+                <ChevronRight size={14} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
                 <span>{item}</span>
               </div>
             ))}
@@ -1716,7 +1716,7 @@ function ChecklistItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2 text-sm">
       <div className="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-        <Check size={12} className="text-gray-400" />
+        <Check size={12} className="text-muted-foreground" />
       </div>
       <span className="text-muted-foreground">{text}</span>
     </div>

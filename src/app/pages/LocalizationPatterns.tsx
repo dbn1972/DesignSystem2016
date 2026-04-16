@@ -187,7 +187,7 @@ export default function LocalizationPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Language Switcher</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     User interface component for selecting preferred language with smart defaults based on browser settings,
@@ -214,7 +214,7 @@ export default function LocalizationPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Mixed-Language Fallback</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Strategy for handling partially translated content by gracefully falling back to English or Hindi
@@ -241,7 +241,7 @@ export default function LocalizationPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Content Expansion Handling</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Layout and typography strategies for accommodating text expansion (up to 300% for some languages)
@@ -268,7 +268,7 @@ export default function LocalizationPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Script-Specific Layout Handling</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Specialized layout adjustments for different writing systems including RTL (Urdu), complex conjuncts
@@ -295,7 +295,7 @@ export default function LocalizationPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Translation Confidence Indicators</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Visual indicators showing translation quality and confidence levels for machine-translated or

@@ -289,7 +289,7 @@ function JourneyFlow() {
               <FlowStep number="05" label="Review" status="active" />
             </div>
             <div className="flex items-center justify-center">
-              <ArrowRight className="text-gray-400" size={24} />
+              <ArrowRight className="text-muted-foreground" size={24} />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06" label="Submit" status="success" />
@@ -299,7 +299,7 @@ function JourneyFlow() {
               <FlowStep number="10" label="Resolution" status="decision" />
             </div>
             <div className="flex items-center justify-center">
-              <ArrowRight className="text-gray-400" size={24} />
+              <ArrowRight className="text-muted-foreground" size={24} />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="11" label="Close / Reopen" status="info" />
@@ -709,7 +709,7 @@ function PageDesigns() {
 
               <div className="border-2 border-dashed border-gray-400 rounded-lg p-8 bg-background">
                 <div className="text-center">
-                  <Upload size={48} className="text-gray-400 mx-auto mb-4" />
+                  <Upload size={48} className="text-muted-foreground mx-auto mb-4" />
                   <div className="font-bold text-foreground mb-2">Drag and drop files here</div>
                   <div className="text-sm text-muted-foreground mb-4">or click to browse your device</div>
                   <button className="px-6 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90">

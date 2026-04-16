@@ -425,7 +425,7 @@ export default function Documentation() {
                         to={item.href}
                         className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
                       >
-                        <ChevronRight size={16} className="text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                        <ChevronRight size={16} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                         <span className="font-medium">{item.name}</span>
                       </Link>
                     </li>

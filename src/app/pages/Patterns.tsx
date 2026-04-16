@@ -113,7 +113,7 @@ export default function Patterns() {
                 Patterns
               </h1>
 
-              <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 Reusable solutions for common design problems in government digital services.
                 Patterns combine components and behavior to reduce duplication and keep user
                 journeys consistent across the platform.
@@ -178,7 +178,7 @@ export default function Patterns() {
                     <Shield size={16} className="text-emerald-600 dark:text-emerald-400" />
                     Government-grade consistency
                   </div>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
                     All pattern guidance is intended to help teams build predictable,
                     accessible, and scalable service experiences.
                   </p>
@@ -200,7 +200,7 @@ export default function Patterns() {
               <h2 className="text-3xl font-bold text-foreground dark:text-gray-50">
                 Common patterns for consistent service design
               </h2>
-              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 The library is organised around the most common government service problems,
                 so teams can move from overview to implementation without losing clarity.
               </p>
@@ -243,7 +243,7 @@ export default function Patterns() {
                     <h3 className="mt-5 text-2xl font-bold text-foreground transition-colors group-hover:text-primary dark:text-gray-50 dark:group-hover:text-blue-300">
                       {pattern.title}
                     </h3>
-                    <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+                    <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                       {pattern.description}
                     </p>
 
@@ -255,7 +255,7 @@ export default function Patterns() {
                         {pattern.examples.map((example) => (
                           <span
                             key={example}
-                            className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-gray-700 dark:text-gray-300"
+                            className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-gray-700 dark:text-muted-foreground"
                           >
                             {example}
                           </span>
@@ -286,7 +286,7 @@ export default function Patterns() {
               <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
                 End-to-end journeys that repeat across services
               </h2>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 These flow summaries help teams stitch patterns together into service
                 journeys without losing consistency, state, or accessibility.
               </p>
@@ -342,7 +342,7 @@ export default function Patterns() {
               <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
                 Application form pattern
               </h2>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 A complete example of how a pattern can combine steps, validation, and
                 responsive layout to support a government application journey.
               </p>
@@ -365,7 +365,7 @@ export default function Patterns() {
                       >
                         {idx < 1 ? <CheckCircle size={18} /> : idx + 1}
                       </div>
-                      <span className="text-xs font-medium text-muted-foreground dark:text-gray-300">{step}</span>
+                      <span className="text-xs font-medium text-muted-foreground dark:text-muted-foreground">{step}</span>
                     </div>
                   ))}
                 </div>
@@ -388,7 +388,7 @@ export default function Patterns() {
                   </div>
 
                   <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between sm:items-center">
-                    <button className="inline-flex items-center justify-center rounded-xl border border-border px-5 py-3 text-sm font-semibold text-muted-foreground transition-colors hover:bg-background dark:hover:bg-gray-700 dark:text-gray-300">
+                    <button className="inline-flex items-center justify-center rounded-xl border border-border px-5 py-3 text-sm font-semibold text-muted-foreground transition-colors hover:bg-background dark:hover:bg-gray-700 dark:text-muted-foreground">
                       Cancel
                     </button>
                     <button
@@ -426,7 +426,7 @@ export default function Patterns() {
               <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
                 Principles that keep patterns trustworthy
               </h2>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 Use these guidance points when implementing patterns in government digital
                 services so the experience stays coherent and accessible.
               </p>
@@ -446,7 +446,7 @@ export default function Patterns() {
                       <h3 className="text-lg font-semibold text-foreground dark:text-gray-50 mb-2">
                         {practice.title}
                       </h3>
-                      <p className="text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+                      <p className="text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
                         {practice.description}
                       </p>
                     </div>
@@ -501,7 +501,7 @@ function MiniSummary({ title, description }: { title: string; description: strin
   return (
     <div className="rounded-2xl border border-border bg-background p-4 dark:bg-gray-800">
       <p className="font-semibold text-foreground dark:text-gray-50">{title}</p>
-      <p className="mt-1 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+      <p className="mt-1 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
         {description}
       </p>
     </div>
@@ -523,7 +523,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-semibold text-muted-foreground dark:text-gray-300 mb-2">
+      <label className="block text-sm font-semibold text-muted-foreground dark:text-muted-foreground mb-2">
         {label}
       </label>
       {select ? (

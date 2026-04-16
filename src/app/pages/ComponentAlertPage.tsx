@@ -24,7 +24,7 @@ const AlertPreview = ({ variant = 'info', children }: any) => {
       <div className="flex-1">
         {children}
       </div>
-      <button onClick={() => setVisible(false)} className="text-gray-400 hover:text-foreground transition-colors" aria-label="Dismiss alert">
+      <button onClick={() => setVisible(false)} className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Dismiss alert">
         <X size={20} />
       </button>
     </div>

@@ -88,7 +88,7 @@ export default function NavigationHeader() {
         </div>
 
         {/* Primary Navigation */}
-        <nav className="hidden md:block" onMouseLeave={() => setActiveDropdown(null)}>
+        <nav aria-label="Main navigation" className="hidden md:block" onMouseLeave={() => setActiveDropdown(null)}>
           <div className="flex items-center px-6">
             <NavItem
               label="Foundations"

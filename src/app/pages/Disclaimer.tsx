@@ -403,23 +403,23 @@ function ExternalLinksSection() {
             <h4 className="font-bold text-foreground mb-3">Common External Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
-                <LinkIcon size={14} className="text-gray-400" />
+                <LinkIcon size={14} className="text-muted-foreground" />
                 GitHub repositories
               </li>
               <li className="flex items-center gap-2">
-                <LinkIcon size={14} className="text-gray-400" />
+                <LinkIcon size={14} className="text-muted-foreground" />
                 NPM packages
               </li>
               <li className="flex items-center gap-2">
-                <LinkIcon size={14} className="text-gray-400" />
+                <LinkIcon size={14} className="text-muted-foreground" />
                 Documentation sites
               </li>
               <li className="flex items-center gap-2">
-                <LinkIcon size={14} className="text-gray-400" />
+                <LinkIcon size={14} className="text-muted-foreground" />
                 Third-party tools
               </li>
               <li className="flex items-center gap-2">
-                <LinkIcon size={14} className="text-gray-400" />
+                <LinkIcon size={14} className="text-muted-foreground" />
                 Reference materials
               </li>
             </ul>

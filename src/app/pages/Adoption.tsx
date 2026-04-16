@@ -155,7 +155,7 @@ function BenefitCard({ icon, title, description, details, color }: any) {
         <ul className="space-y-2">
           {details.map((detail: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={16} />
+              <CheckCircle className="flex-shrink-0 mt-0.5 text-muted-foreground" size={16} />
               <span>{detail}</span>
             </li>
           ))}
@@ -583,7 +583,7 @@ function TeamRole({ role, responsibilities, timeCommitment }: any) {
         <ul className="space-y-2">
           {responsibilities.map((resp: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={16} />
+              <CheckCircle className="flex-shrink-0 mt-0.5 text-muted-foreground" size={16} />
               <span>{resp}</span>
             </li>
           ))}
@@ -1067,7 +1067,7 @@ function ConformanceLevel({ level, percentage, requirements, badge }: any) {
         <ul className="space-y-2">
           {requirements.map((req: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
+              <CheckCircle className="flex-shrink-0 mt-0.5 text-muted-foreground" size={14} />
               <span>{req}</span>
             </li>
           ))}
@@ -1173,7 +1173,7 @@ function SupportChannelsSection() {
             <div className="text-xs text-muted-foreground">Start here</div>
           </div>
           
-          <ChevronRight className="text-gray-400" size={24} />
+          <ChevronRight className="text-muted-foreground" size={24} />
           
           <div className="text-center">
             <div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-2">
@@ -1183,7 +1183,7 @@ function SupportChannelsSection() {
             <div className="text-xs text-muted-foreground">Check existing threads</div>
           </div>
           
-          <ChevronRight className="text-gray-400" size={24} />
+          <ChevronRight className="text-muted-foreground" size={24} />
           
           <div className="text-center">
             <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-2">
@@ -1450,7 +1450,7 @@ function ResourceCard({ title, resources }: any) {
               <div className="font-semibold text-foreground text-sm">{resource.name}</div>
               <div className="text-xs text-muted-foreground">{resource.type}</div>
             </div>
-            <ChevronRight className="text-gray-400" size={20} />
+            <ChevronRight className="text-muted-foreground" size={20} />
           </a>
         ))}
       </div>

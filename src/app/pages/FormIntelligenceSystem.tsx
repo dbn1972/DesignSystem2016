@@ -579,7 +579,7 @@ function ComponentsSection() {
               Aadhaar Card (Front & Back) <span className="text-red-600">*</span>
             </label>
             <div className="border-2 border-dashed border-border rounded p-6 text-center bg-background">
-              <FileText size={32} className="text-gray-400 mx-auto mb-2" />
+              <FileText size={32} className="text-muted-foreground mx-auto mb-2" />
               <p className="text-sm text-muted-foreground mb-1">Drag and drop or click to upload</p>
               <p className="text-xs text-muted-foreground">PDF or JPG, max 5MB</p>
             </div>

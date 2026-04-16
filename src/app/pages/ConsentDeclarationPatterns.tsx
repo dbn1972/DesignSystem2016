@@ -350,7 +350,7 @@ export default function ConsentDeclarationPatterns() {
               <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <HelpCircle
                   size={32}
-                  className="text-gray-400"
+                  className="text-muted-foreground"
                 />
               </div>
               <h3 className="font-bold text-muted-foreground mb-2">
@@ -806,7 +806,7 @@ function PatternCard({
           </div>
           <ArrowRight
             size={20}
-            className="text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all"
+            className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all"
           />
         </div>
       </div>

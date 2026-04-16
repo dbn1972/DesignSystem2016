@@ -93,7 +93,7 @@ export default function UploadExtractPattern() {
                     onChange={handleFileUpload}
                   />
                   <label htmlFor="file-upload" className="cursor-pointer">
-                    <Upload size={48} className="mx-auto mb-4 text-gray-400" />
+                    <Upload size={48} className="mx-auto mb-4 text-muted-foreground" />
                     <div className="font-bold text-foreground mb-2">
                       Click to upload or drag and drop
                     </div>

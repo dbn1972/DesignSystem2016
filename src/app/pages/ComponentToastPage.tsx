@@ -33,7 +33,7 @@ const ToastPreview = ({ variant, message, description, position, action, ...prop
       {action && <div className="mt-2">{action}</div>}
     </div>
     <button
-      className="flex-shrink-0 text-gray-400 hover:text-muted-foreground transition-colors"
+      className="flex-shrink-0 text-muted-foreground hover:text-muted-foreground transition-colors"
       aria-label="Close notification"
     >
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -436,7 +436,7 @@ export const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             <button
               type="button"
               onClick={onClose}
-              className="flex-shrink-0 text-gray-400 hover:text-muted-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded"
+              className="flex-shrink-0 text-muted-foreground hover:text-muted-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded"
               aria-label="Close notification"
             >
               <X size={16} />

@@ -13,11 +13,11 @@ export default function PatternLibraryHub() {
                 <BookOpen size={32} className="text-white" />
               </div>
               <div>
-                <div className="text-sm text-muted-foreground dark:text-gray-400 mb-1">Live Demonstrations</div>
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground mb-1">Live Demonstrations</div>
                 <h1 className="text-4xl font-bold text-foreground dark:text-gray-100">Pattern Library</h1>
               </div>
             </div>
-            <p className="text-lg text-muted-foreground dark:text-gray-300 leading-relaxed">
+            <p className="text-lg text-muted-foreground dark:text-muted-foreground leading-relaxed">
               Production-ready patterns for common government service scenarios. Each pattern includes
               live demonstrations, code examples, and implementation guidelines. Use these patterns
               as-is or customize for your specific needs.
@@ -390,7 +390,7 @@ export default function PatternLibraryHub() {
         {/* CTA Section */}
         <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 border-2 border-border dark:border-gray-700 rounded-lg p-12 mt-12 text-center">
           <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-4">See Patterns in Action</h2>
-          <p className="text-lg text-muted-foreground dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground dark:text-muted-foreground mb-8 max-w-2xl mx-auto">
             Explore our complete reference service - a certificate application with 51 pages
             demonstrating all these patterns in a real government service context.
           </p>
@@ -419,7 +419,7 @@ function StatCard({ number, label }: { number: string; label: string }) {
   return (
     <div className="bg-card dark:bg-gray-800 border-2 border-border dark:border-gray-700 rounded-lg p-6 text-center">
       <div className="text-3xl font-bold mb-2" style={{ color: 'var(--ux4g-color-brand-primary)' }}>{number}</div>
-      <div className="text-sm text-muted-foreground dark:text-gray-300">{label}</div>
+      <div className="text-sm text-muted-foreground dark:text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -453,7 +453,7 @@ function PatternCategory({ icon, title, description, color, patterns }: {
           <div>{icon}</div>
           <div>
             <h2 className="text-2xl font-bold text-foreground dark:text-gray-100">{title}</h2>
-            <p className="text-muted-foreground dark:text-gray-300 mt-1">{description}</p>
+            <p className="text-muted-foreground dark:text-muted-foreground mt-1">{description}</p>
           </div>
         </div>
       </div>
@@ -487,14 +487,14 @@ function PatternCategory({ icon, title, description, color, patterns }: {
                 >
                   {pattern.name}
                 </h3>
-                <span className="text-xs text-muted-foreground dark:text-gray-400 bg-muted dark:bg-gray-700 px-2 py-1 rounded">
+                <span className="text-xs text-muted-foreground dark:text-muted-foreground bg-muted dark:bg-gray-700 px-2 py-1 rounded">
                   {pattern.demos.length} demos
                 </span>
               </div>
-              <p className="text-sm text-muted-foreground dark:text-gray-300 mb-3">{pattern.description}</p>
+              <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">{pattern.description}</p>
               <div className="flex flex-wrap gap-2">
                 {pattern.demos.map((demo, j) => (
-                  <span key={j} className="flex items-center gap-1 text-xs text-muted-foreground dark:text-gray-400 bg-background dark:bg-gray-700 px-2 py-1 rounded">
+                  <span key={j} className="flex items-center gap-1 text-xs text-muted-foreground dark:text-muted-foreground bg-background dark:bg-gray-700 px-2 py-1 rounded">
                     <CheckCircle size={12} className="text-green-600 dark:text-green-400" />
                     {demo}
                   </span>

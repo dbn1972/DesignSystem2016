@@ -29,7 +29,7 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
               className="p-1 rounded hover:bg-muted dark:hover:bg-gray-700"
               aria-label="Refresh CAPTCHA"
             >
-              <RefreshCw size={16} className={theme === 'dark' ? 'text-gray-300' : 'text-muted-foreground'} />
+              <RefreshCw size={16} className={theme === 'dark' ? 'text-muted-foreground' : 'text-muted-foreground'} />
             </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 w-64 h-64">
@@ -62,7 +62,7 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
             Type the numbers you hear
           </p>
           <div className="flex items-center gap-2 p-3 bg-muted dark:bg-gray-700 rounded">
-            <Volume2 size={20} className={theme === 'dark' ? 'text-gray-300' : 'text-muted-foreground'} />
+            <Volume2 size={20} className={theme === 'dark' ? 'text-muted-foreground' : 'text-muted-foreground'} />
             <button className="text-sm text-blue-600 hover:text-blue-700">Play audio</button>
           </div>
           <input

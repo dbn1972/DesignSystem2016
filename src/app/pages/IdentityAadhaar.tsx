@@ -296,7 +296,7 @@ function ProgressStep({ number, label, active, completed }: { number: number; la
           ? 'bg-green-500 border-green-500 text-white'
           : active
           ? 'bg-primary border-primary text-white'
-          : 'bg-card border-border text-gray-400'
+          : 'bg-card border-border text-muted-foreground'
       }`}>
         {completed ? <Check size={18} /> : number}
       </div>

@@ -27,7 +27,7 @@ const DatePickerPreview = () => {
           className="w-full px-4 py-3 pr-10 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#005196] cursor-pointer"
         />
         <Calendar
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
           size={20}
         />
       </div>
@@ -484,7 +484,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
             \${className}\`}
         />
         <Calendar
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
           size={20}
         />
       </div>
@@ -539,7 +539,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
                     \${selected 
                       ? 'bg-[#005196] text-white hover:bg-[#004080]' 
                       : disabled
-                        ? 'text-gray-300 cursor-not-allowed'
+                        ? 'text-muted-foreground cursor-not-allowed'
                         : 'hover:bg-blue-50'
                     }
                   \`}
@@ -588,7 +588,7 @@ export interface DatePickerProps {
           [class.bg-muted]="disabled"
           [class.cursor-pointer]="!disabled"
         />
-        <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">📅</span>
+        <span class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">📅</span>
       </div>
       
       <div *ngIf="isOpen"

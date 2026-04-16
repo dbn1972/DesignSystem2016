@@ -51,7 +51,7 @@ const DocumentViewerPreview = ({ fileType, zoom = 100, page = 1, showToolbar = t
     )}
     <div className="p-8 flex items-center justify-center bg-muted" style={{ minHeight: '400px' }}>
       <div className="bg-card shadow-lg rounded" style={{ width: '90%', height: '380px' }}>
-        <div className="h-full flex items-center justify-center text-gray-400">
+        <div className="h-full flex items-center justify-center text-muted-foreground">
           {fileType === 'pdf' && (
             <div className="text-center">
               <div className="text-6xl mb-4">📄</div>

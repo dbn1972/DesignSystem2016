@@ -10,7 +10,7 @@ import { ComponentDocumentation } from '../components/ComponentDocumentation';
 const LabelPreview = ({ required, disabled, children, ...props }: any) => (
   <label
     className={`block text-sm font-medium ${
-      disabled ? 'text-gray-400 cursor-not-allowed' : 'text-foreground'
+      disabled ? 'text-muted-foreground cursor-not-allowed' : 'text-foreground'
     }`}
     {...props}
   >

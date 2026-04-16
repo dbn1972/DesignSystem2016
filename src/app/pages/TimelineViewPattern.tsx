@@ -131,7 +131,7 @@ export default function TimelineViewPattern() {
               <Link to="/patterns/status-lifecycle" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground">|</span>
               <span className="text-sm font-bold text-foreground">Timeline View</span>
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function TimelineViewPattern() {
         {/* Empty State */}
         {filteredEvents.length === 0 && (
           <div className="bg-card border-2 border-border rounded-lg p-12 text-center">
-            <AlertCircle size={48} className="text-gray-400 mx-auto mb-4" />
+            <AlertCircle size={48} className="text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-bold text-foreground mb-2">No events found</h3>
             <p className="text-muted-foreground">
               Try changing the filter to see different types of events.

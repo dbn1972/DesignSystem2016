@@ -518,7 +518,7 @@ function ExampleScreens() {
               <div>
                 <label className="block font-bold text-foreground mb-2">Upload supporting documents</label>
                 <div className="border-2 border-dashed border-border rounded p-6 text-center">
-                  <FileText size={24} className="text-gray-400 mx-auto mb-2" />
+                  <FileText size={24} className="text-muted-foreground mx-auto mb-2" />
                   <p className="text-muted-foreground">Click to upload or drag and drop</p>
                 </div>
               </div>

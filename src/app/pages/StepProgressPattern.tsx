@@ -116,7 +116,7 @@ export default function StepProgressPattern() {
               <Link to="/patterns/status-lifecycle" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground">|</span>
               <span className="text-sm font-bold text-foreground">Step Progress Tracker</span>
             </div>
           </div>
@@ -229,7 +229,7 @@ export default function StepProgressPattern() {
                   <div className="text-xs text-muted-foreground">Completed</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-400">{STEPS.length - completedSteps - 1}</div>
+                  <div className="text-2xl font-bold text-muted-foreground">{STEPS.length - completedSteps - 1}</div>
                   <div className="text-xs text-muted-foreground">Remaining</div>
                 </div>
               </div>

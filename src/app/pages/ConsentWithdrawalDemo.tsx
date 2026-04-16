@@ -358,7 +358,7 @@ function ConsentCard({
           <h4 className="font-bold text-foreground mb-1 group-hover:text-primary">{consent.service}</h4>
           <p className="text-sm text-muted-foreground">{consent.purpose}</p>
         </div>
-        <ChevronRight size={20} className="text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-4" />
+        <ChevronRight size={20} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-4" />
       </div>
       
       <div className="flex items-center gap-4 text-xs">

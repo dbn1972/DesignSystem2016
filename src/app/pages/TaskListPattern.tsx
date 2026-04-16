@@ -96,7 +96,7 @@ export default function TaskListPattern() {
               <Link to="/patterns/dashboard" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground">|</span>
               <span className="text-sm font-bold text-foreground">Task List (Pending Actions)</span>
             </div>
           </div>

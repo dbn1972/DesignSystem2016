@@ -68,7 +68,7 @@ export default function IdentitySignIn() {
                         Mobile Number or Email <span className="text-red-600">*</span>
                       </label>
                       <div className="relative">
-                        <User size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <User size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input
                           type="text"
                           id="username"
@@ -93,7 +93,7 @@ export default function IdentitySignIn() {
                         </Link>
                       </div>
                       <div className="relative">
-                        <Lock size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                        <Lock size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                         <input
                           type={showPassword ? "text" : "password"}
                           id="password"

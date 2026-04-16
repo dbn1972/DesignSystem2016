@@ -72,7 +72,7 @@ export default function Foundations() {
                 Foundations
               </h1>
 
-              <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 The principles, tokens, and baseline decisions that keep UX4G consistent,
                 accessible, and scalable across every government digital service.
               </p>
@@ -136,7 +136,7 @@ export default function Foundations() {
                     <CheckCircle size={16} className="text-emerald-600 dark:text-emerald-400" />
                     Foundation-first system
                   </div>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
                     Use this page to understand the shared design rules before moving into
                     components, patterns, and service flows.
                   </p>
@@ -158,7 +158,7 @@ export default function Foundations() {
               <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
                 Four principles that guide the system
               </h2>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 The foundations page is the rulebook for every surface in UX4G, from
                 tokens and layout to hierarchy and accessibility.
               </p>
@@ -183,7 +183,7 @@ export default function Foundations() {
                       </h3>
                     </div>
                   </div>
-                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                     {principle.description}
                   </p>
                 </div>
@@ -204,7 +204,7 @@ export default function Foundations() {
               <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
                 A balanced palette with civic clarity
               </h2>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 Inspired by the Indian national flag and grounded in accessible neutral
                 surfaces, this palette keeps the interface calm, recognisable, and easy to scan.
               </p>
@@ -212,7 +212,7 @@ export default function Foundations() {
                 <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                   Accessibility note
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
                   All color combinations are intended to meet WCAG 2.1 AA contrast requirements.
                   Use semantic tokens and avoid hardcoding one-off values in product screens.
                 </p>
@@ -236,7 +236,7 @@ export default function Foundations() {
                   </div>
                   <div className="p-5">
                     <h3 className="font-semibold text-foreground dark:text-gray-50 mb-1">{color.name}</h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground dark:text-gray-300">{color.desc}</p>
+                    <p className="text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">{color.desc}</p>
                   </div>
                 </div>
               ))}
@@ -263,13 +263,13 @@ export default function Foundations() {
                   </h2>
                 </div>
               </div>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 The type scale balances clarity, density, and performance so long-form
                 content remains readable across devices and languages.
               </p>
               <div className="mt-6 rounded-[24px] border border-border bg-card p-5 shadow-sm dark:bg-gray-800">
                 <h3 className="font-semibold text-foreground dark:text-gray-50 mb-2">Font family</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+                <p className="text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
                   System font stack for optimal performance: -apple-system, BlinkMacSystemFont,
                   "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
                 </p>
@@ -292,9 +292,9 @@ export default function Foundations() {
                     {typography.map((type, index) => (
                       <tr key={index} className="transition-colors hover:bg-background dark:hover:bg-gray-700">
                         <td className="px-6 py-4 font-medium text-foreground dark:text-gray-100">{type.name}</td>
-                        <td className="px-6 py-4 text-muted-foreground dark:text-gray-400">{type.size}</td>
-                        <td className="px-6 py-4 text-muted-foreground dark:text-gray-400">{type.weight}</td>
-                        <td className="px-6 py-4 text-muted-foreground dark:text-gray-400">{type.usage}</td>
+                        <td className="px-6 py-4 text-muted-foreground dark:text-muted-foreground">{type.size}</td>
+                        <td className="px-6 py-4 text-muted-foreground dark:text-muted-foreground">{type.weight}</td>
+                        <td className="px-6 py-4 text-muted-foreground dark:text-muted-foreground">{type.usage}</td>
                         <td className="px-6 py-4">
                           <span style={{ fontSize: type.size, fontWeight: type.weight }} className="text-foreground dark:text-gray-100">
                             Aa
@@ -321,13 +321,13 @@ export default function Foundations() {
               <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
                 Consistent spacing builds calm, readable interfaces
               </h2>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 The spacing scale creates rhythm and predictability across layouts, forms,
                 and content-heavy experiences.
               </p>
               <div className="mt-6 rounded-[24px] border border-border bg-card p-5 shadow-sm dark:bg-gray-900">
                 <h3 className="font-semibold text-foreground dark:text-gray-50 mb-2">Implementation</h3>
-                <p className="text-sm text-muted-foreground dark:text-gray-300 mb-3">
+                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">
                   Use spacing tokens in your code for consistency:
                 </p>
                 <code className="block rounded-lg border border-border bg-background px-4 py-3 text-sm font-mono text-foreground dark:bg-gray-800 dark:text-gray-100">
@@ -348,10 +348,10 @@ export default function Foundations() {
                       <div className="font-mono text-sm font-semibold text-foreground dark:text-gray-50">
                         {space.value}
                       </div>
-                      <div className="text-xs text-muted-foreground dark:text-gray-400">{space.token}</div>
+                      <div className="text-xs text-muted-foreground dark:text-muted-foreground">{space.token}</div>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground dark:text-gray-300">{space.usage}</p>
+                  <p className="text-sm text-muted-foreground dark:text-muted-foreground">{space.usage}</p>
                 </div>
               ))}
             </div>
@@ -377,7 +377,7 @@ export default function Foundations() {
                   </h2>
                 </div>
               </div>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-gray-300">
+              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
                 The grid system adapts from stacked mobile layouts to dense desktop views
                 while keeping the same design language intact.
               </p>
@@ -425,7 +425,7 @@ function SummaryRow({ title, description }: { title: string; description: string
   return (
     <div className="rounded-2xl border border-border bg-background p-4 dark:bg-gray-900">
       <p className="font-semibold text-foreground dark:text-gray-50">{title}</p>
-      <p className="mt-1 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+      <p className="mt-1 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
         {description}
       </p>
     </div>
@@ -447,7 +447,7 @@ function LayoutCard({
         {title}
       </p>
       <p className="mt-2 text-lg font-bold text-foreground dark:text-gray-50">{range}</p>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-gray-300">
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
         {description}
       </p>
     </div>

@@ -174,7 +174,7 @@ export default function NotificationCenterPattern() {
               <Link to="/patterns/notifications" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground">|</span>
               <span className="text-sm font-bold text-foreground">Notification Center</span>
             </div>
           </div>
@@ -267,7 +267,7 @@ export default function NotificationCenterPattern() {
 
           {/* Search */}
           <div className="relative">
-            <Search size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <Search size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
             <input
               type="text"
               placeholder="Search notifications..."
@@ -338,7 +338,7 @@ export default function NotificationCenterPattern() {
           </div>
         ) : (
           <div className="bg-card border-2 border-border rounded-lg p-12 text-center">
-            <Bell size={48} className="text-gray-400 mx-auto mb-4" />
+            <Bell size={48} className="text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-bold text-foreground mb-2">No notifications found</h3>
             <p className="text-muted-foreground">
               {searchQuery ? 'Try a different search term' : 'Try changing the filter'}
@@ -480,7 +480,7 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
             )}
             <button
               onClick={onDelete}
-              className="ml-auto p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 dark:bg-red-950/30 rounded transition-colors"
+              className="ml-auto p-2 text-muted-foreground hover:text-red-600 hover:bg-red-50 dark:bg-red-950/30 rounded transition-colors"
               aria-label="Delete notification"
             >
               <Trash2 size={18} />

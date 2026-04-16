@@ -1037,8 +1037,8 @@ function StarterTemplate({ title, description, features, command }: any) {
         
         <div className="rounded-xl bg-slate-950 text-white p-4 shadow-sm">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-gray-400">Installation Command</span>
-            <button className="text-xs text-gray-400 hover:text-white flex items-center gap-1">
+            <span className="text-xs text-muted-foreground">Installation Command</span>
+            <button className="text-xs text-muted-foreground hover:text-white flex items-center gap-1">
               <Copy size={12} />
               Copy
             </button>

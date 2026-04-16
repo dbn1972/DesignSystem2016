@@ -80,7 +80,7 @@ export default function RepeatableSectionsPattern() {
                   <div key={dependent.id} className="bg-background border-2 border-border rounded-lg p-6 relative">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2 text-sm font-bold text-muted-foreground">
-                        <GripVertical size={16} className="text-gray-400" />
+                        <GripVertical size={16} className="text-muted-foreground" />
                         Dependent {index + 1}
                       </div>
                       {dependents.length > 1 && (
@@ -155,7 +155,7 @@ export default function RepeatableSectionsPattern() {
                   <div key={edu.id} className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2 text-sm font-bold text-muted-foreground">
-                        <GripVertical size={16} className="text-gray-400" />
+                        <GripVertical size={16} className="text-muted-foreground" />
                         Education {index + 1}
                       </div>
                       {education.length > 1 && (
@@ -270,13 +270,13 @@ export default function RepeatableSectionsPattern() {
                     </p>
                     <div className="space-y-2 text-xs text-muted-foreground">
                       <div className="flex items-center gap-2">
-                        • Address 1: <span className="text-gray-400">[Empty field ready]</span>
+                        • Address 1: <span className="text-muted-foreground">[Empty field ready]</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        • Address 2: <span className="text-gray-400">[Empty field ready]</span>
+                        • Address 2: <span className="text-muted-foreground">[Empty field ready]</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        • Address 3: <span className="text-gray-400">[Empty field ready]</span>
+                        • Address 3: <span className="text-muted-foreground">[Empty field ready]</span>
                       </div>
                     </div>
                   </div>

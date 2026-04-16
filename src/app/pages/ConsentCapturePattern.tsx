@@ -462,7 +462,7 @@ function FlowConnector({ label }: { label?: string }) {
   return (
     <div className="flex items-center justify-center py-2">
       <div className="flex flex-col items-center">
-        <ArrowRight size={24} className="text-gray-400 rotate-90" />
+        <ArrowRight size={24} className="text-muted-foreground rotate-90" />
         {label && <span className="text-xs text-muted-foreground mt-1">{label}</span>}
       </div>
     </div>
@@ -1128,7 +1128,7 @@ function StateCard({ title, state, color, icon, actions }: {
         <div className="space-y-2">
           {actions.map((action, i) => (
             <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <ChevronRight size={14} className="mt-0.5 flex-shrink-0 text-gray-400" />
+              <ChevronRight size={14} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
               <span>{action}</span>
             </div>
           ))}
@@ -1144,7 +1144,7 @@ function TransitionRule({ from, to, trigger }: { from: string; to: string; trigg
       <div className="flex-1 grid grid-cols-3 gap-3 items-center">
         <div className="text-sm font-bold text-muted-foreground">{from}</div>
         <div className="flex items-center justify-center">
-          <ArrowRight size={16} className="text-gray-400" />
+          <ArrowRight size={16} className="text-muted-foreground" />
         </div>
         <div className="text-sm font-bold text-muted-foreground">{to}</div>
       </div>
@@ -1499,7 +1499,7 @@ function ChecklistItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2 text-sm">
       <div className="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
-        <Check size={12} className="text-gray-400" />
+        <Check size={12} className="text-muted-foreground" />
       </div>
       <span className="text-muted-foreground">{text}</span>
     </div>

@@ -98,7 +98,7 @@ export default function ActionableNotificationsPattern() {
               <Link to="/patterns/notifications" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground">|</span>
               <span className="text-sm font-bold text-foreground">Actionable Notifications</span>
             </div>
           </div>
@@ -277,7 +277,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
         
         {uploadProgress === 0 ? (
           <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
-            <Upload size={48} className="text-gray-400 mx-auto mb-4" />
+            <Upload size={48} className="text-muted-foreground mx-auto mb-4" />
             <input
               type="file"
               id="file-upload"
@@ -443,7 +443,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
                 <button
                   key={star}
                   onClick={() => setRating(star)}
-                  className={`text-3xl ${rating && star <= rating ? 'text-yellow-500' : 'text-gray-300'}`}
+                  className={`text-3xl ${rating && star <= rating ? 'text-yellow-500' : 'text-muted-foreground'}`}
                 >
                   ★
                 </button>

@@ -134,7 +134,7 @@ function CopyrightScopeCard({ title, items, icon }: any) {
         <ul className="space-y-2">
           {items.map((item: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <span className="text-gray-400 mt-0.5">•</span>
+              <span className="text-muted-foreground mt-0.5">•</span>
               <span>{item}</span>
             </li>
           ))}
@@ -364,7 +364,7 @@ function UsageRightCard({ title, description, rights, badge, badgeColor }: any) 
         <ul className="space-y-2">
           {rights.map((right: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
+              <CheckCircle className="flex-shrink-0 mt-0.5 text-muted-foreground" size={14} />
               <span>{right}</span>
             </li>
           ))}

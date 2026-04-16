@@ -66,7 +66,7 @@ const StepIndicator = ({ steps, currentStep }: any) => (
           <span className="ml-2 text-sm font-medium text-muted-foreground">{step}</span>
         </div>
         {index < steps.length - 1 && (
-          <ChevronRight className="text-gray-400" size={20} />
+          <ChevronRight className="text-muted-foreground" size={20} />
         )}
       </React.Fragment>
     ))}

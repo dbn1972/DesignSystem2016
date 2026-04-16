@@ -1426,7 +1426,7 @@ function DocumentationReferencesCard({ references }: any) {
         {references.map((ref: any, index: number) => (
           <div key={index} className="bg-card border border-border rounded-lg p-3 flex items-center justify-between group hover:border-blue-400 transition-colors">
             <span className="text-sm text-muted-foreground font-medium">{ref.doc}</span>
-            <ChevronRight className="text-gray-400 group-hover:text-blue-600 transition-colors" size={16} />
+            <ChevronRight className="text-muted-foreground group-hover:text-blue-600 transition-colors" size={16} />
           </div>
         ))}
       </div>

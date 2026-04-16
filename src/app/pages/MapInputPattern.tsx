@@ -121,7 +121,7 @@ export default function MapInputPattern() {
                 {!selectedLocation && (
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                     <div className="bg-card rounded-lg shadow-lg px-6 py-4 border-2 border-dashed border-border">
-                      <MapPin size={32} className="mx-auto mb-2 text-gray-400" />
+                      <MapPin size={32} className="mx-auto mb-2 text-muted-foreground" />
                       <div className="font-bold text-foreground mb-1">Click anywhere on the map</div>
                       <div className="text-sm text-muted-foreground">to select a location</div>
                     </div>

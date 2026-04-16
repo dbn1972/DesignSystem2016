@@ -33,7 +33,7 @@ const TrackerPreview = () => {
                       ? 'bg-green-700 text-white'
                       : status.active
                       ? 'bg-[#005196] text-white'
-                      : 'bg-gray-200 text-gray-400'
+                      : 'bg-gray-200 text-muted-foreground'
                   }`}
                 >
                   <Icon size={20} />
@@ -189,7 +189,7 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
                     \${isCompleted ? 'bg-green-700 text-white' : ''}
                     \${isActive ? 'bg-[#005196] text-white' : ''}
                     \${isRejected ? 'bg-red-600 text-white' : ''}
-                    \${!isCompleted && !isActive && !isRejected ? 'bg-gray-200 text-gray-400' : ''}
+                    \${!isCompleted && !isActive && !isRejected ? 'bg-gray-200 text-muted-foreground' : ''}
                   \`}
                 >
                   <Icon size={20} />
@@ -324,7 +324,7 @@ export class ApplicationTrackerComponent {
         classes += ' bg-red-600 text-white';
         break;
       default:
-        classes += ' bg-gray-200 text-gray-400';
+        classes += ' bg-gray-200 text-muted-foreground';
     }
     
     return classes;

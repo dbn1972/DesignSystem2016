@@ -91,7 +91,7 @@ export default function GlobalSearchPattern() {
               <Link to="/patterns/search-discovery" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground">|</span>
               <span className="text-sm font-bold text-foreground">Global Search</span>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function GlobalSearchPattern() {
           {/* Search Input */}
           <div className="relative mb-12">
             <div className="relative">
-              <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
               <input
                 type="text"
                 value={query}
@@ -132,12 +132,12 @@ export default function GlobalSearchPattern() {
                 aria-expanded={showSuggestions}
               />
               {isLoading && (
-                <Loader size={20} className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 animate-spin" />
+                <Loader size={20} className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground animate-spin" />
               )}
               {query && !isLoading && (
                 <button
                   onClick={handleClear}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-muted-foreground"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                   aria-label="Clear search"
                 >
                   <X size={20} />
@@ -235,7 +235,7 @@ export default function GlobalSearchPattern() {
                         onClick={() => setQuery(search)}
                         className="px-4 py-2 bg-card border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 transition-colors flex items-center gap-2"
                       >
-                        <Clock size={16} className="text-gray-400" />
+                        <Clock size={16} className="text-muted-foreground" />
                         {search}
                       </button>
                     ))}

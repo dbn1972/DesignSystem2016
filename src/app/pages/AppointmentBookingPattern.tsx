@@ -428,7 +428,7 @@ function FlowStep({ number, title, description, action, color }: {
 function FlowConnector() {
   return (
     <div className="flex items-center justify-center py-2">
-      <ArrowRight size={24} className="text-gray-400 rotate-90" />
+      <ArrowRight size={24} className="text-muted-foreground rotate-90" />
     </div>
   );
 }
@@ -566,7 +566,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
                     aspect-square rounded text-sm font-medium
                     ${isSelected ? 'bg-primary text-white' : ''}
                     ${isAvailable && !isSelected ? 'bg-green-50 text-foreground hover:bg-green-100' : ''}
-                    ${!isAvailable ? 'bg-muted text-gray-400 cursor-not-allowed' : ''}
+                    ${!isAvailable ? 'bg-muted text-muted-foreground cursor-not-allowed' : ''}
                   `}
                 >
                   {day}
@@ -614,7 +614,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
                 <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50">
                   11:00 AM
                 </button>
-                <button disabled className="px-4 py-3 border-2 border-border bg-muted rounded text-sm font-medium text-gray-400 cursor-not-allowed">
+                <button disabled className="px-4 py-3 border-2 border-border bg-muted rounded text-sm font-medium text-muted-foreground cursor-not-allowed">
                   12:00 PM<br/>
                   <span className="text-xs">Full</span>
                 </button>
@@ -634,7 +634,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
                 <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50">
                   04:00 PM
                 </button>
-                <button disabled className="px-4 py-3 border-2 border-border bg-muted rounded text-sm font-medium text-gray-400 cursor-not-allowed">
+                <button disabled className="px-4 py-3 border-2 border-border bg-muted rounded text-sm font-medium text-muted-foreground cursor-not-allowed">
                   05:00 PM<br/>
                   <span className="text-xs">Full</span>
                 </button>

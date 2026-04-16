@@ -682,7 +682,7 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
               key={idx}
               className={cn(
                 'bg-card p-2 min-h-[100px] hover:bg-background cursor-pointer',
-                isOffDay && 'bg-muted text-gray-400'
+                isOffDay && 'bg-muted text-muted-foreground'
               )}
               onClick={() => {
                 const start = new Date(day);

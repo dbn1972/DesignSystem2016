@@ -218,17 +218,17 @@ function JourneyAndFlow() {
         <ModuleContent>
           <div className="flex items-center gap-2 text-sm text-muted-foreground bg-background border-2 border-border rounded-lg p-6">
             <span className="font-medium">User learns about service</span>
-            <ArrowRight size={16} className="text-gray-400" />
+            <ArrowRight size={16} className="text-muted-foreground" />
             <span className="font-medium">Checks eligibility</span>
-            <ArrowRight size={16} className="text-gray-400" />
+            <ArrowRight size={16} className="text-muted-foreground" />
             <span className="font-medium">Fills multi-step form</span>
-            <ArrowRight size={16} className="text-gray-400" />
+            <ArrowRight size={16} className="text-muted-foreground" />
             <span className="font-medium">Uploads documents</span>
-            <ArrowRight size={16} className="text-gray-400" />
+            <ArrowRight size={16} className="text-muted-foreground" />
             <span className="font-medium">Reviews submission</span>
-            <ArrowRight size={16} className="text-gray-400" />
+            <ArrowRight size={16} className="text-muted-foreground" />
             <span className="font-medium">Receives acknowledgment</span>
-            <ArrowRight size={16} className="text-gray-400" />
+            <ArrowRight size={16} className="text-muted-foreground" />
             <span className="font-medium">Tracks application status</span>
           </div>
         </ModuleContent>

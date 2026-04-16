@@ -36,7 +36,7 @@ const FileUploadPreview = () => {
         onDragLeave={() => setIsDragging(false)}
         onDrop={(e) => { e.preventDefault(); setIsDragging(false); }}
       >
-        <Upload className="mx-auto mb-4 text-gray-400" size={48} />
+        <Upload className="mx-auto mb-4 text-muted-foreground" size={48} />
         <p className="text-muted-foreground mb-2 font-semibold">
           Drag and drop files here, or click to browse
         </p>
@@ -468,7 +468,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
         onDrop={handleDrop}
         onClick={() => !disabled && fileInputRef.current?.click()}
       >
-        <Upload className="mx-auto mb-4 text-gray-400" size={48} />
+        <Upload className="mx-auto mb-4 text-muted-foreground" size={48} />
         <p className="text-muted-foreground mb-2 font-semibold">
           Drag and drop files here, or click to browse
         </p>

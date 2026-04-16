@@ -1666,7 +1666,7 @@ function TrackingRule({ scope, description, recommended }: { scope: string; desc
       {recommended ? (
         <CheckCircle size={16} className="text-green-600 mt-0.5" />
       ) : (
-        <Info size={16} className="text-gray-400 mt-0.5" />
+        <Info size={16} className="text-muted-foreground mt-0.5" />
       )}
       <div className="flex-1">
         <p className="font-bold text-foreground">{scope}</p>

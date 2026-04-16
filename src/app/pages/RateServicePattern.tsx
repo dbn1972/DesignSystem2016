@@ -103,7 +103,7 @@ export default function RateServicePattern() {
                             className={`${
                               star <= (hoverRating || rating)
                                 ? "fill-yellow-400 text-yellow-400"
-                                : "text-gray-300"
+                                : "text-muted-foreground"
                             }`}
                           />
                         </button>

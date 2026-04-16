@@ -172,7 +172,7 @@ export default function DataInputPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Address Lookup</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Pincode-based address lookup that auto-fills city, state, district from authoritative India Post database.
@@ -199,7 +199,7 @@ export default function DataInputPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Auto-fill (Aadhaar / DigiLocker)</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     One-click data import from Aadhaar eKYC or DigiLocker to auto-fill name, address, DOB, and documents.
@@ -226,7 +226,7 @@ export default function DataInputPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Smart Suggestions</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Intelligent autocomplete showing relevant suggestions based on user input, previous entries, and common values.
@@ -253,7 +253,7 @@ export default function DataInputPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Upload → Auto-extract</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     OCR-powered data extraction from uploaded documents (PDFs, images). Extracts fields like name, dates,
@@ -280,7 +280,7 @@ export default function DataInputPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Map-based Input</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Interactive map for selecting locations, drawing boundaries, or plotting coordinates. Auto-generates
@@ -307,7 +307,7 @@ export default function DataInputPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Bulk Data Entry</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Spreadsheet-like interface for entering multiple records at once with CSV upload, copy-paste from Excel,
@@ -334,7 +334,7 @@ export default function DataInputPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Repeatable Sections</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Dynamic form sections that can be added/removed as needed. Common for family members, educational

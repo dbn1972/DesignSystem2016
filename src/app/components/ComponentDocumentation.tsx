@@ -494,7 +494,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   <a
                     key={item.id}
                     href={`#${item.id}`}
-                    className="block text-sm text-muted-foreground hover:text-[#005196] py-1.5 pl-3 border-l-2 border-transparent hover:border-[#005196] transition-colors"
+                    className="block text-sm text-muted-foreground hover:text-[#005196] py-1.5 pl-3 border-l-2 border-transparent hover:border-[#005196] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 rounded-sm"
                   >
                     {item.label}
                   </a>

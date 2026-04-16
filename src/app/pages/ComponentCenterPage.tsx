@@ -165,7 +165,7 @@ function Example() {
   return (
     <Center className="bg-background" minHeight="400px">
       <div className="flex flex-col items-center gap-4 max-w-md text-center">
-        <FileQuestion size={64} className="text-gray-400" />
+        <FileQuestion size={64} className="text-muted-foreground" />
         <div>
           <h3 className="text-lg font-semibold text-foreground">No documents found</h3>
           <p className="text-muted-foreground mt-1">
@@ -182,7 +182,7 @@ function Example() {
           preview: (
             <CenterPreview className="bg-background border border-border rounded" minHeight="400px">
               <div className="flex flex-col items-center gap-4 max-w-md text-center">
-                <FileQuestion size={64} className="text-gray-400" />
+                <FileQuestion size={64} className="text-muted-foreground" />
                 <div>
                   <h3 className="text-lg font-semibold text-foreground">No documents found</h3>
                   <p className="text-muted-foreground mt-1">

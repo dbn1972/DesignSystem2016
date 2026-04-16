@@ -15,7 +15,7 @@ const InputPreview = ({ type = 'text', placeholder, icon, error, ...props }: any
     <div className="w-full max-w-md">
       <div className="relative">
         {icon && (
-          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
             {icon}
           </div>
         )}
@@ -558,7 +558,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={cn('relative', fullWidth && 'w-full')}>
         {iconBefore && (
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
             {iconBefore}
           </div>
         )}
@@ -584,7 +584,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         />
         
         {iconAfter && (
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
             {iconAfter}
           </div>
         )}
@@ -620,7 +620,7 @@ Input.displayName = 'Input';`,
 export const inputVariants = cva(
   [
     'px-4 py-3 rounded-lg border',
-    'text-base text-foreground placeholder:text-gray-400',
+    'text-base text-foreground placeholder:text-muted-foreground',
     'transition-all duration-150',
     'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
     'disabled:bg-muted disabled:cursor-not-allowed disabled:opacity-60',

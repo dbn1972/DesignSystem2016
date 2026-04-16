@@ -303,11 +303,11 @@ function FlowDiagram() {
             </h3>
             <div className="flex items-center gap-4">
               <FlowStep number="1" label="Enter Credentials" description="Username/mobile + password" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="2" label="Submit Form" description="Validation and authentication" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="3" label="Create Session" description="Token generation" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="4" label="Redirect" description="Dashboard/service homepage" />
             </div>
           </div>
@@ -320,11 +320,11 @@ function FlowDiagram() {
             </h3>
             <div className="flex items-center gap-4">
               <FlowStep number="1" label="Enter Credentials" description="Incorrect username or password" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="2" label="Submit Form" description="Backend validation fails" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="3" label="Show Error" description="Attempt counter: 1 of 5" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="4" label="Retry or Recover" description="Try again or reset password" />
             </div>
           </div>
@@ -337,11 +337,11 @@ function FlowDiagram() {
             </h3>
             <div className="flex items-center gap-4">
               <FlowStep number="1" label="5th Failed Attempt" description="Lockout threshold reached" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="2" label="Account Locked" description="15-minute temporary lock" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="3" label="Show Lockout Message" description="Timer + recovery options" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="4" label="Wait or Contact Support" description="Auto-unlock or assistance" />
             </div>
           </div>
@@ -354,11 +354,11 @@ function FlowDiagram() {
             </h3>
             <div className="flex items-center gap-4">
               <FlowStep number="1" label="Click 'Forgot Password'" description="Entry point from sign in" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="2" label="Navigate to Reset" description="Redirect to password reset flow" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="3" label="Complete Reset" description="OTP verification + new password" />
-              <ArrowRight size={20} className="text-gray-400" />
+              <ArrowRight size={20} className="text-muted-foreground" />
               <FlowStep number="4" label="Return to Sign In" description="Use new credentials" />
             </div>
           </div>
@@ -951,7 +951,7 @@ function ErrorStateCard({ title, severity, message, attemptCounter, lockDuration
           <ul className="space-y-1">
             {actions.map((action, idx) => (
               <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                <ArrowRight size={14} className="text-gray-400" />
+                <ArrowRight size={14} className="text-muted-foreground" />
                 {action}
               </li>
             ))}

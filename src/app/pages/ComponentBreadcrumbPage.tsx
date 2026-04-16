@@ -12,11 +12,11 @@ const BreadcrumbPreview = () => (
       <Home size={16} />
       Home
     </a>
-    <ChevronRight size={16} className="text-gray-400" />
+    <ChevronRight size={16} className="text-muted-foreground" />
     <a href="/services" className="text-[#005196] hover:underline">
       Services
     </a>
-    <ChevronRight size={16} className="text-gray-400" />
+    <ChevronRight size={16} className="text-muted-foreground" />
     <span className="text-muted-foreground">Current Page</span>
   </nav>
 );
@@ -139,7 +139,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
           return (
             <li key={index} className="flex items-center gap-2">
               {index > 0 && (
-                <span className="text-gray-400" aria-hidden="true">
+                <span className="text-muted-foreground" aria-hidden="true">
                   {separator}
                 </span>
               )}
@@ -195,7 +195,7 @@ interface BreadcrumbItem {
       <ol class="flex items-center gap-2 text-sm">
         <li *ngFor="let item of items; let i = index; let isLast = last" 
             class="flex items-center gap-2">
-          <span *ngIf="i > 0" class="text-gray-400" aria-hidden="true">
+          <span *ngIf="i > 0" class="text-muted-foreground" aria-hidden="true">
             /
           </span>
           

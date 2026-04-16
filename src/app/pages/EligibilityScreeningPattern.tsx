@@ -447,7 +447,7 @@ function JourneyFlow() {
               <FlowStep number="05" label="Question 3" status="active" />
             </div>
             <div className="flex items-center justify-center">
-              <ArrowRight className="text-gray-400" size={24} />
+              <ArrowRight className="text-muted-foreground" size={24} />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06" label="Processing" status="info" />
@@ -457,7 +457,7 @@ function JourneyFlow() {
               <FlowStep number="08c" label="Not Eligible" status="error" />
             </div>
             <div className="flex items-center justify-center">
-              <ArrowRight className="text-gray-400" size={24} />
+              <ArrowRight className="text-muted-foreground" size={24} />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="09" label="Next Steps" status="info" />

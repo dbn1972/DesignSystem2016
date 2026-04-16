@@ -120,7 +120,7 @@ const DigitalSignaturePreview = ({
           className="flex flex-col items-center justify-center gap-2 border-2 border-dashed border-border rounded bg-background cursor-pointer hover:bg-muted"
           style={{ width, height }}
         >
-          <Upload size={24} className="text-gray-400" />
+          <Upload size={24} className="text-muted-foreground" />
           <span className="text-sm text-muted-foreground">Click to upload signature image</span>
           <input
             type="file"

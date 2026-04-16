@@ -24,7 +24,7 @@ const MapLocationPickerPreview = ({
   >
     <div className="absolute inset-0 flex items-center justify-center">
       <div className="text-center">
-        <Map className="w-12 h-12 text-gray-400 mx-auto mb-2" />
+        <Map className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
         <p className="text-sm text-muted-foreground">Map Container</p>
         <p className="text-xs text-gray-500 mt-1">
           {center.lat.toFixed(4)}, {center.lng.toFixed(4)}
@@ -38,7 +38,7 @@ const MapLocationPickerPreview = ({
     )}
     {searchEnabled && (
       <div className="absolute top-4 left-4 right-4 bg-card rounded shadow-lg p-3 flex items-center gap-2">
-        <Search className="w-4 h-4 text-gray-400" />
+        <Search className="w-4 h-4 text-muted-foreground" />
         <input
           type="text"
           placeholder="Search location..."

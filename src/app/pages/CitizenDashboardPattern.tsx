@@ -53,7 +53,7 @@ export default function CitizenDashboardPattern() {
               <Link to="/patterns/dashboard" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground">|</span>
               <span className="text-sm font-bold text-foreground">Citizen Dashboard</span>
             </div>
             <div className="flex items-center gap-4">
@@ -178,7 +178,7 @@ export default function CitizenDashboardPattern() {
                           }`}>
                             {task.deadline}
                           </div>
-                          <ArrowRight size={20} className="text-gray-400" />
+                          <ArrowRight size={20} className="text-muted-foreground" />
                         </div>
                       </div>
                     ))}

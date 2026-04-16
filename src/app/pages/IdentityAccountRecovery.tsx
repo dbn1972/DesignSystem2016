@@ -148,7 +148,7 @@ export default function IdentityAccountRecovery() {
                             Full Name <span className="text-red-600">*</span>
                           </label>
                           <div className="relative">
-                            <User size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                            <User size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                             <input
                               type="text"
                               id="fullName"
@@ -165,7 +165,7 @@ export default function IdentityAccountRecovery() {
                             Date of Birth <span className="text-red-600">*</span>
                           </label>
                           <div className="relative">
-                            <Calendar size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                            <Calendar size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                             <input
                               type="date"
                               id="dob"
@@ -181,7 +181,7 @@ export default function IdentityAccountRecovery() {
                             Registered Mobile Number <span className="text-red-600">*</span>
                           </label>
                           <div className="relative">
-                            <Phone size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                            <Phone size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                             <input
                               type="tel"
                               id="mobile"
@@ -198,7 +198,7 @@ export default function IdentityAccountRecovery() {
                             Registered Email Address <span className="text-red-600">*</span>
                           </label>
                           <div className="relative">
-                            <Mail size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                            <Mail size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                             <input
                               type="email"
                               id="email"
@@ -274,7 +274,7 @@ export default function IdentityAccountRecovery() {
                               Upload Document <span className="text-red-600">*</span>
                             </label>
                             <div className="border-2 border-dashed border-border rounded-lg p-12 text-center bg-background hover:border-primary hover:bg-blue-50 transition-colors cursor-pointer">
-                              <FileText size={48} className="text-gray-400 mx-auto mb-4" />
+                              <FileText size={48} className="text-muted-foreground mx-auto mb-4" />
                               <div className="font-bold text-foreground mb-2">Click to upload or drag and drop</div>
                               <div className="text-sm text-muted-foreground">PNG, JPG or PDF (max 5MB)</div>
                             </div>
@@ -419,7 +419,7 @@ function RecoveryStep({ number, label, active, completed }: { number: number; la
           ? 'bg-green-500 border-green-500 text-white'
           : active
           ? 'bg-primary border-primary text-white'
-          : 'bg-card border-border text-gray-400'
+          : 'bg-card border-border text-muted-foreground'
       }`}>
         {completed ? <Check size={18} /> : number}
       </div>

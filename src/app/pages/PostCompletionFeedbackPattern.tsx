@@ -112,7 +112,7 @@ export default function PostCompletionFeedbackPattern() {
                             className={`${
                               star <= formData.overallRating
                                 ? "fill-yellow-400 text-yellow-400"
-                                : "text-gray-300"
+                                : "text-muted-foreground"
                             }`}
                           />
                         </button>

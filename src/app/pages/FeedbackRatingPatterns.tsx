@@ -164,7 +164,7 @@ export default function FeedbackRatingPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Rate Service</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Star rating system for capturing service satisfaction scores (1-5 stars) with optional quick sentiment tags
@@ -191,7 +191,7 @@ export default function FeedbackRatingPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Post-Completion Feedback</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Detailed feedback form triggered after service completion, collecting structured input on experience,
@@ -218,7 +218,7 @@ export default function FeedbackRatingPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Issue Reporting</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Structured form for reporting bugs, errors, technical issues, or service problems with categorization,
@@ -245,7 +245,7 @@ export default function FeedbackRatingPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Suggest Improvement</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Ideation form for citizens to propose new features, service enhancements, policy changes, or process improvements
@@ -272,7 +272,7 @@ export default function FeedbackRatingPatterns() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary">Feedback Acknowledgment</h3>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">
                     Confirmation screen and follow-up communication patterns showing feedback receipt, reference number,

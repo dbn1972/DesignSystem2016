@@ -35,7 +35,7 @@ export default function NoResultsPattern() {
               <Link to="/patterns/search-discovery" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground">|</span>
               <span className="text-sm font-bold text-foreground">No Results / Zero State</span>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function NoResultsPattern() {
       <div className="bg-card border-b border-border">
         <div className="max-w-[1200px] mx-auto px-8 py-6">
           <div className="relative max-w-[600px]">
-            <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
             <input
               type="text"
               value={query}
@@ -132,7 +132,7 @@ export default function NoResultsPattern() {
                       </div>
                       <div className="text-sm text-muted-foreground">{service.category}</div>
                     </div>
-                    <ArrowRight size={20} className="text-gray-400 group-hover:text-primary" />
+                    <ArrowRight size={20} className="text-muted-foreground group-hover:text-primary" />
                   </div>
                 </Link>
               ))}

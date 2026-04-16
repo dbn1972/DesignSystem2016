@@ -358,7 +358,7 @@ function ContributionType({ icon, title, description, examples, difficulty, colo
         <ul className="space-y-2 mb-4">
           {examples.map((example: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <span className="text-gray-400 mt-0.5">•</span>
+              <span className="text-muted-foreground mt-0.5">•</span>
               <span>{example}</span>
             </li>
           ))}
@@ -632,7 +632,7 @@ function GuidelineCard({ title, rules }: any) {
       <ul className="space-y-2">
         {rules.map((rule: string, index: number) => (
           <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-            <CheckCircle className="flex-shrink-0 mt-0.5 text-gray-400" size={14} />
+            <CheckCircle className="flex-shrink-0 mt-0.5 text-muted-foreground" size={14} />
             <span>{rule}</span>
           </li>
         ))}

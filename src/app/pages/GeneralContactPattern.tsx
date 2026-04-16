@@ -65,7 +65,7 @@ export default function GeneralContactPattern() {
               <Link to="/patterns/contact-support" className="text-sm text-muted-foreground hover:text-primary">
                 ← Back to Patterns
               </Link>
-              <span className="text-gray-400">|</span>
+              <span className="text-muted-foreground">|</span>
               <span className="text-sm font-bold text-foreground">General Contact Form</span>
             </div>
             <button
@@ -480,7 +480,7 @@ function ProgressStep({ number, label, active, completed }: {
       <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold text-sm ${
         completed ? 'bg-green-700 border-[#138808] text-white' :
         active ? 'bg-card border-primary text-primary' :
-        'bg-card border-border text-gray-400'
+        'bg-card border-border text-muted-foreground'
       }`}>
         {completed ? <CheckCircle size={20} /> : number}
       </div>

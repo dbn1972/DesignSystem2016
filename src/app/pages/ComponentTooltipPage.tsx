@@ -309,7 +309,7 @@ function Example() {
       content={
         <div className="space-y-1">
           <div className="font-semibold">System Status</div>
-          <div className="text-xs text-gray-300">
+          <div className="text-xs text-muted-foreground">
             All services operational
           </div>
         </div>
@@ -329,7 +329,7 @@ function Example() {
               content={
                 <div className="space-y-1">
                   <div className="font-semibold">System Status</div>
-                  <div className="text-xs text-gray-300">
+                  <div className="text-xs text-muted-foreground">
                     All services operational
                   </div>
                 </div>

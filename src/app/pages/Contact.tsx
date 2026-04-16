@@ -675,7 +675,7 @@ function SocialMediaLink({
         <div className="text-sm font-bold text-foreground">{platform}</div>
         <div className="text-sm text-muted-foreground">{handle}</div>
       </div>
-      <ExternalLink size={16} className="text-gray-400 group-hover:text-primary transition-colors" />
+      <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
     </a>
   );
 }

@@ -18,7 +18,7 @@ export default function FigmaDesignSystem() {
                 className="p-2 hover:bg-muted dark:hover:bg-gray-700 rounded-lg transition-colors"
                 aria-label="Back to Resources"
               >
-                <ArrowLeft size={20} className="text-muted-foreground dark:text-gray-400" />
+                <ArrowLeft size={20} className="text-muted-foreground dark:text-muted-foreground" />
               </Link>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{
@@ -28,11 +28,11 @@ export default function FigmaDesignSystem() {
                 </div>
                 <div>
                   <div className="text-base font-semibold text-foreground dark:text-gray-100">UX4G Design System</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">Figma MVP File v1.0</div>
+                  <div className="text-xs text-gray-500 dark:text-muted-foreground">Figma MVP File v1.0</div>
                 </div>
               </div>
             </div>
-            <div className="text-sm text-muted-foreground dark:text-gray-400">
+            <div className="text-sm text-muted-foreground dark:text-muted-foreground">
               12 Pages • 150+ Components • WCAG AA
             </div>
           </div>
@@ -526,7 +526,7 @@ function StylesSystemPage() {
                   className="w-full h-32 bg-card rounded-lg mb-3 flex items-center justify-center"
                   style={{ boxShadow: elev.shadow }}
                 >
-                  <div className="text-gray-400 text-sm font-semibold">{index}</div>
+                  <div className="text-muted-foreground text-sm font-semibold">{index}</div>
                 </div>
                 <div className="font-semibold text-sm text-foreground mb-1">{elev.level}</div>
                 <div className="text-xs text-muted-foreground">{elev.usage}</div>
@@ -601,7 +601,7 @@ function CoreComponentsPage() {
                 <button className="px-6 py-3 bg-green-700 text-white rounded-lg font-semibold">
                   Success Button
                 </button>
-                <button className="px-6 py-3 bg-gray-200 text-gray-400 rounded-lg font-semibold">
+                <button className="px-6 py-3 bg-gray-200 text-muted-foreground rounded-lg font-semibold">
                   Disabled Button
                 </button>
               </div>
@@ -741,7 +741,7 @@ function ComponentVariantsPage() {
                     <button className="px-4 py-2 bg-[#000040] text-white rounded-lg text-sm">Button</button>
                   </td>
                   <td className="p-4">
-                    <button className="px-4 py-2 bg-gray-200 text-gray-400 rounded-lg text-sm">Button</button>
+                    <button className="px-4 py-2 bg-gray-200 text-muted-foreground rounded-lg text-sm">Button</button>
                   </td>
                 </tr>
                 <tr className="border-b border-border">
@@ -756,7 +756,7 @@ function ComponentVariantsPage() {
                     <button className="px-4 py-2 bg-blue-100 text-primary border-2 border-primary rounded-lg text-sm">Button</button>
                   </td>
                   <td className="p-4">
-                    <button className="px-4 py-2 bg-card text-gray-400 border-2 border-border rounded-lg text-sm">Button</button>
+                    <button className="px-4 py-2 bg-card text-muted-foreground border-2 border-border rounded-lg text-sm">Button</button>
                   </td>
                 </tr>
               </tbody>
@@ -805,7 +805,7 @@ function ComponentVariantsPage() {
 
             <div>
               <label className="block text-sm font-semibold text-muted-foreground mb-2">Disabled State</label>
-              <input type="text" defaultValue="Disabled input" disabled className="w-full px-4 py-3 border-2 border-border rounded-lg bg-muted text-gray-400" />
+              <input type="text" defaultValue="Disabled input" disabled className="w-full px-4 py-3 border-2 border-border rounded-lg bg-muted text-muted-foreground" />
             </div>
           </div>
         </div>

@@ -96,7 +96,7 @@ export default function SmartSuggestionsPattern() {
                       placeholder="Start typing your occupation..."
                       className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                     />
-                    <Search size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <Search size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                   </div>
 
                   {showSuggestions && filteredOccupations.length > 0 && (
@@ -150,7 +150,7 @@ export default function SmartSuggestionsPattern() {
                       placeholder="Select or type your district..."
                       className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                     />
-                    <MapPin size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <MapPin size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
                   </div>
 
                   {showDistrictSuggestions && (
