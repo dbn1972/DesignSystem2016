@@ -16,31 +16,107 @@ export default function UnifiedHome() {
       <section className="relative overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(0,81,150,0.08),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(19,136,8,0.06),transparent_50%)]" />
-        <div className="relative max-w-6xl mx-auto px-6 py-20 sm:py-28 lg:py-36">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/80 backdrop-blur text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-8">
-              <Shield size={14} className="text-[#005196]" />
-              Government of India Design System
+        {/* Decorative floating shapes */}
+        <div className="absolute top-20 right-[10%] w-72 h-72 rounded-full bg-[#005196]/[0.04] blur-3xl" />
+        <div className="absolute bottom-10 left-[5%] w-56 h-56 rounded-full bg-[#FF9933]/[0.05] blur-3xl" />
+
+        <div className="relative max-w-6xl mx-auto px-6 py-16 sm:py-24 lg:py-28">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-center">
+            {/* Left: Text */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/80 backdrop-blur text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-8">
+                <Shield size={14} className="text-[#005196]" />
+                Government of India Design System
+              </div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
+                UX4G
+              </h1>
+              <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-xl mb-10">
+                Build consistent, accessible digital public services with India's open-source design system.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/components"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#005196] text-white rounded-full text-sm font-semibold shadow-lg shadow-[#005196]/20 hover:bg-[#004178] transition-colors"
+                >
+                  Get started <ArrowRight size={16} />
+                </Link>
+                <Link
+                  to="/documentation"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 border border-border rounded-full text-sm font-semibold text-foreground hover:bg-muted transition-colors"
+                >
+                  Documentation
+                </Link>
+              </div>
             </div>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
-              UX4G
-            </h1>
-            <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed max-w-2xl mb-10">
-              Build consistent, accessible digital public services with India's open-source design system. 77 components across React, Angular, and Web Components.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/components"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#005196] text-white rounded-full text-sm font-semibold shadow-lg shadow-[#005196]/20 hover:bg-[#004178] transition-colors"
-              >
-                Get started <ArrowRight size={16} />
-              </Link>
-              <Link
-                to="/documentation"
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-border rounded-full text-sm font-semibold text-foreground hover:bg-muted transition-colors"
-              >
-                Documentation
-              </Link>
+
+            {/* Right: Component showcase illustration */}
+            <div className="hidden lg:block">
+              <div className="relative">
+                {/* Main card — Button variants */}
+                <div className="bg-card border border-border rounded-2xl shadow-xl p-6 space-y-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                    <div className="w-3 h-3 rounded-full bg-green-400" />
+                    <span className="ml-2 text-xs text-muted-foreground font-mono">components/button</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <button className="px-4 py-2 bg-[#005196] text-white text-sm rounded-lg font-medium">Primary</button>
+                    <button className="px-4 py-2 border border-[#005196] text-[#005196] text-sm rounded-lg font-medium">Secondary</button>
+                    <button className="px-4 py-2 text-[#005196] text-sm rounded-lg font-medium hover:bg-muted">Tertiary</button>
+                    <button className="px-4 py-2 bg-red-600 text-white text-sm rounded-lg font-medium">Destructive</button>
+                  </div>
+                  {/* Input preview */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-medium text-foreground">Aadhaar Number</label>
+                    <div className="flex gap-2">
+                      <div className="flex-1 px-3 py-2 border border-border rounded-lg text-sm font-mono text-muted-foreground">1234</div>
+                      <div className="flex-1 px-3 py-2 border border-border rounded-lg text-sm font-mono text-muted-foreground">5678</div>
+                      <div className="flex-1 px-3 py-2 border border-border rounded-lg text-sm font-mono text-muted-foreground">9012</div>
+                    </div>
+                  </div>
+                  {/* Badge row */}
+                  <div className="flex gap-2">
+                    <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">Approved</span>
+                    <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">Pending</span>
+                    <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Submitted</span>
+                  </div>
+                </div>
+
+                {/* Floating card — Stepper */}
+                <div className="absolute -bottom-6 -left-6 bg-card border border-border rounded-xl shadow-lg p-4 w-56">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-[10px] font-bold">✓</div>
+                    <div className="flex-1 h-0.5 bg-green-500 rounded" />
+                    <div className="w-6 h-6 rounded-full bg-[#005196] text-white flex items-center justify-center text-[10px] font-bold">2</div>
+                    <div className="flex-1 h-0.5 bg-muted rounded" />
+                    <div className="w-6 h-6 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-[10px] font-bold">3</div>
+                  </div>
+                  <div className="flex justify-between mt-2 text-[9px] text-muted-foreground">
+                    <span>Personal</span>
+                    <span>Documents</span>
+                    <span>Review</span>
+                  </div>
+                </div>
+
+                {/* Floating card — Toggle */}
+                <div className="absolute -top-4 -right-4 bg-card border border-border rounded-xl shadow-lg p-3 flex items-center gap-3">
+                  <div className="w-10 h-5 bg-[#005196] rounded-full relative">
+                    <div className="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full shadow" />
+                  </div>
+                  <span className="text-xs font-medium text-foreground">Dark mode</span>
+                </div>
+
+                {/* Floating card — Language */}
+                <div className="absolute top-1/2 -right-8 bg-card border border-border rounded-xl shadow-lg p-3">
+                  <div className="flex items-center gap-2">
+                    <Globe size={14} className="text-[#005196]" />
+                    <span className="text-xs font-medium text-foreground">हिन्दी</span>
+                    <span className="text-[10px] text-muted-foreground">▾</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
