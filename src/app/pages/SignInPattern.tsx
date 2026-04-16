@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { Lock, Shield, CheckCircle, AlertCircle, Info, XCircle, Eye, EyeOff, Clock, Phone, Mail, User, Users, Key, AlertTriangle, ArrowRight, RefreshCw, Smartphone, FileText, Globe, Code, Settings, HelpCircle, ChevronRight, Database } from "lucide-react";
+import { Lock, Shield, CheckCircle, AlertCircle, Info, XCircle, Eye, EyeOff, Clock, Phone, Mail, User, Users, Key, AlertTriangle, ArrowRight, RefreshCw, Smartphone, FileText, Globe, Code, Settings, HelpCircle, ChevronRight, Database, Download, Copy, Check } from "lucide-react";
 
 export default function SignInPattern() {
   return (
@@ -64,6 +65,7 @@ export default function SignInPattern() {
               { id: "errors", label: "Error States" },
               { id: "accessibility", label: "Accessibility" },
               { id: "implementation", label: "Implementation" },
+              { id: "code-downloads", label: "Code Downloads" },
               { id: "governance", label: "Governance" }
             ].map((item) => (
               <a
@@ -92,6 +94,7 @@ export default function SignInPattern() {
             <ErrorStates />
             <AccessibilitySection />
             <ImplementationSection />
+            <CodeDownloadsSection />
             <GovernanceSection />
           </div>
 
@@ -1172,6 +1175,305 @@ function ImplementationCard({ icon, title, items }: { icon: React.ReactNode; tit
         ))}
       </ul>
     </div>
+  );
+}
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const REACT_CODE = `import React, { useState, useCallback } from 'react';
+
+interface SignInFormData {
+  username: string;
+  password: string;
+  rememberMe: boolean;
+}
+
+export function SignInPage() {
+  const [form, setForm] = useState<SignInFormData>({ username: '', password: '', rememberMe: false });
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [attempts, setAttempts] = useState(0);
+
+  const validate = useCallback(() => {
+    if (!form.username.trim()) return 'Email or mobile number is required';
+    if (!form.password) return 'Password is required';
+    if (form.password.length < 8) return 'Password must be at least 8 characters';
+    const isEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(form.username);
+    const isMobile = /^(\\+91)?[6-9]\\d{9}$/.test(form.username.replace(/\\s/g, ''));
+    if (!isEmail && !isMobile) return 'Enter a valid email or Indian mobile number';
+    return '';
+  }, [form]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const validationError = validate();
+    if (validationError) { setError(validationError); return; }
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('/api/auth/signin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        setAttempts(prev => prev + 1);
+        setError(data.message || 'Invalid credentials');
+      }
+    } catch { setError('Network error. Please try again.'); }
+    finally { setLoading(false); }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Sign In</h1>
+        <p className="text-sm text-muted-foreground mb-6">Access your government services account</p>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {attempts >= 3 && <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-700">Warning: {5 - attempts} attempts remaining before account lock.</div>}
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="username" className="block text-sm font-medium text-foreground mb-1">Email or Mobile Number <span className="text-red-500">*</span></label>
+              <input id="username" type="text" value={form.username} onChange={e => setForm(f => ({...f, username: e.target.value}))} placeholder="email@gov.in or +91 98765 43210" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-required="true" autoComplete="username" />
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-foreground mb-1">Password <span className="text-red-500">*</span></label>
+              <div className="relative">
+                <input id="password" type={showPassword ? 'text' : 'password'} value={form.password} onChange={e => setForm(f => ({...f, password: e.target.value}))} className="w-full px-4 py-3 pr-12 border border-border rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-required="true" autoComplete="current-password" />
+                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" aria-label={showPassword ? 'Hide password' : 'Show password'}>{showPassword ? 'Hide' : 'Show'}</button>
+              </div>
+            </div>
+            <div className="flex items-center justify-between">
+              <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={form.rememberMe} onChange={e => setForm(f => ({...f, rememberMe: e.target.checked}))} className="accent-primary" />Remember me</label>
+              <a href="/forgot-password" className="text-sm text-primary hover:underline">Forgot password?</a>
+            </div>
+            <button type="submit" disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Signing in...' : 'Sign In'}</button>
+          </div>
+        </form>
+        <p className="mt-6 text-center text-sm text-muted-foreground">Don't have an account? <a href="/sign-up" className="text-primary hover:underline">Create account</a></p>
+      </div>
+    </div>
+  );
+}`;
+
+const ANGULAR_CODE = `import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'ux4g-sign-in',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \\\`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-2">Sign In</h1>
+        <p class="text-sm text-muted-foreground mb-6">Access your government services account</p>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="space-y-4">
+            <div>
+              <label for="username" class="block text-sm font-medium text-foreground mb-1">Email or Mobile <span class="text-red-500">*</span></label>
+              <input id="username" formControlName="username" placeholder="email@gov.in or +91 98765 43210" class="w-full px-4 py-3 border border-border rounded-lg" />
+            </div>
+            <div>
+              <label for="password" class="block text-sm font-medium text-foreground mb-1">Password <span class="text-red-500">*</span></label>
+              <div class="relative">
+                <input id="password" [type]="showPassword ? 'text' : 'password'" formControlName="password" class="w-full px-4 py-3 pr-12 border border-border rounded-lg" />
+                <button type="button" (click)="showPassword = !showPassword" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">{{ showPassword ? 'Hide' : 'Show' }}</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <label class="flex items-center gap-2 text-sm"><input type="checkbox" formControlName="rememberMe" class="accent-primary" />Remember me</label>
+              <a href="/forgot-password" class="text-sm text-primary hover:underline">Forgot password?</a>
+            </div>
+            <button type="submit" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Signing in...' : 'Sign In' }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  \\\`
+})
+export class SignInComponent {
+  form = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    rememberMe: new FormControl(false),
+  });
+  showPassword = false;
+  loading = false;
+  error = '';
+
+  async onSubmit() {
+    if (this.form.invalid) { this.error = 'Please fill all required fields'; return; }
+    this.loading = true;
+    this.error = '';
+    try {
+      const res = await fetch('/api/auth/signin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.form.value),
+      });
+      if (!res.ok) { const data = await res.json(); this.error = data.message || 'Invalid credentials'; }
+    } catch { this.error = 'Network error'; }
+    finally { this.loading = false; }
+  }
+}`;
+
+const HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--ux4g-bg, #f9fafb); padding: 1rem; }
+    .card { width: 100%; max-width: 28rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    h1 { font-size: 1.5rem; font-weight: 700; color: #111; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; color: #111; margin-bottom: 0.25rem; }
+    input[type="text"], input[type="password"], input[type="email"] { width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; }
+    input:focus { border-color: #005196; box-shadow: 0 0 0 2px rgba(0,81,150,0.2); }
+    .field { margin-bottom: 1rem; }
+    .password-wrap { position: relative; }
+    .toggle-pw { position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: #6b7280; cursor: pointer; font-size: 0.875rem; }
+    .row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .remember { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; }
+    .forgot { font-size: 0.875rem; color: #005196; text-decoration: none; }
+    .forgot:hover { text-decoration: underline; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:hover { background: #004178; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; }
+    .signup { text-align: center; margin-top: 1.5rem; font-size: 0.875rem; color: #6b7280; }
+    .signup a { color: #005196; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Sign In</h1>
+    <p class="subtitle">Access your government services account</p>
+    <div id="error" class="error" style="display:none" role="alert"></div>
+    <form id="signInForm" novalidate>
+      <div class="field">
+        <label for="username">Email or Mobile Number <span style="color:#ef4444">*</span></label>
+        <input type="text" id="username" placeholder="email@gov.in or +91 98765 43210" required autocomplete="username" aria-required="true" />
+      </div>
+      <div class="field">
+        <label for="password">Password <span style="color:#ef4444">*</span></label>
+        <div class="password-wrap">
+          <input type="password" id="password" required minlength="8" autocomplete="current-password" aria-required="true" />
+          <button type="button" class="toggle-pw" onclick="togglePassword()" aria-label="Show password">Show</button>
+        </div>
+      </div>
+      <div class="row">
+        <label class="remember"><input type="checkbox" id="rememberMe" /> Remember me</label>
+        <a href="/forgot-password" class="forgot">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn" id="submitBtn">Sign In</button>
+    </form>
+    <p class="signup">Don't have an account? <a href="/sign-up">Create account</a></p>
+  </div>
+  <script>
+    function togglePassword() {
+      const pw = document.getElementById('password');
+      const btn = document.querySelector('.toggle-pw');
+      if (pw.type === 'password') { pw.type = 'text'; btn.textContent = 'Hide'; btn.setAttribute('aria-label', 'Hide password'); }
+      else { pw.type = 'password'; btn.textContent = 'Show'; btn.setAttribute('aria-label', 'Show password'); }
+    }
+    document.getElementById('signInForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const errEl = document.getElementById('error');
+      const btn = document.getElementById('submitBtn');
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      if (!username || !password) { errEl.textContent = 'All fields are required'; errEl.style.display = 'block'; return; }
+      btn.disabled = true; btn.textContent = 'Signing in...'; errEl.style.display = 'none';
+      try {
+        const res = await fetch('/api/auth/signin', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username, password, rememberMe: document.getElementById('rememberMe').checked }) });
+        if (!res.ok) { const data = await res.json(); errEl.textContent = data.message || 'Invalid credentials'; errEl.style.display = 'block'; }
+      } catch { errEl.textContent = 'Network error. Please try again.'; errEl.style.display = 'block'; }
+      finally { btn.disabled = false; btn.textContent = 'Sign In'; }
+    });
+  </script>
+</body>
+</html>`;
+
+function CodeDownloadsSection() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+
+  const copyToClipboard = (code: string, id: string) => {
+    navigator.clipboard.writeText(code);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const downloadCode = (code: string, filename: string) => {
+    const blob = new Blob([code], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks', code: REACT_CODE, filename: 'SignInPage.tsx', copyId: 'react' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: ANGULAR_CODE, filename: 'sign-in.component.ts', copyId: 'angular' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: HTML_CODE, filename: 'sign-in.html', copyId: 'html' },
+  ];
+
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Sign-In implementations for your framework.</p>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button
+                  onClick={() => downloadCode(lane.code, lane.filename)}
+                  aria-label={`Download ${lane.title} code`}
+                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]"
+                >
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button
+                    onClick={() => copyToClipboard(lane.code, lane.copyId)}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+                  >
+                    {copiedId === lane.copyId ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.copyId ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
