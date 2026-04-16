@@ -1,4 +1,5 @@
-import { Award, CheckCircle, XCircle, AlertCircle, Info, Clock, Download, Eye, FileText, Shield, Users, Globe, Code, BarChart3, AlertTriangle, Calendar, ChevronRight, ArrowRight, Check, ExternalLink, Printer, RefreshCw, Edit, HelpCircle, Zap, Target, Mail, MessageSquare, Lock } from "lucide-react";
+import React from "react";
+import { Award, CheckCircle, XCircle, AlertCircle, Info, Clock, Download, Eye, FileText, Shield, Users, Globe, Code, BarChart3, AlertTriangle, Calendar, ChevronRight, ArrowRight, Check, ExternalLink, Printer, RefreshCw, Edit, HelpCircle, Zap, Target, Mail, MessageSquare, Lock, Copy } from "lucide-react";
 
 export default function ApprovalIssuancePattern() {
   return (
@@ -91,6 +92,7 @@ export default function ApprovalIssuancePattern() {
             <AccessibilityGuidance />
             <ImplementationNotes />
             <GovernanceConformance />
+            <ApprovalCodeDownloads />
           </div>
 
           {/* Sidebar - 3 columns */}
@@ -1460,6 +1462,293 @@ function GovernanceConformance() {
     </section>
   );
 }
+
+
+// ==================== CODE DOWNLOADS ====================
+
+const APPROVAL_REACT_CODE = `import React, { useState, useEffect } from 'react';
+
+type Status = 'pending' | 'under-review' | 'approved' | 'rejected' | 'issued';
+
+interface Application {
+  id: string;
+  service: string;
+  applicant: string;
+  submittedDate: string;
+  status: Status;
+  remarks?: string;
+}
+
+const MOCK_APP: Application = {
+  id: 'APP-2026-78432',
+  service: 'Caste Certificate',
+  applicant: 'Rajesh Kumar',
+  submittedDate: '2026-04-10',
+  status: 'under-review',
+};
+
+export function ApprovalIssuancePage() {
+  const [app, setApp] = useState<Application>(MOCK_APP);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [remarks, setRemarks] = useState('');
+
+  const handleApprove = async () => {
+    setLoading(true); setError('');
+    try {
+      const res = await fetch(\`/api/applications/\${app.id}/approve\`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ remarks }),
+      });
+      if (!res.ok) { setError('Approval failed'); return; }
+      setApp(prev => ({ ...prev, status: 'approved', remarks }));
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  const handleReject = async () => {
+    if (!remarks.trim()) { setError('Remarks required for rejection'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch(\`/api/applications/\${app.id}/reject\`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ remarks }),
+      });
+      if (!res.ok) { setError('Rejection failed'); return; }
+      setApp(prev => ({ ...prev, status: 'rejected', remarks }));
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  const handleIssue = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(\`/api/applications/\${app.id}/issue\`, { method: 'POST' });
+      if (!res.ok) { setError('Issuance failed'); return; }
+      setApp(prev => ({ ...prev, status: 'issued' }));
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  const statusColors: Record<Status, string> = {
+    'pending': 'bg-yellow-100 text-yellow-800',
+    'under-review': 'bg-blue-100 text-blue-800',
+    'approved': 'bg-green-100 text-green-800',
+    'rejected': 'bg-red-100 text-red-800',
+    'issued': 'bg-purple-100 text-purple-800',
+  };
+
+  return (
+    <div className="min-h-screen bg-background p-4">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-2xl font-bold text-foreground mb-6">Approval & Issuance</h1>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        <div className="bg-card border border-border rounded-2xl p-6 mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h2 className="text-lg font-bold text-foreground">{app.service}</h2>
+              <p className="text-sm text-muted-foreground">Application ID: {app.id}</p>
+            </div>
+            <span className={\`px-3 py-1 rounded-full text-xs font-bold \${statusColors[app.status]}\`}>{app.status.replace('-', ' ').toUpperCase()}</span>
+          </div>
+          <div className="grid grid-cols-3 gap-4 text-sm mb-4">
+            <div><span className="text-muted-foreground">Applicant:</span> <span className="font-semibold">{app.applicant}</span></div>
+            <div><span className="text-muted-foreground">Submitted:</span> <span className="font-semibold">{app.submittedDate}</span></div>
+            <div><span className="text-muted-foreground">Status:</span> <span className="font-semibold capitalize">{app.status.replace('-', ' ')}</span></div>
+          </div>
+          {app.remarks && <div className="p-3 bg-muted rounded-lg text-sm"><span className="text-muted-foreground">Remarks:</span> {app.remarks}</div>}
+        </div>
+        {app.status === 'under-review' && (
+          <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
+            <h3 className="font-bold text-foreground">Officer Action</h3>
+            <div>
+              <label htmlFor="remarks" className="block text-sm font-medium mb-1">Remarks</label>
+              <textarea id="remarks" value={remarks} onChange={e => setRemarks(e.target.value)} rows={3} className="w-full px-4 py-3 border border-border rounded-lg" placeholder="Add remarks (required for rejection)" />
+            </div>
+            <div className="flex gap-3">
+              <button onClick={handleReject} disabled={loading} className="flex-1 py-3 bg-red-600 text-white rounded-lg font-semibold disabled:opacity-60">Reject</button>
+              <button onClick={handleApprove} disabled={loading} className="flex-1 py-3 bg-green-600 text-white rounded-lg font-semibold disabled:opacity-60">{loading ? 'Processing...' : 'Approve'}</button>
+            </div>
+          </div>
+        )}
+        {app.status === 'approved' && (
+          <div className="bg-card border border-border rounded-2xl p-6 text-center space-y-4">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+            <h3 className="text-lg font-bold text-foreground">Application Approved</h3>
+            <button onClick={handleIssue} disabled={loading} className="py-3 px-8 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Issuing...' : 'Issue Certificate'}</button>
+          </div>
+        )}
+        {app.status === 'issued' && (
+          <div className="bg-card border border-border rounded-2xl p-6 text-center space-y-4">
+            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></div>
+            <h3 className="text-lg font-bold text-foreground">Certificate Issued</h3>
+            <p className="text-muted-foreground">The certificate is ready for download.</p>
+            <button className="py-3 px-8 bg-primary text-primary-foreground rounded-lg font-semibold">Download Certificate</button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const APPROVAL_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-approval-issuance',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen bg-background p-4">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-2xl font-bold mb-6">Approval & Issuance</h1>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div class="bg-card border border-border rounded-2xl p-6 mb-6">
+          <div class="flex items-center justify-between mb-4">
+            <div><h2 class="text-lg font-bold">{{ app.service }}</h2><p class="text-sm text-muted-foreground">ID: {{ app.id }}</p></div>
+            <span [class]="'px-3 py-1 rounded-full text-xs font-bold '+statusColor()">{{ app.status }}</span>
+          </div>
+        </div>
+        <div *ngIf="app.status === 'under-review'" class="bg-card border border-border rounded-2xl p-6 space-y-4">
+          <textarea [formControl]="remarksCtrl" rows="3" placeholder="Remarks" class="w-full px-4 py-3 border border-border rounded-lg"></textarea>
+          <div class="flex gap-3">
+            <button (click)="reject()" class="flex-1 py-3 bg-red-600 text-white rounded-lg font-semibold">Reject</button>
+            <button (click)="approve()" [disabled]="loading" class="flex-1 py-3 bg-green-600 text-white rounded-lg font-semibold disabled:opacity-60">Approve</button>
+          </div>
+        </div>
+        <div *ngIf="app.status === 'approved'" class="text-center py-8">
+          <h3 class="text-lg font-bold mb-4">Approved</h3>
+          <button (click)="issue()" class="py-3 px-8 bg-primary text-primary-foreground rounded-lg font-semibold">Issue Certificate</button>
+        </div>
+        <div *ngIf="app.status === 'issued'" class="text-center py-8">
+          <h3 class="text-lg font-bold mb-4">Certificate Issued</h3>
+          <button class="py-3 px-8 bg-primary text-primary-foreground rounded-lg font-semibold">Download</button>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class ApprovalIssuanceComponent {
+  app = { id: 'APP-2026-78432', service: 'Caste Certificate', applicant: 'Rajesh Kumar', status: 'under-review' };
+  remarksCtrl = new FormControl('');
+  loading = false; error = '';
+  statusColor() { const m: Record<string,string> = { 'under-review': 'bg-blue-100 text-blue-800', approved: 'bg-green-100 text-green-800', rejected: 'bg-red-100 text-red-800', issued: 'bg-purple-100 text-purple-800' }; return m[this.app.status] || ''; }
+  async approve() { this.loading = true; try { await fetch('/api/applications/approve', { method: 'POST' }); this.app.status = 'approved'; } catch { this.error = 'Failed'; } finally { this.loading = false; } }
+  async reject() { if (!this.remarksCtrl.value) { this.error = 'Remarks required'; return; } this.app.status = 'rejected'; }
+  async issue() { this.loading = true; try { await fetch('/api/applications/issue', { method: 'POST' }); this.app.status = 'issued'; } catch { this.error = 'Failed'; } finally { this.loading = false; } }
+}`;
+
+const APPROVAL_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Approval & Issuance — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f9fafb; padding: 2rem; }
+    .container { max-width: 48rem; margin: 0 auto; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .app-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .status { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; }
+    .status-review { background: #dbeafe; color: #1e40af; }
+    .status-approved { background: #dcfce7; color: #166534; }
+    .status-issued { background: #f3e8ff; color: #7c3aed; }
+    textarea { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; margin-bottom: 1rem; }
+    .actions { display: flex; gap: 0.75rem; }
+    .btn { flex: 1; padding: 0.75rem; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; color: #fff; }
+    .btn-approve { background: #16a34a; }
+    .btn-reject { background: #dc2626; }
+    .btn-issue { background: #005196; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Approval & Issuance</h1>
+    <div class="app-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+        <div><h2 style="font-size:1.125rem;font-weight:700">Caste Certificate</h2><p style="font-size:0.875rem;color:#6b7280">APP-2026-78432 | Rajesh Kumar</p></div>
+        <span class="status status-review" id="statusBadge">UNDER REVIEW</span>
+      </div>
+    </div>
+    <div id="reviewPanel" class="app-card">
+      <h3 style="font-weight:700;margin-bottom:1rem">Officer Action</h3>
+      <textarea id="remarks" rows="3" placeholder="Add remarks (required for rejection)"></textarea>
+      <div class="actions">
+        <button class="btn btn-reject" onclick="rejectApp()">Reject</button>
+        <button class="btn btn-approve" onclick="approveApp()">Approve</button>
+      </div>
+    </div>
+    <div id="approvedPanel" class="hidden app-card success">
+      <h3 style="font-weight:700;margin-bottom:1rem">Application Approved</h3>
+      <button class="btn btn-issue" style="flex:none;width:auto;padding:0.75rem 2rem" onclick="issueApp()">Issue Certificate</button>
+    </div>
+    <div id="issuedPanel" class="hidden app-card success">
+      <h3 style="font-weight:700;margin-bottom:1rem">Certificate Issued</h3>
+      <button class="btn btn-issue" style="flex:none;width:auto;padding:0.75rem 2rem">Download Certificate</button>
+    </div>
+  </div>
+  <script>
+    function approveApp(){document.getElementById('reviewPanel').classList.add('hidden');document.getElementById('approvedPanel').classList.remove('hidden');document.getElementById('statusBadge').textContent='APPROVED';document.getElementById('statusBadge').className='status status-approved';}
+    function rejectApp(){if(!document.getElementById('remarks').value.trim()){alert('Remarks required');return;}document.getElementById('reviewPanel').classList.add('hidden');document.getElementById('statusBadge').textContent='REJECTED';document.getElementById('statusBadge').className='status';document.getElementById('statusBadge').style.background='#fecaca';document.getElementById('statusBadge').style.color='#991b1b';}
+    function issueApp(){document.getElementById('approvedPanel').classList.add('hidden');document.getElementById('issuedPanel').classList.remove('hidden');document.getElementById('statusBadge').textContent='ISSUED';document.getElementById('statusBadge').className='status status-issued';}
+  </script>
+</body>
+</html>`;
+
+function ApprovalCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Officer Actions', code: APPROVAL_REACT_CODE, filename: 'ApprovalIssuancePage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: APPROVAL_ANGULAR_CODE, filename: 'approval-issuance.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: APPROVAL_HTML_CODE, filename: 'approval-issuance.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Approval & Issuance implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== SIDEBAR ====================
 
