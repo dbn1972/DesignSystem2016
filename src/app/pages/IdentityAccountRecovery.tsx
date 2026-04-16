@@ -53,7 +53,7 @@ export default function IdentityAccountRecovery() {
               </div>
 
               {/* Progress Indicator */}
-              <div className="bg-muted border-b-2 border-border px-12 py-4">
+              <div className="bg-muted border-b-2 border-border px-4 sm:px-8 lg:px-12 py-4">
                 <div className="flex items-center justify-between max-w-3xl mx-auto">
                   <RecoveryStep number={1} label="Account Status" active={step === "locked"} completed={step !== "locked"} />
                   <div className={`flex-1 h-0.5 mx-2 ${step !== "locked" ? 'bg-green-500' : 'bg-gray-300'}`}></div>
@@ -66,7 +66,7 @@ export default function IdentityAccountRecovery() {
               </div>
 
               {/* Form Content */}
-              <div className="px-12 py-10">
+              <div className="px-4 sm:px-8 lg:px-12 py-10">
                 <div className="max-w-2xl mx-auto">
                   {/* Step 1: Account Locked Notice */}
                   {step === "locked" && (
@@ -377,7 +377,7 @@ export default function IdentityAccountRecovery() {
               </div>
 
               {/* Help Card */}
-              <div className="border-t-2 border-border bg-background px-12 py-6">
+              <div className="border-t-2 border-border bg-background px-4 sm:px-8 lg:px-12 py-6">
                 <div className="max-w-2xl mx-auto">
                   <div className="flex items-start gap-3">
                     <HelpCircle size={20} className="text-primary flex-shrink-0 mt-0.5" />

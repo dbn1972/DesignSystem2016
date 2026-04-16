@@ -6,7 +6,7 @@ export default function AadhaarAuthenticationPattern() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
             <Link to="/patterns/identity" className="hover:text-primary">
@@ -62,7 +62,7 @@ export default function AadhaarAuthenticationPattern() {
 
       {/* Navigation */}
       <nav className="bg-card border-b border-border sticky top-0 z-20">
-        <div className="max-w-[1600px] mx-auto px-12">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
               { id: "overview", label: "Overview" },
@@ -88,7 +88,7 @@ export default function AadhaarAuthenticationPattern() {
       </nav>
 
       {/* Content */}
-      <main className="max-w-[1600px] mx-auto px-12 py-12">
+      <main className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           
           {/* Main Content - 9 columns */}
@@ -118,7 +118,7 @@ export default function AadhaarAuthenticationPattern() {
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">
-        <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Aadhaar Authentication Pattern</div>
             <div>Government of India • Digital India Initiative</div>

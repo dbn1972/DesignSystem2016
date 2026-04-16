@@ -6,7 +6,7 @@ export default function FeedbackRatingPatterns() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-gradient-to-br from-purple-50 via-white to-blue-50 border-b-4 border-[#FF9933]">
-        <div className="max-w-[1400px] mx-auto px-12 py-16">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-16">
           <div className="mb-6">
             <Link to="/pattern-library" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Pattern Library
@@ -56,7 +56,7 @@ export default function FeedbackRatingPatterns() {
 
       {/* Quick Access */}
       <div className="bg-card border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-12 py-6">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
               <span className="font-bold text-foreground">Quick Access:</span>
@@ -75,7 +75,7 @@ export default function FeedbackRatingPatterns() {
       </div>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
 
         {/* Overview Section */}
         <section id="overview" className="mb-16">

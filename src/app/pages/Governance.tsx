@@ -4,7 +4,7 @@ export default function Governance() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-4 sm:px-8 lg:px-12 lg:py-14 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
               <Shield size={14} className="text-primary" />
@@ -54,7 +54,7 @@ export default function Governance() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-12">
+      <main className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
         <OwnershipModelSection />
         <ReviewLanesSection />
         <ApprovalGatesSection />

@@ -147,7 +147,7 @@ export default function PrivacyNoticeDemo() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
@@ -188,7 +188,7 @@ export default function PrivacyNoticeDemo() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           
           {/* Interactive Flow - 8 columns */}
@@ -251,7 +251,7 @@ export default function PrivacyNoticeDemo() {
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">
-        <div className="max-w-[1400px] mx-auto px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Privacy Notice Acknowledgment Interactive Demo</div>
             <div>Government of India • Digital India Initiative</div>

@@ -82,7 +82,7 @@ export default function CertificateDocumentGuidelines() {
   return (
     <div className="min-h-screen bg-background">
       <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-12 py-6">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-green-600 rounded flex items-center justify-center">
               <FileText size={28} className="text-white" />
@@ -95,7 +95,7 @@ export default function CertificateDocumentGuidelines() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         
         {/* Important Notice */}
         <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6 mb-8">
@@ -250,7 +250,7 @@ export default function CertificateDocumentGuidelines() {
       </main>
 
       <footer className="bg-card border-t-2 border-border mt-24">
-        <div className="max-w-[1400px] mx-auto px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>Certificate Application Service • Government of India</div>
             <div>

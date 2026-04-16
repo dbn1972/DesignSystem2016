@@ -75,7 +75,7 @@ export default function IdentityErrorLockout() {
               </div>
 
               {/* Error State Content */}
-              <div className="px-12 py-10">
+              <div className="px-4 sm:px-8 lg:px-12 py-10">
                 <div className="max-w-2xl mx-auto">
                   
                   {/* Invalid Credentials */}
@@ -242,7 +242,7 @@ export default function IdentityErrorLockout() {
               </div>
 
               {/* Help Card */}
-              <div className="border-t-2 border-border bg-background px-12 py-6">
+              <div className="border-t-2 border-border bg-background px-4 sm:px-8 lg:px-12 py-6">
                 <div className="max-w-2xl mx-auto">
                   <div className="flex items-start gap-3">
                     <HelpCircle size={20} className="text-primary flex-shrink-0 mt-0.5" />

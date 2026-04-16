@@ -6,7 +6,7 @@ export default function ContactSupportOverview() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-gradient-to-br from-blue-50 via-white to-purple-50 border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-12 py-12">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
           <div className="mb-6">
             <Link to="/patterns/contact-support" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Contact & Support Patterns
@@ -27,7 +27,7 @@ export default function ContactSupportOverview() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           
           {/* Main Content */}

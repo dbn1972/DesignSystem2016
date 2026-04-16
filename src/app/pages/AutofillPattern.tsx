@@ -40,7 +40,7 @@ export default function AutofillPattern() {
   return (
     <div className="min-h-screen bg-background">
       <header className="bg-gradient-to-br from-green-50 via-white to-emerald-50 border-b-4 border-[#FF9933]">
-        <div className="max-w-[1400px] mx-auto px-12 py-16">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-16">
           <div className="mb-6">
             <Link to="/patterns/data-input" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Data Input Patterns
@@ -64,7 +64,7 @@ export default function AutofillPattern() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
             <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6 mb-6">

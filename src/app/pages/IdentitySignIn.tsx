@@ -54,7 +54,7 @@ export default function IdentitySignIn() {
               </div>
 
               {/* Form Content */}
-              <div className="px-12 py-10">
+              <div className="px-4 sm:px-8 lg:px-12 py-10">
                 <div className="max-w-xl mx-auto">
                   <h1 className="text-3xl font-bold text-foreground mb-3">Sign In to Your Account</h1>
                   <p className="text-muted-foreground mb-8">

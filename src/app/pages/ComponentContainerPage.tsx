@@ -253,7 +253,7 @@ export const containerVariants = cva(
         none: 'px-0',
         sm: 'px-2 sm:px-4',
         md: 'px-4 sm:px-6 lg:px-8',
-        lg: 'px-8 sm:px-12 lg:px-16',
+        lg: 'px-8 sm:px-4 sm:px-8 lg:px-12 lg:px-16',
       },
     },
     defaultVariants: {
@@ -294,7 +294,7 @@ export class ContainerComponent {
       none: 'px-0',
       sm: 'px-2 sm:px-4',
       md: 'px-4 sm:px-6 lg:px-8',
-      lg: 'px-8 sm:px-12 lg:px-16',
+      lg: 'px-8 sm:px-4 sm:px-8 lg:px-12 lg:px-16',
     };
     
     let classes = 'w-full';

@@ -53,7 +53,7 @@ export default function CertificateHelp() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-12 py-6">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-orange-600 rounded flex items-center justify-center">
               <HelpCircle size={28} className="text-white" />
@@ -67,7 +67,7 @@ export default function CertificateHelp() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         
         {/* Contact Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -190,7 +190,7 @@ export default function CertificateHelp() {
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">
-        <div className="max-w-[1400px] mx-auto px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>Certificate Application Service • Government of India</div>
             <div>

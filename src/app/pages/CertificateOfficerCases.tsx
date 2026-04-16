@@ -76,7 +76,7 @@ export default function CertificateOfficerCases() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1600px] mx-auto px-12 py-6">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-14 h-14 bg-indigo-600 rounded flex items-center justify-center">
@@ -97,7 +97,7 @@ export default function CertificateOfficerCases() {
 
       {/* Stats */}
       <section className="bg-muted border-b-2 border-border">
-        <div className="max-w-[1600px] mx-auto px-12 py-6">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             <StatCard label="Total Cases" value={stats.total} color="bg-blue-100 border-blue-300 text-blue-900" />
             <StatCard label="Pending Review" value={stats.pending} color="bg-orange-100 border-orange-300 text-orange-900" />
@@ -109,7 +109,7 @@ export default function CertificateOfficerCases() {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-[1600px] mx-auto px-12 py-12">
+      <main className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         
         {/* Filters */}
         <div className="bg-card border-2 border-border rounded-lg p-6 mb-6">
@@ -217,7 +217,7 @@ export default function CertificateOfficerCases() {
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">
-        <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>Certificate Application Service • Officer Dashboard</div>
             <div>Government of India</div>

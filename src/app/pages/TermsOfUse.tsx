@@ -6,7 +6,7 @@ export default function TermsOfUse() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-12 py-6">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-primary rounded flex items-center justify-center">
               <Scale size={28} className="text-white" />
@@ -19,7 +19,7 @@ export default function TermsOfUse() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="max-w-4xl mx-auto">
 
           {/* Breadcrumb Navigation */}
@@ -518,7 +518,7 @@ export default function TermsOfUse() {
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">
-        <div className="max-w-[1400px] mx-auto px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-[#FF9933] rounded-full"></div>

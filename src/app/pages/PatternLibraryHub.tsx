@@ -6,7 +6,7 @@ export default function PatternLibraryHub() {
     <div className="min-h-screen bg-background dark:bg-gray-900">
       {/* Header */}
       <header className="bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-green-900/20 dark:via-gray-800 dark:to-blue-900/20 border-b-2 border-border dark:border-gray-700">
-        <div className="max-w-[1400px] mx-auto px-12 py-12">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 border-2 border-border dark:border-gray-700 rounded flex items-center justify-center">
@@ -27,7 +27,7 @@ export default function PatternLibraryHub() {
       </header>
 
       {/* Content */}
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
 
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

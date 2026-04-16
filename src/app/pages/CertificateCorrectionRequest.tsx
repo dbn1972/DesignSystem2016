@@ -27,7 +27,7 @@ export default function CertificateCorrectionRequest() {
   return (
     <div className="min-h-screen bg-background">
       <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-12 py-6">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 bg-yellow-600 rounded flex items-center justify-center">
               <Edit3 size={28} className="text-white" />
@@ -40,7 +40,7 @@ export default function CertificateCorrectionRequest() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="max-w-3xl mx-auto">
           
           {/* Officer Message */}
@@ -185,7 +185,7 @@ export default function CertificateCorrectionRequest() {
       </main>
 
       <footer className="bg-card border-t-2 border-border mt-24">
-        <div className="max-w-[1400px] mx-auto px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>Certificate Application Service • Government of India</div>
             <div>Correction Request</div>

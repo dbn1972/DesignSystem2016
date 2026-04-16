@@ -7,7 +7,7 @@ export default function CertificateService() {
       {/* Header */}
       <header className="bg-gradient-to-r from-[#FF9933] to-[#138808] p-1">
         <div className="bg-card dark:bg-gray-900">
-          <div className="max-w-[1400px] mx-auto px-12 py-8">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
             <div className="flex items-start justify-between">
               <div className="max-w-3xl">
                 <div className="flex items-center gap-3 mb-4">
@@ -37,7 +37,7 @@ export default function CertificateService() {
 
       {/* Quick Info Banner */}
       <section className="bg-blue-50 dark:bg-blue-900/20 border-b-2 border-blue-300 dark:border-blue-800">
-        <div className="max-w-[1400px] mx-auto px-12 py-6">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <div className="flex items-center gap-3">
@@ -85,7 +85,7 @@ export default function CertificateService() {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         
         {/* Service Description */}
         <section className="mb-12">
@@ -292,7 +292,7 @@ export default function CertificateService() {
 
       {/* Footer */}
       <footer className="bg-card dark:bg-gray-900 border-t-2 border-border dark:border-gray-700 mt-24">
-        <div className="max-w-[1400px] mx-auto px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center justify-between text-sm text-muted-foreground dark:text-gray-400">
             <div>Certificate Application Service • Government of India</div>
             <div>

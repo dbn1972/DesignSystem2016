@@ -94,7 +94,7 @@ export default function IdentityMobileOTP() {
               </div>
 
               {/* Form Content */}
-              <div className="px-12 py-10">
+              <div className="px-4 sm:px-8 lg:px-12 py-10">
                 <div className="max-w-xl mx-auto">
                   {/* Icon and Title */}
                   <div className="text-center mb-8">

@@ -6,7 +6,7 @@ export default function HighVolumeStatusTrackingPattern() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
@@ -52,7 +52,7 @@ export default function HighVolumeStatusTrackingPattern() {
 
       {/* Navigation */}
       <nav className="bg-card border-b border-border sticky top-0 z-20">
-        <div className="max-w-[1600px] mx-auto px-12">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="flex items-center gap-1 py-3 overflow-x-auto">
             {[
               { id: "overview", label: "Overview" },
@@ -78,7 +78,7 @@ export default function HighVolumeStatusTrackingPattern() {
       </nav>
 
       {/* Content */}
-      <main className="max-w-[1600px] mx-auto px-12 py-12">
+      <main className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           
           {/* Main Content - 9 columns */}
@@ -108,7 +108,7 @@ export default function HighVolumeStatusTrackingPattern() {
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">
-        <div className="max-w-[1600px] mx-auto px-12 py-8">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div>UX4G Design System Platform • Service Pattern Library</div>
             <div>Government of India • Digital India Initiative</div>

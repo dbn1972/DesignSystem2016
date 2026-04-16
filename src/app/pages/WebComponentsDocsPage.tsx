@@ -16,7 +16,7 @@ export default function WebComponentsDocsPage() {
   return (
     <div className="min-h-screen bg-background">
       <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-12 py-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-14 h-14 bg-blue-600 rounded flex items-center justify-center">
               <Globe size={28} className="text-white" />
@@ -33,7 +33,7 @@ export default function WebComponentsDocsPage() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {DOCS.map((doc) => (
             <Link

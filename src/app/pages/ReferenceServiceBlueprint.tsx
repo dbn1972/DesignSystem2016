@@ -280,7 +280,7 @@ export default function ReferenceServiceBlueprint() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.10),_transparent_24%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[1.12fr_0.88fr] lg:items-start lg:px-12 lg:py-14">
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[1.12fr_0.88fr] lg:items-start lg:px-4 sm:px-8 lg:px-12 lg:py-14">
           <div className="space-y-8">
             <Link
               to="/"
@@ -369,7 +369,7 @@ export default function ReferenceServiceBlueprint() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-12">
+      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
         <section className="mb-8 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-3xl space-y-2">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">Journey map</p>
@@ -443,7 +443,7 @@ export default function ReferenceServiceBlueprint() {
       </main>
 
       <footer className="mt-16 border-t border-border bg-card">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-8 text-sm text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-8 text-sm text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-4 sm:px-8 lg:px-12">
           <div>UX4G Design System Platform • Reference Service Blueprint</div>
           <div>Government of India • Digital India Initiative</div>
         </div>

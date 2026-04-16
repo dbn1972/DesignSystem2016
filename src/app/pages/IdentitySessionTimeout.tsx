@@ -122,7 +122,7 @@ export default function IdentitySessionTimeout() {
 
               {/* Timed Out View */}
               {timedOut && (
-                <div className="px-12 py-16">
+                <div className="px-4 sm:px-8 lg:px-12 py-16">
                   <div className="max-w-xl mx-auto text-center">
                     <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <AlertCircle size={40} className="text-red-600" />
@@ -159,7 +159,7 @@ export default function IdentitySessionTimeout() {
 
               {/* Active Session View (when warning dismissed) */}
               {!showWarning && !timedOut && (
-                <div className="px-12 py-16">
+                <div className="px-4 sm:px-8 lg:px-12 py-16">
                   <div className="max-w-xl mx-auto text-center">
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <CheckCircle size={40} className="text-green-600" />
@@ -192,7 +192,7 @@ export default function IdentitySessionTimeout() {
               )}
 
               {/* Help Card */}
-              <div className="border-t-2 border-border bg-background px-12 py-6">
+              <div className="border-t-2 border-border bg-background px-4 sm:px-8 lg:px-12 py-6">
                 <div className="max-w-xl mx-auto">
                   <div className="flex items-start gap-3">
                     <HelpCircle size={20} className="text-primary flex-shrink-0 mt-0.5" />

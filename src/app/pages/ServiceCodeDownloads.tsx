@@ -1131,7 +1131,7 @@ export default function ServiceCodeDownloads() {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-12 sm:px-8 lg:px-12 xl:grid-cols-[1.15fr_0.85fr] xl:items-center xl:py-16">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12 xl:grid-cols-[1.15fr_0.85fr] xl:items-center xl:py-16">
           <div className="space-y-6">
             <Link
               to="/services"
@@ -1204,7 +1204,7 @@ export default function ServiceCodeDownloads() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-12">
+      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
         <section className="mb-8">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl space-y-2">

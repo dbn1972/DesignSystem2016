@@ -8,7 +8,7 @@ export default function MixedLanguageFallbackPattern() {
   return (
     <div className="min-h-screen bg-background">
       <header className="bg-gradient-to-br from-purple-50 via-white to-pink-50 border-b-4 border-[#FF9933]">
-        <div className="max-w-[1400px] mx-auto px-12 py-16">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-16">
           <div className="mb-6">
             <Link to="/patterns/localization" className="text-sm text-muted-foreground hover:text-primary">
               ← Back to Localization Patterns
@@ -34,7 +34,7 @@ export default function MixedLanguageFallbackPattern() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-12 py-12">
+      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
             <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-6">

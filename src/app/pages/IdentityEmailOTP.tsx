@@ -109,7 +109,7 @@ export default function IdentityEmailOTP() {
               </div>
 
               {/* OTP Verification Content */}
-              <div className="px-12 py-10">
+              <div className="px-4 sm:px-8 lg:px-12 py-10">
                 <div className="max-w-xl mx-auto text-center">
                   {/* Icon */}
                   <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -198,7 +198,7 @@ export default function IdentityEmailOTP() {
               </div>
 
               {/* Help Card */}
-              <div className="border-t-2 border-border bg-background px-12 py-6">
+              <div className="border-t-2 border-border bg-background px-4 sm:px-8 lg:px-12 py-6">
                 <div className="max-w-xl mx-auto">
                   <div className="flex items-start gap-3">
                     <HelpCircle size={20} className="text-primary flex-shrink-0 mt-0.5" />
