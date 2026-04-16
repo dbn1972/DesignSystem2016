@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { Calendar, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, FileText, Globe, Code, Settings, HelpCircle, Database, Check, X, Clock, MapPin, User, Phone, Mail, RefreshCw } from "lucide-react";
+import { Calendar, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, FileText, Globe, Code, Settings, HelpCircle, Database, Check, X, Clock, MapPin, User, Phone, Mail, RefreshCw, Download, Copy } from "lucide-react";
 
 export default function AppointmentBookingPattern() {
   return (
@@ -100,6 +101,7 @@ export default function AppointmentBookingPattern() {
             <RescheduleCancel />
             <AccessibilitySection />
             <ImplementationSection />
+            <ApptBookingCodeDownloads />
           </div>
 
           {/* Sidebar - 3 columns */}
@@ -1182,6 +1184,255 @@ function ImplementationItem({ text }: { text: string }) {
     </div>
   );
 }
+
+
+// ==================== CODE DOWNLOADS ====================
+
+const APPT_REACT_CODE = `import React, { useState, useMemo } from 'react';
+
+interface TimeSlot { id: string; time: string; available: boolean; }
+
+const MOCK_SLOTS: TimeSlot[] = [
+  { id: '1', time: '09:00 AM', available: true }, { id: '2', time: '09:30 AM', available: true },
+  { id: '3', time: '10:00 AM', available: false }, { id: '4', time: '10:30 AM', available: true },
+  { id: '5', time: '11:00 AM', available: true }, { id: '6', time: '11:30 AM', available: false },
+  { id: '7', time: '02:00 PM', available: true }, { id: '8', time: '02:30 PM', available: true },
+  { id: '9', time: '03:00 PM', available: true }, { id: '10', time: '03:30 PM', available: false },
+];
+
+type Step = 'service' | 'date' | 'slot' | 'details' | 'confirmed';
+
+export function AppointmentBookingPage() {
+  const [step, setStep] = useState<Step>('service');
+  const [service, setService] = useState('');
+  const [date, setDate] = useState('');
+  const [slot, setSlot] = useState('');
+  const [name, setName] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [bookingId, setBookingId] = useState('');
+
+  const services = ['Passport Application', 'Aadhaar Enrollment', 'Driving License', 'Birth Certificate', 'Property Registration'];
+
+  const availableSlots = useMemo(() => MOCK_SLOTS.filter(s => s.available), []);
+
+  const handleConfirm = async () => {
+    if (!name.trim() || !mobile.trim()) { setError('Name and mobile are required'); return; }
+    if (!/^[6-9]\\d{9}$/.test(mobile)) { setError('Enter valid 10-digit mobile'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/appointments/book', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ service, date, slot, name, mobile }),
+      });
+      if (!res.ok) { setError('Booking failed'); return; }
+      setBookingId('BK-' + Date.now().toString(36).toUpperCase());
+      setStep('confirmed');
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Book Appointment</h1>
+        <p className="text-sm text-muted-foreground mb-6">Schedule a visit to a government service center</p>
+        <div className="flex gap-1 mb-6">{['service','date','slot','details','confirmed'].map((s,i) => (<div key={s} className={\`flex-1 h-1.5 rounded \${['service','date','slot','details','confirmed'].indexOf(step) >= i ? 'bg-primary' : 'bg-muted'}\`} />))}</div>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {step === 'service' && (<div className="space-y-3">{services.map(s => (<button key={s} onClick={() => { setService(s); setStep('date'); }} className={\`w-full p-4 text-left rounded-xl border-2 transition-colors \${service === s ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}\`}><div className="font-semibold text-sm">{s}</div></button>))}</div>)}
+        {step === 'date' && (<div className="space-y-4"><label className="block text-sm font-medium mb-1">Select Date</label><input type="date" value={date} onChange={e => setDate(e.target.value)} min={new Date().toISOString().split('T')[0]} className="w-full px-4 py-3 border border-border rounded-lg" /><div className="flex gap-3"><button onClick={() => setStep('service')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={() => { if (!date) { setError('Select a date'); return; } setError(''); setStep('slot'); }} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div></div>)}
+        {step === 'slot' && (<div className="space-y-4"><p className="text-sm text-muted-foreground">Available slots for {date}</p><div className="grid grid-cols-3 gap-2">{MOCK_SLOTS.map(s => (<button key={s.id} disabled={!s.available} onClick={() => setSlot(s.time)} className={\`p-3 rounded-lg text-sm font-semibold transition-colors \${!s.available ? 'bg-muted text-muted-foreground cursor-not-allowed' : slot === s.time ? 'bg-primary text-primary-foreground' : 'border border-border hover:border-primary'}\`}>{s.time}</button>))}</div><div className="flex gap-3"><button onClick={() => setStep('date')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={() => { if (!slot) { setError('Select a slot'); return; } setError(''); setStep('details'); }} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div></div>)}
+        {step === 'details' && (<div className="space-y-4"><div><label className="block text-sm font-medium mb-1">Full Name *</label><input value={name} onChange={e => setName(e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" /></div><div><label className="block text-sm font-medium mb-1">Mobile *</label><input type="tel" value={mobile} onChange={e => setMobile(e.target.value)} maxLength={10} placeholder="+91" className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" /></div><div className="bg-muted rounded-xl p-4 text-sm space-y-1"><div><span className="text-muted-foreground">Service:</span> <span className="font-semibold">{service}</span></div><div><span className="text-muted-foreground">Date:</span> <span className="font-semibold">{date}</span></div><div><span className="text-muted-foreground">Time:</span> <span className="font-semibold">{slot}</span></div></div><div className="flex gap-3"><button onClick={() => setStep('slot')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={handleConfirm} disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Booking...' : 'Confirm Booking'}</button></div></div>)}
+        {step === 'confirmed' && (<div className="text-center py-6 space-y-4"><div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div><h2 className="text-xl font-bold text-foreground">Appointment Confirmed</h2><p className="text-muted-foreground">Booking ID: <span className="font-bold">{bookingId}</span></p><div className="bg-muted rounded-xl p-4 text-sm text-left space-y-1"><div>{service}</div><div>{date} at {slot}</div></div><p className="text-xs text-muted-foreground">Confirmation SMS sent to +91 {mobile}</p></div>)}
+      </div>
+    </div>
+  );
+}`;
+
+const APPT_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-appointment-booking',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold mb-6">Book Appointment</h1>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="step === 'service'" class="space-y-3">
+          <button *ngFor="let s of services" (click)="service=s;step='date'" [class]="'w-full p-4 text-left rounded-xl border-2 '+(service===s?'border-primary bg-primary/5':'border-border')">{{ s }}</button>
+        </div>
+        <div *ngIf="step === 'date'" class="space-y-4">
+          <label class="block text-sm font-medium mb-1">Select Date</label>
+          <input type="date" [formControl]="dateCtrl" class="w-full px-4 py-3 border border-border rounded-lg" />
+          <div class="flex gap-3"><button (click)="step='service'" class="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button (click)="toSlot()" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div>
+        </div>
+        <div *ngIf="step === 'slot'" class="space-y-4">
+          <div class="grid grid-cols-3 gap-2">
+            <button *ngFor="let s of slots" [disabled]="!s.available" (click)="selectedSlot=s.time" [class]="'p-3 rounded-lg text-sm font-semibold '+(selectedSlot===s.time?'bg-primary text-primary-foreground':'border border-border')+(s.available?'':' opacity-50 cursor-not-allowed')">{{ s.time }}</button>
+          </div>
+          <div class="flex gap-3"><button (click)="step='date'" class="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button (click)="toDetails()" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div>
+        </div>
+        <div *ngIf="step === 'details'" class="space-y-4">
+          <div><label class="block text-sm font-medium mb-1">Name *</label><input [formControl]="nameCtrl" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <div><label class="block text-sm font-medium mb-1">Mobile *</label><input [formControl]="mobileCtrl" maxlength="10" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <button (click)="confirm()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Booking...' : 'Confirm' }}</button>
+        </div>
+        <div *ngIf="step === 'confirmed'" class="text-center py-8">
+          <h2 class="text-xl font-bold mb-2">Appointment Confirmed</h2>
+          <p class="text-muted-foreground">Booking ID: {{ bookingId }}</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class AppointmentBookingComponent {
+  services = ['Passport Application', 'Aadhaar Enrollment', 'Driving License', 'Birth Certificate'];
+  slots = [{time:'09:00 AM',available:true},{time:'09:30 AM',available:true},{time:'10:00 AM',available:false},{time:'10:30 AM',available:true},{time:'11:00 AM',available:true},{time:'02:00 PM',available:true},{time:'03:00 PM',available:true}];
+  step = 'service'; service = ''; selectedSlot = ''; bookingId = '';
+  dateCtrl = new FormControl('', Validators.required);
+  nameCtrl = new FormControl('', Validators.required);
+  mobileCtrl = new FormControl('', [Validators.required, Validators.pattern(/^[6-9]\\d{9}$/)]);
+  loading = false; error = '';
+
+  toSlot() { if (this.dateCtrl.invalid) { this.error = 'Select date'; return; } this.error = ''; this.step = 'slot'; }
+  toDetails() { if (!this.selectedSlot) { this.error = 'Select slot'; return; } this.error = ''; this.step = 'details'; }
+  async confirm() {
+    if (this.nameCtrl.invalid || this.mobileCtrl.invalid) { this.error = 'Fill fields'; return; }
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/appointments/book', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ service: this.service, date: this.dateCtrl.value, slot: this.selectedSlot, name: this.nameCtrl.value, mobile: this.mobileCtrl.value }) });
+      if (!res.ok) { this.error = 'Failed'; return; }
+      this.bookingId = 'BK-' + Date.now().toString(36).toUpperCase();
+      this.step = 'confirmed';
+    } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+}`;
+
+const APPT_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointment Booking — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 32rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .service-btn { width: 100%; padding: 1rem; text-align: left; border: 2px solid #e5e7eb; border-radius: 0.75rem; background: #fff; cursor: pointer; font-weight: 600; font-size: 0.875rem; margin-bottom: 0.5rem; }
+    .service-btn.active { border-color: #005196; background: rgba(0,81,150,0.05); }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    input { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; margin-bottom: 1rem; }
+    .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1rem; }
+    .slot-btn { padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; background: #fff; cursor: pointer; font-weight: 600; font-size: 0.875rem; }
+    .slot-btn.active { background: #005196; color: #fff; border-color: #005196; }
+    .slot-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn-outline { background: #fff; color: #111; border: 1px solid #d1d5db; }
+    .actions { display: flex; gap: 0.75rem; } .actions > * { flex: 1; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Book Appointment</h1>
+    <div id="error" class="error" role="alert"></div>
+    <div id="stepService">
+      <button class="service-btn" onclick="pickService('Passport Application',this)">Passport Application</button>
+      <button class="service-btn" onclick="pickService('Aadhaar Enrollment',this)">Aadhaar Enrollment</button>
+      <button class="service-btn" onclick="pickService('Driving License',this)">Driving License</button>
+      <button class="service-btn" onclick="pickService('Birth Certificate',this)">Birth Certificate</button>
+    </div>
+    <div id="stepDate" class="hidden">
+      <label for="date">Select Date</label>
+      <input type="date" id="date" />
+      <div class="actions"><button class="btn btn-outline" onclick="showStep('stepService')">Back</button><button class="btn" onclick="toSlots()">Next</button></div>
+    </div>
+    <div id="stepSlot" class="hidden">
+      <div class="slots" id="slotsGrid"></div>
+      <div class="actions"><button class="btn btn-outline" onclick="showStep('stepDate')">Back</button><button class="btn" onclick="toDetails()">Next</button></div>
+    </div>
+    <div id="stepDetails" class="hidden">
+      <label for="name">Full Name *</label><input id="name" required />
+      <label for="mobile">Mobile *</label><input id="mobile" maxlength="10" required />
+      <button class="btn" onclick="confirmBooking()">Confirm Booking</button>
+    </div>
+    <div id="stepDone" class="hidden success">
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem">Appointment Confirmed</h2>
+      <p style="color:#6b7280" id="bookingInfo"></p>
+    </div>
+  </div>
+  <script>
+    let service='',selectedSlot='';
+    const slots=[{t:'09:00 AM',a:true},{t:'09:30 AM',a:true},{t:'10:00 AM',a:false},{t:'10:30 AM',a:true},{t:'11:00 AM',a:true},{t:'02:00 PM',a:true},{t:'03:00 PM',a:true}];
+    function showStep(id){['stepService','stepDate','stepSlot','stepDetails','stepDone'].forEach(s=>document.getElementById(s).classList.add('hidden'));document.getElementById(id).classList.remove('hidden');}
+    function showError(m){const e=document.getElementById('error');e.textContent=m;e.style.display='block';}
+    function hideError(){document.getElementById('error').style.display='none';}
+    function pickService(s,btn){service=s;document.querySelectorAll('.service-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');showStep('stepDate');}
+    function toSlots(){hideError();if(!document.getElementById('date').value){showError('Select date');return;}const grid=document.getElementById('slotsGrid');grid.innerHTML='';slots.forEach(s=>{const b=document.createElement('button');b.className='slot-btn';b.textContent=s.t;b.disabled=!s.a;b.onclick=()=>{selectedSlot=s.t;grid.querySelectorAll('.slot-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');};grid.appendChild(b);});showStep('stepSlot');}
+    function toDetails(){hideError();if(!selectedSlot){showError('Select slot');return;}showStep('stepDetails');}
+    function confirmBooking(){hideError();const n=document.getElementById('name').value,m=document.getElementById('mobile').value;if(!n||!m){showError('Fill fields');return;}const id='BK-'+Date.now().toString(36).toUpperCase();document.getElementById('bookingInfo').textContent='Booking ID: '+id+' | '+service+' | '+document.getElementById('date').value+' at '+selectedSlot;showStep('stepDone');}
+  </script>
+</body>
+</html>`;
+
+function ApptBookingCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Multi-step + Slots', code: APPT_REACT_CODE, filename: 'AppointmentBookingPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: APPT_ANGULAR_CODE, filename: 'appointment-booking.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: APPT_HTML_CODE, filename: 'appointment-booking.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Appointment Booking implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== SIDEBAR COMPONENTS ====================
 
