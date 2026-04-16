@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
-import { Shield, ArrowLeft, CheckCircle, Lock, AlertTriangle } from "lucide-react";
+import { Shield, ArrowLeft, CheckCircle, Lock, AlertTriangle, Download, Copy, Check } from "lucide-react";
 
 export default function AutofillPattern() {
   const [method, setMethod] = useState<"aadhaar" | "digilocker" | null>(null);
@@ -499,7 +499,232 @@ export default function AutofillPattern() {
             </div>
           </aside>
         </div>
+
+        <AutofillCodeDownloads />
+
       </main>
     </div>
   );
 }
+
+// ==================== CODE DOWNLOADS ====================
+
+const AUTOFILL_REACT_CODE = `import React, { useState, useCallback } from 'react';
+
+interface AutofillData {
+  fullName: string; dob: string; gender: string; address: string;
+  pincode: string; state: string; district: string; mobile: string; email: string;
+}
+
+const EMPTY: AutofillData = { fullName:'', dob:'', gender:'', address:'', pincode:'', state:'', district:'', mobile:'', email:'' };
+
+export function AutofillPage() {
+  const [form, setForm] = useState<AutofillData>(EMPTY);
+  const [source, setSource] = useState<'aadhaar' | 'digilocker' | 'manual'>('manual');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [autoFilled, setAutoFilled] = useState(false);
+
+  const handleAadhaarFetch = useCallback(async () => {
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/autofill/aadhaar', { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+      if (!res.ok) { setError('Aadhaar fetch failed'); return; }
+      const data = await res.json();
+      setForm({ fullName: data.name || '', dob: data.dob || '', gender: data.gender || '', address: data.address || '', pincode: data.pincode || '', state: data.state || '', district: data.district || '', mobile: data.mobile || '', email: '' });
+      setAutoFilled(true); setSource('aadhaar');
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  }, []);
+
+  const handleDigiLockerFetch = useCallback(async () => {
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/autofill/digilocker', { method: 'POST' });
+      if (!res.ok) { setError('DigiLocker fetch failed'); return; }
+      const data = await res.json();
+      setForm(prev => ({ ...prev, ...data }));
+      setAutoFilled(true); setSource('digilocker');
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  }, []);
+
+  const update = (field: keyof AutofillData, value: string) => setForm(prev => ({...prev, [field]: value}));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.fullName || !form.mobile) { setError('Name and mobile required'); return; }
+    setLoading(true); setError('');
+    try {
+      await fetch('/api/form/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...form, source }) });
+      alert('Form submitted successfully');
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Auto-fill Form</h1>
+        <p className="text-sm text-muted-foreground mb-6">Pre-fill from Aadhaar or DigiLocker to save time</p>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        <div className="flex gap-3 mb-6">
+          <button onClick={handleAadhaarFetch} disabled={loading} className="flex-1 py-3 border-2 border-orange-300 bg-orange-50 rounded-xl font-semibold text-sm text-orange-800 hover:bg-orange-100 disabled:opacity-60">🔐 Aadhaar eKYC</button>
+          <button onClick={handleDigiLockerFetch} disabled={loading} className="flex-1 py-3 border-2 border-blue-300 bg-blue-50 rounded-xl font-semibold text-sm text-blue-800 hover:bg-blue-100 disabled:opacity-60">📁 DigiLocker</button>
+        </div>
+        {autoFilled && <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">✓ Auto-filled from {source === 'aadhaar' ? 'Aadhaar eKYC' : 'DigiLocker'}. Review and edit if needed.</div>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div><label className="block text-sm font-medium mb-1">Full Name *</label><input value={form.fullName} onChange={e => update('fullName', e.target.value)} className={\`w-full px-4 py-3 border border-border rounded-lg \${autoFilled ? 'bg-green-50/50' : ''}\`} /></div>
+            <div><label className="block text-sm font-medium mb-1">Date of Birth</label><input type="date" value={form.dob} onChange={e => update('dob', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          </div>
+          <div><label className="block text-sm font-medium mb-1">Address</label><textarea value={form.address} onChange={e => update('address', e.target.value)} rows={2} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <div className="grid grid-cols-3 gap-4">
+            <div><label className="block text-sm font-medium mb-1">PIN Code</label><input value={form.pincode} onChange={e => update('pincode', e.target.value)} maxLength={6} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div><label className="block text-sm font-medium mb-1">State</label><input value={form.state} onChange={e => update('state', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div><label className="block text-sm font-medium mb-1">District</label><input value={form.district} onChange={e => update('district', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          </div>
+          <div><label className="block text-sm font-medium mb-1">Mobile *</label><input type="tel" value={form.mobile} onChange={e => update('mobile', e.target.value)} maxLength={10} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <button type="submit" disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Submitting...' : 'Submit Form'}</button>
+        </form>
+      </div>
+    </div>
+  );
+}`;
+
+const AUTOFILL_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-autofill',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold mb-6">Auto-fill Form</h1>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div class="flex gap-3 mb-6">
+          <button (click)="fetchAadhaar()" [disabled]="loading" class="flex-1 py-3 border-2 border-orange-300 bg-orange-50 rounded-xl font-semibold text-sm">🔐 Aadhaar</button>
+          <button (click)="fetchDigiLocker()" [disabled]="loading" class="flex-1 py-3 border-2 border-blue-300 bg-blue-50 rounded-xl font-semibold text-sm">📁 DigiLocker</button>
+        </div>
+        <div *ngIf="autoFilled" class="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">✓ Auto-filled. Review and edit.</div>
+        <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div><label class="block text-sm font-medium mb-1">Name *</label><input formControlName="fullName" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div><label class="block text-sm font-medium mb-1">DOB</label><input type="date" formControlName="dob" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          </div>
+          <div><label class="block text-sm font-medium mb-1">Address</label><textarea formControlName="address" rows="2" class="w-full px-4 py-3 border border-border rounded-lg"></textarea></div>
+          <div><label class="block text-sm font-medium mb-1">Mobile *</label><input formControlName="mobile" maxlength="10" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <button type="submit" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">Submit</button>
+        </form>
+      </div>
+    </div>
+  \`
+})
+export class AutofillComponent {
+  form = new FormGroup({ fullName: new FormControl('', Validators.required), dob: new FormControl(''), address: new FormControl(''), pincode: new FormControl(''), state: new FormControl(''), district: new FormControl(''), mobile: new FormControl('', Validators.required) });
+  loading = false; error = ''; autoFilled = false;
+  async fetchAadhaar() { this.loading = true; try { const r = await fetch('/api/autofill/aadhaar', { method: 'POST' }); const d = await r.json(); this.form.patchValue(d); this.autoFilled = true; } catch { this.error = 'Failed'; } finally { this.loading = false; } }
+  async fetchDigiLocker() { this.loading = true; try { const r = await fetch('/api/autofill/digilocker', { method: 'POST' }); const d = await r.json(); this.form.patchValue(d); this.autoFilled = true; } catch { this.error = 'Failed'; } finally { this.loading = false; } }
+  async submit() { if (this.form.invalid) { this.error = 'Fill required'; return; } alert('Submitted'); }
+}`;
+
+const AUTOFILL_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto-fill — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 32rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    input, textarea { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; margin-bottom: 1rem; }
+    .sources { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .source-btn { flex: 1; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 0.75rem; background: #fff; cursor: pointer; font-weight: 600; font-size: 0.875rem; text-align: center; }
+    .source-btn:hover { border-color: #005196; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    .autofill-notice { padding: 0.75rem; background: #f0fdf4; border: 1px solid #86efac; border-radius: 0.5rem; font-size: 0.875rem; color: #166534; margin-bottom: 1rem; display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Auto-fill Form</h1>
+    <div class="sources">
+      <button class="source-btn" onclick="fetchAadhaar()" style="border-color:#fb923c;background:#fff7ed">🔐 Aadhaar eKYC</button>
+      <button class="source-btn" onclick="fetchDigiLocker()" style="border-color:#60a5fa;background:#eff6ff">�� DigiLocker</button>
+    </div>
+    <div id="notice" class="autofill-notice">✓ Auto-filled. Review and edit if needed.</div>
+    <form id="form" novalidate>
+      <div class="row"><div><label>Full Name *</label><input id="fullName" required /></div><div><label>Date of Birth</label><input type="date" id="dob" /></div></div>
+      <label>Address</label><textarea id="address" rows="2"></textarea>
+      <div class="row3"><div><label>PIN Code</label><input id="pincode" maxlength="6" /></div><div><label>State</label><input id="state" /></div><div><label>District</label><input id="district" /></div></div>
+      <label>Mobile *</label><input id="mobile" maxlength="10" required />
+      <button type="submit" class="btn">Submit Form</button>
+    </form>
+  </div>
+  <script>
+    function fill(data) { Object.keys(data).forEach(k => { const el = document.getElementById(k); if (el) el.value = data[k] || ''; }); document.getElementById('notice').style.display = 'block'; }
+    async function fetchAadhaar() { try { const r = await fetch('/api/autofill/aadhaar', { method: 'POST' }); fill(await r.json()); } catch { alert('Aadhaar fetch failed'); } }
+    async function fetchDigiLocker() { try { const r = await fetch('/api/autofill/digilocker', { method: 'POST' }); fill(await r.json()); } catch { alert('DigiLocker fetch failed'); } }
+    document.getElementById('form').addEventListener('submit', function(e) { e.preventDefault(); if (!document.getElementById('fullName').value || !document.getElementById('mobile').value) { alert('Fill required fields'); return; } alert('Form submitted'); });
+  </script>
+</body>
+</html>`;
+
+function AutofillCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Aadhaar/DigiLocker', code: AUTOFILL_REACT_CODE, filename: 'AutofillPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: AUTOFILL_ANGULAR_CODE, filename: 'autofill.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: AUTOFILL_HTML_CODE, filename: 'autofill.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24 mt-12">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Auto-fill implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
