@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { RefreshCw, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, Clock, HelpCircle, Check, X, Phone, Mail, User, FileText, Eye } from "lucide-react";
+import { RefreshCw, Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ChevronRight, Clock, HelpCircle, Check, X, Phone, Mail, User, FileText, Eye, Download, Copy } from "lucide-react";
 
 export default function AccountRecoveryPattern() {
   return (
@@ -73,6 +74,7 @@ export default function AccountRecoveryPattern() {
               { id: "escalation", label: "Escalation" },
               { id: "accessibility", label: "Accessibility" },
               { id: "implementation", label: "Implementation" },
+              { id: "code-downloads", label: "Code Downloads" },
               { id: "governance", label: "Governance" }
             ].map((item) => (
               <a
@@ -101,6 +103,7 @@ export default function AccountRecoveryPattern() {
             <EscalationSection />
             <AccessibilitySection />
             <ImplementationSection />
+            <CodeDownloadsSection />
             <GovernanceSection />
           </div>
 
@@ -978,6 +981,359 @@ function ImplementationSection() {
     </section>
   );
 }
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const RECOVERY_REACT_CODE = `import React, { useState, useCallback } from 'react';
+
+type RecoveryMethod = 'email' | 'mobile' | 'aadhaar' | 'support';
+type Step = 'method' | 'verify' | 'reset' | 'done';
+
+export function AccountRecoveryPage() {
+  const [step, setStep] = useState<Step>('method');
+  const [method, setMethod] = useState<RecoveryMethod>('email');
+  const [identifier, setIdentifier] = useState('');
+  const [otp, setOtp] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSelectMethod = useCallback(async () => {
+    if (!identifier.trim()) { setError('This field is required'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/auth/recovery/initiate', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ method, identifier }),
+      });
+      if (!res.ok) { const d = await res.json(); setError(d.message || 'Failed to initiate recovery'); return; }
+      setStep('verify');
+    } catch { setError('Network error. Please try again.'); }
+    finally { setLoading(false); }
+  }, [method, identifier]);
+
+  const handleVerify = useCallback(async () => {
+    if (otp.length < 6) { setError('Enter the complete verification code'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/auth/recovery/verify', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ method, identifier, otp }),
+      });
+      if (!res.ok) { setError('Invalid verification code'); return; }
+      setStep('reset');
+    } catch { setError('Network error.'); }
+    finally { setLoading(false); }
+  }, [method, identifier, otp]);
+
+  const handleReset = useCallback(async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password.length < 8) { setError('Password must be at least 8 characters'); return; }
+    if (password !== confirmPassword) { setError('Passwords do not match'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/auth/recovery/reset', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ method, identifier, otp, newPassword: password }),
+      });
+      if (!res.ok) { setError('Reset failed. Please try again.'); return; }
+      setStep('done');
+    } catch { setError('Network error.'); }
+    finally { setLoading(false); }
+  }, [method, identifier, otp, password, confirmPassword]);
+
+  const methods: { id: RecoveryMethod; label: string; desc: string; placeholder: string }[] = [
+    { id: 'email', label: 'Email Recovery', desc: 'OTP sent to registered email', placeholder: 'Enter registered email' },
+    { id: 'mobile', label: 'Mobile Recovery', desc: 'OTP sent via SMS to registered mobile', placeholder: '+91 XXXXX XXXXX' },
+    { id: 'aadhaar', label: 'Aadhaar Verification', desc: 'Verify identity via Aadhaar OTP', placeholder: 'Enter 12-digit Aadhaar number' },
+    { id: 'support', label: 'Contact Support', desc: 'Manual verification by support team', placeholder: 'Enter your registered name or ID' },
+  ];
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Account Recovery</h1>
+        <p className="text-sm text-muted-foreground mb-6">Recover access to your government services account</p>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {step === 'method' && (
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-3">
+              {methods.map(m => (
+                <button key={m.id} onClick={() => { setMethod(m.id); setIdentifier(''); setError(''); }} className={\`p-4 rounded-xl border-2 text-left transition-colors \${method === m.id ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}\`}>
+                  <div className="font-semibold text-sm text-foreground">{m.label}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{m.desc}</div>
+                </button>
+              ))}
+            </div>
+            <div>
+              <label htmlFor="identifier" className="block text-sm font-medium mb-1">{methods.find(m => m.id === method)?.label} <span className="text-red-500">*</span></label>
+              <input id="identifier" type="text" value={identifier} onChange={e => setIdentifier(e.target.value)} placeholder={methods.find(m => m.id === method)?.placeholder} className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-required="true" />
+            </div>
+            <button onClick={handleSelectMethod} disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Processing...' : 'Continue'}</button>
+          </div>
+        )}
+        {step === 'verify' && (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">Enter the verification code sent via {method}</p>
+            <input type="text" value={otp} onChange={e => setOtp(e.target.value.replace(/\\D/g, '').slice(0, 6))} placeholder="Enter 6-digit code" maxLength={6} className="w-full px-4 py-3 border border-border rounded-lg text-center text-lg font-bold tracking-widest" aria-label="Verification code" />
+            <button onClick={handleVerify} disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Verifying...' : 'Verify'}</button>
+          </div>
+        )}
+        {step === 'reset' && (
+          <form onSubmit={handleReset} className="space-y-4">
+            <div>
+              <label htmlFor="newPw" className="block text-sm font-medium mb-1">New Password <span className="text-red-500">*</span></label>
+              <input id="newPw" type="password" value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" />
+            </div>
+            <div>
+              <label htmlFor="confirmPw" className="block text-sm font-medium mb-1">Confirm Password <span className="text-red-500">*</span></label>
+              <input id="confirmPw" type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" />
+            </div>
+            <button type="submit" disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Resetting...' : 'Reset Password'}</button>
+          </form>
+        )}
+        {step === 'done' && (
+          <div className="text-center py-6 space-y-4">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+            <h2 className="text-xl font-bold text-foreground">Account Recovered</h2>
+            <p className="text-muted-foreground">You can now sign in with your new password.</p>
+            <a href="/sign-in" className="inline-block py-3 px-6 bg-primary text-primary-foreground rounded-lg font-semibold">Sign In</a>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const RECOVERY_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-account-recovery',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-2">Account Recovery</h1>
+        <p class="text-sm text-muted-foreground mb-6">Recover access to your government services account</p>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="step === 'method'" class="space-y-4">
+          <div class="grid grid-cols-2 gap-3">
+            <button *ngFor="let m of methods" (click)="method = m.id; identifier.reset()" [class]="'p-4 rounded-xl border-2 text-left ' + (method === m.id ? 'border-primary bg-primary/5' : 'border-border')">
+              <div class="font-semibold text-sm">{{ m.label }}</div>
+              <div class="text-xs text-muted-foreground mt-1">{{ m.desc }}</div>
+            </button>
+          </div>
+          <div>
+            <label for="id" class="block text-sm font-medium mb-1">Recovery Input <span class="text-red-500">*</span></label>
+            <input id="id" [formControl]="identifier" class="w-full px-4 py-3 border border-border rounded-lg" />
+          </div>
+          <button (click)="initiate()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Processing...' : 'Continue' }}</button>
+        </div>
+        <div *ngIf="step === 'verify'" class="space-y-4">
+          <input [formControl]="otpCtrl" placeholder="Enter 6-digit code" maxlength="6" class="w-full px-4 py-3 border border-border rounded-lg text-center text-lg font-bold tracking-widest" />
+          <button (click)="verify()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Verifying...' : 'Verify' }}</button>
+        </div>
+        <div *ngIf="step === 'reset'">
+          <form [formGroup]="resetForm" (ngSubmit)="reset()" class="space-y-4">
+            <div><label class="block text-sm font-medium mb-1">New Password</label><input type="password" formControlName="password" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div><label class="block text-sm font-medium mb-1">Confirm</label><input type="password" formControlName="confirm" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <button type="submit" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Resetting...' : 'Reset Password' }}</button>
+          </form>
+        </div>
+        <div *ngIf="step === 'done'" class="text-center py-8">
+          <h2 class="text-xl font-bold mb-2">Account Recovered</h2>
+          <a href="/sign-in" class="inline-block py-3 px-6 bg-primary text-primary-foreground rounded-lg font-semibold">Sign In</a>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class AccountRecoveryComponent {
+  methods = [
+    { id: 'email', label: 'Email Recovery', desc: 'OTP sent to registered email' },
+    { id: 'mobile', label: 'Mobile Recovery', desc: 'OTP sent via SMS' },
+    { id: 'aadhaar', label: 'Aadhaar Verification', desc: 'Verify via Aadhaar OTP' },
+    { id: 'support', label: 'Contact Support', desc: 'Manual verification' },
+  ];
+  method = 'email';
+  identifier = new FormControl('', [Validators.required]);
+  otpCtrl = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  resetForm = new FormGroup({
+    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    confirm: new FormControl('', [Validators.required]),
+  });
+  step: 'method' | 'verify' | 'reset' | 'done' = 'method';
+  loading = false; error = '';
+
+  async initiate() {
+    if (this.identifier.invalid) { this.error = 'Field required'; return; }
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/recovery/initiate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ method: this.method, identifier: this.identifier.value }) });
+      if (!res.ok) { this.error = 'Failed'; return; }
+      this.step = 'verify';
+    } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+  async verify() {
+    if (this.otpCtrl.invalid) { this.error = 'Enter code'; return; }
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/recovery/verify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ otp: this.otpCtrl.value }) });
+      if (!res.ok) { this.error = 'Invalid code'; return; }
+      this.step = 'reset';
+    } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+  async reset() {
+    if (this.resetForm.invalid) { this.error = 'Fill fields'; return; }
+    if (this.resetForm.value.password !== this.resetForm.value.confirm) { this.error = 'Mismatch'; return; }
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/recovery/reset', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ newPassword: this.resetForm.value.password }) });
+      if (!res.ok) { this.error = 'Failed'; return; }
+      this.step = 'done';
+    } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+}`;
+
+const RECOVERY_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Recovery — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 32rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .sub { font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem; }
+    .methods { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem; }
+    .method-btn { padding: 1rem; border: 2px solid #e5e7eb; border-radius: 0.75rem; background: #fff; cursor: pointer; text-align: left; }
+    .method-btn.active { border-color: #005196; background: rgba(0,81,150,0.05); }
+    .method-btn .title { font-weight: 600; font-size: 0.875rem; }
+    .method-btn .desc { font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    input { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; margin-bottom: 1rem; }
+    input:focus { border-color: #005196; box-shadow: 0 0 0 2px rgba(0,81,150,0.2); }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:disabled { opacity: 0.6; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Account Recovery</h1>
+    <p class="sub">Recover access to your government services account</p>
+    <div id="error" class="error" role="alert"></div>
+    <div id="stepMethod">
+      <div class="methods">
+        <button class="method-btn active" onclick="selectMethod('email',this)"><div class="title">Email</div><div class="desc">OTP to registered email</div></button>
+        <button class="method-btn" onclick="selectMethod('mobile',this)"><div class="title">Mobile</div><div class="desc">OTP via SMS</div></button>
+        <button class="method-btn" onclick="selectMethod('aadhaar',this)"><div class="title">Aadhaar</div><div class="desc">Aadhaar OTP</div></button>
+        <button class="method-btn" onclick="selectMethod('support',this)"><div class="title">Support</div><div class="desc">Manual verification</div></button>
+      </div>
+      <label for="identifier">Recovery Input <span style="color:#ef4444">*</span></label>
+      <input type="text" id="identifier" required aria-required="true" />
+      <button class="btn" onclick="initiate()">Continue</button>
+    </div>
+    <div id="stepVerify" class="hidden">
+      <label for="otp">Verification Code</label>
+      <input type="text" id="otp" maxlength="6" placeholder="Enter 6-digit code" style="text-align:center;font-size:1.25rem;font-weight:700;letter-spacing:0.25em" />
+      <button class="btn" onclick="verifyCode()">Verify</button>
+    </div>
+    <div id="stepReset" class="hidden">
+      <label for="newPw">New Password</label>
+      <input type="password" id="newPw" minlength="8" />
+      <label for="confirmPw">Confirm Password</label>
+      <input type="password" id="confirmPw" />
+      <button class="btn" onclick="resetPw()">Reset Password</button>
+    </div>
+    <div id="stepDone" class="hidden success">
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:1rem">Account Recovered</h2>
+      <a href="/sign-in" class="btn" style="display:inline-block;width:auto;padding:0.75rem 2rem;text-decoration:none">Sign In</a>
+    </div>
+  </div>
+  <script>
+    let method = 'email';
+    function showError(m) { const e=document.getElementById('error'); e.textContent=m; e.style.display='block'; }
+    function hideError() { document.getElementById('error').style.display='none'; }
+    function showStep(id) { ['stepMethod','stepVerify','stepReset','stepDone'].forEach(s=>document.getElementById(s).classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); }
+    function selectMethod(m, btn) { method=m; document.querySelectorAll('.method-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+    async function initiate() {
+      hideError(); const id=document.getElementById('identifier').value.trim();
+      if(!id){showError('Field required');return;}
+      try { const r=await fetch('/api/auth/recovery/initiate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({method,identifier:id})}); if(!r.ok){showError('Failed');return;} showStep('stepVerify'); } catch{showError('Network error');}
+    }
+    async function verifyCode() {
+      hideError(); const c=document.getElementById('otp').value;
+      if(c.length<6){showError('Enter complete code');return;}
+      try { const r=await fetch('/api/auth/recovery/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({otp:c})}); if(!r.ok){showError('Invalid code');return;} showStep('stepReset'); } catch{showError('Network error');}
+    }
+    async function resetPw() {
+      hideError(); const pw=document.getElementById('newPw').value,cpw=document.getElementById('confirmPw').value;
+      if(pw.length<8){showError('Min 8 chars');return;} if(pw!==cpw){showError('Mismatch');return;}
+      try { const r=await fetch('/api/auth/recovery/reset',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({newPassword:pw})}); if(!r.ok){showError('Failed');return;} showStep('stepDone'); } catch{showError('Network error');}
+    }
+  </script>
+</body>
+</html>`;
+
+function CodeDownloadsSection() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks + Multi-method', code: RECOVERY_REACT_CODE, filename: 'AccountRecoveryPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: RECOVERY_ANGULAR_CODE, filename: 'account-recovery.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: RECOVERY_HTML_CODE, filename: 'account-recovery.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Account Recovery implementations for your framework.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== GOVERNANCE SECTION ====================
 

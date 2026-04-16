@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, ChevronRight, Clock, RefreshCw, Smartphone, Mail, Hash, Eye, Lock, HelpCircle, Check, X, FileText, Code } from "lucide-react";
+import { Shield, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, ChevronRight, Clock, RefreshCw, Smartphone, Mail, Hash, Eye, Lock, HelpCircle, Check, X, FileText, Code, Download, Copy } from "lucide-react";
 
 export default function OTPVerificationPattern() {
   return (
@@ -73,6 +74,7 @@ export default function OTPVerificationPattern() {
               { id: "resend", label: "Resend Logic" },
               { id: "accessibility", label: "Accessibility" },
               { id: "implementation", label: "Implementation" },
+              { id: "code-downloads", label: "Code Downloads" },
               { id: "governance", label: "Governance" }
             ].map((item) => (
               <a
@@ -101,6 +103,7 @@ export default function OTPVerificationPattern() {
             <ResendLogic />
             <AccessibilitySection />
             <ImplementationSection />
+            <CodeDownloadsSection />
             <GovernanceSection />
           </div>
 
@@ -1268,6 +1271,372 @@ input.addEventListener('paste', (e) => {
     </section>
   );
 }
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const OTP_REACT_CODE = `import React, { useState, useEffect, useRef, useCallback } from 'react';
+
+interface OTPVerificationProps {
+  length?: number;
+  onComplete?: (otp: string) => void;
+  contactInfo?: string;
+}
+
+export function OTPVerificationPage({ length = 6, onComplete, contactInfo = '+91 98XXX XX210' }: OTPVerificationProps) {
+  const [otp, setOtp] = useState<string[]>(Array(length).fill(''));
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [timer, setTimer] = useState(120);
+  const [verified, setVerified] = useState(false);
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  useEffect(() => {
+    if (timer > 0) { const t = setTimeout(() => setTimer(t => t - 1), 1000); return () => clearTimeout(t); }
+  }, [timer]);
+
+  useEffect(() => { inputRefs.current[0]?.focus(); }, []);
+
+  const handleChange = useCallback((index: number, value: string) => {
+    if (!/^\\d?$/.test(value)) return;
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp);
+    if (value && index < length - 1) inputRefs.current[index + 1]?.focus();
+    if (newOtp.every(d => d !== '')) {
+      const code = newOtp.join('');
+      onComplete?.(code);
+    }
+  }, [otp, length, onComplete]);
+
+  const handleKeyDown = useCallback((index: number, e: React.KeyboardEvent) => {
+    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+      inputRefs.current[index - 1]?.focus();
+    }
+  }, [otp]);
+
+  const handlePaste = useCallback((e: React.ClipboardEvent) => {
+    e.preventDefault();
+    const pasted = e.clipboardData.getData('text').replace(/\\D/g, '').slice(0, length);
+    const newOtp = [...otp];
+    pasted.split('').forEach((ch, i) => { newOtp[i] = ch; });
+    setOtp(newOtp);
+    inputRefs.current[Math.min(pasted.length, length - 1)]?.focus();
+  }, [otp, length]);
+
+  const handleVerify = async () => {
+    const code = otp.join('');
+    if (code.length !== length) { setError('Please enter the complete OTP'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/auth/verify-otp', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ otp: code }),
+      });
+      if (!res.ok) { const d = await res.json(); setError(d.message || 'Invalid OTP. Please try again.'); return; }
+      setVerified(true);
+    } catch { setError('Network error. Please try again.'); }
+    finally { setLoading(false); }
+  };
+
+  const handleResend = async () => {
+    setLoading(true); setError('');
+    try {
+      await fetch('/api/auth/resend-otp', { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+      setTimer(120); setOtp(Array(length).fill(''));
+      inputRefs.current[0]?.focus();
+    } catch { setError('Failed to resend OTP'); }
+    finally { setLoading(false); }
+  };
+
+  if (verified) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background p-4">
+        <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 text-center">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <h2 className="text-xl font-bold text-foreground mb-2">Verified Successfully</h2>
+          <p className="text-muted-foreground">Your identity has been confirmed.</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Verify OTP</h1>
+        <p className="text-sm text-muted-foreground mb-6">Enter the {length}-digit code sent to {contactInfo}</p>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        <div className="flex justify-center gap-3 mb-6" onPaste={handlePaste}>
+          {otp.map((digit, i) => (
+            <input key={i} ref={el => { inputRefs.current[i] = el; }} type="text" inputMode="numeric" maxLength={1} value={digit} onChange={e => handleChange(i, e.target.value)} onKeyDown={e => handleKeyDown(i, e)} className="w-12 h-14 text-center text-xl font-bold border-2 border-border rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-colors" aria-label={\`Digit \${i + 1} of \${length}\`} />
+          ))}
+        </div>
+        <button onClick={handleVerify} disabled={loading || otp.some(d => !d)} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60 mb-4">{loading ? 'Verifying...' : 'Verify'}</button>
+        <div className="text-center text-sm">
+          {timer > 0 ? (
+            <p className="text-muted-foreground">Resend OTP in <span className="font-semibold text-foreground">{Math.floor(timer/60)}:{String(timer%60).padStart(2,'0')}</span></p>
+          ) : (
+            <button onClick={handleResend} disabled={loading} className="text-primary hover:underline font-semibold">Resend OTP</button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}`;
+
+const OTP_ANGULAR_CODE = `import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'ux4g-otp-verification',
+  standalone: true,
+  imports: [CommonModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-2">Verify OTP</h1>
+        <p class="text-sm text-muted-foreground mb-6">Enter the 6-digit code sent to your registered contact</p>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="!verified">
+          <div class="flex justify-center gap-3 mb-6">
+            <input *ngFor="let d of digits; let i = index" [id]="'otp-'+i" type="text" inputMode="numeric" maxlength="1" (input)="onInput(i, $event)" (keydown)="onKeyDown(i, $event)" class="w-12 h-14 text-center text-xl font-bold border-2 border-border rounded-xl focus:border-primary" [attr.aria-label]="'Digit '+(i+1)+' of 6'" />
+          </div>
+          <button (click)="verify()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60 mb-4">{{ loading ? 'Verifying...' : 'Verify' }}</button>
+          <div class="text-center text-sm">
+            <p *ngIf="timer > 0" class="text-muted-foreground">Resend in {{ formatTime() }}</p>
+            <button *ngIf="timer === 0" (click)="resend()" class="text-primary hover:underline font-semibold">Resend OTP</button>
+          </div>
+        </div>
+        <div *ngIf="verified" class="text-center py-8">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h2 class="text-xl font-bold text-foreground mb-2">Verified Successfully</h2>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class OTPVerificationComponent implements OnInit, OnDestroy {
+  digits = ['', '', '', '', '', ''];
+  timer = 120;
+  loading = false;
+  error = '';
+  verified = false;
+  private interval: any;
+
+  ngOnInit() {
+    this.startTimer();
+    setTimeout(() => document.getElementById('otp-0')?.focus(), 100);
+  }
+
+  ngOnDestroy() { clearInterval(this.interval); }
+
+  startTimer() {
+    this.timer = 120;
+    this.interval = setInterval(() => { if (this.timer > 0) this.timer--; else clearInterval(this.interval); }, 1000);
+  }
+
+  formatTime() { return Math.floor(this.timer/60) + ':' + String(this.timer%60).padStart(2, '0'); }
+
+  onInput(index: number, event: Event) {
+    const val = (event.target as HTMLInputElement).value;
+    if (!/^\\d?$/.test(val)) { (event.target as HTMLInputElement).value = ''; return; }
+    this.digits[index] = val;
+    if (val && index < 5) document.getElementById('otp-'+(index+1))?.focus();
+  }
+
+  onKeyDown(index: number, event: KeyboardEvent) {
+    if (event.key === 'Backspace' && !this.digits[index] && index > 0) {
+      document.getElementById('otp-'+(index-1))?.focus();
+    }
+  }
+
+  async verify() {
+    const code = this.digits.join('');
+    if (code.length !== 6) { this.error = 'Enter complete OTP'; return; }
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/verify-otp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ otp: code }) });
+      if (!res.ok) { this.error = 'Invalid OTP'; return; }
+      this.verified = true;
+    } catch { this.error = 'Network error'; }
+    finally { this.loading = false; }
+  }
+
+  async resend() {
+    this.loading = true;
+    try {
+      await fetch('/api/auth/resend-otp', { method: 'POST' });
+      this.digits = ['', '', '', '', '', ''];
+      this.startTimer();
+      document.getElementById('otp-0')?.focus();
+    } catch { this.error = 'Failed to resend'; }
+    finally { this.loading = false; }
+  }
+}`;
+
+const OTP_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTP Verification — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 28rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem; }
+    .otp-row { display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 1.5rem; }
+    .otp-input { width: 3rem; height: 3.5rem; text-align: center; font-size: 1.25rem; font-weight: 700; border: 2px solid #d1d5db; border-radius: 0.75rem; outline: none; }
+    .otp-input:focus { border-color: #005196; box-shadow: 0 0 0 2px rgba(0,81,150,0.2); }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; margin-bottom: 1rem; }
+    .btn:hover { background: #004178; }
+    .btn:disabled { opacity: 0.6; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .timer { text-align: center; font-size: 0.875rem; color: #6b7280; }
+    .resend { background: none; border: none; color: #005196; font-weight: 600; cursor: pointer; font-size: 0.875rem; }
+    .resend:hover { text-decoration: underline; }
+    .success { text-align: center; padding: 2rem 0; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Verify OTP</h1>
+    <p class="subtitle">Enter the 6-digit code sent to your registered contact</p>
+    <div id="error" class="error" role="alert"></div>
+    <div id="otpForm">
+      <div class="otp-row" id="otpRow"></div>
+      <button class="btn" id="verifyBtn" onclick="verifyOtp()">Verify</button>
+      <div class="timer" id="timerArea"></div>
+    </div>
+    <div id="successArea" class="hidden success">
+      <div style="width:4rem;height:4rem;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem">
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="#16a34a"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem">Verified Successfully</h2>
+      <p style="color:#6b7280">Your identity has been confirmed.</p>
+    </div>
+  </div>
+  <script>
+    const LENGTH = 6;
+    let timer = 120, timerInterval;
+    const row = document.getElementById('otpRow');
+    for (let i = 0; i < LENGTH; i++) {
+      const inp = document.createElement('input');
+      inp.type = 'text'; inp.inputMode = 'numeric'; inp.maxLength = 1;
+      inp.className = 'otp-input'; inp.id = 'otp' + i;
+      inp.setAttribute('aria-label', 'Digit ' + (i+1) + ' of ' + LENGTH);
+      inp.addEventListener('input', function() {
+        if (!/^\\d?$/.test(this.value)) { this.value = ''; return; }
+        if (this.value && i < LENGTH-1) document.getElementById('otp'+(i+1)).focus();
+      });
+      inp.addEventListener('keydown', function(e) {
+        if (e.key === 'Backspace' && !this.value && i > 0) document.getElementById('otp'+(i-1)).focus();
+      });
+      inp.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const text = e.clipboardData.getData('text').replace(/\\D/g, '').slice(0, LENGTH);
+        text.split('').forEach((ch, idx) => { const el = document.getElementById('otp'+idx); if (el) el.value = ch; });
+        document.getElementById('otp'+Math.min(text.length, LENGTH-1)).focus();
+      });
+      row.appendChild(inp);
+    }
+    document.getElementById('otp0').focus();
+    function startTimer() {
+      timer = 120;
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timer--;
+        const area = document.getElementById('timerArea');
+        if (timer > 0) { area.innerHTML = 'Resend in ' + Math.floor(timer/60) + ':' + String(timer%60).padStart(2,'0'); }
+        else { clearInterval(timerInterval); area.innerHTML = '<button class="resend" onclick="resendOtp()">Resend OTP</button>'; }
+      }, 1000);
+    }
+    startTimer();
+    function showError(msg) { const e = document.getElementById('error'); e.textContent = msg; e.style.display = 'block'; }
+    function hideError() { document.getElementById('error').style.display = 'none'; }
+    async function verifyOtp() {
+      hideError();
+      let code = '';
+      for (let i = 0; i < LENGTH; i++) code += document.getElementById('otp'+i).value;
+      if (code.length !== LENGTH) { showError('Enter complete OTP'); return; }
+      const btn = document.getElementById('verifyBtn');
+      btn.disabled = true; btn.textContent = 'Verifying...';
+      try {
+        const res = await fetch('/api/auth/verify-otp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ otp: code }) });
+        if (!res.ok) { showError('Invalid OTP'); return; }
+        document.getElementById('otpForm').classList.add('hidden');
+        document.getElementById('successArea').classList.remove('hidden');
+      } catch { showError('Network error'); }
+      finally { btn.disabled = false; btn.textContent = 'Verify'; }
+    }
+    async function resendOtp() {
+      try {
+        await fetch('/api/auth/resend-otp', { method: 'POST' });
+        for (let i = 0; i < LENGTH; i++) document.getElementById('otp'+i).value = '';
+        document.getElementById('otp0').focus();
+        startTimer();
+      } catch { showError('Failed to resend'); }
+    }
+  </script>
+</body>
+</html>`;
+
+function CodeDownloadsSection() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks + Auto-advance', code: OTP_REACT_CODE, filename: 'OTPVerificationPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: OTP_ANGULAR_CODE, filename: 'otp-verification.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: OTP_HTML_CODE, filename: 'otp-verification.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready OTP Verification implementations for your framework.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== GOVERNANCE SECTION ====================
 

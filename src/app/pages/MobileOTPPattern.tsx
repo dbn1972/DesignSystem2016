@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { Smartphone, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, ChevronRight, Clock, RefreshCw, Hash, Shield, Signal, MessageSquare, HelpCircle, Check, X, Phone, Code } from "lucide-react";
+import { Smartphone, CheckCircle, AlertCircle, Info, XCircle, ArrowRight, ArrowLeft, ChevronRight, Clock, RefreshCw, Hash, Shield, Signal, MessageSquare, HelpCircle, Check, X, Phone, Code, Download, Copy } from "lucide-react";
 
 export default function MobileOTPPattern() {
   return (
@@ -77,6 +78,7 @@ export default function MobileOTPPattern() {
               { id: "network", label: "Network Issues" },
               { id: "accessibility", label: "Accessibility" },
               { id: "implementation", label: "Implementation" },
+              { id: "code-downloads", label: "Code Downloads" },
               { id: "governance", label: "Governance" }
             ].map((item) => (
               <a
@@ -105,6 +107,7 @@ export default function MobileOTPPattern() {
             <NetworkConsiderations />
             <AccessibilitySection />
             <ImplementationSection />
+            <CodeDownloadsSection />
             <GovernanceSection />
           </div>
 
@@ -1280,6 +1283,370 @@ async function sendMobileOTP(mobile) {
     </section>
   );
 }
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const MOBILE_OTP_REACT_CODE = `import React, { useState, useEffect, useRef, useCallback } from 'react';
+
+export function MobileOTPPage() {
+  const [mobile, setMobile] = useState('');
+  const [step, setStep] = useState<'mobile' | 'otp' | 'done'>('mobile');
+  const [otp, setOtp] = useState(['', '', '', '', '', '']);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [timer, setTimer] = useState(0);
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  useEffect(() => {
+    if (timer > 0) { const t = setTimeout(() => setTimer(v => v - 1), 1000); return () => clearTimeout(t); }
+  }, [timer]);
+
+  const validateMobile = useCallback(() => {
+    const cleaned = mobile.replace(/\\s/g, '');
+    if (!cleaned) return 'Mobile number is required';
+    if (!/^(\\+91)?[6-9]\\d{9}$/.test(cleaned)) return 'Enter a valid Indian mobile number (+91 XXXXX XXXXX)';
+    return '';
+  }, [mobile]);
+
+  const handleSendOtp = async () => {
+    const err = validateMobile();
+    if (err) { setError(err); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/auth/send-mobile-otp', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mobile: mobile.replace(/\\s/g, '') }),
+      });
+      if (!res.ok) { const d = await res.json(); setError(d.message || 'Failed to send OTP'); return; }
+      setStep('otp'); setTimer(120);
+      setTimeout(() => inputRefs.current[0]?.focus(), 100);
+    } catch { setError('Network error. Please try again.'); }
+    finally { setLoading(false); }
+  };
+
+  const handleOtpChange = (index: number, value: string) => {
+    if (!/^\\d?$/.test(value)) return;
+    const newOtp = [...otp]; newOtp[index] = value; setOtp(newOtp);
+    if (value && index < 5) inputRefs.current[index + 1]?.focus();
+  };
+
+  const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
+    if (e.key === 'Backspace' && !otp[index] && index > 0) inputRefs.current[index - 1]?.focus();
+  };
+
+  const handleVerify = async () => {
+    const code = otp.join('');
+    if (code.length !== 6) { setError('Enter the complete 6-digit OTP'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/auth/verify-mobile-otp', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mobile: mobile.replace(/\\s/g, ''), otp: code }),
+      });
+      if (!res.ok) { const d = await res.json(); setError(d.message || 'Invalid OTP'); return; }
+      setStep('done');
+    } catch { setError('Network error.'); }
+    finally { setLoading(false); }
+  };
+
+  const maskedMobile = mobile ? mobile.replace(/\\d(?=\\d{4})/g, 'X') : '';
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+            <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-foreground">Mobile Verification</h1>
+            <p className="text-sm text-muted-foreground">Verify your Indian mobile number via SMS OTP</p>
+          </div>
+        </div>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {step === 'mobile' && (
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="mobile" className="block text-sm font-medium mb-1">Mobile Number <span className="text-red-500">*</span></label>
+              <div className="flex">
+                <span className="inline-flex items-center px-3 bg-muted border border-r-0 border-border rounded-l-lg text-sm font-medium text-muted-foreground">+91</span>
+                <input id="mobile" type="tel" value={mobile} onChange={e => setMobile(e.target.value)} placeholder="98765 43210" maxLength={12} className="flex-1 px-4 py-3 border border-border rounded-r-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-required="true" autoComplete="tel" />
+              </div>
+              <p className="mt-1 text-xs text-muted-foreground">An SMS with a 6-digit OTP will be sent to this number</p>
+            </div>
+            <button onClick={handleSendOtp} disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Sending OTP...' : 'Send OTP'}</button>
+          </div>
+        )}
+        {step === 'otp' && (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground text-center">OTP sent to {maskedMobile}</p>
+            <div className="flex justify-center gap-3">
+              {otp.map((digit, i) => (
+                <input key={i} ref={el => { inputRefs.current[i] = el; }} type="text" inputMode="numeric" maxLength={1} value={digit} onChange={e => handleOtpChange(i, e.target.value)} onKeyDown={e => handleKeyDown(i, e)} className="w-12 h-14 text-center text-xl font-bold border-2 border-border rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label={\`Digit \${i+1}\`} />
+              ))}
+            </div>
+            <button onClick={handleVerify} disabled={loading || otp.some(d => !d)} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Verifying...' : 'Verify OTP'}</button>
+            <div className="text-center text-sm">
+              {timer > 0 ? <p className="text-muted-foreground">Resend in {Math.floor(timer/60)}:{String(timer%60).padStart(2,'0')}</p> : <button onClick={() => { setOtp(['','','','','','']); handleSendOtp(); }} className="text-primary hover:underline font-semibold">Resend OTP</button>}
+            </div>
+            <button onClick={() => { setStep('mobile'); setOtp(['','','','','','']); setError(''); }} className="w-full text-center text-sm text-muted-foreground hover:text-foreground">Change mobile number</button>
+          </div>
+        )}
+        {step === 'done' && (
+          <div className="text-center space-y-4 py-4">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+            <h2 className="text-xl font-bold text-foreground">Mobile Verified</h2>
+            <p className="text-muted-foreground">Your mobile number has been verified successfully.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const MOBILE_OTP_ANGULAR_CODE = `import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-mobile-otp',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-2">Mobile Verification</h1>
+        <p class="text-sm text-muted-foreground mb-6">Verify your Indian mobile number via SMS OTP</p>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="step === 'mobile'" class="space-y-4">
+          <div>
+            <label for="mobile" class="block text-sm font-medium mb-1">Mobile Number <span class="text-red-500">*</span></label>
+            <div class="flex">
+              <span class="inline-flex items-center px-3 bg-muted border border-r-0 border-border rounded-l-lg text-sm">+91</span>
+              <input id="mobile" type="tel" [formControl]="mobileCtrl" placeholder="98765 43210" maxlength="12" class="flex-1 px-4 py-3 border border-border rounded-r-lg" />
+            </div>
+          </div>
+          <button (click)="sendOtp()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Sending...' : 'Send OTP' }}</button>
+        </div>
+        <div *ngIf="step === 'otp'" class="space-y-4">
+          <p class="text-sm text-muted-foreground text-center">OTP sent to your mobile</p>
+          <div class="flex justify-center gap-3">
+            <input *ngFor="let d of digits; let i = index" [id]="'motp-'+i" type="text" inputMode="numeric" maxlength="1" (input)="onInput(i, $event)" (keydown)="onKeyDown(i, $event)" class="w-12 h-14 text-center text-xl font-bold border-2 border-border rounded-xl" [attr.aria-label]="'Digit '+(i+1)" />
+          </div>
+          <button (click)="verify()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Verifying...' : 'Verify OTP' }}</button>
+          <div class="text-center text-sm">
+            <p *ngIf="timer > 0" class="text-muted-foreground">Resend in {{ formatTime() }}</p>
+            <button *ngIf="timer === 0" (click)="sendOtp()" class="text-primary hover:underline font-semibold">Resend OTP</button>
+          </div>
+        </div>
+        <div *ngIf="step === 'done'" class="text-center py-8">
+          <h2 class="text-xl font-bold text-foreground mb-2">Mobile Verified</h2>
+          <p class="text-muted-foreground">Your mobile number has been verified.</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class MobileOTPComponent implements OnInit, OnDestroy {
+  mobileCtrl = new FormControl('', [Validators.required, Validators.pattern(/^[6-9]\\d{9}$/)]);
+  step: 'mobile' | 'otp' | 'done' = 'mobile';
+  digits = ['','','','','',''];
+  timer = 0; loading = false; error = '';
+  private interval: any;
+
+  ngOnInit() {}
+  ngOnDestroy() { clearInterval(this.interval); }
+
+  formatTime() { return Math.floor(this.timer/60)+':'+String(this.timer%60).padStart(2,'0'); }
+
+  async sendOtp() {
+    if (this.mobileCtrl.invalid) { this.error = 'Enter valid mobile number'; return; }
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/send-mobile-otp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mobile: '+91' + this.mobileCtrl.value }) });
+      if (!res.ok) { this.error = 'Failed to send OTP'; return; }
+      this.step = 'otp'; this.timer = 120;
+      this.interval = setInterval(() => { if (this.timer > 0) this.timer--; else clearInterval(this.interval); }, 1000);
+    } catch { this.error = 'Network error'; }
+    finally { this.loading = false; }
+  }
+
+  onInput(i: number, e: Event) {
+    const v = (e.target as HTMLInputElement).value;
+    if (!/^\\d?$/.test(v)) { (e.target as HTMLInputElement).value = ''; return; }
+    this.digits[i] = v;
+    if (v && i < 5) document.getElementById('motp-'+(i+1))?.focus();
+  }
+
+  onKeyDown(i: number, e: KeyboardEvent) {
+    if (e.key === 'Backspace' && !this.digits[i] && i > 0) document.getElementById('motp-'+(i-1))?.focus();
+  }
+
+  async verify() {
+    const code = this.digits.join('');
+    if (code.length !== 6) { this.error = 'Enter complete OTP'; return; }
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/verify-mobile-otp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mobile: '+91'+this.mobileCtrl.value, otp: code }) });
+      if (!res.ok) { this.error = 'Invalid OTP'; return; }
+      this.step = 'done';
+    } catch { this.error = 'Network error'; }
+    finally { this.loading = false; }
+  }
+}`;
+
+const MOBILE_OTP_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile OTP Verification — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 28rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    .mobile-row { display: flex; margin-bottom: 1rem; }
+    .prefix { display: flex; align-items: center; padding: 0 0.75rem; background: #f3f4f6; border: 1px solid #d1d5db; border-right: none; border-radius: 0.5rem 0 0 0.5rem; font-size: 0.875rem; font-weight: 500; }
+    .mobile-input { flex: 1; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0 0.5rem 0.5rem 0; font-size: 1rem; outline: none; }
+    .mobile-input:focus { border-color: #005196; }
+    .otp-row { display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 1.5rem; }
+    .otp-input { width: 3rem; height: 3.5rem; text-align: center; font-size: 1.25rem; font-weight: 700; border: 2px solid #d1d5db; border-radius: 0.75rem; outline: none; }
+    .otp-input:focus { border-color: #005196; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:disabled { opacity: 0.6; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .timer { text-align: center; font-size: 0.875rem; color: #6b7280; margin-top: 1rem; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Mobile Verification</h1>
+    <p class="subtitle">Verify your Indian mobile number via SMS OTP</p>
+    <div id="error" class="error" role="alert"></div>
+    <div id="stepMobile">
+      <label for="mobile">Mobile Number <span style="color:#ef4444">*</span></label>
+      <div class="mobile-row">
+        <span class="prefix">+91</span>
+        <input type="tel" id="mobile" class="mobile-input" placeholder="98765 43210" maxlength="12" required aria-required="true" />
+      </div>
+      <button class="btn" onclick="sendOtp()">Send OTP</button>
+    </div>
+    <div id="stepOtp" class="hidden">
+      <p class="subtitle" style="text-align:center">OTP sent to your mobile</p>
+      <div class="otp-row" id="otpRow"></div>
+      <button class="btn" onclick="verifyOtp()">Verify OTP</button>
+      <div class="timer" id="timerArea"></div>
+    </div>
+    <div id="stepDone" class="hidden" style="text-align:center;padding:2rem 0">
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem">Mobile Verified</h2>
+      <p style="color:#6b7280">Your mobile number has been verified successfully.</p>
+    </div>
+  </div>
+  <script>
+    let timer = 0, timerInterval;
+    function showError(msg) { const e = document.getElementById('error'); e.textContent = msg; e.style.display = 'block'; }
+    function hideError() { document.getElementById('error').style.display = 'none'; }
+    function showStep(id) { ['stepMobile','stepOtp','stepDone'].forEach(s => document.getElementById(s).classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); }
+    // Build OTP inputs
+    const row = document.getElementById('otpRow');
+    for (let i = 0; i < 6; i++) {
+      const inp = document.createElement('input');
+      inp.type = 'text'; inp.inputMode = 'numeric'; inp.maxLength = 1;
+      inp.className = 'otp-input'; inp.id = 'motp' + i;
+      inp.setAttribute('aria-label', 'Digit ' + (i+1));
+      inp.addEventListener('input', function() { if (!/^\\d?$/.test(this.value)) { this.value = ''; return; } if (this.value && i < 5) document.getElementById('motp'+(i+1)).focus(); });
+      inp.addEventListener('keydown', function(e) { if (e.key === 'Backspace' && !this.value && i > 0) document.getElementById('motp'+(i-1)).focus(); });
+      row.appendChild(inp);
+    }
+    function startTimer() {
+      timer = 120; clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        timer--;
+        const area = document.getElementById('timerArea');
+        if (timer > 0) area.textContent = 'Resend in ' + Math.floor(timer/60) + ':' + String(timer%60).padStart(2,'0');
+        else { clearInterval(timerInterval); area.innerHTML = '<button style="background:none;border:none;color:#005196;font-weight:600;cursor:pointer" onclick="sendOtp()">Resend OTP</button>'; }
+      }, 1000);
+    }
+    async function sendOtp() {
+      hideError();
+      const mobile = document.getElementById('mobile').value.replace(/\\s/g, '');
+      if (!/^[6-9]\\d{9}$/.test(mobile)) { showError('Enter a valid 10-digit Indian mobile number'); return; }
+      try {
+        const res = await fetch('/api/auth/send-mobile-otp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mobile: '+91' + mobile }) });
+        if (!res.ok) { showError('Failed to send OTP'); return; }
+        showStep('stepOtp'); startTimer();
+        document.getElementById('motp0').focus();
+      } catch { showError('Network error'); }
+    }
+    async function verifyOtp() {
+      hideError();
+      let code = '';
+      for (let i = 0; i < 6; i++) code += document.getElementById('motp'+i).value;
+      if (code.length !== 6) { showError('Enter complete OTP'); return; }
+      try {
+        const res = await fetch('/api/auth/verify-mobile-otp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mobile: '+91'+document.getElementById('mobile').value.replace(/\\s/g,''), otp: code }) });
+        if (!res.ok) { showError('Invalid OTP'); return; }
+        showStep('stepDone');
+      } catch { showError('Network error'); }
+    }
+  </script>
+</body>
+</html>`;
+
+function CodeDownloadsSection() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks + SMS OTP', code: MOBILE_OTP_REACT_CODE, filename: 'MobileOTPPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: MOBILE_OTP_ANGULAR_CODE, filename: 'mobile-otp.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: MOBILE_OTP_HTML_CODE, filename: 'mobile-otp.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Mobile OTP implementations for your framework.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== GOVERNANCE SECTION ====================
 

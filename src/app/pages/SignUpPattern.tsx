@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { UserPlus, Shield, CheckCircle, AlertCircle, Info, XCircle, Eye, EyeOff, Mail, Phone, User, Users, Lock, AlertTriangle, ArrowRight, Smartphone, FileText, Globe, Code, Settings, HelpCircle, ChevronRight, Database, Check, X, Key } from "lucide-react";
+import { UserPlus, Shield, CheckCircle, AlertCircle, Info, XCircle, Eye, EyeOff, Mail, Phone, User, Users, Lock, AlertTriangle, ArrowRight, Smartphone, FileText, Globe, Code, Settings, HelpCircle, ChevronRight, Database, Check, X, Key, Download, Copy } from "lucide-react";
 
 export default function SignUpPattern() {
   return (
@@ -65,6 +66,7 @@ export default function SignUpPattern() {
               { id: "errors", label: "Error States" },
               { id: "accessibility", label: "Accessibility" },
               { id: "implementation", label: "Implementation" },
+              { id: "code-downloads", label: "Code Downloads" },
               { id: "governance", label: "Governance" }
             ].map((item) => (
               <a
@@ -94,6 +96,7 @@ export default function SignUpPattern() {
             <ErrorStates />
             <AccessibilitySection />
             <ImplementationSection />
+            <CodeDownloadsSection />
             <GovernanceSection />
           </div>
 
@@ -1584,6 +1587,448 @@ function ImplementationItem({ text }: { text: string }) {
       <ChevronRight size={14} className="text-primary mt-0.5 flex-shrink-0" />
       <span className="text-muted-foreground">{text}</span>
     </div>
+  );
+}
+
+// ==================== CODE DOWNLOADS SECTION ====================
+
+const SIGNUP_REACT_CODE = `import React, { useState, useCallback } from 'react';
+
+interface SignUpFormData {
+  fullName: string;
+  email: string;
+  mobile: string;
+  aadhaar: string;
+  password: string;
+  confirmPassword: string;
+  agreeTerms: boolean;
+}
+
+export function SignUpPage() {
+  const [form, setForm] = useState<SignUpFormData>({
+    fullName: '', email: '', mobile: '', aadhaar: '',
+    password: '', confirmPassword: '', agreeTerms: false,
+  });
+  const [step, setStep] = useState(1);
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState('');
+
+  const validateStep1 = useCallback(() => {
+    if (!form.fullName.trim()) return 'Full name is required';
+    if (form.fullName.trim().length < 2) return 'Name must be at least 2 characters';
+    if (!form.email.trim()) return 'Email is required';
+    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(form.email)) return 'Enter a valid email address';
+    if (!form.mobile.trim()) return 'Mobile number is required';
+    if (!/^(\\+91)?[6-9]\\d{9}$/.test(form.mobile.replace(/\\s/g, ''))) return 'Enter a valid Indian mobile number';
+    return '';
+  }, [form]);
+
+  const validateStep2 = useCallback(() => {
+    if (form.aadhaar && !/^\\d{12}$/.test(form.aadhaar.replace(/\\s/g, ''))) return 'Aadhaar must be 12 digits';
+    if (!form.password) return 'Password is required';
+    if (form.password.length < 8) return 'Password must be at least 8 characters';
+    if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&#])/.test(form.password))
+      return 'Password needs uppercase, lowercase, number, and special character';
+    if (form.password !== form.confirmPassword) return 'Passwords do not match';
+    if (!form.agreeTerms) return 'You must agree to the terms and conditions';
+    return '';
+  }, [form]);
+
+  const handleNext = () => {
+    const err = validateStep1();
+    if (err) { setError(err); return; }
+    setError('');
+    setStep(2);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const err = validateStep2();
+    if (err) { setError(err); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, otp }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        setError(data.message || 'Registration failed');
+      } else { setOtpSent(true); }
+    } catch { setError('Network error. Please try again.'); }
+    finally { setLoading(false); }
+  };
+
+  const sendOtp = async () => {
+    setLoading(true);
+    try {
+      await fetch('/api/auth/send-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mobile: form.mobile }),
+      });
+      setOtpSent(true);
+    } catch { setError('Failed to send OTP'); }
+    finally { setLoading(false); }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Create Account</h1>
+        <p className="text-sm text-muted-foreground mb-6">Register for government digital services</p>
+        <div className="flex items-center gap-2 mb-6">
+          {[1, 2, 3].map(s => (
+            <div key={s} className={\\\`flex-1 h-1 rounded \\\${s <= step ? 'bg-primary' : 'bg-muted'}\\\`} />
+          ))}
+        </div>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        <form onSubmit={handleSubmit} noValidate>
+          {step === 1 && (
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="fullName" className="block text-sm font-medium mb-1">Full Name <span className="text-red-500">*</span></label>
+                <input id="fullName" type="text" value={form.fullName} onChange={e => setForm(f => ({...f, fullName: e.target.value}))} placeholder="As per government ID" className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-1">Email Address <span className="text-red-500">*</span></label>
+                <input id="email" type="email" value={form.email} onChange={e => setForm(f => ({...f, email: e.target.value}))} placeholder="name@example.gov.in" className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" />
+              </div>
+              <div>
+                <label htmlFor="mobile" className="block text-sm font-medium mb-1">Mobile Number <span className="text-red-500">*</span></label>
+                <input id="mobile" type="tel" value={form.mobile} onChange={e => setForm(f => ({...f, mobile: e.target.value}))} placeholder="+91 98765 43210" className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" />
+              </div>
+              <button type="button" onClick={handleNext} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Continue</button>
+            </div>
+          )}
+          {step === 2 && (
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="aadhaar" className="block text-sm font-medium mb-1">Aadhaar Number (Optional)</label>
+                <input id="aadhaar" type="text" value={form.aadhaar} onChange={e => setForm(f => ({...f, aadhaar: e.target.value}))} placeholder="XXXX XXXX XXXX" maxLength={14} className="w-full px-4 py-3 border border-border rounded-lg" />
+              </div>
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium mb-1">Password <span className="text-red-500">*</span></label>
+                <div className="relative">
+                  <input id="password" type={showPassword ? 'text' : 'password'} value={form.password} onChange={e => setForm(f => ({...f, password: e.target.value}))} className="w-full px-4 py-3 pr-12 border border-border rounded-lg" aria-required="true" />
+                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" aria-label={showPassword ? 'Hide password' : 'Show password'}>{showPassword ? 'Hide' : 'Show'}</button>
+                </div>
+              </div>
+              <div>
+                <label htmlFor="confirmPassword" className="block text-sm font-medium mb-1">Confirm Password <span className="text-red-500">*</span></label>
+                <input id="confirmPassword" type="password" value={form.confirmPassword} onChange={e => setForm(f => ({...f, confirmPassword: e.target.value}))} className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" />
+              </div>
+              <label className="flex items-start gap-2 text-sm">
+                <input type="checkbox" checked={form.agreeTerms} onChange={e => setForm(f => ({...f, agreeTerms: e.target.checked}))} className="mt-1 accent-primary" aria-required="true" />
+                <span>I agree to the <a href="/terms" className="text-primary underline">Terms of Service</a> and <a href="/privacy" className="text-primary underline">Privacy Policy</a></span>
+              </label>
+              <div className="flex gap-3">
+                <button type="button" onClick={() => setStep(1)} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+                <button type="submit" disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Creating...' : 'Create Account'}</button>
+              </div>
+            </div>
+          )}
+        </form>
+        <p className="mt-6 text-center text-sm text-muted-foreground">Already have an account? <a href="/sign-in" className="text-primary hover:underline">Sign In</a></p>
+      </div>
+    </div>
+  );
+}`;
+
+const SIGNUP_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'ux4g-sign-up',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \\\`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-2">Create Account</h1>
+        <p class="text-sm text-muted-foreground mb-6">Register for government digital services</p>
+        <div class="flex items-center gap-2 mb-6">
+          <div *ngFor="let s of [1,2,3]" [class]="'flex-1 h-1 rounded ' + (s <= step ? 'bg-primary' : 'bg-muted')"></div>
+        </div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div *ngIf="step === 1" class="space-y-4">
+            <div>
+              <label for="fullName" class="block text-sm font-medium mb-1">Full Name <span class="text-red-500">*</span></label>
+              <input id="fullName" formControlName="fullName" placeholder="As per government ID" class="w-full px-4 py-3 border border-border rounded-lg" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium mb-1">Email <span class="text-red-500">*</span></label>
+              <input id="email" type="email" formControlName="email" placeholder="name@example.gov.in" class="w-full px-4 py-3 border border-border rounded-lg" />
+            </div>
+            <div>
+              <label for="mobile" class="block text-sm font-medium mb-1">Mobile <span class="text-red-500">*</span></label>
+              <input id="mobile" type="tel" formControlName="mobile" placeholder="+91 98765 43210" class="w-full px-4 py-3 border border-border rounded-lg" />
+            </div>
+            <button type="button" (click)="nextStep()" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Continue</button>
+          </div>
+          <div *ngIf="step === 2" class="space-y-4">
+            <div>
+              <label for="aadhaar" class="block text-sm font-medium mb-1">Aadhaar Number (Optional)</label>
+              <input id="aadhaar" formControlName="aadhaar" placeholder="XXXX XXXX XXXX" maxlength="14" class="w-full px-4 py-3 border border-border rounded-lg" />
+            </div>
+            <div>
+              <label for="password" class="block text-sm font-medium mb-1">Password <span class="text-red-500">*</span></label>
+              <input id="password" [type]="showPassword ? 'text' : 'password'" formControlName="password" class="w-full px-4 py-3 border border-border rounded-lg" />
+            </div>
+            <div>
+              <label for="confirmPassword" class="block text-sm font-medium mb-1">Confirm Password <span class="text-red-500">*</span></label>
+              <input id="confirmPassword" type="password" formControlName="confirmPassword" class="w-full px-4 py-3 border border-border rounded-lg" />
+            </div>
+            <label class="flex items-start gap-2 text-sm">
+              <input type="checkbox" formControlName="agreeTerms" class="mt-1 accent-primary" />
+              <span>I agree to the Terms of Service and Privacy Policy</span>
+            </label>
+            <div class="flex gap-3">
+              <button type="button" (click)="step = 1" class="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+              <button type="submit" [disabled]="loading" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Creating...' : 'Create Account' }}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  \\\`
+})
+export class SignUpComponent {
+  form = new FormGroup({
+    fullName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    mobile: new FormControl('', [Validators.required, Validators.pattern(/^(\\+91)?[6-9]\\d{9}$/)]),
+    aadhaar: new FormControl(''),
+    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    confirmPassword: new FormControl('', [Validators.required]),
+    agreeTerms: new FormControl(false, [Validators.requiredTrue]),
+  });
+  step = 1;
+  showPassword = false;
+  loading = false;
+  error = '';
+
+  nextStep() {
+    const { fullName, email, mobile } = this.form.controls;
+    if (fullName.invalid || email.invalid || mobile.invalid) {
+      this.error = 'Please fill all required fields correctly';
+      return;
+    }
+    this.error = '';
+    this.step = 2;
+  }
+
+  async onSubmit() {
+    if (this.form.invalid) { this.error = 'Please fill all required fields'; return; }
+    if (this.form.value.password !== this.form.value.confirmPassword) {
+      this.error = 'Passwords do not match'; return;
+    }
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.form.value),
+      });
+      if (!res.ok) { const data = await res.json(); this.error = data.message || 'Registration failed'; }
+    } catch { this.error = 'Network error'; }
+    finally { this.loading = false; }
+  }
+}`;
+
+const SIGNUP_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 32rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    h1 { font-size: 1.5rem; font-weight: 700; color: #111; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem; }
+    .progress { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .progress-bar { flex: 1; height: 4px; border-radius: 2px; background: #e5e7eb; }
+    .progress-bar.active { background: #005196; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; color: #111; margin-bottom: 0.25rem; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="password"] { width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; }
+    input:focus { border-color: #005196; box-shadow: 0 0 0 2px rgba(0,81,150,0.2); }
+    .field { margin-bottom: 1rem; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:hover { background: #004178; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-outline { background: #fff; color: #111; border: 1px solid #d1d5db; }
+    .btn-outline:hover { background: #f9fafb; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .row { display: flex; gap: 0.75rem; }
+    .row > * { flex: 1; }
+    .terms { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.875rem; margin-bottom: 1rem; }
+    .terms a { color: #005196; }
+    .signin { text-align: center; margin-top: 1.5rem; font-size: 0.875rem; color: #6b7280; }
+    .signin a { color: #005196; text-decoration: none; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Create Account</h1>
+    <p class="subtitle">Register for government digital services</p>
+    <div class="progress">
+      <div class="progress-bar active" id="prog1"></div>
+      <div class="progress-bar" id="prog2"></div>
+      <div class="progress-bar" id="prog3"></div>
+    </div>
+    <div id="error" class="error" role="alert"></div>
+    <form id="signUpForm" novalidate>
+      <div id="step1">
+        <div class="field">
+          <label for="fullName">Full Name <span style="color:#ef4444">*</span></label>
+          <input type="text" id="fullName" placeholder="As per government ID" required aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="email">Email Address <span style="color:#ef4444">*</span></label>
+          <input type="email" id="email" placeholder="name@example.gov.in" required aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="mobile">Mobile Number <span style="color:#ef4444">*</span></label>
+          <input type="tel" id="mobile" placeholder="+91 98765 43210" required aria-required="true" />
+        </div>
+        <button type="button" class="btn" onclick="nextStep()">Continue</button>
+      </div>
+      <div id="step2" class="hidden">
+        <div class="field">
+          <label for="aadhaar">Aadhaar Number (Optional)</label>
+          <input type="text" id="aadhaar" placeholder="XXXX XXXX XXXX" maxlength="14" />
+        </div>
+        <div class="field">
+          <label for="password">Password <span style="color:#ef4444">*</span></label>
+          <input type="password" id="password" required minlength="8" aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="confirmPassword">Confirm Password <span style="color:#ef4444">*</span></label>
+          <input type="password" id="confirmPassword" required aria-required="true" />
+        </div>
+        <label class="terms"><input type="checkbox" id="agreeTerms" required aria-required="true" /><span>I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></span></label>
+        <div class="row">
+          <button type="button" class="btn btn-outline" onclick="prevStep()">Back</button>
+          <button type="submit" class="btn" id="submitBtn">Create Account</button>
+        </div>
+      </div>
+    </form>
+    <p class="signin">Already have an account? <a href="/sign-in">Sign In</a></p>
+  </div>
+  <script>
+    let currentStep = 1;
+    function showError(msg) { const el = document.getElementById('error'); el.textContent = msg; el.style.display = 'block'; }
+    function hideError() { document.getElementById('error').style.display = 'none'; }
+    function nextStep() {
+      hideError();
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mobile = document.getElementById('mobile').value.trim();
+      if (!name || !email || !mobile) { showError('All fields are required'); return; }
+      if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) { showError('Enter a valid email'); return; }
+      if (!/^(\\+91)?[6-9]\\d{9}$/.test(mobile.replace(/\\s/g, ''))) { showError('Enter a valid Indian mobile number'); return; }
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+      document.getElementById('prog2').classList.add('active');
+      currentStep = 2;
+    }
+    function prevStep() {
+      document.getElementById('step2').classList.add('hidden');
+      document.getElementById('step1').classList.remove('hidden');
+      document.getElementById('prog2').classList.remove('active');
+      currentStep = 1;
+    }
+    document.getElementById('signUpForm').addEventListener('submit', async function(e) {
+      e.preventDefault(); hideError();
+      const pw = document.getElementById('password').value;
+      const cpw = document.getElementById('confirmPassword').value;
+      if (pw.length < 8) { showError('Password must be at least 8 characters'); return; }
+      if (pw !== cpw) { showError('Passwords do not match'); return; }
+      if (!document.getElementById('agreeTerms').checked) { showError('You must agree to the terms'); return; }
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true; btn.textContent = 'Creating...';
+      try {
+        const res = await fetch('/api/auth/signup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fullName: document.getElementById('fullName').value, email: document.getElementById('email').value, mobile: document.getElementById('mobile').value, aadhaar: document.getElementById('aadhaar').value, password: pw }) });
+        if (!res.ok) { const data = await res.json(); showError(data.message || 'Registration failed'); }
+      } catch { showError('Network error. Please try again.'); }
+      finally { btn.disabled = false; btn.textContent = 'Create Account'; }
+    });
+  </script>
+</body>
+</html>`;
+
+function CodeDownloadsSection() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+
+  const copyToClipboard = (code: string, id: string) => {
+    navigator.clipboard.writeText(code);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const downloadCode = (code: string, filename: string) => {
+    const blob = new Blob([code], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks + Multi-step', code: SIGNUP_REACT_CODE, filename: 'SignUpPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone + Reactive Forms', code: SIGNUP_ANGULAR_CODE, filename: 'sign-up.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: SIGNUP_HTML_CODE, filename: 'sign-up.html' },
+  ];
+
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Sign Up implementations for your framework.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
