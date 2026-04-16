@@ -1,4 +1,4 @@
-name: Deploy Docusaurus to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ux4g-docs
     steps:
       - uses: actions/checkout@v4
 
@@ -27,16 +24,21 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      - name: Build Docusaurus
-        run: npm run build
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+        env:
+          npm_config_legacy_peer_deps: true
+
+      - name: Build Vite app
+        run: pnpm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ux4g-docs/build
+          path: dist
 
   deploy:
     environment:
