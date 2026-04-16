@@ -636,7 +636,7 @@ export default function ComponentSkeletonPage() {
           {
             title: 'Dashboard Metrics Loading',
             description: 'Loading placeholders for dashboard metric cards.',
-            code: 'import { Skeleton } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isLoading, setIsLoading] = useState(true);\n  \n  return (\n    <div className="grid grid-cols-3 gap-4">\n      {isLoading ? (\n        Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="border rounded-lg p-6">\n            <Skeleton variant="text" width="50%" />\n            <Skeleton variant="text" width="70%" height="32px" />\n          </div>\n        ))\n      ) : (\n        {/* Loaded metrics */}\n      )}\n    </div>\n  );\n}',
+            code: 'import { Skeleton } from \'@ux4g/react-core\';\nimport { useState } from \'react\';\n\nfunction Example() {\n  const [isLoading, setIsLoading] = useState(true);\n  \n  return (\n    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">\n      {isLoading ? (\n        Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="border rounded-lg p-6">\n            <Skeleton variant="text" width="50%" />\n            <Skeleton variant="text" width="70%" height="32px" />\n          </div>\n        ))\n      ) : (\n        {/* Loaded metrics */}\n      )}\n    </div>\n  );\n}',
             preview: <DashboardLoadingExample />,
           },
           {

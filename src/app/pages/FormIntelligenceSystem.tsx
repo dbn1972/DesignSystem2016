@@ -144,7 +144,7 @@ function OverviewSection() {
           capabilities to guide users through complex data collection while preserving their work and 
           providing helpful assistance.
         </p>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-card border border-border rounded p-4">
             <Zap size={24} className="text-orange-600 mb-2" />
             <p className="font-bold text-foreground mb-1">Intelligent</p>
@@ -685,7 +685,7 @@ function ValidationSection() {
           Use progressive validation layers: client-side for instant feedback, server-side for data integrity, 
           and business logic validation for complex rules. Never rely on client-side validation alone.
         </p>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-card border border-border rounded p-3">
             <p className="font-bold text-foreground text-sm mb-1">Layer 1: Client-Side</p>
             <p className="text-xs text-muted-foreground">HTML5 + JavaScript; instant feedback; format checks</p>
@@ -831,7 +831,7 @@ function IntelligenceFeaturesSection() {
         <h2 className="text-2xl font-bold text-foreground">Intelligence Features</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Auto-Save */}
         <IntelligenceFeature
           icon={<Save className="text-blue-600" />}

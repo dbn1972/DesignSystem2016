@@ -21,7 +21,7 @@ export default function SecurityPolicy() {
               This policy outlines our security standards, vulnerability reporting procedures, and compliance requirements.
             </p>
 
-            <div className="grid grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">WCAG 2.1 AA</div>
                 <div className="text-blue-200 text-sm">Accessibility Compliance</div>
@@ -271,7 +271,7 @@ function VulnerabilityReportingSection() {
             We recognize and appreciate security researchers who help us maintain a secure design system.
             Valid vulnerability reports receive:
           </p>
-          <div className="grid grid-cols-3 gap-4 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
             <div className="bg-card border border-green-200 dark:border-green-800 rounded-lg p-3">
               <div className="font-semibold text-foreground mb-1">Public Recognition</div>
               <div className="text-xs text-muted-foreground">Listed in security hall of fame</div>
@@ -786,7 +786,7 @@ function ThirdPartySecuritySection() {
           <p className="text-sm text-muted-foreground mb-4">
             UX4G uses minimal, well-maintained, and security-audited dependencies. All dependencies are:
           </p>
-          <div className="grid grid-cols-4 gap-4 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
             <div className="bg-card border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-center">
               <div className="font-bold text-2xl text-foreground mb-1">React 18.3+</div>
               <div className="text-xs text-muted-foreground">Core framework</div>

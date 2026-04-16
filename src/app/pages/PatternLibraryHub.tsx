@@ -30,7 +30,7 @@ export default function PatternLibraryHub() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
 
         {/* Stats */}
-        <div className="grid grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <StatCard number="64" label="Pattern Demos" />
           <StatCard number="11" label="Pattern Categories" />
           <StatCard number="100%" label="Accessibility Tested" />

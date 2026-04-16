@@ -98,7 +98,7 @@ export default function CertificateOfficerCases() {
       {/* Stats */}
       <section className="bg-muted border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-6">
-          <div className="grid grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             <StatCard label="Total Cases" value={stats.total} color="bg-blue-100 border-blue-300 text-blue-900" />
             <StatCard label="Pending Review" value={stats.pending} color="bg-orange-100 border-orange-300 text-orange-900" />
             <StatCard label="Under Review" value={stats.underReview} color="bg-purple-100 border-purple-300 text-purple-900" />

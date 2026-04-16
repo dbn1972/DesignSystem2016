@@ -142,7 +142,7 @@ function OverviewSection() {
           provides patterns for handling errors, network failures, timeouts, and partial completion states 
           across all user journeys. Never leave users stranded with a broken experience.
         </p>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-card border border-border rounded p-4">
             <Shield size={24} className="text-blue-600 mb-2" />
             <p className="font-bold text-foreground mb-1">Defensive</p>
@@ -411,7 +411,7 @@ function RetryPatternsSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Manual Retry */}
         <RetryPattern
           title="Manual Retry"
@@ -648,7 +648,7 @@ function PartialStatesSection() {
         <h2 className="text-2xl font-bold text-foreground">Partial Completion States</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Draft State */}
         <PartialStateCard
           icon={<Save className="text-blue-600" />}

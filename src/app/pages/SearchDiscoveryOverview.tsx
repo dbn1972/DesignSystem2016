@@ -44,7 +44,7 @@ export default function SearchDiscoveryOverview() {
                   not exact service names or keywords. These patterns reduce friction, improve service adoption, and 
                   ensure users can accomplish their goals even when they don't know the formal terminology.
                 </p>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">The Problem</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -257,7 +257,7 @@ export default function SearchDiscoveryOverview() {
                         Search works across all 22 scheduled Indian languages with automatic translation and 
                         language detection.
                       </p>
-                      <div className="grid grid-cols-3 gap-3 text-sm">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
                         <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-3">
                           <div className="font-bold mb-1">Hindi</div>
                           <div className="text-muted-foreground">"पासपोर्ट" → Passport</div>

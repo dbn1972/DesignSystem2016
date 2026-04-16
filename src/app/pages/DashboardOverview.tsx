@@ -44,7 +44,7 @@ export default function DashboardOverview() {
                   manage all their government service interactions from one place. These patterns reduce cognitive load, 
                   improve service completion rates, and provide continuity across multiple services and sessions.
                 </p>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">User Benefits</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">

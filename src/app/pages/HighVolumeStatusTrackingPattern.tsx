@@ -184,7 +184,7 @@ function PatternOverview() {
       <DocModule>
         <ModuleHeader title="Typical Government Use Cases" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               title="Identity and Certificates"
               examples={[
@@ -280,7 +280,7 @@ function JourneyFlow() {
         <ModuleHeader title="End-to-End Flow Diagram (Status Check Journey)" />
         <ModuleContent>
           <div className="space-y-4">
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="01" label="Entry" status="entry" />
               <FlowStep number="02" label="Lookup" status="active" />
               <FlowStep number="03" label="Verify (if needed)" status="decision" />
@@ -290,7 +290,7 @@ function JourneyFlow() {
             <div className="flex items-center justify-center">
               <ArrowRight className="text-gray-400" size={24} />
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06a" label="Completed" status="success" />
               <FlowStep number="06b" label="In Progress" status="active" />
               <FlowStep number="06c" label="Action Needed" status="warning" />
@@ -300,7 +300,7 @@ function JourneyFlow() {
             <div className="flex items-center justify-center">
               <ArrowRight className="text-gray-400" size={24} />
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <FlowStep number="07" label="Next Actions" status="info" />
               <FlowStep number="08" label="Escalation/Help" status="info" />
               <FlowStep number="09" label="Notifications" status="info" />
@@ -395,7 +395,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-4">
                   Application / Reference Number
                 </label>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <input
                     type="text"
                     placeholder="e.g., APP-2026-123456 or REF-2026-789012"
@@ -413,7 +413,7 @@ function PageDesigns() {
 
               <div className="bg-background border-2 border-border rounded-lg p-6">
                 <div className="font-bold text-foreground mb-4">Other Ways to Track</div>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <TrackingMethodCard
                     icon={<Hash size={24} className="text-blue-600" />}
                     title="Using Aadhaar Number"
@@ -479,7 +479,7 @@ function PageDesigns() {
                 <div className="text-sm text-muted-foreground">Passport Application — Submitted on 1 April 2026</div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <OverviewStat
                   icon={<Clock size={24} className="text-blue-600" />}
                   label="Current Stage"
@@ -520,7 +520,7 @@ function PageDesigns() {
                     </div>
                     <div className="text-sm font-bold text-foreground">60% Complete</div>
                   </div>
-                  <div className="grid grid-cols-5 gap-2 text-xs text-center">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 text-xs text-center">
                     <ProgressStage label="Submitted" status="complete" />
                     <ProgressStage label="Document Check" status="complete" />
                     <ProgressStage label="Police Verify" status="active" />
@@ -827,7 +827,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <CompletionStat
                   icon={<FileText size={24} className="text-blue-600" />}
                   label="Document Type"
@@ -1148,7 +1148,7 @@ function ComponentsUsed() {
       <DocModule>
         <ModuleHeader title="Required Components" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <ComponentCard name="Search Input" variants="Large, with icon" usage="Application number lookup" />
             <ComponentCard name="Status Badge" variants="6 states with colors" usage="Current status indicator" />
             <ComponentCard name="Progress Bar" variants="Linear, percentage" usage="Completion percentage" />
@@ -1494,7 +1494,7 @@ function GovernanceConformance() {
       <DocModule>
         <ModuleHeader title="Lifecycle Status" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <MaturityBlock
               status="Stable"
               version="1.0.0"

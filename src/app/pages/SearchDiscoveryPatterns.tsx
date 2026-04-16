@@ -82,7 +82,7 @@ export default function SearchDiscoveryPatterns() {
         <section className="mb-16">
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-border rounded-lg p-10">
             <h2 className="text-3xl font-bold text-foreground mb-6">Why Intent-Based Discovery?</h2>
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <div>
                 <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                   <CheckCircle size={20} className="text-green-600" />
@@ -241,7 +241,7 @@ export default function SearchDiscoveryPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-[#138808] pl-4">
             Implementation Guidelines
           </h2>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <GuidelineCard
               title="Search Behavior"
               points={[

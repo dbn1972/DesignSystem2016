@@ -184,7 +184,7 @@ function PatternOverview() {
       <DocModule>
         <ModuleHeader title="Typical Government Use Cases" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               title="Social Welfare Applications"
               examples={[
@@ -277,7 +277,7 @@ function JourneyFlow() {
             <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 text-center font-bold text-blue-900">
               OFFLINE PHASE (Government Office / CSC)
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="01" label="Entry Point" status="entry" channel="Offline" />
               <FlowStep number="02" label="Staff Login" status="active" channel="Offline" />
               <FlowStep number="03" label="Identity Verify" status="active" channel="Offline" />
@@ -292,7 +292,7 @@ function JourneyFlow() {
             <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-4 text-center font-bold text-green-900">
               ONLINE PHASE (Home / Mobile / Kiosk)
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06" label="Resume Access" status="info" channel="Online" />
               <FlowStep number="07" label="Upload Docs" status="active" channel="Online" />
               <FlowStep number="08" label="Review Data" status="active" channel="Online" />
@@ -411,7 +411,7 @@ function PageDesigns() {
               </div>
             </div>
             <div className="p-8 space-y-6">
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <DashboardStat
                   icon={<Users size={24} className="text-blue-600" />}
                   label="Citizens Served Today"
@@ -437,7 +437,7 @@ function PageDesigns() {
                   <h3 className="font-bold text-foreground">Start New Assisted Application</h3>
                 </div>
                 <div className="p-6">
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <ServiceButton
                       icon={<FileText size={24} className="text-blue-600" />}
                       title="Pension Enrollment"
@@ -504,7 +504,7 @@ function PageDesigns() {
                 <div className="text-sm text-muted-foreground mb-4">
                   Select the method available at this service center. Aadhaar-based verification is preferred.
                 </div>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <VerificationMethod
                     icon={<Fingerprint size={24} className="text-blue-600" />}
                     method="Aadhaar Biometric"
@@ -668,7 +668,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-2">
                   Pension Category <span className="text-red-600">*</span>
                 </label>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <CategoryCard
                     title="Old Age Pension"
                     description="Age 60+ with BPL certificate"
@@ -950,7 +950,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-4">
                   अपना संदर्भ नंबर दर्ज करें / Enter Your Reference Number
                 </label>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <input
                     type="text"
                     placeholder="REF-2026-XXXXXX"
@@ -965,7 +965,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <HelpCard
                   icon={<FileText size={32} className="text-blue-600" />}
                   title="संदर्भ नंबर कहाँ है?"
@@ -1002,7 +1002,7 @@ function PageDesigns() {
                 <div className="font-bold text-foreground mb-3 text-center">
                   आप कहाँ से जारी रख सकते हैं? / Where Can You Continue?
                 </div>
-                <div className="grid grid-cols-4 gap-4 text-center text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center text-sm">
                   <div className="p-4 bg-card border-2 border-border rounded-lg">
                     <Smartphone size={32} className="text-blue-600 mx-auto mb-2" />
                     <div className="font-bold text-foreground">मोबाइल / Mobile</div>
@@ -1243,7 +1243,7 @@ function ComponentsUsed() {
       <DocModule>
         <ModuleHeader title="Required Components (Dual-Mode Variants)" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <ComponentCard name="Form Input" variants="Staff (compact) / Citizen (large)" usage="Data entry in both modes" />
             <ComponentCard name="Button" variants="Staff (small) / Citizen (large, icon)" usage="Actions, navigation" />
             <ComponentCard name="Progress Indicator" variants="Linear, stepped" usage="Multi-step form tracking" />
@@ -1619,7 +1619,7 @@ function GovernanceConformance() {
       <DocModule>
         <ModuleHeader title="Lifecycle Status" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <MaturityBlock
               status="Stable"
               version="1.0.0"

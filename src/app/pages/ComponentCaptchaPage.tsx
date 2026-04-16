@@ -32,7 +32,7 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
               <RefreshCw size={16} className={theme === 'dark' ? 'text-gray-300' : 'text-muted-foreground'} />
             </button>
           </div>
-          <div className="grid grid-cols-3 gap-1 w-64 h-64">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 w-64 h-64">
             {[...Array(9)].map((_, i) => {
               const hasTarget = [1, 4, 7].includes(i);
               return (

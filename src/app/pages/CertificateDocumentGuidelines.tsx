@@ -113,7 +113,7 @@ export default function CertificateDocumentGuidelines() {
         </div>
 
         {/* Quick Tips */}
-        <div className="grid grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <TipCard
             icon={<CheckCircle size={24} className="text-green-600" />}
             title="Do's"

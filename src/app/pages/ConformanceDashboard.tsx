@@ -32,7 +32,7 @@ export default function ConformanceDashboard() {
               </button>
             </div>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">47</div>
                 <div className="text-blue-200 text-sm">Departments Onboarded</div>
@@ -110,7 +110,7 @@ function AdoptionOverview() {
 
       <div className="mt-8 space-y-6">
         {/* KPI Cards */}
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <KPICard
             label="Total Departments"
             value="47"
@@ -330,7 +330,7 @@ function ActiveServices() {
 
       <div className="mt-8 space-y-6">
         {/* Service Stats */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <StatCard
             label="Total Production Services"
             value="312"
@@ -402,7 +402,7 @@ function VendorConformance() {
 
       <div className="mt-8 space-y-6">
         {/* Vendor Stats */}
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <KPICard
             label="Certified Vendors"
             value="34"
@@ -493,7 +493,7 @@ function VendorConformance() {
             <h3 className="font-bold text-foreground">Vendor Certification Levels</h3>
           </div>
           <div className="p-6 bg-card">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <CertificationLevelCard
                 level="Level 3 - Exemplar"
                 vendors={8}
@@ -666,7 +666,7 @@ function DocumentationAdoption() {
 
       <div className="mt-8 space-y-6">
         {/* Documentation Engagement */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <StatCard
             label="Monthly Active Users"
             value="1,247"
@@ -752,7 +752,7 @@ function AccessibilityReadiness() {
 
       <div className="mt-8 space-y-6">
         {/* Accessibility KPIs */}
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <KPICard
             label="WCAG AA Compliant"
             value="267"
@@ -914,7 +914,7 @@ function ExceptionsWaivers() {
 
       <div className="mt-8 space-y-6">
         {/* Exception Stats */}
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <StatCard
             label="Active Exceptions"
             value="18"
@@ -1037,7 +1037,7 @@ function DeprecationRisk() {
 
       <div className="mt-8 space-y-6">
         {/* Risk Summary */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <RiskSummaryCard
             level="Critical"
             count={4}
@@ -1154,7 +1154,7 @@ function NonConformanceLog() {
 
       <div className="mt-8 space-y-6">
         {/* Issue Stats */}
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <KPICard
             label="Open Issues"
             value="23"
@@ -1308,7 +1308,7 @@ function SupportBurden() {
 
       <div className="mt-8 space-y-6">
         {/* Support Stats */}
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <StatCard
             label="Support Tickets (30d)"
             value="287"
@@ -1706,7 +1706,7 @@ function ConformanceHeatMap() {
   };
 
   return (
-    <div className="grid grid-cols-5 gap-3">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
       {ministries.map((m, idx) => (
         <div key={idx} className={`${getColor(m.score)} text-white rounded-lg p-4 flex flex-col items-center justify-center text-center`}>
           <div className="text-2xl font-bold mb-1">{m.score}%</div>
@@ -1800,7 +1800,7 @@ function VendorComplianceCard({ name, certification, projects, conformanceScore,
           {conformanceScore}%
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-3 text-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
         <div>
           <div className="text-xs text-gray-500">Projects</div>
           <div className="font-bold text-foreground">{projects}</div>

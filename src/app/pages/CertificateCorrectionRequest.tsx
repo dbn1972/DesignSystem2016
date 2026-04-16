@@ -73,7 +73,7 @@ export default function CertificateCorrectionRequest() {
 
           {/* Application Reference */}
           <div className="bg-card border-2 border-border rounded-lg p-6 mb-6">
-            <div className="grid grid-cols-3 gap-4 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
               <div>
                 <div className="text-xs text-muted-foreground mb-1">Reference Number</div>
                 <div className="font-bold text-foreground font-mono">CERT-2026-MH-876543</div>

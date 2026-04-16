@@ -190,7 +190,7 @@ function ApplicationSubmission() {
 
           {/* Page Sequence */}
           <DocumentationModule title="Recommended Page Sequence">
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <PageSequenceCard num="1" title="Start Page" elements={["Service overview", "Eligibility criteria", "Required documents", "Time estimate"]} />
               <PageSequenceCard num="2" title="Personal Details" elements={["Name, DOB, gender", "Aadhaar number", "Mobile, email"]} />
               <PageSequenceCard num="3" title="Address Details" elements={["Current address", "Permanent address", "District, state, PIN"]} />
@@ -204,7 +204,7 @@ function ApplicationSubmission() {
 
           {/* Components Required */}
           <DocumentationModule title="Required UX4G Components">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 { name: "Button", variants: "Primary, Secondary, Tertiary" },
                 { name: "Form Input", variants: "Text, Email, Phone, Number" },
@@ -450,7 +450,7 @@ function EligibilityScreening() {
           </DocumentationModule>
 
           <DocumentationModule title="Recommended Page Sequence">
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <PageSequenceCard num="1" title="Entry Page" elements={["Purpose explanation", "Expected time", "Privacy notice"]} />
               <PageSequenceCard num="2" title="Question Flow" elements={["3-5 criteria questions", "Conditional branching", "Progress indicator"]} />
               <PageSequenceCard num="3" title="Eligible Result" elements={["Congratulations", "Proceed to apply CTA", "Save eligibility"]} />
@@ -459,7 +459,7 @@ function EligibilityScreening() {
           </DocumentationModule>
 
           <DocumentationModule title="Required UX4G Components">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 { name: "Radio Button", variants: "Single-choice questions" },
                 { name: "Checkbox", variants: "Multi-select criteria" },
@@ -596,7 +596,7 @@ function Renewal() {
           </DocumentationModule>
 
           <DocumentationModule title="Field Types and Editability">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <FieldTypeCard
                 type="Locked"
                 color="red"

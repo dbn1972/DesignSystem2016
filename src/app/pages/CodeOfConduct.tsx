@@ -21,7 +21,7 @@ export default function CodeOfConduct() {
               environment for all contributors. This Code of Conduct outlines our shared values and expected behaviors.
             </p>
 
-            <div className="grid grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Inclusive</div>
                 <div className="text-blue-200 text-sm">Everyone is welcome</div>
@@ -593,7 +593,7 @@ function EnforcementSection() {
 
         <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Enforcement Principles</h3>
-          <div className="grid grid-cols-3 gap-6 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
             <div>
               <strong className="text-foreground block mb-2">Fair & Consistent</strong>
               <p className="text-muted-foreground">Similar violations receive similar consequences</p>
@@ -728,7 +728,7 @@ function ConsequencesSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <ConsequenceLevel
             level="1"
             title="Correction"

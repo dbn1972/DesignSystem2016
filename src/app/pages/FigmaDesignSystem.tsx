@@ -139,7 +139,7 @@ function CoverPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {pages.map((page, index) => (
             <div 
               key={index}
@@ -153,7 +153,7 @@ function CoverPage() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/20">
-          <div className="grid grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-3xl font-bold mb-1">150+</div>
               <div className="text-sm text-blue-100">Components</div>
@@ -230,7 +230,7 @@ function FoundationsPage() {
         {/* Design Principles */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-foreground mb-8">Design Principles</h3>
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {principles.map((principle, index) => (
               <div key={index} className="border-2 border-border rounded-lg p-6">
                 <div className="w-10 h-10 rounded flex items-center justify-center mb-4" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}>
@@ -246,7 +246,7 @@ function FoundationsPage() {
         {/* Color System */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-foreground mb-8">Color System</h3>
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {colors.map((color, index) => (
               <div key={index} className="border border-border rounded-lg overflow-hidden">
                 <div 
@@ -310,7 +310,7 @@ function FoundationsPage() {
         {/* Spacing Scale */}
         <div>
           <h3 className="text-2xl font-bold text-foreground mb-8">Spacing Scale</h3>
-          <div className="grid grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
               { token: "spacing-1", value: "4px" },
               { token: "spacing-2", value: "8px" },
@@ -437,7 +437,7 @@ function DesignTokensPage() {
             Tokens are exported to JSON, CSS Custom Properties, SCSS variables, and JavaScript/TypeScript 
             for use across React, Angular, and vanilla implementations.
           </p>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {["JSON", "CSS", "SCSS", "JS/TS"].map((format, index) => (
               <div key={index} className="px-3 py-2 bg-card/10 rounded text-sm text-center">
                 {format}
@@ -513,7 +513,7 @@ function StylesSystemPage() {
         {/* Elevation System */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-foreground mb-8">Elevation & Shadows</h3>
-          <div className="grid grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {[
               { level: "Level 0", shadow: "none", usage: "Flat surfaces" },
               { level: "Level 1", shadow: "0 1px 3px rgba(0,0,0,0.1)", usage: "Cards, containers" },
@@ -538,7 +538,7 @@ function StylesSystemPage() {
         {/* Border Radius */}
         <div>
           <h3 className="text-2xl font-bold text-foreground mb-8">Border Radius Scale</h3>
-          <div className="grid grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
               { name: "None", value: "0px" },
               { name: "Small", value: "4px" },
@@ -644,7 +644,7 @@ function CoreComponentsPage() {
           {/* Cards */}
           <div>
             <h3 className="text-xl font-bold text-foreground mb-6">Cards</h3>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <h4 className="font-semibold text-foreground mb-2">Basic Card</h4>
                 <p className="text-sm text-muted-foreground mb-4">
@@ -864,7 +864,7 @@ function AccessibilityPage() {
           <h3 className="text-xl font-bold text-foreground mb-6">Color Contrast Ratios</h3>
           <div className="border-2 border-border rounded-lg overflow-hidden">
             <div className="bg-background p-4 border-b-2 border-border">
-              <div className="grid grid-cols-4 gap-4 font-semibold text-foreground text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-semibold text-foreground text-sm">
                 <div>Foreground</div>
                 <div>Background</div>
                 <div>Ratio</div>
@@ -1010,7 +1010,7 @@ function DocumentationTemplatesPage() {
           </div>
           
           <div className="p-8 space-y-6">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="border border-border rounded-lg p-4">
                 <div className="text-xs text-gray-500 mb-2">Problem</div>
                 <div className="text-sm text-muted-foreground">What problem does this pattern solve?</div>
@@ -1053,7 +1053,7 @@ function ImplementationPage() {
         {/* Quick Start */}
         <div className="mb-12">
           <h3 className="text-xl font-bold text-foreground mb-6">Quick Start Guide</h3>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { step: "01", title: "Install Package", desc: "npm install @ux4g/react" },
               { step: "02", title: "Import Styles", desc: "import '@ux4g/react/styles.css'" },
@@ -1150,7 +1150,7 @@ function GovernancePage() {
         {/* Governance Model */}
         <div className="mb-12">
           <h3 className="text-xl font-bold text-foreground mb-6">Governance Model</h3>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { role: "Core Team", resp: "Platform development and maintenance", count: "8 members" },
               { role: "Working Group", resp: "Cross-ministry governance decisions", count: "15 ministries" },
@@ -1244,7 +1244,7 @@ function AdoptionPage() {
         {/* Onboarding Paths */}
         <div className="mb-12">
           <h3 className="text-xl font-bold text-foreground mb-6">Onboarding Paths</h3>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { role: "Designers", steps: ["Access Figma library", "Review foundations", "Explore components", "Start designing"] },
               { role: "Developers", steps: ["Install package", "Configure project", "Import components", "Build features"] },
@@ -1294,7 +1294,7 @@ function AdoptionPage() {
         <div>
           <h3 className="text-xl font-bold text-foreground mb-6">Adoption Success Metrics</h3>
           <div className="border-2 border-border rounded-lg p-8">
-            <div className="grid grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold text-primary mb-2">15</div>
                 <div className="text-sm text-muted-foreground">Ministries Adopting</div>

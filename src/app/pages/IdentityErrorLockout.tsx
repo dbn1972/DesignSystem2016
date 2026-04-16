@@ -36,7 +36,7 @@ export default function IdentityErrorLockout() {
           <div className="col-span-12">
             <div className="bg-card border-2 border-border rounded-lg p-6 mb-8">
               <h2 className="font-bold text-foreground mb-4">Select Error State to View</h2>
-              <div className="grid grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 {errorStates.map((state) => (
                   <button
                     key={state.id}

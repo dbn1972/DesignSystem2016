@@ -38,7 +38,7 @@ export default function CertificateService() {
       {/* Quick Info Banner */}
       <section className="bg-blue-50 dark:bg-blue-900/20 border-b-2 border-blue-300 dark:border-blue-800">
         <div className="max-w-[1400px] mx-auto px-12 py-6">
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">

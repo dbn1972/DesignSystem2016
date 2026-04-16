@@ -70,7 +70,7 @@ export default function CertificateHelp() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         
         {/* Contact Cards */}
-        <div className="grid grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           
           <div className="bg-card border-2 border-border rounded-lg p-6">
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">

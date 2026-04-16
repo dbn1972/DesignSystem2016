@@ -183,7 +183,7 @@ function PatternOverview() {
       <DocModule>
         <ModuleHeader title="Typical Government Use Cases" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               title="Certificates and Licenses"
               examples={[
@@ -272,7 +272,7 @@ function JourneyFlow() {
         <ModuleHeader title="End-to-End Flow Diagram" />
         <ModuleContent>
           <div className="space-y-4">
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="01" label="Submitted" status="entry" />
               <FlowStep number="02" label="Under Review" status="active" />
               <FlowStep number="03" label="Action Needed?" status="decision" />
@@ -282,7 +282,7 @@ function JourneyFlow() {
             <div className="flex items-center justify-center">
               <ArrowRight className="text-gray-400" size={24} />
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06a" label="Approved" status="success" />
               <FlowStep number="06b" label="Rejected" status="error" />
               <FlowStep number="07" label="Issuance" status="active" />
@@ -772,7 +772,7 @@ function PageDesigns() {
               <div className="border-2 border-border rounded-lg overflow-hidden">
                 <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 p-1">
                   <div className="bg-card p-8">
-                    <div className="grid grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                       <div className="col-span-2 space-y-4">
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-12 h-12 bg-blue-600 rounded flex items-center justify-center">
@@ -811,7 +811,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <button className="px-6 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90 flex items-center justify-center gap-2">
                   <Download size={18} />
                   Download PDF
@@ -876,7 +876,7 @@ function PageDesigns() {
               <div className="text-sm text-muted-foreground">License Number: DL-0120260012345</div>
             </div>
             <div className="p-8 space-y-6">
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <ValidityCard
                   label="Issue Date"
                   value="2 April 2026"
@@ -993,7 +993,7 @@ function OutcomeStates() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-5 gap-4 mt-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
               <StateIndicator
                 state="Under Review"
                 icon={<Clock size={18} />}
@@ -1103,7 +1103,7 @@ function ComponentsUsed() {
       <DocModule>
         <ModuleHeader title="Required Components" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <ComponentCard name="Alert Banner" variants="Success, Error, Warning, Info" usage="Outcome announcements" />
             <ComponentCard name="Card" variants="Status-specific colors, elevated" usage="Approval/rejection summaries" />
             <ComponentCard name="Badge" variants="Status indicators" usage="State labels (Approved, Issued, etc.)" />
@@ -1438,7 +1438,7 @@ function GovernanceConformance() {
       <DocModule>
         <ModuleHeader title="Lifecycle Status" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <MaturityBlock
               status="Stable"
               version="1.0.0"
@@ -1873,7 +1873,7 @@ function ScreenReaderExample({ state, code, announcement }: any) {
 function NotificationChannel({ event, channels, timing, content }: any) {
   return (
     <div className="border-2 border-blue-300 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4">
-      <div className="grid grid-cols-4 gap-4 text-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
         <div>
           <div className="font-bold text-foreground mb-1">{event}</div>
         </div>

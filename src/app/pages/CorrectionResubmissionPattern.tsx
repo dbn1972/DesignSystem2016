@@ -183,7 +183,7 @@ function PatternOverview() {
       <DocModule>
         <ModuleHeader title="Typical Government Use Cases" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               title="Document Issues"
               examples={[
@@ -257,7 +257,7 @@ function JourneyFlow() {
         <ModuleHeader title="End-to-End Flow Diagram" />
         <ModuleContent>
           <div className="space-y-4">
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="01" label="Entry" status="entry" />
               <FlowStep number="02" label="Issue Summary" status="active" />
               <FlowStep number="03" label="Grouped Issues" status="active" />
@@ -267,7 +267,7 @@ function JourneyFlow() {
             <div className="flex items-center justify-center">
               <ArrowRight className="text-gray-400" size={24} />
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06" label="Review Changes" status="active" />
               <FlowStep number="07" label="Resubmit" status="success" />
               <FlowStep number="08" label="Acknowledgment" status="success" />
@@ -403,7 +403,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <IssueSummaryCard
                   type="Missing Information"
                   count={2}
@@ -1175,7 +1175,7 @@ function ComponentsUsed() {
       <DocModule>
         <ModuleHeader title="Required Components" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <ComponentCard name="Alert Banner" variants="Error, Warning, Info, Success" usage="Issue notifications, guidance" />
             <ComponentCard name="Card" variants="Elevated, Outlined, Highlighted" usage="Issue grouping, summaries" />
             <ComponentCard name="Button" variants="Primary, Secondary, Tertiary" usage="Navigation, actions" />
@@ -1519,7 +1519,7 @@ function GovernanceConformance() {
       <DocModule>
         <ModuleHeader title="Lifecycle Status" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <MaturityBlock
               status="Stable"
               version="1.0.0"

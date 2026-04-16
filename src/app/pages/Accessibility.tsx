@@ -181,7 +181,7 @@ function ColorContrast() {
         <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8">
           <h3 className="text-xl font-bold text-foreground mb-6">Color Blindness Considerations</h3>
           
-          <div className="grid grid-cols-3 gap-6 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             <div className="bg-card rounded-lg p-4 border border-blue-200 dark:border-blue-800">
               <div className="font-semibold text-foreground mb-2">Deuteranopia</div>
               <div className="text-sm text-muted-foreground mb-3">Red-green color blindness (most common)</div>
@@ -667,7 +667,7 @@ function ScreenReader() {
         {/* Testing with Screen Readers */}
         <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="text-xl font-bold text-foreground mb-4">Testing with Screen Readers</h3>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-card rounded-lg p-4 border border-blue-200 dark:border-blue-800">
               <Volume2 className="text-primary mb-3" size={24} />
               <h4 className="font-semibold text-foreground mb-2">NVDA (Windows)</h4>

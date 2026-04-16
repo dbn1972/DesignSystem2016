@@ -1688,7 +1688,7 @@ function GovernanceSection() {
             </h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-3 gap-6 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
               <div>
                 <h4 className="font-bold text-foreground mb-2">Pattern Questions</h4>
                 <p className="text-muted-foreground mb-2">For design and implementation guidance</p>

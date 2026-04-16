@@ -81,7 +81,7 @@ export default function FeedbackRatingPatterns() {
         <section id="overview" className="mb-16">
           <h2 className="text-3xl font-bold text-foreground mb-6">Pattern Overview</h2>
           <div className="bg-card border-2 border-border rounded-lg p-8 mb-8">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <TrendingUp size={24} className="text-purple-600" />

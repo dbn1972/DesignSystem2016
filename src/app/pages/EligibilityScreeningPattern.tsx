@@ -185,7 +185,7 @@ function PatternOverview() {
       <DocModule>
         <ModuleHeader title="Typical Government Use Cases" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               title="Social Welfare Programs"
               examples={[
@@ -297,7 +297,7 @@ function ScreeningLogic() {
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <RuleTypeCard
                   type="Mandatory (AND)"
                   description="All conditions must be true"
@@ -439,7 +439,7 @@ function JourneyFlow() {
         <ModuleHeader title="End-to-End Flow Diagram" />
         <ModuleContent>
           <div className="space-y-4">
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="01" label="Entry" status="entry" />
               <FlowStep number="02" label="Overview" status="active" />
               <FlowStep number="03" label="Question 1" status="active" />
@@ -449,7 +449,7 @@ function JourneyFlow() {
             <div className="flex items-center justify-center">
               <ArrowRight className="text-gray-400" size={24} />
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06" label="Processing" status="info" />
               <FlowStep number="07" label="Result" status="decision" />
               <FlowStep number="08a" label="Eligible" status="success" />
@@ -459,7 +459,7 @@ function JourneyFlow() {
             <div className="flex items-center justify-center">
               <ArrowRight className="text-gray-400" size={24} />
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="09" label="Next Steps" status="info" />
               <FlowStep number="10" label="Proceed / Restart" status="optional" />
               <FlowStep number="11" label="Alternative Services" status="optional" />
@@ -574,7 +574,7 @@ function PageDesigns() {
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <InfoBox icon={<Users size={20} />} title="Who can apply" text="Students aged 18-25 with family income below ₹6L/year" />
                 <InfoBox icon={<FileText size={20} />} title="Basic criteria" text="Age, income, education level, and enrollment status" />
                 <InfoBox icon={<Clock size={20} />} title="Instant result" text="Know immediately if you're eligible" />
@@ -1143,7 +1143,7 @@ function ComponentsUsed() {
       <DocModule>
         <ModuleHeader title="Required Components" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <ComponentCard name="Button" variants="Primary, Secondary, Tertiary" usage="Navigation, CTAs" />
             <ComponentCard name="Radio Button" variants="Vertical list" usage="Single-choice questions" />
             <ComponentCard name="Checkbox" variants="Single, Group" usage="Multi-select criteria (rare)" />
@@ -1504,7 +1504,7 @@ function GovernanceConformance() {
       <DocModule>
         <ModuleHeader title="Maturity Status" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <MaturityCard
               status="Stable"
               version="1.1.0"

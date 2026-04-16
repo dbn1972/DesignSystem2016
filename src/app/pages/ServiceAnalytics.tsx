@@ -22,7 +22,7 @@ export default function ServiceAnalytics() {
               over marketing metrics. Designed for both citizen-facing experiences and internal dashboards.
             </p>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">12 Patterns</div>
                 <div className="text-blue-200 text-sm">Analytics frameworks</div>
@@ -1298,7 +1298,7 @@ function PagePlacementCard({ placements }: any) {
       <div className="p-6">
         <div className="space-y-3">
           {placements.map((placement: any, index: number) => (
-            <div key={index} className="grid grid-cols-3 gap-4 bg-background border border-border rounded-lg p-4">
+            <div key={index} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 bg-background border border-border rounded-lg p-4">
               <div>
                 <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Location</div>
                 <div className="font-bold text-foreground text-sm">{placement.location}</div>
@@ -1445,7 +1445,7 @@ function DashboardMetricsCard() {
       </div>
 
       <div className="p-6">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <MetricSection
             title="Service Delivery Metrics"
             metrics={[

@@ -350,9 +350,9 @@ export default function Patterns() {
 
             <div className="rounded-[32px] border border-border bg-card shadow-sm dark:bg-gray-800 overflow-hidden">
               <div className="border-b border-border bg-background px-6 py-5 dark:bg-gray-900 dark:border-gray-700">
-                <div className="grid gap-3 sm:grid-cols-4">
+                <div className="flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-4 sm:overflow-visible sm:pb-0">
                   {["Personal Info", "Documents", "Preview", "Submit"].map((step, idx) => (
-                    <div key={step} className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 dark:bg-gray-800">
+                    <div key={step} className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 dark:bg-gray-800 min-w-[160px] sm:min-w-0">
                       <div
                         className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold"
                         style={idx === 0 ? {
@@ -392,13 +392,7 @@ export default function Patterns() {
                       Cancel
                     </button>
                     <button
-                      className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors"
-                      style={{
-                        backgroundColor: 'var(--ux4g-color-brand-primary)',
-                        color: 'var(--ux4g-color-text-inverse)'
-                      }}
-                      onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-brand-primary-dark)'}
-                      onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-brand-primary)'}
+                      className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-[#005196] text-white hover:bg-[#004178] transition-colors"
                     >
                       Continue to Documents
                     </button>

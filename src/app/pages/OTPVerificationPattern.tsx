@@ -912,7 +912,7 @@ function ResendLogic() {
           <h3 className="font-bold text-foreground">Resend Button States & Messaging</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Disabled State */}
             <div className="bg-background border-2 border-border rounded p-4 text-center">
               <button className="w-full px-4 py-2 bg-gray-300 text-gray-500 font-bold rounded cursor-not-allowed mb-2">
@@ -1278,7 +1278,7 @@ function GovernanceSection() {
         <h2 className="text-2xl font-bold text-foreground">Governance & Lifecycle</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Lifecycle Status</h3>

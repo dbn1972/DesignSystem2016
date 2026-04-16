@@ -229,7 +229,7 @@ function Example() {
             <div className="space-y-6">
               <div>
                 <p className="text-sm font-semibold text-muted-foreground mb-2">Extra Small Gap</p>
-                <div className="grid grid-cols-3 gap-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="bg-blue-100 border-2 border-blue-300 rounded p-2 text-center text-sm">
                       {i}
@@ -239,7 +239,7 @@ function Example() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-muted-foreground mb-2">Medium Gap</p>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="bg-blue-100 border-2 border-blue-300 rounded p-2 text-center text-sm">
                       {i}
@@ -249,7 +249,7 @@ function Example() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-muted-foreground mb-2">Large Gap</p>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="bg-blue-100 border-2 border-blue-300 rounded p-2 text-center text-sm">
                       {i}

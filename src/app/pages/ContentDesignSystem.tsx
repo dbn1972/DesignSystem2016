@@ -153,7 +153,7 @@ function OverviewSection() {
           The Content Design System provides a single source of truth for all text across government services—
           ensuring every citizen gets the same clear, helpful guidance regardless of which service they use.
         </p>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-card border border-border rounded p-4">
             <Languages size={24} className="text-green-600 mb-2" />
             <p className="font-bold text-foreground mb-1">Plain Language</p>
@@ -332,7 +332,7 @@ function LabelsSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <LabelCategory
           title="Personal Information"
           labels={[

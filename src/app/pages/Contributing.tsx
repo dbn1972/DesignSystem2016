@@ -22,7 +22,7 @@ export default function Contributing() {
               proposing new features, improving documentation, or enhancing existing components.
             </p>
 
-            <div className="grid grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
               <div className="bg-card/10 rounded-lg p-4">
                 <div className="text-3xl font-bold mb-1">Open Source</div>
                 <div className="text-blue-200 text-sm">MIT Licensed</div>
@@ -1142,7 +1142,7 @@ function CommunityGuidelinesSection() {
       <div className="mt-8 space-y-6">
         <div className="bg-gradient-to-r from-pink-50 to-purple-50 border-2 border-pink-200 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Our Values</h3>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <ValueCard
               icon={<Heart className="text-pink-600" size={24} />}
               title="Respect"

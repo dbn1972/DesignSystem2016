@@ -102,7 +102,7 @@ export default function ConsentDeclarationPatterns() {
       {/* Overview Section */}
       <section className="bg-card border-b border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-12">
-          <div className="grid grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Info size={24} className="text-primary" />
@@ -382,7 +382,7 @@ export default function ConsentDeclarationPatterns() {
               complete user flows with multiple states,
               validation, error handling, and success scenarios.
             </p>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Consent Capture Demo */}
               <Link
                 to="/consent-capture-demo"

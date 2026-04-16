@@ -117,7 +117,7 @@ function WhyAdoptSection() {
 
       <div className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">Time to Value</h3>
-        <div className="grid grid-cols-3 gap-6 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
           <div>
             <div className="text-4xl font-bold text-primary mb-2">5 min</div>
             <div className="text-sm text-muted-foreground">Install and start building</div>
@@ -277,7 +277,7 @@ function MigrationPathSection() {
 
       <div className="mt-8 space-y-8">
         {/* Migration Strategy */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <MigrationStrategy
             title="Big Bang"
             timeline="2-4 weeks"
@@ -547,7 +547,7 @@ function TeamRolesSection() {
         <p className="text-sm text-muted-foreground mb-4">
           For a typical government service, we recommend a cross-functional team of:
         </p>
-        <div className="grid grid-cols-4 gap-4 text-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
           <div className="text-center">
             <div className="text-2xl font-bold text-primary mb-1">1</div>
             <div className="text-muted-foreground">Product Owner</div>
@@ -841,7 +841,7 @@ function VendorOnboardingSection() {
             All vendor-built government services must use the UX4G Design System. Non-compliance may result 
             in application rejection during acceptance testing.
           </p>
-          <div className="grid grid-cols-3 gap-4 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
             <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-3">
               <div className="font-semibold text-foreground mb-1">Before Development</div>
               <div className="text-muted-foreground">Submit design mockups for approval</div>
@@ -954,7 +954,7 @@ function ConformanceExpectationsSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <ConformanceLevel
             level="Minimum (Required)"
             percentage="80%"
@@ -1303,7 +1303,7 @@ function ReferenceExamplesSection() {
 
         <div className="border-2 border-border rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Learning from Reference Services</h3>
-          <div className="grid grid-cols-3 gap-6 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
             <div>
               <h4 className="font-semibold text-foreground mb-2">Design Patterns</h4>
               <p className="text-muted-foreground">

@@ -93,7 +93,7 @@ export default function CertificateOfficerDashboard() {
       <main className="max-w-[1600px] mx-auto px-12 py-12">
         
         {/* Stats Grid */}
-        <div className="grid grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
             icon={<Briefcase size={28} />}
             label="Total Cases"
@@ -125,7 +125,7 @@ export default function CertificateOfficerDashboard() {
         </div>
 
         {/* Performance Metrics */}
-        <div className="grid grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <MetricCard
             icon={<TrendingUp size={24} />}
             label="Approval Rate"

@@ -186,7 +186,7 @@ function PatternOverview() {
       <DocModule>
         <ModuleHeader title="Typical Government Use Cases" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               title="Identity & Verification"
               examples={["Passport applications", "Aadhaar enrollment", "Driving license applications", "Voter ID registration"]}
@@ -238,25 +238,25 @@ function JourneyAndFlow() {
         <ModuleHeader title="End-to-End Service Flow" />
         <ModuleContent>
           <div className="space-y-4">
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <FlowStep number="01" label="Entry & Start" status="entry" />
               <FlowStep number="02" label="Service Overview" status="active" />
               <FlowStep number="03" label="Eligibility Check" status="active" />
               <FlowStep number="04" label="Document Checklist" status="active" />
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <FlowStep number="05" label="Form Step 1" status="active" />
               <FlowStep number="06" label="Form Step 2" status="active" />
               <FlowStep number="07" label="Form Step 3" status="active" />
               <FlowStep number="08" label="Document Upload" status="active" />
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <FlowStep number="09" label="Review & Confirm" status="active" />
               <FlowStep number="10" label="Declaration" status="active" />
               <FlowStep number="11" label="Submission" status="success" />
               <FlowStep number="12" label="Acknowledgment" status="success" />
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <FlowStep number="13" label="Reference Number" status="success" />
               <FlowStep number="14" label="Next Steps" status="info" />
               <FlowStep number="15" label="Status Tracking" status="info" />
@@ -391,7 +391,7 @@ function PageDesigns() {
               </div>
             </div>
             <div className="p-8 space-y-6">
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <InfoBox icon={<Users size={20} />} title="Who can apply" text="Indian citizens aged 18+ with valid Aadhaar" />
                 <InfoBox icon={<FileText size={20} />} title="Documents needed" text="Aadhaar, address proof, recent photograph" />
                 <InfoBox icon={<Clock size={20} />} title="Processing time" text="7-10 working days after submission" />
@@ -728,7 +728,7 @@ function ComponentsUsed() {
       <DocModule>
         <ModuleHeader title="Required Components" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <ComponentCard name="Button" variants="Primary, Secondary, Tertiary, Link" usage="Navigation, CTAs, actions" />
             <ComponentCard name="Form Input" variants="Text, Email, Tel, Number, Password" usage="Data collection" />
             <ComponentCard name="Select Dropdown" variants="Single-select, Searchable" usage="State, district, category selection" />
@@ -932,7 +932,7 @@ function ContentGuidance() {
       <DocModule>
         <ModuleHeader title="Tone and Voice" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <ToneCard
               tone="Helpful"
               description="Guide users through the process with supportive language"
@@ -1331,7 +1331,7 @@ function GovernanceConformance() {
       <DocModule>
         <ModuleHeader title="Lifecycle and Maturity Status" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <MaturityBlock
               status="Stable"
               version="1.2.0"

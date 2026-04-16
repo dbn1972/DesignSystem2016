@@ -183,7 +183,7 @@ function PatternOverview() {
       <DocModule>
         <ModuleHeader title="Typical Renewal Use Cases" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               title="Identity Documents"
               examples={[
@@ -261,19 +261,19 @@ function JourneyFlow() {
         <ModuleHeader title="End-to-End Flow Diagram" />
         <ModuleContent>
           <div className="space-y-4">
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <FlowStep number="01" label="Entry" status="entry" />
               <FlowStep number="02" label="Record Lookup" status="active" />
               <FlowStep number="03" label="Verification" status="active" />
               <FlowStep number="04" label="Record Display" status="active" />
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <FlowStep number="05" label="Review Prefilled" status="active" />
               <FlowStep number="06" label="Update Info" status="optional" />
               <FlowStep number="07" label="Upload Docs" status="optional" />
               <FlowStep number="08" label="Review Changes" status="active" />
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <FlowStep number="09" label="Payment" status="optional" />
               <FlowStep number="10" label="Submit" status="success" />
               <FlowStep number="11" label="Acknowledgment" status="success" />
@@ -578,7 +578,7 @@ function PageDesigns() {
                   <Info size={20} className="text-blue-600" />
                   <div className="font-bold text-foreground">Understanding Field Types</div>
                 </div>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <FieldTypeLegend
                     icon={<Lock size={16} className="text-muted-foreground" />}
                     type="Locked"
@@ -1056,7 +1056,7 @@ function ComponentsUsed() {
       <DocModule>
         <ModuleHeader title="Required Components" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <ComponentCard name="Form Input" variants="Text, disabled state, prefilled state" usage="All data entry fields" />
             <ComponentCard name="Button" variants="Primary, Secondary, Disabled" usage="Actions, navigation" />
             <ComponentCard name="Card" variants="Elevated, highlighted, status" usage="Data display, grouping" />
@@ -1350,7 +1350,7 @@ function GovernanceConformance() {
       <DocModule>
         <ModuleHeader title="Lifecycle and Maturity Status" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <MaturityBlock
               status="Stable"
               version="1.0.0"

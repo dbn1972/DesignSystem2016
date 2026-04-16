@@ -135,7 +135,7 @@ function WhatAreIdentityPatterns() {
 
         <div className="mt-6 p-6 bg-background border-2 border-border rounded-lg">
           <h3 className="font-bold text-foreground mb-4">Pattern Scope</h3>
-          <div className="grid grid-cols-3 gap-4 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
             <ScopeItem icon={<UserCheck size={16} />} label="Account Creation" description="Sign up with verification" />
             <ScopeItem icon={<Lock size={16} />} label="Authentication" description="Sign in, Aadhaar auth" />
             <ScopeItem icon={<Smartphone size={16} />} label="Verification" description="OTP (mobile, email)" />
@@ -329,7 +329,7 @@ function CorePatternFamilies() {
         <h2 className="text-2xl font-bold text-foreground">Core Pattern Families</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <PatternFamily
           title="Account Creation"
           icon={<UserCheck size={32} className="text-blue-600" />}
@@ -510,7 +510,7 @@ function InteractiveFlowsGrid() {
         <p className="text-muted-foreground mt-2">Click any pattern to view the interactive prototype with realistic states and navigation</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {flows.map((flow) => (
           <Link
             key={flow.id}

@@ -1461,7 +1461,7 @@ function GovernanceSection() {
             <HelpCircle size={32} className="text-primary flex-shrink-0" />
             <div className="flex-1">
               <h3 className="font-bold text-foreground text-lg mb-2">Support & Escalation</h3>
-              <div className="grid grid-cols-3 gap-6 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
                 <div>
                   <h4 className="font-bold text-foreground mb-1">Legal Questions</h4>
                   <p className="text-muted-foreground mb-2">For compliance and legal guidance</p>

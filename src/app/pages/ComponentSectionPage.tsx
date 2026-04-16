@@ -276,7 +276,7 @@ function Example() {
       spacing="lg"
       ariaLabel="Statistics section"
     >
-      <div className="grid grid-cols-3 gap-8 text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
         <div>
           <div className="text-4xl font-bold text-[#005196] mb-2">1.2M</div>
           <div className="text-muted-foreground">Active Users</div>
@@ -300,7 +300,7 @@ function Example() {
               spacing="lg"
               ariaLabel="Statistics section"
             >
-              <div className="grid grid-cols-3 gap-8 text-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
                 <div>
                   <div className="text-4xl font-bold text-[#005196] mb-2">1.2M</div>
                   <div className="text-muted-foreground">Active Users</div>

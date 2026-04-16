@@ -116,7 +116,7 @@ export default function ActionableNotificationsPattern() {
         </div>
 
         {/* Summary */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <div className="bg-card border-2 border-border rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-orange-600 mb-2">
               {notifications.filter(n => !n.completed).length}
@@ -215,7 +215,7 @@ export default function ActionableNotificationsPattern() {
         {/* Pattern Info */}
         <div className="mt-12 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
-          <div className="grid grid-cols-4 gap-6 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
             <div>
               <div className="font-bold text-muted-foreground mb-2">Inline Actions</div>
               <ul className="space-y-1 text-muted-foreground">

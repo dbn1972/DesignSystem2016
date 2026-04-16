@@ -22,7 +22,7 @@ export default function MultilingualGuidance() {
               22 official languages.
             </p>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="bg-card dark:bg-gray-900/10 rounded-lg p-4">
                 <div className="text-2xl font-bold mb-1">22+</div>
                 <div className="text-blue-200 text-sm">Official languages</div>
@@ -246,7 +246,7 @@ function ScriptAwareTypography() {
         </div>
 
         {/* Typography Examples */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <TypographyExample
             script="English (Latin)"
             sample="Apply for Ration Card"
@@ -278,7 +278,7 @@ function ScriptAwareTypography() {
 
 function ScriptFontRow({ script, languages, fonts, characteristics }: any) {
   return (
-    <div className="grid grid-cols-4 gap-4 bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg p-4">
       <div>
         <div className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wide mb-1">Script</div>
         <div className="font-bold text-foreground dark:text-gray-100 text-sm">{script}</div>
@@ -332,7 +332,7 @@ function LineHeightDensity() {
             conjuncts, and character complexity. Use these minimum values:
           </p>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <LineHeightCard script="Latin (English)" minLineHeight="150%" recommended="140-160%" />
             <LineHeightCard script="Devanagari" minLineHeight="175%" recommended="170-200%" />
             <LineHeightCard script="Bengali/Assamese" minLineHeight="165%" recommended="160-180%" />
@@ -410,7 +410,7 @@ function LabelExpansion() {
             Translated text can be 20-40% longer than English. Design with expansion in mind:
           </p>
 
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <ExpansionCard language="Hindi" factor="+30-40%" example="Submit → प्रस्तुत करें (+140%)" />
             <ExpansionCard language="Tamil" factor="+25-35%" example="Apply → விண்ணப்பிக்கவும் (+160%)" />
             <ExpansionCard language="Telugu" factor="+30-40%" example="Continue → కొనసాగించు (+80%)" />
@@ -425,7 +425,7 @@ function LabelExpansion() {
           </div>
 
           <div className="p-6">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <ButtonExpansionDemo
                 language="English"
                 buttons={['Submit', 'Cancel', 'Save Draft', 'Continue']}
@@ -658,7 +658,7 @@ function LanguageExamples() {
           </div>
 
           <div className="p-8 bg-gradient-to-b from-white to-gray-50">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* English */}
               <FormExample
                 language="English"
@@ -708,7 +708,7 @@ function LanguageExamples() {
           </div>
 
           <div className="p-8 bg-gradient-to-b from-white to-gray-50">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* English */}
               <StatusExample
                 language="English"
@@ -932,7 +932,7 @@ function FormFieldLocalization() {
           </div>
 
           <div className="p-6">
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <FormFieldDemo
                 language="English"
                 label="Full Name"
@@ -1085,7 +1085,7 @@ function DataFormatting() {
           </div>
 
           <div className="p-6">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <AddressExample
                 language="English"
                 lines={[
@@ -1155,7 +1155,7 @@ function FormattingExample({ type, english, hindi, tamil, notes }: any) {
   return (
     <div className="bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg p-4">
       <div className="text-xs font-semibold text-gray-500 dark:text-gray-500 uppercase mb-3">{type}</div>
-      <div className="grid grid-cols-3 gap-4 mb-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-3">
         <div className="text-sm">
           <div className="text-xs text-gray-500 dark:text-gray-500 mb-1">English</div>
           <div className="font-semibold text-foreground dark:text-gray-100">{english}</div>

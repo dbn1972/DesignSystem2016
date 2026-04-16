@@ -118,7 +118,7 @@ export default function RateServicePattern() {
                   {rating > 0 && (
                     <div>
                       <h4 className="font-bold text-foreground mb-3">Quick feedback (Optional)</h4>
-                      <div className="grid grid-cols-3 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         <button
                           onClick={() => setSentiment("easy")}
                           className={`px-4 py-3 border-2 rounded-lg text-sm font-bold transition-all ${

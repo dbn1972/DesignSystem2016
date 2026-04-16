@@ -44,7 +44,7 @@ export default function StatusLifecycleOverview() {
                   Instead of showing "Pending" for weeks, these patterns provide granular visibility into what's happening, 
                   who's responsible, why there are delays, and when to expect resolution.
                 </p>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">Without Lifecycle Intelligence</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">

@@ -302,7 +302,7 @@ function ApprovedUsesSection() {
           <XCircle size={20} className="text-red-600" />
           Prohibited Uses (Cannot Mandate Aadhaar)
         </h3>
-        <div className="grid grid-cols-3 gap-4 text-sm text-muted-foreground">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-muted-foreground">
           <div>
             <p className="font-bold text-foreground">Education</p>
             <p>Cannot deny school admission, exam entry, or certificates if no Aadhaar</p>
@@ -812,7 +812,7 @@ function FallbackSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <FallbackOption 
           title="Email + Mobile OTP"
           description="Send OTP to registered email and mobile number for dual verification"
@@ -1134,7 +1134,7 @@ function GovernanceSection() {
         <h2 className="text-2xl font-bold text-foreground">Governance & Compliance</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-orange-100 border-b-2 border-orange-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Lifecycle Status</h3>

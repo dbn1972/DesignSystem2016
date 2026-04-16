@@ -199,7 +199,7 @@ function OverviewSection() {
       {/* Pattern Characteristics */}
       <div className="bg-card border-2 border-border rounded-lg p-8">
         <h3 className="font-bold text-foreground mb-6">Pattern Characteristics</h3>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <CharacteristicItem
             icon={<Clock size={24} className="text-blue-600" />}
             label="Average Duration"
@@ -1248,7 +1248,7 @@ function GovernanceSection() {
 
       <div className="bg-card border-2 border-border rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-4">Adoption Tracking</h3>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <AdoptionStat label="Services Using" value="120" />
           <AdoptionStat label="Daily Sign-Ins" value="5M+" />
           <AdoptionStat label="Success Rate" value="96%" />

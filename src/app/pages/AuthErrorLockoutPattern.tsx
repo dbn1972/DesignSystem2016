@@ -218,7 +218,7 @@ function ErrorTypesSection() {
         <h2 className="text-2xl font-bold text-foreground">Common Authentication Error Types</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <ErrorType 
           title="Wrong Credentials"
           severity="Low"
@@ -959,7 +959,7 @@ function RecoveryPathsSection() {
         <h2 className="text-2xl font-bold text-foreground">Recovery & Escalation Paths</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <RecoveryPath 
           title="Immediate Recovery"
           icon={<RefreshCw className="text-green-600" />}
@@ -1288,7 +1288,7 @@ function GovernanceSection() {
         <h2 className="text-2xl font-bold text-foreground">Governance & Lifecycle</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Lifecycle Status</h3>

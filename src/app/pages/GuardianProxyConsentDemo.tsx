@@ -606,7 +606,7 @@ function PersonDetailsScreen({
             <label className="block text-sm font-bold text-foreground mb-2">
               Gender <span className="text-red-600">*</span>
             </label>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50">
                 Male
               </button>

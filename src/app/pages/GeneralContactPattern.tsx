@@ -575,7 +575,7 @@ function PatternInfo() {
   return (
     <div className="mt-12 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
       <h3 className="font-bold text-foreground mb-3">Pattern Information</h3>
-      <div className="grid grid-cols-3 gap-6 text-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
         <div>
           <div className="text-muted-foreground mb-1">Pattern Type</div>
           <div className="font-bold text-foreground">Standard Contact</div>

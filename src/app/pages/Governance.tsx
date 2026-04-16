@@ -217,7 +217,7 @@ function OwnershipModelSection() {
           </div>
           
           <div className="p-6 bg-background dark:bg-gray-800 border-t-2 border-border dark:border-gray-700">
-            <div className="grid grid-cols-4 gap-6 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
               <div>
                 <strong className="text-foreground dark:text-gray-100">R - Responsible:</strong>
                 <span className="text-muted-foreground dark:text-gray-300 ml-1">Does the work</span>

@@ -44,7 +44,7 @@ export default function NotificationOverview() {
                   Instead of forcing citizens to check portals repeatedly, these patterns push timely information through 
                   preferred channels (SMS, Email, In-app) while respecting user preferences and avoiding notification fatigue.
                 </p>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">Without Smart Notifications</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">

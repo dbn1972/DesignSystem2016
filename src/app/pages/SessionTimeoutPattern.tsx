@@ -819,7 +819,7 @@ function SaveProgressSection() {
           <h3 className="font-bold text-foreground">Draft Data Retention Policy</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-3 gap-4 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
             <div>
               <p className="font-bold text-foreground mb-2">Retention Period</p>
               <p className="text-muted-foreground">Keep draft data for 30 days from last save</p>
@@ -1095,7 +1095,7 @@ function GovernanceSection() {
         <h2 className="text-2xl font-bold text-foreground">Governance & Lifecycle</h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-100 border-b-2 border-green-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Lifecycle Status</h3>

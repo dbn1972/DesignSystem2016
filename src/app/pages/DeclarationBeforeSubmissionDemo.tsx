@@ -472,7 +472,7 @@ function DeclarationScreen({
         {/* Application Summary */}
         <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <h3 className="font-bold text-foreground mb-3 text-sm">Application Summary</h3>
-          <div className="grid grid-cols-3 gap-4 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
             <div>
               <span className="text-muted-foreground">Applicant Name:</span>
               <div className="font-bold text-foreground">{applicationData.applicantName}</div>

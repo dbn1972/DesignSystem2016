@@ -168,7 +168,7 @@ export default function NoResultsPattern() {
               <TrendingUp size={20} className="text-muted-foreground" />
               <h2 className="font-bold text-foreground">Popular Services</h2>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {POPULAR_SERVICES.map((service, i) => (
                 <Link
                   key={i}
@@ -187,7 +187,7 @@ export default function NoResultsPattern() {
           {/* Browse by Category */}
           <div className="bg-card border-2 border-border rounded-lg p-6 mb-8">
             <h2 className="font-bold text-foreground mb-4">Browse by Category</h2>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {['Transport', 'Civil Registration', 'Identity', 'Revenue', 'Election', 'Travel'].map((category, i) => (
                 <Link
                   key={i}
@@ -230,7 +230,7 @@ export default function NoResultsPattern() {
           {/* Pattern Info */}
           <div className="mt-12 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-3">Recovery Pattern Features</h3>
-            <div className="grid grid-cols-3 gap-6 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
               <div>
                 <div className="font-bold text-muted-foreground mb-2">Immediate Help</div>
                 <ul className="space-y-1 text-muted-foreground">

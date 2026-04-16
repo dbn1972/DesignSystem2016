@@ -758,7 +758,7 @@ function TokenUsageSection() {
 
           <div className="mt-4 bg-background border border-border rounded-lg p-4">
             <h4 className="font-semibold text-foreground mb-3 text-sm">Available Token Categories:</h4>
-            <div className="grid grid-cols-3 gap-3 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
               <div className="text-muted-foreground">• Colors</div>
               <div className="text-muted-foreground">• Spacing</div>
               <div className="text-muted-foreground">• Typography</div>

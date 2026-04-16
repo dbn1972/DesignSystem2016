@@ -183,7 +183,7 @@ function PatternOverview() {
       <DocModule>
         <ModuleHeader title="Typical Government Use Cases" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               title="Service Delivery Failures"
               examples={[
@@ -281,7 +281,7 @@ function JourneyFlow() {
         <ModuleHeader title="End-to-End Flow Diagram" />
         <ModuleContent>
           <div className="space-y-4">
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="01" label="Entry" status="entry" />
               <FlowStep number="02" label="Category" status="active" />
               <FlowStep number="03" label="Details Form" status="active" />
@@ -291,7 +291,7 @@ function JourneyFlow() {
             <div className="flex items-center justify-center">
               <ArrowRight className="text-gray-400" size={24} />
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="06" label="Submit" status="success" />
               <FlowStep number="07" label="Case ID Gen" status="success" />
               <FlowStep number="08" label="Track Status" status="info" />
@@ -301,7 +301,7 @@ function JourneyFlow() {
             <div className="flex items-center justify-center">
               <ArrowRight className="text-gray-400" size={24} />
             </div>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               <FlowStep number="11" label="Close / Reopen" status="info" />
               <div className="col-span-4"></div>
             </div>
@@ -438,7 +438,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <ProcessCard
                   icon={<FileText size={24} className="text-blue-600" />}
                   title="File Complaint"
@@ -464,7 +464,7 @@ function PageDesigns() {
                   <h3 className="font-bold text-foreground">Service Level Agreements (SLAs)</h3>
                 </div>
                 <div className="p-6">
-                  <div className="grid grid-cols-4 gap-4 text-sm">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
                     <SLACard severity="Critical" timeline="24-48 hours" />
                     <SLACard severity="High" timeline="7 days" />
                     <SLACard severity="Medium" timeline="15 days" />
@@ -544,7 +544,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-2">
                   Issue Category <span className="text-red-600">*</span>
                 </label>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <CategoryOption
                     value="delay"
                     label="Service Delay"
@@ -625,7 +625,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-2">
                   Severity Level <span className="text-red-600">*</span>
                 </label>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <SeverityOption level="Critical" timeline="24-48 hrs" color="red" selected={false} />
                   <SeverityOption level="High" timeline="7 days" color="orange" selected={true} />
                   <SeverityOption level="Medium" timeline="15 days" color="yellow" selected={false} />
@@ -688,7 +688,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <h3 className="font-bold text-foreground mb-4">Accepted Evidence Types</h3>
-                <div className="grid grid-cols-3 gap-4 text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
                   <EvidenceType
                     icon={<FileText size={18} className="text-blue-600" />}
                     type="Documents"
@@ -1325,7 +1325,7 @@ function EscalationLogic() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-6 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
               <EscalationLevel
                 level="Level 1"
                 title="Frontline Officer"
@@ -1468,7 +1468,7 @@ function ComponentsUsed() {
       <DocModule>
         <ModuleHeader title="Required Components" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <ComponentCard name="Form Input" variants="Text, textarea, select" usage="Complaint details, contact info" />
             <ComponentCard name="Radio Button" variants="Category cards, severity selection" usage="Issue categorization" />
             <ComponentCard name="File Upload" variants="Multiple files, preview" usage="Evidence upload" />
@@ -1805,7 +1805,7 @@ function GovernanceConformance() {
       <DocModule>
         <ModuleHeader title="Lifecycle Status" />
         <ModuleContent>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <MaturityBlock
               status="Stable"
               version="1.0.0"

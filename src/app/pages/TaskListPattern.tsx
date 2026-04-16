@@ -302,7 +302,7 @@ export default function TaskListPattern() {
         {/* Pattern Info */}
         <div className="mt-12 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
-          <div className="grid grid-cols-4 gap-6 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
             <div>
               <div className="font-bold text-muted-foreground mb-2">Prioritization</div>
               <ul className="space-y-1 text-muted-foreground">
