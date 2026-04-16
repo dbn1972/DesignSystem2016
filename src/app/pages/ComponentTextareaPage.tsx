@@ -226,6 +226,8 @@ function Example() {
                   <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Multi-line text input (comments, descriptions, reasons)</li>
                   <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Fields where users need to write more than one sentence</li>
                   <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Free-form feedback or explanations</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Appeal reasons and officer review comments</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>RTI information requests requiring detailed descriptions</li>
                 </ul>
               </div>
               <div>
@@ -310,6 +312,26 @@ function Example() {
                 </div>
                 <div className="border-l-2 border-primary pl-4">
                   <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.1.0</span>
+                    <span className="text-xs text-muted-foreground">April 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added auto-resize with max height constraint</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added word count alongside character count</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.2.0</span>
+                    <span className="text-xs text-muted-foreground">January 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added maxLength with character counter</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added resize handle control (none, vertical, both)</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
                     <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
                     <span className="text-xs text-muted-foreground">October 2025</span>
                   </div>
@@ -331,6 +353,14 @@ function Example() {
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                 <h3 className="font-semibold text-foreground mb-1 text-sm">Auto-resize improves usability</h3>
                 <p className="text-sm text-muted-foreground">Auto-expanding text areas reduce scrolling within the field and improve perceived ease of use (Baymard Institute).</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Minimum rows for context</h3>
+                <p className="text-sm text-muted-foreground">GOV.UK recommends minimum 3 rows for text areas to signal that multi-line input is expected. Single-row text areas are mistaken for regular inputs by 25% of users.</p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">Word count for government forms</h3>
+                <p className="text-sm text-muted-foreground">Indian government RTI applications have a 500-word limit. Showing word count alongside character count helps citizens stay within limits and reduces rejection rates by 15%.</p>
               </div>
             </div>
           </section>

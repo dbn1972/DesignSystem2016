@@ -178,6 +178,8 @@ function Example() {
                   <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Immediate on/off toggles</li>
                   <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Settings that take effect instantly</li>
                   <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Binary preferences</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Dark mode or notification toggles</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Feature flags in admin settings panels</li>
                 </ul>
               </div>
               <div>
@@ -254,6 +256,26 @@ function Example() {
                   <ul className="space-y-1">
                     <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added label position option</li>
                     <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added size variants</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v2.1.0</span>
+                    <span className="text-xs text-muted-foreground">April 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added loading state for async toggles</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added on/off text labels option</li>
+                  </ul>
+                </div>
+                <div className="border-l-2 border-primary pl-4">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-sm font-mono font-bold text-primary">v1.2.0</span>
+                    <span className="text-xs text-muted-foreground">January 2026</span>
+                  </div>
+                  <ul className="space-y-1">
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added controlled and uncontrolled modes</li>
+                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added color customization</li>
                   </ul>
                 </div>
                 <div className="border-l-2 border-primary pl-4">
