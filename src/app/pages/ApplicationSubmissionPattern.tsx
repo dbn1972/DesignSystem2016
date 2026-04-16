@@ -1,4 +1,5 @@
-import { FileText, CheckCircle, AlertCircle, Info, Clock, Users, Shield, Eye, Globe, Code, BarChart3, AlertTriangle, ChevronRight, Download, Upload, Edit, Search, Calendar, Phone, Mail, User, MapPin, FileCheck, ArrowRight, XCircle, Smartphone, Check, Minus, Hash, Image as ImageIcon, Lock, Zap, Database, GitBranch, Settings, Headphones } from "lucide-react";
+import React from "react";
+import { FileText, CheckCircle, AlertCircle, Info, Clock, Users, Shield, Eye, Globe, Code, BarChart3, AlertTriangle, ChevronRight, Download, Upload, Edit, Search, Calendar, Phone, Mail, User, MapPin, FileCheck, ArrowRight, XCircle, Smartphone, Check, Minus, Hash, Image as ImageIcon, Lock, Zap, Database, GitBranch, Settings, Headphones, Copy } from "lucide-react";
 
 export default function ApplicationSubmissionPattern() {
   return (
@@ -91,6 +92,7 @@ export default function ApplicationSubmissionPattern() {
             <AccessibilityGuidance />
             <ImplementationNotes />
             <GovernanceConformance />
+            <AppSubmissionCodeDownloads />
           </div>
 
           {/* Sidebar - 3 columns */}
@@ -1356,6 +1358,339 @@ function GovernanceConformance() {
     </section>
   );
 }
+
+
+// ==================== CODE DOWNLOADS ====================
+
+const APPSUB_REACT_CODE = `import React, { useState, useCallback } from 'react';
+
+type Step = 'personal' | 'documents' | 'review' | 'submitted';
+
+interface FormData {
+  fullName: string; fatherName: string; dob: string; gender: string;
+  aadhaar: string; mobile: string; email: string;
+  address: string; pincode: string; state: string; district: string;
+  purpose: string; remarks: string;
+}
+
+const EMPTY: FormData = { fullName:'', fatherName:'', dob:'', gender:'', aadhaar:'', mobile:'', email:'', address:'', pincode:'', state:'', district:'', purpose:'', remarks:'' };
+
+export function ApplicationSubmissionPage() {
+  const [step, setStep] = useState<Step>('personal');
+  const [form, setForm] = useState<FormData>(EMPTY);
+  const [files, setFiles] = useState<File[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [appId, setAppId] = useState('');
+
+  const update = (field: keyof FormData, value: string) => setForm(prev => ({...prev, [field]: value}));
+
+  const validatePersonal = useCallback(() => {
+    if (!form.fullName.trim()) return 'Full name is required';
+    if (!form.dob) return 'Date of birth is required';
+    if (!form.mobile || !/^[6-9]\\d{9}$/.test(form.mobile)) return 'Valid 10-digit mobile required';
+    if (!form.address.trim()) return 'Address is required';
+    if (!form.pincode || !/^\\d{6}$/.test(form.pincode)) return 'Valid 6-digit PIN required';
+    return '';
+  }, [form]);
+
+  const handleNext = () => {
+    const err = validatePersonal();
+    if (err) { setError(err); return; }
+    setError(''); setStep('documents');
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const newFiles = Array.from(e.target.files).filter(f => f.size <= 5 * 1024 * 1024);
+      setFiles(prev => [...prev, ...newFiles]);
+    }
+  };
+
+  const handleSubmit = async () => {
+    setLoading(true); setError('');
+    try {
+      const fd = new FormData();
+      Object.entries(form).forEach(([k,v]) => fd.append(k, v));
+      files.forEach(f => fd.append('documents', f));
+      const res = await fetch('/api/applications/submit', { method: 'POST', body: fd });
+      if (!res.ok) { const d = await res.json(); setError(d.message || 'Submission failed'); return; }
+      const data = await res.json();
+      setAppId(data.applicationId || 'APP-' + Date.now().toString(36).toUpperCase());
+      setStep('submitted');
+    } catch { setError('Network error. Please try again.'); }
+    finally { setLoading(false); }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-2xl bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Application Submission</h1>
+        <p className="text-sm text-muted-foreground mb-6">Government service application form</p>
+        <div className="flex gap-1 mb-6">{['personal','documents','review','submitted'].map((s,i) => (<div key={s} className={\`flex-1 h-1.5 rounded \${['personal','documents','review','submitted'].indexOf(step) >= i ? 'bg-primary' : 'bg-muted'}\`} />))}</div>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {step === 'personal' && (
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div><label className="block text-sm font-medium mb-1">Full Name *</label><input value={form.fullName} onChange={e => update('fullName', e.target.value)} placeholder="As per Aadhaar" className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+              <div><label className="block text-sm font-medium mb-1">Father's Name</label><input value={form.fatherName} onChange={e => update('fatherName', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            </div>
+            <div className="grid grid-cols-3 gap-4">
+              <div><label className="block text-sm font-medium mb-1">Date of Birth *</label><input type="date" value={form.dob} onChange={e => update('dob', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+              <div><label className="block text-sm font-medium mb-1">Gender</label><select value={form.gender} onChange={e => update('gender', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></div>
+              <div><label className="block text-sm font-medium mb-1">Mobile *</label><input type="tel" value={form.mobile} onChange={e => update('mobile', e.target.value)} placeholder="98765 43210" maxLength={10} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            </div>
+            <div><label className="block text-sm font-medium mb-1">Address *</label><textarea value={form.address} onChange={e => update('address', e.target.value)} rows={2} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div className="grid grid-cols-3 gap-4">
+              <div><label className="block text-sm font-medium mb-1">PIN Code *</label><input value={form.pincode} onChange={e => update('pincode', e.target.value)} maxLength={6} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+              <div><label className="block text-sm font-medium mb-1">State</label><input value={form.state} onChange={e => update('state', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+              <div><label className="block text-sm font-medium mb-1">District</label><input value={form.district} onChange={e => update('district', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            </div>
+            <button onClick={handleNext} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Continue to Documents</button>
+          </div>
+        )}
+        {step === 'documents' && (
+          <div className="space-y-4">
+            <div className="border-2 border-dashed border-border rounded-xl p-8 text-center">
+              <input type="file" multiple accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileChange} className="hidden" id="fileInput" />
+              <label htmlFor="fileInput" className="cursor-pointer"><div className="text-muted-foreground mb-2">Drop files or click to upload</div><div className="text-xs text-muted-foreground">PDF, JPG, PNG — Max 5MB each</div></label>
+            </div>
+            {files.length > 0 && <div className="space-y-2">{files.map((f,i) => <div key={i} className="flex items-center justify-between p-3 bg-muted rounded-lg text-sm"><span>{f.name}</span><button onClick={() => setFiles(prev => prev.filter((_,j) => j !== i))} className="text-red-500 text-xs">Remove</button></div>)}</div>}
+            <div><label className="block text-sm font-medium mb-1">Purpose</label><input value={form.purpose} onChange={e => update('purpose', e.target.value)} placeholder="Purpose of application" className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div className="flex gap-3">
+              <button onClick={() => setStep('personal')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+              <button onClick={() => { setError(''); setStep('review'); }} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Review</button>
+            </div>
+          </div>
+        )}
+        {step === 'review' && (
+          <div className="space-y-4">
+            <div className="bg-muted rounded-xl p-6 space-y-3 text-sm">
+              <div className="grid grid-cols-2 gap-2">{Object.entries(form).filter(([,v]) => v).map(([k,v]) => <div key={k}><span className="text-muted-foreground capitalize">{k.replace(/([A-Z])/g,' $1')}: </span><span className="font-semibold">{v}</span></div>)}</div>
+              {files.length > 0 && <div><span className="text-muted-foreground">Documents: </span><span className="font-semibold">{files.length} file(s)</span></div>}
+            </div>
+            <div className="flex gap-3">
+              <button onClick={() => setStep('documents')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+              <button onClick={handleSubmit} disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Submitting...' : 'Submit Application'}</button>
+            </div>
+          </div>
+        )}
+        {step === 'submitted' && (
+          <div className="text-center py-6 space-y-4">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+            <h2 className="text-xl font-bold text-foreground">Application Submitted</h2>
+            <p className="text-muted-foreground">Your application ID: <span className="font-bold text-foreground">{appId}</span></p>
+            <p className="text-sm text-muted-foreground">You will receive updates via SMS and email.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const APPSUB_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-application-submission',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-2xl bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold mb-6">Application Submission</h1>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <form *ngIf="step !== 'submitted'" [formGroup]="form" (ngSubmit)="submit()">
+          <div *ngIf="step === 'personal'" class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <div><label class="block text-sm font-medium mb-1">Full Name *</label><input formControlName="fullName" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+              <div><label class="block text-sm font-medium mb-1">Mobile *</label><input formControlName="mobile" maxlength="10" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            </div>
+            <div><label class="block text-sm font-medium mb-1">Address *</label><textarea formControlName="address" rows="2" class="w-full px-4 py-3 border border-border rounded-lg"></textarea></div>
+            <div class="grid grid-cols-2 gap-4">
+              <div><label class="block text-sm font-medium mb-1">PIN Code *</label><input formControlName="pincode" maxlength="6" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+              <div><label class="block text-sm font-medium mb-1">Date of Birth *</label><input type="date" formControlName="dob" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            </div>
+            <button type="button" (click)="nextStep()" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Continue</button>
+          </div>
+          <div *ngIf="step === 'documents'" class="space-y-4">
+            <div class="border-2 border-dashed border-border rounded-xl p-8 text-center">
+              <input type="file" multiple (change)="onFileChange($event)" class="hidden" id="fileInput" />
+              <label for="fileInput" class="cursor-pointer text-muted-foreground">Drop files or click to upload</label>
+            </div>
+            <div class="flex gap-3">
+              <button type="button" (click)="step='personal'" class="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+              <button type="button" (click)="step='review'" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Review</button>
+            </div>
+          </div>
+          <div *ngIf="step === 'review'" class="space-y-4">
+            <div class="bg-muted rounded-xl p-6 text-sm">Review your details before submitting.</div>
+            <div class="flex gap-3">
+              <button type="button" (click)="step='documents'" class="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+              <button type="submit" [disabled]="loading" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Submitting...' : 'Submit' }}</button>
+            </div>
+          </div>
+        </form>
+        <div *ngIf="step === 'submitted'" class="text-center py-8">
+          <h2 class="text-xl font-bold mb-2">Application Submitted</h2>
+          <p class="text-muted-foreground">ID: {{ appId }}</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class ApplicationSubmissionComponent {
+  form = new FormGroup({
+    fullName: new FormControl('', Validators.required),
+    mobile: new FormControl('', [Validators.required, Validators.pattern(/^[6-9]\\d{9}$/)]),
+    address: new FormControl('', Validators.required),
+    pincode: new FormControl('', [Validators.required, Validators.pattern(/^\\d{6}$/)]),
+    dob: new FormControl('', Validators.required),
+  });
+  step: 'personal'|'documents'|'review'|'submitted' = 'personal';
+  files: File[] = []; loading = false; error = ''; appId = '';
+
+  nextStep() { if (this.form.invalid) { this.error = 'Fill required fields'; return; } this.error = ''; this.step = 'documents'; }
+  onFileChange(e: Event) { const input = e.target as HTMLInputElement; if (input.files) this.files.push(...Array.from(input.files)); }
+  async submit() {
+    this.loading = true; this.error = '';
+    try {
+      const res = await fetch('/api/applications/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(this.form.value) });
+      if (!res.ok) { this.error = 'Failed'; return; }
+      this.appId = 'APP-' + Date.now().toString(36).toUpperCase();
+      this.step = 'submitted';
+    } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+}`;
+
+const APPSUB_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application Submission — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 40rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    input, textarea, select { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; margin-bottom: 1rem; }
+    input:focus, textarea:focus { border-color: #005196; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:disabled { opacity: 0.6; }
+    .btn-outline { background: #fff; color: #111; border: 1px solid #d1d5db; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .upload-area { border: 2px dashed #d1d5db; border-radius: 0.75rem; padding: 2rem; text-align: center; margin-bottom: 1rem; cursor: pointer; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+    .actions { display: flex; gap: 0.75rem; }
+    .actions > * { flex: 1; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Application Submission</h1>
+    <div id="error" class="error" role="alert"></div>
+    <div id="step1">
+      <div class="row"><div><label>Full Name *</label><input id="fullName" required /></div><div><label>Mobile *</label><input id="mobile" maxlength="10" required /></div></div>
+      <label>Address *</label><textarea id="address" rows="2" required></textarea>
+      <div class="row3"><div><label>PIN Code *</label><input id="pincode" maxlength="6" required /></div><div><label>DOB *</label><input type="date" id="dob" required /></div><div><label>Gender</label><select id="gender"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></div></div>
+      <button class="btn" onclick="toStep2()">Continue to Documents</button>
+    </div>
+    <div id="step2" class="hidden">
+      <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+        <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.png" class="hidden" onchange="onFiles(this)" />
+        <div>Click to upload documents (PDF, JPG, PNG)</div>
+      </div>
+      <div id="fileList"></div>
+      <div class="actions"><button class="btn btn-outline" onclick="showStep('step1')">Back</button><button class="btn" onclick="showStep('step3')">Review</button></div>
+    </div>
+    <div id="step3" class="hidden">
+      <div id="reviewData" style="background:#f3f4f6;border-radius:0.75rem;padding:1.5rem;margin-bottom:1rem;font-size:0.875rem"></div>
+      <div class="actions"><button class="btn btn-outline" onclick="showStep('step2')">Back</button><button class="btn" id="submitBtn" onclick="submitApp()">Submit Application</button></div>
+    </div>
+    <div id="step4" class="hidden success">
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem">Application Submitted</h2>
+      <p style="color:#6b7280" id="appIdText"></p>
+    </div>
+  </div>
+  <script>
+    function showError(m){const e=document.getElementById('error');e.textContent=m;e.style.display='block';}
+    function hideError(){document.getElementById('error').style.display='none';}
+    function showStep(id){['step1','step2','step3','step4'].forEach(s=>document.getElementById(s).classList.add('hidden'));document.getElementById(id).classList.remove('hidden');}
+    function toStep2(){hideError();if(!document.getElementById('fullName').value||!document.getElementById('mobile').value||!document.getElementById('address').value){showError('Fill required fields');return;}showStep('step2');}
+    function onFiles(input){const list=document.getElementById('fileList');list.innerHTML='';Array.from(input.files).forEach(f=>{list.innerHTML+='<div style="padding:0.5rem;background:#f3f4f6;border-radius:0.5rem;margin-bottom:0.5rem;font-size:0.875rem">'+f.name+'</div>';});}
+    function submitApp(){
+      hideError();
+      const review=document.getElementById('reviewData');
+      review.innerHTML='<strong>Name:</strong> '+document.getElementById('fullName').value+'<br><strong>Mobile:</strong> '+document.getElementById('mobile').value+'<br><strong>Address:</strong> '+document.getElementById('address').value;
+      const btn=document.getElementById('submitBtn');
+      btn.disabled=true;btn.textContent='Submitting...';
+      setTimeout(()=>{
+        const id='APP-'+Date.now().toString(36).toUpperCase();
+        document.getElementById('appIdText').textContent='Application ID: '+id;
+        showStep('step4');
+        btn.disabled=false;btn.textContent='Submit Application';
+      },1500);
+    }
+  </script>
+</body>
+</html>`;
+
+function AppSubmissionCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Multi-step + Upload', code: APPSUB_REACT_CODE, filename: 'ApplicationSubmissionPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone + Reactive Forms', code: APPSUB_ANGULAR_CODE, filename: 'application-submission.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: APPSUB_HTML_CODE, filename: 'application-submission.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Application Submission implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== SIDEBAR COMPONENTS ====================
 
