@@ -1,4 +1,5 @@
-import { Users, HelpCircle, CheckCircle, Clock, Upload, FileText, Shield, Globe, Code, BarChart3, AlertTriangle, Info, UserCheck, Smartphone, MapPin, Phone, Mail, ArrowRight, Check, ChevronRight, Eye, Target, Zap, AlertCircle, MessageSquare, Edit, Download, ExternalLink, Key, Fingerprint, Camera, Building2, Home, UserPlus, ClipboardCheck, Share2, RefreshCw, Printer } from "lucide-react";
+import React from "react";
+import { Users, HelpCircle, CheckCircle, Clock, Upload, FileText, Shield, Globe, Code, BarChart3, AlertTriangle, Info, UserCheck, Smartphone, MapPin, Phone, Mail, ArrowRight, Check, ChevronRight, Eye, Target, Zap, AlertCircle, MessageSquare, Edit, Download, ExternalLink, Key, Fingerprint, Camera, Building2, Home, UserPlus, ClipboardCheck, Share2, RefreshCw, Printer, Copy } from "lucide-react";
 
 // UX4G Service Pattern Library - Assisted Offline-to-Online Journeys
 export default function AssistedOfflineOnlinePattern() {
@@ -92,6 +93,7 @@ export default function AssistedOfflineOnlinePattern() {
             <ContentGuidance />
             <ImplementationNotes />
             <GovernanceConformance />
+            <AssistedCodeDownloads />
           </div>
 
           {/* Sidebar - 3 columns */}
@@ -1641,6 +1643,245 @@ function GovernanceConformance() {
     </section>
   );
 }
+
+
+// ==================== CODE DOWNLOADS ====================
+
+const ASSISTED_REACT_CODE = `import React, { useState } from 'react';
+
+type Channel = 'online' | 'csc' | 'kiosk' | 'phone';
+type Step = 'channel' | 'form' | 'verify' | 'done';
+
+export function AssistedOfflineOnlinePage() {
+  const [channel, setChannel] = useState<Channel>('online');
+  const [step, setStep] = useState<Step>('channel');
+  const [form, setForm] = useState({ name: '', aadhaar: '', mobile: '', service: '' });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [refId, setRefId] = useState('');
+
+  const channels: { id: Channel; label: string; desc: string; icon: string }[] = [
+    { id: 'online', label: 'Self-Service Online', desc: 'Apply from home via web portal', icon: '🌐' },
+    { id: 'csc', label: 'Common Service Centre', desc: 'Visit nearest CSC with operator assistance', icon: '🏢' },
+    { id: 'kiosk', label: 'Government Kiosk', desc: 'Self-service kiosk at government office', icon: '🖥️' },
+    { id: 'phone', label: 'Phone Helpline', desc: 'Call 1800-XXX-XXXX for assisted filing', icon: '📞' },
+  ];
+
+  const handleSubmit = async () => {
+    if (!form.name || !form.mobile) { setError('Name and mobile required'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/services/assisted-submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, channel }),
+      });
+      if (!res.ok) { setError('Submission failed'); return; }
+      setRefId('REF-' + Date.now().toString(36).toUpperCase());
+      setStep('done');
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Apply for Service</h1>
+        <p className="text-sm text-muted-foreground mb-6">Choose how you want to apply</p>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {step === 'channel' && (
+          <div className="space-y-3">
+            {channels.map(c => (
+              <button key={c.id} onClick={() => { setChannel(c.id); setStep('form'); }} className={\`w-full p-4 text-left rounded-xl border-2 flex items-center gap-4 transition-colors \${channel === c.id ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}\`}>
+                <span className="text-2xl">{c.icon}</span>
+                <div><div className="font-semibold text-sm">{c.label}</div><div className="text-xs text-muted-foreground">{c.desc}</div></div>
+              </button>
+            ))}
+          </div>
+        )}
+        {step === 'form' && (
+          <div className="space-y-4">
+            <div className="p-3 bg-muted rounded-lg text-sm"><span className="text-muted-foreground">Channel:</span> <span className="font-semibold">{channels.find(c => c.id === channel)?.label}</span></div>
+            <div><label className="block text-sm font-medium mb-1">Full Name *</label><input value={form.name} onChange={e => setForm(f => ({...f, name: e.target.value}))} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div><label className="block text-sm font-medium mb-1">Aadhaar Number</label><input value={form.aadhaar} onChange={e => setForm(f => ({...f, aadhaar: e.target.value}))} placeholder="XXXX XXXX XXXX" maxLength={14} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div><label className="block text-sm font-medium mb-1">Mobile *</label><input type="tel" value={form.mobile} onChange={e => setForm(f => ({...f, mobile: e.target.value}))} maxLength={10} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div><label className="block text-sm font-medium mb-1">Service</label><select value={form.service} onChange={e => setForm(f => ({...f, service: e.target.value}))} className="w-full px-4 py-3 border border-border rounded-lg"><option value="">Select service</option><option>Birth Certificate</option><option>Caste Certificate</option><option>Income Certificate</option><option>Domicile Certificate</option></select></div>
+            <div className="flex gap-3">
+              <button onClick={() => setStep('channel')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+              <button onClick={handleSubmit} disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Submitting...' : 'Submit'}</button>
+            </div>
+          </div>
+        )}
+        {step === 'done' && (
+          <div className="text-center py-6 space-y-4">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+            <h2 className="text-xl font-bold text-foreground">Application Submitted</h2>
+            <p className="text-muted-foreground">Reference: <span className="font-bold">{refId}</span></p>
+            <p className="text-sm text-muted-foreground">Track status at any channel — online, CSC, or helpline.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const ASSISTED_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-assisted-offline-online',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold mb-6">Apply for Service</h1>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="step === 'channel'" class="space-y-3">
+          <button *ngFor="let c of channels" (click)="channel=c.id;step='form'" [class]="'w-full p-4 text-left rounded-xl border-2 flex items-center gap-4 '+(channel===c.id?'border-primary bg-primary/5':'border-border')">
+            <span class="text-2xl">{{ c.icon }}</span>
+            <div><div class="font-semibold text-sm">{{ c.label }}</div><div class="text-xs text-muted-foreground">{{ c.desc }}</div></div>
+          </button>
+        </div>
+        <form *ngIf="step === 'form'" [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+          <div><label class="block text-sm font-medium mb-1">Name *</label><input formControlName="name" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <div><label class="block text-sm font-medium mb-1">Mobile *</label><input formControlName="mobile" maxlength="10" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <div><label class="block text-sm font-medium mb-1">Service</label><select formControlName="service" class="w-full px-4 py-3 border border-border rounded-lg"><option value="">Select</option><option>Birth Certificate</option><option>Caste Certificate</option></select></div>
+          <div class="flex gap-3"><button type="button" (click)="step='channel'" class="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button type="submit" [disabled]="loading" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Submitting...' : 'Submit' }}</button></div>
+        </form>
+        <div *ngIf="step === 'done'" class="text-center py-8">
+          <h2 class="text-xl font-bold mb-2">Submitted</h2>
+          <p class="text-muted-foreground">Ref: {{ refId }}</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class AssistedOfflineOnlineComponent {
+  channels = [
+    { id: 'online', label: 'Self-Service Online', desc: 'Apply from home', icon: '🌐' },
+    { id: 'csc', label: 'Common Service Centre', desc: 'Visit nearest CSC', icon: '🏢' },
+    { id: 'kiosk', label: 'Government Kiosk', desc: 'Self-service kiosk', icon: '🖥️' },
+    { id: 'phone', label: 'Phone Helpline', desc: 'Call 1800-XXX-XXXX', icon: '📞' },
+  ];
+  form = new FormGroup({ name: new FormControl('', Validators.required), mobile: new FormControl('', Validators.required), service: new FormControl('') });
+  step = 'channel'; channel = 'online'; loading = false; error = ''; refId = '';
+  async submit() {
+    if (this.form.invalid) { this.error = 'Fill required fields'; return; }
+    this.loading = true; this.error = '';
+    try { await fetch('/api/services/assisted-submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...this.form.value, channel: this.channel }) }); this.refId = 'REF-' + Date.now().toString(36).toUpperCase(); this.step = 'done'; } catch { this.error = 'Network error'; } finally { this.loading = false; }
+  }
+}`;
+
+const ASSISTED_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assisted Offline-to-Online — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 32rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .channel-btn { width: 100%; padding: 1rem; text-align: left; border: 2px solid #e5e7eb; border-radius: 0.75rem; background: #fff; cursor: pointer; display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; }
+    .channel-btn:hover { border-color: rgba(0,81,150,0.5); }
+    .channel-btn .icon { font-size: 1.5rem; }
+    .channel-btn .label { font-weight: 600; font-size: 0.875rem; }
+    .channel-btn .desc { font-size: 0.75rem; color: #6b7280; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    input, select { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; margin-bottom: 1rem; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn-outline { background: #fff; color: #111; border: 1px solid #d1d5db; }
+    .actions { display: flex; gap: 0.75rem; } .actions > * { flex: 1; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Apply for Service</h1>
+    <div id="stepChannel">
+      <button class="channel-btn" onclick="pickChannel('online')"><span class="icon">🌐</span><div><div class="label">Self-Service Online</div><div class="desc">Apply from home</div></div></button>
+      <button class="channel-btn" onclick="pickChannel('csc')"><span class="icon">🏢</span><div><div class="label">Common Service Centre</div><div class="desc">Visit nearest CSC</div></div></button>
+      <button class="channel-btn" onclick="pickChannel('kiosk')"><span class="icon">🖥️</span><div><div class="label">Government Kiosk</div><div class="desc">Self-service kiosk</div></div></button>
+      <button class="channel-btn" onclick="pickChannel('phone')"><span class="icon">📞</span><div><div class="label">Phone Helpline</div><div class="desc">Call 1800-XXX-XXXX</div></div></button>
+    </div>
+    <div id="stepForm" class="hidden">
+      <label>Full Name *</label><input id="name" required />
+      <label>Mobile *</label><input id="mobile" maxlength="10" required />
+      <label>Service</label><select id="service"><option value="">Select</option><option>Birth Certificate</option><option>Caste Certificate</option><option>Income Certificate</option></select>
+      <div class="actions"><button class="btn btn-outline" onclick="showStep('stepChannel')">Back</button><button class="btn" onclick="submitForm()">Submit</button></div>
+    </div>
+    <div id="stepDone" class="hidden success">
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem">Application Submitted</h2>
+      <p style="color:#6b7280" id="refText"></p>
+    </div>
+  </div>
+  <script>
+    let channel='';
+    function showStep(id){['stepChannel','stepForm','stepDone'].forEach(s=>document.getElementById(s).classList.add('hidden'));document.getElementById(id).classList.remove('hidden');}
+    function pickChannel(c){channel=c;showStep('stepForm');}
+    function submitForm(){
+      if(!document.getElementById('name').value||!document.getElementById('mobile').value){alert('Fill required fields');return;}
+      const ref='REF-'+Date.now().toString(36).toUpperCase();
+      document.getElementById('refText').textContent='Reference: '+ref+' (via '+channel+')';
+      showStep('stepDone');
+    }
+  </script>
+</body>
+</html>`;
+
+function AssistedCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Multi-channel', code: ASSISTED_REACT_CODE, filename: 'AssistedOfflineOnlinePage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: ASSISTED_ANGULAR_CODE, filename: 'assisted-offline-online.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: ASSISTED_HTML_CODE, filename: 'assisted-offline-online.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Assisted Offline-to-Online implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== SIDEBAR ====================
 
