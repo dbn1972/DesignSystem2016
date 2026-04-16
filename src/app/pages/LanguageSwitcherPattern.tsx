@@ -61,7 +61,7 @@ export default function LanguageSwitcherPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 Try different language switcher variants. Select a variant to see it in action.
@@ -252,7 +252,7 @@ export default function LanguageSwitcherPattern() {
             )}
 
             {/* Current Selection */}
-            <div className="mt-6 bg-green-50 border-2 border-green-200 rounded-lg p-6">
+            <div className="mt-6 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
               <div className="flex items-center gap-3">
                 <CheckCircle size={24} className="text-green-600" />
                 <div>
@@ -324,7 +324,7 @@ export default function LanguageSwitcherPattern() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Best Practices</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Show native script names</li>

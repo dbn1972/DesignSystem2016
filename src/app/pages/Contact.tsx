@@ -265,7 +265,7 @@ export default function Contact() {
                     </div>
 
                     {/* Privacy Notice */}
-                    <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
+                    <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4">
                       <div className="flex items-start gap-3">
                         <Info size={18} className="text-blue-600 flex-shrink-0 mt-0.5" />
                         <div className="text-sm text-muted-foreground">
@@ -477,7 +477,7 @@ export default function Contact() {
                   priority="low"
                 />
               </div>
-              <div className="mt-4 pt-4 border-t border-orange-200 text-xs text-muted-foreground">
+              <div className="mt-4 pt-4 border-t border-orange-200 dark:border-orange-800 text-xs text-muted-foreground">
                 Response times may vary during peak periods or public holidays.
               </div>
             </div>
@@ -577,7 +577,7 @@ function SuccessMessage({ email }: { email: string }) {
         Thank you for contacting us. A confirmation has been sent to{' '}
         <span className="font-bold text-primary">{email}</span>.
       </p>
-      <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 max-w-md mx-auto text-left">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 max-w-md mx-auto text-left">
         <h4 className="font-bold text-foreground mb-3">What happens next?</h4>
         <ul className="space-y-2 text-sm text-muted-foreground">
           <li className="flex items-start gap-2">
@@ -615,7 +615,7 @@ function QuickContactItem({
 }) {
   return (
     <div className="flex items-start gap-3">
-      <div className="p-2 bg-blue-50 rounded-lg flex-shrink-0">
+      <div className="p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex-shrink-0">
         {icon}
       </div>
       <div>

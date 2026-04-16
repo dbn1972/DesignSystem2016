@@ -66,7 +66,7 @@ export default function SmartSuggestionsPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6 mb-6">
+            <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 Type in the fields below to see context-aware suggestions based on popular choices and smart prediction.
@@ -108,7 +108,7 @@ export default function SmartSuggestionsPattern() {
                             setOccupation(occ.value);
                             setShowSuggestions(false);
                           }}
-                          className="w-full px-4 py-3 text-left hover:bg-blue-50 border-b border-border last:border-b-0 flex items-center justify-between"
+                          className="w-full px-4 py-3 text-left hover:bg-blue-50 dark:bg-blue-950/30 border-b border-border last:border-b-0 flex items-center justify-between"
                         >
                           <div>
                             <div className="font-bold text-foreground">{occ.value}</div>
@@ -156,7 +156,7 @@ export default function SmartSuggestionsPattern() {
                   {showDistrictSuggestions && (
                     <div className="absolute z-10 w-full mt-2 bg-card border-2 border-border rounded-lg shadow-lg max-h-80 overflow-y-auto">
                       {!district && (
-                        <div className="px-4 py-2 bg-blue-50 border-b-2 border-blue-200 text-xs text-muted-foreground font-bold">
+                        <div className="px-4 py-2 bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 text-xs text-muted-foreground font-bold">
                           POPULAR DISTRICTS
                         </div>
                       )}
@@ -167,7 +167,7 @@ export default function SmartSuggestionsPattern() {
                             setDistrict(d.value);
                             setShowDistrictSuggestions(false);
                           }}
-                          className="w-full px-4 py-3 text-left hover:bg-blue-50 border-b border-border last:border-b-0"
+                          className="w-full px-4 py-3 text-left hover:bg-blue-50 dark:bg-blue-950/30 border-b border-border last:border-b-0"
                         >
                           <div className="flex items-center justify-between">
                             <div>
@@ -367,7 +367,7 @@ const suggestions = districts.filter(
                 </div>
               </div>
 
-              <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+              <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">When to Use</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Fields with known value sets</li>

@@ -138,7 +138,7 @@ function Example() {
 }`,
           preview: (
             <ShowHidePreview above="md">
-              <div className="p-4 bg-blue-50 border border-blue-200 rounded">
+              <div className="p-4 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 rounded">
                 <p className="text-blue-900 font-medium">Desktop Feature</p>
                 <p className="text-sm text-blue-700">This content is hidden on mobile, visible on tablet and desktop.</p>
               </div>
@@ -166,7 +166,7 @@ function Example() {
 }`,
           preview: (
             <ShowHidePreview above="xl">
-              <div className="p-4 bg-green-50 border border-green-200 rounded">
+              <div className="p-4 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded">
                 <h4 className="text-green-900 font-semibold mb-2">Additional Resources</h4>
                 <ul className="text-sm text-green-700 space-y-1">
                   <li>Documentation</li>
@@ -197,13 +197,13 @@ function Example() {
           preview: (
             <div className="space-y-4">
               <ShowHidePreview below="md">
-                <div className="p-4 bg-purple-50 border border-purple-200 rounded">
+                <div className="p-4 bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800 rounded">
                   <p className="text-purple-900 font-medium">Mobile View</p>
                   <p className="text-sm text-purple-700">Visible on mobile only</p>
                 </div>
               </ShowHidePreview>
               <ShowHidePreview above="lg">
-                <div className="p-4 bg-indigo-50 border border-indigo-200 rounded">
+                <div className="p-4 bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800 rounded">
                   <p className="text-indigo-900 font-medium">Desktop View</p>
                   <p className="text-sm text-indigo-700">Visible on desktop only</p>
                 </div>
@@ -331,7 +331,7 @@ function Example() {
                 </button>
               </ShowHidePreview>
               <ShowHidePreview className="hidden print:block">
-                <div className="p-4 bg-yellow-50 border border-yellow-200 rounded">
+                <div className="p-4 bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800 rounded">
                   <p className="text-sm text-yellow-900">Printed on: {new Date().toLocaleDateString()}</p>
                   <p className="text-sm text-yellow-700">https://example.gov/document/123</p>
                 </div>
@@ -684,17 +684,17 @@ export interface ShowHideConfig {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
+                  <div className="p-3 bg-green-50/50 rounded border border-green-200 dark:border-green-800 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
                   <p className="text-sm text-muted-foreground">Offer show/hide toggle on password fields — it reduces login errors by 30%.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
+                  <div className="p-3 bg-red-50/50 rounded border border-red-200 dark:border-red-800 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use ShowHide for accordion-style content — use Accordion instead.</p>
                 </div>
               </div>

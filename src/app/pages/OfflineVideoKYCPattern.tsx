@@ -72,7 +72,7 @@ export default function OfflineVideoKYCPattern() {
                   without time pressure.
                 </p>
                 <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+                  <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <CheckCircle size={20} className="text-green-600" />
                       When to Use
@@ -85,7 +85,7 @@ export default function OfflineVideoKYCPattern() {
                       <li>• Users need multiple attempts to record</li>
                     </ul>
                   </div>
-                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+                  <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <AlertCircle size={20} className="text-red-600" />
                       When Not to Use
@@ -279,7 +279,7 @@ export default function OfflineVideoKYCPattern() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Accessibility Considerations
               </h2>
-              <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-8">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">For Users with Disabilities</h3>
@@ -542,10 +542,10 @@ function RequirementCard({ title, requirements, color }: {
   color: string;
 }) {
   const colors = {
-    blue: 'bg-blue-50 border-blue-300',
-    green: 'bg-green-50 border-green-300',
-    purple: 'bg-purple-50 border-purple-300',
-    orange: 'bg-orange-50 border-orange-300'
+    blue: 'bg-blue-50 dark:bg-blue-950/30 border-blue-300',
+    green: 'bg-green-50 dark:bg-green-950/30 border-green-300',
+    purple: 'bg-purple-50 dark:bg-purple-950/30 border-purple-300',
+    orange: 'bg-orange-50 dark:bg-orange-950/30 border-orange-300'
   };
 
   return (
@@ -582,7 +582,7 @@ function TechSpec({ title, specs }: { title: string; specs: string[] }) {
 function QuickInfo() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden sticky top-24">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Info</h3>
       </div>
       <div className="p-4 space-y-4 text-sm">
@@ -610,7 +610,7 @@ function QuickInfo() {
 function RelatedPatterns() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
@@ -633,7 +633,7 @@ function RelatedPatterns() {
 
 function BestPractices() {
   return (
-    <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
+    <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-4">
       <h3 className="font-bold text-foreground text-sm mb-3">Best Practices</h3>
       <ul className="space-y-2 text-xs text-muted-foreground">
         <li className="flex items-start gap-2">

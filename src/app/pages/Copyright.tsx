@@ -81,7 +81,7 @@ function CopyrightNoticeSection() {
                 UX4G Design System is copyright © 2024-2026 Government of India. All rights reserved
                 except as explicitly granted under the terms of the MIT License.
               </p>
-              <div className="bg-card border-2 border-blue-200 rounded-lg p-4 font-mono text-sm text-foreground">
+              <div className="bg-card border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 font-mono text-sm text-foreground">
                 Copyright © 2024-2026 Government of India<br />
                 UX4G Design System<br />
                 Licensed under the MIT License
@@ -240,9 +240,9 @@ function LicenseTermsSection() {
 
 function LicensePermission({ title, color, items }: any) {
   const colorClasses = {
-    green: 'border-green-200 bg-green-50',
-    blue: 'border-blue-200 bg-blue-50',
-    red: 'border-red-200 bg-red-50'
+    green: 'border-green-200 dark:border-green-800 bg-green-50',
+    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50',
+    red: 'border-red-200 dark:border-red-800 bg-red-50'
   };
 
   const iconColor = {
@@ -501,7 +501,7 @@ function ThirdPartyLicensesSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Acknowledgment of Dependencies</h3>
           <p className="text-sm text-muted-foreground mb-4">
             UX4G Design System is built on top of several excellent open source projects.
@@ -600,7 +600,7 @@ function GovernmentBrandingSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <AlertCircle className="text-orange-600 flex-shrink-0 mt-1" size={24} />
             <div>
@@ -615,7 +615,7 @@ function GovernmentBrandingSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
+          <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <AlertCircle className="text-red-600" size={20} />
               Restricted Symbols
@@ -648,7 +648,7 @@ function GovernmentBrandingSection() {
             </ul>
           </div>
 
-          <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
+          <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <CheckCircle className="text-green-600" size={20} />
               Permitted Use
@@ -728,7 +728,7 @@ function CommercialUseSection() {
           </div>
         </div>
 
-        <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+        <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Attribution for Commercial Use</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Commercial users <strong>must include attribution</strong> in their products. This can be as simple
@@ -855,7 +855,7 @@ function TrademarkPolicySection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">UX4G Trademark</h3>
           <p className="text-sm text-muted-foreground">
             "UX4G" and "UX4G Design System" are trademarks of the Government of India. While the source code
@@ -864,7 +864,7 @@ function TrademarkPolicySection() {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
+          <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Acceptable Use</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -886,7 +886,7 @@ function TrademarkPolicySection() {
             </ul>
           </div>
 
-          <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
+          <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Unacceptable Use</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">

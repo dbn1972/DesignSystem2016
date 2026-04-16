@@ -65,7 +65,7 @@ function OurPledgeSection() {
         icon={<Heart size={28} />}
       />
 
-      <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-lg p-8">
+      <div className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8">
         <div className="max-w-4xl mx-auto">
           <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
             In the interest of fostering an open and welcoming environment, we as contributors, maintainers, and
@@ -117,7 +117,7 @@ function StandardsSection() {
       />
 
       <div className="mt-8 grid grid-cols-2 gap-6">
-        <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
+        <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 text-lg flex items-center gap-2">
             <CheckCircle className="text-green-600" size={20} />
             Positive Behaviors
@@ -158,7 +158,7 @@ function StandardsSection() {
           </ul>
         </div>
 
-        <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
+        <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 text-lg flex items-center gap-2">
             <XCircle className="text-red-600" size={20} />
             Unacceptable Behaviors
@@ -292,7 +292,7 @@ function UnacceptableBehaviorSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Zero Tolerance Behaviors</h3>
           <p className="text-sm text-muted-foreground mb-4">
             The following behaviors will result in immediate action, including potential ban from the community:
@@ -337,7 +337,7 @@ function UnacceptableBehaviorSection() {
           </div>
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Unprofessional Behaviors</h3>
           <p className="text-sm text-muted-foreground mb-4">
             These behaviors may result in warnings, temporary suspension, or permanent ban depending on severity and repetition:
@@ -482,7 +482,7 @@ function ScopeSection() {
       />
 
       <div className="mt-8 grid grid-cols-2 gap-6">
-        <div className="border-2 border-blue-200 bg-blue-50 rounded-lg p-6">
+        <div className="border-2 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Project Spaces</h3>
           <p className="text-sm text-muted-foreground mb-4">
             This Code of Conduct applies within all UX4G project spaces, including:
@@ -511,7 +511,7 @@ function ScopeSection() {
           </ul>
         </div>
 
-        <div className="border-2 border-purple-200 bg-purple-50 rounded-lg p-6">
+        <div className="border-2 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-950/30 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Public Representation</h3>
           <p className="text-sm text-muted-foreground mb-4">
             This Code of Conduct also applies when representing the project in public spaces:
@@ -591,7 +591,7 @@ function EnforcementSection() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Enforcement Principles</h3>
           <div className="grid grid-cols-3 gap-6 text-sm">
             <div>
@@ -648,13 +648,13 @@ function ReportingSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-8">
           <h3 className="font-bold text-foreground mb-4 text-lg">How to Report</h3>
 
           <div className="space-y-6">
             <div>
               <h4 className="font-semibold text-foreground mb-2">Primary Contact</h4>
-              <div className="bg-card border border-orange-200 rounded-lg p-4">
+              <div className="bg-card border border-orange-200 dark:border-orange-800 rounded-lg p-4">
                 <div className="flex items-center gap-3">
                   <MessageCircle className="text-orange-600" size={24} />
                   <div>
@@ -804,9 +804,9 @@ function ConsequencesSection() {
 
 function ConsequenceLevel({ level, title, color, description }: any) {
   const colorClasses = {
-    yellow: 'bg-yellow-50 border-yellow-300',
-    orange: 'bg-orange-50 border-orange-300',
-    red: 'bg-red-50 border-red-300',
+    yellow: 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-300',
+    orange: 'bg-orange-50 dark:bg-orange-950/30 border-orange-300',
+    red: 'bg-red-50 dark:bg-red-950/30 border-red-300',
     black: 'bg-muted border-gray-400'
   };
 

@@ -98,7 +98,7 @@ export default function CertificateDocumentGuidelines() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         
         {/* Important Notice */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6 mb-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6 mb-8">
           <div className="flex items-start gap-3">
             <AlertCircle size={24} className="text-orange-600 flex-shrink-0" />
             <div>
@@ -215,7 +215,7 @@ export default function CertificateDocumentGuidelines() {
         </div>
 
         {/* Sample Document */}
-        <div className="mt-8 bg-green-50 border-2 border-green-300 rounded-lg p-6">
+        <div className="mt-8 bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
           <div className="flex items-start justify-between">
             <div>
               <h3 className="font-bold text-foreground mb-2 flex items-center gap-2">
@@ -270,9 +270,9 @@ export default function CertificateDocumentGuidelines() {
 
 function TipCard({ icon, title, tips, color }: any) {
   const colors = {
-    green: 'bg-green-50 border-green-300',
-    red: 'bg-red-50 border-red-300',
-    blue: 'bg-blue-50 border-blue-300'
+    green: 'bg-green-50 dark:bg-green-950/30 border-green-300',
+    red: 'bg-red-50 dark:bg-red-950/30 border-red-300',
+    blue: 'bg-blue-50 dark:bg-blue-950/30 border-blue-300'
   };
 
   return (
@@ -341,7 +341,7 @@ function DocumentCard({ document }: any) {
               <XCircle size={18} className="text-red-600" />
               Common Errors to Avoid
             </h4>
-            <div className="bg-red-50 border-2 border-red-300 rounded-lg p-4">
+            <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-4">
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {document.commonErrors.map((error: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2">

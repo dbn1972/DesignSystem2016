@@ -41,7 +41,7 @@ export default function ApplicationSubmissionPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -563,7 +563,7 @@ function PageDesigns() {
                   { label: "Photograph", value: "photo.jpg (320 KB)" }
                 ]}
               />
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start gap-3">
                   <input type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
                   <div className="text-sm text-muted-foreground">
@@ -1090,7 +1090,7 @@ function AccessibilityGuidance() {
         <ModuleHeader title="Multilingual Support" />
         <ModuleContent>
           <div className="space-y-4">
-            <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+            <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
               <div className="flex items-start gap-3 mb-4">
                 <Globe size={24} className="text-purple-600 flex-shrink-0" />
                 <div>
@@ -1379,8 +1379,8 @@ function MetadataPanel() {
 
 function QuickRefPanel() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
@@ -1397,8 +1397,8 @@ function QuickRefPanel() {
 
 function RiskIndicators() {
   return (
-    <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
-      <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3 flex items-center gap-2">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+      <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3 flex items-center gap-2">
         <AlertTriangle size={16} className="text-red-700" />
         <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
@@ -1664,7 +1664,7 @@ function NextStepCard({ icon, title, description }: any) {
 
 function PageAnnotation({ items }: any) {
   return (
-    <div className="mt-4 bg-blue-50 border-l-4 border-blue-600 p-4">
+    <div className="mt-4 bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-4">
       <div className="flex items-start gap-2 mb-2">
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
         <div className="font-bold text-sm text-foreground">Design Annotations</div>
@@ -1731,10 +1731,10 @@ function ValidationRule({ field, rules, trigger, errorMessage }: any) {
 
 function ErrorHandlingBlock({ type, description, example, implementation }: any) {
   return (
-    <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
+    <div className="border-l-4 border-red-600 bg-red-50 dark:bg-red-950/30 p-4 rounded-r-lg">
       <div className="font-bold text-sm text-foreground mb-2">{type}</div>
       <div className="text-sm text-muted-foreground mb-3">{description}</div>
-      <div className="bg-card border border-red-200 rounded p-3 mb-3">
+      <div className="bg-card border border-red-200 dark:border-red-800 rounded p-3 mb-3">
         <div className="text-xs font-medium text-muted-foreground mb-1">Example:</div>
         <div className="text-xs text-foreground italic">"{example}"</div>
       </div>
@@ -1755,14 +1755,14 @@ function PrincipleBlock({ title, good, bad }: any) {
             <CheckCircle size={14} className="text-green-600" />
             <span className="text-xs font-bold text-green-700">Good</span>
           </div>
-          <div className="text-sm text-foreground bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
+          <div className="text-sm text-foreground bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
             <span className="text-xs font-bold text-red-700">Bad</span>
           </div>
-          <div className="text-sm text-foreground bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
+          <div className="text-sm text-foreground bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-2">"{bad}"</div>
         </div>
       </div>
     </div>
@@ -1922,7 +1922,7 @@ function MistakeBlock({ mistake, impact, solution }: any) {
   };
 
   return (
-    <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
+    <div className="border-l-4 border-red-600 bg-red-50 dark:bg-red-950/30 p-4 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
         <div className="font-bold text-sm text-foreground flex-1">{mistake}</div>
         <div className={`px-2 py-1 rounded text-xs font-bold ${impactConfig[impact].bg} ${impactConfig[impact].color} flex-shrink-0 ml-3`}>

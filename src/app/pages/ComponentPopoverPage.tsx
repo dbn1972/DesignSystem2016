@@ -463,7 +463,7 @@ export default function ComponentPopoverPage() {
         {
           title: 'User Profile Card',
           description: 'Rich popover displaying user information with avatar and actions.',
-          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { User } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      placement="bottom"\n      content={\n        <div className="p-4">\n          <div className="flex items-center gap-3 mb-4">\n            <div className="w-12 h-12 bg-[#005196] text-white rounded-full flex items-center justify-center font-semibold">\n              JD\n            </div>\n            <div>\n              <h4 className="font-semibold text-foreground">John Doe</h4>\n              <p className="text-sm text-muted-foreground">john.doe@gov.uk</p>\n            </div>\n          </div>\n          <div className="border-t border-border pt-3 space-y-2">\n            <button className="w-full text-left px-3 py-2 text-sm text-muted-foreground hover:bg-muted rounded">\n              View Profile\n            </button>\n            <button className="w-full text-left px-3 py-2 text-sm text-muted-foreground hover:bg-muted rounded">\n              Account Settings\n            </button>\n            <button className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded">\n              Sign Out\n            </button>\n          </div>\n        </div>\n      }\n    >\n      <button className="w-10 h-10 bg-[#005196] text-white rounded-full flex items-center justify-center font-semibold hover:bg-[#004178]">\n        JD\n      </button>\n    </Popover>\n  );\n}',
+          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { User } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      placement="bottom"\n      content={\n        <div className="p-4">\n          <div className="flex items-center gap-3 mb-4">\n            <div className="w-12 h-12 bg-[#005196] text-white rounded-full flex items-center justify-center font-semibold">\n              JD\n            </div>\n            <div>\n              <h4 className="font-semibold text-foreground">John Doe</h4>\n              <p className="text-sm text-muted-foreground">john.doe@gov.uk</p>\n            </div>\n          </div>\n          <div className="border-t border-border pt-3 space-y-2">\n            <button className="w-full text-left px-3 py-2 text-sm text-muted-foreground hover:bg-muted rounded">\n              View Profile\n            </button>\n            <button className="w-full text-left px-3 py-2 text-sm text-muted-foreground hover:bg-muted rounded">\n              Account Settings\n            </button>\n            <button className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:bg-red-950/30 rounded">\n              Sign Out\n            </button>\n          </div>\n        </div>\n      }\n    >\n      <button className="w-10 h-10 bg-[#005196] text-white rounded-full flex items-center justify-center font-semibold hover:bg-[#004178]">\n        JD\n      </button>\n    </Popover>\n  );\n}',
           preview: (
             <PopoverPreview
               placement="bottom"
@@ -485,7 +485,7 @@ export default function ComponentPopoverPage() {
                     <button className="w-full text-left px-3 py-2 text-sm text-muted-foreground hover:bg-muted rounded">
                       Account Settings
                     </button>
-                    <button className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded">
+                    <button className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:bg-red-950/30 rounded">
                       Sign Out
                     </button>
                   </div>
@@ -836,14 +836,14 @@ export default function ComponentPopoverPage() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="inline-flex flex-col items-start mb-3"><div className="px-3 py-2 bg-card border border-border rounded-lg shadow-lg text-xs mb-1"><p className="font-semibold">Help</p><p className="text-muted-foreground">Enter your 12-digit Aadhaar number.</p><a href="#" className="text-[#005196] underline">Learn more</a></div><button className="text-xs text-[#005196]">ⓘ</button></div>
                   <p className="text-sm text-muted-foreground">Use popovers for interactive content (links, buttons) on hover or click.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="inline-flex flex-col items-start mb-3"><div className="px-2 py-1 bg-gray-900 text-white text-xs rounded">Enter your 12-digit Aadhaar number without spaces or dashes. <a href="#" className="underline">Learn more</a></div></div>

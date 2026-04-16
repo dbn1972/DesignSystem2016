@@ -52,7 +52,7 @@ export default function AuthErrorLockoutPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Security<br/>Critical
               </div>
             </div>
@@ -192,7 +192,7 @@ function OverviewSection() {
 
         {/* When Not to Use */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When Not to Use
@@ -510,7 +510,7 @@ function ExampleScreens() {
                 The password you entered is not correct
               </p>
             </div>
-            <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-muted-foreground">
               <p className="mb-2"><strong>What you can do:</strong></p>
               <ul className="space-y-1 ml-4">
                 <li>• Check if Caps Lock is on</li>
@@ -556,7 +556,7 @@ function ExampleScreens() {
                 <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50"></div>
               ))}
             </div>
-            <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-red-800 text-center">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 text-center">
               <XCircle size={14} className="inline mr-2" />
               <strong>2 attempts remaining</strong> before lockout
             </div>
@@ -585,7 +585,7 @@ function ExampleScreens() {
                 Codes are valid for 5 minutes only.
               </p>
             </div>
-            <div className="bg-orange-50 border border-orange-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border border-orange-300 rounded p-3 text-sm text-muted-foreground">
               <Info size={14} className="inline mr-2 text-orange-600" />
               For your security, verification codes expire after 5 minutes.
             </div>
@@ -609,7 +609,7 @@ function ExampleScreens() {
                 multiple times
               </p>
             </div>
-            <div className="bg-red-50 border-2 border-red-300 rounded p-4 text-sm text-muted-foreground">
+            <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4 text-sm text-muted-foreground">
               <p className="font-bold text-red-800 mb-2">For your security:</p>
               <p>Your account has been temporarily locked after 3 incorrect password attempts.</p>
               <p className="mt-2">You can try again in <strong className="text-red-800">15 minutes</strong>, or reset your password now.</p>
@@ -638,12 +638,12 @@ function ExampleScreens() {
                 Multiple failed sign-in attempts detected
               </p>
             </div>
-            <div className="bg-orange-50 border-2 border-orange-300 rounded p-4 text-center">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded p-4 text-center">
               <p className="text-sm text-muted-foreground mb-2">You can try again in:</p>
               <p className="text-4xl font-bold text-primary">12:34</p>
               <p className="text-xs text-muted-foreground mt-1">minutes:seconds</p>
             </div>
-            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
               <Info size={14} className="inline mr-2" />
               <strong>Why this happened:</strong> After 3 incorrect password attempts, we lock accounts for 15 minutes to protect your information.
             </div>
@@ -672,7 +672,7 @@ function ExampleScreens() {
                 a location or device you don't usually use
               </p>
             </div>
-            <div className="bg-orange-50 border border-orange-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border border-orange-300 rounded p-3 text-sm text-muted-foreground">
               <p className="font-bold text-foreground mb-2">Sign-in attempt details:</p>
               <ul className="space-y-1 ml-4">
                 <li>• Location: Mumbai, Maharashtra</li>
@@ -680,7 +680,7 @@ function ExampleScreens() {
                 <li>• Date/Time: April 10, 2026 at 2:30 PM</li>
               </ul>
             </div>
-            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
               <p className="font-bold text-foreground mb-1">To verify it's you:</p>
               <p>We've sent a verification code to your registered email ending in ***@gmail.com</p>
             </div>
@@ -711,7 +711,7 @@ function ExampleScreens() {
                 This account is currently unavailable
               </p>
             </div>
-            <div className="bg-red-50 border border-red-300 rounded p-4 text-sm text-muted-foreground">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-4 text-sm text-muted-foreground">
               <p className="mb-2">Your account has been temporarily disabled. This may be due to:</p>
               <ul className="space-y-1 ml-4">
                 <li>• Security review in progress</li>
@@ -749,11 +749,11 @@ function ExampleScreens() {
                 experiencing issues
               </p>
             </div>
-            <div className="bg-orange-50 border border-orange-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border border-orange-300 rounded p-3 text-sm text-muted-foreground">
               <p><strong>What's happening:</strong></p>
               <p className="mt-1">We're experiencing technical difficulties with our sign-in system. Our team is working to resolve this.</p>
             </div>
-            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
               <Info size={14} className="inline mr-2" />
               <strong>Estimated resolution:</strong> Within 30 minutes
             </div>
@@ -779,7 +779,7 @@ function ExampleScreens() {
               <h4 className="font-bold text-foreground mb-2">Sign-In Help</h4>
             </div>
             <div className="space-y-3 text-sm">
-              <div className="bg-blue-50 border border-blue-300 rounded p-3">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3">
                 <p className="font-bold text-foreground mb-2">Common Issues:</p>
                 <ul className="ml-4 space-y-2 text-muted-foreground">
                   <li>
@@ -822,7 +822,7 @@ function LockoutPolicySection() {
         <h2 className="text-2xl font-bold text-foreground">Lockout Policy Configuration</h2>
       </div>
 
-      <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
+      <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Shield size={20} className="text-red-600" />
           Security vs. Usability Balance
@@ -886,7 +886,7 @@ function LockoutPolicySection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Progressive Delays</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -919,7 +919,7 @@ function LockoutPolicySection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Tracking Scope</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -995,7 +995,7 @@ function RecoveryPathsSection() {
         />
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Always Provide Escalation Path
@@ -1034,7 +1034,7 @@ function AccessibilitySection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Error Communication</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1058,7 +1058,7 @@ function AccessibilitySection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Lockout Countdown</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1082,7 +1082,7 @@ function AccessibilitySection() {
         </div>
       </div>
 
-      <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-purple-600" />
           WCAG 3.3.1 Error Identification & 3.3.3 Error Suggestion
@@ -1161,7 +1161,7 @@ function ImplementationSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Failure Tracking</h3>
           </div>
           <div className="p-6">
@@ -1217,7 +1217,7 @@ async function recordFailure(
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Lockout Check</h3>
           </div>
           <div className="p-6">
@@ -1309,7 +1309,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Security Level</h3>
           </div>
           <div className="p-6">
@@ -1325,7 +1325,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
@@ -1345,7 +1345,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Implementation Checklist
@@ -1378,7 +1378,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <HelpCircle size={20} className="text-blue-600" />
           Support & Escalation
@@ -1411,7 +1411,7 @@ function GovernanceSection() {
 function QuickReference() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -1443,7 +1443,7 @@ function QuickReference() {
 function RelatedPatterns() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1460,7 +1460,7 @@ function RelatedPatterns() {
 function InteractiveDemo() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Interactive Demo</h3>
       </div>
       <div className="p-4">
@@ -1482,7 +1482,7 @@ function InteractiveDemo() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1565,7 +1565,7 @@ function ErrorType({ title, severity, examples, userMessage, nextSteps }: {
             ))}
           </ul>
         </div>
-        <div className="bg-blue-50 border border-blue-200 rounded p-2">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-2">
           <p className="font-bold text-foreground mb-1">User Message:</p>
           <p className="text-muted-foreground italic">"{userMessage}"</p>
         </div>
@@ -1628,11 +1628,11 @@ function ScreenExample({ title, variant, children }: {
   variant: 'default' | 'error' | 'warning' | 'success' | 'info';
   children: React.ReactNode;
 }) {
-  const headerColor = variant === 'error' ? 'bg-red-50 border-red-200' :
-                      variant === 'warning' ? 'bg-yellow-50 border-yellow-200' :
-                      variant === 'success' ? 'bg-green-50 border-green-200' :
-                      variant === 'info' ? 'bg-blue-50 border-blue-200' :
-                      'bg-blue-50 border-blue-200';
+  const headerColor = variant === 'error' ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800' :
+                      variant === 'warning' ? 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-800' :
+                      variant === 'success' ? 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800' :
+                      variant === 'info' ? 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800' :
+                      'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800';
   
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
@@ -1684,7 +1684,7 @@ function RecoveryPath({ title, icon, options, timeline }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <div className="flex items-center gap-2 mb-1">
           {icon}
           <h4 className="font-bold text-foreground text-sm">{title}</h4>

@@ -52,7 +52,7 @@ export default function AppointmentBookingPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-orange-50 border-2 border-orange-200 rounded text-orange-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded text-orange-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Recommended
               </div>
             </div>
@@ -575,14 +575,14 @@ function AppointmentScreenExample({ type }: { type: string }) {
             })}
           </div>
 
-          <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded text-xs">
+          <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded text-xs">
             <div className="flex items-center gap-2 mb-2">
               <Info size={14} className="text-blue-600" />
               <span className="font-bold text-blue-800">Legend</span>
             </div>
             <div className="space-y-1 text-muted-foreground">
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 bg-green-50 border border-green-200 rounded"></div>
+                <div className="w-4 h-4 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded"></div>
                 <span>Available</span>
               </div>
               <div className="flex items-center gap-2">
@@ -624,7 +624,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
             <div>
               <h4 className="text-sm font-bold text-muted-foreground mb-2">Afternoon</h4>
               <div className="grid grid-cols-2 gap-2">
-                <button className="px-4 py-3 border-2 border-primary bg-blue-50 rounded text-sm font-medium text-primary">
+                <button className="px-4 py-3 border-2 border-primary bg-blue-50 dark:bg-blue-950/30 rounded text-sm font-medium text-primary">
                   02:00 PM<br/>
                   <span className="text-xs">Selected</span>
                 </button>
@@ -658,7 +658,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
             Your appointment has been successfully booked
           </p>
 
-          <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 mb-6 text-left">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 mb-6 text-left">
             <h5 className="font-bold text-foreground text-sm mb-3">Appointment Details</h5>
             <div className="space-y-2 text-sm">
               <div className="flex items-start gap-2">
@@ -684,7 +684,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-blue-200">
+            <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
               <div className="text-xs font-bold text-muted-foreground mb-1">Booking Reference</div>
               <div className="font-mono text-sm font-bold text-foreground">APT-2026-04-15-0234</div>
             </div>
@@ -713,7 +713,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
 
           <div className="space-y-3">
             {/* Upcoming Appointment */}
-            <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
+            <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-4">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <div className="text-xs font-bold text-green-700 mb-1">UPCOMING</div>
@@ -797,7 +797,7 @@ function SlotManagement() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
-          <div className="bg-blue-50 border-b-2 border-blue-300 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Booking Rules</h3>
           </div>
           <div className="p-6">
@@ -954,7 +954,7 @@ function RescheduleCancel() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-orange-50 border-b-2 border-orange-300 px-6 py-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Reschedule Flow</h3>
           </div>
           <div className="p-6 space-y-3">
@@ -969,7 +969,7 @@ function RescheduleCancel() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Cancellation Flow</h3>
           </div>
           <div className="p-6 space-y-3">
@@ -984,7 +984,7 @@ function RescheduleCancel() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
-          <div className="bg-blue-50 border-b-2 border-blue-300 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Business Rules</h3>
           </div>
           <div className="p-6">
@@ -1143,7 +1143,7 @@ function ImplementationSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
-          <div className="bg-blue-50 border-b-2 border-blue-300 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Key Considerations</h3>
           </div>
           <div className="p-6">

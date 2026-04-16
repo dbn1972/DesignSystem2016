@@ -68,7 +68,7 @@ export default function IssueReportingPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6 mb-6">
+            <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 Report a technical issue or service problem using this structured form.
@@ -284,7 +284,7 @@ export default function IssueReportingPattern() {
                 </div>
               </div>
 
-              <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Best Practices</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Categorize by type and severity</li>

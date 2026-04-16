@@ -52,7 +52,7 @@ export default function ForgotPasswordPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -189,7 +189,7 @@ function OverviewSection() {
 
         {/* When Not to Use */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When Not to Use
@@ -360,7 +360,7 @@ function ExampleScreens() {
               readOnly
               className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
             />
-            <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-red-800">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800">
               <AlertCircle size={14} className="inline mr-2" />
               Enter valid email (e.g., user@example.com) or 10-digit mobile
             </div>
@@ -422,7 +422,7 @@ function ExampleScreens() {
               <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50"></div>
             ))}
           </div>
-          <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-red-800 mb-3">
+          <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 mb-3">
             <XCircle size={14} className="inline mr-2" />
             Invalid code. 2 attempts remaining.
           </div>
@@ -446,7 +446,7 @@ function ExampleScreens() {
               for security reasons
             </p>
           </div>
-          <div className="bg-yellow-50 border border-yellow-300 rounded p-4 text-sm text-muted-foreground mb-4">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-300 rounded p-4 text-sm text-muted-foreground mb-4">
             <p className="font-bold mb-1">Reset links expire after 30 minutes</p>
             <p>Please request a new reset link to continue</p>
           </div>
@@ -472,7 +472,7 @@ function ExampleScreens() {
                 className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
               />
             </div>
-            <div className="bg-red-50 border-2 border-red-300 rounded p-4">
+            <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4">
               <p className="font-bold text-sm text-red-800 mb-2">Password too weak</p>
               <div className="space-y-1 text-xs">
                 <Requirement label="At least 8 characters" met={false} />
@@ -511,7 +511,7 @@ function ExampleScreens() {
                 className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
               />
             </div>
-            <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-red-800">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800">
               <XCircle size={14} className="inline mr-2" />
               Passwords do not match. Please re-enter.
             </div>
@@ -534,7 +534,7 @@ function ExampleScreens() {
               Your password has been updated.<br/>
               Please sign in with your new password.
             </p>
-            <div className="bg-green-50 border border-green-300 rounded p-3 text-sm text-green-800 mb-4">
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800 mb-4">
               <CheckCircle size={14} className="inline mr-2" />
               Confirmation sent to your email/mobile
             </div>
@@ -606,7 +606,7 @@ function PasswordRulesSection() {
         </div>
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
           <Info size={20} className="text-primary" />
           Password Guidance Best Practices
@@ -645,7 +645,7 @@ function SecuritySection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Security Requirements</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -673,7 +673,7 @@ function SecuritySection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border-b-2 border-yellow-200 dark:border-yellow-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Notification Requirements</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -745,7 +745,7 @@ function AccessibilitySection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Form Accessibility</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -773,7 +773,7 @@ function AccessibilitySection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Keyboard & Navigation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -801,7 +801,7 @@ function AccessibilitySection() {
         </div>
       </div>
 
-      <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-orange-600" />
           Password Manager Compatibility
@@ -880,7 +880,7 @@ function ImplementationSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Token Generation</h3>
           </div>
           <div className="p-6">
@@ -916,7 +916,7 @@ async function generateResetToken(userId) {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Password Validation</h3>
           </div>
           <div className="p-6">
@@ -1004,7 +1004,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Conformance Level</h3>
           </div>
           <div className="p-6">
@@ -1026,7 +1026,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
@@ -1046,7 +1046,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Support & Escalation Guidance
@@ -1081,7 +1081,7 @@ function GovernanceSection() {
 function QuickReference() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -1113,7 +1113,7 @@ function QuickReference() {
 function RelatedPatterns() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1130,7 +1130,7 @@ function RelatedPatterns() {
 function InteractiveDemo() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Interactive Demo</h3>
       </div>
       <div className="p-4">
@@ -1152,7 +1152,7 @@ function InteractiveDemo() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1252,11 +1252,11 @@ function ScreenExample({ title, variant, description, state, children }: {
   state: string;
   children: React.ReactNode;
 }) {
-  const headerColor = variant === 'error' ? 'bg-red-50 border-red-200' :
-                      variant === 'warning' ? 'bg-yellow-50 border-yellow-200' :
-                      variant === 'success' ? 'bg-green-50 border-green-200' :
-                      variant === 'info' ? 'bg-blue-50 border-blue-200' :
-                      'bg-blue-50 border-blue-200';
+  const headerColor = variant === 'error' ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800' :
+                      variant === 'warning' ? 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-800' :
+                      variant === 'success' ? 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800' :
+                      variant === 'info' ? 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800' :
+                      'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800';
   
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">

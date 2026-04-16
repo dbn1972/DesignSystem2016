@@ -35,7 +35,7 @@ export default function TranslationConfidencePattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6 mb-6">
+            <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 See how translation confidence is communicated to users.
@@ -47,7 +47,7 @@ export default function TranslationConfidencePattern() {
 
               {/* High Confidence */}
               <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-                <div className="bg-green-50 border-b-2 border-green-200 px-6 py-3 flex items-center justify-between">
+                <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-3 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <CheckCircle size={18} className="text-green-600" />
                     <span className="font-bold text-foreground">Verified Translation</span>
@@ -70,7 +70,7 @@ export default function TranslationConfidencePattern() {
 
               {/* Medium Confidence */}
               <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-                <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-3 flex items-center justify-between">
+                <div className="bg-yellow-50 dark:bg-yellow-950/30 border-b-2 border-yellow-200 dark:border-yellow-800 px-6 py-3 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <AlertTriangle size={18} className="text-yellow-600" />
                     <span className="font-bold text-foreground">Machine Translation</span>
@@ -125,7 +125,7 @@ export default function TranslationConfidencePattern() {
 
               {/* Low Confidence */}
               <div className="bg-card border-2 border-red-300 rounded-lg overflow-hidden">
-                <div className="bg-red-50 border-b-2 border-red-200 px-6 py-3 flex items-center justify-between">
+                <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-3 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <AlertTriangle size={18} className="text-red-600" />
                     <span className="font-bold text-foreground">Low Quality Translation</span>
@@ -135,7 +135,7 @@ export default function TranslationConfidencePattern() {
                   </span>
                 </div>
                 <div className="p-6">
-                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4 mb-4">
+                  <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-4 mb-4">
                     <div className="flex items-start gap-3">
                       <AlertTriangle size={18} className="text-red-600 flex-shrink-0 mt-0.5" />
                       <div>
@@ -260,7 +260,7 @@ export default function TranslationConfidencePattern() {
                 </div>
               </div>
 
-              <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">When to Use</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Machine-translated content</li>

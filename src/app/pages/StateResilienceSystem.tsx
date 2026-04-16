@@ -52,7 +52,7 @@ export default function StateResilienceSystem() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Mission<br/>Critical
               </div>
             </div>
@@ -164,7 +164,7 @@ function OverviewSection() {
       <div className="grid grid-cols-2 gap-6">
         {/* What This System Covers */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">System Coverage</h3>
           </div>
           <div className="p-6 space-y-2 text-sm">
@@ -179,7 +179,7 @@ function OverviewSection() {
 
         {/* Why This Matters */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Why Resilience Matters</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -384,7 +384,7 @@ function RetryPatternsSection() {
         <h2 className="text-2xl font-bold text-foreground">Retry Patterns</h2>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertTriangle size={20} className="text-yellow-600" />
           When to Retry vs. When NOT to Retry
@@ -493,7 +493,7 @@ function NetworkHandlingSection() {
       <div className="grid grid-cols-2 gap-6">
         {/* Offline Detection */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Offline Detection & Banner</h3>
           </div>
           <div className="p-6">
@@ -501,7 +501,7 @@ function NetworkHandlingSection() {
               Detect when user goes offline and show persistent banner. Queue actions to sync when back online.
             </p>
             <div className="space-y-3">
-              <div className="bg-orange-50 border-2 border-orange-300 rounded p-3 text-sm">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded p-3 text-sm">
                 <div className="flex items-center gap-2">
                   <WifiOff size={16} className="text-orange-600" />
                   <p className="font-bold text-foreground">You're offline</p>
@@ -526,7 +526,7 @@ window.addEventListener('online', () => {
 
         {/* Slow Network Warning */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border-b-2 border-yellow-200 dark:border-yellow-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Slow Network Warning</h3>
           </div>
           <div className="p-6">
@@ -534,7 +534,7 @@ window.addEventListener('online', () => {
               Detect slow connections and warn users before large uploads or downloads.
             </p>
             <div className="space-y-3">
-              <div className="bg-yellow-50 border-2 border-yellow-300 rounded p-3 text-sm">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded p-3 text-sm">
                 <div className="flex items-center gap-2">
                   <Wifi size={16} className="text-yellow-600" />
                   <p className="font-bold text-foreground">Slow connection detected</p>
@@ -559,7 +559,7 @@ if (connection?.effectiveType === '2g'
 
         {/* Request Timeout */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Request Timeout Handling</h3>
           </div>
           <div className="p-6">
@@ -567,7 +567,7 @@ if (connection?.effectiveType === '2g'
               Set reasonable timeouts (30s for API calls) and handle timeout gracefully with retry option.
             </p>
             <div className="space-y-3">
-              <div className="bg-red-50 border-2 border-red-300 rounded p-3 text-sm">
+              <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-3 text-sm">
                 <div className="flex items-center gap-2">
                   <Clock size={16} className="text-red-600" />
                   <p className="font-bold text-foreground">Request timed out</p>
@@ -599,7 +599,7 @@ const fetchWithTimeout = (url, options = {}) => {
 
         {/* Optimistic UI Updates */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Optimistic UI Updates</h3>
           </div>
           <div className="p-6">
@@ -607,7 +607,7 @@ const fetchWithTimeout = (url, options = {}) => {
               Update UI immediately, then sync with server. Rollback if server rejects.
             </p>
             <div className="space-y-3">
-              <div className="bg-green-50 border border-green-300 rounded p-3 text-sm">
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm">
                 <CheckCircle size={16} className="inline mr-2 text-green-600" />
                 <span className="text-muted-foreground">Document uploaded ✓</span>
                 <p className="text-xs text-muted-foreground mt-1">Syncing with server...</p>
@@ -705,7 +705,7 @@ function PartialStatesSection() {
       </div>
 
       <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-        <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+        <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
           <h3 className="font-bold text-foreground">Auto-Save Implementation Pattern</h3>
         </div>
         <div className="p-6">
@@ -717,15 +717,15 @@ function PartialStatesSection() {
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
                   <span className="text-muted-foreground">Saving...</span>
                 </div>
-                <div className="flex items-center gap-2 p-2 bg-green-50 rounded">
+                <div className="flex items-center gap-2 p-2 bg-green-50 dark:bg-green-950/30 rounded">
                   <CheckCircle size={12} className="text-green-600" />
                   <span className="text-muted-foreground">Saved at 2:34 PM</span>
                 </div>
-                <div className="flex items-center gap-2 p-2 bg-red-50 rounded">
+                <div className="flex items-center gap-2 p-2 bg-red-50 dark:bg-red-950/30 rounded">
                   <XCircle size={12} className="text-red-600" />
                   <span className="text-muted-foreground">Save failed - Retry</span>
                 </div>
-                <div className="flex items-center gap-2 p-2 bg-orange-50 rounded">
+                <div className="flex items-center gap-2 p-2 bg-orange-50 dark:bg-orange-950/30 rounded">
                   <WifiOff size={12} className="text-orange-600" />
                   <span className="text-muted-foreground">Offline - Will sync</span>
                 </div>
@@ -774,7 +774,7 @@ function IntegrationGuideSection() {
         <h2 className="text-2xl font-bold text-foreground">Integration Guide: Adding Resilience to Existing Flows</h2>
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">Step-by-Step: Retrofit Existing Pages</h3>
         <p className="text-sm text-muted-foreground mb-4">
           This guide shows how to add resilience patterns to existing flows without creating new isolated screens.
@@ -1037,7 +1037,7 @@ function StateMatrix() {
 function QuickReference() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -1065,7 +1065,7 @@ function QuickReference() {
 function ApplicationGuide() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Apply to Your Flow</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1083,7 +1083,7 @@ function ApplicationGuide() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1170,7 +1170,7 @@ function ErrorStatePattern({ title, severity, trigger, recovery, examples, imple
   
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+      <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
         <div className="flex items-center justify-between mb-2">
           <h3 className="font-bold text-foreground">{title}</h3>
           <span className={`text-xs px-3 py-1 border rounded font-bold ${severityColor}`}>
@@ -1236,7 +1236,7 @@ function RetryPattern({ title, description, useWhen, implementation }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h4 className="font-bold text-foreground text-sm">{title}</h4>
       </div>
       <div className="p-4">
@@ -1269,7 +1269,7 @@ function PartialStateCard({ icon, title, description, indicators, actions }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <div className="flex items-center gap-2">
           {icon}
           <h4 className="font-bold text-foreground text-sm">{title}</h4>
@@ -1315,7 +1315,7 @@ function IntegrationStep({ number, title, description, before, after }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
             {number}

@@ -119,7 +119,7 @@ export default function LocalizationPatterns() {
           </div>
 
           {/* India's Language Context */}
-          <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6 mb-8">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6 mb-8">
             <h3 className="font-bold text-foreground mb-4">India's Multilingual Context</h3>
             <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
               <div className="flex items-start gap-2">
@@ -142,7 +142,7 @@ export default function LocalizationPatterns() {
           </div>
 
           {/* When to Use */}
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
             <h3 className="font-bold text-foreground mb-4">When to Use These Patterns</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -349,7 +349,7 @@ export default function LocalizationPatterns() {
         </section>
 
         {/* Technical Requirements */}
-        <section className="bg-indigo-50 border-2 border-indigo-200 rounded-lg p-8">
+        <section className="bg-indigo-50 dark:bg-indigo-950/30 border-2 border-indigo-200 dark:border-indigo-800 rounded-lg p-8">
           <h3 className="font-bold text-foreground mb-4">Technical Requirements</h3>
           <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
             <div>

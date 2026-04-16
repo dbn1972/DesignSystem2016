@@ -499,7 +499,7 @@ export default function Components() {
           </div>
 
           <div className="space-y-4">
-            <div className="flex items-start gap-4 rounded-[1.5rem] border border-emerald-200/70 bg-emerald-50 p-5 shadow-sm">
+            <div className="flex items-start gap-4 rounded-[1.5rem] border border-emerald-200 dark:border-emerald-800/70 bg-emerald-50 dark:bg-emerald-950/30 p-5 shadow-sm">
               <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-700" />
               <div className="min-w-0 flex-1">
                 <h3 className="font-semibold text-foreground">Success</h3>
@@ -510,7 +510,7 @@ export default function Components() {
               </button>
             </div>
 
-            <div className="flex items-start gap-4 rounded-[1.5rem] border border-blue-200/70 bg-blue-50 p-5 shadow-sm">
+            <div className="flex items-start gap-4 rounded-[1.5rem] border border-blue-200 dark:border-blue-800/70 bg-blue-50 dark:bg-blue-950/30 p-5 shadow-sm">
               <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <div className="min-w-0 flex-1">
                 <h3 className="font-semibold text-foreground">Information</h3>
@@ -521,7 +521,7 @@ export default function Components() {
               </button>
             </div>
 
-            <div className="flex items-start gap-4 rounded-[1.5rem] border border-amber-200/70 bg-amber-50 p-5 shadow-sm">
+            <div className="flex items-start gap-4 rounded-[1.5rem] border border-amber-200 dark:border-amber-800/70 bg-amber-50 dark:bg-amber-950/30 p-5 shadow-sm">
               <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
               <div className="min-w-0 flex-1">
                 <h3 className="font-semibold text-foreground">Warning</h3>
@@ -533,7 +533,7 @@ export default function Components() {
             </div>
 
             {showAlert && (
-              <div className="flex items-start gap-4 rounded-[1.5rem] border border-red-200/70 bg-red-50 p-5 shadow-sm">
+              <div className="flex items-start gap-4 rounded-[1.5rem] border border-red-200 dark:border-red-800/70 bg-red-50 dark:bg-red-950/30 p-5 shadow-sm">
                 <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-700" />
                 <div className="min-w-0 flex-1">
                   <h3 className="font-semibold text-foreground">Error</h3>

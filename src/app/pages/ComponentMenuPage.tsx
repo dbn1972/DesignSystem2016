@@ -896,13 +896,13 @@ export type MenuPlacement = 'bottom-start' | 'bottom-end' | 'top-start' | 'top-e
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Label menu triggers with text when possible — icon-only menus are discovered by only 50% of users.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t use menus for form selection — use Select instead.</p>

@@ -52,7 +52,7 @@ export default function AccountRecoveryPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-orange-50 border-2 border-orange-200 rounded text-orange-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded text-orange-700 font-bold text-xs text-center uppercase">
                 Support<br/>Intensive
               </div>
             </div>
@@ -192,7 +192,7 @@ function OverviewSection() {
 
         {/* When Not to Use */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When Not to Use
@@ -396,7 +396,7 @@ function ExampleScreens() {
                 Choose an alternative verification method
               </p>
             </div>
-            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm mb-3">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm mb-3">
               <p className="font-bold text-foreground mb-1">Account Found</p>
               <p className="text-muted-foreground">Username: r***a.sharma</p>
               <p className="text-muted-foreground">Registered: June 2024</p>
@@ -431,7 +431,7 @@ function ExampleScreens() {
                 Your request is being reviewed
               </p>
             </div>
-            <div className="bg-yellow-50 border-2 border-yellow-300 rounded p-4 space-y-3 text-sm">
+            <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded p-4 space-y-3 text-sm">
               <div>
                 <p className="font-bold text-foreground">Request ID: REC-2026-04-12345</p>
                 <p className="text-muted-foreground">Submitted: April 10, 2026 at 2:30 PM</p>
@@ -469,7 +469,7 @@ function ExampleScreens() {
                 to recover your account
               </p>
             </div>
-            <div className="bg-red-50 border border-red-300 rounded p-4 text-sm text-muted-foreground space-y-2">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-4 text-sm text-muted-foreground space-y-2">
               <p className="font-bold text-red-800">Why this happened:</p>
               <ul className="ml-4 space-y-1">
                 <li>• No access to any registered contact methods</li>
@@ -499,7 +499,7 @@ function ExampleScreens() {
               <h4 className="font-bold text-foreground mb-2">Get Help from Support</h4>
             </div>
             <div className="space-y-3 text-sm">
-              <div className="bg-blue-50 border border-blue-300 rounded p-3">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3">
                 <p className="font-bold text-foreground mb-2">What to Prepare:</p>
                 <ul className="ml-4 space-y-1 text-muted-foreground">
                   <li>• Government-issued photo ID</li>
@@ -544,7 +544,7 @@ function ExampleScreens() {
                 Your account has been successfully recovered
               </p>
             </div>
-            <div className="bg-green-50 border border-green-300 rounded p-4 text-sm text-left">
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-4 text-sm text-left">
               <p className="font-bold text-foreground mb-2">What's Updated:</p>
               <ul className="space-y-1 text-muted-foreground ml-4">
                 <li>• New mobile number: +91 ******* 789</li>
@@ -552,7 +552,7 @@ function ExampleScreens() {
                 <li>• All previous sessions logged out</li>
               </ul>
             </div>
-            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
               <Info size={14} className="inline mr-2" />
               For security, please update your password after signing in
             </div>
@@ -652,7 +652,7 @@ function VerificationSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Automated Verification</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -680,7 +680,7 @@ function VerificationSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Manual Verification</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -708,7 +708,7 @@ function VerificationSection() {
         </div>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertCircle size={20} className="text-yellow-600" />
           Security Considerations
@@ -781,7 +781,7 @@ function EscalationSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Support Channels</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -809,7 +809,7 @@ function EscalationSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
             <h3 className="font-bold text-foreground">SLA Commitments</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -851,7 +851,7 @@ function AccessibilitySection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Form Accessibility</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -875,7 +875,7 @@ function AccessibilitySection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Assisted Access</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -899,7 +899,7 @@ function AccessibilitySection() {
         </div>
       </div>
 
-      <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-purple-600" />
           Empathy & Plain Language
@@ -1009,7 +1009,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Support Level</h3>
           </div>
           <div className="p-6">
@@ -1025,7 +1025,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
@@ -1045,7 +1045,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Implementation Checklist
@@ -1082,7 +1082,7 @@ function GovernanceSection() {
 function QuickReference() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -1114,7 +1114,7 @@ function QuickReference() {
 function RelatedPatterns() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1131,7 +1131,7 @@ function RelatedPatterns() {
 function InteractiveDemo() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Interactive Demo</h3>
       </div>
       <div className="p-4">
@@ -1153,7 +1153,7 @@ function InteractiveDemo() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1251,11 +1251,11 @@ function ScreenExample({ title, variant, children }: {
   variant: 'default' | 'error' | 'warning' | 'success' | 'info';
   children: React.ReactNode;
 }) {
-  const headerColor = variant === 'error' ? 'bg-red-50 border-red-200' :
-                      variant === 'warning' ? 'bg-yellow-50 border-yellow-200' :
-                      variant === 'success' ? 'bg-green-50 border-green-200' :
-                      variant === 'info' ? 'bg-blue-50 border-blue-200' :
-                      'bg-blue-50 border-blue-200';
+  const headerColor = variant === 'error' ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800' :
+                      variant === 'warning' ? 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-800' :
+                      variant === 'success' ? 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800' :
+                      variant === 'info' ? 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800' :
+                      'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800';
   
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
@@ -1274,7 +1274,7 @@ function ScreenExample({ title, variant, children }: {
 function RecoveryPath({ title, steps, timeline }: { title: string; steps: string[]; timeline: string }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h4 className="font-bold text-foreground text-sm">{title}</h4>
       </div>
       <div className="p-4">

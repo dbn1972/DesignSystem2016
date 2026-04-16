@@ -42,7 +42,7 @@ export default function MigrationMaterialUI() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-6">Migration Overview</h2>
           
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-6">
             <h3 className="font-bold text-foreground mb-3">Why This Migration is Straightforward</h3>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
@@ -64,7 +64,7 @@ export default function MigrationMaterialUI() {
             </ul>
           </div>
 
-          <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-3">Key Differences to Consider</h3>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
@@ -530,7 +530,7 @@ function MyTable({ data }) {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-6">Styling Migration (MUI Theme → UX4G Tokens)</h2>
           
-          <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6 mb-6">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-6">
             <h3 className="font-bold text-foreground mb-3">Key Difference: CSS-in-JS vs Tailwind CSS</h3>
             <p className="text-muted-foreground mb-4">
               Material-UI uses Emotion for CSS-in-JS styling, while UX4G uses Tailwind CSS utility classes and design tokens. 
@@ -720,7 +720,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 
         {/* Checklist */}
         <section className="mb-12">
-          <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+          <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
             <h2 className="text-2xl font-bold text-foreground mb-6">Migration Checklist</h2>
             
             <div className="space-y-3">
@@ -846,7 +846,7 @@ function CodeExample({ title, before, after, notes }: CodeExampleProps) {
       </div>
 
       {notes && (
-        <div className="bg-blue-50 border-t-2 border-blue-200 p-4">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-t-2 border-blue-200 dark:border-blue-800 p-4">
           <div className="flex items-start gap-2">
             <AlertTriangle size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
             <p className="text-sm text-muted-foreground">{notes}</p>
@@ -884,7 +884,7 @@ function StylingExample({ title, muiCode, ux4gCode, notes }: StylingExampleProps
           </pre>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded p-3">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded p-3">
           <p className="text-sm text-muted-foreground">{notes}</p>
         </div>
       </div>
@@ -927,13 +927,13 @@ interface IssueCardProps {
 
 function IssueCard({ issue, solution, example }: IssueCardProps) {
   return (
-    <div className="border-2 border-orange-200 bg-orange-50 rounded-lg p-4">
+    <div className="border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950/30 rounded-lg p-4">
       <div className="flex items-start gap-3">
         <AlertTriangle className="text-orange-600 flex-shrink-0" size={20} />
         <div className="flex-1">
           <h4 className="font-semibold text-foreground mb-1">{issue}</h4>
           <p className="text-sm text-muted-foreground mb-2">{solution}</p>
-          <div className="bg-card border border-orange-200 rounded p-2">
+          <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-2">
             <code className="text-xs text-foreground">{example}</code>
           </div>
         </div>

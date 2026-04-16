@@ -115,7 +115,7 @@ function WhyAdoptSection() {
         />
       </div>
 
-      <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+      <div className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">Time to Value</h3>
         <div className="grid grid-cols-3 gap-6 text-center">
           <div>
@@ -138,10 +138,10 @@ function WhyAdoptSection() {
 
 function BenefitCard({ icon, title, description, details, color }: any) {
   const colorClasses = {
-    blue: 'border-blue-200 bg-blue-50 text-blue-600',
-    green: 'border-green-200 bg-green-50 text-green-600',
-    purple: 'border-purple-200 bg-purple-50 text-purple-600',
-    orange: 'border-orange-200 bg-orange-50 text-orange-600'
+    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50 text-blue-600',
+    green: 'border-green-200 dark:border-green-800 bg-green-50 text-green-600',
+    purple: 'border-purple-200 dark:border-purple-800 bg-purple-50 text-purple-600',
+    orange: 'border-orange-200 dark:border-orange-800 bg-orange-50 text-orange-600'
   };
 
   return (
@@ -231,7 +231,7 @@ function OnboardingChecklistSection() {
         </div>
       </div>
 
-      <div className="mt-6 bg-green-50 border-2 border-green-200 rounded-lg p-6">
+      <div className="mt-6 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
         <div className="flex items-start gap-3">
           <CheckCircle className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
@@ -542,7 +542,7 @@ function TeamRolesSection() {
         />
       </div>
 
-      <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+      <div className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">Recommended Team Structure</h3>
         <p className="text-sm text-muted-foreground mb-4">
           For a typical government service, we recommend a cross-functional team of:
@@ -735,7 +735,7 @@ function AccessibilityOnboardingSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <Shield className="text-[#138808] flex-shrink-0 mt-1" size={24} />
             <div>
@@ -835,22 +835,22 @@ function VendorOnboardingSection() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Vendor Requirements</h3>
           <p className="text-sm text-muted-foreground mb-4">
             All vendor-built government services must use the UX4G Design System. Non-compliance may result 
             in application rejection during acceptance testing.
           </p>
           <div className="grid grid-cols-3 gap-4 text-sm">
-            <div className="bg-card border border-orange-200 rounded p-3">
+            <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-3">
               <div className="font-semibold text-foreground mb-1">Before Development</div>
               <div className="text-muted-foreground">Submit design mockups for approval</div>
             </div>
-            <div className="bg-card border border-orange-200 rounded p-3">
+            <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-3">
               <div className="font-semibold text-foreground mb-1">During Development</div>
               <div className="text-muted-foreground">Use UX4G components exclusively</div>
             </div>
-            <div className="bg-card border border-orange-200 rounded p-3">
+            <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-3">
               <div className="font-semibold text-foreground mb-1">Before Handover</div>
               <div className="text-muted-foreground">Pass conformance verification</div>
             </div>
@@ -1018,7 +1018,7 @@ function ConformanceExpectationsSection() {
           </div>
         </div>
 
-        <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <AlertCircle className="text-red-600" size={20} />
             Non-Conformance Consequences
@@ -1162,7 +1162,7 @@ function SupportChannelsSection() {
         />
       </div>
 
-      <div className="mt-8 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+      <div className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-4">Recommended Support Path</h3>
         <div className="flex items-center justify-between max-w-4xl mx-auto">
           <div className="text-center">
@@ -1235,7 +1235,7 @@ function ReferenceExamplesSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Exemplar Services</h3>
           <p className="text-sm text-muted-foreground">
             These services demonstrate best practices in UX4G implementation, accessibility, and user experience. 
@@ -1445,7 +1445,7 @@ function ResourceCard({ title, resources }: any) {
       <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <div className="space-y-3">
         {resources.map((resource: any, index: number) => (
-          <a key={index} href={resource.url} className="flex items-center justify-between p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-200 transition-colors">
+          <a key={index} href={resource.url} className="flex items-center justify-between p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-200 dark:border-blue-800 transition-colors">
             <div>
               <div className="font-semibold text-foreground text-sm">{resource.name}</div>
               <div className="text-xs text-muted-foreground">{resource.type}</div>

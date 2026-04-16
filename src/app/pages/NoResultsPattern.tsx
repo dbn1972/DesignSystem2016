@@ -76,7 +76,7 @@ export default function NoResultsPattern() {
           </div>
 
           {/* Search Suggestions */}
-          <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-8 mb-8">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8 mb-8">
             <div className="flex items-start gap-3 mb-4">
               <HelpCircle size={24} className="text-blue-600 flex-shrink-0 mt-1" />
               <div>
@@ -100,7 +100,7 @@ export default function NoResultsPattern() {
           <div className="bg-card border-2 border-border rounded-lg p-6 mb-8">
             <h2 className="font-bold text-foreground mb-4">Did you mean?</h2>
             <div className="flex flex-wrap gap-3">
-              <button className="px-4 py-2 bg-blue-50 border-2 border-blue-300 text-blue-900 rounded-lg hover:bg-blue-100 font-bold">
+              <button className="px-4 py-2 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 text-blue-900 rounded-lg hover:bg-blue-100 font-bold">
                 "passport application"
               </button>
               <button className="px-4 py-2 bg-background border-2 border-border text-foreground rounded-lg hover:bg-muted">
@@ -201,7 +201,7 @@ export default function NoResultsPattern() {
           </div>
 
           {/* Contact Support */}
-          <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
             <div className="flex items-start gap-3">
               <MessageSquare size={24} className="text-yellow-700 flex-shrink-0 mt-1" />
               <div>
@@ -228,7 +228,7 @@ export default function NoResultsPattern() {
           </div>
 
           {/* Pattern Info */}
-          <div className="mt-12 bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+          <div className="mt-12 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-3">Recovery Pattern Features</h3>
             <div className="grid grid-cols-3 gap-6 text-sm">
               <div>

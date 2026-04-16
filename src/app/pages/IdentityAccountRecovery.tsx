@@ -80,7 +80,7 @@ export default function IdentityAccountRecovery() {
                         Follow the recovery process to regain access.
                       </p>
 
-                      <div className="p-6 bg-red-50 border-2 border-red-200 rounded-lg mb-8">
+                      <div className="p-6 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg mb-8">
                         <div className="flex items-start gap-3">
                           <Info size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
                           <div className="text-sm">
@@ -310,7 +310,7 @@ export default function IdentityAccountRecovery() {
                         <ReviewItem label="Document Upload" value="identity-proof.pdf" icon={<FileText size={16} />} />
                       </div>
 
-                      <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg mb-8">
+                      <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg mb-8">
                         <div className="flex items-start gap-3">
                           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
                           <div className="text-sm text-muted-foreground">
@@ -351,7 +351,7 @@ export default function IdentityAccountRecovery() {
                         <div className="text-sm text-muted-foreground">Save this number for tracking your request</div>
                       </div>
 
-                      <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg mb-8 text-left">
+                      <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg mb-8 text-left">
                         <div className="flex items-start gap-3">
                           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
                           <div className="text-sm text-muted-foreground">
@@ -461,8 +461,8 @@ function PatternInfo() {
 
 function WhenToUse() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground">When to Use</h3>
       </div>
       <div className="p-4 space-y-2 text-sm text-muted-foreground">
@@ -478,8 +478,8 @@ function WhenToUse() {
 
 function SecurityNotes() {
   return (
-    <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
-      <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+      <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Security</h3>
       </div>
       <div className="p-4 space-y-2 text-sm text-muted-foreground">

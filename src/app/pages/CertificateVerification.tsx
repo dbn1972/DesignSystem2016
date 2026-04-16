@@ -48,7 +48,7 @@ export default function CertificateVerification() {
         <div className="max-w-3xl mx-auto">
           
           {/* Info Banner */}
-          <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8">
             <h2 className="font-bold text-foreground mb-3 flex items-center gap-2">
               <Info size={20} className="text-primary" />
               Certificate Verification
@@ -69,7 +69,7 @@ export default function CertificateVerification() {
               <div className="grid grid-cols-2 gap-6 mb-8">
                 
                 {/* Manual Entry */}
-                <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+                <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
                   <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
                     <Search size={24} className="text-white" />
                   </div>
@@ -80,7 +80,7 @@ export default function CertificateVerification() {
                 </div>
 
                 {/* QR Scan */}
-                <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
+                <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-300 rounded-lg p-6">
                   <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
                     <QrCode size={24} className="text-white" />
                   </div>
@@ -131,7 +131,7 @@ export default function CertificateVerification() {
 
           {/* Verification Result */}
           {verificationResult === 'valid' && showDetails && (
-            <div className="bg-green-50 border-2 border-green-300 rounded-lg overflow-hidden mb-6">
+            <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg overflow-hidden mb-6">
               <div className="bg-green-100 border-b-2 border-green-300 px-8 py-6 text-center">
                 <div className="w-20 h-20 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <CheckCircle size={40} className="text-white" />
@@ -159,7 +159,7 @@ export default function CertificateVerification() {
           )}
 
           {verificationResult === 'invalid' && (
-            <div className="bg-red-50 border-2 border-red-300 rounded-lg overflow-hidden mb-6">
+            <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg overflow-hidden mb-6">
               <div className="bg-red-100 border-b-2 border-red-300 px-8 py-6 text-center">
                 <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <XCircle size={40} className="text-white" />
@@ -189,7 +189,7 @@ export default function CertificateVerification() {
                     <span>The certificate may be fraudulent</span>
                   </li>
                 </ul>
-                <div className="bg-orange-50 border-2 border-orange-300 rounded p-4">
+                <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded p-4">
                   <p className="text-sm text-muted-foreground">
                     <span className="font-bold text-foreground">Important:</span> If you suspect a certificate is fraudulent, 
                     please report it to the issuing authority immediately.

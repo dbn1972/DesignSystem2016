@@ -1145,17 +1145,17 @@ export interface PANCardInputConfig {
           <section className="bg-card rounded-lg border border-border p-6">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
+                  <div className="p-3 bg-green-50/50 rounded border border-green-200 dark:border-green-800 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
                   <p className="text-sm text-muted-foreground">Validate PAN format (AAAAA0000A) in real-time as the user types.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
+                  <div className="p-3 bg-red-50/50 rounded border border-red-200 dark:border-red-800 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
                   <p className="text-sm text-muted-foreground">Don&apos;t accept PAN without format validation — it leads to processing errors.</p>
                 </div>
               </div>
@@ -1169,7 +1169,7 @@ export interface PANCardInputConfig {
             <PANCardInputPlayground />
           </section>
 
-          <section className="p-6 bg-blue-50 border border-blue-200 rounded-lg">
+          <section className="p-6 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 rounded-lg">
             <h3 className="text-lg font-semibold text-blue-900 mb-3">
               Government Context & Use Cases
             </h3>
@@ -1208,7 +1208,7 @@ export interface PANCardInputConfig {
             </div>
           </section>
 
-          <section className="p-6 bg-amber-50 border border-amber-200 rounded-lg">
+          <section className="p-6 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg">
             <h3 className="text-lg font-semibold text-amber-900 mb-3">
               PAN Card Format Specification
             </h3>
@@ -1252,7 +1252,7 @@ export interface PANCardInputConfig {
             </div>
           </section>
 
-          <section className="p-6 bg-green-50 border border-green-200 rounded-lg">
+          <section className="p-6 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg">
             <h3 className="text-lg font-semibold text-green-900 mb-3">
               Security & Privacy Considerations
             </h3>

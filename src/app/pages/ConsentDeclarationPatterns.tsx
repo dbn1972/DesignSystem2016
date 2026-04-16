@@ -89,7 +89,7 @@ export default function ConsentDeclarationPatterns() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance
                 <br />
                 Mandatory
@@ -103,7 +103,7 @@ export default function ConsentDeclarationPatterns() {
       <section className="bg-card border-b border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-12">
           <div className="grid grid-cols-3 gap-8 mb-12">
-            <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Info size={24} className="text-primary" />
                 <h3 className="font-bold text-foreground">
@@ -119,7 +119,7 @@ export default function ConsentDeclarationPatterns() {
               </p>
             </div>
 
-            <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <AlertCircle
                   size={24}
@@ -156,7 +156,7 @@ export default function ConsentDeclarationPatterns() {
               </ul>
             </div>
 
-            <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+            <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <CheckCircle
                   size={24}
@@ -699,7 +699,7 @@ export default function ConsentDeclarationPatterns() {
         </section>
 
         {/* Support Resources */}
-        <section className="mt-8 bg-blue-50 border-2 border-blue-300 rounded-lg p-8">
+        <section className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
           <div className="flex items-start gap-4">
             <HelpCircle
               size={32}

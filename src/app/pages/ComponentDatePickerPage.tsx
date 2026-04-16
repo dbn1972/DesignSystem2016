@@ -245,14 +245,14 @@ function Example() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="w-48 mb-3"><label className="block text-xs font-medium text-foreground mb-1">Date of Birth</label><div className="flex items-center border border-border rounded px-3 py-1.5 text-xs"><span className="text-muted-foreground">DD/MM/YYYY</span><span className="ml-auto text-muted-foreground">📅</span></div></div>
                   <p className="text-sm text-muted-foreground">Use a calendar picker for unknown dates. For known dates (DOB), allow text input too.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="w-48 mb-3"><div className="border border-border rounded px-3 py-1.5 text-xs text-muted-foreground">Select date</div></div>

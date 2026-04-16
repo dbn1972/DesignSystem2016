@@ -37,7 +37,7 @@ export default function MixedLanguageFallbackPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6 mb-6">
+            <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 See how mixed-language content is displayed when translations are incomplete.
@@ -141,7 +141,7 @@ export default function MixedLanguageFallbackPattern() {
               {/* Toggle Strategy */}
               {strategy === "toggle" && (
                 <div>
-                  <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4 mb-4">
+                  <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-4">
                     <div className="flex items-start gap-3">
                       <AlertCircle size={20} className="text-yellow-600 flex-shrink-0 mt-0.5" />
                       <div className="flex-1">
@@ -228,7 +228,7 @@ export default function MixedLanguageFallbackPattern() {
                 </div>
               </div>
 
-              <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Best Practices</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Always indicate fallback language</li>

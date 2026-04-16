@@ -60,7 +60,7 @@ function GeneralDisclaimerSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <AlertTriangle className="text-orange-600 flex-shrink-0 mt-1" size={24} />
             <div>
@@ -120,8 +120,8 @@ function NoWarrantySection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-red-200 bg-red-50 rounded-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-red-100 to-red-50 border-b-2 border-red-200 p-6">
+        <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg overflow-hidden">
+          <div className="bg-gradient-to-r from-red-100 to-red-50 border-b-2 border-red-200 dark:border-red-800 p-6">
             <h3 className="font-bold text-foreground text-xl mb-2">Disclaimer of Warranties</h3>
             <p className="text-sm text-muted-foreground">
               The UX4G Design System is provided without warranties of any kind
@@ -156,7 +156,7 @@ function NoWarrantySection() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">What This Means for You</h3>
           <p className="text-sm text-muted-foreground mb-4">
             You accept all risks associated with using the UX4G Design System. You are responsible for:
@@ -213,7 +213,7 @@ function LimitationOfLiabilitySection() {
           </div>
 
           <div className="p-6 space-y-6">
-            <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+            <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
               <h4 className="font-bold text-foreground mb-3">Exclusion of Liability</h4>
               <p className="text-sm text-muted-foreground mb-4">
                 To the maximum extent permitted by applicable law, in no event shall the Government of India,
@@ -328,7 +328,7 @@ function AccuracyOfInformationSection() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Clock size={20} className="text-blue-600" />
             Information May Change
@@ -340,7 +340,7 @@ function AccuracyOfInformationSection() {
           </p>
         </div>
 
-        <div className="border-2 border-orange-200 bg-orange-50 rounded-lg p-6">
+        <div className="border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950/30 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Verification Required</h3>
           <p className="text-sm text-muted-foreground mb-4">
             You are responsible for verifying the accuracy, completeness, and suitability of any information,
@@ -425,7 +425,7 @@ function ExternalLinksSection() {
             </ul>
           </div>
 
-          <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
             <h4 className="font-bold text-foreground mb-3">Security Warning</h4>
             <p className="text-sm text-muted-foreground mb-3">
               Exercise caution when clicking external links:
@@ -502,7 +502,7 @@ function TechnicalDisclaimerSection() {
           </div>
         </div>
 
-        <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+        <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Testing Requirement</h3>
           <p className="text-sm text-muted-foreground">
             <strong className="text-foreground">You must thoroughly test all implementations</strong> in your specific
@@ -543,7 +543,7 @@ function AccessibilityDisclaimerSection() {
           </p>
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
+            <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
               <h4 className="font-bold text-foreground mb-3">Our Commitment</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -565,7 +565,7 @@ function AccessibilityDisclaimerSection() {
               </ul>
             </div>
 
-            <div className="border-2 border-orange-200 bg-orange-50 rounded-lg p-6">
+            <div className="border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950/30 rounded-lg p-6">
               <h4 className="font-bold text-foreground mb-3">Your Responsibility</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -589,7 +589,7 @@ function AccessibilityDisclaimerSection() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Important Notice</h3>
           <p className="text-sm text-muted-foreground">
             While our components are designed with accessibility in mind, <strong>we cannot guarantee</strong> that
@@ -613,7 +613,7 @@ function SecurityDisclaimerSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
+        <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <AlertTriangle className="text-red-600 flex-shrink-0 mt-1" size={24} />
             <div>
@@ -653,7 +653,7 @@ function SecurityDisclaimerSection() {
           </div>
         </div>
 
-        <div className="border-2 border-orange-200 bg-orange-50 rounded-lg p-6">
+        <div className="border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950/30 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Security Limitations</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>• No guarantee of zero vulnerabilities</li>
@@ -678,7 +678,7 @@ function GovernmentEndorsementSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="border-2 border-yellow-200 bg-yellow-50 rounded-lg p-6">
+        <div className="border-2 border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">No Implied Endorsement</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Use of the UX4G Design System <strong>does not imply</strong> endorsement, approval, or affiliation
@@ -743,7 +743,7 @@ function ModificationsSection() {
             website.
           </p>
 
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-4">
             <h4 className="font-semibold text-foreground mb-2">Your Responsibility to Review</h4>
             <p className="text-sm text-muted-foreground">
               It is your responsibility to review this disclaimer periodically. Continued use of the UX4G Design

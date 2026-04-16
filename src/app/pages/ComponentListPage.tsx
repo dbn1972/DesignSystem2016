@@ -309,14 +309,14 @@ export type ListSpacing = 'compact' | 'normal' | 'relaxed';`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="border border-border rounded overflow-hidden mb-3"><div className="flex items-center gap-2 px-3 py-2 border-b border-border text-xs"><span className="w-1.5 h-1.5 rounded-full bg-green-500" /><span>Aadhaar Card</span><span className="ml-auto text-green-600">✓</span></div><div className="flex items-center gap-2 px-3 py-2 text-xs"><span className="w-1.5 h-1.5 rounded-full bg-yellow-500" /><span>Photo</span><span className="ml-auto text-yellow-600">Pending</span></div></div>
                   <p className="text-sm text-muted-foreground">Use consistent left-aligned structure for list items — users scan 20% faster.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="text-xs space-y-0.5 mb-3"><p>• Aadhaar Card - Verified</p><p>• Photo - Pending</p></div>

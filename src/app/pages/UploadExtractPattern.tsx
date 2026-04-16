@@ -103,7 +103,7 @@ export default function UploadExtractPattern() {
                   </label>
                 </div>
 
-                <div className="mt-6 bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
+                <div className="mt-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4">
                   <div className="font-bold text-foreground mb-2">Supported Documents:</div>
                   <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
                     <div>• PAN Card</div>
@@ -142,7 +142,7 @@ export default function UploadExtractPattern() {
 
                 {!extracting ? (
                   <>
-                    <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4 mb-6">
+                    <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-6">
                       <div className="flex items-start gap-3">
                         <AlertTriangle size={18} className="text-yellow-600 flex-shrink-0 mt-0.5" />
                         <div className="text-sm text-muted-foreground">
@@ -161,7 +161,7 @@ export default function UploadExtractPattern() {
                     </button>
                   </>
                 ) : (
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-8 text-center">
+                  <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8 text-center">
                     <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                     <div className="font-bold text-foreground mb-2">Extracting Data...</div>
                     <div className="text-sm text-muted-foreground">
@@ -175,7 +175,7 @@ export default function UploadExtractPattern() {
             {/* Extracted Data */}
             {extracted && extractedData && (
               <div className="space-y-6">
-                <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4 flex items-center gap-3">
+                <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-4 flex items-center gap-3">
                   <CheckCircle size={20} className="text-green-600 flex-shrink-0" />
                   <div>
                     <div className="font-bold text-foreground">Data Extracted Successfully</div>
@@ -243,7 +243,7 @@ export default function UploadExtractPattern() {
                         type="text"
                         value={extractedData.fatherName}
                         onChange={(e) => setExtractedData({...extractedData, fatherName: e.target.value})}
-                        className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 rounded"
+                        className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 dark:bg-green-950/30 rounded"
                       />
                     </div>
 
@@ -261,7 +261,7 @@ export default function UploadExtractPattern() {
                           type="text"
                           value={extractedData.dob}
                           onChange={(e) => setExtractedData({...extractedData, dob: e.target.value})}
-                          className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 rounded"
+                          className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 dark:bg-green-950/30 rounded"
                         />
                       </div>
 
@@ -277,7 +277,7 @@ export default function UploadExtractPattern() {
                           type="text"
                           value={extractedData.panNumber}
                           onChange={(e) => setExtractedData({...extractedData, panNumber: e.target.value})}
-                          className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 rounded"
+                          className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 dark:bg-green-950/30 rounded"
                         />
                       </div>
                     </div>
@@ -293,7 +293,7 @@ export default function UploadExtractPattern() {
                       <textarea
                         value={extractedData.address}
                         onChange={(e) => setExtractedData({...extractedData, address: e.target.value})}
-                        className="w-full px-4 py-3 border-2 border-yellow-500 bg-yellow-50 rounded"
+                        className="w-full px-4 py-3 border-2 border-yellow-500 bg-yellow-50 dark:bg-yellow-950/30 rounded"
                         rows={3}
                       ></textarea>
                       <div className="text-xs text-yellow-700 mt-1">

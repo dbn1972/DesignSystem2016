@@ -32,7 +32,7 @@ export default function MigrationGuides() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Quick Navigation */}
         <section className="mb-12">
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
             <h2 className="font-bold text-foreground text-lg mb-4 flex items-center gap-2">
               <BookOpen size={20} className="text-blue-600" />
               Quick Navigation

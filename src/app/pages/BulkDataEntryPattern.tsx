@@ -51,7 +51,7 @@ export default function BulkDataEntryPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-6 mb-6">
+            <div className="bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-200 dark:border-amber-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 Add, edit, or delete multiple employee records. Try importing from CSV or entering data manually.
@@ -371,7 +371,7 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
                 </div>
               </div>
 
-              <div className="bg-amber-50 border-2 border-amber-200 rounded-lg p-6">
+              <div className="bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-200 dark:border-amber-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">When to Use</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Adding multiple employees</li>
@@ -383,7 +383,7 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
                 </ul>
               </div>
 
-              <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">When NOT to Use</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✗ Single/few records (1-3)</li>

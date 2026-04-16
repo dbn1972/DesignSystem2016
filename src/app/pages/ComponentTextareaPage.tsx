@@ -249,7 +249,7 @@ function Example() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="space-y-1">
@@ -260,7 +260,7 @@ function Example() {
                   <p className="text-sm text-muted-foreground">Show character count and a clear label. Use placeholder for guidance, not as a label.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4 space-y-3">
                   <textarea rows={1} className="w-full px-3 py-2 border border-border rounded-lg text-sm" placeholder="Comments" readOnly />

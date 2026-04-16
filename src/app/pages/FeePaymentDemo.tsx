@@ -268,7 +268,7 @@ function FeeSummaryScreen({
       <div className="p-8 space-y-6">
         
         {/* Introduction */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Payment Required
@@ -315,7 +315,7 @@ function FeeSummaryScreen({
         </div>
 
         {/* Important Information */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5">
           <h4 className="font-bold text-orange-900 mb-3 text-sm flex items-center gap-2">
             <AlertCircle size={18} className="text-orange-600" />
             Important Information
@@ -416,7 +416,7 @@ function PaymentMethodSelectionScreen({
       <div className="p-8 space-y-6">
         
         {/* Amount Display */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5 text-center">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5 text-center">
           <div className="text-sm text-muted-foreground mb-1">Amount to Pay</div>
           <div className="text-4xl font-bold text-foreground">₹{feeDetails.totalAmount.toLocaleString('en-IN')}</div>
           <div className="text-xs text-muted-foreground mt-2">{feeDetails.serviceName}</div>
@@ -600,7 +600,7 @@ function ConfirmPaymentScreen({
       <div className="p-8 space-y-6">
         
         {/* Review Notice */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5">
           <h3 className="font-bold text-orange-900 mb-2 flex items-center gap-2">
             <AlertCircle size={20} className="text-orange-600" />
             Review Before Payment
@@ -670,7 +670,7 @@ function ConfirmPaymentScreen({
         </div>
 
         {/* Security Notice */}
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-5">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-5">
           <h4 className="font-bold text-foreground mb-3 text-sm flex items-center gap-2">
             <Lock size={18} className="text-green-600" />
             Secure Payment
@@ -747,7 +747,7 @@ function ProcessingScreen() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <div className="flex items-start gap-3">
             <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
             <div className="text-sm text-muted-foreground text-left">
@@ -800,7 +800,7 @@ function PaymentSuccessScreen({
         </p>
 
         {/* Transaction Details */}
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 mb-8">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6 mb-8">
           <h3 className="font-bold text-foreground mb-4 text-center">Transaction Details</h3>
           <div className="space-y-4">
             
@@ -838,7 +838,7 @@ function PaymentSuccessScreen({
         </div>
 
         {/* Next Steps */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What Happens Next
@@ -1075,7 +1075,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
       <div className="p-8 space-y-6">
         
         {/* Introduction */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Payment Help
@@ -1132,7 +1132,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
         </div>
 
         {/* Troubleshooting */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5">
           <h4 className="font-bold text-orange-900 mb-3 text-sm flex items-center gap-2">
             <AlertCircle size={18} className="text-orange-600" />
             Troubleshooting
@@ -1146,7 +1146,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
         </div>
 
         {/* Contact Support */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <div className="flex items-start gap-3">
             <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
             <div className="text-sm text-muted-foreground text-left">

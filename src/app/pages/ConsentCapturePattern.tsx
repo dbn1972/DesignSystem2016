@@ -52,7 +52,7 @@ export default function ConsentCapturePattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -471,7 +471,7 @@ function FlowConnector({ label }: { label?: string }) {
 
 function FlowBranch({ condition, leftPath, rightPath }: { condition: string; leftPath: string; rightPath: string }) {
   return (
-    <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4">
+    <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4">
       <div className="flex items-start gap-3">
         <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-1" />
         <div className="flex-1">
@@ -594,7 +594,7 @@ function ConsentScreenExample({ type }: { type: string }) {
           </div>
 
           {/* Consent Details */}
-          <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 mb-6">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 mb-6">
             <h4 className="font-bold text-foreground text-sm mb-3">What we will collect:</h4>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-start gap-2">
@@ -611,7 +611,7 @@ function ConsentScreenExample({ type }: { type: string }) {
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-blue-200">
+            <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
               <h4 className="font-bold text-foreground text-sm mb-2">Purpose:</h4>
               <p className="text-sm text-muted-foreground">
                 To process your application, verify your identity, and provide service updates.
@@ -739,7 +739,7 @@ function ConsentScreenExample({ type }: { type: string }) {
             Thank you. Your consent has been recorded and you can now access the service.
           </p>
 
-          <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 mb-6 text-left">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 mb-6 text-left">
             <h5 className="font-bold text-foreground text-sm mb-2">You can withdraw consent anytime</h5>
             <p className="text-xs text-muted-foreground mb-3">
               You have the right to withdraw your consent at any time from your account settings. 
@@ -766,7 +766,7 @@ function ConsentScreenExample({ type }: { type: string }) {
             You have declined to provide consent. Here is what this means:
           </p>
 
-          <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4 mb-6 text-left">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 mb-6 text-left">
             <h5 className="font-bold text-orange-800 text-sm mb-3">Limited Functionality</h5>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-start gap-2">
@@ -900,7 +900,7 @@ function ContentGuidance() {
       {/* Language Guidelines */}
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-300 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-300 px-6 py-4">
             <h3 className="font-bold text-green-800 flex items-center gap-2">
               <Check size={18} />
               Do Use
@@ -917,7 +917,7 @@ function ContentGuidance() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
             <h3 className="font-bold text-red-800 flex items-center gap-2">
               <X size={18} />
               Don&apos;t Use
@@ -953,7 +953,7 @@ function ContentElement({ title, required, description, example, tips }: {
         )}
       </div>
       <p className="text-sm text-muted-foreground mb-2">{description}</p>
-      <div className="bg-blue-50 border border-blue-200 rounded p-3 mb-2">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-3 mb-2">
         <div className="text-xs font-bold text-blue-700 mb-1">EXAMPLE</div>
         <p className="text-sm text-muted-foreground italic">&quot;{example}&quot;</p>
       </div>
@@ -1306,7 +1306,7 @@ function ImplementationSection() {
 
         {/* Security & Privacy */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
-          <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
             <h3 className="font-bold text-red-900 flex items-center gap-2">
               <Shield size={18} />
               Security & Privacy Considerations
@@ -1389,7 +1389,7 @@ function GovernanceSection() {
       <div className="grid grid-cols-2 gap-6">
         {/* Conformance Status */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Conformance Status</h3>
           </div>
           <div className="p-6">
@@ -1416,7 +1416,7 @@ function GovernanceSection() {
 
         {/* Legal Requirements */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-300 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Legal Compliance</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1456,7 +1456,7 @@ function GovernanceSection() {
         </div>
 
         {/* Support & Escalation */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 col-span-2">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 col-span-2">
           <div className="flex items-start gap-4">
             <HelpCircle size={32} className="text-primary flex-shrink-0" />
             <div className="flex-1">

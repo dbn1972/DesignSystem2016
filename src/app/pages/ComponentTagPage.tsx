@@ -516,14 +516,14 @@ export default function ComponentTagPage() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="flex gap-2 mb-3"><span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-muted text-foreground">PDF <button className="text-muted-foreground hover:text-foreground">×</button></span><span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-800">Verified</span></div>
                   <p className="text-sm text-muted-foreground">Use an X icon on removable tags — it is 60% more likely to be understood as removable.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="flex gap-2 mb-3"><span className="px-2 py-0.5 rounded-full text-xs bg-muted text-foreground">Income Certificate</span></div>

@@ -140,7 +140,7 @@ export default function IdentityMobileOTP() {
                   {/* Countdown Timer */}
                   <div className="mb-6">
                     {!canResend ? (
-                      <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 text-center">
+                      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center">
                         <div className="flex items-center justify-center gap-2 text-blue-700">
                           <Clock size={20} />
                           <span className="font-bold">
@@ -179,7 +179,7 @@ export default function IdentityMobileOTP() {
                   {/* Info Boxes */}
                   <div className="space-y-4">
                     {/* OTP Not Received */}
-                    <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded-r-lg">
+                    <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-600 p-4 rounded-r-lg">
                       <div className="flex items-start gap-3">
                         <Info size={20} className="text-yellow-600 flex-shrink-0 mt-0.5" />
                         <div>
@@ -195,7 +195,7 @@ export default function IdentityMobileOTP() {
                     </div>
 
                     {/* Security Notice */}
-                    <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
+                    <div className="bg-green-50 dark:bg-green-950/30 border-l-4 border-green-600 p-4 rounded-r-lg">
                       <div className="flex items-start gap-3">
                         <Shield size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
                         <div>
@@ -236,8 +236,8 @@ export default function IdentityMobileOTP() {
 
 function AnnotationPanel() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Design Annotations</h3>
       </div>
       <div className="p-4">
@@ -298,7 +298,7 @@ function FlowStep({ number, label, active = false, completed = false }: { number
   return (
     <div className={`flex items-center gap-3 p-3 rounded ${
       active ? 'bg-blue-100 border-2 border-blue-300' : 
-      completed ? 'bg-green-50 border-2 border-green-300' :
+      completed ? 'bg-green-50 dark:bg-green-950/30 border-2 border-green-300' :
       'bg-background border-2 border-border'
     }`}>
       <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${

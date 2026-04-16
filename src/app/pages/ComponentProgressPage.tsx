@@ -823,14 +823,14 @@ export type ProgressColor = 'primary' | 'success' | 'warning' | 'danger';`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="w-full mb-3"><div className="flex justify-between text-xs mb-1"><span className="text-muted-foreground">Uploading Aadhaar...</span><span className="text-muted-foreground">65%</span></div><div className="w-full h-2 bg-muted rounded-full overflow-hidden"><div className="h-full bg-[#005196] rounded-full" style={{width:"65%"}} /></div></div>
                   <p className="text-sm text-muted-foreground">Show progress bars for file uploads and known-duration operations.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="w-full mb-3"><div className="w-full h-2 bg-muted rounded-full overflow-hidden"><div className="h-full bg-[#005196] rounded-full" style={{width:"65%"}} /></div></div>

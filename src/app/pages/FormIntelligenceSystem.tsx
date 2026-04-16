@@ -53,7 +53,7 @@ export default function FormIntelligenceSystem() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-blue-50 border-2 border-blue-200 rounded text-blue-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
                 Core<br/>System
               </div>
             </div>
@@ -166,7 +166,7 @@ function OverviewSection() {
       <div className="grid grid-cols-2 gap-6">
         {/* System Capabilities */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">System Capabilities</h3>
           </div>
           <div className="p-6 space-y-2 text-sm">
@@ -185,7 +185,7 @@ function OverviewSection() {
 
         {/* Who Should Use This */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Who Should Use This System</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -583,7 +583,7 @@ function ComponentsSection() {
               <p className="text-sm text-muted-foreground mb-1">Drag and drop or click to upload</p>
               <p className="text-xs text-muted-foreground">PDF or JPG, max 5MB</p>
             </div>
-            <div className="mt-3 p-3 bg-blue-50 border border-blue-300 rounded flex items-start gap-3">
+            <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded flex items-start gap-3">
               <FileText size={16} className="text-blue-600 mt-0.5" />
               <div className="flex-1 text-sm">
                 <p className="font-bold text-foreground">aadhaar_front.jpg</p>
@@ -618,7 +618,7 @@ function ComponentsSection() {
                 12-digit number on your Aadhaar card (spaces optional)
               </p>
             </div>
-            <div className="p-3 bg-blue-50 border border-blue-300 rounded text-sm">
+            <div className="p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded text-sm">
               <div className="flex items-start gap-2">
                 <Info size={16} className="text-blue-600 mt-0.5" />
                 <div>
@@ -635,7 +635,7 @@ function ComponentsSection() {
           title="Error Summary"
           description="List all form errors before submission"
         >
-          <div className="p-4 bg-red-50 border-2 border-red-300 rounded">
+          <div className="p-4 bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded">
             <div className="flex items-start gap-3 mb-3">
               <AlertCircle size={20} className="text-red-600 mt-0.5" />
               <div>
@@ -676,7 +676,7 @@ function ValidationSection() {
         <h2 className="text-2xl font-bold text-foreground">Validation Strategy</h2>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertTriangle size={20} className="text-yellow-600" />
           Multi-Layer Validation Approach
@@ -751,7 +751,7 @@ function ValidationSection() {
 
         {/* Validation Timing */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">When to Validate</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -784,7 +784,7 @@ function ValidationSection() {
       </div>
 
       <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-        <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+        <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
           <h3 className="font-bold text-foreground">Error Message Best Practices</h3>
         </div>
         <div className="p-6">
@@ -962,7 +962,7 @@ function AccessibilitySection() {
         <h2 className="text-2xl font-bold text-foreground">Accessibility Requirements</h2>
       </div>
 
-      <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
+      <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Shield size={20} className="text-red-600" />
           WCAG 2.1 AA Compliance - Mandatory for Government Forms
@@ -977,7 +977,7 @@ function AccessibilitySection() {
       <div className="grid grid-cols-2 gap-6">
         {/* Labels & Instructions */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Labels & Instructions (WCAG 3.3.2)</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1002,7 +1002,7 @@ function AccessibilitySection() {
 
         {/* Error Identification */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Error Identification (WCAG 3.3.1)</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1027,7 +1027,7 @@ function AccessibilitySection() {
 
         {/* Keyboard Navigation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Keyboard Navigation (WCAG 2.1.1)</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1052,7 +1052,7 @@ function AccessibilitySection() {
 
         {/* Visual Design */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Visual Design (WCAG 1.4.3)</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1156,7 +1156,7 @@ function ImplementationSection() {
       <div className="grid grid-cols-2 gap-6">
         {/* Code Example: Simple Form */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Simple Form</h3>
           </div>
           <div className="p-6">
@@ -1214,7 +1214,7 @@ function ImplementationSection() {
 
         {/* Code Example: Auto-Save */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Auto-Save</h3>
           </div>
           <div className="p-6">
@@ -1308,7 +1308,7 @@ function SystemArchitecture() {
 function QuickStart() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Start</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1325,7 +1325,7 @@ function QuickStart() {
 function PatternIndex() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Pattern Index</h3>
       </div>
       <div className="p-4 space-y-1 text-xs">
@@ -1347,7 +1347,7 @@ function PatternIndex() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1489,7 +1489,7 @@ function ConditionalLogicExample() {
         </div>
         
         {hasVehicle && (
-          <div className="bg-blue-50 border-2 border-blue-300 rounded p-4 space-y-3">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded p-4 space-y-3">
             <p className="text-sm font-bold text-foreground">Vehicle Details</p>
             <input 
               type="text" 
@@ -1626,7 +1626,7 @@ function SaveResumeExample() {
           onChange={handleSave}
           className="w-full px-4 py-3 border-2 border-border rounded"
         />
-        <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm">
           <Info size={14} className="inline mr-2 text-blue-600" />
           Your progress is saved automatically every 2 minutes
         </div>
@@ -1712,7 +1712,7 @@ function FormPattern({ number, title, description, complexity, useWhen, keyFeatu
   
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
@@ -1767,7 +1767,7 @@ function ComponentExample({ title, description, children }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
         <h3 className="font-bold text-foreground mb-1">{title}</h3>
         <p className="text-xs text-muted-foreground">{description}</p>
       </div>

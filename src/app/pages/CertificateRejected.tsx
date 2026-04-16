@@ -31,7 +31,7 @@ export default function CertificateRejected() {
           
           {/* Reference Details */}
           <div className="bg-card border-2 border-border rounded-lg overflow-hidden mb-6">
-            <div className="bg-red-50 border-b-2 border-red-300 px-8 py-6">
+            <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-8 py-6">
               <div className="text-sm text-muted-foreground mb-2">Reference Number</div>
               <div className="text-2xl font-bold text-foreground font-mono">{rejectionData.refNumber}</div>
             </div>
@@ -70,7 +70,7 @@ export default function CertificateRejected() {
           </div>
 
           {/* Next Steps */}
-          <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-8 mb-6">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8 mb-6">
             <h3 className="font-bold text-foreground mb-4">What Can You Do Next?</h3>
             <div className="space-y-4">
               <Option

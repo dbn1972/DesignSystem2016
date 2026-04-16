@@ -45,7 +45,7 @@ export default function DashboardOverview() {
                   improve service completion rates, and provide continuity across multiple services and sessions.
                 </p>
                 <div className="grid grid-cols-3 gap-6">
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+                  <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">User Benefits</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Single point of access</li>
@@ -54,7 +54,7 @@ export default function DashboardOverview() {
                       <li>• Reduced complexity</li>
                     </ul>
                   </div>
-                  <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+                  <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">System Benefits</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Higher completion rates</li>
@@ -63,7 +63,7 @@ export default function DashboardOverview() {
                       <li>• Usage analytics</li>
                     </ul>
                   </div>
-                  <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+                  <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">Service Benefits</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Cross-service discovery</li>
@@ -241,7 +241,7 @@ export default function DashboardOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-red-500 pl-4">
                 Data Privacy & Security
               </h2>
-              <div className="bg-red-50 border-2 border-red-300 rounded-lg p-8">
+              <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-8">
                 <div className="flex items-start gap-3 mb-6">
                   <Shield size={24} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
@@ -303,7 +303,7 @@ export default function DashboardOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Accessibility Considerations
               </h2>
-              <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-8">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">WCAG 2.1 Level AA</h3>
@@ -452,7 +452,7 @@ function FlowIntegration({ title, description, touchpoints }: {
 function QuickNavigation() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden sticky top-24">
-      <div className="bg-indigo-50 border-b-2 border-indigo-200 px-4 py-3">
+      <div className="bg-indigo-50 dark:bg-indigo-950/30 border-b-2 border-indigo-200 dark:border-indigo-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Navigation</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
@@ -468,7 +468,7 @@ function QuickNavigation() {
 
 function KeyPrinciples() {
   return (
-    <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
+    <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-4">
       <h3 className="font-bold text-foreground text-sm mb-3">Key Principles</h3>
       <ul className="space-y-2 text-xs text-muted-foreground">
         <li className="flex items-start gap-2">
@@ -499,7 +499,7 @@ function KeyPrinciples() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">

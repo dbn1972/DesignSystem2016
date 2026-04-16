@@ -22,7 +22,7 @@ export default function CertificatePrivacyPolicy() {
         <div className="max-w-4xl mx-auto">
           
           {/* Last Updated */}
-          <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5 mb-8">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5 mb-8">
             <div className="flex items-start gap-3">
               <AlertCircle size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
               <div>
@@ -223,7 +223,7 @@ export default function CertificatePrivacyPolicy() {
               {/* Contact */}
               <div className="pt-8 border-t-2 border-border">
                 <h3 className="font-bold text-foreground mb-4">Contact Information</h3>
-                <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+                <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
                   <p className="text-sm text-muted-foreground mb-4">
                     If you have questions, concerns, or complaints about this Privacy Policy or our data practices, please contact:
                   </p>
@@ -286,7 +286,7 @@ function Section({ icon, title, content }: { icon: React.ReactNode; title: strin
   return (
     <div className="border-b-2 border-border pb-8 last:border-b-0">
       <div className="flex items-start gap-3 mb-4">
-        <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+        <div className="w-10 h-10 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center flex-shrink-0">
           {icon}
         </div>
         <h2 className="text-lg font-bold text-foreground flex-1">{title}</h2>

@@ -303,7 +303,7 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
       <div className="p-8 space-y-6">
         
         {/* Important Notice */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <AlertCircle size={24} className="text-orange-600 flex-shrink-0" />
             <div>
@@ -322,7 +322,7 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
         </div>
 
         {/* When to Use This Flow */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             When to Use This Flow
@@ -352,7 +352,7 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
         </div>
 
         {/* What You'll Need */}
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <FileText size={20} className="text-green-600" />
             What You'll Need
@@ -497,7 +497,7 @@ function RelationshipScreen({
                 <h3 className="font-bold text-foreground mb-1">{rel.title}</h3>
                 <p className="text-sm text-muted-foreground mb-3">{rel.description}</p>
                 {rel.proofRequired && (
-                  <div className="flex items-center gap-2 text-xs text-orange-700 bg-orange-50 border border-orange-200 rounded px-2 py-1 inline-block">
+                  <div className="flex items-center gap-2 text-xs text-orange-700 bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800 rounded px-2 py-1 inline-block">
                     <AlertCircle size={12} />
                     <span>Supporting documents required</span>
                   </div>
@@ -560,7 +560,7 @@ function PersonDetailsScreen({
       <div className="p-8 space-y-6">
         
         {/* Info Box */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
           <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
           <p className="text-sm text-muted-foreground">
             Enter the details exactly as they appear on official documents. This information will be 
@@ -685,7 +685,7 @@ function AuthorizationScreen({
       </div>
 
       {attemptedProceed && !authorizationChecked && (
-        <div className="mx-8 mt-6 bg-red-50 border-2 border-red-300 rounded-lg p-4 flex items-start gap-3">
+        <div className="mx-8 mt-6 bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-4 flex items-start gap-3">
           <AlertCircle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
           <div>
             <h3 className="font-bold text-red-900 mb-1">Authorization Required</h3>
@@ -699,7 +699,7 @@ function AuthorizationScreen({
       <div className="p-8 space-y-6">
         
         {/* Legal Notice */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <Shield size={24} className="text-orange-600 flex-shrink-0" />
             <div>
@@ -816,7 +816,7 @@ function ConsentScreen({
       <div className="p-8 space-y-6">
         
         {/* Notice */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
             <div>
@@ -843,7 +843,7 @@ function ConsentScreen({
         </div>
 
         {/* Purpose and Usage */}
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Purpose of Data Collection</h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
             The data will be used to verify identity, process the application, deliver government services, 
@@ -958,7 +958,7 @@ function ProofUploadScreen({
       <div className="p-8 space-y-6">
         
         {/* Requirements */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
@@ -1026,7 +1026,7 @@ function ProofUploadScreen({
         </div>
 
         {/* Information */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <Info size={18} className="text-primary flex-shrink-0 mt-0.5" />
             <div className="text-sm text-muted-foreground">
@@ -1084,7 +1084,7 @@ function InvalidScreen({ onRetry, onHelp }: { onRetry: () => void; onHelp: () =>
           This declaration is mandatory for all guardian/proxy applications.
         </p>
 
-        <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-red-900 mb-4 flex items-center gap-2">
             <XCircle size={20} className="text-red-600" />
             Why Authorization is Required
@@ -1109,7 +1109,7 @@ function InvalidScreen({ onRetry, onHelp }: { onRetry: () => void; onHelp: () =>
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What You Can Do
@@ -1185,7 +1185,7 @@ function SuccessScreen({
           <span className="font-bold">{personName}</span>. You can proceed with the service application.
         </p>
 
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <CheckCircle size={20} className="text-green-600" />
             What's Been Recorded
@@ -1201,7 +1201,7 @@ function SuccessScreen({
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Important Information
@@ -1236,7 +1236,7 @@ function SuccessScreen({
           </div>
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4 mb-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 mb-8">
           <div className="flex items-start gap-3 text-left">
             <Shield size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
@@ -1326,7 +1326,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           />
         </div>
 
-        <div className="mt-8 p-6 bg-blue-50 border-2 border-blue-300 rounded-lg">
+        <div className="mt-8 p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg">
           <h3 className="font-bold text-foreground mb-3">Need More Help?</h3>
           <p className="text-sm text-muted-foreground mb-4">
             For specific questions about your situation, contact our support team or visit the nearest 

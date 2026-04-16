@@ -326,7 +326,7 @@ export default function IdentityForgotPassword() {
                         Your password has been changed successfully. You can now sign in with your new password.
                       </p>
 
-                      <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg mb-8">
+                      <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg mb-8">
                         <div className="flex items-start gap-3 text-left">
                           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
                           <div className="text-sm text-muted-foreground">
@@ -425,8 +425,8 @@ function PatternInfo() {
 
 function UserJourney() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground">User Journey</h3>
       </div>
       <div className="p-4 space-y-3 text-sm text-muted-foreground">
@@ -442,8 +442,8 @@ function UserJourney() {
 
 function SecurityConsiderations() {
   return (
-    <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
-      <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+      <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Security</h3>
       </div>
       <div className="p-4 space-y-2 text-sm text-muted-foreground">
@@ -459,8 +459,8 @@ function SecurityConsiderations() {
 
 function AccessibilityNotes() {
   return (
-    <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
-      <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50">
+      <div className="bg-green-100 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Accessibility</h3>
       </div>
       <div className="p-4 space-y-2 text-sm text-muted-foreground">

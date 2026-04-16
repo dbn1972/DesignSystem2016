@@ -252,24 +252,24 @@ export default {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div className="p-4 bg-blue-50 rounded-lg">
+            <div className="p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
               <div className="text-3xl mb-2">🌐</div>
               <h3 className="font-semibold text-foreground mb-1">Universal</h3>
               <p className="text-sm text-muted-foreground">Works with React, Angular, Vue, Svelte, or vanilla HTML</p>
             </div>
-            <div className="p-4 bg-green-50 rounded-lg">
+            <div className="p-4 bg-green-50 dark:bg-green-950/30 rounded-lg">
               <div className="text-3xl mb-2">♿</div>
               <h3 className="font-semibold text-foreground mb-1">Accessible</h3>
               <p className="text-sm text-muted-foreground">WCAG 2.1 Level AA compliant out of the box</p>
             </div>
-            <div className="p-4 bg-orange-50 rounded-lg">
+            <div className="p-4 bg-orange-50 dark:bg-orange-950/30 rounded-lg">
               <div className="text-3xl mb-2">🎨</div>
               <h3 className="font-semibold text-foreground mb-1">Branded</h3>
               <p className="text-sm text-muted-foreground">Indian tricolor theme and government standards</p>
             </div>
           </div>
 
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-400 p-4">
             <div className="flex">
               <div className="flex-shrink-0">
                 <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
@@ -468,7 +468,7 @@ export default {
             </table>
           </div>
 
-          <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+          <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
             <p className="text-sm text-blue-800">
               <strong>Coming Soon:</strong> 57 additional components including Dialog, Drawer, Toast, Modal, Table, and many more advanced components!
             </p>

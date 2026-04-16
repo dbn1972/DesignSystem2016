@@ -36,7 +36,7 @@ export default function FeedbackAcknowledgmentPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6 mb-6">
+            <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 Example acknowledgment screen shown after feedback submission.
@@ -60,7 +60,7 @@ export default function FeedbackAcknowledgmentPattern() {
                 </p>
 
                 {/* Reference ID */}
-                <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
+                <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
                   <div className="text-sm text-muted-foreground mb-2">Feedback Reference Number</div>
                   <div className="flex items-center justify-center gap-3">
                     <div className="text-2xl font-bold text-foreground">{referenceId}</div>
@@ -233,7 +233,7 @@ export default function FeedbackAcknowledgmentPattern() {
                 </div>
               </div>
 
-              <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+              <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Best Practices</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Always provide tracking reference</li>

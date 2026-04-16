@@ -36,7 +36,7 @@ export default function CertificateFeedback() {
         <div className="max-w-2xl mx-auto">
           
           {/* Success Message */}
-          <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 mb-8 text-center">
+          <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6 mb-8 text-center">
             <div className="w-16 h-16 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
               <ThumbsUp size={32} className="text-white" />
             </div>
@@ -173,7 +173,7 @@ export default function CertificateFeedback() {
           </form>
 
           {/* Privacy Note */}
-          <div className="mt-6 bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+          <div className="mt-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
             <h3 className="font-bold text-foreground mb-2 text-sm">Privacy & Anonymity</h3>
             <p className="text-sm text-muted-foreground">
               Your feedback is valuable and will be used only to improve our services. 

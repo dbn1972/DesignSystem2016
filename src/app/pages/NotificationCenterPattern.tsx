@@ -280,7 +280,7 @@ export default function NotificationCenterPattern() {
 
         {/* Bulk Actions */}
         {selectedIds.length > 0 && (
-          <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 mb-6 flex items-center justify-between">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 mb-6 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <span className="font-bold text-foreground">{selectedIds.length} selected</span>
               <button
@@ -347,7 +347,7 @@ export default function NotificationCenterPattern() {
         )}
 
         {/* Pattern Info */}
-        <div className="mt-12 bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+        <div className="mt-12 bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>
@@ -480,7 +480,7 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
             )}
             <button
               onClick={onDelete}
-              className="ml-auto p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
+              className="ml-auto p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 dark:bg-red-950/30 rounded transition-colors"
               aria-label="Delete notification"
             >
               <Trash2 size={18} />

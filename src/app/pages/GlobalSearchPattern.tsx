@@ -164,7 +164,7 @@ export default function GlobalSearchPattern() {
                       onClick={() => handleSelectService(service)}
                       className={`w-full text-left px-3 py-3 rounded transition-colors ${
                         focusedIndex === index
-                          ? 'bg-blue-50 border-l-4 border-primary'
+                          ? 'bg-blue-50 dark:bg-blue-950/30 border-l-4 border-primary'
                           : 'hover:bg-background'
                       }`}
                     >
@@ -265,7 +265,7 @@ export default function GlobalSearchPattern() {
               </div>
 
               {/* Help Section */}
-              <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Need help finding a service?</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Not sure which service you need? Our guided finder asks a few questions to help identify 
@@ -284,7 +284,7 @@ export default function GlobalSearchPattern() {
           )}
 
           {/* Pattern Info */}
-          <div className="mt-12 bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+          <div className="mt-12 bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-3">Pattern Behavior</h3>
             <div className="grid grid-cols-3 gap-6 text-sm">
               <div>

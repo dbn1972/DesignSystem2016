@@ -44,7 +44,7 @@ export default function ComponentCodeMapping() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 TYPE-SAFE
               </div>
-              <div className="px-6 py-3 bg-blue-50 border-2 border-blue-200 rounded text-blue-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
                 Component<br/>Specs
               </div>
             </div>
@@ -722,7 +722,7 @@ export function Button({
 function QuickNav() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Components</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -754,7 +754,7 @@ function ComponentCount() {
 function SpecsLocation() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">File Location</h3>
       </div>
       <div className="p-4 text-xs">
@@ -772,7 +772,7 @@ function SpecsLocation() {
 function FrameworkSupport() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Framework Support</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -803,7 +803,7 @@ function FeatureCard({ title, description, icon }: {
 function BenefitCard({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
         <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">

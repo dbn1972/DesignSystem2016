@@ -45,7 +45,7 @@ export default function StatusLifecycleOverview() {
                   who's responsible, why there are delays, and when to expect resolution.
                 </p>
                 <div className="grid grid-cols-3 gap-6">
-                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+                  <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">Without Lifecycle Intelligence</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• "Status: Pending" for 3 weeks</li>
@@ -54,7 +54,7 @@ export default function StatusLifecycleOverview() {
                       <li>• Citizen anxiety and distrust</li>
                     </ul>
                   </div>
-                  <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+                  <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">With Lifecycle Intelligence</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• See exact stage and progress</li>
@@ -63,7 +63,7 @@ export default function StatusLifecycleOverview() {
                       <li>• Clear time expectations</li>
                     </ul>
                   </div>
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+                  <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">Impact</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• 60% reduction in support calls</li>
@@ -241,7 +241,7 @@ export default function StatusLifecycleOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Transparency Best Practices
               </h2>
-              <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-8">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">Always Show</h3>
@@ -403,7 +403,7 @@ function StateTransition({ from, to, description }: {
 function QuickNavigation() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden sticky top-24">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Navigation</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
@@ -418,7 +418,7 @@ function QuickNavigation() {
 
 function KeyPrinciples() {
   return (
-    <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
+    <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-4">
       <h3 className="font-bold text-foreground text-sm mb-3">Key Principles</h3>
       <ul className="space-y-2 text-xs text-muted-foreground">
         <li className="flex items-start gap-2">
@@ -449,7 +449,7 @@ function KeyPrinciples() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">

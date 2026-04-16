@@ -52,7 +52,7 @@ export default function OTPVerificationPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -191,7 +191,7 @@ function OverviewSection() {
 
         {/* When Not to Use */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When Not to Use
@@ -299,7 +299,7 @@ function ExampleStates() {
       <div className="grid grid-cols-2 gap-6">
         {/* Default State */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Default OTP Entry</h3>
           </div>
           <div className="p-6">
@@ -332,7 +332,7 @@ function ExampleStates() {
 
         {/* Incomplete OTP */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Incomplete OTP</h3>
           </div>
           <div className="p-6">
@@ -353,7 +353,7 @@ function ExampleStates() {
                 <div className="w-12 h-12 border-2 border-border rounded bg-card"></div>
                 <div className="w-12 h-12 border-2 border-border rounded bg-card"></div>
               </div>
-              <div className="bg-orange-50 border border-orange-300 rounded p-3 text-sm text-orange-800">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border border-orange-300 rounded p-3 text-sm text-orange-800">
                 <AlertCircle size={14} className="inline mr-2" />
                 Please enter all 6 digits
               </div>
@@ -367,7 +367,7 @@ function ExampleStates() {
 
         {/* Invalid OTP */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Invalid OTP</h3>
           </div>
           <div className="p-6">
@@ -385,7 +385,7 @@ function ExampleStates() {
                   <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50"></div>
                 ))}
               </div>
-              <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-red-800">
+              <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800">
                 <XCircle size={14} className="inline mr-2" />
                 Invalid code. 2 attempts remaining.
               </div>
@@ -400,7 +400,7 @@ function ExampleStates() {
 
         {/* Expired OTP */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border-b-2 border-yellow-200 dark:border-yellow-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Expired OTP</h3>
           </div>
           <div className="p-6">
@@ -432,7 +432,7 @@ function ExampleStates() {
 
         {/* Resend OTP */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Resend OTP Available</h3>
           </div>
           <div className="p-6">
@@ -481,7 +481,7 @@ function ExampleStates() {
                   of verification attempts. Please wait.
                 </p>
               </div>
-              <div className="bg-red-50 border-2 border-red-300 rounded p-4 text-sm">
+              <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4 text-sm">
                 <p className="text-red-800 font-bold mb-2">Account temporarily locked</p>
                 <p className="text-muted-foreground">Try again after <span className="font-bold">14 minutes</span></p>
               </div>
@@ -499,7 +499,7 @@ function ExampleStates() {
 
         {/* Success State */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Verification Success</h3>
           </div>
           <div className="p-6">
@@ -519,7 +519,7 @@ function ExampleStates() {
                   <div key={num} className="w-12 h-12 border-2 border-green-500 rounded bg-green-50 flex items-center justify-center font-bold text-green-700">{num}</div>
                 ))}
               </div>
-              <div className="bg-green-50 border border-green-300 rounded p-3 text-sm text-green-800">
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800">
                 <CheckCircle size={14} className="inline mr-2" />
                 Proceeding to your account...
               </div>
@@ -583,7 +583,7 @@ function OTPPatterns() {
       <div className="grid grid-cols-2 gap-6">
         {/* Single Field Pattern */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Single Field Pattern</h3>
           </div>
           <div className="p-6">
@@ -612,7 +612,7 @@ function OTPPatterns() {
 
         {/* Multi-Field Pattern */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Multi-Field Pattern (6 Inputs)</h3>
           </div>
           <div className="p-6">
@@ -644,7 +644,7 @@ function OTPPatterns() {
         </div>
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
           <Info size={20} className="text-primary" />
           Pattern Selection Guidelines
@@ -735,7 +735,7 @@ function ValidationLogic() {
       <div className="grid grid-cols-2 gap-6">
         {/* Input Validation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Input Validation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -764,7 +764,7 @@ function ValidationLogic() {
 
         {/* Server Validation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Server Validation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -792,7 +792,7 @@ function ValidationLogic() {
         </div>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertCircle size={20} className="text-yellow-600" />
           Security Considerations
@@ -832,7 +832,7 @@ function ResendLogic() {
       <div className="grid grid-cols-2 gap-6">
         {/* Countdown Behavior */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Countdown Timer Behavior</h3>
           </div>
           <div className="p-6 space-y-4">
@@ -867,7 +867,7 @@ function ResendLogic() {
 
         {/* Resend Flow */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Resend Flow & Messaging</h3>
           </div>
           <div className="p-6 space-y-4">
@@ -952,7 +952,7 @@ function ResendLogic() {
         </div>
       </div>
 
-      <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-orange-600" />
           Accessibility Considerations for Timers
@@ -981,7 +981,7 @@ function AccessibilitySection() {
       <div className="grid grid-cols-2 gap-6">
         {/* Keyboard Behavior */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Keyboard Behavior</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1014,7 +1014,7 @@ function AccessibilitySection() {
 
         {/* Screen Reader Support */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Screen Reader Considerations</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1047,7 +1047,7 @@ function AccessibilitySection() {
 
         {/* Paste Behavior */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Paste Behavior</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1076,7 +1076,7 @@ function AccessibilitySection() {
 
         {/* Focus Management */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border-b-2 border-yellow-200 dark:border-yellow-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Focus Management</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1192,7 +1192,7 @@ function ImplementationSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: HTML Structure</h3>
           </div>
           <div className="p-6">
@@ -1226,7 +1226,7 @@ function ImplementationSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: JavaScript Logic</h3>
           </div>
           <div className="p-6">
@@ -1299,7 +1299,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Conformance Level</h3>
           </div>
           <div className="p-6">
@@ -1321,7 +1321,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
@@ -1369,7 +1369,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Planned Updates & Roadmap
@@ -1398,7 +1398,7 @@ function GovernanceSection() {
 function QuickReference() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -1438,7 +1438,7 @@ function QuickReference() {
 function ChildPatterns() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Child Patterns</h3>
       </div>
       <div className="p-4 space-y-2">
@@ -1470,7 +1470,7 @@ function ChildPatterns() {
 function RelatedPatterns() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1487,7 +1487,7 @@ function RelatedPatterns() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">

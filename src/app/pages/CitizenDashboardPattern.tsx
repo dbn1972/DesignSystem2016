@@ -147,7 +147,7 @@ export default function CitizenDashboardPattern() {
               
               {/* Pending Tasks Summary */}
               {PENDING_TASKS.length > 0 && (
-                <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+                <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <AlertCircle size={24} className="text-yellow-600" />
@@ -280,7 +280,7 @@ export default function CitizenDashboardPattern() {
                 </div>
                 <div className="space-y-3">
                   {NOTIFICATIONS.slice(0, 3).map(notif => (
-                    <div key={notif.id} className={`p-3 rounded ${notif.unread ? 'bg-blue-50 border-l-4 border-primary' : 'bg-background'}`}>
+                    <div key={notif.id} className={`p-3 rounded ${notif.unread ? 'bg-blue-50 dark:bg-blue-950/30 border-l-4 border-primary' : 'bg-background'}`}>
                       <div className="flex items-start justify-between mb-1">
                         <div className="text-sm font-bold text-foreground">{notif.title}</div>
                         {notif.unread && <div className="w-2 h-2 bg-red-500 rounded-full"></div>}
@@ -315,7 +315,7 @@ export default function CitizenDashboardPattern() {
               </div>
 
               {/* Help & Support */}
-              <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-2">Need Help?</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Contact our support team for assistance with your applications.
@@ -413,7 +413,7 @@ export default function CitizenDashboardPattern() {
         )}
 
         {/* Pattern Info */}
-        <div className="mt-12 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-6">
+        <div className="mt-12 bg-indigo-50 dark:bg-indigo-950/30 border-2 border-indigo-200 dark:border-indigo-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>

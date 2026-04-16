@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Last Updated Banner */}
-      <div className="bg-blue-50 border-b-2 border-blue-200">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800">
         <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex items-start gap-3">
             <Info className="text-primary flex-shrink-0 mt-0.5" size={20} />
@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
               protection of information in connection with our services. By accessing or using the UX4G Design
               System, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy.
             </p>
-            <div className="bg-green-50 border-l-4 border-[#138808] p-6 rounded-r-lg">
+            <div className="bg-green-50 dark:bg-green-950/30 border-l-4 border-[#138808] p-6 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="text-[#138808] flex-shrink-0 mt-0.5" size={20} />
                 <div>
@@ -230,7 +230,7 @@ export default function PrivacyPolicy() {
               />
             </div>
 
-            <div className="mt-6 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+            <div className="mt-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
               <h4 className="font-bold text-foreground mb-3">Legal Basis for Processing</h4>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 We process your information based on: (a) your consent when you provide information voluntarily;
@@ -279,7 +279,7 @@ export default function PrivacyPolicy() {
               />
             </div>
 
-            <div className="mt-6 bg-orange-50 border-l-4 border-[#FF9933] p-6 rounded-r-lg">
+            <div className="mt-6 bg-orange-50 dark:bg-orange-950/30 border-l-4 border-[#FF9933] p-6 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <AlertCircle className="text-[#FF9933] flex-shrink-0 mt-0.5" size={20} />
                 <div>
@@ -394,7 +394,7 @@ export default function PrivacyPolicy() {
               />
             </div>
 
-            <div className="mt-6 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+            <div className="mt-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
               <h4 className="font-bold text-foreground mb-3">External Links</h4>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Our platform may contain links to external websites not operated by us. We are not responsible
@@ -453,7 +453,7 @@ export default function PrivacyPolicy() {
               />
             </div>
 
-            <div className="mt-6 bg-green-50 border-2 border-green-200 rounded-lg p-6">
+            <div className="mt-6 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
               <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
                 <Mail className="text-[#138808]" size={20} />
                 Exercising Your Rights
@@ -558,7 +558,7 @@ export default function PrivacyPolicy() {
               We do not knowingly collect personal information from individuals under 18 years of age. If you
               are under 18, please do not provide any personal information through our services.
             </p>
-            <div className="bg-orange-50 border-l-4 border-[#FF9933] p-6 rounded-r-lg">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-[#FF9933] p-6 rounded-r-lg">
               <div className="flex items-start gap-3">
                 <AlertCircle className="text-[#FF9933] flex-shrink-0 mt-0.5" size={20} />
                 <div>
@@ -609,7 +609,7 @@ export default function PrivacyPolicy() {
               understand the changes. Your continued use of the UX4G Design System after the effective date
               constitutes acceptance of the updated Privacy Policy.
             </p>
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
               <h4 className="font-bold text-foreground mb-2">Review Regularly</h4>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 We encourage you to review this Privacy Policy periodically to stay informed about how we
@@ -681,7 +681,7 @@ export default function PrivacyPolicy() {
               </div>
             </div>
 
-            <div className="mt-6 bg-green-50 border-2 border-green-200 rounded-lg p-6">
+            <div className="mt-6 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
               <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
                 <Shield className="text-[#138808]" size={20} />
                 Security Issue Reporting
@@ -764,7 +764,7 @@ function PolicySection({
   return (
     <section className="scroll-mt-8" id={`section-${number}`}>
       <div className="flex items-start gap-4 mb-6">
-        <div className="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+        <div className="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center flex-shrink-0">
           {icon}
         </div>
         <div className="flex-1">
@@ -790,7 +790,7 @@ function SubSection({ title, children }: { title: string; children: React.ReactN
 
 function UseCase({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-5">
+    <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-5">
       <h4 className="font-bold text-foreground mb-3">{title}</h4>
       <ul className="space-y-2">
         {items.map((item, index) => (
@@ -806,7 +806,7 @@ function UseCase({ title, items }: { title: string; items: string[] }) {
 
 function SecurityMeasure({ title, description }: { title: string; description: string }) {
   return (
-    <div className="bg-green-50 border-l-4 border-[#138808] p-5 rounded-r-lg">
+    <div className="bg-green-50 dark:bg-green-950/30 border-l-4 border-[#138808] p-5 rounded-r-lg">
       <h4 className="font-bold text-foreground mb-2">{title}</h4>
       <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
     </div>
@@ -825,7 +825,7 @@ function CookieCategory({
   examples: string[];
 }) {
   return (
-    <div className={`border-2 ${required ? 'border-orange-200 bg-orange-50' : 'border-border bg-background'} rounded-lg p-5`}>
+    <div className={`border-2 ${required ? 'border-orange-200 dark:border-orange-800 bg-orange-50' : 'border-border bg-background'} rounded-lg p-5`}>
       <div className="flex items-start justify-between mb-3">
         <h4 className="font-bold text-foreground">{title}</h4>
         <span className={`px-3 py-1 rounded-full text-xs font-bold ${
@@ -892,7 +892,7 @@ function UserRight({
         <div className="flex-1">
           <h4 className="font-bold text-foreground mb-2">{title}</h4>
           <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{description}</p>
-          <div className="text-xs text-muted-foreground bg-blue-50 border border-blue-200 rounded p-3">
+          <div className="text-xs text-muted-foreground bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-3">
             <strong>How to exercise:</strong> {action}
           </div>
         </div>
@@ -911,7 +911,7 @@ function RetentionPolicy({
   reason: string;
 }) {
   return (
-    <div className="bg-blue-50 border-l-4 border-primary p-5 rounded-r-lg">
+    <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-primary p-5 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
         <h4 className="font-bold text-foreground">{category}</h4>
         <span className="px-3 py-1 bg-blue-100 text-blue-900 rounded-full text-xs font-bold whitespace-nowrap ml-4">

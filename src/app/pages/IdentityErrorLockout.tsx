@@ -152,7 +152,7 @@ export default function IdentityErrorLockout() {
                       description="Your session has expired due to inactivity. Please sign in again to continue."
                       actions={
                         <>
-                          <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+                          <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
                             <div className="flex items-start gap-3 text-sm">
                               <Info size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
                               <div className="text-muted-foreground">
@@ -340,7 +340,7 @@ function ErrorStateView({
       <div className="mb-8">{actions}</div>
 
       {/* Tips */}
-      <div className="p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+      <div className="p-4 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
         <div className="flex items-start gap-3">
           <Info size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
           <div>
@@ -406,8 +406,8 @@ function ErrorTypes() {
 
 function RecoveryActions() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Recovery Actions</h3>
       </div>
       <div className="p-4 space-y-2 text-sm text-muted-foreground">

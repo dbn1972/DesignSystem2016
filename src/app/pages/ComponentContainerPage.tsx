@@ -6,7 +6,7 @@ import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 
 const ContainerPreview = ({ maxWidth = 'lg' }: any) => (
-  <div className={`mx-auto px-4 ${maxWidth === 'sm' ? 'max-w-2xl' : maxWidth === 'md' ? 'max-w-4xl' : maxWidth === 'lg' ? 'max-w-6xl' : maxWidth === 'xl' ? 'max-w-7xl' : 'max-w-full'} bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg p-6`}>
+  <div className={`mx-auto px-4 ${maxWidth === 'sm' ? 'max-w-2xl' : maxWidth === 'md' ? 'max-w-4xl' : maxWidth === 'lg' ? 'max-w-6xl' : maxWidth === 'xl' ? 'max-w-7xl' : 'max-w-full'} bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 border-dashed rounded-lg p-6`}>
     <p className="text-center text-muted-foreground">Container content ({maxWidth})</p>
   </div>
 );
@@ -181,16 +181,16 @@ function Example() {
 }`,
           preview: (
             <div className="space-y-4 w-full">
-              <div className="mx-auto max-w-6xl bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg p-0">
+              <div className="mx-auto max-w-6xl bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 border-dashed rounded-lg p-0">
                 <p className="text-center text-muted-foreground">No padding</p>
               </div>
-              <div className="mx-auto max-w-6xl bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg px-2 py-4">
+              <div className="mx-auto max-w-6xl bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 border-dashed rounded-lg px-2 py-4">
                 <p className="text-center text-muted-foreground">Small padding</p>
               </div>
-              <div className="mx-auto max-w-6xl bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg px-4 py-4">
+              <div className="mx-auto max-w-6xl bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 border-dashed rounded-lg px-4 py-4">
                 <p className="text-center text-muted-foreground">Medium padding</p>
               </div>
-              <div className="mx-auto max-w-6xl bg-blue-50 border-2 border-blue-300 border-dashed rounded-lg px-8 py-4">
+              <div className="mx-auto max-w-6xl bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 border-dashed rounded-lg px-8 py-4">
                 <p className="text-center text-muted-foreground">Large padding</p>
               </div>
             </div>
@@ -443,17 +443,17 @@ export interface ContainerProps {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
+                  <div className="p-3 bg-green-50/50 rounded border border-green-200 dark:border-green-800 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
                   <p className="text-sm text-muted-foreground">Use containers with 60-80 character line length for optimal readability.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
+                  <div className="p-3 bg-red-50/50 rounded border border-red-200 dark:border-red-800 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
                   <p className="text-sm text-muted-foreground">Don&apos;t nest containers — it creates double margins and unexpected layouts.</p>
                 </div>
               </div>

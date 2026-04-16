@@ -240,7 +240,7 @@ export default function CertificateOfficerDashboard() {
             
             {/* Urgent Cases */}
             <div className="bg-card border-2 border-red-300 rounded-lg overflow-hidden">
-              <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
+              <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
                 <h3 className="font-bold text-foreground flex items-center gap-2">
                   <AlertCircle size={18} className="text-red-600" />
                   Urgent Cases
@@ -312,9 +312,9 @@ function StatCard({ icon, label, value, color, trend }: any) {
 
 function MetricCard({ icon, label, value, subtext, color }: any) {
   const colors = {
-    green: 'bg-green-50 border-green-300',
-    blue: 'bg-blue-50 border-blue-300',
-    purple: 'bg-purple-50 border-purple-300'
+    green: 'bg-green-50 dark:bg-green-950/30 border-green-300',
+    blue: 'bg-blue-50 dark:bg-blue-950/30 border-blue-300',
+    purple: 'bg-purple-50 dark:bg-purple-950/30 border-purple-300'
   };
 
   return (
@@ -354,7 +354,7 @@ function ActivityItem({ activity }: any) {
 
 function UrgentCaseCard({ caseItem }: any) {
   return (
-    <div className="bg-red-50 border-2 border-red-300 rounded p-4">
+    <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4">
       <div className="flex items-start justify-between mb-2">
         <div className="font-bold text-foreground text-sm">{caseItem.applicant}</div>
         <span className="text-xs bg-red-600 text-white px-2 py-1 rounded font-bold">

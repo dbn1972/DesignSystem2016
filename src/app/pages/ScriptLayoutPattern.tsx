@@ -35,7 +35,7 @@ export default function ScriptLayoutPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6 mb-6">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 See how layouts adapt for different script directions and requirements.
@@ -112,7 +112,7 @@ export default function ScriptLayoutPattern() {
                       یہ دائیں سے بائیں لے آؤٹ اردو اور عربی کے لیے استعمال ہوتا ہے۔
                     </p>
                   </div>
-                  <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4" dir="ltr">
+                  <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-4" dir="ltr">
                     <p className="text-sm text-muted-foreground">
                       <strong>Note:</strong> RTL layouts require flipping entire UI including navigation,
                       icons, and reading direction. Use CSS <code>dir="rtl"</code> attribute.
@@ -136,7 +136,7 @@ export default function ScriptLayoutPattern() {
                           style={{ lineHeight: "1.8" }}
                         />
                       </div>
-                      <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
+                      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4">
                         <div className="font-bold text-foreground mb-2">Complex Rendering Examples:</div>
                         <div className="text-2xl space-y-2">
                           <div>क + ् + ष = क्ष (kṣa)</div>
@@ -146,7 +146,7 @@ export default function ScriptLayoutPattern() {
                       </div>
                     </div>
                   </div>
-                  <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4">
+                  <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
                     <p className="text-sm text-muted-foreground">
                       <strong>Requirements:</strong> Devanagari and other Indic scripts need proper conjunct
                       rendering, increased line-height (1.6-1.8), and fonts with full Unicode support.
@@ -242,7 +242,7 @@ export default function ScriptLayoutPattern() {
                 </div>
               </div>
 
-              <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Technical Requirements</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Unicode font support</li>

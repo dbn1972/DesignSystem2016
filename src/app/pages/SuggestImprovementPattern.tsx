@@ -64,7 +64,7 @@ export default function SuggestImprovementPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6 mb-6">
+            <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 Share your ideas for improving government services.
@@ -168,7 +168,7 @@ export default function SuggestImprovementPattern() {
                     </div>
                   </div>
 
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
+                  <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4">
                     <label className="flex items-center gap-3 cursor-pointer">
                       <input
                         type="checkbox"
@@ -210,7 +210,7 @@ export default function SuggestImprovementPattern() {
                   <p className="text-sm text-muted-foreground mb-4">
                     Suggestion ID: SUG-2026-{Math.floor(Math.random() * 100000).toString().padStart(5, '0')}
                   </p>
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-6 max-w-md mx-auto">
+                  <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6 max-w-md mx-auto">
                     <p className="text-sm text-muted-foreground">
                       <ThumbsUp size={16} className="inline-block mr-2 text-blue-600" />
                       <strong>Vote for this suggestion</strong> to increase its priority
@@ -247,7 +247,7 @@ export default function SuggestImprovementPattern() {
                 </div>
               </div>
 
-              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+              <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Best Practices</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Enable community voting/upvoting</li>

@@ -287,7 +287,7 @@ function ExplanationScreen({
       <div className="p-8 space-y-6">
         
         {/* Why Data Sharing */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Why We Need to Share Your Data
@@ -314,7 +314,7 @@ function ExplanationScreen({
 
         {/* What Happens */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-green-50 border-2 border-green-300 rounded-lg p-5">
+          <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-5">
             <div className="flex items-center gap-2 mb-3">
               <Check size={20} className="text-green-600" />
               <h4 className="font-bold text-foreground text-sm">With Data Sharing</h4>
@@ -339,7 +339,7 @@ function ExplanationScreen({
             </ul>
           </div>
 
-          <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5">
             <div className="flex items-center gap-2 mb-3">
               <X size={20} className="text-orange-600" />
               <h4 className="font-bold text-foreground text-sm">Without Data Sharing</h4>
@@ -389,7 +389,7 @@ function ExplanationScreen({
         </div>
 
         {/* Important Notice */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4 flex items-start gap-3">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 flex items-start gap-3">
           <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
           <div className="flex-1">
             <h4 className="font-bold text-orange-900 mb-1 text-sm">Important</h4>
@@ -605,7 +605,7 @@ function ConsentReviewScreen({
         </ExpandableSection>
 
         {/* Your Rights */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Eye size={20} className="text-primary" />
             Your Rights
@@ -748,7 +748,7 @@ function ConsentAcceptedScreen({ onReset }: { onReset: () => void }) {
           your application will proceed with automatic verification.
         </p>
 
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <CheckCircle size={20} className="text-green-600" />
             What Happens Next
@@ -762,7 +762,7 @@ function ConsentAcceptedScreen({ onReset }: { onReset: () => void }) {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Managing Your Consent
@@ -789,7 +789,7 @@ function ConsentAcceptedScreen({ onReset }: { onReset: () => void }) {
           </div>
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4 mb-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 mb-8">
           <div className="flex items-start gap-3 text-left">
             <Shield size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
@@ -856,7 +856,7 @@ function ConsentDeclinedScreen({
       <div className="p-8 space-y-6">
         
         {/* Impact Notice */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <AlertTriangle size={24} className="text-orange-600 flex-shrink-0" />
             <div>
@@ -897,7 +897,7 @@ function ConsentDeclinedScreen({
         </div>
 
         {/* What Stays Same */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What Stays the Same
@@ -911,7 +911,7 @@ function ConsentDeclinedScreen({
         </div>
 
         {/* Alternate Path Available */}
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <ChevronRight size={20} className="text-green-600" />
             Alternate Path Available
@@ -1027,7 +1027,7 @@ function AlternatePathScreen({ onBack }: { onBack: () => void }) {
           />
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Important Notes
@@ -1145,7 +1145,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           />
         </div>
 
-        <div className="mt-8 p-6 bg-blue-50 border-2 border-blue-300 rounded-lg">
+        <div className="mt-8 p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg">
           <h3 className="font-bold text-foreground mb-3">Still Have Questions?</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Contact our Data Protection Officer for personalized assistance with data sharing concerns.

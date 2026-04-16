@@ -43,7 +43,7 @@ export default function IdentityAccessPatterns() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -110,7 +110,7 @@ function WhatAreIdentityPatterns() {
         </p>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="p-5 bg-blue-50 border-2 border-blue-200 rounded-lg">
+          <div className="p-5 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
             <div className="flex items-start gap-3 mb-3">
               <Shield size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
               <h3 className="font-bold text-foreground">Not Just Login Forms</h3>
@@ -121,7 +121,7 @@ function WhatAreIdentityPatterns() {
             </p>
           </div>
 
-          <div className="p-5 bg-green-50 border-2 border-green-200 rounded-lg">
+          <div className="p-5 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg">
             <div className="flex items-start gap-3 mb-3">
               <Layers size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
               <h3 className="font-bold text-foreground">Cross-Service Foundation</h3>
@@ -220,7 +220,7 @@ function WhyCrossService() {
             </div>
           </div>
 
-          <div className="mt-6 p-5 bg-blue-50 border-2 border-blue-200 rounded-lg">
+          <div className="mt-6 p-5 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
             <div className="flex items-start gap-3">
               <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
               <div className="text-sm text-muted-foreground">
@@ -282,7 +282,7 @@ function RelationshipToArchetypes() {
           />
         </div>
 
-        <div className="mt-6 p-5 bg-purple-50 border-2 border-purple-200 rounded-lg">
+        <div className="mt-6 p-5 bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg">
           <div className="font-bold text-foreground mb-3">Pattern Hierarchy</div>
           <div className="flex items-center gap-3 text-sm text-muted-foreground">
             <div className="px-3 py-2 bg-card border-2 border-border rounded font-bold">Service Archetype</div>
@@ -334,7 +334,7 @@ function CorePatternFamilies() {
           title="Account Creation"
           icon={<UserCheck size={32} className="text-blue-600" />}
           bgColor="bg-blue-50"
-          borderColor="border-blue-200"
+          borderColor="border-blue-200 dark:border-blue-800"
           patterns={["Sign Up"]}
           description="New account registration with mobile/email verification and consent"
         />
@@ -342,7 +342,7 @@ function CorePatternFamilies() {
           title="Authentication"
           icon={<Lock size={32} className="text-green-600" />}
           bgColor="bg-green-50"
-          borderColor="border-green-200"
+          borderColor="border-green-200 dark:border-green-800"
           patterns={["Sign In", "Aadhaar Authentication"]}
           description="Standard login and Aadhaar-based identity verification"
         />
@@ -350,7 +350,7 @@ function CorePatternFamilies() {
           title="Verification"
           icon={<Smartphone size={32} className="text-purple-600" />}
           bgColor="bg-purple-50"
-          borderColor="border-purple-200"
+          borderColor="border-purple-200 dark:border-purple-800"
           patterns={["Mobile OTP", "Email OTP"]}
           description="One-time password verification via SMS or email"
         />
@@ -358,7 +358,7 @@ function CorePatternFamilies() {
           title="Recovery"
           icon={<RefreshCw size={32} className="text-orange-600" />}
           bgColor="bg-orange-50"
-          borderColor="border-orange-200"
+          borderColor="border-orange-200 dark:border-orange-800"
           patterns={["Forgot Password", "Account Recovery"]}
           description="Password reset and locked account recovery workflows"
         />
@@ -366,7 +366,7 @@ function CorePatternFamilies() {
           title="Session Security"
           icon={<Clock size={32} className="text-yellow-600" />}
           bgColor="bg-yellow-50"
-          borderColor="border-yellow-200"
+          borderColor="border-yellow-200 dark:border-yellow-800"
           patterns={["Session Timeout"]}
           description="Inactivity warnings and automatic logout for security"
         />
@@ -374,7 +374,7 @@ function CorePatternFamilies() {
           title="Error Handling"
           icon={<AlertTriangle size={32} className="text-red-600" />}
           bgColor="bg-red-50"
-          borderColor="border-red-200"
+          borderColor="border-red-200 dark:border-red-800"
           patterns={["Error States & Lockout"]}
           description="Invalid credentials, account lockout, and system errors"
         />
@@ -829,7 +829,7 @@ function ImplementationConsiderations() {
         />
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
         <div className="flex items-start gap-3">
           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
           <div>
@@ -886,7 +886,7 @@ function GovernanceConsiderations() {
         </div>
         <div className="p-8">
           <div className="grid grid-cols-2 gap-6 mb-6">
-            <div className="p-5 bg-red-50 border-2 border-red-200 rounded-lg">
+            <div className="p-5 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                 <div className="font-bold text-foreground">Mandatory Patterns</div>
@@ -902,7 +902,7 @@ function GovernanceConsiderations() {
               </div>
             </div>
 
-            <div className="p-5 bg-yellow-50 border-2 border-yellow-200 rounded-lg">
+            <div className="p-5 bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
                 <div className="font-bold text-foreground">Conditional Patterns</div>
@@ -1020,7 +1020,7 @@ function SupportAndRecovery() {
           </div>
         </div>
 
-        <div className="p-5 bg-orange-50 border-2 border-orange-200 rounded-lg">
+        <div className="p-5 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg">
           <div className="flex items-start gap-3">
             <AlertTriangle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
             <div>
@@ -1189,8 +1189,8 @@ function QuickRefRow({ label, value }: { label: string; value: string }) {
 
 function KeyPrinciples() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Key Principles</h3>
       </div>
       <div className="p-4 space-y-3 text-sm text-muted-foreground">
@@ -1214,8 +1214,8 @@ function PrincipleItem({ icon, text }: { icon: React.ReactNode; text: string }) 
 
 function UsageStats() {
   return (
-    <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
-      <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50">
+      <div className="bg-green-100 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Adoption Stats</h3>
       </div>
       <div className="p-4 space-y-3">

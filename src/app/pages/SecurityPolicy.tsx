@@ -97,7 +97,7 @@ function SecurityStandardsSection() {
         />
       </div>
 
-      <div className="mt-6 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+      <div className="mt-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Lock size={20} className="text-blue-600" />
           Security-First Development
@@ -151,7 +151,7 @@ function VulnerabilityReportingSection() {
 
       <div className="mt-8 space-y-8">
         {/* Reporting Process */}
-        <div className="border-2 border-orange-200 bg-orange-50 rounded-lg p-8">
+        <div className="border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950/30 rounded-lg p-8">
           <h3 className="font-bold text-foreground mb-6 text-center">Responsible Disclosure Process</h3>
 
           <div className="max-w-5xl mx-auto space-y-6">
@@ -262,7 +262,7 @@ function VulnerabilityReportingSection() {
         </div>
 
         {/* Bug Bounty Program */}
-        <div className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-lg p-6">
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Key size={20} className="text-green-600" />
             Security Researcher Recognition
@@ -272,15 +272,15 @@ function VulnerabilityReportingSection() {
             Valid vulnerability reports receive:
           </p>
           <div className="grid grid-cols-3 gap-4 text-sm">
-            <div className="bg-card border border-green-200 rounded-lg p-3">
+            <div className="bg-card border border-green-200 dark:border-green-800 rounded-lg p-3">
               <div className="font-semibold text-foreground mb-1">Public Recognition</div>
               <div className="text-xs text-muted-foreground">Listed in security hall of fame</div>
             </div>
-            <div className="bg-card border border-green-200 rounded-lg p-3">
+            <div className="bg-card border border-green-200 dark:border-green-800 rounded-lg p-3">
               <div className="font-semibold text-foreground mb-1">Certificate</div>
               <div className="text-xs text-muted-foreground">Official acknowledgment from Government of India</div>
             </div>
-            <div className="bg-card border border-green-200 rounded-lg p-3">
+            <div className="bg-card border border-green-200 dark:border-green-800 rounded-lg p-3">
               <div className="font-semibold text-foreground mb-1">Priority Support</div>
               <div className="text-xs text-muted-foreground">Fast-track access to security team</div>
             </div>
@@ -416,7 +416,7 @@ function DataProtectionSection() {
 
       <div className="mt-8 space-y-6">
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-blue-200 bg-blue-50 rounded-lg p-6">
+          <div className="border-2 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Data Handling Principles</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -442,7 +442,7 @@ function DataProtectionSection() {
             </ul>
           </div>
 
-          <div className="border-2 border-purple-200 bg-purple-50 rounded-lg p-6">
+          <div className="border-2 border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Aadhaar Data Protection</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -635,7 +635,7 @@ function IncidentResponseSection() {
         icon={<AlertTriangle size={28} />}
       />
 
-      <div className="mt-8 border-2 border-red-200 bg-red-50 rounded-lg p-8">
+      <div className="mt-8 border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg p-8">
         <h3 className="font-bold text-foreground mb-6 text-center">Security Incident Response Plan</h3>
 
         <div className="max-w-5xl mx-auto space-y-6">
@@ -693,7 +693,7 @@ function IncidentStep({ step, title, description, actions, timeline }: any) {
         </div>
       </div>
 
-      <div className="flex-1 bg-card border border-red-200 rounded-lg p-4">
+      <div className="flex-1 bg-card border border-red-200 dark:border-red-800 rounded-lg p-4">
         <div className="flex items-start justify-between mb-2">
           <div>
             <h4 className="font-bold text-foreground text-lg">{title}</h4>
@@ -781,25 +781,25 @@ function ThirdPartySecuritySection() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Current Dependencies</h3>
           <p className="text-sm text-muted-foreground mb-4">
             UX4G uses minimal, well-maintained, and security-audited dependencies. All dependencies are:
           </p>
           <div className="grid grid-cols-4 gap-4 text-sm">
-            <div className="bg-card border border-blue-200 rounded-lg p-3 text-center">
+            <div className="bg-card border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-center">
               <div className="font-bold text-2xl text-foreground mb-1">React 18.3+</div>
               <div className="text-xs text-muted-foreground">Core framework</div>
             </div>
-            <div className="bg-card border border-blue-200 rounded-lg p-3 text-center">
+            <div className="bg-card border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-center">
               <div className="font-bold text-2xl text-foreground mb-1">Angular 18+</div>
               <div className="text-xs text-muted-foreground">Core framework</div>
             </div>
-            <div className="bg-card border border-blue-200 rounded-lg p-3 text-center">
+            <div className="bg-card border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-center">
               <div className="font-bold text-2xl text-foreground mb-1">Minimal</div>
               <div className="text-xs text-muted-foreground">External libs</div>
             </div>
-            <div className="bg-card border border-blue-200 rounded-lg p-3 text-center">
+            <div className="bg-card border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-center">
               <div className="font-bold text-2xl text-foreground mb-1">Daily</div>
               <div className="text-xs text-muted-foreground">Security scans</div>
             </div>

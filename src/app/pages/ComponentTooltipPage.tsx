@@ -798,14 +798,14 @@ export interface TooltipConfig {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="inline-flex flex-col items-center mb-3"><div className="px-2 py-1 bg-gray-900 text-white text-xs rounded shadow-lg mb-1">Delete application</div><button className="p-2 border border-border rounded text-muted-foreground text-xs">🗑</button></div>
                   <p className="text-sm text-muted-foreground">Use tooltips for supplementary info on icon-only buttons and truncated text.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="mb-3"><button className="p-2 border border-border rounded text-muted-foreground text-xs">🗑</button></div>

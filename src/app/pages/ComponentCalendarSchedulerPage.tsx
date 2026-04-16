@@ -496,7 +496,7 @@ function Example() {
 }`,
           preview: (
             <div className="space-y-4">
-              <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded text-red-800 text-sm">
+              <div className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded text-red-800 text-sm">
                 <AlertCircle size={16} />
                 <span>Government offices closed on highlighted dates</span>
               </div>
@@ -1346,13 +1346,13 @@ export type CalendarView = 'month' | 'week' | 'day';`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Show available time slots clearly and disable unavailable dates.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t use a calendar for simple date selection — use DatePicker instead.</p>

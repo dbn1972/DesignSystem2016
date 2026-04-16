@@ -278,7 +278,7 @@ export default function TaskListPattern() {
             <h2 className="text-xl font-bold text-foreground mb-4">Completed Tasks ({completedTasks.length})</h2>
             <div className="space-y-2">
               {ALL_TASKS.filter(t => completedTasks.includes(t.id)).map((task) => (
-                <div key={task.id} className="bg-green-50 border-2 border-green-300 rounded-lg p-4 flex items-center justify-between">
+                <div key={task.id} className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <CheckCircle size={24} className="text-green-600" />
                     <div>
@@ -300,7 +300,7 @@ export default function TaskListPattern() {
         )}
 
         {/* Pattern Info */}
-        <div className="mt-12 bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+        <div className="mt-12 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>

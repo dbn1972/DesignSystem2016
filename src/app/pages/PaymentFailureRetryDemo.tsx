@@ -368,7 +368,7 @@ function PaymentFailedScreen({
       <div className="p-8 space-y-6">
         
         {/* Failure Information */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <AlertCircle size={20} className="text-orange-600" />
             What Happened
@@ -403,7 +403,7 @@ function PaymentFailedScreen({
         </div>
 
         {/* Important Notice */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <h4 className="font-bold text-foreground mb-3 text-sm flex items-center gap-2">
             <Info size={18} className="text-primary" />
             Important
@@ -538,7 +538,7 @@ function RetryConfirmationScreen({
       <div className="p-8 space-y-6">
         
         {/* Retry Notice */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Before You Retry
@@ -644,7 +644,7 @@ function ProcessingRetryScreen({ attemptNumber }: { attemptNumber: number }) {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <div className="flex items-start gap-3">
             <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
             <div className="text-sm text-muted-foreground text-left">
@@ -705,7 +705,7 @@ function SuccessAfterRetryScreen({
         </p>
 
         {/* Success Notice */}
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-5 mb-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-5 mb-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2 justify-center">
             <CheckCircle size={20} className="text-green-600" />
             Transaction Confirmed
@@ -721,7 +721,7 @@ function SuccessAfterRetryScreen({
           <div className="space-y-4">
             
             {/* Transaction ID */}
-            <div className="bg-blue-50 border-2 border-blue-300 rounded p-4 text-center">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded p-4 text-center">
               <div className="text-xs text-muted-foreground mb-1">Transaction ID</div>
               <div className="text-lg font-bold text-foreground font-mono">{transactionId}</div>
               <p className="text-xs text-muted-foreground mt-2">
@@ -754,7 +754,7 @@ function SuccessAfterRetryScreen({
         </div>
 
         {/* Next Steps */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5 mb-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5 mb-8">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What Happens Next
@@ -837,7 +837,7 @@ function PaymentPendingScreen({
       <div className="p-8 space-y-6">
         
         {/* Pending Explanation */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <AlertCircle size={20} className="text-orange-600" />
             What This Means
@@ -871,7 +871,7 @@ function PaymentPendingScreen({
         </div>
 
         {/* Recommended Actions */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <h4 className="font-bold text-foreground mb-3 text-sm flex items-center gap-2">
             <Info size={18} className="text-primary" />
             What You Should Do
@@ -901,7 +901,7 @@ function PaymentPendingScreen({
         </div>
 
         {/* Important Notice */}
-        <div className="bg-red-50 border-2 border-red-300 rounded-lg p-5">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-5">
           <h4 className="font-bold text-red-900 mb-3 text-sm flex items-center gap-2">
             <AlertCircle size={18} className="text-red-600" />
             Do Not Retry Immediately
@@ -991,13 +991,13 @@ function ChooseAlternateMethodScreen({
       <div className="p-8 space-y-6">
         
         {/* Amount Display */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5 text-center">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5 text-center">
           <div className="text-sm text-muted-foreground mb-1">Amount to Pay</div>
           <div className="text-4xl font-bold text-foreground">₹{transactionDetails.amount.toLocaleString('en-IN')}</div>
           <div className="text-xs text-muted-foreground mt-2">{transactionDetails.serviceName}</div>
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4">
           <p className="text-sm text-muted-foreground text-center">
             <span className="font-bold text-foreground">Previous method: </span>
             {currentMethod === "netbanking" && "Net Banking"}
@@ -1142,7 +1142,7 @@ function SupportScreen({
       <div className="p-8 space-y-6">
         
         {/* Transaction Reference */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Your Transaction Reference
@@ -1174,7 +1174,7 @@ function SupportScreen({
           <div className="p-6 space-y-4">
             
             {/* Helpline */}
-            <div className="flex items-start gap-4 p-4 bg-green-50 border-2 border-green-300 rounded-lg">
+            <div className="flex items-start gap-4 p-4 bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg">
               <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Phone size={24} className="text-white" />
               </div>
@@ -1189,7 +1189,7 @@ function SupportScreen({
             </div>
 
             {/* Email */}
-            <div className="flex items-start gap-4 p-4 bg-blue-50 border-2 border-blue-300 rounded-lg">
+            <div className="flex items-start gap-4 p-4 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg">
               <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Mail size={24} className="text-white" />
               </div>

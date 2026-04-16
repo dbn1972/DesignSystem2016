@@ -50,7 +50,7 @@ export default function CertificateAppeal() {
         <div className="max-w-3xl mx-auto">
           
           {/* Info Banner */}
-          <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8">
             <h2 className="font-bold text-foreground mb-3">About Appeals</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               If you believe your application was rejected incorrectly or unfairly, you can file an appeal. 
@@ -74,7 +74,7 @@ export default function CertificateAppeal() {
 
           {/* Rejection Details */}
           <div className="bg-card border-2 border-border rounded-lg overflow-hidden mb-6">
-            <div className="bg-red-50 border-b-2 border-red-300 px-8 py-4">
+            <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-8 py-4">
               <h2 className="font-bold text-foreground">Rejected Application Details</h2>
             </div>
             <div className="p-8">
@@ -94,7 +94,7 @@ export default function CertificateAppeal() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground mb-2">Reason for Rejection</div>
-                <div className="p-4 bg-red-50 border-2 border-red-300 rounded text-sm text-muted-foreground">
+                <div className="p-4 bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded text-sm text-muted-foreground">
                   {rejectionData.rejectionReason}
                 </div>
               </div>
@@ -151,7 +151,7 @@ export default function CertificateAppeal() {
               </div>
 
               {/* New Documents */}
-              <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5">
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input
                     type="checkbox"
@@ -172,7 +172,7 @@ export default function CertificateAppeal() {
                 
                 {formData.newDocuments && (
                   <div className="mt-4 pt-4 border-t-2 border-orange-300">
-                    <button className="flex items-center gap-2 px-4 py-3 border-2 border-dashed border-primary bg-blue-50 rounded text-sm font-bold text-primary hover:bg-blue-100 w-full justify-center">
+                    <button className="flex items-center gap-2 px-4 py-3 border-2 border-dashed border-primary bg-blue-50 dark:bg-blue-950/30 rounded text-sm font-bold text-primary hover:bg-blue-100 w-full justify-center">
                       <Upload size={18} />
                       Upload New Documents
                     </button>
@@ -184,7 +184,7 @@ export default function CertificateAppeal() {
           </div>
 
           {/* Warning */}
-          <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5 mb-6">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5 mb-6">
             <div className="flex items-start gap-3">
               <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
               <div>

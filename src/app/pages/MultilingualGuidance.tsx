@@ -401,7 +401,7 @@ function LabelExpansion() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3 flex items-center gap-2">
             <AlertTriangle className="text-orange-600" size={20} />
             Text Expansion Factors
@@ -570,7 +570,7 @@ function MixedLanguageUI() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 rounded-lg p-6">
+        <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Common Mixed-Language Scenarios</h3>
           <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-gray-300">
             <div>
@@ -832,7 +832,7 @@ function ErrorMessageLocalization() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-red-50 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Error Message Structure</h3>
           <p className="text-sm text-muted-foreground dark:text-gray-300 mb-4">
             All error messages should follow the pattern: [What went wrong] + [How to fix it]
@@ -867,7 +867,7 @@ function ErrorMessageLocalization() {
             title="Actionable Error Messages"
             example={
               <div className="space-y-3">
-                <div className="bg-red-50 border-2 border-red-300 rounded p-3 text-sm">
+                <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-3 text-sm">
                   <div className="font-semibold text-red-900 mb-1">आयु सीमा से बाहर</div>
                   <div className="text-red-700">इस सेवा के लिए आपकी आयु 18 वर्ष या उससे अधिक होनी चाहिए। कृपया अपनी जन्म तिथि जांचें।</div>
                 </div>
@@ -880,7 +880,7 @@ function ErrorMessageLocalization() {
             title="Vague Error Messages"
             example={
               <div className="space-y-3">
-                <div className="bg-red-50 border-2 border-red-300 rounded p-3 text-sm">
+                <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-3 text-sm">
                   <div className="font-semibold text-red-900 mb-1">त्रुटि</div>
                   <div className="text-red-700">अमान्य इनपुट। कृपया पुनः प्रयास करें।</div>
                 </div>
@@ -1123,7 +1123,7 @@ function DataFormatting() {
         </div>
 
         {/* Name Formatting */}
-        <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 rounded-lg p-6">
+        <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Name Formatting Considerations</h3>
           <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-gray-300">
             <div>
@@ -1197,7 +1197,7 @@ function SearchSortBehavior() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Search Challenges in Multilingual Systems</h3>
           <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-gray-300">
             <div>
@@ -1300,7 +1300,7 @@ function TranslationQuality() {
             <div className="grid grid-cols-2 gap-6">
               <QualityStandard
                 level="Required"
-                color="bg-red-50 border-red-200 dark:border-red-800 text-red-900"
+                color="bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800 text-red-900"
                 standards={[
                   'Professional human translation (no machine translation for production)',
                   'Native speaker review for each language',
@@ -1325,7 +1325,7 @@ function TranslationQuality() {
           </div>
         </div>
 
-        <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+        <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3 flex items-center gap-2">
             <AlertTriangle className="text-yellow-600" size={20} />
             Common Translation Pitfalls to Avoid
@@ -1431,7 +1431,7 @@ function TruncationOverflow() {
             title="Critical Text Truncation"
             example={
               <div className="space-y-4">
-                <div className="bg-red-50 border-2 border-red-300 rounded p-4">
+                <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4">
                   <div className="font-semibold text-red-900 mb-2">त्रुटि</div>
                   <div className="text-sm text-red-700 truncate">
                     आपकी फ़ाइल बहुत बड़ी है। अधिकतम आकार 5MB है। कृपया...
@@ -1649,7 +1649,7 @@ function DoCard({ title, example, reason }: any) {
 
 function DontCard({ title, example, reason }: any) {
   return (
-    <div className="border-2 border-red-300 bg-red-50 rounded-lg overflow-hidden">
+    <div className="border-2 border-red-300 bg-red-50 dark:bg-red-950/30 rounded-lg overflow-hidden">
       <div className="bg-red-100 border-b-2 border-red-300 p-4 flex items-center gap-2">
         <X className="text-red-700" size={20} />
         <h4 className="font-bold text-red-900">{title}</h4>

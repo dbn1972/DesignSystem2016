@@ -41,7 +41,7 @@ export default function CorrectionResubmissionPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -390,7 +390,7 @@ function PageDesigns() {
               </div>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-6 rounded-r-lg">
                 <div className="flex items-start gap-3">
                   <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
                   <div>
@@ -497,7 +497,7 @@ function PageDesigns() {
               <ProgressBar steps={5} current={2} />
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
+              <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-600 p-6 rounded-r-lg">
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
@@ -513,7 +513,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start gap-3 mb-4">
                   <HelpCircle size={20} className="text-blue-600 flex-shrink-0" />
                   <div className="font-bold text-foreground">How to Fix This</div>
@@ -543,7 +543,7 @@ function PageDesigns() {
                     <input
                       type="tel"
                       placeholder="Enter 10-digit mobile number"
-                      className="w-full px-4 py-3 border-2 border-orange-300 bg-orange-50 rounded-lg focus:border-orange-600"
+                      className="w-full px-4 py-3 border-2 border-orange-300 bg-orange-50 dark:bg-orange-950/30 rounded-lg focus:border-orange-600"
                     />
                     <div className="text-sm text-muted-foreground mt-2">
                       Format: 10 digits (no spaces or special characters)
@@ -596,7 +596,7 @@ function PageDesigns() {
               <ProgressBar steps={5} current={1} />
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
+              <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-600 p-6 rounded-r-lg">
                 <div className="flex items-start gap-3">
                   <AlertTriangle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
@@ -639,7 +639,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start gap-3 mb-4">
                   <Info size={20} className="text-blue-600 flex-shrink-0" />
                   <div>
@@ -665,7 +665,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-orange-300 bg-orange-50 rounded-lg p-6">
+              <div className="border-2 border-orange-300 bg-orange-50 dark:bg-orange-950/30 rounded-lg p-6">
                 <label className="block text-sm font-bold text-foreground mb-4">
                   Upload Income Certificate <span className="text-red-600">*</span>
                 </label>
@@ -679,7 +679,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded-r-lg">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-600 p-4 rounded-r-lg">
                 <div className="flex items-start gap-2 text-sm text-muted-foreground">
                   <AlertCircle size={16} className="text-yellow-600 mt-0.5 flex-shrink-0" />
                   <span>
@@ -723,7 +723,7 @@ function PageDesigns() {
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+              <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                 <div className="flex items-start gap-3">
                   <CheckCircle size={24} className="text-green-600 flex-shrink-0" />
                   <div>
@@ -803,7 +803,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start gap-3">
                   <input type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
                   <div className="text-sm text-muted-foreground">
@@ -872,7 +872,7 @@ function PageDesigns() {
                 />
               </div>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-6 rounded-r-lg">
                 <div className="font-bold text-foreground mb-3">Corrections Submitted:</div>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -937,7 +937,7 @@ function PageDesigns() {
               <div className="text-sm text-muted-foreground">Reference: SCH/2026/12345-R1</div>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Current Status</div>
@@ -978,7 +978,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="border-2 border-green-300 bg-green-50 rounded-lg p-6">
+              <div className="border-2 border-green-300 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
                 <div className="font-bold text-foreground mb-3">Corrections Made</div>
                 <div className="grid grid-cols-2 gap-3 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
@@ -1108,7 +1108,7 @@ function ErrorPatterns() {
       <DocModule>
         <ModuleHeader title="Issue Grouping and Prioritization" />
         <ModuleContent>
-          <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
             <div className="flex items-start gap-3 mb-4">
               <Layers size={24} className="text-purple-600 flex-shrink-0" />
               <div>
@@ -1326,7 +1326,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="Multilingual Considerations" />
         <ModuleContent>
-          <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
             <div className="flex items-start gap-3 mb-4">
               <Globe size={24} className="text-purple-600 flex-shrink-0" />
               <div>
@@ -1564,8 +1564,8 @@ function MetadataPanel() {
 
 function QuickRefPanel() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
@@ -1582,8 +1582,8 @@ function QuickRefPanel() {
 
 function DesignPrinciples() {
   return (
-    <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
-      <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50">
+      <div className="bg-green-100 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Core Principles</h3>
       </div>
       <div className="p-4 space-y-3 text-sm text-muted-foreground">
@@ -1598,8 +1598,8 @@ function DesignPrinciples() {
 
 function RiskIndicators() {
   return (
-    <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
-      <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3 flex items-center gap-2">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+      <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3 flex items-center gap-2">
         <AlertTriangle size={16} className="text-red-700" />
         <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
@@ -1705,10 +1705,10 @@ function UseCaseCard({ title, examples }: any) {
 
 function EntryPointCard({ method, description, example }: any) {
   return (
-    <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
+    <div className="border-2 border-blue-300 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4">
       <div className="font-bold text-sm text-foreground mb-2">{method}</div>
       <div className="text-sm text-muted-foreground mb-3">{description}</div>
-      <div className="text-xs text-muted-foreground bg-card border border-blue-200 rounded p-2 italic">
+      <div className="text-xs text-muted-foreground bg-card border border-blue-200 dark:border-blue-800 rounded p-2 italic">
         {example}
       </div>
     </div>
@@ -1868,7 +1868,7 @@ function TimelineItem({ date, status, description, active }: any) {
 
 function PageAnnotation({ items }: any) {
   return (
-    <div className="mt-4 bg-blue-50 border-l-4 border-blue-600 p-4">
+    <div className="mt-4 bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-4">
       <div className="flex items-start gap-2 mb-2">
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
         <div className="font-bold text-sm text-foreground">Design Annotations</div>
@@ -1972,14 +1972,14 @@ function ToneBlock({ context, tone, good, bad }: any) {
             <CheckCircle size={14} className="text-green-600" />
             <span className="text-xs font-bold text-green-700">Good</span>
           </div>
-          <div className="text-sm text-foreground bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
+          <div className="text-sm text-foreground bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
             <span className="text-xs font-bold text-red-700">Bad</span>
           </div>
-          <div className="text-sm text-foreground bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
+          <div className="text-sm text-foreground bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-2">"{bad}"</div>
         </div>
       </div>
     </div>
@@ -1988,10 +1988,10 @@ function ToneBlock({ context, tone, good, bad }: any) {
 
 function MessageFormula({ type, formula, example }: any) {
   return (
-    <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
+    <div className="border-2 border-blue-300 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4">
       <div className="font-bold text-sm text-foreground mb-2">{type}</div>
       <div className="text-sm text-muted-foreground mb-2"><strong>Formula:</strong> {formula}</div>
-      <div className="text-xs text-muted-foreground bg-card border border-blue-200 rounded p-2 italic">
+      <div className="text-xs text-muted-foreground bg-card border border-blue-200 dark:border-blue-800 rounded p-2 italic">
         <strong>Example:</strong> {example}
       </div>
     </div>
@@ -2077,7 +2077,7 @@ function RiskBlock({ risk, impact, solution }: any) {
   };
 
   return (
-    <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
+    <div className="border-l-4 border-red-600 bg-red-50 dark:bg-red-950/30 p-4 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
         <div className="font-bold text-sm text-foreground flex-1">{risk}</div>
         <div className={`px-2 py-1 rounded text-xs font-bold ${impactConfig[impact].bg} ${impactConfig[impact].color} flex-shrink-0 ml-3`}>

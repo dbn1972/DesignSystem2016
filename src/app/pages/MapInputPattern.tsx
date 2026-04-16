@@ -57,7 +57,7 @@ export default function MapInputPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-teal-50 border-2 border-teal-200 rounded-lg p-6 mb-6">
+            <div className="bg-teal-50 dark:bg-teal-950/30 border-2 border-teal-200 dark:border-teal-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 Click on the map or use your current location to select a geographic point.
@@ -141,7 +141,7 @@ export default function MapInputPattern() {
 
               {/* Selected Location Display */}
               {selectedLocation && (
-                <div className="mt-4 bg-green-50 border-2 border-green-200 rounded-lg p-4">
+                <div className="mt-4 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-4">
                   <div className="flex items-start gap-3">
                     <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
                     <div className="flex-1">
@@ -166,7 +166,7 @@ export default function MapInputPattern() {
                     <label className="block font-bold text-foreground mb-2">Full Address</label>
                     <textarea
                       value={selectedLocation.address}
-                      className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 rounded"
+                      className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 dark:bg-green-950/30 rounded"
                       rows={2}
                       readOnly
                     ></textarea>
@@ -178,7 +178,7 @@ export default function MapInputPattern() {
                       <input
                         type="text"
                         value={selectedLocation.lat.toFixed(6)}
-                        className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 rounded"
+                        className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 dark:bg-green-950/30 rounded"
                         readOnly
                       />
                     </div>
@@ -188,13 +188,13 @@ export default function MapInputPattern() {
                       <input
                         type="text"
                         value={selectedLocation.lng.toFixed(6)}
-                        className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 rounded"
+                        className="w-full px-4 py-3 border-2 border-green-500 bg-green-50 dark:bg-green-950/30 rounded"
                         readOnly
                       />
                     </div>
                   </div>
 
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 text-sm text-muted-foreground">
+                  <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 text-sm text-muted-foreground">
                     <strong>Note:</strong> You can manually edit the address above if the auto-detected location needs adjustment.
                   </div>
                 </div>
@@ -362,7 +362,7 @@ geocoder.geocode({ location: latLng }, (results) => {
                 </div>
               </div>
 
-              <div className="bg-teal-50 border-2 border-teal-200 rounded-lg p-6">
+              <div className="bg-teal-50 dark:bg-teal-950/30 border-2 border-teal-200 dark:border-teal-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">When to Use</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Precise location needed</li>
@@ -374,7 +374,7 @@ geocoder.geocode({ location: latLng }, (results) => {
                 </ul>
               </div>
 
-              <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">When NOT to Use</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✗ Simple city/state selection</li>

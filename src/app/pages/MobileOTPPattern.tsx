@@ -56,7 +56,7 @@ export default function MobileOTPPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -196,7 +196,7 @@ function OverviewSection() {
 
         {/* When Not to Use */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When Not to Use
@@ -328,7 +328,7 @@ function ExampleScreens() {
       <div className="grid grid-cols-2 gap-6">
         {/* Mobile Number Entry */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Mobile Number Entry</h3>
           </div>
           <div className="p-6">
@@ -376,7 +376,7 @@ function ExampleScreens() {
 
         {/* Invalid Mobile Number */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Invalid Mobile Number</h3>
           </div>
           <div className="p-6">
@@ -406,7 +406,7 @@ function ExampleScreens() {
                     className="flex-1 px-4 py-3 border-2 border-red-400 rounded bg-red-50"
                   />
                 </div>
-                <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-red-800 mt-2">
+                <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 mt-2">
                   <XCircle size={14} className="inline mr-2" />
                   Mobile number must be 10 digits
                 </div>
@@ -424,7 +424,7 @@ function ExampleScreens() {
 
         {/* OTP Sent State */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">OTP Sent Successfully</h3>
           </div>
           <div className="p-6">
@@ -439,7 +439,7 @@ function ExampleScreens() {
                   +91 ******* 123
                 </p>
               </div>
-              <div className="bg-green-50 border border-green-300 rounded p-3 text-sm text-green-800">
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800">
                 <CheckCircle size={14} className="inline mr-2" />
                 SMS sent successfully
               </div>
@@ -470,7 +470,7 @@ function ExampleScreens() {
 
         {/* SMS Delayed */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border-b-2 border-yellow-200 dark:border-yellow-800 px-6 py-4">
             <h3 className="font-bold text-foreground">SMS Delayed</h3>
           </div>
           <div className="p-6">
@@ -483,7 +483,7 @@ function ExampleScreens() {
                   due to network conditions
                 </p>
               </div>
-              <div className="bg-yellow-50 border border-yellow-300 rounded p-4">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-300 rounded p-4">
                 <p className="text-sm text-foreground font-bold mb-2">Please wait a moment...</p>
                 <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• SMS sent to: +91 ******* 123</li>
@@ -510,7 +510,7 @@ function ExampleScreens() {
 
         {/* SMS Not Received */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">SMS Not Received</h3>
           </div>
           <div className="p-6">
@@ -522,7 +522,7 @@ function ExampleScreens() {
                   Let's try to resolve this
                 </p>
               </div>
-              <div className="bg-blue-50 border border-blue-300 rounded p-4">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-4">
                 <p className="text-sm font-bold text-foreground mb-2">Troubleshooting Steps:</p>
                 <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• Check if +91 ******* 123 is correct</li>
@@ -555,7 +555,7 @@ function ExampleScreens() {
 
         {/* Change Number */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Change Mobile Number</h3>
           </div>
           <div className="p-6">
@@ -568,7 +568,7 @@ function ExampleScreens() {
                   receive verification code
                 </p>
               </div>
-              <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm">
                 <p className="text-muted-foreground">
                   <strong>Current Number:</strong> +91 ******* 123
                 </p>
@@ -622,7 +622,7 @@ function ExampleScreens() {
                   network connectivity issue
                 </p>
               </div>
-              <div className="bg-red-50 border-2 border-red-300 rounded p-4 text-sm">
+              <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4 text-sm">
                 <p className="text-red-800 font-bold mb-2">What you can do:</p>
                 <ul className="text-muted-foreground space-y-1 ml-4">
                   <li>• Check your internet connection</li>
@@ -644,7 +644,7 @@ function ExampleScreens() {
 
         {/* Success State */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Verification Success</h3>
           </div>
           <div className="p-6">
@@ -659,7 +659,7 @@ function ExampleScreens() {
                   successfully verified
                 </p>
               </div>
-              <div className="bg-green-50 border border-green-300 rounded p-4 text-center">
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-4 text-center">
                 <p className="text-sm text-green-800 font-bold mb-1">Verified Number</p>
                 <p className="text-sm text-foreground font-mono">+91 9876543210</p>
               </div>
@@ -735,7 +735,7 @@ function MobileEntrySection() {
       <div className="grid grid-cols-2 gap-6">
         {/* Input Validation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Client-Side Validation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -769,7 +769,7 @@ function MobileEntrySection() {
 
         {/* Masked Display */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Masked Number Display</h3>
           </div>
           <div className="p-6 space-y-4">
@@ -790,7 +790,7 @@ function MobileEntrySection() {
                 <p className="text-xs text-muted-foreground mt-1">Fully masked, show "your registered number"</p>
               </div>
             </div>
-            <div className="bg-yellow-50 border border-yellow-300 rounded p-3 text-xs">
+            <div className="bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-300 rounded p-3 text-xs">
               <p className="text-muted-foreground">
                 <strong>Recommendation:</strong> Show last 3 digits for user confirmation while maintaining privacy
               </p>
@@ -848,7 +848,7 @@ function SMSHandlingSection() {
       <div className="grid grid-cols-3 gap-6">
         {/* Immediate Delivery */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground text-sm">Immediate (0-30s)</h3>
           </div>
           <div className="p-6">
@@ -867,7 +867,7 @@ function SMSHandlingSection() {
 
         {/* Slight Delay */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border-b-2 border-yellow-200 dark:border-yellow-800 px-6 py-4">
             <h3 className="font-bold text-foreground text-sm">Delayed (30s-2min)</h3>
           </div>
           <div className="p-6">
@@ -886,7 +886,7 @@ function SMSHandlingSection() {
 
         {/* Major Delay */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground text-sm">Failed (&gt;2min)</h3>
           </div>
           <div className="p-6">
@@ -904,7 +904,7 @@ function SMSHandlingSection() {
         </div>
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
           <Info size={20} className="text-primary" />
           Progressive Disclosure: User Guidance Timeline
@@ -948,7 +948,7 @@ function NetworkConsiderations() {
       <div className="grid grid-cols-2 gap-6">
         {/* Common Network Issues */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Common Network Issues in India</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -982,7 +982,7 @@ function NetworkConsiderations() {
 
         {/* Retry Logic */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">SMS Retry & Fallback Logic</h3>
           </div>
           <div className="p-6 space-y-4">
@@ -995,7 +995,7 @@ function NetworkConsiderations() {
                 <RetryStep step="Manual Resend" timing="User initiated" gateway="Fresh attempt, primary gateway" />
               </div>
             </div>
-            <div className="bg-yellow-50 border border-yellow-300 rounded p-3 text-xs">
+            <div className="bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-300 rounded p-3 text-xs">
               <p className="text-muted-foreground">
                 <strong>Note:</strong> System attempts 3 automated retries before requiring user action. 
                 Each retry logged for monitoring SMS gateway reliability.
@@ -1048,7 +1048,7 @@ function AccessibilitySection() {
       <div className="grid grid-cols-2 gap-6">
         {/* Mobile Input Accessibility */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Mobile Number Input</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1077,7 +1077,7 @@ function AccessibilitySection() {
 
         {/* OTP Input Accessibility */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">OTP Field Accessibility</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -1136,7 +1136,7 @@ function AccessibilitySection() {
         </div>
       </div>
 
-      <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-orange-600" />
           Screen Reader Guidance
@@ -1206,7 +1206,7 @@ function ImplementationSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Mobile Input</h3>
           </div>
           <div className="p-6">
@@ -1245,7 +1245,7 @@ function ImplementationSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: SMS Sending</h3>
           </div>
           <div className="p-6">
@@ -1311,7 +1311,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Conformance Level</h3>
           </div>
           <div className="p-6">
@@ -1333,7 +1333,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
@@ -1353,7 +1353,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Support & Escalation Guidance
@@ -1388,7 +1388,7 @@ function GovernanceSection() {
 function QuickReference() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -1424,7 +1424,7 @@ function QuickReference() {
 function ParentPattern() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Parent Pattern</h3>
       </div>
       <div className="p-4">
@@ -1446,7 +1446,7 @@ function ParentPattern() {
 function RelatedPatterns() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1463,7 +1463,7 @@ function RelatedPatterns() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">

@@ -553,8 +553,8 @@ function ComponentUsageTrends() {
 
         {/* Underutilized Components */}
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-orange-200 rounded-lg overflow-hidden">
-            <div className="bg-orange-50 p-6 border-b-2 border-orange-200">
+          <div className="border-2 border-orange-200 dark:border-orange-800 rounded-lg overflow-hidden">
+            <div className="bg-orange-50 dark:bg-orange-950/30 p-6 border-b-2 border-orange-200 dark:border-orange-800">
               <h3 className="font-bold text-foreground flex items-center gap-2">
                 <AlertTriangle className="text-orange-600" size={20} />
                 Underutilized Components
@@ -571,8 +571,8 @@ function ComponentUsageTrends() {
             </div>
           </div>
 
-          <div className="border-2 border-purple-200 rounded-lg overflow-hidden">
-            <div className="bg-purple-50 p-6 border-b-2 border-purple-200">
+          <div className="border-2 border-purple-200 dark:border-purple-800 rounded-lg overflow-hidden">
+            <div className="bg-purple-50 dark:bg-purple-950/30 p-6 border-b-2 border-purple-200 dark:border-purple-800">
               <h3 className="font-bold text-foreground flex items-center gap-2">
                 <TrendingUp className="text-purple-600" size={20} />
                 Growing Adoption
@@ -881,8 +881,8 @@ function ReleaseAdoptionStatus() {
             </div>
           </div>
 
-          <div className="border-2 border-orange-200 rounded-lg overflow-hidden">
-            <div className="bg-orange-50 p-6 border-b-2 border-orange-200">
+          <div className="border-2 border-orange-200 dark:border-orange-800 rounded-lg overflow-hidden">
+            <div className="bg-orange-50 dark:bg-orange-950/30 p-6 border-b-2 border-orange-200 dark:border-orange-800">
               <h3 className="font-bold text-foreground flex items-center gap-2">
                 <AlertTriangle className="text-orange-600" size={20} />
                 Services on Deprecated Versions
@@ -997,8 +997,8 @@ function ExceptionsWaivers() {
         </div>
 
         {/* Pending Exceptions */}
-        <div className="border-2 border-yellow-200 rounded-lg overflow-hidden">
-          <div className="bg-yellow-50 p-6 border-b-2 border-yellow-200">
+        <div className="border-2 border-yellow-200 dark:border-yellow-800 rounded-lg overflow-hidden">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 p-6 border-b-2 border-yellow-200 dark:border-yellow-800">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <Clock className="text-yellow-600" size={20} />
               Exceptions Pending Governance Review
@@ -1105,8 +1105,8 @@ function DeprecationRisk() {
         </div>
 
         {/* Lifecycle Warnings */}
-        <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-          <div className="bg-red-50 p-6 border-b-2 border-red-200">
+        <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
+          <div className="bg-red-50 dark:bg-red-950/30 p-6 border-b-2 border-red-200 dark:border-red-800">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <AlertCircle className="text-red-600" size={20} />
               Urgent Lifecycle Warnings
@@ -1369,8 +1369,8 @@ function SupportBurden() {
             </div>
           </div>
 
-          <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-            <div className="bg-green-50 p-6 border-b-2 border-green-200">
+          <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
+            <div className="bg-green-50 dark:bg-green-950/30 p-6 border-b-2 border-green-200 dark:border-green-800">
               <h3 className="font-bold text-foreground flex items-center gap-2">
                 <TrendingDown className="text-green-600" size={20} />
                 Support Reduction Initiatives
@@ -1418,8 +1418,8 @@ function RoadmapPriorities() {
 
       <div className="mt-8 space-y-6">
         {/* Current Quarter Priorities */}
-        <div className="border-2 border-blue-200 rounded-lg overflow-hidden">
-          <div className="bg-blue-50 p-6 border-b-2 border-blue-200">
+        <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden">
+          <div className="bg-blue-50 dark:bg-blue-950/30 p-6 border-b-2 border-blue-200 dark:border-blue-800">
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-foreground">Q2 2026 Priorities (Apr-Jun)</h3>
               <span className="text-sm text-blue-700 font-medium">Based on conformance data</span>
@@ -1490,8 +1490,8 @@ function RoadmapPriorities() {
         </div>
 
         {/* Data-Driven Insights */}
-        <div className="border-2 border-purple-200 rounded-lg overflow-hidden">
-          <div className="bg-purple-50 p-6 border-b-2 border-purple-200">
+        <div className="border-2 border-purple-200 dark:border-purple-800 rounded-lg overflow-hidden">
+          <div className="bg-purple-50 dark:bg-purple-950/30 p-6 border-b-2 border-purple-200 dark:border-purple-800">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <BarChart3 className="text-purple-600" size={20} />
               Key Insights from Conformance Data
@@ -1543,9 +1543,9 @@ function SectionHeader({ title, icon, description }: any) {
 
 function KPICard({ label, value, subtitle, trend, status }: any) {
   const statusColors: any = {
-    good: 'border-green-200 bg-green-50',
-    warning: 'border-yellow-200 bg-yellow-50',
-    critical: 'border-red-200 bg-red-50',
+    good: 'border-green-200 dark:border-green-800 bg-green-50',
+    warning: 'border-yellow-200 dark:border-yellow-800 bg-yellow-50',
+    critical: 'border-red-200 dark:border-red-800 bg-red-50',
     neutral: 'border-border bg-background'
   };
 
@@ -1749,8 +1749,8 @@ function ActionRequiredPanel({ title, items }: any) {
   };
 
   return (
-    <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-      <div className="bg-red-50 p-6 border-b-2 border-red-200">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
+      <div className="bg-red-50 dark:bg-red-950/30 p-6 border-b-2 border-red-200 dark:border-red-800">
         <h3 className="font-bold text-foreground flex items-center gap-2">
           <AlertCircle className="text-red-600" size={20} />
           {title}
@@ -1783,10 +1783,10 @@ function ActionRequiredPanel({ title, items }: any) {
 
 function VendorComplianceCard({ name, certification, projects, conformanceScore, lastAudit, expiryDate, status }: any) {
   const statusConfig: any = {
-    excellent: { border: 'border-green-200', bg: 'bg-green-50', badge: 'bg-green-600', text: 'text-green-600' },
-    good: { border: 'border-blue-200', bg: 'bg-blue-50', badge: 'bg-blue-600', text: 'text-blue-600' },
-    warning: { border: 'border-yellow-200', bg: 'bg-yellow-50', badge: 'bg-yellow-600', text: 'text-yellow-600' },
-    expiring: { border: 'border-orange-200', bg: 'bg-orange-50', badge: 'bg-orange-600', text: 'text-orange-600' }
+    excellent: { border: 'border-green-200 dark:border-green-800', bg: 'bg-green-50', badge: 'bg-green-600', text: 'text-green-600' },
+    good: { border: 'border-blue-200 dark:border-blue-800', bg: 'bg-blue-50', badge: 'bg-blue-600', text: 'text-blue-600' },
+    warning: { border: 'border-yellow-200 dark:border-yellow-800', bg: 'bg-yellow-50', badge: 'bg-yellow-600', text: 'text-yellow-600' },
+    expiring: { border: 'border-orange-200 dark:border-orange-800', bg: 'bg-orange-50', badge: 'bg-orange-600', text: 'text-orange-600' }
   };
 
   return (
@@ -1820,9 +1820,9 @@ function VendorComplianceCard({ name, certification, projects, conformanceScore,
 
 function CertificationLevelCard({ level, vendors, requirements, color }: any) {
   const colorClasses: any = {
-    green: 'border-green-200 bg-green-50',
-    blue: 'border-blue-200 bg-blue-50',
-    yellow: 'border-yellow-200 bg-yellow-50'
+    green: 'border-green-200 dark:border-green-800 bg-green-50',
+    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50',
+    yellow: 'border-yellow-200 dark:border-yellow-800 bg-yellow-50'
   };
 
   return (
@@ -2123,7 +2123,7 @@ function ExceptionRow({ service, type, justification, approved, expires, status 
 
 function PendingExceptionRow({ service, request, requestedDate, reviewDate }: any) {
   return (
-    <div className="bg-card border border-yellow-200 rounded-lg p-4">
+    <div className="bg-card border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
       <div className="flex items-start justify-between mb-2">
         <div className="font-bold text-foreground text-sm">{service}</div>
         <Clock className="text-yellow-600" size={16} />
@@ -2140,9 +2140,9 @@ function PendingExceptionRow({ service, request, requestedDate, reviewDate }: an
 
 function RiskSummaryCard({ level, count, description, deadline, color }: any) {
   const colorClasses: any = {
-    red: 'border-red-200 bg-red-50 text-red-700',
-    orange: 'border-orange-200 bg-orange-50 text-orange-700',
-    yellow: 'border-yellow-200 bg-yellow-50 text-yellow-700'
+    red: 'border-red-200 dark:border-red-800 bg-red-50 text-red-700',
+    orange: 'border-orange-200 dark:border-orange-800 bg-orange-50 text-orange-700',
+    yellow: 'border-yellow-200 dark:border-yellow-800 bg-yellow-50 text-yellow-700'
   };
 
   return (
@@ -2162,7 +2162,7 @@ function DeprecatedFeatureRow({ feature, affectedServices, deprecatedDate, endOf
   };
 
   return (
-    <div className="border-l-4 border-orange-600 bg-orange-50 rounded-r-lg p-4">
+    <div className="border-l-4 border-orange-600 bg-orange-50 dark:bg-orange-950/30 rounded-r-lg p-4">
       <div className="flex items-start justify-between mb-2">
         <div className="font-bold text-foreground">{feature}</div>
         <span className={`text-xs px-2 py-1 rounded-full font-medium ${riskConfig[risk].bg} ${riskConfig[risk].text}`}>
@@ -2188,8 +2188,8 @@ function DeprecatedFeatureRow({ feature, affectedServices, deprecatedDate, endOf
 
 function LifecycleWarningRow({ service, version, warning, action, severity }: any) {
   const severityConfig: any = {
-    critical: { icon: <AlertCircle className="text-red-600" size={16} />, bg: 'bg-red-50', border: 'border-red-200' },
-    high: { icon: <AlertTriangle className="text-orange-600" size={16} />, bg: 'bg-orange-50', border: 'border-orange-200' }
+    critical: { icon: <AlertCircle className="text-red-600" size={16} />, bg: 'bg-red-50', border: 'border-red-200 dark:border-red-800' },
+    high: { icon: <AlertTriangle className="text-orange-600" size={16} />, bg: 'bg-orange-50', border: 'border-orange-200 dark:border-orange-800' }
   };
 
   return (
@@ -2331,7 +2331,7 @@ function InitiativeRow({ initiative, impact, status }: any) {
 
 function PriorityCard({ priority, title, rationale, impact, effort, owner, timeline }: any) {
   return (
-    <div className="border-2 border-blue-200 rounded-lg p-5 bg-card">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg p-5 bg-card">
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
           {priority}
@@ -2400,12 +2400,12 @@ function InsightCard({ insight, recommendation, impact }: any) {
   };
 
   return (
-    <div className="border border-purple-200 rounded-lg p-4 bg-card">
+    <div className="border border-purple-200 dark:border-purple-800 rounded-lg p-4 bg-card">
       <div className="flex items-start gap-2 mb-3">
         <BarChart3 className="text-purple-600 flex-shrink-0 mt-0.5" size={16} />
         <p className="text-sm text-foreground font-medium">{insight}</p>
       </div>
-      <div className="bg-purple-50 rounded p-3 mb-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 rounded p-3 mb-3">
         <div className="text-xs text-muted-foreground font-medium mb-1">Recommendation:</div>
         <p className="text-sm text-foreground">{recommendation}</p>
       </div>

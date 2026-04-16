@@ -264,7 +264,7 @@ export default function TimelineViewPattern() {
         </div>
 
         {/* Pattern Info */}
-        <div className="mt-12 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="mt-12 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>

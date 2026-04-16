@@ -238,14 +238,14 @@ function Example() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="flex items-center gap-1 mb-3"><button className="px-2 py-1 text-xs border border-border rounded">←</button><button className="px-2 py-1 text-xs bg-[#005196] text-white rounded">1</button><button className="px-2 py-1 text-xs border border-border rounded">2</button><button className="px-2 py-1 text-xs border border-border rounded">3</button><span className="text-xs text-muted-foreground">of 12</span><button className="px-2 py-1 text-xs border border-border rounded">→</button></div>
                   <p className="text-sm text-muted-foreground">Use pagination for large data sets. Show total count to help users estimate effort.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="flex items-center gap-1 mb-3"><button className="px-2 py-1 text-xs border border-border rounded">Previous</button><button className="px-2 py-1 text-xs border border-border rounded">Next</button></div>

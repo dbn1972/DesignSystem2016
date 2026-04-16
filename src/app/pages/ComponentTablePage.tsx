@@ -413,14 +413,14 @@ export class TableModule { }`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="overflow-hidden rounded border border-border text-sm mb-3"><table className="w-full"><thead className="bg-muted"><tr><th className="px-3 py-2 text-left text-xs font-semibold">Name</th><th className="px-3 py-2 text-left text-xs font-semibold">Status</th></tr></thead><tbody><tr className="border-t"><td className="px-3 py-2">Rajesh Kumar</td><td className="px-3 py-2"><span className="px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-800">Approved</span></td></tr><tr className="border-t bg-muted/30"><td className="px-3 py-2">Suresh Mehta</td><td className="px-3 py-2"><span className="px-2 py-0.5 rounded-full text-xs bg-yellow-100 text-yellow-800">Pending</span></td></tr></tbody></table></div>
                   <p className="text-sm text-muted-foreground">Use zebra striping and column headers for data tables with 5+ rows.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="text-sm space-y-1 mb-3"><p className="text-muted-foreground">Rajesh Kumar - Approved - 12 Apr</p><p className="text-muted-foreground">Suresh Mehta - Pending - 10 Apr</p></div>

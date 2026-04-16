@@ -41,7 +41,7 @@ export default function ApprovalIssuancePattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -395,7 +395,7 @@ function PageDesigns() {
                 />
               </div>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-6 rounded-r-lg">
                 <div className="font-bold text-foreground mb-3">What's Happening Now?</div>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -468,7 +468,7 @@ function PageDesigns() {
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                 <div className="flex items-start gap-3">
                   <AlertCircle size={20} className="text-yellow-600 flex-shrink-0 mt-0.5" />
                   <div>
@@ -496,7 +496,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="font-bold text-foreground mb-4">How to Get Medical Certificate</div>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -514,7 +514,7 @@ function PageDesigns() {
                 </ul>
               </div>
 
-              <div className="border-2 border-orange-300 bg-orange-50 rounded-lg p-6">
+              <div className="border-2 border-orange-300 bg-orange-50 dark:bg-orange-950/30 rounded-lg p-6">
                 <label className="block text-sm font-bold text-foreground mb-4">
                   Upload Updated Medical Certificate <span className="text-red-600">*</span>
                 </label>
@@ -562,7 +562,7 @@ function PageDesigns() {
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+              <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Application Number</div>
@@ -590,7 +590,7 @@ function PageDesigns() {
                 />
               </div>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-6 rounded-r-lg">
                 <div className="font-bold text-foreground mb-3">What Happens Next?</div>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -654,7 +654,7 @@ function PageDesigns() {
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+              <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">Application Number</div>
@@ -667,7 +667,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
+              <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-600 p-6 rounded-r-lg">
                 <div className="flex items-start gap-3 mb-4">
                   <XCircle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
                   <div className="font-bold text-foreground">Reasons for Non-Approval</div>
@@ -686,7 +686,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-6 rounded-r-lg">
                 <div className="font-bold text-foreground mb-3">Your Options</div>
                 <div className="space-y-4">
                   <OptionCard
@@ -756,7 +756,7 @@ function PageDesigns() {
               </p>
             </div>
             <div className="p-8 space-y-6">
-              <div className="bg-teal-50 border-2 border-teal-200 rounded-lg p-6">
+              <div className="bg-teal-50 dark:bg-teal-950/30 border-2 border-teal-200 dark:border-teal-800 rounded-lg p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">License Number</div>
@@ -826,7 +826,7 @@ function PageDesigns() {
                 </button>
               </div>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-6 rounded-r-lg">
                 <div className="font-bold text-foreground mb-3">How to Use Your License</div>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -894,7 +894,7 @@ function PageDesigns() {
                 />
               </div>
 
-              <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg">
+              <div className="bg-green-50 dark:bg-green-950/30 border-l-4 border-green-600 p-6 rounded-r-lg">
                 <div className="font-bold text-foreground mb-3">Your License is Active and Valid</div>
                 <div className="text-sm text-muted-foreground">
                   You can legally drive Light Motor Vehicles (LMV) in India until 2 April 2046. 
@@ -934,7 +934,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                 <div className="font-bold text-foreground mb-3">Renewal Information</div>
                 <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
                   <div>
@@ -982,7 +982,7 @@ function OutcomeStates() {
       <DocModule>
         <ModuleHeader title="Multi-Modal State Communication (Not Color-Only)" />
         <ModuleContent>
-          <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
             <div className="flex items-start gap-3 mb-4">
               <Eye size={24} className="text-purple-600 flex-shrink-0" />
               <div>
@@ -1246,7 +1246,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="Multilingual Considerations" />
         <ModuleContent>
-          <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
             <div className="flex items-start gap-3 mb-4">
               <Globe size={24} className="text-purple-600 flex-shrink-0" />
               <div>
@@ -1483,8 +1483,8 @@ function MetadataPanel() {
 
 function QuickRefPanel() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 space-y-3 text-sm">
@@ -1501,8 +1501,8 @@ function QuickRefPanel() {
 
 function DesignPrinciples() {
   return (
-    <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
-      <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50">
+      <div className="bg-green-100 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Core Principles</h3>
       </div>
       <div className="p-4 space-y-3 text-sm text-muted-foreground">
@@ -1517,8 +1517,8 @@ function DesignPrinciples() {
 
 function RiskIndicators() {
   return (
-    <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
-      <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3 flex items-center gap-2">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+      <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3 flex items-center gap-2">
         <AlertTriangle size={16} className="text-red-700" />
         <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
@@ -1720,7 +1720,7 @@ function TimelineItem({ date, status, description, active, icon }: any) {
 
 function RequiredInfoItem({ title, description, format, deadline }: any) {
   return (
-    <div className="border-2 border-yellow-300 bg-yellow-50 rounded-lg p-4">
+    <div className="border-2 border-yellow-300 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg p-4">
       <div className="font-bold text-foreground mb-2">{title}</div>
       <div className="text-sm text-muted-foreground mb-2">{description}</div>
       <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
@@ -1763,7 +1763,7 @@ function RejectionReason({ reason, detail, solution }: any) {
         {reason}
       </div>
       <div className="text-sm text-muted-foreground mb-2">{detail}</div>
-      <div className="text-sm text-green-700 bg-green-50 border border-green-200 rounded p-2">
+      <div className="text-sm text-green-700 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-2">
         <strong>Solution:</strong> {solution}
       </div>
     </div>
@@ -1821,7 +1821,7 @@ function NextStepBlock({ number, title, description, link }: any) {
 
 function PageAnnotation({ items }: any) {
   return (
-    <div className="mt-4 bg-blue-50 border-l-4 border-blue-600 p-4">
+    <div className="mt-4 bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-4">
       <div className="flex items-start gap-2 mb-2">
         <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
         <div className="font-bold text-sm text-foreground">Design Annotations</div>
@@ -1858,9 +1858,9 @@ function StateIndicator({ state, icon, color, aria }: any) {
 
 function ScreenReaderExample({ state, code, announcement }: any) {
   return (
-    <div className="border-2 border-purple-300 bg-purple-50 rounded-lg p-4">
+    <div className="border-2 border-purple-300 bg-purple-50 dark:bg-purple-950/30 rounded-lg p-4">
       <div className="font-bold text-sm text-foreground mb-2">{state} State</div>
-      <div className="text-xs text-muted-foreground bg-card border border-purple-200 rounded p-2 mb-2 font-mono">
+      <div className="text-xs text-muted-foreground bg-card border border-purple-200 dark:border-purple-800 rounded p-2 mb-2 font-mono">
         {code}
       </div>
       <div className="text-sm text-muted-foreground">
@@ -1872,7 +1872,7 @@ function ScreenReaderExample({ state, code, announcement }: any) {
 
 function NotificationChannel({ event, channels, timing, content }: any) {
   return (
-    <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
+    <div className="border-2 border-blue-300 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4">
       <div className="grid grid-cols-4 gap-4 text-sm">
         <div>
           <div className="font-bold text-foreground mb-1">{event}</div>
@@ -1919,14 +1919,14 @@ function ToneBlock({ context, tone, good, bad }: any) {
             <CheckCircle size={14} className="text-green-600" />
             <span className="text-xs font-bold text-green-700">Good</span>
           </div>
-          <div className="text-sm text-foreground bg-green-50 border border-green-200 rounded p-2">"{good}"</div>
+          <div className="text-sm text-foreground bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
             <span className="text-xs font-bold text-red-700">Bad</span>
           </div>
-          <div className="text-sm text-foreground bg-red-50 border border-red-200 rounded p-2">"{bad}"</div>
+          <div className="text-sm text-foreground bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-2">"{bad}"</div>
         </div>
       </div>
     </div>
@@ -1935,10 +1935,10 @@ function ToneBlock({ context, tone, good, bad }: any) {
 
 function LanguagePattern({ element, pattern, example, why }: any) {
   return (
-    <div className="border-2 border-blue-300 bg-blue-50 rounded-lg p-4">
+    <div className="border-2 border-blue-300 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-4">
       <div className="font-bold text-sm text-foreground mb-2">{element}</div>
       <div className="text-sm text-muted-foreground mb-2"><strong>Pattern:</strong> {pattern}</div>
-      <div className="text-xs text-muted-foreground bg-card border border-blue-200 rounded p-2 mb-2 italic">
+      <div className="text-xs text-muted-foreground bg-card border border-blue-200 dark:border-blue-800 rounded p-2 mb-2 italic">
         <strong>Example:</strong> {example}
       </div>
       <div className="text-xs text-muted-foreground"><strong>Why:</strong> {why}</div>
@@ -2025,7 +2025,7 @@ function RiskBlock({ risk, impact, solution }: any) {
   };
 
   return (
-    <div className="border-l-4 border-red-600 bg-red-50 p-4 rounded-r-lg">
+    <div className="border-l-4 border-red-600 bg-red-50 dark:bg-red-950/30 p-4 rounded-r-lg">
       <div className="flex items-start justify-between mb-2">
         <div className="font-bold text-sm text-foreground flex-1">{risk}</div>
         <div className={`px-2 py-1 rounded text-xs font-bold ${impactConfig[impact].bg} ${impactConfig[impact].color} flex-shrink-0 ml-3`}>

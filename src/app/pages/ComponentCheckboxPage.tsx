@@ -220,7 +220,7 @@ function Example() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="space-y-2">
@@ -231,7 +231,7 @@ function Example() {
                   <p className="text-sm text-muted-foreground">Use checkboxes for multiple independent selections from a list.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4 space-y-3">
                   <div className="space-y-2">
@@ -242,7 +242,7 @@ function Example() {
                   <p className="text-sm text-muted-foreground">Don&apos;t use checkboxes for mutually exclusive options — use Radio buttons instead.</p>
                 </div>
               </div>
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="space-y-2">
@@ -251,7 +251,7 @@ function Example() {
                   <p className="text-sm text-muted-foreground">Leave consent checkboxes unchecked by default — pre-checking violates GDPR and Indian IT Act requirements.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4 space-y-3">
                   <div className="space-y-2">

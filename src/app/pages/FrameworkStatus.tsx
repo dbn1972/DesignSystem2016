@@ -160,7 +160,7 @@ export default function FrameworkStatus() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* React Status */}
-            <div className="bg-card rounded-xl p-6 border-2 border-green-200 shadow-sm">
+            <div className="bg-card rounded-xl p-6 border-2 border-green-200 dark:border-green-800 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Check className="text-green-600" size={24} />
@@ -195,7 +195,7 @@ export default function FrameworkStatus() {
             </div>
 
             {/* Angular Status */}
-            <div className="bg-card rounded-xl p-6 border-2 border-green-200 shadow-sm">
+            <div className="bg-card rounded-xl p-6 border-2 border-green-200 dark:border-green-800 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Check className="text-green-600" size={24} />
@@ -230,7 +230,7 @@ export default function FrameworkStatus() {
             </div>
 
             {/* Web Components Status */}
-            <div className="bg-card rounded-xl p-6 border-2 border-green-200 shadow-sm">
+            <div className="bg-card rounded-xl p-6 border-2 border-green-200 dark:border-green-800 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Check className="text-green-600" size={24} />

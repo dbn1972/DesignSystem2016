@@ -272,7 +272,7 @@ export default function ServiceSupportPattern() {
                 <div className="text-sm text-muted-foreground mb-2">Support Ticket ID</div>
                 <div className="text-3xl font-bold text-primary font-mono">{referenceNumber}</div>
               </div>
-              <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 text-left mb-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 text-left mb-6">
                 <h3 className="font-bold text-foreground mb-3">What's Next?</h3>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">

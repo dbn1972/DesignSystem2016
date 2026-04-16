@@ -42,7 +42,7 @@ export default function TermsOfUse() {
           </nav>
 
           {/* Effective Date Banner */}
-          <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5 mb-8">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5 mb-8">
             <div className="flex items-start gap-3">
               <FileText size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
               <div>
@@ -417,7 +417,7 @@ export default function TermsOfUse() {
                       please contact us through the following channels:
                     </p>
 
-                    <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-4">
+                    <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-4">
                       <h4 className="font-bold text-foreground mb-3">UX4G Design System Team</h4>
                       <div className="space-y-2 text-sm text-muted-foreground">
                         <p><span className="font-bold">Organization:</span> Digital India Initiative</p>
@@ -449,8 +449,8 @@ export default function TermsOfUse() {
                         </p>
                         <p>
                           <span className="font-bold">GitHub:</span>{" "}
-                          <a href="https://github.com/ux4g" className="text-primary hover:underline">
-                            https://github.com/ux4g
+                          <a href="https://github.com/dbn1972/DesignSystem2016" className="text-primary hover:underline">
+                            https://github.com/dbn1972/DesignSystem2016
                           </a>
                         </p>
                       </div>
@@ -470,7 +470,7 @@ export default function TermsOfUse() {
 
               {/* Acknowledgment */}
               <div className="pt-8 border-t-2 border-border">
-                <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+                <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
                   <h3 className="font-bold text-foreground mb-3">Acknowledgment</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     By using the UX4G Design System, you acknowledge that you have read, understood, and agree
@@ -553,7 +553,7 @@ function Section({ icon, title, content }: { icon: React.ReactNode; title: strin
   return (
     <section className="border-b-2 border-border pb-8 last:border-b-0">
       <div className="flex items-start gap-3 mb-4">
-        <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+        <div className="w-10 h-10 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center flex-shrink-0">
           {icon}
         </div>
         <h2 className="text-lg font-bold text-foreground flex-1">{title}</h2>

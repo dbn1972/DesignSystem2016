@@ -269,7 +269,7 @@ function FoundationsPage() {
             ))}
           </div>
           
-          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg">
             <div className="flex items-start gap-3">
               <Shield className="text-primary flex-shrink-0 mt-0.5" size={20} />
               <div>
@@ -672,7 +672,7 @@ function CoreComponentsPage() {
           <div>
             <h3 className="text-xl font-bold text-foreground mb-6">Alerts</h3>
             <div className="space-y-4">
-              <div className="flex items-start gap-3 p-4 bg-green-50 border-2 border-green-200 rounded-lg">
+              <div className="flex items-start gap-3 p-4 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg">
                 <Check className="text-[#138808] flex-shrink-0" size={20} />
                 <div>
                   <div className="font-semibold text-foreground mb-1">Success</div>
@@ -680,7 +680,7 @@ function CoreComponentsPage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+              <div className="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
                 <FileText className="text-primary flex-shrink-0" size={20} />
                 <div>
                   <div className="font-semibold text-foreground mb-1">Information</div>
@@ -1372,11 +1372,11 @@ function ServiceBlueprintsPage() {
                 ))}
               </div>
               
-              <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg">
                 <div className="font-semibold text-sm text-foreground mb-2">Components Used</div>
                 <div className="flex flex-wrap gap-2">
                   {["Button", "Input", "Select", "File Upload", "Progress Stepper", "Card", "Alert"].map((comp, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-card border border-blue-200 rounded text-xs text-muted-foreground">
+                    <span key={idx} className="px-2 py-1 bg-card border border-blue-200 dark:border-blue-800 rounded text-xs text-muted-foreground">
                       {comp}
                     </span>
                   ))}
@@ -1416,11 +1416,11 @@ function ServiceBlueprintsPage() {
                 ))}
               </div>
               
-              <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg">
                 <div className="font-semibold text-sm text-foreground mb-2">Components Used</div>
                 <div className="flex flex-wrap gap-2">
                   {["Button", "Badge", "Modal", "Progress Bar", "Download Link", "Print Layout"].map((comp, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-card border border-green-200 rounded text-xs text-muted-foreground">
+                    <span key={idx} className="px-2 py-1 bg-card border border-green-200 dark:border-green-800 rounded text-xs text-muted-foreground">
                       {comp}
                     </span>
                   ))}
@@ -1459,11 +1459,11 @@ function ServiceBlueprintsPage() {
                 ))}
               </div>
               
-              <div className="mt-6 p-4 bg-orange-50 border border-orange-200 rounded-lg">
+              <div className="mt-6 p-4 bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800 rounded-lg">
                 <div className="font-semibold text-sm text-foreground mb-2">Components Used</div>
                 <div className="flex flex-wrap gap-2">
                   {["Input", "Search", "Timeline", "Badge", "Card", "Link", "Rating"].map((comp, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-card border border-orange-200 rounded text-xs text-muted-foreground">
+                    <span key={idx} className="px-2 py-1 bg-card border border-orange-200 dark:border-orange-800 rounded text-xs text-muted-foreground">
                       {comp}
                     </span>
                   ))}

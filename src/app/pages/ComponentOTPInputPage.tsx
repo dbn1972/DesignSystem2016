@@ -212,14 +212,14 @@ function Example() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="flex gap-2 mb-3">{[1,2,3,4,5,6].map(i => <div key={i} className="w-8 h-10 border-2 border-border rounded flex items-center justify-center text-sm font-mono text-foreground">{i <= 3 ? "•" : ""}</div>)}</div>
                   <p className="text-sm text-muted-foreground">Auto-advance to the next digit field and support paste for faster entry.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="mb-3"><input className="w-full border border-border rounded px-3 py-1.5 text-xs" placeholder="Enter 6-digit OTP" readOnly /></div>

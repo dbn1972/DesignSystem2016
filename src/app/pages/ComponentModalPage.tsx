@@ -419,14 +419,14 @@ export class ModalModule { }`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="flex justify-end gap-2"><button className="px-3 py-1.5 text-sm border border-border rounded">Cancel</button><button className="px-3 py-1.5 text-sm bg-red-600 text-white rounded">Delete Application</button></div>
                   <p className="text-sm text-muted-foreground">Use specific action labels in modal footers — &quot;Delete Application&quot; is clearer than &quot;OK&quot;.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4 space-y-3">
                   <div className="flex justify-end gap-2"><button className="px-3 py-1.5 text-sm border border-border rounded">No</button><button className="px-3 py-1.5 text-sm bg-[#005196] text-white rounded">OK</button></div>

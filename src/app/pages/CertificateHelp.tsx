@@ -174,7 +174,7 @@ export default function CertificateHelp() {
         </div>
 
         {/* Quick Links */}
-        <div className="mt-12 bg-blue-50 border-2 border-blue-300 rounded-lg p-8">
+        <div className="mt-12 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
           <h3 className="font-bold text-foreground mb-6">Quick Links</h3>
           <div className="grid grid-cols-2 gap-4">
             <QuickLink to="/reference-service/certificate/eligibility" text="Check Eligibility" />

@@ -78,7 +78,7 @@ export default function AddressLookupPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 Enter a pincode to automatically populate address fields. Try: 110001 (Delhi), 400001 (Mumbai), or 560001 (Bangalore).
@@ -321,7 +321,7 @@ GET https://api.postalpincode.in/pincode/{pincode}
                 </div>
               </div>
 
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">When to Use</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Any form requiring Indian address</li>

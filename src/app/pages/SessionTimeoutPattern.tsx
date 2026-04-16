@@ -52,7 +52,7 @@ export default function SessionTimeoutPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-blue-50 border-2 border-blue-200 rounded text-blue-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
                 Security<br/>Critical
               </div>
             </div>
@@ -189,7 +189,7 @@ function OverviewSection() {
 
         {/* When Not to Use */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When Not to Use
@@ -344,7 +344,7 @@ function ExampleScreens() {
           variant="default"
         >
           <div className="space-y-4">
-            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm">
               <Info size={14} className="inline mr-2 text-blue-600" />
               <span className="text-muted-foreground">Session active. Auto-saves every 2 minutes.</span>
             </div>
@@ -392,7 +392,7 @@ function ExampleScreens() {
                 Your session will expire in <strong className="text-red-600 text-lg">1:45</strong> due to inactivity.
               </p>
             </div>
-            <div className="bg-yellow-50 border border-yellow-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-300 rounded p-3 text-sm text-muted-foreground">
               <p>To protect your information, we'll sign you out if there's no activity.</p>
               <p className="mt-2">Click below to continue working.</p>
             </div>
@@ -423,7 +423,7 @@ function ExampleScreens() {
                 Your session has been extended.
               </p>
             </div>
-            <div className="bg-green-50 border border-green-300 rounded p-3 text-sm text-green-800">
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800">
               <CheckCircle size={14} className="inline mr-2" />
               Session will expire after 15 minutes of inactivity
             </div>
@@ -447,11 +447,11 @@ function ExampleScreens() {
                 This helps protect your information.
               </p>
             </div>
-            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
               <Save size={14} className="inline mr-2 text-blue-600" />
               <strong>Good news:</strong> Your progress has been saved automatically.
             </div>
-            <div className="bg-orange-50 border border-orange-300 rounded p-4 text-sm text-muted-foreground">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border border-orange-300 rounded p-4 text-sm text-muted-foreground">
               <p className="font-bold text-foreground mb-2">To continue where you left off:</p>
               <ol className="ml-4 space-y-1">
                 <li>1. Sign in again below</li>
@@ -478,7 +478,7 @@ function ExampleScreens() {
                 Signing in as: <strong>rajesh.kumar@example.com</strong>
               </p>
             </div>
-            <div className="bg-blue-50 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
               <Info size={14} className="inline mr-2" />
               Your form progress is saved. Enter your password to continue.
             </div>
@@ -514,7 +514,7 @@ function ExampleScreens() {
                 The password you entered is not correct
               </p>
             </div>
-            <div className="bg-red-50 border-2 border-red-300 rounded p-4 text-sm text-muted-foreground">
+            <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4 text-sm text-muted-foreground">
               <p className="font-bold text-red-800 mb-2">What you can do:</p>
               <ul className="space-y-1 ml-4">
                 <li>• Try entering your password again</li>
@@ -545,7 +545,7 @@ function ExampleScreens() {
           variant="success"
         >
           <div className="space-y-4">
-            <div className="bg-green-50 border border-green-300 rounded p-3 text-sm">
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm">
               <CheckCircle size={14} className="inline mr-2 text-green-600" />
               <span className="text-muted-foreground"><strong>Welcome back!</strong> Your progress has been restored.</span>
             </div>
@@ -595,7 +595,7 @@ function ExampleScreens() {
               <h4 className="font-bold text-foreground mb-2">Need Help?</h4>
             </div>
             <div className="space-y-3 text-sm">
-              <div className="bg-blue-50 border border-blue-300 rounded p-3">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3">
                 <p className="font-bold text-foreground mb-2">Common Questions:</p>
                 <ul className="ml-4 space-y-1 text-muted-foreground">
                   <li>• <strong>Why did my session expire?</strong><br/>For security, we sign you out after 15 minutes of inactivity</li>
@@ -681,7 +681,7 @@ function TimeoutConfigSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Activity Detection</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -713,7 +713,7 @@ function TimeoutConfigSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Warning Display Rules</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -753,7 +753,7 @@ function SaveProgressSection() {
         <h2 className="text-2xl font-bold text-foreground">Save Progress Strategy</h2>
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Save size={20} className="text-blue-600" />
           Auto-Save is Critical for Session Timeout
@@ -767,7 +767,7 @@ function SaveProgressSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Auto-Save Implementation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -800,7 +800,7 @@ function SaveProgressSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
             <h3 className="font-bold text-foreground">What to Save</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -848,7 +848,7 @@ function AccessibilitySection() {
         <h2 className="text-2xl font-bold text-foreground">Accessibility Guidelines</h2>
       </div>
 
-      <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
+      <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertTriangle size={20} className="text-red-600" />
           WCAG 2.2.1 Timing Adjustable (Level A) - Mandatory Compliance
@@ -870,7 +870,7 @@ function AccessibilitySection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Screen Reader Support</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -894,7 +894,7 @@ function AccessibilitySection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Keyboard Navigation</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -918,7 +918,7 @@ function AccessibilitySection() {
         </div>
       </div>
 
-      <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-purple-600" />
           Plain Language & Visual Design
@@ -998,7 +998,7 @@ function ImplementationSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Warning Modal</h3>
           </div>
           <div className="p-6">
@@ -1036,7 +1036,7 @@ resetTimers();`}
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Auto-Save</h3>
           </div>
           <div className="p-6">
@@ -1116,7 +1116,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Security Classification</h3>
           </div>
           <div className="p-6">
@@ -1132,7 +1132,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+          <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
@@ -1152,7 +1152,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Implementation Checklist
@@ -1183,7 +1183,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <HelpCircle size={20} className="text-blue-600" />
           Support & Escalation
@@ -1216,7 +1216,7 @@ function GovernanceSection() {
 function QuickReference() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -1248,7 +1248,7 @@ function QuickReference() {
 function RelatedPatterns() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1264,7 +1264,7 @@ function RelatedPatterns() {
 function InteractiveDemo() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Interactive Demo</h3>
       </div>
       <div className="p-4">
@@ -1286,7 +1286,7 @@ function InteractiveDemo() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1384,11 +1384,11 @@ function ScreenExample({ title, variant, children }: {
   variant: 'default' | 'error' | 'warning' | 'success' | 'info';
   children: React.ReactNode;
 }) {
-  const headerColor = variant === 'error' ? 'bg-red-50 border-red-200' :
-                      variant === 'warning' ? 'bg-yellow-50 border-yellow-200' :
-                      variant === 'success' ? 'bg-green-50 border-green-200' :
-                      variant === 'info' ? 'bg-blue-50 border-blue-200' :
-                      'bg-blue-50 border-blue-200';
+  const headerColor = variant === 'error' ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800' :
+                      variant === 'warning' ? 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-800' :
+                      variant === 'success' ? 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800' :
+                      variant === 'info' ? 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800' :
+                      'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800';
   
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">

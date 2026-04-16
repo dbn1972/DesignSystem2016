@@ -262,7 +262,7 @@ function ReviewScreen({
       <div className="p-8 space-y-6">
         
         {/* Instruction */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
           <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
           <div className="flex-1">
             <h4 className="font-bold text-foreground mb-1 text-sm">Please Review Carefully</h4>
@@ -388,7 +388,7 @@ function ReviewScreen({
         </div>
 
         {/* Actions */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4 flex items-start gap-3">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 flex items-start gap-3">
           <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
           <div className="flex-1">
             <h4 className="font-bold text-orange-900 mb-1 text-sm">Next Step: Declaration</h4>
@@ -470,7 +470,7 @@ function DeclarationScreen({
       <div className="p-8 space-y-6">
         
         {/* Application Summary */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <h3 className="font-bold text-foreground mb-3 text-sm">Application Summary</h3>
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
@@ -533,7 +533,7 @@ function DeclarationScreen({
         </div>
 
         {/* What This Means */}
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-5">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-5">
           <h4 className="font-bold text-foreground mb-3 text-sm flex items-center gap-2">
             <Info size={18} className="text-green-600" />
             What This Declaration Means
@@ -660,7 +660,7 @@ function BlockedSubmitScreen({
           required step to confirm the accuracy and authenticity of the information you have provided.
         </p>
 
-        <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-red-900 mb-4 flex items-center gap-2">
             <AlertCircle size={20} className="text-red-600" />
             Why Declaration is Required
@@ -673,7 +673,7 @@ function BlockedSubmitScreen({
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What Happens When You Accept
@@ -750,7 +750,7 @@ function SuccessfulSubmissionScreen({
           application status via SMS and email.
         </p>
 
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 mb-8">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6 mb-8">
           <h3 className="font-bold text-foreground mb-4 text-center">Application Details</h3>
           <div className="space-y-3">
             <div className="bg-card border-2 border-green-300 rounded p-4 text-center">
@@ -777,7 +777,7 @@ function SuccessfulSubmissionScreen({
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What Happens Next
@@ -806,7 +806,7 @@ function SuccessfulSubmissionScreen({
           </div>
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5 mb-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5 mb-8">
           <h4 className="font-bold text-orange-900 mb-3 text-sm flex items-center gap-2">
             <AlertCircle size={18} className="text-orange-600" />
             Important Reminders
@@ -855,7 +855,7 @@ function SuccessfulSubmissionScreen({
 
 function NextStep({ step, title, description }: { step: string; title: string; description: string }) {
   return (
-    <div className="flex items-start gap-3 pb-3 border-b border-blue-200 last:border-0 last:pb-0">
+    <div className="flex items-start gap-3 pb-3 border-b border-blue-200 dark:border-blue-800 last:border-0 last:pb-0">
       <div className="w-7 h-7 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">
         {step}
       </div>
@@ -895,7 +895,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
 
       <div className="p-8 space-y-6">
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What is a Declaration?
@@ -947,7 +947,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           </div>
         </div>
 
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <CheckCircle size={20} className="text-green-600" />
             Before You Accept the Declaration
@@ -961,7 +961,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           </div>
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
           <h3 className="font-bold text-orange-900 mb-4 flex items-center gap-2">
             <AlertTriangle size={20} className="text-orange-600" />
             Common Concerns Addressed
@@ -1099,7 +1099,7 @@ function StateExplainer({ currentState }: { currentState: FlowState }) {
   const state = stateDescriptions[currentState];
 
   return (
-    <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+    <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
       <h3 className="font-bold text-foreground mb-3 text-sm flex items-center gap-2">
         <Info size={18} className="text-primary" />
         Current State
@@ -1114,7 +1114,7 @@ function StateExplainer({ currentState }: { currentState: FlowState }) {
 
 function DeclarationPurpose() {
   return (
-    <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+    <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
       <h3 className="font-bold text-foreground mb-4 text-sm flex items-center gap-2">
         <Shield size={18} className="text-green-600" />
         Declaration Purpose

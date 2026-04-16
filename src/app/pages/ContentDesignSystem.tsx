@@ -63,7 +63,7 @@ export default function ContentDesignSystem() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-blue-50 border-2 border-blue-200 rounded text-blue-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 dark:border-blue-800 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
                 Content<br/>Standard
               </div>
             </div>
@@ -175,7 +175,7 @@ function OverviewSection() {
       <div className="grid grid-cols-2 gap-6">
         {/* What's Included */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 dark:border-blue-800 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">What's Included</h3>
           </div>
           <div className="p-6 space-y-2 text-sm">
@@ -192,7 +192,7 @@ function OverviewSection() {
 
         {/* Benefits */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 dark:border-green-800 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Benefits</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -303,7 +303,7 @@ function LabelsSection() {
         <h2 className="text-2xl font-bold text-foreground">Standardized Field Labels</h2>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Label Writing Rules
@@ -399,7 +399,7 @@ function HelperTextSection() {
         <h2 className="text-2xl font-bold text-foreground">Helper Text Patterns</h2>
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">When to Use Helper Text</h3>
         <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
           <div>
@@ -462,9 +462,9 @@ function ErrorMessagesSection() {
         <h2 className="text-2xl font-bold text-foreground">Error Message Standards</h2>
       </div>
 
-      <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
+      <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">Error Message Formula</h3>
-        <div className="bg-card border border-red-200 rounded p-4 mb-4">
+        <div className="bg-card border border-red-200 dark:border-red-800 dark:border-red-800 dark:border-red-800 rounded p-4 mb-4">
           <p className="font-bold text-foreground text-center text-lg">
             [Problem] + [What to do about it]
           </p>
@@ -578,7 +578,7 @@ function SuccessMessagesSection() {
         <h2 className="text-2xl font-bold text-foreground">Success Message Patterns</h2>
       </div>
 
-      <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+      <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">Success Message Guidelines</h3>
         <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
           <div>
@@ -651,7 +651,7 @@ function ConsentLanguageSection() {
         <h2 className="text-2xl font-bold text-foreground">Consent & Legal Language</h2>
       </div>
 
-      <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">Legal Language Requirements</h3>
         <p className="text-sm text-muted-foreground mb-4">
           Consent language must be legally sound while remaining understandable. All templates 
@@ -857,7 +857,7 @@ function ContentLibrary() {
 function QuickReference() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 dark:border-blue-800 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -885,7 +885,7 @@ function QuickReference() {
 function AppliedExamples() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 dark:border-green-800 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Applied To</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -901,7 +901,7 @@ function AppliedExamples() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -974,7 +974,7 @@ function LabelCategory({ title, labels }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h4 className="font-bold text-foreground text-sm">{title}</h4>
       </div>
       <div className="p-4">
@@ -1007,7 +1007,7 @@ function HelperTextExample({ field, helper, placeholder, explanation }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 dark:border-blue-800 dark:border-blue-800 px-4 py-3">
         <h4 className="font-bold text-foreground text-sm">{field}</h4>
       </div>
       <div className="p-4">
@@ -1035,18 +1035,18 @@ function ErrorMessageCategory({ title, examples }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+      <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 dark:border-red-800 dark:border-red-800 px-6 py-4">
         <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
         <div className="space-y-3">
           {examples.map((ex, i) => (
             <div key={i} className="grid grid-cols-2 gap-4 text-sm">
-              <div className="bg-red-50 border border-red-200 rounded p-3">
+              <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 dark:border-red-800 dark:border-red-800 rounded p-3">
                 <p className="font-bold text-red-600 mb-1 text-xs">❌ Wrong:</p>
                 <p className="text-muted-foreground">{ex.wrong}</p>
               </div>
-              <div className="bg-green-50 border border-green-200 rounded p-3">
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 dark:border-green-800 dark:border-green-800 rounded p-3">
                 <p className="font-bold text-green-600 mb-1 text-xs">✅ Right:</p>
                 <p className="text-muted-foreground">{ex.right}</p>
               </div>
@@ -1065,11 +1065,11 @@ function SuccessMessageExample({ category, message, nextSteps }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 dark:border-green-800 dark:border-green-800 px-4 py-3">
         <h4 className="font-bold text-foreground text-sm">{category}</h4>
       </div>
       <div className="p-4">
-        <div className="bg-green-50 border-2 border-green-300 rounded p-4 mb-3">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded p-4 mb-3">
           <div className="flex items-start gap-2">
             <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
             <div>
@@ -1097,14 +1097,14 @@ function ConsentTemplate({ type, short, full }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
         <h3 className="font-bold text-foreground">{type}</h3>
       </div>
       <div className="p-6">
         <div className="space-y-4">
           <div>
             <p className="text-xs font-bold text-foreground mb-2">Short version (checkbox):</p>
-            <div className="bg-purple-50 border border-purple-200 rounded p-3">
+            <div className="bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800 rounded p-3">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input type="checkbox" className="mt-1" />
                 <span className="text-sm text-foreground">{short}</span>
@@ -1125,7 +1125,7 @@ function ConsentTemplate({ type, short, full }: {
 
 function AppliedLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-950/30 hover:border-blue-300 transition-colors">
       <Eye size={12} className="text-primary" />
       <span className="text-foreground">{text}</span>
     </Link>
@@ -1134,7 +1134,7 @@ function AppliedLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-950/30 hover:border-blue-300 transition-colors text-foreground">
       <ArrowRight size={12} className="text-primary" />
       <span>{text}</span>
     </a>

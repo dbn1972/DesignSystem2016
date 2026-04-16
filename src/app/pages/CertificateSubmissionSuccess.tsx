@@ -48,7 +48,7 @@ export default function CertificateSubmissionSuccess() {
           </div>
         </section>
 
-        <section className="bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+        <section className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
           <h2 className="font-bold text-foreground flex items-center gap-2">
             <Bell size={18} className="text-blue-700" />
             What Happens Next

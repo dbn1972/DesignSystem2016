@@ -43,7 +43,7 @@ export default function SignUpPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -431,17 +431,17 @@ function FlowConnector({ label }: { label?: string }) {
 
 function FlowBranch({ condition, yesPath, noPath }: { condition: string; yesPath: string; noPath: string }) {
   return (
-    <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4">
+    <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4">
       <div className="flex items-start gap-3">
         <AlertTriangle size={20} className="text-orange-600 flex-shrink-0 mt-1" />
         <div className="flex-1">
           <h4 className="font-bold text-orange-800 mb-3">{condition}</h4>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-card border border-orange-200 rounded p-3">
+            <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-3">
               <div className="text-xs font-bold text-orange-700 mb-1">YES</div>
               <div className="text-sm text-muted-foreground">{yesPath}</div>
             </div>
-            <div className="bg-card border border-orange-200 rounded p-3">
+            <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-3">
               <div className="text-xs font-bold text-green-700 mb-1">NO</div>
               <div className="text-sm text-muted-foreground">{noPath}</div>
             </div>
@@ -625,7 +625,7 @@ function SignUpFormExample({ state }: { state: string }) {
         </div>
       ) : state === "duplicate-account" ? (
         <>
-          <div className="bg-orange-50 border-2 border-orange-300 rounded p-4 mb-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded p-4 mb-4">
             <div className="flex items-start gap-3">
               <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
               <div>
@@ -1172,7 +1172,7 @@ function ValidationRules() {
           <h3 className="font-bold text-foreground">Duplicate Account Handling</h3>
         </div>
         <div className="p-6 space-y-4">
-          <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4">
             <div className="flex items-start gap-3">
               <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
               <div>
@@ -1523,7 +1523,7 @@ function ImplementationSection() {
 
         {/* Security Considerations */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
-          <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
             <h3 className="font-bold text-red-900 flex items-center gap-2">
               <Shield size={18} />
               Security Considerations
@@ -1600,7 +1600,7 @@ function GovernanceSection() {
       <div className="grid grid-cols-2 gap-6">
         {/* Conformance Status */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-300 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Conformance Status</h3>
           </div>
           <div className="p-6">
@@ -1627,7 +1627,7 @@ function GovernanceSection() {
 
         {/* Lifecycle Status */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-300 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Lifecycle Status</h3>
           </div>
           <div className="p-6">
@@ -1681,7 +1681,7 @@ function GovernanceSection() {
 
         {/* Support & Escalation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden col-span-2">
-          <div className="bg-blue-50 border-b-2 border-blue-300 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-300 px-6 py-4">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <HelpCircle size={18} />
               Support & Escalation

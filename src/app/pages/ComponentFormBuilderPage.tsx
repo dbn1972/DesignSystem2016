@@ -320,7 +320,7 @@ function Example() {
           preview: (
             <FormBuilderPreview layout="vertical">
               <FormFieldPreview label="Application Type" type="select" required />
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 text-sm text-blue-800">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-4 text-sm text-blue-800">
                 Additional fields will appear based on your selection
               </div>
             </FormBuilderPreview>
@@ -509,7 +509,7 @@ function Example() {
 }`,
           preview: (
             <div className="relative">
-              <div className="absolute top-0 right-0 flex items-center gap-2 text-xs text-muted-foreground bg-green-50 px-3 py-1 rounded border border-green-200">
+              <div className="absolute top-0 right-0 flex items-center gap-2 text-xs text-muted-foreground bg-green-50 px-3 py-1 rounded border border-green-200 dark:border-green-800">
                 <Save size={14} className="text-green-600" />
                 <span>Auto-saved 2 minutes ago</span>
               </div>
@@ -1252,13 +1252,13 @@ export type FormLayout = 'vertical' | 'horizontal' | 'grid';`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Use JSON-schema-driven forms to reduce development time by 60%.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t use FormBuilder for simple static forms — build them directly.</p>

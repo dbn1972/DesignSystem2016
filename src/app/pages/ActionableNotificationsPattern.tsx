@@ -144,7 +144,7 @@ export default function ActionableNotificationsPattern() {
               {!notif.completed ? (
                 <div className="bg-card border-2 border-orange-300 rounded-lg overflow-hidden">
                   {/* Header */}
-                  <div className="bg-orange-50 border-b-2 border-orange-200 p-6">
+                  <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 p-6">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
@@ -195,7 +195,7 @@ export default function ActionableNotificationsPattern() {
                   </div>
                 </div>
               ) : (
-                <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+                <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
                   <div className="flex items-center gap-3">
                     <CheckCircle size={24} className="text-green-600" />
                     <div className="flex-1">
@@ -213,7 +213,7 @@ export default function ActionableNotificationsPattern() {
         </div>
 
         {/* Pattern Info */}
-        <div className="mt-12 bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+        <div className="mt-12 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>
@@ -299,14 +299,14 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
               Supported formats: PDF, JPG, PNG (Max 5MB)
             </p>
             {selectedFile && (
-              <div className="mt-4 p-4 bg-blue-50 border-2 border-blue-200 rounded">
+              <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded">
                 <div className="text-sm font-bold text-foreground">{selectedFile.name}</div>
                 <div className="text-xs text-muted-foreground">{(selectedFile.size / 1024).toFixed(2)} KB</div>
               </div>
             )}
           </div>
         ) : (
-          <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg">
+          <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
             <div className="text-sm font-bold text-foreground mb-2">Uploading...</div>
             <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
               <div
@@ -359,7 +359,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
         </div>
 
         {isProcessing ? (
-          <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
+          <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg text-center">
             <div className="text-sm font-bold text-foreground mb-2">Processing payment...</div>
             <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
           </div>
@@ -404,7 +404,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
         </div>
 
         {isProcessing ? (
-          <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
+          <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg text-center">
             <div className="text-sm font-bold text-foreground mb-2">Processing approval...</div>
             <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
           </div>
@@ -466,7 +466,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
         </div>
 
         {isProcessing ? (
-          <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
+          <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg text-center">
             <div className="text-sm font-bold text-foreground mb-2">Submitting feedback...</div>
             <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
           </div>

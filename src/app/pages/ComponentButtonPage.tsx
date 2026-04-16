@@ -686,7 +686,7 @@ export type ButtonType = 'button' | 'submit' | 'reset';`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don't</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="flex gap-3">
@@ -696,7 +696,7 @@ export type ButtonType = 'button' | 'submit' | 'reset';`,
                   <p className="text-sm text-muted-foreground">Use one primary action per section. Pair with a secondary action for alternatives.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don't</div>
                 <div className="p-4 space-y-3">
                   <div className="flex gap-3">
@@ -707,14 +707,14 @@ export type ButtonType = 'button' | 'submit' | 'reset';`,
                   <p className="text-sm text-muted-foreground">Don't use multiple primary buttons in the same section — it creates confusion about which action is most important.</p>
                 </div>
               </div>
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <ButtonPreview variant="destructive" size="md">Delete Application</ButtonPreview>
                   <p className="text-sm text-muted-foreground">Use the destructive variant for irreversible actions. Make the label specific about what will be deleted.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don't</div>
                 <div className="p-4 space-y-3">
                   <ButtonPreview variant="destructive" size="md">Click Here</ButtonPreview>

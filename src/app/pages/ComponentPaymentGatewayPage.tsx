@@ -320,7 +320,7 @@ function Example() {
       />
 
       {receiptUrl && (
-        <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded">
+        <div className="mt-4 p-4 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded">
           <p className="text-green-800">
             Payment successful! Receipt downloaded automatically.
           </p>
@@ -336,7 +336,7 @@ function Example() {
                 serviceName="Vehicle Registration Fee"
                 showReceiptNumber={true}
               />
-              <div className="p-4 bg-green-50 border border-green-200 rounded flex items-center gap-3">
+              <div className="p-4 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded flex items-center gap-3">
                 <CheckCircle size={20} className="text-green-600" />
                 <div className="text-sm text-green-800">
                   <p className="font-semibold">Payment successful!</p>
@@ -369,7 +369,7 @@ function Example() {
   return (
     <div>
       {lastError && (
-        <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded">
+        <div className="mb-4 p-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded">
           <p className="text-red-800">Payment failed: {lastError}</p>
           {retryCount > 0 && (
             <p className="text-sm text-red-600 mt-1">
@@ -394,7 +394,7 @@ function Example() {
 }`,
           preview: (
             <div className="space-y-4">
-              <div className="p-4 bg-red-50 border border-red-200 rounded flex items-center gap-3">
+              <div className="p-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded flex items-center gap-3">
                 <XCircle size={20} className="text-red-600" />
                 <div className="text-sm text-red-800">
                   <p className="font-semibold">Payment failed: Network timeout</p>
@@ -1023,13 +1023,13 @@ export interface PaymentError {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Support UPI as the primary payment method — it processes 10+ billion transactions monthly in India.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t hide UPI option — it is the most used payment method in India.</p>

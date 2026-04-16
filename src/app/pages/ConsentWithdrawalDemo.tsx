@@ -301,7 +301,7 @@ function SummaryScreen({
       <div className="p-8 space-y-6">
         
         {/* Info Notice */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
           <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
           <div className="flex-1">
             <h3 className="font-bold text-foreground mb-1 text-sm">Your Data, Your Control</h3>
@@ -367,7 +367,7 @@ function ConsentCard({
           <span>Granted: {consent.dateGranted}</span>
         </div>
         {!consent.canWithdraw && (
-          <div className="flex items-center gap-1 text-orange-700 bg-orange-50 border border-orange-200 rounded px-2 py-1">
+          <div className="flex items-center gap-1 text-orange-700 bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800 rounded px-2 py-1">
             <Lock size={12} />
             <span>Withdrawal restricted</span>
           </div>
@@ -407,7 +407,7 @@ function DetailsScreen({
       <div className="p-8 space-y-6">
         
         {/* Consent Details */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Consent Details
@@ -437,7 +437,7 @@ function DetailsScreen({
         </div>
 
         {/* Your Rights */}
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Shield size={20} className="text-green-600" />
             Your Rights
@@ -454,7 +454,7 @@ function DetailsScreen({
 
         {/* Warning if restricted */}
         {!consent.canWithdraw && (
-          <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4 flex items-start gap-3">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 flex items-start gap-3">
             <AlertTriangle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
               <h4 className="font-bold text-orange-900 mb-1 text-sm">Withdrawal Restricted</h4>
@@ -548,7 +548,7 @@ function ChangeOptionsScreen({
 
       <div className="p-8 space-y-6">
         
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 flex items-start gap-3">
           <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
           <p className="text-sm text-muted-foreground">
             Some data processing is required for the service to function. Optional preferences can be adjusted below.
@@ -692,7 +692,7 @@ function WithdrawImpactScreen({
       <div className="p-8 space-y-6">
         
         {/* Warning */}
-        <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <AlertTriangle size={24} className="text-red-600 flex-shrink-0" />
             <div>
@@ -754,7 +754,7 @@ function WithdrawImpactScreen({
         </div>
 
         {/* Data Retention */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Database size={20} className="text-primary" />
             Data Retention After Withdrawal
@@ -862,7 +862,7 @@ function WithdrawConfirmScreen({
       <div className="p-8 space-y-6">
         
         {/* Final Warning */}
-        <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <AlertCircle size={24} className="text-red-600 flex-shrink-0" />
             <div>
@@ -920,7 +920,7 @@ function WithdrawConfirmScreen({
         </div>
 
         {/* Alternative Options */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <Info size={18} className="text-primary flex-shrink-0 mt-0.5" />
             <div className="flex-1">
@@ -975,7 +975,7 @@ function WithdrawSuccessScreen({ consent, onReset }: { consent: ConsentItem; onR
           Your account has been deactivated and active applications have been cancelled.
         </p>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What Happens Next
@@ -989,7 +989,7 @@ function WithdrawSuccessScreen({ consent, onReset }: { consent: ConsentItem; onR
           </div>
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-orange-900 mb-3 flex items-center gap-2">
             <Bell size={20} className="text-orange-600" />
             Important Reminders
@@ -1055,7 +1055,7 @@ function ChangeSuccessScreen({ consent, onReset }: { consent: ConsentItem; onRes
           successfully updated. Changes are effective immediately.
         </p>
 
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <CheckCircle size={20} className="text-green-600" />
             Changes Applied
@@ -1067,7 +1067,7 @@ function ChangeSuccessScreen({ consent, onReset }: { consent: ConsentItem; onRes
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 mb-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 mb-8">
           <div className="flex items-start gap-3 text-left">
             <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
             <div className="flex-1">
@@ -1128,7 +1128,7 @@ function RestrictedScreen({
           Consent for <span className="font-bold">{consent.service}</span> cannot be withdrawn at this time.
         </p>
 
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-orange-900 mb-3 flex items-center gap-2">
             <AlertTriangle size={20} className="text-orange-600" />
             Why Withdrawal is Restricted
@@ -1138,7 +1138,7 @@ function RestrictedScreen({
           </p>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Your Options
@@ -1230,7 +1230,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           />
         </div>
 
-        <div className="mt-8 p-6 bg-blue-50 border-2 border-blue-300 rounded-lg">
+        <div className="mt-8 p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg">
           <h3 className="font-bold text-foreground mb-3">Still Have Questions?</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Contact our Data Protection Officer for personalized assistance with consent management.

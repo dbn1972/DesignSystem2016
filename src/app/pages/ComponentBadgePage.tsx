@@ -308,14 +308,14 @@ export type BadgeSize = 'sm' | 'md' | 'lg';`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="flex items-center gap-2"><BadgePreview variant="warning">Under Review</BadgePreview><span className="text-sm text-foreground">Application CERT-2026-001</span></div>
                   <p className="text-sm text-muted-foreground">Use badges with both color and text to convey status — color alone fails WCAG 1.4.1.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4 space-y-3">
                   <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-yellow-500" /><span className="text-sm text-foreground">Application CERT-2026-001</span></div>

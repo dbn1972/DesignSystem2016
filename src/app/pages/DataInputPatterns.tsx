@@ -119,7 +119,7 @@ export default function DataInputPatterns() {
           </div>
 
           {/* When to Use */}
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
             <h3 className="font-bold text-foreground mb-4">When to Use These Patterns</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">

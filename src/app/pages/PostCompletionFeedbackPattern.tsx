@@ -74,7 +74,7 @@ export default function PostCompletionFeedbackPattern() {
 
           {/* Left Column - Interactive Demo */}
           <div className="col-span-8">
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 Try the post-completion feedback form. This captures detailed experience insights.
@@ -462,7 +462,7 @@ export default function PostCompletionFeedbackPattern() {
               </div>
 
               {/* Accessibility */}
-              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+              <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Accessibility Notes</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Proper form labels and ARIA attributes</li>

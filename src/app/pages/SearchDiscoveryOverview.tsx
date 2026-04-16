@@ -45,7 +45,7 @@ export default function SearchDiscoveryOverview() {
                   ensure users can accomplish their goals even when they don't know the formal terminology.
                 </p>
                 <div className="grid grid-cols-3 gap-6">
-                  <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+                  <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">The Problem</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Citizens use informal terms</li>
@@ -54,7 +54,7 @@ export default function SearchDiscoveryOverview() {
                       <li>• Users don't know what they need</li>
                     </ul>
                   </div>
-                  <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+                  <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">The Solution</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Natural language search</li>
@@ -63,7 +63,7 @@ export default function SearchDiscoveryOverview() {
                       <li>• Strong recovery patterns</li>
                     </ul>
                   </div>
-                  <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+                  <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3">The Impact</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li>• Faster service discovery</li>
@@ -258,15 +258,15 @@ export default function SearchDiscoveryOverview() {
                         language detection.
                       </p>
                       <div className="grid grid-cols-3 gap-3 text-sm">
-                        <div className="bg-blue-50 border border-blue-200 rounded p-3">
+                        <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-3">
                           <div className="font-bold mb-1">Hindi</div>
                           <div className="text-muted-foreground">"पासपोर्ट" → Passport</div>
                         </div>
-                        <div className="bg-blue-50 border border-blue-200 rounded p-3">
+                        <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-3">
                           <div className="font-bold mb-1">Tamil</div>
                           <div className="text-muted-foreground">"பாஸ்போர்ட்" → Passport</div>
                         </div>
-                        <div className="bg-blue-50 border border-blue-200 rounded p-3">
+                        <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-3">
                           <div className="font-bold mb-1">Bengali</div>
                           <div className="text-muted-foreground">"পাসপোর্ট" → Passport</div>
                         </div>
@@ -278,7 +278,7 @@ export default function SearchDiscoveryOverview() {
                         <CheckCircle size={20} className="text-green-600" />
                         Intent Detection
                       </h3>
-                      <div className="bg-green-50 rounded-lg p-4">
+                      <div className="bg-green-50 dark:bg-green-950/30 rounded-lg p-4">
                         <ul className="space-y-2 text-sm text-muted-foreground">
                           <li className="flex items-start gap-2">
                             <span className="font-mono bg-card px-2 py-1 rounded text-xs">Query:</span>
@@ -308,7 +308,7 @@ export default function SearchDiscoveryOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Accessibility Considerations
               </h2>
-              <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-8">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">WCAG 2.1 Level AA Compliance</h3>
@@ -438,7 +438,7 @@ function PatternGuide({ title, when, notWhen, color }: {
 function QuickNavigation() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden sticky top-24">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Navigation</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">
@@ -453,7 +453,7 @@ function QuickNavigation() {
 
 function KeyPrinciples() {
   return (
-    <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
+    <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-4">
       <h3 className="font-bold text-foreground text-sm mb-3">Key Principles</h3>
       <ul className="space-y-2 text-xs text-muted-foreground">
         <li className="flex items-start gap-2">
@@ -484,7 +484,7 @@ function KeyPrinciples() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-sm">

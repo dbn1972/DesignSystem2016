@@ -44,7 +44,7 @@ export default function OperationalServicePatterns() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-orange-50 border-2 border-orange-200 rounded text-orange-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded text-orange-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Recommended
               </div>
             </div>
@@ -56,7 +56,7 @@ export default function OperationalServicePatterns() {
       <section className="bg-card border-b border-border">
         <div className="max-w-[1600px] mx-auto px-12 py-12">
           <div className="grid grid-cols-3 gap-8 mb-12">
-            <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Info size={24} className="text-primary" />
                 <h3 className="font-bold text-foreground">Purpose</h3>
@@ -67,7 +67,7 @@ export default function OperationalServicePatterns() {
               </p>
             </div>
 
-            <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Zap size={24} className="text-orange-600" />
                 <h3 className="font-bold text-foreground">Key Principles</h3>
@@ -88,7 +88,7 @@ export default function OperationalServicePatterns() {
               </ul>
             </div>
 
-            <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+            <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Shield size={24} className="text-green-600" />
                 <h3 className="font-bold text-foreground">Benefits</h3>
@@ -376,7 +376,7 @@ export default function OperationalServicePatterns() {
         </section>
 
         {/* Pattern Dependencies */}
-        <section className="mt-8 bg-blue-50 border-2 border-blue-300 rounded-lg p-8">
+        <section className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
           <div className="flex items-start gap-4">
             <Info size={32} className="text-primary flex-shrink-0" />
             <div className="flex-1">
@@ -385,7 +385,7 @@ export default function OperationalServicePatterns() {
                 Many operational patterns work together. For example:
               </p>
               <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="bg-card border border-blue-200 rounded p-4">
+                <div className="bg-card border border-blue-200 dark:border-blue-800 rounded p-4">
                   <h4 className="font-bold text-foreground mb-2">Appointment Booking →</h4>
                   <ul className="space-y-1 text-muted-foreground">
                     <li>• Requires Fee Payment (if applicable)</li>
@@ -393,7 +393,7 @@ export default function OperationalServicePatterns() {
                     <li>• Supports Save & Resume</li>
                   </ul>
                 </div>
-                <div className="bg-card border border-blue-200 rounded p-4">
+                <div className="bg-card border border-blue-200 dark:border-blue-800 rounded p-4">
                   <h4 className="font-bold text-foreground mb-2">Document Upload →</h4>
                   <ul className="space-y-1 text-muted-foreground">
                     <li>• Connects to Document Verification</li>
@@ -401,7 +401,7 @@ export default function OperationalServicePatterns() {
                     <li>• Supports Save & Resume</li>
                   </ul>
                 </div>
-                <div className="bg-card border border-blue-200 rounded p-4">
+                <div className="bg-card border border-blue-200 dark:border-blue-800 rounded p-4">
                   <h4 className="font-bold text-foreground mb-2">Fee Payment →</h4>
                   <ul className="space-y-1 text-muted-foreground">
                     <li>• Requires Payment Failure handling</li>
@@ -409,7 +409,7 @@ export default function OperationalServicePatterns() {
                     <li>• Links to Record Lookup (payment history)</li>
                   </ul>
                 </div>
-                <div className="bg-card border border-blue-200 rounded p-4">
+                <div className="bg-card border border-blue-200 dark:border-blue-800 rounded p-4">
                   <h4 className="font-bold text-foreground mb-2">Officer Review →</h4>
                   <ul className="space-y-1 text-muted-foreground">
                     <li>• Triggers Document Verification</li>
@@ -423,7 +423,7 @@ export default function OperationalServicePatterns() {
         </section>
 
         {/* Support Resources */}
-        <section className="mt-8 bg-orange-50 border-2 border-orange-300 rounded-lg p-8">
+        <section className="mt-8 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8">
           <div className="flex items-start gap-4">
             <HelpCircle size={32} className="text-orange-600 flex-shrink-0" />
             <div className="flex-1">

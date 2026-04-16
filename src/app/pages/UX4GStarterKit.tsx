@@ -43,7 +43,7 @@ export default function UX4GStarterKit() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 READY TO USE
               </div>
-              <div className="px-6 py-3 bg-blue-50 border-2 border-blue-200 rounded text-blue-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
                 Starter<br/>Kit
               </div>
             </div>
@@ -490,7 +490,7 @@ function ServicesSection() {
       </p>
 
       <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-        <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+        <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
           <h3 className="font-bold text-foreground">Location: /src/app/services/mockApi.ts</h3>
         </div>
         <div className="p-6 space-y-6">
@@ -594,7 +594,7 @@ function RoutingSection() {
       </p>
 
       <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-        <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
           <h3 className="font-bold text-foreground">Location: /src/app/services/routeConfig.ts</h3>
         </div>
         <div className="p-6 space-y-4">
@@ -750,7 +750,7 @@ function QuickStart() {
 function WhatsIncluded() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">What's Included</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -768,7 +768,7 @@ function WhatsIncluded() {
 function TechStack() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Tech Stack</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -785,7 +785,7 @@ function TechStack() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Documentation</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -826,7 +826,7 @@ function FeatureCard({ icon, title, description, color }: {
 function BenefitCard({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
         <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
@@ -849,7 +849,7 @@ function ComponentCategory({ title, components }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h4 className="font-bold text-foreground text-sm">{title}</h4>
       </div>
       <div className="p-4 space-y-2">
@@ -914,7 +914,7 @@ function PatternCard({ title, description, includes, pages }: {
               <Link
                 key={i}
                 to={page.path}
-                className="px-3 py-1.5 bg-blue-50 border border-blue-200 rounded text-xs text-blue-700 hover:bg-blue-100"
+                className="px-3 py-1.5 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded text-xs text-blue-700 hover:bg-blue-100"
               >
                 {page.label} →
               </Link>
@@ -933,7 +933,7 @@ function PageGroup({ phase, description, pages }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
         <h3 className="font-bold text-foreground mb-1">{phase}</h3>
         <p className="text-sm text-muted-foreground">{description}</p>
       </div>
@@ -1017,7 +1017,7 @@ function Step({ number, title, description }: {
 function ExampleCard({ title, steps }: { title: string; steps: string[] }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-6 py-4">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
         <h4 className="font-bold text-foreground">{title}</h4>
       </div>
       <div className="p-6">

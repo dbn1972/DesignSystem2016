@@ -153,7 +153,7 @@ export default function IdentityEmailOTP() {
                   </div>
 
                   {/* Timer/Resend */}
-                  <div className="mb-8 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+                  <div className="mb-8 p-4 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
                     {!canResend ? (
                       <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                         <Clock size={16} className="text-blue-600" />
@@ -252,8 +252,8 @@ function PatternInfo() {
 
 function UserGoals() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground">User Goals</h3>
       </div>
       <div className="p-4 space-y-2 text-sm text-muted-foreground">
@@ -286,8 +286,8 @@ function ValidationRules() {
 
 function AccessibilityNotes() {
   return (
-    <div className="border-2 border-green-200 rounded-lg overflow-hidden bg-green-50">
-      <div className="bg-green-100 border-b-2 border-green-200 px-4 py-3">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50">
+      <div className="bg-green-100 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Accessibility</h3>
       </div>
       <div className="p-4 space-y-2 text-sm text-muted-foreground">

@@ -234,7 +234,7 @@ function ConsentRequestScreen({
 
       {/* Error Alert if blocked */}
       {isBlocked && attemptedProceed && (
-        <div className="mx-8 mt-6 bg-red-50 border-2 border-red-300 rounded-lg p-4 flex items-start gap-3">
+        <div className="mx-8 mt-6 bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-4 flex items-start gap-3">
           <AlertCircle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
           <div className="flex-1">
             <h3 className="font-bold text-red-900 mb-1">Consent Required</h3>
@@ -250,7 +250,7 @@ function ConsentRequestScreen({
       <div className="p-8 space-y-6">
         
         {/* What We Collect - Summary */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Database size={20} className="text-primary" />
             What We Will Collect
@@ -277,7 +277,7 @@ function ConsentRequestScreen({
         </div>
 
         {/* Why We Need It */}
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-green-600" />
             Why We Need This Data
@@ -460,7 +460,7 @@ function ConsentGrantedScreen({ onReset }: { onReset: () => void }) {
           proceed with the service.
         </p>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What Happens Next
@@ -485,7 +485,7 @@ function ConsentGrantedScreen({ onReset }: { onReset: () => void }) {
           </div>
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4 mb-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 mb-8">
           <div className="flex items-start gap-3 text-left">
             <Lock size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
@@ -530,7 +530,7 @@ function ConsentDeclinedScreen({ onReconsider, onReset }: { onReconsider: () => 
           service access:
         </p>
 
-        <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-red-900 mb-4 flex items-center gap-2">
             <XCircle size={20} className="text-red-600" />
             Service Limitations
@@ -555,7 +555,7 @@ function ConsentDeclinedScreen({ onReconsider, onReset }: { onReconsider: () => 
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Alternative Options
@@ -645,7 +645,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           />
         </div>
 
-        <div className="mt-8 p-6 bg-blue-50 border-2 border-blue-300 rounded-lg">
+        <div className="mt-8 p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg">
           <h3 className="font-bold text-foreground mb-3">Still have questions?</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Contact our Data Protection Officer or visit the nearest service center for assistance.

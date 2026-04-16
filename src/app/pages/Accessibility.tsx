@@ -110,7 +110,7 @@ function AccessibilityPrinciples() {
         />
       </div>
 
-      <div className="mt-8 bg-green-50 border-2 border-green-200 rounded-lg p-6">
+      <div className="mt-8 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
         <div className="flex items-start gap-3">
           <Info className="text-[#138808] flex-shrink-0 mt-1" size={24} />
           <div>
@@ -178,11 +178,11 @@ function ColorContrast() {
         </div>
 
         {/* Color Blindness Considerations */}
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8">
           <h3 className="text-xl font-bold text-foreground mb-6">Color Blindness Considerations</h3>
           
           <div className="grid grid-cols-3 gap-6 mb-6">
-            <div className="bg-card rounded-lg p-4 border border-blue-200">
+            <div className="bg-card rounded-lg p-4 border border-blue-200 dark:border-blue-800">
               <div className="font-semibold text-foreground mb-2">Deuteranopia</div>
               <div className="text-sm text-muted-foreground mb-3">Red-green color blindness (most common)</div>
               <div className="flex gap-2">
@@ -192,7 +192,7 @@ function ColorContrast() {
               </div>
             </div>
 
-            <div className="bg-card rounded-lg p-4 border border-blue-200">
+            <div className="bg-card rounded-lg p-4 border border-blue-200 dark:border-blue-800">
               <div className="font-semibold text-foreground mb-2">Protanopia</div>
               <div className="text-sm text-muted-foreground mb-3">Red color blindness</div>
               <div className="flex gap-2">
@@ -202,7 +202,7 @@ function ColorContrast() {
               </div>
             </div>
 
-            <div className="bg-card rounded-lg p-4 border border-blue-200">
+            <div className="bg-card rounded-lg p-4 border border-blue-200 dark:border-blue-800">
               <div className="font-semibold text-foreground mb-2">Tritanopia</div>
               <div className="text-sm text-muted-foreground mb-3">Blue-yellow color blindness</div>
               <div className="flex gap-2">
@@ -213,7 +213,7 @@ function ColorContrast() {
             </div>
           </div>
 
-          <div className="bg-card border border-blue-200 rounded-lg p-4">
+          <div className="bg-card border border-blue-200 dark:border-blue-800 rounded-lg p-4">
             <h4 className="font-semibold text-foreground mb-3">Design Guidelines</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start gap-2">
@@ -287,7 +287,7 @@ function FocusVisibility() {
 
       <div className="mt-8 space-y-8">
         {/* Focus Requirements */}
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8">
           <h3 className="text-xl font-bold text-foreground mb-6">Focus Indicator Requirements</h3>
           
           <div className="grid grid-cols-2 gap-8">
@@ -404,7 +404,7 @@ function FocusVisibility() {
             </div>
 
             <div className="grid grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 bg-green-50 rounded-lg p-4">
+              <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 rounded-lg p-4">
                 <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                   <Check className="text-[#138808]" size={20} />
                   Do
@@ -417,7 +417,7 @@ function FocusVisibility() {
                 </ul>
               </div>
 
-              <div className="border-2 border-red-200 bg-red-50 rounded-lg p-4">
+              <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 rounded-lg p-4">
                 <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                   <X className="text-red-600" size={20} />
                   Don't
@@ -513,7 +513,7 @@ function KeyboardInteraction() {
           />
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <div className="flex items-start gap-3">
             <AlertCircle className="text-orange-600 flex-shrink-0 mt-1" size={24} />
             <div>
@@ -626,7 +626,7 @@ function ScreenReader() {
   border: 0;
 }`}
             </div>
-            <div className="bg-blue-50 border border-blue-200 rounded p-4 text-sm">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-4 text-sm">
               <strong>Example:</strong> Icon-only buttons
               <code className="block mt-2 text-xs">
                 {'<button><X /><span class="sr-only">Close</span></button>'}
@@ -637,7 +637,7 @@ function ScreenReader() {
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">Alternative Text</h3>
             <div className="space-y-4 text-sm">
-              <div className="bg-green-50 border border-green-200 rounded p-4">
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-4">
                 <div className="font-semibold text-foreground mb-2 flex items-center gap-2">
                   <Check className="text-[#138808]" size={16} />
                   Good Alt Text
@@ -646,7 +646,7 @@ function ScreenReader() {
                 <div className="text-muted-foreground mt-2">Descriptive and contextual</div>
               </div>
 
-              <div className="bg-red-50 border border-red-200 rounded p-4">
+              <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-4">
                 <div className="font-semibold text-foreground mb-2 flex items-center gap-2">
                   <X className="text-red-600" size={16} />
                   Poor Alt Text
@@ -655,7 +655,7 @@ function ScreenReader() {
                 <div className="text-muted-foreground mt-2">Non-descriptive filename</div>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded p-4">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-4">
                 <div className="font-semibold text-foreground mb-2">Decorative Images</div>
                 <code className="text-xs block">alt=""</code>
                 <div className="text-muted-foreground mt-2">Empty alt for decorative images</div>
@@ -665,24 +665,24 @@ function ScreenReader() {
         </div>
 
         {/* Testing with Screen Readers */}
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="text-xl font-bold text-foreground mb-4">Testing with Screen Readers</h3>
           <div className="grid grid-cols-3 gap-6">
-            <div className="bg-card rounded-lg p-4 border border-blue-200">
+            <div className="bg-card rounded-lg p-4 border border-blue-200 dark:border-blue-800">
               <Volume2 className="text-primary mb-3" size={24} />
               <h4 className="font-semibold text-foreground mb-2">NVDA (Windows)</h4>
               <p className="text-sm text-muted-foreground mb-2">Free, open-source screen reader</p>
               <a href="#" className="text-primary text-sm hover:underline">Download NVDA →</a>
             </div>
 
-            <div className="bg-card rounded-lg p-4 border border-blue-200">
+            <div className="bg-card rounded-lg p-4 border border-blue-200 dark:border-blue-800">
               <Volume2 className="text-primary mb-3" size={24} />
               <h4 className="font-semibold text-foreground mb-2">VoiceOver (macOS/iOS)</h4>
               <p className="text-sm text-muted-foreground mb-2">Built into Apple devices</p>
               <div className="text-sm text-muted-foreground">Cmd + F5 to toggle</div>
             </div>
 
-            <div className="bg-card rounded-lg p-4 border border-blue-200">
+            <div className="bg-card rounded-lg p-4 border border-blue-200 dark:border-blue-800">
               <Volume2 className="text-primary mb-3" size={24} />
               <h4 className="font-semibold text-foreground mb-2">JAWS (Windows)</h4>
               <p className="text-sm text-muted-foreground mb-2">Industry-standard screen reader</p>
@@ -709,20 +709,20 @@ function SemanticStructure() {
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">Heading Hierarchy</h3>
             <div className="space-y-3 mb-4">
-              <div className="bg-green-50 border-l-4 border-[#138808] p-3">
+              <div className="bg-green-50 dark:bg-green-950/30 border-l-4 border-[#138808] p-3">
                 <code className="text-sm font-mono text-foreground">{'<h1>Page Title</h1>'}</code>
                 <div className="text-xs text-muted-foreground mt-1">One per page</div>
               </div>
-              <div className="bg-green-50 border-l-4 border-[#138808] p-3">
+              <div className="bg-green-50 dark:bg-green-950/30 border-l-4 border-[#138808] p-3">
                 <code className="text-sm font-mono text-foreground">{'<h2>Section Heading</h2>'}</code>
                 <div className="text-xs text-muted-foreground mt-1">Main sections</div>
               </div>
-              <div className="bg-green-50 border-l-4 border-[#138808] p-3">
+              <div className="bg-green-50 dark:bg-green-950/30 border-l-4 border-[#138808] p-3">
                 <code className="text-sm font-mono text-foreground">{'<h3>Subsection</h3>'}</code>
                 <div className="text-xs text-muted-foreground mt-1">Nested under h2</div>
               </div>
             </div>
-            <div className="bg-red-50 border border-red-200 rounded p-3 text-sm">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-3 text-sm">
               <strong className="flex items-center gap-2">
                 <X className="text-red-600" size={16} />
                 Never skip heading levels
@@ -836,7 +836,7 @@ function FormAccessibility() {
                   ]
                 }
               ].map((section, index) => (
-                <div key={index} className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div key={index} className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
                   <h4 className="font-semibold text-foreground mb-3">{section.title}</h4>
                   <ul className="space-y-2">
                     {section.items.map((item, i) => (
@@ -909,7 +909,7 @@ function FormAccessibility() {
             </form>
           </div>
 
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">Key Points</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -998,9 +998,9 @@ function ErrorHandling() {
               </div>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
               <h4 className="font-semibold text-foreground mb-2 text-sm">Implementation</h4>
-              <code className="text-xs bg-card border border-blue-200 rounded p-2 block font-mono">
+              <code className="text-xs bg-card border border-blue-200 dark:border-blue-800 rounded p-2 block font-mono">
 {`<input
   aria-invalid="true"
   aria-describedby="error-message"
@@ -1040,7 +1040,7 @@ function ErrorHandling() {
               </div>
             </div>
 
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-4">
               <h4 className="font-semibold text-foreground mb-3">Error Summary Best Practices</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -1122,7 +1122,7 @@ function TableAccessibility() {
         </div>
 
         <div className="grid grid-cols-2 gap-8">
-          <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+          <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">Table Requirements</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -1148,7 +1148,7 @@ function TableAccessibility() {
             </ul>
           </div>
 
-          <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">Responsive Tables</h3>
             <p className="text-sm text-muted-foreground mb-4">
               On mobile viewports, complex tables should transform into a more accessible format:
@@ -1232,7 +1232,7 @@ function ModalAccessibility() {
                   ]
                 }
               ].map((section, index) => (
-                <div key={index} className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div key={index} className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                   <h4 className="font-semibold text-foreground mb-3">{section.title}</h4>
                   <ul className="space-y-2">
                     {section.items.map((item, i) => (
@@ -1284,14 +1284,14 @@ function StatusCommunication() {
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">ARIA Live Regions</h3>
             <div className="space-y-4">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                 <code className="text-sm font-mono text-purple-700 font-semibold">aria-live="polite"</code>
                 <p className="text-sm text-muted-foreground mt-2">
                   Announces changes when user is idle. Use for non-critical updates like form validations or status messages.
                 </p>
               </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
                 <code className="text-sm font-mono text-purple-700 font-semibold">aria-live="assertive"</code>
                 <p className="text-sm text-muted-foreground mt-2">
                   Interrupts current announcement. Use sparingly for critical errors or time-sensitive alerts.
@@ -1305,7 +1305,7 @@ function StatusCommunication() {
                 </p>
               </div>
 
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-4">
                 <code className="text-sm font-mono text-purple-700 font-semibold">role="alert"</code>
                 <p className="text-sm text-muted-foreground mt-2">
                   Equivalent to aria-live="assertive". Use for critical error messages requiring immediate attention.
@@ -1315,7 +1315,7 @@ function StatusCommunication() {
           </div>
 
           <div className="space-y-6">
-            <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
+            <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 rounded-lg p-6">
               <h3 className="text-xl font-bold text-foreground mb-4">Example: Form Submission</h3>
               <div className="space-y-4">
                 <button className="px-6 py-3 bg-primary text-white rounded-lg font-semibold">
@@ -1333,7 +1333,7 @@ function StatusCommunication() {
               </div>
             </div>
 
-            <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
+            <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 rounded-lg p-6">
               <h3 className="text-xl font-bold text-foreground mb-4">Example: Critical Error</h3>
               <div className="space-y-4">
                 <div className="border-l-4 border-red-500 bg-card p-4 rounded-r" role="alert">
@@ -1363,7 +1363,7 @@ function KnownLimitations() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-8">
           <div className="flex items-start gap-4 mb-6">
             <Info className="text-orange-600 flex-shrink-0 mt-1" size={32} />
             <div>
@@ -1375,9 +1375,9 @@ function KnownLimitations() {
             </div>
           </div>
 
-          <div className="bg-card border border-orange-200 rounded-lg overflow-hidden">
+          <div className="bg-card border border-orange-200 dark:border-orange-800 rounded-lg overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-orange-100 border-b-2 border-orange-200">
+              <thead className="bg-orange-100 border-b-2 border-orange-200 dark:border-orange-800">
                 <tr>
                   <th className="text-left p-4 font-semibold">Component</th>
                   <th className="text-left p-4 font-semibold">Known Limitation</th>
@@ -1428,7 +1428,7 @@ function KnownLimitations() {
           </p>
           <div className="bg-background border border-border rounded-lg p-4 space-y-2 text-sm">
             <div><strong>Email:</strong> accessibility@ux4g.gov.in</div>
-            <div><strong>Issue Tracker:</strong> github.com/ux4g/design-system/issues</div>
+            <div><strong>Issue Tracker:</strong> github.com/dbn1972/DesignSystem2016/issues</div>
             <div><strong>Required Information:</strong> Component name, assistive technology used, steps to reproduce</div>
           </div>
         </div>
@@ -1446,7 +1446,7 @@ function ReviewChecklist() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="bg-green-50 border-2 border-green-200 rounded-lg p-8">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-8">
           <h3 className="text-2xl font-bold text-foreground mb-6">Pre-Launch Accessibility Checklist</h3>
           
           <div className="grid grid-cols-2 gap-8">
@@ -1547,7 +1547,7 @@ function ReviewChecklist() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="text-xl font-bold text-foreground mb-4">Continuous Accessibility</h3>
           <p className="text-muted-foreground mb-4">
             Accessibility is not a one-time checklist. It requires ongoing attention:
@@ -1669,14 +1669,14 @@ function SemanticExample({ correct, incorrect, reason }: any) {
   return (
     <div className="p-6 hover:bg-background">
       <div className="grid grid-cols-2 gap-6 mb-3">
-        <div className="bg-green-50 border border-green-200 rounded p-3">
+        <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-3">
           <div className="flex items-center gap-2 mb-2">
             <Check className="text-[#138808]" size={16} />
             <span className="font-semibold text-sm">Correct</span>
           </div>
           <code className="text-xs font-mono text-foreground block">{correct}</code>
         </div>
-        <div className="bg-red-50 border border-red-200 rounded p-3">
+        <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-3">
           <div className="flex items-center gap-2 mb-2">
             <X className="text-red-600" size={16} />
             <span className="font-semibold text-sm">Incorrect</span>

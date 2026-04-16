@@ -43,7 +43,7 @@ export default function SignInPattern() {
               <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -364,7 +364,7 @@ function FlowDiagram() {
           </div>
         </div>
 
-        <div className="mt-8 p-5 bg-blue-50 border-2 border-blue-200 rounded-lg">
+        <div className="mt-8 p-5 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
           <div className="flex items-start gap-3">
             <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-muted-foreground">
@@ -483,7 +483,7 @@ function ScreenMockup({ state }: { state: string }) {
         
         {/* State-specific error messages */}
         {state === "wrong" && (
-          <div className="mb-4 p-3 bg-red-50 border-2 border-red-200 rounded flex items-start gap-2">
+          <div className="mb-4 p-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded flex items-start gap-2">
             <XCircle size={16} className="text-red-600 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-red-800">
               <div className="font-bold">Invalid username or password</div>
@@ -493,7 +493,7 @@ function ScreenMockup({ state }: { state: string }) {
         )}
 
         {state === "locked" && (
-          <div className="mb-4 p-3 bg-orange-50 border-2 border-orange-200 rounded flex items-start gap-2">
+          <div className="mb-4 p-3 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded flex items-start gap-2">
             <Lock size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-orange-800">
               <div className="font-bold">Account temporarily locked</div>
@@ -503,7 +503,7 @@ function ScreenMockup({ state }: { state: string }) {
         )}
 
         {state === "expired" && (
-          <div className="mb-4 p-3 bg-yellow-50 border-2 border-yellow-200 rounded flex items-start gap-2">
+          <div className="mb-4 p-3 bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded flex items-start gap-2">
             <Clock size={16} className="text-yellow-600 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-yellow-800">
               <div className="font-bold">Session expired</div>
@@ -513,7 +513,7 @@ function ScreenMockup({ state }: { state: string }) {
         )}
 
         {state === "unavailable" && (
-          <div className="mb-4 p-3 bg-red-50 border-2 border-red-200 rounded flex items-start gap-2">
+          <div className="mb-4 p-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded flex items-start gap-2">
             <AlertTriangle size={16} className="text-red-600 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-red-800">
               <div className="font-bold">Service temporarily unavailable</div>
@@ -799,7 +799,7 @@ function ValidationItem({ rule, trigger, message }: { rule: string; trigger: str
 
 function SecurityPractice({ title, description }: { title: string; description: string }) {
   return (
-    <div className="flex items-start gap-2 p-3 bg-red-50 border-2 border-red-200 rounded">
+    <div className="flex items-start gap-2 p-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded">
       <Shield size={16} className="text-red-600 flex-shrink-0 mt-0.5" />
       <div>
         <div className="font-bold text-foreground text-sm mb-1">{title}</div>
@@ -883,7 +883,7 @@ function ErrorStates() {
         />
       </div>
 
-      <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
         <div className="flex items-start gap-3">
           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
           <div className="text-sm text-muted-foreground">
@@ -913,9 +913,9 @@ function ErrorStateCard({ title, severity, message, attemptCounter, lockDuration
   notes: string;
 }) {
   const severityStyles = {
-    error: "bg-red-50 border-red-200",
-    warning: "bg-orange-50 border-orange-200",
-    info: "bg-blue-50 border-blue-200"
+    error: "bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800",
+    warning: "bg-orange-50 dark:bg-orange-950/30 border-orange-200 dark:border-orange-800",
+    info: "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800"
   };
 
   const iconStyles = {
@@ -1322,8 +1322,8 @@ function QuickRefRow({ label, value }: { label: string; value: string }) {
 
 function InteractivePrototype() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Interactive Prototype</h3>
       </div>
       <div className="p-4">

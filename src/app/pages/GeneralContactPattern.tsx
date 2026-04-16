@@ -102,7 +102,7 @@ export default function GeneralContactPattern() {
 
       {/* Help Panel */}
       {showHelp && (
-        <div className="bg-blue-50 border-b-2 border-blue-300">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-300">
           <div className="max-w-[1200px] mx-auto px-8 py-4">
             <div className="flex items-start gap-3">
               <Info size={20} className="text-blue-600 mt-0.5 flex-shrink-0" />
@@ -354,7 +354,7 @@ export default function GeneralContactPattern() {
                 <ReviewField label="Message" value={formData.message} multiline />
               </div>
 
-              <div className="mt-8 bg-yellow-50 border-2 border-yellow-300 rounded-lg p-4">
+              <div className="mt-8 bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-4">
                 <div className="flex items-start gap-3">
                   <Info size={20} className="text-yellow-600 mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-muted-foreground">
@@ -410,7 +410,7 @@ export default function GeneralContactPattern() {
                 </div>
               </div>
 
-              <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 text-left mb-8">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 text-left mb-8">
                 <h3 className="font-bold text-foreground mb-3">What happens next?</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
@@ -573,7 +573,7 @@ function ReviewField({ label, value, multiline = false }: {
 
 function PatternInfo() {
   return (
-    <div className="mt-12 bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+    <div className="mt-12 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
       <h3 className="font-bold text-foreground mb-3">Pattern Information</h3>
       <div className="grid grid-cols-3 gap-6 text-sm">
         <div>

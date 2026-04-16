@@ -168,7 +168,7 @@ export default function IdentitySignIn() {
                   </div>
 
                   {/* Security Notice */}
-                  <div className="mt-8 bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
+                  <div className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-600 p-4 rounded-r-lg">
                     <div className="flex items-start gap-3">
                       <Shield size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
@@ -204,8 +204,8 @@ export default function IdentitySignIn() {
 
 function AnnotationPanel() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Design Annotations</h3>
       </div>
       <div className="p-4">

@@ -297,7 +297,7 @@ export default function StepProgressPattern() {
 
                     {/* Completion/Start Date */}
                     {step.completedDate && (
-                      <div className="mb-6 p-4 bg-green-50 border-2 border-green-200 rounded-lg">
+                      <div className="mb-6 p-4 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
                           <CheckCircle size={20} className="text-green-600" />
                           <span className="font-bold text-foreground">Completed</span>
@@ -309,7 +309,7 @@ export default function StepProgressPattern() {
                     )}
 
                     {step.status === 'current' && step.startedDate && (
-                      <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+                      <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
                         <div className="grid grid-cols-2 gap-4">
                           <div>
                             <div className="flex items-center gap-2 mb-2">
@@ -382,7 +382,7 @@ export default function StepProgressPattern() {
         </div>
 
         {/* Pattern Info */}
-        <div className="mt-12 bg-green-50 border-2 border-green-200 rounded-lg p-6">
+        <div className="mt-12 bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
           <div className="grid grid-cols-4 gap-6 text-sm">
             <div>

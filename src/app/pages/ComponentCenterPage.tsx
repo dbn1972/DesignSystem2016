@@ -275,7 +275,7 @@ function Example() {
   );
 }`,
           preview: (
-            <CenterPreview as="section" className="bg-blue-50 border border-blue-200 rounded py-12">
+            <CenterPreview as="section" className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 rounded py-12">
               <div className="max-w-2xl px-4 text-center">
                 <h1 className="text-3xl font-bold text-foreground">
                   Welcome to UX4Gov
@@ -310,7 +310,7 @@ function Example() {
   );
 }`,
           preview: (
-            <CenterPreview as="main" minHeight="400px" className="bg-gradient-to-b from-green-50 to-white border border-green-200 rounded">
+            <CenterPreview as="main" minHeight="400px" className="bg-gradient-to-b from-green-50 to-white border border-green-200 dark:border-green-800 rounded">
               <div className="flex flex-col items-center gap-4 text-center">
                 <CheckCircle size={72} className="text-green-600" />
                 <h1 className="text-2xl font-bold text-foreground">
@@ -597,17 +597,17 @@ export class CenterModule { }`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
-                  <div className="p-3 bg-green-50/50 rounded border border-green-200 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
+                  <div className="p-3 bg-green-50/50 rounded border border-green-200 dark:border-green-800 mb-3 text-xs text-green-800">✓ Correct implementation shown</div>
                   <p className="text-sm text-muted-foreground">Use Center for loading states and empty state layouts.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
-                  <div className="p-3 bg-red-50/50 rounded border border-red-200 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
+                  <div className="p-3 bg-red-50/50 rounded border border-red-200 dark:border-red-800 mb-3 text-xs text-red-800">✗ Incorrect implementation shown</div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use Center for complex layouts — use Grid or Flex instead.</p>
                 </div>
               </div>

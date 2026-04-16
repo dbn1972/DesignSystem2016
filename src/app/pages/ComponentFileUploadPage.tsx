@@ -245,14 +245,14 @@ function Example() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="w-full border-2 border-dashed border-border rounded-lg p-4 text-center mb-3"><p className="text-xs text-muted-foreground">Drag & drop or click to upload</p><p className="text-[10px] text-muted-foreground mt-1">PDF, JPG, PNG • Max 2MB</p></div>
                   <p className="text-sm text-muted-foreground">Show max file size and accepted formats before upload to prevent failed attempts.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="w-full border border-border rounded p-2 mb-3"><input type="file" className="text-xs" disabled /></div>
@@ -487,7 +487,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
       </div>
       
       {errors.length > 0 && (
-        <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <div className="mt-4 p-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg">
           {errors.map((error, idx) => (
             <div key={idx} className="flex items-start gap-2 text-sm text-red-700">
               <AlertCircle size={16} className="flex-shrink-0 mt-0.5" />

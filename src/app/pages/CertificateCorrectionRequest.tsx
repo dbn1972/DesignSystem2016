@@ -44,7 +44,7 @@ export default function CertificateCorrectionRequest() {
         <div className="max-w-3xl mx-auto">
           
           {/* Officer Message */}
-          <div className="bg-orange-50 border-2 border-orange-300 rounded-lg overflow-hidden mb-8">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg overflow-hidden mb-8">
             <div className="bg-orange-100 border-b-2 border-orange-300 px-8 py-4 flex items-center justify-between">
               <h2 className="font-bold text-foreground">Message from Officer</h2>
               <span className="text-xs bg-orange-600 text-white px-3 py-1 rounded font-bold">
@@ -171,7 +171,7 @@ export default function CertificateCorrectionRequest() {
           </div>
 
           {/* Help Note */}
-          <div className="mt-6 bg-blue-50 border-2 border-blue-300 rounded-lg p-5">
+          <div className="mt-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5">
             <h3 className="font-bold text-foreground mb-2 text-sm">Need Help?</h3>
             <p className="text-sm text-muted-foreground mb-3">
               If you need clarification on what corrections are needed, please contact support or respond with your questions in the comments above.

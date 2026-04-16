@@ -54,7 +54,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="https://github.com/gov-in/ux4g" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-foreground focus-visible:text-foreground">
+                <a href="https://github.com/dbn1972/DesignSystem2016" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-foreground focus-visible:text-foreground">
                   <Github size={16} aria-hidden="true" />
                   <span>GitHub Repository</span>
                 </a>

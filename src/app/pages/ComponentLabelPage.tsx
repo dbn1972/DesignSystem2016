@@ -482,7 +482,7 @@ export class LabelModule { }`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="space-y-2">
@@ -492,7 +492,7 @@ export class LabelModule { }`,
                   <p className="text-sm text-muted-foreground">Always use a visible label with htmlFor linking it to the input. Add required indicator for mandatory fields.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4 space-y-3">
                   <div className="space-y-2">
@@ -501,7 +501,7 @@ export class LabelModule { }`,
                   <p className="text-sm text-muted-foreground">Don&apos;t use placeholder as the only label — it disappears on focus and fails WCAG 1.3.1. Screen readers may not announce it.</p>
                 </div>
               </div>
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="space-y-2">
@@ -512,7 +512,7 @@ export class LabelModule { }`,
                   <p className="text-sm text-muted-foreground">Pair labels with hint text for fields that need format guidance. Keep label text concise.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4 space-y-3">
                   <div className="space-y-2">

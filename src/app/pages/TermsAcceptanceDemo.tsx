@@ -337,7 +337,7 @@ function SummaryScreen({
       <div className="p-8 space-y-6">
         
         {/* Introduction */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             About These Terms
@@ -375,7 +375,7 @@ function SummaryScreen({
 
         {/* Important Highlights */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-5">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5">
             <div className="flex items-center gap-2 mb-2">
               <AlertTriangle size={18} className="text-orange-600" />
               <h4 className="font-bold text-foreground text-sm">Your Responsibilities</h4>
@@ -396,7 +396,7 @@ function SummaryScreen({
             </ul>
           </div>
 
-          <div className="bg-green-50 border-2 border-green-300 rounded-lg p-5">
+          <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-5">
             <div className="flex items-center gap-2 mb-2">
               <Shield size={18} className="text-green-600" />
               <h4 className="font-bold text-foreground text-sm">Our Commitments</h4>
@@ -510,7 +510,7 @@ function ExpandedDetailScreen({
       <div className="p-8 space-y-6">
         
         {/* Important Notice */}
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-4 flex items-start gap-3">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 flex items-start gap-3">
           <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
           <div className="flex-1">
             <h4 className="font-bold text-orange-900 mb-1 text-sm">Legal Agreement</h4>
@@ -557,7 +557,7 @@ function ExpandedDetailScreen({
         </div>
 
         {/* Contact Information */}
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <HelpCircle size={20} className="text-primary" />
             Questions About Terms?
@@ -704,7 +704,7 @@ function AcceptanceMissingScreen({
           This is a legal requirement for accessing government services.
         </p>
 
-        <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-red-900 mb-4 flex items-center gap-2">
             <AlertCircle size={20} className="text-red-600" />
             Why Acceptance is Required
@@ -717,7 +717,7 @@ function AcceptanceMissingScreen({
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             What Acceptance Means
@@ -786,7 +786,7 @@ function AcceptanceCompleteScreen({ onReset }: { onReset: () => void }) {
           now proceed with registration for the National Scholarship Portal.
         </p>
 
-        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <CheckCircle size={20} className="text-green-600" />
             What This Means
@@ -799,7 +799,7 @@ function AcceptanceCompleteScreen({ onReset }: { onReset: () => void }) {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8 text-left">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Important Reminders
@@ -894,7 +894,7 @@ function DeclineScreen({
           registration or use this service without accepting the terms.
         </p>
 
-        <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6 mb-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6 mb-8">
           <h3 className="font-bold text-orange-900 mb-4 flex items-center gap-2">
             <AlertTriangle size={20} className="text-orange-600" />
             Consequences of Not Accepting
@@ -907,7 +907,7 @@ function DeclineScreen({
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Alternative Options
@@ -992,7 +992,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           following resources or contact our support team.
         </p>
 
-        <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6 mb-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6 mb-8">
           <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
             <Info size={20} className="text-primary" />
             Understanding the Terms

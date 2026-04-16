@@ -41,7 +41,7 @@ export default function ContentExpansionPattern() {
       <main className="max-w-[1400px] mx-auto px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
-            <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6 mb-6">
+            <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6 mb-6">
               <h2 className="font-bold text-foreground mb-2">Interactive Demo</h2>
               <p className="text-sm text-muted-foreground">
                 See how the same button text expands across different languages.
@@ -184,7 +184,7 @@ export default function ContentExpansionPattern() {
                 </div>
               </div>
 
-              <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Common Mistakes</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✗ Fixed button widths</li>
@@ -195,7 +195,7 @@ export default function ContentExpansionPattern() {
                 </ul>
               </div>
 
-              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+              <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">Best Practices</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✓ Test with longest language</li>

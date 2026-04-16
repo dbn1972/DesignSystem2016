@@ -11,9 +11,9 @@ import { Inbox, Search, FileX, AlertCircle, Upload, FolderOpen } from 'lucide-re
 const EmptyStatePreview = ({ variant, icon, title, description, actionLabel, onAction, ...props }: any) => (
   <div
     className={'flex flex-col items-center justify-center p-8 text-center ' + (
-      variant === 'error' ? 'bg-red-50 border border-red-200 rounded-lg' :
-      variant === 'search' ? 'bg-blue-50 border border-blue-200 rounded-lg' :
-      variant === 'first-time' ? 'bg-green-50 border border-green-200 rounded-lg' :
+      variant === 'error' ? 'bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg' :
+      variant === 'search' ? 'bg-blue-50 dark:bg-blue-950/30 border border-blue-200 rounded-lg' :
+      variant === 'first-time' ? 'bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg' :
       'bg-background border border-border rounded-lg'
     )}
     role="status"
@@ -248,7 +248,7 @@ export default function ComponentEmptyStatePage() {
       reactCode={{
         component: 'import React from \'react\';\nimport { cn } from \'../../utils/cn\';\nimport { emptyStateVariants } from \'./emptyState.variants\';\nimport { EmptyStateProps } from \'./EmptyState.types\';\n\nexport const EmptyState: React.FC<EmptyStateProps> = ({\n  variant = \'default\',\n  icon,\n  illustration,\n  title,\n  description,\n  actionLabel,\n  onAction,\n  secondaryActionLabel,\n  onSecondaryAction,\n  className,\n  ariaLabel,\n}) => {\n  return (\n    <div\n      className={cn(\n        emptyStateVariants({ variant }),\n        className\n      )}\n      role="status"\n      aria-live="polite"\n      aria-label={ariaLabel || title}\n    >\n      {(icon || illustration) && (\n        <div className="mb-4 text-gray-400" aria-hidden="true">\n          {illustration || icon}\n        </div>\n      )}\n      \n      <h3 className="text-lg font-semibold text-foreground mb-2">\n        {title}\n      </h3>\n      \n      {description && (\n        <p className="text-sm text-muted-foreground mb-4 max-w-md">\n          {description}\n        </p>\n      )}\n      \n      {(actionLabel || secondaryActionLabel) && (\n        <div className="flex flex-wrap gap-3 justify-center">\n          {actionLabel && onAction && (\n            <button\n              onClick={onAction}\n              className="inline-flex items-center justify-center gap-2 rounded border font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 min-h-[44px] bg-[#005196] text-white border-[#005196] hover:bg-[#004178] h-10 px-4 text-base"\n            >\n              {actionLabel}\n            </button>\n          )}\n          {secondaryActionLabel && onSecondaryAction && (\n            <button\n              onClick={onSecondaryAction}\n              className="inline-flex items-center justify-center gap-2 rounded border font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 min-h-[44px] bg-card text-[#005196] border-[#005196] hover:bg-[#f5f5f5] h-10 px-4 text-base"\n            >\n              {secondaryActionLabel}\n            </button>\n          )}\n        </div>\n      )}\n    </div>\n  );\n};\n\nEmptyState.displayName = \'EmptyState\';',
         types: 'export interface EmptyStateProps {\n  variant?: \'default\' | \'error\' | \'search\' | \'first-time\';\n  icon?: React.ReactNode;\n  illustration?: React.ReactNode;\n  title: string;\n  description?: string;\n  actionLabel?: string;\n  onAction?: () => void;\n  secondaryActionLabel?: string;\n  onSecondaryAction?: () => void;\n  className?: string;\n  ariaLabel?: string;\n}',
-        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const emptyStateVariants = cva(\n  [\n    \'flex flex-col items-center justify-center\',\n    \'p-8 text-center\',\n    \'rounded-lg border\',\n    \'transition-colors duration-150\',\n  ],\n  {\n    variants: {\n      variant: {\n        default: [\n          \'bg-background border-border\',\n        ],\n        error: [\n          \'bg-red-50 border-red-200\',\n        ],\n        search: [\n          \'bg-blue-50 border-blue-200\',\n        ],\n        \'first-time\': [\n          \'bg-green-50 border-green-200\',\n        ],\n      },\n    },\n    defaultVariants: {\n      variant: \'default\',\n    },\n  }\n);\n\nexport type EmptyStateVariantProps = VariantProps<typeof emptyStateVariants>;',
+        variants: 'import { cva, type VariantProps } from \'class-variance-authority\';\n\nexport const emptyStateVariants = cva(\n  [\n    \'flex flex-col items-center justify-center\',\n    \'p-8 text-center\',\n    \'rounded-lg border\',\n    \'transition-colors duration-150\',\n  ],\n  {\n    variants: {\n      variant: {\n        default: [\n          \'bg-background border-border\',\n        ],\n        error: [\n          \'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800\',\n        ],\n        search: [\n          \'bg-blue-50 dark:bg-blue-950/30 border-blue-200\',\n        ],\n        \'first-time\': [\n          \'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800\',\n        ],\n      },\n    },\n    defaultVariants: {\n      variant: \'default\',\n    },\n  }\n);\n\nexport type EmptyStateVariantProps = VariantProps<typeof emptyStateVariants>;',
       }}
 
       angularCode={{
@@ -438,14 +438,14 @@ export default function ComponentEmptyStatePage() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="text-center py-4 mb-3"><p className="text-sm font-medium text-foreground mb-1">No applications yet</p><p className="text-xs text-muted-foreground mb-2">Start your first application to see it here.</p><button className="px-3 py-1 text-xs bg-[#005196] text-white rounded">Start Application</button></div>
                   <p className="text-sm text-muted-foreground">Include a clear CTA in empty states — they have 3x higher conversion to first action.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="text-center py-4 mb-3 text-muted-foreground text-xs">No data</div>

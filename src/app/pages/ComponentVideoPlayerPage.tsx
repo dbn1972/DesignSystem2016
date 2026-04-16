@@ -406,7 +406,7 @@ function Example() {
           }
         ]}
       />
-      <div className="mt-4 p-4 bg-blue-50 rounded">
+      <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 rounded">
         <h3 className="font-semibold text-[#005196]">
           City Council Meeting
         </h3>
@@ -427,7 +427,7 @@ function Example() {
                 poster="https://images.unsplash.com/photo-1541672107173-1b2e699f4e5a?w=800&h=450&fit=crop"
                 controls
               />
-              <div className="mt-4 p-4 bg-blue-50 rounded">
+              <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 rounded">
                 <h3 className="font-semibold text-[#005196]">
                   City Council Meeting
                 </h3>
@@ -1023,13 +1023,13 @@ export type VideoQuality = 'auto' | '240p' | '360p' | '480p' | '720p' | '1080p';
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Always include captions — 80% of users watch video with captions on.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t auto-play videos — it violates WCAG 1.4.2 and annoys users.</p>

@@ -1236,7 +1236,7 @@ function PatternHeader({ title, icon, maturityStatus }: any) {
 function PurposeContextCard({ purpose, context }: any) {
   return (
     <div className="grid grid-cols-2 gap-6">
-      <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Target className="text-blue-600" size={20} />
           Purpose
@@ -1244,7 +1244,7 @@ function PurposeContextCard({ purpose, context }: any) {
         <p className="text-sm text-muted-foreground leading-relaxed">{purpose}</p>
       </div>
 
-      <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-6">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info className="text-purple-600" size={20} />
           Service Context
@@ -1345,8 +1345,8 @@ function ComponentsUsedCard({ components }: any) {
 
 function PrivacyGovernanceCard({ notes }: any) {
   return (
-    <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-      <div className="bg-red-50 p-4 border-b-2 border-red-200">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
+      <div className="bg-red-50 dark:bg-red-950/30 p-4 border-b-2 border-red-200 dark:border-red-800">
         <h4 className="font-bold text-foreground flex items-center gap-2">
           <Shield className="text-red-600" size={18} />
           Privacy & Governance Notes
@@ -1369,8 +1369,8 @@ function PrivacyGovernanceCard({ notes }: any) {
 
 function AccessibilityNotesCard({ notes }: any) {
   return (
-    <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-      <div className="bg-green-50 p-4 border-b-2 border-green-200">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
+      <div className="bg-green-50 dark:bg-green-950/30 p-4 border-b-2 border-green-200 dark:border-green-800">
         <h4 className="font-bold text-foreground flex items-center gap-2">
           <Eye className="text-green-600" size={18} />
           Accessibility Considerations
@@ -1393,8 +1393,8 @@ function AccessibilityNotesCard({ notes }: any) {
 
 function ImplementationNotesCard({ notes }: any) {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden">
-      <div className="bg-blue-50 p-4 border-b-2 border-blue-200">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden">
+      <div className="bg-blue-50 dark:bg-blue-950/30 p-4 border-b-2 border-blue-200 dark:border-blue-800">
         <h4 className="font-bold text-foreground flex items-center gap-2">
           <Code className="text-blue-600" size={18} />
           Implementation Notes
@@ -1417,7 +1417,7 @@ function ImplementationNotesCard({ notes }: any) {
 
 function DocumentationReferencesCard({ references }: any) {
   return (
-    <div className="bg-gradient-to-r from-purple-50 to-blue-50 border-2 border-purple-200 rounded-lg p-6">
+    <div className="bg-gradient-to-r from-purple-50 to-blue-50 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
       <h4 className="font-bold text-foreground mb-4 flex items-center gap-2">
         <BookOpen className="text-purple-600" size={20} />
         Documentation References

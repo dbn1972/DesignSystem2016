@@ -105,7 +105,7 @@ export default function IdentitySessionTimeout() {
                           </button>
                         </div>
 
-                        <div className="mt-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg text-sm text-left">
+                        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg text-sm text-left">
                           <div className="flex items-start gap-2">
                             <Info size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
                             <div className="text-muted-foreground">
@@ -170,7 +170,7 @@ export default function IdentitySessionTimeout() {
                       Your session has been extended. You can continue working without interruption.
                     </p>
 
-                    <div className="p-6 bg-blue-50 border-2 border-blue-200 rounded-lg mb-8 text-left">
+                    <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg mb-8 text-left">
                       <div className="font-bold text-foreground mb-3">Session Security</div>
                       <div className="text-sm text-muted-foreground space-y-2">
                         <p>• Sessions expire after 30 minutes of inactivity</p>
@@ -245,8 +245,8 @@ function PatternInfo() {
 
 function SecurityRationale() {
   return (
-    <div className="border-2 border-red-200 rounded-lg overflow-hidden bg-red-50">
-      <div className="bg-red-100 border-b-2 border-red-200 px-4 py-3">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+      <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Security Rationale</h3>
       </div>
       <div className="p-4 space-y-2 text-sm text-muted-foreground">
@@ -278,8 +278,8 @@ function TimingConfiguration() {
 
 function ImplementationNotes() {
   return (
-    <div className="border-2 border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-      <div className="bg-blue-100 border-b-2 border-blue-200 px-4 py-3">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+      <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Implementation</h3>
       </div>
       <div className="p-4 space-y-3 text-sm text-muted-foreground">

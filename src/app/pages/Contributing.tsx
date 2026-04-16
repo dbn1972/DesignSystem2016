@@ -78,7 +78,7 @@ function GettingStartedSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Before You Start</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Before making your first contribution, please ensure you:
@@ -335,12 +335,12 @@ function TypesOfContributionsSection() {
 
 function ContributionType({ icon, title, description, examples, difficulty, color }: any) {
   const colorClasses = {
-    blue: 'border-blue-200 bg-blue-50',
-    green: 'border-green-200 bg-green-50',
-    purple: 'border-purple-200 bg-purple-50',
-    orange: 'border-orange-200 bg-orange-50',
+    blue: 'border-blue-200 dark:border-blue-800 bg-blue-50',
+    green: 'border-green-200 dark:border-green-800 bg-green-50',
+    purple: 'border-purple-200 dark:border-purple-800 bg-purple-50',
+    orange: 'border-orange-200 dark:border-orange-800 bg-orange-50',
     pink: 'border-pink-200 bg-pink-50',
-    red: 'border-red-200 bg-red-50'
+    red: 'border-red-200 dark:border-red-800 bg-red-50'
   };
 
   return (
@@ -594,7 +594,7 @@ function DevelopmentGuidelinesSection() {
           />
         </div>
 
-        <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+        <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <Zap className="text-yellow-600" size={20} />
             Performance Guidelines
@@ -716,7 +716,7 @@ export function MyComponent({ title, onAction }: MyComponentProps) {
         </div>
 
         <div className="grid grid-cols-2 gap-6">
-          <div className="border-2 border-green-200 bg-green-50 rounded-lg p-6">
+          <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">✅ Do's</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>• Use TypeScript for type safety</li>
@@ -730,7 +730,7 @@ export function MyComponent({ title, onAction }: MyComponentProps) {
             </ul>
           </div>
 
-          <div className="border-2 border-red-200 bg-red-50 rounded-lg p-6">
+          <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">❌ Don'ts</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>• Use any type in TypeScript</li>
@@ -807,7 +807,7 @@ function ComponentGuidelinesSection() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Component Checklist</h3>
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -991,7 +991,7 @@ Related to #456
           </div>
         </div>
 
-        <div className="bg-orange-50 border-2 border-orange-200 rounded-lg p-6">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
             <AlertTriangle className="text-orange-600" size={20} />
             Before Submitting
@@ -1087,7 +1087,7 @@ function ReviewProcessSection() {
           </div>
         </div>
 
-        <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Approval Criteria</h3>
           <p className="text-sm text-muted-foreground mb-3">
             Your PR will be approved when:
@@ -1191,7 +1191,7 @@ function CommunityGuidelinesSection() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Getting Help</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Need help with your contribution? We're here to support you:
@@ -1273,7 +1273,7 @@ function LicenseAgreementSection() {
           </div>
         </div>
 
-        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-3">Learn More</h3>
           <p className="text-sm text-muted-foreground">
             For complete details about licensing and copyright, see our{' '}
@@ -1309,7 +1309,7 @@ function RecognitionSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-lg p-8">
+        <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-8">
           <h3 className="font-bold text-foreground text-xl mb-4">Thank You! 🙏</h3>
           <p className="text-muted-foreground mb-6">
             We deeply appreciate every contribution, big or small. The UX4G Design System is built by the community,
@@ -1348,7 +1348,7 @@ function RecognitionSection() {
 
           <div className="flex gap-4">
             <a
-              href="https://github.com/gov-in/ux4g/issues"
+              href="https://github.com/dbn1972/DesignSystem2016/issues"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-[#000070] transition-colors"
@@ -1356,7 +1356,7 @@ function RecognitionSection() {
               Browse Issues
             </a>
             <a
-              href="https://github.com/gov-in/ux4g"
+              href="https://github.com/dbn1972/DesignSystem2016"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 border-2 border-border text-foreground rounded-lg font-semibold hover:bg-background transition-colors"
@@ -1381,7 +1381,7 @@ function RecognitionSection() {
 
             <div className="bg-card border border-border rounded-lg p-4">
               <div className="font-semibold text-foreground mb-2">Technical Support</div>
-              <a href="https://github.com/gov-in/ux4g/discussions" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm">
+              <a href="https://github.com/dbn1972/DesignSystem2016/discussions" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm">
                 GitHub Discussions
               </a>
             </div>

@@ -575,14 +575,14 @@ export default function ComponentTimelinePage() {
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="space-y-3 mb-3"><div className="flex gap-3"><div className="w-3 h-3 rounded-full bg-green-500 mt-0.5 shrink-0" /><div><p className="text-xs font-medium text-foreground">Application Submitted</p><p className="text-[10px] text-muted-foreground">12 Apr 2026</p></div></div><div className="flex gap-3"><div className="w-3 h-3 rounded-full bg-yellow-500 mt-0.5 shrink-0" /><div><p className="text-xs font-medium text-foreground">Under Review</p><p className="text-[10px] text-muted-foreground">14 Apr 2026</p></div></div></div>
                   <p className="text-sm text-muted-foreground">Use timelines for chronological event sequences and application status history.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="text-xs space-y-1 mb-3"><p className="text-muted-foreground">12 Apr - Submitted</p><p className="text-muted-foreground">14 Apr - Under Review</p></div>

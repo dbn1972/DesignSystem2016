@@ -52,7 +52,7 @@ export default function AadhaarAuthenticationPattern() {
               <div className="px-6 py-3 bg-orange-100 border-2 border-orange-300 rounded text-orange-800 font-bold text-sm text-center">
                 RESTRICTED USE
               </div>
-              <div className="px-6 py-3 bg-red-50 border-2 border-red-200 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
                 Policy<br/>Governed
               </div>
             </div>
@@ -138,7 +138,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6 mb-6">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6 mb-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertCircle size={20} className="text-orange-600" />
           Important: Restricted Use Pattern
@@ -210,7 +210,7 @@ function OverviewSection() {
 
         {/* When Not to Use */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground flex items-center gap-2">
               <X size={18} className="text-red-600" />
               When NOT to Use
@@ -241,7 +241,7 @@ function ApprovedUsesSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Legally Authorized Uses</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -269,7 +269,7 @@ function ApprovedUsesSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-yellow-50 border-b-2 border-yellow-200 px-6 py-4">
+          <div className="bg-yellow-50 dark:bg-yellow-950/30 border-b-2 border-yellow-200 dark:border-yellow-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Conditional / Restricted Uses</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -297,7 +297,7 @@ function ApprovedUsesSection() {
         </div>
       </div>
 
-      <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
+      <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <XCircle size={20} className="text-red-600" />
           Prohibited Uses (Cannot Mandate Aadhaar)
@@ -431,7 +431,7 @@ function ExampleScreens() {
               <Shield size={40} className="text-primary mx-auto mb-3" />
               <h4 className="font-bold text-foreground mb-2">Aadhaar Authentication</h4>
             </div>
-            <div className="bg-blue-50 border border-blue-300 rounded p-4 text-sm text-muted-foreground space-y-2">
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-4 text-sm text-muted-foreground space-y-2">
               <p><strong>Why we need Aadhaar:</strong></p>
               <p>This service is authorized to use Aadhaar authentication under [Legal Act/Section].</p>
               <p><strong>How your data is used:</strong></p>
@@ -462,7 +462,7 @@ function ExampleScreens() {
               <FileText size={40} className="text-primary mx-auto mb-3" />
               <h4 className="font-bold text-foreground mb-2">Your Consent Required</h4>
             </div>
-            <div className="bg-orange-50 border-2 border-orange-300 rounded p-4">
+            <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded p-4">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
                 <div className="text-sm text-foreground">
@@ -535,7 +535,7 @@ function ExampleScreens() {
                 readOnly
                 className="w-full px-4 py-3 border-2 border-red-400 rounded text-center font-mono text-lg bg-red-50"
               />
-              <div className="bg-red-50 border border-red-300 rounded p-3 text-sm text-red-800 mt-2">
+              <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 mt-2">
                 <XCircle size={14} className="inline mr-2" />
                 Aadhaar number must be exactly 12 digits
               </div>
@@ -594,7 +594,7 @@ function ExampleScreens() {
                 Unable to verify your Aadhaar
               </p>
             </div>
-            <div className="bg-red-50 border-2 border-red-300 rounded p-4 text-sm">
+            <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4 text-sm">
               <p className="text-red-800 font-bold mb-2">Possible reasons:</p>
               <ul className="text-muted-foreground space-y-1 ml-4">
                 <li>• Incorrect OTP entered</li>
@@ -628,7 +628,7 @@ function ExampleScreens() {
                 via Aadhaar
               </p>
             </div>
-            <div className="bg-green-50 border border-green-300 rounded p-3 text-sm text-green-800">
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800">
               <CheckCircle size={14} className="inline mr-2" />
               Authentication logged per UIDAI regulations
             </div>
@@ -652,7 +652,7 @@ function ExampleScreens() {
                 is currently down
               </p>
             </div>
-            <div className="bg-yellow-50 border border-yellow-300 rounded p-4 text-sm text-muted-foreground">
+            <div className="bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-300 rounded p-4 text-sm text-muted-foreground">
               <p className="font-bold mb-2">What you can do:</p>
               <ul className="space-y-1 ml-4">
                 <li>• Try again in a few minutes</li>
@@ -733,7 +733,7 @@ function ConsentPrivacySection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Data Handling Rules</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -761,7 +761,7 @@ function ConsentPrivacySection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-orange-50 border-b-2 border-orange-200 px-6 py-4">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Privacy Safeguards</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -801,7 +801,7 @@ function FallbackSection() {
         <h2 className="text-2xl font-bold text-foreground">Fallback & Alternative Paths</h2>
       </div>
 
-      <div className="bg-orange-50 border-2 border-orange-300 rounded-lg p-6">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertCircle size={20} className="text-orange-600" />
           Mandatory: Alternative Authentication Required
@@ -901,7 +901,7 @@ function AccessibilitySection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Screen Reader Support</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -925,7 +925,7 @@ function AccessibilitySection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Keyboard & Focus</h3>
           </div>
           <div className="p-6 space-y-3 text-sm">
@@ -949,7 +949,7 @@ function AccessibilitySection() {
         </div>
       </div>
 
-      <div className="bg-purple-50 border-2 border-purple-300 rounded-lg p-6">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-purple-600" />
           Multilingual Support (Critical for Inclusion)
@@ -1017,7 +1017,7 @@ function ImplementationSection() {
 
       <div className="grid grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Aadhaar Validation</h3>
           </div>
           <div className="p-6">
@@ -1069,7 +1069,7 @@ function verhoeffCheck(num) {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-green-50 border-b-2 border-green-200 px-6 py-4">
+          <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">UIDAI API Call Example</h3>
           </div>
           <div className="p-6">
@@ -1155,7 +1155,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-red-50 border-b-2 border-red-200 px-6 py-4">
+          <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-200 dark:border-red-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Policy Governance</h3>
           </div>
           <div className="p-6">
@@ -1177,7 +1177,7 @@ function GovernanceSection() {
         </div>
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-          <div className="bg-blue-50 border-b-2 border-blue-200 px-6 py-4">
+          <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Pattern Owner</h3>
           </div>
           <div className="p-6 text-sm space-y-3">
@@ -1197,7 +1197,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-red-50 border-2 border-red-300 rounded-lg p-6">
+      <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <AlertCircle size={20} className="text-red-600" />
           Legal Compliance Checklist (Mandatory Before Implementation)
@@ -1227,7 +1227,7 @@ function GovernanceSection() {
         </div>
       </div>
 
-      <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+      <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Info size={20} className="text-yellow-600" />
           Support & Escalation
@@ -1259,7 +1259,7 @@ function GovernanceSection() {
 
 function PolicyAlert() {
   return (
-    <div className="bg-red-50 border-2 border-red-300 rounded-lg overflow-hidden">
+    <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg overflow-hidden">
       <div className="bg-red-100 border-b-2 border-red-300 px-4 py-3">
         <h3 className="font-bold text-red-900 text-sm flex items-center gap-2">
           <AlertCircle size={16} />
@@ -1279,7 +1279,7 @@ function PolicyAlert() {
 function QuickReference() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-blue-50 border-b-2 border-blue-200 px-4 py-3">
+      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -1311,7 +1311,7 @@ function QuickReference() {
 function RelatedPatterns() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-green-50 border-b-2 border-green-200 px-4 py-3">
+      <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Related Patterns</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1328,7 +1328,7 @@ function RelatedPatterns() {
 function InteractiveDemo() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-purple-50 border-b-2 border-purple-200 px-4 py-3">
+      <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Interactive Demo</h3>
       </div>
       <div className="p-4">
@@ -1350,7 +1350,7 @@ function InteractiveDemo() {
 function Resources() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-orange-50 border-b-2 border-orange-200 px-4 py-3">
+      <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Resources</h3>
       </div>
       <div className="p-4 space-y-2 text-xs">
@@ -1464,11 +1464,11 @@ function ScreenExample({ title, variant, children }: {
   variant: 'default' | 'error' | 'warning' | 'success' | 'info';
   children: React.ReactNode;
 }) {
-  const headerColor = variant === 'error' ? 'bg-red-50 border-red-200' :
-                      variant === 'warning' ? 'bg-yellow-50 border-yellow-200' :
-                      variant === 'success' ? 'bg-green-50 border-green-200' :
-                      variant === 'info' ? 'bg-blue-50 border-blue-200' :
-                      'bg-blue-50 border-blue-200';
+  const headerColor = variant === 'error' ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800' :
+                      variant === 'warning' ? 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-800' :
+                      variant === 'success' ? 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800' :
+                      variant === 'info' ? 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800' :
+                      'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800';
   
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
@@ -1496,7 +1496,7 @@ function DataRule({ rule, requirement }: { rule: string; requirement: string }) 
 function FallbackOption({ title, description, recommended }: { title: string; description: string; recommended: boolean }) {
   return (
     <div className={`bg-card border-2 rounded-lg overflow-hidden ${recommended ? 'border-green-300' : 'border-border'}`}>
-      <div className={`px-4 py-3 border-b-2 ${recommended ? 'bg-green-50 border-green-200' : 'bg-muted border-border'}`}>
+      <div className={`px-4 py-3 border-b-2 ${recommended ? 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800' : 'bg-muted border-border'}`}>
         <div className="flex items-center justify-between">
           <h4 className="font-bold text-foreground text-sm">{title}</h4>
           {recommended && (

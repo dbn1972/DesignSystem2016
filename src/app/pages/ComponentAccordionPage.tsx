@@ -389,17 +389,17 @@ export class AccordionModule { }`,
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
                 <div className="p-4">
                   <div className="w-full border border-border rounded-lg overflow-hidden mb-3"><button className="w-full flex justify-between px-3 py-2 text-xs font-medium text-foreground bg-muted/30"><span>Processing time?</span><span>▼</span></button><div className="px-3 py-2 text-xs text-muted-foreground border-t border-border">7-10 business days.</div></div>
                   <p className="text-sm text-muted-foreground">Use accordions for FAQ pages and collapsible content sections.</p>
                 </div>
               </div>
-              <div className="border-2 border-red-200 rounded-lg overflow-hidden">
+              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
                 <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
                 <div className="p-4">
-                  <div className="w-full border border-red-200 rounded-lg overflow-hidden mb-3"><button className="w-full flex justify-between px-3 py-2 text-xs font-medium text-red-700"><span>⚠ Important: Application Deadline</span><span>▶</span></button></div>
+                  <div className="w-full border border-red-200 dark:border-red-800 rounded-lg overflow-hidden mb-3"><button className="w-full flex justify-between px-3 py-2 text-xs font-medium text-red-700"><span>⚠ Important: Application Deadline</span><span>▶</span></button></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t hide critical information inside accordions — users may miss it.</p>
                 </div>
               </div>

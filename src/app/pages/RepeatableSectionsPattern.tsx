@@ -152,7 +152,7 @@ export default function RepeatableSectionsPattern() {
 
               <div className="space-y-6">
                 {education.map((edu, index) => (
-                  <div key={edu.id} className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+                  <div key={edu.id} className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2 text-sm font-bold text-muted-foreground">
                         <GripVertical size={16} className="text-gray-400" />
@@ -420,7 +420,7 @@ const updateItem = (id, field, value) => {
                 </ul>
               </div>
 
-              <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6">
+              <div className="bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-3">When NOT to Use</h3>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li>✗ Fixed number of fields</li>

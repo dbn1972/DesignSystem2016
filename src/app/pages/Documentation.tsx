@@ -447,7 +447,7 @@ export default function Documentation() {
             </div>
             <Link
               to="/patterns/contact-support/overview"
-              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-primary font-semibold hover:bg-blue-50 rounded-lg transition-colors"
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-primary font-semibold hover:bg-blue-50 dark:bg-blue-950/30 rounded-lg transition-colors"
             >
               View All FAQs
               <ChevronRight size={18} />
@@ -516,7 +516,7 @@ export default function Documentation() {
                 Contribute
               </Link>
               <a
-                href="https://github.com/ux4g"
+                href="https://github.com/dbn1972/DesignSystem2016"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 border-2 border-white text-primary-foreground font-semibold rounded-lg hover:bg-card/10 transition-colors inline-flex items-center gap-2"
