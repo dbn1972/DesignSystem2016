@@ -11,6 +11,18 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Dynamic page title from pathname
+    const base = 'UX4G Design System';
+    if (pathname === '/') {
+      document.title = base;
+    } else {
+      const segments = pathname.split('/').filter(Boolean);
+      const title = segments
+        .map(s => s.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '))
+        .join(' — ');
+      document.title = `${title} | ${base}`;
+    }
   }, [pathname]);
 
   return null;
