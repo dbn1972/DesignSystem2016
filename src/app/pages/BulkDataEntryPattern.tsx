@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
-import { Table, ArrowLeft, Upload, Download, Plus, Trash2, CheckCircle } from "lucide-react";
+import { Table, ArrowLeft, Upload, Download, Plus, Trash2, CheckCircle, Copy, Check } from "lucide-react";
 
 export default function BulkDataEntryPattern() {
   const [rows, setRows] = useState([
@@ -424,7 +424,256 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
             </div>
           </aside>
         </div>
+
+        <BulkDataCodeDownloads />
+
       </main>
     </div>
   );
 }
+
+// ==================== CODE DOWNLOADS ====================
+
+const BULK_REACT_CODE = `import React, { useState, useCallback } from 'react';
+
+interface Row { id: number; name: string; aadhaar: string; mobile: string; service: string; status: 'pending' | 'valid' | 'error'; error?: string; }
+
+let nextId = 1;
+const emptyRow = (): Row => ({ id: nextId++, name: '', aadhaar: '', mobile: '', service: '', status: 'pending' });
+
+export function BulkDataEntryPage() {
+  const [rows, setRows] = useState<Row[]>([emptyRow(), emptyRow(), emptyRow()]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const updateRow = (id: number, field: keyof Row, value: string) => {
+    setRows(prev => prev.map(r => r.id === id ? { ...r, [field]: value, status: 'pending' } : r));
+  };
+
+  const addRow = () => setRows(prev => [...prev, emptyRow()]);
+  const removeRow = (id: number) => setRows(prev => prev.filter(r => r.id !== id));
+
+  const validateAll = useCallback(() => {
+    setRows(prev => prev.map(r => {
+      if (!r.name.trim()) return { ...r, status: 'error' as const, error: 'Name required' };
+      if (r.aadhaar && !/^\\d{12}$/.test(r.aadhaar.replace(/\\s/g, ''))) return { ...r, status: 'error' as const, error: 'Invalid Aadhaar' };
+      if (r.mobile && !/^[6-9]\\d{9}$/.test(r.mobile)) return { ...r, status: 'error' as const, error: 'Invalid mobile' };
+      return { ...r, status: 'valid' as const, error: undefined };
+    }));
+  }, []);
+
+  const handleSubmit = async () => {
+    validateAll();
+    const hasErrors = rows.some(r => r.status === 'error');
+    if (hasErrors) { setError('Fix validation errors before submitting'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/bulk/submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rows: rows.map(({ id, status, error, ...rest }) => rest) }),
+      });
+      if (!res.ok) { setError('Submission failed'); return; }
+      setSubmitted(true);
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  const handleCSVUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const text = ev.target?.result as string;
+      const lines = text.split('\\n').slice(1).filter(l => l.trim());
+      const newRows = lines.map(line => {
+        const [name, aadhaar, mobile, service] = line.split(',').map(s => s.trim());
+        return { ...emptyRow(), name: name || '', aadhaar: aadhaar || '', mobile: mobile || '', service: service || '' };
+      });
+      if (newRows.length) setRows(newRows);
+    };
+    reader.readAsText(file);
+  };
+
+  if (submitted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background p-4">
+        <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 text-center">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+          <h2 className="text-xl font-bold text-foreground mb-2">Bulk Submission Complete</h2>
+          <p className="text-muted-foreground">{rows.length} records submitted successfully.</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-background p-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex items-center justify-between mb-6">
+          <div><h1 className="text-2xl font-bold text-foreground">Bulk Data Entry</h1><p className="text-sm text-muted-foreground">{rows.length} records</p></div>
+          <div className="flex gap-3">
+            <label className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-sm font-semibold cursor-pointer hover:bg-muted"><input type="file" accept=".csv" onChange={handleCSVUpload} className="hidden" />📁 Import CSV</label>
+            <button onClick={addRow} className="px-4 py-2 border border-border rounded-lg text-sm font-semibold hover:bg-muted">+ Add Row</button>
+          </div>
+        </div>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        <div className="bg-card border border-border rounded-2xl overflow-hidden">
+          <table className="w-full text-sm">
+            <thead><tr className="bg-muted"><th className="px-4 py-3 text-left font-semibold">#</th><th className="px-4 py-3 text-left font-semibold">Name *</th><th className="px-4 py-3 text-left font-semibold">Aadhaar</th><th className="px-4 py-3 text-left font-semibold">Mobile</th><th className="px-4 py-3 text-left font-semibold">Service</th><th className="px-4 py-3 text-left font-semibold">Status</th><th className="px-4 py-3"></th></tr></thead>
+            <tbody>{rows.map((r, i) => (
+              <tr key={r.id} className="border-t border-border">
+                <td className="px-4 py-2 text-muted-foreground">{i + 1}</td>
+                <td className="px-4 py-2"><input value={r.name} onChange={e => updateRow(r.id, 'name', e.target.value)} className="w-full px-2 py-1 border border-border rounded" placeholder="Full name" /></td>
+                <td className="px-4 py-2"><input value={r.aadhaar} onChange={e => updateRow(r.id, 'aadhaar', e.target.value)} className="w-full px-2 py-1 border border-border rounded" placeholder="12 digits" maxLength={12} /></td>
+                <td className="px-4 py-2"><input value={r.mobile} onChange={e => updateRow(r.id, 'mobile', e.target.value)} className="w-full px-2 py-1 border border-border rounded" placeholder="10 digits" maxLength={10} /></td>
+                <td className="px-4 py-2"><select value={r.service} onChange={e => updateRow(r.id, 'service', e.target.value)} className="w-full px-2 py-1 border border-border rounded"><option value="">Select</option><option>Birth Cert</option><option>Caste Cert</option><option>Income Cert</option></select></td>
+                <td className="px-4 py-2">{r.status === 'valid' ? <span className="text-green-600 font-semibold">✓</span> : r.status === 'error' ? <span className="text-red-600 text-xs" title={r.error}>✗ {r.error}</span> : <span className="text-muted-foreground">—</span>}</td>
+                <td className="px-4 py-2"><button onClick={() => removeRow(r.id)} className="text-red-500 hover:text-red-700" aria-label="Remove row">✕</button></td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+        <div className="flex gap-3 mt-6">
+          <button onClick={validateAll} className="flex-1 py-3 border border-border rounded-lg font-semibold">Validate All</button>
+          <button onClick={handleSubmit} disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Submitting...' : 'Submit All'}</button>
+        </div>
+      </div>
+    </div>
+  );
+}`;
+
+const BULK_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-bulk-data-entry',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: \`
+    <div class="min-h-screen bg-background p-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex items-center justify-between mb-6">
+          <h1 class="text-2xl font-bold">Bulk Data Entry</h1>
+          <button (click)="addRow()" class="px-4 py-2 border border-border rounded-lg text-sm font-semibold">+ Add Row</button>
+        </div>
+        <table class="w-full text-sm bg-card border border-border rounded-2xl overflow-hidden">
+          <thead><tr class="bg-muted"><th class="px-4 py-3 text-left">#</th><th class="px-4 py-3 text-left">Name</th><th class="px-4 py-3 text-left">Aadhaar</th><th class="px-4 py-3 text-left">Mobile</th><th class="px-4 py-3"></th></tr></thead>
+          <tbody><tr *ngFor="let r of rows; let i = index" class="border-t border-border">
+            <td class="px-4 py-2">{{ i+1 }}</td>
+            <td class="px-4 py-2"><input [(ngModel)]="r.name" class="w-full px-2 py-1 border border-border rounded" /></td>
+            <td class="px-4 py-2"><input [(ngModel)]="r.aadhaar" maxlength="12" class="w-full px-2 py-1 border border-border rounded" /></td>
+            <td class="px-4 py-2"><input [(ngModel)]="r.mobile" maxlength="10" class="w-full px-2 py-1 border border-border rounded" /></td>
+            <td class="px-4 py-2"><button (click)="removeRow(i)" class="text-red-500">✕</button></td>
+          </tr></tbody>
+        </table>
+        <button (click)="submit()" [disabled]="loading" class="w-full mt-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Submitting...' : 'Submit All' }}</button>
+      </div>
+    </div>
+  \`
+})
+export class BulkDataEntryComponent {
+  rows = [{ name: '', aadhaar: '', mobile: '' }, { name: '', aadhaar: '', mobile: '' }, { name: '', aadhaar: '', mobile: '' }];
+  loading = false;
+  addRow() { this.rows.push({ name: '', aadhaar: '', mobile: '' }); }
+  removeRow(i: number) { this.rows.splice(i, 1); }
+  async submit() { this.loading = true; try { await fetch('/api/bulk/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ rows: this.rows }) }); alert('Submitted'); } catch { alert('Failed'); } finally { this.loading = false; } }
+}`;
+
+const BULK_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulk Data Entry — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f9fafb; padding: 2rem; }
+    .container { max-width: 64rem; margin: 0 auto; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; overflow: hidden; }
+    th { background: #f3f4f6; padding: 0.75rem 1rem; text-align: left; font-size: 0.875rem; font-weight: 600; }
+    td { padding: 0.5rem 1rem; border-top: 1px solid #e5e7eb; }
+    input { width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem; font-size: 0.875rem; outline: none; }
+    .btn { padding: 0.75rem 1.5rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-weight: 600; cursor: pointer; margin-top: 1rem; }
+    .btn-outline { background: #fff; color: #111; border: 1px solid #d1d5db; }
+    .actions { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
+    .remove { background: none; border: none; color: #ef4444; cursor: pointer; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+      <h1>Bulk Data Entry</h1>
+      <div class="actions"><button class="btn btn-outline" onclick="addRow()">+ Add Row</button></div>
+    </div>
+    <table><thead><tr><th>#</th><th>Name</th><th>Aadhaar</th><th>Mobile</th><th></th></tr></thead><tbody id="tbody"></tbody></table>
+    <button class="btn" style="width:100%" onclick="submitAll()">Submit All</button>
+  </div>
+  <script>
+    let rows = [{},{},{}];
+    function render() {
+      const tbody = document.getElementById('tbody');
+      tbody.innerHTML = rows.map((r, i) =>
+        '<tr><td>'+(i+1)+'</td><td><input value="'+(r.name||'')+'" oninput="rows['+i+'].name=this.value" placeholder="Name" /></td><td><input value="'+(r.aadhaar||'')+'" oninput="rows['+i+'].aadhaar=this.value" maxlength="12" placeholder="Aadhaar" /></td><td><input value="'+(r.mobile||'')+'" oninput="rows['+i+'].mobile=this.value" maxlength="10" placeholder="Mobile" /></td><td><button class="remove" onclick="removeRow('+i+')">✕</button></td></tr>'
+      ).join('');
+    }
+    function addRow() { rows.push({}); render(); }
+    function removeRow(i) { rows.splice(i, 1); render(); }
+    async function submitAll() { try { await fetch('/api/bulk/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ rows }) }); alert('Submitted '+rows.length+' records'); } catch { alert('Failed'); } }
+    render();
+  </script>
+</body>
+</html>`;
+
+function BulkDataCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Table + CSV Import', code: BULK_REACT_CODE, filename: 'BulkDataEntryPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone + FormsModule', code: BULK_ANGULAR_CODE, filename: 'bulk-data-entry.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: BULK_HTML_CODE, filename: 'bulk-data-entry.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24 mt-12">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Bulk Data Entry implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
