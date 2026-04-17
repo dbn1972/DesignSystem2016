@@ -1484,6 +1484,481 @@ function ReviewChecklist() {
 
 // Reusable Components
 
+function useAccessibilityCopy() {
+  const { i18n } = useTranslation();
+  return ACCESSIBILITY_COPY[i18n.resolvedLanguage === "hi" ? "hi" : "en"];
+}
+
+const ACCESSIBILITY_COPY = {
+  en: {
+    hero: {
+      eyebrow: "UX4G Design System",
+      title: "Accessibility",
+      description:
+        "Accessibility is fundamental to the UX4G Design System. Every component, pattern, and guideline is designed to meet WCAG 2.1 Level AA standards, ensuring government digital services are accessible to all citizens of India.",
+      pills: {
+        wcag: "WCAG 2.1 Level AA Compliant",
+        builtIn: "Built-in by Default",
+        tested: "Rigorously Tested",
+      },
+    },
+    principlesSection: {
+      title: "Accessibility Principles",
+      description: "Core principles guiding accessibility implementation in UX4G",
+      cards: {
+        perceivable: { title: "Perceivable", description: "Information and user interface components must be presentable to users in ways they can perceive.", items: ["Sufficient color contrast for text and interactive elements", "Text alternatives for non-text content", "Captions and alternatives for multimedia", "Content adaptable without loss of information"] },
+        operable: { title: "Operable", description: "User interface components and navigation must be operable by all users.", items: ["All functionality available via keyboard", "Sufficient time for users to read and interact", "Navigation mechanisms are clear and consistent", "No content that could cause seizures"] },
+        understandable: { title: "Understandable", description: "Information and operation of user interface must be understandable.", items: ["Text content is readable and understandable", "Pages appear and operate in predictable ways", "Users are helped to avoid and correct mistakes", "Clear error messages and recovery paths"] },
+        robust: { title: "Robust", description: "Content must be robust enough for interpretation by assistive technologies.", items: ["Valid semantic HTML markup", "Proper ARIA attributes when needed", "Compatible with current and future assistive technologies", "Progressive enhancement approach"] },
+      },
+      law: {
+        title: "Rights of Persons with Disabilities Act, 2016",
+        description:
+          "The UX4G Design System aligns with India's Rights of Persons with Disabilities Act, 2016, which mandates that all government digital services must be accessible. Compliance is not optional—it is a legal requirement and moral imperative.",
+      },
+    },
+    colorContrastSection: {
+      title: "Color Contrast Guidance",
+      description: "Ensuring sufficient contrast ratios for all text and interactive elements",
+      requirementsTitle: "WCAG Contrast Requirements",
+      normalTextRequirement: "For text smaller than 18px or 14px bold",
+      largeTextRequirement: "For text 18px+ or 14px+ bold",
+      uiRequirement: "For interactive elements and graphics",
+      colorBlindnessTitle: "Color Blindness Considerations",
+      deuteranopia: "Red-green color blindness (most common)",
+      protanopia: "Red color blindness",
+      tritanopia: "Blue-yellow color blindness",
+      mayAppearSimilar: "May appear similar",
+      redAppearsMuted: "Red appears muted",
+      designGuidelines: "Design Guidelines",
+      guidelineHeads: { colorAlone: "Never rely on color alone", highContrast: "Use high contrast", supplementColor: "Supplement color", testDesigns: "Test designs" },
+      guidelines: ["to convey information—use text, icons, or patterns", "between foreground and background colors", "with text labels, icons, or patterns for status indicators", "using color blindness simulators during design phase"],
+      testingContrast: "Testing Contrast",
+      recommendedTools: "Recommended Tools",
+      testingProcess: "Testing Process",
+      toolDescriptions: { webaim: "Online tool for testing color combinations", devtools: "Built-in accessibility audits in Chrome/Edge", figma: "A11y - Color Contrast Checker, Stark", automated: "axe DevTools, Lighthouse CI" },
+      process: ["Test all text against its background color", "Verify interactive element contrast (borders, focus states)", "Check graphic elements and iconography", "Test in grayscale to ensure information isn't lost"],
+    },
+    focusSection: {
+      title: "Focus Visibility Rules",
+      description: "Clear, consistent focus indicators for keyboard navigation",
+      requirementsTitle: "Focus Indicator Requirements",
+      minimumRequirements: "Minimum Requirements (WCAG 2.4.7)",
+      minimumItems: ["Focus indicator must be", "Minimum", "Must be present on", "Should not be removed via CSS"],
+      minimumStrong: ["clearly visible", "3:1 contrast", "all interactive elements"],
+      minimumTail: ["", "with adjacent colors", ""],
+      standardTitle: "UX4G Focus Standard",
+      standardLabels: { ringWidth: "Ring width:", ringColor: "Ring color:", ringOffset: "Ring offset:", borderRadius: "Border radius:", matchesElement: "Matches element" },
+      examples: { buttonFocus: "Button Focus", focusedButton: "Focused Button", inputFocus: "Input Focus", focusedInput: "Focused input field", linkFocus: "Link Focus", focusedLink: "Focused Link", checkboxFocus: "Checkbox Focus", focusedCheckbox: "Focused checkbox" },
+      focusOrderTitle: "Focus Order",
+      order: [
+        { element: "Logo/Header", desc: "Top-left navigation elements" },
+        { element: "Main Navigation", desc: "Primary navigation menu" },
+        { element: "Skip Link", desc: "Allow skipping to main content" },
+        { element: "Main Content", desc: "Primary page content, left to right, top to bottom" },
+        { element: "Sidebar", desc: "Secondary navigation or filters" },
+        { element: "Footer Links", desc: "Footer navigation and information" },
+      ],
+      doLabel: "Do",
+      dontLabel: "Don't",
+      doItems: ["Follow natural reading order (top to bottom, left to right)", "Use semantic HTML for natural tab order", "Test focus order with keyboard only", "Provide skip links for long navigation"],
+      dontItems: ["Don't use positive tabindex values (tabindex=\"1\")", "Don't create confusing focus traps", "Don't hide focus indicators with CSS", "Don't rely on mouse-only interactions"],
+    },
+    keyboardSection: {
+      title: "Keyboard Interaction Expectations",
+      description: "Standard keyboard patterns for all interactive components",
+      standardControls: "Standard Keyboard Controls",
+      controls: ["Move focus forward to next interactive element", "Move focus backward to previous interactive element", "Activate buttons, links, and submit forms", "Activate buttons, toggle checkboxes, scroll page", "Navigate within components (menus, tabs, radio groups)", "Close modals, dialogs, dropdowns, and cancel operations", "Move to first item in list or beginning of text field", "Move to last item in list or end of text field"],
+      patterns: [
+        { component: "Modal/Dialog", actions: ["Cycles focus within modal only (focus trap)", "Closes modal and returns focus to trigger", "Activates primary action button"] },
+        { component: "Dropdown Menu", actions: ["Opens dropdown menu", "Navigates through menu items", "Closes menu and returns focus", "Jumps to matching menu item"] },
+        { component: "Tabs", actions: ["Moves focus to active tab, then to tab panel", "Switches between tabs", "Jumps to first/last tab"] },
+        { component: "Radio Group", actions: ["Moves focus to selected radio (or first if none selected)", "Selects and moves between radio buttons", "Selects focused radio button"] },
+      ],
+      testingTitle: "Testing Keyboard Accessibility",
+      testingDescription: "Every interactive element must be fully operable via keyboard. Test each page by:",
+      testingSteps: ["Unplug your mouse or disable trackpad", "Navigate using only Tab, Shift+Tab, Enter, Space, and Arrow keys", "Verify all functionality is accessible", "Ensure focus indicators are always visible", "Check that focus never becomes trapped unintentionally"],
+    },
+    screenReaderSection: {
+      title: "Screen Reader Considerations",
+      description: "Ensuring content is accessible to assistive technology users",
+      ariaTitle: "Essential ARIA Attributes",
+      aria: ["Provides accessible name when visible text isn't suitable", "References element(s) that label the current element", "References element(s) that describe the current element", "Announces dynamic content changes (polite, assertive, off)", "Indicates current item in navigation", "Indicates if element is expanded or collapsed", "Hides decorative content from screen readers"],
+      visuallyHiddenTitle: "Visually Hidden Text",
+      visuallyHiddenDescription: "Use visually hidden text to provide context for screen reader users without affecting visual design.",
+      exampleLabel: "Example:",
+      iconOnlyButtons: "Icon-only buttons",
+      alternativeTextTitle: "Alternative Text",
+      goodAltText: "Good Alt Text",
+      descriptiveContextual: "Descriptive and contextual",
+      poorAltText: "Poor Alt Text",
+      nonDescriptiveFilename: "Non-descriptive filename",
+      decorativeImages: "Decorative Images",
+      emptyAlt: "Empty alt for decorative images",
+      testingTitle: "Testing with Screen Readers",
+      nvdaDescription: "Free, open-source screen reader",
+      downloadNvda: "Download NVDA →",
+      voiceOverDescription: "Built into Apple devices",
+      voiceOverToggle: "Cmd + F5 to toggle",
+      jawsDescription: "Industry-standard screen reader",
+      downloadJaws: "Download JAWS →",
+    },
+    semanticSection: {
+      title: "Semantic Structure Guidance",
+      description: "Using HTML elements correctly for meaning and accessibility",
+      headingHierarchy: "Heading Hierarchy",
+      headingNotes: ["One per page", "Main sections", "Nested under h2"],
+      neverSkipHeadingLevels: "Never skip heading levels",
+      neverSkipDescription: "h1 → h3 is incorrect. Always use sequential order.",
+      landmarkRegions: "Landmark Regions",
+      landmarks: ["Site/page header with logo and navigation", "Navigation menu or links", "Primary content (one per page)", "Complementary content or sidebar", "Site/page footer", "Thematic grouping of content", "Self-contained content"],
+      semanticHtmlPatterns: "Semantic HTML Patterns",
+      semanticExamples: ["Use semantic button element for interactive actions", "Use anchor tags for navigation, buttons for actions", "Use semantic list elements for lists of items"],
+    },
+    formSection: {
+      title: "Form Accessibility",
+      description: "Making forms accessible and easy to complete",
+      checklistTitle: "Form Accessibility Checklist",
+      groups: [
+        { title: "Label Association", items: ["Every input has an associated label", "Labels use htmlFor/id or wrap the input", "Labels are always visible (not placeholder-only)", "Labels clearly describe the input's purpose"] },
+        { title: "Required Fields", items: ["Required fields marked with * or 'Required'", "aria-required='true' on required inputs", "Clear indication at form start about required fields", "Validation triggers on form submit, not during typing"] },
+        { title: "Helper Text", items: ["Complex fields have helper text explaining format", "Helper text associated with aria-describedby", "Character limits announced to screen readers", "Examples provided for unclear field types"] },
+        { title: "Input Types", items: ["Appropriate input type for content (email, tel, number)", "Correct keyboard shown on mobile devices", "Date pickers are keyboard accessible", "Custom controls have proper ARIA roles"] },
+      ],
+      exampleTitle: "Accessible Form Example",
+      fullName: "Full Name",
+      emailAddress: "Email Address",
+      emailHint: "We'll never share your email with anyone else.",
+      preferredContact: "Preferred Contact Method",
+      email: "Email",
+      phone: "Phone",
+      keyPointsTitle: "Key Points",
+      keyPoints: ["Label associated with input via matching ids", "Programmatically indicates required field", "Associates helper text with input", "Groups related radio buttons semantically", "Correct type (email, tel) for better UX", "Clear ring on focus for keyboard users"],
+    },
+    errorSection: {
+      title: "Error Handling Accessibility",
+      description: "Communicating errors clearly to all users",
+      requirementsTitle: "Error Message Requirements",
+      requirements: ["Clearly identify which field has an error", "Explain what went wrong in plain language", "Provide guidance on how to fix the error", "Show errors inline near the related field", "Use aria-invalid='true' on error fields", "Associate error message with aria-describedby", "Use aria-live for dynamic error announcements", "Don't rely on color alone to indicate errors"],
+      exampleTitle: "Example: Error State",
+      emailAddress: "Email Address",
+      emailError: "Please enter a valid email address (e.g., name@example.com)",
+      implementation: "Implementation",
+      summaryTitle: "Error Summary Pattern",
+      summaryHeading: "There are 2 errors in this form",
+      summaryLinks: ["Email Address: Please enter a valid email address", "Phone Number: Phone number must be 10 digits"],
+      bestPracticesTitle: "Error Summary Best Practices",
+      bestPractices: ["Show error summary at top of form after submission", "Move focus to error summary or first error field", "Provide links to jump to each error field", "Use role=\"alert\" or aria-live=\"assertive\" for announcement"],
+    },
+    tableSection: {
+      title: "Table Accessibility",
+      description: "Making data tables accessible and navigable",
+      exampleTitle: "Accessible Table Example",
+      caption: "Application Status for January 2024",
+      columns: ["Application ID", "Applicant Name", "Status", "Date"],
+      approved: "Approved",
+      pending: "Pending",
+      requirementsTitle: "Table Requirements",
+      requirements: ["Describes table purpose", "Groups header and body rows", "Identifies column headers", "Identifies row headers", "Avoid merged cells when possible"],
+      simpleStructureHead: "Simple structure:",
+      responsiveTitle: "Responsive Tables",
+      responsiveDescription: "On mobile viewports, complex tables should transform into a more accessible format:",
+      responsiveItems: ["Convert to card view with labeled data", "Allow horizontal scrolling with visible scroll hint", "Stack columns vertically for narrow screens", "Provide alternative data views (list, grid)"],
+    },
+    modalSection: {
+      title: "Modal & Dialog Accessibility",
+      description: "Managing focus and interaction in modal overlays",
+      requirementsTitle: "Modal Accessibility Requirements",
+      groups: [
+        { title: "Focus Management", items: ["Move focus to modal when opened", "Trap focus within modal (Tab cycles inside)", "Return focus to trigger element when closed", "First focusable element should be close button or primary action"] },
+        { title: "Keyboard Support", items: ["Esc key closes the modal", "Tab/Shift+Tab navigates within modal only", "Enter activates focused button", "Prevent background scroll while open"] },
+        { title: "ARIA Attributes", items: ['role="dialog" or role="alertdialog"', 'aria-modal="true" to indicate modal state', 'aria-labelledby pointing to modal title', 'aria-describedby for modal description (optional)'] },
+        { title: "Screen Reader Support", items: ["Background content hidden with aria-hidden", "Modal title announced when opened", "Clear indication of modal purpose", "Closing action clearly labeled"] },
+      ],
+    },
+    statusSection: {
+      title: "Status Communication",
+      description: "Announcing dynamic changes to assistive technology users",
+      liveRegionsTitle: "ARIA Live Regions",
+      liveRegions: [
+        'Announces changes when user is idle. Use for non-critical updates like form validations or status messages.',
+        'Interrupts current announcement. Use sparingly for critical errors or time-sensitive alerts.',
+        'Equivalent to aria-live="polite". Use for status updates and feedback messages.',
+        'Equivalent to aria-live="assertive". Use for critical error messages requiring immediate attention.',
+      ],
+      formSubmissionTitle: "Example: Form Submission",
+      submitApplication: "Submit Application",
+      applicationSubmitted: "Application submitted successfully",
+      criticalErrorTitle: "Example: Critical Error",
+      sessionExpired: "Session expired. Please log in again.",
+    },
+    limitationsSection: {
+      title: "Known Limitations Pattern",
+      description: "Transparently documenting accessibility constraints",
+      transparencyTitle: "Transparency in Accessibility",
+      transparencyDescription: "The UX4G Design System maintains transparency about any known accessibility limitations. This allows teams to make informed decisions and plan for workarounds or future improvements.",
+      columns: ["Component", "Known Limitation", "Workaround", "Status"],
+      rows: [
+        { limitation: "Calendar grid may be difficult to navigate with screen reader", workaround: "Provide manual text input alternative", status: "In Progress" },
+        { limitation: "Complex toolbar navigation requires extensive keyboard patterns", workaround: "Use native textarea for accessibility-critical forms", status: "Documented" },
+        { limitation: "Complex charts may not convey full information to screen reader users", workaround: "Provide data table alternative and text description", status: "Resolved" },
+      ],
+      reportingTitle: "Reporting Accessibility Issues",
+      reportingDescription: "If you discover an accessibility issue not listed above, please report it to the UX4G team:",
+      reportingLabels: ["Email:", "Issue Tracker:", "Required Information:"],
+      requiredInformation: "Component name, assistive technology used, steps to reproduce",
+    },
+    reviewSection: {
+      title: "Accessibility Review Checklist",
+      description: "Comprehensive checklist for accessibility compliance",
+      preLaunchTitle: "Pre-Launch Accessibility Checklist",
+      categories: [
+        { category: "Perceivable", items: ["All images have meaningful alt text", "Color contrast meets WCAG AA (4.5:1 for text, 3:1 for UI)", "Content doesn't rely on color alone", "Text can be resized to 200% without loss of content", "Videos have captions and transcripts"] },
+        { category: "Operable", items: ["All functionality available via keyboard", "No keyboard traps present", "Focus indicators are clearly visible", "Skip links provided for main content", "No time limits or they can be extended"] },
+        { category: "Understandable", items: ["Language of page declared in HTML", "Navigation is consistent across pages", "Labels and instructions provided for inputs", "Error messages are clear and helpful", "Forms can be reviewed before submission"] },
+        { category: "Robust", items: ["Valid HTML markup (no errors)", "ARIA attributes used correctly", "Semantic HTML elements used appropriately", "Tested with screen readers (NVDA, JAWS, VoiceOver)", "No console errors in browser"] },
+        { category: "Forms", items: ["All inputs have associated labels", "Required fields are clearly marked", "Error messages are associated with inputs", "Fieldsets and legends used for radio/checkbox groups", "Tab order is logical and predictable"] },
+        { category: "Navigation", items: ["Heading hierarchy is correct (h1-h6)", "Landmark regions properly defined", "Breadcrumbs present where appropriate", "Current page indicated in navigation", "Links have meaningful text (no 'click here')"] },
+        { category: "Interactive Elements", items: ["Buttons use <button> element", "Links use <a> element for navigation", "Tooltips accessible on keyboard focus", "Modals trap focus and close with Esc", "Accordions/tabs have proper ARIA"] },
+        { category: "Testing", items: ["Tested with keyboard only (no mouse)", "Tested with screen reader", "Automated testing passed (axe, Lighthouse)", "Manual accessibility audit completed", "Tested with browser zoom at 200%"] },
+      ],
+      continuousTitle: "Continuous Accessibility",
+      continuousDescription: "Accessibility is not a one-time checklist. It requires ongoing attention:",
+      continuousItems: ["Include accessibility testing in every sprint/release cycle", "Run automated accessibility tests in CI/CD pipeline", "Conduct quarterly accessibility audits", "Gather feedback from users with disabilities", "Stay updated with WCAG guidelines and best practices"],
+    },
+    common: { pass: "Pass", fail: "Fail", correct: "Correct", incorrect: "Incorrect" },
+  },
+  hi: {
+    hero: {
+      eyebrow: "UX4G Design System",
+      title: "सुगम्यता",
+      description:
+        "UX4G Design System में accessibility मूलभूत है। हर component, pattern और guideline को WCAG 2.1 Level AA मानकों के अनुरूप डिज़ाइन किया गया है, ताकि सरकारी डिजिटल सेवाएं भारत के सभी नागरिकों के लिए सुलभ हों।",
+      pills: { wcag: "WCAG 2.1 Level AA compliant", builtIn: "डिफ़ॉल्ट रूप से built-in", tested: "कठोर रूप से tested" },
+    },
+    principlesSection: {
+      title: "Accessibility Principles",
+      description: "UX4G में accessibility implementation को दिशा देने वाले मुख्य सिद्धांत",
+      cards: {
+        perceivable: { title: "Perceivable", description: "जानकारी और user interface components ऐसे रूप में प्रस्तुत होने चाहिए जिन्हें उपयोगकर्ता समझ और ग्रहण कर सकें।", items: ["Text और interactive elements के लिए पर्याप्त color contrast", "Non-text content के लिए text alternatives", "Multimedia के लिए captions और alternatives", "जानकारी खोए बिना अनुकूलित किया जा सकने वाला content"] },
+        operable: { title: "Operable", description: "User interface components और navigation सभी उपयोगकर्ताओं द्वारा संचालित किए जा सकें।", items: ["सारी functionality keyboard से उपलब्ध हो", "उपयोगकर्ताओं को पढ़ने और interact करने के लिए पर्याप्त समय मिले", "Navigation mechanisms स्पष्ट और सुसंगत हों", "ऐसा कोई content न हो जो seizures का कारण बने"] },
+        understandable: { title: "Understandable", description: "जानकारी और user interface का संचालन समझने योग्य होना चाहिए।", items: ["Text content पठनीय और समझने योग्य हो", "Pages पूर्वानुमेय तरीके से दिखें और काम करें", "उपयोगकर्ताओं को गलतियों से बचने और सुधारने में मदद मिले", "स्पष्ट error messages और recovery paths"] },
+        robust: { title: "Robust", description: "Content इतना robust होना चाहिए कि assistive technologies उसे सही तरह से समझ सकें।", items: ["Valid semantic HTML markup", "जहाँ आवश्यक हो वहाँ सही ARIA attributes", "वर्तमान और भविष्य की assistive technologies के साथ compatibility", "Progressive enhancement approach"] },
+      },
+      law: {
+        title: "Rights of Persons with Disabilities Act, 2016",
+        description:
+          "UX4G Design System, भारत के Rights of Persons with Disabilities Act, 2016 के अनुरूप है, जो यह अनिवार्य करता है कि सभी सरकारी डिजिटल सेवाएं सुलभ हों। Compliance वैकल्पिक नहीं है; यह कानूनी आवश्यकता और नैतिक दायित्व दोनों है।",
+      },
+    },
+    colorContrastSection: {
+      title: "Color Contrast Guidance",
+      description: "सभी text और interactive elements के लिए पर्याप्त contrast ratios सुनिश्चित करना",
+      requirementsTitle: "WCAG Contrast Requirements",
+      normalTextRequirement: "18px से छोटे text या 14px bold text के लिए",
+      largeTextRequirement: "18px+ या 14px+ bold text के लिए",
+      uiRequirement: "Interactive elements और graphics के लिए",
+      colorBlindnessTitle: "Color Blindness Considerations",
+      deuteranopia: "Red-green color blindness (सबसे सामान्य)",
+      protanopia: "Red color blindness",
+      tritanopia: "Blue-yellow color blindness",
+      mayAppearSimilar: "समान दिख सकते हैं",
+      redAppearsMuted: "Red muted दिख सकता है",
+      designGuidelines: "Design Guidelines",
+      guidelineHeads: { colorAlone: "केवल रंग पर निर्भर न रहें", highContrast: "High contrast का उपयोग करें", supplementColor: "रंग को supplement करें", testDesigns: "Designs की जांच करें" },
+      guidelines: ["जानकारी देने के लिए—text, icons या patterns का उपयोग करें", "foreground और background colors के बीच", "status indicators के लिए text labels, icons या patterns के साथ", "design phase के दौरान color blindness simulators का उपयोग करके"],
+      testingContrast: "Contrast testing",
+      recommendedTools: "Recommended Tools",
+      testingProcess: "Testing Process",
+      toolDescriptions: { webaim: "color combinations की जांच के लिए online tool", devtools: "Chrome/Edge में built-in accessibility audits", figma: "A11y - Color Contrast Checker, Stark", automated: "axe DevTools, Lighthouse CI" },
+      process: ["हर text को उसके background color के विरुद्ध जांचें", "Interactive element contrast (borders, focus states) की पुष्टि करें", "Graphic elements और iconography की जांच करें", "Grayscale में टेस्ट करें ताकि जानकारी न खोए"],
+    },
+    focusSection: {
+      title: "Focus Visibility Rules",
+      description: "Keyboard navigation के लिए स्पष्ट और सुसंगत focus indicators",
+      requirementsTitle: "Focus Indicator Requirements",
+      minimumRequirements: "Minimum Requirements (WCAG 2.4.7)",
+      minimumItems: ["Focus indicator होना चाहिए", "न्यूनतम", "यह मौजूद होना चाहिए", "इसे CSS से हटाया नहीं जाना चाहिए"],
+      minimumStrong: ["स्पष्ट रूप से दिखाई देने वाला", "3:1 contrast", "सभी interactive elements पर"],
+      minimumTail: ["", "adjacent colors के साथ", ""],
+      standardTitle: "UX4G Focus Standard",
+      standardLabels: { ringWidth: "Ring width:", ringColor: "Ring color:", ringOffset: "Ring offset:", borderRadius: "Border radius:", matchesElement: "Element के अनुरूप" },
+      examples: { buttonFocus: "Button Focus", focusedButton: "Focused Button", inputFocus: "Input Focus", focusedInput: "Focused input field", linkFocus: "Link Focus", focusedLink: "Focused Link", checkboxFocus: "Checkbox Focus", focusedCheckbox: "Focused checkbox" },
+      focusOrderTitle: "Focus Order",
+      order: [
+        { element: "Logo/Header", desc: "ऊपरी-बाएँ navigation elements" },
+        { element: "Main Navigation", desc: "Primary navigation menu" },
+        { element: "Skip Link", desc: "मुख्य content पर जाने की सुविधा" },
+        { element: "Main Content", desc: "Primary page content, बाएँ से दाएँ, ऊपर से नीचे" },
+        { element: "Sidebar", desc: "Secondary navigation या filters" },
+        { element: "Footer Links", desc: "Footer navigation और information" },
+      ],
+      doLabel: "क्या करें",
+      dontLabel: "क्या न करें",
+      doItems: ["Natural reading order का पालन करें (ऊपर से नीचे, बाएँ से दाएँ)", "Natural tab order के लिए semantic HTML का उपयोग करें", "Keyboard-only से focus order टेस्ट करें", "लंबी navigation के लिए skip links दें"],
+      dontItems: ['Positive tabindex values का उपयोग न करें (tabindex="1")', "Confusing focus traps न बनाएं", "CSS से focus indicators न छिपाएं", "Mouse-only interactions पर निर्भर न रहें"],
+    },
+    keyboardSection: {
+      title: "Keyboard Interaction Expectations",
+      description: "सभी interactive components के लिए standard keyboard patterns",
+      standardControls: "Standard Keyboard Controls",
+      controls: ["Focus को अगले interactive element तक ले जाएँ", "Focus को पिछले interactive element तक वापस ले जाएँ", "Buttons, links और forms को activate करें", "Buttons activate करें, checkboxes toggle करें, page scroll करें", "Components के भीतर navigate करें (menus, tabs, radio groups)", "Modals, dialogs, dropdowns बंद करें और operations cancel करें", "List की पहली item या text field की शुरुआत में जाएँ", "List की अंतिम item या text field के अंत में जाएँ"],
+      patterns: [
+        { component: "Modal/Dialog", actions: ["Modal के भीतर ही focus cycle करें (focus trap)", "Modal बंद करें और focus को trigger पर लौटाएँ", "Primary action button को activate करें"] },
+        { component: "Dropdown Menu", actions: ["Dropdown menu खोलें", "Menu items में navigate करें", "Menu बंद करें और focus लौटाएँ", "Matching menu item पर जाएँ"] },
+        { component: "Tabs", actions: ["Active tab पर focus ले जाएँ, फिर tab panel पर", "Tabs के बीच switch करें", "पहले/अंतिम tab पर जाएँ"] },
+        { component: "Radio Group", actions: ["Selected radio पर focus ले जाएँ (या यदि कोई selected नहीं है तो पहले पर)", "Radio buttons के बीच select और move करें", "Focused radio button select करें"] },
+      ],
+      testingTitle: "Testing Keyboard Accessibility",
+      testingDescription: "हर interactive element keyboard के माध्यम से पूरी तरह operable होना चाहिए। हर page को इस तरह टेस्ट करें:",
+      testingSteps: ["अपना mouse unplug करें या trackpad disable करें", "केवल Tab, Shift+Tab, Enter, Space और Arrow keys का उपयोग करके navigate करें", "सुनिश्चित करें कि सारी functionality accessible है", "ध्यान दें कि focus indicators हमेशा दिखाई दें", "जांचें कि focus अनजाने में trap न हो"],
+    },
+    screenReaderSection: {
+      title: "Screen Reader Considerations",
+      description: "Assistive technology users के लिए content को accessible बनाना",
+      ariaTitle: "Essential ARIA Attributes",
+      aria: ["जब visible text उपयुक्त न हो तब accessible name प्रदान करता है", "वर्तमान element को label करने वाले element(s) का reference देता है", "वर्तमान element का वर्णन करने वाले element(s) का reference देता है", "Dynamic content changes की घोषणा करता है (polite, assertive, off)", "Navigation में current item को दर्शाता है", "Element expanded है या collapsed, यह बताता है", "Decorative content को screen readers से छिपाता है"],
+      visuallyHiddenTitle: "Visually Hidden Text",
+      visuallyHiddenDescription: "Visual design को प्रभावित किए बिना screen reader users को context देने के लिए visually hidden text का उपयोग करें।",
+      exampleLabel: "उदाहरण:",
+      iconOnlyButtons: "Icon-only buttons",
+      alternativeTextTitle: "Alternative Text",
+      goodAltText: "अच्छा Alt Text",
+      descriptiveContextual: "वर्णनात्मक और प्रसंगानुसार",
+      poorAltText: "कमज़ोर Alt Text",
+      nonDescriptiveFilename: "गैर-वर्णनात्मक फ़ाइल नाम",
+      decorativeImages: "Decorative Images",
+      emptyAlt: "Decorative images के लिए खाली alt",
+      testingTitle: "Screen Readers के साथ testing",
+      nvdaDescription: "Free, open-source screen reader",
+      downloadNvda: "NVDA डाउनलोड करें →",
+      voiceOverDescription: "Apple devices में built-in",
+      voiceOverToggle: "टॉगल करने के लिए Cmd + F5",
+      jawsDescription: "Industry-standard screen reader",
+      downloadJaws: "JAWS डाउनलोड करें →",
+    },
+    semanticSection: {
+      title: "Semantic Structure Guidance",
+      description: "Meaning और accessibility के लिए HTML elements का सही उपयोग",
+      headingHierarchy: "Heading Hierarchy",
+      headingNotes: ["प्रति पृष्ठ एक", "मुख्य sections", "h2 के अंतर्गत nested"],
+      neverSkipHeadingLevels: "Heading levels कभी न छोड़ें",
+      neverSkipDescription: "h1 → h3 गलत है। हमेशा sequential order का उपयोग करें।",
+      landmarkRegions: "Landmark Regions",
+      landmarks: ["Logo और navigation वाला site/page header", "Navigation menu या links", "Primary content (प्रति पृष्ठ एक)", "Complementary content या sidebar", "Site/page footer", "Content का thematic grouping", "Self-contained content"],
+      semanticHtmlPatterns: "Semantic HTML Patterns",
+      semanticExamples: ["Interactive actions के लिए semantic button element का उपयोग करें", "Navigation के लिए anchor tags और actions के लिए buttons का उपयोग करें", "Items की lists के लिए semantic list elements का उपयोग करें"],
+    },
+    formSection: {
+      title: "Form Accessibility",
+      description: "Forms को accessible और पूरा करने में आसान बनाना",
+      checklistTitle: "Form Accessibility Checklist",
+      groups: [
+        { title: "Label Association", items: ["हर input के साथ associated label हो", "Labels htmlFor/id का उपयोग करें या input को wrap करें", "Labels हमेशा दिखाई दें (सिर्फ placeholder न हों)", "Labels input के उद्देश्य को स्पष्ट रूप से बताएं"] },
+        { title: "Required Fields", items: ["Required fields को * या 'Required' से चिह्नित करें", "Required inputs पर aria-required='true' हो", "Form की शुरुआत में required fields का स्पष्ट संकेत दें", "Validation typing के दौरान नहीं, form submit पर trigger हो"] },
+        { title: "Helper Text", items: ["Complex fields के लिए format समझाने वाला helper text हो", "Helper text aria-describedby से जुड़ा हो", "Character limits screen readers को बताए जाएँ", "अस्पष्ट field types के लिए examples दिए जाएँ"] },
+        { title: "Input Types", items: ["Content के अनुसार सही input type (email, tel, number)", "Mobile devices पर सही keyboard दिखे", "Date pickers keyboard accessible हों", "Custom controls में सही ARIA roles हों"] },
+      ],
+      exampleTitle: "Accessible Form Example",
+      fullName: "पूरा नाम",
+      emailAddress: "ईमेल पता",
+      emailHint: "हम आपका ईमेल किसी और के साथ साझा नहीं करेंगे।",
+      preferredContact: "Preferred Contact Method",
+      email: "ईमेल",
+      phone: "फ़ोन",
+      keyPointsTitle: "मुख्य बिंदु",
+      keyPoints: ["Matching ids के माध्यम से input से जुड़ा label", "Programmatically required field दर्शाता है", "Helper text को input से जोड़ता है", "Related radio buttons को semantically group करता है", "बेहतर UX के लिए सही type (email, tel)", "Keyboard users के लिए focus पर स्पष्ट ring"],
+    },
+    errorSection: {
+      title: "Error Handling Accessibility",
+      description: "सभी उपयोगकर्ताओं तक errors को स्पष्ट रूप से पहुँचाना",
+      requirementsTitle: "Error Message Requirements",
+      requirements: ["स्पष्ट रूप से बताएं कि किस field में error है", "साधारण भाषा में बताएं कि समस्या क्या हुई", "Error ठीक करने के लिए मार्गदर्शन दें", "संबंधित field के पास inline errors दिखाएं", "Error fields पर aria-invalid='true' का उपयोग करें", "Error message को aria-describedby से जोड़ें", "Dynamic error announcements के लिए aria-live का उपयोग करें", "Errors दिखाने के लिए केवल रंग पर निर्भर न रहें"],
+      exampleTitle: "उदाहरण: Error State",
+      emailAddress: "ईमेल पता",
+      emailError: "कृपया एक वैध ईमेल पता दर्ज करें (उदा., name@example.com)",
+      implementation: "इम्प्लीमेंटेशन",
+      summaryTitle: "Error Summary Pattern",
+      summaryHeading: "इस form में 2 errors हैं",
+      summaryLinks: ["Email Address: कृपया एक वैध ईमेल पता दर्ज करें", "Phone Number: फ़ोन नंबर 10 अंकों का होना चाहिए"],
+      bestPracticesTitle: "Error Summary Best Practices",
+      bestPractices: ["Submission के बाद form के शीर्ष पर error summary दिखाएं", "Focus को error summary या पहली error field पर ले जाएँ", "हर error field पर जाने के लिए links दें", "घोषणा के लिए role=\"alert\" या aria-live=\"assertive\" का उपयोग करें"],
+    },
+    tableSection: {
+      title: "Table Accessibility",
+      description: "Data tables को accessible और navigable बनाना",
+      exampleTitle: "Accessible Table Example",
+      caption: "जनवरी 2024 के लिए Application Status",
+      columns: ["Application ID", "Applicant Name", "Status", "Date"],
+      approved: "Approved",
+      pending: "Pending",
+      requirementsTitle: "Table Requirements",
+      requirements: ["Table के उद्देश्य का वर्णन करता है", "Header और body rows को group करता है", "Column headers की पहचान करता है", "Row headers की पहचान करता है", "जहाँ संभव हो merged cells से बचें"],
+      simpleStructureHead: "Simple structure:",
+      responsiveTitle: "Responsive Tables",
+      responsiveDescription: "Mobile viewports पर complex tables को अधिक accessible format में बदलना चाहिए:",
+      responsiveItems: ["Labeled data के साथ card view में बदलें", "Visible scroll hint के साथ horizontal scrolling दें", "Narrow screens के लिए columns को vertically stack करें", "Alternative data views (list, grid) प्रदान करें"],
+    },
+    modalSection: {
+      title: "Modal & Dialog Accessibility",
+      description: "Modal overlays में focus और interaction को manage करना",
+      requirementsTitle: "Modal Accessibility Requirements",
+      groups: [
+        { title: "Focus Management", items: ["Open होने पर focus को modal पर ले जाएँ", "Focus को modal के भीतर trap करें (Tab अंदर cycle करे)", "Close होने पर focus को trigger element पर लौटाएँ", "पहला focusable element close button या primary action होना चाहिए"] },
+        { title: "Keyboard Support", items: ["Esc key modal बंद करे", "Tab/Shift+Tab केवल modal के भीतर navigate करें", "Enter focused button को activate करे", "Open होने पर background scroll रोकें"] },
+        { title: "ARIA Attributes", items: ['role="dialog" या role="alertdialog"', 'Modal state बताने के लिए aria-modal="true"', 'Modal title की ओर point करता aria-labelledby', 'Modal description के लिए aria-describedby (वैकल्पिक)'] },
+        { title: "Screen Reader Support", items: ["Background content aria-hidden के साथ छिपा हो", "Open होने पर modal title announce हो", "Modal purpose स्पष्ट हो", "Closing action स्पष्ट रूप से labeled हो"] },
+      ],
+    },
+    statusSection: {
+      title: "Status Communication",
+      description: "Assistive technology users को dynamic changes announce करना",
+      liveRegionsTitle: "ARIA Live Regions",
+      liveRegions: ['जब user idle हो तब changes announce करें। Form validations या status messages जैसे non-critical updates के लिए उपयोग करें।', 'वर्तमान announcement को interrupt करता है। Critical errors या time-sensitive alerts के लिए सीमित उपयोग करें।', 'aria-live="polite" के समकक्ष। Status updates और feedback messages के लिए उपयोग करें।', 'aria-live="assertive" के समकक्ष। तुरंत ध्यान माँगने वाले critical errors के लिए उपयोग करें।'],
+      formSubmissionTitle: "उदाहरण: Form Submission",
+      submitApplication: "Application submit करें",
+      applicationSubmitted: "Application सफलतापूर्वक submit हुई",
+      criticalErrorTitle: "उदाहरण: Critical Error",
+      sessionExpired: "Session समाप्त हो गई। कृपया फिर से log in करें।",
+    },
+    limitationsSection: {
+      title: "Known Limitations Pattern",
+      description: "Accessibility constraints को पारदर्शी रूप से document करना",
+      transparencyTitle: "Accessibility में पारदर्शिता",
+      transparencyDescription: "UX4G Design System किसी भी ज्ञात accessibility limitations के बारे में पारदर्शिता बनाए रखता है। इससे टीमें सूचित निर्णय ले सकती हैं और workarounds या future improvements की योजना बना सकती हैं।",
+      columns: ["Component", "Known Limitation", "Workaround", "Status"],
+      rows: [
+        { limitation: "Calendar grid को screen reader के साथ navigate करना कठिन हो सकता है", workaround: "Manual text input alternative प्रदान करें", status: "प्रगति में" },
+        { limitation: "Complex toolbar navigation के लिए विस्तृत keyboard patterns चाहिए", workaround: "Accessibility-critical forms के लिए native textarea का उपयोग करें", status: "दस्तावेजीकृत" },
+        { limitation: "Complex charts screen reader users तक पूरी जानकारी न पहुँचा सकें", workaround: "Data table alternative और text description दें", status: "सुलझाया गया" },
+      ],
+      reportingTitle: "Accessibility Issues रिपोर्ट करना",
+      reportingDescription: "यदि आपको ऊपर सूचीबद्ध न की गई कोई accessibility issue मिलती है, तो कृपया UX4G team को रिपोर्ट करें:",
+      reportingLabels: ["Email:", "Issue Tracker:", "Required Information:"],
+      requiredInformation: "Component name, उपयोग की गई assistive technology, reproduce करने के steps",
+    },
+    reviewSection: {
+      title: "Accessibility Review Checklist",
+      description: "Accessibility compliance के लिए comprehensive checklist",
+      preLaunchTitle: "Pre-Launch Accessibility Checklist",
+      categories: [
+        { category: "Perceivable", items: ["सभी images में meaningful alt text हो", "Color contrast WCAG AA को पूरा करता हो (text के लिए 4.5:1, UI के लिए 3:1)", "Content केवल रंग पर निर्भर न हो", "Text को 200% तक resize करने पर content न खोए", "Videos में captions और transcripts हों"] },
+        { category: "Operable", items: ["सारी functionality keyboard से उपलब्ध हो", "कोई keyboard traps न हों", "Focus indicators स्पष्ट रूप से दिखाई दें", "Main content के लिए skip links दिए गए हों", "Time limits न हों या बढ़ाए जा सकें"] },
+        { category: "Understandable", items: ["Page की language HTML में घोषित हो", "Pages में navigation सुसंगत हो", "Inputs के लिए labels और instructions दिए गए हों", "Error messages स्पष्ट और सहायक हों", "Submission से पहले forms की समीक्षा की जा सके"] },
+        { category: "Robust", items: ["Valid HTML markup (कोई errors नहीं)", "ARIA attributes सही उपयोग हुए हों", "Semantic HTML elements उचित रूप से उपयोग हुए हों", "Screen readers (NVDA, JAWS, VoiceOver) के साथ test किया गया हो", "Browser में कोई console errors न हों"] },
+        { category: "Forms", items: ["सभी inputs के associated labels हों", "Required fields स्पष्ट रूप से चिह्नित हों", "Error messages inputs से जुड़े हों", "Radio/checkbox groups के लिए fieldsets और legends उपयोग हों", "Tab order logical और predictable हो"] },
+        { category: "Navigation", items: ["Heading hierarchy सही हो (h1-h6)", "Landmark regions सही तरह से defined हों", "जहाँ उचित हो वहाँ breadcrumbs हों", "Navigation में current page दर्शाई गई हो", "Links का text meaningful हो ('click here' नहीं)"] },
+        { category: "Interactive Elements", items: ["Buttons में <button> element का उपयोग हो", "Navigation के लिए links में <a> element का उपयोग हो", "Keyboard focus पर tooltips accessible हों", "Modals focus trap करें और Esc से बंद हों", "Accordions/tabs में proper ARIA हो"] },
+        { category: "Testing", items: ["Keyboard only (बिना mouse) के साथ test किया गया हो", "Screen reader के साथ test किया गया हो", "Automated testing passed (axe, Lighthouse)", "Manual accessibility audit पूरी हुई हो", "Browser zoom 200% पर test किया गया हो"] },
+      ],
+      continuousTitle: "Continuous Accessibility",
+      continuousDescription: "Accessibility एक बार की checklist नहीं है। इसके लिए निरंतर ध्यान आवश्यक है:",
+      continuousItems: ["हर sprint/release cycle में accessibility testing शामिल करें", "CI/CD pipeline में automated accessibility tests चलाएँ", "Quarterly accessibility audits करें", "Disabilities वाले users से feedback लें", "WCAG guidelines और best practices के साथ updated रहें"],
+    },
+    common: { pass: "Pass", fail: "Fail", correct: "Correct", incorrect: "Incorrect" },
+  },
+} as const;
+
 function SectionHeader({ title, description }: { title: string; description: string }) {
   return (
     <div className="mb-8">
@@ -1512,6 +1987,7 @@ function PrincipleCard({ icon, title, description, items }: any) {
 }
 
 function ContrastExample({ title, ratio, requirement, examples }: any) {
+  const common = useAccessibilityCopy().common;
   return (
     <div className="p-6 hover:bg-background">
       <div className="mb-4">
@@ -1538,8 +2014,8 @@ function ContrastExample({ title, ratio, requirement, examples }: any) {
               ) : (
                 <X className="text-red-600" size={20} />
               )}
-              <span className={`text-sm font-semibold ${example.pass ? 'text-[#138808]' : 'text-red-600'}`}>
-                {example.pass ? 'Pass' : 'Fail'}
+                <span className={`text-sm font-semibold ${example.pass ? 'text-[#138808]' : 'text-red-600'}`}>
+                {example.pass ? common.pass : common.fail}
               </span>
             </div>
           </div>
@@ -1568,20 +2044,21 @@ function KeyboardPattern({ component, keys }: any) {
 }
 
 function SemanticExample({ correct, incorrect, reason }: any) {
+  const common = useAccessibilityCopy().common;
   return (
     <div className="p-6 hover:bg-background">
       <div className="grid grid-cols-2 gap-6 mb-3">
         <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-3">
           <div className="flex items-center gap-2 mb-2">
             <Check className="text-[#138808]" size={16} />
-            <span className="font-semibold text-sm">Correct</span>
+            <span className="font-semibold text-sm">{common.correct}</span>
           </div>
           <code className="text-xs font-mono text-foreground block">{correct}</code>
         </div>
         <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-3">
           <div className="flex items-center gap-2 mb-2">
             <X className="text-red-600" size={16} />
-            <span className="font-semibold text-sm">Incorrect</span>
+            <span className="font-semibold text-sm">{common.incorrect}</span>
           </div>
           <code className="text-xs font-mono text-foreground block">{incorrect}</code>
         </div>
