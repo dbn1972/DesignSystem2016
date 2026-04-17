@@ -484,6 +484,341 @@ export default function Patterns() {
   );
 }
 
+const PATTERNS_COPY = {
+  en: {
+    hero: {
+      eyebrow: 'Reusable interaction patterns',
+      title: 'Patterns',
+      description:
+        'Reusable solutions for common design problems in government digital services. Patterns combine components and behavior to reduce duplication and keep user journeys consistent across the platform.',
+      openPatternLibrary: 'Open pattern library',
+      viewFormIntelligence: 'View form intelligence',
+      viewMultilingualGuidance: 'View multilingual guidance',
+      stats: {
+        patternGroups: 'pattern groups',
+        journeyViews: 'journey views',
+        accessibleDemos: 'accessible demos',
+        sharedStandard: 'shared standard',
+      },
+    },
+    summary: {
+      eyebrow: 'Pattern map',
+      title: 'A responsive overview for complex service design',
+      reusablePatternsTitle: 'Reusable patterns',
+      reusablePatternsDescription: 'Design once, apply across similar citizen journeys.',
+      serviceFlowsTitle: 'Service flows',
+      serviceFlowsDescription: 'Connect patterns into complete end-to-end experiences.',
+      bestPracticeTitle: 'Best practice',
+      bestPracticeDescription: 'Keep logic, layout, and feedback aligned across modules.',
+      governmentGradeConsistency: 'Government-grade consistency',
+      governmentGradeDescription:
+        'All pattern guidance is intended to help teams build predictable, accessible, and scalable service experiences.',
+    },
+    librarySection: {
+      eyebrow: 'Pattern library',
+      title: 'Common patterns for consistent service design',
+      description:
+        'The library is organised around the most common government service problems, so teams can move from overview to implementation without losing clarity.',
+      recommendedEntryPoints: 'Recommended entry points',
+      viewPatterns: 'View patterns',
+    },
+    patterns: {
+      formPatterns: {
+        title: 'Form Patterns',
+        description:
+          'Structured approaches for data collection including single-page forms, multi-step wizards, and validation patterns.',
+      },
+      authentication: {
+        title: 'Authentication',
+        description: 'Secure login, registration, password reset, and multi-factor authentication patterns.',
+      },
+      searchFilter: {
+        title: 'Search & Filter',
+        description:
+          'Patterns for helping users find information efficiently including search, filtering, and sorting.',
+      },
+      paymentTransactions: {
+        title: 'Payment & Transactions',
+        description:
+          'Secure payment flows, transaction confirmations, and receipt patterns for government services.',
+      },
+      documentManagement: {
+        title: 'Document Management',
+        description:
+          'Patterns for uploading, viewing, downloading, and managing documents and certificates.',
+      },
+      errorEmptyStates: {
+        title: 'Error & Empty States',
+        description:
+          'Handling errors gracefully and communicating when content is unavailable or actions fail.',
+      },
+    },
+    flowSection: {
+      eyebrow: 'Common service flows',
+      title: 'End-to-end journeys that repeat across services',
+      description:
+        'These flow summaries help teams stitch patterns together into service journeys without losing consistency, state, or accessibility.',
+      flowLabel: 'Flow',
+    },
+    serviceFlows: {
+      citizenApplication: {
+        title: 'Citizen Application Flow',
+        steps: ['Login/Register', 'Fill Application', 'Upload Documents', 'Preview & Submit', 'Payment', 'Confirmation'],
+      },
+      statusTracking: {
+        title: 'Status Tracking Flow',
+        steps: ['Enter Reference', 'View Status', 'Download Updates', 'Provide Feedback'],
+      },
+      certificateIssuance: {
+        title: 'Certificate Issuance Flow',
+        steps: ['Verify Identity', 'Check Eligibility', 'Generate Certificate', 'Digital Signature', 'Download/Print'],
+      },
+    },
+    exampleSection: {
+      eyebrow: 'Pattern example',
+      title: 'Application form pattern',
+      description:
+        'A complete example of how a pattern can combine steps, validation, and responsive layout to support a government application journey.',
+      steps: ['Personal Info', 'Documents', 'Preview', 'Submit'],
+      personalInformation: 'Personal Information',
+      firstName: 'First Name *',
+      lastName: 'Last Name *',
+      enterFirstName: 'Enter first name',
+      enterLastName: 'Enter last name',
+      emailAddress: 'Email Address *',
+      phoneNumber: 'Phone Number *',
+      state: 'State *',
+      selectYourState: 'Select your state',
+      cancel: 'Cancel',
+      continueToDocuments: 'Continue to Documents',
+      patternHighlights: 'Pattern highlights',
+      progressiveDisclosureTitle: 'Progressive disclosure',
+      progressiveDisclosureDescription: 'Reveal complexity only when it is needed.',
+      clearValidationTitle: 'Clear validation',
+      clearValidationDescription: 'Keep guidance close to the field and easy to act on.',
+      mobileFirstTitle: 'Mobile-first',
+      mobileFirstDescription: 'Ensure the pattern works cleanly on small screens first.',
+    },
+    bestPracticeSection: {
+      eyebrow: 'Design best practices',
+      title: 'Principles that keep patterns trustworthy',
+      description:
+        'Use these guidance points when implementing patterns in government digital services so the experience stays coherent and accessible.',
+    },
+    bestPractices: {
+      progressiveDisclosure: {
+        title: 'Progressive Disclosure',
+        description:
+          'Show information progressively to avoid overwhelming users. Display only essential information initially and reveal details on demand.',
+      },
+      clearFeedback: {
+        title: 'Clear Feedback',
+        description:
+          'Provide immediate, clear feedback for all user actions. Use success messages, error states, and loading indicators appropriately.',
+      },
+      consistentNavigation: {
+        title: 'Consistent Navigation',
+        description:
+          'Maintain consistent navigation patterns across services. Users should always know where they are and how to move forward or backward.',
+      },
+      mobileFirst: {
+        title: 'Mobile-First Approach',
+        description:
+          'Design for mobile devices first, ensuring core functionality works on smaller screens before enhancing for larger displays.',
+      },
+      accessibilityByDefault: {
+        title: 'Accessibility by Default',
+        description:
+          'Build accessibility into every pattern. Ensure keyboard navigation, screen reader support, and proper color contrast.',
+      },
+      multilingualSupport: {
+        title: 'Multilingual Support',
+        description:
+          'Design patterns that accommodate multiple languages, including right-to-left scripts and varying text lengths.',
+      },
+    },
+    accessibilitySection: {
+      eyebrow: 'Accessibility in patterns',
+      title: 'Accessibility is built into every pattern',
+      description:
+        'Every pattern in the UX4G Design System is designed with accessible headings, keyboard navigation, screen reader support, focus management, and clear error messaging.',
+      metrics: {
+        wcag: 'AA Compliant',
+        keyboardTitle: 'Keyboard',
+        keyboardValue: '100% Accessible',
+        contrastTitle: 'Contrast',
+        contrastValue: '4.5:1 min',
+      },
+    },
+  },
+  hi: {
+    hero: {
+      eyebrow: 'पुन: उपयोग योग्य interaction patterns',
+      title: 'पैटर्न',
+      description:
+        'सरकारी डिजिटल सेवाओं में सामान्य डिज़ाइन समस्याओं के लिए पुन: उपयोग योग्य समाधान। Patterns, components और behavior को मिलाकर duplication कम करते हैं और platform भर में user journeys को सुसंगत रखते हैं।',
+      openPatternLibrary: 'Pattern library खोलें',
+      viewFormIntelligence: 'Form intelligence देखें',
+      viewMultilingualGuidance: 'Multilingual guidance देखें',
+      stats: {
+        patternGroups: 'pattern groups',
+        journeyViews: 'journey views',
+        accessibleDemos: 'accessible demos',
+        sharedStandard: 'shared standard',
+      },
+    },
+    summary: {
+      eyebrow: 'Pattern map',
+      title: 'जटिल service design के लिए responsive overview',
+      reusablePatternsTitle: 'Reusable patterns',
+      reusablePatternsDescription: 'एक बार डिज़ाइन करें, समान citizen journeys में लागू करें।',
+      serviceFlowsTitle: 'Service flows',
+      serviceFlowsDescription: 'Patterns को जोड़कर complete end-to-end experiences बनाएं।',
+      bestPracticeTitle: 'Best practice',
+      bestPracticeDescription: 'Logic, layout और feedback को अलग-अलग modules में aligned रखें।',
+      governmentGradeConsistency: 'Government-grade consistency',
+      governmentGradeDescription:
+        'सभी pattern guidance का उद्देश्य टीमों को predictable, accessible और scalable service experiences बनाने में मदद करना है।',
+    },
+    librarySection: {
+      eyebrow: 'Pattern library',
+      title: 'सुसंगत service design के लिए सामान्य patterns',
+      description:
+        'यह library सबसे सामान्य सरकारी सेवा समस्याओं के आधार पर संगठित है, ताकि टीमें overview से implementation तक स्पष्टता बनाए रखते हुए आगे बढ़ सकें।',
+      recommendedEntryPoints: 'Recommended entry points',
+      viewPatterns: 'Patterns देखें',
+    },
+    patterns: {
+      formPatterns: {
+        title: 'Form Patterns',
+        description:
+          'Data collection के लिए structured approaches, जिनमें single-page forms, multi-step wizards और validation patterns शामिल हैं।',
+      },
+      authentication: {
+        title: 'Authentication',
+        description: 'Secure login, registration, password reset और multi-factor authentication patterns.',
+      },
+      searchFilter: {
+        title: 'Search & Filter',
+        description:
+          'Users को जानकारी कुशलता से खोजने में मदद करने वाले patterns, जिनमें search, filtering और sorting शामिल हैं।',
+      },
+      paymentTransactions: {
+        title: 'Payment & Transactions',
+        description:
+          'सरकारी सेवाओं के लिए secure payment flows, transaction confirmations और receipt patterns.',
+      },
+      documentManagement: {
+        title: 'Document Management',
+        description:
+          'Documents और certificates को upload, view, download और manage करने के patterns.',
+      },
+      errorEmptyStates: {
+        title: 'Error & Empty States',
+        description:
+          'Errors को सहज तरीके से handle करना और जब content उपलब्ध न हो या actions fail हों तो स्पष्ट रूप से बताना।',
+      },
+    },
+    flowSection: {
+      eyebrow: 'Common service flows',
+      title: 'End-to-end journeys जो कई सेवाओं में दोहराई जाती हैं',
+      description:
+        'ये flow summaries टीमों को patterns को जोड़कर service journeys बनाने में मदद करती हैं, बिना consistency, state या accessibility खोए।',
+      flowLabel: 'Flow',
+    },
+    serviceFlows: {
+      citizenApplication: {
+        title: 'Citizen Application Flow',
+        steps: ['Login/Register', 'Application भरें', 'Documents upload करें', 'Preview और submit', 'Payment', 'Confirmation'],
+      },
+      statusTracking: {
+        title: 'Status Tracking Flow',
+        steps: ['Reference दर्ज करें', 'Status देखें', 'Updates download करें', 'Feedback दें'],
+      },
+      certificateIssuance: {
+        title: 'Certificate Issuance Flow',
+        steps: ['Identity verify करें', 'Eligibility जांचें', 'Certificate generate करें', 'Digital Signature', 'Download/Print'],
+      },
+    },
+    exampleSection: {
+      eyebrow: 'Pattern example',
+      title: 'Application form pattern',
+      description:
+        'यह एक पूरा उदाहरण है कि किस तरह कोई pattern steps, validation और responsive layout को जोड़कर सरकारी application journey का समर्थन कर सकता है।',
+      steps: ['Personal Info', 'Documents', 'Preview', 'Submit'],
+      personalInformation: 'Personal Information',
+      firstName: 'First Name *',
+      lastName: 'Last Name *',
+      enterFirstName: 'पहला नाम दर्ज करें',
+      enterLastName: 'अंतिम नाम दर्ज करें',
+      emailAddress: 'Email Address *',
+      phoneNumber: 'Phone Number *',
+      state: 'State *',
+      selectYourState: 'अपना राज्य चुनें',
+      cancel: 'Cancel',
+      continueToDocuments: 'Documents पर आगे बढ़ें',
+      patternHighlights: 'Pattern highlights',
+      progressiveDisclosureTitle: 'Progressive disclosure',
+      progressiveDisclosureDescription: 'जितनी आवश्यकता हो उतनी ही जटिलता दिखाएँ।',
+      clearValidationTitle: 'Clear validation',
+      clearValidationDescription: 'मार्गदर्शन को field के पास और उस पर कार्रवाई करने योग्य रखें।',
+      mobileFirstTitle: 'Mobile-first',
+      mobileFirstDescription: 'सुनिश्चित करें कि pattern पहले छोटे screens पर साफ़ तरीके से काम करे।',
+    },
+    bestPracticeSection: {
+      eyebrow: 'Design best practices',
+      title: 'वे सिद्धांत जो patterns को भरोसेमंद बनाए रखते हैं',
+      description:
+        'सरकारी डिजिटल सेवाओं में patterns लागू करते समय इन guidance points का उपयोग करें ताकि अनुभव सुसंगत और सुलभ बना रहे।',
+    },
+    bestPractices: {
+      progressiveDisclosure: {
+        title: 'Progressive Disclosure',
+        description:
+          'Users पर अधिक भार न पड़े, इसके लिए जानकारी चरणबद्ध तरीके से दिखाएँ। शुरुआत में केवल आवश्यक जानकारी दिखाएँ और जरूरत पर विवरण खोलें।',
+      },
+      clearFeedback: {
+        title: 'Clear Feedback',
+        description:
+          'हर user action पर तुरंत और स्पष्ट feedback दें। Success messages, error states और loading indicators का उचित उपयोग करें।',
+      },
+      consistentNavigation: {
+        title: 'Consistent Navigation',
+        description:
+          'सेवाओं में navigation patterns को सुसंगत रखें। Users को हमेशा पता होना चाहिए कि वे कहाँ हैं और आगे या पीछे कैसे जाएँ।',
+      },
+      mobileFirst: {
+        title: 'Mobile-First Approach',
+        description:
+          'पहले mobile devices के लिए डिज़ाइन करें और सुनिश्चित करें कि core functionality छोटे screens पर काम करे, फिर बड़े displays के लिए enhance करें।',
+      },
+      accessibilityByDefault: {
+        title: 'Accessibility by Default',
+        description:
+          'हर pattern में accessibility को शामिल करें। Keyboard navigation, screen reader support और उचित color contrast सुनिश्चित करें।',
+      },
+      multilingualSupport: {
+        title: 'Multilingual Support',
+        description:
+          'ऐसे patterns डिज़ाइन करें जो multiple languages, right-to-left scripts और अलग-अलग text lengths को accommodate कर सकें।',
+      },
+    },
+    accessibilitySection: {
+      eyebrow: 'Patterns में accessibility',
+      title: 'Accessibility हर pattern में अंतर्निहित है',
+      description:
+        'UX4G Design System का हर pattern accessible headings, keyboard navigation, screen reader support, focus management और स्पष्ट error messaging के साथ डिज़ाइन किया गया है।',
+      metrics: {
+        wcag: 'AA compliant',
+        keyboardTitle: 'Keyboard',
+        keyboardValue: '100% accessible',
+        contrastTitle: 'Contrast',
+        contrastValue: 'न्यूनतम 4.5:1',
+      },
+    },
+  },
+} as const;
+
 function PatternStat({ value, label }: { value: string; label: string }) {
   return (
     <div className="rounded-2xl border border-border bg-card px-4 py-4 shadow-sm dark:bg-gray-800">
