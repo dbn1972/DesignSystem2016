@@ -1,4 +1,5 @@
-import { FileEdit, CheckCircle, XCircle, AlertCircle, Info, AlertTriangle, ArrowRight, RefreshCw, Eye, Globe, Code, BarChart3, Shield, Clock, Users, FileText, Zap, Target, HelpCircle, ChevronRight, ThumbsUp, Edit, ArrowLeft, Check, Upload, Download, MessageCircle, Phone, Mail, ExternalLink, List, CheckSquare, Image as ImageIcon, Layers, Flag } from "lucide-react";
+import React from "react";
+import { FileEdit, CheckCircle, XCircle, AlertCircle, Info, AlertTriangle, ArrowRight, RefreshCw, Eye, Globe, Code, BarChart3, Shield, Clock, Users, FileText, Zap, Target, HelpCircle, ChevronRight, ThumbsUp, Edit, ArrowLeft, Check, Upload, Download, MessageCircle, Phone, Mail, ExternalLink, List, CheckSquare, Image as ImageIcon, Layers, Flag, Copy } from "lucide-react";
 
 export default function CorrectionResubmissionPattern() {
   return (
@@ -105,6 +106,11 @@ export default function CorrectionResubmissionPattern() {
         </div>
       </main>
 
+      {/* Code Downloads */}
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 pb-12">
+        <CorrectionResubCodeDownloads />
+      </div>
+
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
@@ -115,6 +121,251 @@ export default function CorrectionResubmissionPattern() {
         </div>
       </footer>
     </div>
+  );
+}
+
+// ==================== CODE DOWNLOADS ====================
+
+const CORR_RESUB_REACT_CODE = `import React, { useState } from 'react';
+
+type FieldStatus = 'ok' | 'error' | 'corrected';
+
+interface FormField {
+  id: string;
+  label: string;
+  value: string;
+  status: FieldStatus;
+  error?: string;
+}
+
+export function CorrectionResubmissionPage() {
+  const [step, setStep] = useState<'review' | 'correct' | 'submitted'>('review');
+  const [fields, setFields] = useState<FormField[]>([
+    { id: 'name', label: 'Full Name', value: 'Rajesh Kmar', status: 'error', error: 'Name has a typo — verify spelling' },
+    { id: 'dob', label: 'Date of Birth', value: '1990-05-15', status: 'ok' },
+    { id: 'address', label: 'Address', value: '', status: 'error', error: 'Address is required' },
+    { id: 'phone', label: 'Phone', value: '9876543210', status: 'ok' },
+    { id: 'income', label: 'Annual Income', value: '350000', status: 'error', error: 'Income does not match uploaded documents' },
+  ]);
+
+  const updateField = (id: string, value: string) => {
+    setFields(prev => prev.map(f => f.id === id ? { ...f, value, status: 'corrected', error: undefined } : f));
+  };
+
+  const errorCount = fields.filter(f => f.status === 'error').length;
+  const statusColor = { ok: 'border-green-300 bg-green-50', error: 'border-red-300 bg-red-50', corrected: 'border-blue-300 bg-blue-50' };
+
+  return (
+    <div className="min-h-screen bg-background p-4">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Correction & Resubmission</h1>
+        <p className="text-sm text-muted-foreground mb-6">Application APP-78432 — Returned for corrections</p>
+        {step === 'review' && (
+          <div className="space-y-4">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4 text-sm text-yellow-800">
+              <strong>{errorCount} field(s)</strong> need correction before resubmission.
+            </div>
+            {fields.map(f => (
+              <div key={f.id} className={\`p-4 rounded-xl border-2 \${statusColor[f.status]}\`}>
+                <div className="flex justify-between items-start">
+                  <label className="text-sm font-semibold">{f.label}</label>
+                  <span className={\`text-xs font-bold px-2 py-1 rounded \${f.status === 'ok' ? 'bg-green-100 text-green-700' : f.status === 'error' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'}\`}>
+                    {f.status === 'ok' ? 'Verified' : f.status === 'error' ? 'Needs Fix' : 'Corrected'}
+                  </span>
+                </div>
+                <div className="text-sm mt-1">{f.value || <span className="italic text-muted-foreground">Empty</span>}</div>
+                {f.error && <div className="text-xs text-red-600 mt-1">{f.error}</div>}
+              </div>
+            ))}
+            <button onClick={() => setStep('correct')} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Start Corrections</button>
+          </div>
+        )}
+        {step === 'correct' && (
+          <div className="space-y-4">
+            {fields.filter(f => f.status !== 'ok').map(f => (
+              <div key={f.id}>
+                <label className="block text-sm font-medium mb-1">{f.label} *</label>
+                <input value={f.value} onChange={e => updateField(f.id, e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" />
+              </div>
+            ))}
+            <button onClick={() => setStep('submitted')} disabled={fields.some(f => f.status === 'error')} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-50">Resubmit Application</button>
+          </div>
+        )}
+        {step === 'submitted' && (
+          <div className="text-center py-8">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <h2 className="text-xl font-bold">Application Resubmitted</h2>
+            <p className="text-sm text-muted-foreground mt-2">Your corrections have been submitted for review.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const CORR_RESUB_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+interface FormField { id: string; label: string; value: string; status: 'ok' | 'error' | 'corrected'; error?: string; }
+
+@Component({
+  selector: 'ux4g-correction-resubmission',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: \`
+    <div class="min-h-screen bg-background p-4">
+      <div class="max-w-2xl mx-auto">
+        <h1 class="text-2xl font-bold text-foreground mb-2">Correction & Resubmission</h1>
+        <p class="text-sm text-muted-foreground mb-6">Application APP-78432 — Returned for corrections</p>
+        <div *ngIf="step==='review'" class="space-y-4">
+          <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 text-sm text-yellow-800">
+            <strong>{{errorCount}}</strong> field(s) need correction.
+          </div>
+          <div *ngFor="let f of fields" [class]="'p-4 rounded-xl border-2 ' + statusColor[f.status]">
+            <div class="flex justify-between items-start">
+              <label class="text-sm font-semibold">{{f.label}}</label>
+              <span [class]="'text-xs font-bold px-2 py-1 rounded ' + badgeColor[f.status]">{{f.status === 'ok' ? 'Verified' : f.status === 'error' ? 'Needs Fix' : 'Corrected'}}</span>
+            </div>
+            <div class="text-sm mt-1">{{f.value || 'Empty'}}</div>
+            <div *ngIf="f.error" class="text-xs text-red-600 mt-1">{{f.error}}</div>
+          </div>
+          <button (click)="step='correct'" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Start Corrections</button>
+        </div>
+        <div *ngIf="step==='correct'" class="space-y-4">
+          <div *ngFor="let f of errorFields">
+            <label class="block text-sm font-medium mb-1">{{f.label}} *</label>
+            <input [(ngModel)]="f.value" (ngModelChange)="markCorrected(f)" class="w-full px-4 py-3 border border-border rounded-lg" />
+          </div>
+          <button (click)="step='submitted'" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Resubmit</button>
+        </div>
+        <div *ngIf="step==='submitted'" class="text-center py-8">
+          <h2 class="text-xl font-bold">Application Resubmitted</h2>
+          <p class="text-sm text-muted-foreground mt-2">Your corrections have been submitted for review.</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class CorrectionResubmissionComponent {
+  step: 'review' | 'correct' | 'submitted' = 'review';
+  fields: FormField[] = [
+    { id: 'name', label: 'Full Name', value: 'Rajesh Kmar', status: 'error', error: 'Typo in name' },
+    { id: 'dob', label: 'Date of Birth', value: '1990-05-15', status: 'ok' },
+    { id: 'address', label: 'Address', value: '', status: 'error', error: 'Address is required' },
+  ];
+  statusColor: Record<string, string> = { ok: 'border-green-300 bg-green-50', error: 'border-red-300 bg-red-50', corrected: 'border-blue-300 bg-blue-50' };
+  badgeColor: Record<string, string> = { ok: 'bg-green-100 text-green-700', error: 'bg-red-100 text-red-700', corrected: 'bg-blue-100 text-blue-700' };
+  get errorCount() { return this.fields.filter(f => f.status === 'error').length; }
+  get errorFields() { return this.fields.filter(f => f.status !== 'ok'); }
+  markCorrected(f: FormField) { f.status = 'corrected'; f.error = undefined; }
+}`;
+
+const CORR_RESUB_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Correction & Resubmission — UX4G</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8fafc; min-height: 100vh; padding: 2rem; }
+    .container { max-width: 600px; margin: 0 auto; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; }
+    .subtitle { font-size: .875rem; color: #64748b; margin-bottom: 1.5rem; }
+    .alert { background: #fefce8; border: 1px solid #fde68a; border-radius: .75rem; padding: 1rem; font-size: .875rem; color: #854d0e; margin-bottom: 1rem; }
+    .field { padding: 1rem; border: 2px solid #e2e8f0; border-radius: .75rem; margin-bottom: .75rem; }
+    .field.error { border-color: #fca5a5; background: #fef2f2; }
+    .field.ok { border-color: #86efac; background: #f0fdf4; }
+    .field-label { font-size: .875rem; font-weight: 600; }
+    .field-value { font-size: .875rem; margin-top: .25rem; }
+    .field-error { font-size: .75rem; color: #dc2626; margin-top: .25rem; }
+    .badge { font-size: .75rem; font-weight: 700; padding: .25rem .5rem; border-radius: .25rem; }
+    .badge-ok { background: #dcfce7; color: #15803d; }
+    .badge-error { background: #fee2e2; color: #dc2626; }
+    .btn { width: 100%; padding: .75rem; background: #005196; color: #fff; border: none; border-radius: .5rem; font-weight: 600; cursor: pointer; margin-top: 1rem; }
+    input { width: 100%; padding: .5rem .75rem; border: 1px solid #e2e8f0; border-radius: .5rem; margin-top: .5rem; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+    .success h2 { font-size: 1.25rem; font-weight: 700; }
+    .success p { color: #64748b; margin-top: .5rem; font-size: .875rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Correction & Resubmission</h1>
+    <p class="subtitle">Application APP-78432 — Returned for corrections</p>
+    <div id="review-step">
+      <div class="alert"><strong>2 fields</strong> need correction before resubmission.</div>
+      <div class="field error"><div style="display:flex;justify-content:space-between"><span class="field-label">Full Name</span><span class="badge badge-error">Needs Fix</span></div><div class="field-value">Rajesh Kmar</div><div class="field-error">Name has a typo</div></div>
+      <div class="field ok"><div style="display:flex;justify-content:space-between"><span class="field-label">Date of Birth</span><span class="badge badge-ok">Verified</span></div><div class="field-value">1990-05-15</div></div>
+      <div class="field error"><div style="display:flex;justify-content:space-between"><span class="field-label">Address</span><span class="badge badge-error">Needs Fix</span></div><div class="field-value"><em>Empty</em></div><div class="field-error">Address is required</div></div>
+      <button class="btn" onclick="showCorrect()">Start Corrections</button>
+    </div>
+    <div id="correct-step" class="hidden">
+      <label class="field-label">Full Name *</label><input id="fix-name" value="Rajesh Kmar" />
+      <br /><br />
+      <label class="field-label">Address *</label><input id="fix-addr" />
+      <button class="btn" onclick="submitFix()">Resubmit Application</button>
+    </div>
+    <div id="done-step" class="hidden success"><h2>Application Resubmitted</h2><p>Your corrections have been submitted for review.</p></div>
+  </div>
+  <script>
+    function showCorrect() { document.getElementById('review-step').classList.add('hidden'); document.getElementById('correct-step').classList.remove('hidden'); }
+    function submitFix() { document.getElementById('correct-step').classList.add('hidden'); document.getElementById('done-step').classList.remove('hidden'); }
+  </script>
+</body>
+</html>`;
+
+function CorrectionResubCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Field Correction', code: CORR_RESUB_REACT_CODE, filename: 'CorrectionResubmissionPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone + Reactive Forms', code: CORR_RESUB_ANGULAR_CODE, filename: 'correction-resubmission.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: CORR_RESUB_HTML_CODE, filename: 'correction-resubmission.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24 mt-12">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Correction & Resubmission implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
