@@ -16,6 +16,7 @@
     "check:semantic-colors:update": "node scripts/check-semantic-colors.mjs --update-baseline",
     "verify": "npm run typecheck && npm run build && npm run test:a11y && npm run check:docs-links && npm run check:api-docs && npm run check:semantic-colors",
     "test:visual": "playwright test",
+    "test:cross-browser": "playwright test tests/visual/cross-browser.visual.ts",
     "test:visual:update": "playwright test --update-snapshots",
     "test:visual:report": "playwright show-report",
     "publish:dry": "node scripts/publish.mjs",
