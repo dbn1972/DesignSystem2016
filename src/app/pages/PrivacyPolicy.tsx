@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import {
   Shield,
   Eye,
@@ -19,6 +20,8 @@ import {
 } from "lucide-react";
 
 export default function PrivacyPolicy() {
+  const { i18n } = useTranslation();
+  const c = (i18n.resolvedLanguage === 'hi' ? PRIVACY_HI : PRIVACY_EN);
   return (
     <div className="min-h-screen bg-card">
       {/* Hero Section */}
@@ -30,20 +33,19 @@ export default function PrivacyPolicy() {
               className="inline-flex items-center gap-2 text-sm text-blue-200 hover:text-white mb-4 transition-colors"
             >
               <ArrowLeft size={16} />
-              Back to Home
+              {c.backToHome}
             </Link>
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 bg-card/10 backdrop-blur rounded-lg flex items-center justify-center">
                 <Shield size={32} className="text-white" />
               </div>
               <div>
-                <div className="text-sm uppercase tracking-wide text-blue-200 mb-1">Legal Information</div>
-                <h1 className="text-5xl font-bold">Privacy Policy</h1>
+                <div className="text-sm uppercase tracking-wide text-blue-200 mb-1">{c.legalInfo}</div>
+                <h1 className="text-5xl font-bold">{c.title}</h1>
               </div>
             </div>
             <p className="text-xl text-blue-100 max-w-3xl">
-              Your privacy is important to us. This Privacy Policy explains how the UX4G Design System
-              collects, uses, and protects information when you access our documentation, resources, and services.
+              {c.description}
             </p>
           </div>
         </div>
@@ -56,7 +58,7 @@ export default function PrivacyPolicy() {
             <Info className="text-primary flex-shrink-0 mt-0.5" size={20} />
             <div>
               <p className="text-sm text-foreground">
-                <span className="font-bold">Last Updated:</span> April 11, 2026
+                <span className="font-bold">{c.lastUpdated}:</span> April 11, 2026
               </p>
               <p className="text-sm text-muted-foreground mt-1">
                 This Privacy Policy applies to the UX4G Design System documentation portal and all related
@@ -922,3 +924,20 @@ function RetentionPolicy({
     </div>
   );
 }
+
+// ── Bilingual copy ──────────────────────────────────────────────────
+const PRIVACY_EN = {
+  backToHome: 'Back to Home',
+  legalInfo: 'Legal Information',
+  title: 'Privacy Policy',
+  description: 'Your privacy is important to us. This Privacy Policy explains how the UX4G Design System collects, uses, and protects information when you access our documentation, resources, and services.',
+  lastUpdated: 'Last Updated',
+};
+
+const PRIVACY_HI = {
+  backToHome: 'मुखपृष्ठ पर वापस जाएँ',
+  legalInfo: 'कानूनी जानकारी',
+  title: 'गोपनीयता नीति',
+  description: 'आपकी गोपनीयता हमारे लिए महत्वपूर्ण है। यह गोपनीयता नीति बताती है कि UX4G डिज़ाइन सिस्टम आपके दस्तावेज़ीकरण, संसाधनों और सेवाओं तक पहुँचने पर जानकारी कैसे एकत्र, उपयोग और सुरक्षित करता है।',
+  lastUpdated: 'अंतिम अपडेट',
+};
