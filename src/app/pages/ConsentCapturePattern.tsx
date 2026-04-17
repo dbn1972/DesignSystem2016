@@ -452,7 +452,7 @@ function FlowStep({ number, title, description, action, color }: {
           {number}
         </div>
         <div className="flex-1">
-          <h4 className={`font-bold ${textColor} mb-1`}>{title}</h4>
+          <h3 className={`font-bold ${textColor} mb-1`}>{title}</h3>
           <p className="text-sm text-muted-foreground mb-2">{description}</p>
           <div className="text-xs text-muted-foreground italic">→ {action}</div>
         </div>
@@ -478,7 +478,7 @@ function FlowBranch({ condition, leftPath, rightPath }: { condition: string; lef
       <div className="flex items-start gap-3">
         <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-1" />
         <div className="flex-1">
-          <h4 className="font-bold text-orange-800 mb-3">{condition}</h4>
+          <h3 className="font-bold text-orange-800 mb-3">{condition}</h3>
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-card border border-green-300 rounded p-3">
               <div className="text-xs font-bold text-green-700 mb-1">GRANT CONSENT</div>
@@ -598,7 +598,7 @@ function ConsentScreenExample({ type }: { type: string }) {
 
           {/* Consent Details */}
           <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 mb-6">
-            <h4 className="font-bold text-foreground text-sm mb-3">What we will collect:</h4>
+            <h3 className="font-bold text-foreground text-sm mb-3">What we will collect:</h3>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-start gap-2">
                 <CheckCircle size={14} className="text-blue-600 mt-0.5 flex-shrink-0" />
@@ -615,14 +615,14 @@ function ConsentScreenExample({ type }: { type: string }) {
             </div>
 
             <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
-              <h4 className="font-bold text-foreground text-sm mb-2">Purpose:</h4>
+              <h3 className="font-bold text-foreground text-sm mb-2">Purpose:</h3>
               <p className="text-sm text-muted-foreground">
                 To process your application, verify your identity, and provide service updates.
               </p>
             </div>
 
             <div className="mt-3">
-              <h4 className="font-bold text-foreground text-sm mb-2">Duration:</h4>
+              <h3 className="font-bold text-foreground text-sm mb-2">Duration:</h3>
               <p className="text-sm text-muted-foreground">
                 Data will be retained for 5 years as per government regulations.
               </p>
@@ -632,7 +632,7 @@ function ConsentScreenExample({ type }: { type: string }) {
           {/* Consent Checkbox */}
           <div className="bg-background border-2 border-border rounded-lg p-4 mb-4">
             <label className="flex items-start gap-3 cursor-pointer">
-              <input type="checkbox" className="mt-1 w-4 h-4 border-2 border-gray-400 rounded" />
+              <input aria-label="Checkbox" type="checkbox" className="mt-1 w-4 h-4 border-2 border-gray-400 rounded" />
               <span className="text-sm text-muted-foreground">
                 I understand and consent to the collection, processing, and storage of my personal data 
                 as described above for the stated purpose.
@@ -676,7 +676,7 @@ function ConsentScreenExample({ type }: { type: string }) {
             <div className="bg-muted border-2 border-border rounded-lg p-4">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1">
-                  <h4 className="font-bold text-foreground text-sm mb-1">Essential Service Data</h4>
+                  <h3 className="font-bold text-foreground text-sm mb-1">Essential Service Data</h3>
                   <p className="text-xs text-muted-foreground">
                     Required for basic service delivery
                   </p>
@@ -692,36 +692,36 @@ function ConsentScreenExample({ type }: { type: string }) {
             <div className="bg-card border-2 border-border rounded-lg p-4">
               <label className="flex items-start justify-between gap-3 cursor-pointer">
                 <div className="flex-1">
-                  <h4 className="font-bold text-foreground text-sm mb-1">Service Notifications</h4>
+                  <h3 className="font-bold text-foreground text-sm mb-1">Service Notifications</h3>
                   <p className="text-xs text-muted-foreground">
                     Send SMS and email updates about your application
                   </p>
                 </div>
-                <input type="checkbox" defaultChecked className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
+                <input aria-label="Checkbox" type="checkbox" defaultChecked className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
               </label>
             </div>
 
             <div className="bg-card border-2 border-border rounded-lg p-4">
               <label className="flex items-start justify-between gap-3 cursor-pointer">
                 <div className="flex-1">
-                  <h4 className="font-bold text-foreground text-sm mb-1">Usage Analytics</h4>
+                  <h3 className="font-bold text-foreground text-sm mb-1">Usage Analytics</h3>
                   <p className="text-xs text-muted-foreground">
                     Help us improve the service by sharing usage data
                   </p>
                 </div>
-                <input type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
+                <input aria-label="Checkbox" type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
               </label>
             </div>
 
             <div className="bg-card border-2 border-border rounded-lg p-4">
               <label className="flex items-start justify-between gap-3 cursor-pointer">
                 <div className="flex-1">
-                  <h4 className="font-bold text-foreground text-sm mb-1">Government Updates</h4>
+                  <h3 className="font-bold text-foreground text-sm mb-1">Government Updates</h3>
                   <p className="text-xs text-muted-foreground">
                     Receive newsletters and policy updates
                   </p>
                 </div>
-                <input type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
+                <input aria-label="Checkbox" type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
               </label>
             </div>
           </div>
@@ -737,13 +737,13 @@ function ConsentScreenExample({ type }: { type: string }) {
           <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
             <CheckCircle size={32} className="text-green-600" />
           </div>
-          <h4 className="font-bold text-foreground text-lg mb-2">Consent Granted</h4>
+          <h3 className="font-bold text-foreground text-lg mb-2">Consent Granted</h3>
           <p className="text-sm text-muted-foreground mb-6">
             Thank you. Your consent has been recorded and you can now access the service.
           </p>
 
           <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 mb-6 text-left">
-            <h5 className="font-bold text-foreground text-sm mb-2">You can withdraw consent anytime</h5>
+            <h4 className="font-bold text-foreground text-sm mb-2">You can withdraw consent anytime</h4>
             <p className="text-xs text-muted-foreground mb-3">
               You have the right to withdraw your consent at any time from your account settings. 
               This may affect your ability to use certain features.
@@ -764,13 +764,13 @@ function ConsentScreenExample({ type }: { type: string }) {
           <div className="w-16 h-16 bg-orange-100 rounded-full mx-auto mb-4 flex items-center justify-center">
             <AlertCircle size={32} className="text-orange-600" />
           </div>
-          <h4 className="font-bold text-foreground text-lg mb-2">Consent Not Granted</h4>
+          <h3 className="font-bold text-foreground text-lg mb-2">Consent Not Granted</h3>
           <p className="text-sm text-muted-foreground mb-6">
             You have declined to provide consent. Here is what this means:
           </p>
 
           <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 mb-6 text-left">
-            <h5 className="font-bold text-orange-800 text-sm mb-3">Limited Functionality</h5>
+            <h4 className="font-bold text-orange-800 text-sm mb-3">Limited Functionality</h4>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-start gap-2">
                 <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
@@ -950,7 +950,7 @@ function ContentElement({ title, required, description, example, tips }: {
   return (
     <div className="border-l-4 border-blue-500 pl-4">
       <div className="flex items-center gap-3 mb-2">
-        <h4 className="font-bold text-foreground">{title}</h4>
+        <h3 className="font-bold text-foreground">{title}</h3>
         {required && (
           <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded">REQUIRED</span>
         )}
@@ -1127,7 +1127,7 @@ function StateCard({ title, state, color, icon, actions }: {
         </div>
       </div>
       <div className="p-6">
-        <h4 className="text-sm font-bold text-foreground mb-3">System Actions:</h4>
+        <h3 className="text-sm font-bold text-foreground mb-3">System Actions:</h3>
         <div className="space-y-2">
           {actions.map((action, i) => (
             <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -1736,17 +1736,17 @@ function GovernanceSection() {
               <h3 className="font-bold text-foreground text-lg mb-2">Support & Escalation</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
                 <div>
-                  <h4 className="font-bold text-foreground mb-1">Legal Questions</h4>
+                  <h3 className="font-bold text-foreground mb-1">Legal Questions</h3>
                   <p className="text-muted-foreground mb-2">For compliance and legal guidance</p>
                   <a href="#" className="text-primary font-bold hover:underline">legal@ux4g.gov.in</a>
                 </div>
                 <div>
-                  <h4 className="font-bold text-foreground mb-1">Implementation Support</h4>
+                  <h3 className="font-bold text-foreground mb-1">Implementation Support</h3>
                   <p className="text-muted-foreground mb-2">For technical implementation help</p>
                   <a href="#" className="text-primary font-bold hover:underline">support@ux4g.gov.in</a>
                 </div>
                 <div>
-                  <h4 className="font-bold text-foreground mb-1">Privacy Officer</h4>
+                  <h3 className="font-bold text-foreground mb-1">Privacy Officer</h3>
                   <p className="text-muted-foreground mb-2">For data protection concerns</p>
                   <a href="#" className="text-primary font-bold hover:underline">privacy@digitalindia.gov.in</a>
                 </div>

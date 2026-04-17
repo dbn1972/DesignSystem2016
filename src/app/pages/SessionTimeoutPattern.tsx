@@ -354,8 +354,7 @@ function ExampleScreens() {
             <div className="space-y-3">
               <div>
                 <label className="block text-sm font-bold text-foreground mb-2">Full Name</label>
-                <input 
-                  type="text" 
+                <input aria-label="text input" type="text" 
                   defaultValue="Rajesh Kumar"
                   readOnly
                   className="w-full px-4 py-3 border-2 border-border rounded"
@@ -363,8 +362,7 @@ function ExampleScreens() {
               </div>
               <div>
                 <label className="block text-sm font-bold text-foreground mb-2">Email Address</label>
-                <input 
-                  type="email" 
+                <input aria-label="email input" type="email" 
                   defaultValue="rajesh.kumar@example.com"
                   readOnly
                   className="w-full px-4 py-3 border-2 border-border rounded"
@@ -372,8 +370,7 @@ function ExampleScreens() {
               </div>
               <div>
                 <label className="block text-sm font-bold text-foreground mb-2">Mobile Number</label>
-                <input 
-                  type="tel" 
+                <input aria-label="+91" type="tel" 
                   placeholder="+91"
                   className="w-full px-4 py-3 border-2 border-border rounded"
                 />
@@ -390,7 +387,7 @@ function ExampleScreens() {
           <div className="bg-card border-2 border-yellow-400 rounded-lg p-6 space-y-4">
             <div className="text-center">
               <Clock size={40} className="text-yellow-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Session Expiring Soon</h4>
+              <h3 className="font-bold text-foreground mb-2">Session Expiring Soon</h3>
               <p className="text-sm text-muted-foreground mb-3">
                 Your session will expire in <strong className="text-red-600 text-lg">1:45</strong> due to inactivity.
               </p>
@@ -420,7 +417,7 @@ function ExampleScreens() {
               <CheckCircle size={40} className="text-green-600" />
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-2">Session Extended</h4>
+              <h3 className="font-bold text-foreground mb-2">Session Extended</h3>
               <p className="text-sm text-muted-foreground">
                 You can continue working.<br/>
                 Your session has been extended.
@@ -444,7 +441,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <Clock size={40} className="text-orange-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Session Expired</h4>
+              <h3 className="font-bold text-foreground mb-2">Session Expired</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Your session has ended due to inactivity.<br/>
                 This helps protect your information.
@@ -476,7 +473,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center mb-4">
               <Shield size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Sign In to Continue</h4>
+              <h3 className="font-bold text-foreground mb-2">Sign In to Continue</h3>
               <p className="text-sm text-muted-foreground">
                 Signing in as: <strong>rajesh.kumar@example.com</strong>
               </p>
@@ -487,8 +484,7 @@ function ExampleScreens() {
             </div>
             <div>
               <label className="block text-sm font-bold text-foreground mb-2">Password</label>
-              <input 
-                type="password" 
+              <input aria-label="Enter your password" type="password" 
                 placeholder="Enter your password"
                 className="w-full px-4 py-3 border-2 border-border rounded"
               />
@@ -512,7 +508,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Incorrect Password</h4>
+              <h3 className="font-bold text-foreground mb-2">Incorrect Password</h3>
               <p className="text-sm text-muted-foreground">
                 The password you entered is not correct
               </p>
@@ -527,8 +523,7 @@ function ExampleScreens() {
             </div>
             <div>
               <label className="block text-sm font-bold text-foreground mb-2">Password</label>
-              <input 
-                type="password" 
+              <input aria-label="Enter your password" type="password" 
                 placeholder="Enter your password"
                 className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
               />
@@ -555,8 +550,7 @@ function ExampleScreens() {
             <div className="space-y-3">
               <div>
                 <label className="block text-sm font-bold text-foreground mb-2">Full Name</label>
-                <input 
-                  type="text" 
+                <input aria-label="text input" type="text" 
                   defaultValue="Rajesh Kumar"
                   readOnly
                   className="w-full px-4 py-3 border-2 border-border rounded bg-background"
@@ -564,8 +558,7 @@ function ExampleScreens() {
               </div>
               <div>
                 <label className="block text-sm font-bold text-foreground mb-2">Email Address</label>
-                <input 
-                  type="email" 
+                <input aria-label="email input" type="email" 
                   defaultValue="rajesh.kumar@example.com"
                   readOnly
                   className="w-full px-4 py-3 border-2 border-border rounded bg-background"
@@ -573,8 +566,7 @@ function ExampleScreens() {
               </div>
               <div>
                 <label className="block text-sm font-bold text-foreground mb-2">Mobile Number</label>
-                <input 
-                  type="tel" 
+                <input aria-label="+91" type="tel" 
                   placeholder="+91"
                   className="w-full px-4 py-3 border-2 border-blue-400 rounded"
                 />
@@ -595,7 +587,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center mb-4">
               <HelpCircle size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Need Help?</h4>
+              <h3 className="font-bold text-foreground mb-2">Need Help?</h3>
             </div>
             <div className="space-y-3 text-sm">
               <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3">
@@ -1643,7 +1635,7 @@ function FlowStep({ number, title, description, state, branches, variant }: {
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-foreground">{title}</h4>
+            <h3 className="font-bold text-foreground">{title}</h3>
             <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
@@ -1741,7 +1733,7 @@ function AccessibilityItem({ label, description }: { label: string; description:
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-foreground mb-2">{category}</h4>
+      <h3 className="font-bold text-foreground mb-2">{category}</h3>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
           <li key={index} className="text-muted-foreground flex items-start gap-2">

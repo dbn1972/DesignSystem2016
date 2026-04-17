@@ -166,8 +166,7 @@ export default function TaskListPattern() {
             </div>
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">Sort by:</span>
-              <select
-                value={sortBy}
+              <select aria-label="Select option" value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as 'deadline' | 'priority')}
                 className="px-3 py-2 border-2 border-border rounded text-sm"
               >
@@ -195,7 +194,7 @@ export default function TaskListPattern() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-lg font-bold text-foreground">{task.title}</h3>
+                      <h2 className="text-lg font-bold text-foreground">{task.title}</h2>
                       <span
                         className={`px-3 py-1 text-xs font-bold rounded ${
                           task.priority === 'high'

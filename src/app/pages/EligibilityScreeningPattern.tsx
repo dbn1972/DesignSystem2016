@@ -453,7 +453,7 @@ function PatternOverview() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <CheckCircle size={18} className="text-green-600" />
-                <h4 className="font-bold text-sm text-foreground">Use When:</h4>
+                <h3 className="font-bold text-sm text-foreground">Use When:</h3>
               </div>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -477,7 +477,7 @@ function PatternOverview() {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <XCircle size={18} className="text-red-600" />
-                <h4 className="font-bold text-sm text-foreground">Don't Use When:</h4>
+                <h3 className="font-bold text-sm text-foreground">Don't Use When:</h3>
               </div>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
@@ -547,7 +547,7 @@ function ScreeningLogic() {
 
             <div className="grid grid-cols-2 gap-6">
               <div className="border-2 border-border rounded-lg p-6 bg-card">
-                <h4 className="font-bold text-sm text-foreground mb-4">Example: Scholarship Eligibility</h4>
+                <h3 className="font-bold text-sm text-foreground mb-4">Example: Scholarship Eligibility</h3>
                 <div className="space-y-3 text-sm">
                   <LogicRule
                     condition="Age"
@@ -583,7 +583,7 @@ function ScreeningLogic() {
               </div>
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
-                <h4 className="font-bold text-sm text-foreground mb-4">Example: Senior Citizen Benefits</h4>
+                <h3 className="font-bold text-sm text-foreground mb-4">Example: Senior Citizen Benefits</h3>
                 <div className="space-y-3 text-sm">
                   <LogicRule
                     condition="Age"
@@ -760,7 +760,7 @@ function PageDesigns() {
             <div className="bg-primary text-white p-8">
               <div className="max-w-3xl">
                 <div className="text-sm mb-2 text-blue-200">Check Your Eligibility</div>
-                <h1 className="text-3xl font-bold mb-4">PM Scholarship Scheme Eligibility Check</h1>
+                <h2 className="text-3xl font-bold mb-4">PM Scholarship Scheme Eligibility Check</h2>
                 <p className="text-lg text-blue-100 leading-relaxed mb-6">
                   Answer a few simple questions to check if you qualify for this scholarship before starting the application.
                 </p>
@@ -999,7 +999,7 @@ function PageDesigns() {
               <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Congratulations! You Are Eligible</h1>
+              <h2 className="text-3xl font-bold mb-4">Congratulations! You Are Eligible</h2>
               <p className="text-lg text-green-100">Based on your responses, you meet all eligibility criteria for the PM Scholarship Scheme.</p>
             </div>
             <div className="p-8 space-y-6">
@@ -1079,7 +1079,7 @@ function PageDesigns() {
               <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <XCircle size={48} className="text-muted-foreground" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">You Are Not Eligible at This Time</h1>
+              <h2 className="text-3xl font-bold mb-4">You Are Not Eligible at This Time</h2>
               <p className="text-lg text-gray-200">
                 Based on your responses, you do not currently meet all eligibility criteria for this scholarship.
               </p>
@@ -2121,7 +2121,7 @@ function NextStepBlock({ number, title, description, action }: any) {
         <div className="flex-1">
           <div className="font-bold text-foreground mb-2">{title}</div>
           <div className="text-sm text-muted-foreground mb-3">{description}</div>
-          <button className="text-sm text-blue-600 font-bold hover:underline">{action} →</button>
+          <button aria-label="Action" className="text-sm text-blue-600 font-bold hover:underline">{action} →</button>
         </div>
       </div>
     </div>
@@ -2180,7 +2180,7 @@ function BestPracticeCard({ type, icon, practices }: any) {
     <div className={`border-2 ${config[type].border} ${config[type].bg} rounded-lg overflow-hidden`}>
       <div className={`${config[type].headerBg} border-b-2 ${config[type].border} px-4 py-3 flex items-center gap-2`}>
         {icon}
-        <h4 className="font-bold text-foreground">{type}</h4>
+        <h3 className="font-bold text-foreground">{type}</h3>
       </div>
       <div className="p-4">
         <ul className="space-y-2">

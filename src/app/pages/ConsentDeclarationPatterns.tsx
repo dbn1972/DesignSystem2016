@@ -110,9 +110,9 @@ export default function ConsentDeclarationPatterns() {
             <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Info size={24} className="text-primary" />
-                <h3 className="font-bold text-foreground">
+                <h2 className="font-bold text-foreground">
                   Purpose
-                </h3>
+                </h2>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Enable users to provide informed consent, make
@@ -1085,9 +1085,9 @@ function PatternCard({
 
         {/* Features */}
         <div className="mb-4">
-          <h4 className="text-xs font-bold text-muted-foreground uppercase mb-2">
+          <h3 className="text-xs font-bold text-muted-foreground uppercase mb-2">
             Key Features
-          </h4>
+          </h3>
           <div className="grid grid-cols-2 gap-2">
             {features.map((feature, index) => (
               <div

@@ -386,7 +386,7 @@ function PageDesigns() {
             <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 p-1">
               <div className="bg-card p-8">
                 <div className="text-center mb-6">
-                  <h1 className="text-4xl font-bold text-foreground mb-4">Track Your Application</h1>
+                  <h2 className="text-4xl font-bold text-foreground mb-4">Track Your Application</h2>
                   <p className="text-lg text-muted-foreground">
                     Enter your application or reference number to check current status
                   </p>
@@ -399,8 +399,7 @@ function PageDesigns() {
                   Application / Reference Number
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <input
-                    type="text"
+                  <input aria-label="e.g., APP-2026-123456 or REF-2026-789012" type="text"
                     placeholder="e.g., APP-2026-123456 or REF-2026-789012"
                     className="col-span-2 px-6 py-4 border-2 border-border rounded-lg text-xl font-mono text-center"
                   />
@@ -469,7 +468,7 @@ function PageDesigns() {
             <div className="bg-blue-100 border-b-2 border-blue-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Clock size={32} className="text-blue-600" />
-                <h1 className="text-3xl font-bold text-foreground">Your Application is In Progress</h1>
+                <h2 className="text-3xl font-bold text-foreground">Your Application is In Progress</h2>
               </div>
               <p className="text-lg text-muted-foreground">
                 We're reviewing your passport application. Expected completion: 15 April 2026.
@@ -627,7 +626,7 @@ function PageDesigns() {
             <div className="bg-yellow-100 border-b-2 border-yellow-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <AlertCircle size={32} className="text-yellow-600" />
-                <h1 className="text-3xl font-bold text-foreground">Action Required: Upload Missing Document</h1>
+                <h2 className="text-3xl font-bold text-foreground">Action Required: Upload Missing Document</h2>
               </div>
               <p className="text-lg text-muted-foreground">
                 We need additional information to continue processing your application.
@@ -713,7 +712,7 @@ function PageDesigns() {
             <div className="bg-orange-100 border-b-2 border-orange-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <RefreshCw size={32} className="text-orange-600" />
-                <h1 className="text-3xl font-bold text-foreground">Your Application is Delayed</h1>
+                <h2 className="text-3xl font-bold text-foreground">Your Application is Delayed</h2>
               </div>
               <p className="text-lg text-muted-foreground">
                 We apologize — your application is taking longer than expected.
@@ -811,7 +810,7 @@ function PageDesigns() {
               <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Your Passport is Ready!</h1>
+              <h2 className="text-3xl font-bold mb-4">Your Passport is Ready!</h2>
               <p className="text-lg text-green-100">
                 Congratulations! Your passport has been issued and dispatched.
               </p>

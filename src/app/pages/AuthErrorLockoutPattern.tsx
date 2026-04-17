@@ -508,7 +508,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Incorrect Password</h4>
+              <h3 className="font-bold text-foreground mb-2">Incorrect Password</h3>
               <p className="text-sm text-muted-foreground">
                 The password you entered is not correct
               </p>
@@ -523,8 +523,7 @@ function ExampleScreens() {
             </div>
             <div>
               <label className="block text-sm font-bold text-foreground mb-2">Password</label>
-              <input 
-                type="password" 
+              <input aria-label="Enter your password" type="password" 
                 placeholder="Enter your password"
                 className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
               />
@@ -548,7 +547,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Incorrect Code</h4>
+              <h3 className="font-bold text-foreground mb-2">Incorrect Code</h3>
               <p className="text-sm text-muted-foreground">
                 The verification code you entered<br/>
                 is not correct
@@ -582,7 +581,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <AlertTriangle size={40} className="text-orange-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Code Expired</h4>
+              <h3 className="font-bold text-foreground mb-2">Code Expired</h3>
               <p className="text-sm text-muted-foreground">
                 This verification code has expired.<br/>
                 Codes are valid for 5 minutes only.
@@ -606,7 +605,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <Lock size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Too Many Attempts</h4>
+              <h3 className="font-bold text-foreground mb-2">Too Many Attempts</h3>
               <p className="text-sm text-muted-foreground">
                 You've entered incorrect credentials<br/>
                 multiple times
@@ -636,7 +635,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <Lock size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Account Temporarily Locked</h4>
+              <h3 className="font-bold text-foreground mb-2">Account Temporarily Locked</h3>
               <p className="text-sm text-muted-foreground">
                 Multiple failed sign-in attempts detected
               </p>
@@ -669,7 +668,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <Shield size={40} className="text-orange-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Unusual Activity Detected</h4>
+              <h3 className="font-bold text-foreground mb-2">Unusual Activity Detected</h3>
               <p className="text-sm text-muted-foreground">
                 We noticed a sign-in attempt from<br/>
                 a location or device you don't usually use
@@ -689,8 +688,7 @@ function ExampleScreens() {
             </div>
             <div>
               <label className="block text-sm font-bold text-foreground mb-2">Enter verification code</label>
-              <input 
-                type="text" 
+              <input aria-label="6-digit code" type="text" 
                 placeholder="6-digit code"
                 className="w-full px-4 py-3 border-2 border-border rounded"
               />
@@ -709,7 +707,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Account Unavailable</h4>
+              <h3 className="font-bold text-foreground mb-2">Account Unavailable</h3>
               <p className="text-sm text-muted-foreground">
                 This account is currently unavailable
               </p>
@@ -746,7 +744,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <AlertTriangle size={40} className="text-orange-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Service Temporarily Unavailable</h4>
+              <h3 className="font-bold text-foreground mb-2">Service Temporarily Unavailable</h3>
               <p className="text-sm text-muted-foreground">
                 Authentication service is currently<br/>
                 experiencing issues
@@ -779,7 +777,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <HelpCircle size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Sign-In Help</h4>
+              <h3 className="font-bold text-foreground mb-2">Sign-In Help</h3>
             </div>
             <div className="space-y-3 text-sm">
               <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3">
@@ -1850,7 +1848,7 @@ function ErrorType({ title, severity, examples, userMessage, nextSteps }: {
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-muted border-b-2 border-border px-4 py-3">
         <div className="flex items-center justify-between mb-2">
-          <h4 className="font-bold text-foreground text-sm">{title}</h4>
+          <h3 className="font-bold text-foreground text-sm">{title}</h3>
           <span className={`text-xs px-2 py-1 border rounded font-bold ${severityColor}`}>
             {severity}
           </span>
@@ -1905,7 +1903,7 @@ function FlowStep({ number, title, description, state, branches, variant }: {
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-foreground">{title}</h4>
+            <h3 className="font-bold text-foreground">{title}</h3>
             <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
@@ -1987,7 +1985,7 @@ function RecoveryPath({ title, icon, options, timeline }: {
       <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
         <div className="flex items-center gap-2 mb-1">
           {icon}
-          <h4 className="font-bold text-foreground text-sm">{title}</h4>
+          <h3 className="font-bold text-foreground text-sm">{title}</h3>
         </div>
       </div>
       <div className="p-4">
@@ -2019,7 +2017,7 @@ function AccessibilityItem({ label, description }: { label: string; description:
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-foreground mb-2">{category}</h4>
+      <h3 className="font-bold text-foreground mb-2">{category}</h3>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
           <li key={index} className="text-muted-foreground flex items-start gap-2">

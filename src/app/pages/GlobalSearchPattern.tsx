@@ -118,8 +118,7 @@ export default function GlobalSearchPattern() {
           <div className="relative mb-12">
             <div className="relative">
               <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
-              <input
-                type="text"
+              <input role="combobox" type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}

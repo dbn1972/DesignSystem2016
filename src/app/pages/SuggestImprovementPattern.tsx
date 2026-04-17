@@ -85,8 +85,7 @@ export default function SuggestImprovementPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       Suggestion Category <span className="text-red-600">*</span>
                     </label>
-                    <select
-                      value={formData.category}
+                    <select aria-label="Select option" value={formData.category}
                       onChange={(e) => setFormData({...formData, category: e.target.value})}
                       className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                       required
@@ -105,8 +104,7 @@ export default function SuggestImprovementPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       Suggestion Title <span className="text-red-600">*</span>
                     </label>
-                    <input
-                      type="text"
+                    <input aria-label="text input" type="text"
                       value={formData.title}
                       onChange={(e) => setFormData({...formData, title: e.target.value})}
                       placeholder="Brief title for your suggestion"
@@ -119,8 +117,7 @@ export default function SuggestImprovementPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       Detailed Description <span className="text-red-600">*</span>
                     </label>
-                    <textarea
-                      value={formData.description}
+                    <textarea aria-label="Text input" value={formData.description}
                       onChange={(e) => setFormData({...formData, description: e.target.value})}
                       rows={4}
                       placeholder="Describe your suggestion in detail..."
@@ -133,8 +130,7 @@ export default function SuggestImprovementPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       Expected Benefit
                     </label>
-                    <textarea
-                      value={formData.benefit}
+                    <textarea aria-label="Text input" value={formData.benefit}
                       onChange={(e) => setFormData({...formData, benefit: e.target.value})}
                       rows={2}
                       placeholder="How would this improvement help users?"
@@ -170,8 +166,7 @@ export default function SuggestImprovementPattern() {
 
                   <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4">
                     <label className="flex items-center gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
+                      <input aria-label="Checkbox" type="checkbox"
                         checked={formData.vote}
                         onChange={(e) => setFormData({...formData, vote: e.target.checked})}
                         className="w-5 h-5"

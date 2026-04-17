@@ -369,7 +369,7 @@ function PageDesigns() {
             <div className="bg-blue-100 border-b-2 border-blue-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Clock size={32} className="text-blue-600" />
-                <h1 className="text-3xl font-bold text-foreground">Application Under Review</h1>
+                <h2 className="text-3xl font-bold text-foreground">Application Under Review</h2>
               </div>
               <p className="text-lg text-muted-foreground">
                 Your application is being reviewed by our team. We'll notify you once a decision is made.
@@ -463,7 +463,7 @@ function PageDesigns() {
             <div className="bg-yellow-100 border-b-2 border-yellow-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <AlertCircle size={32} className="text-yellow-600" />
-                <h1 className="text-3xl font-bold text-foreground">Action Needed: Additional Information Required</h1>
+                <h2 className="text-3xl font-bold text-foreground">Action Needed: Additional Information Required</h2>
               </div>
               <p className="text-lg text-muted-foreground">
                 We need some additional information to complete the review of your application.
@@ -558,7 +558,7 @@ function PageDesigns() {
               <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Application Approved!</h1>
+              <h2 className="text-3xl font-bold mb-4">Application Approved!</h2>
               <p className="text-lg text-green-100">
                 Congratulations! Your driving license application has been approved.
               </p>
@@ -649,7 +649,7 @@ function PageDesigns() {
             <div className="bg-gray-700 text-white p-8">
               <div className="flex items-center gap-3 mb-4">
                 <XCircle size={32} />
-                <h1 className="text-3xl font-bold">Application Not Approved</h1>
+                <h2 className="text-3xl font-bold">Application Not Approved</h2>
               </div>
               <p className="text-lg text-gray-200">
                 Your application does not meet the required criteria at this time.
@@ -751,7 +751,7 @@ function PageDesigns() {
             <div className="bg-teal-600 text-white p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Award size={32} />
-                <h1 className="text-3xl font-bold">Your Driving License is Ready!</h1>
+                <h2 className="text-3xl font-bold">Your Driving License is Ready!</h2>
               </div>
               <p className="text-lg text-teal-100">
                 Your license has been issued and is now available for download.

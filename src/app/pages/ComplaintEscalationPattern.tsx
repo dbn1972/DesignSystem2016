@@ -404,7 +404,7 @@ function PageDesigns() {
               <div className="max-w-3xl">
                 <div className="flex items-center gap-3 mb-4">
                   <Scale size={32} />
-                  <h1 className="text-3xl font-bold">Public Grievance Redressal System</h1>
+                  <h2 className="text-3xl font-bold">Public Grievance Redressal System</h2>
                 </div>
                 <p className="text-lg text-blue-100 leading-relaxed">
                   Your right to quality public services is protected. File complaints, track resolution, 
@@ -520,7 +520,7 @@ function PageDesigns() {
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Department / Ministry <span className="text-red-600">*</span>
                   </label>
-                  <select className="w-full px-4 py-3 border-2 border-border rounded-lg">
+                  <select aria-label="Select option" className="w-full px-4 py-3 border-2 border-border rounded-lg">
                     <option>Select Department</option>
                     <option>Ministry of Rural Development</option>
                     <option>Ministry of Education</option>
@@ -532,7 +532,7 @@ function PageDesigns() {
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Service Type <span className="text-red-600">*</span>
                   </label>
-                  <select className="w-full px-4 py-3 border-2 border-border rounded-lg">
+                  <select aria-label="Select option" className="w-full px-4 py-3 border-2 border-border rounded-lg">
                     <option>Select Service</option>
                     <option>Scholarship Scheme</option>
                     <option>Ration Card</option>
@@ -590,8 +590,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-2">
                   Complaint Description <span className="text-red-600">*</span>
                 </label>
-                <textarea
-                  className="w-full px-4 py-3 border-2 border-border rounded-lg"
+                <textarea aria-label="Describe your issue in detail. Include: What happened? When? Where? Who was involved? What outcome do you expect?" className="w-full px-4 py-3 border-2 border-border rounded-lg"
                   rows={6}
                   placeholder="Describe your issue in detail. Include: What happened? When? Where? Who was involved? What outcome do you expect?"
                 ></textarea>
@@ -605,8 +604,7 @@ function PageDesigns() {
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Application / Reference ID (if any)
                   </label>
-                  <input
-                    type="text"
+                  <input aria-label="e.g., SCH/2026/12345" type="text"
                     placeholder="e.g., SCH/2026/12345"
                     className="w-full px-4 py-3 border-2 border-border rounded-lg"
                   />
@@ -615,8 +613,7 @@ function PageDesigns() {
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Date of Incident
                   </label>
-                  <input
-                    type="text"
+                  <input aria-label="DD/MM/YYYY" type="text"
                     placeholder="DD/MM/YYYY"
                     className="w-full px-4 py-3 border-2 border-border rounded-lg"
                   />
@@ -833,7 +830,7 @@ function PageDesigns() {
 
               <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start gap-3">
-                  <input type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
+                  <input aria-label="Checkbox" type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
                   <div className="text-sm text-muted-foreground">
                     <p className="font-bold mb-2">Declaration</p>
                     <p className="leading-relaxed">
@@ -875,7 +872,7 @@ function PageDesigns() {
               <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Complaint Registered Successfully</h1>
+              <h2 className="text-3xl font-bold mb-4">Complaint Registered Successfully</h2>
               <p className="text-lg text-green-100">
                 Your grievance has been recorded and assigned to the concerned department.
               </p>
@@ -1073,7 +1070,7 @@ function PageDesigns() {
             <div className="bg-red-100 border-b-2 border-red-300 p-8">
               <div className="flex items-center gap-3 mb-4">
                 <ArrowUp size={32} className="text-red-600" />
-                <h1 className="text-3xl font-bold text-foreground">Escalate Your Complaint</h1>
+                <h2 className="text-3xl font-bold text-foreground">Escalate Your Complaint</h2>
               </div>
               <p className="text-muted-foreground leading-relaxed">
                 If you're unsatisfied with the response or resolution time, escalate your complaint to higher authority.
@@ -1149,8 +1146,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-2">
                   Additional Comments (Optional)
                 </label>
-                <textarea
-                  className="w-full px-4 py-3 border-2 border-border rounded-lg"
+                <textarea aria-label="Provide any additional context for the escalation..." className="w-full px-4 py-3 border-2 border-border rounded-lg"
                   rows={4}
                   placeholder="Provide any additional context for the escalation..."
                 ></textarea>
@@ -1204,7 +1200,7 @@ function PageDesigns() {
             <div className="bg-green-600 text-white p-8">
               <div className="flex items-center gap-3 mb-4">
                 <CheckCircle size={32} />
-                <h1 className="text-3xl font-bold">Complaint Resolved</h1>
+                <h2 className="text-3xl font-bold">Complaint Resolved</h2>
               </div>
               <p className="text-lg text-green-100">
                 Your grievance has been addressed. Review the resolution below.

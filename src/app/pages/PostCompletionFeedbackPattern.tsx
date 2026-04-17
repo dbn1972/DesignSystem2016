@@ -104,6 +104,7 @@ export default function PostCompletionFeedbackPattern() {
                         <button
                           key={star}
                           type="button"
+                          aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
                           onClick={() => setFormData({...formData, overallRating: star})}
                           className="focus:outline-none transition-transform hover:scale-110"
                         >
@@ -257,8 +258,7 @@ export default function PostCompletionFeedbackPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       What worked well?
                     </label>
-                    <textarea
-                      value={formData.whatWorked}
+                    <textarea aria-label="Text input" value={formData.whatWorked}
                       onChange={(e) => setFormData({...formData, whatWorked: e.target.value})}
                       rows={3}
                       placeholder="Tell us what you liked about the service..."
@@ -270,8 +270,7 @@ export default function PostCompletionFeedbackPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       What could be improved?
                     </label>
-                    <textarea
-                      value={formData.whatDidnt}
+                    <textarea aria-label="Text input" value={formData.whatDidnt}
                       onChange={(e) => setFormData({...formData, whatDidnt: e.target.value})}
                       rows={3}
                       placeholder="Share any challenges or frustrations you faced..."
@@ -283,8 +282,7 @@ export default function PostCompletionFeedbackPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       Any suggestions?
                     </label>
-                    <textarea
-                      value={formData.suggestions}
+                    <textarea aria-label="Text input" value={formData.suggestions}
                       onChange={(e) => setFormData({...formData, suggestions: e.target.value})}
                       rows={2}
                       placeholder="Optional: Suggest new features or improvements..."
@@ -295,8 +293,7 @@ export default function PostCompletionFeedbackPattern() {
                   {/* Contact Option */}
                   <div className="bg-background border-2 border-border rounded-lg p-4">
                     <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
+                      <input aria-label="Checkbox" type="checkbox"
                         checked={formData.contactMe}
                         onChange={(e) => setFormData({...formData, contactMe: e.target.checked})}
                         className="w-5 h-5 mt-0.5"
@@ -309,8 +306,7 @@ export default function PostCompletionFeedbackPattern() {
                       </div>
                     </label>
                     {formData.contactMe && (
-                      <input
-                        type="email"
+                      <input aria-label="email input" type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         placeholder="your.email@example.com"

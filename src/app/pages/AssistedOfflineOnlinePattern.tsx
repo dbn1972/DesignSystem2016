@@ -403,7 +403,7 @@ function PageDesigns() {
                 <div className="flex items-center gap-3">
                   <UserCheck size={28} />
                   <div>
-                    <h1 className="text-2xl font-bold">Operator Dashboard</h1>
+                    <h2 className="text-2xl font-bold">Operator Dashboard</h2>
                     <p className="text-sm text-blue-100">CSC Noida Sector 15 • Operator ID: OP-NOI-456</p>
                   </div>
                 </div>
@@ -537,8 +537,7 @@ function PageDesigns() {
                 </label>
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <input
-                      type="text"
+                    <input aria-label="XXXX XXXX XXXX" type="text"
                       placeholder="XXXX XXXX XXXX"
                       className="w-full px-4 py-3 border-2 border-border rounded-lg text-lg font-mono"
                       maxLength={12}
@@ -613,7 +612,7 @@ function PageDesigns() {
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Bank Name <span className="text-red-600">*</span>
                   </label>
-                  <select className="w-full px-4 py-3 border-2 border-border rounded-lg">
+                  <select aria-label="Select option" className="w-full px-4 py-3 border-2 border-border rounded-lg">
                     <option>Select Bank</option>
                     <option>State Bank of India</option>
                     <option>Punjab National Bank</option>
@@ -625,8 +624,7 @@ function PageDesigns() {
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Branch Name <span className="text-red-600">*</span>
                   </label>
-                  <input
-                    type="text"
+                  <input aria-label="e.g., Sitapur Main Branch" type="text"
                     placeholder="e.g., Sitapur Main Branch"
                     className="w-full px-4 py-3 border-2 border-border rounded-lg"
                   />
@@ -638,8 +636,7 @@ function PageDesigns() {
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Account Number <span className="text-red-600">*</span>
                   </label>
-                  <input
-                    type="text"
+                  <input aria-label="Enter bank account number" type="text"
                     placeholder="Enter bank account number"
                     className="w-full px-4 py-3 border-2 border-border rounded-lg font-mono"
                   />
@@ -648,8 +645,7 @@ function PageDesigns() {
                   <label className="block text-sm font-bold text-foreground mb-2">
                     IFSC Code <span className="text-red-600">*</span>
                   </label>
-                  <input
-                    type="text"
+                  <input aria-label="e.g., SBIN0001234" type="text"
                     placeholder="e.g., SBIN0001234"
                     className="w-full px-4 py-3 border-2 border-border rounded-lg font-mono"
                   />
@@ -832,7 +828,7 @@ function PageDesigns() {
               <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Application Started Successfully</h1>
+              <h2 className="text-3xl font-bold mb-4">Application Started Successfully</h2>
               <p className="text-lg text-green-100">
                 Reference number generated. Print acknowledgment receipt for citizen.
               </p>
@@ -938,7 +934,7 @@ function PageDesigns() {
             <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 p-1">
               <div className="bg-card p-8">
                 <div className="text-center mb-6">
-                  <h1 className="text-4xl font-bold text-foreground mb-4">अपना आवेदन जारी रखें</h1>
+                  <h2 className="text-4xl font-bold text-foreground mb-4">अपना आवेदन जारी रखें</h2>
                   <h2 className="text-3xl font-bold text-muted-foreground mb-4">Continue Your Application</h2>
                   <p className="text-lg text-muted-foreground">
                     आपने सरकारी कार्यालय में अपना आवेदन शुरू किया था।<br/>
@@ -953,8 +949,7 @@ function PageDesigns() {
                   अपना संदर्भ नंबर दर्ज करें / Enter Your Reference Number
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <input
-                    type="text"
+                  <input aria-label="REF-2026-XXXXXX" type="text"
                     placeholder="REF-2026-XXXXXX"
                     className="col-span-2 px-6 py-4 border-2 border-border rounded-lg text-2xl font-mono text-center"
                   />

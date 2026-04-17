@@ -432,7 +432,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <Shield size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Aadhaar Authentication</h4>
+              <h3 className="font-bold text-foreground mb-2">Aadhaar Authentication</h3>
             </div>
             <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-4 text-sm text-muted-foreground space-y-2">
               <p><strong>Why we need Aadhaar:</strong></p>
@@ -463,11 +463,11 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <FileText size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Your Consent Required</h4>
+              <h3 className="font-bold text-foreground mb-2">Your Consent Required</h3>
             </div>
             <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded p-4">
               <label className="flex items-start gap-3 cursor-pointer">
-                <input type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
+                <input aria-label="Checkbox" type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
                 <div className="text-sm text-foreground">
                   <p className="font-bold mb-2">I hereby consent to:</p>
                   <ul className="space-y-1 ml-4">
@@ -495,14 +495,13 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <User size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Enter Aadhaar Number</h4>
+              <h3 className="font-bold text-foreground mb-2">Enter Aadhaar Number</h3>
             </div>
             <div>
               <label className="block text-sm font-bold text-foreground mb-2">
                 12-digit Aadhaar Number
               </label>
-              <input 
-                type="text" 
+              <input aria-label="#### #### ####" type="text" 
                 placeholder="#### #### ####"
                 maxLength={14}
                 className="w-full px-4 py-3 border-2 border-border rounded text-center font-mono text-lg"
@@ -526,14 +525,13 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Invalid Number</h4>
+              <h3 className="font-bold text-foreground mb-2">Invalid Number</h3>
             </div>
             <div>
               <label className="block text-sm font-bold text-foreground mb-2">
                 12-digit Aadhaar Number
               </label>
-              <input 
-                type="text" 
+              <input aria-label="text input" type="text" 
                 defaultValue="1234 5678 9"
                 readOnly
                 className="w-full px-4 py-3 border-2 border-red-400 rounded text-center font-mono text-lg bg-red-50"
@@ -557,7 +555,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <Clock size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Enter OTP</h4>
+              <h3 className="font-bold text-foreground mb-2">Enter OTP</h3>
               <p className="text-sm text-muted-foreground">
                 Code sent to Aadhaar-linked mobile<br/>
                 ending in ***987
@@ -565,8 +563,7 @@ function ExampleScreens() {
             </div>
             <div className="flex gap-2 justify-center">
               {[...Array(6)].map((_, i) => (
-                <input 
-                  key={i}
+                <input aria-label="text input" key={i}
                   type="text" 
                   maxLength={1}
                   defaultValue=""
@@ -592,7 +589,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Authentication Failed</h4>
+              <h3 className="font-bold text-foreground mb-2">Authentication Failed</h3>
               <p className="text-sm text-muted-foreground">
                 Unable to verify your Aadhaar
               </p>
@@ -625,7 +622,7 @@ function ExampleScreens() {
               <CheckCircle size={40} className="text-green-600" />
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-2">Verified Successfully</h4>
+              <h3 className="font-bold text-foreground mb-2">Verified Successfully</h3>
               <p className="text-sm text-muted-foreground">
                 Your identity has been authenticated<br/>
                 via Aadhaar
@@ -649,7 +646,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <AlertCircle size={40} className="text-yellow-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Service Temporarily Unavailable</h4>
+              <h3 className="font-bold text-foreground mb-2">Service Temporarily Unavailable</h3>
               <p className="text-sm text-muted-foreground">
                 Aadhaar authentication service<br/>
                 is currently down
@@ -1771,7 +1768,7 @@ function FlowStep({ number, title, description, state, branches, variant }: {
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-foreground">{title}</h4>
+            <h3 className="font-bold text-foreground">{title}</h3>
             <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
@@ -1828,7 +1825,7 @@ function FallbackOption({ title, description, recommended }: { title: string; de
     <div className={`bg-card border-2 rounded-lg overflow-hidden ${recommended ? 'border-green-300' : 'border-border'}`}>
       <div className={`px-4 py-3 border-b-2 ${recommended ? 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800' : 'bg-muted border-border'}`}>
         <div className="flex items-center justify-between">
-          <h4 className="font-bold text-foreground text-sm">{title}</h4>
+          <h3 className="font-bold text-foreground text-sm">{title}</h3>
           {recommended && (
             <CheckCircle size={16} className="text-green-600" />
           )}
@@ -1853,7 +1850,7 @@ function AccessibilityItem({ label, description }: { label: string; description:
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-foreground mb-2">{category}</h4>
+      <h3 className="font-bold text-foreground mb-2">{category}</h3>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
           <li key={index} className="text-muted-foreground flex items-start gap-2">

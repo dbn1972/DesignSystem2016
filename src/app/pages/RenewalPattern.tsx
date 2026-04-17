@@ -384,7 +384,7 @@ function PageDesigns() {
             <div className="bg-primary text-white p-8">
               <div className="max-w-3xl">
                 <div className="text-sm mb-2 text-blue-200">Renew Your [Service Name]</div>
-                <h1 className="text-3xl font-bold mb-4">Find Your Existing Record</h1>
+                <h2 className="text-3xl font-bold mb-4">Find Your Existing Record</h2>
                 <p className="text-lg text-blue-100 leading-relaxed">
                   Enter your details to retrieve your existing record and start the renewal process.
                 </p>
@@ -422,16 +422,14 @@ function PageDesigns() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm text-muted-foreground mb-2">Certificate/License Number</label>
-                      <input
-                        type="text"
+                      <input aria-label="e.g., DL-0120190012345" type="text"
                         placeholder="e.g., DL-0120190012345"
                         className="w-full px-4 py-3 border-2 border-border rounded-lg"
                       />
                     </div>
                     <div>
                       <label className="block text-sm text-muted-foreground mb-2">Date of Birth</label>
-                      <input
-                        type="text"
+                      <input aria-label="DD/MM/YYYY" type="text"
                         placeholder="DD/MM/YYYY"
                         className="w-full px-4 py-3 border-2 border-border rounded-lg"
                       />
@@ -444,16 +442,14 @@ function PageDesigns() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm text-muted-foreground mb-2">Registered Mobile Number</label>
-                    <input
-                      type="tel"
+                    <input aria-label="+91 98765-43210" type="tel"
                       placeholder="+91 98765-43210"
                       className="w-full px-4 py-3 border-2 border-border rounded-lg"
                     />
                   </div>
                   <div>
                     <label className="block text-sm text-muted-foreground mb-2">Aadhaar Number (Last 4 digits)</label>
-                    <input
-                      type="text"
+                    <input aria-label="XXXX" type="text"
                       placeholder="XXXX"
                       className="w-full px-4 py-3 border-2 border-border rounded-lg"
                     />
@@ -777,7 +773,7 @@ function PageDesigns() {
 
               <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start gap-3">
-                  <input type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
+                  <input aria-label="Checkbox" type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
                   <div className="text-sm text-muted-foreground">
                     <p className="font-bold mb-2">Declaration</p>
                     <p className="leading-relaxed">
@@ -818,7 +814,7 @@ function PageDesigns() {
               <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Renewal Application Submitted!</h1>
+              <h2 className="text-3xl font-bold mb-4">Renewal Application Submitted!</h2>
               <p className="text-lg text-green-100">
                 Your renewal application has been received and is being processed.
               </p>
@@ -996,8 +992,7 @@ function DataFieldRules() {
   <label className="block text-sm font-bold text-foreground mb-2">
     Full Name <Lock size={14} className="inline ml-1 text-gray-500" />
   </label>
-  <input 
-    value="Rajesh Kumar Sharma" 
+  <input aria-label="text input" value="Rajesh Kumar Sharma" 
     disabled 
     className="w-full px-4 py-3 bg-muted border-2 border-border rounded-lg text-muted-foreground cursor-not-allowed"
   />
@@ -1013,8 +1008,7 @@ function DataFieldRules() {
   <label className="block text-sm font-bold text-foreground mb-2">
     Mobile Number <Edit size={14} className="inline ml-1 text-blue-600" />
   </label>
-  <input 
-    value="+91 98765-43210" 
+  <input aria-label="text input" value="+91 98765-43210" 
     className="w-full px-4 py-3 border-2 border-blue-300 bg-blue-50 dark:bg-blue-950/30 rounded-lg focus:border-blue-600"
   />
   <div className="text-xs text-muted-foreground mt-1">
@@ -1029,8 +1023,7 @@ function DataFieldRules() {
   <label className="block text-sm font-bold text-foreground mb-2">
     Current Address <AlertCircle size={14} className="inline ml-1 text-orange-600" />
   </label>
-  <textarea 
-    className="w-full px-4 py-3 border-2 border-orange-300 bg-orange-50 dark:bg-orange-950/30 rounded-lg"
+  <textarea aria-label="Text input" className="w-full px-4 py-3 border-2 border-orange-300 bg-orange-50 dark:bg-orange-950/30 rounded-lg"
     value="456, Connaught Place, New Delhi - 110001"
   ></textarea>
   <div className="flex items-center gap-2 mt-2 text-xs text-orange-700">
@@ -1680,8 +1673,7 @@ function PrefillField({ label, value, type, reason }: any) {
         {label}
         <span className={typeConfig[type].color}>{typeConfig[type].icon}</span>
       </label>
-      <input
-        defaultValue={value}
+      <input aria-label="text input" defaultValue={value}
         readOnly={type === 'locked'}
         disabled={type === 'locked'}
         className={`w-full px-4 py-3 border-2 ${typeConfig[type].border} ${typeConfig[type].bg} rounded-lg ${type === 'locked' ? 'cursor-not-allowed' : ''}`}
@@ -1716,14 +1708,12 @@ function EditableField({ label, value, editable, changed, newValue }: any) {
             <span className="text-muted-foreground">Old: </span>
             <span className="text-foreground line-through">{value}</span>
           </div>
-          <input
-            defaultValue={newValue}
+          <input aria-label="text input" defaultValue={newValue}
             className="w-full px-4 py-3 border-2 border-blue-400 bg-blue-50 dark:bg-blue-950/30 rounded-lg"
           />
         </div>
       ) : (
-        <input
-          defaultValue={value}
+        <input aria-label="text input" defaultValue={value}
           readOnly={!editable}
           className="w-full px-4 py-3 border-2 border-border rounded-lg"
         />
@@ -1789,7 +1779,7 @@ function FieldTypeDefinition({ type, icon, color, definition, examples, reasonin
     <div className={`border-2 ${colorConfig[color].border} ${colorConfig[color].bg} rounded-lg overflow-hidden`}>
       <div className={`${colorConfig[color].headerBg} border-b-2 ${colorConfig[color].border} px-4 py-3 flex items-center gap-2`}>
         {icon}
-        <h4 className="font-bold text-foreground">{type}</h4>
+        <h3 className="font-bold text-foreground">{type}</h3>
       </div>
       <div className="p-4 space-y-3">
         <div className="text-sm text-muted-foreground">{definition}</div>
@@ -1844,7 +1834,7 @@ function VisualPatternExample({ type, code }: any) {
   return (
     <div className="border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-muted border-b-2 border-border px-4 py-3">
-        <h4 className="font-bold text-sm text-foreground">{type}</h4>
+        <h3 className="font-bold text-sm text-foreground">{type}</h3>
       </div>
       <div className="p-4 bg-gray-900 text-gray-100">
         <pre className="text-xs overflow-x-auto">

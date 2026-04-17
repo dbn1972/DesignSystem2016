@@ -338,7 +338,7 @@ function ExampleScreens() {
             <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
                 <Smartphone size={40} className="text-primary mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Enter Mobile Number</h4>
+                <h3 className="font-bold text-foreground mb-2">Enter Mobile Number</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   We'll send a verification code<br/>
                   to confirm your identity
@@ -349,14 +349,12 @@ function ExampleScreens() {
                   Mobile Number
                 </label>
                 <div className="flex gap-2">
-                  <input 
-                    type="text" 
+                  <input aria-label="text input" type="text" 
                     value="+91"
                     disabled
                     className="w-16 px-3 py-3 border-2 border-border rounded bg-muted text-center font-bold"
                   />
-                  <input 
-                    type="tel" 
+                  <input aria-label="10-digit mobile number" type="tel" 
                     placeholder="10-digit mobile number"
                     className="flex-1 px-4 py-3 border-2 border-border rounded"
                   />
@@ -386,7 +384,7 @@ function ExampleScreens() {
             <div className="bg-background border-2 border-red-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Invalid Number</h4>
+                <h3 className="font-bold text-foreground mb-2">Invalid Number</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Please check and enter a<br/>
                   valid 10-digit mobile number
@@ -397,14 +395,12 @@ function ExampleScreens() {
                   Mobile Number
                 </label>
                 <div className="flex gap-2">
-                  <input 
-                    type="text" 
+                  <input aria-label="text input" type="text" 
                     value="+91"
                     disabled
                     className="w-16 px-3 py-3 border-2 border-border rounded bg-muted text-center font-bold"
                   />
-                  <input 
-                    type="tel" 
+                  <input aria-label="tel input" type="tel" 
                     value="123456"
                     className="flex-1 px-4 py-3 border-2 border-red-400 rounded bg-red-50"
                   />
@@ -434,7 +430,7 @@ function ExampleScreens() {
             <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
                 <MessageSquare size={40} className="text-green-600 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">OTP Sent</h4>
+                <h3 className="font-bold text-foreground mb-2">OTP Sent</h3>
                 <p className="text-sm text-muted-foreground mb-2">
                   We've sent a 6-digit code to
                 </p>
@@ -450,8 +446,7 @@ function ExampleScreens() {
                 <label className="block text-sm font-bold text-foreground mb-2">Enter 6-digit OTP</label>
                 <div className="flex gap-2 justify-center">
                   {[...Array(6)].map((_, i) => (
-                    <input 
-                      key={i}
+                    <input aria-label="text input" key={i}
                       type="text" 
                       maxLength={1}
                       className="w-12 h-12 border-2 border-border rounded text-center font-bold text-xl"
@@ -480,7 +475,7 @@ function ExampleScreens() {
             <div className="bg-background border-2 border-yellow-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <Clock size={40} className="text-yellow-600 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Haven't received code yet?</h4>
+                <h3 className="font-bold text-foreground mb-2">Haven't received code yet?</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   SMS may take up to 2 minutes<br/>
                   due to network conditions
@@ -520,7 +515,7 @@ function ExampleScreens() {
             <div className="bg-background border-2 border-red-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Still no code?</h4>
+                <h3 className="font-bold text-foreground mb-2">Still no code?</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Let's try to resolve this
                 </p>
@@ -565,7 +560,7 @@ function ExampleScreens() {
             <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
                 <Smartphone size={40} className="text-primary mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Update Mobile Number</h4>
+                <h3 className="font-bold text-foreground mb-2">Update Mobile Number</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Enter a new number to<br/>
                   receive verification code
@@ -581,14 +576,12 @@ function ExampleScreens() {
                   New Mobile Number
                 </label>
                 <div className="flex gap-2">
-                  <input 
-                    type="text" 
+                  <input aria-label="text input" type="text" 
                     value="+91"
                     disabled
                     className="w-16 px-3 py-3 border-2 border-border rounded bg-muted text-center font-bold"
                   />
-                  <input 
-                    type="tel" 
+                  <input aria-label="10-digit mobile number" type="tel" 
                     placeholder="10-digit mobile number"
                     className="flex-1 px-4 py-3 border-2 border-border rounded"
                   />
@@ -619,7 +612,7 @@ function ExampleScreens() {
             <div className="bg-background border-2 border-red-500 rounded p-6 space-y-4">
               <div className="text-center">
                 <Signal size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Connection Problem</h4>
+                <h3 className="font-bold text-foreground mb-2">Connection Problem</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Unable to send OTP due to<br/>
                   network connectivity issue
@@ -656,7 +649,7 @@ function ExampleScreens() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <CheckCircle size={40} className="text-green-600" />
                 </div>
-                <h4 className="font-bold text-foreground mb-2">Mobile Verified!</h4>
+                <h3 className="font-bold text-foreground mb-2">Mobile Verified!</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Your mobile number has been<br/>
                   successfully verified
@@ -1015,7 +1008,7 @@ function NetworkConsiderations() {
         <div className="p-6">
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-bold text-foreground mb-3">Before Requesting OTP</h4>
+              <h3 className="font-bold text-foreground mb-3">Before Requesting OTP</h3>
               <div className="space-y-2">
                 <GuidanceItem icon={<Signal size={14} className="text-primary" />} text="Check you have network signal (2G/3G/4G/5G)" />
                 <GuidanceItem icon={<Smartphone size={14} className="text-primary" />} text="Ensure correct SIM is active (if dual SIM)" />
@@ -1024,7 +1017,7 @@ function NetworkConsiderations() {
               </div>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-3">If OTP Doesn't Arrive</h4>
+              <h3 className="font-bold text-foreground mb-3">If OTP Doesn't Arrive</h3>
               <div className="space-y-2">
                 <GuidanceItem icon={<Clock size={14} className="text-primary" />} text="Wait 2 minutes before resending" />
                 <GuidanceItem icon={<RefreshCw size={14} className="text-primary" />} text="Try resending OTP (max 3 times per hour)" />
@@ -1115,7 +1108,7 @@ function AccessibilitySection() {
         <div className="p-6">
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-bold text-foreground mb-3">iOS Safari (WebKit)</h4>
+              <h3 className="font-bold text-foreground mb-3">iOS Safari (WebKit)</h3>
               <div className="bg-background border border-border rounded p-4">
                 <p className="text-muted-foreground mb-2">Automatically reads SMS with OTP when:</p>
                 <ul className="space-y-1 ml-4 text-muted-foreground">
@@ -1126,7 +1119,7 @@ function AccessibilitySection() {
               </div>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-3">Android Chrome (Web OTP API)</h4>
+              <h3 className="font-bold text-foreground mb-3">Android Chrome (Web OTP API)</h3>
               <div className="bg-background border border-border rounded p-4">
                 <p className="text-muted-foreground mb-2">Use WebOTP API with SMS format:</p>
                 <div className="bg-gray-900 text-green-400 p-2 rounded font-mono text-xs mt-2">
@@ -1227,8 +1220,7 @@ function ImplementationSection() {
       class="country-code"
       aria-label="Country code India"
     />
-    <input 
-      type="tel" 
+    <input aria-label="mobile" type="tel" 
       id="mobile"
       name="mobile"
       inputmode="numeric"
@@ -1905,7 +1897,7 @@ function FlowStep({ number, title, description, state, branches, variant }: {
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-foreground">{title}</h4>
+            <h3 className="font-bold text-foreground">{title}</h3>
             <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
@@ -1994,7 +1986,7 @@ function AccessibilityItem({ label, description }: { label: string; description:
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-foreground mb-2">{category}</h4>
+      <h3 className="font-bold text-foreground mb-2">{category}</h3>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
           <li key={index} className="text-muted-foreground flex items-start gap-2">

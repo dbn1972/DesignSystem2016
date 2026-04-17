@@ -113,8 +113,7 @@ export default function BulkDataEntryPattern() {
                       <tr key={row.id} className={`border-b border-border ${idx % 2 === 0 ? 'bg-card' : 'bg-background'} hover:bg-blue-50`}>
                         <td className="px-4 py-2 text-sm text-muted-foreground">{idx + 1}</td>
                         <td className="px-4 py-2">
-                          <input
-                            type="text"
+                          <input aria-label="text input" type="text"
                             value={row.name}
                             onChange={(e) => updateRow(row.id, 'name', e.target.value)}
                             placeholder="Enter name"
@@ -122,8 +121,7 @@ export default function BulkDataEntryPattern() {
                           />
                         </td>
                         <td className="px-4 py-2">
-                          <input
-                            type="email"
+                          <input aria-label="email input" type="email"
                             value={row.email}
                             onChange={(e) => updateRow(row.id, 'email', e.target.value)}
                             placeholder="email@example.com"
@@ -131,8 +129,7 @@ export default function BulkDataEntryPattern() {
                           />
                         </td>
                         <td className="px-4 py-2">
-                          <input
-                            type="tel"
+                          <input aria-label="tel input" type="tel"
                             value={row.phone}
                             onChange={(e) => updateRow(row.id, 'phone', e.target.value)}
                             placeholder="9876543210"
@@ -140,8 +137,7 @@ export default function BulkDataEntryPattern() {
                           />
                         </td>
                         <td className="px-4 py-2">
-                          <select
-                            value={row.department}
+                          <select aria-label="Select option" value={row.department}
                             onChange={(e) => updateRow(row.id, 'department', e.target.value)}
                             className="w-full px-2 py-1.5 border border-border rounded text-sm focus:border-primary focus:outline-none"
                           >

@@ -90,8 +90,7 @@ export default function IssueReportingPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       Issue Type <span className="text-red-600">*</span>
                     </label>
-                    <select
-                      value={formData.issueType}
+                    <select aria-label="Select option" value={formData.issueType}
                       onChange={(e) => setFormData({...formData, issueType: e.target.value})}
                       className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                       required
@@ -139,8 +138,7 @@ export default function IssueReportingPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       Issue Title <span className="text-red-600">*</span>
                     </label>
-                    <input
-                      type="text"
+                    <input aria-label="text input" type="text"
                       value={formData.title}
                       onChange={(e) => setFormData({...formData, title: e.target.value})}
                       placeholder="Brief description of the problem"
@@ -154,8 +152,7 @@ export default function IssueReportingPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       Detailed Description <span className="text-red-600">*</span>
                     </label>
-                    <textarea
-                      value={formData.description}
+                    <textarea aria-label="Text input" value={formData.description}
                       onChange={(e) => setFormData({...formData, description: e.target.value})}
                       rows={4}
                       placeholder="Explain what happened, what you expected to happen, and any error messages you saw..."
@@ -169,8 +166,7 @@ export default function IssueReportingPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       Steps to Reproduce
                     </label>
-                    <textarea
-                      value={formData.stepsToReproduce}
+                    <textarea aria-label="Text input" value={formData.stepsToReproduce}
                       onChange={(e) => setFormData({...formData, stepsToReproduce: e.target.value})}
                       rows={3}
                       placeholder="1. Go to...\n2. Click on...\n3. Error appears..."
@@ -182,8 +178,7 @@ export default function IssueReportingPattern() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block font-bold text-foreground mb-2">Browser</label>
-                      <select
-                        value={formData.browser}
+                      <select aria-label="Select option" value={formData.browser}
                         onChange={(e) => setFormData({...formData, browser: e.target.value})}
                         className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                       >
@@ -197,8 +192,7 @@ export default function IssueReportingPattern() {
                     </div>
                     <div>
                       <label className="block font-bold text-foreground mb-2">Device</label>
-                      <select
-                        value={formData.device}
+                      <select aria-label="Select option" value={formData.device}
                         onChange={(e) => setFormData({...formData, device: e.target.value})}
                         className="w-full px-4 py-3 border-2 border-border rounded focus:border-primary focus:outline-none"
                       >
@@ -219,7 +213,7 @@ export default function IssueReportingPattern() {
                       <label className="flex items-center gap-2 px-4 py-2 bg-card border-2 border-border rounded cursor-pointer hover:border-primary">
                         <Upload size={16} />
                         <span className="text-sm font-bold">Choose File</span>
-                        <input type="file" accept="image/*" className="hidden" />
+                        <input aria-label="file input" type="file" accept="image/*" className="hidden" />
                       </label>
                       <span className="text-sm text-muted-foreground">PNG, JPG up to 5MB</span>
                     </div>

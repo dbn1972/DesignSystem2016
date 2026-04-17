@@ -268,8 +268,7 @@ export default function NotificationCenterPattern() {
           {/* Search */}
           <div className="relative">
             <Search size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="text"
+            <input aria-label="Search notifications..." type="text"
               placeholder="Search notifications..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -339,7 +338,7 @@ export default function NotificationCenterPattern() {
         ) : (
           <div className="bg-card border-2 border-border rounded-lg p-12 text-center">
             <Bell size={48} className="text-muted-foreground mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-foreground mb-2">No notifications found</h3>
+            <h2 className="text-xl font-bold text-foreground mb-2">No notifications found</h2>
             <p className="text-muted-foreground">
               {searchQuery ? 'Try a different search term' : 'Try changing the filter'}
             </p>
@@ -348,7 +347,7 @@ export default function NotificationCenterPattern() {
 
         {/* Pattern Info */}
         <div className="mt-12 bg-purple-50 dark:bg-purple-950/30 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
-          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
+          <h2 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
             <div>
               <div className="font-bold text-muted-foreground mb-2">Filtering</div>
@@ -419,8 +418,7 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
     } rounded-lg p-6 transition-all ${notification.unread ? 'bg-blue-50' : ''}`}>
       <div className="flex items-start gap-4">
         {/* Checkbox */}
-        <input
-          type="checkbox"
+        <input aria-label="Checkbox" type="checkbox"
           checked={isSelected}
           onChange={onToggleSelect}
           className="mt-1 w-4 h-4 cursor-pointer"
@@ -436,7 +434,7 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
           <div className="flex items-start justify-between mb-2">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
-                <h3 className="font-bold text-foreground">{notification.title}</h3>
+                <h2 className="font-bold text-foreground">{notification.title}</h2>
                 {notification.unread && (
                   <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                 )}

@@ -232,7 +232,7 @@ export default function TimelineViewPattern() {
         {filteredEvents.length === 0 && (
           <div className="bg-card border-2 border-border rounded-lg p-12 text-center">
             <AlertCircle size={48} className="text-muted-foreground mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-foreground mb-2">No events found</h3>
+            <h2 className="text-xl font-bold text-foreground mb-2">No events found</h2>
             <p className="text-muted-foreground">
               Try changing the filter to see different types of events.
             </p>
@@ -265,7 +265,7 @@ export default function TimelineViewPattern() {
 
         {/* Pattern Info */}
         <div className="mt-12 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
-          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
+          <h2 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
             <div>
               <div className="font-bold text-muted-foreground mb-2">Timeline Display</div>
@@ -343,7 +343,7 @@ function TimelineEvent({ event, isExpanded, onToggle, getTimeAgo, isLatest }: {
           <div className="flex items-start justify-between mb-3">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-lg font-bold text-foreground">{event.title}</h3>
+                <h2 className="text-lg font-bold text-foreground">{event.title}</h2>
                 {isLatest && (
                   <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded">
                     LATEST

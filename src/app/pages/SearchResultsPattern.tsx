@@ -96,8 +96,7 @@ export default function SearchResultsPattern() {
         <div className="max-w-[1400px] mx-auto px-8 py-6">
           <div className="relative max-w-[600px]">
             <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="text"
+            <input aria-label="text input" type="text"
               value={query}
               readOnly
               className="w-full pl-12 pr-4 py-3 border-2 border-border rounded-lg bg-background"
@@ -117,16 +116,15 @@ export default function SearchResultsPattern() {
             <div className="bg-card border-2 border-border rounded-lg p-6 sticky top-24">
               <div className="flex items-center gap-2 mb-6">
                 <Filter size={20} className="text-muted-foreground" />
-                <h2 className="font-bold text-foreground">Filters</h2>
+                <p className="font-bold text-foreground">Filters</p>
               </div>
 
               {/* Category Filter */}
               <div className="mb-6">
-                <h3 className="font-bold text-sm text-foreground mb-3">Category</h3>
+                <h2 className="font-bold text-sm text-foreground mb-3">Category</h2>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
+                    <input aria-label="Radio option" type="radio"
                       name="category"
                       checked={selectedCategory === null}
                       onChange={() => setSelectedCategory(null)}
@@ -136,8 +134,7 @@ export default function SearchResultsPattern() {
                   </label>
                   {categories.map(cat => (
                     <label key={cat} className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
+                      <input aria-label="Radio option" type="radio"
                         name="category"
                         checked={selectedCategory === cat}
                         onChange={() => setSelectedCategory(cat)}
@@ -154,10 +151,10 @@ export default function SearchResultsPattern() {
 
               {/* Department Filter */}
               <div>
-                <h3 className="font-bold text-sm text-foreground mb-3">Department</h3>
+                <h2 className="font-bold text-sm text-foreground mb-3">Department</h2>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" className="w-4 h-4" defaultChecked />
+                    <input aria-label="Checkbox" type="checkbox" className="w-4 h-4" defaultChecked />
                     <span className="text-sm text-muted-foreground">Ministry of External Affairs</span>
                     <span className="ml-auto text-xs text-gray-500">(4)</span>
                   </label>
@@ -193,8 +190,7 @@ export default function SearchResultsPattern() {
                 {/* Sort */}
                 <div className="flex items-center gap-2">
                   <span className="text-sm text-muted-foreground">Sort by:</span>
-                  <select
-                    value={sortBy}
+                  <select aria-label="Select option" value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
                     className="px-3 py-2 border-2 border-border rounded text-sm"
                   >
@@ -250,7 +246,7 @@ export default function SearchResultsPattern() {
 
         {/* Pattern Info */}
         <div className="mt-12 bg-card border-2 border-border rounded-lg p-6">
-          <h3 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h3>
+          <h2 className="font-bold text-foreground mb-4">Pattern Features Demonstrated</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
             <div>
               <div className="font-bold text-muted-foreground mb-2">Filtering</div>
@@ -315,9 +311,9 @@ function ResultCard({ result, viewMode, query }: {
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-lg font-bold text-foreground">
+            <h2 className="text-lg font-bold text-foreground">
               {highlightText(result.name)}
-            </h3>
+            </h2>
             {result.popular && (
               <span className="px-2 py-1 bg-yellow-100 border border-yellow-300 text-yellow-800 text-xs font-bold rounded">
                 POPULAR

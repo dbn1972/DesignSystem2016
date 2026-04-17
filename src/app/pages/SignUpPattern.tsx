@@ -412,7 +412,7 @@ function FlowStep({ number, title, description, action, color }: {
           {number}
         </div>
         <div className="flex-1">
-          <h4 className={`font-bold ${textColor} mb-1`}>{title}</h4>
+          <h3 className={`font-bold ${textColor} mb-1`}>{title}</h3>
           <p className="text-sm text-muted-foreground mb-2">{description}</p>
           <div className="text-xs text-muted-foreground italic">→ {action}</div>
         </div>
@@ -438,7 +438,7 @@ function FlowBranch({ condition, yesPath, noPath }: { condition: string; yesPath
       <div className="flex items-start gap-3">
         <AlertTriangle size={20} className="text-orange-600 flex-shrink-0 mt-1" />
         <div className="flex-1">
-          <h4 className="font-bold text-orange-800 mb-3">{condition}</h4>
+          <h3 className="font-bold text-orange-800 mb-3">{condition}</h3>
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-3">
               <div className="text-xs font-bold text-orange-700 mb-1">YES</div>
@@ -593,7 +593,7 @@ function SignUpFormExample({ state }: { state: string }) {
           <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
             <CheckCircle size={32} className="text-green-600" />
           </div>
-          <h4 className="font-bold text-foreground mb-2">Account Created Successfully</h4>
+          <h3 className="font-bold text-foreground mb-2">Account Created Successfully</h3>
           <p className="text-sm text-muted-foreground mb-4">
             Please verify your email address to continue
           </p>
@@ -606,15 +606,14 @@ function SignUpFormExample({ state }: { state: string }) {
           <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
             <Smartphone size={32} className="text-blue-600" />
           </div>
-          <h4 className="font-bold text-foreground mb-2">Verify Your Mobile Number</h4>
+          <h3 className="font-bold text-foreground mb-2">Verify Your Mobile Number</h3>
           <p className="text-sm text-muted-foreground mb-4">
             We have sent a 6-digit OTP to<br />
             <span className="font-bold">+91 98765 43210</span>
           </p>
           <div className="flex justify-center gap-2 mb-4">
             {[1, 2, 3, 4, 5, 6].map(i => (
-              <input 
-                key={i}
+              <input aria-label="0" key={i}
                 type="text" 
                 maxLength={1}
                 className="w-10 h-10 border-2 border-border rounded text-center font-bold"
@@ -632,7 +631,7 @@ function SignUpFormExample({ state }: { state: string }) {
             <div className="flex items-start gap-3">
               <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-bold text-orange-800 text-sm mb-1">Account Already Exists</h4>
+                <h3 className="font-bold text-orange-800 text-sm mb-1">Account Already Exists</h3>
                 <p className="text-sm text-muted-foreground">
                   An account with this email address already exists. Please sign in instead.
                 </p>
@@ -655,8 +654,7 @@ function SignUpFormExample({ state }: { state: string }) {
             <label className="block text-sm font-bold text-foreground mb-2">
               Full Name <span className="text-red-600">*</span>
             </label>
-            <input 
-              type="text" 
+            <input aria-label="Enter your full name" type="text" 
               className="w-full px-3 py-2 border-2 border-border rounded text-sm focus:border-primary focus:outline-none"
               placeholder="Enter your full name"
               defaultValue={state !== "default" ? "Rajesh Kumar" : ""}
@@ -668,8 +666,7 @@ function SignUpFormExample({ state }: { state: string }) {
             <label className="block text-sm font-bold text-foreground mb-2">
               Email Address <span className="text-red-600">*</span>
             </label>
-            <input 
-              type="email" 
+            <input aria-label="example@email.com" type="email" 
               className={`w-full px-3 py-2 border-2 rounded text-sm focus:outline-none ${
                 state === "invalid-email" ? "border-red-500" : "border-border focus:border-primary"
               }`}
@@ -690,11 +687,10 @@ function SignUpFormExample({ state }: { state: string }) {
               Mobile Number <span className="text-red-600">*</span>
             </label>
             <div className="flex gap-2">
-              <select className="px-2 py-2 border-2 border-border rounded text-sm bg-card">
+              <select aria-label="Select option" className="px-2 py-2 border-2 border-border rounded text-sm bg-card">
                 <option>+91</option>
               </select>
-              <input 
-                type="tel" 
+              <input aria-label="10-digit mobile number" type="tel" 
                 className={`flex-1 px-3 py-2 border-2 rounded text-sm focus:outline-none ${
                   state === "invalid-mobile" ? "border-red-500" : "border-border focus:border-primary"
                 }`}
@@ -715,8 +711,7 @@ function SignUpFormExample({ state }: { state: string }) {
             <label className="block text-sm font-bold text-foreground mb-2">
               Password <span className="text-red-600">*</span>
             </label>
-            <input 
-              type="password" 
+            <input aria-label="Create a strong password" type="password" 
               className={`w-full px-3 py-2 border-2 rounded text-sm focus:outline-none ${
                 state === "weak-password" ? "border-orange-500" : "border-border focus:border-primary"
               }`}
@@ -752,8 +747,7 @@ function SignUpFormExample({ state }: { state: string }) {
             <label className="block text-sm font-bold text-foreground mb-2">
               Confirm Password <span className="text-red-600">*</span>
             </label>
-            <input 
-              type="password" 
+            <input aria-label="Re-enter password" type="password" 
               className={`w-full px-3 py-2 border-2 rounded text-sm focus:outline-none ${
                 state === "password-mismatch" ? "border-red-500" : "border-border focus:border-primary"
               }`}
@@ -997,10 +991,10 @@ function PasswordGuidance() {
           <div className="p-6">
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <h4 className="font-bold text-green-700 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-green-700 mb-3 flex items-center gap-2">
                   <Check size={16} />
                   DO
-                </h4>
+                </h3>
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
                     <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
@@ -1021,10 +1015,10 @@ function PasswordGuidance() {
                 </div>
               </div>
               <div>
-                <h4 className="font-bold text-red-700 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-red-700 mb-3 flex items-center gap-2">
                   <X size={16} />
                   DON&apos;T
-                </h4>
+                </h3>
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
                     <XCircle size={14} className="text-red-600 mt-0.5 flex-shrink-0" />
@@ -1179,7 +1173,7 @@ function ValidationRules() {
             <div className="flex items-start gap-3">
               <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-bold text-orange-800 mb-2">When Duplicate Detected</h4>
+                <h3 className="font-bold text-orange-800 mb-2">When Duplicate Detected</h3>
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
                     <ChevronRight size={14} className="mt-0.5 flex-shrink-0" />
@@ -1353,11 +1347,11 @@ function ErrorCard({ title, severity, trigger, behavior, example }: {
       </div>
       <div className="p-6 space-y-4">
         <div>
-          <h4 className="text-sm font-bold text-foreground mb-1">Trigger</h4>
+          <h3 className="text-sm font-bold text-foreground mb-1">Trigger</h3>
           <p className="text-sm text-muted-foreground">{trigger}</p>
         </div>
         <div>
-          <h4 className="text-sm font-bold text-foreground mb-2">Behavior</h4>
+          <h3 className="text-sm font-bold text-foreground mb-2">Behavior</h3>
           <div className="space-y-1">
             {behavior.map((item, i) => (
               <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -2135,17 +2129,17 @@ function GovernanceSection() {
           <div className="p-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
               <div>
-                <h4 className="font-bold text-foreground mb-2">Pattern Questions</h4>
+                <h3 className="font-bold text-foreground mb-2">Pattern Questions</h3>
                 <p className="text-muted-foreground mb-2">For design and implementation guidance</p>
                 <a href="#" className="text-primary font-bold hover:underline">ux4g-support@gov.in</a>
               </div>
               <div>
-                <h4 className="font-bold text-foreground mb-2">Technical Issues</h4>
+                <h3 className="font-bold text-foreground mb-2">Technical Issues</h3>
                 <p className="text-muted-foreground mb-2">For API or integration problems</p>
                 <a href="#" className="text-primary font-bold hover:underline">tech-support@digitalindia.gov.in</a>
               </div>
               <div>
-                <h4 className="font-bold text-foreground mb-2">Conformance Review</h4>
+                <h3 className="font-bold text-foreground mb-2">Conformance Review</h3>
                 <p className="text-muted-foreground mb-2">For certification and audits</p>
                 <a href="#" className="text-primary font-bold hover:underline">conformance@ux4g.gov.in</a>
               </div>

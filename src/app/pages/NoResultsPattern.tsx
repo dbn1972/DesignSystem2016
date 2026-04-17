@@ -47,8 +47,7 @@ export default function NoResultsPattern() {
         <div className="max-w-[1200px] mx-auto px-8 py-6">
           <div className="relative max-w-[600px]">
             <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="text"
+            <input aria-label="text input" type="text"
               value={query}
               readOnly
               className="w-full pl-12 pr-4 py-3 border-2 border-red-300 rounded-lg bg-red-50"

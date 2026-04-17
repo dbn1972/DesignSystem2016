@@ -85,7 +85,7 @@ export default function RateServicePattern() {
 
                   {/* Rating Question */}
                   <div>
-                    <h4 className="font-bold text-foreground mb-2">How would you rate your experience?</h4>
+                    <h3 className="font-bold text-foreground mb-2">How would you rate your experience?</h3>
                     <p className="text-sm text-muted-foreground mb-4">Your feedback helps us improve our services</p>
 
                     {/* Star Rating */}
@@ -93,6 +93,7 @@ export default function RateServicePattern() {
                       {[1, 2, 3, 4, 5].map((star) => (
                         <button
                           key={star}
+                          aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
                           onClick={() => setRating(star)}
                           onMouseEnter={() => setHoverRating(star)}
                           onMouseLeave={() => setHoverRating(0)}
@@ -117,7 +118,7 @@ export default function RateServicePattern() {
                   {/* Quick Sentiment Tags (Optional) */}
                   {rating > 0 && (
                     <div>
-                      <h4 className="font-bold text-foreground mb-3">Quick feedback (Optional)</h4>
+                      <h3 className="font-bold text-foreground mb-3">Quick feedback (Optional)</h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         <button
                           onClick={() => setSentiment("easy")}

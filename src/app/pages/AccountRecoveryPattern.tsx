@@ -331,7 +331,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center mb-4">
               <HelpCircle size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">What problem are you facing?</h4>
+              <h3 className="font-bold text-foreground mb-2">What problem are you facing?</h3>
             </div>
             <div className="space-y-2">
               {[
@@ -358,24 +358,21 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center mb-4">
               <User size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Find Your Account</h4>
+              <h3 className="font-bold text-foreground mb-2">Find Your Account</h3>
               <p className="text-sm text-muted-foreground">
                 Enter any information you remember
               </p>
             </div>
             <div className="space-y-3">
-              <input 
-                type="text" 
+              <input aria-label="Username (if known)" type="text" 
                 placeholder="Username (if known)"
                 className="w-full px-4 py-3 border-2 border-border rounded"
               />
-              <input 
-                type="text" 
+              <input aria-label="Email or Mobile Number" type="text" 
                 placeholder="Email or Mobile Number"
                 className="w-full px-4 py-3 border-2 border-border rounded"
               />
-              <input 
-                type="text" 
+              <input aria-label="Full Name (as registered)" type="text" 
                 placeholder="Full Name (as registered)"
                 className="w-full px-4 py-3 border-2 border-border rounded"
               />
@@ -394,7 +391,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center mb-4">
               <Shield size={40} className="text-green-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Verify Your Identity</h4>
+              <h3 className="font-bold text-foreground mb-2">Verify Your Identity</h3>
               <p className="text-sm text-muted-foreground">
                 Choose an alternative verification method
               </p>
@@ -429,7 +426,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <Clock size={40} className="text-yellow-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Recovery In Progress</h4>
+              <h3 className="font-bold text-foreground mb-2">Recovery In Progress</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Your request is being reviewed
               </p>
@@ -466,7 +463,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center">
               <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Cannot Verify Automatically</h4>
+              <h3 className="font-bold text-foreground mb-2">Cannot Verify Automatically</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 We need additional information<br/>
                 to recover your account
@@ -499,7 +496,7 @@ function ExampleScreens() {
           <div className="space-y-4">
             <div className="text-center mb-4">
               <HelpCircle size={40} className="text-primary mx-auto mb-3" />
-              <h4 className="font-bold text-foreground mb-2">Get Help from Support</h4>
+              <h3 className="font-bold text-foreground mb-2">Get Help from Support</h3>
             </div>
             <div className="space-y-3 text-sm">
               <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3">
@@ -512,8 +509,7 @@ function ExampleScreens() {
               </div>
               <div>
                 <label className="block font-bold text-foreground mb-2">Describe your issue</label>
-                <textarea 
-                  rows={4}
+                <textarea aria-label="Please explain your recovery issue in detail..." rows={4}
                   className="w-full px-4 py-3 border-2 border-border rounded"
                   placeholder="Please explain your recovery issue in detail..."
                 ></textarea>
@@ -542,7 +538,7 @@ function ExampleScreens() {
               <CheckCircle size={40} className="text-green-600" />
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-2">Account Recovered!</h4>
+              <h3 className="font-bold text-foreground mb-2">Account Recovered!</h3>
               <p className="text-sm text-muted-foreground">
                 Your account has been successfully recovered
               </p>
@@ -1584,7 +1580,7 @@ function FlowStep({ number, title, description, state, branches, variant }: {
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-foreground">{title}</h4>
+            <h3 className="font-bold text-foreground">{title}</h3>
             <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
@@ -1631,7 +1627,7 @@ function RecoveryPath({ title, steps, timeline }: { title: string; steps: string
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
       <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-4 py-3">
-        <h4 className="font-bold text-foreground text-sm">{title}</h4>
+        <h3 className="font-bold text-foreground text-sm">{title}</h3>
       </div>
       <div className="p-4">
         <ol className="space-y-2 text-xs text-muted-foreground mb-3">
@@ -1709,7 +1705,7 @@ function AccessibilityItem({ label, description }: { label: string; description:
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-foreground mb-2">{category}</h4>
+      <h3 className="font-bold text-foreground mb-2">{category}</h3>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
           <li key={index} className="text-muted-foreground flex items-start gap-2">

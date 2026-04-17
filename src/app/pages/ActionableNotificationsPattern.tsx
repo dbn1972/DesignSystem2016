@@ -149,7 +149,7 @@ export default function ActionableNotificationsPattern() {
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
                           <Zap size={24} className="text-orange-600" />
-                          <h3 className="text-lg font-bold text-foreground">{notif.title}</h3>
+                          <h2 className="text-lg font-bold text-foreground">{notif.title}</h2>
                         </div>
                         <p className="text-sm text-muted-foreground mb-3">{notif.message}</p>
                         <div className="flex items-center gap-4 text-sm">
@@ -548,8 +548,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
         {uploadProgress === 0 ? (
           <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
             <Upload size={48} className="text-muted-foreground mx-auto mb-4" />
-            <input
-              type="file"
+            <input aria-label="file input" type="file"
               id="file-upload"
               className="hidden"
               onChange={(e) => {
@@ -666,7 +665,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
             verification purposes related to my application {notification.reference}.
           </div>
           <div className="flex items-start gap-2">
-            <input type="checkbox" id="consent" className="mt-1" />
+            <input aria-label="consent" type="checkbox" id="consent" className="mt-1" />
             <label htmlFor="consent" className="text-sm text-muted-foreground">
               I have read and understood the data sharing terms
             </label>
@@ -724,8 +723,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
             <label htmlFor="comment" className="text-sm text-muted-foreground block mb-2">
               Additional Comments (Optional)
             </label>
-            <textarea
-              id="comment"
+            <textarea aria-label="comment" id="comment"
               rows={3}
               value={comment}
               onChange={(e) => setComment(e.target.value)}

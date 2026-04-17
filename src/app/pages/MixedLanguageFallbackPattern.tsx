@@ -89,7 +89,7 @@ export default function MixedLanguageFallbackPattern() {
                     <label className="block font-bold text-foreground mb-2">
                       पूरा नाम <span className="text-xs text-gray-500 font-normal">(Translated)</span>
                     </label>
-                    <input type="text" className="w-full px-4 py-2 border-2 border-border rounded" placeholder="अपना नाम दर्ज करें" />
+                    <input aria-label="अपना नाम दर्ज करें" type="text" className="w-full px-4 py-2 border-2 border-border rounded" placeholder="अपना नाम दर्ज करें" />
                   </div>
 
                   <div>
@@ -100,14 +100,14 @@ export default function MixedLanguageFallbackPattern() {
                         English fallback
                       </span>
                     </label>
-                    <input type="date" className="w-full px-4 py-2 border-2 border-border rounded" />
+                    <input aria-label="date input" type="date" className="w-full px-4 py-2 border-2 border-border rounded" />
                   </div>
 
                   <div>
                     <label className="block font-bold text-foreground mb-2">
                       पता <span className="text-xs text-gray-500 font-normal">(Translated)</span>
                     </label>
-                    <textarea className="w-full px-4 py-2 border-2 border-border rounded" rows={3} placeholder="अपना पूरा पता दर्ज करें" />
+                    <textarea aria-label="अपना पूरा पता दर्ज करें" className="w-full px-4 py-2 border-2 border-border rounded" rows={3} placeholder="अपना पूरा पता दर्ज करें" />
                   </div>
                 </div>
               )}
@@ -117,7 +117,7 @@ export default function MixedLanguageFallbackPattern() {
                 <div className="space-y-4">
                   <div>
                     <label className="block font-bold text-foreground mb-2">पूरा नाम</label>
-                    <input type="text" className="w-full px-4 py-2 border-2 border-border rounded" placeholder="अपना नाम दर्ज करें" />
+                    <input aria-label="अपना नाम दर्ज करें" type="text" className="w-full px-4 py-2 border-2 border-border rounded" placeholder="अपना नाम दर्ज करें" />
                   </div>
 
                   <div className="relative">
@@ -127,13 +127,13 @@ export default function MixedLanguageFallbackPattern() {
                         ?
                       </span>
                     </label>
-                    <input type="date" className="w-full px-4 py-2 border-2 border-border rounded" />
+                    <input aria-label="date input" type="date" className="w-full px-4 py-2 border-2 border-border rounded" />
                     <div className="mt-1 text-xs text-gray-500 italic">Translation pending for this field</div>
                   </div>
 
                   <div>
                     <label className="block font-bold text-foreground mb-2">पता</label>
-                    <textarea className="w-full px-4 py-2 border-2 border-border rounded" rows={3} placeholder="अपना पूरा पता दर्ज करें" />
+                    <textarea aria-label="अपना पूरा पता दर्ज करें" className="w-full px-4 py-2 border-2 border-border rounded" rows={3} placeholder="अपना पूरा पता दर्ज करें" />
                   </div>
                 </div>
               )}
@@ -159,17 +159,17 @@ export default function MixedLanguageFallbackPattern() {
                   <div className="space-y-4">
                     <div>
                       <label className="block font-bold text-foreground mb-2">पूरा नाम</label>
-                      <input type="text" className="w-full px-4 py-2 border-2 border-border rounded" placeholder="अपना नाम दर्ज करें" />
+                      <input aria-label="अपना नाम दर्ज करें" type="text" className="w-full px-4 py-2 border-2 border-border rounded" placeholder="अपना नाम दर्ज करें" />
                     </div>
 
                     <div className="bg-background border-2 border-border rounded-lg p-4">
                       <label className="block font-bold text-foreground mb-2">Date of Birth</label>
-                      <input type="date" className="w-full px-4 py-2 border-2 border-border rounded" />
+                      <input aria-label="date input" type="date" className="w-full px-4 py-2 border-2 border-border rounded" />
                     </div>
 
                     <div>
                       <label className="block font-bold text-foreground mb-2">पता</label>
-                      <textarea className="w-full px-4 py-2 border-2 border-border rounded" rows={3} placeholder="अपना पूरा पता दर्ज करें" />
+                      <textarea aria-label="अपना पूरा पता दर्ज करें" className="w-full px-4 py-2 border-2 border-border rounded" rows={3} placeholder="अपना पूरा पता दर्ज करें" />
                     </div>
                   </div>
                 </div>

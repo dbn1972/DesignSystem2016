@@ -34,7 +34,7 @@ export default function ServicePatternLibraries() {
                       <ServicePatternLibrariesCodeDownloads />
           </div>
 
-          <aside className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
+          <div className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
             <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Pattern health</p>
@@ -54,7 +54,7 @@ export default function ServicePatternLibraries() {
               <PatternNote title="Reusable flows" text="Each archetype maps to a service journey that can be reused across departments." />
               <PatternNote title="Implementation-ready" text="Pattern guidance is written for teams building the real application, not a demo." />
             </div>
-          </aside>
+          </div>
         </div>
       </header>
 
@@ -285,7 +285,7 @@ function ApplicationSubmission() {
         </div>
 
         {/* Sidebar - 4 columns */}
-        <aside className="col-span-4 space-y-6">
+        <div className="col-span-4 space-y-6">
           
           <AnnotationPanel title="Pattern Metadata">
             <div className="space-y-4">
@@ -378,7 +378,7 @@ function ApplicationSubmission() {
             </div>
           </AnnotationPanel>
 
-        </aside>
+        </div>
       </div>
     </section>
   );
@@ -498,7 +498,7 @@ function EligibilityScreening() {
 
         </div>
 
-        <aside className="col-span-4 space-y-6">
+        <div className="col-span-4 space-y-6">
           <AnnotationPanel title="Pattern Metadata">
             <div className="space-y-4">
               <AnnotationItem label="Pattern ID" value="UX4G-PAT-002" />
@@ -555,7 +555,7 @@ function EligibilityScreening() {
               <RelatedPatternTag pattern="Assisted Journey" />
             </div>
           </AnnotationPanel>
-        </aside>
+        </div>
       </div>
     </section>
   );
@@ -638,7 +638,7 @@ function Renewal() {
 
         </div>
 
-        <aside className="col-span-4 space-y-6">
+        <div className="col-span-4 space-y-6">
           <AnnotationPanel title="Pattern Metadata">
             <div className="space-y-4">
               <AnnotationItem label="Pattern ID" value="UX4G-PAT-003" />
@@ -694,7 +694,7 @@ function Renewal() {
               <RelatedPatternTag pattern="Status Tracking" />
             </div>
           </AnnotationPanel>
-        </aside>
+        </div>
       </div>
     </section>
   );
@@ -786,7 +786,7 @@ function CorrectionResubmission() {
 
         </div>
 
-        <aside className="col-span-4 space-y-6">
+        <div className="col-span-4 space-y-6">
           <AnnotationPanel title="Pattern Metadata">
             <div className="space-y-4">
               <AnnotationItem label="Pattern ID" value="UX4G-PAT-004" />
@@ -833,7 +833,7 @@ function CorrectionResubmission() {
               <RelatedPatternTag pattern="Status Tracking" />
             </div>
           </AnnotationPanel>
-        </aside>
+        </div>
       </div>
     </section>
   );
@@ -925,7 +925,7 @@ function ComplaintEscalation() {
 
         </div>
 
-        <aside className="col-span-4 space-y-6">
+        <div className="col-span-4 space-y-6">
           <AnnotationPanel title="Pattern Metadata">
             <div className="space-y-4">
               <AnnotationItem label="Pattern ID" value="UX4G-PAT-005" />
@@ -984,7 +984,7 @@ function ComplaintEscalation() {
               <RelatedPatternTag pattern="Application Submission" />
             </div>
           </AnnotationPanel>
-        </aside>
+        </div>
       </div>
     </section>
   );
@@ -1073,7 +1073,7 @@ function ApprovalIssuance() {
 
         </div>
 
-        <aside className="col-span-4 space-y-6">
+        <div className="col-span-4 space-y-6">
           <AnnotationPanel title="Pattern Metadata">
             <div className="space-y-4">
               <AnnotationItem label="Pattern ID" value="UX4G-PAT-006" />
@@ -1128,7 +1128,7 @@ function ApprovalIssuance() {
               <RelatedPatternTag pattern="Status Tracking" />
             </div>
           </AnnotationPanel>
-        </aside>
+        </div>
       </div>
     </section>
   );
@@ -1203,7 +1203,7 @@ function AssistedOfflineToOnline() {
 
         </div>
 
-        <aside className="col-span-4 space-y-6">
+        <div className="col-span-4 space-y-6">
           <AnnotationPanel title="Pattern Metadata">
             <div className="space-y-4">
               <AnnotationItem label="Pattern ID" value="UX4G-PAT-007" />
@@ -1261,7 +1261,7 @@ function AssistedOfflineToOnline() {
               <RelatedPatternTag pattern="Status Tracking" />
             </div>
           </AnnotationPanel>
-        </aside>
+        </div>
       </div>
     </section>
   );
@@ -1377,7 +1377,7 @@ function HighVolumeStatusTracking() {
 
         </div>
 
-        <aside className="col-span-4 space-y-6">
+        <div className="col-span-4 space-y-6">
           <AnnotationPanel title="Pattern Metadata">
             <div className="space-y-4">
               <AnnotationItem label="Pattern ID" value="UX4G-PAT-008" />
@@ -1454,7 +1454,7 @@ function HighVolumeStatusTracking() {
               <RelatedPatternTag pattern="Complaint & Escalation" />
             </div>
           </AnnotationPanel>
-        </aside>
+        </div>
       </div>
     </section>
   );
@@ -1643,7 +1643,7 @@ function GuidelineBox({ type, items }: any) {
         <div className={`flex h-8 w-8 items-center justify-center rounded-lg border ${config[type].iconBg} ${config[type].iconBorder}`}>
           {config[type].icon}
         </div>
-        <h4 className="font-bold text-foreground">{config[type].title}</h4>
+        <h3 className="font-bold text-foreground">{config[type].title}</h3>
       </div>
       <div className="p-4">
         <ul className="space-y-2">
@@ -1671,7 +1671,7 @@ function AnnotationPanel({ title, children, severity }: any) {
   return (
     <div className={`overflow-hidden rounded-[24px] border ${config.border} ${config.bg} shadow-sm`}>
       <div className={`${config.headerBg} border-b ${config.border} px-4 py-2.5`}>
-        <h4 className="text-sm font-bold text-foreground">{title}</h4>
+        <h3 className="text-sm font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-4">
         {children}
@@ -1795,7 +1795,7 @@ function EscalationLevel({ level, role, sla, description }: any) {
 function RequirementBlock({ title, items }: any) {
   return (
     <div>
-      <h4 className="mb-3 text-sm font-bold text-foreground">{title}</h4>
+      <h3 className="mb-3 text-sm font-bold text-foreground">{title}</h3>
       <ul className="space-y-2">
         {items.map((item: string, idx: number) => (
           <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -1811,7 +1811,7 @@ function RequirementBlock({ title, items }: any) {
 function TrainingModule({ title, items }: any) {
   return (
     <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
-      <h4 className="mb-3 text-sm font-bold text-foreground">{title}</h4>
+      <h3 className="mb-3 text-sm font-bold text-foreground">{title}</h3>
       <ul className="space-y-2">
         {items.map((item: string, idx: number) => (
           <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -1865,7 +1865,7 @@ function StatusMessage({ status, message, color, icon }: any) {
 function OptimizationBlock({ title, strategies }: any) {
   return (
     <div>
-      <h4 className="mb-3 text-sm font-bold text-foreground">{title}</h4>
+      <h3 className="mb-3 text-sm font-bold text-foreground">{title}</h3>
       <ul className="space-y-2">
         {strategies.map((strategy: string, idx: number) => (
           <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">

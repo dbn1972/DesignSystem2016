@@ -372,7 +372,7 @@ function PageDesigns() {
             <div className="bg-primary text-white p-8">
               <div className="max-w-3xl">
                 <div className="text-sm mb-2 text-blue-200">Government of India • Ministry of XYZ</div>
-                <h1 className="text-3xl font-bold mb-4">Apply for [Service Name]</h1>
+                <h2 className="text-3xl font-bold mb-4">Apply for [Service Name]</h2>
                 <p className="text-lg text-blue-100 leading-relaxed mb-6">
                   Brief description of what this service provides and who it is for. Clear value proposition.
                 </p>
@@ -567,7 +567,7 @@ function PageDesigns() {
               />
               <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start gap-3">
-                  <input type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
+                  <input aria-label="Checkbox" type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
                   <div className="text-sm text-muted-foreground">
                     <p className="font-bold mb-2">Declaration</p>
                     <p className="leading-relaxed">
@@ -607,7 +607,7 @@ function PageDesigns() {
               <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Application Submitted Successfully!</h1>
+              <h2 className="text-3xl font-bold mb-4">Application Submitted Successfully!</h2>
               <p className="text-lg text-green-100">Your application has been received and is being processed.</p>
             </div>
             <div className="p-8 space-y-6">
@@ -672,8 +672,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-2">
                   Application Reference Number
                 </label>
-                <input
-                  type="text"
+                <input aria-label="APP/2026/123456" type="text"
                   placeholder="APP/2026/123456"
                   className="w-full px-4 py-3 border-2 border-border rounded-lg text-lg font-mono"
                 />
@@ -684,8 +683,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-2">
                   Registered Mobile Number
                 </label>
-                <input
-                  type="tel"
+                <input aria-label="+91 98765-43210" type="tel"
                   placeholder="+91 98765-43210"
                   className="w-full px-4 py-3 border-2 border-border rounded-lg"
                 />
@@ -696,8 +694,7 @@ function PageDesigns() {
                   <div className="bg-gray-200 px-6 py-3 rounded font-mono text-xl font-bold text-foreground">
                     A3K9P
                   </div>
-                  <input
-                    type="text"
+                  <input aria-label="Enter CAPTCHA" type="text"
                     placeholder="Enter CAPTCHA"
                     className="flex-1 px-4 py-3 border-2 border-border rounded-lg"
                   />
@@ -1899,18 +1896,16 @@ function FormFieldExample({ label, required, type, helpText }: any) {
         {label} {required && <span className="text-red-600">*</span>}
       </label>
       {type === 'select' ? (
-        <select className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card">
+        <select aria-label="Select option" className="w-full px-4 py-3 border-2 border-border rounded-lg bg-card">
           <option>Select an option</option>
         </select>
       ) : type === 'date' ? (
-        <input
-          type="text"
+        <input aria-label="DD/MM/YYYY" type="text"
           placeholder="DD/MM/YYYY"
           className="w-full px-4 py-3 border-2 border-border rounded-lg"
         />
       ) : (
-        <input
-          type={type}
+        <input aria-label="text input" type={type}
           className="w-full px-4 py-3 border-2 border-border rounded-lg"
         />
       )}

@@ -622,7 +622,7 @@ function PageDesigns() {
               <div className="max-w-3xl">
                 <div className="flex items-center gap-3 mb-4">
                   <AlertCircle size={32} className="text-orange-600" />
-                  <h1 className="text-3xl font-bold text-foreground">Your Application Needs Correction</h1>
+                  <h2 className="text-3xl font-bold text-foreground">Your Application Needs Correction</h2>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                   We reviewed your application and found a few issues that need your attention. 
@@ -791,8 +791,7 @@ function PageDesigns() {
                 </label>
                 <div className="flex items-start gap-4">
                   <div className="flex-1">
-                    <input
-                      type="tel"
+                    <input aria-label="Enter 10-digit mobile number" type="tel"
                       placeholder="Enter 10-digit mobile number"
                       className="w-full px-4 py-3 border-2 border-orange-300 bg-orange-50 dark:bg-orange-950/30 rounded-lg focus:border-orange-600"
                     />
@@ -1056,7 +1055,7 @@ function PageDesigns() {
 
               <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start gap-3">
-                  <input type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
+                  <input aria-label="Checkbox" type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
                   <div className="text-sm text-muted-foreground">
                     <p className="font-bold mb-2">Declaration</p>
                     <p className="leading-relaxed">
@@ -1098,7 +1097,7 @@ function PageDesigns() {
               <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle size={48} className="text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Application Resubmitted Successfully!</h1>
+              <h2 className="text-3xl font-bold mb-4">Application Resubmitted Successfully!</h2>
               <p className="text-lg text-green-100">
                 Your corrected application has been received and is now under review.
               </p>
@@ -2148,7 +2147,7 @@ function IssueTypeDefinition({ type, severity, color, icon, description, example
       <div className={`${colorConfig[color].headerBg} border-b-2 ${colorConfig[color].border} px-4 py-3 flex items-center justify-between`}>
         <div className="flex items-center gap-2">
           {icon}
-          <h4 className="font-bold text-foreground">{type}</h4>
+          <h3 className="font-bold text-foreground">{type}</h3>
         </div>
         <div className="text-xs font-bold text-muted-foreground">{severity} Severity</div>
       </div>

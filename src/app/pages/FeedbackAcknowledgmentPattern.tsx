@@ -65,7 +65,7 @@ export default function FeedbackAcknowledgmentPattern() {
                   <div className="text-sm text-muted-foreground mb-2">Feedback Reference Number</div>
                   <div className="flex items-center justify-center gap-3">
                     <div className="text-2xl font-bold text-foreground">{referenceId}</div>
-                    <button className="p-2 hover:bg-blue-100 rounded">
+                    <button aria-label="Copy reference number" className="p-2 hover:bg-blue-100 rounded">
                       <Copy size={18} className="text-blue-600" />
                     </button>
                   </div>
@@ -83,7 +83,7 @@ export default function FeedbackAcknowledgmentPattern() {
                         <span className="font-bold text-purple-600">1</span>
                       </div>
                       <div>
-                        <h4 className="font-bold text-foreground mb-1">Review & Categorization</h4>
+                        <h3 className="font-bold text-foreground mb-1">Review & Categorization</h3>
                         <p className="text-sm text-muted-foreground">
                           Your feedback will be reviewed and categorized within 2-3 business days.
                         </p>
@@ -95,7 +95,7 @@ export default function FeedbackAcknowledgmentPattern() {
                         <span className="font-bold text-purple-600">2</span>
                       </div>
                       <div>
-                        <h4 className="font-bold text-foreground mb-1">Analysis & Planning</h4>
+                        <h3 className="font-bold text-foreground mb-1">Analysis & Planning</h3>
                         <p className="text-sm text-muted-foreground">
                           Feedback is analyzed by relevant teams and prioritized for action.
                         </p>
@@ -107,7 +107,7 @@ export default function FeedbackAcknowledgmentPattern() {
                         <span className="font-bold text-purple-600">3</span>
                       </div>
                       <div>
-                        <h4 className="font-bold text-foreground mb-1">Status Updates</h4>
+                        <h3 className="font-bold text-foreground mb-1">Status Updates</h3>
                         <p className="text-sm text-muted-foreground">
                           You'll receive notifications when status changes or action is taken.
                         </p>

@@ -487,9 +487,9 @@ function PatternCard({ title, description, icon, link, complexity, channels, use
             {icon}
           </div>
           <div className="flex-1">
-            <h4 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+            <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
               {title}
-            </h4>
+            </h3>
             <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
               <span className="px-2 py-1 bg-muted rounded">
                 {complexity}
@@ -576,7 +576,7 @@ function TemplateExample({ title, sms, email, inapp }: {
 }) {
   return (
     <div className="bg-background border-2 border-border rounded-lg p-6">
-      <h4 className="font-bold text-foreground mb-4">{title}</h4>
+      <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <div className="space-y-3">
         <div>
           <div className="flex items-center gap-2 mb-2">

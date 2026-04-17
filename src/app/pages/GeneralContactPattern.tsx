@@ -107,7 +107,7 @@ export default function GeneralContactPattern() {
             <div className="flex items-start gap-3">
               <Info size={20} className="text-blue-600 mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <h3 className="font-bold text-foreground mb-2">How to use this form</h3>
+                <p className="font-bold text-foreground mb-2">How to use this form</p>
                 <p className="text-sm text-muted-foreground mb-2">
                   Use this form for general questions, information requests, or non-urgent inquiries. 
                   For urgent matters or existing case follow-ups, please use the appropriate specialized forms.
@@ -248,8 +248,7 @@ export default function GeneralContactPattern() {
                   </label>
                   <div className="flex gap-4">
                     <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
+                      <input aria-label="Radio option" type="radio"
                         name="preferredContact"
                         value="email"
                         checked={formData.preferredContact === 'email'}
@@ -259,8 +258,7 @@ export default function GeneralContactPattern() {
                       <span className="text-sm text-muted-foreground">Email</span>
                     </label>
                     <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
+                      <input aria-label="Radio option" type="radio"
                         name="preferredContact"
                         value="phone"
                         checked={formData.preferredContact === 'phone'}
@@ -270,8 +268,7 @@ export default function GeneralContactPattern() {
                       <span className="text-sm text-muted-foreground">Phone</span>
                     </label>
                     <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
+                      <input aria-label="Radio option" type="radio"
                         name="preferredContact"
                         value="both"
                         checked={formData.preferredContact === 'both'}
@@ -297,8 +294,7 @@ export default function GeneralContactPattern() {
                   <label htmlFor="message" className="block text-sm font-bold text-foreground mb-2">
                     Message <span className="text-red-600">*</span>
                   </label>
-                  <textarea
-                    id="message"
+                  <textarea aria-label="message" id="message"
                     rows={6}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -516,7 +512,7 @@ function IntentOption({ title, description, selected, onClick }: {
           {selected && <CheckCircle size={20} className="text-white -m-0.5" />}
         </div>
         <div>
-          <h3 className="font-bold text-foreground mb-1">{title}</h3>
+          <h2 className="font-bold text-foreground mb-1">{title}</h2>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
       </div>
@@ -539,8 +535,7 @@ function FormField({ label, id, type = 'text', required = false, error, value, o
       <label htmlFor={id} className="block text-sm font-bold text-foreground mb-2">
         {label} {required && <span className="text-red-600">*</span>}
       </label>
-      <input
-        type={type}
+      <input aria-label="text input" type={type}
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -577,7 +572,7 @@ function ReviewField({ label, value, multiline = false }: {
 function PatternInfo() {
   return (
     <div className="mt-12 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
-      <h3 className="font-bold text-foreground mb-3">Pattern Information</h3>
+      <h2 className="font-bold text-foreground mb-3">Pattern Information</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
         <div>
           <div className="text-muted-foreground mb-1">Pattern Type</div>

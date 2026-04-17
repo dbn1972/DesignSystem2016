@@ -60,7 +60,7 @@ export default function OperationalServicePatterns() {
             <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <Info size={24} className="text-primary" />
-                <h3 className="font-bold text-foreground">Purpose</h3>
+                <h2 className="font-bold text-foreground">Purpose</h2>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Provide reusable, accessible operational patterns for common service tasks like booking appointments, 
@@ -387,7 +387,7 @@ export default function OperationalServicePatterns() {
               </p>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div className="bg-card border border-blue-200 dark:border-blue-800 rounded p-4">
-                  <h4 className="font-bold text-foreground mb-2">Appointment Booking →</h4>
+                  <h3 className="font-bold text-foreground mb-2">Appointment Booking →</h3>
                   <ul className="space-y-1 text-muted-foreground">
                     <li>• Requires Fee Payment (if applicable)</li>
                     <li>• Uses Notification & Reminder</li>
@@ -395,7 +395,7 @@ export default function OperationalServicePatterns() {
                   </ul>
                 </div>
                 <div className="bg-card border border-blue-200 dark:border-blue-800 rounded p-4">
-                  <h4 className="font-bold text-foreground mb-2">Document Upload →</h4>
+                  <h3 className="font-bold text-foreground mb-2">Document Upload →</h3>
                   <ul className="space-y-1 text-muted-foreground">
                     <li>• Connects to Document Verification</li>
                     <li>• Uses Notification for status updates</li>
@@ -403,7 +403,7 @@ export default function OperationalServicePatterns() {
                   </ul>
                 </div>
                 <div className="bg-card border border-blue-200 dark:border-blue-800 rounded p-4">
-                  <h4 className="font-bold text-foreground mb-2">Fee Payment →</h4>
+                  <h3 className="font-bold text-foreground mb-2">Fee Payment →</h3>
                   <ul className="space-y-1 text-muted-foreground">
                     <li>• Requires Payment Failure handling</li>
                     <li>• Uses Notification for receipt</li>
@@ -411,7 +411,7 @@ export default function OperationalServicePatterns() {
                   </ul>
                 </div>
                 <div className="bg-card border border-blue-200 dark:border-blue-800 rounded p-4">
-                  <h4 className="font-bold text-foreground mb-2">Officer Review →</h4>
+                  <h3 className="font-bold text-foreground mb-2">Officer Review →</h3>
                   <ul className="space-y-1 text-muted-foreground">
                     <li>• Triggers Document Verification</li>
                     <li>• Uses Notification to inform citizens</li>
@@ -520,7 +520,7 @@ function PatternCard({
 
         {/* Features */}
         <div className="mb-4">
-          <h4 className="text-xs font-bold text-muted-foreground uppercase mb-2">Key Features</h4>
+          <h3 className="text-xs font-bold text-muted-foreground uppercase mb-2">Key Features</h3>
           <div className="grid grid-cols-2 gap-2">
             {features.map((feature, index) => (
               <div key={index} className="flex items-start gap-2">

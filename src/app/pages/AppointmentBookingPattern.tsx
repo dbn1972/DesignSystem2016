@@ -418,7 +418,7 @@ function FlowStep({ number, title, description, action, color }: {
           {number}
         </div>
         <div className="flex-1">
-          <h4 className={`font-bold ${textColor} mb-1`}>{title}</h4>
+          <h3 className={`font-bold ${textColor} mb-1`}>{title}</h3>
           <p className="text-sm text-muted-foreground mb-2">{description}</p>
           <div className="text-xs text-muted-foreground italic">→ {action}</div>
         </div>
@@ -530,13 +530,9 @@ function AppointmentScreenExample({ type }: { type: string }) {
 
           {/* Month Header */}
           <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-border">
-            <button className="p-2 hover:bg-muted rounded">
-              <ChevronRight size={20} className="rotate-180 text-muted-foreground" />
-            </button>
-            <h4 className="font-bold text-foreground">April 2026</h4>
-            <button className="p-2 hover:bg-muted rounded">
-              <ChevronRight size={20} className="text-muted-foreground" />
-            </button>
+            <button aria-label="Action" className="p-2 hover:bg-muted rounded"><ChevronRight size={20} className="rotate-180 text-muted-foreground" /></button>
+            <h3 className="font-bold text-foreground">April 2026</h3>
+            <button aria-label="Action" className="p-2 hover:bg-muted rounded"><ChevronRight size={20} className="text-muted-foreground" /></button>
           </div>
 
           {/* Calendar Grid */}
@@ -605,7 +601,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
 
           <div className="space-y-3">
             <div>
-              <h4 className="text-sm font-bold text-muted-foreground mb-2">Morning</h4>
+              <h3 className="text-sm font-bold text-muted-foreground mb-2">Morning</h3>
               <div className="grid grid-cols-2 gap-2">
                 <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50">
                   09:00 AM
@@ -624,7 +620,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
             </div>
 
             <div>
-              <h4 className="text-sm font-bold text-muted-foreground mb-2">Afternoon</h4>
+              <h3 className="text-sm font-bold text-muted-foreground mb-2">Afternoon</h3>
               <div className="grid grid-cols-2 gap-2">
                 <button className="px-4 py-3 border-2 border-primary bg-blue-50 dark:bg-blue-950/30 rounded text-sm font-medium text-primary">
                   02:00 PM<br/>
@@ -655,13 +651,13 @@ function AppointmentScreenExample({ type }: { type: string }) {
           <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
             <CheckCircle size={32} className="text-green-600" />
           </div>
-          <h4 className="font-bold text-foreground text-lg mb-2">Appointment Confirmed</h4>
+          <h3 className="font-bold text-foreground text-lg mb-2">Appointment Confirmed</h3>
           <p className="text-sm text-muted-foreground mb-6">
             Your appointment has been successfully booked
           </p>
 
           <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 mb-6 text-left">
-            <h5 className="font-bold text-foreground text-sm mb-3">Appointment Details</h5>
+            <h4 className="font-bold text-foreground text-sm mb-3">Appointment Details</h4>
             <div className="space-y-2 text-sm">
               <div className="flex items-start gap-2">
                 <Calendar size={16} className="text-blue-600 mt-0.5" />
@@ -884,7 +880,7 @@ function ConfirmationSection() {
         <div className="p-6">
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-bold text-foreground mb-3">Must Include:</h4>
+              <h3 className="font-bold text-foreground mb-3">Must Include:</h3>
               <div className="space-y-2">
                 <InfoItem text="Booking reference number" />
                 <InfoItem text="Date and time" />
@@ -895,7 +891,7 @@ function ConfirmationSection() {
               </div>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-3">Should Include:</h4>
+              <h3 className="font-bold text-foreground mb-3">Should Include:</h3>
               <div className="space-y-2">
                 <InfoItem text="Google Maps link to location" />
                 <InfoItem text="Parking information" />
@@ -921,7 +917,7 @@ function ConfirmationItem({ title, timing, channels, content }: {
   return (
     <div className="bg-background border border-border rounded p-4">
       <div className="flex items-start justify-between mb-2">
-        <h4 className="font-bold text-foreground">{title}</h4>
+        <h3 className="font-bold text-foreground">{title}</h3>
         <span className="text-xs font-bold text-muted-foreground bg-card px-2 py-1 rounded border border-border">
           {timing}
         </span>
@@ -992,7 +988,7 @@ function RescheduleCancel() {
           <div className="p-6">
             <div className="grid grid-cols-2 gap-6 text-sm">
               <div>
-                <h4 className="font-bold text-foreground mb-3">Rescheduling:</h4>
+                <h3 className="font-bold text-foreground mb-3">Rescheduling:</h3>
                 <div className="space-y-2">
                   <InfoItem text="Allow up to 24 hours before appointment" />
                   <InfoItem text="Maximum 2 reschedules per booking" />
@@ -1001,7 +997,7 @@ function RescheduleCancel() {
                 </div>
               </div>
               <div>
-                <h4 className="font-bold text-foreground mb-3">Cancellation:</h4>
+                <h3 className="font-bold text-foreground mb-3">Cancellation:</h3>
                 <div className="space-y-2">
                   <InfoItem text="Allow up to 4 hours before appointment" />
                   <InfoItem text="Track no-show and cancellation patterns" />
@@ -1151,7 +1147,7 @@ function ImplementationSection() {
           <div className="p-6">
             <div className="grid grid-cols-2 gap-6 text-sm">
               <div>
-                <h4 className="font-bold text-foreground mb-3">Concurrency Handling:</h4>
+                <h3 className="font-bold text-foreground mb-3">Concurrency Handling:</h3>
                 <div className="space-y-2">
                   <ImplementationItem text="Handle race conditions when multiple users select same slot" />
                   <ImplementationItem text="Implement slot versioning or row locking" />
@@ -1160,7 +1156,7 @@ function ImplementationSection() {
                 </div>
               </div>
               <div>
-                <h4 className="font-bold text-foreground mb-3">Notifications:</h4>
+                <h3 className="font-bold text-foreground mb-3">Notifications:</h3>
                 <div className="space-y-2">
                   <ImplementationItem text="Use reliable message queue for reminders" />
                   <ImplementationItem text="Implement retry logic for failed deliveries" />

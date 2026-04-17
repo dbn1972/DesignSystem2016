@@ -57,7 +57,7 @@ export default function CitizenDashboardPattern() {
               <span className="text-sm font-bold text-foreground">Citizen Dashboard</span>
             </div>
             <div className="flex items-center gap-4">
-              <button className="relative p-2 hover:bg-muted rounded">
+              <button aria-label="Notifications" className="relative p-2 hover:bg-muted rounded">
                 <Bell size={20} className="text-muted-foreground" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
               </button>

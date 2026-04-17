@@ -99,8 +99,7 @@ export default function RepeatableSectionsPattern() {
                         <label className="block text-sm font-bold text-foreground mb-2">
                           Full Name <span className="text-red-600">*</span>
                         </label>
-                        <input
-                          type="text"
+                        <input aria-label="Enter name" type="text"
                           placeholder="Enter name"
                           className="w-full px-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none"
                         />
@@ -110,7 +109,7 @@ export default function RepeatableSectionsPattern() {
                         <label className="block text-sm font-bold text-foreground mb-2">
                           Relation <span className="text-red-600">*</span>
                         </label>
-                        <select className="w-full px-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none">
+                        <select aria-label="Select option" className="w-full px-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none">
                           <option value="">Select...</option>
                           <option value="spouse">Spouse</option>
                           <option value="child">Child</option>
@@ -123,8 +122,7 @@ export default function RepeatableSectionsPattern() {
                         <label className="block text-sm font-bold text-foreground mb-2">
                           Age <span className="text-red-600">*</span>
                         </label>
-                        <input
-                          type="number"
+                        <input aria-label="Age" type="number"
                           placeholder="Age"
                           className="w-full px-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none"
                         />
@@ -175,8 +173,7 @@ export default function RepeatableSectionsPattern() {
                           <label className="block text-sm font-bold text-foreground mb-2">
                             Degree/Qualification <span className="text-red-600">*</span>
                           </label>
-                          <input
-                            type="text"
+                          <input aria-label="e.g., B.Tech Computer Science" type="text"
                             placeholder="e.g., B.Tech Computer Science"
                             className="w-full px-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none"
                           />
@@ -186,8 +183,7 @@ export default function RepeatableSectionsPattern() {
                           <label className="block text-sm font-bold text-foreground mb-2">
                             Year of Completion <span className="text-red-600">*</span>
                           </label>
-                          <input
-                            type="number"
+                          <input aria-label="YYYY" type="number"
                             placeholder="YYYY"
                             className="w-full px-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none"
                           />
@@ -198,8 +194,7 @@ export default function RepeatableSectionsPattern() {
                         <label className="block text-sm font-bold text-foreground mb-2">
                           Institution Name <span className="text-red-600">*</span>
                         </label>
-                        <input
-                          type="text"
+                        <input aria-label="University/College/School name" type="text"
                           placeholder="University/College/School name"
                           className="w-full px-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none"
                         />
@@ -209,8 +204,7 @@ export default function RepeatableSectionsPattern() {
                         <label className="block text-sm font-bold text-foreground mb-2">
                           Percentage/CGPA
                         </label>
-                        <input
-                          type="text"
+                        <input aria-label="e.g., 85% or 8.5 CGPA" type="text"
                           placeholder="e.g., 85% or 8.5 CGPA"
                           className="w-full px-4 py-2 border-2 border-border rounded focus:border-primary focus:outline-none"
                         />
@@ -236,22 +230,18 @@ export default function RepeatableSectionsPattern() {
               <div className="space-y-6">
                 {/* Inline Add */}
                 <div>
-                  <h4 className="text-sm font-bold text-foreground mb-3">1. Inline Add (Compact)</h4>
+                  <h3 className="text-sm font-bold text-foreground mb-3">1. Inline Add (Compact)</h3>
                   <div className="bg-background border border-border rounded-lg p-4">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-sm">
                         <span>1.</span>
-                        <input type="text" value="rajesh@example.com" className="flex-1 px-3 py-1.5 border border-border rounded text-sm" readOnly />
-                        <button className="text-red-600 hover:text-red-800">
-                          <Trash2 size={16} />
-                        </button>
+                        <input aria-label="text input" type="text" value="rajesh@example.com" className="flex-1 px-3 py-1.5 border border-border rounded text-sm" readOnly />
+                        <button aria-label="Action" className="text-red-600 hover:text-red-800"><Trash2 size={16} /></button>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
                         <span>2.</span>
-                        <input type="text" value="priya@example.com" className="flex-1 px-3 py-1.5 border border-border rounded text-sm" readOnly />
-                        <button className="text-red-600 hover:text-red-800">
-                          <Trash2 size={16} />
-                        </button>
+                        <input aria-label="text input" type="text" value="priya@example.com" className="flex-1 px-3 py-1.5 border border-border rounded text-sm" readOnly />
+                        <button aria-label="Action" className="text-red-600 hover:text-red-800"><Trash2 size={16} /></button>
                       </div>
                       <button className="text-sm text-primary hover:underline flex items-center gap-1">
                         <Plus size={14} />
@@ -263,7 +253,7 @@ export default function RepeatableSectionsPattern() {
 
                 {/* Pre-populated */}
                 <div>
-                  <h4 className="text-sm font-bold text-foreground mb-3">2. Pre-populated Sections</h4>
+                  <h3 className="text-sm font-bold text-foreground mb-3">2. Pre-populated Sections</h3>
                   <div className="bg-background border border-border rounded-lg p-4">
                     <p className="text-sm text-muted-foreground mb-3">
                       Show 2-3 empty sections by default instead of just one. Reduces clicks for common cases.
@@ -284,7 +274,7 @@ export default function RepeatableSectionsPattern() {
 
                 {/* Drag to Reorder */}
                 <div>
-                  <h4 className="text-sm font-bold text-foreground mb-3">3. Drag to Reorder</h4>
+                  <h3 className="text-sm font-bold text-foreground mb-3">3. Drag to Reorder</h3>
                   <div className="bg-background border border-border rounded-lg p-4">
                     <p className="text-sm text-muted-foreground">
                       For ordered lists (priority, sequence), allow drag-and-drop reordering with grip handle.

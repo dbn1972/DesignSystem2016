@@ -529,14 +529,13 @@ function Field({
         {label}
       </label>
       {select ? (
-        <select className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100" style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as CSSProperties}>
+        <select aria-label="Select option" className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100" style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as CSSProperties}>
           {options.map((option) => (
             <option key={option}>{option}</option>
           ))}
         </select>
       ) : (
-        <input
-          type={type}
+        <input aria-label="placeholder" type={type}
           placeholder={placeholder}
           className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100"
           style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as CSSProperties}

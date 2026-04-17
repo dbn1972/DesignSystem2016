@@ -309,7 +309,7 @@ function ExampleStates() {
             <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
                 <Hash size={40} className="text-primary mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Enter OTP</h4>
+                <h3 className="font-bold text-foreground mb-2">Enter OTP</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   We've sent a 6-digit code to<br/>
                   <span className="font-bold text-foreground">+91 ******* 123</span>
@@ -342,7 +342,7 @@ function ExampleStates() {
             <div className="bg-background border-2 border-orange-300 rounded p-6 space-y-4">
               <div className="text-center">
                 <Hash size={40} className="text-orange-600 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Enter OTP</h4>
+                <h3 className="font-bold text-foreground mb-2">Enter OTP</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   We've sent a 6-digit code to<br/>
                   <span className="font-bold text-foreground">+91 ******* 123</span>
@@ -377,7 +377,7 @@ function ExampleStates() {
             <div className="bg-background border-2 border-red-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Incorrect OTP</h4>
+                <h3 className="font-bold text-foreground mb-2">Incorrect OTP</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   The code you entered doesn't match.<br/>
                   Please try again.
@@ -410,7 +410,7 @@ function ExampleStates() {
             <div className="bg-background border-2 border-yellow-400 rounded p-6 space-y-4">
               <div className="text-center">
                 <Clock size={40} className="text-yellow-600 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Code Expired</h4>
+                <h3 className="font-bold text-foreground mb-2">Code Expired</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Your verification code has expired.<br/>
                   Please request a new one.
@@ -442,7 +442,7 @@ function ExampleStates() {
             <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
                 <RefreshCw size={40} className="text-primary mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Didn't receive code?</h4>
+                <h3 className="font-bold text-foreground mb-2">Didn't receive code?</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Check your messages or<br/>
                   request a new code
@@ -478,7 +478,7 @@ function ExampleStates() {
             <div className="bg-background border-2 border-red-500 rounded p-6 space-y-4">
               <div className="text-center">
                 <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Too Many Attempts</h4>
+                <h3 className="font-bold text-foreground mb-2">Too Many Attempts</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   You've exceeded the maximum number<br/>
                   of verification attempts. Please wait.
@@ -511,7 +511,7 @@ function ExampleStates() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                   <CheckCircle size={40} className="text-green-600" />
                 </div>
-                <h4 className="font-bold text-foreground mb-2">Verified Successfully</h4>
+                <h3 className="font-bold text-foreground mb-2">Verified Successfully</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Your identity has been confirmed.<br/>
                   Redirecting you now...
@@ -543,15 +543,14 @@ function ExampleStates() {
             <div className="bg-background border-2 border-border rounded p-6 space-y-4">
               <div className="text-center">
                 <Smartphone size={40} className="text-primary mx-auto mb-3" />
-                <h4 className="font-bold text-foreground mb-2">Update Mobile Number</h4>
+                <h3 className="font-bold text-foreground mb-2">Update Mobile Number</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Current: <span className="font-bold">+91 ******* 123</span><br/>
                   Enter new number to receive OTP
                 </p>
               </div>
               <div className="space-y-3">
-                <input 
-                  type="tel" 
+                <input aria-label="Enter 10-digit mobile number" type="tel" 
                   placeholder="Enter 10-digit mobile number"
                   className="w-full px-4 py-3 border-2 border-border rounded text-center font-mono"
                 />
@@ -592,22 +591,21 @@ function OTPPatterns() {
           <div className="p-6">
             <div className="bg-background border-2 border-border rounded p-6 mb-4">
               <label className="block text-sm font-bold text-foreground mb-2">Enter 6-digit OTP</label>
-              <input 
-                type="text" 
+              <input aria-label="000000" type="text" 
                 maxLength={6}
                 placeholder="000000"
                 className="w-full px-4 py-3 border-2 border-border rounded text-center font-mono text-2xl tracking-widest"
               />
             </div>
             <div className="space-y-3 text-sm">
-              <h4 className="font-bold text-foreground">Advantages</h4>
+              <h3 className="font-bold text-foreground">Advantages</h3>
               <div className="space-y-2">
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Simpler for screen readers" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Better paste behavior" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Easier keyboard navigation" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Less DOM complexity" />
               </div>
-              <h4 className="font-bold text-foreground mt-4">Recommended For</h4>
+              <h3 className="font-bold text-foreground mt-4">Recommended For</h3>
               <p className="text-muted-foreground">Mobile-first applications, accessibility priority, simpler implementations</p>
             </div>
           </div>
@@ -623,8 +621,7 @@ function OTPPatterns() {
               <label className="block text-sm font-bold text-foreground mb-2">Enter 6-digit OTP</label>
               <div className="flex gap-2 justify-center">
                 {[...Array(6)].map((_, i) => (
-                  <input 
-                    key={i}
+                  <input aria-label="text input" key={i}
                     type="text" 
                     maxLength={1}
                     className="w-12 h-12 border-2 border-border rounded text-center font-bold text-xl"
@@ -633,14 +630,14 @@ function OTPPatterns() {
               </div>
             </div>
             <div className="space-y-3 text-sm">
-              <h4 className="font-bold text-foreground">Advantages</h4>
+              <h3 className="font-bold text-foreground">Advantages</h3>
               <div className="space-y-2">
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Visual clarity of progress" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Clear digit separation" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Familiar banking pattern" />
                 <InfoItem icon={<Check size={14} className="text-green-600" />} text="Per-digit validation" />
               </div>
-              <h4 className="font-bold text-foreground mt-4">Recommended For</h4>
+              <h3 className="font-bold text-foreground mt-4">Recommended For</h3>
               <p className="text-muted-foreground">Desktop applications, high-security contexts, traditional banking services</p>
             </div>
           </div>
@@ -1205,8 +1202,7 @@ function ImplementationSection() {
   <label for="otp" class="sr-only">
     Enter 6-digit verification code
   </label>
-  <input 
-    type="text" 
+  <input aria-label="otp" type="text" 
     id="otp"
     name="otp"
     inputmode="numeric"
@@ -1717,7 +1713,7 @@ function GovernanceSection() {
         <div className="p-6">
           <div className="grid grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-bold text-foreground mb-3">Implementation Questions</h4>
+              <h3 className="font-bold text-foreground mb-3">Implementation Questions</h3>
               <div className="space-y-2 text-muted-foreground">
                 <p><strong>Email:</strong> support@ux4g.gov.in</p>
                 <p><strong>Slack:</strong> #ux4g-identity-patterns</p>
@@ -1726,7 +1722,7 @@ function GovernanceSection() {
               </div>
             </div>
             <div>
-              <h4 className="font-bold text-foreground mb-3">Compliance Issues</h4>
+              <h3 className="font-bold text-foreground mb-3">Compliance Issues</h3>
               <div className="space-y-2 text-muted-foreground">
                 <p><strong>Email:</strong> compliance@ux4g.gov.in</p>
                 <p><strong>Escalation:</strong> UX4G Governance Board</p>
@@ -1931,7 +1927,7 @@ function FlowStep({ number, title, description, state, branches, variant }: {
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-foreground">{title}</h4>
+            <h3 className="font-bold text-foreground">{title}</h3>
             <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
@@ -2019,7 +2015,7 @@ function ComplianceItem({ criterion, status, note }: { criterion: string; status
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-foreground mb-2">{category}</h4>
+      <h3 className="font-bold text-foreground mb-2">{category}</h3>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
           <li key={index} className="text-muted-foreground flex items-start gap-2">

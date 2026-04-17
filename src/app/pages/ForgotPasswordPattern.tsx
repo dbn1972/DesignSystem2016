@@ -322,14 +322,13 @@ function ExampleScreens() {
         >
           <div className="text-center mb-4">
             <Key size={40} className="text-primary mx-auto mb-3" />
-            <h4 className="font-bold text-foreground mb-2">Reset Your Password</h4>
+            <h3 className="font-bold text-foreground mb-2">Reset Your Password</h3>
             <p className="text-sm text-muted-foreground">
               Enter your registered email or mobile number
             </p>
           </div>
           <div className="space-y-3">
-            <input 
-              type="text" 
+            <input aria-label="Email or Mobile Number" type="text" 
               placeholder="Email or Mobile Number"
               className="w-full px-4 py-3 border-2 border-border rounded"
             />
@@ -351,14 +350,13 @@ function ExampleScreens() {
         >
           <div className="text-center mb-4">
             <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-            <h4 className="font-bold text-foreground mb-2">Invalid Entry</h4>
+            <h3 className="font-bold text-foreground mb-2">Invalid Entry</h3>
             <p className="text-sm text-muted-foreground">
               Please enter a valid email or mobile number
             </p>
           </div>
           <div className="space-y-3">
-            <input 
-              type="text" 
+            <input aria-label="text input" type="text" 
               defaultValue="abc123"
               readOnly
               className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
@@ -382,7 +380,7 @@ function ExampleScreens() {
         >
           <div className="text-center mb-4">
             <Shield size={40} className="text-primary mx-auto mb-3" />
-            <h4 className="font-bold text-foreground mb-2">Verify Your Identity</h4>
+            <h3 className="font-bold text-foreground mb-2">Verify Your Identity</h3>
             <p className="text-sm text-muted-foreground">
               Choose how you'd like to receive<br/>
               your verification code
@@ -415,7 +413,7 @@ function ExampleScreens() {
         >
           <div className="text-center mb-4">
             <XCircle size={40} className="text-red-600 mx-auto mb-3" />
-            <h4 className="font-bold text-foreground mb-2">Incorrect Code</h4>
+            <h3 className="font-bold text-foreground mb-2">Incorrect Code</h3>
             <p className="text-sm text-muted-foreground">
               The code you entered is not correct
             </p>
@@ -443,7 +441,7 @@ function ExampleScreens() {
         >
           <div className="text-center mb-4">
             <Clock size={40} className="text-yellow-600 mx-auto mb-3" />
-            <h4 className="font-bold text-foreground mb-2">Link Expired</h4>
+            <h3 className="font-bold text-foreground mb-2">Link Expired</h3>
             <p className="text-sm text-muted-foreground">
               This password reset link has expired<br/>
               for security reasons
@@ -468,8 +466,7 @@ function ExampleScreens() {
           <div className="space-y-3">
             <div>
               <label className="block text-sm font-bold text-foreground mb-2">New Password</label>
-              <input 
-                type="password" 
+              <input aria-label="password input" type="password" 
                 defaultValue="abc123"
                 readOnly
                 className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
@@ -498,8 +495,7 @@ function ExampleScreens() {
           <div className="space-y-3">
             <div>
               <label className="block text-sm font-bold text-foreground mb-2">New Password</label>
-              <input 
-                type="password" 
+              <input aria-label="password input" type="password" 
                 defaultValue="SecureP@ss123"
                 readOnly
                 className="w-full px-4 py-3 border-2 border-border rounded"
@@ -507,8 +503,7 @@ function ExampleScreens() {
             </div>
             <div>
               <label className="block text-sm font-bold text-foreground mb-2">Confirm Password</label>
-              <input 
-                type="password" 
+              <input aria-label="password input" type="password" 
                 defaultValue="SecureP@ss124"
                 readOnly
                 className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
@@ -532,7 +527,7 @@ function ExampleScreens() {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
               <CheckCircle size={40} className="text-green-600" />
             </div>
-            <h4 className="font-bold text-foreground mb-2">Password Reset Successful</h4>
+            <h3 className="font-bold text-foreground mb-2">Password Reset Successful</h3>
             <p className="text-sm text-muted-foreground mb-4">
               Your password has been updated.<br/>
               Please sign in with your new password.
@@ -1634,7 +1629,7 @@ function FlowStep({ number, title, description, state, branches, variant }: {
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="font-bold text-foreground">{title}</h4>
+            <h3 className="font-bold text-foreground">{title}</h3>
             <span className="text-xs font-bold text-muted-foreground px-2 py-1 bg-card border border-border rounded">
               {state}
             </span>
@@ -1726,7 +1721,7 @@ function AccessibilityItem({ label, description }: { label: string; description:
 function ImplementationItem({ category, requirements }: { category: string; requirements: string[] }) {
   return (
     <div>
-      <h4 className="font-bold text-foreground mb-2">{category}</h4>
+      <h3 className="font-bold text-foreground mb-2">{category}</h3>
       <ul className="space-y-1 ml-4">
         {requirements.map((req, index) => (
           <li key={index} className="text-muted-foreground flex items-start gap-2">
