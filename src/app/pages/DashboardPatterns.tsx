@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { LayoutDashboard, User, Bell, CheckSquare, Clock, Bookmark, Settings, ArrowRight, CheckCircle, Zap } from "lucide-react";
+import { LayoutDashboard, User, Bell, CheckSquare, Clock, Bookmark, Settings, ArrowRight, CheckCircle, Zap, Download, Copy, Check } from "lucide-react";
 
 export default function DashboardPatterns() {
   return (
@@ -386,8 +387,195 @@ export default function DashboardPatterns() {
           </div>
         </section>
 
+        {/* Code Downloads */}
+        <DashboardPatCodeDownloads />
       </main>
     </div>
+  );
+}
+
+// ==================== CODE DOWNLOADS ====================
+
+const DASH_PAT_REACT_CODE = `import React, { useState } from 'react';
+
+interface Application { id: string; service: string; status: 'pending' | 'in-progress' | 'approved' | 'rejected'; date: string; }
+
+export function DashboardPage() {
+  const [tab, setTab] = useState<'overview' | 'applications' | 'bookmarks'>('overview');
+  const apps: Application[] = [
+    { id: 'APP-78432', service: 'Caste Certificate', status: 'in-progress', date: '2026-04-10' },
+    { id: 'APP-78290', service: 'Income Certificate', status: 'approved', date: '2026-04-05' },
+    { id: 'APP-77810', service: 'Driving License Renewal', status: 'pending', date: '2026-04-12' },
+  ];
+  const statusColor: Record<string, string> = {
+    pending: 'bg-yellow-100 text-yellow-800', 'in-progress': 'bg-blue-100 text-blue-800',
+    approved: 'bg-green-100 text-green-800', rejected: 'bg-red-100 text-red-800',
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <header className="bg-card border-b border-border px-6 py-4">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <div><h1 className="text-xl font-bold">My Dashboard</h1><p className="text-sm text-muted-foreground">Welcome back, Citizen</p></div>
+          <button className="p-2 rounded-lg hover:bg-muted" aria-label="Notifications">🔔</button>
+        </div>
+      </header>
+      <main className="max-w-5xl mx-auto p-6">
+        <div className="grid grid-cols-3 gap-4 mb-8">
+          <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold">{apps.length}</div><div className="text-sm text-muted-foreground">Total Applications</div></div>
+          <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-blue-600">{apps.filter(a => a.status === 'in-progress').length}</div><div className="text-sm text-muted-foreground">In Progress</div></div>
+          <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-green-600">{apps.filter(a => a.status === 'approved').length}</div><div className="text-sm text-muted-foreground">Approved</div></div>
+        </div>
+        <div className="flex gap-2 mb-6">
+          {(['overview', 'applications', 'bookmarks'] as const).map(t => (
+            <button key={t} onClick={() => setTab(t)} className={\`px-4 py-2 rounded-lg text-sm font-semibold \${tab === t ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}\`}>{t.charAt(0).toUpperCase() + t.slice(1)}</button>
+          ))}
+        </div>
+        {tab === 'applications' && (
+          <div className="space-y-3">{apps.map(app => (
+            <div key={app.id} className="bg-card border border-border rounded-xl p-4 flex items-center justify-between">
+              <div><div className="font-semibold text-sm">{app.service}</div><div className="text-xs text-muted-foreground">{app.id} • {app.date}</div></div>
+              <span className={\`px-2.5 py-1 rounded-full text-xs font-bold \${statusColor[app.status]}\`}>{app.status.replace('-',' ')}</span>
+            </div>
+          ))}</div>
+        )}
+        {tab === 'overview' && <p className="text-muted-foreground">Welcome to your dashboard. View your applications, bookmarks, and notifications.</p>}
+        {tab === 'bookmarks' && <p className="text-muted-foreground">Your saved services and bookmarked pages appear here.</p>}
+      </main>
+    </div>
+  );
+}`;
+
+const DASH_PAT_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'ux4g-dashboard',
+  standalone: true,
+  imports: [CommonModule],
+  template: \`
+    <div class="min-h-screen bg-background">
+      <header class="bg-card border-b border-border px-6 py-4">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+          <div><h1 class="text-xl font-bold">My Dashboard</h1><p class="text-sm text-muted-foreground">Welcome back</p></div>
+        </div>
+      </header>
+      <main class="max-w-5xl mx-auto p-6">
+        <div class="grid grid-cols-3 gap-4 mb-8">
+          <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold">{{apps.length}}</div><div class="text-sm text-muted-foreground">Total</div></div>
+          <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold text-blue-600">{{inProgress}}</div><div class="text-sm text-muted-foreground">In Progress</div></div>
+          <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold text-green-600">{{approved}}</div><div class="text-sm text-muted-foreground">Approved</div></div>
+        </div>
+        <div class="space-y-3">
+          <div *ngFor="let app of apps" class="bg-card border border-border rounded-xl p-4 flex items-center justify-between">
+            <div><div class="font-semibold text-sm">{{app.service}}</div><div class="text-xs text-muted-foreground">{{app.id}}</div></div>
+            <span [class]="'px-2.5 py-1 rounded-full text-xs font-bold ' + statusColor[app.status]">{{app.status}}</span>
+          </div>
+        </div>
+      </main>
+    </div>
+  \`
+})
+export class DashboardComponent {
+  apps = [
+    { id: 'APP-78432', service: 'Caste Certificate', status: 'in-progress' },
+    { id: 'APP-78290', service: 'Income Certificate', status: 'approved' },
+    { id: 'APP-77810', service: 'Driving License Renewal', status: 'pending' },
+  ];
+  statusColor: Record<string, string> = { pending: 'bg-yellow-100 text-yellow-800', 'in-progress': 'bg-blue-100 text-blue-800', approved: 'bg-green-100 text-green-800' };
+  get inProgress() { return this.apps.filter(a => a.status === 'in-progress').length; }
+  get approved() { return this.apps.filter(a => a.status === 'approved').length; }
+}`;
+
+const DASH_PAT_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — UX4G</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8fafc; }
+    header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1rem 1.5rem; }
+    .header-inner { max-width: 960px; margin: 0 auto; }
+    h1 { font-size: 1.25rem; font-weight: 700; }
+    .subtitle { font-size: .875rem; color: #64748b; }
+    main { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .stat { background: #fff; border: 1px solid #e2e8f0; border-radius: .75rem; padding: 1rem; }
+    .stat-num { font-size: 1.5rem; font-weight: 700; }
+    .stat-label { font-size: .875rem; color: #64748b; }
+    .app-card { background: #fff; border: 1px solid #e2e8f0; border-radius: .75rem; padding: 1rem; margin-bottom: .75rem; display: flex; justify-content: space-between; align-items: center; }
+    .app-name { font-weight: 600; font-size: .875rem; }
+    .app-id { font-size: .75rem; color: #64748b; }
+    .badge { padding: .25rem .625rem; border-radius: 1rem; font-size: .75rem; font-weight: 700; }
+    .badge-progress { background: #dbeafe; color: #1d4ed8; }
+    .badge-approved { background: #dcfce7; color: #15803d; }
+    .badge-pending { background: #fef9c3; color: #854d0e; }
+  </style>
+</head>
+<body>
+  <header><div class="header-inner"><h1>My Dashboard</h1><p class="subtitle">Welcome back, Citizen</p></div></header>
+  <main>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Total Applications</div></div>
+      <div class="stat"><div class="stat-num" style="color:#2563eb">1</div><div class="stat-label">In Progress</div></div>
+      <div class="stat"><div class="stat-num" style="color:#16a34a">1</div><div class="stat-label">Approved</div></div>
+    </div>
+    <div class="app-card"><div><div class="app-name">Caste Certificate</div><div class="app-id">APP-78432 • 2026-04-10</div></div><span class="badge badge-progress">in-progress</span></div>
+    <div class="app-card"><div><div class="app-name">Income Certificate</div><div class="app-id">APP-78290 • 2026-04-05</div></div><span class="badge badge-approved">approved</span></div>
+    <div class="app-card"><div><div class="app-name">Driving License Renewal</div><div class="app-id">APP-77810 • 2026-04-12</div></div><span class="badge badge-pending">pending</span></div>
+  </main>
+</body>
+</html>`;
+
+function DashboardPatCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Stats + Tabs', code: DASH_PAT_REACT_CODE, filename: 'DashboardPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: DASH_PAT_ANGULAR_CODE, filename: 'dashboard.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: DASH_PAT_HTML_CODE, filename: 'dashboard.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24 mt-12">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Dashboard implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
