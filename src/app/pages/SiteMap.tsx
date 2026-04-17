@@ -1,5 +1,6 @@
 import { BookOpen, Compass, Layers3, LifeBuoy, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 import { ROUTE_PATHS } from "../routes/pathSource";
 
@@ -116,6 +117,8 @@ const utilityLinks = [
 ];
 
 export default function SiteMap() {
+  const { i18n } = useTranslation();
+  const c = i18n.resolvedLanguage === 'hi' ? SITEMAP_HI : SITEMAP_EN;
   return (
     <div className="min-h-screen bg-background text-foreground">
       <section className="relative overflow-hidden border-b border-border/60 bg-gradient-to-b from-background via-background to-muted/30">
@@ -127,11 +130,10 @@ export default function SiteMap() {
               Navigation map for UX4G
             </div>
             <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Site map
+              {c.title}
             </h1>
             <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
-              A premium, at-a-glance map of the UX4G system, designed to help teams move from overview to the right
-              hub or page with fewer hops and less scanning.
+              {c.description}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2.5">
@@ -150,24 +152,23 @@ export default function SiteMap() {
           <div className="rounded-[1.75rem] border border-border/70 bg-card/90 p-5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] backdrop-blur">
             <div className="flex items-center justify-between gap-3">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Map summary</p>
-                <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-foreground">What is included</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{c.sidebar.eyebrow}</p>
+                <h2 className="mt-1.5 text-xl font-semibold tracking-tight text-foreground">{c.sidebar.title}</h2>
               </div>
               <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Live</span>
             </div>
 
             <div className="mt-4 grid grid-cols-2 gap-2.5">
-              <StatBox value="8" label="Core sections" />
-              <StatBox value="30+" label="Key links" />
-              <StatBox value="3" label="Frameworks" />
-              <StatBox value="1" label="Unified map" />
+              <StatBox value="8" label={c.stats.sections} />
+              <StatBox value="30+" label={c.stats.links} />
+              <StatBox value="3" label={c.stats.frameworks} />
+              <StatBox value="1" label={c.stats.map} />
             </div>
 
             <div className="mt-4 rounded-2xl border border-border/70 bg-muted/40 p-3.5">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Designed for</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{c.sidebar.designedFor}</p>
               <p className="mt-1.5 text-sm leading-6 text-muted-foreground">
-                Teams who need a fast route into foundations, components, patterns, services, and governance without
-                losing the broader platform context.
+                {c.sidebar.designedForDesc}
               </p>
             </div>
           </div>
@@ -177,12 +178,12 @@ export default function SiteMap() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <section className="mb-10">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Navigation</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{c.nav.eyebrow}</p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-              Explore the platform by section
+              {c.nav.title}
             </h2>
             <p className="mt-3 text-base leading-7 text-muted-foreground">
-              Each card groups the major entry points so the structure stays readable at a glance.
+              {c.nav.description}
             </p>
           </div>
         </section>
@@ -229,3 +230,20 @@ function StatBox({ value, label }: { value: string; label: string }) {
     </div>
   );
 }
+
+// ── Bilingual copy ──────────────────────────────────────────────────
+const SITEMAP_EN = {
+  title: 'Site map',
+  description: 'A premium, at-a-glance map of the UX4G system, designed to help teams move from overview to the right hub or page with fewer hops and less scanning.',
+  sidebar: { eyebrow: 'Map summary', title: 'What is included', designedFor: 'Designed for', designedForDesc: 'Teams who need a fast route into foundations, components, patterns, services, and governance without losing the broader platform context.' },
+  stats: { sections: 'Core sections', links: 'Key links', frameworks: 'Frameworks', map: 'Unified map' },
+  nav: { eyebrow: 'Navigation', title: 'Explore the platform by section', description: 'Each card groups the major entry points so the structure stays readable at a glance.' },
+};
+
+const SITEMAP_HI = {
+  title: 'साइट मानचित्र',
+  description: 'UX4G सिस्टम का एक व्यापक मानचित्र, जो टीमों को कम क्लिक में सही हब या पृष्ठ तक पहुँचने में मदद करता है।',
+  sidebar: { eyebrow: 'मानचित्र सारांश', title: 'क्या शामिल है', designedFor: 'किसके लिए बनाया गया', designedForDesc: 'ऐसी टीमें जिन्हें फ़ाउंडेशन, कंपोनेंट, पैटर्न, सेवाओं और शासन तक तेज़ पहुँच चाहिए — बिना व्यापक प्लेटफ़ॉर्म संदर्भ खोए।' },
+  stats: { sections: 'मुख्य अनुभाग', links: 'प्रमुख लिंक', frameworks: 'फ्रेमवर्क', map: 'एकीकृत मानचित्र' },
+  nav: { eyebrow: 'नेविगेशन', title: 'अनुभाग के अनुसार प्लेटफ़ॉर्म देखें', description: 'प्रत्येक कार्ड प्रमुख प्रवेश बिंदुओं को समूहित करता है ताकि संरचना एक नज़र में पढ़ने योग्य रहे।' },
+};
