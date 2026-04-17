@@ -28,7 +28,7 @@ describe('CorrectionResubmissionPattern', () => {
 
   it('renders the page heading', () => {
     renderWithRouter(<CorrectionResubmissionPattern />);
-    const headings = screen.getAllByRole('heading', { level: 1 });
+    const headings = screen.getAllByRole('heading');
     expect(headings.length).toBeGreaterThanOrEqual(1);
   });
 

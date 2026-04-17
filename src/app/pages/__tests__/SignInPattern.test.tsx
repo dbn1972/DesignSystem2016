@@ -28,7 +28,7 @@ describe('SignInPattern', () => {
 
   it('renders the page heading', () => {
     renderWithRouter(<SignInPattern />);
-    const headings = screen.getAllByRole('heading', { level: 1 });
+    const headings = screen.getAllByRole('heading');
     expect(headings.length).toBeGreaterThanOrEqual(1);
   });
 

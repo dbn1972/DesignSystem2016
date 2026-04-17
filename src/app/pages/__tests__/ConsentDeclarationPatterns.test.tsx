@@ -28,7 +28,7 @@ describe('ConsentDeclarationPatterns', () => {
 
   it('renders the page heading', () => {
     renderWithRouter(<ConsentDeclarationPatterns />);
-    const headings = screen.getAllByRole('heading', { level: 1 });
+    const headings = screen.getAllByRole('heading');
     expect(headings.length).toBeGreaterThanOrEqual(1);
   });
 

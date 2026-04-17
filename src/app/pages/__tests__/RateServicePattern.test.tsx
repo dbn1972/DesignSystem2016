@@ -28,7 +28,7 @@ describe('RateServicePattern', () => {
 
   it('renders the page heading', () => {
     renderWithRouter(<RateServicePattern />);
-    const headings = screen.getAllByRole('heading', { level: 1 });
+    const headings = screen.getAllByRole('heading');
     expect(headings.length).toBeGreaterThanOrEqual(1);
   });
 

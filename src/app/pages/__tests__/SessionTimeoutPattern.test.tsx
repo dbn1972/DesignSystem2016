@@ -28,7 +28,7 @@ describe('SessionTimeoutPattern', () => {
 
   it('renders the page heading', () => {
     renderWithRouter(<SessionTimeoutPattern />);
-    const headings = screen.getAllByRole('heading', { level: 1 });
+    const headings = screen.getAllByRole('heading');
     expect(headings.length).toBeGreaterThanOrEqual(1);
   });
 

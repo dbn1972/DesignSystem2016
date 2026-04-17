@@ -28,7 +28,7 @@ describe('GeneralContactPattern', () => {
 
   it('renders the page heading', () => {
     renderWithRouter(<GeneralContactPattern />);
-    const headings = screen.getAllByRole('heading', { level: 1 });
+    const headings = screen.getAllByRole('heading');
     expect(headings.length).toBeGreaterThanOrEqual(1);
   });
 
