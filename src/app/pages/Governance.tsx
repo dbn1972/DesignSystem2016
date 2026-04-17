@@ -35,23 +35,72 @@ export default function Governance() {
             </div>
           </div>
 
-          <div className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
-            <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{c.snapshot.eyebrow}</p>
-                <h2 className="mt-2 text-2xl font-bold text-foreground">{c.snapshot.title}</h2>
+          {/* Status Panel */}
+          <div className="rounded-[28px] border border-border bg-card/95 backdrop-blur p-6 shadow-xl shadow-black/5">
+            {/* System status */}
+            <div className="flex items-center justify-between gap-3 pb-5 border-b border-border">
+              <div className="flex items-center gap-3">
+                <span className="relative flex h-3 w-3">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500" />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">All systems operational</p>
+                  <p className="text-xs text-muted-foreground">Design system platform</p>
+                </div>
               </div>
-              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">{c.snapshot.sections}</div>
+              <span className="rounded-full bg-green-500/10 border border-green-500/20 px-3 py-1 text-xs font-semibold text-green-700 dark:text-green-400">Live</span>
             </div>
-            <div className="mt-5 grid grid-cols-2 gap-3">
-              <GovernanceMetric value="3" label="Review lanes" />
-              <GovernanceMetric value="4" label="Lifecycle states" />
-              <GovernanceMetric value="2" label="Release tracks" />
-              <GovernanceMetric value="AA" label="Accessibility target" />
+
+            {/* Key metrics */}
+            <div className="grid grid-cols-2 gap-3 py-5 border-b border-border">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-foreground">v2.4</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Current release</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-foreground">77</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Components</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-foreground">AA</div>
+                <div className="text-xs text-muted-foreground mt-0.5">WCAG target</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-foreground">100%</div>
+                <div className="text-xs text-muted-foreground mt-0.5">A11y score</div>
+              </div>
             </div>
-            <div className="mt-6 space-y-3 rounded-2xl bg-muted/40 p-4">
-              <GovernanceNote title="Clear stewardship" text="Roles, decision rights, and approval responsibilities are easy to scan." />
-              <GovernanceNote title="Stable release model" text="Promotion, deprecation, and exception paths are written for delivery teams." />
+
+            {/* Compliance badges */}
+            <div className="py-5 border-b border-border">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground mb-3">Compliance</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-green-500/10 border border-green-500/20 px-3 py-1.5 text-xs font-semibold text-green-700 dark:text-green-400">
+                  <CheckCircle size={12} /> WCAG 2.1 AA
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-3 py-1.5 text-xs font-semibold text-primary">
+                  <Shield size={12} /> IT Act 2000
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-3 py-1.5 text-xs font-semibold text-primary">
+                  <FileText size={12} /> DPDP Act
+                </span>
+              </div>
+            </div>
+
+            {/* Last audit */}
+            <div className="pt-5 space-y-3">
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-muted-foreground">Last audit</span>
+                <span className="font-semibold text-foreground">April 2026</span>
+              </div>
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-muted-foreground">Next review</span>
+                <span className="font-semibold text-foreground">July 2026</span>
+              </div>
+              <a href="#conformance" className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary/5 border border-primary/15 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/10 transition-colors">
+                View conformance dashboard <ArrowRight size={14} />
+              </a>
             </div>
           </div>
         </div>
