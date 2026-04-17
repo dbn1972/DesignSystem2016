@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import {
   Shield,
@@ -18,60 +17,52 @@ import {
   CheckCircle2,
   Info
 } from "lucide-react";
+import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
 
 export default function PrivacyPolicy() {
   const { i18n } = useTranslation();
   const c = (i18n.resolvedLanguage === 'hi' ? PRIVACY_HI : PRIVACY_EN);
+
+  const toc = [
+    { id: 'section-1', label: 'Introduction' },
+    { id: 'section-2', label: 'Information We Collect' },
+    { id: 'section-3', label: 'How We Use Information' },
+    { id: 'section-4', label: 'Data Security' },
+    { id: 'section-5', label: 'Cookies & Tracking' },
+    { id: 'section-6', label: 'Third-Party Services' },
+    { id: 'section-7', label: 'Your Rights' },
+    { id: 'section-8', label: 'Data Retention' },
+    { id: 'section-9', label: "Children's Privacy" },
+    { id: 'section-10', label: 'Policy Changes' },
+    { id: 'section-11', label: 'Contact' },
+  ];
+
   return (
-    <div className="min-h-screen bg-card">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#000080] to-[#000050] text-white py-16 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-6">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-sm text-blue-200 hover:text-white mb-4 transition-colors"
-            >
-              <ArrowLeft size={16} />
-              {c.backToHome}
-            </Link>
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-16 bg-card/10 backdrop-blur rounded-lg flex items-center justify-center">
-                <Shield size={32} className="text-white" />
-              </div>
-              <div>
-                <div className="text-sm uppercase tracking-wide text-blue-200 mb-1">{c.legalInfo}</div>
-                <h1 className="text-5xl font-bold">{c.title}</h1>
-              </div>
-            </div>
-            <p className="text-xl text-blue-100 max-w-3xl">
-              {c.description}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Last Updated Banner */}
-      <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800">
-        <div className="max-w-7xl mx-auto px-8 py-6">
-          <div className="flex items-start gap-3">
-            <Info className="text-primary flex-shrink-0 mt-0.5" size={20} />
-            <div>
-              <p className="text-sm text-foreground">
-                <span className="font-bold">{c.lastUpdated}:</span> April 11, 2026
-              </p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This Privacy Policy applies to the UX4G Design System documentation portal and all related
-                services provided by the Government of India Digital Public Infrastructure team.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16">
-        <div className="max-w-5xl mx-auto space-y-12">
+    <LegalPageLayout
+      badge={c.legalInfo}
+      badgeIcon={<Shield size={14} className="text-primary" />}
+      heroIcon={<Shield size={30} />}
+      title={c.title}
+      description={c.description}
+      date="April 11, 2026"
+      dateLabel={c.lastUpdated}
+      sidebarEyebrow={c.sidebarEyebrow}
+      sidebarTitle={c.sidebarTitle}
+      sidebarPill={c.sidebarPill}
+      metrics={[
+        { value: '11', label: c.metricSections },
+        { value: 'IT Act', label: c.metricCompliance },
+        { value: 'DPDP', label: c.metricFramework },
+        { value: 'AA', label: c.metricAccessibility },
+      ]}
+      note={{ title: c.noteTitle, text: c.noteText }}
+      breadcrumbTitle={c.title}
+      breadcrumbHome={c.breadcrumbHome}
+      breadcrumbGovernance={c.breadcrumbGovernance}
+      toc={toc}
+      footerQuestion={c.footerQuestion}
+      footerDesc={c.footerDesc}
+    >
 
           {/* Introduction */}
           <PolicySection
@@ -707,46 +698,7 @@ export default function PrivacyPolicy() {
             </div>
           </PolicySection>
 
-        </div>
-
-        {/* Back to Home */}
-        <div className="max-w-5xl mx-auto mt-12 pt-8 border-t-2 border-border text-center">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors"
-          >
-            <ArrowLeft size={20} />
-            Back to UX4G Home
-          </Link>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="bg-background border-t-2 border-border mt-16">
-        <div className="max-w-7xl mx-auto px-8 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <div>
-              <span className="font-semibold text-foreground">UX4G Design System</span>
-              {" "}• Government of India • © 2026
-            </div>
-            <div className="flex items-center gap-6">
-              <a href="/accessibility" className="text-muted-foreground hover:text-primary hover:underline">
-                Accessibility
-              </a>
-              <span className="text-muted-foreground font-bold">Privacy Policy</span>
-              <a href="/terms" className="text-muted-foreground hover:text-primary hover:underline">
-                Terms of Service
-              </a>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-4 h-4 rounded-full bg-[#FF9933]"></span>
-              <span className="w-4 h-4 rounded-full bg-card border-2 border-border"></span>
-              <span className="w-4 h-4 rounded-full bg-green-700"></span>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </LegalPageLayout>
   );
 }
 
@@ -927,17 +879,41 @@ function RetentionPolicy({
 
 // ── Bilingual copy ──────────────────────────────────────────────────
 const PRIVACY_EN = {
-  backToHome: 'Back to Home',
   legalInfo: 'Legal Information',
   title: 'Privacy Policy',
   description: 'Your privacy is important to us. This Privacy Policy explains how the UX4G Design System collects, uses, and protects information when you access our documentation, resources, and services.',
   lastUpdated: 'Last Updated',
+  sidebarEyebrow: 'Policy overview',
+  sidebarTitle: 'What this page covers',
+  sidebarPill: '11 sections',
+  metricSections: 'Sections',
+  metricCompliance: 'Compliance',
+  metricFramework: 'Framework',
+  metricAccessibility: 'Accessibility',
+  noteTitle: 'Government standard',
+  noteText: 'Compliant with the IT Act 2000 and Digital Personal Data Protection Act.',
+  breadcrumbHome: 'Home',
+  breadcrumbGovernance: 'Governance',
+  footerQuestion: 'Questions about this policy?',
+  footerDesc: 'Contact the UX4G Data Protection Officer for clarification or requests.',
 };
 
 const PRIVACY_HI = {
-  backToHome: 'मुखपृष्ठ पर वापस जाएँ',
   legalInfo: 'कानूनी जानकारी',
   title: 'गोपनीयता नीति',
   description: 'आपकी गोपनीयता हमारे लिए महत्वपूर्ण है। यह गोपनीयता नीति बताती है कि UX4G डिज़ाइन सिस्टम आपके दस्तावेज़ीकरण, संसाधनों और सेवाओं तक पहुँचने पर जानकारी कैसे एकत्र, उपयोग और सुरक्षित करता है।',
   lastUpdated: 'अंतिम अपडेट',
+  sidebarEyebrow: 'नीति अवलोकन',
+  sidebarTitle: 'इस पृष्ठ में क्या शामिल है',
+  sidebarPill: '11 अनुभाग',
+  metricSections: 'अनुभाग',
+  metricCompliance: 'अनुपालन',
+  metricFramework: 'ढाँचा',
+  metricAccessibility: 'अभिगम्यता',
+  noteTitle: 'सरकारी मानक',
+  noteText: 'IT अधिनियम 2000 और डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम के अनुरूप।',
+  breadcrumbHome: 'मुखपृष्ठ',
+  breadcrumbGovernance: 'शासन',
+  footerQuestion: 'इस नीति के बारे में प्रश्न?',
+  footerDesc: 'स्पष्टीकरण या अनुरोधों के लिए UX4G डेटा संरक्षण अधिकारी से संपर्क करें।',
 };
