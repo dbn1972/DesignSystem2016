@@ -115,7 +115,7 @@ export default function SystemsHub() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <section className="grid gap-6 lg:grid-cols-3">
           <SystemCard
             icon={<Globe2 size={28} />}
@@ -199,7 +199,7 @@ export default function SystemsHub() {
             </div>
           </div>
 
-          <aside className="rounded-[28px] border border-border bg-gradient-to-br from-slate-50 via-white to-blue-50 p-6 shadow-sm dark:from-gray-900 dark:via-gray-800 dark:to-blue-950/20">
+          <div className="rounded-[28px] border border-border bg-gradient-to-br from-slate-50 via-white to-blue-50 p-6 shadow-sm dark:from-gray-900 dark:via-gray-800 dark:to-blue-950/20">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
               Enterprise checklist
             </p>
@@ -229,9 +229,9 @@ export default function SystemsHub() {
                 <ArrowRight size={16} />
               </Link>
             </div>
-          </aside>
+          </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

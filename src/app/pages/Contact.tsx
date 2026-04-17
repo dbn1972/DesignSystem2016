@@ -132,7 +132,7 @@ export default function Contact() {
       </div>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-8 py-12">
+      <div className="max-w-[1400px] mx-auto px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
           {/* Left Column - Contact Form */}
@@ -484,7 +484,7 @@ export default function Contact() {
 
           </div>
         </div>
-      </main>
+      </div>
 
       {/* Footer Banner */}
       <div className="bg-gradient-to-r from-[#000080] to-[#000060] mt-16">

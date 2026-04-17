@@ -109,7 +109,7 @@ export default function CertificateOfficerCases() {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         
         {/* Filters */}
         <div className="bg-card border-2 border-border rounded-lg p-6 mb-6">
@@ -213,7 +213,7 @@ export default function CertificateOfficerCases() {
           )}
         </div>
 
-      </main>
+      </div>
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">

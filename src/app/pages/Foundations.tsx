@@ -151,7 +151,7 @@ export default function Foundations() {
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.78fr)_minmax(0,1.22fr)] items-start">
-            <aside className="space-y-4 lg:sticky lg:top-24">
+            <div className="space-y-4 lg:sticky lg:top-24">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 Design principles
               </p>
@@ -162,7 +162,7 @@ export default function Foundations() {
                 The foundations page is the rulebook for every surface in UX4G, from
                 tokens and layout to hierarchy and accessibility.
               </p>
-            </aside>
+            </div>
 
             <div className="grid gap-5 md:grid-cols-2">
               {principles.map((principle, index) => (
@@ -197,7 +197,7 @@ export default function Foundations() {
       <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
-            <aside>
+            <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 Color system
               </p>
@@ -217,7 +217,7 @@ export default function Foundations() {
                   Use semantic tokens and avoid hardcoding one-off values in product screens.
                 </p>
               </div>
-            </aside>
+            </div>
 
             <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {colorPalette.map((color) => (
@@ -249,7 +249,7 @@ export default function Foundations() {
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
-            <aside>
+            <div>
               <div className="flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-300">
                   <Type size={22} />
@@ -274,7 +274,7 @@ export default function Foundations() {
                   "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
                 </p>
               </div>
-            </aside>
+            </div>
 
             <div className="rounded-[28px] border border-border bg-card shadow-sm dark:bg-gray-800 overflow-hidden">
               <div className="overflow-x-auto">
@@ -314,7 +314,7 @@ export default function Foundations() {
       <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
-            <aside>
+            <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 Spacing system
               </p>
@@ -334,7 +334,7 @@ export default function Foundations() {
                   className="p-spacing-4 m-spacing-2"
                 </code>
               </div>
-            </aside>
+            </div>
 
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {spacing.map((space) => (
@@ -363,7 +363,7 @@ export default function Foundations() {
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
-            <aside>
+            <div>
               <div className="flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-300">
                   <Grid size={22} />
@@ -381,7 +381,7 @@ export default function Foundations() {
                 The grid system adapts from stacked mobile layouts to dense desktop views
                 while keeping the same design language intact.
               </p>
-            </aside>
+            </div>
 
             <div className="space-y-5">
               <div className="rounded-[28px] border border-border bg-card p-6 shadow-sm dark:bg-gray-800">

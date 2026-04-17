@@ -88,7 +88,7 @@ export default function FormIntelligenceSystem() {
       </nav>
 
       {/* Content */}
-      <main className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           
           {/* Main Content - 9 columns */}
@@ -104,15 +104,15 @@ export default function FormIntelligenceSystem() {
           </div>
 
           {/* Sidebar - 3 columns */}
-          <aside className="col-span-3 space-y-6 sticky top-24 self-start">
+          <div className="col-span-3 space-y-6 sticky top-24 self-start">
             <SystemArchitecture />
             <QuickStart />
             <PatternIndex />
             <Resources />
-          </aside>
+          </div>
 
         </div>
-      </main>
+      </div>
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">

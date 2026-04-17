@@ -345,7 +345,7 @@ export default function ReferenceServiceBlueprint() {
             </div>
           </div>
 
-          <aside className="rounded-[30px] border border-border bg-card p-6 shadow-xl shadow-black/5 lg:p-7">
+          <div className="rounded-[30px] border border-border bg-card p-6 shadow-xl shadow-black/5 lg:p-7">
             <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">At a glance</p>
@@ -365,11 +365,11 @@ export default function ReferenceServiceBlueprint() {
               <InfoRow icon={<Sparkles size={16} />} title="Reusable logic" text="Sign-in, forms, payments, tracking, and recovery are aligned to the shared service modules." />
               <InfoRow icon={<FileSearch size={16} />} title="Content review" text="The copy now reflects the service requirement instead of reading like a raw implementation dump." />
             </div>
-          </aside>
+          </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
         <section className="mb-8 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-3xl space-y-2">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">Journey map</p>
@@ -440,7 +440,7 @@ export default function ReferenceServiceBlueprint() {
             </ul>
           </div>
         </section>
-      </main>
+      </div>
 
       <footer className="mt-16 border-t border-border bg-card">
         <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-8 text-sm text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-4 sm:px-8 lg:px-12">

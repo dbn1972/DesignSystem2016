@@ -24,7 +24,7 @@ export default function CertificateIssued() {
         </div>
       </header>
 
-      <main className="max-w-[1000px] mx-auto px-6 py-8 space-y-5">
+      <div className="max-w-[1000px] mx-auto px-6 py-8 space-y-5">
         <section className="bg-card border-2 border-border rounded-lg p-6">
           <h2 className="text-lg font-bold text-foreground mb-3">{issued.certificateType}</h2>
           <div className="grid md:grid-cols-2 gap-4 text-sm">
@@ -45,7 +45,7 @@ export default function CertificateIssued() {
             </button>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

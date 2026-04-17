@@ -51,7 +51,7 @@ export default function ResourcesHub() {
             </div>
           </div>
 
-          <aside className="rounded-[32px] border border-border bg-card p-7 shadow-xl shadow-black/5">
+          <div className="rounded-[32px] border border-border bg-card p-7 shadow-xl shadow-black/5">
             <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Resource map</p>
@@ -71,11 +71,11 @@ export default function ResourcesHub() {
               <HubNote title="Framework parity" text="React stays the reference while Angular and Web Components stay discoverable." />
               <HubNote title="Enterprise tone" text="Guides, specs, and design files are organized for delivery teams, not demos." />
             </div>
-          </aside>
+          </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1440px] space-y-10 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1440px] space-y-10 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
         <section className="space-y-6">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl space-y-2">
@@ -326,7 +326,7 @@ export default function ResourcesHub() {
             </div>
           </ResourceSection>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

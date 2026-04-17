@@ -85,7 +85,7 @@ export default function CertificateService() {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         
         {/* Service Description */}
         <section className="mb-12">
@@ -288,7 +288,7 @@ export default function CertificateService() {
           </div>
         </section>
 
-      </main>
+      </div>
 
       {/* Footer */}
       <footer className="bg-card dark:bg-gray-900 border-t-2 border-border dark:border-gray-700 mt-24">

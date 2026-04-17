@@ -30,7 +30,7 @@ export default function IdentityAccountRecovery() {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-8 py-12">
+      <div className="max-w-[1400px] mx-auto px-8 py-12">
         <div className="grid grid-cols-12 gap-8">
           
           {/* Prototype View - 8 columns */}
@@ -396,15 +396,15 @@ export default function IdentityAccountRecovery() {
           </div>
 
           {/* Documentation Sidebar - 4 columns */}
-          <aside className="col-span-4 space-y-6">
+          <div className="col-span-4 space-y-6">
             <PatternInfo />
             <WhenToUse />
             <SecurityNotes />
             <ProcessingTime />
-          </aside>
+          </div>
 
         </div>
-      </main>
+      </div>
     </div>
   );
 }

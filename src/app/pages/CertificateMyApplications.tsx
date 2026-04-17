@@ -26,7 +26,7 @@ export default function CertificateMyApplications() {
         </div>
       </header>
 
-      <main className="max-w-[1100px] mx-auto px-6 py-8 space-y-4">
+      <div className="max-w-[1100px] mx-auto px-6 py-8 space-y-4">
         {list.map((app) => (
           <article key={app.referenceNumber} className="bg-card border-2 border-border rounded-lg p-5">
             <div className="flex flex-wrap items-start justify-between gap-4">
@@ -52,7 +52,7 @@ export default function CertificateMyApplications() {
             </div>
           </article>
         ))}
-      </main>
+      </div>
     </div>
   );
 }

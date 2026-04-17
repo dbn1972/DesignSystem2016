@@ -18,7 +18,7 @@ export default function CertificatePrivacyPolicy() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="max-w-4xl mx-auto">
           
           {/* Last Updated */}
@@ -261,7 +261,7 @@ export default function CertificatePrivacyPolicy() {
           </div>
 
         </div>
-      </main>
+      </div>
 
       <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">

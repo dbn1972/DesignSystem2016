@@ -46,7 +46,7 @@ export default function CertificateAppeal() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="max-w-3xl mx-auto">
           
           {/* Info Banner */}
@@ -216,7 +216,7 @@ export default function CertificateAppeal() {
           </div>
 
         </div>
-      </main>
+      </div>
 
       <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">

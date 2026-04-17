@@ -195,7 +195,7 @@ export default function Patterns() {
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
-            <aside className="lg:sticky lg:top-24 space-y-4">
+            <div className="lg:sticky lg:top-24 space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 Pattern library
               </p>
@@ -224,7 +224,7 @@ export default function Patterns() {
                   ))}
                 </div>
               </div>
-            </aside>
+            </div>
 
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {patterns.map((pattern, index) => (
@@ -281,7 +281,7 @@ export default function Patterns() {
       <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
-            <aside>
+            <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 Common service flows
               </p>
@@ -292,7 +292,7 @@ export default function Patterns() {
                 These flow summaries help teams stitch patterns together into service
                 journeys without losing consistency, state, or accessibility.
               </p>
-            </aside>
+            </div>
 
             <div className="space-y-5">
               {serviceFlows.map((flow, index) => (
@@ -337,7 +337,7 @@ export default function Patterns() {
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
-            <aside className="lg:sticky lg:top-24">
+            <div className="lg:sticky lg:top-24">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 Pattern example
               </p>
@@ -348,7 +348,7 @@ export default function Patterns() {
                 A complete example of how a pattern can combine steps, validation, and
                 responsive layout to support a government application journey.
               </p>
-            </aside>
+            </div>
 
             <div className="rounded-[32px] border border-border bg-card shadow-sm dark:bg-gray-800 overflow-hidden">
               <div className="border-b border-border bg-background px-6 py-5 dark:bg-gray-900 dark:border-gray-700">
@@ -421,7 +421,7 @@ export default function Patterns() {
       <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
-            <aside>
+            <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 Design best practices
               </p>
@@ -432,7 +432,7 @@ export default function Patterns() {
                 Use these guidance points when implementing patterns in government digital
                 services so the experience stays coherent and accessible.
               </p>
-            </aside>
+            </div>
 
             <div className="grid gap-5 md:grid-cols-2">
               {bestPractices.map((practice, index) => (
@@ -747,7 +747,7 @@ function CodeDownloads() {
                     {copiedId === lane.key ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                <div tabIndex={0} role="region" aria-label="Code preview" className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
                   <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
                 </div>
               </div>

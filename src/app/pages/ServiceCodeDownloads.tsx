@@ -1179,7 +1179,7 @@ export default function ServiceCodeDownloads() {
             </div>
           </div>
 
-          <aside className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
+          <div className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
             <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Catalogue snapshot</p>
@@ -1200,11 +1200,11 @@ export default function ServiceCodeDownloads() {
               <ReviewNote title="Content review" text="The catalogue now includes later-stage certificate pages like issued, officer review, appeal, and privacy policy." />
               <ReviewNote title="Structure" text="Bundles are consistently split between certificate-specific wrappers and reusable government flows." />
             </div>
-          </aside>
+          </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
         <section className="mb-8">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl space-y-2">
@@ -1362,7 +1362,7 @@ export default function ServiceCodeDownloads() {
             </button>
           </div>
         )}
-      </main>
+      </div>
     </div>
   );
 }

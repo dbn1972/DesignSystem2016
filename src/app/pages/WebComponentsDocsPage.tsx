@@ -33,7 +33,7 @@ export default function WebComponentsDocsPage() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {DOCS.map((doc) => (
             <Link
@@ -71,7 +71,7 @@ export default function WebComponentsDocsPage() {
 <ux4g-alert variant="success">Your application has been submitted.</ux4g-alert>`}
           </pre>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

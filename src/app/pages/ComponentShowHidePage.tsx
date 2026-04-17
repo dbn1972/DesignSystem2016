@@ -153,14 +153,14 @@ function Example() {
 function Example() {
   return (
     <ShowHide above="xl">
-      <aside className="sidebar">
+      <div className="sidebar">
         <h3>Additional Resources</h3>
         <ul>
           <li>Documentation</li>
           <li>API Reference</li>
           <li>Tutorials</li>
         </ul>
-      </aside>
+      </div>
     </ShowHide>
   );
 }`,

@@ -11,7 +11,7 @@ import SEOHead from "../components/SEOHead";
 
 export default function UnifiedHome() {
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <SEOHead
         title="Home"
         description="India's open-source design system for building consistent, accessible digital public services. 77 components across React, Angular, and Web Components."
@@ -166,7 +166,7 @@ export default function UnifiedHome() {
               <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${card.color} mb-4`}>
                 <card.icon size={20} />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-[#005196] transition-colors">{card.title}</h3>
+              <h2 className="text-lg font-semibold text-foreground mb-2 group-hover:text-[#005196] transition-colors">{card.title}</h2>
               <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
               <ArrowRight size={16} className="absolute top-6 right-6 text-muted-foreground/0 group-hover:text-[#005196] transition-all" />
             </Link>
@@ -289,6 +289,6 @@ export default function UnifiedHome() {
         </div>
       </section>
 
-    </main>
+    </div>
   );
 }

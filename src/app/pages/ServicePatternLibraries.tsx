@@ -83,7 +83,7 @@ export default function ServicePatternLibraries() {
         </div>
       </nav>
 
-      <main className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
         <div className="space-y-20">
           <ApplicationSubmission />
           <EligibilityScreening />
@@ -94,7 +94,7 @@ export default function ServicePatternLibraries() {
           <AssistedOfflineToOnline />
           <HighVolumeStatusTracking />
         </div>
-      </main>
+      </div>
 
       <footer className="mt-20 border-t border-border bg-card">
         <div className="mx-auto flex max-w-[1440px] flex-col gap-2 px-6 py-8 text-sm text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-4 sm:px-8 lg:px-12">
@@ -2071,7 +2071,7 @@ function ServicePatternLibrariesCodeDownloads() {
                     {copiedId === lane.key ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                <div tabIndex={0} role="region" aria-label="Code preview" className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
                   <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
                 </div>
               </div>

@@ -80,7 +80,7 @@ export default function HighVolumeStatusTrackingPattern() {
       </nav>
 
       {/* Content */}
-      <main className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           
           {/* Main Content - 9 columns */}
@@ -98,16 +98,16 @@ export default function HighVolumeStatusTrackingPattern() {
           </div>
 
           {/* Sidebar - 3 columns */}
-          <aside className="col-span-3 space-y-6 sticky top-24 self-start">
+          <div className="col-span-3 space-y-6 sticky top-24 self-start">
             <MetadataPanel />
             <QuickRefPanel />
             <DesignPrinciples />
             <RiskIndicators />
             <RelatedResources />
-          </aside>
+          </div>
 
         </div>
-      </main>
+      </div>
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">
@@ -2352,7 +2352,7 @@ function HighVolumeStatusTrackingCodeDownloads() {
                     {copiedId === lane.key ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                <div tabIndex={0} role="region" aria-label="Code preview" className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
                   <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
                 </div>
               </div>

@@ -37,7 +37,7 @@ export default function WebComponentsDemo() {
   <script type="module" src="https://cdn.ux4g.gov.in/web-components/v1.0.0/ux4g-web-components.js"></script>
 </head>
 <body>
-  <main style="max-width: 600px; margin: 2rem auto; padding: 0 1rem;">
+  <div style="max-width: 600px; margin: 2rem auto; padding: 0 1rem;">
     <h1>Passport Application</h1>
     
     <form id="passportForm">
@@ -107,7 +107,7 @@ export default function WebComponentsDemo() {
         Submit Application
       </ux4g-button>
     </form>
-  </main>
+  </div>
   
   <script>
     document.getElementById('passportForm').addEventListener('submit', (e) => {

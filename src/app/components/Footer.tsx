@@ -118,7 +118,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <span className="flex items-center gap-2" aria-label="Indian tricolor">
+              <span className="flex items-center gap-2" role="img" aria-label="Indian tricolor">
                 <span className="w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--ux4g-color-saffron-500)' }} aria-hidden="true"></span>
                 <span className="w-3 h-3 rounded-full bg-foreground" aria-hidden="true"></span>
                 <span className="w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--ux4g-color-green-600)' }} aria-hidden="true"></span>

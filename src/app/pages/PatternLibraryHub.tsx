@@ -28,7 +28,7 @@ export default function PatternLibraryHub() {
       </header>
 
       {/* Content */}
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
 
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -412,7 +412,7 @@ export default function PatternLibraryHub() {
       
         <PatternLibraryHubCodeDownloads />
 
-      </main>
+      </div>
     </div>
   );
 }
@@ -705,7 +705,7 @@ function PatternLibraryHubCodeDownloads() {
                     {copiedId === lane.key ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                <div tabIndex={0} role="region" aria-label="Code preview" className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
                   <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
                 </div>
               </div>

@@ -40,11 +40,11 @@ export default function AngularDocDetail() {
           <p className="text-sm text-muted-foreground mt-1">Source: {doc.file}</p>
         </div>
       </header>
-      <main className="max-w-[1000px] mx-auto px-8 py-8">
+      <div className="max-w-[1000px] mx-auto px-8 py-8">
         <div className="bg-card border-2 border-border rounded-lg p-8">
           <pre className="whitespace-pre-wrap text-sm text-foreground leading-relaxed font-sans">{doc.content}</pre>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

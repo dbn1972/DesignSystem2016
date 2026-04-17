@@ -30,7 +30,7 @@ const apiAreas = [
 
 export default function ApiReference() {
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <section className="bg-gradient-to-br from-[#000080] via-[#000060] to-[#000080] text-primary-foreground py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
@@ -116,7 +116,7 @@ export default function ApiReference() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

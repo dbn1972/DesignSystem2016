@@ -739,7 +739,7 @@ function SemanticStructure() {
                 { tag: '<header>', desc: 'Site/page header with logo and navigation' },
                 { tag: '<nav>', desc: 'Navigation menu or links' },
                 { tag: '<main>', desc: 'Primary content (one per page)' },
-                { tag: '<aside>', desc: 'Complementary content or sidebar' },
+                { tag: '<div>', desc: 'Complementary content or sidebar' },
                 { tag: '<footer>', desc: 'Site/page footer' },
                 { tag: '<section>', desc: 'Thematic grouping of content' },
                 { tag: '<article>', desc: 'Self-contained content' }

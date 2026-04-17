@@ -32,7 +32,7 @@ export default function Governance() {
             </div>
           </div>
 
-          <aside className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
+          <div className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
             <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Governance snapshot</p>
@@ -50,11 +50,11 @@ export default function Governance() {
               <GovernanceNote title="Clear stewardship" text="Roles, decision rights, and approval responsibilities are easy to scan." />
               <GovernanceNote title="Stable release model" text="Promotion, deprecation, and exception paths are written for delivery teams." />
             </div>
-          </aside>
+          </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
         <OwnershipModelSection />
         <ReviewLanesSection />
         <ApprovalGatesSection />
@@ -65,7 +65,7 @@ export default function Governance() {
         <DeprecationProcessSection />
         <ExceptionProcessSection />
         <ConformanceExpectationsSection />
-      </main>
+      </div>
     </div>
   );
 }
@@ -1426,7 +1426,7 @@ function ExceptionType({ title, duration, description, examples }: any) {
   return (
     <div className="rounded-[24px] border border-border bg-card p-6 shadow-sm">
       <h3 className="mb-2 font-bold text-foreground">{title}</h3>
-      <div className="mb-3 text-sm font-semibold text-orange-600 dark:text-orange-400">{duration}</div>
+      <div className="mb-3 text-sm font-semibold text-orange-700 dark:text-orange-300">{duration}</div>
       <p className="mb-4 text-sm text-muted-foreground">{description}</p>
       <div className="text-xs text-muted-foreground">
         <strong>Examples:</strong> {examples.join(', ')}

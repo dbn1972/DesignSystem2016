@@ -35,7 +35,7 @@ export default function CertificateOfficerReview() {
         </div>
       </header>
 
-      <main className="max-w-[1000px] mx-auto px-6 py-8 space-y-5">
+      <div className="max-w-[1000px] mx-auto px-6 py-8 space-y-5">
         <section className="bg-card border-2 border-border rounded-lg p-6">
           <p className="text-sm text-muted-foreground">Applicant: <span className="font-bold text-foreground">{app.applicantName}</span></p>
           <p className="text-sm text-muted-foreground">Certificate: <span className="font-bold text-foreground">{app.certificateType}</span></p>
@@ -69,7 +69,7 @@ export default function CertificateOfficerReview() {
             Submit Decision
           </button>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

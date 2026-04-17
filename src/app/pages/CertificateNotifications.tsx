@@ -42,7 +42,7 @@ export default function CertificateNotifications() {
         </div>
       </header>
 
-      <main className="max-w-[1000px] mx-auto px-6 py-8 space-y-4">
+      <div className="max-w-[1000px] mx-auto px-6 py-8 space-y-4">
         <div className="flex gap-3">
           <button
             onClick={() => setFilter("all")}
@@ -83,7 +83,7 @@ export default function CertificateNotifications() {
             </article>
           ))
         )}
-      </main>
+      </div>
     </div>
   );
 }

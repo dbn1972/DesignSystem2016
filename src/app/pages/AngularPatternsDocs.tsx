@@ -38,7 +38,7 @@ const patternAreas = [
 
 export default function AngularPatternsDocs() {
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <section className="bg-gradient-to-br from-[#000080] via-[#000060] to-[#000080] text-primary-foreground py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
@@ -112,7 +112,7 @@ export default function AngularPatternsDocs() {
     
         <AngularPatternsDocsCodeDownloads />
 
-      </main>
+      </div>
   );
 }
 
@@ -345,7 +345,7 @@ function AngularPatternsDocsCodeDownloads() {
                     {copiedId === lane.key ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                <div tabIndex={0} role="region" aria-label="Code preview" className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
                   <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
                 </div>
               </div>

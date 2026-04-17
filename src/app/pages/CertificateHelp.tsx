@@ -67,7 +67,7 @@ export default function CertificateHelp() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         
         {/* Contact Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -186,7 +186,7 @@ export default function CertificateHelp() {
           </div>
         </div>
 
-      </main>
+      </div>
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">

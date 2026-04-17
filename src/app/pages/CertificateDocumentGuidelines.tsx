@@ -95,7 +95,7 @@ export default function CertificateDocumentGuidelines() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         
         {/* Important Notice */}
         <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-6 mb-8">
@@ -247,7 +247,7 @@ export default function CertificateDocumentGuidelines() {
           </Link>
         </div>
 
-      </main>
+      </div>
 
       <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">

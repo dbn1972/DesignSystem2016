@@ -127,7 +127,7 @@ export default function DeclarationBeforeSubmissionDemo() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           
           {/* Interactive Flow - 8 columns */}
@@ -186,14 +186,14 @@ export default function DeclarationBeforeSubmissionDemo() {
           </div>
 
           {/* Sidebar - 4 columns */}
-          <aside className="col-span-4 space-y-6">
+          <div className="col-span-4 space-y-6">
             <ApplicationInfo />
             <StateExplainer currentState={flowState} />
             <DeclarationPurpose />
-          </aside>
+          </div>
 
         </div>
-      </main>
+      </div>
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">

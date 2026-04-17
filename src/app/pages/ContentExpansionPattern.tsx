@@ -38,7 +38,7 @@ export default function ContentExpansionPattern() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-8">
             <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6 mb-6">
@@ -164,7 +164,7 @@ export default function ContentExpansionPattern() {
             </div>
           </div>
 
-          <aside className="col-span-4">
+          <div className="col-span-4">
             <div className="sticky top-8 space-y-6">
               <div className="bg-card border-2 border-border rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-4">Pattern Information</h3>
@@ -206,12 +206,12 @@ export default function ContentExpansionPattern() {
                 </ul>
               </div>
             </div>
-          </aside>
+          </div>
         </div>
 
         {/* Code Downloads */}
         <ContentExpansionCodeDownloads />
-      </main>
+      </div>
     </div>
   );
 }
@@ -400,7 +400,7 @@ function ContentExpansionCodeDownloads() {
                     {copiedId === lane.key ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                <div tabIndex={0} role="region" aria-label="Code preview" className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
                   <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
                 </div>
               </div>

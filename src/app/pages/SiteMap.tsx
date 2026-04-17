@@ -147,7 +147,7 @@ export default function SiteMap() {
             </div>
           </div>
 
-          <aside className="rounded-[1.75rem] border border-border/70 bg-card/90 p-5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] backdrop-blur">
+          <div className="rounded-[1.75rem] border border-border/70 bg-card/90 p-5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] backdrop-blur">
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Map summary</p>
@@ -170,11 +170,11 @@ export default function SiteMap() {
                 losing the broader platform context.
               </p>
             </div>
-          </aside>
+          </div>
         </div>
       </section>
 
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <section className="mb-10">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Navigation</p>
@@ -216,7 +216,7 @@ export default function SiteMap() {
             </article>
           ))}
         </section>
-      </main>
+      </div>
     </div>
   );
 }

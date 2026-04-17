@@ -133,7 +133,7 @@ export default function Components() {
             </div>
           </div>
 
-          <aside className="rounded-[1.5rem] border border-border/70 bg-card/90 p-4.5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] backdrop-blur">
+          <div className="rounded-[1.5rem] border border-border/70 bg-card/90 p-4.5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] backdrop-blur">
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Component map</p>
@@ -172,7 +172,7 @@ export default function Components() {
                 </span>
               </div>
             </div>
-          </aside>
+          </div>
         </div>
       </section>
 
@@ -342,7 +342,7 @@ export default function Components() {
                     <button className="rounded-full bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-700">
                       Danger
                     </button>
-                    <button className="rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-600">
+                    <button className="rounded-full bg-amber-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-600">
                       Warning
                     </button>
                   </div>
@@ -395,9 +395,10 @@ export default function Components() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-foreground">Select dropdown</label>
+                    <label htmlFor="demo-select" className="mb-2 block text-sm font-semibold text-foreground">Select dropdown</label>
                     <div className="relative">
                       <select
+                        id="demo-select"
                         value={selectValue}
                         onChange={(e) => setSelectValue(e.target.value)}
                         className="w-full appearance-none rounded-2xl border border-border bg-background px-4 py-3 pr-10 text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
@@ -416,6 +417,7 @@ export default function Components() {
                       type="checkbox"
                       checked={checkboxState}
                       onChange={(e) => setCheckboxState(e.target.checked)}
+                      aria-label="Checkbox label"
                       className="h-5 w-5 rounded border-border text-primary focus:ring-primary/20"
                     />
                     <span className="text-sm font-medium text-foreground">Checkbox label</span>
@@ -451,6 +453,7 @@ export default function Components() {
 
                   <div className="flex items-center gap-3">
                     <button
+                      aria-label={switchState ? 'Toggle switch off' : 'Toggle switch on'}
                       onClick={() => setSwitchState(!switchState)}
                       className={`relative h-6 w-12 rounded-full transition-colors ${
                         switchState ? 'bg-emerald-700' : 'bg-muted'
@@ -477,10 +480,10 @@ export default function Components() {
                 <div className="mt-5 flex flex-wrap gap-3">
                   <span className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground">Primary</span>
                   <span className="rounded-full bg-emerald-700 px-3 py-1 text-sm font-semibold text-white">Success</span>
-                  <span className="rounded-full bg-amber-500 px-3 py-1 text-sm font-semibold text-white">Warning</span>
+                  <span className="rounded-full bg-amber-700 px-3 py-1 text-sm font-semibold text-white">Warning</span>
                   <span className="rounded-full bg-red-600 px-3 py-1 text-sm font-semibold text-white">Error</span>
                   <span className="rounded-full bg-muted px-3 py-1 text-sm font-semibold text-muted-foreground">Neutral</span>
-                  <span className="rounded-full bg-[#FF9933] px-3 py-1 text-sm font-semibold text-white">Saffron</span>
+                  <span className="rounded-full bg-[#c27400] px-3 py-1 text-sm font-semibold text-white">Saffron</span>
                 </div>
               </div>
             </div>

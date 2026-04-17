@@ -27,7 +27,7 @@ export default function StatusLifecycleOverview() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-12 gap-8">
           
           {/* Main Content */}
@@ -308,14 +308,14 @@ export default function StatusLifecycleOverview() {
           </div>
 
           {/* Sidebar */}
-          <aside className="col-span-3 space-y-6">
+          <div className="col-span-3 space-y-6">
             <QuickNavigation />
             <KeyPrinciples />
             <Resources />
-          </aside>
+          </div>
 
         </div>
-      </main>
+      </div>
     </div>
   );
 }

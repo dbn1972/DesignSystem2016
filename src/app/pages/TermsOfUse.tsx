@@ -19,7 +19,7 @@ export default function TermsOfUse() {
         </div>
       </header>
 
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         <div className="max-w-4xl mx-auto">
 
           {/* Breadcrumb Navigation */}
@@ -514,7 +514,7 @@ export default function TermsOfUse() {
           </div>
 
         </div>
-      </main>
+      </div>
 
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">

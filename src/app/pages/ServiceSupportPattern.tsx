@@ -94,7 +94,7 @@ export default function ServiceSupportPattern() {
         </div>
       </div>
 
-      <main className="max-w-[1200px] mx-auto px-8 py-12">
+      <div className="max-w-[1200px] mx-auto px-8 py-12">
         
         {step === 'select' && (
           <div className="max-w-[800px] mx-auto">
@@ -299,7 +299,7 @@ export default function ServiceSupportPattern() {
       
         <ServiceSupportCodeDownloads />
 
-      </main>
+      </div>
     </div>
   );
 }
@@ -534,7 +534,7 @@ function ServiceSupportCodeDownloads() {
                     {copiedId === lane.key ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                <div tabIndex={0} role="region" aria-label="Code preview" className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
                   <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
                 </div>
               </div>

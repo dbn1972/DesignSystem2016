@@ -77,7 +77,7 @@ export default function DashboardPatterns() {
       </div>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
         
         {/* System Overview */}
         <section className="mb-16">
@@ -389,7 +389,7 @@ export default function DashboardPatterns() {
 
         {/* Code Downloads */}
         <DashboardPatCodeDownloads />
-      </main>
+      </div>
     </div>
   );
 }
@@ -420,7 +420,7 @@ export function DashboardPage() {
           <button className="p-2 rounded-lg hover:bg-muted" aria-label="Notifications">🔔</button>
         </div>
       </header>
-      <main className="max-w-5xl mx-auto p-6">
+      <div className="max-w-5xl mx-auto p-6">
         <div className="grid grid-cols-3 gap-4 mb-8">
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold">{apps.length}</div><div className="text-sm text-muted-foreground">Total Applications</div></div>
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-blue-600">{apps.filter(a => a.status === 'in-progress').length}</div><div className="text-sm text-muted-foreground">In Progress</div></div>
@@ -441,7 +441,7 @@ export function DashboardPage() {
         )}
         {tab === 'overview' && <p className="text-muted-foreground">Welcome to your dashboard. View your applications, bookmarks, and notifications.</p>}
         {tab === 'bookmarks' && <p className="text-muted-foreground">Your saved services and bookmarked pages appear here.</p>}
-      </main>
+      </div>
     </div>
   );
 }`;
@@ -460,7 +460,7 @@ import { CommonModule } from '@angular/common';
           <div><h1 class="text-xl font-bold">My Dashboard</h1><p class="text-sm text-muted-foreground">Welcome back</p></div>
         </div>
       </header>
-      <main class="max-w-5xl mx-auto p-6">
+      <div class="max-w-5xl mx-auto p-6">
         <div class="grid grid-cols-3 gap-4 mb-8">
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold">{{apps.length}}</div><div class="text-sm text-muted-foreground">Total</div></div>
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold text-blue-600">{{inProgress}}</div><div class="text-sm text-muted-foreground">In Progress</div></div>
@@ -472,7 +472,7 @@ import { CommonModule } from '@angular/common';
             <span [class]="'px-2.5 py-1 rounded-full text-xs font-bold ' + statusColor[app.status]">{{app.status}}</span>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   \`
 })
@@ -516,7 +516,7 @@ const DASH_PAT_HTML_CODE = `<!DOCTYPE html>
 </head>
 <body>
   <header><div class="header-inner"><h1>My Dashboard</h1><p class="subtitle">Welcome back, Citizen</p></div></header>
-  <main>
+  <div>
     <div class="stats">
       <div class="stat"><div class="stat-num">3</div><div class="stat-label">Total Applications</div></div>
       <div class="stat"><div class="stat-num" style="color:#2563eb">1</div><div class="stat-label">In Progress</div></div>
@@ -525,7 +525,7 @@ const DASH_PAT_HTML_CODE = `<!DOCTYPE html>
     <div class="app-card"><div><div class="app-name">Caste Certificate</div><div class="app-id">APP-78432 • 2026-04-10</div></div><span class="badge badge-progress">in-progress</span></div>
     <div class="app-card"><div><div class="app-name">Income Certificate</div><div class="app-id">APP-78290 • 2026-04-05</div></div><span class="badge badge-approved">approved</span></div>
     <div class="app-card"><div><div class="app-name">Driving License Renewal</div><div class="app-id">APP-77810 • 2026-04-12</div></div><span class="badge badge-pending">pending</span></div>
-  </main>
+  </div>
 </body>
 </html>`;
 
@@ -567,7 +567,7 @@ function DashboardPatCodeDownloads() {
                     {copiedId === lane.key ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                <div tabIndex={0} role="region" aria-label="Code preview" className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
                   <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
                 </div>
               </div>

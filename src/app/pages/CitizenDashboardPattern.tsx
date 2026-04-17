@@ -137,7 +137,7 @@ export default function CitizenDashboardPattern() {
       </div>
 
       {/* Main Content */}
-      <main className="max-w-[1400px] mx-auto px-8 py-8">
+      <div className="max-w-[1400px] mx-auto px-8 py-8">
         
         {activeTab === 'overview' && (
           <div className="grid grid-cols-12 gap-6">
@@ -268,7 +268,7 @@ export default function CitizenDashboardPattern() {
             </div>
 
             {/* Sidebar */}
-            <aside className="col-span-4 space-y-6">
+            <div className="col-span-4 space-y-6">
               
               {/* Notifications */}
               <div className="bg-card border-2 border-border rounded-lg p-6">
@@ -328,7 +328,7 @@ export default function CitizenDashboardPattern() {
                 </Link>
               </div>
 
-            </aside>
+            </div>
 
           </div>
         )}
@@ -453,7 +453,7 @@ export default function CitizenDashboardPattern() {
 
         <CitizenDashCodeDownloads />
 
-      </main>
+      </div>
     </div>
   );
 }
@@ -507,7 +507,7 @@ export function CitizenDashboardPage() {
           </div>
         </div>
       </header>
-      <main className="max-w-5xl mx-auto p-6">
+      <div className="max-w-5xl mx-auto p-6">
         <div className="grid grid-cols-4 gap-4 mb-8">
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-foreground">{applications.length}</div><div className="text-sm text-muted-foreground">Total Applications</div></div>
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-blue-600">{applications.filter(a => a.status === 'in-progress').length}</div><div className="text-sm text-muted-foreground">In Progress</div></div>
@@ -537,7 +537,7 @@ export function CitizenDashboardPage() {
             ))}</div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }`;
@@ -554,7 +554,7 @@ import { CommonModule } from '@angular/common';
       <header class="bg-card border-b border-border px-6 py-4">
         <div class="max-w-5xl mx-auto"><h1 class="text-xl font-bold">My Dashboard</h1><p class="text-sm text-muted-foreground">Welcome back</p></div>
       </header>
-      <main class="max-w-5xl mx-auto p-6">
+      <div class="max-w-5xl mx-auto p-6">
         <div class="grid grid-cols-4 gap-4 mb-8">
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold">{{ apps.length }}</div><div class="text-sm text-muted-foreground">Total</div></div>
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold text-blue-600">{{ inProgress }}</div><div class="text-sm text-muted-foreground">In Progress</div></div>
@@ -567,7 +567,7 @@ import { CommonModule } from '@angular/common';
             <span [class]="'px-2.5 py-1 rounded-full text-xs font-bold '+statusColor(app.status)">{{ app.status }}</span>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   \`
 })
@@ -673,7 +673,7 @@ function CitizenDashCodeDownloads() {
                     {copiedId === lane.key ? 'Copied' : 'Copy'}
                   </button>
                 </div>
-                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                <div tabIndex={0} role="region" aria-label="Code preview" className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
                   <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
                 </div>
               </div>

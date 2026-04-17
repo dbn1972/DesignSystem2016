@@ -22,7 +22,7 @@ export default function CertificateSubmissionSuccess() {
         </div>
       </header>
 
-      <main className="max-w-[1000px] mx-auto px-6 py-8 space-y-5">
+      <div className="max-w-[1000px] mx-auto px-6 py-8 space-y-5">
         <section className="bg-card border-2 border-border rounded-lg p-6">
           <p className="text-xs text-muted-foreground">Reference Number</p>
           <p className="text-2xl font-bold text-foreground font-mono">{referenceNumber}</p>
@@ -59,7 +59,7 @@ export default function CertificateSubmissionSuccess() {
             <li>After approval, your certificate will be available for download.</li>
           </ol>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
