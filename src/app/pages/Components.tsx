@@ -1,8 +1,12 @@
 import React from 'react';
 import { AlertCircle, Bell, Calendar, CheckCircle, ChevronDown, Download, Info, Package, Search, Upload, X } from 'lucide-react';
 import { Link } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 export default function Components() {
+  const { i18n } = useTranslation();
+  const language = i18n.resolvedLanguage === 'hi' ? 'hi' : 'en';
+  const copy = COMPONENTS_COPY[language];
   const [showAlert, setShowAlert] = React.useState(true);
   const [checkboxState, setCheckboxState] = React.useState(false);
   const [radioValue, setRadioValue] = React.useState('option1');
@@ -12,33 +16,33 @@ export default function Components() {
 
   const componentCategories = [
     {
-      name: 'Form Elements',
-      description: 'High-frequency controls for service journeys and authenticated workflows.',
+      name: copy.categories.formElements.name,
+      description: copy.categories.formElements.description,
       components: ['Button', 'Input', 'Field', 'Label', 'Hint Text', 'Error Text', 'Checkbox', 'Radio', 'Switch', 'Select', 'Textarea', 'Autocomplete', 'Segmented Control', 'Date Picker', 'File Upload', 'OTP Input', 'Aadhaar Input', 'PAN Card Input', 'Address Autocomplete India', 'CAPTCHA']
     },
     {
-      name: 'Navigation',
-      description: 'Structure for movement, discovery, and page-to-page orientation.',
+      name: copy.categories.navigation.name,
+      description: copy.categories.navigation.description,
       components: ['Header', 'Footer', 'Breadcrumb', 'Tabs', 'Pagination', 'Menu', 'Dropdown', 'Drawer', 'Back to Top', 'Stepper']
     },
     {
-      name: 'Feedback',
-      description: 'Messages, states, and system responses that keep users informed.',
+      name: copy.categories.feedback.name,
+      description: copy.categories.feedback.description,
       components: ['Alert', 'Toast', 'Badge', 'Progress', 'Spinner', 'Modal', 'Dialog', 'Skeleton', 'Popover', 'Feedback Rating Widget']
     },
     {
-      name: 'Data Display',
-      description: 'Readable presentation surfaces for records, metrics, and evidence.',
+      name: copy.categories.dataDisplay.name,
+      description: copy.categories.dataDisplay.description,
       components: ['Table', 'Card', 'List', 'Accordion', 'Tooltip', 'Avatar', 'Tag', 'Timeline', 'Statistic', 'Description List', 'Empty State', 'Code Block', 'Tree View', 'Application Tracker', 'Data Grid', 'Document Viewer', 'Chart Library', 'Calendar Scheduler', 'QR Code']
     },
     {
-      name: 'Layout',
-      description: 'Structural primitives that keep the interface balanced and responsive.',
+      name: copy.categories.layout.name,
+      description: copy.categories.layout.description,
       components: ['Container', 'Grid', 'Stack', 'Divider', 'Spacer', 'Flex', 'Center', 'Aspect Ratio', 'Show Hide', 'Section']
     },
     {
-      name: 'Advanced Components',
-      description: 'Specialized patterns for complex government service scenarios.',
+      name: copy.categories.advanced.name,
+      description: copy.categories.advanced.description,
       components: ['Digital Signature', 'Map Location Picker', 'Language Selector', 'Payment Gateway', 'Chatbot', 'Rich Text Editor', 'Form Builder', 'Video Player']
     }
   ];
@@ -46,29 +50,29 @@ export default function Components() {
   const frameworkCards = [
     {
       name: 'React',
-      summary: 'Production-ready component APIs with current documentation and reference flows.',
+      summary: copy.frameworkCards.react.summary,
       details: '73/73 components available',
       accent: 'bg-[#005196]'
     },
     {
       name: 'Angular',
-      summary: 'Framework-matched components for enterprise implementations and service teams.',
+      summary: copy.frameworkCards.angular.summary,
       details: '73/73 components available',
       accent: 'bg-[#138808]'
     },
     {
       name: 'Web Components',
-      summary: 'Framework-agnostic HTML-first delivery for cross-stack portability.',
+      summary: copy.frameworkCards.webComponents.summary,
       details: '73/73 components available',
       accent: 'bg-[#FF9933]'
     }
   ];
 
   const componentStats = [
-    { label: 'Component families', value: '6' },
-    { label: 'Frameworks', value: '3' },
-    { label: 'Docs pages', value: '73+' },
-    { label: 'Accessible by default', value: 'AA' }
+    { label: copy.stats.componentFamilies, value: '6' },
+    { label: copy.stats.frameworks, value: '3' },
+    { label: copy.stats.docsPages, value: '73+' },
+    { label: copy.stats.accessibleByDefault, value: 'AA' }
   ];
 
   const docPageSlugs = new Set([
@@ -100,14 +104,13 @@ export default function Components() {
           <div>
             <div className="mb-2.5 inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur">
               <Package className="h-4 w-4 text-primary" />
-              Component library for government service delivery
+              {copy.hero.eyebrow}
             </div>
             <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Components
+              {copy.hero.title}
             </h1>
             <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Production-ready building blocks for UX4G applications across React, Angular, and Web Components.
-              The same patterns, states, and accessibility guidance carry through every implementation.
+              {copy.hero.description}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2.5">
@@ -115,20 +118,20 @@ export default function Components() {
                 to="/components/button"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95"
               >
-                Explore button
+                {copy.hero.exploreButton}
                 <Download className="h-4 w-4" />
               </Link>
               <Link
                 to="/framework-status"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground shadow-sm transition hover:bg-muted/60"
               >
-                Framework support
+                {copy.hero.frameworkSupport}
               </Link>
               <Link
                 to="/resources/getting-started"
                 className="inline-flex items-center gap-2 rounded-full border border-transparent px-4 py-2.5 text-sm font-semibold text-muted-foreground transition hover:text-foreground"
               >
-                Getting started
+                {copy.hero.gettingStarted}
               </Link>
             </div>
           </div>
@@ -137,7 +140,7 @@ export default function Components() {
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Component map</p>
-                <h2 className="mt-1.5 text-lg font-semibold tracking-tight text-foreground">What the hub covers</h2>
+                <h2 className="mt-1.5 text-lg font-semibold tracking-tight text-foreground">{copy.hero.mapTitle}</h2>
               </div>
               <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Premium</span>
             </div>
@@ -154,21 +157,20 @@ export default function Components() {
             <div className="mt-4 rounded-2xl border border-border/70 bg-muted/40 p-3.5">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Includes</p>
               <p className="mt-1.5 text-sm leading-6 text-foreground">
-                Component pages, live examples, accessibility notes, and implementation guidance for teams shipping
-                government services.
+                {copy.hero.includesDescription}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <span className="rounded-full bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground">
-                  Docs
+                  {copy.hero.includes.docs}
                 </span>
                 <span className="rounded-full bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground">
-                  Examples
+                  {copy.hero.includes.examples}
                 </span>
                 <span className="rounded-full bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground">
-                  Accessibility
+                  {copy.hero.includes.accessibility}
                 </span>
                 <span className="rounded-full bg-background px-3 py-1 text-[11px] font-semibold text-muted-foreground">
-                  Download
+                  {copy.hero.includes.download}
                 </span>
               </div>
             </div>
@@ -182,7 +184,7 @@ export default function Components() {
             <span className="rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 font-medium text-foreground">React</span>
             <span className="rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 font-medium text-foreground">Angular</span>
             <span className="rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 font-medium text-foreground">Web Components</span>
-            <span className="ml-0 rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 font-medium text-foreground">73+ documented pages</span>
+            <span className="ml-0 rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 font-medium text-foreground">{copy.frameworkPills.documentedPages}</span>
           </div>
         </div>
       </section>
@@ -191,15 +193,14 @@ export default function Components() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex items-end justify-between gap-6">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Framework support</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Multi-framework delivery</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.frameworkSection.eyebrow}</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{copy.frameworkSection.title}</h2>
               <p className="mt-3 max-w-3xl text-base leading-7 text-muted-foreground">
-                UX4G components are aligned across the three delivery paths so teams can adopt the same service
-                language without rethinking the design system.
+                {copy.frameworkSection.description}
               </p>
             </div>
             <Link to="/framework-status" className="hidden rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-muted/60 lg:inline-flex">
-              Open status
+              {copy.frameworkSection.openStatus}
             </Link>
           </div>
 
@@ -212,7 +213,7 @@ export default function Components() {
                     <span className={`h-2.5 w-2.5 rounded-full ${card.accent}`} />
                     <h3 className="text-lg font-semibold text-foreground">{card.name}</h3>
                   </div>
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Ready</span>
+                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">{copy.frameworkSection.ready}</span>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-muted-foreground">{card.summary}</p>
                 <div className="mt-5 flex items-center justify-between gap-3 border-t border-border/60 pt-4">
@@ -221,7 +222,7 @@ export default function Components() {
                     to={card.name === 'Web Components' ? '/web-components' : '/components'}
                     className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition group-hover:gap-2.5"
                   >
-                    View
+                    {copy.frameworkSection.view}
                     <ChevronDown className="-rotate-90 h-4 w-4" />
                   </Link>
                 </div>
@@ -234,10 +235,10 @@ export default function Components() {
       <section className="border-y border-border/60 bg-muted/20 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Component families</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Browse by category</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.categorySection.eyebrow}</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{copy.categorySection.title}</h2>
             <p className="mt-3 text-base leading-7 text-muted-foreground">
-              Each card groups the working set of pages and keeps the documentation paths visible for quick scanning.
+              {copy.categorySection.description}
             </p>
           </div>
 
@@ -286,55 +287,55 @@ export default function Components() {
       <section className="bg-background py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Core showcase</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Buttons, forms, and states</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.showcaseSection.eyebrow}</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{copy.showcaseSection.title}</h2>
             <p className="mt-3 text-base leading-7 text-muted-foreground">
-              The sections below remain as live examples, but they now sit inside calmer, more premium surfaces.
+              {copy.showcaseSection.description}
             </p>
           </div>
 
           <div className="grid gap-6 xl:grid-cols-2">
             <div className="rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
               <div className="mb-6 flex items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-2xl font-semibold text-foreground">Buttons</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">Primary action elements with multiple variants and states.</p>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-foreground">{copy.showcaseSection.buttons.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{copy.showcaseSection.buttons.description}</p>
+                  </div>
+                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">{copy.showcaseSection.buttons.interactive}</span>
                 </div>
-                <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Interactive</span>
-              </div>
 
               <div className="space-y-8">
                 <div>
-                  <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Primary</h4>
+                  <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{copy.showcaseSection.buttons.primary}</h4>
                   <div className="flex flex-wrap gap-3">
                     <button className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95">
                       Primary Button
                     </button>
                     <button className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95">
                       <Download className="h-4 w-4" />
-                      With Icon
+                      {copy.showcaseSection.buttons.withIcon}
                     </button>
                     <button className="rounded-full bg-muted px-5 py-3 text-sm font-semibold text-muted-foreground" disabled>
-                      Disabled
+                      {copy.showcaseSection.buttons.disabled}
                     </button>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Secondary</h4>
+                  <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{copy.showcaseSection.buttons.secondary}</h4>
                   <div className="flex flex-wrap gap-3">
                     <button className="rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-muted/50">
                       Secondary Button
                     </button>
                     <button className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-muted/50">
                       <Upload className="h-4 w-4" />
-                      With Icon
+                      {copy.showcaseSection.buttons.withIcon}
                     </button>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Contextual</h4>
+                  <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{copy.showcaseSection.buttons.contextual}</h4>
                   <div className="flex flex-wrap gap-3">
                     <button className="rounded-full bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800">
                       Success
@@ -349,7 +350,7 @@ export default function Components() {
                 </div>
 
                 <div>
-                  <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Sizes</h4>
+                  <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{copy.showcaseSection.buttons.sizes}</h4>
                   <div className="flex flex-wrap items-center gap-3">
                     <button className="rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground shadow-sm">Small</button>
                     <button className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm">Medium</button>
@@ -362,40 +363,40 @@ export default function Components() {
             <div className="space-y-6">
               <div className="rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
                 <div className="mb-6 flex items-center justify-between gap-3">
-                  <div>
-                    <h3 className="text-2xl font-semibold text-foreground">Form elements</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">Accessible controls with compact premium form states.</p>
+                    <div>
+                    <h3 className="text-2xl font-semibold text-foreground">{copy.showcaseSection.forms.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{copy.showcaseSection.forms.description}</p>
                   </div>
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Accessible</span>
+                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">{copy.showcaseSection.forms.accessible}</span>
                 </div>
 
                 <div className="space-y-6">
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-foreground">Text input</label>
+                    <label className="mb-2 block text-sm font-semibold text-foreground">{copy.showcaseSection.forms.textInput}</label>
                     <input
                       type="text"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
-                      placeholder="Enter text here..."
+                      placeholder={copy.showcaseSection.forms.enterText}
                       className="w-full rounded-2xl border border-border bg-background px-4 py-3 text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                     />
-                    <p className="mt-2 text-sm text-muted-foreground">Helper text goes here.</p>
+                    <p className="mt-2 text-sm text-muted-foreground">{copy.showcaseSection.forms.helperText}</p>
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold text-foreground">Search input</label>
+                    <label className="mb-2 block text-sm font-semibold text-foreground">{copy.showcaseSection.forms.searchInput}</label>
                     <div className="relative">
                       <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                       <input
                         type="search"
-                        placeholder="Search..."
+                        placeholder={copy.showcaseSection.forms.searchPlaceholder}
                         className="w-full rounded-2xl border border-border bg-background py-3 pl-10 pr-4 text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="demo-select" className="mb-2 block text-sm font-semibold text-foreground">Select dropdown</label>
+                    <label htmlFor="demo-select" className="mb-2 block text-sm font-semibold text-foreground">{copy.showcaseSection.forms.selectDropdown}</label>
                     <div className="relative">
                       <select
                         id="demo-select"
@@ -403,7 +404,7 @@ export default function Components() {
                         onChange={(e) => setSelectValue(e.target.value)}
                         className="w-full appearance-none rounded-2xl border border-border bg-background px-4 py-3 pr-10 text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                       >
-                        <option value="">Select an option...</option>
+                        <option value="">{copy.showcaseSection.forms.selectOption}</option>
                         <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
                         <option value="option3">Option 3</option>
@@ -417,14 +418,14 @@ export default function Components() {
                       type="checkbox"
                       checked={checkboxState}
                       onChange={(e) => setCheckboxState(e.target.checked)}
-                      aria-label="Checkbox label"
+                      aria-label={copy.showcaseSection.forms.checkboxLabel}
                       className="h-5 w-5 rounded border-border text-primary focus:ring-primary/20"
                     />
-                    <span className="text-sm font-medium text-foreground">Checkbox label</span>
+                    <span className="text-sm font-medium text-foreground">{copy.showcaseSection.forms.checkboxLabel}</span>
                   </div>
 
                   <div>
-                    <label className="mb-3 block text-sm font-semibold text-foreground">Radio group</label>
+                    <label className="mb-3 block text-sm font-semibold text-foreground">{copy.showcaseSection.forms.radioGroup}</label>
                     <div className="space-y-3">
                       <label className="flex items-center gap-3">
                         <input
@@ -435,7 +436,7 @@ export default function Components() {
                           onChange={(e) => setRadioValue(e.target.value)}
                           className="h-5 w-5 border-border text-primary focus:ring-primary/20"
                         />
-                        <span className="text-sm font-medium text-foreground">Option 1</span>
+                        <span className="text-sm font-medium text-foreground">{copy.showcaseSection.forms.option1}</span>
                       </label>
                       <label className="flex items-center gap-3">
                         <input
@@ -446,14 +447,14 @@ export default function Components() {
                           onChange={(e) => setRadioValue(e.target.value)}
                           className="h-5 w-5 border-border text-primary focus:ring-primary/20"
                         />
-                        <span className="text-sm font-medium text-foreground">Option 2</span>
+                        <span className="text-sm font-medium text-foreground">{copy.showcaseSection.forms.option2}</span>
                       </label>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
                     <button
-                      aria-label={switchState ? 'Toggle switch off' : 'Toggle switch on'}
+                      aria-label={switchState ? copy.showcaseSection.forms.toggleOff : copy.showcaseSection.forms.toggleOn}
                       onClick={() => setSwitchState(!switchState)}
                       className={`relative h-6 w-12 rounded-full transition-colors ${
                         switchState ? 'bg-emerald-700' : 'bg-muted'
@@ -465,7 +466,7 @@ export default function Components() {
                         }`}
                       />
                     </button>
-                    <span className="text-sm font-medium text-foreground">Toggle switch</span>
+                    <span className="text-sm font-medium text-foreground">{copy.showcaseSection.forms.toggleSwitch}</span>
                   </div>
                 </div>
               </div>
@@ -473,8 +474,8 @@ export default function Components() {
               <div className="rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <h3 className="text-2xl font-semibold text-foreground">Badges</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">Compact indicators that work in both themes.</p>
+                    <h3 className="text-2xl font-semibold text-foreground">{copy.showcaseSection.badges.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{copy.showcaseSection.badges.description}</p>
                   </div>
                 </div>
                 <div className="mt-5 flex flex-wrap gap-3">
@@ -494,10 +495,10 @@ export default function Components() {
       <section className="bg-muted/20 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Feedback surfaces</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Alerts and notifications</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.feedbackSection.eyebrow}</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{copy.feedbackSection.title}</h2>
             <p className="mt-3 text-base leading-7 text-muted-foreground">
-              Feedback components are now styled as calm, premium status surfaces instead of heavy utility blocks.
+              {copy.feedbackSection.description}
             </p>
           </div>
 
@@ -506,9 +507,9 @@ export default function Components() {
               <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-700" />
               <div className="min-w-0 flex-1">
                 <h3 className="font-semibold text-foreground">Success</h3>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">Your action was completed successfully.</p>
+                <p className="mt-1 text-sm leading-6 text-muted-foreground">{copy.feedbackSection.successMessage}</p>
               </div>
-              <button className="text-muted-foreground transition hover:text-foreground" aria-label="Dismiss success alert">
+              <button className="text-muted-foreground transition hover:text-foreground" aria-label={copy.feedbackSection.dismissSuccess}>
                 <X size={18} />
               </button>
             </div>
@@ -516,8 +517,8 @@ export default function Components() {
             <div className="flex items-start gap-4 rounded-[1.5rem] border border-blue-200 dark:border-blue-800/70 bg-blue-50 dark:bg-blue-950/30 p-5 shadow-sm">
               <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <div className="min-w-0 flex-1">
-                <h3 className="font-semibold text-foreground">Information</h3>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">Here is some important information for you.</p>
+                <h3 className="font-semibold text-foreground">{copy.feedbackSection.information}</h3>
+                <p className="mt-1 text-sm leading-6 text-muted-foreground">{copy.feedbackSection.informationMessage}</p>
               </div>
               <button className="text-muted-foreground transition hover:text-foreground" aria-label="Dismiss information alert">
                 <X size={18} />
@@ -623,3 +624,268 @@ export default function Components() {
     </div>
   );
 }
+
+const COMPONENTS_COPY = {
+  en: {
+    hero: {
+      eyebrow: 'Component library for government service delivery',
+      title: 'Components',
+      description:
+        'Production-ready building blocks for UX4G applications across React, Angular, and Web Components. The same patterns, states, and accessibility guidance carry through every implementation.',
+      exploreButton: 'Explore button',
+      frameworkSupport: 'Framework support',
+      gettingStarted: 'Getting started',
+      mapTitle: 'What the hub covers',
+      includesDescription:
+        'Component pages, live examples, accessibility notes, and implementation guidance for teams shipping government services.',
+      includes: {
+        docs: 'Docs',
+        examples: 'Examples',
+        accessibility: 'Accessibility',
+        download: 'Download',
+      },
+    },
+    stats: {
+      componentFamilies: 'Component families',
+      frameworks: 'Frameworks',
+      docsPages: 'Docs pages',
+      accessibleByDefault: 'Accessible by default',
+    },
+    frameworkPills: {
+      documentedPages: '73+ documented pages',
+    },
+    frameworkSection: {
+      eyebrow: 'Framework support',
+      title: 'Multi-framework delivery',
+      description:
+        'UX4G components are aligned across the three delivery paths so teams can adopt the same service language without rethinking the design system.',
+      openStatus: 'Open status',
+      ready: 'Ready',
+      view: 'View',
+    },
+    frameworkCards: {
+      react: {
+        summary: 'Production-ready component APIs with current documentation and reference flows.',
+      },
+      angular: {
+        summary: 'Framework-matched components for enterprise implementations and service teams.',
+      },
+      webComponents: {
+        summary: 'Framework-agnostic HTML-first delivery for cross-stack portability.',
+      },
+    },
+    categorySection: {
+      eyebrow: 'Component families',
+      title: 'Browse by category',
+      description:
+        'Each card groups the working set of pages and keeps the documentation paths visible for quick scanning.',
+    },
+    categories: {
+      formElements: {
+        name: 'Form Elements',
+        description: 'High-frequency controls for service journeys and authenticated workflows.',
+      },
+      navigation: {
+        name: 'Navigation',
+        description: 'Structure for movement, discovery, and page-to-page orientation.',
+      },
+      feedback: {
+        name: 'Feedback',
+        description: 'Messages, states, and system responses that keep users informed.',
+      },
+      dataDisplay: {
+        name: 'Data Display',
+        description: 'Readable presentation surfaces for records, metrics, and evidence.',
+      },
+      layout: {
+        name: 'Layout',
+        description: 'Structural primitives that keep the interface balanced and responsive.',
+      },
+      advanced: {
+        name: 'Advanced Components',
+        description: 'Specialized patterns for complex government service scenarios.',
+      },
+    },
+    showcaseSection: {
+      eyebrow: 'Core showcase',
+      title: 'Buttons, forms, and states',
+      description:
+        'The sections below remain as live examples, but they now sit inside calmer, more premium surfaces.',
+      buttons: {
+        title: 'Buttons',
+        description: 'Primary action elements with multiple variants and states.',
+        interactive: 'Interactive',
+        primary: 'Primary',
+        withIcon: 'With Icon',
+        disabled: 'Disabled',
+        secondary: 'Secondary',
+        contextual: 'Contextual',
+        sizes: 'Sizes',
+      },
+      forms: {
+        title: 'Form elements',
+        description: 'Accessible controls with compact premium form states.',
+        accessible: 'Accessible',
+        textInput: 'Text input',
+        enterText: 'Enter text here...',
+        helperText: 'Helper text goes here.',
+        searchInput: 'Search input',
+        searchPlaceholder: 'Search...',
+        selectDropdown: 'Select dropdown',
+        selectOption: 'Select an option...',
+        checkboxLabel: 'Checkbox label',
+        radioGroup: 'Radio group',
+        option1: 'Option 1',
+        option2: 'Option 2',
+        toggleSwitch: 'Toggle switch',
+        toggleOn: 'Toggle switch on',
+        toggleOff: 'Toggle switch off',
+      },
+      badges: {
+        title: 'Badges',
+        description: 'Compact indicators that work in both themes.',
+      },
+    },
+    feedbackSection: {
+      eyebrow: 'Feedback surfaces',
+      title: 'Alerts and notifications',
+      description:
+        'Feedback components are now styled as calm, premium status surfaces instead of heavy utility blocks.',
+      successMessage: 'Your action was completed successfully.',
+      dismissSuccess: 'Dismiss success alert',
+      information: 'Information',
+      informationMessage: 'Here is some important information for you.',
+    },
+  },
+  hi: {
+    hero: {
+      eyebrow: 'सरकारी सेवा वितरण के लिए component library',
+      title: 'घटक',
+      description:
+        'React, Angular और Web Components में UX4G applications के लिए production-ready building blocks. वही patterns, states और accessibility guidance हर implementation में सुसंगत रहती है।',
+      exploreButton: 'Button देखें',
+      frameworkSupport: 'Framework support',
+      gettingStarted: 'शुरू करें',
+      mapTitle: 'यह hub क्या कवर करता है',
+      includesDescription:
+        'सरकारी सेवाएं बनाने वाली टीमों के लिए component pages, live examples, accessibility notes और implementation guidance.',
+      includes: {
+        docs: 'Docs',
+        examples: 'Examples',
+        accessibility: 'Accessibility',
+        download: 'Download',
+      },
+    },
+    stats: {
+      componentFamilies: 'Component families',
+      frameworks: 'Frameworks',
+      docsPages: 'Docs pages',
+      accessibleByDefault: 'डिफ़ॉल्ट रूप से accessible',
+    },
+    frameworkPills: {
+      documentedPages: '73+ documented pages',
+    },
+    frameworkSection: {
+      eyebrow: 'Framework support',
+      title: 'Multi-framework delivery',
+      description:
+        'UX4G components तीनों delivery paths में aligned हैं, ताकि टीमें design system को फिर से सोचे बिना वही service language अपना सकें।',
+      openStatus: 'Status खोलें',
+      ready: 'तैयार',
+      view: 'देखें',
+    },
+    frameworkCards: {
+      react: {
+        summary: 'वर्तमान documentation और reference flows के साथ production-ready component APIs.',
+      },
+      angular: {
+        summary: 'Enterprise implementations और service teams के लिए framework-matched components.',
+      },
+      webComponents: {
+        summary: 'Cross-stack portability के लिए framework-agnostic HTML-first delivery.',
+      },
+    },
+    categorySection: {
+      eyebrow: 'Component families',
+      title: 'Category के अनुसार देखें',
+      description:
+        'हर card संबंधित pages के working set को एक साथ रखता है और documentation paths को तेज़ी से scan करने के लिए दिखाता है।',
+    },
+    categories: {
+      formElements: {
+        name: 'Form Elements',
+        description: 'Service journeys और authenticated workflows के लिए high-frequency controls.',
+      },
+      navigation: {
+        name: 'Navigation',
+        description: 'Movement, discovery और page-to-page orientation के लिए संरचना।',
+      },
+      feedback: {
+        name: 'Feedback',
+        description: 'Messages, states और system responses जो users को सूचित रखते हैं।',
+      },
+      dataDisplay: {
+        name: 'Data Display',
+        description: 'Records, metrics और evidence के लिए पठनीय presentation surfaces.',
+      },
+      layout: {
+        name: 'Layout',
+        description: 'Structural primitives जो interface को संतुलित और responsive बनाए रखते हैं।',
+      },
+      advanced: {
+        name: 'Advanced Components',
+        description: 'जटिल सरकारी सेवा परिदृश्यों के लिए specialized patterns.',
+      },
+    },
+    showcaseSection: {
+      eyebrow: 'Core showcase',
+      title: 'Buttons, forms और states',
+      description:
+        'नीचे दिए गए sections live examples बने रहते हैं, लेकिन अब वे अधिक शांत और premium surfaces में प्रस्तुत हैं।',
+      buttons: {
+        title: 'Buttons',
+        description: 'कई variants और states वाले primary action elements.',
+        interactive: 'Interactive',
+        primary: 'Primary',
+        withIcon: 'Icon के साथ',
+        disabled: 'Disabled',
+        secondary: 'Secondary',
+        contextual: 'Contextual',
+        sizes: 'Sizes',
+      },
+      forms: {
+        title: 'Form elements',
+        description: 'Compact premium form states के साथ accessible controls.',
+        accessible: 'Accessible',
+        textInput: 'Text input',
+        enterText: 'यहाँ टेक्स्ट दर्ज करें...',
+        helperText: 'Helper text यहाँ दिखेगा।',
+        searchInput: 'Search input',
+        searchPlaceholder: 'खोजें...',
+        selectDropdown: 'Select dropdown',
+        selectOption: 'एक विकल्प चुनें...',
+        checkboxLabel: 'Checkbox label',
+        radioGroup: 'Radio group',
+        option1: 'विकल्प 1',
+        option2: 'विकल्प 2',
+        toggleSwitch: 'Toggle switch',
+        toggleOn: 'Toggle switch on',
+        toggleOff: 'Toggle switch off',
+      },
+      badges: {
+        title: 'Badges',
+        description: 'Compact indicators जो दोनों themes में काम करते हैं।',
+      },
+    },
+    feedbackSection: {
+      eyebrow: 'Feedback surfaces',
+      title: 'Alerts और notifications',
+      description:
+        'Feedback components अब भारी utility blocks की जगह शांत, premium status surfaces के रूप में स्टाइल किए गए हैं।',
+      successMessage: 'आपकी कार्रवाई सफलतापूर्वक पूरी हो गई।',
+      dismissSuccess: 'Success alert बंद करें',
+      information: 'जानकारी',
+      informationMessage: 'आपके लिए यहाँ एक महत्वपूर्ण सूचना है।',
+    },
+  },
+} as const;

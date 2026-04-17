@@ -2,53 +2,57 @@ import { useState } from "react";
 import type { CSSProperties } from "react";
 import {  FileText, User, CreditCard, Search as SearchIcon, FileCheck, AlertTriangle, CheckCircle, ArrowRight, Sparkles, Layers, Shield, Workflow, Building2, Globe2, Download, Copy, Check } from "lucide-react";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 export default function Patterns() {
+  const { i18n } = useTranslation();
+  const language = i18n.resolvedLanguage === "hi" ? "hi" : "en";
+  const copy = PATTERNS_COPY[language];
   const patterns = [
     {
       icon: FileText,
-      title: "Form Patterns",
-      description: "Structured approaches for data collection including single-page forms, multi-step wizards, and validation patterns.",
+      title: copy.patterns.formPatterns.title,
+      description: copy.patterns.formPatterns.description,
       examples: ["Application Forms", "Registration", "Survey Forms", "Feedback Forms"],
       color: "from-blue-600 to-blue-700",
       link: "/patterns/forms"
     },
     {
       icon: User,
-      title: "Authentication",
-      description: "Secure login, registration, password reset, and multi-factor authentication patterns.",
+      title: copy.patterns.authentication.title,
+      description: copy.patterns.authentication.description,
       examples: ["Sign In", "Sign Up", "Password Reset", "OTP Verification"],
       color: "from-purple-600 to-purple-700",
       link: "/patterns/identity"
     },
     {
       icon: SearchIcon,
-      title: "Search & Filter",
-      description: "Patterns for helping users find information efficiently including search, filtering, and sorting.",
+      title: copy.patterns.searchFilter.title,
+      description: copy.patterns.searchFilter.description,
       examples: ["Global Search", "Advanced Filters", "Faceted Search", "Sort Options"],
       color: "from-green-600 to-green-700",
       link: "/patterns/search-discovery"
     },
     {
       icon: CreditCard,
-      title: "Payment & Transactions",
-      description: "Secure payment flows, transaction confirmations, and receipt patterns for government services.",
+      title: copy.patterns.paymentTransactions.title,
+      description: copy.patterns.paymentTransactions.description,
       examples: ["Fee Payment", "Bill Payment", "Transaction History", "Receipts"],
       color: "from-orange-600 to-orange-700",
       link: "/patterns/payment"
     },
     {
       icon: FileCheck,
-      title: "Document Management",
-      description: "Patterns for uploading, viewing, downloading, and managing documents and certificates.",
+      title: copy.patterns.documentManagement.title,
+      description: copy.patterns.documentManagement.description,
       examples: ["Document Upload", "File Preview", "Download Center", "Certificate Generation"],
       color: "from-teal-600 to-teal-700",
       link: "/patterns/data-input"
     },
     {
       icon: AlertTriangle,
-      title: "Error & Empty States",
-      description: "Handling errors gracefully and communicating when content is unavailable or actions fail.",
+      title: copy.patterns.errorEmptyStates.title,
+      description: copy.patterns.errorEmptyStates.description,
       examples: ["404 Pages", "No Results", "Network Errors", "Permission Denied"],
       color: "from-red-600 to-red-700",
       link: "/patterns/resilience"
@@ -57,43 +61,43 @@ export default function Patterns() {
 
   const serviceFlows = [
     {
-      title: "Citizen Application Flow",
-      steps: ["Login/Register", "Fill Application", "Upload Documents", "Preview & Submit", "Payment", "Confirmation"]
+      title: copy.serviceFlows.citizenApplication.title,
+      steps: copy.serviceFlows.citizenApplication.steps
     },
     {
-      title: "Status Tracking Flow",
-      steps: ["Enter Reference", "View Status", "Download Updates", "Provide Feedback"]
+      title: copy.serviceFlows.statusTracking.title,
+      steps: copy.serviceFlows.statusTracking.steps
     },
     {
-      title: "Certificate Issuance Flow",
-      steps: ["Verify Identity", "Check Eligibility", "Generate Certificate", "Digital Signature", "Download/Print"]
+      title: copy.serviceFlows.certificateIssuance.title,
+      steps: copy.serviceFlows.certificateIssuance.steps
     }
   ];
 
   const bestPractices = [
     {
-      title: "Progressive Disclosure",
-      description: "Show information progressively to avoid overwhelming users. Display only essential information initially and reveal details on demand."
+      title: copy.bestPractices.progressiveDisclosure.title,
+      description: copy.bestPractices.progressiveDisclosure.description
     },
     {
-      title: "Clear Feedback",
-      description: "Provide immediate, clear feedback for all user actions. Use success messages, error states, and loading indicators appropriately."
+      title: copy.bestPractices.clearFeedback.title,
+      description: copy.bestPractices.clearFeedback.description
     },
     {
-      title: "Consistent Navigation",
-      description: "Maintain consistent navigation patterns across services. Users should always know where they are and how to move forward or backward."
+      title: copy.bestPractices.consistentNavigation.title,
+      description: copy.bestPractices.consistentNavigation.description
     },
     {
-      title: "Mobile-First Approach",
-      description: "Design for mobile devices first, ensuring core functionality works on smaller screens before enhancing for larger displays."
+      title: copy.bestPractices.mobileFirst.title,
+      description: copy.bestPractices.mobileFirst.description
     },
     {
-      title: "Accessibility by Default",
-      description: "Build accessibility into every pattern. Ensure keyboard navigation, screen reader support, and proper color contrast."
+      title: copy.bestPractices.accessibilityByDefault.title,
+      description: copy.bestPractices.accessibilityByDefault.description
     },
     {
-      title: "Multilingual Support",
-      description: "Design patterns that accommodate multiple languages, including right-to-left scripts and varying text lengths."
+      title: copy.bestPractices.multilingualSupport.title,
+      description: copy.bestPractices.multilingualSupport.description
     }
   ];
 
@@ -107,17 +111,15 @@ export default function Patterns() {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-card/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
                 <Sparkles size={14} />
-                Reusable interaction patterns
+                {copy.hero.eyebrow}
               </div>
 
               <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground dark:text-gray-50">
-                Patterns
+                {copy.hero.title}
               </h1>
 
               <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-muted-foreground">
-                Reusable solutions for common design problems in government digital services.
-                Patterns combine components and behavior to reduce duplication and keep user
-                journeys consistent across the platform.
+                {copy.hero.description}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -126,29 +128,29 @@ export default function Patterns() {
                   className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700"
                 >
                   <Layers size={16} />
-                  Open pattern library
+                  {copy.hero.openPatternLibrary}
                 </Link>
                 <Link
                   to="/systems/form-intelligence"
                   className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
                 >
                   <Workflow size={16} />
-                  View form intelligence
+                  {copy.hero.viewFormIntelligence}
                 </Link>
                 <Link
                   to="/systems/multilingual"
                   className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
                 >
                   <Globe2 size={16} />
-                  View multilingual guidance
+                  {copy.hero.viewMultilingualGuidance}
                 </Link>
               </div>
 
               <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                <PatternStat value="6" label="pattern groups" />
-                <PatternStat value="3" label="journey views" />
-                <PatternStat value="100%" label="accessible demos" />
-                <PatternStat value="1" label="shared standard" />
+                <PatternStat value="6" label={copy.hero.stats.patternGroups} />
+                <PatternStat value="3" label={copy.hero.stats.journeyViews} />
+                <PatternStat value="100%" label={copy.hero.stats.accessibleDemos} />
+                <PatternStat value="1" label={copy.hero.stats.sharedStandard} />
               </div>
             </div>
 
@@ -157,10 +159,10 @@ export default function Patterns() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                      Pattern map
+                      {copy.summary.eyebrow}
                     </p>
                   <h2 className="mt-2 text-2xl font-bold text-foreground dark:text-gray-50">
-                      A responsive overview for complex service design
+                      {copy.summary.title}
                   </h2>
                   </div>
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm dark:bg-blue-600">
@@ -169,19 +171,18 @@ export default function Patterns() {
                 </div>
 
                 <div className="mt-5 space-y-3">
-                  <MiniSummary title="Reusable patterns" description="Design once, apply across similar citizen journeys." />
-                  <MiniSummary title="Service flows" description="Connect patterns into complete end-to-end experiences." />
-                  <MiniSummary title="Best practice" description="Keep logic, layout, and feedback aligned across modules." />
+                  <MiniSummary title={copy.summary.reusablePatternsTitle} description={copy.summary.reusablePatternsDescription} />
+                  <MiniSummary title={copy.summary.serviceFlowsTitle} description={copy.summary.serviceFlowsDescription} />
+                  <MiniSummary title={copy.summary.bestPracticeTitle} description={copy.summary.bestPracticeDescription} />
                 </div>
 
                 <div className="mt-5 rounded-2xl border border-border bg-gradient-to-br from-blue-50 to-emerald-50 p-4 dark:from-blue-950/30 dark:to-emerald-950/20">
                   <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-100">
                     <Shield size={16} className="text-emerald-600 dark:text-emerald-400" />
-                    Government-grade consistency
+                    {copy.summary.governmentGradeConsistency}
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
-                    All pattern guidance is intended to help teams build predictable,
-                    accessible, and scalable service experiences.
+                    {copy.summary.governmentGradeDescription}
                   </p>
                 </div>
               </div>
@@ -197,20 +198,19 @@ export default function Patterns() {
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
             <div className="lg:sticky lg:top-24 space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                Pattern library
+                {copy.librarySection.eyebrow}
               </p>
               <h2 className="text-3xl font-bold text-foreground dark:text-gray-50">
-                Common patterns for consistent service design
+                {copy.librarySection.title}
               </h2>
               <p className="text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
-                The library is organised around the most common government service problems,
-                so teams can move from overview to implementation without losing clarity.
+                {copy.librarySection.description}
               </p>
 
               <div className="rounded-[24px] border border-border bg-card p-5 shadow-sm dark:bg-gray-800">
                 <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-50">
                   <Layers size={16} className="text-primary dark:text-blue-300" />
-                  Recommended entry points
+                  {copy.librarySection.recommendedEntryPoints}
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {patterns.map((pattern) => (
@@ -266,7 +266,7 @@ export default function Patterns() {
                     </div>
 
                     <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary dark:text-blue-300">
-                      View patterns
+                      {copy.librarySection.viewPatterns}
                       <ArrowRight size={16} />
                     </div>
                   </div>
@@ -283,14 +283,13 @@ export default function Patterns() {
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                Common service flows
+                {copy.flowSection.eyebrow}
               </p>
               <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
-                End-to-end journeys that repeat across services
+                {copy.flowSection.title}
               </h2>
               <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
-                These flow summaries help teams stitch patterns together into service
-                journeys without losing consistency, state, or accessibility.
+                {copy.flowSection.description}
               </p>
             </div>
 
@@ -303,7 +302,7 @@ export default function Patterns() {
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                        Flow {String(index + 1).padStart(2, "0")}
+                        {copy.flowSection.flowLabel} {String(index + 1).padStart(2, "0")}
                       </p>
                       <h3 className="mt-2 text-2xl font-bold text-foreground dark:text-gray-50">
                         {flow.title}
@@ -339,21 +338,20 @@ export default function Patterns() {
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
             <div className="lg:sticky lg:top-24">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                Pattern example
+                {copy.exampleSection.eyebrow}
               </p>
               <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
-                Application form pattern
+                {copy.exampleSection.title}
               </h2>
               <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
-                A complete example of how a pattern can combine steps, validation, and
-                responsive layout to support a government application journey.
+                {copy.exampleSection.description}
               </p>
             </div>
 
             <div className="rounded-[32px] border border-border bg-card shadow-sm dark:bg-gray-800 overflow-hidden">
               <div className="border-b border-border bg-background px-6 py-5 dark:bg-gray-900 dark:border-gray-700">
                 <div className="flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-4 sm:overflow-visible sm:pb-0">
-                  {["Personal Info", "Documents", "Preview", "Submit"].map((step, idx) => (
+                  {copy.exampleSection.steps.map((step, idx) => (
                     <div key={step} className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 dark:bg-gray-800 min-w-[160px] sm:min-w-0">
                       <div
                         className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold"
@@ -376,39 +374,39 @@ export default function Patterns() {
               <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_280px]">
                 <div>
                   <h3 className="text-2xl font-semibold text-foreground dark:text-gray-50 mb-6">
-                    Personal Information
+                    {copy.exampleSection.personalInformation}
                   </h3>
 
                   <div className="space-y-5">
                     <div className="grid gap-5 md:grid-cols-2">
-                      <Field label="First Name *" placeholder="Enter first name" />
-                      <Field label="Last Name *" placeholder="Enter last name" />
+                      <Field label={copy.exampleSection.firstName} placeholder={copy.exampleSection.enterFirstName} />
+                      <Field label={copy.exampleSection.lastName} placeholder={copy.exampleSection.enterLastName} />
                     </div>
-                    <Field label="Email Address *" placeholder="your.email@example.com" type="email" />
-                    <Field label="Phone Number *" placeholder="+91 XXXXX XXXXX" type="tel" />
-                    <Field label="State *" select options={["Select your state", "Delhi", "Maharashtra", "Karnataka", "Tamil Nadu"]} />
+                    <Field label={copy.exampleSection.emailAddress} placeholder="your.email@example.com" type="email" />
+                    <Field label={copy.exampleSection.phoneNumber} placeholder="+91 XXXXX XXXXX" type="tel" />
+                    <Field label={copy.exampleSection.state} select options={[copy.exampleSection.selectYourState, "Delhi", "Maharashtra", "Karnataka", "Tamil Nadu"]} />
                   </div>
 
                   <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between sm:items-center">
                     <button className="inline-flex items-center justify-center rounded-xl border border-border px-5 py-3 text-sm font-semibold text-muted-foreground transition-colors hover:bg-background dark:hover:bg-gray-700 dark:text-muted-foreground">
-                      Cancel
+                      {copy.exampleSection.cancel}
                     </button>
                     <button
                       className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold bg-[#005196] text-white hover:bg-[#004178] transition-colors"
                     >
-                      Continue to Documents
+                      {copy.exampleSection.continueToDocuments}
                     </button>
                   </div>
                 </div>
 
                 <div className="rounded-[28px] border border-border bg-background p-5 dark:bg-gray-900">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    Pattern highlights
+                    {copy.exampleSection.patternHighlights}
                   </p>
                   <div className="mt-4 space-y-3">
-                    <MiniSummary title="Progressive disclosure" description="Reveal complexity only when it is needed." />
-                    <MiniSummary title="Clear validation" description="Keep guidance close to the field and easy to act on." />
-                    <MiniSummary title="Mobile-first" description="Ensure the pattern works cleanly on small screens first." />
+                    <MiniSummary title={copy.exampleSection.progressiveDisclosureTitle} description={copy.exampleSection.progressiveDisclosureDescription} />
+                    <MiniSummary title={copy.exampleSection.clearValidationTitle} description={copy.exampleSection.clearValidationDescription} />
+                    <MiniSummary title={copy.exampleSection.mobileFirstTitle} description={copy.exampleSection.mobileFirstDescription} />
                   </div>
                 </div>
               </div>
@@ -423,14 +421,13 @@ export default function Patterns() {
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                Design best practices
+                {copy.bestPracticeSection.eyebrow}
               </p>
               <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
-                Principles that keep patterns trustworthy
+                {copy.bestPracticeSection.title}
               </h2>
               <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
-                Use these guidance points when implementing patterns in government digital
-                services so the experience stays coherent and accessible.
+                {copy.bestPracticeSection.description}
               </p>
             </div>
 
@@ -466,19 +463,18 @@ export default function Patterns() {
           <div className="rounded-[32px] border border-border bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] p-8 text-white shadow-xl dark:from-blue-900 dark:via-blue-950 dark:to-blue-950">
             <div className="mx-auto max-w-4xl text-center">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-200">
-                Accessibility in patterns
+                {copy.accessibilitySection.eyebrow}
               </p>
               <h2 className="mt-4 text-3xl sm:text-4xl font-bold">
-                Accessibility is built into every pattern
+                {copy.accessibilitySection.title}
               </h2>
               <p className="mt-5 text-lg sm:text-xl leading-relaxed text-blue-100">
-                Every pattern in the UX4G Design System is designed with accessible headings,
-                keyboard navigation, screen reader support, focus management, and clear error messaging.
+                {copy.accessibilitySection.description}
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                <MetricCard title="WCAG" value="AA Compliant" />
-                <MetricCard title="Keyboard" value="100% Accessible" />
-                <MetricCard title="Contrast" value="4.5:1 min" />
+                <MetricCard title="WCAG" value={copy.accessibilitySection.metrics.wcag} />
+                <MetricCard title={copy.accessibilitySection.metrics.keyboardTitle} value={copy.accessibilitySection.metrics.keyboardValue} />
+                <MetricCard title={copy.accessibilitySection.metrics.contrastTitle} value={copy.accessibilitySection.metrics.contrastValue} />
               </div>
             </div>
           </div>
