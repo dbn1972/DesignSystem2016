@@ -251,7 +251,7 @@ export default function Patterns() {
 
                     <div className="mt-5 space-y-3">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                        Examples
+                        {copy.librarySection.examples}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {pattern.examples.map((example) => (
@@ -382,9 +382,9 @@ export default function Patterns() {
                       <Field label={copy.exampleSection.firstName} placeholder={copy.exampleSection.enterFirstName} />
                       <Field label={copy.exampleSection.lastName} placeholder={copy.exampleSection.enterLastName} />
                     </div>
-                    <Field label={copy.exampleSection.emailAddress} placeholder="your.email@example.com" type="email" />
+                    <Field label={copy.exampleSection.emailAddress} placeholder={copy.exampleSection.emailPlaceholder} type="email" />
                     <Field label={copy.exampleSection.phoneNumber} placeholder="+91 XXXXX XXXXX" type="tel" />
-                    <Field label={copy.exampleSection.state} select options={[copy.exampleSection.selectYourState, "Delhi", "Maharashtra", "Karnataka", "Tamil Nadu"]} />
+                    <Field label={copy.exampleSection.state} select options={[copy.exampleSection.selectYourState, ...copy.exampleSection.stateOptions]} selectAriaLabel={copy.exampleSection.selectAriaLabel} />
                   </div>
 
                   <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between sm:items-center">
@@ -520,6 +520,7 @@ const PATTERNS_COPY = {
       description:
         'The library is organised around the most common government service problems, so teams can move from overview to implementation without losing clarity.',
       recommendedEntryPoints: 'Recommended entry points',
+      examples: 'Examples',
       viewPatterns: 'View patterns',
     },
     patterns: {
@@ -589,8 +590,11 @@ const PATTERNS_COPY = {
       phoneNumber: 'Phone Number *',
       state: 'State *',
       selectYourState: 'Select your state',
+      stateOptions: ['Delhi', 'Maharashtra', 'Karnataka', 'Tamil Nadu'],
+      selectAriaLabel: 'Select state',
       cancel: 'Cancel',
       continueToDocuments: 'Continue to Documents',
+      emailPlaceholder: 'your.email@example.com',
       patternHighlights: 'Pattern highlights',
       progressiveDisclosureTitle: 'Progressive disclosure',
       progressiveDisclosureDescription: 'Reveal complexity only when it is needed.',
@@ -686,6 +690,7 @@ const PATTERNS_COPY = {
       description:
         'यह library सबसे सामान्य सरकारी सेवा समस्याओं के आधार पर संगठित है, ताकि टीमें overview से implementation तक स्पष्टता बनाए रखते हुए आगे बढ़ सकें।',
       recommendedEntryPoints: 'Recommended entry points',
+      examples: 'Examples',
       viewPatterns: 'Patterns देखें',
     },
     patterns: {
@@ -755,8 +760,11 @@ const PATTERNS_COPY = {
       phoneNumber: 'Phone Number *',
       state: 'State *',
       selectYourState: 'अपना राज्य चुनें',
+      stateOptions: ['Delhi', 'Maharashtra', 'Karnataka', 'Tamil Nadu'],
+      selectAriaLabel: 'राज्य चुनें',
       cancel: 'Cancel',
       continueToDocuments: 'Documents पर आगे बढ़ें',
+      emailPlaceholder: 'your.email@example.com',
       patternHighlights: 'Pattern highlights',
       progressiveDisclosureTitle: 'Progressive disclosure',
       progressiveDisclosureDescription: 'जितनी आवश्यकता हो उतनी ही जटिलता दिखाएँ।',
@@ -847,12 +855,14 @@ function Field({
   type = "text",
   select = false,
   options = [],
+  selectAriaLabel,
 }: {
   label: string;
   placeholder?: string;
   type?: string;
   select?: boolean;
   options?: string[];
+  selectAriaLabel?: string;
 }) {
   return (
     <div>
@@ -860,13 +870,13 @@ function Field({
         {label}
       </label>
       {select ? (
-        <select aria-label="Select option" className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100" style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as CSSProperties}>
+        <select aria-label={selectAriaLabel ?? label} className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100" style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as CSSProperties}>
           {options.map((option) => (
             <option key={option}>{option}</option>
           ))}
         </select>
       ) : (
-        <input aria-label="placeholder" type={type}
+        <input aria-label={label} type={type}
           placeholder={placeholder}
           className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100"
           style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as CSSProperties}

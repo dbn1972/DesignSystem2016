@@ -309,7 +309,7 @@ export default function Components() {
                   <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{copy.showcaseSection.buttons.primary}</h4>
                   <div className="flex flex-wrap gap-3">
                     <button className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95">
-                      Primary Button
+                      {copy.showcaseSection.buttons.primaryButton}
                     </button>
                     <button className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95">
                       <Download className="h-4 w-4" />
@@ -325,7 +325,7 @@ export default function Components() {
                   <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{copy.showcaseSection.buttons.secondary}</h4>
                   <div className="flex flex-wrap gap-3">
                     <button className="rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-muted/50">
-                      Secondary Button
+                      {copy.showcaseSection.buttons.secondaryButton}
                     </button>
                     <button className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-muted/50">
                       <Upload className="h-4 w-4" />
@@ -338,13 +338,13 @@ export default function Components() {
                   <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{copy.showcaseSection.buttons.contextual}</h4>
                   <div className="flex flex-wrap gap-3">
                     <button className="rounded-full bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800">
-                      Success
+                      {copy.showcaseSection.buttons.success}
                     </button>
                     <button className="rounded-full bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-700">
-                      Danger
+                      {copy.showcaseSection.buttons.danger}
                     </button>
                     <button className="rounded-full bg-amber-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-900">
-                      Warning
+                      {copy.showcaseSection.buttons.warning}
                     </button>
                   </div>
                 </div>
@@ -352,9 +352,9 @@ export default function Components() {
                 <div>
                   <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">{copy.showcaseSection.buttons.sizes}</h4>
                   <div className="flex flex-wrap items-center gap-3">
-                    <button className="rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground shadow-sm">Small</button>
-                    <button className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm">Medium</button>
-                    <button className="rounded-full bg-primary px-6 py-4 text-base font-semibold text-primary-foreground shadow-sm">Large</button>
+                    <button className="rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground shadow-sm">{copy.showcaseSection.buttons.small}</button>
+                    <button className="rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm">{copy.showcaseSection.buttons.medium}</button>
+                    <button className="rounded-full bg-primary px-6 py-4 text-base font-semibold text-primary-foreground shadow-sm">{copy.showcaseSection.buttons.large}</button>
                   </div>
                 </div>
               </div>
@@ -405,9 +405,9 @@ export default function Components() {
                         className="w-full appearance-none rounded-2xl border border-border bg-background px-4 py-3 pr-10 text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                       >
                         <option value="">{copy.showcaseSection.forms.selectOption}</option>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
+                        <option value="option1">{copy.showcaseSection.forms.option1}</option>
+                        <option value="option2">{copy.showcaseSection.forms.option2}</option>
+                        <option value="option3">{copy.showcaseSection.forms.option3}</option>
                       </select>
                       <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                     </div>
@@ -479,12 +479,12 @@ export default function Components() {
                   </div>
                 </div>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <span className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground">Primary</span>
-                  <span className="rounded-full bg-emerald-700 px-3 py-1 text-sm font-semibold text-white">Success</span>
-                  <span className="rounded-full bg-amber-700 px-3 py-1 text-sm font-semibold text-white">Warning</span>
-                  <span className="rounded-full bg-red-600 px-3 py-1 text-sm font-semibold text-white">Error</span>
-                  <span className="rounded-full bg-muted px-3 py-1 text-sm font-semibold text-muted-foreground">Neutral</span>
-                  <span className="rounded-full bg-[#7c4a00] px-3 py-1 text-sm font-semibold text-white">Saffron</span>
+                  <span className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground">{copy.showcaseSection.badges.primary}</span>
+                  <span className="rounded-full bg-emerald-700 px-3 py-1 text-sm font-semibold text-white">{copy.showcaseSection.badges.success}</span>
+                  <span className="rounded-full bg-amber-700 px-3 py-1 text-sm font-semibold text-white">{copy.showcaseSection.badges.warning}</span>
+                  <span className="rounded-full bg-red-600 px-3 py-1 text-sm font-semibold text-white">{copy.showcaseSection.badges.error}</span>
+                  <span className="rounded-full bg-muted px-3 py-1 text-sm font-semibold text-muted-foreground">{copy.showcaseSection.badges.neutral}</span>
+                  <span className="rounded-full bg-[#7c4a00] px-3 py-1 text-sm font-semibold text-white">{copy.showcaseSection.badges.saffron}</span>
                 </div>
               </div>
             </div>
@@ -520,7 +520,7 @@ export default function Components() {
                 <h3 className="font-semibold text-foreground">{copy.feedbackSection.information}</h3>
                 <p className="mt-1 text-sm leading-6 text-muted-foreground">{copy.feedbackSection.informationMessage}</p>
               </div>
-              <button className="text-muted-foreground transition hover:text-foreground" aria-label="Dismiss information alert">
+              <button className="text-muted-foreground transition hover:text-foreground" aria-label={copy.feedbackSection.dismissInformation}>
                 <X size={18} />
               </button>
             </div>
@@ -528,10 +528,10 @@ export default function Components() {
             <div className="flex items-start gap-4 rounded-[1.5rem] border border-amber-200 dark:border-amber-800/70 bg-amber-50 dark:bg-amber-950/30 p-5 shadow-sm">
               <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
               <div className="min-w-0 flex-1">
-                <h3 className="font-semibold text-foreground">Warning</h3>
-                <p className="mt-1 text-sm leading-6 text-muted-foreground">Please review this information carefully.</p>
+                <h3 className="font-semibold text-foreground">{copy.feedbackSection.warning}</h3>
+                <p className="mt-1 text-sm leading-6 text-muted-foreground">{copy.feedbackSection.warningMessage}</p>
               </div>
-              <button className="text-muted-foreground transition hover:text-foreground" aria-label="Dismiss warning alert">
+              <button className="text-muted-foreground transition hover:text-foreground" aria-label={copy.feedbackSection.dismissWarning}>
                 <X size={18} />
               </button>
             </div>
@@ -540,13 +540,13 @@ export default function Components() {
               <div className="flex items-start gap-4 rounded-[1.5rem] border border-red-200 dark:border-red-800/70 bg-red-50 dark:bg-red-950/30 p-5 shadow-sm">
                 <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-700" />
                 <div className="min-w-0 flex-1">
-                  <h3 className="font-semibold text-foreground">Error</h3>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground">There was a problem processing your request.</p>
+                  <h3 className="font-semibold text-foreground">{copy.feedbackSection.error}</h3>
+                  <p className="mt-1 text-sm leading-6 text-muted-foreground">{copy.feedbackSection.errorMessage}</p>
                 </div>
                 <button
                   onClick={() => setShowAlert(false)}
                   className="text-muted-foreground transition hover:text-foreground"
-                  aria-label="Dismiss error alert"
+                  aria-label={copy.feedbackSection.dismissError}
                 >
                   <X size={18} />
                 </button>
@@ -559,21 +559,21 @@ export default function Components() {
       <section className="bg-background py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Containers</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">Cards and content surfaces</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.surfaceSection.eyebrow}</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{copy.surfaceSection.title}</h2>
             <p className="mt-3 text-base leading-7 text-muted-foreground">
-              Card examples are now calmer and more aligned with the updated landing-page rhythm.
+              {copy.surfaceSection.description}
             </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             <div className="rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-              <h3 className="text-xl font-semibold text-foreground">Card title</h3>
+              <h3 className="text-xl font-semibold text-foreground">{copy.surfaceSection.cardTitle}</h3>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                This is a basic card component with a title, description, and action button.
+                {copy.surfaceSection.cardDescription}
               </p>
               <button className="mt-5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95">
-                Learn more
+                {copy.surfaceSection.learnMore}
               </button>
             </div>
 
@@ -581,22 +581,22 @@ export default function Components() {
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FF9933]/15 text-[#C96A00]">
                 <Calendar size={22} />
               </div>
-              <h3 className="text-xl font-semibold text-foreground">With icon</h3>
+              <h3 className="text-xl font-semibold text-foreground">{copy.surfaceSection.withIcon}</h3>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                Card component featuring an icon for visual enhancement.
+                {copy.surfaceSection.withIconDescription}
               </p>
               <button className="mt-5 text-sm font-semibold text-primary transition hover:text-primary/80">
-                View details →
+                {copy.surfaceSection.viewDetails}
               </button>
             </div>
 
             <div className="rounded-[1.75rem] border border-border/70 bg-gradient-to-br from-primary via-primary/95 to-slate-950 p-6 text-primary-foreground shadow-sm">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <Bell size={24} />
-                <span className="rounded-full bg-card/15 px-3 py-1 text-xs font-semibold">Active</span>
+                <span className="rounded-full bg-card/15 px-3 py-1 text-xs font-semibold">{copy.surfaceSection.active}</span>
               </div>
               <div className="text-3xl font-semibold tracking-tight">1,234</div>
-              <p className="mt-2 text-sm text-primary-foreground/80">Total services</p>
+              <p className="mt-2 text-sm text-primary-foreground/80">{copy.surfaceSection.totalServices}</p>
             </div>
           </div>
         </div>
@@ -610,11 +610,9 @@ export default function Components() {
                 <Info size={22} />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-foreground">Accessibility compliance</h3>
+                <h3 className="text-xl font-semibold text-foreground">{copy.complianceSection.title}</h3>
                 <p className="mt-3 max-w-4xl text-sm leading-7 text-muted-foreground">
-                  All components in the UX4G Design System are built with WCAG 2.1 AA compliance in mind. This includes
-                  proper color contrast, keyboard navigation support, screen reader compatibility, and focus management.
-                  Each component includes detailed accessibility documentation and testing guidelines.
+                  {copy.complianceSection.description}
                 </p>
               </div>
             </div>
@@ -716,11 +714,19 @@ const COMPONENTS_COPY = {
         description: 'Primary action elements with multiple variants and states.',
         interactive: 'Interactive',
         primary: 'Primary',
+        primaryButton: 'Primary Button',
         withIcon: 'With Icon',
         disabled: 'Disabled',
         secondary: 'Secondary',
+        secondaryButton: 'Secondary Button',
         contextual: 'Contextual',
+        success: 'Success',
+        danger: 'Danger',
+        warning: 'Warning',
         sizes: 'Sizes',
+        small: 'Small',
+        medium: 'Medium',
+        large: 'Large',
       },
       forms: {
         title: 'Form elements',
@@ -737,6 +743,7 @@ const COMPONENTS_COPY = {
         radioGroup: 'Radio group',
         option1: 'Option 1',
         option2: 'Option 2',
+        option3: 'Option 3',
         toggleSwitch: 'Toggle switch',
         toggleOn: 'Toggle switch on',
         toggleOff: 'Toggle switch off',
@@ -744,6 +751,12 @@ const COMPONENTS_COPY = {
       badges: {
         title: 'Badges',
         description: 'Compact indicators that work in both themes.',
+        primary: 'Primary',
+        success: 'Success',
+        warning: 'Warning',
+        error: 'Error',
+        neutral: 'Neutral',
+        saffron: 'Saffron',
       },
     },
     feedbackSection: {
@@ -755,6 +768,31 @@ const COMPONENTS_COPY = {
       dismissSuccess: 'Dismiss success alert',
       information: 'Information',
       informationMessage: 'Here is some important information for you.',
+      dismissInformation: 'Dismiss information alert',
+      warning: 'Warning',
+      warningMessage: 'Please review this information carefully.',
+      dismissWarning: 'Dismiss warning alert',
+      error: 'Error',
+      errorMessage: 'There was a problem processing your request.',
+      dismissError: 'Dismiss error alert',
+    },
+    surfaceSection: {
+      eyebrow: 'Containers',
+      title: 'Cards and content surfaces',
+      description: 'Card examples are now calmer and more aligned with the updated landing-page rhythm.',
+      cardTitle: 'Card title',
+      cardDescription: 'This is a basic card component with a title, description, and action button.',
+      learnMore: 'Learn more',
+      withIcon: 'With icon',
+      withIconDescription: 'Card component featuring an icon for visual enhancement.',
+      viewDetails: 'View details →',
+      active: 'Active',
+      totalServices: 'Total services',
+    },
+    complianceSection: {
+      title: 'Accessibility compliance',
+      description:
+        'All components in the UX4G Design System are built with WCAG 2.1 AA compliance in mind. This includes proper color contrast, keyboard navigation support, screen reader compatibility, and focus management. Each component includes detailed accessibility documentation and testing guidelines.',
     },
   },
   hi: {
@@ -847,11 +885,19 @@ const COMPONENTS_COPY = {
         description: 'कई variants और states वाले primary action elements.',
         interactive: 'Interactive',
         primary: 'Primary',
+        primaryButton: 'Primary Button',
         withIcon: 'Icon के साथ',
         disabled: 'Disabled',
         secondary: 'Secondary',
+        secondaryButton: 'Secondary Button',
         contextual: 'Contextual',
+        success: 'Success',
+        danger: 'Danger',
+        warning: 'Warning',
         sizes: 'Sizes',
+        small: 'Small',
+        medium: 'Medium',
+        large: 'Large',
       },
       forms: {
         title: 'Form elements',
@@ -868,6 +914,7 @@ const COMPONENTS_COPY = {
         radioGroup: 'Radio group',
         option1: 'विकल्प 1',
         option2: 'विकल्प 2',
+        option3: 'विकल्प 3',
         toggleSwitch: 'Toggle switch',
         toggleOn: 'Toggle switch on',
         toggleOff: 'Toggle switch off',
@@ -875,6 +922,12 @@ const COMPONENTS_COPY = {
       badges: {
         title: 'Badges',
         description: 'Compact indicators जो दोनों themes में काम करते हैं।',
+        primary: 'Primary',
+        success: 'Success',
+        warning: 'Warning',
+        error: 'Error',
+        neutral: 'Neutral',
+        saffron: 'Saffron',
       },
     },
     feedbackSection: {
@@ -886,6 +939,31 @@ const COMPONENTS_COPY = {
       dismissSuccess: 'Success alert बंद करें',
       information: 'जानकारी',
       informationMessage: 'आपके लिए यहाँ एक महत्वपूर्ण सूचना है।',
+      dismissInformation: 'Information alert बंद करें',
+      warning: 'चेतावनी',
+      warningMessage: 'कृपया इस जानकारी की सावधानीपूर्वक समीक्षा करें।',
+      dismissWarning: 'Warning alert बंद करें',
+      error: 'त्रुटि',
+      errorMessage: 'आपके अनुरोध को प्रोसेस करने में समस्या हुई।',
+      dismissError: 'Error alert बंद करें',
+    },
+    surfaceSection: {
+      eyebrow: 'Containers',
+      title: 'Cards और content surfaces',
+      description: 'Card examples अब अधिक शांत हैं और अपडेटेड landing-page rhythm के साथ बेहतर मेल खाते हैं।',
+      cardTitle: 'Card title',
+      cardDescription: 'यह एक basic card component है जिसमें title, description और action button शामिल है।',
+      learnMore: 'और जानें',
+      withIcon: 'Icon के साथ',
+      withIconDescription: 'Visual enhancement के लिए icon वाला card component.',
+      viewDetails: 'विवरण देखें →',
+      active: 'सक्रिय',
+      totalServices: 'कुल सेवाएं',
+    },
+    complianceSection: {
+      title: 'Accessibility compliance',
+      description:
+        'UX4G Design System के सभी components को WCAG 2.1 AA compliance को ध्यान में रखकर बनाया गया है। इसमें उचित color contrast, keyboard navigation support, screen reader compatibility और focus management शामिल हैं। हर component के साथ विस्तृत accessibility documentation और testing guidelines भी शामिल हैं।',
     },
   },
 } as const;
