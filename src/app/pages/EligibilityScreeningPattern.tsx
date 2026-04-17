@@ -1,4 +1,5 @@
-import { UserCheck, CheckCircle, XCircle, AlertCircle, Info, GitBranch, ArrowRight, RefreshCw, Eye, Globe, Code, BarChart3, AlertTriangle, Shield, Clock, Users, FileText, Zap, Target, HelpCircle, ChevronRight, ThumbsUp, ThumbsDown, Settings, Database, Lock, MessageSquare, Edit, Search, ArrowLeft, Check, Minus, Hash, Phone, Mail, Calendar } from "lucide-react";
+import React from "react";
+import { UserCheck, CheckCircle, XCircle, AlertCircle, Info, GitBranch, ArrowRight, RefreshCw, Eye, Globe, Code, BarChart3, AlertTriangle, Shield, Clock, Users, FileText, Zap, Target, HelpCircle, ChevronRight, ThumbsUp, ThumbsDown, Settings, Database, Lock, MessageSquare, Edit, Search, ArrowLeft, Check, Minus, Hash, Phone, Mail, Calendar, Download, Copy } from "lucide-react";
 
 export default function EligibilityScreeningPattern() {
   return (
@@ -107,6 +108,11 @@ export default function EligibilityScreeningPattern() {
         </div>
       </main>
 
+      {/* Code Downloads */}
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 pb-12">
+        <EligibilityCodeDownloads />
+      </div>
+
       {/* Footer */}
       <footer className="bg-card border-t-2 border-border mt-24">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
@@ -117,6 +123,229 @@ export default function EligibilityScreeningPattern() {
         </div>
       </footer>
     </div>
+  );
+}
+
+// ==================== CODE DOWNLOADS ====================
+
+const ELIG_REACT_CODE = `import React, { useState } from 'react';
+
+interface Question { id: string; text: string; type: 'yesno' | 'number' | 'select'; options?: string[]; }
+
+export function EligibilityScreeningPage() {
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [result, setResult] = useState<'eligible' | 'ineligible' | null>(null);
+
+  const questions: Question[] = [
+    { id: 'citizen', text: 'Are you an Indian citizen?', type: 'yesno' },
+    { id: 'age', text: 'What is your age?', type: 'number' },
+    { id: 'income', text: 'Annual household income (₹)', type: 'select', options: ['Below 1 Lakh', '1-3 Lakhs', '3-5 Lakhs', '5-8 Lakhs', 'Above 8 Lakhs'] },
+    { id: 'residence', text: 'Do you reside in the applying state?', type: 'yesno' },
+  ];
+
+  const handleAnswer = (value: string) => {
+    const updated = { ...answers, [questions[step].id]: value };
+    setAnswers(updated);
+    if (step < questions.length - 1) { setStep(step + 1); }
+    else {
+      const eligible = updated.citizen === 'yes' && Number(updated.age) >= 18 && updated.residence === 'yes';
+      setResult(eligible ? 'eligible' : 'ineligible');
+    }
+  };
+
+  const q = questions[step];
+
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+        <h1 className="text-2xl font-bold mb-2">Eligibility Check</h1>
+        <p className="text-sm text-muted-foreground mb-6">Answer a few questions to check eligibility</p>
+        {result === null ? (
+          <div>
+            <div className="flex gap-1 mb-6">{questions.map((_, i) => (<div key={i} className={\`h-1 flex-1 rounded \${i <= step ? 'bg-primary' : 'bg-muted'}\`} />))}</div>
+            <p className="font-semibold mb-4">Q{step + 1}. {q.text}</p>
+            {q.type === 'yesno' && <div className="flex gap-3"><button onClick={() => handleAnswer('yes')} className="flex-1 py-3 border border-border rounded-lg font-semibold hover:bg-green-50 hover:border-green-300">Yes</button><button onClick={() => handleAnswer('no')} className="flex-1 py-3 border border-border rounded-lg font-semibold hover:bg-red-50 hover:border-red-300">No</button></div>}
+            {q.type === 'number' && <div><input type="number" placeholder="Enter value" className="w-full px-4 py-3 border border-border rounded-lg mb-3" id="num-input" /><button onClick={() => handleAnswer((document.getElementById('num-input') as HTMLInputElement).value)} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div>}
+            {q.type === 'select' && <div className="space-y-2">{q.options?.map(o => (<button key={o} onClick={() => handleAnswer(o)} className="w-full py-3 border border-border rounded-lg text-left px-4 hover:bg-muted">{o}</button>))}</div>}
+          </div>
+        ) : (
+          <div className="text-center py-6">
+            <div className={\`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 \${result === 'eligible' ? 'bg-green-100' : 'bg-red-100'}\`}>
+              {result === 'eligible' ? <span className="text-3xl">✓</span> : <span className="text-3xl">✗</span>}
+            </div>
+            <h2 className="text-xl font-bold">{result === 'eligible' ? 'You Are Eligible!' : 'Not Eligible'}</h2>
+            <p className="text-sm text-muted-foreground mt-2">{result === 'eligible' ? 'You meet the criteria. Proceed to apply.' : 'You do not meet the eligibility criteria for this service.'}</p>
+            <button onClick={() => { setStep(0); setAnswers({}); setResult(null); }} className="mt-4 px-6 py-2 border border-border rounded-lg text-sm font-semibold">Check Again</button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const ELIG_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+interface Question { id: string; text: string; type: 'yesno' | 'number' | 'select'; options?: string[]; }
+
+@Component({
+  selector: 'ux4g-eligibility-screening',
+  standalone: true,
+  imports: [CommonModule],
+  template: \`
+    <div class="min-h-screen bg-background flex items-center justify-center p-4">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+        <h1 class="text-2xl font-bold mb-2">Eligibility Check</h1>
+        <p class="text-sm text-muted-foreground mb-6">Answer a few questions</p>
+        <div *ngIf="!result">
+          <div class="flex gap-1 mb-6"><div *ngFor="let q of questions; let i=index" [class]="'h-1 flex-1 rounded ' + (i <= step ? 'bg-primary' : 'bg-muted')"></div></div>
+          <p class="font-semibold mb-4">Q{{step+1}}. {{questions[step].text}}</p>
+          <div *ngIf="questions[step].type==='yesno'" class="flex gap-3">
+            <button (click)="answer('yes')" class="flex-1 py-3 border border-border rounded-lg font-semibold">Yes</button>
+            <button (click)="answer('no')" class="flex-1 py-3 border border-border rounded-lg font-semibold">No</button>
+          </div>
+          <div *ngIf="questions[step].type==='select'" class="space-y-2">
+            <button *ngFor="let o of questions[step].options" (click)="answer(o)" class="w-full py-3 border border-border rounded-lg text-left px-4">{{o}}</button>
+          </div>
+        </div>
+        <div *ngIf="result" class="text-center py-6">
+          <h2 class="text-xl font-bold">{{result === 'eligible' ? 'You Are Eligible!' : 'Not Eligible'}}</h2>
+          <button (click)="reset()" class="mt-4 px-6 py-2 border border-border rounded-lg text-sm font-semibold">Check Again</button>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class EligibilityScreeningComponent {
+  step = 0;
+  answers: Record<string, string> = {};
+  result: 'eligible' | 'ineligible' | null = null;
+  questions: Question[] = [
+    { id: 'citizen', text: 'Are you an Indian citizen?', type: 'yesno' },
+    { id: 'age', text: 'What is your age?', type: 'number' },
+    { id: 'income', text: 'Annual household income?', type: 'select', options: ['Below 1L', '1-3L', '3-5L', '5-8L', 'Above 8L'] },
+    { id: 'residence', text: 'Reside in applying state?', type: 'yesno' },
+  ];
+  answer(val: string) {
+    this.answers[this.questions[this.step].id] = val;
+    if (this.step < this.questions.length - 1) this.step++;
+    else this.result = this.answers['citizen'] === 'yes' && this.answers['residence'] === 'yes' ? 'eligible' : 'ineligible';
+  }
+  reset() { this.step = 0; this.answers = {}; this.result = null; }
+}`;
+
+const ELIG_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eligibility Screening — UX4G</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+    .card { width: 100%; max-width: 420px; background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; }
+    .sub { font-size: .875rem; color: #64748b; margin-bottom: 1.5rem; }
+    .progress { display: flex; gap: .25rem; margin-bottom: 1.5rem; }
+    .progress div { height: 4px; flex: 1; border-radius: 2px; background: #e2e8f0; }
+    .progress div.active { background: #005196; }
+    .question { font-weight: 600; margin-bottom: 1rem; }
+    .btn-group { display: flex; gap: .75rem; }
+    .btn { flex: 1; padding: .75rem; border: 1px solid #e2e8f0; border-radius: .5rem; font-weight: 600; cursor: pointer; background: #fff; }
+    .btn:hover { background: #f1f5f9; }
+    .result { text-align: center; padding: 2rem 0; }
+    .result h2 { font-size: 1.25rem; font-weight: 700; }
+    .result p { color: #64748b; margin-top: .5rem; font-size: .875rem; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Eligibility Check</h1>
+    <p class="sub">Answer a few questions</p>
+    <div id="quiz">
+      <div class="progress" id="progress"></div>
+      <p class="question" id="question"></p>
+      <div class="btn-group" id="options"></div>
+    </div>
+    <div id="result" class="result hidden"></div>
+  </div>
+  <script>
+    const qs = [
+      { id:'citizen', text:'Are you an Indian citizen?', type:'yesno' },
+      { id:'age', text:'Are you 18 or older?', type:'yesno' },
+      { id:'residence', text:'Do you reside in the applying state?', type:'yesno' },
+    ];
+    let step=0, ans={};
+    function render() {
+      document.getElementById('progress').innerHTML = qs.map((_,i)=>'<div class="'+(i<=step?'active':'')+'"></div>').join('');
+      document.getElementById('question').textContent = 'Q'+(step+1)+'. '+qs[step].text;
+      document.getElementById('options').innerHTML = '<button class="btn" onclick="answer(\\'yes\\')">Yes</button><button class="btn" onclick="answer(\\'no\\')">No</button>';
+    }
+    function answer(v) {
+      ans[qs[step].id]=v;
+      if(step<qs.length-1){step++;render();}
+      else{
+        const ok=ans.citizen==='yes'&&ans.age==='yes'&&ans.residence==='yes';
+        document.getElementById('quiz').classList.add('hidden');
+        document.getElementById('result').classList.remove('hidden');
+        document.getElementById('result').innerHTML='<h2>'+(ok?'You Are Eligible!':'Not Eligible')+'</h2><p>'+(ok?'Proceed to apply.':'You do not meet the criteria.')+'</p><button class="btn" onclick="reset()" style="margin-top:1rem;flex:none;padding:.5rem 1.5rem">Check Again</button>';
+      }
+    }
+    function reset(){step=0;ans={};document.getElementById('quiz').classList.remove('hidden');document.getElementById('result').classList.add('hidden');render();}
+    render();
+  </script>
+</body>
+</html>`;
+
+function EligibilityCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Multi-Step Quiz', code: ELIG_REACT_CODE, filename: 'EligibilityScreeningPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: ELIG_ANGULAR_CODE, filename: 'eligibility-screening.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: ELIG_HTML_CODE, filename: 'eligibility-screening.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24 mt-12">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Eligibility Screening implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
