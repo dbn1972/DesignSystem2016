@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import {
   ArrowRight,
   CheckCircle,
@@ -14,6 +15,8 @@ import {
 } from "lucide-react";
 
 export default function SystemsHub() {
+  const { i18n } = useTranslation();
+  const c = i18n.resolvedLanguage === 'hi' ? SYSTEMS_HI : SYSTEMS_EN;
   return (
     <div className="min-h-screen bg-background text-foreground dark:bg-gray-900">
       <header className="border-b border-border bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-gray-900 dark:to-blue-950/40">
@@ -22,17 +25,15 @@ export default function SystemsHub() {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-card/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
                 <Sparkles size={14} />
-                Cross-cutting systems
+                {c.eyebrow}
               </div>
 
               <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground dark:text-gray-50">
-                Systems
+                {c.title}
               </h1>
 
               <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-muted-foreground">
-                UX4G systems are shared capabilities that improve every service journey:
-                multilingual delivery, intelligent forms, and resilience patterns that keep
-                people moving even when networks or services fail.
+                {c.description}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -357,3 +358,18 @@ function ChecklistItem({ text }: { text: string }) {
     </li>
   );
 }
+
+// ── Bilingual copy ──────────────────────────────────────────────────
+const SYSTEMS_EN = {
+  eyebrow: 'Cross-cutting systems',
+  title: 'Systems',
+  description:
+    'UX4G systems are shared capabilities that improve every service journey: multilingual delivery, intelligent forms, and resilience patterns that keep people moving even when networks or services fail.',
+};
+
+const SYSTEMS_HI = {
+  eyebrow: 'क्रॉस-कटिंग सिस्टम',
+  title: 'सिस्टम हब',
+  description:
+    'UX4G सिस्टम साझा क्षमताएँ हैं जो प्रत्येक सेवा यात्रा को बेहतर बनाती हैं: बहुभाषी वितरण, बुद्धिमान फ़ॉर्म, और लचीलापन पैटर्न जो नेटवर्क या सेवाओं के विफल होने पर भी लोगों को आगे बढ़ाते रहते हैं।',
+};

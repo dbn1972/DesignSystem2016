@@ -1,7 +1,10 @@
 import { useState } from "react";
 import {  FileText, Users, RefreshCw, AlertCircle, CheckCircle, FileCheck, UserCheck, Activity, ArrowRight, Circle, ChevronRight, Info, AlertTriangle, Shield, Eye, Globe, Headphones, Code, GitBranch, CheckSquare, XCircle, Clock, Download, Search, Edit, Upload, MessageSquare, ThumbsUp, ThumbsDown, Zap, Target, Layers, BookOpen, Settings, Database, Lock, BarChart3, FileCode, Copy, Check } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ServicePatternLibraries() {
+  const { i18n } = useTranslation();
+  const c = i18n.resolvedLanguage === 'hi' ? SPL_HI : SPL_EN;
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.10),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
@@ -9,14 +12,13 @@ export default function ServicePatternLibraries() {
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
               <Layers size={14} className="text-primary" />
-              UX4G service pattern library
+              {c.eyebrow}
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Service archetypes that feel ready for production</h1>
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.title}</h1>
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Structured, repeatable service patterns for assembling government digital journeys. The library keeps service flows accessible,
-                consistent, and easy to adapt across departments.
+                {c.description}
               </p>
             </div>
 
@@ -2082,3 +2084,18 @@ function ServicePatternLibrariesCodeDownloads() {
     </section>
   );
 }
+
+// ── Bilingual copy ──────────────────────────────────────────────────
+const SPL_EN = {
+  eyebrow: 'UX4G service pattern library',
+  title: 'Service archetypes that feel ready for production',
+  description:
+    'Structured, repeatable service patterns for assembling government digital journeys. The library keeps service flows accessible, consistent, and easy to adapt across departments.',
+};
+
+const SPL_HI = {
+  eyebrow: 'UX4G सेवा पैटर्न लाइब्रेरी',
+  title: 'उत्पादन के लिए तैयार सेवा आर्किटाइप',
+  description:
+    'सरकारी डिजिटल सेवा यात्राओं को संयोजित करने के लिए संरचित, पुनरावर्तनीय सेवा पैटर्न। यह लाइब्रेरी सेवा प्रवाहों को सुलभ, सुसंगत और विभागों में अनुकूलन योग्य बनाती है।',
+};

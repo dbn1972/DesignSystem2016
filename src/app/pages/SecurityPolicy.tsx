@@ -1,6 +1,9 @@
 import { Shield, Lock, Key, AlertTriangle, FileText, Eye, CheckCircle, XCircle, Clock, Users, Database, Server, Package } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function SecurityPolicy() {
+  const { i18n } = useTranslation();
+  const c = i18n.resolvedLanguage === 'hi' ? SEC_HI : SEC_EN;
   return (
     <div className="min-h-screen bg-card">
       {/* Hero Section */}
@@ -9,16 +12,15 @@ export default function SecurityPolicy() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <Shield size={16} />
-              <span>Security & Privacy</span>
+              <span>{c.badge}</span>
             </div>
 
             <h1 className="text-5xl font-bold mb-6">
-              Security Policy
+              {c.title}
             </h1>
 
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              UX4G Design System follows strict security practices to protect government digital services and citizen data.
-              This policy outlines our security standards, vulnerability reporting procedures, and compliance requirements.
+              {c.description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -821,3 +823,7 @@ function SectionHeader({ title, description, icon }: any) {
     </div>
   );
 }
+
+
+const SEC_EN = { badge: 'Security & Privacy', title: 'Security Policy', description: 'UX4G Design System follows strict security practices to protect government digital services and citizen data. This policy outlines our security standards, vulnerability reporting procedures, and compliance requirements.' };
+const SEC_HI = { badge: 'सुरक्षा और गोपनीयता', title: 'सुरक्षा नीति', description: 'UX4G डिज़ाइन सिस्टम सरकारी डिजिटल सेवाओं और नागरिक डेटा की सुरक्षा के लिए सख्त सुरक्षा प्रथाओं का पालन करता है। यह नीति हमारे सुरक्षा मानकों, भेद्यता रिपोर्टिंग प्रक्रियाओं और अनुपालन आवश्यकताओं की रूपरेखा प्रस्तुत करती है।' };

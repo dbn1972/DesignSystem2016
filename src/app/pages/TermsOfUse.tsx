@@ -1,7 +1,10 @@
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import { Scale, FileText, Shield, AlertTriangle, Lock, Users, Globe, BookOpen, Mail, ChevronLeft } from "lucide-react";
 
 export default function TermsOfUse() {
+  const { i18n } = useTranslation();
+  const c = i18n.resolvedLanguage === 'hi' ? TERMS_HI : TERMS_EN;
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -12,8 +15,8 @@ export default function TermsOfUse() {
               <Scale size={28} className="text-white" />
             </div>
             <div>
-              <div className="text-sm text-muted-foreground">Legal Information</div>
-              <h1 className="text-2xl font-bold text-foreground">Terms of Use</h1>
+              <div className="text-sm text-muted-foreground">{c.legalInfo}</div>
+              <h1 className="text-2xl font-bold text-foreground">{c.title}</h1>
             </div>
           </div>
         </div>
@@ -27,17 +30,17 @@ export default function TermsOfUse() {
             <ol className="flex items-center gap-2 text-sm">
               <li>
                 <Link to="/" className="text-primary hover:underline font-medium">
-                  Home
+                  {c.home}
                 </Link>
               </li>
               <li className="text-muted-foreground">/</li>
               <li>
                 <Link to="/governance" className="text-primary hover:underline font-medium">
-                  Governance
+                  {c.governance}
                 </Link>
               </li>
               <li className="text-muted-foreground">/</li>
-              <li className="text-muted-foreground" aria-current="page">Terms of Use</li>
+              <li className="text-muted-foreground" aria-current="page">{c.title}</li>
             </ol>
           </nav>
 
@@ -47,7 +50,7 @@ export default function TermsOfUse() {
               <FileText size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-sm text-muted-foreground">
-                  <span className="font-bold text-foreground">Effective Date:</span> April 11, 2026
+                  <span className="font-bold text-foreground">{c.effectiveDate}:</span> April 11, 2026
                 </p>
                 <p className="text-sm text-muted-foreground mt-2">
                   These Terms of Use govern your access to and use of the UX4G Design System and all
@@ -564,3 +567,7 @@ function Section({ icon, title, content }: { icon: React.ReactNode; title: strin
     </section>
   );
 }
+
+
+const TERMS_EN = { legalInfo: 'Legal Information', title: 'Terms of Use', home: 'Home', governance: 'Governance', effectiveDate: 'Effective Date' };
+const TERMS_HI = { legalInfo: 'कानूनी जानकारी', title: 'उपयोग की शर्तें', home: 'मुखपृष्ठ', governance: 'शासन', effectiveDate: 'प्रभावी तिथि' };

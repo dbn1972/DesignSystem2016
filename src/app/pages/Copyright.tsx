@@ -1,6 +1,9 @@
 import { Copyright as CopyrightIcon, FileText, Scale, AlertCircle, CheckCircle, Users, Globe, Code, Download, Share2, BookOpen } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Copyright() {
+  const { i18n } = useTranslation();
+  const c = i18n.resolvedLanguage === 'hi' ? COPYRIGHT_HI : COPYRIGHT_EN;
   return (
     <div className="min-h-screen bg-card">
       {/* Hero Section */}
@@ -9,17 +12,15 @@ export default function Copyright() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <CopyrightIcon size={16} />
-              <span>Copyright & Licensing</span>
+              <span>{c.badge}</span>
             </div>
 
             <h1 className="text-5xl font-bold mb-6">
-              Copyright & License
+              {c.title}
             </h1>
 
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              UX4G Design System is an open-source project developed by the Government of India.
-              This page outlines the copyright, licensing terms, and usage rights for the design system,
-              its components, documentation, and associated assets.
+              {c.description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -986,3 +987,18 @@ function Shield({ size, className }: any) {
     </svg>
   );
 }
+
+// ── Bilingual copy ──────────────────────────────────────────────────
+const COPYRIGHT_EN = {
+  badge: 'Copyright & Licensing',
+  title: 'Copyright & License',
+  description:
+    'UX4G Design System is an open-source project developed by the Government of India. This page outlines the copyright, licensing terms, and usage rights for the design system, its components, documentation, and associated assets.',
+};
+
+const COPYRIGHT_HI = {
+  badge: 'कॉपीराइट एवं लाइसेंसिंग',
+  title: 'कॉपीराइट और लाइसेंस',
+  description:
+    'UX4G डिज़ाइन सिस्टम भारत सरकार द्वारा विकसित एक ओपन-सोर्स परियोजना है। यह पृष्ठ डिज़ाइन सिस्टम, इसके घटकों, प्रलेखन और संबंधित संपत्तियों के लिए कॉपीराइट, लाइसेंसिंग शर्तों और उपयोग अधिकारों की रूपरेखा प्रस्तुत करता है।',
+};

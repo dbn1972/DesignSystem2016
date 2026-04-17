@@ -1,6 +1,9 @@
 import { Users, Heart, Shield, MessageCircle, AlertTriangle, CheckCircle, XCircle, FileText, Scale, BookOpen } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function CodeOfConduct() {
+  const { i18n } = useTranslation();
+  const c = i18n.resolvedLanguage === 'hi' ? COC_HI : COC_EN;
   return (
     <div className="min-h-screen bg-card">
       {/* Hero Section */}
@@ -9,16 +12,15 @@ export default function CodeOfConduct() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <Heart size={16} />
-              <span>Community Standards</span>
+              <span>{c.badge}</span>
             </div>
 
             <h1 className="text-5xl font-bold mb-6">
-              Code of Conduct
+              {c.title}
             </h1>
 
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              The UX4G Design System community is committed to creating an inclusive, respectful, and collaborative
-              environment for all contributors. This Code of Conduct outlines our shared values and expected behaviors.
+              {c.description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -888,3 +890,18 @@ function SectionHeader({ title, description, icon }: any) {
     </div>
   );
 }
+
+// ── Bilingual copy ──────────────────────────────────────────────────
+const COC_EN = {
+  badge: 'Community Standards',
+  title: 'Code of Conduct',
+  description:
+    'The UX4G Design System community is committed to creating an inclusive, respectful, and collaborative environment for all contributors. This Code of Conduct outlines our shared values and expected behaviors.',
+};
+
+const COC_HI = {
+  badge: 'सामुदायिक मानक',
+  title: 'आचार संहिता',
+  description:
+    'UX4G डिज़ाइन सिस्टम समुदाय सभी योगदानकर्ताओं के लिए एक समावेशी, सम्मानजनक और सहयोगात्मक वातावरण बनाने के लिए प्रतिबद्ध है। यह आचार संहिता हमारे साझा मूल्यों और अपेक्षित व्यवहारों को रेखांकित करती है।',
+};

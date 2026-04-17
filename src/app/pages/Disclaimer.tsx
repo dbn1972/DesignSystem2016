@@ -1,6 +1,9 @@
 import { AlertTriangle, FileText, Link as LinkIcon, Shield, Info, ExternalLink, Code, Users, Scale, Clock, CheckCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Disclaimer() {
+  const { i18n } = useTranslation();
+  const c = i18n.resolvedLanguage === 'hi' ? DISCLAIMER_HI : DISCLAIMER_EN;
   return (
     <div className="min-h-screen bg-card">
       {/* Hero Section */}
@@ -9,17 +12,15 @@ export default function Disclaimer() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
               <AlertTriangle size={16} />
-              <span>Legal Disclaimer</span>
+              <span>{c.badge}</span>
             </div>
 
             <h1 className="text-5xl font-bold mb-6">
-              Disclaimer
+              {c.title}
             </h1>
 
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              This disclaimer outlines the limitations, responsibilities, and legal notices associated with
-              the use of the UX4G Design System. Please read this carefully before using the design system
-              in your projects.
+              {c.description}
             </p>
 
             <div className="bg-card/10 rounded-lg p-4">
@@ -851,3 +852,18 @@ function SectionHeader({ title, description, icon }: any) {
     </div>
   );
 }
+
+// ── Bilingual copy ──────────────────────────────────────────────────
+const DISCLAIMER_EN = {
+  badge: 'Legal Disclaimer',
+  title: 'Disclaimer',
+  description:
+    'This disclaimer outlines the limitations, responsibilities, and legal notices associated with the use of the UX4G Design System. Please read this carefully before using the design system in your projects.',
+};
+
+const DISCLAIMER_HI = {
+  badge: 'कानूनी अस्वीकरण',
+  title: 'अस्वीकरण',
+  description:
+    'यह अस्वीकरण UX4G डिज़ाइन सिस्टम के उपयोग से जुड़ी सीमाओं, उत्तरदायित्वों और कानूनी सूचनाओं की रूपरेखा प्रस्तुत करता है। कृपया अपनी परियोजनाओं में डिज़ाइन सिस्टम का उपयोग करने से पहले इसे ध्यानपूर्वक पढ़ें।',
+};
