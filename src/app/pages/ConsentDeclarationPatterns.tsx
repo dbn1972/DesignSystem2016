@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router";
 import {
   Shield,
@@ -20,6 +21,9 @@ import {
   Key,
   CreditCard,
   XCircle,
+  Download,
+  Copy,
+  Check,
 } from "lucide-react";
 
 export default function ConsentDeclarationPatterns() {
@@ -738,6 +742,9 @@ export default function ConsentDeclarationPatterns() {
             </div>
           </div>
         </section>
+
+        {/* Code Downloads */}
+        <ConsentDeclCodeDownloads />
       </main>
 
       {/* Footer */}
@@ -755,6 +762,265 @@ export default function ConsentDeclarationPatterns() {
         </div>
       </footer>
     </div>
+  );
+}
+
+// ==================== CODE DOWNLOADS ====================
+
+const CONSENT_DECL_REACT_CODE = `import React, { useState } from 'react';
+
+interface ConsentItem {
+  id: string;
+  label: string;
+  description: string;
+  required: boolean;
+  checked: boolean;
+}
+
+export function ConsentDeclarationPage() {
+  const [step, setStep] = useState<'consent' | 'declaration' | 'confirmed'>('consent');
+  const [consents, setConsents] = useState<ConsentItem[]>([
+    { id: 'data-collection', label: 'Data Collection & Processing', description: 'I consent to the collection and processing of my personal data for the purpose of this application.', required: true, checked: false },
+    { id: 'data-sharing', label: 'Inter-Department Data Sharing', description: 'I consent to sharing my data with relevant government departments for verification purposes.', required: true, checked: false },
+    { id: 'communications', label: 'Service Communications', description: 'I agree to receive SMS and email updates about my application status.', required: false, checked: false },
+    { id: 'analytics', label: 'Service Improvement Analytics', description: 'I allow anonymized usage data to improve government digital services.', required: false, checked: false },
+  ]);
+  const [declared, setDeclared] = useState(false);
+
+  const toggleConsent = (id: string) => setConsents(prev => prev.map(c => c.id === id ? { ...c, checked: !c.checked } : c));
+  const allRequired = consents.filter(c => c.required).every(c => c.checked);
+
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Consent & Declaration</h1>
+        <p className="text-sm text-muted-foreground mb-6">Government service application</p>
+        {step === 'consent' && (
+          <div className="space-y-4">
+            <h2 className="font-semibold text-foreground">Consent Required</h2>
+            {consents.map(c => (
+              <label key={c.id} className="flex items-start gap-3 p-3 border border-border rounded-lg cursor-pointer hover:bg-muted/50">
+                <input type="checkbox" checked={c.checked} onChange={() => toggleConsent(c.id)} className="mt-1" />
+                <div>
+                  <div className="text-sm font-semibold text-foreground">{c.label}{c.required && <span className="text-red-500 ml-1">*</span>}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{c.description}</div>
+                </div>
+              </label>
+            ))}
+            <button onClick={() => setStep('declaration')} disabled={!allRequired} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-50">Proceed to Declaration</button>
+          </div>
+        )}
+        {step === 'declaration' && (
+          <div className="space-y-4">
+            <div className="bg-muted rounded-xl p-4 text-sm text-muted-foreground leading-relaxed">
+              I hereby declare that all information provided is true and correct to the best of my knowledge. I understand that any false statement may result in rejection or legal action under applicable laws.
+            </div>
+            <label className="flex items-start gap-3 p-3 border border-border rounded-lg cursor-pointer">
+              <input type="checkbox" checked={declared} onChange={() => setDeclared(!declared)} className="mt-1" />
+              <span className="text-sm font-semibold text-foreground">I accept the above declaration</span>
+            </label>
+            <div className="flex gap-3">
+              <button onClick={() => setStep('consent')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+              <button onClick={() => setStep('confirmed')} disabled={!declared} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-50">Submit</button>
+            </div>
+          </div>
+        )}
+        {step === 'confirmed' && (
+          <div className="text-center py-6">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <h2 className="text-xl font-bold">Consent & Declaration Recorded</h2>
+            <p className="text-sm text-muted-foreground mt-2">Your consent preferences and declaration have been securely stored.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const CONSENT_DECL_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+interface ConsentItem {
+  id: string;
+  label: string;
+  description: string;
+  required: boolean;
+  checked: boolean;
+}
+
+@Component({
+  selector: 'ux4g-consent-declaration',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: \`
+    <div class="min-h-screen bg-background flex items-center justify-center p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-2">Consent & Declaration</h1>
+        <p class="text-sm text-muted-foreground mb-6">Government service application</p>
+
+        <div *ngIf="step === 'consent'" class="space-y-4">
+          <h2 class="font-semibold text-foreground">Consent Required</h2>
+          <label *ngFor="let c of consents" class="flex items-start gap-3 p-3 border border-border rounded-lg cursor-pointer hover:bg-muted/50">
+            <input type="checkbox" [(ngModel)]="c.checked" class="mt-1" />
+            <div>
+              <div class="text-sm font-semibold text-foreground">{{c.label}}<span *ngIf="c.required" class="text-red-500 ml-1">*</span></div>
+              <div class="text-xs text-muted-foreground mt-1">{{c.description}}</div>
+            </div>
+          </label>
+          <button (click)="step='declaration'" [disabled]="!allRequired" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-50">Proceed to Declaration</button>
+        </div>
+
+        <div *ngIf="step === 'declaration'" class="space-y-4">
+          <div class="bg-muted rounded-xl p-4 text-sm text-muted-foreground leading-relaxed">
+            I hereby declare that all information provided is true and correct to the best of my knowledge.
+          </div>
+          <label class="flex items-start gap-3 p-3 border border-border rounded-lg cursor-pointer">
+            <input type="checkbox" [(ngModel)]="declared" class="mt-1" />
+            <span class="text-sm font-semibold text-foreground">I accept the above declaration</span>
+          </label>
+          <div class="flex gap-3">
+            <button (click)="step='consent'" class="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button>
+            <button (click)="step='confirmed'" [disabled]="!declared" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-50">Submit</button>
+          </div>
+        </div>
+
+        <div *ngIf="step === 'confirmed'" class="text-center py-6">
+          <h2 class="text-xl font-bold">Consent & Declaration Recorded</h2>
+          <p class="text-sm text-muted-foreground mt-2">Your preferences have been securely stored.</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class ConsentDeclarationComponent {
+  step: 'consent' | 'declaration' | 'confirmed' = 'consent';
+  declared = false;
+  consents: ConsentItem[] = [
+    { id: 'data-collection', label: 'Data Collection & Processing', description: 'I consent to the collection and processing of my personal data.', required: true, checked: false },
+    { id: 'data-sharing', label: 'Inter-Department Data Sharing', description: 'I consent to sharing data with relevant departments.', required: true, checked: false },
+    { id: 'communications', label: 'Service Communications', description: 'I agree to receive status updates via SMS/email.', required: false, checked: false },
+    { id: 'analytics', label: 'Service Improvement Analytics', description: 'I allow anonymized usage data for service improvement.', required: false, checked: false },
+  ];
+  get allRequired() { return this.consents.filter(c => c.required).every(c => c.checked); }
+}`;
+
+const CONSENT_DECL_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consent & Declaration — UX4G</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+    .card { width: 100%; max-width: 480px; background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; }
+    .subtitle { font-size: .875rem; color: #64748b; margin-bottom: 1.5rem; }
+    .consent-item { display: flex; align-items: flex-start; gap: .75rem; padding: .75rem; border: 1px solid #e2e8f0; border-radius: .5rem; margin-bottom: .5rem; cursor: pointer; }
+    .consent-item:hover { background: #f1f5f9; }
+    .consent-item input { margin-top: .25rem; }
+    .consent-label { font-size: .875rem; font-weight: 600; }
+    .consent-desc { font-size: .75rem; color: #64748b; margin-top: .25rem; }
+    .required { color: #ef4444; margin-left: .25rem; }
+    .btn { width: 100%; padding: .75rem; border: none; border-radius: .5rem; font-weight: 600; cursor: pointer; font-size: .875rem; margin-top: 1rem; }
+    .btn-primary { background: #005196; color: #fff; }
+    .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+    .btn-outline { background: #fff; border: 1px solid #e2e8f0; }
+    .btn-row { display: flex; gap: .75rem; margin-top: 1rem; }
+    .btn-row .btn { margin-top: 0; }
+    .declaration-text { background: #f1f5f9; border-radius: .75rem; padding: 1rem; font-size: .875rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem; }
+    .success { text-align: center; padding: 2rem 0; }
+    .success h2 { font-size: 1.25rem; font-weight: 700; }
+    .success p { font-size: .875rem; color: #64748b; margin-top: .5rem; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Consent & Declaration</h1>
+    <p class="subtitle">Government service application</p>
+    <div id="consent-step">
+      <h2 style="font-size:1rem;font-weight:600;margin-bottom:1rem;">Consent Required</h2>
+      <label class="consent-item"><input type="checkbox" id="c1" onchange="checkRequired()" /><div><div class="consent-label">Data Collection & Processing<span class="required">*</span></div><div class="consent-desc">I consent to the collection and processing of my personal data.</div></div></label>
+      <label class="consent-item"><input type="checkbox" id="c2" onchange="checkRequired()" /><div><div class="consent-label">Inter-Department Data Sharing<span class="required">*</span></div><div class="consent-desc">I consent to sharing data with relevant departments.</div></div></label>
+      <label class="consent-item"><input type="checkbox" id="c3" /><div><div class="consent-label">Service Communications</div><div class="consent-desc">I agree to receive status updates via SMS/email.</div></div></label>
+      <button class="btn btn-primary" id="proceed-btn" disabled onclick="showDeclaration()">Proceed to Declaration</button>
+    </div>
+    <div id="declaration-step" class="hidden">
+      <div class="declaration-text">I hereby declare that all information provided is true and correct to the best of my knowledge.</div>
+      <label class="consent-item"><input type="checkbox" id="dec-check" onchange="checkDeclared()" /><span class="consent-label">I accept the above declaration</span></label>
+      <div class="btn-row">
+        <button class="btn btn-outline" onclick="showConsent()">Back</button>
+        <button class="btn btn-primary" id="submit-btn" disabled onclick="showConfirm()">Submit</button>
+      </div>
+    </div>
+    <div id="confirm-step" class="hidden success">
+      <h2>Consent & Declaration Recorded</h2>
+      <p>Your preferences have been securely stored.</p>
+    </div>
+  </div>
+  <script>
+    function checkRequired() {
+      document.getElementById('proceed-btn').disabled = !(document.getElementById('c1').checked && document.getElementById('c2').checked);
+    }
+    function showDeclaration() { document.getElementById('consent-step').classList.add('hidden'); document.getElementById('declaration-step').classList.remove('hidden'); }
+    function showConsent() { document.getElementById('declaration-step').classList.add('hidden'); document.getElementById('consent-step').classList.remove('hidden'); }
+    function checkDeclared() { document.getElementById('submit-btn').disabled = !document.getElementById('dec-check').checked; }
+    function showConfirm() { document.getElementById('declaration-step').classList.add('hidden'); document.getElementById('confirm-step').classList.remove('hidden'); }
+  </script>
+</body>
+</html>`;
+
+function ConsentDeclCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Consent + Declaration', code: CONSENT_DECL_REACT_CODE, filename: 'ConsentDeclarationPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone + FormsModule', code: CONSENT_DECL_ANGULAR_CODE, filename: 'consent-declaration.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: CONSENT_DECL_HTML_CODE, filename: 'consent-declaration.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24 mt-12">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Consent & Declaration implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
