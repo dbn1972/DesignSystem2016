@@ -158,7 +158,7 @@ export function EligibilityScreeningPage() {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-4 sm:p-6 lg:p-8">
         <h1 className="text-2xl font-bold mb-2">Eligibility Check</h1>
         <p className="text-sm text-muted-foreground mb-6">Answer a few questions to check eligibility</p>
         {result === null ? (
@@ -195,7 +195,7 @@ interface Question { id: string; text: string; type: 'yesno' | 'number' | 'selec
   imports: [CommonModule],
   template: \`
     <div class="min-h-screen bg-background flex items-center justify-center p-4">
-      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-4 sm:p-6 lg:p-8">
         <h1 class="text-2xl font-bold mb-2">Eligibility Check</h1>
         <p class="text-sm text-muted-foreground mb-6">Answer a few questions</p>
         <div *ngIf="!result">
@@ -356,7 +356,7 @@ function PatternOverview() {
     <section id="overview" className="space-y-6">
       <SectionHeader title="Pattern Overview" />
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
@@ -449,7 +449,7 @@ function PatternOverview() {
       <DocModule>
         <ModuleHeader title="When to Use This Pattern" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <CheckCircle size={18} className="text-green-600" />
@@ -545,7 +545,7 @@ function ScreeningLogic() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <h3 className="font-bold text-sm text-foreground mb-4">Example: Scholarship Eligibility</h3>
                 <div className="space-y-3 text-sm">
@@ -757,7 +757,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 1: Entry and Overview" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-primary text-white p-8">
+            <div className="bg-primary text-white p-4 sm:p-6 lg:p-8">
               <div className="max-w-3xl">
                 <div className="text-sm mb-2 text-blue-200">Check Your Eligibility</div>
                 <h2 className="text-3xl font-bold mb-4">PM Scholarship Scheme Eligibility Check</h2>
@@ -1013,7 +1013,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <NextStepCard
                   icon={<FileText size={24} className="text-blue-600" />}
                   title="Next Step: Complete Application"
@@ -1222,7 +1222,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <div className="font-bold text-foreground mb-4">Need Assistance?</div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <ContactOption
                     icon={<Phone size={20} className="text-blue-600" />}
                     title="Helpline"
@@ -1270,7 +1270,7 @@ function BranchingDecisions() {
       <DocModule>
         <ModuleHeader title="Decision Tree Example" />
         <ModuleContent>
-          <div className="bg-background border-2 border-border rounded-lg p-8">
+          <div className="bg-background border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="space-y-6">
               <DecisionNode
                 question="Are you an Indian citizen?"
@@ -1304,7 +1304,7 @@ function BranchingDecisions() {
       <DocModule>
         <ModuleHeader title="Branching Logic Best Practices" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <BestPracticeCard
               type="Do"
               icon={<ThumbsUp size={18} className="text-green-600" />}
@@ -1496,7 +1496,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="WCAG 2.1 AA Requirements" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AccessibilityBlock
               area="Keyboard Navigation"
               requirements={[
@@ -1555,7 +1555,7 @@ function AccessibilityGuidance() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <MultilingualItem
                 aspect="Questions and Options"
                 requirement="Fully translated with culturally appropriate terminology"
@@ -2003,7 +2003,7 @@ function OutcomePathBlock({ outcome, color, icon, description, userActions }: an
         <ul className="space-y-2">
           {userActions.map((action: string, idx: number) => (
             <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <ArrowRight size={14} className="mt-0.5 flex-shrink-0 text-gray-500" />
+              <ArrowRight size={14} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
               <span>{action}</span>
             </li>
           ))}
@@ -2233,7 +2233,7 @@ function ToneGuidance({ outcome, tone, dos, donts, example }: any) {
           <div className="text-sm text-muted-foreground italic">{tone}</div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-6 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
         <div>
           <div className="font-bold text-sm text-foreground mb-2 flex items-center gap-2">
             <ThumbsUp size={14} className="text-green-600" /> Do:

@@ -12,7 +12,7 @@ export default function Contributing() {
               <span>Contributing to UX4G</span>
             </div>
 
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Contributing Guidelines
             </h1>
 
@@ -83,7 +83,7 @@ function GettingStartedSection() {
           <p className="text-sm text-muted-foreground mb-4">
             Before making your first contribution, please ensure you:
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-start gap-2">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-blue-600" size={16} />
               <span className="text-sm text-muted-foreground">Read our <a href="/code-of-conduct" className="text-blue-600 hover:underline">Code of Conduct</a></span>
@@ -153,7 +153,7 @@ pnpm test"
         </div>
 
         {/* Prerequisites */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Required Tools</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -231,7 +231,7 @@ function TypesOfContributionsSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ContributionType
             icon={<Code className="text-blue-600" size={24} />}
             title="Code Contributions"
@@ -517,7 +517,7 @@ function WorkflowStep({ step, title, description, actions, duration }: any) {
             <h4 className="font-bold text-foreground text-lg">{title}</h4>
             <p className="text-sm text-muted-foreground">{description}</p>
           </div>
-          <div className="flex items-center gap-1 text-xs text-gray-500 flex-shrink-0 ml-4">
+          <div className="flex items-center gap-1 text-xs text-muted-foreground flex-shrink-0 ml-4">
             <Clock size={12} />
             {duration}
           </div>
@@ -548,7 +548,7 @@ function DevelopmentGuidelinesSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GuidelineCard
             title="Branch Naming"
             rules={[
@@ -599,7 +599,7 @@ function DevelopmentGuidelinesSection() {
             <Zap className="text-yellow-600" size={20} />
             Performance Guidelines
           </h3>
-          <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
             <div>
               <strong className="text-foreground">Do:</strong>
               <ul className="mt-2 space-y-1">
@@ -715,7 +715,7 @@ export function MyComponent({ title, onAction }: MyComponentProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">✅ Do's</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -773,7 +773,7 @@ function ComponentGuidelinesSection() {
         <div className="border-2 border-border rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Every Component Must Include</h3>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ComponentRequirement
               title="TypeScript Props Interface"
               description="Fully typed props with JSDoc comments"
@@ -809,7 +809,7 @@ function ComponentGuidelinesSection() {
 
         <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Component Checklist</h3>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <h4 className="font-semibold text-foreground mb-2 text-sm">Functionality</h4>
               <ul className="space-y-1 text-sm text-muted-foreground">
@@ -899,7 +899,7 @@ function DocumentationStandardsSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Writing Style</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -1060,7 +1060,7 @@ function ReviewProcessSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">What Reviewers Look For</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -1092,7 +1092,7 @@ function ReviewProcessSection() {
           <p className="text-sm text-muted-foreground mb-3">
             Your PR will be approved when:
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>✅ All tests pass</li>
@@ -1168,7 +1168,7 @@ function CommunityGuidelinesSection() {
             Key points:
           </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h4 className="font-semibold text-foreground mb-2 text-sm">✅ Expected Behavior</h4>
               <ul className="space-y-1 text-sm text-muted-foreground">
@@ -1309,14 +1309,14 @@ function RecognitionSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-8">
+        <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="font-bold text-foreground text-xl mb-4">Thank You! 🙏</h3>
           <p className="text-muted-foreground mb-6">
             We deeply appreciate every contribution, big or small. The UX4G Design System is built by the community,
             for the community. Your contributions help make government digital services better for millions of citizens.
           </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <RecognitionCard
               title="CONTRIBUTORS File"
               description="All contributors are listed in the project's CONTRIBUTORS.md file"
@@ -1371,7 +1371,7 @@ function RecognitionSection() {
           <p className="text-sm text-muted-foreground mb-4">
             If you have questions about contributing, please reach out:
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-card border border-border rounded-lg p-4">
               <div className="font-semibold text-foreground mb-2">General Questions</div>
               <a href="mailto:contributors@ux4g.gov.in" className="text-blue-600 hover:underline text-sm">
@@ -1408,7 +1408,7 @@ function SectionHeader({ title, description, icon }: any) {
     <div>
       <div className="flex items-center gap-3 mb-3">
         <div className="text-primary">{icon}</div>
-        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">{title}</h2>
       </div>
       <p className="text-lg text-muted-foreground">{description}</p>
     </div>

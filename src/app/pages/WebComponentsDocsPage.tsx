@@ -55,7 +55,7 @@ export default function WebComponentsDocsPage() {
           ))}
         </div>
 
-        <section className="mt-12 bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8">
+        <section className="mt-12 bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <h2 className="font-bold text-foreground text-xl mb-4">Quick Start — Any HTML Page</h2>
           <pre className="bg-card border-2 border-border rounded p-4 text-sm font-mono overflow-x-auto mb-4">
 {`<script type="module" src="https://unpkg.com/@ux4g/web-components"></script>

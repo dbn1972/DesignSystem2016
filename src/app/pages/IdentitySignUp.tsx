@@ -159,7 +159,7 @@ export default function IdentitySignUp() {
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-muted-foreground"
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                         >
                           {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                         </button>
@@ -169,7 +169,7 @@ export default function IdentitySignUp() {
                       {password && (
                         <div className="mt-3 bg-background border-2 border-border rounded-lg p-4">
                           <div className="text-sm font-bold text-foreground mb-3">Password Requirements:</div>
-                          <div className="grid grid-cols-2 gap-2">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                             {passwordRequirements.map((req, idx) => (
                               <div key={idx} className="flex items-center gap-2 text-sm">
                                 {req.met ? (
@@ -204,7 +204,7 @@ export default function IdentitySignUp() {
                         <button
                           type="button"
                           onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-muted-foreground"
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                         >
                           {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                         </button>

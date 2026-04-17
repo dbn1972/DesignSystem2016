@@ -391,7 +391,7 @@ function PaymentFailedScreen({
             <h3 className="font-bold text-foreground">Transaction Details</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <DetailItem label="Service" value={transactionDetails.serviceName} />
               <DetailItem label="Application ID" value={transactionDetails.applicationId} />
               <DetailItem label="Applicant Name" value={transactionDetails.applicantName} />
@@ -729,7 +729,7 @@ function SuccessAfterRetryScreen({
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-background border-2 border-border rounded p-4">
                 <div className="text-xs text-muted-foreground mb-1">Amount Paid</div>
                 <div className="font-bold text-foreground text-xl">₹{transactionDetails.amount.toLocaleString('en-IN')}</div>
@@ -859,7 +859,7 @@ function PaymentPendingScreen({
             <h3 className="font-bold text-foreground">Transaction Details</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <DetailItem label="Service" value={transactionDetails.serviceName} />
               <DetailItem label="Application ID" value={transactionDetails.applicationId} />
               <DetailItem label="Amount" value={`₹${transactionDetails.amount.toLocaleString('en-IN')}`} />
@@ -993,7 +993,7 @@ function ChooseAlternateMethodScreen({
         {/* Amount Display */}
         <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5 text-center">
           <div className="text-sm text-muted-foreground mb-1">Amount to Pay</div>
-          <div className="text-4xl font-bold text-foreground">₹{transactionDetails.amount.toLocaleString('en-IN')}</div>
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">₹{transactionDetails.amount.toLocaleString('en-IN')}</div>
           <div className="text-xs text-muted-foreground mt-2">{transactionDetails.serviceName}</div>
         </div>
 

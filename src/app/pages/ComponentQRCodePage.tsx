@@ -18,7 +18,7 @@ const QRCodePreview = ({ value, size = 200, level = 'M', color = '#000000', logo
     >
       <div className="flex flex-col items-center justify-center gap-2">
         <QrCode size={size * 0.6} className="text-muted-foreground" />
-        <span className="text-xs text-gray-500 text-center break-all max-w-full px-2">
+        <span className="text-xs text-muted-foreground text-center break-all max-w-full px-2">
           {value?.substring(0, 20)}...
         </span>
       </div>
@@ -33,7 +33,7 @@ function QRCodePlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <QRCodePreview value="https://ux4g.gov.in/verify" size={Number(size)} level={level} />
         </div>
@@ -339,7 +339,7 @@ function Example() {
                   Scanner mode activates device camera for QR code reading
                 </span>
               </div>
-              <div className="text-xs text-gray-500 italic">
+              <div className="text-xs text-muted-foreground italic">
                 Note: Scanner requires camera permissions and HTTPS
               </div>
             </div>
@@ -372,7 +372,7 @@ function Example() {
       <div className="mt-4 text-center">
         <p className="text-lg font-bold">₹500.00</p>
         <p className="text-sm text-muted-foreground">Application Fee</p>
-        <p className="text-xs text-gray-500 mt-2">Scan with any UPI app</p>
+        <p className="text-xs text-muted-foreground mt-2">Scan with any UPI app</p>
       </div>
     </div>
   );
@@ -394,7 +394,7 @@ function Example() {
               <div className="mt-4 text-center">
                 <p className="text-lg font-bold">₹500.00</p>
                 <p className="text-sm text-muted-foreground">Application Fee</p>
-                <p className="text-xs text-gray-500 mt-2">Scan with any UPI app</p>
+                <p className="text-xs text-muted-foreground mt-2">Scan with any UPI app</p>
               </div>
             </div>
           ),
@@ -439,7 +439,7 @@ function Example() {
       <div className="space-y-2 text-sm">
         <p><span className="font-medium">Certificate ID:</span> BC-2024-MH-123456</p>
         <p><span className="font-medium">Registration:</span> MH/BMC/2024/123456</p>
-        <p className="text-xs text-gray-500 italic mt-3">
+        <p className="text-xs text-muted-foreground italic mt-3">
           Scan to verify authenticity on certificates.gov.in
         </p>
       </div>
@@ -468,7 +468,7 @@ function Example() {
               <div className="space-y-2 text-sm">
                 <p><span className="font-medium">Certificate ID:</span> BC-2024-MH-123456</p>
                 <p><span className="font-medium">Registration:</span> MH/BMC/2024/123456</p>
-                <p className="text-xs text-gray-500 italic mt-3">
+                <p className="text-xs text-muted-foreground italic mt-3">
                   Scan to verify authenticity on certificates.gov.in
                 </p>
               </div>

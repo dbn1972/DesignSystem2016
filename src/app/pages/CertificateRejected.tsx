@@ -36,7 +36,7 @@ export default function CertificateRejected() {
               <div className="text-2xl font-bold text-foreground font-mono">{rejectionData.refNumber}</div>
             </div>
             <div className="p-8">
-              <div className="grid grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <div className="text-xs text-muted-foreground mb-1">Applicant Name</div>
                   <div className="text-sm font-bold text-foreground">{rejectionData.applicantName}</div>

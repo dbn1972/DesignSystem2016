@@ -21,7 +21,7 @@ export default function DataInputPatterns() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-foreground">Data Input Beyond Forms</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Data Input Beyond Forms</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -356,7 +356,7 @@ export default function DataInputPatterns() {
         {/* Design Principles */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-foreground mb-6">Design Principles</h2>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-card border-2 border-border rounded-lg p-6">
               <h3 className="font-bold text-foreground mb-3">1. Progressive Enhancement</h3>
               <p className="text-sm text-muted-foreground">
@@ -389,9 +389,9 @@ export default function DataInputPatterns() {
         </section>
 
         {/* Implementation Notes */}
-        <section className="bg-cyan-50 border-2 border-cyan-200 rounded-lg p-8">
+        <section className="bg-cyan-50 border-2 border-cyan-200 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="font-bold text-foreground mb-4">Implementation Considerations</h3>
-          <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
             <div>
               <h4 className="font-bold text-foreground mb-2">Backend Requirements</h4>
               <ul className="space-y-1 text-xs">

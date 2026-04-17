@@ -13,14 +13,14 @@ export default function MigrationGuides() {
             </div>
             <div>
               <div className="text-sm font-semibold text-saffron-700 uppercase tracking-wide">Resources</div>
-              <h1 className="text-4xl font-bold text-foreground">Migration Guides</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Migration Guides</h1>
             </div>
           </div>
           <p className="text-xl text-muted-foreground mt-4 max-w-3xl">
             Comprehensive guides for migrating from existing UI libraries to the UX4G Design System
           </p>
           
-          <div className="mt-8 grid grid-cols-4 gap-6">
+          <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
             <MigrationStat label="Library Guides" value="6" />
             <MigrationStat label="Avg. Migration Time" value="2-4 weeks" />
             <MigrationStat label="Component Coverage" value="73+" />
@@ -412,7 +412,7 @@ export default function MigrationGuides() {
 
         {/* Get Support */}
         <section id="support" className="mb-12">
-          <div className="bg-gradient-to-br from-saffron-50 to-green-50 border-2 border-saffron-200 rounded-lg p-8">
+          <div className="bg-gradient-to-br from-saffron-50 to-green-50 border-2 border-saffron-200 rounded-lg p-4 sm:p-6 lg:p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Need Migration Support?</h2>
             <p className="text-muted-foreground mb-6">
               Our team is here to help you successfully migrate to UX4G. We offer various support channels for teams at different stages of adoption.
@@ -523,7 +523,7 @@ function StrategyCard({ title, recommended, timeline, effort, description, pros,
 
       <p className="text-sm text-muted-foreground mb-4">{description}</p>
 
-      <div className="grid grid-cols-2 gap-4 mb-4 pb-4 border-b border-border">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 pb-4 border-b border-border">
         <div>
           <div className="text-xs text-muted-foreground">Timeline</div>
           <div className="font-semibold text-foreground">{timeline}</div>
@@ -608,7 +608,7 @@ function LibraryMigrationCard({
       <div className="p-6">
         <p className="text-muted-foreground mb-4">{description}</p>
 
-        <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 pb-6 border-b border-border">
           <div>
             <div className="text-xs text-muted-foreground mb-1">Time Estimate</div>
             <div className="font-semibold text-foreground">{timeEstimate}</div>

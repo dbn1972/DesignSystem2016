@@ -49,7 +49,7 @@ export default function InstallationGuide() {
                 </span>
               </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
                 <HeroStat label="Frameworks" value="React, Angular, Web" />
                 <HeroStat label="Best path" value="NPM install" />
                 <HeroStat label="Use cases" value="New builds, migration" />
@@ -643,7 +643,7 @@ export class AppModule { }`}
             <Info className="text-primary" size={20} />
             Angular Version Compatibility
           </h3>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <div className="font-semibold text-foreground mb-2">Supported Versions:</div>
               <ul className="space-y-1 text-muted-foreground">

@@ -145,7 +145,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -304,7 +304,7 @@ function FlowDiagram() {
         <h2 className="text-2xl font-bold text-foreground">Consent Flow Diagram</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
           {/* Flow Steps */}
           <FlowStep 
@@ -343,7 +343,7 @@ function FlowDiagram() {
             rightPath="Decline Consent"
           />
           
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Grant Path */}
             <div className="space-y-4">
               <FlowStep 
@@ -479,7 +479,7 @@ function FlowBranch({ condition, leftPath, rightPath }: { condition: string; lef
         <AlertCircle size={20} className="text-orange-600 flex-shrink-0 mt-1" />
         <div className="flex-1">
           <h3 className="font-bold text-orange-800 mb-3">{condition}</h3>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-card border border-green-300 rounded p-3">
               <div className="text-xs font-bold text-green-700 mb-1">GRANT CONSENT</div>
               <div className="text-sm text-muted-foreground">{leftPath}</div>
@@ -505,7 +505,7 @@ function ExampleScreens() {
         <p className="text-muted-foreground mt-2">Representative consent capture screens for different scenarios</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Simple Consent */}
         <ExampleScreen
           title="Simple Data Collection Consent"
@@ -901,7 +901,7 @@ function ContentGuidance() {
       </div>
 
       {/* Language Guidelines */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-300 px-6 py-4">
             <h3 className="font-bold text-green-800 flex items-center gap-2">
@@ -995,7 +995,7 @@ function ConsentStates() {
         <p className="text-muted-foreground mt-2">Different consent states and how to handle them</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Not Requested */}
         <StateCard
@@ -1144,7 +1144,7 @@ function StateCard({ title, state, color, icon, actions }: {
 function TransitionRule({ from, to, trigger }: { from: string; to: string; trigger: string }) {
   return (
     <div className="flex items-center gap-3 p-3 bg-background border border-border rounded">
-      <div className="flex-1 grid grid-cols-3 gap-3 items-center">
+      <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 items-center">
         <div className="text-sm font-bold text-muted-foreground">{from}</div>
         <div className="flex items-center justify-center">
           <ArrowRight size={16} className="text-muted-foreground" />
@@ -1166,7 +1166,7 @@ function AccessibilitySection() {
         <p className="text-muted-foreground mt-2">WCAG 2.1 Level AA compliance for consent patterns</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Keyboard Navigation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -1270,7 +1270,7 @@ function ImplementationSection() {
         </div>
       </Link>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Frontend Implementation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -1316,7 +1316,7 @@ function ImplementationSection() {
             </h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3 text-sm">
                 <ImplementationItem text="Encrypt consent records at rest and in transit" />
                 <ImplementationItem text="Log all consent changes for audit trail" />
@@ -1659,7 +1659,7 @@ function GovernanceSection() {
         <p className="text-muted-foreground mt-2">Legal requirements and quality assurance</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Conformance Status */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
@@ -1707,7 +1707,7 @@ function GovernanceSection() {
             <h3 className="font-bold text-foreground">Pre-Launch Checklist</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <ChecklistItem text="Plain language review completed" />
                 <ChecklistItem text="Legal team approval obtained" />

@@ -12,7 +12,7 @@ export default function Adoption() {
               <span>Adoption & Onboarding</span>
             </div>
             
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Start Using UX4G
             </h1>
             
@@ -61,7 +61,7 @@ function WhyAdoptSection() {
         icon={<Zap size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         <BenefitCard
           icon={<Zap size={24} />}
           title="Faster Development"
@@ -119,15 +119,15 @@ function WhyAdoptSection() {
         <h3 className="font-bold text-foreground mb-3">Time to Value</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
           <div>
-            <div className="text-4xl font-bold text-primary mb-2">5 min</div>
+            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">5 min</div>
             <div className="text-sm text-muted-foreground">Install and start building</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-primary mb-2">1 day</div>
+            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">1 day</div>
             <div className="text-sm text-muted-foreground">Designer onboarded</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-primary mb-2">3 days</div>
+            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">3 days</div>
             <div className="text-sm text-muted-foreground">Developer productive</div>
           </div>
         </div>
@@ -257,7 +257,7 @@ function ChecklistSection({ title, items }: any) {
             <input type="checkbox" className="w-5 h-5 border-2 border-border rounded mt-0.5 flex-shrink-0" />
             <div className="flex-1">
               <div className="text-sm text-foreground">{item.task}</div>
-              <div className="text-xs text-gray-500 mt-0.5">Role: {item.role}</div>
+              <div className="text-xs text-muted-foreground mt-0.5">Role: {item.role}</div>
             </div>
           </div>
         ))}
@@ -440,7 +440,7 @@ function MigrationStep({ step, title, duration, description, actions }: any) {
             <h4 className="font-bold text-foreground text-lg">{title}</h4>
             <p className="text-sm text-muted-foreground">{description}</p>
           </div>
-          <div className="text-xs text-gray-500 flex-shrink-0 ml-4">{duration}</div>
+          <div className="text-xs text-muted-foreground flex-shrink-0 ml-4">{duration}</div>
         </div>
         
         <div className="bg-background border border-border rounded-lg p-4 mt-3">
@@ -468,7 +468,7 @@ function TeamRolesSection() {
         icon={<Users size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         <TeamRole
           role="Product Owner / Project Manager"
           responsibilities={[
@@ -633,7 +633,7 @@ function DesignOnboardingSection() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ResourceCard
             title="Essential Design Resources"
             resources={[
@@ -699,7 +699,7 @@ function DeveloperOnboardingSection() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ResourceCard
             title="Essential Developer Resources"
             resources={[
@@ -748,7 +748,7 @@ function AccessibilityOnboardingSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Accessibility Testing Checklist</h3>
             <div className="space-y-3">
@@ -818,7 +818,7 @@ function ToolItem({ tool, type, description }: any) {
     <div className="bg-background border border-border rounded p-3">
       <div className="flex items-start justify-between mb-1">
         <div className="font-semibold text-foreground text-sm">{tool}</div>
-        <div className="text-xs text-gray-500">{type}</div>
+        <div className="text-xs text-muted-foreground">{type}</div>
       </div>
       <div className="text-xs text-muted-foreground">{description}</div>
     </div>
@@ -857,7 +857,7 @@ function VendorOnboardingSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Vendor Onboarding Steps</h3>
             <div className="space-y-4">
@@ -1023,7 +1023,7 @@ function ConformanceExpectationsSection() {
             <AlertCircle className="text-red-600" size={20} />
             Non-Conformance Consequences
           </h3>
-          <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
             <div>
               <h4 className="font-semibold text-foreground mb-2">For Departments:</h4>
               <ul className="space-y-1">
@@ -1100,7 +1100,7 @@ function SupportChannelsSection() {
         icon={<HelpCircle size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-3 gap-6">
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <SupportChannel
           icon={<BookOpen size={28} />}
           title="Documentation"
@@ -1243,7 +1243,7 @@ function ReferenceExamplesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ReferenceService
             name="Passport Application Portal"
             department="Ministry of External Affairs"
@@ -1360,7 +1360,7 @@ function ReferenceService({ name, department, url, highlights, conformance, stat
           ))}
         </ul>
         
-        <div className="pt-4 border-t border-border grid grid-cols-3 gap-4 text-xs text-muted-foreground mb-4">
+        <div className="pt-4 border-t border-border grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs text-muted-foreground mb-4">
           <div>
             <div className="font-semibold text-foreground">{stats.pages}</div>
             <div>Pages</div>
@@ -1390,7 +1390,7 @@ function SectionHeader({ title, description, icon }: any) {
     <div>
       <div className="flex items-center gap-3 mb-3">
         <div className="text-primary">{icon}</div>
-        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">{title}</h2>
       </div>
       <p className="text-lg text-muted-foreground">{description}</p>
     </div>
@@ -1420,7 +1420,7 @@ function OnboardingPath({ pathTitle, steps }: any) {
                     <h4 className="font-bold text-foreground">{step.title}</h4>
                     <p className="text-sm text-muted-foreground">{step.description}</p>
                   </div>
-                  <div className="text-xs text-gray-500 flex-shrink-0 ml-4">{step.duration}</div>
+                  <div className="text-xs text-muted-foreground flex-shrink-0 ml-4">{step.duration}</div>
                 </div>
                 
                 <div className="flex gap-2 flex-wrap mt-2">

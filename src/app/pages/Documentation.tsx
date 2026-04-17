@@ -233,7 +233,7 @@ export default function Documentation() {
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
               <Book size={40} className="text-[#FF9933]" />
-              <h1 className="text-4xl lg:text-5xl font-bold">Documentation Hub</h1>
+              <h1 className="text-4xl lg:text-3xl sm:text-4xl lg:text-5xl font-bold">Documentation Hub</h1>
             </div>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
               Complete documentation for the UX4G Design System - Everything you need to build

@@ -56,7 +56,7 @@ export default function AngularDocsPage() {
           ))}
         </div>
 
-        <section className="mt-12 bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg p-8">
+        <section className="mt-12 bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <h2 className="font-bold text-foreground text-xl mb-4">Quick Install</h2>
           <pre className="bg-card border-2 border-border rounded p-4 text-sm font-mono overflow-x-auto mb-4">
 {`npm install @ux4g/angular-core @ux4g/tokens @ux4g/styles`}

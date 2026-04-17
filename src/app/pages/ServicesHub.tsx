@@ -95,7 +95,7 @@ export default function ServicesHub() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Services</p>
-                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Services</h1>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight sm:text-5xl">Services</h1>
                 </div>
               </div>
 
@@ -146,7 +146,7 @@ export default function ServicesHub() {
               <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">6 entry points</div>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-3">
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
               <Metric value="1" label="featured blueprint" />
               <Metric value="3" label="supporting routes" />
               <Metric value="4" label="core journey areas" />

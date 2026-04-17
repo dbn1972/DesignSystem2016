@@ -21,7 +21,7 @@ export default function AadhaarVideoKYCPattern() {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Identity Verification Pattern</div>
-                  <h1 className="text-4xl font-bold text-foreground">Aadhaar-based Video KYC Pattern</h1>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Aadhaar-based Video KYC Pattern</h1>
                 </div>
               </div>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -66,14 +66,14 @@ export default function AadhaarVideoKYCPattern() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Pattern Overview
               </h2>
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <p className="text-muted-foreground mb-6">
                   Aadhaar-based Video KYC combines UIDAI's Aadhaar authentication (OTP or biometric) with 
                   video-based identity verification. This creates a two-factor verification process: 
                   (1) Aadhaar authentication proves the user possesses the Aadhaar credentials, and 
                   (2) video verification confirms the person in the video matches the Aadhaar holder.
                 </p>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <CheckCircle size={20} className="text-green-600" />
@@ -309,8 +309,8 @@ export default function AadhaarVideoKYCPattern() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Accessibility Considerations
               </h2>
-              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
-                <div className="grid grid-cols-2 gap-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 sm:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">Alternative Authentication</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -468,7 +468,7 @@ export function AadhaarVideoKYC() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
+    <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
       {step === 'aadhaar' && (
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-6">
@@ -558,7 +558,7 @@ export function AadhaarVideoKYC() {
           <h2 className="text-2xl font-bold">eKYC Data Retrieved</h2>
           
           <div className="bg-card border-2 border-border rounded-lg p-6">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <img 
                   src={\`data:image/jpeg;base64,\${ekycData.photo}\`} 

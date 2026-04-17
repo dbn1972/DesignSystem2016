@@ -138,7 +138,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -218,7 +218,7 @@ function FlowDiagram() {
         <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
           <FlowStep 
             number={1}
@@ -340,7 +340,7 @@ function ExampleScreens() {
         <h2 className="text-2xl font-bold text-foreground">Example Screens</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Active Form */}
         <ScreenExample
           title="Active Form in Progress"
@@ -674,7 +674,7 @@ function TimeoutConfigSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Activity Detection</h3>
@@ -760,7 +760,7 @@ function SaveProgressSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Auto-Save Implementation</h3>
@@ -863,7 +863,7 @@ function AccessibilitySection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Screen Reader Support</h3>
@@ -991,7 +991,7 @@ function ImplementationSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Warning Modal</h3>
@@ -1167,7 +1167,7 @@ export function SessionTimeoutPage({ timeoutMs = 1800000, warningMs = 300000, on
           </div>
         </div>
         <div className="text-center py-6">
-          <div className="text-4xl font-bold text-foreground" aria-live="polite">{mins}:{String(secs).padStart(2, '0')}</div>
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground" aria-live="polite">{mins}:{String(secs).padStart(2, '0')}</div>
           <p className="text-sm text-muted-foreground mt-2">Time remaining</p>
         </div>
         <div className="flex gap-3">
@@ -1192,7 +1192,7 @@ import { CommonModule } from '@angular/common';
       <div class="bg-card border border-border rounded-2xl p-8 max-w-md w-full">
         <h2 id="timeout-title" class="text-lg font-bold text-foreground mb-4">Session Expiring Soon</h2>
         <div class="text-center py-6">
-          <div class="text-4xl font-bold text-foreground" aria-live="polite">{{ formatTime() }}</div>
+          <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground" aria-live="polite">{{ formatTime() }}</div>
           <p class="text-sm text-muted-foreground mt-2">Time remaining</p>
         </div>
         <div class="flex gap-3">
@@ -1431,7 +1431,7 @@ function GovernanceSection() {
           <Info size={20} className="text-yellow-600" />
           Implementation Checklist
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-foreground mb-2">Before Launch:</p>
             <ul className="space-y-1 text-muted-foreground ml-4">
@@ -1462,7 +1462,7 @@ function GovernanceSection() {
           <HelpCircle size={20} className="text-blue-600" />
           Support & Escalation
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-foreground mb-2">For Technical Issues:</p>
             <ul className="space-y-1 text-muted-foreground ml-4">

@@ -40,7 +40,7 @@ const FileUploadPreview = () => {
         <p className="text-muted-foreground mb-2 font-semibold">
           Drag and drop files here, or click to browse
         </p>
-        <p className="text-sm text-gray-500 mb-4">
+        <p className="text-sm text-muted-foreground mb-4">
           Supports PDF, JPG, PNG up to 10MB
         </p>
         <label className="inline-block px-6 py-3 bg-[#005196] text-white rounded-lg cursor-pointer hover:bg-[#004080] transition-colors font-semibold">
@@ -62,7 +62,7 @@ const FileUploadPreview = () => {
               <File size={20} className="text-muted-foreground" />
               <div className="flex-1">
                 <p className="text-sm font-semibold text-foreground">{file.name}</p>
-                <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
+                <p className="text-xs text-muted-foreground">{formatFileSize(file.size)}</p>
               </div>
               <Check size={20} className="text-[#138808]" />
               <button
@@ -85,7 +85,7 @@ function FileUploadPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <FileUploadPreview />
         </div>
@@ -472,7 +472,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
         <p className="text-muted-foreground mb-2 font-semibold">
           Drag and drop files here, or click to browse
         </p>
-        <p className="text-sm text-gray-500 mb-4">
+        <p className="text-sm text-muted-foreground mb-4">
           {accept ? \`Supports \${accept}\` : 'All file types accepted'} up to {formatFileSize(maxSize)}
         </p>
         <input
@@ -507,7 +507,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
               <File size={20} className="text-muted-foreground" />
               <div className="flex-1">
                 <p className="text-sm font-semibold text-foreground">{file.name}</p>
-                <p className="text-xs text-gray-500">{formatFileSize(file.size)}</p>
+                <p className="text-xs text-muted-foreground">{formatFileSize(file.size)}</p>
               </div>
               <Check size={20} className="text-[#138808]" />
               <button
@@ -569,7 +569,7 @@ interface UploadedFile {
         (click)="fileInput.click()">
         <div class="text-center">
           <p class="text-muted-foreground mb-2 font-semibold">Drag and drop files here</p>
-          <p class="text-sm text-gray-500 mb-4">or click to browse</p>
+          <p class="text-sm text-muted-foreground mb-4">or click to browse</p>
           <input
             #fileInput
             type="file"
@@ -588,7 +588,7 @@ interface UploadedFile {
           <span>📄</span>
           <div class="flex-1">
             <p class="text-sm font-semibold">{{ file.name }}</p>
-            <p class="text-xs text-gray-500">{{ formatFileSize(file.size) }}</p>
+            <p class="text-xs text-muted-foreground">{{ formatFileSize(file.size) }}</p>
           </div>
           <button (click)="removeFile(i)" class="p-1 hover:bg-gray-200 rounded">×</button>
         </div>

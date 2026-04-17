@@ -116,7 +116,7 @@ export default function GeneralContactPattern() {
                   <strong>Expected response time:</strong> 5-7 business days
                 </div>
               </div>
-              <button onClick={() => setShowHelp(false)} className="text-gray-500 hover:text-muted-foreground">
+              <button onClick={() => setShowHelp(false)} className="text-muted-foreground hover:text-muted-foreground">
                 <X size={20} />
               </button>
             </div>
@@ -140,7 +140,7 @@ export default function GeneralContactPattern() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               <IntentOption
                 title="General Information"
                 description="Basic questions about services, eligibility, or procedures"
@@ -219,7 +219,7 @@ export default function GeneralContactPattern() {
                   placeholder="Enter your full name"
                 />
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <FormField
                     label="Email Address"
                     id="email"
@@ -308,7 +308,7 @@ export default function GeneralContactPattern() {
                       {errors.message}
                     </p>
                   )}
-                  <div className="mt-1 text-xs text-gray-500">
+                  <div className="mt-1 text-xs text-muted-foreground">
                     {formData.message.length} characters
                   </div>
                 </div>
@@ -483,7 +483,7 @@ function ProgressStep({ number, label, active, completed }: {
       }`}>
         {completed ? <CheckCircle size={20} /> : number}
       </div>
-      <span className={`text-sm font-medium ${active ? 'text-foreground' : 'text-gray-500'}`}>
+      <span className={`text-sm font-medium ${active ? 'text-foreground' : 'text-muted-foreground'}`}>
         {label}
       </span>
     </div>

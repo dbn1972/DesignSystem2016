@@ -167,16 +167,16 @@ export default function CertificateHelp() {
             ).length === 0 && (
               <div className="text-center py-12">
                 <p className="text-muted-foreground">No results found for "{searchQuery}"</p>
-                <p className="text-sm text-gray-500 mt-2">Try different keywords or contact support</p>
+                <p className="text-sm text-muted-foreground mt-2">Try different keywords or contact support</p>
               </div>
             )}
           </div>
         </div>
 
         {/* Quick Links */}
-        <div className="mt-12 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
+        <div className="mt-12 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="font-bold text-foreground mb-6">Quick Links</h3>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <QuickLink to="/reference-service/certificate/eligibility" text="Check Eligibility" />
             <QuickLink to="/reference-service/demo" text="Service Information" />
             <QuickLink to="/reference-service/certificate/status-tracker" text="Track Application Status" />

@@ -15,7 +15,7 @@ export default function UX4GStarterKit() {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Production-Ready</div>
-                  <h1 className="text-4xl font-bold text-foreground">UX4G Starter Kit</h1>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">UX4G Starter Kit</h1>
                 </div>
               </div>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -126,7 +126,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">What's the UX4G Starter Kit?</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-border rounded-lg p-8">
+      <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <p className="text-muted-foreground mb-6">
           The UX4G Starter Kit is a production-ready foundation for building government digital services. 
           Instead of starting from scratch, you get battle-tested components, patterns, and pages extracted 
@@ -154,7 +154,7 @@ function OverviewSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <BenefitCard
           title="Build Faster"
           items={[
@@ -253,7 +253,7 @@ function ComponentsSection() {
         follow UX4G design standards and are accessibility-tested.
       </p>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ComponentCategory
           title="Form Components"
           components={[
@@ -663,7 +663,7 @@ function UsageSection() {
         <h2 className="text-2xl font-bold text-foreground">Getting Started</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-8">
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <h3 className="font-bold text-foreground mb-4 text-lg">Quick Start Guide</h3>
         <div className="space-y-4">
           <Step
@@ -694,7 +694,7 @@ function UsageSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ExampleCard
           title="Build a New Form Page"
           steps={[

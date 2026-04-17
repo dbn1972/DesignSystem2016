@@ -159,7 +159,7 @@ function OverviewSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -242,7 +242,7 @@ function ApprovedUsesSection() {
         <h2 className="text-2xl font-bold text-foreground">Approved Use Cases</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Legally Authorized Uses</h3>
@@ -333,7 +333,7 @@ function FlowDiagram() {
         <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
           <FlowStep 
             number={1}
@@ -423,7 +423,7 @@ function ExampleScreens() {
         <h2 className="text-2xl font-bold text-foreground">Example Screens</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Explanation Screen */}
         <ScreenExample
           title="Explanation & Trust Screen"
@@ -481,7 +481,7 @@ function ExampleScreens() {
                 </div>
               </label>
             </div>
-            <button className="w-full px-4 py-3 bg-gray-300 text-gray-500 font-bold rounded cursor-not-allowed">
+            <button className="w-full px-4 py-3 bg-gray-300 text-muted-foreground font-bold rounded cursor-not-allowed">
               Continue (consent required)
             </button>
           </div>
@@ -731,7 +731,7 @@ function ConsentPrivacySection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Data Handling Rules</h3>
@@ -850,7 +850,7 @@ function FallbackSection() {
           <h3 className="font-bold text-foreground">Assisted Recovery for Common Issues</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
               <p className="font-bold text-foreground mb-2">Mobile Not Linked to Aadhaar</p>
               <ul className="space-y-1 text-muted-foreground ml-4">
@@ -899,7 +899,7 @@ function AccessibilitySection() {
         <h2 className="text-2xl font-bold text-foreground">Accessibility Guidelines</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Screen Reader Support</h3>
@@ -1015,7 +1015,7 @@ function ImplementationSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Aadhaar Validation</h3>
@@ -1210,7 +1210,7 @@ export function AadhaarAuthenticationPage() {
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">Authentication Mode</label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <button onClick={() => setMode('otp')} className={\`p-3 rounded-xl border-2 text-center \${mode === 'otp' ? 'border-primary bg-primary/5' : 'border-border'}\`}>
                   <div className="font-semibold text-sm">OTP</div>
                   <div className="text-xs text-muted-foreground">Via registered mobile</div>
@@ -1286,7 +1286,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
             <label class="block text-sm font-medium mb-1">Aadhaar Number</label>
             <input [formControl]="aadhaarCtrl" placeholder="XXXX XXXX XXXX" maxlength="14" class="w-full px-4 py-3 border border-border rounded-lg text-lg tracking-wider font-mono" />
           </div>
-          <div class="grid grid-cols-2 gap-3">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <button (click)="mode='otp'" [class]="'p-3 rounded-xl border-2 text-center '+(mode==='otp'?'border-primary bg-primary/5':'border-border')"><div class="font-semibold text-sm">OTP</div></button>
             <button (click)="mode='biometric'" [class]="'p-3 rounded-xl border-2 text-center '+(mode==='biometric'?'border-primary bg-primary/5':'border-border')"><div class="font-semibold text-sm">Biometric</div></button>
           </div>
@@ -1529,7 +1529,7 @@ function GovernanceSection() {
           <AlertCircle size={20} className="text-red-600" />
           Legal Compliance Checklist (Mandatory Before Implementation)
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-foreground mb-2">Legal Requirements</p>
             <ul className="space-y-1 text-muted-foreground ml-4">
@@ -1559,7 +1559,7 @@ function GovernanceSection() {
           <Info size={20} className="text-yellow-600" />
           Support & Escalation
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-foreground mb-2">For Legal/Compliance Questions:</p>
             <ul className="space-y-1 text-muted-foreground ml-4">

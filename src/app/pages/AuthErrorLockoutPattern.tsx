@@ -140,7 +140,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -371,7 +371,7 @@ function FlowDiagram() {
         <h2 className="text-2xl font-bold text-foreground">Error Handling Flow Diagram</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
           <FlowStep 
             number={1}
@@ -499,7 +499,7 @@ function ExampleScreens() {
         <h2 className="text-2xl font-bold text-foreground">Example Screens</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Wrong Password */}
         <ScreenExample
           title="Wrong Password (1st Attempt)"
@@ -642,7 +642,7 @@ function ExampleScreens() {
             </div>
             <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded p-4 text-center">
               <p className="text-sm text-muted-foreground mb-2">You can try again in:</p>
-              <p className="text-4xl font-bold text-primary">12:34</p>
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">12:34</p>
               <p className="text-xs text-muted-foreground mt-1">minutes:seconds</p>
             </div>
             <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-300 rounded p-3 text-sm text-muted-foreground">
@@ -885,7 +885,7 @@ function LockoutPolicySection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Progressive Delays</h3>
@@ -1001,7 +1001,7 @@ function RecoveryPathsSection() {
           <Info size={20} className="text-yellow-600" />
           Always Provide Escalation Path
         </h3>
-        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
             <p className="font-bold text-foreground mb-1">Never Dead-End Users</p>
             <p>Every error state must have at least one recovery option. Even if account is disabled, provide support contact.</p>
@@ -1033,7 +1033,7 @@ function AccessibilitySection() {
         <h2 className="text-2xl font-bold text-foreground">Accessibility Guidelines</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Error Communication</h3>
@@ -1160,7 +1160,7 @@ function ImplementationSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Failure Tracking</h3>
@@ -1648,7 +1648,7 @@ function GovernanceSection() {
           <Info size={20} className="text-yellow-600" />
           Implementation Checklist
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-foreground mb-2">Before Launch:</p>
             <ul className="space-y-1 text-muted-foreground ml-4">
@@ -1681,7 +1681,7 @@ function GovernanceSection() {
           <HelpCircle size={20} className="text-blue-600" />
           Support & Escalation
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-foreground mb-2">For Technical Implementation:</p>
             <ul className="space-y-1 text-muted-foreground ml-4">

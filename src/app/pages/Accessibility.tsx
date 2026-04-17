@@ -10,7 +10,7 @@ export default function Accessibility() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-6">
             <div className="text-sm uppercase tracking-wide text-green-200 mb-2">{copy.hero.eyebrow}</div>
-            <h1 className="text-5xl font-bold mb-4">{copy.hero.title}</h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">{copy.hero.title}</h1>
             <p className="text-xl text-green-100 max-w-3xl mb-6">
               {copy.hero.description}
             </p>
@@ -61,7 +61,7 @@ function AccessibilityPrinciples() {
         description={copy.description}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-8">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
         <PrincipleCard
           icon={<Eye size={32} />}
           title={copy.cards.perceivable.title}
@@ -158,7 +158,7 @@ function ColorContrast() {
         </div>
 
         {/* Color Blindness Considerations */}
-        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="text-xl font-bold text-foreground mb-6">{copy.colorBlindnessTitle}</h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
@@ -168,7 +168,7 @@ function ColorContrast() {
               <div className="flex gap-2">
                 <div className="w-8 h-8 bg-red-500 rounded"></div>
                 <div className="w-8 h-8 bg-green-500 rounded"></div>
-                <div className="text-xs text-gray-500 self-center">{copy.mayAppearSimilar}</div>
+                <div className="text-xs text-muted-foreground self-center">{copy.mayAppearSimilar}</div>
               </div>
             </div>
 
@@ -178,7 +178,7 @@ function ColorContrast() {
               <div className="flex gap-2">
                 <div className="w-8 h-8 bg-red-500 rounded"></div>
                 <div className="w-8 h-8 bg-background0 rounded"></div>
-                <div className="text-xs text-gray-500 self-center">{copy.redAppearsMuted}</div>
+                <div className="text-xs text-muted-foreground self-center">{copy.redAppearsMuted}</div>
               </div>
             </div>
 
@@ -188,7 +188,7 @@ function ColorContrast() {
               <div className="flex gap-2">
                 <div className="w-8 h-8 bg-blue-500 rounded"></div>
                 <div className="w-8 h-8 bg-yellow-500 rounded"></div>
-                <div className="text-xs text-gray-500 self-center">{copy.mayAppearSimilar}</div>
+                <div className="text-xs text-muted-foreground self-center">{copy.mayAppearSimilar}</div>
               </div>
             </div>
           </div>
@@ -219,7 +219,7 @@ function ColorContrast() {
         {/* Contrast Testing Tools */}
         <div className="border-2 border-border rounded-lg p-6">
           <h3 className="text-xl font-bold text-foreground mb-4">{copy.testingContrast}</h3>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h4 className="font-semibold text-foreground mb-3">{copy.recommendedTools}</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
@@ -268,10 +268,10 @@ function FocusVisibility() {
 
       <div className="mt-8 space-y-8">
         {/* Focus Requirements */}
-        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8">
+        <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="text-xl font-bold text-foreground mb-6">{copy.requirementsTitle}</h3>
           
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-4">
               <div className="bg-card border-2 border-blue-300 rounded-lg p-4">
                 <h4 className="font-semibold text-foreground mb-2">{copy.minimumRequirements}</h4>
@@ -384,7 +384,7 @@ function FocusVisibility() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 rounded-lg p-4">
                 <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                   <Check className="text-[#138808]" size={20} />
@@ -456,7 +456,7 @@ function KeyboardInteraction() {
         </div>
 
         {/* Component-Specific Patterns */}
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <KeyboardPattern
             component={copy.patterns[0].component}
             keys={[
@@ -590,7 +590,7 @@ function ScreenReader() {
         </div>
 
         {/* Screen Reader Text */}
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">{copy.visuallyHiddenTitle}</h3>
             <p className="text-sm text-muted-foreground mb-4">
@@ -688,7 +688,7 @@ function SemanticStructure() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Heading Hierarchy */}
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">{copy.headingHierarchy}</h3>
@@ -782,7 +782,7 @@ function FormAccessibility() {
           </div>
           
           <div className="p-8">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
                   title: copy.groups[0].title,
@@ -818,7 +818,7 @@ function FormAccessibility() {
         </div>
 
         {/* Example Accessible Form */}
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">{copy.exampleTitle}</h3>
             <form className="space-y-4">
@@ -919,7 +919,7 @@ function ErrorHandling() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">{copy.requirementsTitle}</h3>
             <ul className="space-y-3 text-sm">
@@ -1088,7 +1088,7 @@ function TableAccessibility() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">{copy.requirementsTitle}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -1161,7 +1161,7 @@ function ModalAccessibility() {
           </div>
           
           <div className="p-8">
-            <div className="grid grid-cols-2 gap-8 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               {[
                 {
                   title: copy.groups[0].title,
@@ -1229,7 +1229,7 @@ function StatusCommunication() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="text-xl font-bold text-foreground mb-4">{copy.liveRegionsTitle}</h3>
             <div className="space-y-4">
@@ -1313,7 +1313,7 @@ function KnownLimitations() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <div className="flex items-start gap-4 mb-6">
             <Info className="text-orange-600 flex-shrink-0 mt-1" size={32} />
             <div>
@@ -1396,10 +1396,10 @@ function ReviewChecklist() {
       />
 
       <div className="mt-8 space-y-8">
-        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-8">
+        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="text-2xl font-bold text-foreground mb-6">{copy.preLaunchTitle}</h3>
           
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
                 category: copy.categories[0].category,
@@ -2047,7 +2047,7 @@ function SemanticExample({ correct, incorrect, reason }: any) {
   const common = useAccessibilityCopy().common;
   return (
     <div className="p-6 hover:bg-background">
-      <div className="grid grid-cols-2 gap-6 mb-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
         <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-3">
           <div className="flex items-center gap-2 mb-2">
             <Check className="text-[#138808]" size={16} />

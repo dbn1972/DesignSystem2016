@@ -128,7 +128,7 @@ function PatternOverview() {
     <section id="overview" className="space-y-6">
       <SectionHeader title="Pattern Overview" />
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
@@ -381,7 +381,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 1: Record Lookup" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-primary text-white p-8">
+            <div className="bg-primary text-white p-4 sm:p-6 lg:p-8">
               <div className="max-w-3xl">
                 <div className="text-sm mb-2 text-blue-200">Renew Your [Service Name]</div>
                 <h2 className="text-3xl font-bold mb-4">Find Your Existing Record</h2>
@@ -419,7 +419,7 @@ function PageDesigns() {
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Find Your Record By:
                   </label>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm text-muted-foreground mb-2">Certificate/License Number</label>
                       <input aria-label="e.g., DL-0120190012345" type="text"
@@ -437,9 +437,9 @@ function PageDesigns() {
                   </div>
                 </div>
 
-                <div className="text-center text-gray-500 font-medium">OR</div>
+                <div className="text-center text-muted-foreground font-medium">OR</div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm text-muted-foreground mb-2">Registered Mobile Number</label>
                     <input aria-label="+91 98765-43210" type="tel"
@@ -490,7 +490,7 @@ function PageDesigns() {
                   <div>
                     <div className="text-sm text-muted-foreground mb-1">License Number</div>
                     <div className="text-2xl font-bold text-foreground font-mono mb-4">DL-0120190012345</div>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                       <div>
                         <span className="text-muted-foreground">Issued On:</span>
                         <span className="font-bold text-foreground ml-2">15/03/2019</span>
@@ -507,7 +507,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <DataDisplayCard
                   title="Personal Details"
                   fields={[
@@ -751,7 +751,7 @@ function PageDesigns() {
 
               <div className="border-2 border-green-300 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
                 <div className="font-bold text-foreground mb-3">Renewal Details</div>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <div>
                     <span className="text-muted-foreground">Current Validity:</span>
                     <span className="font-bold text-foreground ml-2">Until 14/03/2029</span>
@@ -826,7 +826,7 @@ function PageDesigns() {
                 <div className="text-sm text-muted-foreground">Original License: DL-0120190012345</div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <NextStepCard
                   icon={<Clock size={24} className="text-orange-600" />}
                   title="Processing Time"
@@ -960,7 +960,7 @@ function DataFieldRules() {
       <DocModule>
         <ModuleHeader title="Decision Tree: When to Allow Edits" />
         <ModuleContent>
-          <div className="bg-background border-2 border-border rounded-lg p-8">
+          <div className="bg-background border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="space-y-4">
               <DecisionRule
                 question="Is this field linked to official identity documents (Aadhaar, PAN, Passport)?"
@@ -990,7 +990,7 @@ function DataFieldRules() {
               type="Locked Field"
               code={`<div className="relative">
   <label className="block text-sm font-bold text-foreground mb-2">
-    Full Name <Lock size={14} className="inline ml-1 text-gray-500" />
+    Full Name <Lock size={14} className="inline ml-1 text-muted-foreground" />
   </label>
   <input aria-label="text input" value="Rajesh Kumar Sharma" 
     disabled 
@@ -1147,7 +1147,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="WCAG 2.1 AA Requirements" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AccessibilityBlock
               principle="Keyboard Navigation"
               requirements={[
@@ -1735,7 +1735,7 @@ function ReviewSection({ title, highlight, items }: any) {
               <div>
                 <div className="text-muted-foreground">{item.label}</div>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-gray-500 line-through">{item.oldValue}</span>
+                  <span className="text-muted-foreground line-through">{item.oldValue}</span>
                   <ArrowRight size={14} className="text-blue-600" />
                   <span className="text-blue-700 font-bold">{item.newValue}</span>
                 </div>

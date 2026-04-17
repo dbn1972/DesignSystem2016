@@ -290,7 +290,7 @@ function ConsentRequestScreen({
         </div>
 
         {/* Key Points */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <InfoCard
             icon={<Eye size={20} className="text-orange-600" />}
             title="Who Can Access"
@@ -379,7 +379,7 @@ function ConsentRequestScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               consentChecked
                 ? 'bg-primary text-white hover:opacity-90'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             I Agree - Continue to Service

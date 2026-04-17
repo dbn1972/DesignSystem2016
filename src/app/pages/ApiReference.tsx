@@ -38,7 +38,7 @@ export default function ApiReference() {
               <BookOpen size={40} className="text-[#FF9933]" />
               <div>
                 <p className="text-sm uppercase tracking-[0.2em] text-blue-200">Documentation</p>
-                <h1 className="text-4xl lg:text-5xl font-bold">API Reference</h1>
+                <h1 className="text-4xl lg:text-3xl sm:text-4xl lg:text-5xl font-bold">API Reference</h1>
               </div>
             </div>
             <p className="text-xl text-blue-100 max-w-3xl">

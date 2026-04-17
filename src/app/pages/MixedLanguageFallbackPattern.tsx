@@ -22,7 +22,7 @@ export default function MixedLanguageFallbackPattern() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Localization Pattern</div>
-                  <h1 className="text-5xl font-bold text-foreground">Mixed-Language Fallback</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Mixed-Language Fallback</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -76,7 +76,7 @@ export default function MixedLanguageFallbackPattern() {
             </div>
 
             {/* Demo Content */}
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <div className="border-b-2 border-border pb-4 mb-6">
                 <h3 className="text-xl font-bold text-foreground">आय प्रमाणपत्र आवेदन</h3>
                 <p className="text-sm text-muted-foreground">Income Certificate Application (Target: Hindi)</p>
@@ -87,7 +87,7 @@ export default function MixedLanguageFallbackPattern() {
                 <div className="space-y-4">
                   <div>
                     <label className="block font-bold text-foreground mb-2">
-                      पूरा नाम <span className="text-xs text-gray-500 font-normal">(Translated)</span>
+                      पूरा नाम <span className="text-xs text-muted-foreground font-normal">(Translated)</span>
                     </label>
                     <input aria-label="अपना नाम दर्ज करें" type="text" className="w-full px-4 py-2 border-2 border-border rounded" placeholder="अपना नाम दर्ज करें" />
                   </div>
@@ -105,7 +105,7 @@ export default function MixedLanguageFallbackPattern() {
 
                   <div>
                     <label className="block font-bold text-foreground mb-2">
-                      पता <span className="text-xs text-gray-500 font-normal">(Translated)</span>
+                      पता <span className="text-xs text-muted-foreground font-normal">(Translated)</span>
                     </label>
                     <textarea aria-label="अपना पूरा पता दर्ज करें" className="w-full px-4 py-2 border-2 border-border rounded" rows={3} placeholder="अपना पूरा पता दर्ज करें" />
                   </div>
@@ -128,7 +128,7 @@ export default function MixedLanguageFallbackPattern() {
                       </span>
                     </label>
                     <input aria-label="date input" type="date" className="w-full px-4 py-2 border-2 border-border rounded" />
-                    <div className="mt-1 text-xs text-gray-500 italic">Translation pending for this field</div>
+                    <div className="mt-1 text-xs text-muted-foreground italic">Translation pending for this field</div>
                   </div>
 
                   <div>

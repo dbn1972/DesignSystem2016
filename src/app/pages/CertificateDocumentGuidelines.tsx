@@ -165,7 +165,7 @@ export default function CertificateDocumentGuidelines() {
             <h2 className="font-bold text-foreground">General Technical Guidelines</h2>
           </div>
           <div className="p-8">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-bold text-foreground mb-3 text-sm">File Formats Accepted</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -306,7 +306,7 @@ function DocumentCard({ document }: any) {
         )}
       </div>
       <div className="p-8">
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Left Column */}
           <div className="space-y-6">

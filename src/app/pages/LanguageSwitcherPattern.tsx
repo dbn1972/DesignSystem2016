@@ -46,7 +46,7 @@ export default function LanguageSwitcherPattern() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Localization Pattern</div>
-                  <h1 className="text-5xl font-bold text-foreground">Language Switcher</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Language Switcher</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -107,7 +107,7 @@ export default function LanguageSwitcherPattern() {
 
             {/* Dropdown Variant */}
             {variant === "dropdown" && (
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 className="text-xl font-bold text-foreground mb-4">Dropdown Variant</h3>
                 <p className="text-sm text-muted-foreground mb-6">
                   Compact dropdown for header/navigation. Best for limited space.
@@ -152,7 +152,7 @@ export default function LanguageSwitcherPattern() {
 
             {/* Modal Variant */}
             {variant === "modal" && (
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 className="text-xl font-bold text-foreground mb-4">Modal Variant</h3>
                 <p className="text-sm text-muted-foreground mb-6">
                   Full-screen modal for first-time language selection or settings page.
@@ -182,7 +182,7 @@ export default function LanguageSwitcherPattern() {
                       </div>
 
                       <div className="p-6 overflow-y-auto">
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           {LANGUAGES.map((lang) => (
                             <button
                               key={lang.code}
@@ -223,7 +223,7 @@ export default function LanguageSwitcherPattern() {
 
             {/* Inline Grid Variant */}
             {variant === "inline" && (
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 className="text-xl font-bold text-foreground mb-4">Inline Grid Variant</h3>
                 <p className="text-sm text-muted-foreground mb-6">
                   Inline grid for welcome pages or settings. Shows all options upfront.

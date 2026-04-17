@@ -313,7 +313,7 @@ function ExplanationScreen({
         </div>
 
         {/* What Happens */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-5">
             <div className="flex items-center gap-2 mb-3">
               <Check size={20} className="text-green-600" />
@@ -653,7 +653,7 @@ function ConsentReviewScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               consentChecked
                 ? 'bg-primary text-white hover:opacity-90'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             Accept and Continue
@@ -947,7 +947,7 @@ function ConsentDeclinedScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               understandDecline
                 ? 'bg-primary text-white hover:opacity-90'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             Proceed with Manual Verification
@@ -1150,7 +1150,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           <p className="text-sm text-muted-foreground mb-4">
             Contact our Data Protection Officer for personalized assistance with data sharing concerns.
           </p>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <span className="font-bold text-foreground">Email:</span>{' '}
               <a href="#" className="text-primary hover:underline">datasharing@service.gov.in</a>

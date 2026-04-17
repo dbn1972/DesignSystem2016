@@ -49,7 +49,7 @@ export default function SuggestImprovementPattern() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Feedback Pattern</div>
-                  <h1 className="text-5xl font-bold text-foreground">Suggest Improvement</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Suggest Improvement</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -71,7 +71,7 @@ export default function SuggestImprovementPattern() {
               </p>
             </div>
 
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="border-b-2 border-border pb-6">

@@ -47,7 +47,7 @@ export default function RepeatableSectionsPattern() {
               </div>
               <div>
                 <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Data Input Pattern</div>
-                <h1 className="text-5xl font-bold text-foreground">Repeatable Sections</h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Repeatable Sections</h1>
               </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -142,7 +142,7 @@ export default function RepeatableSectionsPattern() {
             </div>
 
             {/* Example 2: Complex Repeatable (Education) */}
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-bold text-foreground">Education History</h3>
                 <span className="text-sm text-muted-foreground">{education.length} qualification(s)</span>
@@ -168,7 +168,7 @@ export default function RepeatableSectionsPattern() {
                     </div>
 
                     <div className="space-y-4">
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-sm font-bold text-foreground mb-2">
                             Degree/Qualification <span className="text-red-600">*</span>
@@ -224,7 +224,7 @@ export default function RepeatableSectionsPattern() {
             </div>
 
             {/* Variations */}
-            <div className="mt-8 bg-card border-2 border-border rounded-lg p-8">
+            <div className="mt-8 bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-4">Pattern Variations</h3>
 
               <div className="space-y-6">

@@ -113,7 +113,7 @@ export default function IdentityForgotPassword() {
                         <label className="block text-sm font-bold text-foreground mb-3">
                           Choose Recovery Method
                         </label>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <button
                             onClick={() => setRecoveryMethod("mobile")}
                             className={`flex items-center gap-3 p-4 border-2 rounded-lg font-medium transition-colors ${
@@ -254,7 +254,7 @@ export default function IdentityForgotPassword() {
                       {/* Password Requirements */}
                       <div className="mb-6 p-4 bg-background border-2 border-border rounded-lg">
                         <div className="text-sm font-bold text-foreground mb-3">Password must contain:</div>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                           {passwordRequirements.map((req, idx) => (
                             <div key={idx} className="flex items-center gap-2 text-sm">
                               {req.met ? (
@@ -399,7 +399,7 @@ function ProgressStep({ number, label, active, completed }: { number: number; la
       }`}>
         {completed ? <Check size={18} /> : number}
       </div>
-      <div className={`text-xs font-medium ${active ? 'text-foreground' : 'text-gray-500'}`}>{label}</div>
+      <div className={`text-xs font-medium ${active ? 'text-foreground' : 'text-muted-foreground'}`}>{label}</div>
     </div>
   );
 }

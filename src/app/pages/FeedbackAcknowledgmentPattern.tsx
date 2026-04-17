@@ -22,7 +22,7 @@ export default function FeedbackAcknowledgmentPattern() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Feedback Pattern</div>
-                  <h1 className="text-5xl font-bold text-foreground">Feedback Acknowledgment</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Feedback Acknowledgment</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -296,7 +296,7 @@ export function FeedbackAcknowledgmentPage() {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-4 sm:p-6 lg:p-8">
         {step === 'form' ? (
           <div>
             <h1 className="text-2xl font-bold mb-2">Share Your Feedback</h1>
@@ -345,7 +345,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   template: \`
     <div class="min-h-screen bg-background flex items-center justify-center p-4">
-      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-4 sm:p-6 lg:p-8">
         <div *ngIf="step==='form'">
           <h1 class="text-2xl font-bold mb-2">Share Your Feedback</h1>
           <div class="mb-4">

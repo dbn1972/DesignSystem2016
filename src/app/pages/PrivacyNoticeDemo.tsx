@@ -346,7 +346,7 @@ function SummaryScreen({
         </div>
 
         {/* Important Notes */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-5">
             <div className="flex items-center gap-2 mb-2">
               <CheckCircle size={18} className="text-green-600" />
@@ -371,7 +371,7 @@ function SummaryScreen({
         {/* Contact Information */}
         <div className="bg-background border-2 border-border rounded-lg p-5">
           <h4 className="font-bold text-foreground mb-3 text-sm">Questions or Concerns?</h4>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <span className="text-muted-foreground">Data Protection Officer:</span>
               <div className="font-bold text-foreground">dpo@scholarship.gov.in</div>
@@ -559,7 +559,7 @@ function FullNoticeScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               acknowledged
                 ? 'bg-primary text-white hover:opacity-90'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             Acknowledge and Continue
@@ -887,7 +887,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           <p className="text-sm text-muted-foreground mb-4">
             Contact our Data Protection Officer for personalized assistance with privacy-related questions.
           </p>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <span className="font-bold text-foreground">Email:</span>{' '}
               <a href="#" className="text-primary hover:underline">dpo@scholarship.gov.in</a>

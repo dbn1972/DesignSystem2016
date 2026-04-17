@@ -131,7 +131,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -200,7 +200,7 @@ function OverviewSection() {
       </div>
 
       {/* Pattern Characteristics */}
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <h3 className="font-bold text-foreground mb-6">Pattern Characteristics</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <CharacteristicItem
@@ -296,7 +296,7 @@ function FlowDiagram() {
         <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-8">
           {/* Happy Path */}
           <div>
@@ -421,7 +421,7 @@ function ExampleScreens() {
         <p className="text-muted-foreground mt-2">Visual representations of key sign-in states</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {states.map((state) => (
           <ScreenExample key={state.id} state={state.id} label={state.label} description={state.description} />
         ))}
@@ -659,7 +659,7 @@ function FieldGuidance({ field, type, required, placeholder, helpText, maxLength
           <div className="text-sm text-muted-foreground mt-1">{type}</div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4 text-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
         <div>
           <div className="font-bold text-muted-foreground mb-1">Placeholder</div>
           <div className="text-muted-foreground">{placeholder}</div>
@@ -702,7 +702,7 @@ function ValidationRules() {
         <h2 className="text-2xl font-bold text-foreground">Validation Rules</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Client-Side Validation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-100 border-b-2 border-blue-300 px-6 py-4">
@@ -759,7 +759,7 @@ function ValidationRules() {
 
       <div className="bg-card border-2 border-border rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-4">Security Best Practices</h3>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <SecurityPractice
             title="Rate Limiting"
             description="Limit to 5 attempts per 15 minutes per IP address and per account"
@@ -1062,7 +1062,7 @@ function ImplementationSection() {
         <h2 className="text-2xl font-bold text-foreground">Implementation Notes</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ImplementationCard
           icon={<Code size={24} className="text-blue-600" />}
           title="Frontend Implementation"
@@ -1486,7 +1486,7 @@ function GovernanceSection() {
         <h2 className="text-2xl font-bold text-foreground">Governance & Support</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-100 border-b-2 border-red-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Conformance Requirements</h3>

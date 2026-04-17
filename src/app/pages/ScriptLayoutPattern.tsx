@@ -21,7 +21,7 @@ export default function ScriptLayoutPattern() {
               </div>
               <div>
                 <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Localization Pattern</div>
-                <h1 className="text-5xl font-bold text-foreground">Script-Specific Layout Handling</h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Script-Specific Layout Handling</h1>
               </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">

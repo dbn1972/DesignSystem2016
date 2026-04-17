@@ -83,7 +83,7 @@ export default function IdentitySessionTimeout() {
                       
                       <div className="p-6 text-center">
                         <div className="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                          <div className="text-5xl font-bold text-yellow-700">{formatTime(timeLeft)}</div>
+                          <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-700">{formatTime(timeLeft)}</div>
                         </div>
                         
                         <p className="text-muted-foreground mb-6 leading-relaxed">

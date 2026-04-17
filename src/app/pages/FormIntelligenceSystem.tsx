@@ -136,7 +136,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">System Overview</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-orange-50 to-green-50 border-2 border-border rounded-lg p-8">
+      <div className="bg-gradient-to-br from-orange-50 to-green-50 border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <h3 className="font-bold text-foreground mb-4 text-lg">What is Form Intelligence?</h3>
         <p className="text-muted-foreground mb-4">
           Form Intelligence is a comprehensive pattern system that makes government forms easier to complete, 
@@ -163,7 +163,7 @@ function OverviewSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* System Capabilities */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -221,7 +221,7 @@ function PrinciplesSection() {
         <h2 className="text-2xl font-bold text-foreground">Design Principles</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <PrincipleCard
           number={1}
           title="Ask Only What's Necessary"
@@ -436,7 +436,7 @@ function ComponentsSection() {
         <h2 className="text-2xl font-bold text-foreground">Form Component Library</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Text Input */}
         <ComponentExample
           title="Text Input"
@@ -605,7 +605,7 @@ function ComponentsSection() {
             <div>
               <label className="block text-sm font-bold text-foreground mb-2 flex items-center gap-2">
                 Aadhaar Number <span className="text-red-600">*</span>
-                <button className="text-gray-500 hover:text-primary">
+                <button className="text-muted-foreground hover:text-primary">
                   <HelpCircle size={16} />
                 </button>
               </label>
@@ -701,7 +701,7 @@ function ValidationSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Validation Rules */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -788,7 +788,7 @@ function ValidationSection() {
           <h3 className="font-bold text-foreground">Error Message Best Practices</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
               <p className="font-bold text-red-600 mb-2 flex items-center gap-2">
                 <X size={16} />
@@ -974,7 +974,7 @@ function AccessibilitySection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Labels & Instructions */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -1153,7 +1153,7 @@ function ImplementationSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Code Example: Simple Form */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -1727,7 +1727,7 @@ function FormPattern({ number, title, description, complexity, useWhen, keyFeatu
         <p className="text-sm text-muted-foreground">{description}</p>
       </div>
       <div className="p-6">
-        <div className="grid grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
             <p className="text-sm font-bold text-foreground mb-2">Use When:</p>
             <ul className="space-y-1 text-sm text-muted-foreground">
@@ -1788,7 +1788,7 @@ function ValidationTiming({ trigger, description, pros, cons }: {
     <div className="border-b border-border pb-3">
       <p className="font-bold text-foreground mb-1">{trigger}</p>
       <p className="text-muted-foreground mb-2">{description}</p>
-      <div className="grid grid-cols-2 gap-2 text-xs">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
         <div className="flex items-start gap-1">
           <Check size={12} className="text-green-600 mt-0.5" />
           <span className="text-muted-foreground">{pros}</span>

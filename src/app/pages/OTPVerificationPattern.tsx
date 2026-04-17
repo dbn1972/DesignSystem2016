@@ -140,7 +140,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -222,7 +222,7 @@ function FlowDiagram() {
         <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
           <FlowStep 
             number={1}
@@ -299,7 +299,7 @@ function ExampleStates() {
         <h2 className="text-2xl font-bold text-foreground">Example States</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Default State */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -582,7 +582,7 @@ function OTPPatterns() {
         <h2 className="text-2xl font-bold text-foreground">OTP Input Patterns</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Single Field Pattern */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -649,7 +649,7 @@ function OTPPatterns() {
           <Info size={20} className="text-primary" />
           Pattern Selection Guidelines
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-foreground mb-2">Use Single Field When:</p>
             <ul className="space-y-1 text-muted-foreground">
@@ -732,7 +732,7 @@ function ValidationLogic() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Input Validation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -797,7 +797,7 @@ function ValidationLogic() {
           <AlertCircle size={20} className="text-yellow-600" />
           Security Considerations
         </h3>
-        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
             <p className="font-bold text-foreground mb-1">Rate Limiting</p>
             <p>Limit OTP requests to 3 per hour per contact</p>
@@ -829,7 +829,7 @@ function ResendLogic() {
         <h2 className="text-2xl font-bold text-foreground">Resend & Countdown Logic</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Countdown Behavior */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -915,7 +915,7 @@ function ResendLogic() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Disabled State */}
             <div className="bg-background border-2 border-border rounded p-4 text-center">
-              <button className="w-full px-4 py-2 bg-gray-300 text-gray-500 font-bold rounded cursor-not-allowed mb-2">
+              <button className="w-full px-4 py-2 bg-gray-300 text-muted-foreground font-bold rounded cursor-not-allowed mb-2">
                 Resend OTP
               </button>
               <p className="text-xs text-muted-foreground">Available in 0:23</p>
@@ -939,7 +939,7 @@ function ResendLogic() {
 
             {/* Success State */}
             <div className="bg-background border-2 border-green-300 rounded p-4 text-center">
-              <button className="w-full px-4 py-2 bg-gray-300 text-gray-500 font-bold rounded cursor-not-allowed mb-2">
+              <button className="w-full px-4 py-2 bg-gray-300 text-muted-foreground font-bold rounded cursor-not-allowed mb-2">
                 Resend OTP
               </button>
               <p className="text-xs text-green-700"><CheckCircle size={12} className="inline mr-1" />New code sent!</p>
@@ -978,7 +978,7 @@ function AccessibilitySection() {
         <h2 className="text-2xl font-bold text-foreground">Accessibility Guidelines</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Keyboard Behavior */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-purple-50 dark:bg-purple-950/30 border-b-2 border-purple-200 dark:border-purple-800 px-6 py-4">
@@ -1109,7 +1109,7 @@ function AccessibilitySection() {
           <h3 className="font-bold text-foreground">WCAG 2.1 AA Compliance Checklist</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <ComplianceItem criterion="1.3.1 Info & Relationships" status="pass" note="Proper labels and ARIA attributes" />
             <ComplianceItem criterion="1.4.3 Contrast Minimum" status="pass" note="4.5:1 text contrast, 3:1 UI contrast" />
             <ComplianceItem criterion="2.1.1 Keyboard" status="pass" note="All functions keyboard accessible" />
@@ -1190,7 +1190,7 @@ function ImplementationSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: HTML Structure</h3>
@@ -1711,7 +1711,7 @@ function GovernanceSection() {
           <h3 className="font-bold text-foreground">Support & Escalation</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
               <h3 className="font-bold text-foreground mb-3">Implementation Questions</h3>
               <div className="space-y-2 text-muted-foreground">

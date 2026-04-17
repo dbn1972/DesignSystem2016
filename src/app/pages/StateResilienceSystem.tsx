@@ -135,7 +135,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">System Overview</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-border rounded-lg p-8">
+      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <h3 className="font-bold text-foreground mb-4 text-lg">What is State & Resilience?</h3>
         <p className="text-muted-foreground mb-4">
           Government services must work reliably even when things go wrong. The State & Resilience System 
@@ -161,7 +161,7 @@ function OverviewSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* What This System Covers */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -215,7 +215,7 @@ function PrinciplesSection() {
         <h2 className="text-2xl font-bold text-foreground">Resilience Principles</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <PrincipleCard
           number={1}
           title="Fail Gracefully, Not Catastrophically"
@@ -389,7 +389,7 @@ function RetryPatternsSection() {
           <AlertTriangle size={20} className="text-yellow-600" />
           When to Retry vs. When NOT to Retry
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-green-600 mb-2">✅ DO Retry:</p>
             <ul className="space-y-1 ml-4 text-muted-foreground">
@@ -490,7 +490,7 @@ function NetworkHandlingSection() {
         <h2 className="text-2xl font-bold text-foreground">Network Handling Patterns</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Offline Detection */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
@@ -709,7 +709,7 @@ function PartialStatesSection() {
           <h3 className="font-bold text-foreground">Auto-Save Implementation Pattern</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h4 className="font-bold text-foreground mb-2 text-sm">Visual Indicator States</h4>
               <div className="space-y-2 text-sm">
@@ -933,7 +933,7 @@ function AppliedExamplesSection() {
 
       <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">These Patterns Have Been Applied To:</h3>
-        <div className="grid grid-cols-2 gap-4 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div className="space-y-2">
             <AppliedLink to="/certificate-form-personal" text="Certificate Form (with auto-save & validation)" />
             <AppliedLink to="/certificate-payment-summary" text="Payment Flow (with retry & timeout handling)" />
@@ -1177,7 +1177,7 @@ function ErrorStatePattern({ title, severity, trigger, recovery, examples, imple
             {severity} Severity
           </span>
         </div>
-        <div className="grid grid-cols-2 gap-4 text-sm mt-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mt-3">
           <div>
             <p className="font-bold text-foreground mb-1">Trigger:</p>
             <p className="text-muted-foreground">{trigger}</p>
@@ -1189,7 +1189,7 @@ function ErrorStatePattern({ title, severity, trigger, recovery, examples, imple
         </div>
       </div>
       <div className="p-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <p className="text-sm font-bold text-foreground mb-2">Common Examples:</p>
             <ul className="space-y-1 text-sm text-muted-foreground">
@@ -1327,7 +1327,7 @@ function IntegrationStep({ number, title, description, before, after }: {
         </div>
       </div>
       <div className="p-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <p className="text-sm font-bold text-foreground mb-2">❌ Before (Brittle):</p>
             <pre className="bg-gray-900 text-red-400 p-3 rounded text-xs overflow-x-auto">
@@ -1379,7 +1379,7 @@ function ExampleScenario({ title, flow, resilienceFeatures }: {
         <h3 className="font-bold text-foreground">{title}</h3>
       </div>
       <div className="p-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <p className="font-bold text-foreground mb-3 text-sm">Flow:</p>
             <div className="space-y-2">

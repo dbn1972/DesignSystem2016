@@ -376,7 +376,7 @@ function PatternOverview() {
     <section id="overview" className="space-y-6">
       <SectionHeader title="Pattern Overview" />
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DocModule>
           <ModuleHeader title="Service Problem Solved" />
           <ModuleContent>
@@ -618,7 +618,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 1: Issue Summary (Overview)" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-orange-100 border-b-2 border-orange-300 p-8">
+            <div className="bg-orange-100 border-b-2 border-orange-300 p-4 sm:p-6 lg:p-8">
               <div className="max-w-3xl">
                 <div className="flex items-center gap-3 mb-4">
                   <AlertCircle size={32} className="text-orange-600" />
@@ -861,7 +861,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <h3 className="font-bold text-foreground mb-4">Document Requirements</h3>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <RequirementItem
                     label="Document Type"
                     value="Income certificate issued by Tehsildar or competent authority"
@@ -1025,7 +1025,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <div className="font-bold text-foreground mb-4">Fields That Were Already Correct</div>
-                <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <CheckCircle size={14} className="text-green-600 flex-shrink-0" />
                     <span>Full Name: Priya Sharma</span>
@@ -1109,7 +1109,7 @@ function PageDesigns() {
                 <div className="text-sm text-muted-foreground">Original Application: SCH/2026/12345</div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <NextStepCard
                   icon={<Clock size={24} className="text-orange-600" />}
                   title="Processing Time"
@@ -1230,7 +1230,7 @@ function PageDesigns() {
 
               <div className="border-2 border-green-300 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
                 <div className="font-bold text-foreground mb-3">Corrections Made</div>
-                <div className="grid grid-cols-2 gap-3 text-sm text-muted-foreground">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-muted-foreground">
                   <div className="flex items-start gap-2">
                     <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
                     <span>Income certificate uploaded</span>
@@ -1368,7 +1368,7 @@ function ErrorPatterns() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GroupingStrategy
                 method="By Issue Type"
                 example="Missing Information (3) → Invalid Data (2) → Document Issues (1)"
@@ -1528,7 +1528,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="WCAG 2.1 AA Requirements" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AccessibilityBlock
               area="Error Identification"
               requirements={[
@@ -1587,7 +1587,7 @@ function AccessibilityGuidance() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <MultilingualItem
                 aspect="Error Messages"
                 requirement="Fully translated with culturally appropriate tone (respectful, supportive)"

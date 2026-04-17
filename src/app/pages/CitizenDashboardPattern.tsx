@@ -214,7 +214,7 @@ export default function CitizenDashboardPattern() {
                           }`}>
                             {app.status}
                           </div>
-                          <div className="text-xs text-gray-500 mt-1">{app.updated}</div>
+                          <div className="text-xs text-muted-foreground mt-1">{app.updated}</div>
                         </div>
                       </div>
                       <div className="mb-2">
@@ -286,7 +286,7 @@ export default function CitizenDashboardPattern() {
                         {notif.unread && <div className="w-2 h-2 bg-red-500 rounded-full"></div>}
                       </div>
                       <div className="text-xs text-muted-foreground mb-1">{notif.message}</div>
-                      <div className="text-xs text-gray-500">{notif.time}</div>
+                      <div className="text-xs text-muted-foreground">{notif.time}</div>
                     </div>
                   ))}
                 </div>
@@ -508,13 +508,13 @@ export function CitizenDashboardPage() {
         </div>
       </header>
       <div className="max-w-5xl mx-auto p-6">
-        <div className="grid grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-foreground">{applications.length}</div><div className="text-sm text-muted-foreground">Total Applications</div></div>
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-blue-600">{applications.filter(a => a.status === 'in-progress').length}</div><div className="text-sm text-muted-foreground">In Progress</div></div>
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-green-600">{applications.filter(a => a.status === 'approved').length}</div><div className="text-sm text-muted-foreground">Approved</div></div>
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-yellow-600">{applications.filter(a => a.status === 'pending').length}</div><div className="text-sm text-muted-foreground">Pending</div></div>
         </div>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="col-span-2">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-foreground">My Applications</h2>
@@ -555,7 +555,7 @@ import { CommonModule } from '@angular/common';
         <div class="max-w-5xl mx-auto"><h1 class="text-xl font-bold">My Dashboard</h1><p class="text-sm text-muted-foreground">Welcome back</p></div>
       </header>
       <div class="max-w-5xl mx-auto p-6">
-        <div class="grid grid-cols-4 gap-4 mb-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold">{{ apps.length }}</div><div class="text-sm text-muted-foreground">Total</div></div>
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold text-blue-600">{{ inProgress }}</div><div class="text-sm text-muted-foreground">In Progress</div></div>
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold text-green-600">{{ approved }}</div><div class="text-sm text-muted-foreground">Approved</div></div>

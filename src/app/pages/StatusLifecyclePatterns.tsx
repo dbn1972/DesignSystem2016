@@ -21,7 +21,7 @@ export default function StatusLifecyclePatterns() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-foreground">Status & Lifecycle Patterns</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Status & Lifecycle Patterns</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -130,7 +130,7 @@ export default function StatusLifecyclePatterns() {
               <TrendingUp size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Visual Progress Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Timeline View"
                 description="Chronological activity timeline showing all events, actions, and status changes with timestamps and actors"
@@ -158,7 +158,7 @@ export default function StatusLifecyclePatterns() {
               <CheckCircle size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Status Intelligence Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Multi-status Indicators"
                 description="Complex status states with sub-statuses, conditions, and contextual information beyond simple labels"
@@ -186,7 +186,7 @@ export default function StatusLifecyclePatterns() {
               <AlertTriangle size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Accountability & Expectations Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Escalated State"
                 description="Escalation tracking showing escalation level, assigned officer, and expedited timeline"
@@ -214,7 +214,7 @@ export default function StatusLifecyclePatterns() {
               <BarChart3 size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Batch & Bulk Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Batch Status (Multiple Applications)"
                 description="Unified view of multiple applications with aggregated status, filtering, and bulk operations"
@@ -227,7 +227,7 @@ export default function StatusLifecyclePatterns() {
               <div className="p-6 border-2 border-dashed border-border rounded-lg bg-background flex items-center justify-center text-center">
                 <div>
                   <p className="text-muted-foreground mb-2">Additional lifecycle patterns can be added:</p>
-                  <p className="text-sm text-gray-500">Rejection reasons, Appeal process, Re-submission flow</p>
+                  <p className="text-sm text-muted-foreground">Rejection reasons, Appeal process, Re-submission flow</p>
                 </div>
               </div>
             </div>
@@ -278,8 +278,8 @@ export default function StatusLifecyclePatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-blue-500 pl-4">
             Lifecycle Intelligence Features
           </h2>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <Zap size={20} className="text-yellow-600" />
                 Smart Status Updates
@@ -303,7 +303,7 @@ export default function StatusLifecyclePatterns() {
                 </li>
               </ul>
             </div>
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <Activity size={20} className="text-blue-600" />
                 Predictive Intelligence
@@ -335,11 +335,11 @@ export default function StatusLifecyclePatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-purple-500 pl-4">
             Standard Status Vocabulary
           </h2>
-          <div className="bg-card border-2 border-border rounded-lg p-8">
+          <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
             <p className="text-muted-foreground mb-6">
               Consistent status terminology across all government services improves citizen understanding and reduces confusion.
             </p>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-bold text-foreground mb-4">Primary States</h3>
                 <div className="space-y-3">
@@ -373,8 +373,8 @@ export default function StatusLifecyclePatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-primary pl-4">
             Related Resources
           </h2>
-          <div className="bg-card border-2 border-border rounded-lg p-8">
-            <div className="grid grid-cols-2 gap-6">
+          <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-bold text-foreground mb-4">Related Pattern Families</h3>
                 <ul className="space-y-2 text-sm">

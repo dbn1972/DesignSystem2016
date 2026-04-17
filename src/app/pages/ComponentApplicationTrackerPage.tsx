@@ -62,7 +62,7 @@ function ApplicationTrackerPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <div className="w-full max-w-md"><div className="flex items-center gap-3 mb-3"><div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 text-xs font-bold">✓</div><div className="flex-1 h-1 bg-green-500 rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 text-xs font-bold">✓</div><div className="flex-1 h-1 bg-yellow-400 rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-yellow-100 text-yellow-700 text-xs font-bold">⏳</div><div className="flex-1 h-1 bg-muted rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground text-xs">4</div></div><div className="flex justify-between text-xs text-muted-foreground"><span>Submitted</span><span>Verified</span><span>Processing</span><span>Complete</span></div></div>
         </div>
@@ -216,7 +216,7 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
                   <p className="text-sm text-muted-foreground mt-1">{stage.date}</p>
                 )}
                 {stage.description && (
-                  <p className="text-sm text-gray-500 mt-1">{stage.description}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{stage.description}</p>
                 )}
               </div>
             </div>
@@ -297,7 +297,7 @@ interface ApplicationStage {
               {{ stage.label }}
             </p>
             <p *ngIf="stage.date" class="text-sm text-muted-foreground mt-1">{{ stage.date }}</p>
-            <p *ngIf="stage.description" class="text-sm text-gray-500 mt-1">{{ stage.description }}</p>
+            <p *ngIf="stage.description" class="text-sm text-muted-foreground mt-1">{{ stage.description }}</p>
           </div>
         </div>
       </div>

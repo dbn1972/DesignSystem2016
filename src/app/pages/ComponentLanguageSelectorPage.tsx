@@ -74,7 +74,7 @@ function LanguageSelectorPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <LanguageSelectorPreview languages={[{code:"en",label:"English"},{code:"hi",label:"हिन्दी"},{code:"ta",label:"தமிழ்"}]} currentLanguage="en" showFlags={showFlag} />
         </div>
@@ -590,7 +590,7 @@ export const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps
                         <>
                           {lang.nativeName}
                           {lang.nativeName !== lang.name && (
-                            <span className="text-sm text-gray-500 ml-1">({lang.name})</span>
+                            <span className="text-sm text-muted-foreground ml-1">({lang.name})</span>
                           )}
                         </>
                       ) : (
@@ -784,7 +784,7 @@ type LanguageSelectorPosition = 'left' | 'center' | 'right';
             </span>
             <span>
               {{ showNativeNames ? lang.nativeName : lang.name }}
-              <span *ngIf="showNativeNames && lang.nativeName !== lang.name" class="text-sm text-gray-500 ml-1">
+              <span *ngIf="showNativeNames && lang.nativeName !== lang.name" class="text-sm text-muted-foreground ml-1">
                 ({{ lang.name }})
               </span>
             </span>

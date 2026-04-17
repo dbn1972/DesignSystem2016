@@ -234,7 +234,7 @@ export default {
           <Link to="/components" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
             ← Back to Components
           </Link>
-          <h1 className="text-4xl font-bold text-foreground">Web Components Package</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Web Components Package</h1>
           <p className="mt-2 text-xl text-muted-foreground">
             Framework-agnostic components that work with any JavaScript framework or plain HTML
           </p>
@@ -328,9 +328,9 @@ export default {
             <table className="min-w-full divide-y divide-border">
               <thead className="bg-background">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Component</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Component</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Description</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Status</th>
                 </tr>
               </thead>
               <tbody className="bg-card divide-y divide-border">
@@ -565,7 +565,7 @@ export default {
         </div>
 
         {/* Key Features */}
-        <div className="mt-8 bg-card rounded-lg shadow-sm border border-border p-8">
+        <div className="mt-8 bg-card rounded-lg shadow-sm border border-border p-4 sm:p-6 lg:p-8">
           <h2 className="text-2xl font-bold text-foreground mb-6">✨ Key Features</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

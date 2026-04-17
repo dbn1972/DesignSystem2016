@@ -98,7 +98,7 @@ export default function CertificateFeedback() {
                 <label className="block text-sm font-bold text-foreground mb-3">
                   What aspect would you like to comment on?
                 </label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {[
                     "Application Process",
                     "Website Usability",
@@ -153,7 +153,7 @@ export default function CertificateFeedback() {
                 className={`w-full px-6 py-4 font-bold rounded flex items-center justify-center gap-2 ${
                   rating > 0
                     ? 'bg-green-700 text-white hover:bg-green-600'
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
                 }`}
               >
                 <Send size={20} />

@@ -72,7 +72,7 @@ function SpinnerPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <SpinnerPreview size={size} label="Loading..." />
         </div>
@@ -175,7 +175,7 @@ function Example() {
   return <Spinner />;
 }`,
           preview: (
-            <div className="flex justify-center p-8">
+            <div className="flex justify-center p-4 sm:p-6 lg:p-8">
               <SpinnerPreview />
             </div>
           ),
@@ -197,7 +197,7 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="flex items-center gap-6 p-8">
+            <div className="flex items-center gap-6 p-4 sm:p-6 lg:p-8">
               <SpinnerPreview size="xs" />
               <SpinnerPreview size="sm" />
               <SpinnerPreview size="md" />
@@ -221,7 +221,7 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="flex gap-8 p-8">
+            <div className="flex gap-8 p-4 sm:p-6 lg:p-8">
               <SpinnerPreview label="Loading..." />
               <SpinnerPreview label="Processing" />
               <SpinnerPreview label="Saving changes" />
@@ -244,7 +244,7 @@ function Example() {
   );
 }`,
           preview: (
-            <div className="flex items-center gap-6 p-8">
+            <div className="flex items-center gap-6 p-4 sm:p-6 lg:p-8">
               <SpinnerPreview color="#005196" label="Primary" />
               <SpinnerPreview color="#008800" label="Success" />
               <SpinnerPreview color="#dc2626" label="Error" />

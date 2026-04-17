@@ -28,7 +28,7 @@ export default function FigmaDesignSystem() {
                 </div>
                 <div>
                   <div className="text-base font-semibold text-foreground dark:text-gray-100">UX4G Design System</div>
-                  <div className="text-xs text-gray-500 dark:text-muted-foreground">Figma MVP File v1.0</div>
+                  <div className="text-xs text-muted-foreground dark:text-muted-foreground">Figma MVP File v1.0</div>
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@ function CoverPage() {
               key={index}
               className="bg-card/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:bg-card/15 transition-colors"
             >
-              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--ux4g-color-saffron-500)' }}>{page.num}</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2" style={{ color: 'var(--ux4g-color-saffron-500)' }}>{page.num}</div>
               <div className="font-semibold mb-1">{page.title}</div>
               <div className="text-sm text-blue-100">{page.desc}</div>
             </div>
@@ -217,8 +217,8 @@ function FoundationsPage() {
               <Palette className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 02</div>
-              <h2 className="text-4xl font-bold text-foreground">Foundations</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 02</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Foundations</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -333,7 +333,7 @@ function FoundationsPage() {
                   }}
                 ></div>
                 <div className="font-mono text-xs font-semibold text-foreground">{space.value}</div>
-                <div className="text-xs text-gray-500">{space.token}</div>
+                <div className="text-xs text-muted-foreground">{space.token}</div>
               </div>
             ))}
           </div>
@@ -353,8 +353,8 @@ function DesignTokensPage() {
               <Code className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 03</div>
-              <h2 className="text-4xl font-bold text-foreground">Design Tokens</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 03</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Design Tokens</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -364,7 +364,7 @@ function DesignTokensPage() {
         </div>
 
         {/* Token Categories */}
-        <div className="grid grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {[
             { category: "Color Tokens", count: 45, desc: "Semantic color values for all use cases" },
             { category: "Typography Tokens", count: 32, desc: "Font families, sizes, weights, line heights" },
@@ -399,7 +399,7 @@ function DesignTokensPage() {
                 <div className="w-12 h-12 rounded" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}></div>
                 <div>
                   <div className="font-semibold text-sm">#000080</div>
-                  <div className="text-xs text-gray-500">Navy Blue</div>
+                  <div className="text-xs text-muted-foreground">Navy Blue</div>
                 </div>
               </div>
             </div>
@@ -411,7 +411,7 @@ function DesignTokensPage() {
                 <div className="w-12 h-12 bg-green-700 rounded"></div>
                 <div>
                   <div className="font-semibold text-sm">#138808</div>
-                  <div className="text-xs text-gray-500">India Green</div>
+                  <div className="text-xs text-muted-foreground">India Green</div>
                 </div>
               </div>
             </div>
@@ -423,7 +423,7 @@ function DesignTokensPage() {
                 <div className="w-12 h-12 bg-[#FF9933] rounded"></div>
                 <div>
                   <div className="font-semibold text-sm">#FF9933</div>
-                  <div className="text-xs text-gray-500">Saffron</div>
+                  <div className="text-xs text-muted-foreground">Saffron</div>
                 </div>
               </div>
             </div>
@@ -460,8 +460,8 @@ function StylesSystemPage() {
               <Layers className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 04</div>
-              <h2 className="text-4xl font-bold text-foreground">Styles System</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 04</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Styles System</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -576,8 +576,8 @@ function CoreComponentsPage() {
               <Layers className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 05</div>
-              <h2 className="text-4xl font-bold text-foreground">Core Components</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 05</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Core Components</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -705,8 +705,8 @@ function ComponentVariantsPage() {
               <GitBranch className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 06</div>
-              <h2 className="text-4xl font-bold text-foreground">Component Variants & States</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 06</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Component Variants & States</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -824,8 +824,8 @@ function AccessibilityPage() {
               <Shield className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 07</div>
-              <h2 className="text-4xl font-bold text-foreground">Accessibility Guidance</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 07</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Accessibility Guidance</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -836,7 +836,7 @@ function AccessibilityPage() {
         {/* WCAG Compliance */}
         <div className="mb-16">
           <h3 className="text-xl font-bold text-foreground mb-6">WCAG 2.1 AA Requirements</h3>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { principle: "Perceivable", desc: "Information must be presentable in ways users can perceive", checks: ["Color contrast 4.5:1 minimum", "Text alternatives for images", "Captions for media"] },
               { principle: "Operable", desc: "Interface components must be operable by all users", checks: ["Keyboard accessible", "Sufficient time limits", "Clear focus indicators"] },
@@ -879,7 +879,7 @@ function AccessibilityPage() {
               { fg: "#FF9933", bg: "#FFFFFF", ratio: "3.2:1", pass: false },
               { fg: "#FFFFFF", bg: "#FF9933", ratio: "3.2:1", pass: false },
             ].map((contrast, index) => (
-              <div key={index} className="p-4 border-b border-border grid grid-cols-4 gap-4 items-center text-sm">
+              <div key={index} className="p-4 border-b border-border grid grid-cols-2 lg:grid-cols-4 gap-4 items-center text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded" style={{ backgroundColor: contrast.fg }}></div>
                   <span className="font-mono text-xs">{contrast.fg}</span>
@@ -905,7 +905,7 @@ function AccessibilityPage() {
         <div>
           <h3 className="text-xl font-bold text-foreground mb-6">Keyboard Navigation</h3>
           <div className="border-2 border-border rounded-lg p-8 bg-background">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 { key: "Tab", action: "Move focus forward" },
                 { key: "Shift + Tab", action: "Move focus backward" },
@@ -939,8 +939,8 @@ function DocumentationTemplatesPage() {
               <FileText className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 08</div>
-              <h2 className="text-4xl font-bold text-foreground">Documentation Page Templates</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 08</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Documentation Page Templates</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -956,13 +956,13 @@ function DocumentationTemplatesPage() {
           
           <div className="p-8 space-y-8">
             <div>
-              <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 1</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Section 1</div>
               <h4 className="font-semibold text-foreground mb-3">Overview</h4>
               <p className="text-sm text-muted-foreground">Brief description of component purpose and use cases.</p>
             </div>
 
             <div>
-              <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 2</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Section 2</div>
               <h4 className="font-semibold text-foreground mb-3">When to Use</h4>
               <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>• Primary use case example</li>
@@ -971,7 +971,7 @@ function DocumentationTemplatesPage() {
             </div>
 
             <div>
-              <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 3</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Section 3</div>
               <h4 className="font-semibold text-foreground mb-3">When Not to Use</h4>
               <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>• Avoid in this scenario</li>
@@ -980,21 +980,21 @@ function DocumentationTemplatesPage() {
             </div>
 
             <div>
-              <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 4</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Section 4</div>
               <h4 className="font-semibold text-foreground mb-3">Visual Examples</h4>
               <div className="p-6 bg-background border border-border rounded-lg">
-                <div className="text-xs text-gray-500">[Component preview area]</div>
+                <div className="text-xs text-muted-foreground">[Component preview area]</div>
               </div>
             </div>
 
             <div>
-              <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 5</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Section 5</div>
               <h4 className="font-semibold text-foreground mb-3">Accessibility</h4>
               <p className="text-sm text-muted-foreground">Accessibility requirements and implementation notes.</p>
             </div>
 
             <div>
-              <div className="text-xs text-gray-500 uppercase tracking-wide mb-2">Section 6</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wide mb-2">Section 6</div>
               <h4 className="font-semibold text-foreground mb-3">Code Example</h4>
               <div className="p-4 bg-gray-900 text-green-400 font-mono text-xs rounded-lg">
                 &lt;Button variant="primary"&gt;Click me&lt;/Button&gt;
@@ -1012,15 +1012,15 @@ function DocumentationTemplatesPage() {
           <div className="p-8 space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="border border-border rounded-lg p-4">
-                <div className="text-xs text-gray-500 mb-2">Problem</div>
+                <div className="text-xs text-muted-foreground mb-2">Problem</div>
                 <div className="text-sm text-muted-foreground">What problem does this pattern solve?</div>
               </div>
               <div className="border border-border rounded-lg p-4">
-                <div className="text-xs text-gray-500 mb-2">Solution</div>
+                <div className="text-xs text-muted-foreground mb-2">Solution</div>
                 <div className="text-sm text-muted-foreground">How does the pattern address it?</div>
               </div>
               <div className="border border-border rounded-lg p-4">
-                <div className="text-xs text-gray-500 mb-2">Usage</div>
+                <div className="text-xs text-muted-foreground mb-2">Usage</div>
                 <div className="text-sm text-muted-foreground">When should teams use this?</div>
               </div>
             </div>
@@ -1041,8 +1041,8 @@ function ImplementationPage() {
               <Download className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 09</div>
-              <h2 className="text-4xl font-bold text-foreground">Installation & Implementation</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 09</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Installation & Implementation</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -1060,7 +1060,7 @@ function ImplementationPage() {
               { step: "03", title: "Use Components", desc: "import { Button } from '@ux4g/react'" },
             ].map((item, index) => (
               <div key={index} className="border-2 border-border rounded-lg p-6">
-                <div className="text-4xl font-bold text-primary mb-3">{item.step}</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-3">{item.step}</div>
                 <h4 className="font-semibold text-foreground mb-2">{item.title}</h4>
                 <code className="text-xs bg-gray-900 text-green-400 px-2 py-1 rounded font-mono">
                   {item.desc}
@@ -1073,8 +1073,8 @@ function ImplementationPage() {
         {/* Framework Support */}
         <div>
           <h3 className="text-xl font-bold text-foreground mb-6">Framework Support</h3>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="border-2 border-border rounded-lg p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h4 className="text-lg font-bold text-foreground mb-4">React Implementation</h4>
               <div className="space-y-3 text-sm">
                 <div className="p-3 bg-background rounded">
@@ -1098,7 +1098,7 @@ function ImplementationPage() {
               </div>
             </div>
 
-            <div className="border-2 border-border rounded-lg p-8">
+            <div className="border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h4 className="text-lg font-bold text-foreground mb-4">Angular Implementation</h4>
               <div className="space-y-3 text-sm">
                 <div className="p-3 bg-background rounded">
@@ -1138,8 +1138,8 @@ function GovernancePage() {
               <GitBranch className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 10</div>
-              <h2 className="text-4xl font-bold text-foreground">Governance & Lifecycle</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 10</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Governance & Lifecycle</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -1172,7 +1172,7 @@ function GovernancePage() {
         {/* Release Process */}
         <div className="mb-12">
           <h3 className="text-xl font-bold text-foreground mb-6">Release Process</h3>
-          <div className="border-2 border-border rounded-lg p-8">
+          <div className="border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="flex items-center justify-between">
               {[
                 { phase: "Proposal", desc: "Submit request" },
@@ -1232,8 +1232,8 @@ function AdoptionPage() {
               <Users className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 11</div>
-              <h2 className="text-4xl font-bold text-foreground">Adoption & Onboarding</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 11</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Adoption & Onboarding</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">
@@ -1270,7 +1270,7 @@ function AdoptionPage() {
         {/* Support Channels */}
         <div className="mb-12">
           <h3 className="text-xl font-bold text-foreground mb-6">Support Channels</h3>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { channel: "Documentation Portal", desc: "Comprehensive guides and API references", availability: "24/7" },
               { channel: "Technical Support", desc: "Direct support for departments and teams", availability: "Business hours" },
@@ -1293,22 +1293,22 @@ function AdoptionPage() {
         {/* Success Metrics */}
         <div>
           <h3 className="text-xl font-bold text-foreground mb-6">Adoption Success Metrics</h3>
-          <div className="border-2 border-border rounded-lg p-8">
+          <div className="border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">15</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">15</div>
                 <div className="text-sm text-muted-foreground">Ministries Adopting</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">50+</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">50+</div>
                 <div className="text-sm text-muted-foreground">Active Teams</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">100+</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">100+</div>
                 <div className="text-sm text-muted-foreground">Services Using System</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-primary mb-2">95%</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">95%</div>
                 <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
               </div>
             </div>
@@ -1329,8 +1329,8 @@ function ServiceBlueprintsPage() {
               <BookOpen className="text-white" size={24} />
             </div>
             <div>
-              <div className="text-sm text-gray-500 uppercase tracking-wide">Page 12</div>
-              <h2 className="text-4xl font-bold text-foreground">Reference Service Blueprints</h2>
+              <div className="text-sm text-muted-foreground uppercase tracking-wide">Page 12</div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Reference Service Blueprints</h2>
             </div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl">

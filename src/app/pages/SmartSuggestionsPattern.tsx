@@ -52,7 +52,7 @@ export default function SmartSuggestionsPattern() {
               </div>
               <div>
                 <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Data Input Pattern</div>
-                <h1 className="text-5xl font-bold text-foreground">Smart Suggestions</h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Smart Suggestions</h1>
               </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -77,7 +77,7 @@ export default function SmartSuggestionsPattern() {
             <div className="space-y-6">
 
               {/* Example 1: Occupation with Categories */}
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 className="font-bold text-foreground mb-4">Example 1: Categorized Suggestions</h3>
                 <div className="relative">
                   <label className="block font-bold text-foreground mb-2">
@@ -131,7 +131,7 @@ export default function SmartSuggestionsPattern() {
               </div>
 
               {/* Example 2: Location with Popular First */}
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 className="font-bold text-foreground mb-4">Example 2: Popular Choices First</h3>
                 <div className="relative">
                   <label className="block font-bold text-foreground mb-2">
@@ -191,7 +191,7 @@ export default function SmartSuggestionsPattern() {
               </div>
 
               {/* Example 3: Recent Entries */}
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 className="font-bold text-foreground mb-4">Example 3: Recent & Frequent Values</h3>
                 <div>
                   <label className="block font-bold text-foreground mb-2">Purpose of Visit</label>

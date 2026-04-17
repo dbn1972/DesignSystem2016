@@ -108,7 +108,7 @@ export default function GlobalSearchPattern() {
             <div className="inline-block p-4 bg-purple-100 rounded-full mb-4">
               <Search size={48} className="text-purple-600" />
             </div>
-            <h1 className="text-4xl font-bold text-foreground mb-3">Find Government Services</h1>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">Find Government Services</h1>
             <p className="text-lg text-muted-foreground">
               Search by service name, category, or what you need help with
             </p>
@@ -245,7 +245,7 @@ export default function GlobalSearchPattern() {
               {/* Browse by Category */}
               <div>
                 <h2 className="text-lg font-bold text-foreground mb-4">Browse by Category</h2>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {['Civil Registration', 'Transport', 'Identity', 'Revenue', 'Election', 'Food & Supplies'].map((category, i) => (
                     <Link
                       key={i}
@@ -304,7 +304,7 @@ export default function GlobalSearchPattern() {
           {/* States Documentation */}
           <div className="mt-6 bg-card border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-3">States Demonstrated</h3>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div>
                 <div className="font-bold text-muted-foreground mb-2">✅ Implemented</div>
                 <ul className="space-y-1 text-muted-foreground">

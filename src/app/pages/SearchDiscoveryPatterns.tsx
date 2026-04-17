@@ -21,7 +21,7 @@ export default function SearchDiscoveryPatterns() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-foreground">Search & Discovery Patterns</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Search & Discovery Patterns</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -130,7 +130,7 @@ export default function SearchDiscoveryPatterns() {
               <Search size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Core Search Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Global Search"
                 description="Universal search across all government services with autocomplete, suggestions, and smart matching"
@@ -158,7 +158,7 @@ export default function SearchDiscoveryPatterns() {
               <Filter size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Filtering & Refinement Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Filters & Facets"
                 description="Multi-dimensional filtering by department, category, eligibility, language, and location"
@@ -186,7 +186,7 @@ export default function SearchDiscoveryPatterns() {
               <TrendingUp size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Discovery & Suggestion Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Suggested Services"
                 description="Smart suggestions based on user profile, behavior, location, and frequently accessed services"
@@ -214,7 +214,7 @@ export default function SearchDiscoveryPatterns() {
               <Compass size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Contextual & Guided Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Recently Used Services"
                 description="Quick access to user's recently accessed services with timestamp and status tracking"
@@ -281,8 +281,8 @@ export default function SearchDiscoveryPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-purple-500 pl-4">
             Search Intelligence Features
           </h2>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <Zap size={20} className="text-yellow-600" />
                 Smart Matching
@@ -306,7 +306,7 @@ export default function SearchDiscoveryPatterns() {
                 </li>
               </ul>
             </div>
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <TrendingUp size={20} className="text-teal-600" />
                 Personalization
@@ -338,8 +338,8 @@ export default function SearchDiscoveryPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-primary pl-4">
             Related Resources
           </h2>
-          <div className="bg-card border-2 border-border rounded-lg p-8">
-            <div className="grid grid-cols-2 gap-6">
+          <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-bold text-foreground mb-4">Related Pattern Families</h3>
                 <ul className="space-y-2 text-sm">

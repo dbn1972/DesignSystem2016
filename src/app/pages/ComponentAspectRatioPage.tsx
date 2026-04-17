@@ -41,7 +41,7 @@ function AspectRatioPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <AspectRatioPreview ratio={ratio} />
         </div>
@@ -123,7 +123,7 @@ function Example() {
   return (
     <AspectRatio ratio="16/9" maxWidth="800px">
       <div className="flex items-center justify-center bg-muted w-full h-full rounded">
-        <span className="text-gray-500">16:9 Video Player</span>
+        <span className="text-muted-foreground">16:9 Video Player</span>
       </div>
     </AspectRatio>
   );
@@ -131,7 +131,7 @@ function Example() {
           preview: (
             <AspectRatioPreview ratio="16/9" maxWidth="800px">
               <div className="flex items-center justify-center bg-muted w-full h-full rounded border-2 border-border">
-                <span className="text-gray-500 font-medium">16:9 Video Player</span>
+                <span className="text-muted-foreground font-medium">16:9 Video Player</span>
               </div>
             </AspectRatioPreview>
           ),
@@ -155,7 +155,7 @@ function Example() {
           preview: (
             <AspectRatioPreview ratio="4/3" maxWidth="600px">
               <div className="flex items-center justify-center bg-muted w-full h-full rounded border-2 border-border">
-                <span className="text-gray-500 font-medium">4:3 Image</span>
+                <span className="text-muted-foreground font-medium">4:3 Image</span>
               </div>
             </AspectRatioPreview>
           ),
@@ -179,7 +179,7 @@ function Example() {
           preview: (
             <AspectRatioPreview ratio="1/1" maxWidth="300px">
               <div className="flex items-center justify-center bg-muted w-full h-full rounded-full border-2 border-border">
-                <span className="text-gray-500 font-medium">1:1</span>
+                <span className="text-muted-foreground font-medium">1:1</span>
               </div>
             </AspectRatioPreview>
           ),

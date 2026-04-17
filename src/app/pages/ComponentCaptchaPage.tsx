@@ -103,7 +103,7 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
               <Shield size={20} className="text-white" />
             </div>
             <div className="flex items-center justify-center h-full">
-              <span className="text-sm text-gray-500">Slide to verify</span>
+              <span className="text-sm text-muted-foreground">Slide to verify</span>
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@ function CaptchaPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <CaptchaPreview type={type} difficulty={difficulty} />
         </div>

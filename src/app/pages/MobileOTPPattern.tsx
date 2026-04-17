@@ -144,7 +144,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -227,7 +227,7 @@ function FlowDiagram() {
         <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
           <FlowStep 
             number={1}
@@ -328,7 +328,7 @@ function ExampleScreens() {
         <h2 className="text-2xl font-bold text-foreground">Example Screens</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Mobile Number Entry */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -728,7 +728,7 @@ function MobileEntrySection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Input Validation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -818,9 +818,9 @@ function SMSHandlingSection() {
             <p className="mb-1">Valid for 5 minutes.</p>
             <p className="mb-1">Do not share this code with anyone.</p>
             <p className="mb-4">- Government of India</p>
-            <p className="text-gray-500 text-xs">Sender ID: GOV-IN or VM-GOVIND</p>
+            <p className="text-muted-foreground text-xs">Sender ID: GOV-IN or VM-GOVIND</p>
           </div>
-          <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <p className="font-bold text-foreground mb-1">Message Length</p>
               <p className="text-muted-foreground">Under 160 characters (1 SMS credit)</p>
@@ -941,7 +941,7 @@ function NetworkConsiderations() {
         <h2 className="text-2xl font-bold text-foreground">Low Network & Connectivity Handling</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Common Network Issues */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-200 dark:border-orange-800 px-6 py-4">
@@ -1006,7 +1006,7 @@ function NetworkConsiderations() {
           <h3 className="font-bold text-foreground">User Guidance for Network Issues</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
               <h3 className="font-bold text-foreground mb-3">Before Requesting OTP</h3>
               <div className="space-y-2">
@@ -1041,7 +1041,7 @@ function AccessibilitySection() {
         <h2 className="text-2xl font-bold text-foreground">Accessibility Guidelines</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Mobile Input Accessibility */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
@@ -1106,7 +1106,7 @@ function AccessibilitySection() {
           <h3 className="font-bold text-foreground">SMS Auto-Read APIs (Web OTP)</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
               <h3 className="font-bold text-foreground mb-3">iOS Safari (WebKit)</h3>
               <div className="bg-background border border-border rounded p-4">
@@ -1200,7 +1200,7 @@ function ImplementationSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Code Example: Mobile Input</h3>
@@ -1717,7 +1717,7 @@ function GovernanceSection() {
           <Info size={20} className="text-yellow-600" />
           Support & Escalation Guidance
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-foreground mb-2">For Implementation Questions:</p>
             <ul className="space-y-1 text-muted-foreground ml-4">

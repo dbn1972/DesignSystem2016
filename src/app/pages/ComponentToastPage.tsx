@@ -50,7 +50,7 @@ function ToastPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <ToastPreview variant={variant} message={message} description={description || undefined} />
       </div>
       <div className="space-y-4 text-sm">
@@ -305,7 +305,7 @@ function Example() {
               <div className="text-sm text-muted-foreground w-full">
                 Click the positions below to see where toasts appear:
               </div>
-              <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md">
                 <div className="p-3 border rounded text-sm text-center bg-background">
                   Top Right (Default)
                 </div>

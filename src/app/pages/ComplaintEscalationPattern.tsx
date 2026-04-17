@@ -127,7 +127,7 @@ function PatternOverview() {
     <section id="overview" className="space-y-6">
       <SectionHeader title="Pattern Overview" />
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
@@ -400,7 +400,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 1: Grievance Entry (Know Your Rights)" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-primary text-white p-8">
+            <div className="bg-primary text-white p-4 sm:p-6 lg:p-8">
               <div className="max-w-3xl">
                 <div className="flex items-center gap-3 mb-4">
                   <Scale size={32} />
@@ -515,7 +515,7 @@ function PageDesigns() {
               <ProgressBar steps={4} current={2} />
             </div>
             <div className="p-8 space-y-6">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Department / Ministry <span className="text-red-600">*</span>
@@ -599,7 +599,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Application / Reference ID (if any)
@@ -766,7 +766,7 @@ function PageDesigns() {
             <div className="p-8 space-y-6">
               <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="font-bold text-foreground mb-3">Complaint Summary</div>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <ReviewItem label="Department" value="Ministry of Education" />
                   <ReviewItem label="Service Type" value="Scholarship Scheme" />
                   <ReviewItem label="Issue Category" value="Service Delay" />
@@ -797,7 +797,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <div className="font-bold text-foreground mb-3">Contact Information</div>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <ReviewItem label="Mobile Number" value="+91 98765-43210" />
                   <ReviewItem label="Email Address" value="priya.sharma@example.com" />
                 </div>
@@ -880,13 +880,13 @@ function PageDesigns() {
             <div className="p-8 space-y-6">
               <div className="bg-background border-2 border-border rounded-lg p-6 text-center">
                 <div className="text-sm text-muted-foreground mb-2">Your Case ID</div>
-                <div className="text-4xl font-bold text-foreground font-mono mb-4">GRV-2026-789012</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-mono mb-4">GRV-2026-789012</div>
                 <div className="text-sm text-muted-foreground">
                   Use this ID to track your complaint status. Keep it safe for future reference.
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <AssignmentCard
                   icon={<Shield size={24} className="text-blue-600" />}
                   title="Assigned To"
@@ -921,7 +921,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <div className="font-bold text-foreground mb-4">Notifications Enabled</div>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <NotificationItem
                     icon={<MessageSquare size={16} className="text-blue-600" />}
                     channel="SMS Updates"
@@ -1067,7 +1067,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 7: Escalation Request" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-red-100 border-b-2 border-red-300 p-8">
+            <div className="bg-red-100 border-b-2 border-red-300 p-4 sm:p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <ArrowUp size={32} className="text-red-600" />
                 <h2 className="text-3xl font-bold text-foreground">Escalate Your Complaint</h2>
@@ -1090,7 +1090,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="border-2 border-border rounded-lg p-6 bg-card">
                   <div className="font-bold text-foreground mb-4">Current Level</div>
                   <div className="text-sm">
@@ -1197,7 +1197,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 8: Resolution and Closure" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-green-600 text-white p-8">
+            <div className="bg-green-600 text-white p-4 sm:p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <CheckCircle size={32} />
                 <h2 className="text-3xl font-bold">Complaint Resolved</h2>
@@ -1257,7 +1257,7 @@ function PageDesigns() {
                 <div className="text-sm text-muted-foreground mb-4">
                   Your feedback helps us improve our services and holds departments accountable.
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <button className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-600 flex items-center justify-center gap-2">
                     <CheckCircle size={18} />
                     Yes, Close Complaint
@@ -1561,7 +1561,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="WCAG 2.1 AA Requirements" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AccessibilityBlock
               area="Form Accessibility"
               requirements={[
@@ -1620,7 +1620,7 @@ function AccessibilityGuidance() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <MultilingualItem
                 aspect="Citizen Rights"
                 requirement="Constitutional rights explained in user's language (SLA, escalation, transparency)"
@@ -1882,7 +1882,7 @@ export function ComplaintEscalationPage() {
             <div><label className="block text-sm font-medium mb-1">Category *</label><select value={form.category} onChange={e => setForm(f => ({...f, category: e.target.value}))} className="w-full px-4 py-3 border border-border rounded-lg"><option value="">Select category</option>{categories.map(c => <option key={c}>{c}</option>)}</select></div>
             <div><label className="block text-sm font-medium mb-1">Subject *</label><input value={form.subject} onChange={e => setForm(f => ({...f, subject: e.target.value}))} placeholder="Brief subject line" className="w-full px-4 py-3 border border-border rounded-lg" /></div>
             <div><label className="block text-sm font-medium mb-1">Description *</label><textarea value={form.description} onChange={e => setForm(f => ({...f, description: e.target.value}))} rows={4} placeholder="Describe your complaint in detail..." className="w-full px-4 py-3 border border-border rounded-lg" /></div>
-            <div><label className="block text-sm font-medium mb-2">Priority</label><div className="grid grid-cols-4 gap-2">{(['low','medium','high','critical'] as Priority[]).map(p => (<button key={p} onClick={() => setForm(f => ({...f, priority: p}))} className={\`p-2 rounded-lg border-2 text-xs font-bold capitalize \${form.priority === p ? priorityColors[p] : 'border-border'}\`}>{p}</button>))}</div></div>
+            <div><label className="block text-sm font-medium mb-2">Priority</label><div className="grid grid-cols-2 lg:grid-cols-4 gap-2">{(['low','medium','high','critical'] as Priority[]).map(p => (<button key={p} onClick={() => setForm(f => ({...f, priority: p}))} className={\`p-2 rounded-lg border-2 text-xs font-bold capitalize \${form.priority === p ? priorityColors[p] : 'border-border'}\`}>{p}</button>))}</div></div>
             <div><label className="block text-sm font-medium mb-1">Attachments</label><input type="file" multiple onChange={e => { if (e.target.files) setForm(f => ({...f, attachments: [...f.attachments, ...Array.from(e.target.files!)]})); }} className="text-sm" /></div>
             <button onClick={() => setStep('review')} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Review & Submit</button>
           </div>

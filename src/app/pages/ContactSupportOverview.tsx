@@ -17,7 +17,7 @@ export default function ContactSupportOverview() {
               <Info size={32} className="text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
               <p className="text-lg text-muted-foreground">
                 Understanding when and how to use Contact & Support patterns in government digital services
               </p>
@@ -38,7 +38,7 @@ export default function ContactSupportOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-blue-500 pl-4">
                 Purpose of Contact & Support Patterns
               </h2>
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <p className="text-muted-foreground mb-6">
                   Contact and Support patterns provide structured, accessible channels for citizens to 
                   communicate with government departments across various service scenarios. These patterns 
@@ -257,8 +257,8 @@ export default function ContactSupportOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Accessibility Considerations
               </h2>
-              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8">
-                <div className="grid grid-cols-2 gap-6">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 sm:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <Shield size={20} className="text-orange-600" />
@@ -324,8 +324,8 @@ export default function ContactSupportOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-red-500 pl-4">
                 Governance Considerations
               </h2>
-              <div className="bg-card border-2 border-border rounded-lg p-8">
-                <div className="grid grid-cols-2 gap-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="font-bold text-foreground mb-4">Data Privacy & Security</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -409,7 +409,7 @@ function PatternGuide({ title, when, notWhen, color }: {
   return (
     <div className={`bg-card border-2 ${colors[color as keyof typeof colors]} rounded-lg p-6`}>
       <h3 className="font-bold text-foreground mb-4">{title}</h3>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <CheckCircle size={16} className="text-green-600" />
@@ -452,7 +452,7 @@ function FlowIntegration({ title, description, touchpoints }: {
     <div className="border-l-4 border-blue-500 pl-6">
       <h3 className="font-bold text-foreground mb-2">{title}</h3>
       <p className="text-sm text-muted-foreground mb-3">{description}</p>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         {touchpoints.map((point, i) => (
           <div key={i} className="text-xs text-muted-foreground bg-background px-3 py-2 rounded">
             {point}

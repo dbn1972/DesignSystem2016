@@ -357,7 +357,7 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
             <FileText size={20} className="text-green-600" />
             What You'll Need
           </h3>
-          <div className="grid grid-cols-2 gap-3 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
             <RequirementItem text="Details of person you're representing" />
             <RequirementItem text="Your relationship to them" />
             <RequirementItem text="Authorization or legal documents" />
@@ -764,7 +764,7 @@ function AuthorizationScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               authorizationChecked
                 ? 'bg-primary text-white hover:opacity-90'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             Accept Declaration and Continue
@@ -893,7 +893,7 @@ function ConsentScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               consentChecked
                 ? 'bg-primary text-white hover:opacity-90'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             Provide Consent and Continue
@@ -1056,7 +1056,7 @@ function ProofUploadScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               proofUploaded
                 ? 'bg-primary text-white hover:opacity-90'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             Submit Documents and Continue
@@ -1332,7 +1332,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
             For specific questions about your situation, contact our support team or visit the nearest 
             service center with your documents.
           </p>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <span className="font-bold text-foreground">Email:</span>{' '}
               <a href="#" className="text-primary hover:underline">support@service.gov.in</a>

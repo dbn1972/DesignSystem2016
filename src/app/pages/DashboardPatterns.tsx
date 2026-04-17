@@ -21,7 +21,7 @@ export default function DashboardPatterns() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-foreground">Dashboard & Personalization Patterns</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Dashboard & Personalization Patterns</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -130,7 +130,7 @@ export default function DashboardPatterns() {
               <LayoutDashboard size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Overview & Management Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Citizen Dashboard"
                 description="Unified dashboard providing overview of all user activities, pending tasks, recent applications, and quick access to services"
@@ -158,7 +158,7 @@ export default function DashboardPatterns() {
               <CheckSquare size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Action & Task Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Task List (Pending Actions)"
                 description="Prioritized list of required actions, deadlines, and pending tasks with contextual guidance and quick completion"
@@ -186,7 +186,7 @@ export default function DashboardPatterns() {
               <Bookmark size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Saved & History Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Saved Services"
                 description="Bookmarked services for quick access with personalized recommendations and recently accessed items"
@@ -214,7 +214,7 @@ export default function DashboardPatterns() {
               <User size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Profile & Settings Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Profile and Preferences"
                 description="User profile management with personal information, communication preferences, security settings, and privacy controls"
@@ -227,7 +227,7 @@ export default function DashboardPatterns() {
               <div className="p-6 border-2 border-dashed border-border rounded-lg bg-background flex items-center justify-center text-center">
                 <div>
                   <p className="text-muted-foreground mb-2">Additional dashboard patterns can be added:</p>
-                  <p className="text-sm text-gray-500">Department-specific dashboards, Family dashboard, Service analytics</p>
+                  <p className="text-sm text-muted-foreground">Department-specific dashboards, Family dashboard, Service analytics</p>
                 </div>
               </div>
             </div>
@@ -278,8 +278,8 @@ export default function DashboardPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-purple-500 pl-4">
             Dashboard Intelligence Features
           </h2>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <Zap size={20} className="text-yellow-600" />
                 Smart Prioritization
@@ -303,7 +303,7 @@ export default function DashboardPatterns() {
                 </li>
               </ul>
             </div>
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <User size={20} className="text-purple-600" />
                 Personalization Engine
@@ -335,8 +335,8 @@ export default function DashboardPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-primary pl-4">
             Related Resources
           </h2>
-          <div className="bg-card border-2 border-border rounded-lg p-8">
-            <div className="grid grid-cols-2 gap-6">
+          <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-bold text-foreground mb-4">Related Pattern Families</h3>
                 <ul className="space-y-2 text-sm">
@@ -421,7 +421,7 @@ export function DashboardPage() {
         </div>
       </header>
       <div className="max-w-5xl mx-auto p-6">
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold">{apps.length}</div><div className="text-sm text-muted-foreground">Total Applications</div></div>
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-blue-600">{apps.filter(a => a.status === 'in-progress').length}</div><div className="text-sm text-muted-foreground">In Progress</div></div>
           <div className="bg-card border border-border rounded-xl p-4"><div className="text-2xl font-bold text-green-600">{apps.filter(a => a.status === 'approved').length}</div><div className="text-sm text-muted-foreground">Approved</div></div>
@@ -461,7 +461,7 @@ import { CommonModule } from '@angular/common';
         </div>
       </header>
       <div class="max-w-5xl mx-auto p-6">
-        <div class="grid grid-cols-3 gap-4 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold">{{apps.length}}</div><div class="text-sm text-muted-foreground">Total</div></div>
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold text-blue-600">{{inProgress}}</div><div class="text-sm text-muted-foreground">In Progress</div></div>
           <div class="bg-card border border-border rounded-xl p-4"><div class="text-2xl font-bold text-green-600">{{approved}}</div><div class="text-sm text-muted-foreground">Approved</div></div>

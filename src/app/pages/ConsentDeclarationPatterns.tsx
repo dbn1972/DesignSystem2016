@@ -214,7 +214,7 @@ export default function ConsentDeclarationPatterns() {
 
       {/* Pattern Grid */}
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Consent Capture */}
           <PatternCard
             to="/patterns/consent/consent-capture"
@@ -360,7 +360,7 @@ export default function ConsentDeclarationPatterns() {
               <h3 className="font-bold text-muted-foreground mb-2">
                 More Patterns Coming Soon
               </h3>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-muted-foreground">
                 Additional consent and acknowledgment patterns
                 <br />
                 based on service requirements
@@ -626,7 +626,7 @@ export default function ConsentDeclarationPatterns() {
             </h2>
           </div>
           <div className="p-8">
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Design Principles */}
               <div>
                 <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
@@ -703,7 +703,7 @@ export default function ConsentDeclarationPatterns() {
         </section>
 
         {/* Support Resources */}
-        <section className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
+        <section className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 sm:p-6 lg:p-8">
           <div className="flex items-start gap-4">
             <HelpCircle
               size={32}
@@ -1088,7 +1088,7 @@ function PatternCard({
           <h3 className="text-xs font-bold text-muted-foreground uppercase mb-2">
             Key Features
           </h3>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -1109,7 +1109,7 @@ function PatternCard({
         {/* Metadata */}
         <div className="flex items-center gap-4 pt-4 border-t border-border">
           <div className="flex items-center gap-2 text-xs">
-            <Settings size={14} className="text-gray-500" />
+            <Settings size={14} className="text-muted-foreground" />
             <span className="text-muted-foreground">
               Complexity:{" "}
               <span className="font-bold text-foreground">
@@ -1118,7 +1118,7 @@ function PatternCard({
             </span>
           </div>
           <div className="flex items-center gap-2 text-xs">
-            <Clock size={14} className="text-gray-500" />
+            <Clock size={14} className="text-muted-foreground" />
             <span className="text-muted-foreground">
               Est:{" "}
               <span className="font-bold text-foreground">

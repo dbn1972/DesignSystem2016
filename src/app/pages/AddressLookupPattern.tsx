@@ -64,7 +64,7 @@ export default function AddressLookupPattern() {
               </div>
               <div>
                 <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Data Input Pattern</div>
-                <h1 className="text-5xl font-bold text-foreground">Address Lookup</h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Address Lookup</h1>
               </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -86,7 +86,7 @@ export default function AddressLookupPattern() {
             </div>
 
             {/* Demo Form */}
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-6">Address Information</h3>
 
               <div className="space-y-6">
@@ -143,7 +143,7 @@ export default function AddressLookupPattern() {
                 </div>
 
                 {/* Auto-filled Fields */}
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block font-bold text-foreground mb-2">
                       State <span className="text-red-600">*</span>
@@ -446,7 +446,7 @@ export function AddressLookupPage() {
         <p className="text-sm text-muted-foreground mb-6">Enter PIN code for auto-fill of state, district, and city</p>
         {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
         <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="pincode" className="block text-sm font-medium mb-1">PIN Code <span className="text-red-500">*</span></label>
               <input id="pincode" type="text" inputMode="numeric" value={address.pincode} onChange={e => handlePincodeChange(e.target.value)} placeholder="110001" maxLength={6} className="w-full px-4 py-3 border border-border rounded-lg font-mono text-lg" aria-required="true" />
@@ -457,7 +457,7 @@ export function AddressLookupPage() {
               <input id="state" type="text" value={address.state} readOnly={autoFilled} className="w-full px-4 py-3 border border-border rounded-lg bg-muted/50" />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="district" className="block text-sm font-medium mb-1">District</label>
               <input id="district" type="text" value={address.district} readOnly={autoFilled} className="w-full px-4 py-3 border border-border rounded-lg bg-muted/50" />
@@ -501,11 +501,11 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
         <h1 class="text-2xl font-bold mb-6">Address</h1>
         <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
         <form [formGroup]="form" (ngSubmit)="save()" class="space-y-4">
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div><label class="block text-sm font-medium mb-1">PIN Code *</label><input formControlName="pincode" (input)="onPincode()" maxlength="6" class="w-full px-4 py-3 border border-border rounded-lg font-mono text-lg" /></div>
             <div><label class="block text-sm font-medium mb-1">State</label><input formControlName="state" [readOnly]="autoFilled" class="w-full px-4 py-3 border border-border rounded-lg bg-muted/50" /></div>
           </div>
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div><label class="block text-sm font-medium mb-1">District</label><input formControlName="district" [readOnly]="autoFilled" class="w-full px-4 py-3 border border-border rounded-lg bg-muted/50" /></div>
             <div><label class="block text-sm font-medium mb-1">City</label><input formControlName="city" [readOnly]="autoFilled" class="w-full px-4 py-3 border border-border rounded-lg bg-muted/50" /></div>
           </div>

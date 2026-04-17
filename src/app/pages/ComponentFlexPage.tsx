@@ -63,7 +63,7 @@ function FlexPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <FlexPreview direction={direction} gap={gap} />
         </div>
@@ -349,7 +349,7 @@ function Example() {
                     <p className="text-sm text-muted-foreground">Manage your account</p>
                   </div>
                 </FlexPreview>
-                <Settings size={20} className="text-gray-500 cursor-pointer" />
+                <Settings size={20} className="text-muted-foreground cursor-pointer" />
               </FlexPreview>
             </DemoCard>
           ),

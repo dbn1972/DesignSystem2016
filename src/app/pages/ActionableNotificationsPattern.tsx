@@ -154,7 +154,7 @@ export default function ActionableNotificationsPattern() {
                         <p className="text-sm text-muted-foreground mb-3">{notif.message}</p>
                         <div className="flex items-center gap-4 text-sm">
                           <div className="flex items-center gap-2">
-                            <FileText size={16} className="text-gray-500" />
+                            <FileText size={16} className="text-muted-foreground" />
                             <span className="font-mono text-muted-foreground">{notif.reference}</span>
                           </div>
                           {notif.deadline && (

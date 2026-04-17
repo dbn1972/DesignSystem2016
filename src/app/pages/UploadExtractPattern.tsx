@@ -58,7 +58,7 @@ export default function UploadExtractPattern() {
               </div>
               <div>
                 <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Data Input Pattern</div>
-                <h1 className="text-5xl font-bold text-foreground">Upload → Auto-Extract</h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Upload → Auto-Extract</h1>
               </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -81,7 +81,7 @@ export default function UploadExtractPattern() {
 
             {/* Upload Section */}
             {!uploadedFile && (
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 className="font-bold text-foreground mb-4">Upload Document for Auto-extraction</h3>
 
                 <div className="border-2 border-dashed border-border rounded-lg p-12 text-center hover:border-primary hover:bg-blue-50 transition-all">
@@ -105,7 +105,7 @@ export default function UploadExtractPattern() {
 
                 <div className="mt-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4">
                   <div className="font-bold text-foreground mb-2">Supported Documents:</div>
-                  <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-muted-foreground">
                     <div>• PAN Card</div>
                     <div>• Aadhaar Card</div>
                     <div>• Driving License</div>
@@ -121,7 +121,7 @@ export default function UploadExtractPattern() {
 
             {/* Extraction in Progress */}
             {uploadedFile && !extracted && (
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                     <FileText size={24} className="text-blue-600" />
@@ -185,7 +185,7 @@ export default function UploadExtractPattern() {
                   </div>
                 </div>
 
-                <div className="bg-card border-2 border-border rounded-lg p-8">
+                <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="font-bold text-foreground">Auto-filled Information</h3>
                     <button
@@ -248,7 +248,7 @@ export default function UploadExtractPattern() {
                     </div>
 
                     {/* Grid Layout */}
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {/* DOB */}
                       <div>
                         <label className="block font-bold text-foreground mb-2 flex items-center justify-between">

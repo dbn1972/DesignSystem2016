@@ -15,7 +15,7 @@ export default function MigrationMaterialUI() {
             <span>Back to Migration Guides</span>
           </Link>
 
-          <h1 className="text-4xl font-bold text-foreground mb-4">Material-UI to UX4G Migration Guide</h1>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">Material-UI to UX4G Migration Guide</h1>
           <p className="text-xl text-muted-foreground max-w-3xl">
             Comprehensive guide for migrating from Material-UI (MUI) v5.x to UX4G Design System
           </p>
@@ -742,7 +742,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 
         {/* Next Steps */}
         <section>
-          <div className="bg-gradient-to-br from-saffron-50 to-green-50 border-2 border-saffron-200 rounded-lg p-8">
+          <div className="bg-gradient-to-br from-saffron-50 to-green-50 border-2 border-saffron-200 rounded-lg p-4 sm:p-6 lg:p-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Need Help?</h2>
             <p className="text-muted-foreground mb-6">
               If you encounter issues during your migration or need guidance, we're here to support you.

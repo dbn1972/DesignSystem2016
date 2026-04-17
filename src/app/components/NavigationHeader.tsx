@@ -188,7 +188,7 @@ export default function NavigationHeader() {
         background: 'linear-gradient(to right, var(--ux4g-color-saffron-500), white, var(--ux4g-color-green-600))'
       }}></div>
 
-      <div className="max-w-[1600px] mx-auto">
+      <div className="max-w-[1600px] mx-auto overflow-x-hidden">
         {/* Top Bar */}
         <div className="px-6 py-3.5 flex items-center justify-between border-b border-border">
           {/* Logo */}
@@ -364,7 +364,7 @@ function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Design Foundations
@@ -378,7 +378,7 @@ function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
 
           <div className="col-span-2 bg-background/50 rounded-xl p-6">
             <div className="font-semibold text-sm text-foreground mb-5">Foundation Topics</div>
-            <div className="grid grid-cols-2 gap-3 text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
               <Link to="/foundations" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:hover:border-blue-800">
                 <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Design Tokens</div>
                 <div className="text-muted-foreground">Color, typography, spacing, and more</div>
@@ -421,7 +421,7 @@ function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Component Library
@@ -434,7 +434,7 @@ function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
 
           <div className="col-span-2 bg-card border-2 border-border rounded-lg p-6">
             <div className="font-bold text-sm text-foreground mb-4">Component Categories</div>
-            <div className="grid grid-cols-2 gap-4 text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
               <Link to="/components" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
                 <div className="font-bold text-muted-foreground">Form Components</div>
                 <div className="text-muted-foreground">Input, Select, Checkbox, Radio, Textarea</div>
@@ -477,14 +477,14 @@ function PatternsMegaMenu({ onClose }: { onClose: () => void }) {
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1: Overview */}
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Overview
             </div>
             <div className="space-y-0.5">
-              <MegaMenuItem icon={<Layout size={16} className="text-gray-500" />} label="Patterns Overview" href="/patterns" />
+              <MegaMenuItem icon={<Layout size={16} className="text-muted-foreground" />} label="Patterns Overview" href="/patterns" />
               <MegaMenuItem icon={<Grid size={16} className="text-blue-500" />} label="Pattern Library" href="/pattern-library" />
             </div>
           </div>
@@ -596,7 +596,7 @@ function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Overview
@@ -686,7 +686,7 @@ function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Cross-Cutting Systems
@@ -703,7 +703,7 @@ function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
             <p className="text-xs text-muted-foreground mb-4">
               Systems are cross-cutting capabilities that work across multiple patterns and service archetypes. They provide foundational functionality for complex government services.
             </p>
-            <div className="grid grid-cols-2 gap-4 text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
               <Link to="/systems" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors col-span-2">
                 <div className="font-bold text-muted-foreground">Systems Overview</div>
                 <div className="text-muted-foreground">Premium hub for shared UX4G capabilities</div>
@@ -744,7 +744,7 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn">
       <div className="max-w-[1600px] mx-auto px-12 py-8">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
 
           {/* Col 1 — Overview + Auth */}
           <div className="space-y-5">
@@ -880,7 +880,7 @@ function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Documentation
@@ -904,7 +904,7 @@ function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
 
           <div className="col-span-2 bg-card border-2 border-border rounded-lg p-6">
             <div className="font-bold text-sm text-foreground mb-4">Developer Resources</div>
-            <div className="grid grid-cols-2 gap-4 text-xs mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mb-4">
               <Link to="/resources/starter-kit" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
                 <div className="font-bold text-muted-foreground">React Starter</div>
                 <div className="text-muted-foreground">Pre-configured React + TypeScript template</div>
@@ -942,7 +942,7 @@ function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Governance Framework

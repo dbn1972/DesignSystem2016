@@ -43,7 +43,7 @@ export default function MapInputPattern() {
               </div>
               <div>
                 <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Data Input Pattern</div>
-                <h1 className="text-5xl font-bold text-foreground">Map-based Input</h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Map-based Input</h1>
               </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -158,7 +158,7 @@ export default function MapInputPattern() {
 
             {/* Auto-filled Form */}
             {selectedLocation && (
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 className="font-bold text-foreground mb-6">Auto-filled Location Details</h3>
 
                 <div className="space-y-6">
@@ -172,7 +172,7 @@ export default function MapInputPattern() {
                     ></textarea>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block font-bold text-foreground mb-2">Latitude</label>
                       <input

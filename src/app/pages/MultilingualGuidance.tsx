@@ -12,7 +12,7 @@ export default function MultilingualGuidance() {
               <span>UX4G Multilingual Design</span>
             </div>
             
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Multilingual Design Guidance
             </h1>
             
@@ -74,7 +74,7 @@ function MultilingualPrinciples() {
         icon={<BookOpen size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         <PrincipleCard
           number="1"
           title="Language Equality"
@@ -161,7 +161,7 @@ function PrincipleCard({ number, title, description, examples }: any) {
       </div>
 
       <div className="p-6 bg-card dark:bg-gray-900">
-        <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-500 uppercase tracking-wide mb-3">Examples</h4>
+        <h4 className="text-xs font-semibold text-muted-foreground dark:text-muted-foreground uppercase tracking-wide mb-3">Examples</h4>
         <ul className="space-y-2">
           {examples.map((example: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground dark:text-muted-foreground">
@@ -280,19 +280,19 @@ function ScriptFontRow({ script, languages, fonts, characteristics }: any) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg p-4">
       <div>
-        <div className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wide mb-1">Script</div>
+        <div className="text-xs text-muted-foreground dark:text-muted-foreground uppercase tracking-wide mb-1">Script</div>
         <div className="font-bold text-foreground dark:text-gray-100 text-sm">{script}</div>
       </div>
       <div>
-        <div className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wide mb-1">Languages</div>
+        <div className="text-xs text-muted-foreground dark:text-muted-foreground uppercase tracking-wide mb-1">Languages</div>
         <div className="text-muted-foreground dark:text-muted-foreground text-sm">{languages}</div>
       </div>
       <div>
-        <div className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wide mb-1">Recommended Fonts</div>
+        <div className="text-xs text-muted-foreground dark:text-muted-foreground uppercase tracking-wide mb-1">Recommended Fonts</div>
         <div className="text-muted-foreground dark:text-muted-foreground text-sm font-mono">{fonts}</div>
       </div>
       <div>
-        <div className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wide mb-1">Characteristics</div>
+        <div className="text-xs text-muted-foreground dark:text-muted-foreground uppercase tracking-wide mb-1">Characteristics</div>
         <div className="text-muted-foreground dark:text-muted-foreground text-xs">{characteristics}</div>
       </div>
     </div>
@@ -302,14 +302,14 @@ function ScriptFontRow({ script, languages, fonts, characteristics }: any) {
 function TypographyExample({ script, sample, font, lineHeight, notes }: any) {
   return (
     <div className="border-2 border-border dark:border-gray-700 rounded-lg p-6">
-      <div className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wide mb-4">{script}</div>
+      <div className="text-xs text-muted-foreground dark:text-muted-foreground uppercase tracking-wide mb-4">{script}</div>
       <div className="text-2xl mb-4 border-2 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 p-4 rounded">
         {sample}
       </div>
       <div className="space-y-2 text-xs text-muted-foreground dark:text-muted-foreground">
         <div><strong>Font:</strong> {font}</div>
         <div><strong>Line Height:</strong> {lineHeight}</div>
-        <div className="text-gray-500 dark:text-gray-500">{notes}</div>
+        <div className="text-muted-foreground dark:text-muted-foreground">{notes}</div>
       </div>
     </div>
   );
@@ -343,7 +343,7 @@ function LineHeightDensity() {
         </div>
 
         {/* Comparison */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DoCard
             title="Adequate Line Height"
             example={
@@ -443,7 +443,7 @@ function LabelExpansion() {
         </div>
 
         {/* Do/Don't */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DoCard
             title="Flexible Button Width"
             example={
@@ -513,7 +513,7 @@ function ButtonNavigationResilience() {
 
       <div className="mt-8 space-y-6">
         {/* Navigation Examples */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DoCard
             title="Responsive Navigation"
             example={
@@ -572,7 +572,7 @@ function MixedLanguageUI() {
       <div className="mt-8 space-y-6">
         <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Common Mixed-Language Scenarios</h3>
-          <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-muted-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-muted-foreground">
             <div>
               <strong className="text-foreground dark:text-gray-100">Scenario 1: Code-Switching</strong>
               <p className="mt-1">Users mix English terms with regional languages (e.g., "Aadhaar Number" in Hindi interface)</p>
@@ -593,21 +593,21 @@ function MixedLanguageUI() {
         </div>
 
         {/* Examples */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DoCard
             title="Clear Language Mixing"
             example={
               <div className="border-2 border-border dark:border-gray-700 rounded-lg p-4 space-y-3">
                 <div className="text-sm">
-                  <div className="text-gray-500 dark:text-gray-500 text-xs mb-1">आवेदन संख्या</div>
+                  <div className="text-muted-foreground dark:text-muted-foreground text-xs mb-1">आवेदन संख्या</div>
                   <div className="font-mono">RAT2026-45678</div>
                 </div>
                 <div className="text-sm">
-                  <div className="text-gray-500 dark:text-gray-500 text-xs mb-1">नाम</div>
+                  <div className="text-muted-foreground dark:text-muted-foreground text-xs mb-1">नाम</div>
                   <div>राज कुमार</div>
                 </div>
                 <div className="text-sm">
-                  <div className="text-gray-500 dark:text-gray-500 text-xs mb-1">आधार नंबर</div>
+                  <div className="text-muted-foreground dark:text-muted-foreground text-xs mb-1">आधार नंबर</div>
                   <div className="font-mono">1234-5678-9012</div>
                 </div>
               </div>
@@ -620,15 +620,15 @@ function MixedLanguageUI() {
             example={
               <div className="border-2 border-border dark:border-gray-700 rounded-lg p-4 space-y-3">
                 <div className="text-sm">
-                  <div className="text-gray-500 dark:text-gray-500 text-xs mb-1">Application Number</div>
+                  <div className="text-muted-foreground dark:text-muted-foreground text-xs mb-1">Application Number</div>
                   <div className="font-mono">RAT2026-45678</div>
                 </div>
                 <div className="text-sm">
-                  <div className="text-gray-500 dark:text-gray-500 text-xs mb-1">नाम</div>
+                  <div className="text-muted-foreground dark:text-muted-foreground text-xs mb-1">नाम</div>
                   <div>राज कुमार</div>
                 </div>
                 <div className="text-sm">
-                  <div className="text-gray-500 dark:text-gray-500 text-xs mb-1">Aadhaar संख्या</div>
+                  <div className="text-muted-foreground dark:text-muted-foreground text-xs mb-1">Aadhaar संख्या</div>
                   <div className="font-mono">1234-5678-9012</div>
                 </div>
               </div>
@@ -761,7 +761,7 @@ function LanguageExamples() {
 function FormExample({ language, title, subtitle, fields, buttonText }: any) {
   return (
     <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-6 shadow-sm">
-      <div className="text-xs text-gray-500 dark:text-gray-500 mb-4">{language}</div>
+      <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-4">{language}</div>
       <h3 className="text-xl font-bold text-foreground dark:text-gray-100 mb-2">{title}</h3>
       <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-6">{subtitle}</p>
 
@@ -791,7 +791,7 @@ function FormExample({ language, title, subtitle, fields, buttonText }: any) {
 function StatusExample({ language, appNumber, status, statusColor, steps, message }: any) {
   return (
     <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-6 shadow-sm">
-      <div className="text-xs text-gray-500 dark:text-gray-500 mb-4">{language}</div>
+      <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-4">{language}</div>
 
       <div className="flex items-center justify-between mb-4">
         <div className="font-mono text-sm text-muted-foreground dark:text-muted-foreground">{appNumber}</div>
@@ -806,7 +806,7 @@ function StatusExample({ language, appNumber, status, statusColor, steps, messag
             <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
               step.status === 'complete' ? 'bg-green-50 dark:bg-green-900/200 text-white' :
               step.status === 'current' ? 'bg-blue-50 dark:bg-blue-900/200 text-white' :
-              'bg-gray-300 text-gray-500 dark:text-gray-500'
+              'bg-gray-300 text-muted-foreground dark:text-muted-foreground'
             }`}>
               {step.status === 'complete' ? '✓' : index + 1}
             </div>
@@ -862,7 +862,7 @@ function ErrorMessageLocalization() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DoCard
             title="Actionable Error Messages"
             example={
@@ -897,18 +897,18 @@ function ErrorMessageLocalization() {
 function ErrorMessageExample({ error, english, hindi, tamil }: any) {
   return (
     <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4">
-      <div className="text-xs font-semibold text-gray-500 dark:text-gray-500 uppercase mb-3">{error}</div>
+      <div className="text-xs font-semibold text-muted-foreground dark:text-muted-foreground uppercase mb-3">{error}</div>
       <div className="space-y-3 text-sm">
         <div>
-          <div className="text-xs text-gray-500 dark:text-gray-500 mb-1">English</div>
+          <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-1">English</div>
           <div className="text-muted-foreground dark:text-muted-foreground">{english}</div>
         </div>
         <div>
-          <div className="text-xs text-gray-500 dark:text-gray-500 mb-1">हिंदी (Hindi)</div>
+          <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-1">हिंदी (Hindi)</div>
           <div className="text-muted-foreground dark:text-muted-foreground">{hindi}</div>
         </div>
         <div>
-          <div className="text-xs text-gray-500 dark:text-gray-500 mb-1">தமிழ் (Tamil)</div>
+          <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-1">தமிழ் (Tamil)</div>
           <div className="text-muted-foreground dark:text-muted-foreground">{tamil}</div>
         </div>
       </div>
@@ -962,7 +962,7 @@ function FormFieldLocalization() {
 
         <div className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Form Field Localization Rules</h3>
-          <ul className="grid grid-cols-2 gap-4 text-sm text-muted-foreground dark:text-muted-foreground">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground dark:text-muted-foreground">
             <li className="flex items-start gap-2">
               <CheckCircle className="flex-shrink-0 mt-0.5 text-blue-600 dark:text-blue-400" size={14} />
               <span><strong>Labels:</strong> Translate completely, keep concise (1-3 words ideal)</span>
@@ -997,7 +997,7 @@ function FormFieldLocalization() {
 function FormFieldDemo({ language, label, placeholder, help, required }: any) {
   return (
     <div className="bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg p-4">
-      <div className="text-xs text-gray-500 dark:text-gray-500 mb-4">{language}</div>
+      <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-4">{language}</div>
       <div>
         <label className="block text-sm font-medium text-foreground dark:text-gray-100 mb-2">
           {label} {required && <span className="text-red-500">*</span>}
@@ -1125,7 +1125,7 @@ function DataFormatting() {
         {/* Name Formatting */}
         <div className="bg-purple-50 dark:bg-purple-900/20 border-2 border-purple-200 dark:border-purple-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Name Formatting Considerations</h3>
-          <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-muted-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-muted-foreground">
             <div>
               <strong className="text-foreground dark:text-gray-100">Indian Naming Patterns:</strong>
               <ul className="mt-2 space-y-1">
@@ -1154,18 +1154,18 @@ function DataFormatting() {
 function FormattingExample({ type, english, hindi, tamil, notes }: any) {
   return (
     <div className="bg-background dark:bg-gray-800 border border-border dark:border-gray-700 rounded-lg p-4">
-      <div className="text-xs font-semibold text-gray-500 dark:text-gray-500 uppercase mb-3">{type}</div>
+      <div className="text-xs font-semibold text-muted-foreground dark:text-muted-foreground uppercase mb-3">{type}</div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-3">
         <div className="text-sm">
-          <div className="text-xs text-gray-500 dark:text-gray-500 mb-1">English</div>
+          <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-1">English</div>
           <div className="font-semibold text-foreground dark:text-gray-100">{english}</div>
         </div>
         <div className="text-sm">
-          <div className="text-xs text-gray-500 dark:text-gray-500 mb-1">Hindi</div>
+          <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-1">Hindi</div>
           <div className="font-semibold text-foreground dark:text-gray-100">{hindi}</div>
         </div>
         <div className="text-sm">
-          <div className="text-xs text-gray-500 dark:text-gray-500 mb-1">Tamil</div>
+          <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-1">Tamil</div>
           <div className="font-semibold text-foreground dark:text-gray-100">{tamil}</div>
         </div>
       </div>
@@ -1177,7 +1177,7 @@ function FormattingExample({ type, english, hindi, tamil, notes }: any) {
 function AddressExample({ language, lines }: any) {
   return (
     <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded p-4">
-      <div className="text-xs text-gray-500 dark:text-gray-500 mb-3">{language}</div>
+      <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-3">{language}</div>
       <div className="text-sm text-foreground dark:text-gray-100 space-y-1">
         {lines.map((line: string, index: number) => (
           <div key={index}>{line}</div>
@@ -1199,7 +1199,7 @@ function SearchSortBehavior() {
       <div className="mt-8 space-y-6">
         <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Search Challenges in Multilingual Systems</h3>
-          <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-muted-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-muted-foreground">
             <div>
               <strong className="text-foreground dark:text-gray-100">Challenge 1: Script Mixing</strong>
               <p className="mt-1">Users may search in English for Hindi content or vice versa. System should handle transliteration.</p>
@@ -1219,12 +1219,12 @@ function SearchSortBehavior() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DoCard
             title="Script-Aware Sorting"
             example={
               <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4">
-                <div className="text-xs text-gray-500 dark:text-gray-500 mb-2">Hindi alphabetical order</div>
+                <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-2">Hindi alphabetical order</div>
                 <div className="space-y-1 text-sm">
                   <div>अजय कुमार</div>
                   <div>आशा शर्मा</div>
@@ -1241,7 +1241,7 @@ function SearchSortBehavior() {
             title="ASCII-based Sorting"
             example={
               <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4">
-                <div className="text-xs text-gray-500 dark:text-gray-500 mb-2">Incorrect sort order</div>
+                <div className="text-xs text-muted-foreground dark:text-muted-foreground mb-2">Incorrect sort order</div>
                 <div className="space-y-1 text-sm">
                   <div>गीता देवी</div>
                   <div>कमल पाटिल</div>
@@ -1257,7 +1257,7 @@ function SearchSortBehavior() {
 
         <div className="border-2 border-border dark:border-gray-700 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-4">Implementation Guidelines</h3>
-          <ul className="grid grid-cols-2 gap-4 text-sm text-muted-foreground dark:text-muted-foreground">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground dark:text-muted-foreground">
             <li className="flex items-start gap-2">
               <Code className="flex-shrink-0 mt-0.5 text-blue-600 dark:text-blue-400" size={14} />
               <span><strong>Use ICU collation:</strong> For proper script-aware sorting</span>
@@ -1297,7 +1297,7 @@ function TranslationQuality() {
           </div>
 
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <QualityStandard
                 level="Required"
                 color="bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800 text-red-900"
@@ -1330,7 +1330,7 @@ function TranslationQuality() {
             <AlertTriangle className="text-yellow-600" size={20} />
             Common Translation Pitfalls to Avoid
           </h3>
-          <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-muted-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground dark:text-muted-foreground">
             <div>
               <strong className="text-foreground dark:text-gray-100">Literal Translation:</strong>
               <p className="mt-1">Don't translate word-by-word. "Apply Now" → "अभी आवेदन करें" (natural) not "लागू करें अब" (literal)</p>
@@ -1410,7 +1410,7 @@ function TruncationOverflow() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DoCard
             title="Graceful Truncation"
             example={
@@ -1445,7 +1445,7 @@ function TruncationOverflow() {
 
         <div className="border-2 border-border dark:border-gray-700 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-4">Truncation Implementation Notes</h3>
-          <ul className="grid grid-cols-2 gap-4 text-sm text-muted-foreground dark:text-muted-foreground">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground dark:text-muted-foreground">
             <li className="flex items-start gap-2">
               <Code className="flex-shrink-0 mt-0.5 text-blue-600 dark:text-blue-400" size={14} />
               <span>Use CSS <code className="bg-muted dark:bg-gray-800 px-1 rounded">text-overflow: ellipsis</code> for single lines</span>
@@ -1496,7 +1496,7 @@ function AccessibilityConsiderations() {
         <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
           <h3 className="font-bold text-foreground dark:text-gray-100 mb-4">Multilingual Accessibility Checklist</h3>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3 text-sm">Screen Reader Support</h4>
               <ul className="space-y-2 text-sm text-muted-foreground dark:text-muted-foreground">
@@ -1623,7 +1623,7 @@ function SectionHeader({ title, description, icon }: any) {
     <div>
       <div className="flex items-center gap-3 mb-3">
         <div className="text-primary">{icon}</div>
-        <h2 className="text-4xl font-bold text-foreground dark:text-gray-100">{title}</h2>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground dark:text-gray-100">{title}</h2>
       </div>
       <p className="text-lg text-muted-foreground dark:text-muted-foreground">{description}</p>
     </div>

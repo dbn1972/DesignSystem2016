@@ -177,7 +177,7 @@ export default function NoResultsPattern() {
                   <div className="font-bold text-foreground group-hover:text-primary mb-1">
                     {service.name}
                   </div>
-                  <div className="text-xs text-gray-500">{service.searches}</div>
+                  <div className="text-xs text-muted-foreground">{service.searches}</div>
                 </Link>
               ))}
             </div>

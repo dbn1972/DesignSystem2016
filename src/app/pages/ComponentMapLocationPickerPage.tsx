@@ -26,7 +26,7 @@ const MapLocationPickerPreview = ({
       <div className="text-center">
         <Map className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
         <p className="text-sm text-muted-foreground">Map Container</p>
-        <p className="text-xs text-gray-500 mt-1">
+        <p className="text-xs text-muted-foreground mt-1">
           {center.lat.toFixed(4)}, {center.lng.toFixed(4)}
         </p>
       </div>
@@ -60,7 +60,7 @@ function MapLocationPickerPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <MapLocationPickerPreview editable={editable} showSearch={showSearch} />
         </div>
@@ -327,7 +327,7 @@ function Example() {
         onLocationSelect={handleLocationSelect}
       />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Input
           label="Address"
           value={formData.address}
@@ -371,7 +371,7 @@ function Example() {
           preview: (
             <div className="space-y-4">
               <MapLocationPickerPreview searchEnabled currentLocationButton />
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-1">Address</label>
                   <input className="w-full px-3 py-2 border rounded" />

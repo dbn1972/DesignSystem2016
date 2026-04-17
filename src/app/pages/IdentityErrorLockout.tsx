@@ -121,7 +121,7 @@ export default function IdentityErrorLockout() {
                         <>
                           <div className="mb-6 p-6 bg-muted border-2 border-border rounded-lg text-center">
                             <div className="font-bold text-foreground mb-2">Account will unlock in</div>
-                            <div className="text-4xl font-bold text-primary">12:34</div>
+                            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">12:34</div>
                           </div>
                           <Link
                             to="/patterns/identity/account-recovery"

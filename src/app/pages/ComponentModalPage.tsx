@@ -14,7 +14,7 @@ function ModalPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-lg"><div className="flex items-center justify-between p-4 border-b border-border"><h3 className="font-semibold text-foreground text-sm">{size === "lg" ? "Document Preview" : "Confirm Action"}</h3>{showClose && <span className="text-muted-foreground cursor-pointer">✕</span>}</div><div className="p-4"><p className="text-sm text-muted-foreground">Modal content goes here.</p></div><div className="flex justify-end gap-2 p-4 border-t border-border"><button className="px-3 py-1.5 text-xs border border-border rounded">Cancel</button><button className="px-3 py-1.5 text-xs bg-[#005196] text-white rounded">Confirm</button></div></div>
         </div>

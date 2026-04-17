@@ -6,7 +6,7 @@ export default function CertificateIssued() {
 
   if (!issued) {
     return (
-      <div className="min-h-screen bg-background p-8">
+      <div className="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
         <div className="max-w-[900px] mx-auto bg-card border-2 border-border rounded-lg p-6">
           <h1 className="text-xl font-bold text-foreground mb-2">No issued certificate available</h1>
           <p className="text-sm text-muted-foreground">Your certificate will appear here once it is approved and issued by an officer.</p>

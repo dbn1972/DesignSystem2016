@@ -59,7 +59,7 @@ const AddressAutocompleteIndiaPreview = ({
                 setSuggestions([]);
               }}
             >
-              <MapPin size={16} className="mt-0.5 text-gray-500 shrink-0" />
+              <MapPin size={16} className="mt-0.5 text-muted-foreground shrink-0" />
               <span className="text-sm">{suggestion}</span>
             </li>
           ))}
@@ -75,7 +75,7 @@ function AddressAutocompleteIndiaPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <AddressAutocompleteIndiaPreview />
         </div>
@@ -1179,7 +1179,7 @@ export class AddressAutocompleteService {
                   <div className="space-y-2">
                     <label className="block text-xs font-medium text-foreground">PIN Code</label>
                     <input className="w-full px-3 py-2 border border-border rounded text-sm" value="110001" readOnly />
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       <div><label className="block text-[10px] text-muted-foreground">City</label><input className="w-full px-2 py-1 border border-border rounded text-xs bg-muted/30" value="New Delhi" readOnly /></div>
                       <div><label className="block text-[10px] text-muted-foreground">State</label><input className="w-full px-2 py-1 border border-border rounded text-xs bg-muted/30" value="Delhi" readOnly /></div>
                     </div>

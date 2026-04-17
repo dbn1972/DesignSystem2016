@@ -374,7 +374,7 @@ function SummaryScreen({
         </div>
 
         {/* Important Highlights */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-5">
             <div className="flex items-center gap-2 mb-2">
               <AlertTriangle size={18} className="text-orange-600" />
@@ -421,7 +421,7 @@ function SummaryScreen({
         {/* Legal Information */}
         <div className="bg-background border-2 border-border rounded-lg p-5">
           <h4 className="font-bold text-foreground mb-3 text-sm">Legal Information</h4>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <span className="text-muted-foreground">Governing Law:</span>
               <div className="font-bold text-foreground">Laws of India</div>
@@ -613,7 +613,7 @@ function ExpandedDetailScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               accepted
                 ? 'bg-primary text-white hover:opacity-90'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             Accept and Continue
@@ -826,7 +826,7 @@ function AcceptanceCompleteScreen({ onReset }: { onReset: () => void }) {
 
         <div className="bg-background border-2 border-border rounded-lg p-5 mb-8">
           <h4 className="font-bold text-foreground mb-3 text-sm">Acceptance Record</h4>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <span className="text-muted-foreground">Terms Version:</span>
               <div className="font-bold text-foreground">3.0</div>
@@ -1007,7 +1007,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
 
         <div className="bg-background border-2 border-border rounded-lg p-5 mb-8">
           <h4 className="font-bold text-foreground mb-3 text-sm">Contact Information</h4>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <span className="text-muted-foreground">Legal Affairs Office:</span>
               <div className="text-muted-foreground">Email: legal@scholarship.gov.in</div>

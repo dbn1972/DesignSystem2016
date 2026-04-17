@@ -90,7 +90,7 @@ export default function CertificateService() {
         {/* Service Description */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">About This Service</h2>
-          <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-8">
+          <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4 sm:p-6 lg:p-8">
             <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed mb-4">
               This is a generic government certificate application service that can be used for various types 
               of certificates including birth certificates, death certificates, income certificates, domicile 
@@ -106,7 +106,7 @@ export default function CertificateService() {
         {/* Eligibility */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">Eligibility Criteria</h2>
-          <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-8">
+          <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="space-y-3">
               <EligibilityItem text="Must be an Indian citizen" />
               <EligibilityItem text="Must be 18 years of age or above" />
@@ -129,8 +129,8 @@ export default function CertificateService() {
         {/* Required Documents */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">Required Documents</h2>
-          <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-8">
-            <div className="grid grid-cols-2 gap-6">
+          <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4 sm:p-6 lg:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Mandatory Documents</h3>
                 <div className="space-y-2">
@@ -166,7 +166,7 @@ export default function CertificateService() {
         {/* Application Process */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">Application Process</h2>
-          <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-8">
+          <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="space-y-6">
               
               <ProcessStep
@@ -224,7 +224,7 @@ export default function CertificateService() {
         {/* Important Information */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">Important Information</h2>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-300 rounded-lg p-6">
               <h3 className="font-bold text-foreground dark:text-gray-100 mb-4 flex items-center gap-2">
@@ -325,7 +325,7 @@ function DocumentItem({ text, optional }: { text: string; optional?: boolean }) 
       <ChevronRight size={16} className={`${optional ? 'text-muted-foreground' : 'text-primary'} flex-shrink-0 mt-0.5`} />
       <span className={`text-sm ${optional ? 'text-muted-foreground dark:text-muted-foreground' : 'text-muted-foreground dark:text-muted-foreground'}`}>
         {text}
-        {optional && <span className="text-gray-500 ml-2">(Optional)</span>}
+        {optional && <span className="text-muted-foreground ml-2">(Optional)</span>}
       </span>
     </div>
   );

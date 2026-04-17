@@ -297,7 +297,7 @@ export default function ReferenceServiceBlueprint() {
                 </div>
                 <div className="space-y-2">
                   <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">Reference service overview</p>
-              <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+              <h1 className="max-w-3xl text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight sm:text-5xl">
                     Reference service overview
                   </h1>
                 </div>
@@ -354,7 +354,7 @@ export default function ReferenceServiceBlueprint() {
               <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">Reference</div>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-3">
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
               {overviewStats.map((stat) => (
                 <MetricCard key={stat.label} value={stat.value} label={stat.label} />
               ))}

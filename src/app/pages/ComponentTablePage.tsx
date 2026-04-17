@@ -45,7 +45,7 @@ function TablePlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <div className={`w-full overflow-hidden rounded-lg ${bordered ? "border border-border" : ""}`}><table className="w-full text-sm"><thead className="bg-muted"><tr><th className="px-4 py-2 text-left font-semibold">Application</th><th className="px-4 py-2 text-left font-semibold">Status</th><th className="px-4 py-2 text-left font-semibold">Date</th></tr></thead><tbody>{[["CERT-001","Pending","12 Apr"],["CERT-002","Approved","10 Apr"],["CERT-003","Rejected","8 Apr"]].map(([id,status,date], i) => <tr key={i} className={`border-t border-border ${striped && i % 2 === 1 ? "bg-muted/30" : ""}`}><td className="px-4 py-2">{id}</td><td className="px-4 py-2">{status}</td><td className="px-4 py-2">{date}</td></tr>)}</tbody></table></div>
         </div>

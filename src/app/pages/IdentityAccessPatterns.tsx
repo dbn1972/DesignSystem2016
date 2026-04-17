@@ -105,13 +105,13 @@ function WhatAreIdentityPatterns() {
         <h2 className="text-2xl font-bold text-foreground">What Are Identity and Access Patterns?</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <p className="text-muted-foreground leading-relaxed mb-6">
           Identity and Access Patterns are <span className="font-bold text-foreground">structured, reusable UX flows</span> that handle 
           user authentication, identity verification, session management, password recovery, and error states across government digital services.
         </p>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-5 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
             <div className="flex items-start gap-3 mb-3">
               <Shield size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
@@ -184,7 +184,7 @@ function WhyCrossService() {
             and increased support burden.</span>
           </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -250,7 +250,7 @@ function RelationshipToArchetypes() {
         <h2 className="text-2xl font-bold text-foreground">How Identity Patterns Relate to Service Archetypes</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <p className="text-muted-foreground leading-relaxed mb-6">
           Service archetypes (Application Submission, Eligibility Screening, Renewal, etc.) represent <span className="font-bold">end-to-end citizen journeys</span>. 
           Identity and Access Patterns are <span className="font-bold">foundational sub-patterns</span> that appear within these archetypes as required steps.
@@ -535,10 +535,10 @@ function InteractiveFlowsGrid() {
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{flow.description}</p>
               
               <div className="flex items-center justify-between text-xs">
-                <div className="text-gray-500">
+                <div className="text-muted-foreground">
                   <span className="font-bold">Complexity:</span> {flow.complexity}
                 </div>
-                <div className="text-gray-500">{flow.category}</div>
+                <div className="text-muted-foreground">{flow.category}</div>
               </div>
 
               <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
@@ -759,7 +759,7 @@ function AccessibilityBlock({ title, requirements }: { title: string; requiremen
   return (
     <div>
       <div className="font-bold text-foreground mb-3">{title}</div>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {requirements.map((req, idx) => (
           <div key={idx} className="flex items-start gap-2 text-sm">
             <CheckCircle size={14} className="text-green-600 flex-shrink-0 mt-0.5" />
@@ -780,7 +780,7 @@ function ImplementationConsiderations() {
         <h2 className="text-2xl font-bold text-foreground">Implementation Considerations</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ImplementationCard
           icon={<Code size={24} className="text-blue-600" />}
           title="Frontend Implementation"
@@ -887,7 +887,7 @@ function GovernanceConsiderations() {
           <h3 className="font-bold text-foreground">Mandatory Conformance for All Government Services</h3>
         </div>
         <div className="p-8">
-          <div className="grid grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="p-5 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-lg">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 bg-red-600 rounded-full"></div>
@@ -974,13 +974,13 @@ function SupportAndRecovery() {
         <h2 className="text-2xl font-bold text-foreground">Support and Recovery Considerations</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <p className="text-muted-foreground leading-relaxed mb-6">
           Every identity pattern includes <span className="font-bold">built-in support and recovery mechanisms</span> to 
           prevent citizen frustration and reduce helpdesk burden. Support is not an afterthought—it's designed into each flow.
         </p>
 
-        <div className="grid grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div className="space-y-4">
             <h3 className="font-bold text-foreground">In-Pattern Support</h3>
             <SupportFeature
@@ -1091,7 +1091,7 @@ function LifecycleAndReadiness() {
             </table>
           </div>
 
-          <div className="mt-6 grid grid-cols-4 gap-4">
+          <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
             <StatusBadge
               label="Stable"
               color="bg-green-100 text-green-700 border-green-300"

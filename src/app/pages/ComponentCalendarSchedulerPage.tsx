@@ -51,7 +51,7 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
 
       {view === 'week' && (
         <div className="grid grid-cols-8">
-          <div className="border-r border-border p-2 text-xs text-gray-500">
+          <div className="border-r border-border p-2 text-xs text-muted-foreground">
             <div className="h-8"></div>
             {Array.from({ length: 10 }, (_, i) => (
               <div key={i} className="h-16 border-t border-border pt-1">
@@ -81,7 +81,7 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
 
       {view === 'day' && (
         <div className="grid grid-cols-2">
-          <div className="border-r border-border p-2 text-xs text-gray-500">
+          <div className="border-r border-border p-2 text-xs text-muted-foreground">
             {Array.from({ length: 10 }, (_, i) => (
               <div key={i} className="h-20 border-t border-border pt-1 relative">
                 <span className="absolute -top-2 bg-card px-1">
@@ -124,7 +124,7 @@ function CalendarSchedulerPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <CalendarSchedulerPreview view={view} />
         </div>
@@ -726,7 +726,7 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
         ))}
         {timeSlots.map((timeSlot, slotIdx) => (
           <React.Fragment key={slotIdx}>
-            <div className="border-t border-border p-2 text-xs text-gray-500 text-right">
+            <div className="border-t border-border p-2 text-xs text-muted-foreground text-right">
               {format(timeSlot, 'HH:mm')}
             </div>
             {weekDays.map((day, dayIdx) => {
@@ -779,7 +779,7 @@ export const CalendarScheduler: React.FC<CalendarSchedulerProps> = ({
       <div className="grid grid-cols-2">
         <div className="border-r border-border">
           {timeSlots.map((timeSlot, idx) => (
-            <div key={idx} className="h-20 border-t border-border p-2 text-xs text-gray-500 text-right">
+            <div key={idx} className="h-20 border-t border-border p-2 text-xs text-muted-foreground text-right">
               {format(timeSlot, 'HH:mm')}
             </div>
           ))}

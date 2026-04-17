@@ -77,7 +77,7 @@ function SectionPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <SectionPreview variant="default" spacing={spacing} containerized={containerized}><p className="text-sm text-muted-foreground">Section content</p></SectionPreview>
         </div>
@@ -183,7 +183,7 @@ function Example() {
       ariaLabel="Main hero banner"
     >
       <div className="text-center text-white">
-        <h1 className="text-4xl font-bold mb-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
           Welcome to Government Services
         </h1>
         <p className="text-xl mb-8">
@@ -204,7 +204,7 @@ function Example() {
               ariaLabel="Main hero banner"
             >
               <div className="text-center text-white">
-                <h1 className="text-4xl font-bold mb-4">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
                   Welcome to Government Services
                 </h1>
                 <p className="text-xl mb-8">
@@ -278,15 +278,15 @@ function Example() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
         <div>
-          <div className="text-4xl font-bold text-[#005196] mb-2">1.2M</div>
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#005196] mb-2">1.2M</div>
           <div className="text-muted-foreground">Active Users</div>
         </div>
         <div>
-          <div className="text-4xl font-bold text-[#005196] mb-2">50K</div>
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#005196] mb-2">50K</div>
           <div className="text-muted-foreground">Services Provided</div>
         </div>
         <div>
-          <div className="text-4xl font-bold text-[#005196] mb-2">98%</div>
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#005196] mb-2">98%</div>
           <div className="text-muted-foreground">Satisfaction Rate</div>
         </div>
       </div>
@@ -302,15 +302,15 @@ function Example() {
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
                 <div>
-                  <div className="text-4xl font-bold text-[#005196] mb-2">1.2M</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#005196] mb-2">1.2M</div>
                   <div className="text-muted-foreground">Active Users</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-[#005196] mb-2">50K</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#005196] mb-2">50K</div>
                   <div className="text-muted-foreground">Services Provided</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-[#005196] mb-2">98%</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#005196] mb-2">98%</div>
                   <div className="text-muted-foreground">Satisfaction Rate</div>
                 </div>
               </div>

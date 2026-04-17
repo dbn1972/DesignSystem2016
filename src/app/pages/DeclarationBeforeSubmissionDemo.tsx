@@ -286,7 +286,7 @@ function ReviewScreen({
             </button>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
               <ReviewField label="Applicant Name" value={applicationData.applicantName} />
               <ReviewField label="Father's Name" value={applicationData.fatherName} />
               <ReviewField label="Date of Birth" value={applicationData.dateOfBirth} />
@@ -309,7 +309,7 @@ function ReviewScreen({
             </button>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
               <ReviewField label="Mobile Number" value={applicationData.mobile} />
               <ReviewField label="Email Address" value={applicationData.email} />
               <div className="col-span-2">
@@ -355,7 +355,7 @@ function ReviewScreen({
             </button>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
               <ReviewField label="Annual Family Income" value={applicationData.annualIncome} />
               <ReviewField label="Bank Account Number" value={applicationData.bankAccount} />
               <ReviewField label="IFSC Code" value={applicationData.ifscCode} />
@@ -608,7 +608,7 @@ function DeclarationScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all flex items-center justify-center gap-2 ${
               declarationAccepted
                 ? 'bg-green-700 text-white hover:bg-green-600'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             <CheckCircle size={18} />
@@ -760,7 +760,7 @@ function SuccessfulSubmissionScreen({
                 Save this ID for tracking your application
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div className="bg-card border-2 border-border rounded p-3">
                 <span className="text-muted-foreground block mb-1">Applicant Name:</span>
                 <div className="font-bold text-foreground">{applicationData.applicantName}</div>

@@ -129,7 +129,7 @@ function PatternOverview() {
     <section id="overview" className="space-y-6">
       <SectionHeader title="Pattern Overview" />
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
@@ -384,9 +384,9 @@ function PageDesigns() {
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 p-1">
-              <div className="bg-card p-8">
+              <div className="bg-card p-4 sm:p-6 lg:p-8">
                 <div className="text-center mb-6">
-                  <h2 className="text-4xl font-bold text-foreground mb-4">Track Your Application</h2>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">Track Your Application</h2>
                   <p className="text-lg text-muted-foreground">
                     Enter your application or reference number to check current status
                   </p>
@@ -465,7 +465,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 2: Status Overview (At-a-Glance)" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-blue-100 border-b-2 border-blue-300 p-8">
+            <div className="bg-blue-100 border-b-2 border-blue-300 p-4 sm:p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Clock size={32} className="text-blue-600" />
                 <h2 className="text-3xl font-bold text-foreground">Your Application is In Progress</h2>
@@ -623,7 +623,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 4: Action Needed (User Must Act)" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-yellow-100 border-b-2 border-yellow-300 p-8">
+            <div className="bg-yellow-100 border-b-2 border-yellow-300 p-4 sm:p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <AlertCircle size={32} className="text-yellow-600" />
                 <h2 className="text-3xl font-bold text-foreground">Action Required: Upload Missing Document</h2>
@@ -709,7 +709,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 5: Delayed Status (Honest Communication)" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-orange-100 border-b-2 border-orange-300 p-8">
+            <div className="bg-orange-100 border-b-2 border-orange-300 p-4 sm:p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <RefreshCw size={32} className="text-orange-600" />
                 <h2 className="text-3xl font-bold text-foreground">Your Application is Delayed</h2>
@@ -733,7 +733,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <DelayInfoCard
                   label="Original Expected Date"
                   value="15 April 2026"
@@ -909,7 +909,7 @@ function PageDesigns() {
               <div className="text-sm text-muted-foreground">We're here to assist you with your application</div>
             </div>
             <div className="p-8 space-y-6">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <HelpOptionCard
                   icon={<Phone size={32} className="text-blue-600" />}
                   title="Call Helpline"
@@ -970,7 +970,7 @@ function PageDesigns() {
 
               <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="font-bold text-foreground mb-3">Other Resources</div>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <ResourceLink
                     icon={<FileText size={16} className="text-blue-600" />}
                     title="Application Guidelines"
@@ -1177,7 +1177,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="WCAG 2.1 AA Requirements for Status Tracking" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AccessibilityBlock
               area="Status Communication"
               requirements={[
@@ -1313,7 +1313,7 @@ function ContentGuidance() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <MultilingualItem
                 aspect="Status Labels"
                 requirement="'In Progress' = 'प्रगति में' (Hindi). All 6 status states translated consistently."
@@ -1825,7 +1825,7 @@ function RequiredActionItem({ number, title, description, acceptedDocs, deadline
         <div className="flex-1">
           <div className="font-bold text-sm text-foreground mb-2">{title}</div>
           <div className="text-sm text-muted-foreground mb-2">{description}</div>
-          <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-muted-foreground">
             <div><strong>Accepted:</strong> {acceptedDocs}</div>
             <div><strong>Deadline:</strong> {deadline}</div>
           </div>
@@ -1869,7 +1869,7 @@ function HelpOptionCard({ icon, title, description, detail, hours, action }: any
           <div className="font-bold text-sm text-foreground mb-1">{title}</div>
           <div className="text-xs text-muted-foreground mb-2">{description}</div>
           <div className="text-xs font-bold text-foreground mb-1">{detail}</div>
-          <div className="text-xs text-gray-500">{hours}</div>
+          <div className="text-xs text-muted-foreground">{hours}</div>
         </div>
         <button className="px-4 py-2 bg-primary text-white font-bold text-sm rounded hover:opacity-90">
           {action}

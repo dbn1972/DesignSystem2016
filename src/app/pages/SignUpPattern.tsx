@@ -133,7 +133,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -292,7 +292,7 @@ function FlowDiagram() {
         <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
           {/* Flow Steps */}
           <FlowStep 
@@ -439,7 +439,7 @@ function FlowBranch({ condition, yesPath, noPath }: { condition: string; yesPath
         <AlertTriangle size={20} className="text-orange-600 flex-shrink-0 mt-1" />
         <div className="flex-1">
           <h3 className="font-bold text-orange-800 mb-3">{condition}</h3>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-3">
               <div className="text-xs font-bold text-orange-700 mb-1">YES</div>
               <div className="text-sm text-muted-foreground">{yesPath}</div>
@@ -465,7 +465,7 @@ function ExampleScreens() {
         <p className="text-muted-foreground mt-2">Representative states showing validation, error handling, and success flows</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Default State */}
         <ExampleScreen
           title="Default Sign Up Form"
@@ -766,7 +766,7 @@ function SignUpFormExample({ state }: { state: string }) {
           <button 
             className={`w-full px-4 py-2 font-bold rounded text-sm ${
               state === "default" || state === "invalid-email" || state === "invalid-mobile" || state === "weak-password" || state === "password-mismatch"
-                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                ? "bg-gray-300 text-muted-foreground cursor-not-allowed"
                 : "bg-primary text-white"
             }`}
             disabled={state === "default" || state === "invalid-email" || state === "invalid-mobile" || state === "weak-password" || state === "password-mismatch"}
@@ -861,7 +861,7 @@ function FieldsAndContent() {
       </div>
 
       {/* Content Guidelines */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
             <h3 className="font-bold text-foreground">Page Title</h3>
@@ -932,7 +932,7 @@ function PasswordGuidance() {
         <p className="text-muted-foreground mt-2">Security requirements, strength indicators, and user guidance for password creation</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Password Requirements */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -989,7 +989,7 @@ function PasswordGuidance() {
             <h3 className="font-bold text-foreground">Password Best Practices</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-bold text-green-700 mb-3 flex items-center gap-2">
                   <Check size={16} />
@@ -1054,7 +1054,7 @@ function RequirementItem({ text, met }: { text: string; met: boolean }) {
       ) : (
         <XCircle size={16} className="text-muted-foreground mt-0.5 flex-shrink-0" />
       )}
-      <span className={`text-sm ${met ? 'text-muted-foreground' : 'text-gray-500'}`}>{text}</span>
+      <span className={`text-sm ${met ? 'text-muted-foreground' : 'text-muted-foreground'}`}>{text}</span>
     </div>
   );
 }
@@ -1233,7 +1233,7 @@ function ErrorStates() {
         <p className="text-muted-foreground mt-2">Common error scenarios and user recovery paths</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Field Validation Error */}
         <ErrorCard 
           title="Field Validation Error"
@@ -1380,7 +1380,7 @@ function AccessibilitySection() {
         <p className="text-muted-foreground mt-2">WCAG 2.1 Level AA compliance for sign-up patterns</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Keyboard Navigation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -1443,7 +1443,7 @@ function AccessibilitySection() {
             <h3 className="font-bold text-foreground">Form Labels & Help Text</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3 text-sm">
                 <AccessibilityItem text="Labels always visible (not placeholder-only)" />
                 <AccessibilityItem text="Help text associated with aria-describedby" />
@@ -1481,7 +1481,7 @@ function ImplementationSection() {
         <p className="text-muted-foreground mt-2">Technical guidance for developers implementing sign-up patterns</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Frontend Implementation */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -1527,7 +1527,7 @@ function ImplementationSection() {
             </h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3 text-sm">
                 <ImplementationItem text="Implement CAPTCHA after 3 failed attempts" />
                 <ImplementationItem text="Use HTTPS for all registration traffic" />
@@ -2036,7 +2036,7 @@ function GovernanceSection() {
         <p className="text-muted-foreground mt-2">Conformance requirements and quality assurance guidance</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Conformance Status */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
@@ -2097,7 +2097,7 @@ function GovernanceSection() {
             <h3 className="font-bold text-foreground">Pre-Launch Checklist</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <ChecklistItem text="All required fields implemented" />
                 <ChecklistItem text="Real-time validation working" />

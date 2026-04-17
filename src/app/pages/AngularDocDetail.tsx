@@ -20,7 +20,7 @@ export default function AngularDocDetail() {
   if (!doc) {
     return (
       <div className="min-h-screen bg-background p-12">
-        <div className="max-w-3xl mx-auto bg-card border-2 border-border rounded-lg p-8">
+        <div className="max-w-3xl mx-auto bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
           <h1 className="text-xl font-bold text-foreground mb-2">Page Not Found</h1>
           <p className="text-muted-foreground mb-4">The Angular documentation page "{slug}" does not exist.</p>
           <Link to="/docs/angular" className="text-primary font-bold hover:underline">← Back to Angular Docs</Link>
@@ -41,7 +41,7 @@ export default function AngularDocDetail() {
         </div>
       </header>
       <div className="max-w-[1000px] mx-auto px-8 py-8">
-        <div className="bg-card border-2 border-border rounded-lg p-8">
+        <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
           <pre className="whitespace-pre-wrap text-sm text-foreground leading-relaxed font-sans">{doc.content}</pre>
         </div>
       </div>

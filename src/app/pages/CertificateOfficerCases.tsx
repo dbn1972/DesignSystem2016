@@ -208,7 +208,7 @@ export default function CertificateOfficerCases() {
           {filteredCases.length === 0 && (
             <div className="text-center py-12">
               <p className="text-muted-foreground">No cases found</p>
-              <p className="text-sm text-gray-500 mt-2">Try adjusting your filters</p>
+              <p className="text-sm text-muted-foreground mt-2">Try adjusting your filters</p>
             </div>
           )}
         </div>

@@ -66,7 +66,7 @@ export default function CertificateVerification() {
             </div>
             <div className="p-8">
               
-              <div className="grid grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 
                 {/* Manual Entry */}
                 <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
@@ -142,7 +142,7 @@ export default function CertificateVerification() {
                 </p>
               </div>
               <div className="p-8">
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <VerifyField label="Certificate Number" value={validCertificate.certificateNumber} />
                   <VerifyField label="Certificate Type" value={validCertificate.certificateType} />
                   <VerifyField label="Certificate Holder" value={validCertificate.holderName} />

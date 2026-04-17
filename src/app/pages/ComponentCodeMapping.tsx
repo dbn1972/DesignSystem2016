@@ -16,7 +16,7 @@ export default function ComponentCodeMapping() {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Cross-Framework Specifications</div>
-                  <h1 className="text-4xl font-bold text-foreground">Component-to-Code Mapping</h1>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Component-to-Code Mapping</h1>
                 </div>
               </div>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -125,7 +125,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Component Specifications</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-border rounded-lg p-8">
+      <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <p className="text-muted-foreground mb-6">
           Every UX4G component has a complete specification defining React props, Angular inputs/outputs, 
           variants, and states. This ensures consistency across frameworks and makes components easy to 
@@ -150,7 +150,7 @@ function OverviewSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <BenefitCard
           title="Why This Matters"
           items={[
@@ -655,7 +655,7 @@ function UsageGuide() {
         <h2 className="text-2xl font-bold text-foreground">Using Component Specs</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-8">
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <h3 className="font-bold text-foreground mb-4 text-lg">Integration Steps</h3>
         <div className="space-y-4">
           <Step number={1} title="Import specifications" description="Import component specs from /src/app/services/componentSpecs.ts" />

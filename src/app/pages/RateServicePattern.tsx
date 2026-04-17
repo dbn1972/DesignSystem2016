@@ -48,7 +48,7 @@ export default function RateServicePattern() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Feedback Pattern</div>
-                  <h1 className="text-5xl font-bold text-foreground">Rate Service</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Rate Service</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -74,7 +74,7 @@ export default function RateServicePattern() {
             </div>
 
             {/* Demo Container */}
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               {!submitted ? (
                 <div className="space-y-6">
                   {/* Service Info */}
@@ -197,7 +197,7 @@ export default function RateServicePattern() {
                       disabled={rating === 0}
                       className={`px-8 py-3 rounded font-bold ${
                         rating === 0
-                          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                          ? "bg-gray-300 text-muted-foreground cursor-not-allowed"
                           : "bg-primary text-white hover:opacity-90"
                       }`}
                     >

@@ -17,7 +17,7 @@ export default function DashboardOverview() {
               <Info size={32} className="text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
               <p className="text-lg text-muted-foreground">
                 Understanding dashboard patterns and personalization in government digital services
               </p>
@@ -38,7 +38,7 @@ export default function DashboardOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-indigo-500 pl-4">
                 Purpose of Dashboard Patterns
               </h2>
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <p className="text-muted-foreground mb-6">
                   Dashboard and Personalization patterns create a unified, task-focused experience that helps citizens 
                   manage all their government service interactions from one place. These patterns reduce cognitive load, 
@@ -241,7 +241,7 @@ export default function DashboardOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-red-500 pl-4">
                 Data Privacy & Security
               </h2>
-              <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-8">
+              <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-4 sm:p-6 lg:p-8">
                 <div className="flex items-start gap-3 mb-6">
                   <Shield size={24} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
@@ -251,7 +251,7 @@ export default function DashboardOverview() {
                     </p>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-bold text-foreground mb-3">Authentication & Access</h4>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -303,8 +303,8 @@ export default function DashboardOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Accessibility Considerations
               </h2>
-              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8">
-                <div className="grid grid-cols-2 gap-6">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 sm:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">WCAG 2.1 Level AA</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -395,7 +395,7 @@ function PatternGuide({ title, when, notWhen, color }: {
   return (
     <div className={`bg-card border-2 ${colors[color as keyof typeof colors]} rounded-lg p-6`}>
       <h3 className="font-bold text-foreground mb-4">{title}</h3>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <CheckCircle size={16} className="text-green-600" />
@@ -438,7 +438,7 @@ function FlowIntegration({ title, description, touchpoints }: {
     <div className="border-l-4 border-indigo-500 pl-6">
       <h3 className="font-bold text-foreground mb-2">{title}</h3>
       <p className="text-sm text-muted-foreground mb-3">{description}</p>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         {touchpoints.map((point, i) => (
           <div key={i} className="text-xs text-muted-foreground bg-background px-3 py-2 rounded">
             {point}

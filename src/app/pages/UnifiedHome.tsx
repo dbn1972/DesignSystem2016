@@ -439,7 +439,7 @@ function HeroCanvas({ copy }: { copy: typeof HOME_COPY.en }) {
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">
                 {copy.canvas.tokensTitle}
               </p>
-              <div className="mt-3 grid grid-cols-3 gap-3">
+              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 <div className="rounded-xl border border-border bg-background p-3">
                   <div className="h-10 rounded-lg bg-primary" />
                   <p className="mt-2 text-xs text-muted-foreground">{copy.canvas.tokenLabels[0]}</p>
@@ -545,7 +545,7 @@ export default function UnifiedHome() {
               {copy.hero.eyebrow}
             </div>
 
-            <h1 className="mt-8 max-w-3xl text-5xl font-bold tracking-[-0.045em] text-foreground sm:text-6xl lg:text-[4.8rem] lg:leading-[0.95]">
+            <h1 className="mt-8 max-w-3xl text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[-0.045em] text-foreground sm:text-6xl lg:text-[4.8rem] lg:leading-[0.95]">
               {copy.hero.titleTop}
               <span className="block bg-[linear-gradient(90deg,var(--foreground),color-mix(in_srgb,var(--primary)_72%,var(--foreground)_28%))] bg-clip-text text-transparent">
                 {copy.hero.titleAccent}
@@ -671,7 +671,7 @@ export default function UnifiedHome() {
                 {copy.india.whyLabel}
               </p>
               <div className="mt-4 grid gap-4 sm:grid-cols-[auto_1fr] sm:items-start">
-                <div className="text-5xl font-bold tracking-[-0.05em] text-primary">22</div>
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[-0.05em] text-primary">22</div>
                 <p className="text-sm leading-6 text-muted-foreground">{copy.india.whyDescription}</p>
               </div>
             </div>

@@ -21,7 +21,7 @@ function GridPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <GridPreview cols={Number(columns)}><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">1</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">2</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">3</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">4</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">5</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">6</div></GridPreview>
         </div>

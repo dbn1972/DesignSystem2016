@@ -15,7 +15,7 @@ export default function PatternLibraryHub() {
               </div>
               <div>
                 <div className="text-sm text-muted-foreground dark:text-muted-foreground mb-1">Live Demonstrations</div>
-                <h1 className="text-4xl font-bold text-foreground dark:text-gray-100">Pattern Library</h1>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground dark:text-gray-100">Pattern Library</h1>
               </div>
             </div>
             <p className="text-lg text-muted-foreground dark:text-muted-foreground leading-relaxed">

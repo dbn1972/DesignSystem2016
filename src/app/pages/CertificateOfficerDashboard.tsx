@@ -160,7 +160,7 @@ export default function CertificateOfficerDashboard() {
                 <h2 className="font-bold text-foreground">Quick Actions</h2>
               </div>
               <div className="p-8">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Link
                     to="/reference-service/certificate/officer/cases"
                     className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
@@ -303,7 +303,7 @@ function StatCard({ icon, label, value, color, trend }: any) {
           {icon}
         </div>
       </div>
-      <div className="text-4xl font-bold mb-1">{value}</div>
+      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1">{value}</div>
       <div className="text-sm font-bold mb-2">{label}</div>
       <div className="text-xs opacity-75">{trend}</div>
     </div>

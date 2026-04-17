@@ -56,7 +56,7 @@ export default function PostCompletionFeedbackPattern() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Feedback Pattern</div>
-                  <h1 className="text-5xl font-bold text-foreground">Post-Completion Feedback</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Post-Completion Feedback</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -82,7 +82,7 @@ export default function PostCompletionFeedbackPattern() {
             </div>
 
             {/* Demo Container */}
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Header */}
@@ -131,7 +131,7 @@ export default function PostCompletionFeedbackPattern() {
                   </div>
 
                   {/* Quick Ratings */}
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block font-bold text-foreground mb-2">Ease of Use</label>
                       <div className="flex gap-2">
@@ -322,7 +322,7 @@ export default function PostCompletionFeedbackPattern() {
                       disabled={formData.overallRating === 0}
                       className={`px-8 py-3 rounded font-bold ${
                         formData.overallRating === 0
-                          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                          ? "bg-gray-300 text-muted-foreground cursor-not-allowed"
                           : "bg-primary text-white hover:opacity-90"
                       }`}
                     >

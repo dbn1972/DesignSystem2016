@@ -140,7 +140,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -222,7 +222,7 @@ function FlowDiagram() {
         <h2 className="text-2xl font-bold text-foreground">End-to-End Flow Diagram</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
           <FlowStep 
             number={1}
@@ -322,7 +322,7 @@ function ExampleScreens() {
         <h2 className="text-2xl font-bold text-foreground">Example Screens</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Choose Recovery Problem */}
         <ScreenExample
           title="Choose Recovery Problem"
@@ -649,7 +649,7 @@ function VerificationSection() {
         <h2 className="text-2xl font-bold text-foreground">Verification Methods</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-200 dark:border-green-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Automated Verification</h3>
@@ -712,7 +712,7 @@ function VerificationSection() {
           <AlertCircle size={20} className="text-yellow-600" />
           Security Considerations
         </h3>
-        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
             <p className="font-bold text-foreground mb-1">Risk Assessment</p>
             <p>Evaluate account value and sensitivity; higher-value accounts require stronger verification</p>
@@ -778,7 +778,7 @@ function EscalationSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Support Channels</h3>
@@ -848,7 +848,7 @@ function AccessibilitySection() {
         <h2 className="text-2xl font-bold text-foreground">Accessibility Guidelines</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 px-6 py-4">
             <h3 className="font-bold text-foreground">Form Accessibility</h3>
@@ -1054,7 +1054,7 @@ export function AccountRecoveryPage() {
         {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
         {step === 'method' && (
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {methods.map(m => (
                 <button key={m.id} onClick={() => { setMethod(m.id); setIdentifier(''); setError(''); }} className={\`p-4 rounded-xl border-2 text-left transition-colors \${method === m.id ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}\`}>
                   <div className="font-semibold text-sm text-foreground">{m.label}</div>
@@ -1117,7 +1117,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
         <p class="text-sm text-muted-foreground mb-6">Recover access to your government services account</p>
         <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
         <div *ngIf="step === 'method'" class="space-y-4">
-          <div class="grid grid-cols-2 gap-3">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <button *ngFor="let m of methods" (click)="method = m.id; identifier.reset()" [class]="'p-4 rounded-xl border-2 text-left ' + (method === m.id ? 'border-primary bg-primary/5' : 'border-border')">
               <div class="font-semibold text-sm">{{ m.label }}</div>
               <div class="text-xs text-muted-foreground mt-1">{{ m.desc }}</div>
@@ -1402,7 +1402,7 @@ function GovernanceSection() {
           <Info size={20} className="text-yellow-600" />
           Implementation Checklist
         </h3>
-        <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div>
             <p className="font-bold text-foreground mb-2">Before Launch:</p>
             <ul className="space-y-1 text-muted-foreground ml-4">

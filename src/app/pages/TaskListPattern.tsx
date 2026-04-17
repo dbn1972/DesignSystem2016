@@ -219,7 +219,7 @@ export default function TaskListPattern() {
                     <p className="text-sm text-muted-foreground mb-4">{task.description}</p>
                     <div className="flex items-center gap-4 text-sm">
                       <div className="flex items-center gap-2">
-                        <Clock size={16} className="text-gray-500" />
+                        <Clock size={16} className="text-muted-foreground" />
                         <span className={`font-bold ${
                           getDaysLeft(task.deadline).includes('Today') || getDaysLeft(task.deadline).includes('Tomorrow')
                             ? 'text-red-600'
@@ -229,7 +229,7 @@ export default function TaskListPattern() {
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Calendar size={16} className="text-gray-500" />
+                        <Calendar size={16} className="text-muted-foreground" />
                         <span className="text-muted-foreground">
                           {task.deadline.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                         </span>
@@ -290,7 +290,7 @@ export default function TaskListPattern() {
                     className="p-2 hover:bg-green-100 rounded"
                     aria-label="Undo completion"
                   >
-                    <X size={20} className="text-gray-500" />
+                    <X size={20} className="text-muted-foreground" />
                   </button>
                 </div>
               ))}

@@ -141,7 +141,7 @@ export default function SearchResultsPattern() {
                         className="w-4 h-4"
                       />
                       <span className="text-sm text-muted-foreground">{cat}</span>
-                      <span className="ml-auto text-xs text-gray-500">
+                      <span className="ml-auto text-xs text-muted-foreground">
                         ({MOCK_RESULTS.filter(r => r.category === cat).length})
                       </span>
                     </label>
@@ -156,7 +156,7 @@ export default function SearchResultsPattern() {
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input aria-label="Checkbox" type="checkbox" className="w-4 h-4" defaultChecked />
                     <span className="text-sm text-muted-foreground">Ministry of External Affairs</span>
-                    <span className="ml-auto text-xs text-gray-500">(4)</span>
+                    <span className="ml-auto text-xs text-muted-foreground">(4)</span>
                   </label>
                 </div>
               </div>
@@ -221,7 +221,7 @@ export default function SearchResultsPattern() {
             </div>
 
             {/* Results List */}
-            <div className={viewMode === 'grid' ? 'grid grid-cols-2 gap-6' : 'space-y-4'}>
+            <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : 'space-y-4'}>
               {sortedResults.map((result) => (
                 <ResultCard key={result.id} result={result} viewMode={viewMode} query={query} />
               ))}
@@ -323,25 +323,25 @@ function ResultCard({ result, viewMode, query }: {
           <p className="text-sm text-muted-foreground mb-2">{result.department}</p>
         </div>
         <div className="text-right">
-          <div className="text-xs text-gray-500 mb-1">Relevance</div>
+          <div className="text-xs text-muted-foreground mb-1">Relevance</div>
           <div className="text-lg font-bold text-[#138808]">{result.match}%</div>
         </div>
       </div>
 
       <p className="text-sm text-muted-foreground mb-4">{result.description}</p>
 
-      <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 text-sm">
         <div className="flex items-center gap-2">
-          <Clock size={16} className="text-gray-500" />
+          <Clock size={16} className="text-muted-foreground" />
           <div>
-            <div className="text-xs text-gray-500">Processing Time</div>
+            <div className="text-xs text-muted-foreground">Processing Time</div>
             <div className="font-bold text-foreground">{result.processingTime}</div>
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <MapPin size={16} className="text-gray-500" />
+          <MapPin size={16} className="text-muted-foreground" />
           <div>
-            <div className="text-xs text-gray-500">Application Fee</div>
+            <div className="text-xs text-muted-foreground">Application Fee</div>
             <div className="font-bold text-foreground">{result.fee}</div>
           </div>
         </div>

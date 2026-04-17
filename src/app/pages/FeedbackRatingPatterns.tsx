@@ -21,7 +21,7 @@ export default function FeedbackRatingPatterns() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-foreground">Feedback, Rating & Continuous Improvement</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Feedback, Rating & Continuous Improvement</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -294,7 +294,7 @@ export default function FeedbackRatingPatterns() {
         {/* Design Principles */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-foreground mb-6">Design Principles</h2>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-card border-2 border-border rounded-lg p-6">
               <h3 className="font-bold text-foreground mb-3">1. Minimize Friction</h3>
               <p className="text-sm text-muted-foreground">
@@ -327,7 +327,7 @@ export default function FeedbackRatingPatterns() {
         </section>
 
         {/* Implementation Notes */}
-        <section className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-8">
+        <section className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="font-bold text-foreground mb-4">Implementation Notes</h3>
           <div className="space-y-3 text-sm text-muted-foreground">
             <p>
@@ -382,7 +382,7 @@ export function FeedbackRatingPage() {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-4 sm:p-6 lg:p-8">
         <h1 className="text-2xl font-bold mb-2">Rate This Service</h1>
         <p className="text-sm text-muted-foreground mb-6">How was your experience?</p>
         <div className="flex justify-center gap-2 mb-2">
@@ -414,7 +414,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   template: \`
     <div class="min-h-screen bg-background flex items-center justify-center p-4">
-      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-4 sm:p-6 lg:p-8">
         <div *ngIf="!submitted">
           <h1 class="text-2xl font-bold mb-2">Rate This Service</h1>
           <div class="flex justify-center gap-2 mb-4">

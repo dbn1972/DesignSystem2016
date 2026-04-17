@@ -21,7 +21,7 @@ export default function LocalizationPatterns() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-foreground">Localization & Multilingual Patterns</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Localization & Multilingual Patterns</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -122,7 +122,7 @@ export default function LocalizationPatterns() {
           {/* India's Language Context */}
           <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-6 mb-8">
             <h3 className="font-bold text-foreground mb-4">India's Multilingual Context</h3>
-            <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
               <div className="flex items-start gap-2">
                 <CheckCircle size={16} className="text-orange-600 mt-0.5 flex-shrink-0" />
                 <span><strong>22 Scheduled Languages</strong> under the Eighth Schedule of the Constitution</span>
@@ -317,7 +317,7 @@ export default function LocalizationPatterns() {
         {/* Design Principles */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-foreground mb-6">Design Principles</h2>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-card border-2 border-border rounded-lg p-6">
               <h3 className="font-bold text-foreground mb-3">1. Language Equality</h3>
               <p className="text-sm text-muted-foreground">
@@ -350,9 +350,9 @@ export default function LocalizationPatterns() {
         </section>
 
         {/* Technical Requirements */}
-        <section className="bg-indigo-50 dark:bg-indigo-950/30 border-2 border-indigo-200 dark:border-indigo-800 rounded-lg p-8">
+        <section className="bg-indigo-50 dark:bg-indigo-950/30 border-2 border-indigo-200 dark:border-indigo-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="font-bold text-foreground mb-4">Technical Requirements</h3>
-          <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
             <div>
               <h4 className="font-bold text-foreground mb-2">Font Support</h4>
               <p className="mb-2">Use web fonts that support all required scripts:</p>

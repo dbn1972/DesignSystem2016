@@ -127,7 +127,7 @@ function PatternOverview() {
     <section id="overview" className="space-y-6">
       <SectionHeader title="Pattern Overview" />
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
@@ -366,7 +366,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 1: Under Review Status" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-blue-100 border-b-2 border-blue-300 p-8">
+            <div className="bg-blue-100 border-b-2 border-blue-300 p-4 sm:p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Clock size={32} className="text-blue-600" />
                 <h2 className="text-3xl font-bold text-foreground">Application Under Review</h2>
@@ -382,7 +382,7 @@ function PageDesigns() {
                 <div className="text-sm text-muted-foreground">Driving License Application — Submitted on 15 March 2026</div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <StatusCard
                   icon={<Shield size={24} className="text-blue-600" />}
                   title="Current Status"
@@ -460,7 +460,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 2: Action Needed (Additional Information Required)" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-yellow-100 border-b-2 border-yellow-300 p-8">
+            <div className="bg-yellow-100 border-b-2 border-yellow-300 p-4 sm:p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <AlertCircle size={32} className="text-yellow-600" />
                 <h2 className="text-3xl font-bold text-foreground">Action Needed: Additional Information Required</h2>
@@ -577,7 +577,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <ApprovalDetailCard
                   icon={<Award size={24} className="text-green-600" />}
                   title="License Type Approved"
@@ -612,7 +612,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <div className="font-bold text-foreground mb-4">Approval Details</div>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <DetailRow label="Approved By" value="RTO Officer Rajesh Kumar (ID: RTO-NOI-456)" />
                   <DetailRow label="Approval Date" value="22 March 2026, 11:30 AM" />
                   <DetailRow label="License Category" value="Light Motor Vehicle (LMV)" />
@@ -646,7 +646,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 4: Rejection Outcome (Clear and Constructive)" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-gray-700 text-white p-8">
+            <div className="bg-gray-700 text-white p-4 sm:p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <XCircle size={32} />
                 <h2 className="text-3xl font-bold">Application Not Approved</h2>
@@ -714,7 +714,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <div className="font-bold text-foreground mb-4">Decision Details</div>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <DetailRow label="Reviewed By" value="RTO Officer Rajesh Kumar (ID: RTO-NOI-456)" />
                   <DetailRow label="Decision Date" value="22 March 2026, 11:30 AM" />
                   <DetailRow label="Application Fee" value="₹500 (non-refundable processing fee)" />
@@ -748,7 +748,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 5: Issued Certificate/Document" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-teal-600 text-white p-8">
+            <div className="bg-teal-600 text-white p-4 sm:p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <Award size={32} />
                 <h2 className="text-3xl font-bold">Your Driving License is Ready!</h2>
@@ -773,7 +773,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg overflow-hidden">
                 <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 p-1">
-                  <div className="bg-card p-8">
+                  <div className="bg-card p-4 sm:p-6 lg:p-8">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                       <div className="col-span-2 space-y-4">
                         <div className="flex items-center gap-3 mb-4">
@@ -785,7 +785,7 @@ function PageDesigns() {
                             <div className="font-bold text-lg">Driving License</div>
                           </div>
                         </div>
-                        <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                           <LicenseField label="Name" value="PRIYA SHARMA" />
                           <LicenseField label="S/D/W of" value="RAJESH SHARMA" />
                           <LicenseField label="DOB" value="15/03/1998" />
@@ -802,10 +802,10 @@ function PageDesigns() {
                       </div>
                       <div className="flex flex-col items-center justify-between">
                         <div className="w-32 h-40 bg-gray-200 border-2 border-border rounded flex items-center justify-center mb-4">
-                          <div className="text-xs text-gray-500 text-center">Photo</div>
+                          <div className="text-xs text-muted-foreground text-center">Photo</div>
                         </div>
                         <div className="w-32 h-32 bg-card border-2 border-border rounded flex items-center justify-center">
-                          <div className="text-xs text-gray-500 text-center">QR Code</div>
+                          <div className="text-xs text-muted-foreground text-center">QR Code</div>
                         </div>
                       </div>
                     </div>
@@ -938,7 +938,7 @@ function PageDesigns() {
 
               <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                 <div className="font-bold text-foreground mb-3">Renewal Information</div>
-                <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
                   <div>
                     <strong>When to Renew:</strong><br/>
                     You can renew your license up to 1 year before expiry (from April 2045)
@@ -1200,7 +1200,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="WCAG 2.1 AA Requirements" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AccessibilityBlock
               area="State Announcements"
               requirements={[
@@ -1259,7 +1259,7 @@ function AccessibilityGuidance() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <MultilingualItem
                 aspect="Document Content"
                 requirement="All certificate text in selected language(s). Tri-lingual format: Hindi | English | Regional"
@@ -1551,7 +1551,7 @@ export function ApprovalIssuancePage() {
             </div>
             <span className={\`px-3 py-1 rounded-full text-xs font-bold \${statusColors[app.status]}\`}>{app.status.replace('-', ' ').toUpperCase()}</span>
           </div>
-          <div className="grid grid-cols-3 gap-4 text-sm mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm mb-4">
             <div><span className="text-muted-foreground">Applicant:</span> <span className="font-semibold">{app.applicant}</span></div>
             <div><span className="text-muted-foreground">Submitted:</span> <span className="font-semibold">{app.submittedDate}</span></div>
             <div><span className="text-muted-foreground">Status:</span> <span className="font-semibold capitalize">{app.status.replace('-', ' ')}</span></div>
@@ -2012,7 +2012,7 @@ function RequiredInfoItem({ title, description, format, deadline }: any) {
     <div className="border-2 border-yellow-300 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg p-4">
       <div className="font-bold text-foreground mb-2">{title}</div>
       <div className="text-sm text-muted-foreground mb-2">{description}</div>
-      <div className="grid grid-cols-2 gap-4 text-xs text-muted-foreground">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-muted-foreground">
         <div><strong>Format:</strong> {format}</div>
         <div><strong>Deadline:</strong> {deadline}</div>
       </div>

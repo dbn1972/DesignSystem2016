@@ -137,7 +137,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">Pattern Overview</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Purpose */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
@@ -296,7 +296,7 @@ function BookingFlow() {
         <h2 className="text-2xl font-bold text-foreground">Appointment Booking Flow</h2>
       </div>
 
-      <div className="bg-card border-2 border-border rounded-lg p-8">
+      <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="space-y-4">
           {/* Flow Steps */}
           <FlowStep 
@@ -445,7 +445,7 @@ function ExampleScreens() {
         <p className="text-muted-foreground mt-2">Representative appointment booking screens</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Calendar View */}
         <ExampleScreen
           title="Calendar with Available Slots"
@@ -602,7 +602,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
           <div className="space-y-3">
             <div>
               <h3 className="text-sm font-bold text-muted-foreground mb-2">Morning</h3>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50">
                   09:00 AM
                 </button>
@@ -621,7 +621,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
 
             <div>
               <h3 className="text-sm font-bold text-muted-foreground mb-2">Afternoon</h3>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <button className="px-4 py-3 border-2 border-primary bg-blue-50 dark:bg-blue-950/30 rounded text-sm font-medium text-primary">
                   02:00 PM<br/>
                   <span className="text-xs">Selected</span>
@@ -741,7 +741,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
                   <div className="text-xs font-bold text-muted-foreground mb-1">COMPLETED</div>
                   <div className="font-bold text-muted-foreground">License Renewal</div>
                 </div>
-                <CheckCircle size={20} className="text-gray-500" />
+                <CheckCircle size={20} className="text-muted-foreground" />
               </div>
               <div className="text-sm text-muted-foreground space-y-1">
                 <div>Mon, Mar 10, 2026 • 11:00 AM</div>
@@ -765,7 +765,7 @@ function SlotManagement() {
         <p className="text-muted-foreground mt-2">Best practices for managing appointment slots</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
             <h3 className="font-bold text-foreground">Slot Configuration</h3>
@@ -799,7 +799,7 @@ function SlotManagement() {
             <h3 className="font-bold text-foreground">Booking Rules</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3 text-sm">
                 <SlotItem text="Minimum advance booking: 1 day (configurable)" />
                 <SlotItem text="Maximum advance booking: 30-90 days" />
@@ -878,7 +878,7 @@ function ConfirmationSection() {
           <h3 className="font-bold text-foreground">Required Information</h3>
         </div>
         <div className="p-6">
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
               <h3 className="font-bold text-foreground mb-3">Must Include:</h3>
               <div className="space-y-2">
@@ -950,7 +950,7 @@ function RescheduleCancel() {
         <p className="text-muted-foreground mt-2">Self-service appointment management</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-orange-50 dark:bg-orange-950/30 border-b-2 border-orange-300 px-6 py-4">
             <h3 className="font-bold text-foreground">Reschedule Flow</h3>
@@ -986,7 +986,7 @@ function RescheduleCancel() {
             <h3 className="font-bold text-foreground">Business Rules</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-6 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
               <div>
                 <h3 className="font-bold text-foreground mb-3">Rescheduling:</h3>
                 <div className="space-y-2">
@@ -1034,7 +1034,7 @@ function AccessibilitySection() {
         <p className="text-muted-foreground mt-2">WCAG 2.1 AA compliance for appointment booking</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
             <h3 className="font-bold text-foreground">Calendar Accessibility</h3>
@@ -1067,7 +1067,7 @@ function AccessibilitySection() {
             <h3 className="font-bold text-foreground">General Requirements</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3 text-sm">
                 <AccessibilityItem text="All forms have proper labels" />
                 <AccessibilityItem text="Error messages clearly announced" />
@@ -1107,7 +1107,7 @@ function ImplementationSection() {
         <p className="text-muted-foreground mt-2">Technical guidance for developers</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-muted border-b-2 border-border px-6 py-4">
             <h3 className="font-bold text-foreground flex items-center gap-2">
@@ -1145,7 +1145,7 @@ function ImplementationSection() {
             <h3 className="font-bold text-foreground">Key Considerations</h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 gap-6 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
               <div>
                 <h3 className="font-bold text-foreground mb-3">Concurrency Handling:</h3>
                 <div className="space-y-2">
@@ -1238,7 +1238,7 @@ export function AppointmentBookingPage() {
         {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
         {step === 'service' && (<div className="space-y-3">{services.map(s => (<button key={s} onClick={() => { setService(s); setStep('date'); }} className={\`w-full p-4 text-left rounded-xl border-2 transition-colors \${service === s ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}\`}><div className="font-semibold text-sm">{s}</div></button>))}</div>)}
         {step === 'date' && (<div className="space-y-4"><label className="block text-sm font-medium mb-1">Select Date</label><input type="date" value={date} onChange={e => setDate(e.target.value)} min={new Date().toISOString().split('T')[0]} className="w-full px-4 py-3 border border-border rounded-lg" /><div className="flex gap-3"><button onClick={() => setStep('service')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={() => { if (!date) { setError('Select a date'); return; } setError(''); setStep('slot'); }} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div></div>)}
-        {step === 'slot' && (<div className="space-y-4"><p className="text-sm text-muted-foreground">Available slots for {date}</p><div className="grid grid-cols-3 gap-2">{MOCK_SLOTS.map(s => (<button key={s.id} disabled={!s.available} onClick={() => setSlot(s.time)} className={\`p-3 rounded-lg text-sm font-semibold transition-colors \${!s.available ? 'bg-muted text-muted-foreground cursor-not-allowed' : slot === s.time ? 'bg-primary text-primary-foreground' : 'border border-border hover:border-primary'}\`}>{s.time}</button>))}</div><div className="flex gap-3"><button onClick={() => setStep('date')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={() => { if (!slot) { setError('Select a slot'); return; } setError(''); setStep('details'); }} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div></div>)}
+        {step === 'slot' && (<div className="space-y-4"><p className="text-sm text-muted-foreground">Available slots for {date}</p><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">{MOCK_SLOTS.map(s => (<button key={s.id} disabled={!s.available} onClick={() => setSlot(s.time)} className={\`p-3 rounded-lg text-sm font-semibold transition-colors \${!s.available ? 'bg-muted text-muted-foreground cursor-not-allowed' : slot === s.time ? 'bg-primary text-primary-foreground' : 'border border-border hover:border-primary'}\`}>{s.time}</button>))}</div><div className="flex gap-3"><button onClick={() => setStep('date')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={() => { if (!slot) { setError('Select a slot'); return; } setError(''); setStep('details'); }} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div></div>)}
         {step === 'details' && (<div className="space-y-4"><div><label className="block text-sm font-medium mb-1">Full Name *</label><input value={name} onChange={e => setName(e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" /></div><div><label className="block text-sm font-medium mb-1">Mobile *</label><input type="tel" value={mobile} onChange={e => setMobile(e.target.value)} maxLength={10} placeholder="+91" className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" /></div><div className="bg-muted rounded-xl p-4 text-sm space-y-1"><div><span className="text-muted-foreground">Service:</span> <span className="font-semibold">{service}</span></div><div><span className="text-muted-foreground">Date:</span> <span className="font-semibold">{date}</span></div><div><span className="text-muted-foreground">Time:</span> <span className="font-semibold">{slot}</span></div></div><div className="flex gap-3"><button onClick={() => setStep('slot')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={handleConfirm} disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Booking...' : 'Confirm Booking'}</button></div></div>)}
         {step === 'confirmed' && (<div className="text-center py-6 space-y-4"><div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div><h2 className="text-xl font-bold text-foreground">Appointment Confirmed</h2><p className="text-muted-foreground">Booking ID: <span className="font-bold">{bookingId}</span></p><div className="bg-muted rounded-xl p-4 text-sm text-left space-y-1"><div>{service}</div><div>{date} at {slot}</div></div><p className="text-xs text-muted-foreground">Confirmation SMS sent to +91 {mobile}</p></div>)}
       </div>
@@ -1268,7 +1268,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
           <div class="flex gap-3"><button (click)="step='service'" class="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button (click)="toSlot()" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div>
         </div>
         <div *ngIf="step === 'slot'" class="space-y-4">
-          <div class="grid grid-cols-3 gap-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             <button *ngFor="let s of slots" [disabled]="!s.available" (click)="selectedSlot=s.time" [class]="'p-3 rounded-lg text-sm font-semibold '+(selectedSlot===s.time?'bg-primary text-primary-foreground':'border border-border')+(s.available?'':' opacity-50 cursor-not-allowed')">{{ s.time }}</button>
           </div>
           <div class="flex gap-3"><button (click)="step='date'" class="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button (click)="toDetails()" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div>

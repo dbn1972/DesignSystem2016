@@ -21,7 +21,7 @@ export default function OnlineVideoKYCPattern() {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Identity Verification Pattern</div>
-                  <h1 className="text-4xl font-bold text-foreground">Online Video KYC Pattern</h1>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Online Video KYC Pattern</h1>
                 </div>
               </div>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -65,14 +65,14 @@ export default function OnlineVideoKYCPattern() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-blue-500 pl-4">
                 Pattern Overview
               </h2>
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <p className="text-muted-foreground mb-6">
                   Online Video KYC enables real-time identity verification through live video interaction 
                   between the user and a trained verification agent. The agent guides the user through the 
                   process, verifies documents in real-time, performs liveness checks, and provides immediate 
                   verification results.
                 </p>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <CheckCircle size={20} className="text-green-600" />
@@ -294,8 +294,8 @@ export default function OnlineVideoKYCPattern() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-blue-500 pl-4">
                 Accessibility Considerations
               </h2>
-              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
-                <div className="grid grid-cols-2 gap-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 sm:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">For Users with Disabilities</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -475,7 +475,7 @@ export function OnlineVideoKYC() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-8">
+    <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
       {callState === 'idle' && (
         <div className="text-center space-y-6">
           <h2 className="text-3xl font-bold">Online Video KYC</h2>
@@ -507,7 +507,7 @@ export function OnlineVideoKYC() {
           </div>
           
           {/* Video Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Remote Video (Agent) */}
             <div className="relative bg-black rounded-lg overflow-hidden aspect-video">
               <video

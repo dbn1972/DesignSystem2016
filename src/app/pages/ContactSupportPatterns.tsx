@@ -21,7 +21,7 @@ export default function ContactSupportPatterns() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-foreground">Contact & Support Patterns</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Contact & Support Patterns</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -134,7 +134,7 @@ export default function ContactSupportPatterns() {
               <MessageSquare size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Standard Contact Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="General Contact Form"
                 description="Basic contact pattern for general inquiries, questions, and non-urgent communication with government departments"
@@ -162,7 +162,7 @@ export default function ContactSupportPatterns() {
               <Headphones size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Service & Support Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Service Support Request"
                 description="Pattern for ongoing service assistance, application tracking, status updates, and technical support"
@@ -190,7 +190,7 @@ export default function ContactSupportPatterns() {
               <AlertCircle size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Escalation & Priority Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Escalation Contact Form"
                 description="Formal escalation pattern for unresolved issues with previous case reference and escalation justification"
@@ -218,7 +218,7 @@ export default function ContactSupportPatterns() {
               <Users size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Hybrid & Assisted Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Feedback + Contact Hybrid"
                 description="Combined pattern allowing users to provide feedback while simultaneously requesting follow-up contact"
@@ -285,8 +285,8 @@ export default function ContactSupportPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-primary pl-4">
             Related Resources
           </h2>
-          <div className="bg-card border-2 border-border rounded-lg p-8">
-            <div className="grid grid-cols-2 gap-6">
+          <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-bold text-foreground mb-4">Related Pattern Families</h3>
                 <ul className="space-y-2 text-sm">
@@ -384,7 +384,7 @@ export function ContactSupportPage() {
         </div>
         {tab === 'form' && !submitted && (
           <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div><label className="block text-sm font-medium mb-1">Name *</label><input value={form.name} onChange={e => setForm(f => ({...f, name: e.target.value}))} className="w-full px-3 py-2 border border-border rounded-lg" /></div>
               <div><label className="block text-sm font-medium mb-1">Email *</label><input type="email" value={form.email} onChange={e => setForm(f => ({...f, email: e.target.value}))} className="w-full px-3 py-2 border border-border rounded-lg" /></div>
             </div>
@@ -440,7 +440,7 @@ import { FormsModule } from '@angular/forms';
           </button>
         </div>
         <div *ngIf="tab==='form' && !submitted" class="bg-card border border-border rounded-2xl p-6 space-y-4">
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div><label class="block text-sm font-medium mb-1">Name *</label><input [(ngModel)]="form.name" class="w-full px-3 py-2 border border-border rounded-lg" /></div>
             <div><label class="block text-sm font-medium mb-1">Email *</label><input [(ngModel)]="form.email" class="w-full px-3 py-2 border border-border rounded-lg" /></div>
           </div>

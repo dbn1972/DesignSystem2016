@@ -12,7 +12,7 @@ export default function ServiceAnalytics() {
               <span>UX4G Analytics Framework</span>
             </div>
             
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Service Analytics Integration Patterns
             </h1>
             
@@ -125,7 +125,7 @@ function SuccessMeasurementPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'All metrics aggregated - no individual user tracking',
@@ -217,7 +217,7 @@ function FormCompletionPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Track field interactions, NOT field values',
@@ -309,7 +309,7 @@ function DropOffTrackingPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Track aggregate drop-off rates, not individual sessions',
@@ -402,7 +402,7 @@ function ServiceFunnelPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Funnel shows aggregated counts, not individual journeys',
@@ -495,7 +495,7 @@ function SearchBehaviorPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Search queries stored with minimal retention (30 days)',
@@ -590,7 +590,7 @@ function ErrorTrackingPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Error logs must not contain PII or sensitive data',
@@ -684,7 +684,7 @@ function UploadFailuresPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Track upload metadata, NEVER log file contents',
@@ -778,7 +778,7 @@ function StatusJourneyPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Citizens can view only their own application status',
@@ -873,7 +873,7 @@ function SupportEscalationPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Support tickets anonymized for analytics (ticket ID hashed)',
@@ -967,7 +967,7 @@ function FeedbackCollectionPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Feedback submission is always optional',
@@ -1061,7 +1061,7 @@ function PrivacyConsentPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Compliance: IT Act 2000, Right to Privacy (Art. 21), Personal Data Protection Bill',
@@ -1156,7 +1156,7 @@ function PerformanceDashboardPattern() {
           ]}
         />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <PrivacyGovernanceCard
             notes={[
               'Dashboard access controlled via role-based permissions',
@@ -1222,7 +1222,7 @@ function PatternHeader({ title, icon, maturityStatus }: any) {
         <div className="flex items-center gap-4">
           <div className="text-primary">{icon}</div>
           <div>
-            <h2 className="text-4xl font-bold text-foreground">{title}</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">{title}</h2>
           </div>
         </div>
         <div className={`px-4 py-2 ${status.bg} ${status.text} border-2 ${status.border} rounded-lg font-bold text-sm`}>
@@ -1235,7 +1235,7 @@ function PatternHeader({ title, icon, maturityStatus }: any) {
 
 function PurposeContextCard({ purpose, context }: any) {
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
           <Target className="text-blue-600" size={20} />
@@ -1300,15 +1300,15 @@ function PagePlacementCard({ placements }: any) {
           {placements.map((placement: any, index: number) => (
             <div key={index} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 bg-background border border-border rounded-lg p-4">
               <div>
-                <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Location</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Location</div>
                 <div className="font-bold text-foreground text-sm">{placement.location}</div>
               </div>
               <div>
-                <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Visibility</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Visibility</div>
                 <div className="text-sm text-muted-foreground">{placement.visibility}</div>
               </div>
               <div>
-                <div className="text-xs text-gray-500 uppercase tracking-wide mb-1">Purpose</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Purpose</div>
                 <div className="text-sm text-muted-foreground">{placement.purpose}</div>
               </div>
             </div>
@@ -1330,7 +1330,7 @@ function ComponentsUsedCard({ components }: any) {
       </div>
 
       <div className="p-6">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {components.map((comp: any, index: number) => (
             <div key={index} className="bg-background border border-border rounded-lg p-4">
               <div className="font-bold text-foreground text-sm mb-2">{comp.name}</div>
@@ -1422,7 +1422,7 @@ function DocumentationReferencesCard({ references }: any) {
         <BookOpen className="text-purple-600" size={20} />
         Documentation References
       </h4>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {references.map((ref: any, index: number) => (
           <div key={index} className="bg-card border border-border rounded-lg p-3 flex items-center justify-between group hover:border-blue-400 transition-colors">
             <span className="text-sm text-muted-foreground font-medium">{ref.doc}</span>

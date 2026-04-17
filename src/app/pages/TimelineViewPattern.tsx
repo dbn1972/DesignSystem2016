@@ -240,7 +240,7 @@ export default function TimelineViewPattern() {
         )}
 
         {/* Summary Stats */}
-        <div className="mt-12 grid grid-cols-4 gap-4">
+        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="bg-card border-2 border-border rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-primary mb-2">{TIMELINE_EVENTS.length}</div>
             <div className="text-sm text-muted-foreground">Total Events</div>
@@ -372,7 +372,7 @@ function TimelineEvent({ event, isExpanded, onToggle, getTimeAgo, isLatest }: {
           </div>
 
           {/* Timestamp */}
-          <div className="flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Clock size={14} />
             <span className="font-bold">{getTimeAgo(event.timestamp)}</span>
             <span>•</span>

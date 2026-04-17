@@ -17,7 +17,7 @@ export default function NotificationOverview() {
               <Info size={32} className="text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
               <p className="text-lg text-muted-foreground">
                 Understanding notification systems and multi-channel communication in government services
               </p>
@@ -38,7 +38,7 @@ export default function NotificationOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Purpose of Notification Patterns
               </h2>
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <p className="text-muted-foreground mb-6">
                   Notification patterns enable proactive, multi-channel communication between government services and citizens. 
                   Instead of forcing citizens to check portals repeatedly, these patterns push timely information through 
@@ -237,8 +237,8 @@ export default function NotificationOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Notification Frequency Guidelines
               </h2>
-              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8">
-                <div className="grid grid-cols-2 gap-6">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 sm:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">Default Limits</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -298,7 +298,7 @@ export default function NotificationOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-red-500 pl-4">
                 Privacy & Compliance
               </h2>
-              <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-8">
+              <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded-lg p-4 sm:p-6 lg:p-8">
                 <div className="flex items-start gap-3 mb-6">
                   <Shield size={24} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
@@ -308,7 +308,7 @@ export default function NotificationOverview() {
                     </p>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-bold text-foreground mb-3">Data Protection</h4>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -390,7 +390,7 @@ function PatternGuide({ title, when, notWhen, color }: {
   return (
     <div className={`bg-card border-2 ${colors[color as keyof typeof colors]} rounded-lg p-6`}>
       <h3 className="font-bold text-foreground mb-4">{title}</h3>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <CheckCircle size={16} className="text-green-600" />

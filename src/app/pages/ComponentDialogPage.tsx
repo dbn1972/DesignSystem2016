@@ -129,7 +129,7 @@ const DialogPreview = ({
                 className="flex-shrink-0 p-1 rounded hover:bg-muted transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                 aria-label="Close dialog"
               >
-                <X className="w-5 h-5 text-gray-500" />
+                <X className="w-5 h-5 text-muted-foreground" />
               </button>
             )}
           </div>
@@ -178,7 +178,7 @@ function DialogPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-lg p-6 space-y-4">
           <h3 className={`font-semibold ${variantColors[variant] || 'text-foreground'}`}>{title}</h3>
           <p className="text-sm text-muted-foreground">{description}</p>

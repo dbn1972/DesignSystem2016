@@ -126,7 +126,7 @@ function PatternOverview() {
     <section id="overview" className="space-y-6">
       <SectionHeader title="Pattern Overview" />
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DocModule>
           <ModuleHeader title="Purpose and Service Problem Solved" />
           <ModuleContent>
@@ -369,7 +369,7 @@ function PageDesigns() {
         <ModuleHeader title="Page 1: Start Page" />
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
-            <div className="bg-primary text-white p-8">
+            <div className="bg-primary text-white p-4 sm:p-6 lg:p-8">
               <div className="max-w-3xl">
                 <div className="text-sm mb-2 text-blue-200">Government of India • Ministry of XYZ</div>
                 <h2 className="text-3xl font-bold mb-4">Apply for [Service Name]</h2>
@@ -432,11 +432,11 @@ function PageDesigns() {
             <div className="p-8 space-y-6">
               <FormFieldExample label="Full Name" required={true} type="text" helpText="Enter name as per Aadhaar card" />
               <FormFieldExample label="Date of Birth" required={true} type="date" helpText="DD/MM/YYYY format" />
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormFieldExample label="Gender" required={true} type="select" />
                 <FormFieldExample label="Aadhaar Number" required={true} type="text" helpText="12-digit number" />
               </div>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormFieldExample label="Mobile Number" required={true} type="tel" helpText="Will receive OTP" />
                 <FormFieldExample label="Email Address" required={true} type="email" />
               </div>
@@ -616,7 +616,7 @@ function PageDesigns() {
                 <div className="text-3xl font-bold text-foreground font-mono mb-4">APP/2026/123456</div>
                 <div className="text-sm text-muted-foreground">Please save this reference number for future tracking</div>
               </div>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <NextStepCard
                   icon={<Mail size={24} className="text-blue-600" />}
                   title="Confirmation Sent"
@@ -678,7 +678,7 @@ function PageDesigns() {
                 />
                 <div className="text-xs text-muted-foreground mt-2">Format: APP/YYYY/XXXXXX</div>
               </div>
-              <div className="text-center text-gray-500 font-medium">OR</div>
+              <div className="text-center text-muted-foreground font-medium">OR</div>
               <div>
                 <label className="block text-sm font-bold text-foreground mb-2">
                   Registered Mobile Number
@@ -893,7 +893,7 @@ function ContentGuidance() {
       <DocModule>
         <ModuleHeader title="Writing Principles" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <PrincipleBlock
               title="Use Plain Language"
               good="Upload a recent photograph"
@@ -997,7 +997,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="WCAG 2.1 AA Requirements" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AccessibilityBlock
               principle="Perceivable"
               requirements={[
@@ -1100,7 +1100,7 @@ function AccessibilityGuidance() {
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <MultilingualGuideline
                   aspect="Language Selector"
                   guidance="Top-right corner, persistent across all pages, with country/language flag icons"
@@ -1428,17 +1428,17 @@ export function ApplicationSubmissionPage() {
         {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
         {step === 'personal' && (
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div><label className="block text-sm font-medium mb-1">Full Name *</label><input value={form.fullName} onChange={e => update('fullName', e.target.value)} placeholder="As per Aadhaar" className="w-full px-4 py-3 border border-border rounded-lg" /></div>
               <div><label className="block text-sm font-medium mb-1">Father's Name</label><input value={form.fatherName} onChange={e => update('fatherName', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div><label className="block text-sm font-medium mb-1">Date of Birth *</label><input type="date" value={form.dob} onChange={e => update('dob', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
               <div><label className="block text-sm font-medium mb-1">Gender</label><select value={form.gender} onChange={e => update('gender', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></div>
               <div><label className="block text-sm font-medium mb-1">Mobile *</label><input type="tel" value={form.mobile} onChange={e => update('mobile', e.target.value)} placeholder="98765 43210" maxLength={10} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
             </div>
             <div><label className="block text-sm font-medium mb-1">Address *</label><textarea value={form.address} onChange={e => update('address', e.target.value)} rows={2} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div><label className="block text-sm font-medium mb-1">PIN Code *</label><input value={form.pincode} onChange={e => update('pincode', e.target.value)} maxLength={6} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
               <div><label className="block text-sm font-medium mb-1">State</label><input value={form.state} onChange={e => update('state', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
               <div><label className="block text-sm font-medium mb-1">District</label><input value={form.district} onChange={e => update('district', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
@@ -1463,7 +1463,7 @@ export function ApplicationSubmissionPage() {
         {step === 'review' && (
           <div className="space-y-4">
             <div className="bg-muted rounded-xl p-6 space-y-3 text-sm">
-              <div className="grid grid-cols-2 gap-2">{Object.entries(form).filter(([,v]) => v).map(([k,v]) => <div key={k}><span className="text-muted-foreground capitalize">{k.replace(/([A-Z])/g,' $1')}: </span><span className="font-semibold">{v}</span></div>)}</div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">{Object.entries(form).filter(([,v]) => v).map(([k,v]) => <div key={k}><span className="text-muted-foreground capitalize">{k.replace(/([A-Z])/g,' $1')}: </span><span className="font-semibold">{v}</span></div>)}</div>
               {files.length > 0 && <div><span className="text-muted-foreground">Documents: </span><span className="font-semibold">{files.length} file(s)</span></div>}
             </div>
             <div className="flex gap-3">
@@ -1500,12 +1500,12 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
         <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
         <form *ngIf="step !== 'submitted'" [formGroup]="form" (ngSubmit)="submit()">
           <div *ngIf="step === 'personal'" class="space-y-4">
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div><label class="block text-sm font-medium mb-1">Full Name *</label><input formControlName="fullName" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
               <div><label class="block text-sm font-medium mb-1">Mobile *</label><input formControlName="mobile" maxlength="10" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
             </div>
             <div><label class="block text-sm font-medium mb-1">Address *</label><textarea formControlName="address" rows="2" class="w-full px-4 py-3 border border-border rounded-lg"></textarea></div>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div><label class="block text-sm font-medium mb-1">PIN Code *</label><input formControlName="pincode" maxlength="6" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
               <div><label class="block text-sm font-medium mb-1">Date of Birth *</label><input type="date" formControlName="dob" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
             </div>

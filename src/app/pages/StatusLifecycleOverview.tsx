@@ -17,7 +17,7 @@ export default function StatusLifecycleOverview() {
               <Info size={32} className="text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">Pattern Overview</h1>
               <p className="text-lg text-muted-foreground">
                 Understanding status and lifecycle intelligence in government digital services
               </p>
@@ -38,7 +38,7 @@ export default function StatusLifecycleOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-blue-500 pl-4">
                 Purpose of Lifecycle Patterns
               </h2>
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <p className="text-muted-foreground mb-6">
                   Status and Lifecycle patterns transform opaque bureaucratic processes into transparent, understandable journeys. 
                   Instead of showing "Pending" for weeks, these patterns provide granular visibility into what's happening, 
@@ -195,7 +195,7 @@ export default function StatusLifecycleOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Status State Machine
               </h2>
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <p className="text-muted-foreground mb-6">
                   Application statuses follow a state machine with defined transitions. This ensures consistency and prevents invalid state changes.
                 </p>
@@ -241,8 +241,8 @@ export default function StatusLifecycleOverview() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-orange-500 pl-4">
                 Transparency Best Practices
               </h2>
-              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8">
-                <div className="grid grid-cols-2 gap-6">
+              <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 sm:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">Always Show</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -341,7 +341,7 @@ function PatternGuide({ title, when, notWhen, color }: {
   return (
     <div className={`bg-card border-2 ${colors[color as keyof typeof colors]} rounded-lg p-6`}>
       <h3 className="font-bold text-foreground mb-4">{title}</h3>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <CheckCircle size={16} className="text-green-600" />

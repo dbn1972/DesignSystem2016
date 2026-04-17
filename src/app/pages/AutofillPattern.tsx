@@ -53,7 +53,7 @@ export default function AutofillPattern() {
               </div>
               <div>
                 <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Data Input Pattern</div>
-                <h1 className="text-5xl font-bold text-foreground">Auto-fill from Aadhaar / DigiLocker</h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Auto-fill from Aadhaar / DigiLocker</h1>
               </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -147,7 +147,7 @@ export default function AutofillPattern() {
 
             {/* Aadhaar Flow */}
             {method === "aadhaar" && !verified && (
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="font-bold text-foreground">Aadhaar eKYC Verification</h3>
                   <button
@@ -224,7 +224,7 @@ export default function AutofillPattern() {
 
             {/* DigiLocker Flow */}
             {method === "digilocker" && !verified && (
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="font-bold text-foreground">DigiLocker Authorization</h3>
                   <button
@@ -273,7 +273,7 @@ export default function AutofillPattern() {
                   </div>
                 </div>
 
-                <div className="bg-card border-2 border-border rounded-lg p-8">
+                <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                   <h3 className="font-bold text-foreground mb-6">Auto-filled Personal Details</h3>
 
                   <div className="space-y-6">
@@ -287,7 +287,7 @@ export default function AutofillPattern() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block font-bold text-foreground mb-2">Date of Birth</label>
                         <input
@@ -574,12 +574,12 @@ export function AutofillPage() {
         </div>
         {autoFilled && <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">✓ Auto-filled from {source === 'aadhaar' ? 'Aadhaar eKYC' : 'DigiLocker'}. Review and edit if needed.</div>}
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div><label className="block text-sm font-medium mb-1">Full Name *</label><input value={form.fullName} onChange={e => update('fullName', e.target.value)} className={\`w-full px-4 py-3 border border-border rounded-lg \${autoFilled ? 'bg-green-50/50' : ''}\`} /></div>
             <div><label className="block text-sm font-medium mb-1">Date of Birth</label><input type="date" value={form.dob} onChange={e => update('dob', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
           </div>
           <div><label className="block text-sm font-medium mb-1">Address</label><textarea value={form.address} onChange={e => update('address', e.target.value)} rows={2} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div><label className="block text-sm font-medium mb-1">PIN Code</label><input value={form.pincode} onChange={e => update('pincode', e.target.value)} maxLength={6} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
             <div><label className="block text-sm font-medium mb-1">State</label><input value={form.state} onChange={e => update('state', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
             <div><label className="block text-sm font-medium mb-1">District</label><input value={form.district} onChange={e => update('district', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
@@ -611,7 +611,7 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
         </div>
         <div *ngIf="autoFilled" class="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">✓ Auto-filled. Review and edit.</div>
         <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div><label class="block text-sm font-medium mb-1">Name *</label><input formControlName="fullName" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
             <div><label class="block text-sm font-medium mb-1">DOB</label><input type="date" formControlName="dob" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
           </div>

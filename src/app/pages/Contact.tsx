@@ -96,7 +96,7 @@ export default function Contact() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <Building2 size={48} className="text-primary" />
             </div>
-            <h1 className="text-4xl font-bold text-foreground mb-3">Contact UX4G Design System</h1>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">Contact UX4G Design System</h1>
             <p className="text-lg text-muted-foreground max-w-[800px] mx-auto">
               Government of India's unified design system for digital services.
               Get in touch with our team for support, partnerships, or inquiries.
@@ -137,7 +137,7 @@ export default function Contact() {
 
           {/* Left Column - Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <div className="flex items-start gap-3 mb-6">
                 <MessageSquare size={32} className="text-primary flex-shrink-0 mt-1" />
                 <div>
@@ -256,7 +256,7 @@ export default function Contact() {
                           {errors.message}
                         </p>
                       )}
-                      <div className="mt-2 flex items-center justify-between text-xs text-gray-500">
+                      <div className="mt-2 flex items-center justify-between text-xs text-muted-foreground">
                         <span id="message-help">Minimum 20 characters</span>
                         <span className={formData.message.length > 1000 ? 'text-red-600 font-bold' : ''}>
                           {formData.message.length} / 1000
@@ -368,7 +368,7 @@ export default function Contact() {
                       <Clock size={14} />
                       <span>Monday - Friday: 9:00 AM - 6:00 PM IST</span>
                     </div>
-                    <div className="text-gray-500">
+                    <div className="text-muted-foreground">
                       Closed on public holidays
                     </div>
                   </div>
@@ -621,7 +621,7 @@ function QuickContactItem({
       <div>
         <div className="text-sm text-muted-foreground mb-1">{label}</div>
         <div className="font-bold text-foreground text-lg">{value}</div>
-        <div className="text-xs text-gray-500 mt-1">{subtext}</div>
+        <div className="text-xs text-muted-foreground mt-1">{subtext}</div>
       </div>
     </div>
   );

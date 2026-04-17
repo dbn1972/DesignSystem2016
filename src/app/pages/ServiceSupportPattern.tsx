@@ -158,7 +158,7 @@ export default function ServiceSupportPattern() {
               <h2 className="text-2xl font-bold text-foreground mb-6">Your Details</h2>
               <div className="space-y-6">
                 <InputField label="Full Name" value={formData.name} onChange={(v) => setFormData({...formData, name: v})} error={errors.name} required />
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <InputField label="Email" type="email" value={formData.email} onChange={(v) => setFormData({...formData, email: v})} error={errors.email} required />
                   <InputField label="Phone" type="tel" value={formData.phone} onChange={(v) => setFormData({...formData, phone: v})} error={errors.phone} required />
                 </div>
@@ -314,7 +314,7 @@ function StepIndicator({ number, label, active, completed }: any) {
       }`}>
         {completed ? <CheckCircle size={20} /> : number}
       </div>
-      <span className={`text-sm font-medium ${active ? 'text-foreground' : 'text-gray-500'}`}>{label}</span>
+      <span className={`text-sm font-medium ${active ? 'text-foreground' : 'text-muted-foreground'}`}>{label}</span>
     </div>
   );
 }

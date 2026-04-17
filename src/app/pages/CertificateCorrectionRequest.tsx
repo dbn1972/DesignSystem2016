@@ -56,7 +56,7 @@ export default function CertificateCorrectionRequest() {
                 <AlertCircle size={24} className="text-orange-600 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">{officerMessage.message}</p>
-                  <div className="grid grid-cols-2 gap-4 text-xs">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                     <div>
                       <div className="text-muted-foreground">Requested By</div>
                       <div className="font-bold text-foreground">{officerMessage.requestedBy}</div>
@@ -162,7 +162,7 @@ export default function CertificateCorrectionRequest() {
               className={`flex-1 px-6 py-4 font-bold rounded flex items-center justify-center gap-2 ${
                 Object.values(corrections).some(v => v) || comments
                   ? 'bg-green-700 text-white hover:bg-green-600'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
               }`}
             >
               Submit Corrections

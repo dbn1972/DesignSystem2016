@@ -423,7 +423,7 @@ function RecoveryStep({ number, label, active, completed }: { number: number; la
       }`}>
         {completed ? <Check size={18} /> : number}
       </div>
-      <div className={`text-xs font-medium text-center ${active ? 'text-foreground' : 'text-gray-500'}`}>{label}</div>
+      <div className={`text-xs font-medium text-center ${active ? 'text-foreground' : 'text-muted-foreground'}`}>{label}</div>
     </div>
   );
 }

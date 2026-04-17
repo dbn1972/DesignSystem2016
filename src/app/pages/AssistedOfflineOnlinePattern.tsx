@@ -128,7 +128,7 @@ function PatternOverview() {
     <section id="overview" className="space-y-6">
       <SectionHeader title="Pattern Overview" />
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <DocModule>
           <ModuleHeader title="Problem the Pattern Solves" />
           <ModuleContent>
@@ -535,7 +535,7 @@ function PageDesigns() {
                 <label className="block text-sm font-bold text-foreground mb-4">
                   Enter Citizen's Aadhaar Number <span className="text-red-600">*</span>
                 </label>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <input aria-label="XXXX XXXX XXXX" type="text"
                       placeholder="XXXX XXXX XXXX"
@@ -555,7 +555,7 @@ function PageDesigns() {
 
               <div className="border-2 border-border rounded-lg p-6 bg-card">
                 <div className="font-bold text-foreground mb-4">Citizen Details (Auto-Fetched from Aadhaar)</div>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <DetailRow label="Name" value="SUNITA DEVI" />
                   <DetailRow label="Date of Birth" value="15/03/1958 (66 years old)" />
                   <DetailRow label="Gender" value="Female" />
@@ -607,7 +607,7 @@ function PageDesigns() {
                 <div className="text-sm text-muted-foreground">Service: Old Age Pension Enrollment</div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Bank Name <span className="text-red-600">*</span>
@@ -631,7 +631,7 @@ function PageDesigns() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-foreground mb-2">
                     Account Number <span className="text-red-600">*</span>
@@ -837,12 +837,12 @@ function PageDesigns() {
               <div className="border-2 border-border rounded-lg p-6 bg-background">
                 <div className="text-center mb-6">
                   <div className="text-sm text-muted-foreground mb-2">Reference Number</div>
-                  <div className="text-4xl font-bold text-foreground font-mono mb-4">REF-2026-789456</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground font-mono mb-4">REF-2026-789456</div>
                   <div className="text-sm text-muted-foreground">Save this number. You'll need it to continue your application.</div>
                 </div>
                 
                 <div className="border-t-2 border-border pt-6 mt-6">
-                  <div className="grid grid-cols-2 gap-4 text-sm mb-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4">
                     <DetailRow label="Citizen Name" value="SUNITA DEVI" />
                     <DetailRow label="Service" value="Old Age Pension Enrollment" />
                     <DetailRow label="Aadhaar (Last 4 digits)" value="XXXX-3210" />
@@ -932,9 +932,9 @@ function PageDesigns() {
         <ModuleContent>
           <div className="border-2 border-border rounded-lg overflow-hidden bg-card">
             <div className="bg-gradient-to-r from-orange-500 via-white to-green-500 p-1">
-              <div className="bg-card p-8">
+              <div className="bg-card p-4 sm:p-6 lg:p-8">
                 <div className="text-center mb-6">
-                  <h2 className="text-4xl font-bold text-foreground mb-4">अपना आवेदन जारी रखें</h2>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">अपना आवेदन जारी रखें</h2>
                   <h2 className="text-3xl font-bold text-muted-foreground mb-4">Continue Your Application</h2>
                   <p className="text-lg text-muted-foreground">
                     आपने सरकारी कार्यालय में अपना आवेदन शुरू किया था।<br/>
@@ -1169,7 +1169,7 @@ function InteractionModel() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
               <ModeComparisonBlock
                 mode="Staff/Operator Mode"
                 color="blue"
@@ -1339,7 +1339,7 @@ function AccessibilityGuidance() {
       <DocModule>
         <ModuleHeader title="WCAG 2.1 AA Requirements" />
         <ModuleContent>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AccessibilityBlock
               area="Bilingual Support"
               requirements={[
@@ -1434,7 +1434,7 @@ function ContentGuidance() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <MultilingualItem
                 aspect="Citizen UI"
                 requirement="Hindi + English for all text, buttons, labels, instructions, error messages"

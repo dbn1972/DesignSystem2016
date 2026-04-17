@@ -12,7 +12,7 @@ const FormBuilderPreview = ({ layout, children, ...props }: any) => (
   <div
     className={`w-full rounded border border-border bg-card p-6 ${
       layout === 'horizontal' ? 'space-y-4' :
-      layout === 'grid' ? 'grid grid-cols-2 gap-4' :
+      layout === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 gap-4' :
       'space-y-4'
     }`}
     {...props}
@@ -80,7 +80,7 @@ function FormBuilderPlayground() {
 
   return (
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-8">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
           <FormBuilderPreview layout={layout} />
         </div>
@@ -354,15 +354,15 @@ function Example() {
               <div className="flex items-center justify-between mb-4 bg-card p-3 rounded border border-border cursor-move hover:border-[#005196]">
                 <span className="text-sm font-medium">Full Name (text)</span>
                 <div className="flex gap-2">
-                  <button className="text-gray-500 hover:text-[#005196] text-xs">Edit</button>
-                  <button className="text-gray-500 hover:text-red-600 text-xs">Delete</button>
+                  <button className="text-muted-foreground hover:text-[#005196] text-xs">Edit</button>
+                  <button className="text-muted-foreground hover:text-red-600 text-xs">Delete</button>
                 </div>
               </div>
               <div className="flex items-center justify-between mb-4 bg-card p-3 rounded border border-border cursor-move hover:border-[#005196]">
                 <span className="text-sm font-medium">Email Address (email)</span>
                 <div className="flex gap-2">
-                  <button className="text-gray-500 hover:text-[#005196] text-xs">Edit</button>
-                  <button className="text-gray-500 hover:text-red-600 text-xs">Delete</button>
+                  <button className="text-muted-foreground hover:text-[#005196] text-xs">Edit</button>
+                  <button className="text-muted-foreground hover:text-red-600 text-xs">Delete</button>
                 </div>
               </div>
               <button className="w-full border-2 border-dashed border-border rounded p-3 text-sm text-muted-foreground hover:border-[#005196] hover:text-[#005196]">
@@ -409,7 +409,7 @@ function Example() {
 }`,
           preview: (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="border border-border rounded p-4 hover:border-[#005196] cursor-pointer bg-card">
                   <FileText className="text-[#005196] mb-2" size={24} />
                   <h4 className="font-medium text-sm mb-1">Business License</h4>

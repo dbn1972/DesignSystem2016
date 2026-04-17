@@ -12,7 +12,7 @@ export default function ConformanceDashboard() {
               <span>UX4G Governance Portal</span>
             </div>
             
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               Conformance Reporting & Adoption Dashboards
             </h1>
             
@@ -152,7 +152,7 @@ function AdoptionOverview() {
         </div>
 
         {/* Maturity Distribution */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg overflow-hidden">
             <div className="bg-background p-6 border-b-2 border-border">
               <h3 className="font-bold text-foreground">Adoption Maturity Distribution</h3>
@@ -357,7 +357,7 @@ function ActiveServices() {
             <h3 className="font-bold text-foreground">Services by Category</h3>
           </div>
           <div className="p-6 bg-card">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-3">
                 <ServiceCategoryBar category="Taxation & Revenue" count={52} conformance={87} />
                 <ServiceCategoryBar category="Social Welfare & Benefits" count={48} conformance={82} />
@@ -430,7 +430,7 @@ function VendorConformance() {
         </div>
 
         {/* Vendor Compliance Cards */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <VendorComplianceCard
             name="TCS (Tata Consultancy Services)"
             certification="UX4G Certified - Level 3"
@@ -552,7 +552,7 @@ function ComponentUsageTrends() {
         </div>
 
         {/* Underutilized Components */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-orange-200 dark:border-orange-800 rounded-lg overflow-hidden">
             <div className="bg-orange-50 dark:bg-orange-950/30 p-6 border-b-2 border-orange-200 dark:border-orange-800">
               <h3 className="font-bold text-foreground flex items-center gap-2">
@@ -605,7 +605,7 @@ function FrameworkUsageTrends() {
 
       <div className="mt-8 space-y-6">
         {/* Framework Distribution */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg overflow-hidden">
             <div className="bg-background p-6 border-b-2 border-border">
               <h3 className="font-bold text-foreground">Framework Distribution</h3>
@@ -705,7 +705,7 @@ function DocumentationAdoption() {
         </div>
 
         {/* Resource Downloads */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg overflow-hidden">
             <div className="bg-background p-6 border-b-2 border-border">
               <h3 className="font-bold text-foreground">Resource Downloads</h3>
@@ -866,7 +866,7 @@ function ReleaseAdoptionStatus() {
         </div>
 
         {/* Migration Status */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg overflow-hidden">
             <div className="bg-background p-6 border-b-2 border-border">
               <h3 className="font-bold text-foreground">Migration to v3.2.x Progress</h3>
@@ -1255,7 +1255,7 @@ function NonConformanceLog() {
         </div>
 
         {/* Issue Trends */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg overflow-hidden">
             <div className="bg-background p-6 border-b-2 border-border">
               <h3 className="font-bold text-foreground">Issues by Category</h3>
@@ -1352,7 +1352,7 @@ function SupportBurden() {
         </div>
 
         {/* Common Support Topics */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg overflow-hidden">
             <div className="bg-background p-6 border-b-2 border-border">
               <h3 className="font-bold text-foreground">Top Support Topics</h3>
@@ -1464,7 +1464,7 @@ function RoadmapPriorities() {
             <h3 className="font-bold text-foreground">Q3 2026 Planning (Jul-Sep)</h3>
           </div>
           <div className="p-6 bg-card">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <UpcomingPriorityCard
                 title="Offline-First Patterns"
                 drivers={['3 exception requests', 'Rural connectivity gaps']}
@@ -1498,7 +1498,7 @@ function RoadmapPriorities() {
             </h3>
           </div>
           <div className="p-6 bg-card">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InsightCard
                 insight="Services using NPM packages have 23% higher conformance scores than manual integration"
                 recommendation="Promote NPM distribution method, deprecate manual installation guidance"
@@ -1601,7 +1601,7 @@ function AdoptionTrendVisualization() {
             <div className="flex-1 bg-green-600 rounded-t" style={{ height: `${(q.services / 350) * 200}px` }}></div>
           </div>
           <div className="text-xs text-muted-foreground font-medium">{q.label}</div>
-          <div className="text-xs text-gray-500">
+          <div className="text-xs text-muted-foreground">
             <div className="text-blue-600">{q.departments} depts</div>
             <div className="text-green-600">{q.services} svcs</div>
           </div>
@@ -1640,7 +1640,7 @@ function SectorPerformanceRow({ sector, score, services }: any) {
     <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
       <div>
         <div className="font-medium text-foreground text-sm">{sector}</div>
-        <div className="text-xs text-gray-500">{services} services</div>
+        <div className="text-xs text-muted-foreground">{services} services</div>
       </div>
       <div className="flex items-center gap-2">
         <div className="text-2xl font-bold text-foreground">{score}%</div>
@@ -1662,7 +1662,7 @@ function DepartmentRow({ name, code, services, conformance, accessibility, versi
     <tr className="hover:bg-background">
       <td className="p-4">
         <div className="font-medium text-foreground text-sm">{name}</div>
-        <div className="text-xs text-gray-500">{code}</div>
+        <div className="text-xs text-muted-foreground">{code}</div>
       </td>
       <td className="p-4 text-center text-sm text-foreground">{services}</td>
       <td className="p-4 text-center">
@@ -1802,15 +1802,15 @@ function VendorComplianceCard({ name, certification, projects, conformanceScore,
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
         <div>
-          <div className="text-xs text-gray-500">Projects</div>
+          <div className="text-xs text-muted-foreground">Projects</div>
           <div className="font-bold text-foreground">{projects}</div>
         </div>
         <div>
-          <div className="text-xs text-gray-500">Last Audit</div>
+          <div className="text-xs text-muted-foreground">Last Audit</div>
           <div className="font-bold text-foreground text-xs">{lastAudit}</div>
         </div>
         <div>
-          <div className="text-xs text-gray-500">Expires</div>
+          <div className="text-xs text-muted-foreground">Expires</div>
           <div className="font-bold text-foreground text-xs">{expiryDate}</div>
         </div>
       </div>
@@ -1908,7 +1908,7 @@ function FrameworkBar({ framework, services, percentage, version }: any) {
           {percentage}%
         </div>
       </div>
-      <div className="text-xs text-gray-500">Versions: {version}</div>
+      <div className="text-xs text-muted-foreground">Versions: {version}</div>
     </div>
   );
 }
@@ -2169,7 +2169,7 @@ function DeprecatedFeatureRow({ feature, affectedServices, deprecatedDate, endOf
           {risk} risk
         </span>
       </div>
-      <div className="grid grid-cols-2 gap-4 text-sm mb-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-2">
         <div>
           <span className="text-muted-foreground">Affected Services:</span>
           <span className="font-bold text-foreground ml-2">{affectedServices}</span>
@@ -2284,7 +2284,7 @@ function SupportVolumeBar({ department, tickets, avgTime, satisfaction }: any) {
       <div className="w-20 text-sm text-muted-foreground">{avgTime}</div>
       <div className="w-16 flex items-center gap-1 text-sm">
         <span className="text-foreground font-bold">{satisfaction}</span>
-        <span className="text-xs text-gray-500">/5</span>
+        <span className="text-xs text-muted-foreground">/5</span>
       </div>
     </div>
   );
@@ -2339,7 +2339,7 @@ function PriorityCard({ priority, title, rationale, impact, effort, owner, timel
         <div className="flex-1">
           <h4 className="font-bold text-foreground text-lg mb-2">{title}</h4>
           <p className="text-sm text-muted-foreground mb-3">{rationale}</p>
-          <div className="grid grid-cols-2 gap-3 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
             <div>
               <span className="text-muted-foreground">Impact:</span>
               <span className="font-medium text-foreground ml-2">{impact}</span>

@@ -1148,7 +1148,7 @@ export default function ServiceCodeDownloads() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Service source downloads</p>
-                  <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Service code downloads for reference journeys</h1>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Service code downloads for reference journeys</h1>
                 </div>
               </div>
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
@@ -1188,7 +1188,7 @@ export default function ServiceCodeDownloads() {
               <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">{DOWNLOAD_GROUP_COUNT} bundles</div>
             </div>
 
-            <div className="mt-5 grid grid-cols-2 gap-3">
+            <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
               <SummaryCard value={DOWNLOAD_GROUP_COUNT.toString()} label="Bundles" />
               <SummaryCard value={DOWNLOAD_FILE_COUNT.toString()} label="Download files" />
               <SummaryCard value={CERTIFICATE_GROUP_COUNT.toString()} label="Certificate groups" />

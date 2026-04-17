@@ -146,7 +146,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">System Overview</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-8">
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <h3 className="font-bold text-foreground mb-4 text-lg">Why Content Design Matters</h3>
         <p className="text-muted-foreground mb-4">
           Inconsistent labels, confusing error messages, and unclear helper text create friction for users. 
@@ -172,7 +172,7 @@ function OverviewSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* What's Included */}
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-blue-50 dark:bg-blue-950/30 border-b-2 border-blue-200 dark:border-blue-800 dark:border-blue-800 dark:border-blue-800 px-6 py-4">
@@ -228,7 +228,7 @@ function PrinciplesSection() {
         <h2 className="text-2xl font-bold text-foreground">Content Design Principles</h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <PrincipleCard
           number={1}
           title="Use Plain Language"
@@ -308,7 +308,7 @@ function LabelsSection() {
           <Info size={20} className="text-yellow-600" />
           Label Writing Rules
         </h3>
-        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
             <p className="font-bold text-foreground mb-2">✅ DO:</p>
             <ul className="ml-4 space-y-1">
@@ -401,7 +401,7 @@ function HelperTextSection() {
 
       <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">When to Use Helper Text</h3>
-        <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
           <div>
             <p className="font-bold text-green-600 mb-2">✅ Use helper text when:</p>
             <ul className="ml-4 space-y-1">
@@ -423,7 +423,7 @@ function HelperTextSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <HelperTextExample
           field={LABELS.aadhaarNumber}
           helper={HELPER_TEXT.aadhaarNumber}
@@ -469,7 +469,7 @@ function ErrorMessagesSection() {
             [Problem] + [What to do about it]
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div>
             <p className="font-bold text-red-600 mb-2">❌ Bad Error Messages:</p>
             <ul className="ml-4 space-y-1 text-muted-foreground">
@@ -580,7 +580,7 @@ function SuccessMessagesSection() {
 
       <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">Success Message Guidelines</h3>
-        <div className="grid grid-cols-2 gap-6 text-sm text-muted-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
           <div>
             <p className="font-bold text-foreground mb-2">Structure:</p>
             <ul className="ml-4 space-y-1">
@@ -602,7 +602,7 @@ function SuccessMessagesSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <SuccessMessageExample
           category="Form Submission"
           message={SUCCESS_MESSAGES.applicationSubmitted}
@@ -658,7 +658,7 @@ function ConsentLanguageSection() {
           reviewed by legal and plain language experts. Use standard templates unless you have 
           specific legal requirements.
         </p>
-        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div>
             <p className="font-bold text-foreground mb-2">✅ Must include:</p>
             <ul className="ml-4 space-y-1">
@@ -1041,7 +1041,7 @@ function ErrorMessageCategory({ title, examples }: {
       <div className="p-6">
         <div className="space-y-3">
           {examples.map((ex, i) => (
-            <div key={i} className="grid grid-cols-2 gap-4 text-sm">
+            <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 dark:border-red-800 dark:border-red-800 rounded p-3">
                 <p className="font-bold text-red-600 mb-1 text-xs">❌ Wrong:</p>
                 <p className="text-muted-foreground">{ex.wrong}</p>

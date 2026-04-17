@@ -21,7 +21,7 @@ export default function NotificationPatterns() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Pattern Family</div>
-                  <h1 className="text-5xl font-bold text-foreground">Notification System Patterns</h1>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Notification System Patterns</h1>
                 </div>
               </div>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -130,7 +130,7 @@ export default function NotificationPatterns() {
               <Bell size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Notification Management Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Notification Center"
                 description="Unified inbox for all notifications with filtering, search, bulk actions, and read/unread management"
@@ -158,7 +158,7 @@ export default function NotificationPatterns() {
               <MessageSquare size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Channel-Specific Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="SMS / Email / In-app Patterns"
                 description="Channel-appropriate notification design with character limits, formatting, deep links, and fallback strategies"
@@ -186,7 +186,7 @@ export default function NotificationPatterns() {
               <Clock size={24} className="text-primary" />
               <h3 className="text-2xl font-bold text-foreground">Time-Based & Urgency Patterns</h3>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <PatternCard
                 title="Reminder Patterns"
                 description="Smart reminder sequences for deadlines, appointments, pending tasks with adaptive timing and frequency"
@@ -253,8 +253,8 @@ export default function NotificationPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-blue-500 pl-4">
             Notification Types Taxonomy
           </h2>
-          <div className="bg-card border-2 border-border rounded-lg p-8">
-            <div className="grid grid-cols-2 gap-8">
+          <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-bold text-foreground mb-4">By Urgency</h3>
                 <div className="space-y-3">
@@ -322,8 +322,8 @@ export default function NotificationPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-purple-500 pl-4">
             Notification Intelligence Features
           </h2>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <Zap size={20} className="text-yellow-600" />
                 Smart Delivery
@@ -347,7 +347,7 @@ export default function NotificationPatterns() {
                 </li>
               </ul>
             </div>
-            <div className="bg-card border-2 border-border rounded-lg p-8">
+            <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
               <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                 <Bell size={20} className="text-purple-600" />
                 Smart Content
@@ -379,7 +379,7 @@ export default function NotificationPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-pink-500 pl-4">
             Standard Notification Templates
           </h2>
-          <div className="bg-card border-2 border-border rounded-lg p-8">
+          <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="space-y-4">
               <TemplateExample
                 title="Status Update"
@@ -408,8 +408,8 @@ export default function NotificationPatterns() {
           <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-primary pl-4">
             Related Resources
           </h2>
-          <div className="bg-card border-2 border-border rounded-lg p-8">
-            <div className="grid grid-cols-2 gap-6">
+          <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-bold text-foreground mb-4">Related Pattern Families</h3>
                 <ul className="space-y-2 text-sm">

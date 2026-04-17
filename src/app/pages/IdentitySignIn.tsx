@@ -106,7 +106,7 @@ export default function IdentitySignIn() {
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-muted-foreground"
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-muted-foreground"
                         >
                           {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                         </button>
@@ -149,7 +149,7 @@ export default function IdentitySignIn() {
                       </div>
                     </div>
 
-                    <div className="mt-6 grid grid-cols-2 gap-4">
+                    <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                       <Link
                         to="/patterns/identity/mobile-otp"
                         className="flex items-center justify-center gap-3 px-6 py-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 transition-colors"

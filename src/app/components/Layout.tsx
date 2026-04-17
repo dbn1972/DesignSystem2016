@@ -5,7 +5,7 @@ import ScrollToTop from "./ScrollToTop";
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground" style={{ scrollPaddingTop: '5rem' }}>
+    <div className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden" style={{ scrollPaddingTop: '5rem' }}>
       {/* Skip to main content — WCAG 2.4.1 */}
       <a
         href="#main-content"

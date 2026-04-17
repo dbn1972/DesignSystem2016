@@ -169,7 +169,7 @@ export default function IdentityMobileOTP() {
                       className={`w-full px-8 py-5 font-bold rounded-lg text-lg transition-colors ${
                         isOtpComplete
                           ? 'bg-primary text-white hover:opacity-90'
-                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
                       }`}
                     >
                       Verify & Continue

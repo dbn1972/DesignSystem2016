@@ -27,7 +27,7 @@ export default function ContentExpansionPattern() {
               </div>
               <div>
                 <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">Localization Pattern</div>
-                <h1 className="text-5xl font-bold text-foreground">Content Expansion Handling</h1>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">Content Expansion Handling</h1>
               </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
@@ -65,7 +65,7 @@ export default function ContentExpansionPattern() {
                 ))}
               </div>
 
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <h3 className="font-bold text-foreground mb-4">❌ Bad: Fixed Width</h3>
                   <button className="w-32 px-4 py-3 bg-red-100 border-2 border-red-300 text-foreground font-bold rounded overflow-hidden text-ellipsis whitespace-nowrap">
@@ -246,7 +246,7 @@ export function ContentExpansionPage() {
             </button>
           ))}
         </div>
-        <div className="grid grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div className="p-6 border-2 border-red-200 rounded-xl bg-red-50">
             <h3 className="font-bold mb-4 text-red-700">❌ Fixed Width</h3>
             <button className="w-32 px-4 py-3 bg-red-100 border border-red-300 rounded font-bold overflow-hidden text-ellipsis whitespace-nowrap">{content[language].text}</button>
@@ -290,7 +290,7 @@ import { CommonModule } from '@angular/common';
             {{lang === 'en' ? 'English' : lang === 'hi' ? 'हिंदी' : 'తెలుగు'}}
           </button>
         </div>
-        <div class="grid grid-cols-2 gap-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div class="p-6 border-2 border-red-200 rounded-xl bg-red-50">
             <h3 class="font-bold mb-4 text-red-700">❌ Fixed Width</h3>
             <button class="w-32 px-4 py-3 bg-red-100 border border-red-300 rounded font-bold overflow-hidden text-ellipsis whitespace-nowrap">{{content[language].text}}</button>

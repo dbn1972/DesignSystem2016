@@ -477,7 +477,7 @@ function DetailsScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-colors flex items-center justify-center gap-2 ${
               consent.canWithdraw
                 ? 'border-2 border-red-600 bg-card text-red-700 hover:bg-red-50'
-                : 'border-2 border-border bg-muted text-gray-500 cursor-not-allowed'
+                : 'border-2 border-border bg-muted text-muted-foreground cursor-not-allowed'
             }`}
           >
             <Trash2 size={18} />
@@ -622,7 +622,7 @@ function RequiredItem({ text, locked }: { text: string; locked: boolean }) {
     <div className="flex items-center justify-between p-3 bg-background rounded">
       <span className="text-sm text-muted-foreground">{text}</span>
       {locked && (
-        <div className="flex items-center gap-1 text-xs text-gray-500">
+        <div className="flex items-center gap-1 text-xs text-muted-foreground">
           <Lock size={14} />
           <span>Required</span>
         </div>
@@ -801,7 +801,7 @@ function WithdrawImpactScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               understandImpact
                 ? 'bg-red-600 text-white hover:bg-red-700'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             Proceed to Withdraw
@@ -947,7 +947,7 @@ function WithdrawConfirmScreen({
             className={`flex-1 px-6 py-4 rounded font-bold text-sm transition-all ${
               confirmWithdrawal
                 ? 'bg-red-600 text-white hover:bg-red-700'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-muted-foreground cursor-not-allowed'
             }`}
           >
             Confirm Withdrawal
@@ -1235,7 +1235,7 @@ function HelpScreen({ onBack }: { onBack: () => void }) {
           <p className="text-sm text-muted-foreground mb-4">
             Contact our Data Protection Officer for personalized assistance with consent management.
           </p>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div>
               <span className="font-bold text-foreground">Email:</span>{' '}
               <a href="#" className="text-primary hover:underline">privacy@service.gov.in</a>

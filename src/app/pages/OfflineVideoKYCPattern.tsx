@@ -21,7 +21,7 @@ export default function OfflineVideoKYCPattern() {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Identity Verification Pattern</div>
-                  <h1 className="text-4xl font-bold text-foreground">Offline Video KYC Pattern</h1>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Offline Video KYC Pattern</h1>
                 </div>
               </div>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
@@ -65,14 +65,14 @@ export default function OfflineVideoKYCPattern() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Pattern Overview
               </h2>
-              <div className="bg-card border-2 border-border rounded-lg p-8">
+              <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <p className="text-muted-foreground mb-6">
                   Offline Video KYC allows users to record their identity verification video at their own 
                   pace and upload it when convenient. This pattern is particularly useful for users in 
                   areas with unreliable internet connectivity or those who prefer to complete verification 
                   without time pressure.
                 </p>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6">
                     <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
                       <CheckCircle size={20} className="text-green-600" />
@@ -280,8 +280,8 @@ export default function OfflineVideoKYCPattern() {
               <h2 className="text-2xl font-bold text-foreground mb-6 border-l-4 border-purple-500 pl-4">
                 Accessibility Considerations
               </h2>
-              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
-                <div className="grid grid-cols-2 gap-6">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 sm:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="font-bold text-foreground mb-3">For Users with Disabilities</h3>
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -419,7 +419,7 @@ export function OfflineVideoKYC() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
+    <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
       {step === 'instructions' && (
         <div className="space-y-6">
           <h2 className="text-2xl font-bold">Video KYC Instructions</h2>
@@ -476,7 +476,7 @@ export function OfflineVideoKYC() {
         <div className="space-y-6">
           <div className="text-center">
             <div className="text-2xl font-bold mb-2">Uploading Video...</div>
-            <div className="text-4xl font-bold text-purple-600">
+            <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-purple-600">
               {uploadProgress.toFixed(0)}%
             </div>
           </div>

@@ -123,7 +123,7 @@ export default function OperationalServicePatterns() {
 
       {/* Pattern Grid */}
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           {/* Appointment Booking */}
           <PatternCard
@@ -304,7 +304,7 @@ export default function OperationalServicePatterns() {
             <h2 className="font-bold text-foreground text-xl">Cross-Pattern Guidance</h2>
           </div>
           <div className="p-8">
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               
               {/* Design Principles */}
               <div>
@@ -377,7 +377,7 @@ export default function OperationalServicePatterns() {
         </section>
 
         {/* Pattern Dependencies */}
-        <section className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-8">
+        <section className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-4 sm:p-6 lg:p-8">
           <div className="flex items-start gap-4">
             <Info size={32} className="text-primary flex-shrink-0" />
             <div className="flex-1">
@@ -385,7 +385,7 @@ export default function OperationalServicePatterns() {
               <p className="text-sm text-muted-foreground mb-4">
                 Many operational patterns work together. For example:
               </p>
-              <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <div className="bg-card border border-blue-200 dark:border-blue-800 rounded p-4">
                   <h3 className="font-bold text-foreground mb-2">Appointment Booking →</h3>
                   <ul className="space-y-1 text-muted-foreground">
@@ -424,7 +424,7 @@ export default function OperationalServicePatterns() {
         </section>
 
         {/* Support Resources */}
-        <section className="mt-8 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-8">
+        <section className="mt-8 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-300 rounded-lg p-4 sm:p-6 lg:p-8">
           <div className="flex items-start gap-4">
             <HelpCircle size={32} className="text-orange-600 flex-shrink-0" />
             <div className="flex-1">
@@ -521,7 +521,7 @@ function PatternCard({
         {/* Features */}
         <div className="mb-4">
           <h3 className="text-xs font-bold text-muted-foreground uppercase mb-2">Key Features</h3>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {features.map((feature, index) => (
               <div key={index} className="flex items-start gap-2">
                 <CheckCircle size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
@@ -534,11 +534,11 @@ function PatternCard({
         {/* Metadata */}
         <div className="flex items-center gap-4 pt-4 border-t border-border">
           <div className="flex items-center gap-2 text-xs">
-            <Settings size={14} className="text-gray-500" />
+            <Settings size={14} className="text-muted-foreground" />
             <span className="text-muted-foreground">Complexity: <span className="font-bold text-foreground">{complexity}</span></span>
           </div>
           <div className="flex items-center gap-2 text-xs">
-            <Clock size={14} className="text-gray-500" />
+            <Clock size={14} className="text-muted-foreground" />
             <span className="text-muted-foreground">Est: <span className="font-bold text-foreground">{estimatedTime}</span></span>
           </div>
         </div>

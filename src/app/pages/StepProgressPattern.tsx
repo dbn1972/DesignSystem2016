@@ -210,7 +210,7 @@ export default function StepProgressPattern() {
                             <div className={`text-xs font-bold ${
                               status.color === 'green' ? 'text-green-600' :
                               status.color === 'blue' ? 'text-blue-600' :
-                              'text-gray-500'
+                              'text-muted-foreground'
                             }`}>
                               {status.label}
                             </div>
@@ -223,7 +223,7 @@ export default function StepProgressPattern() {
               </div>
 
               {/* Summary Stats */}
-              <div className="mt-8 pt-8 border-t-2 border-border grid grid-cols-2 gap-4">
+              <div className="mt-8 pt-8 border-t-2 border-border grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <div className="text-2xl font-bold text-[#138808]">{completedSteps}</div>
                   <div className="text-xs text-muted-foreground">Completed</div>
@@ -275,12 +275,12 @@ export default function StepProgressPattern() {
 
                   {/* Details */}
                   <div className="p-8">
-                    <div className="grid grid-cols-2 gap-8 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                       {/* Responsible Party */}
                       <div>
                         <div className="text-sm font-bold text-muted-foreground mb-2">Responsible Party</div>
                         <div className="flex items-center gap-2">
-                          <User size={20} className="text-gray-500" />
+                          <User size={20} className="text-muted-foreground" />
                           <span className="font-bold text-foreground">{step.actor}</span>
                         </div>
                       </div>
@@ -289,7 +289,7 @@ export default function StepProgressPattern() {
                       <div>
                         <div className="text-sm font-bold text-muted-foreground mb-2">Estimated Duration</div>
                         <div className="flex items-center gap-2">
-                          <Clock size={20} className="text-gray-500" />
+                          <Clock size={20} className="text-muted-foreground" />
                           <span className="font-bold text-foreground">{step.estimatedDuration}</span>
                         </div>
                       </div>
@@ -310,7 +310,7 @@ export default function StepProgressPattern() {
 
                     {step.status === 'current' && step.startedDate && (
                       <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <div className="flex items-center gap-2 mb-2">
                               <Clock size={20} className="text-blue-600" />
@@ -338,7 +338,7 @@ export default function StepProgressPattern() {
                     {step.status === 'pending' && (
                       <div className="mb-6 p-4 bg-background border-2 border-border rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
-                          <AlertCircle size={20} className="text-gray-500" />
+                          <AlertCircle size={20} className="text-muted-foreground" />
                           <span className="font-bold text-foreground">Awaiting Previous Step</span>
                         </div>
                         <div className="text-sm text-muted-foreground">
