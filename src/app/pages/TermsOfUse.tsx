@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Scale, FileText, Shield, AlertTriangle, Lock, Users, Globe, BookOpen, Mail } from "lucide-react";
 import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
+import { TermsIllustration } from "../components/legal-illustrations";
 
 export default function TermsOfUse() {
   const { i18n } = useTranslation();
@@ -44,6 +45,7 @@ export default function TermsOfUse() {
       toc={toc}
       footerQuestion={c.footerQuestion}
       footerDesc={c.footerDesc}
+      illustration={<TermsIllustration />}
     >
 
               {/* Section 1: Acceptance of Terms */}

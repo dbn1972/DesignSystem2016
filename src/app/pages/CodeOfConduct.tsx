@@ -1,6 +1,7 @@
 import { Users, Heart, Shield, MessageCircle, AlertTriangle, CheckCircle, XCircle, FileText, Scale, BookOpen } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
+import { ConductIllustration } from "../components/legal-illustrations";
 
 export default function CodeOfConduct() {
   const { i18n } = useTranslation();
@@ -44,6 +45,7 @@ export default function CodeOfConduct() {
       toc={toc}
       footerQuestion={c.footerQuestion}
       footerDesc={c.footerDesc}
+      illustration={<ConductIllustration />}
     >
         <OurPledgeSection />
         <StandardsSection />

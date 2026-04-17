@@ -1,6 +1,7 @@
 import { Shield, Lock, Key, AlertTriangle, FileText, Eye, CheckCircle, XCircle, Clock, Users, Database, Server, Package } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
+import { SecurityIllustration } from "../components/legal-illustrations";
 
 export default function SecurityPolicy() {
   const { i18n } = useTranslation();
@@ -42,6 +43,7 @@ export default function SecurityPolicy() {
       toc={toc}
       footerQuestion={c.footerQuestion}
       footerDesc={c.footerDesc}
+      illustration={<SecurityIllustration />}
     >
         <SecurityStandardsSection />
         <VulnerabilityReportingSection />

@@ -18,6 +18,7 @@ import {
   Info
 } from "lucide-react";
 import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
+import { PrivacyIllustration } from "../components/legal-illustrations";
 
 export default function PrivacyPolicy() {
   const { i18n } = useTranslation();
@@ -62,6 +63,7 @@ export default function PrivacyPolicy() {
       toc={toc}
       footerQuestion={c.footerQuestion}
       footerDesc={c.footerDesc}
+      illustration={<PrivacyIllustration />}
     >
 
           {/* Introduction */}

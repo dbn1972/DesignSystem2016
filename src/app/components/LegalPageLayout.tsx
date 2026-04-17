@@ -36,7 +36,9 @@ export interface LegalPageLayoutProps {
   children: ReactNode;
   footerQuestion?: string;
   footerDesc?: string;
-  /** Optional accent color for the illustration */
+  /** Optional custom illustration component */
+  illustration?: ReactNode;
+  /** Optional accent color for the default illustration */
   accentColor?: string;
 }
 
@@ -44,7 +46,7 @@ export default function LegalPageLayout({
   badge, badgeIcon, heroIcon, title, description, date, dateLabel,
   sidebarEyebrow, sidebarTitle, sidebarPill, metrics, note,
   breadcrumbTitle, breadcrumbHome = "Home", breadcrumbGovernance = "Governance",
-  toc, children, accentColor = '#005196',
+  toc, children, illustration, accentColor = '#005196',
   footerQuestion = "Questions about this policy?",
   footerDesc = "Contact the UX4G governance team for clarification or requests.",
 }: LegalPageLayoutProps) {
@@ -87,7 +89,7 @@ export default function LegalPageLayout({
 
             {/* Right: SVG illustration */}
             <div className="hidden xl:flex items-center justify-center" aria-hidden="true">
-              <LegalIllustration color={accentColor} />
+              {illustration || <LegalIllustration color={accentColor} />}
             </div>
           </div>
         </div>
