@@ -3,6 +3,7 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CitizenDashboardPattern from '../CitizenDashboardPattern';
 import { renderWithRouter } from './test-utils';
+import { axe } from 'vitest-axe';
 
 // ── Global mocks ────────────────────────────────────────────────────
 const writeTextMock = vi.fn().mockResolvedValue(undefined);
@@ -110,4 +111,11 @@ describe('CitizenDashboardPattern', () => {
     expect(clickSpy).toHaveBeenCalled();
     vi.restoreAllMocks();
   });
+
+  // ── Accessibility ─────────────────────────────────────────────────
+  it('has no axe accessibility violations', async () => {
+    const { container } = renderWithRouter(<CitizenDashboardPattern />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  }, 15000);
 });
