@@ -1,20 +1,42 @@
 import { Link, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { i18n } = useTranslation();
+  const language = i18n.resolvedLanguage === "hi" ? "hi" : "en";
 
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Foundations", href: "/foundations" },
-    { name: "Tokens", href: "/foundations" },
-    { name: "Styles", href: "/foundations" },
-    { name: "Components", href: "/components" },
-    { name: "Accessibility", href: "/accessibility" },
-    { name: "Patterns", href: "/patterns" },
-  ];
+  const copy = {
+    en: {
+      designSystem: "Design System",
+      navigation: [
+        { name: "Home", href: "/" },
+        { name: "Foundations", href: "/foundations" },
+        { name: "Tokens", href: "/foundations" },
+        { name: "Styles", href: "/foundations" },
+        { name: "Components", href: "/components" },
+        { name: "Accessibility", href: "/accessibility" },
+        { name: "Patterns", href: "/patterns" },
+      ],
+    },
+    hi: {
+      designSystem: "डिज़ाइन सिस्टम",
+      navigation: [
+        { name: "होम", href: "/" },
+        { name: "आधार", href: "/foundations" },
+        { name: "टोकन", href: "/foundations" },
+        { name: "स्टाइल्स", href: "/foundations" },
+        { name: "घटक", href: "/components" },
+        { name: "सुगम्यता", href: "/accessibility" },
+        { name: "पैटर्न", href: "/patterns" },
+      ],
+    },
+  }[language];
+
+  const navigation = copy.navigation;
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -38,7 +60,7 @@ export default function Header() {
             </div>
             <div className="flex flex-col">
               <span className="text-sm font-semibold text-primary">UX4G</span>
-              <span className="text-xs text-muted-foreground">Design System</span>
+              <span className="text-xs text-muted-foreground">{copy.designSystem}</span>
             </div>
           </Link>
 

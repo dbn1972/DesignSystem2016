@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router";
 import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, User, UserCheck, Shield, Upload, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, CreditCard } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import LanguageSelector from './LanguageSelector';
 import ThemeSwitcher from "./ThemeSwitcher";
 
@@ -9,6 +10,154 @@ export default function NavigationHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const { i18n } = useTranslation();
+  const language = i18n.resolvedLanguage === "hi" ? "hi" : "en";
+  const copy = {
+    en: {
+      platformTitle: "Design System Platform",
+      government: "Government of India",
+      search: "Search",
+      github: "GitHub",
+      getStarted: "Get Started",
+      mainMenu: "Main menu",
+      mainNavigation: "Main navigation",
+      foundations: "Foundations",
+      components: "Components",
+      patterns: "Patterns",
+      archetypes: "Archetypes",
+      systems: "Systems",
+      services: "Services",
+      resources: "Resources",
+      governance: "Governance",
+      accessibility: "Accessibility",
+      theme: "Theme",
+      foundationsOverview: "Foundations Overview",
+      contentDesignSystem: "Content Design System",
+      componentsOverview: "Components Overview",
+      patternsOverview: "Patterns Overview",
+      patternLibrary: "Pattern Library",
+      identityAccess: "Identity & Access",
+      consentDeclaration: "Consent & Declaration",
+      searchDiscovery: "Search & Discovery",
+      dashboardTasks: "Dashboard & Tasks",
+      statusLifecycle: "Status & Lifecycle",
+      notifications: "Notifications",
+      contactSupport: "Contact & Support",
+      paymentPatterns: "Payment Patterns",
+      archetypesOverview: "Archetypes Overview",
+      applicationSubmission: "Application Submission",
+      eligibilityScreening: "Eligibility Screening",
+      renewal: "Renewal",
+      correctionResubmission: "Correction & Resubmission",
+      complaintEscalation: "Complaint & Escalation",
+      approvalIssuance: "Approval & Issuance",
+      assistedServices: "Assisted Services",
+      statusTracking: "Status Tracking",
+      appointmentBooking: "Appointment Booking",
+      systemsOverview: "Systems Overview",
+      multilingualGuidance: "Multilingual Guidance",
+      formIntelligence: "Form Intelligence",
+      stateResilience: "State Resilience",
+      servicesHub: "Services Hub",
+      serviceBlueprint: "Service Blueprint",
+      certificateServiceDemo: "Certificate Service Demo",
+      reusableSignIn: "Reusable Sign In",
+      reusableSignUp: "Reusable Sign Up",
+      eligibilityService: "Eligibility Service",
+      startService: "Start Service",
+      userProfile: "User Profile",
+      formPersonal: "Form Personal",
+      formAddress: "Form Address",
+      formAdditional: "Form Additional",
+      formReview: "Form Review",
+      documentUpload: "Document Upload",
+      reviewSummary: "Review Summary",
+      declaration: "Declaration",
+      paymentSummary: "Payment Summary",
+      paymentReceipt: "Payment Receipt",
+      statusTracker: "Status Tracker",
+      gettingStarted: "Getting Started",
+      starterKit: "Starter Kit",
+      componentSpecs: "Component Specs",
+      figmaIntegration: "Figma Integration",
+      governanceOverview: "Governance Overview",
+      adoptionTracking: "Adoption Tracking",
+      conformanceDashboard: "Conformance Dashboard",
+      serviceAnalytics: "Service Analytics",
+    },
+    hi: {
+      platformTitle: "डिज़ाइन सिस्टम प्लेटफ़ॉर्म",
+      government: "भारत सरकार",
+      search: "खोजें",
+      github: "GitHub",
+      getStarted: "शुरू करें",
+      mainMenu: "मुख्य मेनू",
+      mainNavigation: "मुख्य नेविगेशन",
+      foundations: "आधार",
+      components: "घटक",
+      patterns: "पैटर्न",
+      archetypes: "सेवा प्रकार",
+      systems: "प्रणालियाँ",
+      services: "सेवाएं",
+      resources: "संसाधन",
+      governance: "शासन",
+      accessibility: "सुगम्यता",
+      theme: "थीम",
+      foundationsOverview: "आधार अवलोकन",
+      contentDesignSystem: "सामग्री डिज़ाइन प्रणाली",
+      componentsOverview: "घटक अवलोकन",
+      patternsOverview: "पैटर्न अवलोकन",
+      patternLibrary: "पैटर्न लाइब्रेरी",
+      identityAccess: "पहचान और पहुंच",
+      consentDeclaration: "सहमति और घोषणा",
+      searchDiscovery: "खोज और खोजबीन",
+      dashboardTasks: "डैशबोर्ड और कार्य",
+      statusLifecycle: "स्थिति और जीवनचक्र",
+      notifications: "सूचनाएं",
+      contactSupport: "संपर्क और सहायता",
+      paymentPatterns: "भुगतान पैटर्न",
+      archetypesOverview: "सेवा प्रकार अवलोकन",
+      applicationSubmission: "आवेदन जमा करना",
+      eligibilityScreening: "पात्रता जांच",
+      renewal: "नवीनीकरण",
+      correctionResubmission: "सुधार और पुनः जमा",
+      complaintEscalation: "शिकायत और एस्केलेशन",
+      approvalIssuance: "स्वीकृति और जारी करना",
+      assistedServices: "सहायता प्राप्त सेवाएं",
+      statusTracking: "स्थिति ट्रैकिंग",
+      appointmentBooking: "अपॉइंटमेंट बुकिंग",
+      systemsOverview: "प्रणाली अवलोकन",
+      multilingualGuidance: "बहुभाषी मार्गदर्शन",
+      formIntelligence: "फॉर्म इंटेलिजेंस",
+      stateResilience: "स्थिति लचीलापन",
+      servicesHub: "सेवाएं हब",
+      serviceBlueprint: "सेवा ब्लूप्रिंट",
+      certificateServiceDemo: "प्रमाणपत्र सेवा डेमो",
+      reusableSignIn: "पुन: उपयोग योग्य साइन इन",
+      reusableSignUp: "पुन: उपयोग योग्य साइन अप",
+      eligibilityService: "पात्रता सेवा",
+      startService: "सेवा शुरू करें",
+      userProfile: "उपयोगकर्ता प्रोफ़ाइल",
+      formPersonal: "व्यक्तिगत फॉर्म",
+      formAddress: "पता फॉर्म",
+      formAdditional: "अतिरिक्त फॉर्म",
+      formReview: "फॉर्म समीक्षा",
+      documentUpload: "दस्तावेज़ अपलोड",
+      reviewSummary: "समीक्षा सारांश",
+      declaration: "घोषणा",
+      paymentSummary: "भुगतान सारांश",
+      paymentReceipt: "भुगतान रसीद",
+      statusTracker: "स्थिति ट्रैकर",
+      gettingStarted: "शुरू करें",
+      starterKit: "स्टार्टर किट",
+      componentSpecs: "घटक विनिर्देश",
+      figmaIntegration: "Figma इंटीग्रेशन",
+      governanceOverview: "शासन अवलोकन",
+      adoptionTracking: "अपनाने की ट्रैकिंग",
+      conformanceDashboard: "अनुपालन डैशबोर्ड",
+      serviceAnalytics: "सेवा विश्लेषण",
+    },
+  }[language];
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -50,8 +199,8 @@ export default function NavigationHeader() {
               <span className="text-white font-bold text-sm">UX4G</span>
             </div>
             <div>
-              <div className="font-semibold text-foreground text-base">Design System Platform</div>
-              <div className="text-[11px] text-muted-foreground">Government of India</div>
+              <div className="font-semibold text-foreground text-base">{copy.platformTitle}</div>
+              <div className="text-[11px] text-muted-foreground">{copy.government}</div>
             </div>
           </Link>
 
@@ -59,20 +208,20 @@ export default function NavigationHeader() {
           <div className="hidden md:flex items-center gap-2">
             <button
               className="p-2.5 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-              aria-label="Search"
+              aria-label={copy.search}
             >
               <Search size={18} />
             </button>
             <ThemeSwitcher />
             <LanguageSelector variant="compact" />
             <a href="https://github.com" className="px-3.5 py-2 text-sm font-medium text-muted-foreground hover:text-foreground border border-border rounded-lg hover:bg-muted transition-colors">
-              GitHub
+              {copy.github}
             </a>
             <Link to="/resources/getting-started" className="px-3.5 py-2 text-sm font-medium rounded-lg transition-all hover:shadow-md" style={{
               backgroundColor: 'var(--ux4g-color-interactive-default)',
               color: 'var(--ux4g-color-text-inverse)'
             }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-interactive-hover)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--ux4g-color-interactive-default)'}>
-              Get Started
+              {copy.getStarted}
             </Link>
           </div>
 
@@ -80,7 +229,7 @@ export default function NavigationHeader() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2.5 text-muted-foreground hover:bg-muted rounded-lg transition-colors"
-            aria-label="Main menu"
+            aria-label={copy.mainMenu}
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -88,52 +237,52 @@ export default function NavigationHeader() {
         </div>
 
         {/* Primary Navigation */}
-        <nav aria-label="Main navigation" className="hidden md:block" onMouseLeave={() => setActiveDropdown(null)}>
+        <nav aria-label={copy.mainNavigation} className="hidden md:block" onMouseLeave={() => setActiveDropdown(null)}>
           <div className="flex items-center px-6">
             <NavItem
-              label="Foundations"
+              label={copy.foundations}
               href="/foundations"
               active={isSectionActive('foundations')}
               onMouseEnter={() => setActiveDropdown('foundations')}
             />
             <NavItem
-              label="Components"
+              label={copy.components}
               href="/components"
               active={isSectionActive('components')}
               onMouseEnter={() => setActiveDropdown('components')}
             />
             <NavItem
-              label="Patterns"
+              label={copy.patterns}
               href="/patterns"
               active={isSectionActive('patterns')}
               onMouseEnter={() => setActiveDropdown('patterns')}
             />
             <NavItem
-              label="Archetypes"
+              label={copy.archetypes}
               href="/archetypes"
               active={isSectionActive('archetypes')}
               onMouseEnter={() => setActiveDropdown('archetypes')}
             />
             <NavItem
-              label="Systems"
+              label={copy.systems}
               href="/systems"
               active={isSectionActive('systems')}
               onMouseEnter={() => setActiveDropdown('systems')}
             />
             <NavItem
-              label="Services"
+              label={copy.services}
               href="/services"
               active={isSectionActive('reference-services')}
               onMouseEnter={() => setActiveDropdown('reference-services')}
             />
             <NavItem
-              label="Resources"
+              label={copy.resources}
               href="/resources"
               active={isSectionActive('resources')}
               onMouseEnter={() => setActiveDropdown('resources')}
             />
             <NavItem
-              label="Governance"
+              label={copy.governance}
               href="/governance"
               active={isSectionActive('governance')}
               onMouseEnter={() => setActiveDropdown('governance')}
@@ -169,7 +318,7 @@ export default function NavigationHeader() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <MobileNavigation onClose={() => setMobileMenuOpen(false)} />
+          <MobileNavigation onClose={() => setMobileMenuOpen(false)} copy={copy} />
         )}
       </div>
     </header>
@@ -880,7 +1029,7 @@ function ArchetypeMenuItem({ label, href, active }: { label: string; href: strin
 
 // ==================== MOBILE NAVIGATION ====================
 
-function MobileNavigation({ onClose }: { onClose: () => void }) {
+function MobileNavigation({ onClose, copy }: { onClose: () => void; copy: Record<string, string> }) {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
@@ -891,127 +1040,127 @@ function MobileNavigation({ onClose }: { onClose: () => void }) {
     <div className="md:hidden border-t border-border bg-card max-h-[600px] overflow-y-auto">
       <nav className="p-5 space-y-3">
         <div className="flex items-center justify-between rounded-lg border border-border bg-background p-3">
-          <span className="text-xs font-semibold text-muted-foreground">Theme</span>
+          <span className="text-xs font-semibold text-muted-foreground">{copy.theme}</span>
           <ThemeSwitcher />
         </div>
 
         {/* Foundations */}
         <MobileSection
-          title="Foundations"
+          title={copy.foundations}
           expanded={expandedSection === 'foundations'}
           onToggle={() => toggleSection('foundations')}
         >
-          <MobileLink label="Foundations Overview" href="/foundations" onClose={onClose} />
-          <MobileLink label="Accessibility" href="/accessibility" onClose={onClose} />
-          <MobileLink label="Content Design System" href="/content-system" onClose={onClose} />
+          <MobileLink label={copy.foundationsOverview} href="/foundations" onClose={onClose} />
+          <MobileLink label={copy.accessibility} href="/accessibility" onClose={onClose} />
+          <MobileLink label={copy.contentDesignSystem} href="/content-system" onClose={onClose} />
         </MobileSection>
 
         {/* Components */}
         <MobileSection
-          title="Components"
+          title={copy.components}
           expanded={expandedSection === 'components'}
           onToggle={() => toggleSection('components')}
         >
-          <MobileLink label="Components Overview" href="/components" onClose={onClose} />
+          <MobileLink label={copy.componentsOverview} href="/components" onClose={onClose} />
         </MobileSection>
 
         {/* Patterns */}
         <MobileSection
-          title="Patterns"
+          title={copy.patterns}
           expanded={expandedSection === 'patterns'}
           onToggle={() => toggleSection('patterns')}
         >
-          <MobileLink label="Patterns Overview" href="/patterns" onClose={onClose} />
-          <MobileLink label="Pattern Library" href="/pattern-library" onClose={onClose} />
-          <MobileLink label="Identity & Access" href="/patterns/identity" onClose={onClose} small />
-          <MobileLink label="Consent & Declaration" href="/patterns/consent" onClose={onClose} small />
-          <MobileLink label="Search & Discovery" href="/patterns/search-discovery" onClose={onClose} small />
-          <MobileLink label="Dashboard & Tasks" href="/patterns/dashboard" onClose={onClose} small />
-          <MobileLink label="Status & Lifecycle" href="/patterns/status-lifecycle" onClose={onClose} small />
-          <MobileLink label="Notifications" href="/patterns/notifications" onClose={onClose} small />
-          <MobileLink label="Contact & Support" href="/patterns/contact-support" onClose={onClose} small />
-          <MobileLink label="Payment Patterns" href="/patterns/payment" onClose={onClose} small />
+          <MobileLink label={copy.patternsOverview} href="/patterns" onClose={onClose} />
+          <MobileLink label={copy.patternLibrary} href="/pattern-library" onClose={onClose} />
+          <MobileLink label={copy.identityAccess} href="/patterns/identity" onClose={onClose} small />
+          <MobileLink label={copy.consentDeclaration} href="/patterns/consent" onClose={onClose} small />
+          <MobileLink label={copy.searchDiscovery} href="/patterns/search-discovery" onClose={onClose} small />
+          <MobileLink label={copy.dashboardTasks} href="/patterns/dashboard" onClose={onClose} small />
+          <MobileLink label={copy.statusLifecycle} href="/patterns/status-lifecycle" onClose={onClose} small />
+          <MobileLink label={copy.notifications} href="/patterns/notifications" onClose={onClose} small />
+          <MobileLink label={copy.contactSupport} href="/patterns/contact-support" onClose={onClose} small />
+          <MobileLink label={copy.paymentPatterns} href="/patterns/payment" onClose={onClose} small />
         </MobileSection>
 
         {/* Service Archetypes */}
         <MobileSection
-          title="Service Archetypes"
+          title={copy.archetypes}
           expanded={expandedSection === 'archetypes'}
           onToggle={() => toggleSection('archetypes')}
         >
-          <MobileLink label="Archetypes Overview" href="/archetypes" onClose={onClose} />
-          <MobileLink label="Application Submission" href="/archetypes/application" onClose={onClose} small />
-          <MobileLink label="Eligibility Screening" href="/archetypes/eligibility" onClose={onClose} small />
-          <MobileLink label="Renewal" href="/archetypes/renewal" onClose={onClose} small />
-          <MobileLink label="Correction & Resubmission" href="/archetypes/correction" onClose={onClose} small />
-          <MobileLink label="Complaint & Escalation" href="/archetypes/complaint" onClose={onClose} small />
-          <MobileLink label="Approval & Issuance" href="/archetypes/approval" onClose={onClose} small />
-          <MobileLink label="Assisted Services" href="/archetypes/assisted" onClose={onClose} small />
-          <MobileLink label="Status Tracking" href="/archetypes/tracking" onClose={onClose} small />
-          <MobileLink label="Appointment Booking" href="/archetypes/appointment" onClose={onClose} small />
+          <MobileLink label={copy.archetypesOverview} href="/archetypes" onClose={onClose} />
+          <MobileLink label={copy.applicationSubmission} href="/archetypes/application" onClose={onClose} small />
+          <MobileLink label={copy.eligibilityScreening} href="/archetypes/eligibility" onClose={onClose} small />
+          <MobileLink label={copy.renewal} href="/archetypes/renewal" onClose={onClose} small />
+          <MobileLink label={copy.correctionResubmission} href="/archetypes/correction" onClose={onClose} small />
+          <MobileLink label={copy.complaintEscalation} href="/archetypes/complaint" onClose={onClose} small />
+          <MobileLink label={copy.approvalIssuance} href="/archetypes/approval" onClose={onClose} small />
+          <MobileLink label={copy.assistedServices} href="/archetypes/assisted" onClose={onClose} small />
+          <MobileLink label={copy.statusTracking} href="/archetypes/tracking" onClose={onClose} small />
+          <MobileLink label={copy.appointmentBooking} href="/archetypes/appointment" onClose={onClose} small />
         </MobileSection>
 
         {/* Systems */}
-          <MobileSection
-          title="Systems"
+        <MobileSection
+          title={copy.systems}
           expanded={expandedSection === 'systems'}
           onToggle={() => toggleSection('systems')}
         >
-          <MobileLink label="Systems Overview" href="/systems" onClose={onClose} />
-          <MobileLink label="Multilingual Guidance" href="/systems/multilingual" onClose={onClose} />
-          <MobileLink label="Form Intelligence" href="/systems/form-intelligence" onClose={onClose} />
-          <MobileLink label="State Resilience" href="/systems/state-resilience" onClose={onClose} />
+          <MobileLink label={copy.systemsOverview} href="/systems" onClose={onClose} />
+          <MobileLink label={copy.multilingualGuidance} href="/systems/multilingual" onClose={onClose} />
+          <MobileLink label={copy.formIntelligence} href="/systems/form-intelligence" onClose={onClose} />
+          <MobileLink label={copy.stateResilience} href="/systems/state-resilience" onClose={onClose} />
         </MobileSection>
 
         {/* Services */}
         <MobileSection
-          title="Services"
+          title={copy.services}
           expanded={expandedSection === 'reference-services'}
           onToggle={() => toggleSection('reference-services')}
         >
-          <MobileLink label="Services Hub" href="/services" onClose={onClose} />
-          <MobileLink label="Service Blueprint" href="/reference-service/overview" onClose={onClose} />
-          <MobileLink label="Certificate Service Demo" href="/reference-service/demo" onClose={onClose} />
-          <MobileLink label="Reusable Sign In" href="/reference-service/sign-in" onClose={onClose} />
-          <MobileLink label="Reusable Sign Up" href="/reference-service/sign-up" onClose={onClose} />
-          <MobileLink label="Eligibility Service" href="/reference-service/eligibility" onClose={onClose} />
-          <MobileLink label="Start Service" href="/reference-service/start" onClose={onClose} />
-          <MobileLink label="User Profile" href="/reference-service/user-profile" onClose={onClose} />
-          <MobileLink label="Form Personal" href="/reference-service/form/personal" onClose={onClose} />
-          <MobileLink label="Form Address" href="/reference-service/form/address" onClose={onClose} />
-          <MobileLink label="Form Additional" href="/reference-service/form/additional" onClose={onClose} />
-          <MobileLink label="Form Review" href="/reference-service/form/review" onClose={onClose} />
-          <MobileLink label="Document Upload" href="/reference-service/document-upload" onClose={onClose} />
-          <MobileLink label="Review Summary" href="/reference-service/review-summary" onClose={onClose} />
-          <MobileLink label="Declaration" href="/reference-service/declaration" onClose={onClose} />
-          <MobileLink label="Payment Summary" href="/reference-service/payment-summary" onClose={onClose} />
-          <MobileLink label="Payment Receipt" href="/reference-service/payment-receipt" onClose={onClose} />
-          <MobileLink label="Status Tracker" href="/reference-service/status-tracker" onClose={onClose} />
+          <MobileLink label={copy.servicesHub} href="/services" onClose={onClose} />
+          <MobileLink label={copy.serviceBlueprint} href="/reference-service/overview" onClose={onClose} />
+          <MobileLink label={copy.certificateServiceDemo} href="/reference-service/demo" onClose={onClose} />
+          <MobileLink label={copy.reusableSignIn} href="/reference-service/sign-in" onClose={onClose} />
+          <MobileLink label={copy.reusableSignUp} href="/reference-service/sign-up" onClose={onClose} />
+          <MobileLink label={copy.eligibilityService} href="/reference-service/eligibility" onClose={onClose} />
+          <MobileLink label={copy.startService} href="/reference-service/start" onClose={onClose} />
+          <MobileLink label={copy.userProfile} href="/reference-service/user-profile" onClose={onClose} />
+          <MobileLink label={copy.formPersonal} href="/reference-service/form/personal" onClose={onClose} />
+          <MobileLink label={copy.formAddress} href="/reference-service/form/address" onClose={onClose} />
+          <MobileLink label={copy.formAdditional} href="/reference-service/form/additional" onClose={onClose} />
+          <MobileLink label={copy.formReview} href="/reference-service/form/review" onClose={onClose} />
+          <MobileLink label={copy.documentUpload} href="/reference-service/document-upload" onClose={onClose} />
+          <MobileLink label={copy.reviewSummary} href="/reference-service/review-summary" onClose={onClose} />
+          <MobileLink label={copy.declaration} href="/reference-service/declaration" onClose={onClose} />
+          <MobileLink label={copy.paymentSummary} href="/reference-service/payment-summary" onClose={onClose} />
+          <MobileLink label={copy.paymentReceipt} href="/reference-service/payment-receipt" onClose={onClose} />
+          <MobileLink label={copy.statusTracker} href="/reference-service/status-tracker" onClose={onClose} />
         </MobileSection>
 
         {/* Resources */}
         <MobileSection
-          title="Resources"
+          title={copy.resources}
           expanded={expandedSection === 'resources'}
           onToggle={() => toggleSection('resources')}
         >
-          <MobileLink label="Resources Hub" href="/resources" onClose={onClose} />
-          <MobileLink label="Getting Started" href="/resources/getting-started" onClose={onClose} />
-          <MobileLink label="Starter Kit" href="/resources/starter-kit" onClose={onClose} />
-          <MobileLink label="Component Specs" href="/resources/component-specs" onClose={onClose} />
-          <MobileLink label="Figma Integration" href="/resources/figma" onClose={onClose} />
+          <MobileLink label={copy.resources} href="/resources" onClose={onClose} />
+          <MobileLink label={copy.gettingStarted} href="/resources/getting-started" onClose={onClose} />
+          <MobileLink label={copy.starterKit} href="/resources/starter-kit" onClose={onClose} />
+          <MobileLink label={copy.componentSpecs} href="/resources/component-specs" onClose={onClose} />
+          <MobileLink label={copy.figmaIntegration} href="/resources/figma" onClose={onClose} />
         </MobileSection>
 
         {/* Governance */}
         <MobileSection
-          title="Governance"
+          title={copy.governance}
           expanded={expandedSection === 'governance'}
           onToggle={() => toggleSection('governance')}
         >
-          <MobileLink label="Governance Overview" href="/governance" onClose={onClose} />
-          <MobileLink label="Adoption Tracking" href="/governance/adoption" onClose={onClose} />
-          <MobileLink label="Conformance Dashboard" href="/governance/conformance" onClose={onClose} />
-          <MobileLink label="Service Analytics" href="/governance/analytics" onClose={onClose} />
+          <MobileLink label={copy.governanceOverview} href="/governance" onClose={onClose} />
+          <MobileLink label={copy.adoptionTracking} href="/governance/adoption" onClose={onClose} />
+          <MobileLink label={copy.conformanceDashboard} href="/governance/conformance" onClose={onClose} />
+          <MobileLink label={copy.serviceAnalytics} href="/governance/analytics" onClose={onClose} />
         </MobileSection>
       </nav>
     </div>
