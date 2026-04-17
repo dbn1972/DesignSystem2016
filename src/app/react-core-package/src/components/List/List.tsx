@@ -11,7 +11,7 @@ export const List = forwardRef<HTMLUListElement, ListProps>(
     }
 
     return (
-      <Tag ref={ref as React.Ref<HTMLUListElement>} className={cn('ux4g-list', className)} role="list" {...props}>
+      <Tag ref={ref as any} className={cn('ux4g-list', className)} role="list" {...props}>
         {items.map((item, idx) => (
           <li
             key={item.key}

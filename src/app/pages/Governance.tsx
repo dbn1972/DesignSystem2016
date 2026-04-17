@@ -1,6 +1,10 @@
 import { Users, GitBranch, CheckCircle, AlertCircle, Clock, XCircle, ChevronRight, Shield, FileText, Zap, TrendingUp, Archive, ArrowRight, CheckSquare, Circle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Governance() {
+  const { i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage === 'hi' ? 'hi' : 'en';
+  const c = GOVERNANCE_COPY[lang];
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
@@ -12,10 +16,9 @@ export default function Governance() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Governance & lifecycle for a production design system</h1>
+              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.hero.title}</h1>
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                UX4G is governed as a product platform, not just a component library. This framework keeps quality,
-                consistency, and scalability visible while supporting contribution from departments and vendors.
+                {c.hero.description}
               </p>
             </div>
 
@@ -24,10 +27,10 @@ export default function Governance() {
                 Review ownership
               </a>
               <a href="#approval" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
-                Quality gates
+                {c.hero.qualityGates}
               </a>
               <a href="#lifecycle" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
-                Lifecycle states
+                {c.hero.lifecycleStates}
               </a>
             </div>
           </div>
@@ -35,10 +38,10 @@ export default function Governance() {
           <div className="rounded-[28px] border border-border bg-card p-6 shadow-xl shadow-black/5">
             <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Governance snapshot</p>
-                <h2 className="mt-2 text-2xl font-bold text-foreground">What this page communicates</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{c.snapshot.eyebrow}</p>
+                <h2 className="mt-2 text-2xl font-bold text-foreground">{c.snapshot.title}</h2>
               </div>
-              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">10 sections</div>
+              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">{c.snapshot.sections}</div>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-3">
               <GovernanceMetric value="3" label="Review lanes" />
@@ -69,6 +72,18 @@ export default function Governance() {
     </div>
   );
 }
+
+// ── Bilingual copy ──────────────────────────────────────────────────
+const GOVERNANCE_COPY = {
+  en: {
+    hero: { title: 'Governance & lifecycle for a production design system', description: 'UX4G is governed as a product platform, not just a component library. This framework keeps quality, consistency, and scalability visible while supporting contribution from departments and vendors.', qualityGates: 'Quality gates', lifecycleStates: 'Lifecycle states' },
+    snapshot: { eyebrow: 'Governance snapshot', title: 'What this page communicates', sections: '10 sections' },
+  },
+  hi: {
+    hero: { title: 'प्रोडक्शन डिज़ाइन सिस्टम के लिए शासन और जीवनचक्र', description: 'UX4G को एक उत्पाद प्लेटफ़ॉर्म के रूप में शासित किया जाता है, केवल एक कंपोनेंट लाइब्रेरी के रूप में नहीं। यह ढाँचा गुणवत्ता, एकरूपता और स्केलेबिलिटी को दृश्यमान रखता है और विभागों व वेंडर्स से योगदान का समर्थन करता है।', qualityGates: 'गुणवत्ता द्वार', lifecycleStates: 'जीवनचक्र अवस्थाएँ' },
+    snapshot: { eyebrow: 'शासन स्नैपशॉट', title: 'यह पृष्ठ क्या बताता है', sections: '10 अनुभाग' },
+  },
+} as const;
 
 function GovernanceMetric({ value, label }: { value: string; label: string }) {
   return (

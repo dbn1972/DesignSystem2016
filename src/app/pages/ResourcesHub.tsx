@@ -1,7 +1,11 @@
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import { ArrowRight, BookOpen, CheckCircle, Code, Download, Figma, Globe, Package, Rocket, Workflow } from "lucide-react";
 
 export default function ResourcesHub() {
+  const { i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage === 'hi' ? 'hi' : 'en';
+  const c = RESOURCES_COPY[lang];
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.12),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(249,115,22,0.10),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
@@ -18,14 +22,13 @@ export default function ResourcesHub() {
                   <Package size={30} />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Resources</p>
-                  <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Resources</h1>
+                  <p className="text-sm font-medium text-muted-foreground">{c.hero.eyebrow}</p>
+                  <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.hero.title}</h1>
                 </div>
               </div>
 
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
-                Everything teams need to get moving quickly: installation guidance, starter kits, component specifications,
-                and framework-aware docs for React, Angular, and Web Components.
+                {c.hero.description}
               </p>
             </div>
 
@@ -40,13 +43,13 @@ export default function ResourcesHub() {
                 to="/resources/starter-kit"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
               >
-                View starter kit
+                {c.hero.viewStarterKit}
               </Link>
               <Link
                 to="/resources/component-specs"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
               >
-                View component specs
+                {c.hero.viewSpecs}
               </Link>
             </div>
           </div>
@@ -54,22 +57,22 @@ export default function ResourcesHub() {
           <div className="rounded-[32px] border border-border bg-card p-7 shadow-xl shadow-black/5">
             <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Resource map</p>
-                <h2 className="mt-2 text-2xl font-bold text-foreground">What this hub covers</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{c.hub.eyebrow}</p>
+                <h2 className="mt-2 text-2xl font-bold text-foreground">{c.hub.title}</h2>
               </div>
-              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">7 entry points</div>
+              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">{c.hub.entryPoints}</div>
             </div>
 
             <div className="mt-5 grid grid-cols-2 gap-3">
-              <MetricCard value="5 min" label="Quick start" />
-              <MetricCard value="30+" label="Reusable components" />
-              <MetricCard value="45+" label="Reference pages" />
-              <MetricCard value="2 stacks" label="React + Angular" />
+              <MetricCard value={c.metrics.quickStart.value} label={c.metrics.quickStart.label} />
+              <MetricCard value={c.metrics.components.value} label={c.metrics.components.label} />
+              <MetricCard value={c.metrics.pages.value} label={c.metrics.pages.label} />
+              <MetricCard value={c.metrics.stacks.value} label={c.metrics.stacks.label} />
             </div>
 
             <div className="mt-6 space-y-3 rounded-2xl bg-muted/40 p-4">
-              <HubNote title="Framework parity" text="React stays the reference while Angular and Web Components stay discoverable." />
-              <HubNote title="Enterprise tone" text="Guides, specs, and design files are organized for delivery teams, not demos." />
+              <HubNote title={c.hubNotes.parity.title} text={c.hubNotes.parity.text} />
+              <HubNote title={c.hubNotes.enterprise.title} text={c.hubNotes.enterprise.text} />
             </div>
           </div>
         </div>
@@ -79,10 +82,10 @@ export default function ResourcesHub() {
         <section className="space-y-6">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl space-y-2">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">Quick entry points</p>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Move from overview to implementation quickly</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">{c.quickEntry.eyebrow}</p>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{c.quickEntry.title}</h2>
               <p className="text-muted-foreground">
-                These links surface the most used setup and framework pages without making the user hunt through the docs tree.
+                {c.quickEntry.description}
               </p>
             </div>
             <div className="hidden flex-wrap gap-2 lg:flex">
@@ -330,6 +333,24 @@ export default function ResourcesHub() {
     </div>
   );
 }
+
+// ── Bilingual copy ──────────────────────────────────────────────────
+const RESOURCES_COPY = {
+  en: {
+    hero: { eyebrow: 'Resources', title: 'Resources', description: 'Everything teams need to get moving quickly: installation guidance, starter kits, component specifications, and framework-aware docs for React, Angular, and Web Components.', viewStarterKit: 'View starter kit', viewSpecs: 'View component specs' },
+    hub: { eyebrow: 'Resource map', title: 'What this hub covers', entryPoints: '7 entry points' },
+    metrics: { quickStart: { value: '5 min', label: 'Quick start' }, components: { value: '30+', label: 'Reusable components' }, pages: { value: '45+', label: 'Reference pages' }, stacks: { value: '2 stacks', label: 'React + Angular' } },
+    hubNotes: { parity: { title: 'Framework parity', text: 'React stays the reference while Angular and Web Components stay discoverable.' }, enterprise: { title: 'Enterprise tone', text: 'Guides, specs, and design files are organized for delivery teams, not demos.' } },
+    quickEntry: { eyebrow: 'Quick entry points', title: 'Move from overview to implementation quickly', description: 'These links surface the most used setup and framework pages without making the user hunt through the docs tree.' },
+  },
+  hi: {
+    hero: { eyebrow: 'संसाधन', title: 'संसाधन', description: 'टीमों को तेज़ी से शुरू करने के लिए सब कुछ: इंस्टॉलेशन गाइड, स्टार्टर किट, कंपोनेंट स्पेसिफिकेशन, और React, Angular व Web Components के लिए फ्रेमवर्क-अनुकूल डॉक्स।', viewStarterKit: 'स्टार्टर किट देखें', viewSpecs: 'कंपोनेंट स्पेक्स देखें' },
+    hub: { eyebrow: 'संसाधन मानचित्र', title: 'इस हब में क्या शामिल है', entryPoints: '7 प्रवेश बिंदु' },
+    metrics: { quickStart: { value: '5 मिनट', label: 'त्वरित शुरुआत' }, components: { value: '30+', label: 'पुन: प्रयोज्य कंपोनेंट' }, pages: { value: '45+', label: 'संदर्भ पृष्ठ' }, stacks: { value: '2 स्टैक', label: 'React + Angular' } },
+    hubNotes: { parity: { title: 'फ्रेमवर्क समानता', text: 'React संदर्भ बना रहता है जबकि Angular और Web Components खोजने योग्य रहते हैं।' }, enterprise: { title: 'एंटरप्राइज़ स्वर', text: 'गाइड, स्पेक्स और डिज़ाइन फ़ाइलें डिलीवरी टीमों के लिए व्यवस्थित हैं, डेमो के लिए नहीं।' } },
+    quickEntry: { eyebrow: 'त्वरित प्रवेश बिंदु', title: 'अवलोकन से कार्यान्वयन तक तेज़ी से पहुँचें', description: 'ये लिंक सबसे अधिक उपयोग किए जाने वाले सेटअप और फ्रेमवर्क पृष्ठों को सामने लाते हैं।' },
+  },
+} as const;
 
 function MetricCard({ value, label }: { value: string; label: string }) {
   return (
