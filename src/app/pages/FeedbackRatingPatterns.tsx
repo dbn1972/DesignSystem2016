@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { MessageCircle, Star, AlertTriangle, Lightbulb, CheckCircle, ArrowRight, TrendingUp, BarChart3, Users } from "lucide-react";
+import { MessageCircle, Star, AlertTriangle, Lightbulb, CheckCircle, ArrowRight, TrendingUp, BarChart3, Users, Download, Copy, Check } from "lucide-react";
 
 export default function FeedbackRatingPatterns() {
   return (
@@ -348,7 +349,194 @@ export default function FeedbackRatingPatterns() {
           </div>
         </section>
 
+        {/* Code Downloads */}
+        <FeedbackRatingCodeDownloads />
       </main>
     </div>
+  );
+}
+
+// ==================== CODE DOWNLOADS ====================
+
+const FRATING_REACT_CODE = `import React, { useState } from 'react';
+
+export function FeedbackRatingPage() {
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
+  const [comment, setComment] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const labels = ['', 'Very Poor', 'Poor', 'Average', 'Good', 'Excellent'];
+
+  if (submitted) return (
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="text-center bg-card border border-border rounded-2xl p-8 max-w-md">
+        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+        </div>
+        <h2 className="text-xl font-bold">Thank You!</h2>
+        <p className="text-sm text-muted-foreground mt-2">Your {rating}-star feedback helps improve our services.</p>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+        <h1 className="text-2xl font-bold mb-2">Rate This Service</h1>
+        <p className="text-sm text-muted-foreground mb-6">How was your experience?</p>
+        <div className="flex justify-center gap-2 mb-2">
+          {[1,2,3,4,5].map(n => (
+            <button key={n} onMouseEnter={() => setHover(n)} onMouseLeave={() => setHover(0)} onClick={() => setRating(n)}
+              className="text-3xl transition-transform hover:scale-110" aria-label={\`Rate \${n} stars\`}>
+              {n <= (hover || rating) ? '★' : '☆'}
+            </button>
+          ))}
+        </div>
+        {(hover || rating) > 0 && <p className="text-center text-sm font-semibold text-primary mb-4">{labels[hover || rating]}</p>}
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1">Additional Comments</label>
+          <textarea rows={3} value={comment} onChange={e => setComment(e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" placeholder="Optional — tell us more" />
+        </div>
+        <button onClick={() => setSubmitted(true)} disabled={!rating} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-50">Submit Rating</button>
+      </div>
+    </div>
+  );
+}`;
+
+const FRATING_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-feedback-rating',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: \`
+    <div class="min-h-screen bg-background flex items-center justify-center p-4">
+      <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8">
+        <div *ngIf="!submitted">
+          <h1 class="text-2xl font-bold mb-2">Rate This Service</h1>
+          <div class="flex justify-center gap-2 mb-4">
+            <button *ngFor="let n of [1,2,3,4,5]" (click)="rating=n" (mouseenter)="hover=n" (mouseleave)="hover=0"
+              class="text-3xl transition-transform hover:scale-110">
+              {{n <= (hover || rating) ? '★' : '☆'}}
+            </button>
+          </div>
+          <textarea rows="3" [(ngModel)]="comment" class="w-full px-4 py-3 border border-border rounded-lg mb-4" placeholder="Comments"></textarea>
+          <button (click)="submitted=true" [disabled]="!rating" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-50">Submit</button>
+        </div>
+        <div *ngIf="submitted" class="text-center py-6">
+          <h2 class="text-xl font-bold">Thank You!</h2>
+          <p class="text-sm text-muted-foreground mt-2">Your {{rating}}-star rating has been recorded.</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class FeedbackRatingComponent {
+  rating = 0;
+  hover = 0;
+  comment = '';
+  submitted = false;
+}`;
+
+const FRATING_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Rating — UX4G</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+    .card { width: 100%; max-width: 420px; background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; }
+    .sub { font-size: .875rem; color: #64748b; margin-bottom: 1.5rem; }
+    .stars { display: flex; justify-content: center; gap: .5rem; margin-bottom: 1rem; }
+    .star { font-size: 2rem; cursor: pointer; background: none; border: none; transition: transform .15s; }
+    .star:hover { transform: scale(1.1); }
+    textarea { width: 100%; padding: .75rem; border: 1px solid #e2e8f0; border-radius: .5rem; resize: vertical; margin-bottom: 1rem; }
+    .btn { width: 100%; padding: .75rem; background: #005196; color: #fff; border: none; border-radius: .5rem; font-weight: 600; cursor: pointer; }
+    .btn:disabled { opacity: .5; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="form">
+      <h1>Rate This Service</h1>
+      <p class="sub">How was your experience?</p>
+      <div class="stars" id="stars"></div>
+      <textarea rows="3" placeholder="Additional comments (optional)"></textarea>
+      <button class="btn" id="submit-btn" disabled onclick="submit()">Submit Rating</button>
+    </div>
+    <div id="thanks" class="hidden success">
+      <h2 style="font-size:1.25rem;font-weight:700">Thank You!</h2>
+      <p style="color:#64748b;margin-top:.5rem;font-size:.875rem">Your feedback has been recorded.</p>
+    </div>
+  </div>
+  <script>
+    let rating = 0;
+    for (let i = 1; i <= 5; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'star';
+      btn.textContent = '☆';
+      btn.onclick = () => { rating = i; document.querySelectorAll('.star').forEach((s,j) => s.textContent = j < i ? '★' : '☆'); document.getElementById('submit-btn').disabled = false; };
+      document.getElementById('stars').appendChild(btn);
+    }
+    function submit() { document.getElementById('form').classList.add('hidden'); document.getElementById('thanks').classList.remove('hidden'); }
+  </script>
+</body>
+</html>`;
+
+function FeedbackRatingCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Star Rating', code: FRATING_REACT_CODE, filename: 'FeedbackRatingPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone + FormsModule', code: FRATING_ANGULAR_CODE, filename: 'feedback-rating.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: FRATING_HTML_CODE, filename: 'feedback-rating.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24 mt-12">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Feedback & Rating implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
