@@ -1,48 +1,48 @@
 import { Shield, Lock, Key, AlertTriangle, FileText, Eye, CheckCircle, XCircle, Clock, Users, Database, Server, Package } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
 
 export default function SecurityPolicy() {
   const { i18n } = useTranslation();
   const c = i18n.resolvedLanguage === 'hi' ? SEC_HI : SEC_EN;
+
+  const toc = [
+    { id: 'standards', label: 'Security Standards' },
+    { id: 'reporting', label: 'Vulnerability Reporting' },
+    { id: 'practices', label: 'Security Practices' },
+    { id: 'data-protection', label: 'Data Protection' },
+    { id: 'compliance', label: 'Compliance' },
+    { id: 'audit', label: 'Security Audits' },
+    { id: 'incident-response', label: 'Incident Response' },
+    { id: 'third-party', label: 'Third-Party Security' },
+  ];
+
   return (
-    <div className="min-h-screen bg-card">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
-        <div className="max-w-7xl mx-auto px-8 py-16">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
-              <Shield size={16} />
-              <span>{c.badge}</span>
-            </div>
-
-            <h1 className="text-5xl font-bold mb-6">
-              {c.title}
-            </h1>
-
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              {c.description}
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">WCAG 2.1 AA</div>
-                <div className="text-blue-200 text-sm">Accessibility Compliance</div>
-              </div>
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">OWASP Top 10</div>
-                <div className="text-blue-200 text-sm">Security Standards</div>
-              </div>
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">24-Hour SLA</div>
-                <div className="text-blue-200 text-sm">Critical Vulnerability Response</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16 space-y-24">
+    <LegalPageLayout
+      badge={c.badge}
+      badgeIcon={<Lock size={14} className="text-primary" />}
+      heroIcon={<Lock size={30} />}
+      title={c.title}
+      description={c.description}
+      date="April 11, 2026"
+      dateLabel={c.dateLabel}
+      sidebarEyebrow={c.sidebarEyebrow}
+      sidebarTitle={c.sidebarTitle}
+      sidebarPill={c.sidebarPill}
+      metrics={[
+        { value: 'OWASP', label: c.metricSections },
+        { value: 'WCAG AA', label: c.metricCompliance },
+        { value: 'ISO 27001', label: c.metricFramework },
+        { value: '24/7', label: c.metricResponse },
+      ]}
+      note={{ title: c.noteTitle, text: c.noteText }}
+      breadcrumbTitle={c.title}
+      breadcrumbHome={c.breadcrumbHome}
+      breadcrumbGovernance={c.breadcrumbGovernance}
+      toc={toc}
+      footerQuestion={c.footerQuestion}
+      footerDesc={c.footerDesc}
+    >
         <SecurityStandardsSection />
         <VulnerabilityReportingSection />
         <SecurityPracticesSection />
@@ -51,8 +51,7 @@ export default function SecurityPolicy() {
         <SecurityAuditSection />
         <IncidentResponseSection />
         <ThirdPartySecuritySection />
-      </div>
-    </div>
+    </LegalPageLayout>
   );
 }
 
@@ -825,5 +824,41 @@ function SectionHeader({ title, description, icon }: any) {
 }
 
 
-const SEC_EN = { badge: 'Security & Privacy', title: 'Security Policy', description: 'UX4G Design System follows strict security practices to protect government digital services and citizen data. This policy outlines our security standards, vulnerability reporting procedures, and compliance requirements.' };
-const SEC_HI = { badge: 'सुरक्षा और गोपनीयता', title: 'सुरक्षा नीति', description: 'UX4G डिज़ाइन सिस्टम सरकारी डिजिटल सेवाओं और नागरिक डेटा की सुरक्षा के लिए सख्त सुरक्षा प्रथाओं का पालन करता है। यह नीति हमारे सुरक्षा मानकों, भेद्यता रिपोर्टिंग प्रक्रियाओं और अनुपालन आवश्यकताओं की रूपरेखा प्रस्तुत करती है।' };
+const SEC_EN = {
+  badge: 'Security & Privacy',
+  title: 'Security Policy',
+  description: 'UX4G Design System follows strict security practices to protect government digital services and citizen data. This policy outlines our security standards, vulnerability reporting procedures, and compliance requirements.',
+  dateLabel: 'Last Updated',
+  sidebarEyebrow: 'Policy overview',
+  sidebarTitle: 'What this page covers',
+  sidebarPill: '8 sections',
+  metricSections: 'Standards',
+  metricCompliance: 'Accessibility',
+  metricFramework: 'Certification',
+  metricResponse: 'Monitoring',
+  noteTitle: 'Government standard',
+  noteText: 'Compliant with CERT-In guidelines and GIGW standards.',
+  breadcrumbHome: 'Home',
+  breadcrumbGovernance: 'Governance',
+  footerQuestion: 'Questions about this policy?',
+  footerDesc: 'Contact the UX4G security team for clarification or to report vulnerabilities.',
+};
+const SEC_HI = {
+  badge: 'सुरक्षा और गोपनीयता',
+  title: 'सुरक्षा नीति',
+  description: 'UX4G डिज़ाइन सिस्टम सरकारी डिजिटल सेवाओं और नागरिक डेटा की सुरक्षा के लिए सख्त सुरक्षा प्रथाओं का पालन करता है। यह नीति हमारे सुरक्षा मानकों, भेद्यता रिपोर्टिंग प्रक्रियाओं और अनुपालन आवश्यकताओं की रूपरेखा प्रस्तुत करती है।',
+  dateLabel: 'अंतिम अपडेट',
+  sidebarEyebrow: 'नीति अवलोकन',
+  sidebarTitle: 'इस पृष्ठ में क्या शामिल है',
+  sidebarPill: '8 अनुभाग',
+  metricSections: 'मानक',
+  metricCompliance: 'अभिगम्यता',
+  metricFramework: 'प्रमाणन',
+  metricResponse: 'निगरानी',
+  noteTitle: 'सरकारी मानक',
+  noteText: 'CERT-In दिशानिर्देशों और GIGW मानकों के अनुरूप।',
+  breadcrumbHome: 'मुखपृष्ठ',
+  breadcrumbGovernance: 'शासन',
+  footerQuestion: 'इस नीति के बारे में प्रश्न?',
+  footerDesc: 'स्पष्टीकरण या भेद्यता रिपोर्ट के लिए UX4G सुरक्षा टीम से संपर्क करें।',
+};

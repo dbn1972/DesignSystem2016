@@ -1,48 +1,50 @@
-import { Copyright as CopyrightIcon, FileText, Scale, AlertCircle, CheckCircle, Users, Globe, Code, Download, Share2, BookOpen } from "lucide-react";
+import { Copyright as CopyrightIcon, FileText, Scale, AlertCircle, CheckCircle, Users, Globe, Code, Download, Share2, BookOpen, Shield } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
 
 export default function Copyright() {
   const { i18n } = useTranslation();
   const c = i18n.resolvedLanguage === 'hi' ? COPYRIGHT_HI : COPYRIGHT_EN;
+
+  const toc = [
+    { id: 'copyright-notice', label: 'Copyright Notice' },
+    { id: 'license-terms', label: 'License Terms' },
+    { id: 'usage-rights', label: 'Usage Rights' },
+    { id: 'attribution', label: 'Attribution Requirements' },
+    { id: 'third-party', label: 'Third-Party Licenses' },
+    { id: 'government-branding', label: 'Government Branding' },
+    { id: 'commercial-use', label: 'Commercial Use' },
+    { id: 'contributor-rights', label: 'Contributor Rights' },
+    { id: 'trademark', label: 'Trademark Policy' },
+    { id: 'contact', label: 'Questions & Permissions' },
+  ];
+
   return (
-    <div className="min-h-screen bg-card">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
-        <div className="max-w-7xl mx-auto px-8 py-16">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
-              <CopyrightIcon size={16} />
-              <span>{c.badge}</span>
-            </div>
-
-            <h1 className="text-5xl font-bold mb-6">
-              {c.title}
-            </h1>
-
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              {c.description}
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Open Source</div>
-                <div className="text-blue-200 text-sm">MIT License</div>
-              </div>
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Free to Use</div>
-                <div className="text-blue-200 text-sm">Government & Public Services</div>
-              </div>
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Attribution</div>
-                <div className="text-blue-200 text-sm">Required for commercial use</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16 space-y-16">
+    <LegalPageLayout
+      badge={c.badge}
+      badgeIcon={<CopyrightIcon size={14} className="text-primary" />}
+      heroIcon={<CopyrightIcon size={30} />}
+      title={c.title}
+      description={c.description}
+      date="April 12, 2026"
+      dateLabel={c.dateLabel}
+      sidebarEyebrow={c.sidebarEyebrow}
+      sidebarTitle={c.sidebarTitle}
+      sidebarPill={c.sidebarPill}
+      metrics={[
+        { value: 'MIT', label: c.metricSections },
+        { value: 'Open Source', label: c.metricOpen },
+        { value: 'Free', label: c.metricFree },
+        { value: 'Attribution', label: c.metricAttribution },
+      ]}
+      note={{ title: c.noteTitle, text: c.noteText }}
+      breadcrumbTitle={c.title}
+      breadcrumbHome={c.breadcrumbHome}
+      breadcrumbGovernance={c.breadcrumbGovernance}
+      toc={toc}
+      footerQuestion={c.footerQuestion}
+      footerDesc={c.footerDesc}
+    >
         <CopyrightNoticeSection />
         <LicenseTermsSection />
         <UsageRightsSection />
@@ -53,8 +55,7 @@ export default function Copyright() {
         <ContributorRightsSection />
         <TrademarkPolicySection />
         <ContactSection />
-      </div>
-    </div>
+    </LegalPageLayout>
   );
 }
 
@@ -980,25 +981,43 @@ function SectionHeader({ title, description, icon }: any) {
   );
 }
 
-function Shield({ size, className }: any) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    </svg>
-  );
-}
-
 // ── Bilingual copy ──────────────────────────────────────────────────
 const COPYRIGHT_EN = {
   badge: 'Copyright & Licensing',
   title: 'Copyright & License',
-  description:
-    'UX4G Design System is an open-source project developed by the Government of India. This page outlines the copyright, licensing terms, and usage rights for the design system, its components, documentation, and associated assets.',
+  description: 'UX4G Design System is an open-source project developed by the Government of India. This page outlines the copyright, licensing terms, and usage rights for the design system, its components, documentation, and associated assets.',
+  dateLabel: 'Last Updated',
+  sidebarEyebrow: 'License overview',
+  sidebarTitle: 'What this page covers',
+  sidebarPill: '10 sections',
+  metricSections: 'License',
+  metricOpen: 'Distribution',
+  metricFree: 'Usage',
+  metricAttribution: 'Requirement',
+  noteTitle: 'Open source',
+  noteText: 'Licensed under the MIT License — free for government and commercial use with attribution.',
+  breadcrumbHome: 'Home',
+  breadcrumbGovernance: 'Governance',
+  footerQuestion: 'Questions about licensing?',
+  footerDesc: 'Contact the UX4G legal team for licensing questions or special permissions.',
 };
 
 const COPYRIGHT_HI = {
   badge: 'कॉपीराइट एवं लाइसेंसिंग',
   title: 'कॉपीराइट और लाइसेंस',
-  description:
-    'UX4G डिज़ाइन सिस्टम भारत सरकार द्वारा विकसित एक ओपन-सोर्स परियोजना है। यह पृष्ठ डिज़ाइन सिस्टम, इसके घटकों, प्रलेखन और संबंधित संपत्तियों के लिए कॉपीराइट, लाइसेंसिंग शर्तों और उपयोग अधिकारों की रूपरेखा प्रस्तुत करता है।',
+  description: 'UX4G डिज़ाइन सिस्टम भारत सरकार द्वारा विकसित एक ओपन-सोर्स परियोजना है। यह पृष्ठ डिज़ाइन सिस्टम, इसके घटकों, प्रलेखन और संबंधित संपत्तियों के लिए कॉपीराइट, लाइसेंसिंग शर्तों और उपयोग अधिकारों की रूपरेखा प्रस्तुत करता है।',
+  dateLabel: 'अंतिम अपडेट',
+  sidebarEyebrow: 'लाइसेंस अवलोकन',
+  sidebarTitle: 'इस पृष्ठ में क्या शामिल है',
+  sidebarPill: '10 अनुभाग',
+  metricSections: 'लाइसेंस',
+  metricOpen: 'वितरण',
+  metricFree: 'उपयोग',
+  metricAttribution: 'आवश्यकता',
+  noteTitle: 'ओपन सोर्स',
+  noteText: 'MIT लाइसेंस के तहत — एट्रिब्यूशन के साथ सरकारी और वाणिज्यिक उपयोग के लिए मुफ्त।',
+  breadcrumbHome: 'मुखपृष्ठ',
+  breadcrumbGovernance: 'शासन',
+  footerQuestion: 'लाइसेंसिंग के बारे में प्रश्न?',
+  footerDesc: 'लाइसेंसिंग प्रश्नों या विशेष अनुमतियों के लिए UX4G कानूनी टीम से संपर्क करें।',
 };

@@ -1,48 +1,50 @@
 import { Users, Heart, Shield, MessageCircle, AlertTriangle, CheckCircle, XCircle, FileText, Scale, BookOpen } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
 
 export default function CodeOfConduct() {
   const { i18n } = useTranslation();
   const c = i18n.resolvedLanguage === 'hi' ? COC_HI : COC_EN;
+
+  const toc = [
+    { id: 'pledge', label: 'Our Pledge' },
+    { id: 'standards', label: 'Our Standards' },
+    { id: 'expected', label: 'Expected Behavior' },
+    { id: 'unacceptable', label: 'Unacceptable Behavior' },
+    { id: 'responsibilities', label: 'Maintainer Responsibilities' },
+    { id: 'scope', label: 'Scope' },
+    { id: 'enforcement', label: 'Enforcement' },
+    { id: 'reporting', label: 'Reporting Violations' },
+    { id: 'consequences', label: 'Consequences' },
+    { id: 'attribution', label: 'Attribution' },
+  ];
+
   return (
-    <div className="min-h-screen bg-card">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
-        <div className="max-w-7xl mx-auto px-8 py-16">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
-              <Heart size={16} />
-              <span>{c.badge}</span>
-            </div>
-
-            <h1 className="text-5xl font-bold mb-6">
-              {c.title}
-            </h1>
-
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              {c.description}
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Inclusive</div>
-                <div className="text-blue-200 text-sm">Everyone is welcome</div>
-              </div>
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Respectful</div>
-                <div className="text-blue-200 text-sm">Treat all with dignity</div>
-              </div>
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Collaborative</div>
-                <div className="text-blue-200 text-sm">Work together effectively</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16 space-y-24">
+    <LegalPageLayout
+      badge={c.badge}
+      badgeIcon={<Heart size={14} className="text-primary" />}
+      heroIcon={<Heart size={30} />}
+      title={c.title}
+      description={c.description}
+      date="April 12, 2026"
+      dateLabel={c.dateLabel}
+      sidebarEyebrow={c.sidebarEyebrow}
+      sidebarTitle={c.sidebarTitle}
+      sidebarPill={c.sidebarPill}
+      metrics={[
+        { value: '5 Values', label: c.metricSections },
+        { value: 'Open', label: c.metricOpen },
+        { value: 'Inclusive', label: c.metricInclusive },
+        { value: 'Safe', label: c.metricSafe },
+      ]}
+      note={{ title: c.noteTitle, text: c.noteText }}
+      breadcrumbTitle={c.title}
+      breadcrumbHome={c.breadcrumbHome}
+      breadcrumbGovernance={c.breadcrumbGovernance}
+      toc={toc}
+      footerQuestion={c.footerQuestion}
+      footerDesc={c.footerDesc}
+    >
         <OurPledgeSection />
         <StandardsSection />
         <ExpectedBehaviorSection />
@@ -53,8 +55,7 @@ export default function CodeOfConduct() {
         <ReportingSection />
         <ConsequencesSection />
         <AttributionSection />
-      </div>
-    </div>
+    </LegalPageLayout>
   );
 }
 
@@ -895,13 +896,39 @@ function SectionHeader({ title, description, icon }: any) {
 const COC_EN = {
   badge: 'Community Standards',
   title: 'Code of Conduct',
-  description:
-    'The UX4G Design System community is committed to creating an inclusive, respectful, and collaborative environment for all contributors. This Code of Conduct outlines our shared values and expected behaviors.',
+  description: 'The UX4G Design System community is committed to creating an inclusive, respectful, and collaborative environment for all contributors. This Code of Conduct outlines our shared values and expected behaviors.',
+  dateLabel: 'Last Updated',
+  sidebarEyebrow: 'Community overview',
+  sidebarTitle: 'What this page covers',
+  sidebarPill: '10 sections',
+  metricSections: 'Core Values',
+  metricOpen: 'Community',
+  metricInclusive: 'Environment',
+  metricSafe: 'Space',
+  noteTitle: 'Community standard',
+  noteText: 'Adapted from the Contributor Covenant and Government of India IT Conduct Guidelines.',
+  breadcrumbHome: 'Home',
+  breadcrumbGovernance: 'Governance',
+  footerQuestion: 'Questions about this code of conduct?',
+  footerDesc: 'Contact the UX4G governance team for clarification or to report violations.',
 };
 
 const COC_HI = {
   badge: 'सामुदायिक मानक',
   title: 'आचार संहिता',
-  description:
-    'UX4G डिज़ाइन सिस्टम समुदाय सभी योगदानकर्ताओं के लिए एक समावेशी, सम्मानजनक और सहयोगात्मक वातावरण बनाने के लिए प्रतिबद्ध है। यह आचार संहिता हमारे साझा मूल्यों और अपेक्षित व्यवहारों को रेखांकित करती है।',
+  description: 'UX4G डिज़ाइन सिस्टम समुदाय सभी योगदानकर्ताओं के लिए एक समावेशी, सम्मानजनक और सहयोगात्मक वातावरण बनाने के लिए प्रतिबद्ध है। यह आचार संहिता हमारे साझा मूल्यों और अपेक्षित व्यवहारों को रेखांकित करती है।',
+  dateLabel: 'अंतिम अपडेट',
+  sidebarEyebrow: 'समुदाय अवलोकन',
+  sidebarTitle: 'इस पृष्ठ में क्या शामिल है',
+  sidebarPill: '10 अनुभाग',
+  metricSections: 'मूल मूल्य',
+  metricOpen: 'समुदाय',
+  metricInclusive: 'वातावरण',
+  metricSafe: 'स्थान',
+  noteTitle: 'सामुदायिक मानक',
+  noteText: 'कंट्रीब्यूटर कॉवेनेंट और भारत सरकार IT आचरण दिशानिर्देशों से अनुकूलित।',
+  breadcrumbHome: 'मुखपृष्ठ',
+  breadcrumbGovernance: 'शासन',
+  footerQuestion: 'इस आचार संहिता के बारे में प्रश्न?',
+  footerDesc: 'स्पष्टीकरण या उल्लंघन रिपोर्ट के लिए UX4G शासन टीम से संपर्क करें।',
 };

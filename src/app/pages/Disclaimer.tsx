@@ -1,39 +1,52 @@
 import { AlertTriangle, FileText, Link as LinkIcon, Shield, Info, ExternalLink, Code, Users, Scale, Clock, CheckCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
 
 export default function Disclaimer() {
   const { i18n } = useTranslation();
   const c = i18n.resolvedLanguage === 'hi' ? DISCLAIMER_HI : DISCLAIMER_EN;
+
+  const toc = [
+    { id: 'general', label: 'General Disclaimer' },
+    { id: 'no-warranty', label: 'No Warranty' },
+    { id: 'liability', label: 'Limitation of Liability' },
+    { id: 'accuracy', label: 'Accuracy of Information' },
+    { id: 'external-links', label: 'External Links' },
+    { id: 'technical', label: 'Technical Disclaimer' },
+    { id: 'accessibility', label: 'Accessibility Disclaimer' },
+    { id: 'security', label: 'Security Disclaimer' },
+    { id: 'endorsement', label: 'Government Endorsement' },
+    { id: 'modifications', label: 'Modifications' },
+    { id: 'jurisdiction', label: 'Governing Law' },
+    { id: 'contact-disclaimer', label: 'Questions' },
+  ];
+
   return (
-    <div className="min-h-screen bg-card">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
-        <div className="max-w-7xl mx-auto px-8 py-16">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
-              <AlertTriangle size={16} />
-              <span>{c.badge}</span>
-            </div>
-
-            <h1 className="text-5xl font-bold mb-6">
-              {c.title}
-            </h1>
-
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              {c.description}
-            </p>
-
-            <div className="bg-card/10 rounded-lg p-4">
-              <p className="text-sm text-blue-200">
-                <strong>Last Updated:</strong> April 12, 2026 | <strong>Effective Date:</strong> January 1, 2024
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16 space-y-16">
+    <LegalPageLayout
+      badge={c.badge}
+      badgeIcon={<AlertTriangle size={14} className="text-primary" />}
+      heroIcon={<AlertTriangle size={30} />}
+      title={c.title}
+      description={c.description}
+      date="April 12, 2026"
+      dateLabel={c.dateLabel}
+      sidebarEyebrow={c.sidebarEyebrow}
+      sidebarTitle={c.sidebarTitle}
+      sidebarPill={c.sidebarPill}
+      metrics={[
+        { value: 'Legal', label: c.metricSections },
+        { value: 'No Warranty', label: c.metricWarranty },
+        { value: 'As-Is', label: c.metricAsIs },
+        { value: 'Gov Standard', label: c.metricGov },
+      ]}
+      note={{ title: c.noteTitle, text: c.noteText }}
+      breadcrumbTitle={c.title}
+      breadcrumbHome={c.breadcrumbHome}
+      breadcrumbGovernance={c.breadcrumbGovernance}
+      toc={toc}
+      footerQuestion={c.footerQuestion}
+      footerDesc={c.footerDesc}
+    >
         <GeneralDisclaimerSection />
         <NoWarrantySection />
         <LimitationOfLiabilitySection />
@@ -46,8 +59,7 @@ export default function Disclaimer() {
         <ModificationsSection />
         <JurisdictionSection />
         <ContactDisclaimerSection />
-      </div>
-    </div>
+    </LegalPageLayout>
   );
 }
 
@@ -857,13 +869,39 @@ function SectionHeader({ title, description, icon }: any) {
 const DISCLAIMER_EN = {
   badge: 'Legal Disclaimer',
   title: 'Disclaimer',
-  description:
-    'This disclaimer outlines the limitations, responsibilities, and legal notices associated with the use of the UX4G Design System. Please read this carefully before using the design system in your projects.',
+  description: 'This disclaimer outlines the limitations, responsibilities, and legal notices associated with the use of the UX4G Design System. Please read this carefully before using the design system in your projects.',
+  dateLabel: 'Last Updated',
+  sidebarEyebrow: 'Disclaimer overview',
+  sidebarTitle: 'What this page covers',
+  sidebarPill: '12 sections',
+  metricSections: 'Notice',
+  metricWarranty: 'Warranty',
+  metricAsIs: 'Provided',
+  metricGov: 'Compliance',
+  noteTitle: 'Government standard',
+  noteText: 'Compliant with the IT Act 2000 and applicable Indian laws.',
+  breadcrumbHome: 'Home',
+  breadcrumbGovernance: 'Governance',
+  footerQuestion: 'Questions about this disclaimer?',
+  footerDesc: 'Contact the UX4G legal team for clarification or requests.',
 };
 
 const DISCLAIMER_HI = {
   badge: 'कानूनी अस्वीकरण',
   title: 'अस्वीकरण',
-  description:
-    'यह अस्वीकरण UX4G डिज़ाइन सिस्टम के उपयोग से जुड़ी सीमाओं, उत्तरदायित्वों और कानूनी सूचनाओं की रूपरेखा प्रस्तुत करता है। कृपया अपनी परियोजनाओं में डिज़ाइन सिस्टम का उपयोग करने से पहले इसे ध्यानपूर्वक पढ़ें।',
+  description: 'यह अस्वीकरण UX4G डिज़ाइन सिस्टम के उपयोग से जुड़ी सीमाओं, उत्तरदायित्वों और कानूनी सूचनाओं की रूपरेखा प्रस्तुत करता है। कृपया अपनी परियोजनाओं में डिज़ाइन सिस्टम का उपयोग करने से पहले इसे ध्यानपूर्वक पढ़ें।',
+  dateLabel: 'अंतिम अपडेट',
+  sidebarEyebrow: 'अस्वीकरण अवलोकन',
+  sidebarTitle: 'इस पृष्ठ में क्या शामिल है',
+  sidebarPill: '12 अनुभाग',
+  metricSections: 'सूचना',
+  metricWarranty: 'वारंटी',
+  metricAsIs: 'प्रदान',
+  metricGov: 'अनुपालन',
+  noteTitle: 'सरकारी मानक',
+  noteText: 'IT अधिनियम 2000 और लागू भारतीय कानूनों के अनुरूप।',
+  breadcrumbHome: 'मुखपृष्ठ',
+  breadcrumbGovernance: 'शासन',
+  footerQuestion: 'इस अस्वीकरण के बारे में प्रश्न?',
+  footerDesc: 'स्पष्टीकरण या अनुरोधों के लिए UX4G कानूनी टीम से संपर्क करें।',
 };

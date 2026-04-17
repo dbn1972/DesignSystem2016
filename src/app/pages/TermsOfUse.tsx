@@ -1,72 +1,54 @@
-import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
-import { Scale, FileText, Shield, AlertTriangle, Lock, Users, Globe, BookOpen, Mail, ChevronLeft } from "lucide-react";
+import { Scale, FileText, Shield, AlertTriangle, Lock, Users, Globe, BookOpen, Mail } from "lucide-react";
+import LegalPageLayout, { LegalSection } from "../components/LegalPageLayout";
 
 export default function TermsOfUse() {
   const { i18n } = useTranslation();
   const c = i18n.resolvedLanguage === 'hi' ? TERMS_HI : TERMS_EN;
+
+  const toc = [
+    { id: 'section-1', label: '1. Acceptance of Terms' },
+    { id: 'section-2', label: '2. Use License' },
+    { id: 'section-3', label: '3. Intellectual Property' },
+    { id: 'section-4', label: '4. User Responsibilities' },
+    { id: 'section-5', label: '5. Prohibited Uses' },
+    { id: 'section-6', label: '6. Disclaimer of Warranties' },
+    { id: 'section-7', label: '7. Limitation of Liability' },
+    { id: 'section-8', label: '8. Governing Law' },
+    { id: 'section-9', label: '9. Modifications to Terms' },
+    { id: 'section-10', label: '10. Contact Information' },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="bg-card border-b-2 border-border">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
-          <div className="flex items-center gap-3">
-            <div className="w-14 h-14 bg-primary rounded flex items-center justify-center">
-              <Scale size={28} className="text-white" />
-            </div>
-            <div>
-              <div className="text-sm text-muted-foreground">{c.legalInfo}</div>
-              <h1 className="text-2xl font-bold text-foreground">{c.title}</h1>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
-        <div className="max-w-4xl mx-auto">
-
-          {/* Breadcrumb Navigation */}
-          <nav className="mb-8" aria-label="Breadcrumb">
-            <ol className="flex items-center gap-2 text-sm">
-              <li>
-                <Link to="/" className="text-primary hover:underline font-medium">
-                  {c.home}
-                </Link>
-              </li>
-              <li className="text-muted-foreground">/</li>
-              <li>
-                <Link to="/governance" className="text-primary hover:underline font-medium">
-                  {c.governance}
-                </Link>
-              </li>
-              <li className="text-muted-foreground">/</li>
-              <li className="text-muted-foreground" aria-current="page">{c.title}</li>
-            </ol>
-          </nav>
-
-          {/* Effective Date Banner */}
-          <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 rounded-lg p-5 mb-8">
-            <div className="flex items-start gap-3">
-              <FileText size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm text-muted-foreground">
-                  <span className="font-bold text-foreground">{c.effectiveDate}:</span> April 11, 2026
-                </p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  These Terms of Use govern your access to and use of the UX4G Design System and all
-                  associated resources, components, patterns, and documentation provided by the Government of India.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Main Content */}
-          <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-
-            <div className="p-8 space-y-8">
+    <LegalPageLayout
+      badge={c.legalInfo}
+      badgeIcon={<Scale size={14} className="text-primary" />}
+      heroIcon={<Scale size={30} />}
+      title={c.title}
+      description={c.description}
+      date="April 11, 2026"
+      dateLabel={c.effectiveDate}
+      sidebarEyebrow={c.sidebarEyebrow}
+      sidebarTitle={c.sidebarTitle}
+      sidebarPill={c.sidebarPill}
+      metrics={[
+        { value: '10', label: c.metricSections },
+        { value: 'IT Act', label: c.metricCompliance },
+        { value: 'Binding', label: c.metricBinding },
+        { value: 'AA', label: c.metricAccessibility },
+      ]}
+      note={{ title: c.noteTitle, text: c.noteText }}
+      breadcrumbTitle={c.title}
+      breadcrumbHome={c.breadcrumbHome}
+      breadcrumbGovernance={c.breadcrumbGovernance}
+      toc={toc}
+      footerQuestion={c.footerQuestion}
+      footerDesc={c.footerDesc}
+    >
 
               {/* Section 1: Acceptance of Terms */}
               <Section
+                id="section-1"
                 icon={<FileText size={24} className="text-primary" />}
                 title="1. Acceptance of Terms"
                 content={
@@ -94,6 +76,7 @@ export default function TermsOfUse() {
 
               {/* Section 2: Use License */}
               <Section
+                id="section-2"
                 icon={<Scale size={24} className="text-primary" />}
                 title="2. Use License"
                 content={
@@ -133,6 +116,7 @@ export default function TermsOfUse() {
 
               {/* Section 3: Intellectual Property */}
               <Section
+                id="section-3"
                 icon={<Lock size={24} className="text-primary" />}
                 title="3. Intellectual Property Rights"
                 content={
@@ -176,6 +160,7 @@ export default function TermsOfUse() {
 
               {/* Section 4: User Responsibilities */}
               <Section
+                id="section-4"
                 icon={<Users size={24} className="text-primary" />}
                 title="4. User Responsibilities"
                 content={
@@ -207,6 +192,7 @@ export default function TermsOfUse() {
 
               {/* Section 5: Prohibited Uses */}
               <Section
+                id="section-5"
                 icon={<AlertTriangle size={24} className="text-primary" />}
                 title="5. Prohibited Uses"
                 content={
@@ -252,6 +238,7 @@ export default function TermsOfUse() {
 
               {/* Section 6: Disclaimer of Warranties */}
               <Section
+                id="section-6"
                 icon={<Shield size={24} className="text-primary" />}
                 title="6. Disclaimer of Warranties"
                 content={
@@ -292,6 +279,7 @@ export default function TermsOfUse() {
 
               {/* Section 7: Limitation of Liability */}
               <Section
+                id="section-7"
                 icon={<AlertTriangle size={24} className="text-primary" />}
                 title="7. Limitation of Liability"
                 content={
@@ -332,6 +320,7 @@ export default function TermsOfUse() {
 
               {/* Section 8: Governing Law */}
               <Section
+                id="section-8"
                 icon={<Globe size={24} className="text-primary" />}
                 title="8. Governing Law and Jurisdiction"
                 content={
@@ -372,6 +361,7 @@ export default function TermsOfUse() {
 
               {/* Section 9: Modifications to Terms */}
               <Section
+                id="section-9"
                 icon={<BookOpen size={24} className="text-primary" />}
                 title="9. Modifications to Terms"
                 content={
@@ -411,6 +401,7 @@ export default function TermsOfUse() {
 
               {/* Section 10: Contact Information */}
               <Section
+                id="section-10"
                 icon={<Mail size={24} className="text-primary" />}
                 title="10. Contact Information"
                 content={
@@ -487,74 +478,13 @@ export default function TermsOfUse() {
                 </div>
               </div>
 
-            </div>
-          </div>
-
-          {/* Navigation Buttons */}
-          <div className="mt-8 flex items-center justify-between">
-            <Link
-              to="/governance"
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background transition-colors"
-            >
-              <ChevronLeft size={20} />
-              Back to Governance
-            </Link>
-
-            <div className="flex items-center gap-4">
-              <Link
-                to="/privacy-policy"
-                className="inline-block px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                to="/accessibility"
-                className="inline-block px-6 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background transition-colors"
-              >
-                Accessibility Statement
-              </Link>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="bg-card border-t-2 border-border mt-24">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
-          <div className="flex items-center justify-between text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-[#FF9933] rounded-full"></div>
-              <div className="w-8 h-8 bg-card border-2 border-primary rounded-full flex items-center justify-center">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-              </div>
-              <div className="w-8 h-8 bg-green-700 rounded-full"></div>
-              <span className="ml-3 font-semibold text-foreground">UX4G Design System • Government of India</span>
-            </div>
-            <div className="flex items-center gap-6">
-              <Link to="/terms-of-use" className="text-primary font-bold hover:underline" aria-current="page">
-                Terms of Use
-              </Link>
-              <Link to="/privacy-policy" className="text-muted-foreground hover:underline">
-                Privacy Policy
-              </Link>
-              <Link to="/accessibility" className="text-muted-foreground hover:underline">
-                Accessibility
-              </Link>
-              <Link to="/governance" className="text-muted-foreground hover:underline">
-                Governance
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </LegalPageLayout>
   );
 }
 
-function Section({ icon, title, content }: { icon: React.ReactNode; title: string; content: React.ReactNode }) {
+function Section({ id, icon, title, content }: { id?: string; icon: React.ReactNode; title: string; content: React.ReactNode }) {
   return (
-    <section className="border-b-2 border-border pb-8 last:border-b-0">
+    <section id={id} className="scroll-mt-24 border-b-2 border-border pb-8 last:border-b-0">
       <div className="flex items-start gap-3 mb-4">
         <div className="w-10 h-10 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center flex-shrink-0">
           {icon}
@@ -569,5 +499,41 @@ function Section({ icon, title, content }: { icon: React.ReactNode; title: strin
 }
 
 
-const TERMS_EN = { legalInfo: 'Legal Information', title: 'Terms of Use', home: 'Home', governance: 'Governance', effectiveDate: 'Effective Date' };
-const TERMS_HI = { legalInfo: 'कानूनी जानकारी', title: 'उपयोग की शर्तें', home: 'मुखपृष्ठ', governance: 'शासन', effectiveDate: 'प्रभावी तिथि' };
+const TERMS_EN = {
+  legalInfo: 'Legal Information',
+  title: 'Terms of Use',
+  description: 'These Terms of Use govern your access to and use of the UX4G Design System and all associated resources, components, patterns, and documentation provided by the Government of India.',
+  effectiveDate: 'Effective Date',
+  sidebarEyebrow: 'Terms overview',
+  sidebarTitle: 'What this page covers',
+  sidebarPill: '10 sections',
+  metricSections: 'Sections',
+  metricCompliance: 'Compliance',
+  metricBinding: 'Agreement',
+  metricAccessibility: 'Accessibility',
+  noteTitle: 'Government standard',
+  noteText: 'Compliant with the IT Act 2000 and applicable Indian laws.',
+  breadcrumbHome: 'Home',
+  breadcrumbGovernance: 'Governance',
+  footerQuestion: 'Questions about these terms?',
+  footerDesc: 'Contact the UX4G governance team for clarification or requests.',
+};
+const TERMS_HI = {
+  legalInfo: 'कानूनी जानकारी',
+  title: 'उपयोग की शर्तें',
+  description: 'ये उपयोग की शर्तें UX4G डिज़ाइन सिस्टम और भारत सरकार द्वारा प्रदान किए गए सभी संबंधित संसाधनों, घटकों, पैटर्न और प्रलेखन तक आपकी पहुँच और उपयोग को नियंत्रित करती हैं।',
+  effectiveDate: 'प्रभावी तिथि',
+  sidebarEyebrow: 'शर्तों का अवलोकन',
+  sidebarTitle: 'इस पृष्ठ में क्या शामिल है',
+  sidebarPill: '10 अनुभाग',
+  metricSections: 'अनुभाग',
+  metricCompliance: 'अनुपालन',
+  metricBinding: 'समझौता',
+  metricAccessibility: 'अभिगम्यता',
+  noteTitle: 'सरकारी मानक',
+  noteText: 'IT अधिनियम 2000 और लागू भारतीय कानूनों के अनुरूप।',
+  breadcrumbHome: 'मुखपृष्ठ',
+  breadcrumbGovernance: 'शासन',
+  footerQuestion: 'इन शर्तों के बारे में प्रश्न?',
+  footerDesc: 'स्पष्टीकरण या अनुरोधों के लिए UX4G शासन टीम से संपर्क करें।',
+};
