@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router";
-import { Database, MapPin, Upload, Zap, Copy, ArrowRight, CheckCircle, TrendingUp, Users } from "lucide-react";
+import { Database, MapPin, Upload, Zap, Copy, ArrowRight, CheckCircle, TrendingUp, Users, Download, Check } from "lucide-react";
 
 export default function DataInputPatterns() {
   return (
@@ -434,7 +435,213 @@ export default function DataInputPatterns() {
           </div>
         </section>
 
+        {/* Code Downloads */}
+        <DataInputCodeDownloads />
       </main>
     </div>
+  );
+}
+
+// ==================== CODE DOWNLOADS ====================
+
+const DATA_INPUT_REACT_CODE = `import React, { useState } from 'react';
+
+interface FormField { id: string; label: string; type: string; value: string; required: boolean; error?: string; }
+
+export function DataInputPage() {
+  const [fields, setFields] = useState<FormField[]>([
+    { id: 'aadhaar', label: 'Aadhaar Number', type: 'text', value: '', required: true },
+    { id: 'name', label: 'Full Name (as per Aadhaar)', type: 'text', value: '', required: true },
+    { id: 'dob', label: 'Date of Birth', type: 'date', value: '', required: true },
+    { id: 'mobile', label: 'Mobile Number', type: 'tel', value: '', required: true },
+    { id: 'email', label: 'Email (optional)', type: 'email', value: '', required: false },
+    { id: 'address', label: 'Residential Address', type: 'text', value: '', required: true },
+    { id: 'pincode', label: 'PIN Code', type: 'text', value: '', required: true },
+  ]);
+  const [submitted, setSubmitted] = useState(false);
+
+  const updateField = (id: string, value: string) => {
+    setFields(prev => prev.map(f => f.id === id ? { ...f, value, error: undefined } : f));
+  };
+
+  const validate = () => {
+    let valid = true;
+    setFields(prev => prev.map(f => {
+      if (f.required && !f.value.trim()) { valid = false; return { ...f, error: 'This field is required' }; }
+      if (f.id === 'aadhaar' && f.value.replace(/\\s/g,'').length !== 12) { valid = false; return { ...f, error: 'Aadhaar must be 12 digits' }; }
+      if (f.id === 'mobile' && !/^[6-9]\\d{9}$/.test(f.value)) { valid = false; return { ...f, error: 'Invalid mobile number' }; }
+      if (f.id === 'pincode' && !/^\\d{6}$/.test(f.value)) { valid = false; return { ...f, error: 'PIN code must be 6 digits' }; }
+      return { ...f, error: undefined };
+    }));
+    return valid;
+  };
+
+  const handleSubmit = () => { if (validate()) setSubmitted(true); };
+
+  if (submitted) return (
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+        </div>
+        <h2 className="text-xl font-bold">Data Submitted Successfully</h2>
+        <p className="text-sm text-muted-foreground mt-2">Your information has been saved.</p>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-background p-4">
+      <div className="max-w-lg mx-auto bg-card border border-border rounded-2xl p-6">
+        <h1 className="text-2xl font-bold mb-1">Data Input Form</h1>
+        <p className="text-sm text-muted-foreground mb-6">Fill in your details for service application</p>
+        <div className="space-y-4">
+          {fields.map(f => (
+            <div key={f.id}>
+              <label className="block text-sm font-medium mb-1">{f.label}{f.required && <span className="text-red-500 ml-1">*</span>}</label>
+              <input type={f.type} value={f.value} onChange={e => updateField(f.id, e.target.value)} className={\`w-full px-4 py-3 border rounded-lg \${f.error ? 'border-red-300 bg-red-50' : 'border-border'}\`} />
+              {f.error && <p className="text-xs text-red-600 mt-1">{f.error}</p>}
+            </div>
+          ))}
+          <button onClick={handleSubmit} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Submit</button>
+        </div>
+      </div>
+    </div>
+  );
+}`;
+
+const DATA_INPUT_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-data-input',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: \`
+    <div class="min-h-screen bg-background p-4">
+      <div class="max-w-lg mx-auto bg-card border border-border rounded-2xl p-6">
+        <h1 class="text-2xl font-bold mb-1">Data Input Form</h1>
+        <p class="text-sm text-muted-foreground mb-6">Fill in your details</p>
+        <div class="space-y-4">
+          <div *ngFor="let f of fields">
+            <label class="block text-sm font-medium mb-1">{{f.label}}<span *ngIf="f.required" class="text-red-500 ml-1">*</span></label>
+            <input [type]="f.type" [(ngModel)]="f.value" [class]="'w-full px-4 py-3 border rounded-lg ' + (f.error ? 'border-red-300 bg-red-50' : 'border-border')" />
+            <p *ngIf="f.error" class="text-xs text-red-600 mt-1">{{f.error}}</p>
+          </div>
+          <button (click)="submit()" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Submit</button>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class DataInputComponent {
+  fields = [
+    { id: 'aadhaar', label: 'Aadhaar Number', type: 'text', value: '', required: true, error: '' },
+    { id: 'name', label: 'Full Name', type: 'text', value: '', required: true, error: '' },
+    { id: 'dob', label: 'Date of Birth', type: 'date', value: '', required: true, error: '' },
+    { id: 'mobile', label: 'Mobile Number', type: 'tel', value: '', required: true, error: '' },
+  ];
+  submit() {
+    let valid = true;
+    this.fields.forEach(f => { f.error = f.required && !f.value ? 'Required' : ''; if (f.error) valid = false; });
+    if (valid) alert('Submitted!');
+  }
+}`;
+
+const DATA_INPUT_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Input — UX4G</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+    .card { width: 100%; max-width: 480px; background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; }
+    .subtitle { font-size: .875rem; color: #64748b; margin-bottom: 1.5rem; }
+    .field { margin-bottom: 1rem; }
+    label { display: block; font-size: .875rem; font-weight: 500; margin-bottom: .25rem; }
+    input { width: 100%; padding: .75rem; border: 1px solid #e2e8f0; border-radius: .5rem; font-size: .875rem; }
+    input.error { border-color: #fca5a5; background: #fef2f2; }
+    .error-msg { font-size: .75rem; color: #dc2626; margin-top: .25rem; }
+    .required { color: #ef4444; }
+    .btn { width: 100%; padding: .75rem; background: #005196; color: #fff; border: none; border-radius: .5rem; font-weight: 600; cursor: pointer; font-size: .875rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Data Input Form</h1>
+    <p class="subtitle">Fill in your details for service application</p>
+    <div class="field"><label>Aadhaar Number <span class="required">*</span></label><input id="aadhaar" placeholder="XXXX XXXX XXXX" /></div>
+    <div class="field"><label>Full Name <span class="required">*</span></label><input id="name" /></div>
+    <div class="field"><label>Date of Birth <span class="required">*</span></label><input id="dob" type="date" /></div>
+    <div class="field"><label>Mobile Number <span class="required">*</span></label><input id="mobile" type="tel" placeholder="9XXXXXXXXX" /></div>
+    <div class="field"><label>PIN Code <span class="required">*</span></label><input id="pincode" placeholder="6 digits" /></div>
+    <button class="btn" onclick="submitForm()">Submit</button>
+  </div>
+  <script>
+    function submitForm() {
+      const ids = ['aadhaar','name','dob','mobile','pincode'];
+      let valid = true;
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.remove('error');
+        if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+      });
+      if (valid) { document.querySelector('.card').innerHTML = '<div style="text-align:center;padding:2rem"><h2 style="font-size:1.25rem;font-weight:700">Data Submitted</h2><p style="color:#64748b;margin-top:.5rem">Your information has been saved.</p></div>'; }
+    }
+  </script>
+</body>
+</html>`;
+
+function DataInputCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Validation', code: DATA_INPUT_REACT_CODE, filename: 'DataInputPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone + FormsModule', code: DATA_INPUT_ANGULAR_CODE, filename: 'data-input.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: DATA_INPUT_HTML_CODE, filename: 'data-input.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24 mt-12">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Data Input implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
