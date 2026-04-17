@@ -146,7 +146,7 @@ export default function Patterns() {
                 </Link>
               </div>
 
-              <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-3 sm:grid-cols-4">
                 <PatternStat value="6" label={copy.hero.stats.patternGroups} />
                 <PatternStat value="3" label={copy.hero.stats.journeyViews} />
                 <PatternStat value="100%" label={copy.hero.stats.accessibleDemos} />
@@ -465,7 +465,7 @@ export default function Patterns() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-200">
                 {copy.accessibilitySection.eyebrow}
               </p>
-              <h2 className="mt-4 text-3xl sm:text-4xl font-bold">
+              <h2 className="mt-4 text-3xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold">
                 {copy.accessibilitySection.title}
               </h2>
               <p className="mt-5 text-lg sm:text-xl leading-relaxed text-blue-100">

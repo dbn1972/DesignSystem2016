@@ -105,7 +105,7 @@ export default function Foundations() {
                 </Link>
               </div>
 
-              <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-3 sm:grid-cols-4">
                 <StatTile value="4" label={copy.hero.stats.corePrinciples} />
                 <StatTile value="6" label={copy.hero.stats.paletteAnchors} />
                 <StatTile value="9" label={copy.hero.stats.typeStyles} />

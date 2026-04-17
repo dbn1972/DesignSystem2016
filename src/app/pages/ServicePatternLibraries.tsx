@@ -8,7 +8,7 @@ export default function ServicePatternLibraries() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.10),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-4 sm:px-8 lg:px-12 lg:py-14 xl:grid-cols-[1.2fr_0.8fr] xl:items-start">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14 xl:grid-cols-[1.2fr_0.8fr] xl:items-start">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
               <Layers size={14} className="text-primary" />
@@ -16,7 +16,7 @@ export default function ServicePatternLibraries() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.title}</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.title}</h1>
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
                 {c.description}
               </p>
@@ -45,7 +45,7 @@ export default function ServicePatternLibraries() {
               <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">8 archetypes</div>
             </div>
 
-            <div className="mt-5 grid grid-cols-2 gap-3">
+            <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
               <PatternMetric value="6" label="Stable" />
               <PatternMetric value="2" label="Evolving" />
               <PatternMetric value="AA" label="Accessibility" />
@@ -61,7 +61,7 @@ export default function ServicePatternLibraries() {
       </header>
 
       <nav className="sticky top-4 z-20 border-b border-border bg-card/95 shadow-sm backdrop-blur">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12">
           <div className="flex items-center gap-1 overflow-x-auto py-3">
             {[
               { id: "application", label: "Application" },
@@ -85,7 +85,7 @@ export default function ServicePatternLibraries() {
         </div>
       </nav>
 
-      <div className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-12">
         <div className="space-y-20">
           <ApplicationSubmission />
           <EligibilityScreening />
@@ -99,7 +99,7 @@ export default function ServicePatternLibraries() {
       </div>
 
       <footer className="mt-20 border-t border-border bg-card">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-2 px-6 py-8 text-sm text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-4 sm:px-8 lg:px-12">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-2 px-6 py-8 text-sm text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div>
             <div>UX4G Design System Platform • Service Pattern Library v1.0</div>
           </div>
@@ -129,7 +129,7 @@ function ApplicationSubmission() {
           
           {/* Overview */}
           <DocumentationModule title="Pattern Overview">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <MetadataBlock label="Service Problem">
                 Citizens need to apply for government services requiring structured data collection, 
                 document submission, validation, and acknowledgment with clear status tracking.
@@ -155,7 +155,7 @@ function ApplicationSubmission() {
 
           {/* Use Cases */}
           <DocumentationModule title="Typical Government Use Cases">
-            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
               {[
                 "Passport applications",
                 "Driving license applications",
@@ -265,7 +265,7 @@ function ApplicationSubmission() {
           </DocumentationModule>
 
           {/* Do and Don't */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GuidelineBox type="do" items={[
               "Show progress indicator on every step",
               "Auto-save user data to prevent loss",
@@ -403,7 +403,7 @@ function EligibilityScreening() {
         <div className="col-span-8 space-y-8">
           
           <DocumentationModule title="Pattern Overview">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <MetadataBlock label="Service Problem">
                 Users waste time filling applications only to discover they're ineligible. Pre-qualification screening 
                 saves time, reduces incomplete applications, and improves user experience.
@@ -424,7 +424,7 @@ function EligibilityScreening() {
           </DocumentationModule>
 
           <DocumentationModule title="Typical Government Use Cases">
-            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
               {[
                 "Scholarship eligibility checks",
                 "Subsidy program qualification",
@@ -479,7 +479,7 @@ function EligibilityScreening() {
             </div>
           </DocumentationModule>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GuidelineBox type="do" items={[
               "Keep to 3-5 questions maximum",
               "Show progress indicator",
@@ -619,7 +619,7 @@ function Renewal() {
             </div>
           </DocumentationModule>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GuidelineBox type="do" items={[
               "Send renewal reminders 30, 15, 7 days before expiry",
               "Pre-fill all existing data",
@@ -767,7 +767,7 @@ function CorrectionResubmission() {
             </div>
           </DocumentationModule>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GuidelineBox type="do" items={[
               "Highlight rejected fields visually in form",
               "Provide specific, actionable instructions",
@@ -906,7 +906,7 @@ function ComplaintEscalation() {
             </div>
           </DocumentationModule>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GuidelineBox type="do" items={[
               "Provide clear SLA timelines upfront",
               "Send acknowledgment with complaint ID",
@@ -1028,7 +1028,7 @@ function ApprovalIssuance() {
           </DocumentationModule>
 
           <DocumentationModule title="Digital Certificate Requirements">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <RequirementBlock
                 title="Mandatory Elements"
                 items={[
@@ -1054,7 +1054,7 @@ function ApprovalIssuance() {
             </div>
           </DocumentationModule>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GuidelineBox type="do" items={[
               "Notify within 1 hour of approval/rejection",
               "Include QR code for verification",
@@ -1172,7 +1172,7 @@ function AssistedOfflineToOnline() {
           </DocumentationModule>
 
           <DocumentationModule title="Staff Training Requirements">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <TrainingModule
                 title="Technical Skills"
                 items={["Data entry accuracy", "Document scanning quality", "System navigation", "Troubleshooting common errors"]}
@@ -1184,7 +1184,7 @@ function AssistedOfflineToOnline() {
             </div>
           </DocumentationModule>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GuidelineBox type="do" items={[
               "Require citizen consent via OTP/signature",
               "Send SMS confirmation immediately",
@@ -1346,7 +1346,7 @@ function HighVolumeStatusTracking() {
           </DocumentationModule>
 
           <DocumentationModule title="Performance Optimization">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <OptimizationBlock
                 title="Backend"
                 strategies={["Redis caching (5-minute TTL)", "Database indexing on ref number", "API rate limiting (10 req/min)", "CDN for static assets"]}
@@ -1358,7 +1358,7 @@ function HighVolumeStatusTracking() {
             </div>
           </DocumentationModule>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GuidelineBox type="do" items={[
               "Show visual timeline with current stage",
               "Provide expected completion date",

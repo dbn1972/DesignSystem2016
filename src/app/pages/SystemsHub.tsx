@@ -58,7 +58,7 @@ export default function SystemsHub() {
                 </Link>
               </div>
 
-              <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 sm:grid-cols-4">
                 <StatTile value="3" label="core systems" />
                 <StatTile value="22+" label="languages supported" />
                 <StatTile value="100%" label="shared across services" />

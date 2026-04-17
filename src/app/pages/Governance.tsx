@@ -6,9 +6,9 @@ export default function Governance() {
   const lang = i18n.resolvedLanguage === 'hi' ? 'hi' : 'en';
   const c = GOVERNANCE_COPY[lang];
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-4 sm:px-8 lg:px-12 lg:py-14 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
               <Shield size={14} className="text-primary" />
@@ -16,7 +16,7 @@ export default function Governance() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.hero.title}</h1>
+              <h1 className="max-w-3xl text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.hero.title}</h1>
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
                 {c.hero.description}
               </p>
@@ -53,7 +53,7 @@ export default function Governance() {
             </div>
 
             {/* Key metrics */}
-            <div className="grid grid-cols-2 gap-3 py-5 border-b border-border">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 py-5 border-b border-border">
               <div className="text-center">
                 <div className="text-2xl font-bold text-foreground">v2.4</div>
                 <div className="text-xs text-muted-foreground mt-0.5">Current release</div>
@@ -106,7 +106,7 @@ export default function Governance() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-12">
         <OwnershipModelSection />
         <ReviewLanesSection />
         <ApprovalGatesSection />
@@ -244,7 +244,7 @@ function OwnershipModelSection() {
             <h3 className="font-bold text-foreground dark:text-gray-100">Responsibility Matrix (RACI)</h3>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto -mx-6 px-6 sm:-mx-0 sm:px-0">
             <table className="w-full text-sm">
               <thead className="bg-background dark:bg-gray-800 border-b-2 border-border dark:border-gray-700">
                 <tr>
@@ -319,7 +319,7 @@ function OwnershipPillar({ title, responsibilities, color }: any) {
       <ul className="space-y-2">
         {responsibilities.map((resp: string, index: number) => (
           <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-            <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-gray-500" size={16} />
+            <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-muted-foreground" size={16} />
             <span>{resp}</span>
           </li>
         ))}
@@ -462,7 +462,7 @@ function ReviewLane({ title, owner, focuses, timeline, color }: any) {
         <ul className="space-y-2 mb-4">
           {focuses.map((focus: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-gray-500" size={14} />
+              <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-muted-foreground" size={14} />
               <span>{focus}</span>
             </li>
           ))}
@@ -582,7 +582,7 @@ function ApprovalGate({ title, status, requirements }: any) {
   };
 
   return (
-    <div className={`min-w-[200px] rounded-2xl border p-4 shadow-sm ${statusColors[status as keyof typeof statusColors]}`}>
+    <div className={`min-w-0 sm:min-w-[200px] rounded-2xl border p-4 shadow-sm ${statusColors[status as keyof typeof statusColors]}`}>
       <h4 className="mb-3 text-center font-bold text-foreground">{title}</h4>
       <ul className="space-y-1">
         {requirements.map((req: string, index: number) => (
@@ -1062,7 +1062,7 @@ function StatusDetail({ status, badge, characteristics, usage, support }: any) {
           <ul className="space-y-2">
             {characteristics.map((char: string, index: number) => (
               <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-gray-500" size={14} />
+                <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-muted-foreground" size={14} />
                 <span>{char}</span>
               </li>
             ))}
@@ -1106,7 +1106,7 @@ function PromotionRulesSection() {
 
             <div className="flex flex-col items-center">
               <ChevronRight className="text-muted-foreground dark:text-muted-foreground" size={32} />
-              <div className="text-xs text-gray-500">Promote</div>
+              <div className="text-xs text-muted-foreground">Promote</div>
             </div>
 
             <div className="text-center">
@@ -1118,7 +1118,7 @@ function PromotionRulesSection() {
 
             <div className="flex flex-col items-center">
               <ChevronRight className="text-muted-foreground dark:text-muted-foreground" size={32} />
-              <div className="text-xs text-gray-500">Promote</div>
+              <div className="text-xs text-muted-foreground">Promote</div>
             </div>
 
             <div className="text-center">
@@ -1371,7 +1371,7 @@ function ExceptionProcessSection() {
         {/* When to Request Exception */}
         <div className="rounded-[24px] border border-orange-200 bg-orange-50 p-6 shadow-sm dark:border-orange-800 dark:bg-orange-950/20">
           <h3 className="mb-4 font-bold text-foreground">When exceptions may be granted</h3>
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
               <h4 className="mb-2 font-semibold text-foreground">Valid exception scenarios:</h4>
               <ul className="space-y-2 text-muted-foreground">
@@ -1586,7 +1586,7 @@ function ConformanceExpectationsSection() {
             Non-Conformance Consequences
           </h3>
 
-          <div className="grid grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
               <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3">For Government Departments:</h4>
               <ul className="space-y-2 text-muted-foreground dark:text-muted-foreground">
@@ -1631,7 +1631,7 @@ function ConformanceLevel({ level, badge, requirements, benefits }: any) {
         <ul className="space-y-2 mb-6">
           {requirements.map((req: string, index: number) => (
             <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-gray-500" size={14} />
+              <CheckCircle className="mt-0.5 flex-shrink-0 text-muted-foreground dark:text-muted-foreground" size={14} />
               <span>{req}</span>
             </li>
           ))}
@@ -1677,7 +1677,7 @@ function SectionHeader({ title, description, icon }: any) {
         <div className="text-primary">{icon}</div>
         <span className="text-sm font-semibold text-muted-foreground">Governance section</span>
       </div>
-      <h2 className="text-4xl font-bold tracking-tight text-foreground">{title}</h2>
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">{title}</h2>
       <p className="text-lg leading-8 text-muted-foreground">{description}</p>
     </div>
   );

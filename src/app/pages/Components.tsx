@@ -145,7 +145,7 @@ export default function Components() {
               <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Premium</span>
             </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-2">
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
               {componentStats.map((stat) => (
                 <div key={stat.label} className="rounded-2xl border border-border/70 bg-background/70 p-3">
                   <div className="text-lg font-semibold tracking-tight text-foreground">{stat.value}</div>
