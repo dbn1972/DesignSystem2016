@@ -342,7 +342,7 @@ export default function Components() {
                     <button className="rounded-full bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-700">
                       Danger
                     </button>
-                    <button className="rounded-full bg-amber-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-600">
+                    <button className="rounded-full bg-amber-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-900">
                       Warning
                     </button>
                   </div>
@@ -483,7 +483,7 @@ export default function Components() {
                   <span className="rounded-full bg-amber-700 px-3 py-1 text-sm font-semibold text-white">Warning</span>
                   <span className="rounded-full bg-red-600 px-3 py-1 text-sm font-semibold text-white">Error</span>
                   <span className="rounded-full bg-muted px-3 py-1 text-sm font-semibold text-muted-foreground">Neutral</span>
-                  <span className="rounded-full bg-[#c27400] px-3 py-1 text-sm font-semibold text-white">Saffron</span>
+                  <span className="rounded-full bg-[#7c4a00] px-3 py-1 text-sm font-semibold text-white">Saffron</span>
                 </div>
               </div>
             </div>
