@@ -1,4 +1,5 @@
-import { MessageSquare, CheckCircle, XCircle, AlertCircle, Info, AlertTriangle, ArrowRight, ArrowUp, Eye, Globe, Code, BarChart3, Shield, Clock, Users, FileText, Zap, Target, HelpCircle, ChevronRight, Phone, Mail, Edit, ArrowLeft, Check, Upload, Download, Flag, List, ExternalLink, ChevronDown, Scale, BookOpen, TrendingUp } from "lucide-react";
+import React from "react";
+import { MessageSquare, CheckCircle, XCircle, AlertCircle, Info, AlertTriangle, ArrowRight, ArrowUp, Eye, Globe, Code, BarChart3, Shield, Clock, Users, FileText, Zap, Target, HelpCircle, ChevronRight, Phone, Mail, Edit, ArrowLeft, Check, Upload, Download, Flag, List, ExternalLink, ChevronDown, Scale, BookOpen, TrendingUp, Copy } from "lucide-react";
 
 export default function ComplaintEscalationPattern() {
   return (
@@ -91,6 +92,7 @@ export default function ComplaintEscalationPattern() {
             <AccessibilityGuidance />
             <ImplementationNotes />
             <GovernanceConformance />
+            <ComplaintCodeDownloads />
           </div>
 
           {/* Sidebar - 3 columns */}
@@ -1827,6 +1829,243 @@ function GovernanceConformance() {
     </section>
   );
 }
+
+
+// ==================== CODE DOWNLOADS ====================
+
+const COMPLAINT_REACT_CODE = `import React, { useState } from 'react';
+
+type Priority = 'low' | 'medium' | 'high' | 'critical';
+type Status = 'draft' | 'submitted' | 'acknowledged' | 'in-progress' | 'escalated' | 'resolved';
+
+interface Complaint {
+  category: string;
+  subject: string;
+  description: string;
+  priority: Priority;
+  attachments: File[];
+}
+
+export function ComplaintEscalationPage() {
+  const [step, setStep] = useState<'form' | 'review' | 'submitted'>('form');
+  const [form, setForm] = useState<Complaint>({ category: '', subject: '', description: '', priority: 'medium', attachments: [] });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [ticketId, setTicketId] = useState('');
+
+  const categories = ['Service Delay', 'Wrong Information', 'Staff Behavior', 'Technical Issue', 'Payment Problem', 'Document Error', 'Other'];
+
+  const handleSubmit = async () => {
+    if (!form.category || !form.subject || !form.description) { setError('Please fill all required fields'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/complaints/submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, attachments: form.attachments.map(f => f.name) }),
+      });
+      if (!res.ok) { setError('Submission failed'); return; }
+      setTicketId('GRV-' + Date.now().toString(36).toUpperCase());
+      setStep('submitted');
+    } catch { setError('Network error'); }
+    finally { setLoading(false); }
+  };
+
+  const priorityColors: Record<Priority, string> = {
+    low: 'border-gray-300 bg-gray-50', medium: 'border-yellow-300 bg-yellow-50',
+    high: 'border-orange-300 bg-orange-50', critical: 'border-red-300 bg-red-50',
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">File a Complaint</h1>
+        <p className="text-sm text-muted-foreground mb-6">Grievance redressal for government services</p>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {step === 'form' && (
+          <div className="space-y-4">
+            <div><label className="block text-sm font-medium mb-1">Category *</label><select value={form.category} onChange={e => setForm(f => ({...f, category: e.target.value}))} className="w-full px-4 py-3 border border-border rounded-lg"><option value="">Select category</option>{categories.map(c => <option key={c}>{c}</option>)}</select></div>
+            <div><label className="block text-sm font-medium mb-1">Subject *</label><input value={form.subject} onChange={e => setForm(f => ({...f, subject: e.target.value}))} placeholder="Brief subject line" className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div><label className="block text-sm font-medium mb-1">Description *</label><textarea value={form.description} onChange={e => setForm(f => ({...f, description: e.target.value}))} rows={4} placeholder="Describe your complaint in detail..." className="w-full px-4 py-3 border border-border rounded-lg" /></div>
+            <div><label className="block text-sm font-medium mb-2">Priority</label><div className="grid grid-cols-4 gap-2">{(['low','medium','high','critical'] as Priority[]).map(p => (<button key={p} onClick={() => setForm(f => ({...f, priority: p}))} className={\`p-2 rounded-lg border-2 text-xs font-bold capitalize \${form.priority === p ? priorityColors[p] : 'border-border'}\`}>{p}</button>))}</div></div>
+            <div><label className="block text-sm font-medium mb-1">Attachments</label><input type="file" multiple onChange={e => { if (e.target.files) setForm(f => ({...f, attachments: [...f.attachments, ...Array.from(e.target.files!)]})); }} className="text-sm" /></div>
+            <button onClick={() => setStep('review')} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Review & Submit</button>
+          </div>
+        )}
+        {step === 'review' && (
+          <div className="space-y-4">
+            <div className="bg-muted rounded-xl p-4 text-sm space-y-2">
+              <div><span className="text-muted-foreground">Category:</span> <span className="font-semibold">{form.category}</span></div>
+              <div><span className="text-muted-foreground">Subject:</span> <span className="font-semibold">{form.subject}</span></div>
+              <div><span className="text-muted-foreground">Priority:</span> <span className="font-semibold capitalize">{form.priority}</span></div>
+              <div><span className="text-muted-foreground">Description:</span> <p className="mt-1">{form.description}</p></div>
+            </div>
+            <div className="flex gap-3">
+              <button onClick={() => setStep('form')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Edit</button>
+              <button onClick={handleSubmit} disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Submitting...' : 'Submit Complaint'}</button>
+            </div>
+          </div>
+        )}
+        {step === 'submitted' && (
+          <div className="text-center py-6 space-y-4">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+            <h2 className="text-xl font-bold text-foreground">Complaint Registered</h2>
+            <p className="text-muted-foreground">Ticket ID: <span className="font-bold">{ticketId}</span></p>
+            <p className="text-sm text-muted-foreground">You will receive updates via SMS. If unresolved within 7 days, you can escalate.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}`;
+
+const COMPLAINT_ANGULAR_CODE = `import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'ux4g-complaint-escalation',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: \`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold mb-6">File a Complaint</h1>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <form *ngIf="step === 'form'" [formGroup]="form" class="space-y-4">
+          <div><label class="block text-sm font-medium mb-1">Category *</label><select formControlName="category" class="w-full px-4 py-3 border border-border rounded-lg"><option value="">Select</option><option *ngFor="let c of categories">{{ c }}</option></select></div>
+          <div><label class="block text-sm font-medium mb-1">Subject *</label><input formControlName="subject" class="w-full px-4 py-3 border border-border rounded-lg" /></div>
+          <div><label class="block text-sm font-medium mb-1">Description *</label><textarea formControlName="description" rows="4" class="w-full px-4 py-3 border border-border rounded-lg"></textarea></div>
+          <button type="button" (click)="review()" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Review</button>
+        </form>
+        <div *ngIf="step === 'review'" class="space-y-4">
+          <div class="bg-muted rounded-xl p-4 text-sm"><div>{{ form.value.category }} — {{ form.value.subject }}</div><div class="mt-2">{{ form.value.description }}</div></div>
+          <div class="flex gap-3"><button (click)="step='form'" class="flex-1 py-3 border border-border rounded-lg font-semibold">Edit</button><button (click)="submit()" [disabled]="loading" class="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">Submit</button></div>
+        </div>
+        <div *ngIf="step === 'submitted'" class="text-center py-8">
+          <h2 class="text-xl font-bold mb-2">Complaint Registered</h2>
+          <p class="text-muted-foreground">Ticket: {{ ticketId }}</p>
+        </div>
+      </div>
+    </div>
+  \`
+})
+export class ComplaintEscalationComponent {
+  categories = ['Service Delay', 'Wrong Information', 'Staff Behavior', 'Technical Issue', 'Payment Problem'];
+  form = new FormGroup({ category: new FormControl('', Validators.required), subject: new FormControl('', Validators.required), description: new FormControl('', Validators.required) });
+  step = 'form'; loading = false; error = ''; ticketId = '';
+  review() { if (this.form.invalid) { this.error = 'Fill all fields'; return; } this.error = ''; this.step = 'review'; }
+  async submit() { this.loading = true; try { await fetch('/api/complaints/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(this.form.value) }); this.ticketId = 'GRV-' + Date.now().toString(36).toUpperCase(); this.step = 'submitted'; } catch { this.error = 'Failed'; } finally { this.loading = false; } }
+}`;
+
+const COMPLAINT_HTML_CODE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complaint & Escalation — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 32rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+    input, select, textarea { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem; outline: none; margin-bottom: 1rem; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .hidden { display: none; }
+    .success { text-align: center; padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>File a Complaint</h1>
+    <div id="error" class="error" role="alert"></div>
+    <form id="complaintForm" novalidate>
+      <label for="category">Category *</label>
+      <select id="category" required><option value="">Select</option><option>Service Delay</option><option>Wrong Information</option><option>Staff Behavior</option><option>Technical Issue</option><option>Payment Problem</option></select>
+      <label for="subject">Subject *</label>
+      <input id="subject" required placeholder="Brief subject" />
+      <label for="description">Description *</label>
+      <textarea id="description" rows="4" required placeholder="Describe your complaint..."></textarea>
+      <button type="submit" class="btn">Submit Complaint</button>
+    </form>
+    <div id="successArea" class="hidden success">
+      <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem">Complaint Registered</h2>
+      <p style="color:#6b7280" id="ticketText"></p>
+      <p style="color:#6b7280;font-size:0.875rem;margin-top:0.5rem">Updates via SMS. Escalate if unresolved in 7 days.</p>
+    </div>
+  </div>
+  <script>
+    document.getElementById('complaintForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const err = document.getElementById('error');
+      err.style.display = 'none';
+      const cat = document.getElementById('category').value;
+      const sub = document.getElementById('subject').value;
+      const desc = document.getElementById('description').value;
+      if (!cat || !sub || !desc) { err.textContent = 'Fill all fields'; err.style.display = 'block'; return; }
+      try {
+        await fetch('/api/complaints/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ category: cat, subject: sub, description: desc }) });
+        const id = 'GRV-' + Date.now().toString(36).toUpperCase();
+        document.getElementById('ticketText').textContent = 'Ticket ID: ' + id;
+        document.getElementById('complaintForm').classList.add('hidden');
+        document.getElementById('successArea').classList.remove('hidden');
+      } catch { err.textContent = 'Network error'; err.style.display = 'block'; }
+    });
+  </script>
+</body>
+</html>`;
+
+function ComplaintCodeDownloads() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
+  const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
+  const lanes = [
+    { key: 'react', title: 'React', desc: 'TypeScript + Priority + Review', code: COMPLAINT_REACT_CODE, filename: 'ComplaintEscalationPage.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone + Reactive Forms', code: COMPLAINT_ANGULAR_CODE, filename: 'complaint-escalation.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: COMPLAINT_HTML_CODE, filename: 'complaint-escalation.html' },
+  ];
+  return (
+    <section id="code-downloads" className="space-y-6 scroll-mt-24">
+      <div className="border-l-4 border-primary pl-4">
+        <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
+        <p className="text-muted-foreground mt-1">Production-ready Complaint & Escalation implementations.</p>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-3">
+        {lanes.map((lane) => (
+          <div key={lane.key} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="h-1 bg-[#005196]" />
+            <div className="flex flex-1 flex-col p-5">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <span className="inline-flex rounded-full border border-border bg-muted/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Framework lane</span>
+                  <h3 className="text-lg font-bold text-foreground mt-2">{lane.title}</h3>
+                  <p className="text-sm text-muted-foreground">{lane.desc}</p>
+                </div>
+                <button onClick={() => downloadCode(lane.code, lane.filename)} aria-label={`Download ${lane.title} code`} className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-background text-[#005196] hover:bg-[#005196] hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                  <Download size={16} />
+                </button>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted-foreground">{lane.filename}</span>
+                  <button onClick={() => copyToClipboard(lane.code, lane.key)} className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {copiedId === lane.key ? <Check size={12} /> : <Copy size={12} />}
+                    {copiedId === lane.key ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <div className="rounded-xl border border-border bg-slate-950 p-3 text-xs text-slate-100 shadow-inner max-h-64 overflow-auto">
+                  <pre className="font-mono leading-5 whitespace-pre-wrap"><code>{lane.code.slice(0, 800)}...</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 // ==================== SIDEBAR ====================
 
