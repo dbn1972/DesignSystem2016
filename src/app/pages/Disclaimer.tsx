@@ -88,7 +88,7 @@ function GeneralDisclaimerSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <DisclaimerCard
             title="Purpose of the Design System"
             content="UX4G is designed to help government departments and service providers create consistent, accessible, and user-friendly digital services. It is a tool to support development, not a guarantee of compliance or success."
@@ -233,7 +233,7 @@ function LimitationOfLiabilitySection() {
                 its departments, agencies, officers, employees, or contractors be liable for any:
               </p>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <LiabilityExclusion items={[
                   'Direct damages',
                   'Indirect damages',
@@ -255,7 +255,7 @@ function LimitationOfLiabilitySection() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="border-2 border-border rounded-lg p-6">
                 <h4 className="font-bold text-foreground mb-3">Not Liable For</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -318,7 +318,7 @@ function AccuracyOfInformationSection() {
             we make no representations or warranties about:
           </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-background border border-border rounded-lg p-4">
               <h4 className="font-semibold text-foreground mb-3 text-sm">Documentation & Guidelines</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
@@ -411,7 +411,7 @@ function ExternalLinksSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h4 className="font-bold text-foreground mb-3">Common External Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -482,7 +482,7 @@ function TechnicalDisclaimerSection() {
             The UX4G Design System has technical requirements and limitations that users should be aware of:
           </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <TechnicalNoticeCard
               title="Browser Compatibility"
               content="While we test across modern browsers, we cannot guarantee compatibility with all browsers, versions, or configurations. Users should test in their target environments."
@@ -555,7 +555,7 @@ function AccessibilityDisclaimerSection() {
             implementers.
           </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
               <h4 className="font-bold text-foreground mb-3">Our Commitment</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
@@ -640,7 +640,7 @@ function SecurityDisclaimerSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h4 className="font-bold text-foreground mb-4">What We Do</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -698,7 +698,7 @@ function GovernmentEndorsementSection() {
             with the Government of India unless explicitly stated in writing.
           </p>
 
-          <div className="grid grid-cols-2 gap-6 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
             <div>
               <h4 className="font-semibold text-foreground mb-2 text-sm">Cannot Claim:</h4>
               <ul className="space-y-1 text-sm text-muted-foreground">
@@ -791,7 +791,7 @@ function JurisdictionSection() {
             accordance with the laws of India, without regard to conflict of law principles.
           </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-background border border-border rounded-lg p-4">
               <h4 className="font-semibold text-foreground mb-3 text-sm">Jurisdiction</h4>
               <p className="text-sm text-muted-foreground">
@@ -857,8 +857,8 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-primary">{icon}</div>
-        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
+        <div className="text-primary shrink-0">{icon}</div>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">{title}</h2>
       </div>
       <p className="text-lg text-muted-foreground">{description}</p>
     </div>

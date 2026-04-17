@@ -158,7 +158,7 @@ export default function SiteMap() {
               <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Live</span>
             </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-2.5">
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2.5">
               <StatBox value="8" label={c.stats.sections} />
               <StatBox value="30+" label={c.stats.links} />
               <StatBox value="3" label={c.stats.frameworks} />

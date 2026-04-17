@@ -70,7 +70,7 @@ function OurPledgeSection() {
         icon={<Heart size={28} />}
       />
 
-      <div className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-8">
+      <div className="mt-8 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 sm:p-6 lg:p-8">
         <div className="max-w-4xl mx-auto">
           <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
             In the interest of fostering an open and welcoming environment, we as contributors, maintainers, and
@@ -78,7 +78,7 @@ function OurPledgeSection() {
             harassment-free experience for everyone, regardless of:
           </p>
 
-          <div className="grid grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="space-y-3">
               <PledgeItem text="Age, body size, disability" />
               <PledgeItem text="Ethnicity, gender identity and expression" />
@@ -121,7 +121,7 @@ function StandardsSection() {
         icon={<Scale size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4 text-lg flex items-center gap-2">
             <CheckCircle className="text-green-600" size={20} />
@@ -230,7 +230,7 @@ function ExpectedBehaviorSection() {
         icon={<Users size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-3 gap-6">
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <ExpectedBehaviorCard
           title="Be Respectful"
           icon={<Heart size={24} />}
@@ -272,7 +272,7 @@ function ExpectedBehaviorCard({ title, icon, behaviors }: any) {
   return (
     <div className="border-2 border-border rounded-lg p-6">
       <div className="flex items-center gap-3 mb-4">
-        <div className="text-primary">{icon}</div>
+        <div className="text-primary shrink-0">{icon}</div>
         <h3 className="font-bold text-foreground text-lg">{title}</h3>
       </div>
       <ul className="space-y-2">
@@ -302,7 +302,7 @@ function UnacceptableBehaviorSection() {
           <p className="text-sm text-muted-foreground mb-4">
             The following behaviors will result in immediate action, including potential ban from the community:
           </p>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <UnacceptableItem
                 text="Violence, threats of violence, or violent language"
@@ -347,7 +347,7 @@ function UnacceptableBehaviorSection() {
           <p className="text-sm text-muted-foreground mb-4">
             These behaviors may result in warnings, temporary suspension, or permanent ban depending on severity and repetition:
           </p>
-          <div className="grid grid-cols-2 gap-3 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
             <UnacceptableItem
               text="Trolling or deliberately inflammatory comments"
               severity="high"
@@ -455,9 +455,9 @@ function ResponsibilitiesSection() {
 
 function ResponsibilityItem({ title, description, actions }: any) {
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-4 sm:gap-6">
       <div className="flex-shrink-0">
-        <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary text-white rounded-full flex items-center justify-center">
           <Shield size={24} />
         </div>
       </div>
@@ -486,7 +486,7 @@ function ScopeSection() {
         icon={<BookOpen size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="border-2 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-6">
           <h3 className="font-bold text-foreground mb-4">Project Spaces</h3>
           <p className="text-sm text-muted-foreground mb-4">
@@ -620,9 +620,9 @@ function EnforcementSection() {
 
 function EnforcementStep({ step, title, description, timeline }: any) {
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-4 sm:gap-6">
       <div className="flex-shrink-0">
-        <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl">
           {step}
         </div>
       </div>
@@ -633,7 +633,7 @@ function EnforcementStep({ step, title, description, timeline }: any) {
             <h4 className="font-bold text-foreground text-lg">{title}</h4>
             <p className="text-sm text-muted-foreground">{description}</p>
           </div>
-          <div className="text-xs text-gray-500 flex items-center gap-1 flex-shrink-0 ml-4">
+          <div className="text-xs text-muted-foreground flex items-center gap-1 flex-shrink-0 ml-4">
             <FileText size={12} />
             {timeline}
           </div>
@@ -653,7 +653,7 @@ function ReportingSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-8">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="font-bold text-foreground mb-4 text-lg">How to Report</h3>
 
           <div className="space-y-6">
@@ -672,7 +672,7 @@ function ReportingSection() {
 
             <div>
               <h4 className="font-semibold text-foreground mb-3">What to Include in Your Report</h4>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <ReportItem text="Your contact information (optional for anonymous reports)" />
                 <ReportItem text="Names/usernames of people involved" />
                 <ReportItem text="Description of the incident" />
@@ -686,7 +686,7 @@ function ReportingSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Anonymous Reporting</h3>
             <p className="text-sm text-muted-foreground mb-3">
@@ -848,7 +848,7 @@ function AttributionSection() {
           This Code of Conduct is adapted from several widely-used community standards, including:
         </p>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h4 className="font-semibold text-foreground mb-2">Primary Sources:</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -886,8 +886,8 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-primary">{icon}</div>
-        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
+        <div className="text-primary shrink-0">{icon}</div>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">{title}</h2>
       </div>
       <p className="text-lg text-muted-foreground">{description}</p>
     </div>

@@ -72,7 +72,7 @@ function CopyrightNoticeSection() {
         {/* Primary Copyright */}
         <div className="border-2 border-border rounded-lg p-8 bg-gradient-to-br from-blue-50 to-white">
           <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center">
               <CopyrightIcon className="text-white" size={24} />
             </div>
             <div className="flex-1">
@@ -93,7 +93,7 @@ function CopyrightNoticeSection() {
         </div>
 
         {/* Scope of Copyright */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <CopyrightScopeCard
             title="Covered Materials"
             items={[
@@ -278,7 +278,7 @@ function UsageRightsSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <UsageRightCard
             title="Government Use"
             description="Free and unrestricted use for all government departments and agencies"
@@ -308,7 +308,7 @@ function UsageRightsSection() {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <UsageRightCard
             title="Non-Commercial Use"
             description="Free for educational, research, and non-profit organizations"
@@ -428,7 +428,7 @@ function AttributionRequirementsSection() {
         </div>
 
         {/* Attribution Placement */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Required Placement</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
@@ -616,7 +616,7 @@ function GovernmentBrandingSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <AlertCircle className="text-red-600" size={20} />
@@ -705,7 +705,7 @@ function CommercialUseSection() {
             must comply with certain requirements and restrictions.
           </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h4 className="font-semibold text-foreground mb-3 text-sm">✓ Permitted Activities</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
@@ -786,7 +786,7 @@ function ContributorRightsSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Attribution for Contributors</h3>
             <p className="text-sm text-muted-foreground mb-4">
@@ -865,7 +865,7 @@ function TrademarkPolicySection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Acceptable Use</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -932,7 +932,7 @@ function ContactSection() {
             please contact our legal team.
           </p>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-card border border-border rounded-lg p-4">
               <div className="font-semibold text-foreground mb-2">General Licensing Questions</div>
               <a href="mailto:license@ux4g.gov.in" className="text-blue-600 hover:underline">
@@ -973,8 +973,8 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-primary">{icon}</div>
-        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
+        <div className="text-primary shrink-0">{icon}</div>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">{title}</h2>
       </div>
       <p className="text-lg text-muted-foreground">{description}</p>
     </div>
