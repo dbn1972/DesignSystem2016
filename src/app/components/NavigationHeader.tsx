@@ -238,7 +238,7 @@ export default function NavigationHeader() {
 
         {/* Primary Navigation */}
         <nav aria-label={copy.mainNavigation} className="hidden md:block" onMouseLeave={() => setActiveDropdown(null)}>
-          <div className="flex items-center px-6">
+          <div className="flex items-center px-4 lg:px-6 overflow-x-auto">
             <NavItem
               label={copy.foundations}
               href="/foundations"
@@ -363,7 +363,7 @@ function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
     <div
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
-      <div className="max-w-[1600px] mx-auto px-12 py-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
@@ -420,7 +420,7 @@ function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
     <div
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
-      <div className="max-w-[1600px] mx-auto px-12 py-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
@@ -476,7 +476,7 @@ function PatternsMegaMenu({ onClose }: { onClose: () => void }) {
     <div
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
-      <div className="max-w-[1600px] mx-auto px-12 py-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           {/* Column 1: Overview */}
           <div>
@@ -595,7 +595,7 @@ function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
     <div
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
-      <div className="max-w-[1600px] mx-auto px-12 py-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
@@ -685,7 +685,7 @@ function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
     <div
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
-      <div className="max-w-[1600px] mx-auto px-12 py-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
@@ -879,7 +879,7 @@ function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
     <div
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
-      <div className="max-w-[1600px] mx-auto px-12 py-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
@@ -941,7 +941,7 @@ function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
     <div
       className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
     >
-      <div className="max-w-[1600px] mx-auto px-12 py-10">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-4 gap-8">
           <div>
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">

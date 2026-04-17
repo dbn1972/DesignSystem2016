@@ -51,7 +51,7 @@ export default function LegalPageLayout({
   footerDesc = "Contact the UX4G governance team for clarification or requests.",
 }: LegalPageLayoutProps) {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Hero */}
       <header className="relative overflow-hidden border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(255,153,51,0.06),_transparent_40%)]">
         <div className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
@@ -73,11 +73,12 @@ export default function LegalPageLayout({
                 <p className="max-w-2xl text-lg leading-8 text-muted-foreground">{description}</p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3">
                 <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground shadow-sm">
                   <span className="font-semibold text-foreground">{dateLabel}:</span> {date}
                 </div>
-                {/* Inline metrics pills */}
+              </div>
+              <div className="flex flex-wrap gap-2">
                 {metrics.slice(0, 4).map((m) => (
                   <div key={m.label} className="inline-flex items-center gap-1.5 rounded-full bg-primary/5 border border-primary/15 px-3 py-1.5 text-xs font-semibold">
                     <span className="text-primary">{m.value}</span>
@@ -88,7 +89,7 @@ export default function LegalPageLayout({
             </div>
 
             {/* Right: SVG illustration */}
-            <div className="hidden xl:flex items-center justify-center" aria-hidden="true">
+            <div className="hidden lg:flex items-center justify-center" aria-hidden="true">
               {illustration || <LegalIllustration color={accentColor} />}
             </div>
           </div>

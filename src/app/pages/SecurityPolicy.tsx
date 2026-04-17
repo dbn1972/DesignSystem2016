@@ -66,7 +66,7 @@ function SecurityStandardsSection() {
         icon={<Shield size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-2 gap-6">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         <SecurityStandard
           title="OWASP Top 10"
           description="Protection against the most critical web application security risks"
@@ -154,7 +154,7 @@ function VulnerabilityReportingSection() {
 
       <div className="mt-8 space-y-8">
         {/* Reporting Process */}
-        <div className="border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950/30 rounded-lg p-8">
+        <div className="border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950/30 rounded-lg p-4 sm:p-6 lg:p-8">
           <h3 className="font-bold text-foreground mb-6 text-center">Responsible Disclosure Process</h3>
 
           <div className="max-w-5xl mx-auto space-y-6">
@@ -196,7 +196,7 @@ function VulnerabilityReportingSection() {
         </div>
 
         {/* What to Include in Report */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
               <FileText size={20} className="text-blue-600" />
@@ -296,20 +296,20 @@ function VulnerabilityReportingSection() {
 
 function ReportingStep({ step, title, description, timeline }: any) {
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-4 sm:gap-6">
       <div className="flex-shrink-0">
-        <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-lg sm:text-xl">
           {step}
         </div>
       </div>
 
       <div className="flex-1">
-        <div className="flex items-start justify-between mb-2">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
           <div>
             <h4 className="font-bold text-foreground text-lg">{title}</h4>
             <p className="text-sm text-muted-foreground">{description}</p>
           </div>
-          <div className="text-xs text-gray-500 flex items-center gap-1 flex-shrink-0 ml-4">
+          <div className="text-xs text-muted-foreground flex items-center gap-1 shrink-0">
             <Clock size={12} />
             {timeline}
           </div>
@@ -347,7 +347,7 @@ function SecurityPracticesSection() {
         icon={<Lock size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-3 gap-6">
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <SecurityPractice
           icon={<Server size={24} />}
           title="Secure Development"
@@ -418,7 +418,7 @@ function DataProtectionSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30 rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Data Handling Principles</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -485,7 +485,7 @@ function ComplianceSection() {
         icon={<FileText size={28} />}
       />
 
-      <div className="mt-8 grid grid-cols-3 gap-6">
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <ComplianceItem
           title="WCAG 2.1 Level AA"
           description="Web Content Accessibility Guidelines"
@@ -563,7 +563,7 @@ function SecurityAuditSection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Automated Security Testing</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
@@ -638,7 +638,7 @@ function IncidentResponseSection() {
         icon={<AlertTriangle size={28} />}
       />
 
-      <div className="mt-8 border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg p-8">
+      <div className="mt-8 border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 rounded-lg p-4 sm:p-6 lg:p-8">
         <h3 className="font-bold text-foreground mb-6 text-center">Security Incident Response Plan</h3>
 
         <div className="max-w-5xl mx-auto space-y-6">
@@ -691,18 +691,18 @@ function IncidentStep({ step, title, description, actions, timeline }: any) {
   return (
     <div className="flex gap-6">
       <div className="flex-shrink-0">
-        <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-lg sm:text-xl">
           {step}
         </div>
       </div>
 
       <div className="flex-1 bg-card border border-red-200 dark:border-red-800 rounded-lg p-4">
-        <div className="flex items-start justify-between mb-2">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
           <div>
             <h4 className="font-bold text-foreground text-lg">{title}</h4>
             <p className="text-sm text-muted-foreground">{description}</p>
           </div>
-          <div className="text-xs text-gray-500 flex items-center gap-1 flex-shrink-0 ml-4">
+          <div className="text-xs text-muted-foreground flex items-center gap-1 shrink-0">
             <Clock size={12} />
             {timeline}
           </div>
@@ -730,7 +730,7 @@ function ThirdPartySecuritySection() {
       />
 
       <div className="mt-8 space-y-6">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border-2 border-border rounded-lg p-6">
             <h3 className="font-bold text-foreground mb-4">Dependency Management</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -817,10 +817,10 @@ function SectionHeader({ title, description, icon }: any) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-primary">{icon}</div>
-        <h2 className="text-4xl font-bold text-foreground">{title}</h2>
+        <div className="text-primary shrink-0">{icon}</div>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">{title}</h2>
       </div>
-      <p className="text-lg text-muted-foreground">{description}</p>
+      <p className="text-base sm:text-lg text-muted-foreground">{description}</p>
     </div>
   );
 }
