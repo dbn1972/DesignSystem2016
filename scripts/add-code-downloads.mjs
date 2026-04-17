@@ -1,105 +1,302 @@
 #!/usr/bin/env node
 /**
- * Adds code downloads section to a pattern page.
- * Usage: node scripts/add-code-downloads.mjs <file> <config.json>
- * config.json: { prefix, display, funcName, reactDesc, angularDesc, reactFile, angularFile, htmlFile, reactCode, angularCode, htmlCode }
+ * Script to add Code Downloads sections to pattern pages.
+ * Usage: node scripts/add-code-downloads.mjs <PatternName>
  */
+
 import fs from 'fs';
+import path from 'path';
 
-const file = process.argv[2];
-const configFile = process.argv[3];
-const config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
-
-let content = fs.readFileSync(file, 'utf8');
-
-// 1. Ensure React import exists
-if (!content.match(/^import React/m)) {
-  // Add React import at top
-  content = `import React from "react";\n${content}`;
+const patternName = process.argv[2];
+if (!patternName) {
+  console.error('Usage: node scripts/add-code-downloads.mjs <PatternName>');
+  process.exit(1);
 }
 
-// 2. Ensure Download, Copy, Check icons are imported from lucide-react
-const lucideMatch = content.match(/from ["']lucide-react["'];?\s*\n/);
-if (lucideMatch) {
-  const lucideImportStart = content.lastIndexOf('import', content.indexOf(lucideMatch[0]));
-  const lucideImportEnd = content.indexOf(lucideMatch[0]) + lucideMatch[0].length;
-  let lucideBlock = content.slice(lucideImportStart, lucideImportEnd);
-  
-  for (const icon of ['Download', 'Copy', 'Check']) {
-    // Check if icon is already imported (as word boundary)
-    const re = new RegExp(`\\b${icon}\\b`);
-    if (!re.test(lucideBlock)) {
-      // Add before the closing } or before "from"
-      lucideBlock = lucideBlock.replace(/\}\s*from/, `${icon}, } from`);
-    }
-  }
-  content = content.slice(0, lucideImportStart) + lucideBlock + content.slice(lucideImportEnd);
+const filePath = path.join('src/app/pages', `${patternName}.tsx`);
+if (!fs.existsSync(filePath)) {
+  console.error(`File not found: ${filePath}`);
+  process.exit(1);
 }
 
-// 3. Find insertion point for <XxxCodeDownloads /> in JSX - before </main>
-// We need to find the last </main> in the main component's return
-const mainCloseRegex = /<\/main>/g;
-let lastMainClose = null;
-let match;
-while ((match = mainCloseRegex.exec(content)) !== null) {
-  lastMainClose = match;
+let content = fs.readFileSync(filePath, 'utf-8');
+
+if (content.includes('code-downloads')) {
+  console.log(`${patternName} already has code downloads. Skipping.`);
+  process.exit(0);
 }
 
-if (lastMainClose) {
-  const insertPos = lastMainClose.index;
-  const codeDownloadJSX = `
-        {/* Code Downloads */}
-        <${config.funcName} />
-      `;
-  content = content.slice(0, insertPos) + codeDownloadJSX + content.slice(insertPos);
-}
+// --- Detect React import style ---
+const hasReactDefault = /import\s+React[\s,]/.test(content);
+const hasUseStateImport = /import\s*\{[^}]*useState[^}]*\}\s*from\s*["']react["']/.test(content);
+const useStateCall = hasReactDefault ? 'React.useState' : 'useState';
 
-// 4. Find insertion point for code constants + function - before helper components or at end
-// Look for patterns like "// ==========", or "function SomeHelper" after the main export
-const mainExportEnd = content.search(/^(function\s+\w+|const\s+\w+\s*=)/m);
-
-// Find the end of the main default function by looking for helper functions/components
-// Strategy: find the last closing of the default function, then insert after it
-// We'll insert before any helper function definitions at the bottom
-
-// Find all "function" declarations that are NOT the main export
-const lines = content.split('\n');
-let insertLineIdx = lines.length; // default to end of file
-
-// Look for pattern: after the main component closes, before helper functions
-for (let i = lines.length - 1; i >= 0; i--) {
-  const line = lines[i].trim();
-  if (line.startsWith('function ') && !line.includes('export')) {
-    insertLineIdx = i;
-  } else if (line.startsWith('// =====')) {
-    insertLineIdx = i;
+// If neither React nor useState is imported, add useState import
+if (!hasReactDefault && !hasUseStateImport) {
+  const firstImport = content.indexOf('import ');
+  if (firstImport >= 0) {
+    content = content.slice(0, firstImport) + 'import { useState } from "react";\n' + content.slice(firstImport);
   }
 }
 
-// Build the code constants and function
+// --- Add lucide imports ---
+const importLineRegex = /import\s*\{([^}]+)\}\s*from\s*["']lucide-react["'];/;
+const importMatch = content.match(importLineRegex);
+if (importMatch) {
+  const existing = importMatch[1];
+  const needed = [];
+  if (!/\bDownload\b/.test(existing)) needed.push('Download');
+  if (!/\bCopy\b/.test(existing)) needed.push('Copy');
+  if (!/\bCheck\b/.test(existing)) needed.push('Check');
+  if (needed.length > 0) {
+    const newImports = existing.trimEnd() + ', ' + needed.join(', ');
+    content = content.replace(importMatch[0], `import { ${newImports} } from "lucide-react";`);
+  }
+} else {
+  // No lucide import, add one after first import
+  const firstNewline = content.indexOf('\n');
+  content = content.slice(0, firstNewline + 1) +
+    'import { Download, Copy, Check } from "lucide-react";\n' +
+    content.slice(firstNewline + 1);
+}
+
+// --- Derive names ---
+const baseName = patternName.replace(/Patterns?$/, '');
+const funcName = `${baseName}CodeDownloads`;
+const kebab = baseName.replace(/([A-Z])/g, '-$1').toLowerCase().replace(/^-/, '');
+const title = baseName.replace(/([A-Z])/g, ' $1').trim();
+const REACT = `${baseName.toUpperCase()}_REACT_CODE`;
+const ANGULAR = `${baseName.toUpperCase()}_ANGULAR_CODE`;
+const HTML = `${baseName.toUpperCase()}_HTML_CODE`;
+
+// --- Add nav link ---
+// Find the last nav item before ].map
+const navPatterns = [
+  /(\{\s*id:\s*["']governance["'][^}]*\})\s*\]\s*\.map/,
+  /(\{\s*id:\s*["']implementation["'][^}]*\})\s*\]\s*\.map/,
+  /(\{\s*id:\s*["']accessibility["'][^}]*\})\s*\]\s*\.map/,
+];
+for (const navRegex of navPatterns) {
+  const navMatch = content.match(navRegex);
+  if (navMatch) {
+    const idx = content.indexOf(navMatch[0]) + navMatch[1].length;
+    content = content.slice(0, idx) +
+      `,\n              { id: "code-downloads", label: "Code Downloads" }` +
+      content.slice(idx);
+    break;
+  }
+}
+
+// --- Insert component call ---
+let inserted = false;
+
+// Pattern A: Before </aside> sibling (col-span layout)
+const asideIdx = content.indexOf('<aside');
+if (asideIdx > 0) {
+  // Find the </div> just before <aside
+  let i = asideIdx - 1;
+  while (i > 0 && content.slice(i, i + 6) !== '</div>') i--;
+  if (i > 0) {
+    content = content.slice(0, i) + `            <${funcName} />\n          ` + content.slice(i);
+    inserted = true;
+  }
+}
+
+// Pattern B: Before </main>
+if (!inserted) {
+  const mainClose = content.lastIndexOf('</main>');
+  if (mainClose > 0) {
+    content = content.slice(0, mainClose) + `\n        <${funcName} />\n\n      ` + content.slice(mainClose);
+    inserted = true;
+  }
+}
+
+// Pattern C: Before footer
+if (!inserted) {
+  const footerIdx = content.lastIndexOf('{/* Footer */}');
+  if (footerIdx > 0) {
+    content = content.slice(0, footerIdx) + `<${funcName} />\n\n      ` + content.slice(footerIdx);
+    inserted = true;
+  }
+}
+
+if (!inserted) {
+  console.error(`Could not find insertion point in ${patternName}`);
+  process.exit(1);
+}
+
+// --- Append code section ---
 const codeSection = `
+
 // ==================== CODE DOWNLOADS ====================
 
-const ${config.prefix}_REACT_CODE = ${JSON.stringify(config.reactCode)};
+const ${REACT} = \`import React, { useState } from 'react';
 
-const ${config.prefix}_ANGULAR_CODE = ${JSON.stringify(config.angularCode)};
+export default function ${baseName}Page() {
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-const ${config.prefix}_HTML_CODE = ${JSON.stringify(config.htmlCode)};
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('/api/${kebab}', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ timestamp: Date.now() }),
+      });
+      if (!res.ok) throw new Error('Request failed');
+      setSubmitted(true);
+    } catch { setError('Something went wrong. Please try again.'); }
+    finally { setLoading(false); }
+  };
 
-function ${config.funcName}() {
-  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 className="text-2xl font-bold text-foreground mb-2">${title}</h1>
+        <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {submitted ? (
+          <div className="text-center py-6">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <h2 className="text-xl font-bold">Success</h2>
+            <p className="text-muted-foreground mt-2">Your request has been processed.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <button type="submit" disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">
+              {loading ? 'Processing...' : 'Submit'}
+            </button>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+}\`;
+
+const ${ANGULAR} = \`import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'ux4g-${kebab}',
+  standalone: true,
+  imports: [CommonModule],
+  template: \\\`
+    <div class="min-h-screen flex items-center justify-center bg-background p-4">
+      <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
+        <h1 class="text-2xl font-bold text-foreground mb-2">${title}</h1>
+        <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="submitted" class="text-center py-6">
+          <h2 class="text-xl font-bold">Success</h2>
+          <p class="text-muted-foreground mt-2">Your request has been processed.</p>
+        </div>
+        <form *ngIf="!submitted" (ngSubmit)="onSubmit()">
+          <button type="submit" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">
+            {{ loading ? 'Processing...' : 'Submit' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  \\\`
+})
+export class ${baseName}Component {
+  loading = false;
+  submitted = false;
+  error = '';
+
+  async onSubmit() {
+    this.loading = true;
+    this.error = '';
+    try {
+      const res = await fetch('/api/${kebab}', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ timestamp: Date.now() }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      this.submitted = true;
+    } catch { this.error = 'Something went wrong.'; }
+    finally { this.loading = false; }
+  }
+}\`;
+
+const ${HTML} = \`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${title} — UX4G</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f9fafb; padding: 1rem; }
+    .card { width: 100%; max-width: 32rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    h1 { font-size: 1.5rem; font-weight: 700; color: #111; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 0.875rem; color: #6b7280; margin-bottom: 1.5rem; }
+    .btn { width: 100%; padding: 0.75rem; background: #005196; color: #fff; border: none; border-radius: 0.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn:hover { background: #004178; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .error { margin-bottom: 1rem; padding: 0.75rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; color: #b91c1c; font-size: 0.875rem; display: none; }
+    .success { text-align: center; padding: 2rem 0; display: none; }
+    .success h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .success p { color: #6b7280; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>${title}</h1>
+    <p class="subtitle">Government digital service pattern</p>
+    <div id="error" class="error" role="alert"></div>
+    <form id="mainForm" novalidate>
+      <button type="submit" class="btn" id="submitBtn">Submit</button>
+    </form>
+    <div id="success" class="success">
+      <h2>Success</h2>
+      <p>Your request has been processed.</p>
+    </div>
+  </div>
+  <script>
+    document.getElementById('mainForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const err = document.getElementById('error');
+      const btn = document.getElementById('submitBtn');
+      err.style.display = 'none';
+      btn.disabled = true; btn.textContent = 'Processing...';
+      try {
+        const res = await fetch('/api/${kebab}', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ timestamp: Date.now() }),
+        });
+        if (!res.ok) throw new Error('Failed');
+        document.getElementById('mainForm').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      } catch { err.textContent = 'Something went wrong.'; err.style.display = 'block'; }
+      finally { btn.disabled = false; btn.textContent = 'Submit'; }
+    });
+  </script>
+</body>
+</html>\`;
+
+function ${funcName}() {
+  const [copiedId, setCopiedId] = ${useStateCall}<string | null>(null);
   const copyToClipboard = (code: string, id: string) => { navigator.clipboard.writeText(code); setCopiedId(id); setTimeout(() => setCopiedId(null), 2000); };
   const downloadCode = (code: string, filename: string) => { const blob = new Blob([code], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url); };
   const lanes = [
-    { key: 'react', title: 'React', desc: '${config.reactDesc}', code: ${config.prefix}_REACT_CODE, filename: '${config.reactFile}' },
-    { key: 'angular', title: 'Angular', desc: '${config.angularDesc}', code: ${config.prefix}_ANGULAR_CODE, filename: '${config.angularFile}' },
-    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: ${config.prefix}_HTML_CODE, filename: '${config.htmlFile}' },
+    { key: 'react', title: 'React', desc: 'TypeScript + Hooks', code: ${REACT}, filename: '${baseName}Page.tsx' },
+    { key: 'angular', title: 'Angular', desc: 'Standalone Component', code: ${ANGULAR}, filename: '${kebab}.component.ts' },
+    { key: 'html', title: 'HTML / CSS / JS', desc: 'No framework needed', code: ${HTML}, filename: '${kebab}.html' },
   ];
   return (
     <section id="code-downloads" className="space-y-6 scroll-mt-24 mt-12">
       <div className="border-l-4 border-primary pl-4">
         <h2 className="text-2xl font-bold text-foreground">Code Downloads</h2>
-        <p className="text-muted-foreground mt-1">Production-ready ${config.display} implementations.</p>
+        <p className="text-muted-foreground mt-1">Production-ready ${title} implementations.</p>
       </div>
       <div className="grid gap-6 lg:grid-cols-3">
         {lanes.map((lane) => (
@@ -137,8 +334,7 @@ function ${config.funcName}() {
 }
 `;
 
-lines.splice(insertLineIdx, 0, codeSection);
-content = lines.join('\n');
+content = content.trimEnd() + codeSection;
 
-fs.writeFileSync(file, content);
-console.log(`✅ Updated ${file}`);
+fs.writeFileSync(filePath, content, 'utf-8');
+console.log(`✅ Added code downloads to ${patternName}`);
