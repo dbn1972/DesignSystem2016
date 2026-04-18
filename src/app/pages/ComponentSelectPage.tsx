@@ -197,200 +197,9 @@ function Example() {
       options={options}
       value={value}
       onChange={(e) => setValue(e.target.value)}
-
-      useCases={[
-        { title: "State/UT Selection", description: "Dropdown for selecting Indian state or union territory.", scenario: "Address form in certificate application.", implementation: "<Select label=\"State / UT\" options={INDIAN_STATES} required />" },
-        { title: "Certificate Type", description: "Select the type of certificate being applied for.", scenario: "Pre-application eligibility check.", implementation: "<Select label=\"Certificate Type\" options={CERT_TYPES} />" },
-        { title: "Payment Method", description: "Choose payment method for application fee.", scenario: "Payment step in service flow.", implementation: "<Select label=\"Payment Method\" options={PAYMENT_METHODS} />" },
-      
-        { title: 'District Selection', description: 'Select district after choosing state.', scenario: 'Address form shows districts filtered by selected state.', implementation: '<Select label="District" options={filteredDistricts} required />' },
-      ]}
-
-      additionalContent={
-        <>
-          {/* When to use */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
-                  Do use Select when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Choosing one option from 5+ predefined choices</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Form fields where the full list does not need to be visible</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Standardized selections (states, categories, types)</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Compact option selection in dense form layouts</li>
-                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Dependent dropdowns (district depends on state selection)</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
-                  Don't use Select when
-                </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Fewer than 5 options — use Radio instead</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Multiple selections needed — use Checkbox group</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Free-text with suggestions — use Autocomplete</li>
-                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Binary choice — use Switch or Checkbox</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* Do / Don't */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4 space-y-3">
-                  <div className="space-y-1">
-                    <label className="block text-sm font-medium text-foreground">State / UT <span className="text-red-500">*</span></label>
-                    <select className="w-full px-4 py-2 border border-border rounded-lg text-sm bg-card"><option>Select a state</option></select>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Use Select for 5+ options. No default selection on required fields to prevent accidental submissions.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4 space-y-3">
-                  <div className="flex gap-2 flex-wrap">
-                    {['Delhi', 'Maharashtra', 'Karnataka'].map(s => <label key={s} className="flex items-center gap-1 text-sm"><input type="radio" name="state-bad" readOnly />{s}</label>)}
-                    <span className="text-sm text-muted-foreground">...+33 more</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t use Radio buttons for long lists — they take too much space. Use Select for 5+ options.</p>
-                </div>
-              </div>
-              <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
-                <div className="p-4 space-y-3">
-                  <div className="space-y-1">
-                    <label className="block text-xs font-medium text-foreground">Certificate Type <span className="text-red-500">*</span></label>
-                    <select className="w-full px-3 py-2 border border-border rounded text-sm bg-card">
-                      <option>Select certificate type</option>
-                      <optgroup label="Personal"><option>Birth Certificate</option><option>Death Certificate</option></optgroup>
-                      <optgroup label="Financial"><option>Income Certificate</option></optgroup>
-                    </select>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Use option groups to organize long lists into logical categories.</p>
-                </div>
-              </div>
-              <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
-                <div className="p-4 space-y-3">
-                  <div className="space-y-1">
-                    <label className="block text-xs font-medium text-foreground">Certificate Type</label>
-                    <select className="w-full px-3 py-2 border border-border rounded text-sm bg-card"><option>Birth Certificate</option></select>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Don&apos;t pre-select a value on required fields — it causes accidental submissions with wrong values.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Select configurations in real time.</p>
-            <SelectPlayground />
-          </section>
-
-          {/* Related components */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Related Components</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <a href="/components/radio" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Radio</h3>
-                <p className="text-sm text-muted-foreground">For fewer visible options</p>
-              </a>
-              <a href="/components/autocomplete" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Autocomplete</h3>
-                <p className="text-sm text-muted-foreground">For searchable options</p>
-              </a>
-              <a href="/components/checkbox" className="block p-4 border border-border rounded-lg hover:border-primary transition-colors">
-                <h3 className="font-semibold text-foreground mb-1">Checkbox</h3>
-                <p className="text-sm text-muted-foreground">For multiple selections</p>
-              </a>
-            </div>
-          </section>
-
-          {/* Changelog */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Changelog</h2>
-            <div className="space-y-4">
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.0.0</span>
-                    <span className="text-xs text-muted-foreground">March 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added option groups support</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added searchable mode</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v2.1.0</span>
-                    <span className="text-xs text-muted-foreground">April 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added dependent dropdown support (district from state)</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added native mobile select optimization</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.2.0</span>
-                    <span className="text-xs text-muted-foreground">January 2026</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added option group support</li>
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Added placeholder validation</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-primary pl-4">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-mono font-bold text-primary">v1.0.0</span>
-                    <span className="text-xs text-muted-foreground">October 2025</span>
-                  </div>
-                  <ul className="space-y-1">
-                    <li className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-1">•</span>Initial release with single selection</li>
-                  </ul>
-                </div>
-            </div>
-          </section>
-
-          {/* Research */}
-          <section className="bg-card rounded-lg border border-border p-6">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Research on this component</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Select vs Radio for short lists</h3>
-                <p className="text-sm text-muted-foreground">Baymard Institute found that dropdowns with fewer than 5 options increase interaction cost by 30%. Use Radio for short lists.</p>
-              </div>
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Default selection</h3>
-                <p className="text-sm text-muted-foreground">GOV.UK recommends no default selection for required fields to prevent accidental submissions with wrong values.</p>
-              </div>
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Native vs custom selects</h3>
-                <p className="text-sm text-muted-foreground">Baymard Institute found that custom-styled selects cause 15% more usability issues than native HTML selects on mobile. UX4G uses native select with enhanced styling for maximum compatibility.</p>
-              </div>
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">Dependent dropdown performance</h3>
-                <p className="text-sm text-muted-foreground">Cascading dropdowns (state → district → city) reduce address entry errors by 45% compared to free-text fields. Pre-filtering options based on parent selection improves completion speed by 30% (India Post study).</p>
-              </div>
-            </div>
-          </section>
-        </>
-      }
     />
   );
-}`,
-          preview: (
+}`,          preview: (
             <SelectPreview
               placeholder="Select a city"
               options={[
@@ -499,7 +308,57 @@ function Example() {
           ),
         },
       ]}
+
+      useCases={[
+        { title: "State/UT Selection", description: "Dropdown for selecting Indian state or union territory.", scenario: "Address form in certificate application.", implementation: '<Select label="State / UT" options={INDIAN_STATES} required />' },
+        { title: "Certificate Type", description: "Select the type of certificate being applied for.", scenario: "Pre-application eligibility check.", implementation: '<Select label="Certificate Type" options={CERT_TYPES} />' },
+        { title: "Payment Method", description: "Choose payment method for application fee.", scenario: "Payment step in service flow.", implementation: '<Select label="Payment Method" options={PAYMENT_METHODS} />' },
+        { title: 'District Selection', description: 'Select district after choosing state.', scenario: 'Address form shows districts filtered by selected state.', implementation: '<Select label="District" options={filteredDistricts} required />' },
+      ]}
+
+
       
+      additionalContent={
+        <>
+          {/* When to use */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                  Do use Select when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Choosing one option from 5+ predefined choices</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Standardized selections (states, categories, types)</li>
+                  <li className="flex items-start gap-2"><span className="text-green-600 mt-0.5">•</span>Dependent dropdowns (district depends on state)</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                  Don&apos;t use Select when
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Fewer than 5 options — use Radio instead</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Multiple selections — use Checkbox group</li>
+                  <li className="flex items-start gap-2"><span className="text-red-600 mt-0.5">•</span>Free-text with suggestions — use Autocomplete</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Playground */}
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Select configurations in real time.</p>
+            <SelectPlayground />
+          </section>
+        </>
+      }
+
+
       reactCode={{
         component: `import React, { forwardRef } from 'react';
 import { cn } from '../../utils/cn';
