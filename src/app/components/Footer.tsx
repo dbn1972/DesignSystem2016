@@ -126,7 +126,7 @@ export default function Footer() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8">
           {/* About */}
           <div className="mb-2 md:mb-0">
             <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-4 text-card-foreground">
@@ -136,32 +136,6 @@ export default function Footer() {
               {copy.description}
             </p>
           </div>
-
-          {/* Quick Links */}
-          <FooterSection title={copy.quickLinks}>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link to="/foundations" className={linkClass}>
-                  {language === "hi" ? "आधार" : "Foundations"}
-                </Link>
-              </li>
-              <li>
-                <Link to="/components" className={linkClass}>
-                  {language === "hi" ? "घटक" : "Components"}
-                </Link>
-              </li>
-              <li>
-                <Link to="/patterns" className={linkClass}>
-                  {language === "hi" ? "पैटर्न" : "Patterns"}
-                </Link>
-              </li>
-              <li>
-                <Link to="/resources" className={linkClass}>
-                  {language === "hi" ? "संसाधन" : "Resources"}
-                </Link>
-              </li>
-            </ul>
-          </FooterSection>
 
           {/* Resources */}
           <FooterSection title={copy.resources}>
@@ -261,39 +235,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="mt-4 md:mt-8 pt-4 md:pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-sm text-muted-foreground">
-            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4">
-              <p className="text-xs md:text-sm text-center">{copy.copyright}</p>
-              {/* Duplicate link row — hidden on mobile (already in accordions above) */}
-              <div className="hidden md:flex flex-wrap items-center justify-center gap-3">
-                <Link to="/privacy-policy" className={linkClass}>
-                  {copy.privacy}
-                </Link>
-                <span>•</span>
-                <Link to="/terms-of-use" className={linkClass}>
-                  {copy.terms}
-                </Link>
-                <span>•</span>
-                <Link to="/security-policy" className={linkClass}>
-                  {copy.security}
-                </Link>
-                <span>•</span>
-                <Link to="/disclaimer" className={linkClass}>
-                  {copy.disclaimer}
-                </Link>
-                <span>•</span>
-                <Link to="/copyright" className={linkClass}>
-                  {copy.copyrightLicense}
-                </Link>
-                <span>•</span>
-                <Link to="/accessibility" className={linkClass}>
-                  {copy.accessibility}
-                </Link>
-                <span>•</span>
-                <Link to="/site-map" className={linkClass}>
-                  {copy.siteMap}
-                </Link>
-              </div>
-            </div>
+            <p className="text-xs md:text-sm text-center">{copy.copyright}</p>
             <div className="flex items-center gap-4">
               <span
                 className="flex items-center gap-2"
