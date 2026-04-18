@@ -6,24 +6,32 @@ import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { X } from 'lucide-react';
 
-const MODAL_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  { name: 'size', label: 'Size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
-  { name: 'showClose', label: 'Show Close', type: 'boolean', defaultValue: true },
-];
-
 function ModalPlayground() {
+  const [size, setSize] = React.useState('md');
+  const [showClose, setShowClose] = React.useState(true);
+
+  const sizeClasses: Record<string, string> = { sm: 'max-w-sm', md: 'max-w-md', lg: 'max-w-lg' };
+
   return (
-    <ComponentPlayground
-      name="Modal"
-      controls={MODAL_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
-          <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-lg"><div className="flex items-center justify-between p-4 border-b border-border"><h3 className="font-semibold text-foreground text-sm">{v.size === "lg" ? "Document Preview" : "Confirm Action"}</h3>{showClose && <span className="text-muted-foreground cursor-pointer">✕</span>}</div><div className="p-4"><p className="text-sm text-muted-foreground">Modal content goes here.</p></div><div className="flex justify-end gap-2 p-4 border-t border-border"><button className="px-3 py-1.5 text-xs border border-border rounded">Cancel</button><button className="px-3 py-1.5 text-xs bg-[#005196] text-white rounded">Confirm</button></div></div>
+          <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-lg"><div className="flex items-center justify-between p-4 border-b border-border"><h3 className="font-semibold text-foreground text-sm">{size === "lg" ? "Document Preview" : "Confirm Action"}</h3>{showClose && <span className="text-muted-foreground cursor-pointer">✕</span>}</div><div className="p-4"><p className="text-sm text-muted-foreground">Modal content goes here.</p></div><div className="flex justify-end gap-2 p-4 border-t border-border"><button className="px-3 py-1.5 text-xs border border-border rounded">Cancel</button><button className="px-3 py-1.5 text-xs bg-[#005196] text-white rounded">Confirm</button></div></div>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Modal size="${v.size}"${v.v.showClose ? '' : ' hideClose'} title="Confirm">...</Modal>`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Size</label>
+          <select value={size} onChange={e => setSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+            {['sm', 'md', 'lg'].map(s => <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
+        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showClose} onChange={e => setShowClose(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show close button</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">{`<Modal size="${size}"${showClose ? '' : ' hideClose'} title="Confirm">...</Modal>`}</p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -289,7 +297,6 @@ export class ModalComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from './modal.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [ModalComponent],
@@ -435,9 +442,11 @@ export class ModalModule { }`,
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Modal configurations in real time.</p>
             <ModalPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

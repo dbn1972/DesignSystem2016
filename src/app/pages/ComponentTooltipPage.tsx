@@ -53,24 +53,37 @@ const TooltipPreview = ({ content, placement = 'top', arrow = false, delay = 0, 
   );
 };
 
-const TOOLTIP_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  { name: 'position', label: 'Position', type: 'select', defaultValue: 'top', options: ['top', 'bottom', 'left', 'right'] },
-  { name: 'arrow', label: 'Arrow', type: 'boolean', defaultValue: true },
-];
-
 function TooltipPlayground() {
+  const [position, setPosition] = React.useState('top');
+  const [delay, setDelay] = React.useState('0');
+  const [arrow, setArrow] = React.useState(true);
+
   return (
-    <ComponentPlayground
-      name="Tooltip"
-      controls={TOOLTIP_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
-          <TooltipPreview content="Delete this item" placement={v.position} arrow={v.arrow}><button className="p-2 border border-border rounded text-sm">🗑 Delete</button></TooltipPreview>
+          <TooltipPreview content="Delete this item" placement={position} arrow={arrow}><button className="p-2 border border-border rounded text-sm">🗑 Delete</button></TooltipPreview>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Tooltip ${v.position} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Position</label>
+            <select value={position} onChange={e => setPosition(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="top">top</option>
+              <option value="bottom">bottom</option>
+              <option value="left">left</option>
+              <option value="right">right</option>
+            </select>
+          </div>
+          <div><label className="block font-semibold text-foreground mb-1">Delay (ms)</label><select value={delay} onChange={e => setDelay(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="0">0</option><option value="200">200</option><option value="500">500</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={arrow} onChange={e => setArrow(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show arrow</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Tooltip ${position} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -616,7 +629,6 @@ export class TooltipComponent implements OnInit, OnDestroy {
 import { CommonModule } from '@angular/common';
 import { TooltipComponent } from './tooltip.component';
 import { TooltipDirective } from './tooltip.directive';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [TooltipComponent, TooltipDirective],
@@ -792,9 +804,11 @@ export interface TooltipConfig {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Tooltip configurations in real time.</p>
             <TooltipPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

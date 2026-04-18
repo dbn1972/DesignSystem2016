@@ -68,25 +68,36 @@ const AvatarPreview = ({ src, alt, name, size, shape, status, fallback, ...props
   );
 };
 
-const AVATAR_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  { name: 'size', label: 'Size', type: 'select', defaultValue: 'sm', options: ['sm', 'md', 'lg'] },
-  { name: 'shape', label: 'Shape', type: 'select', defaultValue: 'circle', options: ['circle', 'square'] },
-  { name: 'showStatus', label: 'Show Status', type: 'boolean', defaultValue: false },
-];
-
 function AvatarPlayground() {
+  const [size, setSize] = React.useState('sm');
+  const [shape, setShape] = React.useState('circle');
+  const [showStatus, setShowStatus] = React.useState(false);
+
   return (
-    <ComponentPlayground
-      name="Avatar"
-      controls={AVATAR_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
-          <div className="flex gap-4"><AvatarPreview name="Rajesh Kumar" size={v.size} /><AvatarPreview name="Suresh M" size={v.size} /><AvatarPreview size={v.size} /></div>
+          <div className="flex gap-4"><AvatarPreview name="Rajesh Kumar" size={size} /><AvatarPreview name="Suresh M" size={size} /><AvatarPreview size={size} /></div>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Avatar ${v.size} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Size</label>
+            <select value={size} onChange={e => setSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="sm">sm</option>
+              <option value="md">md</option>
+              <option value="lg">lg</option>
+            </select>
+          </div>
+          <div><label className="block font-semibold text-foreground mb-1">Shape</label><select value={shape} onChange={e => setShape(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="circle">Circle</option><option value="square">Square</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showStatus} onChange={e => setShowStatus(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show status dot</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Avatar ${size} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -593,7 +604,6 @@ export class AvatarComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AvatarComponent } from './avatar.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [AvatarComponent],
@@ -761,9 +771,11 @@ export type AvatarStatus = 'online' | 'offline' | 'away' | 'busy';`,
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Avatar configurations in real time.</p>
             <AvatarPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
