@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Star, ThumbsUp, ThumbsDown, Smile, Meh, Frown } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Feedback Rating Widget component for live preview
 const FeedbackRatingWidgetPreview = ({ type, maxRating = 5, value, onChange, size = 'md', showLabels = false, ...props }: any) => {
@@ -961,7 +962,6 @@ export class FeedbackRatingWidgetComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FeedbackRatingWidgetComponent } from './feedback-rating-widget.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [FeedbackRatingWidgetComponent],

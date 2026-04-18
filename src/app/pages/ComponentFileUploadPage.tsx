@@ -5,6 +5,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Upload, File, X, Check } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const FileUploadPreview = () => {
   const [files, setFiles] = React.useState<Array<{ name: string; size: number }>>([]);
@@ -679,7 +680,6 @@ export class FileUploadComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileUploadComponent } from './file-upload.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [FileUploadComponent],

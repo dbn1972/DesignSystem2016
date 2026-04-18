@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Menu, ChevronDown, Printer } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Show/Hide component for live preview
 const ShowHidePreview = ({ above, below, breakpoint, children, className, ssr, ...props }: any) => {
@@ -531,7 +532,6 @@ export class ShowHideComponent implements OnInit {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShowHideComponent } from './show-hide.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [ShowHideComponent],

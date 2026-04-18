@@ -5,6 +5,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const DatePickerPreview = () => {
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
@@ -736,7 +737,6 @@ export class DatePickerComponent implements OnInit {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DatePickerComponent } from './datepicker.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [DatePickerComponent],

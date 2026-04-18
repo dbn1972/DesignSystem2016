@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Pagination component for live preview
 const PaginationPreview = ({ totalPages, showFirstLast, showTotal, pageSize }: any) => {
@@ -75,37 +76,26 @@ const PaginationPreview = ({ totalPages, showFirstLast, showTotal, pageSize }: a
   );
 };
 
-function PaginationPlayground() {
-  const [pageSize, setPageSize] = React.useState('5');
-  const [showFirstLast, setShowFirstLast] = React.useState(true);
-  const [showTotal, setShowTotal] = React.useState(true);
+const PAGINATION_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'pageSize', label: 'Page Size', type: 'text', defaultValue: '5' },
+  { name: 'showFirstLast', label: 'Show First Last', type: 'boolean', defaultValue: true },
+  { name: 'showTotal', label: 'Show Total', type: 'boolean', defaultValue: true },
+];
 
+function PaginationPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="Pagination"
+      controls={PAGINATION_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <PaginationPreview totalPages={Math.ceil(50 / Number(pageSize))} showFirstLast={showFirstLast} showTotal={showTotal} pageSize={Number(pageSize)} />
+          <PaginationPreview totalPages={Math.ceil(50 / Number(pageSize))} showFirstLast={v.showFirstLast} showTotal={v.showTotal} pageSize={Number(pageSize)} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Page Size</label>
-            <select value={pageSize} onChange={e => setPageSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="50">50</option>
-            </select>
-          </div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showFirstLast} onChange={e => setShowFirstLast(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show first/last</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showTotal} onChange={e => setShowTotal(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show total count</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Pagination ${pageSize} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<Pagination ${v.pageSize} />`
+      }
+    />
   );
 }
 
@@ -281,11 +271,9 @@ function Example() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Pagination configurations in real time.</p>
+          <div className="mb-8">
             <PaginationPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

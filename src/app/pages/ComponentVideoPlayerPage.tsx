@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Play, Pause, Volume2, Settings, Download, Subtitles } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual VideoPlayer component for live preview
 const VideoPlayerPreview = ({ poster, controls = true, className, ...props }: any) => (
@@ -28,27 +29,25 @@ const VideoPlayerPreview = ({ poster, controls = true, className, ...props }: an
   </div>
 );
 
-function VideoPlayerPlayground() {
-  const [showCaptions, setShowCaptions] = React.useState(false);
-  const [autoPlay, setAutoPlay] = React.useState(false);
+const VIDEOPLAYER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'showCaptions', label: 'Show Captions', type: 'boolean', defaultValue: false },
+  { name: 'autoPlay', label: 'Auto Play', type: 'boolean', defaultValue: false },
+];
 
+function VideoPlayerPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="VideoPlayer"
+      controls={VIDEOPLAYER_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <VideoPlayerPreview controls={showCaptions} />
+          <VideoPlayerPreview controls={v.showCaptions} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showCaptions} onChange={e => setShowCaptions(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Captions</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={autoPlay} onChange={e => setAutoPlay(e.target.checked)} className="accent-primary" /><span className="text-foreground">Auto Play</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<VideoPlayer${showCaptions ? ' showCaptions' : ''}${autoPlay ? ' autoPlay' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<VideoPlayer${v.showCaptions ? ' showCaptions' : ''}${v.autoPlay ? ' autoPlay' : ''} />`
+      }
+    />
   );
 }
 

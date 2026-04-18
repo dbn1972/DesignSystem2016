@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const AadhaarInputPreview = () => {
   const [value, setValue] = React.useState('');
@@ -279,7 +280,6 @@ export class AadhaarInputComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AadhaarInputComponent } from './aadhaar-input.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [AadhaarInputComponent],

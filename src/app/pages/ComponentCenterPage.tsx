@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Loader2, AlertCircle, FileQuestion, CheckCircle } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Center component for live preview
 const CenterPreview = ({ inline = false, minHeight, children, as: Element = 'div', className = '', ...props }: any) => {
@@ -436,7 +437,6 @@ export class CenterComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CenterComponent } from './center.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [CenterComponent],

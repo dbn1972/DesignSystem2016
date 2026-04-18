@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { User, Settings, Bell } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Flex component for live preview
 const FlexPreview = ({ direction = 'row', justify = 'start', align = 'start', wrap = 'nowrap', gap, children, className, ...props }: any) => (
@@ -477,7 +478,6 @@ export class FlexComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexComponent } from './flex.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [FlexComponent],

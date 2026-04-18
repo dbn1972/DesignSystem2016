@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Section component for live preview
 const SectionPreview = ({ variant, spacing, background, containerized, children, id, ariaLabel, className, ...props }: any) => {
@@ -634,7 +635,6 @@ export class SectionComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SectionComponent } from './section.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [SectionComponent],

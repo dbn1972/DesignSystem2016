@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Github, Mail, FileText, ChevronDown } from "lucide-react";
+import { Github, Mail, FileText, ChevronDown, HelpCircle } from "lucide-react";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 
@@ -66,6 +66,7 @@ export default function Footer() {
       resources: "Resources",
       legalSupport: "Legal & Support",
       documentation: "Documentation",
+      faq: "FAQ",
       accessibility: "Accessibility",
       contributing: "Contributing",
       githubRepository: "GitHub Repository",
@@ -90,6 +91,7 @@ export default function Footer() {
       resources: "संसाधन",
       legalSupport: "कानूनी और सहायता",
       documentation: "दस्तावेज़ीकरण",
+      faq: "FAQ",
       accessibility: "सुगम्यता",
       contributing: "योगदान करें",
       githubRepository: "GitHub रिपॉज़िटरी",
@@ -147,6 +149,15 @@ export default function Footer() {
                 >
                   <FileText size={16} aria-hidden="true" />
                   <span>{copy.documentation}</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/resources/faq"
+                  className={`flex items-center gap-2 ${linkClass}`}
+                >
+                  <HelpCircle size={16} aria-hidden="true" />
+                  <span>{copy.faq}</span>
                 </Link>
               </li>
               <li>

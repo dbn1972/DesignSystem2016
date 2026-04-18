@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { MapPin, Search, Navigation, Map } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Map Location Picker component for live preview
 const MapLocationPickerPreview = ({
@@ -54,27 +55,25 @@ const MapLocationPickerPreview = ({
   </div>
 );
 
-function MapLocationPickerPlayground() {
-  const [editable, setEditable] = React.useState(false);
-  const [showSearch, setShowSearch] = React.useState(false);
+const MAPLOCATIONPICKER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'editable', label: 'Editable', type: 'boolean', defaultValue: false },
+  { name: 'showSearch', label: 'Show Search', type: 'boolean', defaultValue: false },
+];
 
+function MapLocationPickerPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="MapLocationPicker"
+      controls={MAPLOCATIONPICKER_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <MapLocationPickerPreview editable={editable} showSearch={showSearch} />
+          <MapLocationPickerPreview editable={v.editable} showSearch={v.showSearch} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={editable} onChange={e => setEditable(e.target.checked)} className="accent-primary" /><span className="text-foreground">Editable</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showSearch} onChange={e => setShowSearch(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Search</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<MapLocationPicker${editable ? ' editable' : ''}${showSearch ? ' showSearch' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<MapLocationPicker${v.editable ? ' editable' : ''}${v.showSearch ? ' showSearch' : ''} />`
+      }
+    />
   );
 }
 

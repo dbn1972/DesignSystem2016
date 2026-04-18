@@ -6,6 +6,7 @@
 import React, { useRef, useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Save, Trash2, Upload, Type, PenTool } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Digital Signature component for live preview
 const DigitalSignaturePreview = ({
@@ -908,7 +909,6 @@ export class DigitalSignatureComponent implements AfterViewInit {
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DigitalSignatureComponent } from './digital-signature.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [DigitalSignatureComponent],

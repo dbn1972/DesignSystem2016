@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Download, Printer, ZoomIn, ZoomOut, RotateCw, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Document Viewer component for live preview
 const DocumentViewerPreview = ({ fileType, zoom = 100, page = 1, showToolbar = true, ...props }: any) => (
@@ -714,7 +715,6 @@ import { CommonModule } from '@angular/common';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DocumentViewerComponent } from './document-viewer.component';
 import { DocumentToolbarComponent } from './document-toolbar.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [

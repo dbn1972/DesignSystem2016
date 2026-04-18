@@ -1,17 +1,28 @@
 /**
- * Logo Resources Page — redesigned to match the Icons page structure.
+ * Logo Resources Page — browse-first library with dedicated logo detail routes.
  */
 
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router';
 import {
-  Search, ExternalLink, Grid3X3, List, Shield, CheckCircle, XCircle,
-  Layers, Maximize2, Palette, Building2, Download, Copy,
+  Search, Grid3X3, List, Shield, CheckCircle, XCircle,
+  Layers, Maximize2, Palette, Building2, Download, Copy, ExternalLink,
 } from 'lucide-react';
 import { LOGO_REGISTRY, LOGO_CATEGORIES, type LogoEntry, type LogoCategory } from '../content/logo-data';
+import {
+  type DownloadFilter,
+  copyToClipboard,
+  getDownloadLabel,
+  getFormatBadges,
+  getMirrorStatus,
+  getPrimaryDownload,
+  getSecondaryDownloads,
+  getStatusClasses,
+  hasFormat,
+  isArchiveOnly,
+  isPartialMirror,
+} from './logoResourcesShared';
 
-type DownloadFilter = 'all' | 'with-downloads' | 'png' | 'svg' | 'archive-only';
-
-// ── Featured logos for the hero showcase ──
 const FEATURED_SLUGS = [
   'national-emblem', 'digital-india', 'aadhaar', 'swachh-bharat',
   'my-gov', 'startup-india', 'bhim', 'digilocker', 'skill-india', 'khelo-india',
@@ -40,73 +51,6 @@ const DONTS = [
   'Use outdated or unofficial versions of any logo.',
 ];
 
-const PREFERRED_DOWNLOAD_FORMATS = ['png', 'svg', 'pdf', 'jpg', 'jpeg', 'eps', 'gif', 'zip'] as const;
-
-function getPrimaryDownload(logo: LogoEntry) {
-  if (!logo.downloads?.length) {
-    return undefined;
-  }
-
-  return (
-    PREFERRED_DOWNLOAD_FORMATS.flatMap((format) =>
-      logo.downloads?.find((asset) => asset.format === format) ?? [],
-    )[0] ?? logo.downloads[0]
-  );
-}
-
-function getSecondaryDownloads(logo: LogoEntry) {
-  const primary = getPrimaryDownload(logo);
-  if (!primary) {
-    return [];
-  }
-
-  return logo.downloads?.filter((asset) => asset.url !== primary.url).slice(0, 3) ?? [];
-}
-
-function getDownloadLabel(logo: LogoEntry) {
-  const primary = getPrimaryDownload(logo);
-  if (!primary) {
-    return undefined;
-  }
-
-  return `Download ${primary.label}`;
-}
-
-function hasFormat(logo: LogoEntry, format: string) {
-  return logo.downloads?.some((asset) => asset.format === format) ?? false;
-}
-
-function isArchiveOnly(logo: LogoEntry) {
-  if (!logo.downloads?.length) {
-    return false;
-  }
-
-  return !hasFormat(logo, 'png') && !hasFormat(logo, 'svg');
-}
-
-function getFormatBadges(logo: LogoEntry) {
-  const badges = [];
-
-  if (hasFormat(logo, 'png')) {
-    badges.push('PNG');
-  }
-  if (hasFormat(logo, 'svg')) {
-    badges.push('SVG');
-  }
-  if (isArchiveOnly(logo)) {
-    badges.push('Archive only');
-  }
-  if (!badges.length && logo.downloads?.length) {
-    badges.push('Direct download');
-  }
-
-  return badges.slice(0, 2);
-}
-
-async function copyToClipboard(value: string) {
-  await navigator.clipboard.writeText(value);
-}
-
 export default function LogoResources() {
   const [query, setQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<LogoCategory | 'all'>('all');
@@ -132,6 +76,8 @@ export default function LogoResources() {
       results = results.filter((l) => hasFormat(l, 'svg'));
     } else if (downloadFilter === 'archive-only') {
       results = results.filter((l) => isArchiveOnly(l));
+    } else if (downloadFilter === 'partial-mirror') {
+      results = results.filter((l) => isPartialMirror(l));
     }
     return results;
   }, [downloadFilter, query, selectedCategory]);
@@ -149,18 +95,43 @@ export default function LogoResources() {
       png: LOGO_REGISTRY.filter((logo) => hasFormat(logo, 'png')).length,
       svg: LOGO_REGISTRY.filter((logo) => hasFormat(logo, 'svg')).length,
       'archive-only': LOGO_REGISTRY.filter((logo) => isArchiveOnly(logo)).length,
+      'partial-mirror': LOGO_REGISTRY.filter((logo) => isPartialMirror(logo)).length,
     }),
     [],
   );
 
-  const featured = useMemo(() => FEATURED_SLUGS.map((id) => LOGO_REGISTRY.find((l) => l.id === id)).filter(Boolean) as LogoEntry[], []);
+  const featured = useMemo(
+    () => FEATURED_SLUGS.map((id) => LOGO_REGISTRY.find((l) => l.id === id)).filter(Boolean) as LogoEntry[],
+    [],
+  );
+  const summaryStats = useMemo(
+    () => [
+      {
+        label: 'Mirrored locally',
+        value: LOGO_REGISTRY.filter((logo) => getMirrorStatus(logo).label === 'Mirrored locally').length,
+        note: 'Ready to download directly from this repo',
+      },
+      {
+        label: 'SVG ready',
+        value: downloadCounts.svg,
+        note: 'Best suited for product UI and responsive usage',
+      },
+      {
+        label: 'PNG ready',
+        value: downloadCounts.png,
+        note: 'Useful for docs, decks, and operational teams',
+      },
+      {
+        label: 'Needs cleanup',
+        value: downloadCounts['partial-mirror'],
+        note: 'Partial local mirrors that still need follow-up',
+      },
+    ],
+    [downloadCounts],
+  );
 
   return (
     <div className="min-h-screen bg-background">
-
-      {/* ═══════════════════════════════════════════════════════════
-          HERO — Split layout matching Icons page
-          ═══════════════════════════════════════════════════════════ */}
       <section className="border-b border-border bg-card relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(0,81,150,0.12),_transparent_42%)] dark:bg-[radial-gradient(circle_at_top_left,_rgba(0,81,150,0.25),_transparent_42%)]" />
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 relative">
@@ -188,15 +159,12 @@ export default function LogoResources() {
               </div>
             </div>
 
-            {/* Featured logos showcase */}
             <div className="grid gap-4 rounded-[28px] border border-border bg-card/80 p-5 shadow-[0_24px_80px_-48px_rgba(15,23,42,0.45)] backdrop-blur">
               <div className="grid grid-cols-3 gap-3">
                 {featured.slice(0, 9).map((logo) => (
-                  <a
+                  <Link
                     key={logo.id}
-                    href={logo.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    to={`/resources/logos/${logo.id}`}
                     className="rounded-2xl border border-border bg-background p-4 hover:border-primary/30 hover:shadow-sm transition-all"
                   >
                     <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-muted/40 overflow-hidden">
@@ -207,7 +175,7 @@ export default function LogoResources() {
                       )}
                     </div>
                     <div className="text-xs font-medium text-foreground line-clamp-1">{logo.name}</div>
-                  </a>
+                  </Link>
                 ))}
               </div>
               <div className="rounded-2xl border border-primary/15 bg-primary/5 p-4 text-sm text-foreground">
@@ -225,9 +193,18 @@ export default function LogoResources() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          USAGE GUIDANCE — 3 cards
-          ═══════════════════════════════════════════════════════════ */}
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {summaryStats.map((stat) => (
+            <div key={stat.label} className="rounded-3xl border border-border bg-card px-5 py-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">{stat.label}</p>
+              <p className="mt-3 text-3xl font-semibold tracking-tight text-foreground">{stat.value}</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{stat.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-3">
           <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
@@ -266,9 +243,6 @@ export default function LogoResources() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          DO / DON'T
-          ═══════════════════════════════════════════════════════════ */}
       <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-14 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div className="rounded-3xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 p-6">
           <h2 className="mb-4 text-lg font-semibold text-emerald-950 dark:text-emerald-200">Do</h2>
@@ -294,9 +268,6 @@ export default function LogoResources() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════
-          CORE LOGO LIBRARY — Search + Filter + Grid
-          ═══════════════════════════════════════════════════════════ */}
       <section className="border-y border-border bg-muted/50">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <div className="mb-8 flex items-end justify-between gap-4">
@@ -304,12 +275,11 @@ export default function LogoResources() {
               <h2 className="text-2xl font-semibold text-foreground">Core logo library</h2>
               <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
                 {LOGO_REGISTRY.length} official government logos across {LOGO_CATEGORIES.length} categories.
-                Each card includes direct official download links and the original UX4G source page.
+                Open any logo for a full asset detail page with downloads, preview surfaces, and implementation guidance.
               </p>
             </div>
           </div>
 
-          {/* Search + View Toggle */}
           <div className="mb-8 grid gap-4 rounded-3xl border border-border bg-card p-5 shadow-sm lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <label className="relative block">
               <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
@@ -345,6 +315,7 @@ export default function LogoResources() {
                   ['png', 'PNG'],
                   ['svg', 'SVG'],
                   ['archive-only', 'Archive only'],
+                  ['partial-mirror', 'Partial mirror'],
                 ] as const
               ).map(([key, label]) => (
                 <button
@@ -369,11 +340,10 @@ export default function LogoResources() {
               </div>
             </div>
             <div className="text-xs text-muted-foreground lg:col-span-2">
-              Showing {filtered.length} logos{query ? ` for "${query}"` : ''}{selectedCategory !== 'all' ? ` in ${LOGO_CATEGORIES.find((c) => c.key === selectedCategory)?.label}` : ''}{downloadFilter !== 'all' ? ` with ${downloadFilter === 'with-downloads' ? 'direct download assets' : downloadFilter === 'archive-only' ? 'archive-only assets' : `${downloadFilter.toUpperCase()} files`}` : ''}.
+              Showing {filtered.length} logos{query ? ` for "${query}"` : ''}{selectedCategory !== 'all' ? ` in ${LOGO_CATEGORIES.find((c) => c.key === selectedCategory)?.label}` : ''}{downloadFilter !== 'all' ? ` with ${downloadFilter === 'with-downloads' ? 'direct download assets' : downloadFilter === 'archive-only' ? 'archive-only assets' : downloadFilter === 'partial-mirror' ? 'partial local mirrors' : `${downloadFilter.toUpperCase()} files`}` : ''}.
             </div>
           </div>
 
-          {/* Results */}
           {filtered.length === 0 ? (
             <div className="text-center py-16">
               <Search size={48} className="mx-auto text-muted-foreground/30 mb-4" />
@@ -392,7 +362,6 @@ export default function LogoResources() {
         </div>
       </section>
 
-      {/* Source attribution */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
         <p className="text-xs text-muted-foreground">
           Logo assets sourced from{' '}
@@ -406,7 +375,6 @@ export default function LogoResources() {
   );
 }
 
-// ── Logo Card (Grid View) ──
 function LogoCard({ logo }: { logo: LogoEntry }) {
   const [copied, setCopied] = useState(false);
   const catLabel = LOGO_CATEGORIES.find((c) => c.key === logo.category)?.label ?? logo.category;
@@ -414,6 +382,7 @@ function LogoCard({ logo }: { logo: LogoEntry }) {
   const secondaryDownloads = getSecondaryDownloads(logo);
   const hasThumb = Boolean(logo.thumbnailUrl);
   const formatBadges = getFormatBadges(logo);
+  const mirrorStatus = getMirrorStatus(logo);
   return (
     <article className="group rounded-2xl border border-border bg-card px-4 py-5 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/5">
       <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-muted/40 overflow-hidden">
@@ -427,6 +396,9 @@ function LogoCard({ logo }: { logo: LogoEntry }) {
       <p className="mt-1 text-xs text-muted-foreground">{catLabel}</p>
       {formatBadges.length ? (
         <div className="mt-3 flex flex-wrap gap-2">
+          <span className={`rounded-full border px-2.5 py-1 text-[0.65rem] font-semibold ${getStatusClasses(mirrorStatus.tone)}`}>
+            {mirrorStatus.label}
+          </span>
           {formatBadges.map((badge) => (
             <span key={badge} className="rounded-full border border-primary/15 bg-primary/5 px-2.5 py-1 text-[0.65rem] font-semibold text-primary">
               {badge}
@@ -472,6 +444,13 @@ function LogoCard({ logo }: { logo: LogoEntry }) {
           <ExternalLink size={12} />
           Official page
         </a>
+        <Link
+          to={`/resources/logos/${logo.id}`}
+          className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-2 text-[0.7rem] font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+          aria-label={`${logo.name} — view logo details`}
+        >
+          Details
+        </Link>
       </div>
       {secondaryDownloads.length ? (
         <div className="mt-3 flex flex-wrap gap-2">
@@ -493,7 +472,6 @@ function LogoCard({ logo }: { logo: LogoEntry }) {
   );
 }
 
-// ── Logo Row (List View) ──
 function LogoRow({ logo }: { logo: LogoEntry }) {
   const [copied, setCopied] = useState(false);
   const catLabel = LOGO_CATEGORIES.find((c) => c.key === logo.category)?.label ?? logo.category;
@@ -501,6 +479,7 @@ function LogoRow({ logo }: { logo: LogoEntry }) {
   const secondaryDownloads = getSecondaryDownloads(logo);
   const hasThumb = Boolean(logo.thumbnailUrl);
   const formatBadges = getFormatBadges(logo);
+  const mirrorStatus = getMirrorStatus(logo);
   return (
     <article className="group flex items-center gap-4 rounded-xl border border-border bg-card p-3 transition-colors hover:border-primary/30 hover:bg-primary/5">
       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted/40 overflow-hidden flex-shrink-0">
@@ -514,6 +493,9 @@ function LogoRow({ logo }: { logo: LogoEntry }) {
         <p className="text-sm font-medium text-foreground truncate group-hover:text-primary">{logo.name}</p>
         <div className="flex items-center gap-2 mt-0.5">
           <span className="text-[0.625rem] text-muted-foreground bg-muted px-2 py-0.5 rounded-full">{catLabel}</span>
+          <span className={`text-[0.625rem] font-semibold px-2 py-0.5 rounded-full border ${getStatusClasses(mirrorStatus.tone)}`}>
+            {mirrorStatus.label}
+          </span>
           {formatBadges.map((badge) => (
             <span key={badge} className="text-[0.625rem] font-semibold text-primary bg-primary/5 px-2 py-0.5 rounded-full border border-primary/15">
               {badge}
@@ -522,8 +504,8 @@ function LogoRow({ logo }: { logo: LogoEntry }) {
           {logo.tags.slice(0, 3).map((t) => (
             <span key={t} className="text-[0.625rem] text-muted-foreground">{t}</span>
           ))}
-          </div>
         </div>
+      </div>
       <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
         {primaryDownload ? (
           <>
@@ -574,6 +556,13 @@ function LogoRow({ logo }: { logo: LogoEntry }) {
           <ExternalLink size={12} />
           Official page
         </a>
+        <Link
+          to={`/resources/logos/${logo.id}`}
+          className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-2 text-[0.7rem] font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+          aria-label={`${logo.name} — view logo details`}
+        >
+          Details
+        </Link>
       </div>
     </article>
   );

@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Calendar, Clock, MapPin, Users, AlertCircle } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Calendar Scheduler component for live preview
 const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:00', maxTime = '18:00', ...props }: any) => {
@@ -117,36 +118,26 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
   );
 };
 
-function CalendarSchedulerPlayground() {
-  const [view, setView] = React.useState('month');
-  const [showWeekends, setShowWeekends] = React.useState(true);
-  const [timeSlots, setTimeSlots] = React.useState('30');
+const CALENDARSCHEDULER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'view', label: 'View', type: 'text', defaultValue: 'month' },
+  { name: 'showWeekends', label: 'Show Weekends', type: 'boolean', defaultValue: true },
+  { name: 'timeSlots', label: 'Time Slots', type: 'text', defaultValue: '30' },
+];
 
+function CalendarSchedulerPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="CalendarScheduler"
+      controls={CALENDARSCHEDULER_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <CalendarSchedulerPreview view={view} />
+          <CalendarSchedulerPreview view={v.view} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">View</label>
-            <select value={view} onChange={e => setView(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="month">month</option>
-              <option value="week">week</option>
-              <option value="day">day</option>
-            </select>
-          </div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showWeekends} onChange={e => setShowWeekends(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show weekends</span></label>
-          <div><label className="block font-semibold text-foreground mb-1">Time slot (min)</label><select value={timeSlots} onChange={e => setTimeSlots(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="15">15</option><option value="30">30</option><option value="60">60</option></select></div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<CalendarScheduler ${view} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<CalendarScheduler ${v.view} />`
+      }
+    />
   );
 }
 

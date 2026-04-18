@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual AspectRatio component for live preview
 const AspectRatioPreview = ({ ratio, children, maxWidth, className, ...props }: any) => {
@@ -433,7 +434,6 @@ export class AspectRatioComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AspectRatioComponent } from './aspect-ratio.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [AspectRatioComponent],

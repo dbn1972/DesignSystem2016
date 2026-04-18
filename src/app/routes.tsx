@@ -21,6 +21,8 @@ const AngularDocDetail = lazy(() => import("./pages/AngularDocDetail"));
 const WebComponentsDocsPage = lazy(() => import("./pages/WebComponentsDocsPage"));
 const WebComponentsDocDetail = lazy(() => import("./pages/WebComponentsDocDetail"));
 const LogoResources = lazy(() => import("./pages/LogoResources"));
+const LogoResourceDetail = lazy(() => import("./pages/LogoResourceDetail"));
+const FAQ = lazy(() => import("./pages/FAQ"));
 
 import { componentsRoutes } from "./routes/domains/componentsRoutes";
 import { foundationsRoutes } from "./routes/domains/foundationsRoutes";
@@ -60,7 +62,9 @@ export const router = createBrowserRouter([
       { path: "resources/component-specs", Component: ComponentCodeMapping },
       { path: "resources/service-code-downloads", Component: ServiceCodeDownloads },
       { path: "resources/figma", Component: FigmaDesignSystem },
+      { path: "resources/faq", Component: FAQ },
       { path: "resources/logos", Component: LogoResources },
+      { path: "resources/logos/:id", Component: LogoResourceDetail },
       { path: "resources/migration-guides", Component: MigrationGuides },
       { path: "resources/migration-material-ui", Component: MigrationMaterialUI },
       { path: "api-reference", Component: ApiReference },
@@ -223,8 +227,8 @@ export const router = createBrowserRouter([
       { path: "angular-patterns", element: <Navigate to="/resources/angular-patterns" replace /> },
       { path: "web-components-docs", element: <Navigate to="/resources/web-components" replace /> },
       { path: "contact-support-overview", element: <Navigate to="/patterns/contact-support/overview" replace /> },
-      { path: "faq", element: <Navigate to="/patterns/contact-support/overview" replace /> },
-      { path: "faqs", element: <Navigate to="/patterns/contact-support/overview" replace /> },
+      { path: "faq", element: <Navigate to="/resources/faq" replace /> },
+      { path: "faqs", element: <Navigate to="/resources/faq" replace /> },
       { path: "help", element: <Navigate to="/patterns/contact-support/overview" replace /> },
       { path: "support", element: <Navigate to="/patterns/contact-support/overview" replace /> },
       { path: "about", element: <Navigate to="/documentation" replace /> },

@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Settings, User, LogOut, FileText, Copy, Trash2, ChevronRight, ChevronDown, Menu, X } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Menu component for live preview
 const MenuPreview = ({ variant, items, trigger, placement, offset, ...props }: any) => {
@@ -720,7 +721,6 @@ export class MenuComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [MenuComponent],

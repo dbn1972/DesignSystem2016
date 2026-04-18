@@ -5,6 +5,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Check } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const LIST_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
   { name: 'variant', label: 'Variant', type: 'text', defaultValue: 'default' },
@@ -202,7 +203,6 @@ export class ListComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [ListComponent],

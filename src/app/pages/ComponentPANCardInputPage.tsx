@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { CheckCircle, XCircle, Shield } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual PAN Card Input component for live preview
 const PANCardInputPreview = ({
@@ -951,7 +952,6 @@ export class PANCardInputComponent implements OnInit {
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PANCardInputComponent } from './pan-card-input.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [PANCardInputComponent],

@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { QrCode, Scan, FileText, CreditCard, Award, MapPin } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual QR Code component for live preview
 const QRCodePreview = ({ value, size = 200, level = 'M', color = '#000000', logo, ...props }: any) => {
@@ -713,7 +714,6 @@ export class QRCodeComponent implements OnInit {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QRCodeComponent } from './qrcode.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [QRCodeComponent],

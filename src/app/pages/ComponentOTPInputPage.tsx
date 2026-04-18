@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const OTPInputPreview = () => {
   const [otp, setOtp] = React.useState(['', '', '', '', '', '']);
@@ -501,7 +502,6 @@ export class OTPInputComponent implements AfterViewInit {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OTPInputComponent } from './otp-input.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [OTPInputComponent],

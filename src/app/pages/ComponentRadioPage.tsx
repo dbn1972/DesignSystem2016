@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const RadioPreview = ({ name, options, disabled = false }: any) => {
   const [selected, setSelected] = React.useState(options[0]?.value || '');
@@ -573,7 +574,6 @@ export class RadioComponent {
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RadioComponent, RadioGroupComponent } from './radio.component';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [RadioComponent, RadioGroupComponent],
