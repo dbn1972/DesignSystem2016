@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { Check, AlertCircle, Info, Download, Code, Package, Terminal, FileText, Users, Zap, GitBranch, HelpCircle, ExternalLink, ChevronRight, Copy, CheckCircle, Layers, Shield } from "lucide-react";
 
 const PAGE_TOC = [
@@ -17,70 +18,108 @@ const PAGE_TOC = [
   { id: 'support', label: 'Support & Escalation' },
 ];
 
+/** Sticky TOC with active section highlighting via IntersectionObserver */
+function StickyTOC() {
+  const [activeId, setActiveId] = useState('');
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    observerRef.current?.disconnect();
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) { setActiveId(entry.target.id); break; }
+        }
+      },
+      { rootMargin: '-80px 0px -65% 0px', threshold: 0 },
+    );
+    PAGE_TOC.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observerRef.current!.observe(el);
+    });
+    return () => observerRef.current?.disconnect();
+  }, []);
+
+  return (
+    <nav className="hidden lg:block sticky top-24 self-start" aria-label="Table of contents">
+      <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-muted-foreground mb-4">On this page</p>
+      <ul className="space-y-0.5">
+        {PAGE_TOC.map((s) => (
+          <li key={s.id}>
+            <a
+              href={`#${s.id}`}
+              className={`block py-1.5 pl-3 border-l-2 text-[13px] transition-colors ${
+                activeId === s.id
+                  ? 'border-primary text-primary font-medium'
+                  : 'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
+              }`}
+            >
+              {s.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 export default function InstallationGuide() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Hero Section */}
+      {/* ── Hero ── */}
       <div className="border-b border-border bg-gradient-to-b from-muted/40 via-background to-background">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-8 pb-12">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.8fr)] items-start">
-            <div className="pt-1">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-full text-sm text-muted-foreground shadow-sm mb-5">
-                <Package size={16} />
-                <span>Implementation Guide</span>
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 pt-8 pb-12">
+          <div className="grid gap-8 lg:grid-cols-[1fr_380px] items-start">
+            <div className="pt-1 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/5 border border-primary/20 rounded-full text-xs font-semibold text-primary mb-5">
+                <Package size={14} />
+                Implementation Guide
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl">
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
                 Getting started with UX4G
               </h1>
               
-              <p className="mt-5 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-                A premium onboarding guide for teams adopting UX4G in production. Choose the right framework path,
-                install the design system cleanly, and move from first setup to a stable government-ready release.
+              <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                Choose your framework, install the design system, and ship a government-ready service. This guide takes you from zero to production.
               </p>
 
-              <div className="mt-7 flex flex-wrap gap-3">
-                <a href="#before-you-start" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted/60">
-                  Before you start
-                </a>
-                <a href="#quick-start" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted/60">
-                  Quick start
-                </a>
-                <a href="#install" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted/60">
-                  Install options
-                </a>
-                <a href="#support" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted/60">
-                  Support
-                </a>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {[
+                  { href: '#install', label: 'Install' },
+                  { href: '#react', label: 'React' },
+                  { href: '#angular', label: 'Angular' },
+                  { href: '#checklist', label: 'Checklist' },
+                  { href: '#support', label: 'Support' },
+                ].map((pill) => (
+                  <a key={pill.href} href={pill.href} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1.5 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted/60 hover:border-primary/30">
+                    {pill.label}
+                  </a>
+                ))}
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">Quick path</p>
-                  <h2 className="mt-2 text-2xl font-semibold text-foreground">What this guide covers</h2>
-                </div>
-                <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                  5 min start
-                </span>
+            {/* Quick summary card */}
+            <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">Quick path</p>
+                <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-bold text-primary">5 min</span>
               </div>
 
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2.5">
                 <HeroStat label="Frameworks" value="React, Angular, Web" />
                 <HeroStat label="Best path" value="NPM install" />
                 <HeroStat label="Use cases" value="New builds, migration" />
                 <HeroStat label="Support" value="Checklist + escalation" />
               </div>
 
-              <div className="mt-6 space-y-3 rounded-2xl border border-border bg-muted/30 p-4">
-                <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                  <Shield size={16} className="text-primary" />
-                  Production-first guidance
+              <div className="mt-4 rounded-xl border border-border bg-muted/30 p-3.5">
+                <div className="flex items-center gap-2 text-sm font-semibold text-foreground mb-1">
+                  <Shield size={14} className="text-primary" />
+                  Production-first
                 </div>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  The recommended path is package installation with tokens and component docs wired in early.
-                  CDN usage is only for prototypes and should stay out of production services.
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  Install via NPM with tokens and component docs wired in early. CDN is for prototypes only.
                 </p>
               </div>
             </div>
@@ -88,24 +127,10 @@ export default function InstallationGuide() {
         </div>
       </div>
 
-      {/* Main Content with TOC */}
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-14 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
-        {/* Sticky TOC — left sidebar */}
-        <nav className="hidden lg:block sticky top-24 self-start" aria-label="Table of contents">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground mb-3">On this page</p>
-          <ul className="space-y-1">
-            {PAGE_TOC.map((s) => (
-              <li key={s.id}>
-                <a href={`#${s.id}`} className="block rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted transition-colors">
-                  {s.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Content */}
-        <div className="space-y-20">
+      {/* ── Body: TOC + Content ── */}
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:grid lg:grid-cols-[200px_1fr] lg:gap-12">
+        <StickyTOC />
+        <div className="space-y-16 max-w-4xl">
         <BeforeYouStartSection />
         <GettingStartedSection />
         <WhoThisIsForSection />
