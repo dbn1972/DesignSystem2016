@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const BadgePreview = ({ variant, children }: any) => {
   const variants = {
@@ -21,31 +22,35 @@ const BadgePreview = ({ variant, children }: any) => {
   );
 };
 
-function BadgePlayground() {
-  const [variant, setVariant] = React.useState('primary');
-  const [label, setLabel] = React.useState('Under Review');
+const BADGE_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'variant',
+    label: 'Variant',
+    type: 'select',
+    defaultValue: 'primary',
+    options: ['primary', 'success', 'warning', 'error', 'neutral'],
+  },
+  {
+    name: 'label',
+    label: 'Label',
+    type: 'text',
+    defaultValue: 'Under Review',
+  },
+];
 
+function BadgePlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[120px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <BadgePreview variant={variant}>{label}</BadgePreview>
-      </div>
-      <div className="space-y-4 text-sm">
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Variant</label>
-          <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-            {['primary', 'success', 'warning', 'error', 'neutral'].map(v => <option key={v} value={v}>{v}</option>)}
-          </select>
-        </div>
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Label</label>
-          <input value={label} onChange={e => setLabel(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">{`<Badge variant="${variant}">${label}</Badge>`}</p>
-        </div>
-      </div>
-    </div>
+    <ComponentPlayground
+      name="Badge"
+      controls={BADGE_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <BadgePreview variant={v.variant}>{v.label}</BadgePreview>
+      )}
+      codeTemplate={(v) =>
+        `<Badge variant="${v.variant}">${v.label}</Badge>`
+      }
+      previewMinHeight={120}
+    />
   );
 }
 
@@ -339,11 +344,9 @@ export type BadgeSize = 'sm' | 'md' | 'lg';`,
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Badge configurations in real time.</p>
+          <div className="mb-8">
             <BadgePlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
