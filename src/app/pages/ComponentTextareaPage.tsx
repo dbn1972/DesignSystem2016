@@ -208,8 +208,13 @@ function Example() {
       value={value}
       onChange={(e) => setValue(e.target.value)}
       rows={4}
+    />
+  );
+}`,
+        },
+      ]}
 
-      useCases={[
+            useCases={[
         { title: "Additional Remarks", description: "Free-text field for supplementary information.", scenario: "Additional details step in certificate application.", implementation: "<Textarea label=\"Additional Remarks\" rows={4} placeholder=\"Any additional information...\" />" },
         { title: "Appeal Reason", description: "Required text area for explaining appeal grounds.", scenario: "Citizen files appeal against rejected application.", implementation: "<Textarea label=\"Reason for Appeal\" required rows={6} />" },
         { title: "Officer Comments", description: "Review comments from processing officer.", scenario: "Officer review decision with mandatory comments.", implementation: "<Textarea label=\"Officer Comments\" required rows={5} />" },
@@ -217,7 +222,8 @@ function Example() {
         { title: 'RTI Application Details', description: 'Text area for detailed RTI information request.', scenario: 'Citizen describes specific information sought under RTI Act.', implementation: '<Textarea label="Information Sought" required rows={6} maxLength={2000} />' },
       ]}
 
-      additionalContent={
+
+            additionalContent={
         <>
           {/* When to use */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
@@ -371,109 +377,9 @@ function Example() {
             </div>
           </section>
         </>
+
       }
-    />
-  );
-}`,
-          preview: <TextareaPreview placeholder="Enter your comments..." rows={4} />,
-        },
-        {
-          title: 'With Character Count',
-          description: 'Textarea with maximum length and character counter.',
-          code: `import { Textarea } from '@ux4g/react-core';
 
-function Example() {
-  const [value, setValue] = React.useState('');
-  const maxLength = 500;
-  
-  return (
-    <div>
-      <Textarea
-        placeholder="Enter description (max 500 characters)"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        maxLength={maxLength}
-        rows={6}
-      />
-      <div className="mt-2 text-sm text-muted-foreground text-right">
-        {value.length} / {maxLength} characters
-      </div>
-    </div>
-  );
-}`,
-          preview: (
-            <div className="w-full max-w-md">
-              <TextareaPreview placeholder="Enter description (max 500 characters)" rows={6} maxLength={500} />
-              <div className="mt-2 text-sm text-muted-foreground text-right">0 / 500 characters</div>
-            </div>
-          ),
-        },
-        {
-          title: 'Different Sizes',
-          description: 'Textareas with different row heights.',
-          code: `import { Textarea } from '@ux4g/react-core';
-
-function Example() {
-  return (
-    <div className="space-y-4">
-      <Textarea placeholder="Small (3 rows)" rows={3} />
-      <Textarea placeholder="Medium (5 rows)" rows={5} />
-      <Textarea placeholder="Large (8 rows)" rows={8} />
-    </div>
-  );
-}`,
-          preview: (
-            <div className="space-y-4 w-full max-w-md">
-              <TextareaPreview placeholder="Small (3 rows)" rows={3} />
-              <TextareaPreview placeholder="Medium (5 rows)" rows={5} />
-            </div>
-          ),
-        },
-        {
-          title: 'Error State',
-          description: 'Textarea with validation error.',
-          code: `import { Textarea } from '@ux4g/react-core';
-
-function Example() {
-  const [value, setValue] = React.useState('');
-  const hasError = value.length > 0 && value.length < 10;
-  
-  return (
-    <Textarea
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-      error={hasError}
-      errorMessage="Description must be at least 10 characters"
-      placeholder="Enter description"
-    />
-  );
-}`,
-          preview: (
-            <div className="w-full max-w-md">
-              <TextareaPreview placeholder="Enter description" error />
-              <p className="mt-2 text-sm text-red-600">Description must be at least 10 characters</p>
-            </div>
-          ),
-        },
-        {
-          title: 'Disabled State',
-          description: 'Disabled textarea prevents interaction.',
-          code: `import { Textarea } from '@ux4g/react-core';
-
-function Example() {
-  return (
-    <Textarea
-      placeholder="Cannot edit this field"
-      value="This is read-only content that cannot be edited."
-      disabled
-      rows={3}
-    />
-  );
-}`,
-          preview: <TextareaPreview placeholder="Cannot edit" disabled rows={3} />,
-        },
-      ]}
-      
       reactCode={{
         component: `import React, { forwardRef } from 'react';
 import { cn } from '../../utils/cn';

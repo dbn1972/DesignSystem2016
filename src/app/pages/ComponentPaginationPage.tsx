@@ -203,8 +203,13 @@ function Example() {
       totalPages={10}
       currentPage={page}
       onPageChange={setPage}
+    />
+  );
+}`,
+        },
+      ]}
 
-      useCases={[
+            useCases={[
         { title: "Application List Paging", description: "Navigate through pages of applications.", scenario: "My Applications shows 10 per page.", implementation: "<Pagination total={50} pageSize={10} current={1} />" },
         { title: "Search Results", description: "Page through search results.", scenario: "Service search returns many results.", implementation: "<Pagination total={120} pageSize={20} current={3} />" },
         { title: "Officer Case Queue", description: "Navigate through assigned cases.", scenario: "Officer dashboard with 47 total cases.", implementation: "<Pagination total={47} pageSize={10} current={1} />" },
@@ -212,7 +217,8 @@ function Example() {
         { title: 'Gazette Search Results', description: 'Paginate through gazette notification search results.', scenario: 'Citizen browses 200+ gazette notifications with page navigation.', implementation: '<Pagination total={200} pageSize={20} current={3} onChange={setPage} />' },
       ]}
 
-      additionalContent={
+
+            additionalContent={
         <>
           {/* When to use */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
@@ -334,33 +340,8 @@ function Example() {
             </div>
           </section>
         </>
+
       }
-    />
-  );
-}`,
-          preview: <PaginationPreview totalPages={10} showFirstLast={false} />,
-        },
-        {
-          title: 'With First/Last Buttons',
-          description: 'Pagination with quick navigation to first and last pages.',
-          code: `import { Pagination } from '@ux4g/react-core';
-import { useState } from 'react';
-
-function Example() {
-  const [page, setPage] = useState(1);
-
-  return (
-    <Pagination
-      totalPages={20}
-      currentPage={page}
-      onPageChange={setPage}
-      showFirstLast
-    />
-  );
-}`,
-          preview: <PaginationPreview totalPages={20} showFirstLast />,
-        },
-      ]}
 
       reactCode={{
         component: `import React from 'react';
