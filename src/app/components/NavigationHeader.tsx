@@ -5,10 +5,13 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from './LanguageSelector';
 import ThemeSwitcher from "./ThemeSwitcher";
+import SearchModal from "./SearchModal";
+import { isMacPlatform } from "../accessibility-toolkit/core/schema";
 
 export default function NavigationHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
   const { i18n } = useTranslation();
 
@@ -16,7 +19,22 @@ export default function NavigationHeader() {
   useEffect(() => {
     setActiveDropdown(null);
     setMobileMenuOpen(false);
+    setSearchOpen(false);
   }, [location.pathname]);
+
+  // Global Cmd+K / Ctrl+K shortcut
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.code === 'KeyK') {
+        const tag = (e.target as HTMLElement)?.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+        e.preventDefault();
+        setSearchOpen((o) => !o);
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, []);
   const language = i18n.resolvedLanguage === "hi" ? "hi" : "en";
   const copy = {
     en: {
@@ -213,10 +231,15 @@ export default function NavigationHeader() {
           {/* Utility Nav */}
           <div className="hidden md:flex items-center gap-2">
             <button
-              className="p-2.5 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+              onClick={() => setSearchOpen(true)}
+              className="inline-flex items-center gap-2 px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground border border-border rounded-lg hover:bg-muted transition-colors"
               aria-label={copy.search}
             >
-              <Search size={18} />
+              <Search size={16} />
+              <span className="text-xs">{copy.search}</span>
+              <kbd className="hidden lg:inline-flex items-center gap-0.5 rounded border border-border bg-muted px-1 py-0.5 text-[10px] font-medium text-muted-foreground ml-2">
+                {isMacPlatform() ? '⌘' : 'Ctrl'}K
+              </kbd>
             </button>
             <ThemeSwitcher />
             <LanguageSelector variant="compact" />
@@ -327,6 +350,9 @@ export default function NavigationHeader() {
           <MobileNavigation onClose={() => setMobileMenuOpen(false)} copy={copy} />
         )}
       </div>
+
+      {/* Global Search Modal */}
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

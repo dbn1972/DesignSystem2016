@@ -73,23 +73,35 @@ export default function ComponentBreadcrumbPage() {
       props={[
         {
           name: 'items',
-          type: 'Array<{label: string, href?: string}>',
+          type: 'BreadcrumbItem[]',
           required: true,
-          description: 'Array of breadcrumb items to display.',
+          description: 'Array of breadcrumb items. Each has label, optional href/icon/current/onClick.',
         },
         {
           name: 'separator',
           type: 'ReactNode',
-          default: 'ChevronRight',
+          default: "'/'",
           required: false,
-          description: 'Custom separator element between items.',
+          description: 'Separator element between items.',
         },
         {
-          name: 'showHome',
-          type: 'boolean',
-          default: 'true',
+          name: 'maxItems',
+          type: 'number',
           required: false,
-          description: 'Whether to show home icon on first item.',
+          description: 'Maximum items to show before collapsing middle items.',
+        },
+        {
+          name: 'collapseText',
+          type: 'string',
+          default: "'...'",
+          required: false,
+          description: 'Text shown for collapsed items.',
+        },
+        {
+          name: 'navProps',
+          type: 'HTMLAttributes<HTMLElement>',
+          required: false,
+          description: 'Additional props for the nav element.',
         },
         {
           name: 'className',

@@ -123,21 +123,15 @@ export default function ComponentStepperPage() {
       props={[
         {
           name: 'steps',
-          type: 'Array<{id: number, label: string, description?: string}>',
+          type: 'StepItem[]',
           required: true,
-          description: 'Array of step definitions.',
+          description: 'Array of step items. Each has key, label, and optional description/icon/status.',
         },
         {
-          name: 'currentStep',
+          name: 'current',
           type: 'number',
           required: true,
-          description: 'Current active step index (1-based).',
-        },
-        {
-          name: 'onStepChange',
-          type: '(step: number) => void',
-          required: false,
-          description: 'Callback when step is clicked (if clickable).',
+          description: 'Current step index (0-based).',
         },
         {
           name: 'orientation',
@@ -151,7 +145,19 @@ export default function ComponentStepperPage() {
           type: 'boolean',
           default: 'false',
           required: false,
-          description: 'Allow clicking on completed steps.',
+          description: 'Allow clicking on steps to navigate.',
+        },
+        {
+          name: 'onStepClick',
+          type: '(index: number) => void',
+          required: false,
+          description: 'Callback when a step is clicked.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       

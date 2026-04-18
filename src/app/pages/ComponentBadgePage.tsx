@@ -72,15 +72,15 @@ export default function ComponentBadgePage() {
       props={[
         {
           name: 'variant',
-          type: "'primary' | 'success' | 'warning' | 'error' | 'neutral'",
-          default: "'neutral'",
+          type: "'neutral' | 'info' | 'success' | 'warning' | 'error'",
+          default: "'info'",
           required: false,
-          description: 'Visual variant of the badge.',
+          description: 'Badge color variant.',
         },
         {
           name: 'children',
           type: 'ReactNode',
-          required: true,
+          required: false,
           description: 'Badge content (text or number).',
         },
         {
@@ -88,7 +88,20 @@ export default function ComponentBadgePage() {
           type: "'sm' | 'md' | 'lg'",
           default: "'md'",
           required: false,
-          description: 'Size of the badge.',
+          description: 'Badge size.',
+        },
+        {
+          name: 'dot',
+          type: 'boolean',
+          default: 'false',
+          required: false,
+          description: 'Show as a small dot indicator instead of text.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       

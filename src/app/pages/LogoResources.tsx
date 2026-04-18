@@ -109,8 +109,12 @@ export default function LogoResources() {
                     rel="noopener noreferrer"
                     className="rounded-2xl border border-border bg-background p-4 hover:border-primary/30 hover:shadow-sm transition-all"
                   >
-                    <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/8 text-primary">
-                      <span className="text-lg font-bold">{logo.name.charAt(0)}</span>
+                    <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-muted/40 overflow-hidden">
+                      {LOGOS_WITH_THUMBNAILS.has(logo.id) ? (
+                        <img src={`/assets/logos/${logo.id}/64.png`} alt="" className="w-full h-full object-contain p-1" loading="lazy" />
+                      ) : (
+                        <span className="text-lg font-bold text-primary/20">{logo.name.charAt(0)}</span>
+                      )}
                     </div>
                     <div className="text-xs font-medium text-foreground line-clamp-1">{logo.name}</div>
                   </a>
@@ -290,9 +294,16 @@ export default function LogoResources() {
   );
 }
 
+// ── Set of logos that have local thumbnails ──
+const LOGOS_WITH_THUMBNAILS = new Set([
+  'aadhaar', 'india-post', 'digital-india', 'e-taal', 'startup-india',
+  'skill-india', 'nss', 'invest-india', 'bhim', 'bis-hallmark', 'tech-conclave',
+]);
+
 // ── Logo Card (Grid View) ──
 function LogoCard({ logo }: { logo: LogoEntry }) {
   const catLabel = LOGO_CATEGORIES.find((c) => c.key === logo.category)?.label ?? logo.category;
+  const hasThumb = LOGOS_WITH_THUMBNAILS.has(logo.id);
   return (
     <a
       href={logo.sourceUrl}
@@ -301,8 +312,12 @@ function LogoCard({ logo }: { logo: LogoEntry }) {
       className="group rounded-2xl border border-border bg-card px-4 py-5 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/5"
       aria-label={`${logo.name} — view and download`}
     >
-      <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/8 text-primary">
-        <span className="text-xl font-bold">{logo.name.charAt(0)}</span>
+      <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-muted/40 overflow-hidden">
+        {hasThumb ? (
+          <img src={`/assets/logos/${logo.id}/64.png`} alt="" className="w-full h-full object-contain p-1" loading="lazy" />
+        ) : (
+          <span className="text-xl font-bold text-primary/20">{logo.name.charAt(0)}</span>
+        )}
       </div>
       <p className="text-sm font-semibold text-foreground line-clamp-2 group-hover:text-primary">{logo.name}</p>
       <p className="mt-1 text-xs text-muted-foreground">{catLabel}</p>
@@ -314,6 +329,7 @@ function LogoCard({ logo }: { logo: LogoEntry }) {
 // ── Logo Row (List View) ──
 function LogoRow({ logo }: { logo: LogoEntry }) {
   const catLabel = LOGO_CATEGORIES.find((c) => c.key === logo.category)?.label ?? logo.category;
+  const hasThumb = LOGOS_WITH_THUMBNAILS.has(logo.id);
   return (
     <a
       href={logo.sourceUrl}
@@ -322,8 +338,12 @@ function LogoRow({ logo }: { logo: LogoEntry }) {
       className="group flex items-center gap-4 rounded-xl border border-border bg-card p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
       aria-label={`${logo.name} — view and download`}
     >
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/8 text-primary flex-shrink-0">
-        <span className="text-sm font-bold">{logo.name.charAt(0)}</span>
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted/40 overflow-hidden flex-shrink-0">
+        {hasThumb ? (
+          <img src={`/assets/logos/${logo.id}/32.png`} alt="" className="w-full h-full object-contain p-0.5" loading="lazy" />
+        ) : (
+          <span className="text-sm font-bold text-primary/20">{logo.name.charAt(0)}</span>
+        )}
       </div>
       <div className="flex-1 min-w-0">
         <p className="text-sm font-medium text-foreground truncate group-hover:text-primary">{logo.name}</p>

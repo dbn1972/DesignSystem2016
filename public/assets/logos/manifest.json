@@ -1,0 +1,1113 @@
+[
+  {
+    "id": "national-emblem",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "aadhaar",
+    "downloaded": true,
+    "original": "/assets/logos/aadhaar/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/aadhaar/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/aadhaar/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/aadhaar/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/aadhaar/256.png"
+      }
+    ]
+  },
+  {
+    "id": "india-post",
+    "downloaded": true,
+    "original": "/assets/logos/india-post/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/india-post/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/india-post/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/india-post/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/india-post/256.png"
+      }
+    ]
+  },
+  {
+    "id": "election-commission",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "indian-army",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "digital-india",
+    "downloaded": true,
+    "original": "/assets/logos/digital-india/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/digital-india/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/digital-india/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/digital-india/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/digital-india/256.png"
+      }
+    ]
+  },
+  {
+    "id": "nic",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "digitalnic",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "digilocker",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "umang",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "e-taal",
+    "downloaded": true,
+    "original": "/assets/logos/e-taal/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/e-taal/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/e-taal/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/e-taal/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/e-taal/256.png"
+      }
+    ]
+  },
+  {
+    "id": "gov",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "national-cloud",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "cca",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "cert-in",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nielit",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "stqc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "national-egovernance",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "e-office",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "gepnic",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "service-plus",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "etrans",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "gem",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "csc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nicsi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "cdac",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "electronics-india",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "stpi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "sameer",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "msh",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "swachh-bharat",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pm-svanidhi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "standup-india",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pm-jay",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pm-kvy",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pm-mudra",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pm-ujjwala",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pm-fasal-bima",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pm-jdy",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pm-gram-sadak",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "jal-jeevan",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pmbjp",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "startup-india",
+    "downloaded": true,
+    "original": "/assets/logos/startup-india/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/startup-india/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/startup-india/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/startup-india/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/startup-india/256.png"
+      }
+    ]
+  },
+  {
+    "id": "skill-india",
+    "downloaded": true,
+    "original": "/assets/logos/skill-india/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/skill-india/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/skill-india/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/skill-india/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/skill-india/256.png"
+      }
+    ]
+  },
+  {
+    "id": "beti-bachao",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "smart-city",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "poshan",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nrhm",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "accessible-india",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "garib-kalyan",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "dbt-bharat",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "my-gov",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ndma",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "doordarshan",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ncs",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nhrc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "cvc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "cbi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "cci",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "cci-2",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "naco",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nsdc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nss",
+    "downloaded": true,
+    "original": "/assets/logos/nss/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/nss/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/nss/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/nss/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/nss/256.png"
+      }
+    ]
+  },
+  {
+    "id": "msme",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "bprd",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ciso",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "invest-india",
+    "downloaded": true,
+    "original": "/assets/logos/invest-india/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/invest-india/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/invest-india/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/invest-india/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/invest-india/256.png"
+      }
+    ]
+  },
+  {
+    "id": "itpo",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nisg",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nipfp",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ongc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ntpc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "gail",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "coal-india",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "sail",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "bhel",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "indianoil",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "bsnl",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "air-india",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "railtel",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ecil",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "iti",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "irctc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "power-grid",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pfc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "npcc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "aai",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "bhim",
+    "downloaded": true,
+    "original": "/assets/logos/bhim/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/bhim/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/bhim/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/bhim/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/bhim/256.png"
+      }
+    ]
+  },
+  {
+    "id": "upi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "lic",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "irda",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nabard",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "bis-hallmark",
+    "downloaded": true,
+    "original": "/assets/logos/bis-hallmark/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/bis-hallmark/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/bis-hallmark/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/bis-hallmark/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/bis-hallmark/256.png"
+      }
+    ]
+  },
+  {
+    "id": "agmark",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "azadi-hindi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "azadi-english",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "har-ghar-tiranga",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "b20",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "mahatma-150",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "desh-ka-maha-tyohar",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "sveep",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "meghalaya-games",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "aero-india",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "tourism-summit",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ictt",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "up-investor",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "tech-conclave",
+    "downloaded": true,
+    "original": "/assets/logos/tech-conclave/original.png",
+    "sizes": [
+      {
+        "size": 32,
+        "path": "/assets/logos/tech-conclave/32.png"
+      },
+      {
+        "size": 64,
+        "path": "/assets/logos/tech-conclave/64.png"
+      },
+      {
+        "size": 128,
+        "path": "/assets/logos/tech-conclave/128.png"
+      },
+      {
+        "size": 256,
+        "path": "/assets/logos/tech-conclave/256.png"
+      }
+    ]
+  },
+  {
+    "id": "raise",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "khelo-india",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "fit-india",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "incredible-india-hi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "incredible-india-en",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ek-bharat",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "digitag",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "tag",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "isro",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ignou",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ugc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ftii",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "cec",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "cec-2",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ernet",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "igot",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "karmayogi-hi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "karmayogi-en",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "capacity-building",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "vidyanjali",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "yuvika",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "gpai",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "bsf",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "sai",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nkn-h",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nkn-v",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nixi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "iig",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "e-amrit",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "csitm",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nhp-hi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nhp-en",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pm-sangrahralaya",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nextgen-hospital",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ndap",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "shoonya",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "bhoomi-rashi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "prayas",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "nature-protects",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "vivid",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "icccc",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "india-handlooms",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "handloom-marks",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "ficci",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "rti-hi",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "rti-en",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  },
+  {
+    "id": "pmay",
+    "downloaded": false,
+    "original": null,
+    "sizes": []
+  }
+]

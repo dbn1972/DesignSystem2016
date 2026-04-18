@@ -741,37 +741,39 @@ export default function ComponentIconPage() {
             </div>
           </div>
 
-          <div className="mb-8 grid gap-4 rounded-3xl border border-border bg-card p-5 shadow-sm lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
-            <label className="relative block">
-              <SearchIcon className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size="md" decorative />
-              <input
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search icons by name, label, or keyword"
-                className="w-full rounded-2xl border border-border bg-background py-3 pl-11 pr-4 text-sm text-foreground"
-                aria-label="Search icons"
-              />
-            </label>
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => setActiveCategory("all")}
-                className={`rounded-full border px-3 py-2 text-xs font-medium ${activeCategory === "all" ? "border-primary bg-primary text-white" : "border-border bg-background text-muted-foreground"}`}
-              >
-                All
-              </button>
-              {CATEGORY_ORDER.map((category) => (
+          <div className="mb-8 rounded-3xl border border-border bg-card p-5 shadow-sm space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2 flex-1">
                 <button
-                  key={category}
                   type="button"
-                  onClick={() => setActiveCategory(category)}
-                  className={`rounded-full border px-3 py-2 text-xs font-medium ${activeCategory === category ? "border-primary bg-primary text-white" : "border-border bg-background text-muted-foreground"}`}
+                  onClick={() => setActiveCategory("all")}
+                  className={`rounded-full border px-3 py-2 text-xs font-medium ${activeCategory === "all" ? "border-primary bg-primary text-white" : "border-border bg-background text-muted-foreground"}`}
                 >
-                  {CATEGORY_LABELS[category]}
+                  All
                 </button>
-              ))}
+                {CATEGORY_ORDER.map((category) => (
+                  <button
+                    key={category}
+                    type="button"
+                    onClick={() => setActiveCategory(category)}
+                    className={`rounded-full border px-3 py-2 text-xs font-medium ${activeCategory === category ? "border-primary bg-primary text-white" : "border-border bg-background text-muted-foreground"}`}
+                  >
+                    {CATEGORY_LABELS[category]}
+                  </button>
+                ))}
+              </div>
+              <label className="relative block w-full sm:w-64 lg:w-72 flex-shrink-0">
+                <SearchIcon className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size="sm" decorative />
+                <input
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Search icons..."
+                  className="w-full rounded-xl border border-border bg-background py-2 pl-9 pr-3 text-sm text-foreground"
+                  aria-label="Search icons"
+                />
+              </label>
             </div>
-            <div className="text-xs text-muted-foreground lg:col-span-2">
+            <div className="text-xs text-muted-foreground">
               Showing {filteredCount} icons{query ? ` for "${query}"` : ""}.
             </div>
           </div>

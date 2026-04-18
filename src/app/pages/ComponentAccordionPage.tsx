@@ -85,29 +85,47 @@ export default function ComponentAccordionPage() {
       props={[
         {
           name: 'items',
-          type: 'Array<{title: string, content: ReactNode}>',
+          type: 'AccordionItem[]',
           required: true,
-          description: 'Accordion items with title and content.',
+          description: 'Array of accordion items. Each item has key, title, content, and optional disabled/icon.',
         },
         {
-          name: 'defaultOpen',
-          type: 'number | number[]',
-          required: false,
-          description: 'Index(es) of initially open items.',
-        },
-        {
-          name: 'multiple',
+          name: 'allowMultiple',
           type: 'boolean',
           default: 'false',
           required: false,
-          description: 'Allow multiple items open simultaneously.',
+          description: 'Allow multiple items to be open simultaneously.',
         },
         {
-          name: 'bordered',
+          name: 'value',
+          type: 'string[]',
+          required: false,
+          description: 'Controlled open items (array of item keys).',
+        },
+        {
+          name: 'defaultValue',
+          type: 'string[]',
+          required: false,
+          description: 'Default open items for uncontrolled mode (array of item keys).',
+        },
+        {
+          name: 'onChange',
+          type: '(openItems: string[]) => void',
+          required: false,
+          description: 'Callback when open items change.',
+        },
+        {
+          name: 'collapsible',
           type: 'boolean',
           default: 'true',
           required: false,
-          description: 'Show borders around items.',
+          description: 'Allow all items to be collapsed. When false, at least one item stays open.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       
