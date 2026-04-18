@@ -43,36 +43,24 @@ const ToastPreview = ({ variant, message, description, position, action, ...prop
   </div>
 );
 
-function ToastPlayground() {
-  const [variant, setVariant] = React.useState('success');
-  const [message, setMessage] = React.useState('Draft saved successfully.');
-  const [description, setDescription] = React.useState('');
+const TOAST_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'variant', label: 'Variant', type: 'select', defaultValue: 'success', options: ['success', 'error', 'warning', 'info'] },
+  { name: 'message', label: 'Message', type: 'text', defaultValue: 'Draft saved successfully.' },
+];
 
+function ToastPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <ToastPreview variant={variant} message={message} description={description || undefined} />
-      </div>
-      <div className="space-y-4 text-sm">
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Variant</label>
-          <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-            {['success', 'error', 'warning', 'info'].map(v => <option key={v} value={v}>{v}</option>)}
-          </select>
+    <ComponentPlayground
+      name="Toast"
+      controls={TOAST_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <ToastPreview variant={v.variant} message={v.message} description={description || undefined} />
         </div>
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Message</label>
-          <input value={message} onChange={e => setMessage(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Description (optional)</label>
-          <input value={description} onChange={e => setDescription(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">{`<Toast variant="${variant}">${message}</Toast>`}</p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<Toast variant="${v.variant}">${v.message}</Toast>`}
+    />
   );
 }
 
@@ -597,6 +585,7 @@ export class ToastComponent implements OnInit, OnDestroy {
 import { CommonModule } from '@angular/common';
 import { ToastComponent } from './toast.component';
 import { ToastService } from './toast.service';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [ToastComponent],
@@ -779,11 +768,9 @@ export interface ToastConfig {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Toast configurations in real time.</p>
+          <div className="mb-8">
             <ToastPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

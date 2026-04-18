@@ -21,36 +21,24 @@ const BreadcrumbPreview = () => (
   </nav>
 );
 
-function BreadcrumbPlayground() {
-  const [separator, setSeparator] = React.useState('/');
-  const [showHome, setShowHome] = React.useState(true);
-  const [maxItems, setMaxItems] = React.useState('5');
+const BREADCRUMB_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'separator', label: 'Separator', type: 'select', defaultValue: '/', options: ['/', '>', '→', '|'] },
+  { name: 'showHome', label: 'Show Home', type: 'boolean', defaultValue: true },
+];
 
+function BreadcrumbPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="Breadcrumb"
+      controls={BREADCRUMB_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
           <BreadcrumbPreview />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Separator</label>
-            <select value={separator} onChange={e => setSeparator(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="/">/</option>
-              <option value="›">{">"}</option>
-              <option value="→">→</option>
-            </select>
-          </div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showHome} onChange={e => setShowHome(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show home link</span></label>
-          <div><label className="block font-semibold text-foreground mb-1">Max items</label><select value={maxItems} onChange={e => setMaxItems(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Breadcrumb ${separator} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<Breadcrumb ${v.separator} />`}
+    />
   );
 }
 
@@ -234,6 +222,7 @@ export class BreadcrumbComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbComponent } from './breadcrumb.component';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [BreadcrumbComponent],
@@ -385,11 +374,9 @@ export class BreadcrumbModule { }`,
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Breadcrumb configurations in real time.</p>
+          <div className="mb-8">
             <BreadcrumbPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
