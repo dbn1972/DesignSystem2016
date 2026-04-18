@@ -22,13 +22,13 @@ export default function Layout() {
       <Breadcrumbs />
 
       {toc.visible ? (
-        <div className="flex-1 max-w-[1600px] mx-auto w-full grid grid-cols-[1fr_200px] gap-6 px-4">
+        <div className="flex-1 max-w-[1440px] mx-auto w-full px-6 sm:px-8 lg:px-12 py-6 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+          <aside className="hidden lg:block">
+            <AutoTOC items={toc.items} activeId={toc.activeId} />
+          </aside>
           <main id="main-content" tabIndex={-1}>
             <Outlet />
           </main>
-          <aside className="hidden xl:block pt-8">
-            <AutoTOC items={toc.items} activeId={toc.activeId} />
-          </aside>
         </div>
       ) : (
         <main id="main-content" className="flex-1" tabIndex={-1}>
