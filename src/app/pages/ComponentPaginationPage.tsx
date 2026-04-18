@@ -8,11 +8,17 @@ import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
 
 // Import the actual Pagination component for live preview
-const PaginationPreview = ({ totalPages, showFirstLast }: any) => {
+const PaginationPreview = ({ totalPages, showFirstLast, showTotal, pageSize }: any) => {
   const [currentPage, setCurrentPage] = React.useState(1);
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-col items-center gap-3">
+      {showTotal && (
+        <p className="text-xs text-muted-foreground">
+          Showing {(currentPage - 1) * (pageSize || 5) + 1}–{Math.min(currentPage * (pageSize || 5), totalPages * (pageSize || 5))} of {totalPages * (pageSize || 5)} results
+        </p>
+      )}
+      <div className="flex items-center gap-2">
       {showFirstLast && (
         <button
           disabled={currentPage === 1}
@@ -64,6 +70,7 @@ const PaginationPreview = ({ totalPages, showFirstLast }: any) => {
           <ChevronsRight size={16} />
         </button>
       )}
+      </div>
     </div>
   );
 };
@@ -77,7 +84,7 @@ function PaginationPlayground() {
     <div className="grid lg:grid-cols-[1fr_300px] gap-6">
       <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
         <div className="w-full flex items-center justify-center">
-          <PaginationPreview totalPages={10} showFirstLast={showFirstLast} />
+          <PaginationPreview totalPages={Math.ceil(50 / Number(pageSize))} showFirstLast={showFirstLast} showTotal={showTotal} pageSize={Number(pageSize)} />
         </div>
       </div>
       <div className="space-y-4 text-sm">
