@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
 
 // Import the actual Pagination component for live preview
@@ -69,40 +68,37 @@ const PaginationPreview = ({ totalPages, showFirstLast }: any) => {
   );
 };
 
-const PAGINATION_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'pageSize',
-    label: 'Page Size',
-    type: 'select',
-    defaultValue: '5',
-    options: ['5', '10', '20'],
-  },
-  {
-    name: 'showFirstLast',
-    label: 'Show first/last',
-    type: 'boolean',
-    defaultValue: true,
-  },
-  {
-    name: 'showTotal',
-    label: 'Show total count',
-    type: 'boolean',
-    defaultValue: true,
-  },
-];
-
 function PaginationPlayground() {
+  const [pageSize, setPageSize] = React.useState('5');
+  const [showFirstLast, setShowFirstLast] = React.useState(true);
+  const [showTotal, setShowTotal] = React.useState(true);
+
   return (
-    <ComponentPlayground
-      name="Pagination"
-      controls={PAGINATION_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <PaginationPreview totalPages={10} showFirstLast={v.showFirstLast} />
-      )}
-      codeTemplate={(v) =>
-        `<Pagination ${v.pageSize} />`
-      }
-    />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <PaginationPreview totalPages={10} showFirstLast={showFirstLast} />
+        </div>
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Page Size</label>
+            <select value={pageSize} onChange={e => setPageSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showFirstLast} onChange={e => setShowFirstLast(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show first/last</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showTotal} onChange={e => setShowTotal(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show total count</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Pagination ${pageSize} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -272,7 +268,11 @@ function Example() {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8"><PaginationPlayground /></div>
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Pagination configurations in real time.</p>
+            <PaginationPlayground />
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
