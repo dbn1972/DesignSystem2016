@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 import NavigationHeader from "./NavigationHeader";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function Layout() {
   return (
@@ -15,6 +16,7 @@ export default function Layout() {
       </a>
       <ScrollToTop />
       <NavigationHeader />
+      <Breadcrumbs />
       <main id="main-content" className="flex-1" tabIndex={-1}>
         <Outlet />
       </main>
