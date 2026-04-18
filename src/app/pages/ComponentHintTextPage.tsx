@@ -29,29 +29,26 @@ const HintTextPreview = ({ children, icon }: any) => (
   </p>
 );
 
-function HintTextPlayground() {
-  const [visible, setVisible] = React.useState(false);
-  const [icon, setIcon] = React.useState(false);
-  const [message, setMessage] = React.useState('Enter your 12-digit Aadhaar number');
+const HINTTEXT_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'visible', label: 'Visible', type: 'boolean', defaultValue: false },
+  { name: 'icon', label: 'Icon', type: 'boolean', defaultValue: false },
+  { name: 'message', label: 'Message', type: 'text', defaultValue: 'Enter your 12-digit Aadhaar number' },
+];
 
+function HintTextPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="HintText"
+      controls={HINTTEXT_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <HintTextPreview icon={icon}>{message}</HintTextPreview>
+          <HintTextPreview icon={v.icon}>{v.message}</HintTextPreview>
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={visible} onChange={e => setVisible(e.target.checked)} className="accent-primary" /><span className="text-foreground">Visible</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={icon} onChange={e => setIcon(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show icon</span></label>
-          <div><label className="block font-semibold text-foreground mb-1">Message</label><input value={message} onChange={e => setMessage(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" /></div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<HintText${visible ? ' visible' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<HintText${v.visible ? ' visible' : ''} />`
+      }
+    />
   );
 }
 
@@ -443,11 +440,9 @@ export class HintTextModule { }`,
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different HintText configurations in real time.</p>
+          <div className="mb-8">
             <HintTextPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

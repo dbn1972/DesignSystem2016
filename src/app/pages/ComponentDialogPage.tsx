@@ -169,45 +169,31 @@ const DialogPreview = ({
   );
 };
 
+const DIALOG_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'variant', label: 'Variant', type: 'select', defaultValue: 'default', options: ['default', 'warning', 'danger'] },
+  { name: 'title', label: 'Title', type: 'text', defaultValue: 'Confirm Action' },
+  { name: 'description', label: 'Description', type: 'text', defaultValue: 'Are you sure you want to proceed?' },
+];
+
 function DialogPlayground() {
-  const [variant, setVariant] = useState<string>('default');
-  const [title, setTitle] = useState('Confirm Action');
-  const [description, setDescription] = useState('Are you sure you want to proceed?');
-
-  const variantColors: Record<string, string> = { default: 'text-foreground', warning: 'text-yellow-600', danger: 'text-red-600' };
-
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="Dialog"
+      controls={DIALOG_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-lg p-6 space-y-4">
-          <h3 className={`font-semibold ${variantColors[variant] || 'text-foreground'}`}>{title}</h3>
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <h3 className={`font-semibold ${variantColors[variant] || 'text-foreground'}`}>{v.title}</h3>
+          <p className="text-sm text-muted-foreground">{v.description}</p>
           <div className="flex justify-end gap-2">
             <button className="px-4 py-2 text-sm border border-border rounded-lg">Cancel</button>
-            <button className={`px-4 py-2 text-sm text-white rounded-lg ${variant === 'danger' ? 'bg-red-600' : 'bg-[#005196]'}`}>Confirm</button>
+            <button className={`px-4 py-2 text-sm text-white rounded-lg ${v.variant === 'danger' ? 'bg-red-600' : 'bg-[#005196]'}`}>Confirm</button>
           </div>
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Variant</label>
-          <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-            {['default', 'warning', 'danger'].map(v => <option key={v} value={v}>{v}</option>)}
-          </select>
-        </div>
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Title</label>
-          <input value={title} onChange={e => setTitle(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Description</label>
-          <input value={description} onChange={e => setDescription(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">{`<Dialog variant="${variant}" title="${title}">${description}</Dialog>`}</p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<Dialog variant="${v.variant}" title="${v.title}">${v.description}</Dialog>`
+      }
+    />
   );
 }
 
@@ -775,11 +761,9 @@ export default function ComponentDialogPage() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Dialog configurations in real time.</p>
+          <div className="mb-8">
             <DialogPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
