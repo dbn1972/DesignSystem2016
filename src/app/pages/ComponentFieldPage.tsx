@@ -392,6 +392,7 @@ export class FieldComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FieldComponent } from './field.component';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [FieldComponent],

@@ -281,6 +281,7 @@ export class HintTextComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HintTextComponent } from './hint-text.component';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [HintTextComponent],

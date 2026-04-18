@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { Inbox, Search, FileX, AlertCircle, Upload, FolderOpen } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Empty State component for live preview
 const EmptyStatePreview = ({ variant, icon, title, description, actionLabel, onAction, ...props }: any) => (

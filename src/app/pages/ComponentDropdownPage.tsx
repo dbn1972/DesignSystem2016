@@ -6,6 +6,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { ChevronDown, User, Settings, LogOut, Download, MoreVertical, Bell, Check, FileText, Trash2, Edit, Share2, Archive, Star } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Dropdown preview component with full functionality
 const DropdownPreview = ({

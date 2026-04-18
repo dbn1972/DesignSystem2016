@@ -330,6 +330,7 @@ export class LabelComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LabelComponent } from './label.component';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [LabelComponent],

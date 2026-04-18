@@ -328,6 +328,7 @@ export class ErrorTextComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ErrorTextComponent } from './error-text.component';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [ErrorTextComponent],

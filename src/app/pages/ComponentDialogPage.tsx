@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { AlertTriangle, AlertCircle, CheckCircle, X, Trash2 } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Dialog Portal Component
 const DialogPortal = ({ children, isOpen }: { children: React.ReactNode; isOpen: boolean }) => {

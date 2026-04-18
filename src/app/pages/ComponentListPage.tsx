@@ -202,6 +202,7 @@ export class ListComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list.component';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [ListComponent],
