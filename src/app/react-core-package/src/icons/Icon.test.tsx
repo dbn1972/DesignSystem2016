@@ -30,6 +30,9 @@ describe("UX4G icon system", () => {
     expect(UX4G_ICON_METADATA["sidebar-left"].category).toBe("navigation");
     expect(UX4G_ICON_METADATA["add-user"].category).toBe("users");
     expect(UX4G_ICON_METADATA["alert-octagon"].displayName).toBe("Alert octagon");
+    expect(UX4G_ICON_METADATA.database.category).toBe("system");
+    expect(UX4G_ICON_METADATA.stamp.category).toBe("government");
+    expect(UX4G_ICON_METADATA["sort-asc"].category).toBe("data");
   });
 
   it("resolves aliases to canonical icon names", () => {
@@ -41,5 +44,7 @@ describe("UX4G icon system", () => {
     expect(resolveIconName("sr")).toBe("screen-reader");
     expect(resolveIconName("kebab")).toBe("more-vertical");
     expect(resolveIconName("verified-user")).toBe("user-check");
+    expect(resolveIconName("form")).toBe("application");
+    expect(resolveIconName("storage")).toBe("database");
   });
 });

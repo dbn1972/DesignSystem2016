@@ -1257,14 +1257,14 @@ function VersionStat({ label, value }: any) {
 }
 
 function VersionBand({ label, tone, detail }: any) {
-  const tones = {
-    rose: 'border-rose-200 bg-rose-50/70',
+  const tones: Record<string, string> = {
+    rose: 'border-rose-200 dark:border-rose-800 bg-rose-50/70 dark:bg-rose-950/30',
     amber: 'border-amber-200 dark:border-amber-800 bg-amber-50/70 dark:bg-amber-950/30',
-    emerald: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/70'
+    emerald: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-950/30',
   };
 
   return (
-    <div className={`rounded-xl border ${tones[tone as keyof typeof tones]} p-4`}>
+    <div className={`rounded-xl border ${tones[tone] ?? ''} p-4`}>
       <div className="font-semibold text-foreground">{label}</div>
       <div className="mt-2 text-sm leading-relaxed text-muted-foreground">{detail}</div>
     </div>
@@ -1495,10 +1495,10 @@ function SupportEscalationSection() {
 }
 
 function SupportChannel({ icon, title, description, action, href, color }: any) {
-  const colorClasses = {
-    blue: 'border-sky-200 dark:border-sky-800 bg-sky-50/60 text-primary',
-    purple: 'border-violet-200 dark:border-violet-800 bg-violet-50/60 text-primary',
-    orange: 'border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-950/30 text-primary'
+  const colorClasses: Record<string, string> = {
+    blue: 'border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30 text-primary',
+    purple: 'border-violet-200 dark:border-violet-800 bg-violet-50/60 dark:bg-violet-950/30 text-primary',
+    orange: 'border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-950/30 text-primary',
   };
 
   return (

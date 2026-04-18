@@ -1,61 +1,67 @@
 import { Users, GitBranch, Code, CheckCircle, AlertTriangle, FileText, MessageSquare, Heart, Zap, BookOpen, Target, Clock, Shield, Star } from "lucide-react";
+import LegalPageLayout from "../components/LegalPageLayout";
+import { ContributingIllustration } from "../components/legal-illustrations";
 
 export default function Contributing() {
+  const toc = [
+    { id: 'getting-started', label: 'Getting Started' },
+    { id: 'types-of-contributions', label: 'Types of Contributions' },
+    { id: 'contribution-workflow', label: 'Contribution Workflow' },
+    { id: 'development-guidelines', label: 'Development Guidelines' },
+    { id: 'code-standards', label: 'Code Standards' },
+    { id: 'component-guidelines', label: 'Component Guidelines' },
+    { id: 'documentation-standards', label: 'Documentation Standards' },
+    { id: 'submitting-contributions', label: 'Submitting Contributions' },
+    { id: 'review-process', label: 'Review Process' },
+    { id: 'community-guidelines', label: 'Community Guidelines' },
+    { id: 'license-agreement', label: 'License Agreement' },
+    { id: 'recognition', label: 'Recognition' },
+  ];
+
   return (
-    <div className="min-h-screen bg-card">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] text-white">
-        <div className="max-w-7xl mx-auto px-8 py-16">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/10 rounded-full text-sm mb-6">
-              <Heart size={16} />
-              <span>Contributing to UX4G</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Contributing Guidelines
-            </h1>
-
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              Welcome! We're excited that you're interested in contributing to the UX4G Design System.
-              This guide will help you understand how to contribute effectively, whether you're fixing bugs,
-              proposing new features, improving documentation, or enhancing existing components.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Open Source</div>
-                <div className="text-blue-200 text-sm">MIT Licensed</div>
-              </div>
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Community Driven</div>
-                <div className="text-blue-200 text-sm">Contributors welcome</div>
-              </div>
-              <div className="bg-card/10 rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">73 Components</div>
-                <div className="text-blue-200 text-sm">And growing</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16 space-y-16">
-        <GettingStartedSection />
-        <TypesOfContributionsSection />
-        <ContributionWorkflowSection />
-        <DevelopmentGuidelinesSection />
-        <CodeStandardsSection />
-        <ComponentGuidelinesSection />
-        <DocumentationStandardsSection />
-        <SubmittingContributionsSection />
-        <ReviewProcessSection />
-        <CommunityGuidelinesSection />
-        <LicenseAgreementSection />
-        <RecognitionSection />
-      </div>
-    </div>
+    <LegalPageLayout
+      badge="Contributing to UX4G"
+      badgeIcon={<Heart size={14} className="text-[#7c3aed]" />}
+      heroIcon={<GitBranch size={30} />}
+      title="Contributing Guidelines"
+      description="Welcome! We're excited that you're interested in contributing to the UX4G Design System. This guide covers how to contribute effectively — fixing bugs, proposing features, improving documentation, or enhancing components."
+      date="April 18, 2026"
+      dateLabel="Last Updated"
+      sidebarEyebrow="Open Source"
+      sidebarTitle="Contributing"
+      sidebarPill="MIT Licensed"
+      metrics={[
+        { value: '12', label: 'Sections' },
+        { value: 'MIT', label: 'License' },
+        { value: '73+', label: 'Components' },
+        { value: 'Open', label: 'Community' },
+      ]}
+      note={{
+        title: 'Welcome Contributors',
+        text: 'Whether you are a designer, developer, accessibility specialist, or documentation writer — there is a place for you in the UX4G community. Every contribution matters.',
+      }}
+      breadcrumbTitle="Contributing"
+      breadcrumbHome="Home"
+      breadcrumbGovernance="Governance"
+      toc={toc}
+      footerQuestion="Questions about contributing?"
+      footerDesc="Reach out to the UX4G team for guidance on contributing to the design system."
+      illustration={<ContributingIllustration />}
+      accentColor="#7c3aed"
+    >
+      <GettingStartedSection />
+      <TypesOfContributionsSection />
+      <ContributionWorkflowSection />
+      <DevelopmentGuidelinesSection />
+      <CodeStandardsSection />
+      <ComponentGuidelinesSection />
+      <DocumentationStandardsSection />
+      <SubmittingContributionsSection />
+      <ReviewProcessSection />
+      <CommunityGuidelinesSection />
+      <LicenseAgreementSection />
+      <RecognitionSection />
+    </LegalPageLayout>
   );
 }
 

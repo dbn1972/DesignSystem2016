@@ -249,3 +249,36 @@ export function AccessibilityIllustration() {
     </svg>
   );
 }
+
+/** Contributing — Git branch with code brackets, heart, pull request arrow */
+export function ContributingIllustration() {
+  const c = '#7c3aed';
+  return (
+    <svg width="320" height="280" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="160" cy="140" r="115" fill={c} opacity="0.03" />
+      {/* Git branch lines */}
+      <line x1="120" y1="80" x2="120" y2="200" stroke={c} strokeWidth="2" strokeOpacity="0.12" />
+      <line x1="200" y1="80" x2="200" y2="200" stroke={c} strokeWidth="2" strokeOpacity="0.12" />
+      <path d="M120 130 Q160 110 200 130" fill="none" stroke={c} strokeWidth="1.5" strokeOpacity="0.15" strokeDasharray="4 3" />
+      {/* Branch dots */}
+      <circle cx="120" cy="80" r="8" fill={c} opacity="0.08" stroke={c} strokeWidth="1" strokeOpacity="0.15" />
+      <circle cx="120" cy="200" r="8" fill={c} opacity="0.08" stroke={c} strokeWidth="1" strokeOpacity="0.15" />
+      <circle cx="200" cy="80" r="8" fill={c} opacity="0.08" stroke={c} strokeWidth="1" strokeOpacity="0.15" />
+      <circle cx="200" cy="200" r="8" fill={c} opacity="0.08" stroke={c} strokeWidth="1" strokeOpacity="0.15" />
+      {/* Merge arrow */}
+      <path d="M200 160 L160 180 L120 160" fill="none" stroke={c} strokeWidth="1.5" strokeOpacity="0.2" />
+      <circle cx="160" cy="180" r="6" fill={c} opacity="0.12" />
+      {/* Code brackets */}
+      <text x="80" y="145" fontSize="28" fontWeight="bold" fill={c} opacity="0.08" fontFamily="monospace">&lt;/&gt;</text>
+      <text x="210" y="145" fontSize="28" fontWeight="bold" fill={c} opacity="0.08" fontFamily="monospace">{'{}'}</text>
+      {/* Heart */}
+      <path d="M155 230 C155 225 148 218 148 218 C142 212 135 215 135 222 C135 228 142 235 155 245 C168 235 175 228 175 222 C175 215 168 212 162 218 C162 218 155 225 155 230Z" fill={c} opacity="0.1" />
+      {/* PR badge */}
+      <rect x="130" y="55" width="60" height="20" rx="10" fill={c} opacity="0.06" stroke={c} strokeWidth="1" strokeOpacity="0.1" />
+      <text x="160" y="69" textAnchor="middle" fontSize="9" fontWeight="bold" fill={c} opacity="0.2" fontFamily="system-ui">PULL REQUEST</text>
+      {/* Dots */}
+      <circle cx="75" cy="100" r="2.5" fill={c} opacity="0.06" />
+      <circle cx="245" cy="170" r="2" fill={c} opacity="0.05" />
+    </svg>
+  );
+}

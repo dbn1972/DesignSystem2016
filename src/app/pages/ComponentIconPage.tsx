@@ -11,10 +11,16 @@ import {
   DeleteIcon,
   DocumentIcon,
   DownloadIcon,
+  EditIcon,
+  FilterIcon,
   HomeIcon,
   Icon,
+  InfoIcon,
+  KeyboardIcon,
   LanguageIcon,
   LinkIcon,
+  LockIcon,
+  NotificationIcon,
   PlusIcon,
   PrintIcon,
   ReceiptIcon,
@@ -23,10 +29,14 @@ import {
   ServiceIcon,
   SettingsIcon,
   ShieldIcon,
+  SortIcon,
+  TableIcon,
+  UserIcon,
   UX4G_ICON_ALIASES,
   UX4G_ICON_METADATA,
   UX4G_ICONS,
   UX4G_ICON_SVGS,
+  VisibilityIcon,
   WarningIcon
 } from "../react-core-package/src/icons";
 
@@ -625,6 +635,93 @@ export default function ComponentIconPage() {
                 <div className="rounded-2xl border border-border bg-card p-4 text-sm text-foreground">
                   <PlusIcon className="mb-3 text-primary" decorative />
                   Add document
+                </div>
+              </div>
+            </div>
+          </UsageExample>
+
+          <UsageExample
+            title="Data tables and dashboards"
+            code={`import { FilterIcon, SortIcon, EditIcon, TableIcon } from "@ux4g/react-core";
+
+<button>
+  <FilterIcon decorative />
+  Filter results
+</button>
+
+<th>
+  Name <SortIcon size="sm" decorative />
+</th>`}
+          >
+            <div className="space-y-3">
+              <div className="flex flex-wrap gap-2">
+                <IconButton icon={FilterIcon} variant="secondary">Filter</IconButton>
+                <IconButton icon={SortIcon} variant="secondary">Sort</IconButton>
+                <IconButton icon={DownloadIcon} variant="secondary">Export</IconButton>
+              </div>
+              <div className="rounded-xl border border-border bg-card overflow-hidden text-xs">
+                <div className="grid grid-cols-4 gap-0 border-b border-border bg-muted/50 px-3 py-2 font-semibold text-foreground">
+                  <span>Name</span>
+                  <span>Status</span>
+                  <span>Date</span>
+                  <span className="text-right">Action</span>
+                </div>
+                <div className="grid grid-cols-4 gap-0 px-3 py-2 text-muted-foreground border-b border-border">
+                  <span>Certificate #1024</span>
+                  <span className="flex items-center gap-1"><CheckIcon size="sm" className="text-emerald-600" decorative /> Approved</span>
+                  <span>18 Apr 2026</span>
+                  <span className="text-right"><EditIcon size="sm" className="text-primary cursor-pointer" decorative /></span>
+                </div>
+                <div className="grid grid-cols-4 gap-0 px-3 py-2 text-muted-foreground">
+                  <span>Certificate #1025</span>
+                  <span className="flex items-center gap-1"><WarningIcon size="sm" className="text-amber-600" decorative /> Pending</span>
+                  <span>17 Apr 2026</span>
+                  <span className="text-right"><EditIcon size="sm" className="text-primary cursor-pointer" decorative /></span>
+                </div>
+              </div>
+            </div>
+          </UsageExample>
+
+          <UsageExample
+            title="Accessibility and user settings"
+            code={`import { AccessibilityIcon, ContrastIcon, KeyboardIcon, VisibilityIcon } from "@ux4g/react-core";
+
+<button aria-label="Accessibility settings">
+  <AccessibilityIcon decorative />
+</button>
+
+<div role="switch" aria-checked={highContrast}>
+  <ContrastIcon decorative />
+  High contrast
+</div>`}
+          >
+            <div className="space-y-3">
+              <div className="flex flex-wrap gap-2">
+                <div className="inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-3 py-2 text-sm font-medium text-foreground">
+                  <AccessibilityIcon size="md" className="text-primary" decorative />
+                  Accessibility
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 text-sm font-medium text-foreground">
+                  <LockIcon size="md" decorative />
+                  Privacy
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 text-sm font-medium text-foreground">
+                  <NotificationIcon size="md" decorative />
+                  Alerts
+                </div>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-2.5 text-sm">
+                  <span className="flex items-center gap-2 text-foreground"><ContrastIcon size="md" decorative /> High contrast</span>
+                  <div className="w-9 h-5 rounded-full bg-primary relative"><div className="absolute right-0.5 top-0.5 w-4 h-4 rounded-full bg-white shadow-sm" /></div>
+                </div>
+                <div className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-2.5 text-sm">
+                  <span className="flex items-center gap-2 text-foreground"><KeyboardIcon size="md" decorative /> Keyboard navigation</span>
+                  <div className="w-9 h-5 rounded-full bg-muted relative"><div className="absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-white shadow-sm" /></div>
+                </div>
+                <div className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-2.5 text-sm">
+                  <span className="flex items-center gap-2 text-foreground"><VisibilityIcon size="md" decorative /> Reading guide</span>
+                  <div className="w-9 h-5 rounded-full bg-muted relative"><div className="absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-white shadow-sm" /></div>
                 </div>
               </div>
             </div>

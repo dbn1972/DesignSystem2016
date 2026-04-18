@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router";
 import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, User, UserCheck, Shield, Upload, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, CreditCard } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from './LanguageSelector';
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -11,6 +11,12 @@ export default function NavigationHeader() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
   const { i18n } = useTranslation();
+
+  // Close mega menu on route change
+  useEffect(() => {
+    setActiveDropdown(null);
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
   const language = i18n.resolvedLanguage === "hi" ? "hi" : "en";
   const copy = {
     en: {
@@ -361,7 +367,7 @@ function NavItem({ label, href, active, hasDropdown, dropdownOpen, onMouseEnter 
 function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-b-2 border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -370,9 +376,9 @@ function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
               Design Foundations
             </div>
             <div className="space-y-0.5">
-              <MegaMenuItem icon={<Palette size={16} className="text-blue-500" />} label="Foundations Overview" href="/foundations" />
-              <MegaMenuItem icon={<Accessibility size={16} className="text-teal-500" />} label="Accessibility Guidelines" href="/accessibility" />
-              <MegaMenuItem icon={<Type size={16} className="text-purple-500" />} label="Content Design System" href="/content-system" />
+              <MegaMenuItem icon={<Palette size={16} className="text-blue-500" />} label="Foundations Overview" href="/foundations" onClose={onClose} />
+              <MegaMenuItem icon={<Accessibility size={16} className="text-teal-500" />} label="Accessibility Guidelines" href="/accessibility" onClose={onClose} />
+              <MegaMenuItem icon={<Type size={16} className="text-purple-500" />} label="Content Design System" href="/content-system" onClose={onClose} />
             </div>
           </div>
 
@@ -418,7 +424,7 @@ function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
 function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-b-2 border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -427,8 +433,8 @@ function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
               Component Library
             </div>
             <div className="space-y-0.5">
-              <MegaMenuItem icon={<Box size={14} className="text-blue-600" />} label="Components Overview" href="/components" />
-              <MegaMenuItem icon={<Code size={14} className="text-green-600" />} label="Framework Support" href="/framework-status" />
+              <MegaMenuItem icon={<Box size={14} className="text-blue-600" />} label="Components Overview" href="/components" onClose={onClose} />
+              <MegaMenuItem icon={<Code size={14} className="text-green-600" />} label="Framework Support" href="/framework-status" onClose={onClose} />
             </div>
           </div>
 
@@ -474,7 +480,7 @@ function ComponentsMegaMenu({ onClose }: { onClose: () => void }) {
 function PatternsMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-b-2 border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -484,8 +490,8 @@ function PatternsMegaMenu({ onClose }: { onClose: () => void }) {
               Overview
             </div>
             <div className="space-y-0.5">
-              <MegaMenuItem icon={<Layout size={16} className="text-muted-foreground" />} label="Patterns Overview" href="/patterns" />
-              <MegaMenuItem icon={<Grid size={16} className="text-blue-500" />} label="Pattern Library" href="/pattern-library" />
+              <MegaMenuItem icon={<Layout size={16} className="text-muted-foreground" />} label="Patterns Overview" href="/patterns" onClose={onClose} />
+              <MegaMenuItem icon={<Grid size={16} className="text-blue-500" />} label="Pattern Library" href="/pattern-library" onClose={onClose} />
             </div>
           </div>
 
@@ -593,7 +599,7 @@ function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
 
   return (
     <div
-      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-b-2 border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -601,7 +607,7 @@ function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
             <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               Overview
             </div>
-            <MegaMenuItem icon={<Layers size={14} className="text-muted-foreground" />} label="Service Archetypes" href="/archetypes" />
+            <MegaMenuItem icon={<Layers size={14} className="text-muted-foreground" />} label="Service Archetypes" href="/archetypes" onClose={onClose} />
           </div>
 
           <div>
@@ -683,7 +689,7 @@ function ArchetypesMegaMenu({ onClose }: { onClose: () => void }) {
 function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-b-2 border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -692,9 +698,9 @@ function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
               Cross-Cutting Systems
             </div>
             <div className="space-y-0.5">
-              <MegaMenuItem icon={<Globe size={14} className="text-blue-600" />} label="Multilingual Guidance" href="/systems/multilingual" />
-              <MegaMenuItem icon={<FileText size={14} className="text-green-600" />} label="Form Intelligence" href="/systems/form-intelligence" />
-              <MegaMenuItem icon={<RefreshCw size={16} className="text-purple-500" />} label="State Resilience" href="/systems/state-resilience" />
+              <MegaMenuItem icon={<Globe size={14} className="text-blue-600" />} label="Multilingual Guidance" href="/systems/multilingual" onClose={onClose} />
+              <MegaMenuItem icon={<FileText size={14} className="text-green-600" />} label="Form Intelligence" href="/systems/form-intelligence" onClose={onClose} />
+              <MegaMenuItem icon={<RefreshCw size={16} className="text-purple-500" />} label="State Resilience" href="/systems/state-resilience" onClose={onClose} />
             </div>
           </div>
 
@@ -742,126 +748,97 @@ function SystemsMegaMenu({ onClose }: { onClose: () => void }) {
 
 function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
   return (
-    <div className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn">
-      <div className="max-w-[1600px] mx-auto px-12 py-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="absolute left-0 right-0 bg-card border-t border-b-2 border-border shadow-xl animate-fadeIn">
+      <div className="max-w-[1600px] mx-auto px-12 py-6">
+        <div className="grid grid-cols-3 gap-8">
 
-          {/* Col 1 — Overview + Auth */}
-          <div className="space-y-5">
-          <div>
-            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-              Overview
-            </div>
-            <div className="space-y-0.5">
-              <MegaMenuItem icon={<Layers size={14} className="text-blue-600" />} label="Services Hub" href="/services" />
-              <MegaMenuItem icon={<Map size={14} className="text-blue-600" />} label="Service Blueprint" href="/reference-service/overview" />
-              <MegaMenuItem icon={<Box size={14} className="text-green-600" />} label="Certificate Service Demo" href="/reference-service/demo" />
-              <MegaMenuItem icon={<User size={14} className="text-purple-700" />} label="User Profile" href="/reference-service/user-profile" />
-              <MegaMenuItem icon={<BarChart3 size={14} className="text-indigo-600" />} label="Status Tracker" href="/reference-service/status-tracker" />
-            </div>
+          {/* Col 1 — Overview + Identity & Access */}
+          <div className="space-y-4">
+            <div>
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Overview</div>
+              <div className="space-y-0">
+                <MegaMenuItem icon={<Layers size={14} className="text-blue-600" />} label="Services Hub" href="/services" onClose={onClose} />
+                <MegaMenuItem icon={<Map size={14} className="text-blue-600" />} label="Service Blueprint" href="/reference-service/overview" onClose={onClose} />
+                <MegaMenuItem icon={<User size={14} className="text-purple-700" />} label="User Profile" href="/reference-service/user-profile" onClose={onClose} />
+                <MegaMenuItem icon={<BarChart3 size={14} className="text-indigo-600" />} label="Status Tracker" href="/reference-service/status-tracker" onClose={onClose} />
+              </div>
             </div>
             <div>
-              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                Identity & Access
-              </div>
-              <div className="space-y-0.5">
-                <MegaMenuItem icon={<Users size={14} className="text-indigo-600" />} label="Sign In" href="/reference-service/sign-in" />
-                <MegaMenuItem icon={<UserCheck size={14} className="text-green-700" />} label="Sign Up" href="/reference-service/sign-up" />
-                <MegaMenuItem icon={<Shield size={14} className="text-purple-600" />} label="OTP Verification" href="/reference-service/verify-otp" />
-                <MegaMenuItem icon={<AlertCircle size={14} className="text-orange-600" />} label="Auth Status" href="/reference-service/auth-status" />
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Identity & Access</div>
+              <div className="space-y-0">
+                <MegaMenuItem icon={<Users size={14} className="text-indigo-600" />} label="Sign In" href="/reference-service/sign-in" onClose={onClose} />
+                <MegaMenuItem icon={<UserCheck size={14} className="text-green-700" />} label="Sign Up" href="/reference-service/sign-up" onClose={onClose} />
+                <MegaMenuItem icon={<Shield size={14} className="text-purple-600" />} label="OTP Verification" href="/reference-service/verify-otp" onClose={onClose} />
+                <MegaMenuItem icon={<AlertCircle size={14} className="text-orange-600" />} label="Auth Status" href="/reference-service/auth-status" onClose={onClose} />
               </div>
             </div>
           </div>
 
-          {/* Col 2 — Application Flow */}
-          <div className="space-y-5">
+          {/* Col 2 — Application Flow + Submission & Payment */}
+          <div className="space-y-4">
             <div>
-              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                Application Flow
-              </div>
-              <div className="space-y-0.5">
-                <MegaMenuItem icon={<CheckCircle size={14} className="text-teal-600" />} label="Eligibility Check" href="/reference-service/eligibility" />
-                <MegaMenuItem icon={<FileText size={14} className="text-blue-700" />} label="Application Start" href="/reference-service/start" />
-                <MegaMenuItem icon={<FileText size={14} className="text-violet-700" />} label="Personal Form" href="/reference-service/form/personal" />
-                <MegaMenuItem icon={<Map size={14} className="text-orange-700" />} label="Address Form" href="/reference-service/form/address" />
-                <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Additional Form" href="/reference-service/form/additional" />
-                <MegaMenuItem icon={<FileText size={14} className="text-teal-700" />} label="Form Review" href="/reference-service/form/review" />
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Application Flow</div>
+              <div className="space-y-0">
+                <MegaMenuItem icon={<CheckCircle size={14} className="text-teal-600" />} label="Eligibility Check" href="/reference-service/eligibility" onClose={onClose} />
+                <MegaMenuItem icon={<FileText size={14} className="text-blue-700" />} label="Application Start" href="/reference-service/start" onClose={onClose} />
+                <MegaMenuItem icon={<FileText size={14} className="text-violet-700" />} label="Personal Form" href="/reference-service/form/personal" onClose={onClose} />
+                <MegaMenuItem icon={<Map size={14} className="text-orange-700" />} label="Address Form" href="/reference-service/form/address" onClose={onClose} />
+                <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Additional Form" href="/reference-service/form/additional" onClose={onClose} />
+                <MegaMenuItem icon={<FileText size={14} className="text-teal-700" />} label="Form Review" href="/reference-service/form/review" onClose={onClose} />
               </div>
             </div>
             <div>
-              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                Submission & Payment
-              </div>
-              <div className="space-y-0.5">
-                <MegaMenuItem icon={<Upload size={14} className="text-cyan-700" />} label="Document Upload" href="/reference-service/document-upload" />
-                <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Review Summary" href="/reference-service/review-summary" />
-                <MegaMenuItem icon={<CheckCircle size={14} className="text-purple-700" />} label="Declaration" href="/reference-service/declaration" />
-                <MegaMenuItem icon={<CreditCard size={14} className="text-pink-600" />} label="Payment Summary" href="/reference-service/payment-summary" />
-                <MegaMenuItem icon={<CreditCard size={14} className="text-green-600" />} label="Payment Receipt" href="/reference-service/payment-receipt" />
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Submission & Payment</div>
+              <div className="space-y-0">
+                <MegaMenuItem icon={<Upload size={14} className="text-cyan-700" />} label="Document Upload" href="/reference-service/document-upload" onClose={onClose} />
+                <MegaMenuItem icon={<FileText size={14} className="text-indigo-700" />} label="Review Summary" href="/reference-service/review-summary" onClose={onClose} />
+                <MegaMenuItem icon={<CheckCircle size={14} className="text-purple-700" />} label="Declaration" href="/reference-service/declaration" onClose={onClose} />
+                <MegaMenuItem icon={<CreditCard size={14} className="text-pink-600" />} label="Payment Summary" href="/reference-service/payment-summary" onClose={onClose} />
+                <MegaMenuItem icon={<CreditCard size={14} className="text-green-600" />} label="Payment Receipt" href="/reference-service/payment-receipt" onClose={onClose} />
               </div>
             </div>
           </div>
 
-          {/* Col 3 — Certificate Service spotlight */}
-          <div className="bg-card border-2 border-border rounded-lg p-5">
-            <div className="font-bold text-sm text-foreground mb-3">Certificate Service</div>
-            <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-              A complete end-to-end reference — 51 pages, 15+ patterns, all flows.
-            </p>
-            <div className="space-y-2 text-xs">
-              <Link to="/reference-service/certificate/sign-in" className="flex items-center gap-2 p-2.5 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
-                <Users size={13} className="text-indigo-500 flex-shrink-0" />
-                <div>
-                  <div className="font-bold text-foreground">Authentication Flow</div>
-                  <div className="text-muted-foreground">Sign in, sign up, OTP</div>
-                </div>
-              </Link>
-              <Link to="/reference-service/certificate/form/personal" className="flex items-center gap-2 p-2.5 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
-                <FileText size={13} className="text-blue-500 flex-shrink-0" />
-                <div>
-                  <div className="font-bold text-foreground">Application Process</div>
-                  <div className="text-muted-foreground">Multi-step forms</div>
-                </div>
-              </Link>
-              <Link to="/reference-service/certificate/payment-summary" className="flex items-center gap-2 p-2.5 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
-                <CreditCard size={13} className="text-pink-500 flex-shrink-0" />
-                <div>
-                  <div className="font-bold text-foreground">Payment Integration</div>
-                  <div className="text-muted-foreground">Fee summary & receipt</div>
-                </div>
-              </Link>
-              <Link to="/reference-service/certificate/officer/dashboard" className="flex items-center gap-2 p-2.5 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
-                <UserCheck size={13} className="text-green-600 flex-shrink-0" />
-                <div>
-                  <div className="font-bold text-foreground">Officer Dashboard</div>
-                  <div className="text-muted-foreground">Review & approval</div>
-                </div>
-              </Link>
-            </div>
-          </div>
-
-          {/* Col 4 — CTA */}
-          <div className="flex flex-col gap-4">
-            <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800 rounded-lg p-5 flex-1">
-              <div className="font-bold text-sm text-foreground mb-2">Live Demo</div>
-              <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-                Experience the full certificate service — from eligibility to certificate issuance.
+          {/* Col 3 — Certificate Service (with Live Demo inside) + Code Downloads */}
+          <div className="space-y-3">
+            <div className="border-2 border-border rounded-lg p-4 bg-card">
+              <div className="font-bold text-sm text-foreground mb-1">Certificate Service</div>
+              <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
+                Complete end-to-end reference — 51 pages, 15+ patterns, all flows.
               </p>
+              <div className="space-y-1.5 text-xs mb-4">
+                <Link to="/reference-service/certificate/sign-in" onClick={onClose} className="flex items-center gap-2 p-2 border border-border rounded-lg hover:border-primary/30 hover:bg-accent transition-colors">
+                  <Users size={12} className="text-indigo-500 flex-shrink-0" />
+                  <div><span className="font-semibold text-foreground">Authentication</span> <span className="text-muted-foreground">· Sign in, OTP</span></div>
+                </Link>
+                <Link to="/reference-service/certificate/form/personal" onClick={onClose} className="flex items-center gap-2 p-2 border border-border rounded-lg hover:border-primary/30 hover:bg-accent transition-colors">
+                  <FileText size={12} className="text-blue-500 flex-shrink-0" />
+                  <div><span className="font-semibold text-foreground">Application</span> <span className="text-muted-foreground">· Multi-step forms</span></div>
+                </Link>
+                <Link to="/reference-service/certificate/payment-summary" onClick={onClose} className="flex items-center gap-2 p-2 border border-border rounded-lg hover:border-primary/30 hover:bg-accent transition-colors">
+                  <CreditCard size={12} className="text-pink-500 flex-shrink-0" />
+                  <div><span className="font-semibold text-foreground">Payment</span> <span className="text-muted-foreground">· Fee & receipt</span></div>
+                </Link>
+                <Link to="/reference-service/certificate/officer/dashboard" onClick={onClose} className="flex items-center gap-2 p-2 border border-border rounded-lg hover:border-primary/30 hover:bg-accent transition-colors">
+                  <UserCheck size={12} className="text-green-600 flex-shrink-0" />
+                  <div><span className="font-semibold text-foreground">Officer</span> <span className="text-muted-foreground">· Review & approval</span></div>
+                </Link>
+              </div>
               <Link
                 to="/reference-service/demo"
-                className="block w-full text-center px-4 py-2.5 rounded text-xs font-bold text-primary-foreground transition-colors"
+                onClick={onClose}
+                className="block w-full text-center px-4 py-2 rounded-lg text-xs font-bold text-primary-foreground transition-colors"
                 style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}
               >
-                Launch Demo →
+                Launch Live Demo →
               </Link>
             </div>
-            <div className="bg-card border-2 border-border rounded-lg p-5">
-              <div className="font-bold text-sm text-foreground mb-2">Code Downloads</div>
-              <p className="text-xs text-muted-foreground mb-3">
-                Download React source for all reusable services.
-              </p>
-              <Link to="/resources/service-code-downloads" className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">
-                View downloads →
+            <div className="flex items-center justify-between px-2">
+              <Link to="/resources/service-code-downloads" onClick={onClose} className="text-xs font-semibold text-primary hover:underline">
+                Code Downloads →
+              </Link>
+              <Link to="/reference-service/demo" onClick={onClose} className="text-xs text-muted-foreground hover:text-foreground">
+                All 51 pages →
               </Link>
             </div>
           </div>
@@ -876,58 +853,88 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
 
 function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
   return (
-    <div
-      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
-    >
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-              Documentation
+    <div className="absolute left-0 right-0 bg-card border-t border-b-2 border-border shadow-xl animate-fadeIn">
+      <div className="max-w-[1600px] mx-auto px-12 py-6">
+        <div className="grid grid-cols-3 gap-8">
+
+          {/* Col 1 — Getting Started + Design Assets */}
+          <div className="space-y-4">
+            <div>
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Getting Started</div>
+              <div className="space-y-0">
+                <MegaMenuItem icon={<BookOpen size={14} className="text-blue-600" />} label="Resources Hub" href="/resources" onClose={onClose} />
+                <MegaMenuItem icon={<Download size={14} className="text-green-600" />} label="Installation Guide" href="/resources/getting-started" onClose={onClose} />
+                <MegaMenuItem icon={<Code size={14} className="text-purple-600" />} label="Starter Kit" href="/resources/starter-kit" onClose={onClose} />
+                <MegaMenuItem icon={<FileText size={14} className="text-orange-600" />} label="API Reference" href="/api-reference" onClose={onClose} />
+              </div>
             </div>
-            <div className="space-y-0.5">
-              <MegaMenuItem icon={<BookOpen size={14} className="text-blue-600" />} label="Resources Hub" href="/resources" />
-              <MegaMenuItem icon={<Download size={14} className="text-green-600" />} label="Getting Started" href="/resources/getting-started" />
+            <div>
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Design Assets</div>
+              <div className="space-y-0">
+                <MegaMenuItem icon={<Palette size={14} className="text-pink-600" />} label="Figma Design Kit" href="/resources/figma" onClose={onClose} />
+                <MegaMenuItem icon={<Grid size={14} className="text-indigo-600" />} label="Icons Library" href="/components/icons" onClose={onClose} />
+                <MegaMenuItem icon={<Layers size={14} className="text-teal-600" />} label="Government Logos" href="/resources/logos" onClose={onClose} />
+                <MegaMenuItem icon={<FileText size={14} className="text-blue-700" />} label="Component Specs" href="/resources/component-specs" onClose={onClose} />
+              </div>
             </div>
           </div>
 
-          <div>
-            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-              Developer Tools
+          {/* Col 2 — Framework Packages + Migration */}
+          <div className="space-y-4">
+            <div>
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Framework Packages</div>
+              <div className="space-y-0">
+                <MegaMenuItem icon={<Code size={14} className="text-blue-600" />} label="React Core Docs" href="/documentation" onClose={onClose} />
+                <MegaMenuItem icon={<Code size={14} className="text-red-600" />} label="Angular Core Docs" href="/resources/angular-core" onClose={onClose} />
+                <MegaMenuItem icon={<Code size={14} className="text-orange-600" />} label="Angular Patterns" href="/resources/angular-patterns" onClose={onClose} />
+                <MegaMenuItem icon={<Globe size={14} className="text-green-600" />} label="Web Components" href="/resources/web-components" onClose={onClose} />
+                <MegaMenuItem icon={<Download size={14} className="text-violet-600" />} label="Service Code Downloads" href="/resources/service-code-downloads" onClose={onClose} />
+              </div>
             </div>
-            <div className="space-y-0.5">
-              <MegaMenuItem icon={<Code size={14} className="text-purple-600" />} label="Starter Kit" href="/resources/starter-kit" />
-              <MegaMenuItem icon={<FileText size={14} className="text-orange-600" />} label="Component Specs" href="/resources/component-specs" />
-              <MegaMenuItem icon={<GitBranch size={14} className="text-indigo-600" />} label="Figma Integration" href="/resources/figma" />
+            <div>
+              <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Migration & Tools</div>
+              <div className="space-y-0">
+                <MegaMenuItem icon={<GitBranch size={14} className="text-amber-600" />} label="Migration Guides" href="/resources/migration-guides" onClose={onClose} />
+                <MegaMenuItem icon={<RefreshCw size={14} className="text-cyan-600" />} label="Material UI Migration" href="/resources/migration-material-ui" onClose={onClose} />
+                <MegaMenuItem icon={<Accessibility size={14} className="text-green-700" />} label="Accessibility Toolkit" href="/accessibility" onClose={onClose} />
+              </div>
             </div>
           </div>
 
-          <div className="col-span-2 bg-card border-2 border-border rounded-lg p-6">
-            <div className="font-bold text-sm text-foreground mb-4">Developer Resources</div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mb-4">
-              <Link to="/resources/starter-kit" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
-                <div className="font-bold text-muted-foreground">React Starter</div>
-                <div className="text-muted-foreground">Pre-configured React + TypeScript template</div>
-              </Link>
-              <Link to="/resources/starter-kit" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
-                <div className="font-bold text-muted-foreground">Angular Starter</div>
-                <div className="text-muted-foreground">Angular standalone components setup</div>
-              </Link>
-              <Link to="/resources/getting-started" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
-                <div className="font-bold text-muted-foreground">NPM Packages</div>
-                <div className="text-muted-foreground">@ux4g/tokens, styles, core, patterns</div>
-              </Link>
-              <Link to="/resources/figma" className="space-y-2 p-3 border border-border rounded hover:border-[var(--ux4g-color-brand-primary)] hover:bg-accent transition-colors">
-                <div className="font-bold text-muted-foreground">Figma Libraries</div>
-                <div className="text-muted-foreground">Design tokens and components</div>
-              </Link>
+          {/* Col 3 — Quick Start Cards */}
+          <div className="space-y-3">
+            <div className="border-2 border-border rounded-lg p-4 bg-card">
+              <div className="font-bold text-sm text-foreground mb-2">Quick Start</div>
+              <div className="space-y-1.5 text-xs">
+                <Link to="/resources/starter-kit" onClick={onClose} className="flex items-center gap-2 p-2 border border-border rounded-lg hover:border-primary/30 hover:bg-accent transition-colors">
+                  <Code size={12} className="text-blue-500 flex-shrink-0" />
+                  <div><span className="font-semibold text-foreground">React Starter</span> <span className="text-muted-foreground">· TypeScript template</span></div>
+                </Link>
+                <Link to="/resources/starter-kit" onClick={onClose} className="flex items-center gap-2 p-2 border border-border rounded-lg hover:border-primary/30 hover:bg-accent transition-colors">
+                  <Code size={12} className="text-red-500 flex-shrink-0" />
+                  <div><span className="font-semibold text-foreground">Angular Starter</span> <span className="text-muted-foreground">· Standalone setup</span></div>
+                </Link>
+                <Link to="/resources/figma" onClick={onClose} className="flex items-center gap-2 p-2 border border-border rounded-lg hover:border-primary/30 hover:bg-accent transition-colors">
+                  <Palette size={12} className="text-pink-500 flex-shrink-0" />
+                  <div><span className="font-semibold text-foreground">Figma Libraries</span> <span className="text-muted-foreground">· Tokens & components</span></div>
+                </Link>
+                <Link to="/components/icons" onClick={onClose} className="flex items-center gap-2 p-2 border border-border rounded-lg hover:border-primary/30 hover:bg-accent transition-colors">
+                  <Grid size={12} className="text-indigo-500 flex-shrink-0" />
+                  <div><span className="font-semibold text-foreground">58 Icons</span> <span className="text-muted-foreground">· SVG + React</span></div>
+                </Link>
+                <Link to="/resources/logos" onClick={onClose} className="flex items-center gap-2 p-2 border border-border rounded-lg hover:border-primary/30 hover:bg-accent transition-colors">
+                  <Layers size={12} className="text-teal-500 flex-shrink-0" />
+                  <div><span className="font-semibold text-foreground">156 Logos</span> <span className="text-muted-foreground">· Government brands</span></div>
+                </Link>
+              </div>
             </div>
-            <div className="pt-4 border-t border-border">
-              <Link to="/resources/getting-started" className="text-xs font-bold text-[var(--ux4g-color-brand-primary)] hover:underline">
-                View Complete Installation Guide →
+            <div className="flex items-center justify-between px-2">
+              <Link to="/resources/getting-started" onClick={onClose} className="text-xs font-semibold text-primary hover:underline">
+                Full Installation Guide →
               </Link>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -939,7 +946,7 @@ function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
 function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="absolute left-0 right-0 bg-card border-t border-border shadow-xl animate-fadeIn"
+      className="absolute left-0 right-0 bg-card border-t border-b-2 border-border shadow-xl animate-fadeIn"
     >
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -948,8 +955,8 @@ function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
               Governance Framework
             </div>
             <div className="space-y-0.5">
-              <MegaMenuItem icon={<Building2 size={14} className="text-blue-600" />} label="Governance Overview" href="/governance" />
-              <MegaMenuItem icon={<BarChart3 size={14} className="text-green-600" />} label="Adoption Tracking" href="/governance/adoption" />
+              <MegaMenuItem icon={<Building2 size={14} className="text-blue-600" />} label="Governance Overview" href="/governance" onClose={onClose} />
+              <MegaMenuItem icon={<BarChart3 size={14} className="text-green-600" />} label="Adoption Tracking" href="/governance/adoption" onClose={onClose} />
             </div>
           </div>
 
@@ -958,8 +965,8 @@ function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
               Compliance & Reporting
             </div>
             <div className="space-y-0.5">
-              <MegaMenuItem icon={<CheckCircle size={14} className="text-purple-600" />} label="Conformance Dashboard" href="/governance/conformance" />
-              <MegaMenuItem icon={<Gauge size={14} className="text-orange-600" />} label="Service Analytics" href="/governance/analytics" />
+              <MegaMenuItem icon={<CheckCircle size={14} className="text-purple-600" />} label="Conformance Dashboard" href="/governance/conformance" onClose={onClose} />
+              <MegaMenuItem icon={<Gauge size={14} className="text-orange-600" />} label="Service Analytics" href="/governance/analytics" onClose={onClose} />
             </div>
           </div>
 
@@ -1000,11 +1007,12 @@ function GovernanceMegaMenu({ onClose }: { onClose: () => void }) {
 
 // ==================== MEGA MENU COMPONENTS ====================
 
-function MegaMenuItem({ icon, label, href }: { icon: React.ReactNode; label: string; href: string }) {
+function MegaMenuItem({ icon, label, href, onClose }: { icon: React.ReactNode; label: string; href: string; onClose?: () => void }) {
   return (
     <Link
       to={href}
-      className="group flex items-center gap-2.5 px-3 py-2.5 text-sm text-muted-foreground hover:bg-muted rounded-lg transition-all"
+      onClick={onClose}
+      className="group flex items-center gap-2 px-2.5 py-1.5 text-sm text-muted-foreground hover:bg-muted rounded-lg transition-all"
     >
       <span className="transition-transform group-hover:scale-110">{icon}</span>
       <span className="group-hover:text-foreground">{label}</span>
@@ -1012,14 +1020,15 @@ function MegaMenuItem({ icon, label, href }: { icon: React.ReactNode; label: str
   );
 }
 
-function ArchetypeMenuItem({ label, href, active }: { label: string; href: string; active: boolean }) {
+function ArchetypeMenuItem({ label, href, active, onClose }: { label: string; href: string; active: boolean; onClose?: () => void }) {
   return (
     <Link
       to={href}
+      onClick={onClose}
       className={`block px-4 py-2 text-sm rounded transition-colors ${
         active
-          ? 'bg-blue-100 text-[var(--ux4g-color-brand-primary)] font-medium border-l-2 border-[var(--ux4g-color-brand-primary)]'
-          : 'text-muted-foreground hover:bg-card hover:text-[var(--ux4g-color-brand-primary)]'
+          ? 'bg-primary/10 text-primary font-medium border-l-2 border-primary'
+          : 'text-muted-foreground hover:bg-muted hover:text-foreground'
       }`}
     >
       {label}
