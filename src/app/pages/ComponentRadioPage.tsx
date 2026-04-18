@@ -31,39 +31,43 @@ const RadioPreview = ({ name, options, disabled = false }: any) => {
   );
 };
 
-function RadioPlayground() {
-  const [disabled, setDisabled] = React.useState(false);
-  const [orientation, setOrientation] = React.useState('vertical');
+const RADIO_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'disabled',
+    label: 'Disabled',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'orientation',
+    label: 'Orientation',
+    type: 'text',
+    defaultValue: 'vertical',
+  },
+];
 
+function RadioPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <fieldset className={`flex ${orientation === 'horizontal' ? 'flex-row gap-6' : 'flex-col gap-3'}`}>
-          <legend className="text-sm font-semibold text-foreground mb-2">Processing Type</legend>
-          {['Normal (7-10 days)', 'Tatkal (2-3 days)', 'Super Tatkal (1 day)'].map((opt, i) => (
-            <label key={i} className={`flex items-center gap-2 text-sm ${disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}>
-              <input type="radio" name="pg-radio" disabled={disabled} defaultChecked={i === 0} className="accent-[#005196] w-4 h-4" />
-              <span className="text-foreground">{opt}</span>
-            </label>
-          ))}
-        </fieldset>
-      </div>
-      <div className="space-y-4 text-sm">
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Orientation</label>
-          <select value={orientation} onChange={e => setOrientation(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-            <option value="vertical">Vertical</option>
-            <option value="horizontal">Horizontal</option>
-          </select>
+    <ComponentPlayground
+      name="Radio"
+      controls={RADIO_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <RadioGroup {...v} />
         </div>
-        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<RadioGroup orientation="${orientation}"${disabled ? ' disabled' : ''}>\n  <Radio value="normal" label="Normal" />\n</RadioGroup>`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        RADIO_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Radio${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -785,11 +789,9 @@ export interface RadioGroupProps {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Radio configurations in real time.</p>
+          <div className="mb-8">
             <RadioPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

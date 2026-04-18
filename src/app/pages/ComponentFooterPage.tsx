@@ -89,27 +89,43 @@ const FooterPreview = ({ variant, showSocial, columns }: any) => (
   </footer>
 );
 
-function FooterPlayground() {
-  const [showSocial, setShowSocial] = React.useState(false);
-  const [showHelpline, setShowHelpline] = React.useState(false);
+const FOOTER_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'showSocial',
+    label: 'Show Social',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'showHelpline',
+    label: 'Show Helpline',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function FooterPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <FooterPreview showSocial={showSocial} />
+    <ComponentPlayground
+      name="Footer"
+      controls={FOOTER_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <FooterPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showSocial} onChange={e => setShowSocial(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Social</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showHelpline} onChange={e => setShowHelpline(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Helpline</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Footer${showSocial ? ' showSocial' : ''}${showHelpline ? ' showHelpline' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        FOOTER_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Footer${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -746,7 +762,13 @@ export type FooterVariant = 'government' | 'light' | 'dark';`,
               </div>
             </div>
           </section>
-        </>
+        
+          {/* Interactive Playground */}
+          <div className="mb-8">
+            <FooterPlayground />
+          </div>
+
+          </>
       }
     />
   );

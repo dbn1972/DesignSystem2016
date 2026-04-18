@@ -25,41 +25,43 @@ const StackPreview = ({ direction = 'vertical', spacing = 'md' }: any) => {
   );
 };
 
-function StackPlayground() {
-  const [direction, setDirection] = React.useState('vertical');
-  const [gap, setGap] = React.useState('2');
+const STACK_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'direction',
+    label: 'Direction',
+    type: 'text',
+    defaultValue: 'vertical',
+  },
+  {
+    name: 'gap',
+    label: 'Gap',
+    type: 'text',
+    defaultValue: '2',
+  },
+];
 
+function StackPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <StackPreview direction={direction} spacing={gap} />
+    <ComponentPlayground
+      name="Stack"
+      controls={STACK_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <StackPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Direction</label>
-            <select value={direction} onChange={e => setDirection(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="vertical">vertical</option>
-              <option value="horizontal">horizontal</option>
-            </select>
-          </div>
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Gap</label>
-            <select value={gap} onChange={e => setGap(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="2">2</option>
-              <option value="4">4</option>
-              <option value="6">6</option>
-              <option value="8">8</option>
-            </select>
-          </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Stack ${direction} ${gap} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        STACK_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Stack${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -522,11 +524,9 @@ export type StackJustify = 'start' | 'center' | 'end' | 'between' | 'around' | '
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Stack configurations in real time.</p>
+          <div className="mb-8">
             <StackPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

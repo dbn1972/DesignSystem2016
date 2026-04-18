@@ -38,35 +38,49 @@ const TabsPreview = ({ variant, items }: any) => {
   );
 };
 
-function TabsPlayground() {
-  const [orientation, setOrientation] = React.useState('horizontal');
-  const [variant, setVariant] = React.useState('default');
-  const [disabled, setDisabled] = React.useState(false);
+const TABS_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'orientation',
+    label: 'Orientation',
+    type: 'text',
+    defaultValue: 'horizontal',
+  },
+  {
+    name: 'variant',
+    label: 'Variant',
+    type: 'text',
+    defaultValue: 'default',
+  },
+  {
+    name: 'disabled',
+    label: 'Disabled',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function TabsPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <TabsPreview variant={variant} items={["Overview","Documents","Status"]} />
+    <ComponentPlayground
+      name="Tabs"
+      controls={TABS_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <TabsPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Orientation</label>
-            <select value={orientation} onChange={e => setOrientation(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="horizontal">horizontal</option>
-              <option value="vertical">vertical</option>
-            </select>
-          </div>
-          <div><label className="block font-semibold text-foreground mb-1">Variant</label><select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="default">Default</option><option value="pills">Pills</option><option value="underline">Underline</option></select></div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Tabs ${orientation} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        TABS_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Tabs${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -625,7 +639,13 @@ export type TabVariant = 'underline' | 'pills' | 'enclosed';`,
               </div>
             </div>
           </section>
-        </>
+        
+          {/* Interactive Playground */}
+          <div className="mb-8">
+            <TabsPlayground />
+          </div>
+
+          </>
       }
     />
   );

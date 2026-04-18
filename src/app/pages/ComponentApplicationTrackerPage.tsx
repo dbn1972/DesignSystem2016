@@ -55,29 +55,49 @@ const TrackerPreview = () => {
   );
 };
 
-function ApplicationTrackerPlayground() {
-  const [showTimeline, setShowTimeline] = React.useState(false);
-  const [showDates, setShowDates] = React.useState(true);
-  const [compact, setCompact] = React.useState(false);
+const APPLICATIONTRACKER_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'showTimeline',
+    label: 'Show Timeline',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'showDates',
+    label: 'Show Dates',
+    type: 'boolean',
+    defaultValue: true,
+  },
+  {
+    name: 'compact',
+    label: 'Compact',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function ApplicationTrackerPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <div className="w-full max-w-md"><div className="flex items-center gap-3 mb-3"><div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 text-xs font-bold">✓</div><div className="flex-1 h-1 bg-green-500 rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 text-xs font-bold">✓</div><div className="flex-1 h-1 bg-yellow-400 rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-yellow-100 text-yellow-700 text-xs font-bold">⏳</div><div className="flex-1 h-1 bg-muted rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground text-xs">4</div></div><div className="flex justify-between text-xs text-muted-foreground"><span>Submitted</span><span>Verified</span><span>Processing</span><span>Complete</span></div></div>
+    <ComponentPlayground
+      name="ApplicationTracker"
+      controls={APPLICATIONTRACKER_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <ApplicationTracker {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showTimeline} onChange={e => setShowTimeline(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Timeline</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showDates} onChange={e => setShowDates(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show dates</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={compact} onChange={e => setCompact(e.target.checked)} className="accent-primary" /><span className="text-foreground">Compact mode</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<ApplicationTracker${showTimeline ? ' showTimeline' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        APPLICATIONTRACKER_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<ApplicationTracker${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -540,7 +560,13 @@ export interface ApplicationStage {
               </div>
             </div>
           </section>
-        </>
+        
+          {/* Interactive Playground */}
+          <div className="mb-8">
+            <ApplicationTrackerPlayground />
+          </div>
+
+          </>
       }
     />
   );

@@ -104,35 +104,43 @@ const CodeBlockPreview = ({
   );
 };
 
-function CodeBlockPlayground() {
-  const [showLineNumbers, setShowLineNumbers] = React.useState(false);
-  const [language, setLanguage] = React.useState('tsx');
+const CODEBLOCK_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'showLineNumbers',
+    label: 'Show Line Numbers',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'language',
+    label: 'Language',
+    type: 'text',
+    defaultValue: 'tsx',
+  },
+];
 
+function CodeBlockPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <CodeBlockPreview language="tsx" code={'<Button variant="primary">Submit</Button>'} showLineNumbers />
+    <ComponentPlayground
+      name="CodeBlock"
+      controls={CODEBLOCK_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <CodeBlockPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLineNumbers} onChange={e => setShowLineNumbers(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Line Numbers</span></label>
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Language</label>
-            <select value={language} onChange={e => setLanguage(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="tsx">tsx</option>
-              <option value="json">json</option>
-              <option value="bash">bash</option>
-              <option value="html">html</option>
-            </select>
-          </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<CodeBlock${showLineNumbers ? ' showLineNumbers' : ''} ${language} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        CODEBLOCK_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<CodeBlock${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -563,11 +571,9 @@ export default function ComponentCodeBlockPage() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different CodeBlock configurations in real time.</p>
+          <div className="mb-8">
             <CodeBlockPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

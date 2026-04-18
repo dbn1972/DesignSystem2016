@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Save, Send, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -29,71 +30,79 @@ const ButtonPreview = ({ variant, size, children, ...props }: any) => (
   </button>
 );
 
-/** Interactive playground — lets users tweak variant, size, disabled, loading in real time */
+const BUTTON_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'variant',
+    label: 'Variant',
+    type: 'select',
+    defaultValue: 'primary',
+    options: ['primary', 'secondary', 'tertiary', 'destructive', 'ghost', 'success'],
+    group: 'Appearance',
+  },
+  {
+    name: 'size',
+    label: 'Size',
+    type: 'radio',
+    defaultValue: 'md',
+    options: ['sm', 'md', 'lg'],
+    group: 'Appearance',
+  },
+  {
+    name: 'label',
+    label: 'Label',
+    type: 'text',
+    defaultValue: 'Submit Application',
+    group: 'Content',
+  },
+  {
+    name: 'disabled',
+    label: 'Disabled',
+    type: 'boolean',
+    defaultValue: false,
+    group: 'State',
+  },
+  {
+    name: 'loading',
+    label: 'Loading',
+    type: 'boolean',
+    defaultValue: false,
+    group: 'State',
+  },
+  {
+    name: 'fullWidth',
+    label: 'Full width',
+    type: 'boolean',
+    defaultValue: false,
+    group: 'Layout',
+  },
+];
+
 function ButtonPlayground() {
-  const [variant, setVariant] = useState<string>('primary');
-  const [size, setSize] = useState<string>('md');
-  const [disabled, setDisabled] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [fullWidth, setFullWidth] = useState(false);
-  const [label, setLabel] = useState('Submit Application');
-
   return (
-    <div className="grid lg:grid-cols-[1fr_320px] gap-6">
-      {/* Preview */}
-      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="Button"
+      controls={BUTTON_CONTROLS}
+      renderPreview={(v) => (
         <ButtonPreview
-          variant={variant}
-          size={size}
-          disabled={disabled || loading}
-          style={fullWidth ? { width: '100%' } : undefined}
+          variant={v.variant}
+          size={v.size}
+          disabled={v.disabled || v.loading}
+          style={v.fullWidth ? { width: '100%' } : undefined}
         >
-          {loading && <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
-          {label}
+          {v.loading && (
+            <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          )}
+          {v.label}
         </ButtonPreview>
-      </div>
-
-      {/* Controls */}
-      <div className="space-y-4 text-sm">
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Variant</label>
-          <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-            {['primary', 'secondary', 'tertiary', 'destructive', 'ghost', 'success'].map(v => (
-              <option key={v} value={v}>{v}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Size</label>
-          <select value={size} onChange={e => setSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-            {['sm', 'md', 'lg'].map(s => <option key={s} value={s}>{s}</option>)}
-          </select>
-        </div>
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Label</label>
-          <input value={label} onChange={e => setLabel(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" />
-            <span className="text-foreground">Disabled</span>
-          </label>
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" checked={loading} onChange={e => setLoading(e.target.checked)} className="accent-primary" />
-            <span className="text-foreground">Loading</span>
-          </label>
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" checked={fullWidth} onChange={e => setFullWidth(e.target.checked)} className="accent-primary" />
-            <span className="text-foreground">Full width</span>
-          </label>
-        </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Button variant="${variant}" size="${size}"${disabled ? ' disabled' : ''}${loading ? ' loading' : ''}${fullWidth ? ' fullWidth' : ''}>`}{label}{`</Button>`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props = [`variant="${v.variant}"`, `size="${v.size}"`];
+        if (v.disabled) props.push('disabled');
+        if (v.loading) props.push('loading');
+        if (v.fullWidth) props.push('fullWidth');
+        return `<Button ${props.join(' ')}>${v.label}</Button>`;
+      }}
+    />
   );
 }
 
@@ -725,11 +734,9 @@ export type ButtonType = 'button' | 'submit' | 'reset';`,
           </section>
 
           {/* ── Interactive Playground (P2-11) ── */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls below to preview different Button configurations in real time.</p>
+          <div className="mb-8">
             <ButtonPlayground />
-          </section>
+          </div>
 
           {/* ── Related components ── */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

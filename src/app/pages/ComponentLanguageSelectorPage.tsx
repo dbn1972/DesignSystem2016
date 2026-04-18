@@ -67,29 +67,49 @@ const LanguageSelectorPreview = ({ variant, showFlags, position, languages, curr
   );
 };
 
-function LanguageSelectorPlayground() {
-  const [showFlag, setShowFlag] = React.useState(false);
-  const [position, setPosition] = React.useState('header');
-  const [showLabel, setShowLabel] = React.useState(true);
+const LANGUAGESELECTOR_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'showFlag',
+    label: 'Show Flag',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'position',
+    label: 'Position',
+    type: 'text',
+    defaultValue: 'header',
+  },
+  {
+    name: 'showLabel',
+    label: 'Show Label',
+    type: 'boolean',
+    defaultValue: true,
+  },
+];
 
+function LanguageSelectorPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <LanguageSelectorPreview languages={[{code:"en",label:"English"},{code:"hi",label:"हिन्दी"},{code:"ta",label:"தமிழ்"}]} currentLanguage="en" showFlags={showFlag} />
+    <ComponentPlayground
+      name="LanguageSelector"
+      controls={LANGUAGESELECTOR_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <LanguageSelectorPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showFlag} onChange={e => setShowFlag(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Flag</span></label>
-          <div><label className="block font-semibold text-foreground mb-1">Position</label><select value={position} onChange={e => setPosition(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="header">Header</option><option value="footer">Footer</option><option value="sidebar">Sidebar</option></select></div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLabel} onChange={e => setShowLabel(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show label</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<LanguageSelector${showFlag ? ' showFlag' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        LANGUAGESELECTOR_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<LanguageSelector${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -1131,7 +1151,13 @@ export type LanguageSelectorPosition = 'left' | 'center' | 'right';`,
               </div>
             </div>
           </section>
-        </>
+        
+          {/* Interactive Playground */}
+          <div className="mb-8">
+            <LanguageSelectorPlayground />
+          </div>
+
+          </>
       }
     />
   );

@@ -39,27 +39,43 @@ const ErrorTextPreview = ({ children }: any) => (
   <p className="text-sm text-red-600" role="alert">{children}</p>
 );
 
-function FieldPlayground() {
-  const [required, setRequired] = React.useState(false);
-  const [error, setError] = React.useState(false);
+const FIELD_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'required',
+    label: 'Required',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'error',
+    label: 'Error',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function FieldPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <FieldPreview error={error} disabled={false} />
+    <ComponentPlayground
+      name="Field"
+      controls={FIELD_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <FieldPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={error} onChange={e => setError(e.target.checked)} className="accent-primary" /><span className="text-foreground">Error</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Field${required ? ' required' : ''}${error ? ' error' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        FIELD_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Field${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -556,11 +572,9 @@ export class FieldModule { }`,
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Field configurations in real time.</p>
+          <div className="mb-8">
             <FieldPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

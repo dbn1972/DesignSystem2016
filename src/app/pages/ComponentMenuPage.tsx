@@ -70,29 +70,49 @@ const TriggerButton = ({ children, ...props }: any) => (
   </button>
 );
 
-function MenuPlayground() {
-  const [disabled, setDisabled] = React.useState(false);
-  const [placement, setPlacement] = React.useState('bottom');
-  const [showIcons, setShowIcons] = React.useState(true);
+const MENU_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'disabled',
+    label: 'Disabled',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'placement',
+    label: 'Placement',
+    type: 'text',
+    defaultValue: 'bottom',
+  },
+  {
+    name: 'showIcons',
+    label: 'Show Icons',
+    type: 'boolean',
+    defaultValue: true,
+  },
+];
 
+function MenuPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <MenuPreview items={[{label:"View"},{label:"Edit"},{label:"Delete"}]} trigger="Actions" placement={placement} />
+    <ComponentPlayground
+      name="Menu"
+      controls={MENU_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <MenuPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
-          <div><label className="block font-semibold text-foreground mb-1">Placement</label><select value={placement} onChange={e => setPlacement(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="bottom">Bottom</option><option value="top">Top</option><option value="right">Right</option></select></div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showIcons} onChange={e => setShowIcons(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show icons</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Menu${disabled ? ' disabled' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        MENU_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Menu${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -958,7 +978,13 @@ export type MenuPlacement = 'bottom-start' | 'bottom-end' | 'top-start' | 'top-e
               </div>
             </div>
           </section>
-        </>
+        
+          {/* Interactive Playground */}
+          <div className="mb-8">
+            <MenuPlayground />
+          </div>
+
+          </>
       }
     />
   );

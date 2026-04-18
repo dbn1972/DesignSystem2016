@@ -28,27 +28,43 @@ const VideoPlayerPreview = ({ poster, controls = true, className, ...props }: an
   </div>
 );
 
-function VideoPlayerPlayground() {
-  const [showCaptions, setShowCaptions] = React.useState(false);
-  const [autoPlay, setAutoPlay] = React.useState(false);
+const VIDEOPLAYER_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'showCaptions',
+    label: 'Show Captions',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'autoPlay',
+    label: 'Auto Play',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function VideoPlayerPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <VideoPlayerPreview controls={showCaptions} />
+    <ComponentPlayground
+      name="VideoPlayer"
+      controls={VIDEOPLAYER_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <VideoPlayerPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showCaptions} onChange={e => setShowCaptions(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Captions</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={autoPlay} onChange={e => setAutoPlay(e.target.checked)} className="accent-primary" /><span className="text-foreground">Auto Play</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<VideoPlayer${showCaptions ? ' showCaptions' : ''}${autoPlay ? ' autoPlay' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        VIDEOPLAYER_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<VideoPlayer${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -1049,7 +1065,13 @@ export type VideoQuality = 'auto' | '240p' | '360p' | '480p' | '720p' | '1080p';
               </div>
             </div>
           </section>
-        </>
+        
+          {/* Interactive Playground */}
+          <div className="mb-8">
+            <VideoPlayerPlayground />
+          </div>
+
+          </>
       }
     />
   );

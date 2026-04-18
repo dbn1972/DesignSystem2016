@@ -392,42 +392,43 @@ const FormLoadingExample = () => {
   );
 };
 
-function SkeletonPlayground() {
-  const [variant, setVariant] = React.useState('text');
-  const [animation, setAnimation] = React.useState('pulse');
+const SKELETON_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'variant',
+    label: 'Variant',
+    type: 'text',
+    defaultValue: 'text',
+  },
+  {
+    name: 'animation',
+    label: 'Animation',
+    type: 'text',
+    defaultValue: 'pulse',
+  },
+];
 
+function SkeletonPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <SkeletonPreview variant={variant} animated={animation !== "none"} />
+    <ComponentPlayground
+      name="Skeleton"
+      controls={SKELETON_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <SkeletonPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Variant</label>
-            <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="text">text</option>
-              <option value="rectangle">rectangle</option>
-              <option value="circle">circle</option>
-              <option value="card">card</option>
-            </select>
-          </div>
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Animation</label>
-            <select value={animation} onChange={e => setAnimation(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="pulse">pulse</option>
-              <option value="wave">wave</option>
-              <option value="none">none</option>
-            </select>
-          </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Skeleton ${variant} ${animation} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        SKELETON_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Skeleton${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -823,11 +824,9 @@ export default function ComponentSkeletonPage() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Skeleton configurations in real time.</p>
+          <div className="mb-8">
             <SkeletonPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

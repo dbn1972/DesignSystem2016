@@ -202,41 +202,43 @@ const ButtonTrigger = ({ children, variant = 'primary', size = 'md', ...props }:
   </button>
 );
 
-function PopoverPlayground() {
-  const [trigger, setTrigger] = React.useState('click');
-  const [position, setPosition] = React.useState('top');
+const POPOVER_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'trigger',
+    label: 'Trigger',
+    type: 'text',
+    defaultValue: 'click',
+  },
+  {
+    name: 'position',
+    label: 'Position',
+    type: 'text',
+    defaultValue: 'top',
+  },
+];
 
+function PopoverPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <div className="relative inline-flex flex-col items-start"><div className="w-56 bg-card border border-border rounded-lg shadow-lg p-3 mb-2"><p className="text-xs font-semibold text-foreground mb-1">Help</p><p className="text-xs text-muted-foreground">Enter your 12-digit Aadhaar number.</p></div><button className="px-3 py-1.5 text-xs border border-border rounded">ⓘ Help ({position})</button></div>
+    <ComponentPlayground
+      name="Popover"
+      controls={POPOVER_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <Popover {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Trigger</label>
-            <select value={trigger} onChange={e => setTrigger(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="click">click</option>
-              <option value="hover">hover</option>
-            </select>
-          </div>
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Position</label>
-            <select value={position} onChange={e => setPosition(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="top">top</option>
-              <option value="bottom">bottom</option>
-              <option value="left">left</option>
-              <option value="right">right</option>
-            </select>
-          </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Popover ${trigger} ${position} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        POPOVER_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Popover${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -838,11 +840,9 @@ export default function ComponentPopoverPage() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Popover configurations in real time.</p>
+          <div className="mb-8">
             <PopoverPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

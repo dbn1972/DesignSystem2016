@@ -39,47 +39,62 @@ const InputPreview = ({ type = 'text', placeholder, icon, error, ...props }: any
   );
 };
 
-function InputPlayground() {
-  const [type, setType] = React.useState('text');
-  const [placeholder, setPlaceholder] = React.useState('Enter your name');
-  const [disabled, setDisabled] = React.useState(false);
-  const [error, setError] = React.useState(false);
-  const [required, setRequired] = React.useState(false);
+const INPUT_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'type',
+    label: 'Type',
+    type: 'select',
+    defaultValue: 'text',
+    options: ['text', 'email', 'password', 'tel', 'search', 'number', 'url'],
+  },
+  {
+    name: 'placeholder',
+    label: 'Placeholder',
+    type: 'text',
+    defaultValue: 'Enter your name',
+  },
+  {
+    name: 'disabled',
+    label: 'Disabled',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'error',
+    label: 'Error',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'required',
+    label: 'Required',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function InputPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <InputPreview
-          type={type}
-          placeholder={placeholder}
-          disabled={disabled}
-          error={error ? 'This field is required' : undefined}
-          required={required}
-        />
-      </div>
-      <div className="space-y-4 text-sm">
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Type</label>
-          <select value={type} onChange={e => setType(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-            {['text', 'email', 'password', 'tel', 'search', 'number', 'url'].map(t => <option key={t} value={t}>{t}</option>)}
-          </select>
+    <ComponentPlayground
+      name="Input"
+      controls={INPUT_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <InputPreview {...v} />
         </div>
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Placeholder</label>
-          <input value={placeholder} onChange={e => setPlaceholder(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={error} onChange={e => setError(e.target.checked)} className="accent-primary" /><span className="text-foreground">Error state</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
-        </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Input type="${type}" placeholder="${placeholder}"${disabled ? ' disabled' : ''}${error ? ' error' : ''}${required ? ' required' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        INPUT_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Input${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -452,11 +467,9 @@ function Example() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Input configurations in real time.</p>
+          <div className="mb-8">
             <InputPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

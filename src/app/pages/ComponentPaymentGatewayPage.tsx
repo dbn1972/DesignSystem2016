@@ -57,29 +57,49 @@ const PaymentGatewayPreview = ({ amount, serviceName, showReceiptNumber, ...prop
   </div>
 );
 
-function PaymentGatewayPlayground() {
-  const [showUPI, setShowUPI] = React.useState(false);
-  const [showCard, setShowCard] = React.useState(false);
-  const [showNetBanking, setShowNetBanking] = React.useState(false);
+const PAYMENTGATEWAY_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'showUPI',
+    label: 'Show U P I',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'showCard',
+    label: 'Show Card',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'showNetBanking',
+    label: 'Show Net Banking',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function PaymentGatewayPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <PaymentGatewayPreview amount={500} serviceName="Certificate Fee" />
+    <ComponentPlayground
+      name="PaymentGateway"
+      controls={PAYMENTGATEWAY_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <PaymentGatewayPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showUPI} onChange={e => setShowUPI(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show U P I</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showCard} onChange={e => setShowCard(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Card</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showNetBanking} onChange={e => setShowNetBanking(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Net Banking</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<PaymentGateway${showUPI ? ' showUPI' : ''}${showCard ? ' showCard' : ''}${showNetBanking ? ' showNetBanking' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        PAYMENTGATEWAY_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<PaymentGateway${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -1058,7 +1078,13 @@ export interface PaymentError {
               </div>
             </div>
           </section>
-        </>
+        
+          {/* Interactive Playground */}
+          <div className="mb-8">
+            <PaymentGatewayPlayground />
+          </div>
+
+          </>
       }
     />
   );

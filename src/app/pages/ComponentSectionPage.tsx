@@ -70,29 +70,49 @@ const SectionPreview = ({ variant, spacing, background, containerized, children,
   );
 };
 
-function SectionPlayground() {
-  const [showBorder, setShowBorder] = React.useState(false);
-  const [spacing, setSpacing] = React.useState('md');
-  const [containerized, setContainerized] = React.useState(true);
+const SECTION_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'showBorder',
+    label: 'Show Border',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'spacing',
+    label: 'Spacing',
+    type: 'text',
+    defaultValue: 'md',
+  },
+  {
+    name: 'containerized',
+    label: 'Containerized',
+    type: 'boolean',
+    defaultValue: true,
+  },
+];
 
+function SectionPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <SectionPreview variant="default" spacing={spacing} containerized={containerized}><p className="text-sm text-muted-foreground">Section content</p></SectionPreview>
+    <ComponentPlayground
+      name="Section"
+      controls={SECTION_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <SectionPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showBorder} onChange={e => setShowBorder(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Border</span></label>
-          <div><label className="block font-semibold text-foreground mb-1">Spacing</label><select value={spacing} onChange={e => setSpacing(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="sm">Small</option><option value="md">Medium</option><option value="lg">Large</option></select></div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={containerized} onChange={e => setContainerized(e.target.checked)} className="accent-primary" /><span className="text-foreground">Containerized</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Section${showBorder ? ' showBorder' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        SECTION_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Section${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -801,11 +821,9 @@ export type SectionBackground = 'white' | 'gray' | 'primary' | 'transparent';`,
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Section configurations in real time.</p>
+          <div className="mb-8">
             <SectionPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

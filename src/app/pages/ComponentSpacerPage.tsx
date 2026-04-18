@@ -33,37 +33,49 @@ const SpacerPreview = ({ size = 'md', axis = 'vertical' }: any) => {
   );
 };
 
-function SpacerPlayground() {
-  const [size, setSize] = React.useState('sm');
-  const [axis, setAxis] = React.useState('vertical');
-  const [showGuide, setShowGuide] = React.useState(true);
+const SPACER_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'size',
+    label: 'Size',
+    type: 'text',
+    defaultValue: 'sm',
+  },
+  {
+    name: 'axis',
+    label: 'Axis',
+    type: 'text',
+    defaultValue: 'vertical',
+  },
+  {
+    name: 'showGuide',
+    label: 'Show Guide',
+    type: 'boolean',
+    defaultValue: true,
+  },
+];
 
+function SpacerPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <div className="w-full max-w-sm"><div className="bg-muted/50 rounded p-3 text-sm text-muted-foreground">Content above</div><SpacerPreview size={size} /><div className="bg-muted/50 rounded p-3 text-sm text-muted-foreground">Content below</div></div>
+    <ComponentPlayground
+      name="Spacer"
+      controls={SPACER_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg">
+          <SpacerPreview {...v} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Size</label>
-            <select value={size} onChange={e => setSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="sm">sm</option>
-              <option value="md">md</option>
-              <option value="lg">lg</option>
-              <option value="xl">xl</option>
-            </select>
-          </div>
-          <div><label className="block font-semibold text-foreground mb-1">Axis</label><select value={axis} onChange={e => setAxis(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="vertical">Vertical</option><option value="horizontal">Horizontal</option></select></div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showGuide} onChange={e => setShowGuide(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show guide lines</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Spacer ${size} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) => {
+        const props: string[] = [];
+        SPACER_CONTROLS.forEach((c) => {
+          const val = v[c.name];
+          if (c.type === 'boolean' && val) props.push(c.name);
+          else if (c.type !== 'boolean' && val !== c.defaultValue) {
+            props.push(`${c.name}="${val}"`);
+          }
+        });
+        return `<Spacer${props.length ? ' ' + props.join(' ') : ''} />`;
+      }}
+    />
   );
 }
 
@@ -351,11 +363,9 @@ export const Spacer: React.FC<SpacerProps> = ({
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Spacer configurations in real time.</p>
+          <div className="mb-8">
             <SpacerPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
