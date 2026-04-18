@@ -5,7 +5,6 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Skeleton component for live preview
 const SkeletonPreview = ({ variant, width, height, count, animated, className, ...props }: any) => {
@@ -393,34 +392,42 @@ const FormLoadingExample = () => {
   );
 };
 
-const SKELETON_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'variant',
-    label: 'Variant',
-    type: 'text',
-    defaultValue: 'text',
-  },
-  {
-    name: 'animation',
-    label: 'Animation',
-    type: 'text',
-    defaultValue: 'pulse',
-  },
-];
-
 function SkeletonPlayground() {
+  const [variant, setVariant] = React.useState('text');
+  const [animation, setAnimation] = React.useState('pulse');
+
   return (
-    <ComponentPlayground
-      name="Skeleton"
-      controls={SKELETON_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
-          <SkeletonPreview variant={v.variant} animated={animation !== "none"} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <SkeletonPreview variant={variant} animated={animation !== "none"} />
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Skeleton ${v.variant} ${v.animation} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Variant</label>
+            <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="text">text</option>
+              <option value="rectangle">rectangle</option>
+              <option value="circle">circle</option>
+              <option value="card">card</option>
+            </select>
+          </div>
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Animation</label>
+            <select value={animation} onChange={e => setAnimation(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="pulse">pulse</option>
+              <option value="wave">wave</option>
+              <option value="none">none</option>
+            </select>
+          </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Skeleton ${variant} ${animation} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -816,9 +823,11 @@ export default function ComponentSkeletonPage() {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Skeleton configurations in real time.</p>
             <SkeletonPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

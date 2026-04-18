@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { CheckCircle, Info, AlertCircle, X } from 'lucide-react';
 
 const AlertPreview = ({ variant = 'info', children }: any) => {
@@ -32,41 +31,37 @@ const AlertPreview = ({ variant = 'info', children }: any) => {
   );
 };
 
-const ALERT_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'variant',
-    label: 'Variant',
-    type: 'select',
-    defaultValue: 'info',
-    options: ['info', 'success', 'warning', 'error'],
-  },
-  {
-    name: 'dismissible',
-    label: 'Dismissible',
-    type: 'boolean',
-    defaultValue: true,
-  },
-  {
-    name: 'message',
-    label: 'Message',
-    type: 'text',
-    defaultValue: 'Your application has been submitted successfully.',
-  },
-];
-
 function AlertPlayground() {
+  const [variant, setVariant] = React.useState('info');
+  const [dismissible, setDismissible] = React.useState(true);
+  const [message, setMessage] = React.useState('Your application has been submitted successfully.');
+
   return (
-    <ComponentPlayground
-      name="Alert"
-      controls={ALERT_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full max-w-lg">
-          <AlertPreview variant={v.variant}>{v.message}</AlertPreview>
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full max-w-lg">
+          <AlertPreview variant={variant}>{message}</AlertPreview>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Alert variant="${v.variant}"${v.dismissible ? ' dismissible' : ''}>${v.message}</Alert>`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Variant</label>
+          <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+            {['info', 'success', 'warning', 'error'].map(v => <option key={v} value={v}>{v}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Message</label>
+          <input value={message} onChange={e => setMessage(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
+        </div>
+        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={dismissible} onChange={e => setDismissible(e.target.checked)} className="accent-primary" /><span className="text-foreground">Dismissible</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Alert variant="${variant}"${dismissible ? ' dismissible' : ''}>${message}</Alert>`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -434,9 +429,11 @@ export class AlertModule { }`,
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Alert configurations in real time.</p>
             <AlertPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

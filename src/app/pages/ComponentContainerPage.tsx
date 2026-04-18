@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const ContainerPreview = ({ maxWidth = 'lg' }: any) => (
   <div className={`mx-auto px-4 ${maxWidth === 'sm' ? 'max-w-2xl' : maxWidth === 'md' ? 'max-w-4xl' : maxWidth === 'lg' ? 'max-w-6xl' : maxWidth === 'xl' ? 'max-w-7xl' : 'max-w-full'} bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 border-dashed rounded-lg p-6`}>
@@ -12,40 +11,38 @@ const ContainerPreview = ({ maxWidth = 'lg' }: any) => (
   </div>
 );
 
-const CONTAINER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'maxWidth',
-    label: 'Max Width',
-    type: 'text',
-    defaultValue: 'sm',
-  },
-  {
-    name: 'centered',
-    label: 'Centered',
-    type: 'boolean',
-    defaultValue: true,
-  },
-  {
-    name: 'padding',
-    label: 'Padding',
-    type: 'text',
-    defaultValue: 'md',
-  },
-];
-
 function ContainerPlayground() {
+  const [maxWidth, setMaxWidth] = React.useState('sm');
+  const [centered, setCentered] = React.useState(true);
+  const [padding, setPadding] = React.useState('md');
+
   return (
-    <ComponentPlayground
-      name="Container"
-      controls={CONTAINER_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
-          <ContainerPreview maxWidth={v.maxWidth} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <ContainerPreview maxWidth={maxWidth} />
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Container ${v.maxWidth} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Max Width</label>
+            <select value={maxWidth} onChange={e => setMaxWidth(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="sm">sm</option>
+              <option value="md">md</option>
+              <option value="lg">lg</option>
+              <option value="xl">xl</option>
+              <option value="full">full</option>
+            </select>
+          </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={centered} onChange={e => setCentered(e.target.checked)} className="accent-primary" /><span className="text-foreground">Centered</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Padding</label><select value={padding} onChange={e => setPadding(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="none">None</option><option value="sm">Small</option><option value="md">Medium</option><option value="lg">Large</option></select></div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Container ${maxWidth} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -461,9 +458,11 @@ export interface ContainerProps {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Container configurations in real time.</p>
             <ContainerPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

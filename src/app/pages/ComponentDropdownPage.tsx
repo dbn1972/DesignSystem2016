@@ -5,7 +5,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { ChevronDown, User, Settings, LogOut, Download, MoreVertical, Bell, Check, FileText, Trash2, Edit, Share2, Archive, Star } from 'lucide-react';
 
 // Dropdown preview component with full functionality
@@ -120,40 +119,29 @@ const DropdownPreview = ({
   );
 };
 
-const DROPDOWN_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'disabled',
-    label: 'Disabled',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'placement',
-    label: 'Placement',
-    type: 'text',
-    defaultValue: 'bottom',
-  },
-  {
-    name: 'showDividers',
-    label: 'Show Dividers',
-    type: 'boolean',
-    defaultValue: false,
-  },
-];
-
 function DropdownPlayground() {
+  const [disabled, setDisabled] = React.useState(false);
+  const [placement, setPlacement] = React.useState('bottom');
+  const [showDividers, setShowDividers] = React.useState(false);
+
   return (
-    <ComponentPlayground
-      name="Dropdown"
-      controls={DROPDOWN_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
-          <DropdownPreview items={["View", "Edit", "Delete"]} label="Actions" placement={v.placement} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <DropdownPreview items={["View", "Edit", "Delete"]} label="Actions" placement={placement} />
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Dropdown${v.disabled ? ' disabled' : ''} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Placement</label><select value={placement} onChange={e => setPlacement(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="bottom">Bottom</option><option value="top">Top</option><option value="left">Left</option><option value="right">Right</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showDividers} onChange={e => setShowDividers(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show dividers</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Dropdown${disabled ? ' disabled' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -709,9 +697,11 @@ export default function ComponentDropdownPage() {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Dropdown configurations in real time.</p>
             <DropdownPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Inbox, Search, FileX, AlertCircle, Upload, FolderOpen } from 'lucide-react';
 
 // Import the actual Empty State component for live preview
@@ -45,34 +44,27 @@ const EmptyStatePreview = ({ variant, icon, title, description, actionLabel, onA
   </div>
 );
 
-const EMPTYSTATE_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'showAction',
-    label: 'Show Action',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'showIllustration',
-    label: 'Show Illustration',
-    type: 'boolean',
-    defaultValue: false,
-  },
-];
-
 function EmptyStatePlayground() {
+  const [showAction, setShowAction] = React.useState(false);
+  const [showIllustration, setShowIllustration] = React.useState(false);
+
   return (
-    <ComponentPlayground
-      name="EmptyState"
-      controls={EMPTYSTATE_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
-          <EmptyStatePreview title="No applications yet" description="Start your first application" actionLabel={v.showAction ? "Get Started" : undefined} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <EmptyStatePreview title="No applications yet" description="Start your first application" actionLabel={showAction ? "Get Started" : undefined} />
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<EmptyState${v.showAction ? ' showAction' : ''}${v.showIllustration ? ' showIllustration' : ''} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showAction} onChange={e => setShowAction(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Action</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showIllustration} onChange={e => setShowIllustration(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Illustration</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<EmptyState${showAction ? ' showAction' : ''}${showIllustration ? ' showIllustration' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -439,9 +431,11 @@ export default function ComponentEmptyStatePage() {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different EmptyState configurations in real time.</p>
             <EmptyStatePlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

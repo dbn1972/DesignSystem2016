@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { X, Tag, AlertCircle, CheckCircle, Info, Shield, FileText, Users, Calendar } from 'lucide-react';
 
 // Import the actual Tag component for live preview
@@ -73,34 +72,36 @@ const TagPreview = ({ variant, size, closeable, outlined, children, icon, onClos
   );
 };
 
-const TAG_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'removable',
-    label: 'Removable',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'variant',
-    label: 'Variant',
-    type: 'text',
-    defaultValue: 'default',
-  },
-];
-
 function TagPlayground() {
+  const [removable, setRemovable] = React.useState(false);
+  const [variant, setVariant] = React.useState('default');
+
   return (
-    <ComponentPlayground
-      name="Tag"
-      controls={TAG_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
-          <div className="flex flex-wrap gap-2"><TagPreview variant={v.variant} closeable={v.removable}>PDF</TagPreview><TagPreview variant="success">Verified</TagPreview><TagPreview variant="warning">Pending</TagPreview></div>
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <div className="flex flex-wrap gap-2"><TagPreview variant={variant} closeable={removable}>PDF</TagPreview><TagPreview variant="success">Verified</TagPreview><TagPreview variant="warning">Pending</TagPreview></div>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Tag${v.removable ? ' removable' : ''} ${v.variant} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={removable} onChange={e => setRemovable(e.target.checked)} className="accent-primary" /><span className="text-foreground">Removable</span></label>
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Variant</label>
+            <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="default">default</option>
+              <option value="primary">primary</option>
+              <option value="success">success</option>
+              <option value="warning">warning</option>
+              <option value="error">error</option>
+            </select>
+          </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Tag${removable ? ' removable' : ''} ${variant} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -516,9 +517,11 @@ export default function ComponentTagPage() {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Tag configurations in real time.</p>
             <TagPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

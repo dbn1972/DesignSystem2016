@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const GridPreview = ({ cols = 3 }: any) => (
   <div className={`grid ${cols === 2 ? 'grid-cols-2' : cols === 3 ? 'grid-cols-3' : 'grid-cols-4'} gap-4`}>
@@ -16,34 +15,43 @@ const GridPreview = ({ cols = 3 }: any) => (
   </div>
 );
 
-const GRID_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'columns',
-    label: 'Columns',
-    type: 'text',
-    defaultValue: '1',
-  },
-  {
-    name: 'gap',
-    label: 'Gap',
-    type: 'text',
-    defaultValue: '2',
-  },
-];
-
 function GridPlayground() {
+  const [columns, setColumns] = React.useState('1');
+  const [gap, setGap] = React.useState('2');
+
   return (
-    <ComponentPlayground
-      name="Grid"
-      controls={GRID_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
           <GridPreview cols={Number(columns)}><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">1</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">2</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">3</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">4</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">5</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">6</div></GridPreview>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Grid ${v.columns} ${v.gap} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Columns</label>
+            <select value={columns} onChange={e => setColumns(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Gap</label>
+            <select value={gap} onChange={e => setGap(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="2">2</option>
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Grid ${columns} ${gap} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -552,9 +560,11 @@ export interface GridProps {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Grid configurations in real time.</p>
             <GridPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

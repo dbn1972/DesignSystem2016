@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { FileText, ChevronRight, Save, Eye } from 'lucide-react';
 
 // Import the actual Form Builder component for live preview
@@ -74,40 +73,29 @@ const StepIndicator = ({ steps, currentStep }: any) => (
   </div>
 );
 
-const FORMBUILDER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'showPreview',
-    label: 'Show Preview',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'layout',
-    label: 'Layout',
-    type: 'text',
-    defaultValue: 'vertical',
-  },
-  {
-    name: 'showValidation',
-    label: 'Show Validation',
-    type: 'boolean',
-    defaultValue: true,
-  },
-];
-
 function FormBuilderPlayground() {
+  const [showPreview, setShowPreview] = React.useState(false);
+  const [layout, setLayout] = React.useState('vertical');
+  const [showValidation, setShowValidation] = React.useState(true);
+
   return (
-    <ComponentPlayground
-      name="FormBuilder"
-      controls={FORMBUILDER_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
-          <FormBuilderPreview layout={v.layout} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <FormBuilderPreview layout={layout} />
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<FormBuilder${v.showPreview ? ' showPreview' : ''} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showPreview} onChange={e => setShowPreview(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Preview</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Layout</label><select value={layout} onChange={e => setLayout(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="vertical">Vertical</option><option value="horizontal">Horizontal</option><option value="inline">Inline</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showValidation} onChange={e => setShowValidation(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show validation</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<FormBuilder${showPreview ? ' showPreview' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 

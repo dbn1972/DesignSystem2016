@@ -5,7 +5,6 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { X, Menu, Filter, Settings, ChevronRight } from 'lucide-react';
 
 // Import the actual Drawer component for live preview
@@ -92,28 +91,14 @@ const DrawerPreview = ({
   );
 };
 
-const DRAWER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'position',
-    label: 'Position',
-    type: 'text',
-    defaultValue: 'left',
-  },
-  {
-    name: 'size',
-    label: 'Size',
-    type: 'text',
-    defaultValue: 'sm',
-  },
-];
-
 function DrawerPlayground() {
+  const [position, setPosition] = React.useState('left');
+  const [size, setSize] = React.useState('sm');
+
   return (
-    <ComponentPlayground
-      name="Drawer"
-      controls={DRAWER_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg relative w-full h-48 rounded-lg overflow-hidden border border-border bg-background">
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[200px] rounded-xl border-2 border-dashed border-border bg-background p-4">
+        <div className="relative w-full h-48 rounded-lg overflow-hidden border border-border bg-background">
           {/* Mini page content */}
           <div className="absolute inset-0 p-3 space-y-2">
             <div className="h-2 bg-muted rounded w-3/4" />
@@ -123,9 +108,9 @@ function DrawerPlayground() {
           {/* Backdrop */}
           <div className="absolute inset-0 bg-black/20" />
           {/* Drawer panel */}
-          <div className={`absolute top-0 bottom-0 ${v.position === 'left' ? 'left-0' : 'right-0'} ${v.size === 'sm' ? 'w-1/4' : v.size === 'lg' ? 'w-1/2' : 'w-1/3'} bg-card shadow-xl border-${v.position === 'left' ? 'r' : 'l'} border-border flex flex-col`}>
+          <div className={`absolute top-0 bottom-0 ${position === 'left' ? 'left-0' : 'right-0'} ${size === 'sm' ? 'w-1/4' : size === 'lg' ? 'w-1/2' : 'w-1/3'} bg-card shadow-xl border-${position === 'left' ? 'r' : 'l'} border-border flex flex-col`}>
             <div className="flex items-center justify-between px-3 py-2 border-b border-border">
-              <span className="text-xs font-semibold text-foreground">Drawer ({v.position}, {v.size})</span>
+              <span className="text-xs font-semibold text-foreground">Drawer ({position}, {size})</span>
               <span className="text-muted-foreground text-xs">✕</span>
             </div>
             <div className="flex-1 p-3 space-y-2">
@@ -135,10 +120,30 @@ function DrawerPlayground() {
             </div>
           </div>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Drawer ${v.position} ${v.size} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Position</label>
+            <select value={position} onChange={e => setPosition(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="left">left</option>
+              <option value="right">right</option>
+            </select>
+          </div>
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Size</label>
+            <select value={size} onChange={e => setSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="sm">sm</option>
+              <option value="md">md</option>
+              <option value="lg">lg</option>
+            </select>
+          </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Drawer ${position} ${size} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -856,9 +861,11 @@ export default function ComponentDrawerPage() {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Drawer configurations in real time.</p>
             <DrawerPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

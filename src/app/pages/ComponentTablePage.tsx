@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const TablePreview = () => (
   <div className="overflow-x-auto">
@@ -40,34 +39,27 @@ const TablePreview = () => (
   </div>
 );
 
-const TABLE_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'striped',
-    label: 'Striped',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'bordered',
-    label: 'Bordered',
-    type: 'boolean',
-    defaultValue: false,
-  },
-];
-
 function TablePlayground() {
+  const [striped, setStriped] = React.useState(false);
+  const [bordered, setBordered] = React.useState(false);
+
   return (
-    <ComponentPlayground
-      name="Table"
-      controls={TABLE_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
-          <div className={`w-full overflow-hidden rounded-lg ${v.bordered ? "border border-border" : ""}`}><table className="w-full text-sm"><thead className="bg-muted"><tr><th className="px-4 py-2 text-left font-semibold">Application</th><th className="px-4 py-2 text-left font-semibold">Status</th><th className="px-4 py-2 text-left font-semibold">Date</th></tr></thead><tbody>{[["CERT-001","Pending","12 Apr"],["CERT-002","Approved","10 Apr"],["CERT-003","Rejected","8 Apr"]].map(([id,status,date], i) => <tr key={i} className={`border-t border-border ${v.striped && i % 2 === 1 ? "bg-muted/30" : ""}`}><td className="px-4 py-2">{id}</td><td className="px-4 py-2">{status}</td><td className="px-4 py-2">{date}</td></tr>)}</tbody></table></div>
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <div className={`w-full overflow-hidden rounded-lg ${bordered ? "border border-border" : ""}`}><table className="w-full text-sm"><thead className="bg-muted"><tr><th className="px-4 py-2 text-left font-semibold">Application</th><th className="px-4 py-2 text-left font-semibold">Status</th><th className="px-4 py-2 text-left font-semibold">Date</th></tr></thead><tbody>{[["CERT-001","Pending","12 Apr"],["CERT-002","Approved","10 Apr"],["CERT-003","Rejected","8 Apr"]].map(([id,status,date], i) => <tr key={i} className={`border-t border-border ${striped && i % 2 === 1 ? "bg-muted/30" : ""}`}><td className="px-4 py-2">{id}</td><td className="px-4 py-2">{status}</td><td className="px-4 py-2">{date}</td></tr>)}</tbody></table></div>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Table${v.striped ? ' striped' : ''}${v.bordered ? ' bordered' : ''} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={striped} onChange={e => setStriped(e.target.checked)} className="accent-primary" /><span className="text-foreground">Striped</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={bordered} onChange={e => setBordered(e.target.checked)} className="accent-primary" /><span className="text-foreground">Bordered</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Table${striped ? ' striped' : ''}${bordered ? ' bordered' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -514,9 +506,11 @@ export class TableModule { }`,
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Table configurations in real time.</p>
             <TablePlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

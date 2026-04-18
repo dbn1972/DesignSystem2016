@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { AlertCircle } from 'lucide-react';
 
 // Component previews
@@ -34,40 +33,29 @@ const ErrorTextPreview = ({ children, icon }: any) => (
   </p>
 );
 
-const ERRORTEXT_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'visible',
-    label: 'Visible',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'icon',
-    label: 'Icon',
-    type: 'boolean',
-    defaultValue: true,
-  },
-  {
-    name: 'message',
-    label: 'Message',
-    type: 'text',
-    defaultValue: 'This field is required',
-  },
-];
-
 function ErrorTextPlayground() {
+  const [visible, setVisible] = React.useState(false);
+  const [icon, setIcon] = React.useState(true);
+  const [message, setMessage] = React.useState('This field is required');
+
   return (
-    <ComponentPlayground
-      name="ErrorText"
-      controls={ERRORTEXT_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
-          <ErrorTextPreview icon={v.icon}>{v.message}</ErrorTextPreview>
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <ErrorTextPreview icon={icon}>{message}</ErrorTextPreview>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<ErrorText${v.visible ? ' visible' : ''} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={visible} onChange={e => setVisible(e.target.checked)} className="accent-primary" /><span className="text-foreground">Visible</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={icon} onChange={e => setIcon(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show icon</span></label>
+          <div><label className="block font-semibold text-foreground mb-1">Message</label><input value={message} onChange={e => setMessage(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" /></div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<ErrorText${visible ? ' visible' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -503,9 +491,11 @@ export class ErrorTextModule { }`,
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different ErrorText configurations in real time.</p>
             <ErrorTextPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

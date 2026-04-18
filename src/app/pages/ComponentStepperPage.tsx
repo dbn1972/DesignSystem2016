@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Check } from 'lucide-react';
 
 const StepperPreview = () => {
@@ -67,34 +66,41 @@ const StepperPreview = () => {
   );
 };
 
-const STEPPER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'orientation',
-    label: 'Orientation',
-    type: 'text',
-    defaultValue: 'horizontal',
-  },
-  {
-    name: 'currentStep',
-    label: 'Current Step',
-    type: 'text',
-    defaultValue: '1',
-  },
-];
-
 function StepperPlayground() {
+  const [orientation, setOrientation] = React.useState('horizontal');
+  const [currentStep, setCurrentStep] = React.useState('1');
+
   return (
-    <ComponentPlayground
-      name="Stepper"
-      controls={STEPPER_PLAYGROUND_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg w-full flex items-center justify-center">
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
           <div className="flex items-center gap-2 w-full">{[1,2,3,4].map(s => <React.Fragment key={s}><div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${s < Number(currentStep) ? "bg-green-100 text-green-700" : s === Number(currentStep) ? "bg-[#005196] text-white" : "bg-muted text-muted-foreground"}`}>{s < Number(currentStep) ? "✓" : s}</div>{s < 4 && <div className={`flex-1 h-1 rounded ${s < Number(currentStep) ? "bg-green-500" : "bg-muted"}`} />}</React.Fragment>)}</div>
         </div>
-      )}
-      codeTemplate={(v) =>
-        `<Stepper ${v.orientation} ${v.currentStep} />`}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Orientation</label>
+            <select value={orientation} onChange={e => setOrientation(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="horizontal">horizontal</option>
+              <option value="vertical">vertical</option>
+            </select>
+          </div>
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Current Step</label>
+            <select value={currentStep} onChange={e => setCurrentStep(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Stepper ${orientation} ${currentStep} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
