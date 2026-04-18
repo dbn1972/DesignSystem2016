@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const SwitchPreview = ({ label, disabled = false }: any) => {
   const [checked, setChecked] = React.useState(false);

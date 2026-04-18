@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const TextareaPreview = ({ placeholder, rows = 4, disabled = false, error = false, ...props }: any) => {
   const [value, setValue] = React.useState('');

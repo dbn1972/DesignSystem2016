@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { X, Tag, AlertCircle, CheckCircle, Info, Shield, FileText, Users, Calendar } from 'lucide-react';
 
 // Import the actual Tag component for live preview

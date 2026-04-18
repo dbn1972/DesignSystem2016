@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Bold, Italic, List, AlignLeft, Image, Table } from 'lucide-react';
 
 // Import the actual Rich Text Editor component for live preview

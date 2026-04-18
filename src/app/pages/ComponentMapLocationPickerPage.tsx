@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { MapPin, Search, Navigation, Map } from 'lucide-react';
 
 // Import the actual Map Location Picker component for live preview

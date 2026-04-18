@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { X } from 'lucide-react';
 
 const MODAL_PLAYGROUND_CONTROLS: PlaygroundControl[] = [

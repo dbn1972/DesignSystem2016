@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { ChevronRight, ChevronDown, Folder, FolderOpen, File, Building2 } from 'lucide-react';
 
 // Tree node interface

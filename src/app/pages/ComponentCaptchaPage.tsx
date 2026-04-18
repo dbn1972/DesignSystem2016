@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { RefreshCw, Volume2, Eye, Shield } from 'lucide-react';
 
 // Import the actual CAPTCHA component for live preview

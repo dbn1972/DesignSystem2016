@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Info, HelpCircle, Settings } from 'lucide-react';
 
 // Import the actual Tooltip component for live preview

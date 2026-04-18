@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Star, ThumbsUp, ThumbsDown, Smile, Meh, Frown } from 'lucide-react';
 
 // Import the actual Feedback Rating Widget component for live preview

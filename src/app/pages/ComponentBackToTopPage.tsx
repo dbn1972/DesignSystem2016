@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { ArrowUp, ChevronUp } from 'lucide-react';
 
 // Import the actual BackToTop component for live preview

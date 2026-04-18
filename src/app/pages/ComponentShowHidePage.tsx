@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Menu, ChevronDown, Printer } from 'lucide-react';
 
 // Import the actual Show/Hide component for live preview

@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { MessageCircle, Mic, Paperclip, Send, X } from 'lucide-react';
 
 // Import the actual Chatbot component for live preview

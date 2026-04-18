@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { User, FileText, Clock, MapPin, CheckCircle, XCircle } from 'lucide-react';
 
 // Import the actual Description List component for live preview

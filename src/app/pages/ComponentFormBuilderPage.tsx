@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { FileText, ChevronRight, Save, Eye } from 'lucide-react';
 
 // Import the actual Form Builder component for live preview

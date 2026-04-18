@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { AlertTriangle, AlertCircle, CheckCircle, X, Trash2 } from 'lucide-react';
 
 // Dialog Portal Component

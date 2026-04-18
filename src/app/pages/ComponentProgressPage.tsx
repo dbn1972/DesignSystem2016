@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Progress component for live preview
 const ProgressPreview = ({ variant, size, value, indeterminate, label, showPercentage, color, ...props }: any) => {

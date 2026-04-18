@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { CheckCircle2, AlertCircle, AlertTriangle, Info } from 'lucide-react';
 
 // Import the actual Toast component for live preview

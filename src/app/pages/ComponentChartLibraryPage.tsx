@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Chart Library component for live preview
 const ChartPreview = ({ type, data, labels, title, height = 300, width = 500, colors, legend = true, ...props }: any) => {

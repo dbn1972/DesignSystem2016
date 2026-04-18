@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const ContainerPreview = ({ maxWidth = 'lg' }: any) => (
   <div className={`mx-auto px-4 ${maxWidth === 'sm' ? 'max-w-2xl' : maxWidth === 'md' ? 'max-w-4xl' : maxWidth === 'lg' ? 'max-w-6xl' : maxWidth === 'xl' ? 'max-w-7xl' : 'max-w-full'} bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-300 border-dashed rounded-lg p-6`}>

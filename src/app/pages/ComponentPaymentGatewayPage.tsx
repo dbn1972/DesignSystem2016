@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { CreditCard, Shield, CheckCircle, XCircle, Receipt, Smartphone } from 'lucide-react';
 
 // Import the actual Payment Gateway component for live preview

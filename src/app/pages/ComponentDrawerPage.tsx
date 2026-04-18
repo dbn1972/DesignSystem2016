@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { X, Menu, Filter, Settings, ChevronRight } from 'lucide-react';
 
 // Import the actual Drawer component for live preview

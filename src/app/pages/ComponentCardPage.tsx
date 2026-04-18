@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const CardPreview = ({ title, children }: any) => (
   <div className="bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-shadow">

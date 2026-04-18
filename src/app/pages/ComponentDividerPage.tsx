@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const DividerPreview = ({ orientation = 'horizontal', variant = 'solid' }: any) => {
   if (orientation === 'vertical') {

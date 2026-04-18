@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Calendar, Clock, MapPin, Users, AlertCircle } from 'lucide-react';
 
 // Import the actual Calendar Scheduler component for live preview

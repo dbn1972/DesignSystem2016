@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Clock, CheckCircle, AlertCircle, Circle, XCircle, FileText, User, Send } from 'lucide-react';
 
 // Import the actual Timeline component for live preview
