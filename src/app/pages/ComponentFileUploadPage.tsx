@@ -79,35 +79,25 @@ const FileUploadPreview = () => {
   );
 };
 
-function FileUploadPlayground() {
-  const [multiple, setMultiple] = React.useState(false);
-  const [accept, setAccept] = React.useState('.pdf');
+const FILEUPLOAD_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'multiple', label: 'Multiple', type: 'boolean', defaultValue: false },
+  { name: 'accept', label: 'Accept', type: 'text', defaultValue: '.pdf' },
+];
 
+function FileUploadPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="FileUpload"
+      controls={FILEUPLOAD_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
           <FileUploadPreview />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={multiple} onChange={e => setMultiple(e.target.checked)} className="accent-primary" /><span className="text-foreground">Multiple</span></label>
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Accept</label>
-            <select value={accept} onChange={e => setAccept(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value=".pdf">.pdf</option>
-              <option value=".jpg">.jpg</option>
-              <option value=".png">.png</option>
-              <option value="*">*</option>
-            </select>
-          </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<FileUpload${multiple ? ' multiple' : ''} ${accept} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<FileUpload${v.multiple ? ' multiple' : ''} ${v.accept} />`
+      }
+    />
   );
 }
 
@@ -281,11 +271,9 @@ function Example() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different FileUpload configurations in real time.</p>
+          <div className="mb-8">
             <FileUploadPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
@@ -691,6 +679,7 @@ export class FileUploadComponent {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileUploadComponent } from './file-upload.component';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [FileUploadComponent],

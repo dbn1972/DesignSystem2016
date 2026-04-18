@@ -76,27 +76,25 @@ const DocumentViewerPreview = ({ fileType, zoom = 100, page = 1, showToolbar = t
   </div>
 );
 
-function DocumentViewerPlayground() {
-  const [zoom, setZoom] = React.useState(false);
-  const [controls, setControls] = React.useState(false);
+const DOCUMENTVIEWER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'zoom', label: 'Zoom', type: 'boolean', defaultValue: false },
+  { name: 'controls', label: 'Controls', type: 'boolean', defaultValue: false },
+];
 
+function DocumentViewerPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="DocumentViewer"
+      controls={DOCUMENTVIEWER_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <DocumentViewerPreview fileType="pdf" showToolbar zoom={zoom} />
+          <DocumentViewerPreview fileType="pdf" showToolbar zoom={v.zoom} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={zoom} onChange={e => setZoom(e.target.checked)} className="accent-primary" /><span className="text-foreground">Zoom</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={controls} onChange={e => setControls(e.target.checked)} className="accent-primary" /><span className="text-foreground">Controls</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<DocumentViewer${zoom ? ' zoom' : ''}${controls ? ' controls' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<DocumentViewer${v.zoom ? ' zoom' : ''}${v.controls ? ' controls' : ''} />`
+      }
+    />
   );
 }
 
@@ -716,6 +714,7 @@ import { CommonModule } from '@angular/common';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DocumentViewerComponent } from './document-viewer.component';
 import { DocumentToolbarComponent } from './document-toolbar.component';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [

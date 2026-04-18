@@ -26,37 +26,26 @@ const QRCodePreview = ({ value, size = 200, level = 'M', color = '#000000', logo
   );
 };
 
-function QRCodePlayground() {
-  const [size, setSize] = React.useState('128');
-  const [level, setLevel] = React.useState('M');
-  const [showLogo, setShowLogo] = React.useState(false);
+const QRCODE_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'size', label: 'Size', type: 'text', defaultValue: '128' },
+  { name: 'level', label: 'Level', type: 'text', defaultValue: 'M' },
+  { name: 'showLogo', label: 'Show Logo', type: 'boolean', defaultValue: false },
+];
 
+function QRCodePlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="QRCode"
+      controls={QRCODE_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <QRCodePreview value="https://ux4g.gov.in/verify" size={Number(size)} level={level} />
+          <QRCodePreview value="https://ux4g.gov.in/verify" size={Number(size)} level={v.level} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Size</label>
-            <select value={size} onChange={e => setSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="128">128</option>
-              <option value="200">200</option>
-              <option value="256">256</option>
-              <option value="320">320</option>
-            </select>
-          </div>
-          <div><label className="block font-semibold text-foreground mb-1">Error correction</label><select value={level} onChange={e => setLevel(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="L">Low</option><option value="M">Medium</option><option value="Q">Quartile</option><option value="H">High</option></select></div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLogo} onChange={e => setShowLogo(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show logo overlay</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<QRCode ${size} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<QRCode ${v.size} />`
+      }
+    />
   );
 }
 
@@ -724,6 +713,7 @@ export class QRCodeComponent implements OnInit {
         module: `import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QRCodeComponent } from './qrcode.component';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 @NgModule({
   declarations: [QRCodeComponent],
