@@ -48,20 +48,36 @@ export default function AutoTOC() {
     }
 
     const timer = setTimeout(() => {
-      // Only h2 — h3 creates too many entries
-      const headings = document.querySelectorAll<HTMLHeadingElement>('main h2');
       const found: TOCItem[] = [];
-      headings.forEach((h) => {
+
+      // Strategy 1: h2 elements that have an ID directly
+      document.querySelectorAll<HTMLHeadingElement>('main h2[id]').forEach((h) => {
         const text = h.textContent?.trim();
-        if (!text || text.length > 80) return; // skip very long headings
+        if (text && text.length <= 80) found.push({ id: h.id, text });
+      });
+
+      // Strategy 2: section[id] > h2 (common pattern where ID is on the section)
+      document.querySelectorAll<HTMLElement>('main section[id]').forEach((sec) => {
+        const h2 = sec.querySelector('h2');
+        if (!h2) return;
+        const text = h2.textContent?.trim();
+        if (!text || text.length > 80) return;
+        // Skip if we already captured this h2 by its own ID
+        if (h2.id && found.some((f) => f.id === h2.id)) return;
+        found.push({ id: sec.id, text });
+      });
+
+      // Strategy 3: h2 without ID — auto-generate one
+      document.querySelectorAll<HTMLHeadingElement>('main h2').forEach((h) => {
+        const text = h.textContent?.trim();
+        if (!text || text.length > 80) return;
+        if (found.some((f) => f.text === text)) return; // already captured
         if (!h.id) {
-          h.id = text
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-|-$/g, '');
+          h.id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
         }
         found.push({ id: h.id, text });
       });
+
       setItems(found);
       setActiveId('');
     }, 400);
