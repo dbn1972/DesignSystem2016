@@ -6,8 +6,8 @@ import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
-const CardPreview = ({ title, children }: any) => (
-  <div className="bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-shadow">
+const CardPreview = ({ title, children, shadow, clickable }: any) => (
+  <div className={`bg-card rounded-xl p-6 border border-border transition-all ${shadow ? 'shadow-lg' : ''} ${clickable ? 'cursor-pointer hover:border-primary' : ''}`}>
     <h3 className="text-xl font-semibold text-foreground mb-3">{title}</h3>
     <p className="text-muted-foreground mb-4">{children}</p>
     <button className="px-4 py-2 bg-[#005196] text-white rounded-lg text-sm font-semibold">
@@ -27,12 +27,12 @@ function CardPlayground() {
       name="Card"
       controls={CARD_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
-        <CardPreview title="Service Card">
-          <p className="text-sm text-muted-foreground">Card content preview</p>
+        <CardPreview title="Service Card" shadow={v.shadow} clickable={v.clickable}>
+          Card content preview
         </CardPreview>
       )}
       codeTemplate={(v) =>
-        `<Card${v.shadow ? ' shadow' : ''}${v.clickable ? ' clickable' : ''} />`
+        `<Card${v.shadow ? ' shadow' : ''}${v.clickable ? ' clickable' : ''}>Content</Card>`
       }
     />
   );
