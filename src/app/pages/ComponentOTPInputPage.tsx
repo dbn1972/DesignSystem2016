@@ -113,16 +113,29 @@ export default function ComponentOTPInputPage() {
           description: 'Current OTP value (controlled).',
         },
         {
+          name: 'defaultValue',
+          type: 'string',
+          required: false,
+          description: 'Default value for uncontrolled mode.',
+        },
+        {
           name: 'onChange',
-          type: '(otp: string) => void',
-          required: true,
+          type: '(value: string) => void',
+          required: false,
           description: 'Callback when OTP changes.',
         },
         {
           name: 'onComplete',
-          type: '(otp: string) => void',
+          type: '(value: string) => void',
           required: false,
           description: 'Callback when all digits are entered.',
+        },
+        {
+          name: 'type',
+          type: "'text' | 'number' | 'tel'",
+          default: "'text'",
+          required: false,
+          description: 'Input type for each digit field.',
         },
         {
           name: 'autoFocus',
@@ -144,6 +157,12 @@ export default function ComponentOTPInputPage() {
           default: 'false',
           required: false,
           description: 'Show error state.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       

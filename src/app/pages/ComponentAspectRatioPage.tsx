@@ -87,29 +87,22 @@ export default function ComponentAspectRatioPage() {
 
       props={[
         {
-          name: 'ratio',
-          type: "number | '16/9' | '4/3' | '1/1' | '21/9' | '3/2' | '2/1' | string",
-          default: "'16/9'",
-          required: false,
-          description: 'Aspect ratio as a number (e.g., 1.777) or string fraction (e.g., "16/9"). Common ratios: 16/9 (widescreen), 4/3 (standard), 1/1 (square), 21/9 (ultrawide), 3/2 (photo), 2/1 (panoramic).',
-        },
-        {
           name: 'children',
           type: 'ReactNode',
           required: true,
-          description: 'Content to render within the aspect ratio container. Typically images, videos, iframes, or other media elements.',
+          description: 'Content to render within the aspect ratio container.',
         },
         {
-          name: 'maxWidth',
-          type: 'string | number',
+          name: 'ratio',
+          type: 'number | string',
           required: false,
-          description: 'Maximum width of the container. Useful for preventing oversized media on large screens. Accepts CSS units (e.g., "800px", "50rem") or pixel numbers.',
+          description: 'Aspect ratio as a number (e.g., 1.777) or string fraction (e.g., "16/9").',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply to the outer container.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

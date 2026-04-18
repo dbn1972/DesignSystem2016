@@ -84,15 +84,33 @@ export default function ComponentFieldPage() {
         {
           name: 'children',
           type: 'ReactNode',
-          required: true,
-          description: 'Form field components (Label, Input, HintText, ErrorText).',
+          required: false,
+          description: 'Form field components (Input, Select, etc.).',
+        },
+        {
+          name: 'label',
+          type: 'ReactNode',
+          required: false,
+          description: 'Label content rendered above the field control.',
+        },
+        {
+          name: 'hint',
+          type: 'ReactNode',
+          required: false,
+          description: 'Helper text rendered below the field control.',
+        },
+        {
+          name: 'errorText',
+          type: 'ReactNode',
+          required: false,
+          description: 'Error message rendered below the field. When present, the field is treated as invalid.',
         },
         {
           name: 'error',
           type: 'boolean',
           default: 'false',
           required: false,
-          description: 'Whether the field is in error state. Applies error styling to the container.',
+          description: 'Whether the field is in error state.',
         },
         {
           name: 'required',
@@ -106,13 +124,19 @@ export default function ComponentFieldPage() {
           type: 'boolean',
           default: 'false',
           required: false,
-          description: 'Whether the field is disabled. Applies disabled styling.',
+          description: 'Whether the field is disabled.',
+        },
+        {
+          name: 'id',
+          type: 'string',
+          required: false,
+          description: 'Shared control ID to connect label, hint, and error text. Auto-generated if omitted.',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

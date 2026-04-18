@@ -64,31 +64,28 @@ export default function ComponentContainerPage() {
       
       props={[
         {
-          name: 'maxWidth',
-          type: "'sm' | 'md' | 'lg' | 'xl' | 'full'",
-          default: "'lg'",
-          required: false,
-          description: 'Maximum width constraint for the container.',
-        },
-        {
           name: 'children',
           type: 'ReactNode',
           required: true,
           description: 'Content to be contained.',
         },
         {
+          name: 'maxWidth',
+          type: "'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'",
+          required: false,
+          description: 'Maximum width constraint for the container.',
+        },
+        {
           name: 'centered',
           type: 'boolean',
-          default: 'true',
           required: false,
           description: 'Whether to center the container horizontally.',
         },
         {
           name: 'padding',
-          type: "'none' | 'sm' | 'md' | 'lg'",
-          default: "'md'",
+          type: 'boolean',
           required: false,
-          description: 'Horizontal padding inside the container.',
+          description: 'Whether to apply horizontal padding.',
         },
         {
           name: 'className',

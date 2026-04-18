@@ -77,36 +77,28 @@ export default function ComponentCenterPage() {
 
       props={[
         {
-          name: 'inline',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Whether to center inline (span with inline-flex) vs block (div with flex). Use inline for centering within text or inline contexts.',
-        },
-        {
           name: 'children',
           type: 'ReactNode',
           required: true,
           description: 'Content to be centered.',
         },
         {
-          name: 'className',
-          type: 'string',
-          required: false,
-          description: 'Additional CSS classes to apply. Merged with centering classes.',
-        },
-        {
-          name: 'as',
-          type: "'div' | 'section' | 'article' | 'main' | 'span'",
-          default: "'div'",
-          required: false,
-          description: 'The HTML element type to render. Use semantic elements for better accessibility.',
-        },
-        {
           name: 'minHeight',
           type: 'string | number',
           required: false,
-          description: 'Minimum height of the container. Useful for full-page centers or ensuring adequate space. Accepts CSS values (e.g., "100vh", "400px", 300).',
+          description: 'Minimum height of the container.',
+        },
+        {
+          name: 'inline',
+          type: 'boolean',
+          required: false,
+          description: 'Center inline (horizontal only) instead of block.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
 

@@ -81,36 +81,26 @@ export default function ComponentDividerPage() {
         {
           name: 'orientation',
           type: "'horizontal' | 'vertical'",
-          default: "'horizontal'",
           required: false,
           description: 'Orientation of the divider line.',
         },
         {
-          name: 'variant',
-          type: "'solid' | 'dashed' | 'dotted'",
-          default: "'solid'",
-          required: false,
-          description: 'Style of the divider line.',
-        },
-        {
           name: 'label',
-          type: 'string | ReactNode',
+          type: 'string',
           required: false,
-          description: 'Optional label text to display in divider.',
-        },
-        {
-          name: 'labelPosition',
-          type: "'left' | 'center' | 'right'",
-          default: "'center'",
-          required: false,
-          description: 'Position of label (horizontal only).',
+          description: 'Label text displayed in the middle of the divider.',
         },
         {
           name: 'spacing',
-          type: "'none' | 'sm' | 'md' | 'lg'",
-          default: "'md'",
+          type: "'sm' | 'md' | 'lg'",
           required: false,
           description: 'Spacing around the divider.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       

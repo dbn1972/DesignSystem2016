@@ -114,57 +114,52 @@ export default function ComponentFlexPage() {
 
       props={[
         {
-          name: 'direction',
-          type: "'row' | 'column' | 'row-reverse' | 'column-reverse'",
-          default: "'row'",
-          required: false,
-          description: 'Flex direction. Controls the main axis along which flex items are placed.',
-        },
-        {
-          name: 'justify',
-          type: "'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'",
-          default: "'start'",
-          required: false,
-          description: 'Justify content along the main axis. Controls spacing and alignment of items.',
-        },
-        {
-          name: 'align',
-          type: "'start' | 'end' | 'center' | 'baseline' | 'stretch'",
-          default: "'start'",
-          required: false,
-          description: 'Align items along the cross axis. Controls vertical alignment in row layouts.',
-        },
-        {
-          name: 'wrap',
-          type: "'nowrap' | 'wrap' | 'wrap-reverse'",
-          default: "'nowrap'",
-          required: false,
-          description: 'Flex wrap behavior. Controls whether items wrap to multiple lines.',
-        },
-        {
-          name: 'gap',
-          type: 'number | string',
-          required: false,
-          description: 'Gap between flex items. Accepts pixel values or spacing tokens.',
-        },
-        {
           name: 'children',
           type: 'ReactNode',
           required: true,
           description: 'Child elements to be laid out with flexbox.',
         },
         {
-          name: 'as',
-          type: 'ElementType',
-          default: "'div'",
+          name: 'direction',
+          type: "'row' | 'row-reverse' | 'column' | 'column-reverse'",
           required: false,
-          description: 'HTML element or component to render as. Default is div.',
+          description: 'Flex direction.',
+        },
+        {
+          name: 'align',
+          type: "'start' | 'center' | 'end' | 'stretch' | 'baseline'",
+          required: false,
+          description: 'Align items along the cross axis.',
+        },
+        {
+          name: 'justify',
+          type: "'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'",
+          required: false,
+          description: 'Justify content along the main axis.',
+        },
+        {
+          name: 'wrap',
+          type: "'nowrap' | 'wrap' | 'wrap-reverse'",
+          required: false,
+          description: 'Flex wrap behavior.',
+        },
+        {
+          name: 'gap',
+          type: 'number | string',
+          required: false,
+          description: 'Gap between flex items.',
+        },
+        {
+          name: 'inline',
+          type: 'boolean',
+          required: false,
+          description: 'Use inline-flex instead of flex.',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply. Merged with flex classes.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

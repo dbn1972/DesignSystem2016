@@ -81,45 +81,46 @@ export default function ComponentStackPage() {
       
       props={[
         {
+          name: 'children',
+          type: 'ReactNode',
+          required: true,
+          description: 'Stack items to display.',
+        },
+        {
           name: 'direction',
           type: "'vertical' | 'horizontal'",
-          default: "'vertical'",
           required: false,
           description: 'Direction of stack items.',
         },
         {
-          name: 'spacing',
-          type: "'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'",
-          default: "'md'",
+          name: 'gap',
+          type: 'number | string',
           required: false,
-          description: 'Space between stack items.',
+          description: 'Gap between stack items (pixels or CSS value).',
         },
         {
           name: 'align',
           type: "'start' | 'center' | 'end' | 'stretch'",
-          default: "'stretch'",
           required: false,
           description: 'Alignment of items along cross axis.',
         },
         {
           name: 'justify',
-          type: "'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'",
-          default: "'start'",
+          type: "'start' | 'center' | 'end' | 'between' | 'around'",
           required: false,
           description: 'Justification of items along main axis.',
         },
         {
           name: 'wrap',
           type: 'boolean',
-          default: 'false',
           required: false,
-          description: 'Whether items should wrap to next line.',
+          description: 'Whether items should wrap.',
         },
         {
-          name: 'children',
-          type: 'ReactNode',
-          required: true,
-          description: 'Stack items to display.',
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       

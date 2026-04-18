@@ -135,62 +135,54 @@ export default function ComponentMenuPage() {
 
       props={[
         {
-          name: 'variant',
-          type: "'dropdown' | 'context'",
-          default: "'dropdown'",
-          required: false,
-          description: 'Type of menu. Dropdown opens on click, context opens on right-click.',
-        },
-        {
           name: 'items',
           type: 'MenuItem[]',
           required: true,
-          description: 'Array of menu items. Each item has label, onClick, icon, disabled, divider, and optional submenu properties.',
+          description: 'Array of menu items ({ key, label, icon?, onClick?, disabled?, divider?, danger? }).',
         },
         {
           name: 'trigger',
           type: 'ReactNode',
           required: true,
-          description: 'Element that triggers the menu (button, link, etc.).',
+          description: 'Element that triggers the menu.',
         },
         {
           name: 'placement',
-          type: "'bottom-start' | 'bottom-end' | 'top-start' | 'top-end' | 'left-start' | 'right-start'",
+          type: "'bottom-start' | 'bottom-end' | 'top-start' | 'top-end'",
           default: "'bottom-start'",
           required: false,
-          description: 'Position of the menu relative to the trigger element.',
+          description: 'Position of the menu relative to the trigger.',
         },
         {
-          name: 'offset',
-          type: 'number',
-          default: '8',
-          required: false,
-          description: 'Distance in pixels between menu and trigger element.',
-        },
-        {
-          name: 'closeOnSelect',
+          name: 'open',
           type: 'boolean',
-          default: 'true',
           required: false,
-          description: 'Whether to close menu when an item is selected.',
+          description: 'Controlled open state.',
+        },
+        {
+          name: 'defaultOpen',
+          type: 'boolean',
+          required: false,
+          description: 'Default open state for uncontrolled usage.',
+        },
+        {
+          name: 'onOpenChange',
+          type: '(open: boolean) => void',
+          required: false,
+          description: 'Callback when open state changes.',
+        },
+        {
+          name: 'disabled',
+          type: 'boolean',
+          default: 'false',
+          required: false,
+          description: 'Whether the menu trigger is disabled.',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply to the menu container.',
-        },
-        {
-          name: 'onOpen',
-          type: '() => void',
-          required: false,
-          description: 'Callback fired when menu opens.',
-        },
-        {
-          name: 'onClose',
-          type: '() => void',
-          required: false,
-          description: 'Callback fired when menu closes.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

@@ -132,93 +132,48 @@ export default function ComponentRichTextEditorPage() {
         </div>
       }
 
-      props={[
+            props={[
         {
           name: 'value',
           type: 'string',
-          default: "''",
           required: false,
-          description: 'HTML content of the editor. Can be controlled or uncontrolled.',
+          description: 'HTML content value.',
         },
         {
           name: 'onChange',
-          type: '(content: string) => void',
+          type: '(value: string) => void',
           required: false,
-          description: 'Callback fired when content changes. Receives HTML string.',
+          description: 'Called when content changes.',
         },
         {
           name: 'placeholder',
           type: 'string',
-          default: "'Enter text...'",
           required: false,
-          description: 'Placeholder text shown when editor is empty.',
+          description: 'Placeholder text.',
+        },
+        {
+          name: 'disabled',
+          type: 'boolean',
+          required: false,
+          description: 'Whether the editor is disabled.',
+        },
+        {
+          name: 'minHeight',
+          type: 'number | string',
+          required: false,
+          description: 'Minimum height of the editor.',
         },
         {
           name: 'toolbar',
-          type: "Array<'bold' | 'italic' | 'underline' | 'strike' | 'heading' | 'list' | 'ordered' | 'blockquote' | 'code' | 'link' | 'align' | 'color' | 'background'>",
-          default: "['bold', 'italic', 'list']",
+          type: "ToolbarAction[]",
           required: false,
-          description: 'Array of toolbar tools to display. Controls which formatting options are available.',
-        },
-        {
-          name: 'readOnly',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Whether the editor is read-only. Prevents editing while maintaining formatting.',
-        },
-        {
-          name: 'maxLength',
-          type: 'number',
-          required: false,
-          description: 'Maximum character count (excluding HTML tags). Shows character counter when set.',
-        },
-        {
-          name: 'enableImages',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Enable image upload and insertion. Includes paste from clipboard support.',
-        },
-        {
-          name: 'enableTables',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Enable table insertion and editing. Useful for data presentation in documents.',
-        },
-        {
-          name: 'enableLinks',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Enable link insertion and editing. Includes URL validation.',
-        },
-        {
-          name: 'spellCheck',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Enable browser spell checking. Uses browser dictionary.',
-        },
-        {
-          name: 'language',
-          type: 'string',
-          default: "'en'",
-          required: false,
-          description: 'Content language code (ISO 639-1). Affects spell checking and text direction.',
-        },
-        {
-          name: 'onImageUpload',
-          type: '(file: File) => Promise<string>',
-          required: false,
-          description: 'Custom image upload handler. Should return URL of uploaded image.',
+          description: "Toolbar actions to display ('bold' | 'italic' | 'underline' | 'link' | 'list').",
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply to the editor container.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

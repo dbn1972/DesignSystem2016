@@ -86,24 +86,21 @@ export default function ComponentSpacerPage() {
       props={[
         {
           name: 'size',
-          type: "'xs' | 'sm' | 'md' | 'lg' | 'xl' | number",
-          default: "'md'",
+          type: 'number | string',
           required: false,
-          description: 'Size of the space (preset or custom pixels).',
+          description: 'Fixed size in pixels or CSS value.',
         },
         {
           name: 'axis',
-          type: "'vertical' | 'horizontal' | 'both'",
-          default: "'vertical'",
+          type: "'horizontal' | 'vertical'",
           required: false,
           description: 'Direction of spacing.',
         },
         {
-          name: 'flex',
-          type: 'boolean',
-          default: 'false',
+          name: 'className',
+          type: 'string',
           required: false,
-          description: 'Use flex:1 to fill available space.',
+          description: 'Additional CSS classes.',
         },
       ]}
       

@@ -73,38 +73,46 @@ export default function ComponentGridPage() {
       
       props={[
         {
-          name: 'columns',
-          type: 'number | { sm?: number, md?: number, lg?: number, xl?: number }',
-          default: '1',
-          required: false,
-          description: 'Number of columns (responsive object supported).',
-        },
-        {
-          name: 'gap',
-          type: "'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'",
-          default: "'md'",
-          required: false,
-          description: 'Gap between grid items.',
-        },
-        {
           name: 'children',
           type: 'ReactNode',
           required: true,
           description: 'Grid items to display.',
         },
         {
-          name: 'alignItems',
-          type: "'start' | 'center' | 'end' | 'stretch'",
-          default: "'stretch'",
+          name: 'columns',
+          type: 'number | string',
           required: false,
-          description: 'Vertical alignment of items.',
+          description: 'Number of columns or CSS grid-template-columns value.',
         },
         {
-          name: 'justifyItems',
-          type: "'start' | 'center' | 'end' | 'stretch'",
-          default: "'stretch'",
+          name: 'gap',
+          type: 'number | string',
           required: false,
-          description: 'Horizontal alignment of items.',
+          description: 'Gap between grid items.',
+        },
+        {
+          name: 'rowGap',
+          type: 'number | string',
+          required: false,
+          description: 'Gap between rows.',
+        },
+        {
+          name: 'columnGap',
+          type: 'number | string',
+          required: false,
+          description: 'Gap between columns.',
+        },
+        {
+          name: 'align',
+          type: "'start' | 'center' | 'end' | 'stretch'",
+          required: false,
+          description: 'Alignment of grid items.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       

@@ -56,23 +56,33 @@ export default function ComponentListPage() {
       props={[
         {
           name: 'items',
-          type: 'Array<string | ReactNode>',
+          type: 'ListItem[]',
           required: true,
-          description: 'List items to display.',
+          description: 'Array of list items ({ key, primary, secondary?, icon?, action? }).',
         },
         {
-          name: 'type',
-          type: "'ordered' | 'unordered' | 'checklist'",
-          default: "'unordered'",
+          name: 'dividers',
+          type: 'boolean',
           required: false,
-          description: 'Type of list marker.',
+          description: 'Show dividers between items.',
         },
         {
-          name: 'spacing',
-          type: "'compact' | 'normal' | 'relaxed'",
-          default: "'normal'",
+          name: 'ordered',
+          type: 'boolean',
           required: false,
-          description: 'Spacing between list items.',
+          description: 'Render as an ordered list.',
+        },
+        {
+          name: 'emptyMessage',
+          type: 'string',
+          required: false,
+          description: 'Message to display when items array is empty.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       

@@ -132,60 +132,34 @@ export default function ComponentFooterPage() {
 
       props={[
         {
-          name: 'variant',
-          type: "'government' | 'light' | 'dark'",
-          default: "'government'",
+          name: 'sections',
+          type: 'FooterSection[]',
           required: false,
-          description: 'Visual variant. Government uses navy blue, light uses gray-100, dark uses gray-900.',
-        },
-        {
-          name: 'columns',
-          type: "Array<{ title: string; links: Array<{ label: string; href: string }> }>",
-          required: false,
-          description: 'Footer columns with links.',
-        },
-        {
-          name: 'showSocial',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Show social media icons.',
-        },
-        {
-          name: 'socialLinks',
-          type: "{ facebook?: string; twitter?: string; linkedin?: string; youtube?: string; instagram?: string }",
-          required: false,
-          description: 'Social media profile URLs.',
-        },
-        {
-          name: 'contactInfo',
-          type: "{ email?: string; phone?: string; address?: string }",
-          required: false,
-          description: 'Contact information to display.',
+          description: 'Footer link sections ({ title, links: FooterLink[] }).',
         },
         {
           name: 'copyright',
           type: 'string',
           required: false,
-          description: 'Copyright text. Defaults to "© {year} Government of India".',
-        },
-        {
-          name: 'legalLinks',
-          type: "Array<{ label: string; href: string }>",
-          required: false,
-          description: 'Legal/policy links (Privacy, Terms, etc.).',
+          description: 'Copyright text.',
         },
         {
           name: 'logo',
           type: 'ReactNode',
           required: false,
-          description: 'Custom footer logo.',
+          description: 'Footer logo element.',
         },
         {
-          name: 'description',
+          name: 'socialLinks',
+          type: 'ReactNode',
+          required: false,
+          description: 'Social media links element.',
+        },
+        {
+          name: 'className',
           type: 'string',
           required: false,
-          description: 'Short description or tagline.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

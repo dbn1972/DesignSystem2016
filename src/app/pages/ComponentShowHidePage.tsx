@@ -83,41 +83,40 @@ export default function ComponentShowHidePage() {
 
       props={[
         {
-          name: 'above',
-          type: "'sm' | 'md' | 'lg' | 'xl'",
-          required: false,
-          description: 'Show content only above the specified breakpoint. Content is hidden below and visible at and above the breakpoint.',
-        },
-        {
-          name: 'below',
-          type: "'sm' | 'md' | 'lg' | 'xl'",
-          required: false,
-          description: 'Show content only below the specified breakpoint. Content is visible below and hidden at and above the breakpoint.',
-        },
-        {
-          name: 'breakpoint',
-          type: "'sm' | 'md' | 'lg' | 'xl'",
-          required: false,
-          description: 'Show content only at the specific breakpoint range. Content is hidden outside the breakpoint range.',
+          name: 'label',
+          type: 'string',
+          required: true,
+          description: 'Label for the toggle button.',
         },
         {
           name: 'children',
           type: 'ReactNode',
           required: true,
-          description: 'Content to show or hide based on breakpoint conditions.',
+          description: 'Content to show or hide.',
+        },
+        {
+          name: 'defaultOpen',
+          type: 'boolean',
+          required: false,
+          description: 'Initially expanded state.',
+        },
+        {
+          name: 'open',
+          type: 'boolean',
+          required: false,
+          description: 'Controlled open state.',
+        },
+        {
+          name: 'onToggle',
+          type: '(open: boolean) => void',
+          required: false,
+          description: 'Callback when toggled.',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply. Merged with visibility classes.',
-        },
-        {
-          name: 'ssr',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Server-side rendering support. When true, renders a safe default to prevent hydration mismatches.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

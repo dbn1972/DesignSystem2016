@@ -203,85 +203,48 @@ export default function ComponentFeedbackRatingWidgetPage() {
         </div>
       }
 
-      props={[
-        {
-          name: 'type',
-          type: "'stars' | 'emoji' | 'numeric' | 'thumbs'",
-          default: "'stars'",
-          required: false,
-          description: 'Type of rating widget. Stars (1-5 star rating), emoji (emotional response), numeric (number scale), thumbs (simple up/down).',
-        },
-        {
-          name: 'maxRating',
-          type: 'number',
-          default: '5',
-          required: false,
-          description: 'Maximum rating value. Common values: 5 for stars/emoji, 10 for numeric scales, 2 for thumbs.',
-        },
+            props={[
         {
           name: 'value',
           type: 'number',
           required: false,
-          description: 'Current rating value. For thumbs: 1 (up), -1 (down), 0 (none).',
+          description: 'Current rating value.',
         },
         {
           name: 'onChange',
-          type: '(value: number) => void',
-          required: true,
-          description: 'Callback when rating changes. Receives the new rating value.',
+          type: '(rating: number) => void',
+          required: false,
+          description: 'Called when rating changes.',
         },
         {
-          name: 'size',
-          type: "'sm' | 'md' | 'lg'",
-          default: "'md'",
+          name: 'max',
+          type: 'number',
           required: false,
-          description: 'Size of rating controls. Affects touch target and visual size.',
-        },
-        {
-          name: 'showLabels',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Whether to show low/high labels below the rating controls.',
-        },
-        {
-          name: 'required',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Whether rating is required before form submission.',
-        },
-        {
-          name: 'feedbackText',
-          type: 'string',
-          required: false,
-          description: 'Optional text input value for additional feedback comments.',
-        },
-        {
-          name: 'onSubmit',
-          type: '(rating: number, feedback?: string) => void',
-          required: false,
-          description: 'Callback when feedback is submitted. Receives rating and optional text feedback.',
-        },
-        {
-          name: 'thankYouMessage',
-          type: 'string',
-          default: "'Thank you for your feedback!'",
-          required: false,
-          description: 'Message displayed after successful submission.',
-        },
-        {
-          name: 'disabled',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Whether the rating widget is disabled.',
+          description: 'Maximum number of stars.',
         },
         {
           name: 'label',
           type: 'string',
           required: false,
-          description: 'Accessible label for the rating group.',
+          description: 'Label text.',
+        },
+        {
+          name: 'size',
+          type: "'sm' | 'md' | 'lg'",
+          required: false,
+          description: 'Size variant.',
+        },
+        {
+          name: 'disabled',
+          type: 'boolean',
+          required: false,
+          description: 'Whether the widget is disabled.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
 

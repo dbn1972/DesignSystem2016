@@ -115,56 +115,34 @@ export default function ComponentSectionPage() {
 
       props={[
         {
-          name: 'variant',
-          type: "'default' | 'hero' | 'content' | 'footer'",
-          default: "'default'",
-          required: false,
-          description: 'Semantic variant of the section. Default for general sections, hero for banner areas (role="banner"), content for main content regions, footer for page footers (role="contentinfo").',
-        },
-        {
-          name: 'spacing',
-          type: "'sm' | 'md' | 'lg' | 'xl'",
-          default: "'md'",
-          required: false,
-          description: 'Vertical padding size. Small (16px), Medium (32px), Large (48px), Extra Large (64px).',
-        },
-        {
-          name: 'background',
-          type: "'white' | 'gray' | 'primary' | 'transparent'",
-          default: "'white'",
-          required: false,
-          description: 'Background color of the section. White for default, gray for alternating sections, primary for emphasis, transparent for overlays.',
-        },
-        {
-          name: 'containerized',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Whether to wrap content in a centered container with max-width. Set to false for full-bleed layouts.',
-        },
-        {
           name: 'children',
           type: 'ReactNode',
           required: true,
-          description: 'Section content (text, components, or elements).',
+          description: 'Section content.',
+        },
+        {
+          name: 'title',
+          type: 'string',
+          required: false,
+          description: 'Section title.',
+        },
+        {
+          name: 'description',
+          type: 'string',
+          required: false,
+          description: 'Section description text.',
+        },
+        {
+          name: 'padding',
+          type: "'none' | 'sm' | 'md' | 'lg'",
+          required: false,
+          description: 'Padding size.',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply. Merged with section classes.',
-        },
-        {
-          name: 'id',
-          type: 'string',
-          required: false,
-          description: 'HTML id attribute for anchor links and navigation.',
-        },
-        {
-          name: 'ariaLabel',
-          type: 'string',
-          required: false,
-          description: 'Accessible label for the section. Required for proper landmark navigation.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

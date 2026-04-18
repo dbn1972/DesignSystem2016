@@ -116,77 +116,48 @@ export default function ComponentFormBuilderPage() {
         </div>
       }
 
-      props={[
+            props={[
         {
           name: 'fields',
-          type: 'FieldDefinition[]',
+          type: 'FormFieldConfig[]',
           required: true,
-          description: 'Array of field definitions specifying the form structure. Each field includes type, name, label, validation rules, and conditional logic.',
+          description: 'Field configurations ({ key, label, type, placeholder?, required?, options?, hint? }).',
         },
         {
           name: 'onSubmit',
-          type: '(data: FormData) => void | Promise<void>',
+          type: '(values: Record<string, string>) => void',
           required: true,
-          description: 'Callback function invoked when form is submitted with valid data. Receives form data object with field names as keys.',
+          description: 'Called on form submit with field values.',
         },
         {
-          name: 'validationRules',
-          type: 'ValidationRules',
+          name: 'submitLabel',
+          type: 'string',
           required: false,
-          description: 'Custom validation rules and error messages. Supports built-in validators (required, email, phone, date) and custom validation functions.',
+          description: 'Submit button text.',
         },
         {
-          name: 'layout',
-          type: "'vertical' | 'horizontal' | 'grid'",
-          default: "'vertical'",
-          required: false,
-          description: 'Form layout mode. Vertical stacks fields, horizontal aligns labels and inputs side-by-side, grid creates responsive multi-column layout.',
-        },
-        {
-          name: 'multiStep',
-          type: 'boolean | MultiStepConfig',
-          default: 'false',
-          required: false,
-          description: 'Enable multi-step form mode with step navigation. Can be boolean or config object with step titles and validation per step.',
-        },
-        {
-          name: 'saveProgress',
-          type: 'boolean | SaveProgressConfig',
-          default: 'false',
-          required: false,
-          description: 'Enable automatic or manual progress saving. Useful for long forms where users may need to return later. Supports localStorage or custom storage.',
-        },
-        {
-          name: 'conditionalLogic',
-          type: 'ConditionalRule[]',
-          required: false,
-          description: 'Array of rules defining field visibility and behavior based on other field values. Supports show/hide, enable/disable, and value-dependent validation.',
-        },
-        {
-          name: 'prefillData',
-          type: 'Record<string, any>',
-          required: false,
-          description: 'Object containing initial values to pre-populate form fields. Keys should match field names.',
-        },
-        {
-          name: 'templateMode',
+          name: 'loading',
           type: 'boolean',
-          default: 'false',
           required: false,
-          description: 'Enable template editing mode with drag-and-drop field reordering and configuration UI.',
+          description: 'Whether the form is submitting.',
         },
         {
-          name: 'autoSave',
-          type: 'boolean | number',
-          default: 'false',
+          name: 'title',
+          type: 'string',
           required: false,
-          description: 'Enable automatic form saving. If number, specifies auto-save interval in milliseconds.',
+          description: 'Form title.',
         },
         {
-          name: 'onFieldChange',
-          type: '(fieldName: string, value: any) => void',
+          name: 'description',
+          type: 'string',
           required: false,
-          description: 'Callback invoked when any field value changes. Useful for real-time validation or dependent field updates.',
+          description: 'Form description.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
 

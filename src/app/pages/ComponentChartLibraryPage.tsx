@@ -208,96 +208,42 @@ export default function ComponentChartLibraryPage() {
         <div className="w-full max-w-md"><div className="flex items-end gap-2 h-32"><div className="flex-1 bg-[#005196] rounded-t" style={{height:"80%"}} /><div className="flex-1 bg-[#005196]/80 rounded-t" style={{height:"60%"}} /><div className="flex-1 bg-[#005196]/60 rounded-t" style={{height:"90%"}} /><div className="flex-1 bg-[#005196]/40 rounded-t" style={{height:"45%"}} /><div className="flex-1 bg-[#005196]/70 rounded-t" style={{height:"70%"}} /></div><div className="flex justify-between text-xs text-muted-foreground mt-2"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span></div></div>
       }
 
-      props={[
-        {
-          name: 'type',
-          type: "'bar' | 'line' | 'pie' | 'area' | 'donut'",
-          default: "'bar'",
-          required: false,
-          description: 'Type of chart to render. Bar for comparisons, line for trends, pie/donut for distributions, area for cumulative data.',
-        },
+            props={[
         {
           name: 'data',
-          type: 'number[] | ChartDataPoint[]',
+          type: 'ChartDataPoint[]',
           required: true,
-          description: 'Chart data as array of numbers or data point objects with value and metadata.',
+          description: 'Data points ({ label, value }).',
         },
         {
-          name: 'labels',
-          type: 'string[]',
+          name: 'type',
+          type: "'bar' | 'line' | 'pie' | 'area'",
           required: false,
-          description: 'Labels for data points, displayed on axes or in legend.',
-        },
-        {
-          name: 'colors',
-          type: 'string[]',
-          required: false,
-          description: 'Custom colors for chart elements. Falls back to government palette if not provided.',
+          description: 'Chart type.',
         },
         {
           name: 'title',
           type: 'string',
           required: false,
-          description: 'Chart title displayed at the top of the visualization.',
-        },
-        {
-          name: 'legend',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Whether to display chart legend.',
-        },
-        {
-          name: 'tooltip',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Enable interactive tooltips on hover.',
-        },
-        {
-          name: 'responsive',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Whether chart should resize based on container width.',
+          description: 'Chart title.',
         },
         {
           name: 'height',
-          type: 'number | string',
-          default: '400',
+          type: 'number',
           required: false,
-          description: 'Chart height in pixels or CSS value.',
+          description: 'Chart height in pixels.',
         },
         {
-          name: 'width',
-          type: 'number | string',
+          name: 'colors',
+          type: 'string[]',
           required: false,
-          description: 'Chart width in pixels or CSS value. Auto if responsive is true.',
-        },
-        {
-          name: 'downloadable',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Enable download button for exporting chart as PNG/SVG/CSV.',
-        },
-        {
-          name: 'xAxis',
-          type: 'AxisConfig',
-          required: false,
-          description: 'Configuration for x-axis including label, grid, and tick formatting.',
-        },
-        {
-          name: 'yAxis',
-          type: 'AxisConfig',
-          required: false,
-          description: 'Configuration for y-axis including label, grid, and tick formatting.',
+          description: 'Array of color strings for data points.',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply to chart container.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

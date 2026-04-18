@@ -95,30 +95,36 @@ export default function ComponentApplicationTrackerPage() {
         <div className="w-full max-w-md"><div className="flex items-center gap-4 mb-4"><div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 text-sm font-bold">✓</div><div className="flex-1 h-1 bg-green-500 rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 text-sm font-bold">✓</div><div className="flex-1 h-1 bg-yellow-400 rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-100 text-yellow-700 text-sm font-bold">⏳</div><div className="flex-1 h-1 bg-muted rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-muted text-muted-foreground text-sm font-bold">4</div></div><div className="flex justify-between text-xs text-muted-foreground"><span>Submitted</span><span>Verified</span><span>Processing</span><span>Complete</span></div></div>
       }
       
-      props={[
+            props={[
         {
           name: 'applicationId',
           type: 'string',
           required: true,
-          description: 'Unique application identifier.',
+          description: 'Application or reference ID.',
         },
         {
-          name: 'stages',
-          type: 'Array<{id: string, label: string, status: "completed" | "active" | "pending", date?: string, description?: string}>',
+          name: 'steps',
+          type: 'TrackerStep[]',
           required: true,
-          description: 'Application stages with status.',
+          description: 'Steps in the application journey ({ key, label, description?, status, timestamp?, icon? }).',
         },
         {
-          name: 'currentStage',
+          name: 'serviceName',
           type: 'string',
-          required: true,
-          description: 'Current active stage ID.',
+          required: false,
+          description: 'Service name.',
         },
         {
-          name: 'onRefresh',
-          type: '() => void',
+          name: 'orientation',
+          type: "'horizontal' | 'vertical'",
           required: false,
-          description: 'Callback to refresh status.',
+          description: 'Layout direction.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       

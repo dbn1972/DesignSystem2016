@@ -95,93 +95,48 @@ export default function ComponentMapLocationPickerPage() {
         </div>
       }
 
-      props={[
+            props={[
         {
-          name: 'center',
-          type: '{ lat: number; lng: number }',
-          default: '{ lat: 28.6139, lng: 77.2090 }',
+          name: 'latitude',
+          type: 'number',
           required: false,
-          description: 'Initial center coordinates of the map. Defaults to New Delhi, India.',
+          description: 'Latitude coordinate.',
+        },
+        {
+          name: 'longitude',
+          type: 'number',
+          required: false,
+          description: 'Longitude coordinate.',
+        },
+        {
+          name: 'onChange',
+          type: '(coords: { latitude: number; longitude: number }) => void',
+          required: false,
+          description: 'Called when location changes.',
         },
         {
           name: 'zoom',
           type: 'number',
-          default: '12',
           required: false,
-          description: 'Initial zoom level (1-20). Higher values show more detail. City level is typically 12-14.',
+          description: 'Map zoom level.',
         },
         {
-          name: 'onLocationSelect',
-          type: '(location: { lat: number; lng: number; address?: string }) => void',
-          required: true,
-          description: 'Callback fired when user selects a location. Receives coordinates and optional reverse-geocoded address.',
-        },
-        {
-          name: 'searchEnabled',
-          type: 'boolean',
-          default: 'false',
+          name: 'height',
+          type: 'number | string',
           required: false,
-          description: 'Enable location search with autocomplete. Allows users to search for places by name or address.',
+          description: 'Map container height.',
         },
         {
-          name: 'currentLocationButton',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Show button to detect and navigate to user\'s current location using browser geolocation API.',
-        },
-        {
-          name: 'marker',
-          type: 'boolean | { lat: number; lng: number; label?: string }',
-          default: 'true',
-          required: false,
-          description: 'Show marker at selected location. Can be boolean or marker configuration object.',
-        },
-        {
-          name: 'allowMultiple',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Allow selection of multiple locations. Returns array of locations in onLocationSelect.',
-        },
-        {
-          name: 'district',
+          name: 'label',
           type: 'string',
           required: false,
-          description: 'Restrict map to specific district. Useful for district-level services.',
-        },
-        {
-          name: 'state',
-          type: 'string',
-          required: false,
-          description: 'Restrict map to specific state. Useful for state-level services.',
-        },
-        {
-          name: 'minZoom',
-          type: 'number',
-          default: '4',
-          required: false,
-          description: 'Minimum allowed zoom level.',
-        },
-        {
-          name: 'maxZoom',
-          type: 'number',
-          default: '18',
-          required: false,
-          description: 'Maximum allowed zoom level.',
-        },
-        {
-          name: 'disabled',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Disable map interaction. Shows read-only map with selected location.',
+          description: 'Label text.',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply to map container.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

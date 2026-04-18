@@ -100,83 +100,48 @@ export default function ComponentPaymentGatewayPage() {
         </div>
       }
 
-      props={[
+            props={[
         {
           name: 'amount',
           type: 'number',
           required: true,
-          description: 'Payment amount in INR. Must be a positive number. Used for display and gateway integration.',
+          description: 'Payment amount.',
         },
         {
-          name: 'orderId',
+          name: 'merchantName',
           type: 'string',
           required: true,
-          description: 'Unique order identifier for transaction tracking. Must be unique across all transactions.',
+          description: 'Merchant display name.',
+        },
+        {
+          name: 'upiId',
+          type: 'string',
+          required: true,
+          description: 'UPI ID for payment.',
         },
         {
           name: 'onSuccess',
-          type: '(response: PaymentResponse) => void',
-          required: true,
-          description: 'Callback function invoked on successful payment. Receives payment response with transaction ID, status, and receipt details.',
+          type: '() => void',
+          required: false,
+          description: 'Called on successful payment.',
         },
         {
           name: 'onFailure',
-          type: '(error: PaymentError) => void',
-          required: true,
-          description: 'Callback function invoked on payment failure. Receives error object with failure reason and retry options.',
-        },
-        {
-          name: 'paymentMethods',
-          type: "('UPI' | 'card' | 'netBanking' | 'wallet')[]",
-          default: "['UPI', 'card', 'netBanking', 'wallet']",
+          type: '(error: string) => void',
           required: false,
-          description: 'Array of enabled payment methods. Defaults to all methods. Can be restricted based on department policy.',
-        },
-        {
-          name: 'showReceiptNumber',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Whether to display receipt number in the payment interface. Auto-generated unique receipt ID.',
-        },
-        {
-          name: 'serviceName',
-          type: 'string',
-          required: true,
-          description: 'Name of the government service for which payment is being made (e.g., "Passport Application Fee", "Property Tax").',
-        },
-        {
-          name: 'departmentCode',
-          type: 'string',
-          required: true,
-          description: 'Department code for routing payment to correct government account. Used for reconciliation and accounting.',
-        },
-        {
-          name: 'allowRetry',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Allow users to retry failed payments. Automatically handles retry logic with exponential backoff.',
+          description: 'Called on payment failure.',
         },
         {
           name: 'currency',
           type: 'string',
-          default: "'INR'",
           required: false,
-          description: 'Currency code. Defaults to INR for Indian government transactions.',
+          description: 'Currency code.',
         },
         {
-          name: 'merchantId',
+          name: 'className',
           type: 'string',
-          required: true,
-          description: 'Government department merchant ID for payment gateway integration.',
-        },
-        {
-          name: 'environment',
-          type: "'production' | 'sandbox'",
-          default: "'production'",
           required: false,
-          description: 'Payment gateway environment. Use sandbox for testing, production for live transactions.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

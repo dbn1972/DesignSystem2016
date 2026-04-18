@@ -131,69 +131,52 @@ export default function ComponentTagPage() {
 
       props={[
         {
+          name: 'label',
+          type: 'string',
+          required: true,
+          description: 'Tag label text.',
+        },
+        {
           name: 'variant',
-          type: "'default' | 'primary' | 'success' | 'warning' | 'error' | 'info'",
-          default: "'default'",
+          type: "'neutral' | 'info' | 'success' | 'warning' | 'error'",
           required: false,
-          description: 'Visual variant of the tag. Default for neutral labels, primary for highlighted categories, success for positive status, warning for caution states, error for negative status, info for informational labels.',
+          description: 'Color variant of the tag.',
         },
         {
           name: 'size',
           type: "'sm' | 'md' | 'lg'",
-          default: "'md'",
           required: false,
-          description: 'Size of the tag. Small (24px), Medium (28px), Large (36px).',
-        },
-        {
-          name: 'outlined',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Whether the tag should have outlined styling instead of filled background.',
-        },
-        {
-          name: 'closeable',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Whether the tag can be dismissed with a close button. Adds an interactive close icon.',
-        },
-        {
-          name: 'onClose',
-          type: '() => void',
-          required: false,
-          description: 'Callback function triggered when the close button is clicked. Required when closeable is true.',
+          description: 'Size of the tag.',
         },
         {
           name: 'icon',
           type: 'ReactNode',
           required: false,
-          description: 'Icon to display before tag text. Should be 12-16px for optimal sizing.',
+          description: 'Icon to display before the label.',
+        },
+        {
+          name: 'removable',
+          type: 'boolean',
+          required: false,
+          description: 'Whether the tag shows a remove button.',
+        },
+        {
+          name: 'onRemove',
+          type: '() => void',
+          required: false,
+          description: 'Callback when the remove button is clicked.',
         },
         {
           name: 'disabled',
           type: 'boolean',
-          default: 'false',
           required: false,
-          description: 'Whether the tag is disabled. Reduces opacity and prevents interaction for closeable tags.',
-        },
-        {
-          name: 'children',
-          type: 'ReactNode',
-          required: true,
-          description: 'Tag content (text or elements).',
+          description: 'Whether the tag is disabled.',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply. Merged with variant classes.',
-        },
-        {
-          name: 'onClick',
-          type: '(event: MouseEvent) => void',
-          required: false,
-          description: 'Click event handler for interactive tags. Makes the entire tag clickable.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

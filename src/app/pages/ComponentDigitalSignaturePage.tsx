@@ -183,93 +183,48 @@ export default function ComponentDigitalSignaturePage() {
         </div>
       }
 
-      props={[
+            props={[
         {
-          name: 'onSave',
-          type: '(signature: string | File) => void',
+          name: 'onSign',
+          type: '(dataUrl: string) => void',
           required: false,
-          description: 'Callback function called when signature is saved. Receives the signature data as base64 string (for drawn/typed) or File object (for uploaded).',
+          description: 'Called with the canvas data URL after signing.',
         },
         {
           name: 'onClear',
           type: '() => void',
           required: false,
-          description: 'Callback function called when signature is cleared.',
+          description: 'Called when the signature is cleared.',
         },
         {
           name: 'width',
           type: 'number',
-          default: '400',
           required: false,
-          description: 'Width of the signature area in pixels.',
+          description: 'Canvas width in pixels.',
         },
         {
           name: 'height',
           type: 'number',
-          default: '200',
           required: false,
-          description: 'Height of the signature area in pixels.',
-        },
-        {
-          name: 'penColor',
-          type: 'string',
-          default: "'#000000'",
-          required: false,
-          description: 'Color of the pen for drawing signatures. Hex color value.',
-        },
-        {
-          name: 'penWidth',
-          type: 'number',
-          default: '2',
-          required: false,
-          description: 'Width of the pen stroke in pixels for drawing signatures.',
-        },
-        {
-          name: 'signatureType',
-          type: "'draw' | 'type' | 'upload'",
-          default: "'draw'",
-          required: false,
-          description: 'Method for capturing signature. Draw uses canvas API, type allows text input with cursive font, upload accepts image files.',
-        },
-        {
-          name: 'required',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Whether the signature is required. Displays required indicator and validates on form submission.',
+          description: 'Canvas height in pixels.',
         },
         {
           name: 'label',
           type: 'string',
           required: false,
-          description: 'Label text displayed above the signature area.',
-        },
-        {
-          name: 'placeholder',
-          type: 'string',
-          default: "'Sign here'",
-          required: false,
-          description: 'Placeholder text displayed in empty signature area.',
-        },
-        {
-          name: 'backgroundColor',
-          type: 'string',
-          default: "'#ffffff'",
-          required: false,
-          description: 'Background color of the signature area.',
+          description: 'Accessible label for the signature pad.',
         },
         {
           name: 'disabled',
           type: 'boolean',
-          default: 'false',
           required: false,
-          description: 'Whether the signature input is disabled.',
+          description: 'Whether the signature pad is disabled.',
         },
         {
           name: 'className',
           type: 'string',
           required: false,
-          description: 'Additional CSS classes to apply to the container.',
+          description: 'Additional CSS classes.',
         },
       ]}
 

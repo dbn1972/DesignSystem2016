@@ -150,85 +150,48 @@ export default function ComponentChatbotPage() {
         </div>
       }
 
-      props={[
+            props={[
         {
-          name: 'botName',
+          name: 'title',
           type: 'string',
-          default: "'Assistant'",
           required: false,
-          description: 'Display name of the chatbot. Should reflect the department or service (e.g., "Tax Help Bot", "License Assistant").',
+          description: 'Title displayed in the chat header.',
         },
         {
-          name: 'botAvatar',
-          type: 'string | ReactNode',
+          name: 'messages',
+          type: 'ChatMessage[]',
           required: false,
-          description: 'Avatar image URL or custom avatar component for the chatbot.',
+          description: 'Array of chat messages ({ id, text, sender }).',
         },
         {
-          name: 'greeting',
-          type: 'string',
-          default: "'Hello! How can I help you today?'",
+          name: 'onSend',
+          type: '(text: string) => void',
           required: false,
-          description: 'Initial greeting message displayed when the chatbot opens.',
+          description: 'Called when the user sends a message.',
+        },
+        {
+          name: 'open',
+          type: 'boolean',
+          required: false,
+          description: 'Whether the chat panel is open.',
+        },
+        {
+          name: 'onToggle',
+          type: '() => void',
+          required: false,
+          description: 'Called when the toggle button is clicked.',
         },
         {
           name: 'placeholder',
           type: 'string',
-          default: "'Type your message...'",
           required: false,
-          description: 'Placeholder text for the message input field.',
+          description: 'Placeholder text for the message input.',
         },
         {
-          name: 'position',
-          type: "'bottom-right' | 'bottom-left'",
-          default: "'bottom-right'",
+          name: 'className',
+          type: 'string',
           required: false,
-          description: 'Position of the chatbot widget on the screen.',
-        },
-        {
-          name: 'minimized',
-          type: 'boolean',
-          default: 'true',
-          required: false,
-          description: 'Whether the chatbot starts in minimized state (collapsed to icon).',
-        },
-        {
-          name: 'onSendMessage',
-          type: '(message: string, attachments?: File[]) => Promise<ChatMessage>',
-          required: true,
-          description: 'Callback function when user sends a message. Returns the bot response.',
-        },
-        {
-          name: 'onClose',
-          type: '() => void',
-          required: false,
-          description: 'Callback function when chatbot is closed or minimized.',
-        },
-        {
-          name: 'suggestedQuestions',
-          type: 'string[]',
-          required: false,
-          description: 'Array of suggested questions to display as quick action buttons.',
-        },
-        {
-          name: 'enableVoice',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Enable voice input functionality using Web Speech API.',
-        },
-        {
-          name: 'enableFileUpload',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Allow users to upload files (documents, images) with their messages.',
-        },
-        {
-          name: 'departmentContext',
-          type: 'DepartmentContext',
-          required: false,
-          description: 'Department-specific context for tailored responses (department ID, services, FAQs).',
+          description: 'Additional CSS classes.',
         },
       ]}
 

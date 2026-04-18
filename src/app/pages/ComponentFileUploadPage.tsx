@@ -129,6 +129,12 @@ export default function ComponentFileUploadPage() {
       
       props={[
         {
+          name: 'onChange',
+          type: '(files: File[]) => void',
+          required: false,
+          description: 'Callback when files are selected or dropped.',
+        },
+        {
           name: 'accept',
           type: 'string',
           required: false,
@@ -144,27 +150,14 @@ export default function ComponentFileUploadPage() {
         {
           name: 'maxSize',
           type: 'number',
-          default: '10485760',
           required: false,
-          description: 'Maximum file size in bytes (default 10MB).',
+          description: 'Maximum file size in bytes.',
         },
         {
           name: 'maxFiles',
           type: 'number',
           required: false,
           description: 'Maximum number of files allowed.',
-        },
-        {
-          name: 'onUpload',
-          type: '(files: File[]) => void',
-          required: true,
-          description: 'Callback when files are selected/dropped.',
-        },
-        {
-          name: 'onError',
-          type: '(error: string) => void',
-          required: false,
-          description: 'Callback for validation errors.',
         },
         {
           name: 'disabled',
@@ -174,11 +167,36 @@ export default function ComponentFileUploadPage() {
           description: 'Whether upload is disabled.',
         },
         {
-          name: 'showPreview',
+          name: 'error',
+          type: 'boolean',
+          default: 'false',
+          required: false,
+          description: 'Error state indicator.',
+        },
+        {
+          name: 'children',
+          type: 'ReactNode',
+          required: false,
+          description: 'Custom upload area content.',
+        },
+        {
+          name: 'showFileList',
           type: 'boolean',
           default: 'true',
           required: false,
-          description: 'Show file preview list.',
+          description: 'Whether to show the file list.',
+        },
+        {
+          name: 'validator',
+          type: '(file: File) => string | null',
+          required: false,
+          description: 'Custom file validation function. Return error string or null.',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
         },
       ]}
       

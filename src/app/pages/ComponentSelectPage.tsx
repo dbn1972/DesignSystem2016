@@ -91,28 +91,29 @@ export default function ComponentSelectPage() {
       
       props={[
         {
-          name: 'value',
-          type: 'string',
-          required: false,
-          description: 'Controlled value of the select.',
-        },
-        {
-          name: 'defaultValue',
-          type: 'string',
-          required: false,
-          description: 'Uncontrolled default value.',
-        },
-        {
           name: 'placeholder',
           type: 'string',
           required: false,
           description: 'Placeholder text shown when no option is selected.',
         },
         {
-          name: 'options',
-          type: 'Array<{value: string, label: string}>',
-          required: true,
-          description: 'Array of options to display in the dropdown.',
+          name: 'size',
+          type: "'sm' | 'md' | 'lg'",
+          required: false,
+          description: 'Select size variant.',
+        },
+        {
+          name: 'fullWidth',
+          type: 'boolean',
+          default: 'false',
+          required: false,
+          description: 'Whether the select should take full width.',
+        },
+        {
+          name: 'children',
+          type: 'ReactNode',
+          required: false,
+          description: 'Option elements to render inside the select.',
         },
         {
           name: 'disabled',
@@ -122,25 +123,6 @@ export default function ComponentSelectPage() {
           description: 'Whether the select is disabled.',
         },
         {
-          name: 'error',
-          type: 'boolean',
-          default: 'false',
-          required: false,
-          description: 'Whether the select has an error state.',
-        },
-        {
-          name: 'errorMessage',
-          type: 'string',
-          required: false,
-          description: 'Error message to display.',
-        },
-        {
-          name: 'helperText',
-          type: 'string',
-          required: false,
-          description: 'Helper text to guide the user.',
-        },
-        {
           name: 'required',
           type: 'boolean',
           default: 'false',
@@ -148,11 +130,42 @@ export default function ComponentSelectPage() {
           description: 'Whether the select is required.',
         },
         {
-          name: 'fullWidth',
+          name: 'readOnly',
           type: 'boolean',
           default: 'false',
           required: false,
-          description: 'Whether the select should take full width.',
+          description: 'Whether the select is read-only.',
+        },
+        {
+          name: 'error',
+          type: 'boolean',
+          default: 'false',
+          required: false,
+          description: 'Whether the select has an error state.',
+        },
+        {
+          name: 'name',
+          type: 'string',
+          required: false,
+          description: 'Field name for form submission.',
+        },
+        {
+          name: 'id',
+          type: 'string',
+          required: false,
+          description: 'Field ID (links label to select).',
+        },
+        {
+          name: 'className',
+          type: 'string',
+          required: false,
+          description: 'Additional CSS classes.',
+        },
+        {
+          name: 'aria-label',
+          type: 'string',
+          required: false,
+          description: 'Accessible label for screen readers.',
         },
         {
           name: 'onChange',
