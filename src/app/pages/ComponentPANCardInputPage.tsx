@@ -5,7 +5,6 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { CheckCircle, XCircle, Shield } from 'lucide-react';
 
 // Import the actual PAN Card Input component for live preview
@@ -69,43 +68,27 @@ const PANCardInputPreview = ({
   );
 };
 
-const PANCARDINPUT_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'required',
-    label: 'Required',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'disabled',
-    label: 'Disabled',
-    type: 'boolean',
-    defaultValue: false,
-  },
-];
-
 function PANCardInputPlayground() {
+  const [required, setRequired] = React.useState(false);
+  const [disabled, setDisabled] = React.useState(false);
+
   return (
-    <ComponentPlayground
-      name="PANCardInput"
-      controls={PANCARDINPUT_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <PANCardInputPreview {...v} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <PANCardInputPreview />
         </div>
-      )}
-      codeTemplate={(v) => {
-        const props: string[] = [];
-        PANCARDINPUT_CONTROLS.forEach((c) => {
-          const val = v[c.name];
-          if (c.type === 'boolean' && val) props.push(c.name);
-          else if (c.type !== 'boolean' && val !== c.defaultValue) {
-            props.push(`${c.name}="${val}"`);
-          }
-        });
-        return `<PANCardInput${props.length ? ' ' + props.join(' ') : ''} />`;
-      }}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<PANCardInput${required ? ' required' : ''}${disabled ? ' disabled' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 

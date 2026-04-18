@@ -4,52 +4,38 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Check } from 'lucide-react';
 
-const LIST_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'variant',
-    label: 'Variant',
-    type: 'text',
-    defaultValue: 'default',
-  },
-  {
-    name: 'showIcons',
-    label: 'Show Icons',
-    type: 'boolean',
-    defaultValue: true,
-  },
-  {
-    name: 'interactive',
-    label: 'Interactive',
-    type: 'boolean',
-    defaultValue: false,
-  },
-];
-
 function ListPlayground() {
+  const [variant, setVariant] = React.useState('default');
+  const [showIcons, setShowIcons] = React.useState(true);
+  const [interactive, setInteractive] = React.useState(false);
+
   return (
-    <ComponentPlayground
-      name="List"
-      controls={LIST_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <List {...v} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <div className="w-full max-w-sm border border-border rounded-lg overflow-hidden">{["Aadhaar Card","Address Proof","Photo","Income Certificate"].map((item,i) => <div key={i} className={`flex items-center gap-2 px-3 py-2 text-xs ${variant === "striped" && i%2===1 ? "bg-muted/30" : ""} ${variant === "bordered" ? "border-b border-border" : ""}`}>{showIcons && <span className="w-1.5 h-1.5 rounded-full bg-green-500" />}<span className="text-foreground">{item}</span>{interactive && <span className="ml-auto text-muted-foreground">→</span>}</div>)}</div>
         </div>
-      )}
-      codeTemplate={(v) => {
-        const props: string[] = [];
-        LIST_CONTROLS.forEach((c) => {
-          const val = v[c.name];
-          if (c.type === 'boolean' && val) props.push(c.name);
-          else if (c.type !== 'boolean' && val !== c.defaultValue) {
-            props.push(`${c.name}="${val}"`);
-          }
-        });
-        return `<List${props.length ? ' ' + props.join(' ') : ''} />`;
-      }}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Variant</label>
+            <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="default">default</option>
+              <option value="bordered">bordered</option>
+              <option value="striped">striped</option>
+            </select>
+          </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showIcons} onChange={e => setShowIcons(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show icons</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={interactive} onChange={e => setInteractive(e.target.checked)} className="accent-primary" /><span className="text-foreground">Interactive items</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<List ${variant} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -351,9 +337,11 @@ export type ListSpacing = 'compact' | 'normal' | 'relaxed';`,
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different List configurations in real time.</p>
             <ListPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

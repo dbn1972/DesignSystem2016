@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { ChevronDown } from 'lucide-react';
 
 const SelectPreview = ({ placeholder, options, disabled = false, error = false }: any) => {
@@ -40,55 +39,34 @@ const SelectPreview = ({ placeholder, options, disabled = false, error = false }
 
 const STATES = [{ value: 'DL', label: 'Delhi' }, { value: 'MH', label: 'Maharashtra' }, { value: 'KA', label: 'Karnataka' }, { value: 'TN', label: 'Tamil Nadu' }, { value: 'UP', label: 'Uttar Pradesh' }];
 
-const SELECT_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'disabled',
-    label: 'Disabled',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'error',
-    label: 'Error',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'required',
-    label: 'Required',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'placeholder',
-    label: 'Placeholder',
-    type: 'text',
-    defaultValue: 'Select a state',
-  },
-];
-
 function SelectPlayground() {
+  const [disabled, setDisabled] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [required, setRequired] = React.useState(false);
+  const [placeholder, setPlaceholder] = React.useState('Select a state');
+
   return (
-    <ComponentPlayground
-      name="Select"
-      controls={SELECT_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <SelectPreview {...v} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <SelectPreview placeholder={placeholder} options={STATES} disabled={disabled} error={error} />
+      </div>
+      <div className="space-y-4 text-sm">
+        <div>
+          <label className="block font-semibold text-foreground mb-1">Placeholder</label>
+          <input value={placeholder} onChange={e => setPlaceholder(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
         </div>
-      )}
-      codeTemplate={(v) => {
-        const props: string[] = [];
-        SELECT_CONTROLS.forEach((c) => {
-          const val = v[c.name];
-          if (c.type === 'boolean' && val) props.push(c.name);
-          else if (c.type !== 'boolean' && val !== c.defaultValue) {
-            props.push(`${c.name}="${val}"`);
-          }
-        });
-        return `<Select${props.length ? ' ' + props.join(' ') : ''} />`;
-      }}
-    />
+        <div className="flex flex-col gap-2">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={error} onChange={e => setError(e.target.checked)} className="accent-primary" /><span className="text-foreground">Error state</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
+        </div>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Select placeholder="${placeholder}"${disabled ? ' disabled' : ''}${error ? ' error' : ''}${required ? ' required' : ''} options={states} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -314,9 +292,11 @@ function Example() {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Select configurations in real time.</p>
             <SelectPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

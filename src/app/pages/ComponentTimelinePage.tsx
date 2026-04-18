@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Clock, CheckCircle, AlertCircle, Circle, XCircle, FileText, User, Send } from 'lucide-react';
 
 // Import the actual Timeline component for live preview
@@ -61,49 +60,63 @@ const TimelinePreview = ({ items, variant = 'default', ...props }: any) => (
   </div>
 );
 
-const TIMELINE_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'orientation',
-    label: 'Orientation',
-    type: 'text',
-    defaultValue: 'vertical',
-  },
-  {
-    name: 'variant',
-    label: 'Variant',
-    type: 'text',
-    defaultValue: 'default',
-  },
-  {
-    name: 'showConnectors',
-    label: 'Show Connectors',
-    type: 'boolean',
-    defaultValue: true,
-  },
-];
-
 function TimelinePlayground() {
+  const [orientation, setOrientation] = React.useState('vertical');
+  const [variant, setVariant] = React.useState('default');
+  const [showConnectors, setShowConnectors] = React.useState(true);
+
   return (
-    <ComponentPlayground
-      name="Timeline"
-      controls={TIMELINE_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <React {...v} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          {orientation === 'horizontal' ? (
+            <div className="flex items-start gap-0 w-full max-w-md">
+              {[{title:"Submitted",date:"12 Apr",color:"bg-green-500"},{title:"Under Review",date:"14 Apr",color:"bg-yellow-500"},{title:"Approved",date:"—",color:"bg-muted"}].map((item, i, arr) => (
+                <React.Fragment key={i}>
+                  <div className="flex flex-col items-center text-center flex-shrink-0">
+                    <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center text-white text-xs font-bold`}>{i === 0 ? '✓' : i === 1 ? '⏳' : (i+1)}</div>
+                    <p className="text-xs font-medium text-foreground mt-1">{item.title}</p>
+                    <p className="text-[10px] text-muted-foreground">{item.date}</p>
+                  </div>
+                  {i < arr.length - 1 && showConnectors && <div className="flex-1 h-0.5 bg-border mt-4 mx-1" />}
+                </React.Fragment>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-0 w-full max-w-sm">
+              {[{title:"Submitted",date:"12 Apr",color:"bg-green-500",status:"complete"},{title:"Under Review",date:"14 Apr",color:"bg-yellow-500",status:"active"},{title:"Approved",date:"—",color:"bg-muted",status:"pending"}].map((item, i, arr) => (
+                <div key={i} className={`relative flex gap-4 ${variant === 'alternate' && i % 2 === 0 ? 'flex-row-reverse' : ''}`}>
+                  <div className="flex flex-col items-center">
+                    <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center text-white text-xs font-bold`}>{i === 0 ? '✓' : i === 1 ? '⏳' : (i+1)}</div>
+                    {i < arr.length - 1 && showConnectors && <div className="w-0.5 h-10 bg-border" />}
+                  </div>
+                  <div className="pb-8">
+                    <p className="text-sm font-medium text-foreground">{item.title}</p>
+                    <p className="text-xs text-muted-foreground">{item.date}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
-      codeTemplate={(v) => {
-        const props: string[] = [];
-        TIMELINE_CONTROLS.forEach((c) => {
-          const val = v[c.name];
-          if (c.type === 'boolean' && val) props.push(c.name);
-          else if (c.type !== 'boolean' && val !== c.defaultValue) {
-            props.push(`${c.name}="${val}"`);
-          }
-        });
-        return `<Timeline${props.length ? ' ' + props.join(' ') : ''} />`;
-      }}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Orientation</label>
+            <select value={orientation} onChange={e => setOrientation(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="vertical">vertical</option>
+              <option value="horizontal">horizontal</option>
+            </select>
+          </div>
+          <div><label className="block font-semibold text-foreground mb-1">Variant</label><select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="default">Default</option><option value="alternate">Alternate</option><option value="compact">Compact</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showConnectors} onChange={e => setShowConnectors(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show connectors</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Timeline ${orientation} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -559,9 +572,11 @@ export default function ComponentTimelinePage() {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Timeline configurations in real time.</p>
             <TimelinePlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

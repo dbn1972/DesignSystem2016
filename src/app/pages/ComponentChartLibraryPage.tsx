@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Chart Library component for live preview
 const ChartPreview = ({ type, data, labels, title, height = 300, width = 500, colors, legend = true, ...props }: any) => {
@@ -160,49 +159,37 @@ const ChartPreview = ({ type, data, labels, title, height = 300, width = 500, co
   );
 };
 
-const CHARTLIBRARY_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'type',
-    label: 'Type',
-    type: 'text',
-    defaultValue: 'bar',
-  },
-  {
-    name: 'showLegend',
-    label: 'Show Legend',
-    type: 'boolean',
-    defaultValue: true,
-  },
-  {
-    name: 'animated',
-    label: 'Animated',
-    type: 'boolean',
-    defaultValue: true,
-  },
-];
-
 function ChartLibraryPlayground() {
+  const [type, setType] = React.useState('bar');
+  const [showLegend, setShowLegend] = React.useState(true);
+  const [animated, setAnimated] = React.useState(true);
+
   return (
-    <ComponentPlayground
-      name="ChartLibrary"
-      controls={CHARTLIBRARY_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <ChartLibrary {...v} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <div className="w-full max-w-md"><div className="flex items-end gap-3 h-32">{[80,55,90,40,70].map((h,i) => <div key={i} className="flex-1 bg-[#005196] rounded-t transition-all" style={{height: h+"%", opacity: 0.5 + i*0.1}} />)}</div><div className="flex justify-between text-xs text-muted-foreground mt-2 border-t border-border pt-2"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span></div></div>
         </div>
-      )}
-      codeTemplate={(v) => {
-        const props: string[] = [];
-        CHARTLIBRARY_CONTROLS.forEach((c) => {
-          const val = v[c.name];
-          if (c.type === 'boolean' && val) props.push(c.name);
-          else if (c.type !== 'boolean' && val !== c.defaultValue) {
-            props.push(`${c.name}="${val}"`);
-          }
-        });
-        return `<ChartLibrary${props.length ? ' ' + props.join(' ') : ''} />`;
-      }}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Type</label>
+            <select value={type} onChange={e => setType(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="bar">bar</option>
+              <option value="line">line</option>
+              <option value="pie">pie</option>
+              <option value="donut">donut</option>
+            </select>
+          </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLegend} onChange={e => setShowLegend(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show legend</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={animated} onChange={e => setAnimated(e.target.checked)} className="accent-primary" /><span className="text-foreground">Animated</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<ChartLibrary ${type} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -1115,13 +1102,7 @@ export interface AxisConfig {
               </div>
             </div>
           </section>
-        
-          {/* Interactive Playground */}
-          <div className="mb-8">
-            <ChartLibraryPlayground />
-          </div>
-
-          </>
+        </>
       }
     />
   );

@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual AspectRatio component for live preview
 const AspectRatioPreview = ({ ratio, children, maxWidth, className, ...props }: any) => {
@@ -35,49 +34,37 @@ const AspectRatioPreview = ({ ratio, children, maxWidth, className, ...props }: 
   );
 };
 
-const ASPECTRATIO_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'ratio',
-    label: 'Ratio',
-    type: 'text',
-    defaultValue: '16/9',
-  },
-  {
-    name: 'showBorder',
-    label: 'Show Border',
-    type: 'boolean',
-    defaultValue: true,
-  },
-  {
-    name: 'rounded',
-    label: 'Rounded',
-    type: 'boolean',
-    defaultValue: true,
-  },
-];
-
 function AspectRatioPlayground() {
+  const [ratio, setRatio] = React.useState('16/9');
+  const [showBorder, setShowBorder] = React.useState(true);
+  const [rounded, setRounded] = React.useState(true);
+
   return (
-    <ComponentPlayground
-      name="AspectRatio"
-      controls={ASPECTRATIO_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <AspectRatioPreview {...v} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <AspectRatioPreview ratio={ratio} />
         </div>
-      )}
-      codeTemplate={(v) => {
-        const props: string[] = [];
-        ASPECTRATIO_CONTROLS.forEach((c) => {
-          const val = v[c.name];
-          if (c.type === 'boolean' && val) props.push(c.name);
-          else if (c.type !== 'boolean' && val !== c.defaultValue) {
-            props.push(`${c.name}="${val}"`);
-          }
-        });
-        return `<AspectRatio${props.length ? ' ' + props.join(' ') : ''} />`;
-      }}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Ratio</label>
+            <select value={ratio} onChange={e => setRatio(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="16/9">16/9</option>
+              <option value="4/3">4/3</option>
+              <option value="1/1">1/1</option>
+              <option value="21/9">21/9</option>
+            </select>
+          </div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showBorder} onChange={e => setShowBorder(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show border</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={rounded} onChange={e => setRounded(e.target.checked)} className="accent-primary" /><span className="text-foreground">Rounded corners</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<AspectRatio ${ratio} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -622,9 +609,11 @@ export interface AspectRatioConfig {
           </section>
 
           {/* Interactive Playground */}
-          <div className="mb-8">
+          <section className="bg-card rounded-lg border border-border p-6 mb-8">
+            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
+            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different AspectRatio configurations in real time.</p>
             <AspectRatioPlayground />
-          </div>
+          </section>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

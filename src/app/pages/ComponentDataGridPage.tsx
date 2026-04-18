@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const DataGridPreview = () => {
@@ -86,49 +85,29 @@ const DataGridPreview = () => {
   );
 };
 
-const DATAGRID_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'sortable',
-    label: 'Sortable',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'filterable',
-    label: 'Filterable',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'selectable',
-    label: 'Selectable',
-    type: 'boolean',
-    defaultValue: false,
-  },
-];
-
 function DataGridPlayground() {
+  const [sortable, setSortable] = React.useState(false);
+  const [filterable, setFilterable] = React.useState(false);
+  const [selectable, setSelectable] = React.useState(false);
+
   return (
-    <ComponentPlayground
-      name="DataGrid"
-      controls={DATAGRID_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <DataGridPreview {...v} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <DataGridPreview />
         </div>
-      )}
-      codeTemplate={(v) => {
-        const props: string[] = [];
-        DATAGRID_CONTROLS.forEach((c) => {
-          const val = v[c.name];
-          if (c.type === 'boolean' && val) props.push(c.name);
-          else if (c.type !== 'boolean' && val !== c.defaultValue) {
-            props.push(`${c.name}="${val}"`);
-          }
-        });
-        return `<DataGrid${props.length ? ' ' + props.join(' ') : ''} />`;
-      }}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={sortable} onChange={e => setSortable(e.target.checked)} className="accent-primary" /><span className="text-foreground">Sortable</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={filterable} onChange={e => setFilterable(e.target.checked)} className="accent-primary" /><span className="text-foreground">Filterable</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={selectable} onChange={e => setSelectable(e.target.checked)} className="accent-primary" /><span className="text-foreground">Selectable</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<DataGrid${sortable ? ' sortable' : ''}${filterable ? ' filterable' : ''}${selectable ? ' selectable' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -663,13 +642,7 @@ export class DataGridModule { }`,
               </div>
             </div>
           </section>
-        
-          {/* Interactive Playground */}
-          <div className="mb-8">
-            <DataGridPlayground />
-          </div>
-
-          </>
+        </>
       }
     />
   );

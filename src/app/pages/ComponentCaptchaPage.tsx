@@ -5,7 +5,6 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { RefreshCw, Volume2, Eye, Shield } from 'lucide-react';
 
 // Import the actual CAPTCHA component for live preview
@@ -114,49 +113,36 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
   );
 };
 
-const CAPTCHA_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'type',
-    label: 'Type',
-    type: 'text',
-    defaultValue: 'image',
-  },
-  {
-    name: 'difficulty',
-    label: 'Difficulty',
-    type: 'text',
-    defaultValue: 'medium',
-  },
-  {
-    name: 'showRefresh',
-    label: 'Show Refresh',
-    type: 'boolean',
-    defaultValue: true,
-  },
-];
-
 function CaptchaPlayground() {
+  const [type, setType] = React.useState('image');
+  const [difficulty, setDifficulty] = React.useState('medium');
+  const [showRefresh, setShowRefresh] = React.useState(true);
+
   return (
-    <ComponentPlayground
-      name="Captcha"
-      controls={CAPTCHA_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <CaptchaPreview {...v} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <CaptchaPreview type={type} difficulty={difficulty} />
         </div>
-      )}
-      codeTemplate={(v) => {
-        const props: string[] = [];
-        CAPTCHA_CONTROLS.forEach((c) => {
-          const val = v[c.name];
-          if (c.type === 'boolean' && val) props.push(c.name);
-          else if (c.type !== 'boolean' && val !== c.defaultValue) {
-            props.push(`${c.name}="${val}"`);
-          }
-        });
-        return `<Captcha${props.length ? ' ' + props.join(' ') : ''} />`;
-      }}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <div>
+            <label className="block font-semibold text-foreground mb-1">Type</label>
+            <select value={type} onChange={e => setType(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
+              <option value="image">image</option>
+              <option value="audio">audio</option>
+              <option value="math">math</option>
+            </select>
+          </div>
+          <div><label className="block font-semibold text-foreground mb-1">Difficulty</label><select value={difficulty} onChange={e => setDifficulty(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showRefresh} onChange={e => setShowRefresh(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show refresh button</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<Captcha ${type} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -987,13 +973,7 @@ export type CaptchaProvider = 'recaptcha' | 'hcaptcha' | 'turnstile';`,
               </div>
             </div>
           </section>
-        
-          {/* Interactive Playground */}
-          <div className="mb-8">
-            <CaptchaPlayground />
-          </div>
-
-          </>
+        </>
       }
     />
   );

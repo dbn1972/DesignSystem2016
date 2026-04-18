@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
-import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Download, Printer, ZoomIn, ZoomOut, RotateCw, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import the actual Document Viewer component for live preview
@@ -77,43 +76,27 @@ const DocumentViewerPreview = ({ fileType, zoom = 100, page = 1, showToolbar = t
   </div>
 );
 
-const DOCUMENTVIEWER_CONTROLS: PlaygroundControl[] = [
-  {
-    name: 'zoom',
-    label: 'Zoom',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'controls',
-    label: 'Controls',
-    type: 'boolean',
-    defaultValue: false,
-  },
-];
-
 function DocumentViewerPlayground() {
+  const [zoom, setZoom] = React.useState(false);
+  const [controls, setControls] = React.useState(false);
+
   return (
-    <ComponentPlayground
-      name="DocumentViewer"
-      controls={DOCUMENTVIEWER_CONTROLS}
-      renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <DocumentViewerPreview {...v} />
+    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
+      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+        <div className="w-full flex items-center justify-center">
+          <DocumentViewerPreview fileType="pdf" showToolbar zoom={zoom} />
         </div>
-      )}
-      codeTemplate={(v) => {
-        const props: string[] = [];
-        DOCUMENTVIEWER_CONTROLS.forEach((c) => {
-          const val = v[c.name];
-          if (c.type === 'boolean' && val) props.push(c.name);
-          else if (c.type !== 'boolean' && val !== c.defaultValue) {
-            props.push(`${c.name}="${val}"`);
-          }
-        });
-        return `<DocumentViewer${props.length ? ' ' + props.join(' ') : ''} />`;
-      }}
-    />
+      </div>
+      <div className="space-y-4 text-sm">
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={zoom} onChange={e => setZoom(e.target.checked)} className="accent-primary" /><span className="text-foreground">Zoom</span></label>
+          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={controls} onChange={e => setControls(e.target.checked)} className="accent-primary" /><span className="text-foreground">Controls</span></label>
+        <div className="p-3 rounded-lg bg-muted/50 border border-border">
+          <p className="font-mono text-xs text-muted-foreground break-all">
+            {`<DocumentViewer${zoom ? ' zoom' : ''}${controls ? ' controls' : ''} />`}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -979,13 +962,7 @@ export interface DocumentViewerConfig {
               </div>
             </div>
           </section>
-        
-          {/* Interactive Playground */}
-          <div className="mb-8">
-            <DocumentViewerPlayground />
-          </div>
-
-          </>
+        </>
       }
     />
   );
