@@ -248,10 +248,24 @@
   }
 
   /* Dark mode gradient handling:
-     - Preserve all gradients but adjust their appearance for dark backgrounds.
-     - Hero/banner gradients get dimmed via filter.
-     - Small card gradients that use light colors (white, gray-50, etc.) are
-       handled by the individual bg-color overrides above. */
+     Light-colored gradients (from-*-50, via-white, to-*-50) need dark equivalents.
+     Rather than removing gradients, we override the Tailwind gradient CSS variables
+     to use dark-appropriate colors. This catches all pages at once. */
+
+  /* Override light gradient stops in dark mode */
+  .dark [class*="from-"][class*="-50"],
+  .dark [class*="from-white"] {
+    --tw-gradient-from: var(--legacy-surface-muted) !important;
+  }
+  .dark [class*="via-white"] {
+    --tw-gradient-via: var(--legacy-surface-raised) !important;
+  }
+  .dark [class*="to-"][class*="-50"] {
+    --tw-gradient-to: var(--legacy-surface-muted) !important;
+  }
+  .dark [class*="from-"][class*="-100"] {
+    --tw-gradient-from: var(--legacy-surface-muted) !important;
+  }
 
   /* Legacy brand hex utilities used across older pages */
   .dark .bg-\[\#000080\],
