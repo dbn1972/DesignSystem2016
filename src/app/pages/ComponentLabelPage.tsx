@@ -40,7 +40,7 @@ function LabelPlayground() {
       renderPreview={(v) => (
         <div className="w-full max-w-sm space-y-2">
           <LabelPreview htmlFor="pg-input" required={v.required} disabled={v.disabled}>{v.labelText}</LabelPreview>
-          <InputPreview id="pg-input" placeholder={`Enter ${labelText.toLowerCase()}`} disabled={v.disabled} />
+          <InputPreview id="pg-input" placeholder={`Enter ${v.labelText.toLowerCase()}`} disabled={v.disabled} />
         </div>
       )}
       codeTemplate={(v) =>

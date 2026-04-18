@@ -19,7 +19,7 @@ function ListPlayground() {
       controls={LIST_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <div className="w-full max-w-sm border border-border rounded-lg overflow-hidden">{["Aadhaar Card","Address Proof","Photo","Income Certificate"].map((item,i) => <div key={i} className={`flex items-center gap-2 px-3 py-2 text-xs ${v.variant === "striped" && i%2===1 ? "bg-muted/30" : ""} ${v.variant === "bordered" ? "border-b border-border" : ""}`}>{showIcons && <span className="w-1.5 h-1.5 rounded-full bg-green-500" />}<span className="text-foreground">{item}</span>{interactive && <span className="ml-auto text-muted-foreground">→</span>}</div>)}</div>
+          <div className="w-full max-w-sm border border-border rounded-lg overflow-hidden">{["Aadhaar Card","Address Proof","Photo","Income Certificate"].map((item,i) => <div key={i} className={`flex items-center gap-2 px-3 py-2 text-xs ${v.variant === "striped" && i%2===1 ? "bg-muted/30" : ""} ${v.variant === "bordered" ? "border-b border-border" : ""}`}>{v.showIcons && <span className="w-1.5 h-1.5 rounded-full bg-green-500" />}<span className="text-foreground">{item}</span>{v.interactive && <span className="ml-auto text-muted-foreground">→</span>}</div>)}</div>
         </div>
       )}
       codeTemplate={(v) =>

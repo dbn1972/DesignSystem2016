@@ -9,6 +9,14 @@
  */
 
 import { LOGO_THUMBNAILS } from './logo-thumbnails';
+import { LOGO_DOWNLOADS } from './logo-downloads';
+import { LOGO_LOCAL_DOWNLOADS } from './logo-local-downloads';
+
+export interface LogoDownloadAsset {
+  format: 'eps' | 'gif' | 'svg' | 'png' | 'jpg' | 'jpeg' | 'pdf' | 'zip';
+  label: string;
+  url: string;
+}
 
 export interface LogoEntry {
   id: string;
@@ -16,6 +24,7 @@ export interface LogoEntry {
   slug: string;
   sourceUrl: string;
   thumbnailUrl?: string;
+  downloads?: LogoDownloadAsset[];
   category: LogoCategory;
   tags: string[];
 }
@@ -228,4 +237,5 @@ const RAW_LOGO_REGISTRY: Omit<LogoEntry, 'thumbnailUrl'>[] = [
 export const LOGO_REGISTRY: LogoEntry[] = RAW_LOGO_REGISTRY.map((logo) => ({
   ...logo,
   thumbnailUrl: LOGO_THUMBNAILS[logo.id],
+  downloads: LOGO_LOCAL_DOWNLOADS[logo.id] ?? LOGO_DOWNLOADS[logo.id] ?? [],
 }));

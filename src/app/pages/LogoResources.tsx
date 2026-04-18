@@ -5,9 +5,11 @@
 import { useMemo, useState } from 'react';
 import {
   Search, ExternalLink, Grid3X3, List, Shield, CheckCircle, XCircle,
-  Layers, Image, Maximize2, Palette, FileText, Building2, Globe,
+  Layers, Maximize2, Palette, Building2, Download, Copy,
 } from 'lucide-react';
 import { LOGO_REGISTRY, LOGO_CATEGORIES, type LogoEntry, type LogoCategory } from '../content/logo-data';
+
+type DownloadFilter = 'all' | 'with-downloads' | 'png' | 'svg' | 'archive-only';
 
 // ── Featured logos for the hero showcase ──
 const FEATURED_SLUGS = [
@@ -38,10 +40,78 @@ const DONTS = [
   'Use outdated or unofficial versions of any logo.',
 ];
 
+const PREFERRED_DOWNLOAD_FORMATS = ['png', 'svg', 'pdf', 'jpg', 'jpeg', 'eps', 'gif', 'zip'] as const;
+
+function getPrimaryDownload(logo: LogoEntry) {
+  if (!logo.downloads?.length) {
+    return undefined;
+  }
+
+  return (
+    PREFERRED_DOWNLOAD_FORMATS.flatMap((format) =>
+      logo.downloads?.find((asset) => asset.format === format) ?? [],
+    )[0] ?? logo.downloads[0]
+  );
+}
+
+function getSecondaryDownloads(logo: LogoEntry) {
+  const primary = getPrimaryDownload(logo);
+  if (!primary) {
+    return [];
+  }
+
+  return logo.downloads?.filter((asset) => asset.url !== primary.url).slice(0, 3) ?? [];
+}
+
+function getDownloadLabel(logo: LogoEntry) {
+  const primary = getPrimaryDownload(logo);
+  if (!primary) {
+    return undefined;
+  }
+
+  return `Download ${primary.label}`;
+}
+
+function hasFormat(logo: LogoEntry, format: string) {
+  return logo.downloads?.some((asset) => asset.format === format) ?? false;
+}
+
+function isArchiveOnly(logo: LogoEntry) {
+  if (!logo.downloads?.length) {
+    return false;
+  }
+
+  return !hasFormat(logo, 'png') && !hasFormat(logo, 'svg');
+}
+
+function getFormatBadges(logo: LogoEntry) {
+  const badges = [];
+
+  if (hasFormat(logo, 'png')) {
+    badges.push('PNG');
+  }
+  if (hasFormat(logo, 'svg')) {
+    badges.push('SVG');
+  }
+  if (isArchiveOnly(logo)) {
+    badges.push('Archive only');
+  }
+  if (!badges.length && logo.downloads?.length) {
+    badges.push('Direct download');
+  }
+
+  return badges.slice(0, 2);
+}
+
+async function copyToClipboard(value: string) {
+  await navigator.clipboard.writeText(value);
+}
+
 export default function LogoResources() {
   const [query, setQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<LogoCategory | 'all'>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [downloadFilter, setDownloadFilter] = useState<DownloadFilter>('all');
 
   const filtered = useMemo(() => {
     let results = LOGO_REGISTRY;
@@ -54,14 +124,34 @@ export default function LogoResources() {
         (l) => l.name.toLowerCase().includes(q) || l.tags.some((t) => t.includes(q)) || l.id.includes(q),
       );
     }
+    if (downloadFilter === 'with-downloads') {
+      results = results.filter((l) => (l.downloads?.length ?? 0) > 0);
+    } else if (downloadFilter === 'png') {
+      results = results.filter((l) => hasFormat(l, 'png'));
+    } else if (downloadFilter === 'svg') {
+      results = results.filter((l) => hasFormat(l, 'svg'));
+    } else if (downloadFilter === 'archive-only') {
+      results = results.filter((l) => isArchiveOnly(l));
+    }
     return results;
-  }, [query, selectedCategory]);
+  }, [downloadFilter, query, selectedCategory]);
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = { all: LOGO_REGISTRY.length };
     for (const cat of LOGO_CATEGORIES) counts[cat.key] = LOGO_REGISTRY.filter((l) => l.category === cat.key).length;
     return counts;
   }, []);
+
+  const downloadCounts = useMemo(
+    () => ({
+      all: LOGO_REGISTRY.length,
+      'with-downloads': LOGO_REGISTRY.filter((logo) => (logo.downloads?.length ?? 0) > 0).length,
+      png: LOGO_REGISTRY.filter((logo) => hasFormat(logo, 'png')).length,
+      svg: LOGO_REGISTRY.filter((logo) => hasFormat(logo, 'svg')).length,
+      'archive-only': LOGO_REGISTRY.filter((logo) => isArchiveOnly(logo)).length,
+    }),
+    [],
+  );
 
   const featured = useMemo(() => FEATURED_SLUGS.map((id) => LOGO_REGISTRY.find((l) => l.id === id)).filter(Boolean) as LogoEntry[], []);
 
@@ -86,7 +176,7 @@ export default function LogoResources() {
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
                   {LOGO_REGISTRY.length} catalogued government logos from the UX4G Design System.
-                  Browse by category, search by name, and access official download pages.
+                  Browse by category, search by name, and download official source files directly.
                 </p>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
@@ -110,8 +200,8 @@ export default function LogoResources() {
                     className="rounded-2xl border border-border bg-background p-4 hover:border-primary/30 hover:shadow-sm transition-all"
                   >
                     <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-muted/40 overflow-hidden">
-                      {LOGOS_WITH_THUMBNAILS.has(logo.id) ? (
-                        <img src={`/assets/logos/${logo.id}/64.png`} alt="" className="w-full h-full object-contain p-1" loading="lazy" />
+                      {logo.thumbnailUrl ? (
+                        <img src={logo.thumbnailUrl} alt={`${logo.name} logo`} className="w-full h-full object-contain p-1" loading="lazy" />
                       ) : (
                         <span className="text-lg font-bold text-primary/20">{logo.name.charAt(0)}</span>
                       )}
@@ -126,7 +216,7 @@ export default function LogoResources() {
                   Official government assets
                 </div>
                 <p className="text-muted-foreground text-xs">
-                  All logos link to official UX4G detail pages. {LOGO_REGISTRY.length} logos across {LOGO_CATEGORIES.length} categories,
+                  All logos point to official UX4G sources with direct download formats where available. {LOGO_REGISTRY.length} logos across {LOGO_CATEGORIES.length} categories,
                   sourced from ux4g.gov.in.
                 </p>
               </div>
@@ -214,7 +304,7 @@ export default function LogoResources() {
               <h2 className="text-2xl font-semibold text-foreground">Core logo library</h2>
               <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
                 {LOGO_REGISTRY.length} official government logos across {LOGO_CATEGORIES.length} categories.
-                Each card links to the official UX4G detail page for downloads.
+                Each card includes direct official download links and the original UX4G source page.
               </p>
             </div>
           </div>
@@ -247,6 +337,28 @@ export default function LogoResources() {
                   {cat.label} ({categoryCounts[cat.key] ?? 0})
                 </button>
               ))}
+              <div className="h-6 w-px bg-border mx-1" />
+              {(
+                [
+                  ['all', 'All formats'],
+                  ['with-downloads', 'Has downloads'],
+                  ['png', 'PNG'],
+                  ['svg', 'SVG'],
+                  ['archive-only', 'Archive only'],
+                ] as const
+              ).map(([key, label]) => (
+                <button
+                  key={key}
+                  onClick={() => setDownloadFilter(key)}
+                  className={`rounded-full border px-3 py-2 text-xs font-medium ${
+                    downloadFilter === key
+                      ? 'border-primary bg-primary text-white'
+                      : 'border-border bg-background text-muted-foreground'
+                  }`}
+                >
+                  {label} ({downloadCounts[key]})
+                </button>
+              ))}
               <div className="ml-auto flex items-center gap-1">
                 <button onClick={() => setViewMode('grid')} aria-label="Grid view" aria-pressed={viewMode === 'grid'} className={`p-2 rounded-lg border transition-colors ${viewMode === 'grid' ? 'bg-primary text-white border-primary' : 'border-border text-muted-foreground hover:bg-muted'}`}>
                   <Grid3X3 size={16} />
@@ -257,7 +369,7 @@ export default function LogoResources() {
               </div>
             </div>
             <div className="text-xs text-muted-foreground lg:col-span-2">
-              Showing {filtered.length} logos{query ? ` for "${query}"` : ''}{selectedCategory !== 'all' ? ` in ${LOGO_CATEGORIES.find((c) => c.key === selectedCategory)?.label}` : ''}.
+              Showing {filtered.length} logos{query ? ` for "${query}"` : ''}{selectedCategory !== 'all' ? ` in ${LOGO_CATEGORIES.find((c) => c.key === selectedCategory)?.label}` : ''}{downloadFilter !== 'all' ? ` with ${downloadFilter === 'with-downloads' ? 'direct download assets' : downloadFilter === 'archive-only' ? 'archive-only assets' : `${downloadFilter.toUpperCase()} files`}` : ''}.
             </div>
           </div>
 
@@ -294,53 +406,106 @@ export default function LogoResources() {
   );
 }
 
-// ── Set of logos that have local thumbnails ──
-const LOGOS_WITH_THUMBNAILS = new Set([
-  'aadhaar', 'india-post', 'digital-india', 'e-taal', 'startup-india',
-  'skill-india', 'nss', 'invest-india', 'bhim', 'bis-hallmark', 'tech-conclave',
-]);
-
 // ── Logo Card (Grid View) ──
 function LogoCard({ logo }: { logo: LogoEntry }) {
+  const [copied, setCopied] = useState(false);
   const catLabel = LOGO_CATEGORIES.find((c) => c.key === logo.category)?.label ?? logo.category;
-  const hasThumb = LOGOS_WITH_THUMBNAILS.has(logo.id);
+  const primaryDownload = getPrimaryDownload(logo);
+  const secondaryDownloads = getSecondaryDownloads(logo);
+  const hasThumb = Boolean(logo.thumbnailUrl);
+  const formatBadges = getFormatBadges(logo);
   return (
-    <a
-      href={logo.sourceUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group rounded-2xl border border-border bg-card px-4 py-5 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/5"
-      aria-label={`${logo.name} — view and download`}
-    >
+    <article className="group rounded-2xl border border-border bg-card px-4 py-5 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/5">
       <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-muted/40 overflow-hidden">
         {hasThumb ? (
-          <img src={`/assets/logos/${logo.id}/64.png`} alt="" className="w-full h-full object-contain p-1" loading="lazy" />
+          <img src={logo.thumbnailUrl} alt={`${logo.name} logo`} className="w-full h-full object-contain p-1" loading="lazy" />
         ) : (
           <span className="text-xl font-bold text-primary/20">{logo.name.charAt(0)}</span>
         )}
       </div>
       <p className="text-sm font-semibold text-foreground line-clamp-2 group-hover:text-primary">{logo.name}</p>
       <p className="mt-1 text-xs text-muted-foreground">{catLabel}</p>
-      <ExternalLink size={12} className="mt-2 text-muted-foreground/30 group-hover:text-primary transition-colors" />
-    </a>
+      {formatBadges.length ? (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {formatBadges.map((badge) => (
+            <span key={badge} className="rounded-full border border-primary/15 bg-primary/5 px-2.5 py-1 text-[0.65rem] font-semibold text-primary">
+              {badge}
+            </span>
+          ))}
+        </div>
+      ) : null}
+      <div className="mt-4 flex flex-wrap gap-2">
+        {primaryDownload ? (
+          <>
+            <a
+              href={primaryDownload.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded-full bg-primary px-3 py-2 text-[0.7rem] font-semibold text-white transition-colors hover:bg-primary/90"
+              aria-label={`${logo.name} — ${getDownloadLabel(logo)}`}
+            >
+              <Download size={12} />
+              {getDownloadLabel(logo)}
+            </a>
+            <button
+              type="button"
+              onClick={async () => {
+                await copyToClipboard(primaryDownload.url);
+                setCopied(true);
+                window.setTimeout(() => setCopied(false), 1600);
+              }}
+              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-2 text-[0.7rem] font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+              aria-label={`${logo.name} — copy primary download URL`}
+            >
+              <Copy size={12} />
+              {copied ? 'Copied' : 'Copy URL'}
+            </button>
+          </>
+        ) : null}
+        <a
+          href={logo.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-2 text-[0.7rem] font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+          aria-label={`${logo.name} — official source page`}
+        >
+          <ExternalLink size={12} />
+          Official page
+        </a>
+      </div>
+      {secondaryDownloads.length ? (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {secondaryDownloads.map((asset) => (
+            <a
+              key={asset.url}
+              href={asset.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-border px-2.5 py-1 text-[0.65rem] font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+              aria-label={`${logo.name} — download ${asset.label}`}
+            >
+              {asset.label}
+            </a>
+          ))}
+        </div>
+      ) : null}
+    </article>
   );
 }
 
 // ── Logo Row (List View) ──
 function LogoRow({ logo }: { logo: LogoEntry }) {
+  const [copied, setCopied] = useState(false);
   const catLabel = LOGO_CATEGORIES.find((c) => c.key === logo.category)?.label ?? logo.category;
-  const hasThumb = LOGOS_WITH_THUMBNAILS.has(logo.id);
+  const primaryDownload = getPrimaryDownload(logo);
+  const secondaryDownloads = getSecondaryDownloads(logo);
+  const hasThumb = Boolean(logo.thumbnailUrl);
+  const formatBadges = getFormatBadges(logo);
   return (
-    <a
-      href={logo.sourceUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex items-center gap-4 rounded-xl border border-border bg-card p-3 transition-colors hover:border-primary/30 hover:bg-primary/5"
-      aria-label={`${logo.name} — view and download`}
-    >
+    <article className="group flex items-center gap-4 rounded-xl border border-border bg-card p-3 transition-colors hover:border-primary/30 hover:bg-primary/5">
       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted/40 overflow-hidden flex-shrink-0">
         {hasThumb ? (
-          <img src={`/assets/logos/${logo.id}/32.png`} alt="" className="w-full h-full object-contain p-0.5" loading="lazy" />
+          <img src={logo.thumbnailUrl} alt={`${logo.name} logo`} className="w-full h-full object-contain p-0.5" loading="lazy" />
         ) : (
           <span className="text-sm font-bold text-primary/20">{logo.name.charAt(0)}</span>
         )}
@@ -349,12 +514,67 @@ function LogoRow({ logo }: { logo: LogoEntry }) {
         <p className="text-sm font-medium text-foreground truncate group-hover:text-primary">{logo.name}</p>
         <div className="flex items-center gap-2 mt-0.5">
           <span className="text-[0.625rem] text-muted-foreground bg-muted px-2 py-0.5 rounded-full">{catLabel}</span>
+          {formatBadges.map((badge) => (
+            <span key={badge} className="text-[0.625rem] font-semibold text-primary bg-primary/5 px-2 py-0.5 rounded-full border border-primary/15">
+              {badge}
+            </span>
+          ))}
           {logo.tags.slice(0, 3).map((t) => (
             <span key={t} className="text-[0.625rem] text-muted-foreground">{t}</span>
           ))}
+          </div>
         </div>
+      <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
+        {primaryDownload ? (
+          <>
+            <a
+              href={primaryDownload.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded-full bg-primary px-3 py-2 text-[0.7rem] font-semibold text-white transition-colors hover:bg-primary/90"
+              aria-label={`${logo.name} — ${getDownloadLabel(logo)}`}
+            >
+              <Download size={12} />
+              {primaryDownload.label}
+            </a>
+            <button
+              type="button"
+              onClick={async () => {
+                await copyToClipboard(primaryDownload.url);
+                setCopied(true);
+                window.setTimeout(() => setCopied(false), 1600);
+              }}
+              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-2 text-[0.7rem] font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+              aria-label={`${logo.name} — copy primary download URL`}
+            >
+              <Copy size={12} />
+              {copied ? 'Copied' : 'Copy URL'}
+            </button>
+          </>
+        ) : null}
+        {secondaryDownloads.map((asset) => (
+          <a
+            key={asset.url}
+            href={asset.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-border px-2.5 py-1 text-[0.65rem] font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+            aria-label={`${logo.name} — download ${asset.label}`}
+          >
+            {asset.label}
+          </a>
+        ))}
+        <a
+          href={logo.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-2 text-[0.7rem] font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
+          aria-label={`${logo.name} — official source page`}
+        >
+          <ExternalLink size={12} />
+          Official page
+        </a>
       </div>
-      <ExternalLink size={14} className="text-muted-foreground/30 group-hover:text-primary flex-shrink-0 transition-colors" />
-    </a>
+    </article>
   );
 }
