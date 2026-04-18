@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Skeleton component for live preview
 const SkeletonPreview = ({ variant, width, height, count, animated, className, ...props }: any) => {

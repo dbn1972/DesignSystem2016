@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { QrCode, Scan, FileText, CreditCard, Award, MapPin } from 'lucide-react';
 
 // Import the actual QR Code component for live preview

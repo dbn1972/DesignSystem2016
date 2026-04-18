@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { MapPin, Search, CheckCircle } from 'lucide-react';
 
 // Import the actual AddressAutocompleteIndia component for live preview

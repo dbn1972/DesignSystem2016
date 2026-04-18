@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Menu, Search, Bell, User, ChevronDown } from 'lucide-react';
 
 // Import the actual Header component for live preview

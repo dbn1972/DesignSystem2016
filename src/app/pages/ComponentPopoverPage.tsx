@@ -5,6 +5,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Info, HelpCircle, Settings, User, MoreVertical, X } from 'lucide-react';
 
 // Popover Preview Component with positioning logic

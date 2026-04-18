@@ -5,6 +5,7 @@
 
 import React, { useRef, useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Save, Trash2, Upload, Type, PenTool } from 'lucide-react';
 
 // Import the actual Digital Signature component for live preview

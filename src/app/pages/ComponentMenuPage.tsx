@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Settings, User, LogOut, FileText, Copy, Trash2, ChevronRight, ChevronDown, Menu, X } from 'lucide-react';
 
 // Import the actual Menu component for live preview

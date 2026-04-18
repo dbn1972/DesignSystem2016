@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { TrendingUp, TrendingDown, Users, FileText, DollarSign, Activity } from 'lucide-react';
 
 // Import the actual Statistic component for live preview

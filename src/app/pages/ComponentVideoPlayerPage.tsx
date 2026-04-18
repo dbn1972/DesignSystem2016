@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Play, Pause, Volume2, Settings, Download, Subtitles } from 'lucide-react';
 
 // Import the actual VideoPlayer component for live preview

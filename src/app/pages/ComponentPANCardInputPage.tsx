@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { CheckCircle, XCircle, Shield } from 'lucide-react';
 
 // Import the actual PAN Card Input component for live preview
