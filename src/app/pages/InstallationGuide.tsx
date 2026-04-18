@@ -1,5 +1,22 @@
 import { Check, AlertCircle, Info, Download, Code, Package, Terminal, FileText, Users, Zap, GitBranch, HelpCircle, ExternalLink, ChevronRight, Copy, CheckCircle, Layers, Shield } from "lucide-react";
 
+const PAGE_TOC = [
+  { id: 'before-you-start', label: 'Before You Start' },
+  { id: 'quick-start', label: 'Getting Started' },
+  { id: 'audience', label: 'Who This Is For' },
+  { id: 'install', label: 'Installation Pathways' },
+  { id: 'react', label: 'React Usage' },
+  { id: 'angular', label: 'Angular Usage' },
+  { id: 'web-components', label: 'Web Components' },
+  { id: 'tokens', label: 'Design Tokens' },
+  { id: 'components', label: 'Component Patterns' },
+  { id: 'starter', label: 'Starter Templates' },
+  { id: 'migration', label: 'Migration Notes' },
+  { id: 'versions', label: 'Release Versions' },
+  { id: 'checklist', label: 'Implementation Checklist' },
+  { id: 'support', label: 'Support & Escalation' },
+];
+
 export default function InstallationGuide() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -71,8 +88,24 @@ export default function InstallationGuide() {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-14 space-y-20">
+      {/* Main Content with TOC */}
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 py-14 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+        {/* Sticky TOC — left sidebar */}
+        <nav className="hidden lg:block sticky top-24 self-start" aria-label="Table of contents">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground mb-3">On this page</p>
+          <ul className="space-y-1">
+            {PAGE_TOC.map((s) => (
+              <li key={s.id}>
+                <a href={`#${s.id}`} className="block rounded-lg px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted transition-colors">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Content */}
+        <div className="space-y-20">
         <BeforeYouStartSection />
         <GettingStartedSection />
         <WhoThisIsForSection />
@@ -87,6 +120,7 @@ export default function InstallationGuide() {
         <ReleaseVersionSection />
         <ImplementationChecklistSection />
         <SupportEscalationSection />
+        </div>
       </div>
     </div>
   );
