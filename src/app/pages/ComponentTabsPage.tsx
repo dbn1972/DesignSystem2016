@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Tabs component for live preview
 const TabsPreview = ({ variant, items }: any) => {
@@ -38,35 +39,41 @@ const TabsPreview = ({ variant, items }: any) => {
   );
 };
 
-function TabsPlayground() {
-  const [orientation, setOrientation] = React.useState('horizontal');
-  const [variant, setVariant] = React.useState('default');
-  const [disabled, setDisabled] = React.useState(false);
+const TABS_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'orientation',
+    label: 'Orientation',
+    type: 'select',
+    defaultValue: 'horizontal',
+    options: ['horizontal', 'vertical'],
+  },
+  {
+    name: 'variant',
+    label: 'Variant',
+    type: 'select',
+    defaultValue: 'default',
+    options: ['default', 'pills'],
+  },
+  {
+    name: 'disabled',
+    label: 'Disabled',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function TabsPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <TabsPreview variant={variant} items={["Overview","Documents","Status"]} />
-        </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Orientation</label>
-            <select value={orientation} onChange={e => setOrientation(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="horizontal">horizontal</option>
-              <option value="vertical">vertical</option>
-            </select>
-          </div>
-          <div><label className="block font-semibold text-foreground mb-1">Variant</label><select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="default">Default</option><option value="pills">Pills</option><option value="underline">Underline</option></select></div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Tabs ${orientation} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+    <ComponentPlayground
+      name="Tabs"
+      controls={TABS_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <TabsPreview variant={v.variant} items={["Overview","Documents","Status"]} />
+      )}
+      codeTemplate={(v) =>
+        `<Tabs ${v.orientation} />`
+      }
+    />
   );
 }
 
@@ -514,6 +521,8 @@ export type TabVariant = 'underline' | 'pills' | 'enclosed';`,
 
       additionalContent={
         <>
+
+          <div className="mb-8"><TabsPlayground /></div>
 
           {/* When to use */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
