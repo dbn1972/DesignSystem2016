@@ -183,7 +183,7 @@ function DialogPlayground() {
       controls={DIALOG_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-lg p-6 space-y-4">
-          <h3 className={`font-semibold ${variantColors[variant] || 'text-foreground'}`}>{v.title}</h3>
+          <h3 className={`font-semibold ${v.variant === 'danger' ? 'text-red-600' : v.variant === 'warning' ? 'text-yellow-600' : 'text-foreground'}`}>{v.title}</h3>
           <p className="text-sm text-muted-foreground">{v.description}</p>
           <div className="flex justify-end gap-2">
             <button className="px-4 py-2 text-sm border border-border rounded-lg">Cancel</button>
