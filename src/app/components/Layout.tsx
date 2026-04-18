@@ -3,6 +3,7 @@ import NavigationHeader from "./NavigationHeader";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import Breadcrumbs from "./Breadcrumbs";
+import AutoTOC from "./AutoTOC";
 
 export default function Layout() {
   return (
@@ -20,6 +21,7 @@ export default function Layout() {
       <main id="main-content" className="flex-1" tabIndex={-1}>
         <Outlet />
       </main>
+      <AutoTOC />
       <Footer />
     </div>
   );
