@@ -115,7 +115,7 @@ export default function AutoTOC() {
 
   return (
     <aside
-      className="hidden 2xl:block fixed right-6 top-24 w-48 max-h-[calc(100vh-8rem)] overflow-y-auto"
+      className="hidden xl:block fixed right-4 top-24 w-48 max-h-[calc(100vh-8rem)] overflow-y-auto z-40"
       aria-label="Table of contents"
     >
       <nav>
