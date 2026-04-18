@@ -96,19 +96,6 @@ export default function LegalPageLayout({
         </div>
       </header>
 
-      {/* Breadcrumb */}
-      <div className="mx-auto max-w-[1440px] px-6 pt-6 sm:px-8 lg:px-12">
-        <nav aria-label="Breadcrumb">
-          <ol className="flex items-center gap-2 text-sm">
-            <li><Link to="/" className="text-primary hover:underline font-medium">{breadcrumbHome}</Link></li>
-            <li className="text-muted-foreground">/</li>
-            <li><Link to="/governance" className="text-primary hover:underline font-medium">{breadcrumbGovernance}</Link></li>
-            <li className="text-muted-foreground">/</li>
-            <li className="text-muted-foreground" aria-current="page">{breadcrumbTitle}</li>
-          </ol>
-        </nav>
-      </div>
-
       {/* TOC + Content */}
       <div className="mx-auto max-w-[1440px] px-6 py-8 sm:px-8 lg:px-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
         {/* Sticky TOC */}

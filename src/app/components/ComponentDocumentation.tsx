@@ -260,15 +260,6 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       {/* Header */}
       <div className="bg-gradient-to-br from-card via-card to-[#005196]/5 border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-10">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-[#005196] transition-colors">Home</Link>
-            <span className="text-border">/</span>
-            <Link to="/components" className="hover:text-[#005196] transition-colors">Components</Link>
-            <span className="text-border">/</span>
-            <span className="text-foreground font-medium">{name}</span>
-          </nav>
-
           {/* Title and badges */}
           <div className="flex items-start justify-between mb-5">
             <div>

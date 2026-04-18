@@ -8,15 +8,6 @@ export default function OTPVerificationPattern() {
       {/* Header */}
       <header className="bg-card border-b-2 border-border">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 py-8">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-            <Link to="/patterns/identity" className="hover:text-primary">
-              Identity & Access Patterns
-            </Link>
-            <ChevronRight size={16} />
-            <span className="text-foreground font-medium">OTP Verification</span>
-          </div>
-
           <div className="flex items-start justify-between">
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
