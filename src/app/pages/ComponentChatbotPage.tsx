@@ -65,35 +65,40 @@ const ChatbotPreview = ({ position, minimized, botName, greeting, ...props }: an
   </div>
 );
 
-function ChatbotPlayground() {
-  const [position, setPosition] = React.useState('bottom-right');
-  const [minimized, setMinimized] = React.useState(false);
-  const [showAvatar, setShowAvatar] = React.useState(true);
+const CHATBOT_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'position',
+    label: 'Position',
+    type: 'text',
+    defaultValue: 'bottom-right',
+  },
+  {
+    name: 'minimized',
+    label: 'Minimized',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'showAvatar',
+    label: 'Show Avatar',
+    type: 'boolean',
+    defaultValue: true,
+  },
+];
 
+function ChatbotPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <ChatbotPreview position={position} minimized={minimized} botName="UX4G Assistant" greeting="How can I help?" />
+    <ComponentPlayground
+      name="Chatbot"
+      controls={CHATBOT_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg w-full flex items-center justify-center">
+          <ChatbotPreview position={v.position} minimized={v.minimized} botName="UX4G Assistant" greeting="How can I help?" />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Position</label>
-            <select value={position} onChange={e => setPosition(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="bottom-right">bottom-right</option>
-              <option value="bottom-left">bottom-left</option>
-            </select>
-          </div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={minimized} onChange={e => setMinimized(e.target.checked)} className="accent-primary" /><span className="text-foreground">Minimized</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showAvatar} onChange={e => setShowAvatar(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show avatar</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Chatbot ${position} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<Chatbot ${v.position} />`}
+    />
   );
 }
 

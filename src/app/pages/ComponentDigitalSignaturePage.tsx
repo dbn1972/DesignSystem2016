@@ -134,35 +134,40 @@ const DigitalSignaturePreview = ({
   );
 };
 
-function DigitalSignaturePlayground() {
-  const [type, setType] = React.useState('dsc');
-  const [showTimestamp, setShowTimestamp] = React.useState(true);
-  const [required, setRequired] = React.useState(false);
+const DIGITALSIGNATURE_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'type',
+    label: 'Type',
+    type: 'text',
+    defaultValue: 'dsc',
+  },
+  {
+    name: 'showTimestamp',
+    label: 'Show Timestamp',
+    type: 'boolean',
+    defaultValue: true,
+  },
+  {
+    name: 'required',
+    label: 'Required',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function DigitalSignaturePlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <DigitalSignaturePreview type={type} />
+    <ComponentPlayground
+      name="DigitalSignature"
+      controls={DIGITALSIGNATURE_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg w-full flex items-center justify-center">
+          <DigitalSignaturePreview type={v.type} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Type</label>
-            <select value={type} onChange={e => setType(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="dsc">dsc</option>
-              <option value="aadhaar-esign">aadhaar-esign</option>
-            </select>
-          </div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showTimestamp} onChange={e => setShowTimestamp(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show timestamp</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<DigitalSignature ${type} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<DigitalSignature ${v.type} />`}
+    />
   );
 }
 

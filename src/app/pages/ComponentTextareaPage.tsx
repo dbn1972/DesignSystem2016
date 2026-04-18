@@ -28,52 +28,64 @@ const TextareaPreview = ({ placeholder, rows = 4, disabled = false, error = fals
   );
 };
 
-function TextareaPlayground() {
-  const [rows, setRows] = React.useState(4);
-  const [disabled, setDisabled] = React.useState(false);
-  const [error, setError] = React.useState(false);
-  const [maxLength, setMaxLength] = React.useState(500);
-  const [value, setValue] = React.useState('');
+const TEXTAREA_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'rows',
+    label: 'Rows',
+    type: 'number',
+    defaultValue: 4,
+  },
+  {
+    name: 'disabled',
+    label: 'Disabled',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'error',
+    label: 'Error',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'maxLength',
+    label: 'Max Length',
+    type: 'number',
+    defaultValue: 500,
+  },
+  {
+    name: 'value',
+    label: 'Value',
+    type: 'text',
+    defaultValue: '',
+  },
+];
 
+function TextareaPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full max-w-md">
+    <ComponentPlayground
+      name="Textarea"
+      controls={TEXTAREA_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg w-full max-w-md">
           <textarea
-            rows={rows}
-            disabled={disabled}
-            maxLength={maxLength}
-            value={value}
+            rows={v.rows}
+            disabled={v.disabled}
+            maxLength={v.maxLength}
+            value={v.value}
             onChange={e => setValue(e.target.value)}
             placeholder="Enter additional remarks..."
-            className={`w-full px-4 py-3 border rounded-lg resize-y focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${error ? 'border-red-500 focus-visible:ring-red-500' : 'border-border focus-visible:ring-[#005196]'} ${disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
+            className={`w-full px-4 py-3 border rounded-lg resize-y focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${v.error ? 'border-red-500 focus-visible:ring-red-500' : 'border-border focus-visible:ring-[#005196]'} ${v.disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
           />
           <div className="flex justify-between mt-1">
             {error && <p className="text-sm text-red-600">This field is required</p>}
-            <p className="text-xs text-muted-foreground ml-auto">{value.length}/{maxLength}</p>
+            <p className="text-xs text-muted-foreground ml-auto">{value.length}/{v.maxLength}</p>
           </div>
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Rows</label>
-          <input type="number" min={2} max={10} value={rows} onChange={e => setRows(Number(e.target.value))} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Max Length</label>
-          <input type="number" min={100} max={2000} step={100} value={maxLength} onChange={e => setMaxLength(Number(e.target.value))} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={error} onChange={e => setError(e.target.checked)} className="accent-primary" /><span className="text-foreground">Error state</span></label>
-        </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Textarea rows={${rows}} maxLength={${maxLength}}${disabled ? ' disabled' : ''}${error ? ' error' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<Textarea rows={${v.rows}} maxLength={${v.maxLength}}${v.disabled ? ' disabled' : ''}${v.error ? ' error' : ''} />`}
+    />
   );
 }
 
@@ -277,11 +289,9 @@ function Example() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Textarea configurations in real time.</p>
+          <div className="mb-8">
             <TextareaPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

@@ -69,27 +69,34 @@ const AddressAutocompleteIndiaPreview = ({
   );
 };
 
-function AddressAutocompleteIndiaPlayground() {
-  const [required, setRequired] = React.useState(false);
-  const [disabled, setDisabled] = React.useState(false);
+const ADDRESSAUTOCOMPLETEINDIA_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'required',
+    label: 'Required',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'disabled',
+    label: 'Disabled',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function AddressAutocompleteIndiaPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
+    <ComponentPlayground
+      name="AddressAutocompleteIndia"
+      controls={ADDRESSAUTOCOMPLETEINDIA_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg w-full flex items-center justify-center">
           <AddressAutocompleteIndiaPreview />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<AddressAutocompleteIndia${required ? ' required' : ''}${disabled ? ' disabled' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<AddressAutocompleteIndia${v.required ? ' required' : ''}${v.disabled ? ' disabled' : ''} />`}
+    />
   );
 }
 

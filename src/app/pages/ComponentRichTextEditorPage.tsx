@@ -83,35 +83,34 @@ const RichTextEditorPreview = ({
   );
 };
 
-function RichTextEditorPlayground() {
-  const [showToolbar, setShowToolbar] = React.useState(false);
-  const [maxLength, setMaxLength] = React.useState('500');
+const RICHTEXTEDITOR_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'showToolbar',
+    label: 'Show Toolbar',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'maxLength',
+    label: 'Max Length',
+    type: 'text',
+    defaultValue: '500',
+  },
+];
 
+function RichTextEditorPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <RichTextEditorPreview toolbar={showToolbar ? ["bold","italic","list","link"] : []} />
+    <ComponentPlayground
+      name="RichTextEditor"
+      controls={RICHTEXTEDITOR_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg w-full flex items-center justify-center">
+          <RichTextEditorPreview toolbar={v.showToolbar ? ["bold","italic","list","link"] : []} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showToolbar} onChange={e => setShowToolbar(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Toolbar</span></label>
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Max Length</label>
-            <select value={maxLength} onChange={e => setMaxLength(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="500">500</option>
-              <option value="1000">1000</option>
-              <option value="2000">2000</option>
-              <option value="5000">5000</option>
-            </select>
-          </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<RichTextEditor${showToolbar ? ' showToolbar' : ''} ${maxLength} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<RichTextEditor${v.showToolbar ? ' showToolbar' : ''} ${v.maxLength} />`}
+    />
   );
 }
 

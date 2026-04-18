@@ -146,36 +146,40 @@ const FeedbackRatingWidgetPreview = ({ type, maxRating = 5, value, onChange, siz
   );
 };
 
-function FeedbackRatingWidgetPlayground() {
-  const [type, setType] = React.useState('stars');
-  const [maxRating, setMaxRating] = React.useState('5');
-  const [showLabels, setShowLabels] = React.useState(false);
+const FEEDBACKRATINGWIDGET_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'type',
+    label: 'Type',
+    type: 'text',
+    defaultValue: 'stars',
+  },
+  {
+    name: 'maxRating',
+    label: 'Max Rating',
+    type: 'text',
+    defaultValue: '5',
+  },
+  {
+    name: 'showLabels',
+    label: 'Show Labels',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function FeedbackRatingWidgetPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <FeedbackRatingWidgetPreview type={type} />
+    <ComponentPlayground
+      name="FeedbackRatingWidget"
+      controls={FEEDBACKRATINGWIDGET_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg w-full flex items-center justify-center">
+          <FeedbackRatingWidgetPreview type={v.type} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Type</label>
-            <select value={type} onChange={e => setType(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="stars">stars</option>
-              <option value="thumbs">thumbs</option>
-              <option value="emoji">emoji</option>
-            </select>
-          </div>
-          <div><label className="block font-semibold text-foreground mb-1">Max rating</label><select value={maxRating} onChange={e => setMaxRating(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground"><option value="3">3</option><option value="5">5</option><option value="10">10</option></select></div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLabels} onChange={e => setShowLabels(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show labels</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<FeedbackRatingWidget ${type} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<FeedbackRatingWidget ${v.type} />`}
+    />
   );
 }
 

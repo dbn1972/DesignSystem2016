@@ -62,27 +62,34 @@ const HeaderPreview = ({ variant, withSearch, showNotifications, showProfile }: 
   </header>
 );
 
-function HeaderPlayground() {
-  const [showSearch, setShowSearch] = React.useState(false);
-  const [showLanguage, setShowLanguage] = React.useState(false);
+const HEADER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'showSearch',
+    label: 'Show Search',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'showLanguage',
+    label: 'Show Language',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function HeaderPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <HeaderPreview withSearch={showSearch} showProfile />
+    <ComponentPlayground
+      name="Header"
+      controls={HEADER_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg w-full flex items-center justify-center">
+          <HeaderPreview withSearch={v.showSearch} showProfile />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showSearch} onChange={e => setShowSearch(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Search</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showLanguage} onChange={e => setShowLanguage(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Language</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Header${showSearch ? ' showSearch' : ''}${showLanguage ? ' showLanguage' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<Header${v.showSearch ? ' showSearch' : ''}${v.showLanguage ? ' showLanguage' : ''} />`}
+    />
   );
 }
 

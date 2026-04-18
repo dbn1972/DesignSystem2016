@@ -184,27 +184,34 @@ const TreeViewPreview = ({
   );
 };
 
-function TreeViewPlayground() {
-  const [expandAll, setExpandAll] = React.useState(false);
-  const [selectable, setSelectable] = React.useState(false);
+const TREEVIEW_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  {
+    name: 'expandAll',
+    label: 'Expand All',
+    type: 'boolean',
+    defaultValue: false,
+  },
+  {
+    name: 'selectable',
+    label: 'Selectable',
+    type: 'boolean',
+    defaultValue: false,
+  },
+];
 
+function TreeViewPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <TreeViewPreview data={[{label:"Ministry of IT",children:[{label:"Digital India"},{label:"MeitY"}]},{label:"Ministry of Finance",children:[{label:"Tax Dept"}]}]} expandable={expandAll} />
+    <ComponentPlayground
+      name="TreeView"
+      controls={TREEVIEW_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full max-w-lg w-full flex items-center justify-center">
+          <TreeViewPreview data={[{label:"Ministry of IT",children:[{label:"Digital India"},{label:"MeitY"}]},{label:"Ministry of Finance",children:[{label:"Tax Dept"}]}]} expandable={v.expandAll} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={expandAll} onChange={e => setExpandAll(e.target.checked)} className="accent-primary" /><span className="text-foreground">Expand All</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={selectable} onChange={e => setSelectable(e.target.checked)} className="accent-primary" /><span className="text-foreground">Selectable</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<TreeView${expandAll ? ' expandAll' : ''}${selectable ? ' selectable' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<TreeView${v.expandAll ? ' expandAll' : ''}${v.selectable ? ' selectable' : ''} />`}
+    />
   );
 }
 
@@ -769,11 +776,9 @@ export default function ComponentTreeViewPage() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different TreeView configurations in real time.</p>
+          <div className="mb-8">
             <TreeViewPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
