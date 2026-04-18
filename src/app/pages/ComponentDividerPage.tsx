@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 const DividerPreview = ({ orientation = 'horizontal', variant = 'solid' }: any) => {
   if (orientation === 'vertical') {
@@ -25,39 +26,27 @@ const DividerPreview = ({ orientation = 'horizontal', variant = 'solid' }: any) 
   );
 };
 
-function DividerPlayground() {
-  const [orientation, setOrientation] = React.useState('horizontal');
-  const [variant, setVariant] = React.useState('default');
+const DIVIDER_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'orientation', label: 'Orientation', type: 'select', defaultValue: 'horizontal', options: ['horizontal', 'vertical'] },
+  { name: 'variant', label: 'Variant', type: 'select', defaultValue: 'default', options: ['default', 'subtle'] },
+];
 
+function DividerPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <div className="w-full flex items-center justify-center">
-          <div className="w-full space-y-4"><p className="text-sm text-muted-foreground">Content above</p><DividerPreview orientation={orientation} variant={variant} /><p className="text-sm text-muted-foreground">Content below</p></div>
+    <ComponentPlayground
+      name="Divider"
+      controls={DIVIDER_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <div className="w-full space-y-4">
+          <p className="text-sm text-muted-foreground">Content above</p>
+          <DividerPreview orientation={v.orientation} variant={v.variant} />
+          <p className="text-sm text-muted-foreground">Content below</p>
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Orientation</label>
-            <select value={orientation} onChange={e => setOrientation(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="horizontal">horizontal</option>
-              <option value="vertical">vertical</option>
-            </select>
-          </div>
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Variant</label>
-            <select value={variant} onChange={e => setVariant(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="default">default</option>
-              <option value="subtle">subtle</option>
-            </select>
-          </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Divider ${orientation} ${variant} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<Divider orientation="${v.orientation}" />`
+      }
+    />
   );
 }
 
@@ -311,11 +300,9 @@ export const Divider: React.FC<DividerProps> = ({
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Divider configurations in real time.</p>
+          <div className="mb-8">
             <DividerPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

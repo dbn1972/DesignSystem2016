@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 import { Check } from 'lucide-react';
 
 // Checkbox preview component
@@ -40,32 +41,24 @@ const CheckboxPreview = ({ label, disabled = false, indeterminate = false }: any
   );
 };
 
-function CheckboxPlayground() {
-  const [disabled, setDisabled] = React.useState(false);
-  const [required, setRequired] = React.useState(false);
-  const [label, setLabel] = React.useState('I accept the Terms of Service');
+const CHECKBOX_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'label', label: 'Label', type: 'text', defaultValue: 'I accept the Terms of Service' },
+  { name: 'disabled', label: 'Disabled', type: 'boolean', defaultValue: false },
+  { name: 'required', label: 'Required', type: 'boolean', defaultValue: false },
+];
 
+function CheckboxPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
-        <CheckboxPreview label={label} disabled={disabled} />
-      </div>
-      <div className="space-y-4 text-sm">
-        <div>
-          <label className="block font-semibold text-foreground mb-1">Label</label>
-          <input value={label} onChange={e => setLabel(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={required} onChange={e => setRequired(e.target.checked)} className="accent-primary" /><span className="text-foreground">Required</span></label>
-        </div>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Checkbox label="${label}"${disabled ? ' disabled' : ''}${required ? ' required' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+    <ComponentPlayground
+      name="Checkbox"
+      controls={CHECKBOX_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
+        <CheckboxPreview label={v.label} disabled={v.disabled} />
+      )}
+      codeTemplate={(v) =>
+        `<Checkbox label="${v.label}"${v.disabled ? ' disabled' : ''}${v.required ? ' required' : ''} />`
+      }
+    />
   );
 }
 
@@ -277,11 +270,9 @@ function Example() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Checkbox configurations in real time.</p>
+          <div className="mb-8">
             <CheckboxPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
