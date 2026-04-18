@@ -1,18 +1,37 @@
 /**
  * AutoTOC — Automatic sticky table of contents for long pages.
  *
- * Scans the page for h2 headings with IDs, builds a TOC sidebar,
- * and highlights the currently visible section using IntersectionObserver.
- * Only renders when there are 3+ headings (short pages don't need it).
- * Hidden on mobile — shows on lg+ screens.
+ * Scans the page for h2 headings, builds a TOC sidebar, and highlights
+ * the currently visible section via IntersectionObserver.
+ * Only renders on pages that don't already have their own TOC.
+ * Hidden on mobile and screens narrower than 1440px.
  */
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
 
 interface TOCItem {
   id: string;
   text: string;
+}
+
+/** Paths (prefixes) where the page already provides its own TOC. */
+const SKIP_PREFIXES = [
+  '/',            // home
+  '/components/', // ComponentDocumentation has its own sidebar TOC
+];
+
+/** Exact paths to skip. */
+const SKIP_EXACT = new Set([
+  '/',
+  '/components',
+]);
+
+function shouldSkip(pathname: string): boolean {
+  if (SKIP_EXACT.has(pathname)) return true;
+  // Component doc pages have their own TOC
+  if (pathname.startsWith('/components/')) return true;
+  return false;
 }
 
 export default function AutoTOC() {
@@ -23,16 +42,18 @@ export default function AutoTOC() {
 
   // Scan for h2 headings whenever the route changes
   useEffect(() => {
-    // Small delay to let lazy-loaded page content render
+    if (shouldSkip(pathname)) {
+      setItems([]);
+      return;
+    }
+
     const timer = setTimeout(() => {
-      const headings = document.querySelectorAll<HTMLHeadingElement>(
-        'main h2, main h3'
-      );
+      // Only h2 — h3 creates too many entries
+      const headings = document.querySelectorAll<HTMLHeadingElement>('main h2');
       const found: TOCItem[] = [];
       headings.forEach((h) => {
         const text = h.textContent?.trim();
-        if (!text) return;
-        // Auto-generate ID if missing
+        if (!text || text.length > 80) return; // skip very long headings
         if (!h.id) {
           h.id = text
             .toLowerCase()
@@ -43,32 +64,27 @@ export default function AutoTOC() {
       });
       setItems(found);
       setActiveId('');
-    }, 300);
+    }, 400);
 
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  // Observe headings for active state
+  // Observe headings for active highlight
   useEffect(() => {
     if (items.length < 3) return;
-
-    // Disconnect previous observer
     observerRef.current?.disconnect();
 
-    const callback: IntersectionObserverCallback = (entries) => {
-      // Find the first visible entry
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          setActiveId(entry.target.id);
-          break;
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+            break;
+          }
         }
-      }
-    };
-
-    observerRef.current = new IntersectionObserver(callback, {
-      rootMargin: '-80px 0px -60% 0px',
-      threshold: 0,
-    });
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
+    );
 
     items.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -78,12 +94,12 @@ export default function AutoTOC() {
     return () => observerRef.current?.disconnect();
   }, [items]);
 
-  // Don't render if fewer than 3 headings
+  // Don't render if fewer than 3 headings or on skipped pages
   if (items.length < 3) return null;
 
   return (
     <aside
-      className="hidden lg:block fixed right-4 xl:right-8 top-24 w-52 max-h-[calc(100vh-8rem)] overflow-y-auto"
+      className="hidden 2xl:block fixed right-6 top-24 w-48 max-h-[calc(100vh-8rem)] overflow-y-auto"
       aria-label="Table of contents"
     >
       <nav>
@@ -95,7 +111,7 @@ export default function AutoTOC() {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className={`block text-[13px] leading-snug py-1.5 pl-3 border-l-2 transition-colors rounded-r-sm ${
+                className={`block text-[12px] leading-snug py-1 pl-3 border-l-2 transition-colors ${
                   activeId === item.id
                     ? 'border-primary text-primary font-medium'
                     : 'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
