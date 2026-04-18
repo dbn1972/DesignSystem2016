@@ -48,10 +48,51 @@ export default function NotFound() {
       {/* Hero */}
       <div className="border-b border-border bg-gradient-to-b from-muted/30 to-background">
         <div className="max-w-4xl mx-auto px-6 py-16 sm:py-24 text-center">
-          {/* 404 number */}
-          <p className="text-[120px] sm:text-[160px] font-black leading-none tracking-tighter text-primary/10 select-none">
-            404
-          </p>
+          {/* Dog illustration + 404 */}
+          <div className="relative inline-block mb-4">
+            <p className="text-[120px] sm:text-[160px] font-black leading-none tracking-tighter text-primary/10 select-none">
+              404
+            </p>
+            {/* Cute dog sitting on the 0 */}
+            <svg
+              viewBox="0 0 200 180"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute -top-8 left-1/2 -translate-x-1/2 w-32 sm:w-40 pointer-events-none"
+              aria-hidden="true"
+            >
+              {/* Body */}
+              <ellipse cx="100" cy="130" rx="38" ry="30" className="fill-primary/10" />
+              {/* Head */}
+              <circle cx="100" cy="80" r="28" className="fill-primary/15" />
+              {/* Left ear (floppy) */}
+              <ellipse cx="74" cy="62" rx="14" ry="22" transform="rotate(-15 74 62)" className="fill-primary/20" />
+              {/* Right ear (floppy) */}
+              <ellipse cx="126" cy="62" rx="14" ry="22" transform="rotate(15 126 62)" className="fill-primary/20" />
+              {/* Left eye */}
+              <circle cx="90" cy="76" r="4" className="fill-foreground" />
+              <circle cx="91.5" cy="74.5" r="1.5" fill="white" />
+              {/* Right eye */}
+              <circle cx="110" cy="76" r="4" className="fill-foreground" />
+              <circle cx="111.5" cy="74.5" r="1.5" fill="white" />
+              {/* Nose */}
+              <ellipse cx="100" cy="88" rx="5" ry="3.5" className="fill-foreground" />
+              {/* Mouth */}
+              <path d="M95 91 Q100 97 105 91" stroke="currentColor" strokeWidth="1.5" fill="none" className="text-foreground/60" />
+              {/* Tongue */}
+              <ellipse cx="100" cy="97" rx="4" ry="5" className="fill-red-400" />
+              {/* Front left paw */}
+              <ellipse cx="78" cy="155" rx="10" ry="6" className="fill-primary/15" />
+              {/* Front right paw */}
+              <ellipse cx="122" cy="155" rx="10" ry="6" className="fill-primary/15" />
+              {/* Tail */}
+              <path d="M138 125 Q155 105 148 90" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none" className="text-primary/20" />
+              {/* Collar */}
+              <path d="M76 95 Q100 105 124 95" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" className="text-primary/40" />
+              {/* Collar tag */}
+              <circle cx="100" cy="103" r="4" className="fill-primary/30" />
+            </svg>
+          </div>
 
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground -mt-8 sm:-mt-12">
             Page not found
