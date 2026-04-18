@@ -1,0 +1,13 @@
+{
+  "name": "@ux4g/a11y-hosted",
+  "version": "1.0.0",
+  "description": "Hosted browser runtime for the UX4G accessibility toolkit. One script tag install.",
+  "main": "dist/ux4g-a11y.min.js",
+  "files": ["dist/"],
+  "scripts": {
+    "build": "esbuild ux4g-a11y.ts --bundle --minify --format=iife --global-name=UX4GA11y --outfile=dist/ux4g-a11y.min.js"
+  },
+  "keywords": ["accessibility", "a11y", "ux4g", "government", "widget", "wcag"],
+  "author": "UX4G Team",
+  "license": "MIT"
+}

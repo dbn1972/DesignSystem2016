@@ -83,6 +83,7 @@ const ComponentCenterPage = lazy(() => import("../../pages/ComponentCenterPage")
 const ComponentAspectRatioPage = lazy(() => import("../../pages/ComponentAspectRatioPage"));
 const ComponentShowHidePage = lazy(() => import("../../pages/ComponentShowHidePage"));
 const ComponentSectionPage = lazy(() => import("../../pages/ComponentSectionPage"));
+const ComponentIconPage = lazy(() => import("../../pages/ComponentIconPage"));
 
 export const componentsRoutes: RouteObject[] = [
   { path: toChildPath(ROUTE_PATHS.COMPONENTS.ROOT), Component: Components },
@@ -165,5 +166,5 @@ export const componentsRoutes: RouteObject[] = [
   { path: "components/aspect-ratio", Component: ComponentAspectRatioPage },
   { path: "components/show-hide", Component: ComponentShowHidePage },
   { path: "components/section", Component: ComponentSectionPage },
+  { path: "components/icons", Component: ComponentIconPage },
 ];
-

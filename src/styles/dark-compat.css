@@ -247,12 +247,11 @@
     color: var(--legacy-text-contrast) !important;
   }
 
-  .dark .bg-gradient-to-r,
-  .dark .bg-gradient-to-br,
-  .dark .bg-gradient-to-b {
-    background-image: none !important;
-    background-color: var(--legacy-surface-raised) !important;
-  }
+  /* Dark mode gradient handling:
+     - Preserve all gradients but adjust their appearance for dark backgrounds.
+     - Hero/banner gradients get dimmed via filter.
+     - Small card gradients that use light colors (white, gray-50, etc.) are
+       handled by the individual bg-color overrides above. */
 
   /* Legacy brand hex utilities used across older pages */
   .dark .bg-\[\#000080\],

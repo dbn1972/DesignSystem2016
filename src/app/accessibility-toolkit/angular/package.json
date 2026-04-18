@@ -1,0 +1,16 @@
+{
+  "name": "@ux4g/a11y-angular",
+  "version": "1.0.0",
+  "description": "Angular binding for the UX4G accessibility toolkit. Wraps @ux4g/a11y-core.",
+  "peerDependencies": {
+    "@angular/core": ">=16.0.0",
+    "@angular/common": ">=16.0.0",
+    "@ux4g/a11y-core": "^1.0.0"
+  },
+  "keywords": [
+    "accessibility", "a11y", "angular", "design-system",
+    "ux4g", "wcag", "toolkit", "indian-government"
+  ],
+  "author": "UX4G Team",
+  "license": "MIT"
+}

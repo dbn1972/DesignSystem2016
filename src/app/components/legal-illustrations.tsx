@@ -206,3 +206,46 @@ export function DisclaimerIllustration() {
     </svg>
   );
 }
+
+/** Accessibility — Universal access symbol with eye, keyboard, hand, sound waves */
+export function AccessibilityIllustration() {
+  const c = '#138808';
+  return (
+    <svg width="320" height="280" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="160" cy="140" r="115" fill={c} opacity="0.03" />
+      {/* Universal access circle */}
+      <circle cx="160" cy="130" r="70" fill="none" stroke={c} strokeWidth="2" strokeOpacity="0.12" />
+      <circle cx="160" cy="130" r="55" fill={c} opacity="0.04" />
+      {/* Person figure */}
+      <circle cx="160" cy="100" r="12" fill={c} opacity="0.15" />
+      <line x1="160" y1="112" x2="160" y2="145" stroke={c} strokeWidth="3" strokeOpacity="0.15" strokeLinecap="round" />
+      <line x1="140" y1="125" x2="180" y2="125" stroke={c} strokeWidth="3" strokeOpacity="0.15" strokeLinecap="round" />
+      <line x1="160" y1="145" x2="145" y2="170" stroke={c} strokeWidth="3" strokeOpacity="0.15" strokeLinecap="round" />
+      <line x1="160" y1="145" x2="175" y2="170" stroke={c} strokeWidth="3" strokeOpacity="0.15" strokeLinecap="round" />
+      {/* Eye icon (left) */}
+      <ellipse cx="80" cy="110" rx="18" ry="10" fill={c} opacity="0.06" stroke={c} strokeWidth="1" strokeOpacity="0.12" />
+      <circle cx="80" cy="110" r="5" fill={c} opacity="0.12" />
+      {/* Keyboard icon (right) */}
+      <rect x="225" y="120" width="36" height="24" rx="4" fill={c} opacity="0.06" stroke={c} strokeWidth="1" strokeOpacity="0.12" />
+      <rect x="230" y="126" width="6" height="4" rx="1" fill={c} opacity="0.1" />
+      <rect x="239" y="126" width="6" height="4" rx="1" fill={c} opacity="0.1" />
+      <rect x="248" y="126" width="6" height="4" rx="1" fill={c} opacity="0.1" />
+      <rect x="233" y="134" width="16" height="4" rx="1" fill={c} opacity="0.1" />
+      {/* Sound waves (top-right) */}
+      <path d="M220 70 Q230 65 225 55" fill="none" stroke={c} strokeWidth="1.5" strokeOpacity="0.1" />
+      <path d="M225 72 Q238 65 232 52" fill="none" stroke={c} strokeWidth="1.5" strokeOpacity="0.08" />
+      <path d="M230 74 Q246 65 239 49" fill="none" stroke={c} strokeWidth="1.5" strokeOpacity="0.06" />
+      {/* Hand/touch icon (bottom-left) */}
+      <circle cx="90" cy="190" r="6" fill={c} opacity="0.08" />
+      <line x1="90" y1="196" x2="90" y2="215" stroke={c} strokeWidth="2" strokeOpacity="0.1" strokeLinecap="round" />
+      <line x1="90" y1="205" x2="80" y2="200" stroke={c} strokeWidth="1.5" strokeOpacity="0.08" strokeLinecap="round" />
+      {/* WCAG badge */}
+      <rect x="120" y="215" width="80" height="24" rx="12" fill={c} opacity="0.06" stroke={c} strokeWidth="1" strokeOpacity="0.1" />
+      <text x="160" y="231" textAnchor="middle" fontSize="10" fontWeight="bold" fill={c} opacity="0.2" fontFamily="system-ui">WCAG 2.1 AA</text>
+      {/* Dots */}
+      <circle cx="75" cy="70" r="3" fill={c} opacity="0.06" />
+      <circle cx="250" cy="180" r="2.5" fill={c} opacity="0.05" />
+      <circle cx="160" cy="260" r="2" fill={c} opacity="0.06" />
+    </svg>
+  );
+}

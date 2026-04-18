@@ -1,0 +1,227 @@
+/**
+ * @ux4g/a11y-core — Global Style Rules
+ *
+ * Framework-independent CSS. These classes are toggled on <html>
+ * by the style engine. Any framework binding imports this file.
+ *
+ * NOTE: Filter-based features (contrast, grayscale, desaturate, invert)
+ * are applied as a single computed inline `filter` on <body> by engine.ts.
+ * The marker classes here are only used for panel-exclusion selectors.
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   SCREEN-READER ONLY UTILITY
+   Toolkit-owned — does not depend on Tailwind.
+   ═══════════════════════════════════════════════════════════ */
+
+.ux4g-a11y-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TEXT & READABILITY
+   ═══════════════════════════════════════════════════════════ */
+
+html[style*="--ux4g-a11y-line-height"] body {
+  line-height: var(--ux4g-a11y-line-height) !important;
+}
+html[style*="--ux4g-a11y-line-height"] body p,
+html[style*="--ux4g-a11y-line-height"] body li,
+html[style*="--ux4g-a11y-line-height"] body td,
+html[style*="--ux4g-a11y-line-height"] body th,
+html[style*="--ux4g-a11y-line-height"] body dd,
+html[style*="--ux4g-a11y-line-height"] body dt,
+html[style*="--ux4g-a11y-line-height"] body span,
+html[style*="--ux4g-a11y-line-height"] body label {
+  line-height: var(--ux4g-a11y-line-height) !important;
+}
+
+html[style*="--ux4g-a11y-letter-spacing"] body {
+  letter-spacing: var(--ux4g-a11y-letter-spacing) !important;
+}
+html[style*="--ux4g-a11y-letter-spacing"] body p,
+html[style*="--ux4g-a11y-letter-spacing"] body li,
+html[style*="--ux4g-a11y-letter-spacing"] body td,
+html[style*="--ux4g-a11y-letter-spacing"] body th,
+html[style*="--ux4g-a11y-letter-spacing"] body span,
+html[style*="--ux4g-a11y-letter-spacing"] body label {
+  letter-spacing: var(--ux4g-a11y-letter-spacing) !important;
+}
+
+/* Exclude the toolkit panel from line-height/letter-spacing overrides.
+   Uses `normal` instead of `revert` to avoid falling back to UA defaults. */
+.ux4g-a11y-panel-root,
+.ux4g-a11y-panel-root * {
+  line-height: normal !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  text-align: revert !important;
+}
+
+/* Word spacing boost */
+html[style*="--ux4g-a11y-word-spacing"] body {
+  word-spacing: var(--ux4g-a11y-word-spacing) !important;
+}
+html[style*="--ux4g-a11y-word-spacing"] body p,
+html[style*="--ux4g-a11y-word-spacing"] body li,
+html[style*="--ux4g-a11y-word-spacing"] body td,
+html[style*="--ux4g-a11y-word-spacing"] body th,
+html[style*="--ux4g-a11y-word-spacing"] body span,
+html[style*="--ux4g-a11y-word-spacing"] body label {
+  word-spacing: var(--ux4g-a11y-word-spacing) !important;
+}
+
+/* Left-align all text (helps dyslexic users with justified text) */
+html.ux4g-a11y-left-align body * {
+  text-align: left !important;
+}
+
+html.ux4g-a11y-dyslexia-font body {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', 'Arial', sans-serif !important;
+}
+html.ux4g-a11y-dyslexia-font body *:not([class*="ux4g-a11y-panel"]) {
+  font-family: inherit !important;
+}
+
+/* Load OpenDyslexic from CDN when the class is active.
+   Uses font-display: swap so text remains visible during load. */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTRAST & COLORS
+   Filter-based features are applied as a single computed
+   inline filter on <body> by engine.ts. These marker classes
+   exist only for the panel-exclusion and image re-inversion
+   rules below.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Re-invert images/video/canvas when dark-contrast or invert is active */
+html.ux4g-a11y-dark-contrast body img,
+html.ux4g-a11y-dark-contrast body video,
+html.ux4g-a11y-dark-contrast body svg:not([class*="ux4g-a11y"]),
+html.ux4g-a11y-dark-contrast body picture,
+html.ux4g-a11y-dark-contrast body canvas {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+html.ux4g-a11y-invert-colors body img,
+html.ux4g-a11y-invert-colors body video,
+html.ux4g-a11y-invert-colors body svg:not([class*="ux4g-a11y"]),
+html.ux4g-a11y-invert-colors body picture,
+html.ux4g-a11y-invert-colors body canvas {
+  filter: invert(1) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VISUAL AIDS
+   ═══════════════════════════════════════════════════════════ */
+
+html.ux4g-a11y-highlight-links body a[href] {
+  outline: 2px solid #005196 !important;
+  outline-offset: 2px !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  background-color: rgba(0, 81, 150, 0.08) !important;
+}
+
+html.ux4g-a11y-highlight-headings body :is(h1, h2, h3, h4, h5, h6) {
+  outline: 2px dashed #b45309 !important;
+  outline-offset: 4px !important;
+  background-color: rgba(180, 83, 9, 0.06) !important;
+}
+
+html.ux4g-a11y-larger-cursor,
+html.ux4g-a11y-larger-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M8 4l28 20H20l-4 16z' fill='black' stroke='white' stroke-width='2'/%3E%3C/svg%3E") 4 4, auto !important;
+}
+
+html.ux4g-a11y-hide-images body img,
+html.ux4g-a11y-hide-images body picture,
+html.ux4g-a11y-hide-images body svg:not([class*="ux4g-a11y"]):not([aria-hidden="true"]),
+html.ux4g-a11y-hide-images body [role="img"] {
+  opacity: 0.05 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════════════════ */
+
+html.ux4g-a11y-strong-focus *:focus-visible {
+  outline: 3px solid #005196 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px rgba(0, 81, 150, 0.25) !important;
+}
+
+html.ux4g-a11y-keyboard-nav *:focus {
+  outline: 2px solid #005196 !important;
+  outline-offset: 2px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   READING ASSISTANCE
+   Excludes the toolkit panel so its own animations still work.
+   ═══════════════════════════════════════════════════════════ */
+
+html.ux4g-a11y-pause-animations *:not(.ux4g-a11y-panel-root):not(.ux4g-a11y-panel-root *):not(.ux4g-a11y-launcher):not(.ux4g-a11y-launcher *):not(.ux4g-a11y-backdrop),
+html.ux4g-a11y-pause-animations *:not(.ux4g-a11y-panel-root):not(.ux4g-a11y-panel-root *)::before,
+html.ux4g-a11y-pause-animations *:not(.ux4g-a11y-panel-root):not(.ux4g-a11y-panel-root *)::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PANEL EXCLUSION
+   Prevent the toolkit's own panel from being affected by
+   body-level filters. The panel sits outside the filter
+   chain because engine.ts applies filter to <body> and
+   the panel is a direct child of the React root (not body).
+   These rules handle edge cases.
+   ═══════════════════════════════════════════════════════════ */
+
+.ux4g-a11y-panel-root {
+  filter: none !important;
+}
+html.ux4g-a11y-dark-contrast .ux4g-a11y-panel-root,
+html.ux4g-a11y-invert-colors .ux4g-a11y-panel-root {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PRINT STYLES
+   Hide all toolkit UI when printing.
+   ═══════════════════════════════════════════════════════════ */
+
+@media print {
+  .ux4g-a11y-launcher-wrap,
+  .ux4g-a11y-launcher,
+  .ux4g-a11y-panel-root,
+  .ux4g-a11y-backdrop,
+  .ux4g-a11y-reading-guide,
+  .ux4g-a11y-reading-mask,
+  .ux4g-a11y-skip-link {
+    display: none !important;
+  }
+}

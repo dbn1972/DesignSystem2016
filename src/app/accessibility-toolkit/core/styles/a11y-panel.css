@@ -1,0 +1,239 @@
+/**
+ * @ux4g/a11y-core — Panel & Component Styles
+ *
+ * Framework-independent CSS for the toolkit UI.
+ * Uses BEM-like class names scoped under ux4g-a11y-*.
+ * Uses UX4G design tokens with fallbacks for standalone usage.
+ *
+ * Any framework binding (React, Angular, Web Components) imports this.
+ */
+
+/* ── Skip-to-Content Link ── */
+.ux4g-a11y-skip-link {
+  position: absolute; top: -100%; left: 0.5rem;
+  z-index: 9999; padding: 0.5rem 1rem;
+  background: var(--primary, #005196); color: var(--primary-foreground, #fff);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  font-size: 0.875rem; font-weight: 600; text-decoration: none;
+  box-shadow: var(--ux4g-shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1));
+}
+.ux4g-a11y-skip-link:focus {
+  top: 0.5rem;
+  outline: 3px solid var(--ring, #005196); outline-offset: 2px;
+}
+
+/* ── Launcher ── */
+.ux4g-a11y-launcher-wrap {
+  position: fixed;
+  z-index: calc(var(--ux4g-a11y-z, 1500) + 0); /* Explicitly above reading overlays (z-1) */
+}
+.ux4g-a11y-launcher-wrap.ux4g-a11y-launcher--br { bottom: 1.25rem; right: 1.25rem; }
+.ux4g-a11y-launcher-wrap.ux4g-a11y-launcher--bl { bottom: 1.25rem; left: 1.25rem; }
+.ux4g-a11y-launcher-wrap.ux4g-a11y-launcher--tr { top: 1.25rem; right: 1.25rem; }
+.ux4g-a11y-launcher-wrap.ux4g-a11y-launcher--tl { top: 1.25rem; left: 1.25rem; }
+
+.ux4g-a11y-launcher {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  width: 3rem; height: 3rem; border: none;
+  border-radius: var(--ux4g-radius-full, 9999px);
+  background: var(--primary, #005196); color: var(--primary-foreground, #fff);
+  cursor: pointer;
+  box-shadow: var(--ux4g-shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1));
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.ux4g-a11y-launcher:hover { transform: scale(1.08); box-shadow: var(--ux4g-shadow-xl, 0 20px 25px -5px rgb(0 0 0 / 0.1)); }
+.ux4g-a11y-launcher:focus-visible { outline: 3px solid var(--ring, #005196); outline-offset: 3px; }
+
+/* ── Launcher Tooltip ── */
+.ux4g-a11y-launcher-tooltip {
+  position: absolute; bottom: calc(100% + 0.625rem); right: 0;
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background: var(--card-foreground, #1a1a2e); color: var(--card, #fff);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  font-size: 0.75rem; font-weight: 500; white-space: nowrap;
+  box-shadow: var(--ux4g-shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1));
+  opacity: 0; pointer-events: none;
+  transition: opacity 150ms ease, transform 150ms ease;
+  transform: translateY(4px);
+}
+.ux4g-a11y-launcher-tooltip::after {
+  content: ''; position: absolute; top: 100%; right: 1rem;
+  border: 5px solid transparent; border-top-color: var(--card-foreground, #1a1a2e);
+}
+.ux4g-a11y-launcher-wrap:hover .ux4g-a11y-launcher-tooltip,
+.ux4g-a11y-launcher:focus-visible ~ .ux4g-a11y-launcher-tooltip {
+  /* Tooltip shows on hover/focus but the wrap contains both */
+}
+.ux4g-a11y-launcher-wrap:hover .ux4g-a11y-launcher-tooltip {
+  opacity: 1; transform: translateY(0); pointer-events: auto;
+}
+
+/* ── Keyboard Shortcut Badge ── */
+.ux4g-a11y-kbd {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.125rem 0.375rem; min-width: 1.25rem;
+  font-size: 0.625rem; font-weight: 700; font-family: inherit;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--ux4g-radius-sm, 0.125rem);
+  line-height: 1.2;
+}
+.ux4g-a11y-shortcut-hint {
+  display: flex; align-items: center; gap: 0.125rem;
+  font-size: 0.625rem; color: var(--muted-foreground, #94a3b8);
+  margin-right: 0.25rem;
+}
+.ux4g-a11y-shortcut-hint .ux4g-a11y-kbd {
+  background: var(--muted, #f1f5f9); border-color: var(--border, #e2e8f0);
+  color: var(--muted-foreground, #64748b);
+}
+
+/* ── Backdrop ── */
+.ux4g-a11y-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+  z-index: calc(var(--ux4g-a11y-z, 1500) + 1);
+  animation: ux4g-a11y-fade-in 200ms ease;
+}
+
+/* ── Panel ── */
+.ux4g-a11y-panel {
+  position: fixed; top: 0; bottom: 0; display: flex; flex-direction: column;
+  width: min(38rem, 100vw - 2rem); max-height: 100dvh;
+  background: var(--card, #fff); color: var(--card-foreground, #1a1a2e);
+  border-left: 1px solid var(--border, #e2e8f0);
+  box-shadow: var(--ux4g-shadow-2xl, 0 25px 50px -12px rgb(0 0 0 / 0.25));
+  z-index: calc(var(--ux4g-a11y-z, 1500) + 2);
+  overflow: hidden; font-family: var(--ux4g-a11y-font, inherit);
+}
+.ux4g-a11y-panel--right { right: 0; animation: ux4g-a11y-slide-right 250ms ease; }
+.ux4g-a11y-panel--left { left: 0; border-left: none; border-right: 1px solid var(--border, #e2e8f0); animation: ux4g-a11y-slide-left 250ms ease; }
+.ux4g-a11y-panel--modal { top: 50%; left: 50%; bottom: auto; right: auto; transform: translate(-50%,-50%); max-height: 85dvh; border-radius: var(--ux4g-radius-xl, 0.75rem); border: 1px solid var(--border, #e2e8f0); animation: ux4g-a11y-scale-in 250ms ease; }
+
+/* ── Panel Header ── */
+.ux4g-a11y-panel-header { display: flex; align-items: center; justify-content: space-between; padding: 0.875rem 1rem; border-bottom: 1px solid var(--border, #e2e8f0); flex-shrink: 0; }
+.ux4g-a11y-panel-title { font-size: 1.05rem; font-weight: 600; margin: 0; color: var(--card-foreground, #1a1a2e); }
+.ux4g-a11y-panel-header-actions { display: flex; align-items: center; gap: 0.375rem; }
+.ux4g-a11y-panel-btn { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border: none; border-radius: var(--ux4g-radius-md, 0.375rem); background: transparent; color: var(--muted-foreground, #64748b); cursor: pointer; transition: background 150ms ease, color 150ms ease; }
+.ux4g-a11y-panel-btn:hover { background: var(--muted, #f1f5f9); color: var(--card-foreground, #1a1a2e); }
+.ux4g-a11y-panel-btn:focus-visible { outline: 2px solid var(--ring, #005196); outline-offset: 2px; }
+
+/* ── Panel Body ── */
+.ux4g-a11y-panel-body { flex: 1; overflow-y: auto; padding: 0.75rem 1rem 1.5rem; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+
+/* ── Two-Column Grid ── */
+.ux4g-a11y-panel-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem;
+}
+.ux4g-a11y-panel-col {
+  display: flex; flex-direction: column; gap: 0;
+}
+
+/* ── Title Row (title + badge) ── */
+.ux4g-a11y-panel-title-row { display: flex; align-items: center; gap: 0.5rem; }
+
+/* ── Active Settings Badge ── */
+.ux4g-a11y-active-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.25rem; height: 1.25rem; padding: 0 0.3rem;
+  font-size: 0.7rem; font-weight: 700; line-height: 1;
+  border-radius: var(--ux4g-radius-full, 9999px);
+  background: var(--primary, #005196); color: var(--primary-foreground, #fff);
+}
+
+/* ── Launcher Badge ── */
+.ux4g-a11y-launcher-badge {
+  position: absolute; top: -0.25rem; right: -0.25rem;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 1.125rem; height: 1.125rem; padding: 0 0.25rem;
+  font-size: 0.625rem; font-weight: 700; line-height: 1;
+  border-radius: var(--ux4g-radius-full, 9999px);
+  background: var(--destructive, #dc2626); color: #fff;
+  pointer-events: none;
+}
+
+/* ── Feature Groups ── */
+.ux4g-a11y-group { margin-bottom: 1.25rem; }
+.ux4g-a11y-group:last-child { margin-bottom: 0; }
+.ux4g-a11y-group-heading { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted-foreground, #64748b); margin: 0 0 0.625rem; padding-bottom: 0.375rem; border-bottom: 1px solid var(--border, #e2e8f0); }
+.ux4g-a11y-group-icon { display: flex; color: var(--primary, #005196); opacity: 0.7; }
+.ux4g-a11y-group-dot { width: 0.375rem; height: 0.375rem; border-radius: var(--ux4g-radius-full, 9999px); background: var(--primary, #005196); flex-shrink: 0; margin-left: auto; }
+.ux4g-a11y-group-controls { display: flex; flex-direction: column; gap: 0.25rem; }
+
+/* ── Toggle Control ── */
+.ux4g-a11y-control { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.5rem; border-radius: var(--ux4g-radius-md, 0.375rem); transition: background 150ms ease; min-height: 2.5rem; }
+.ux4g-a11y-control:hover { background: var(--muted, #f1f5f9); }
+.ux4g-a11y-control-text { display: flex; flex-direction: column; min-width: 0; }
+.ux4g-a11y-control-label { font-size: 0.875rem; font-weight: 500; color: var(--card-foreground, #1a1a2e); cursor: pointer; line-height: 1.3; }
+.ux4g-a11y-control-desc { font-size: 0.75rem; color: var(--muted-foreground, #64748b); line-height: 1.3; }
+
+.ux4g-a11y-toggle { position: relative; flex-shrink: 0; width: 2.75rem; height: 1.5rem; border: 2px solid var(--border, #cbd5e1); border-radius: var(--ux4g-radius-full, 9999px); background: var(--muted, #e2e8f0); cursor: pointer; transition: background 200ms ease, border-color 200ms ease; padding: 0; /* Touch target: 44px minimum via ::after pseudo-element */ }
+.ux4g-a11y-toggle::after { content: ''; position: absolute; inset: -0.625rem -0.25rem; /* Expands touch area to ~44×44px */ }
+.ux4g-a11y-toggle:focus-visible { outline: 2px solid var(--ring, #005196); outline-offset: 2px; }
+.ux4g-a11y-toggle--on { background: var(--primary, #005196); border-color: var(--primary, #005196); }
+.ux4g-a11y-toggle-thumb { position: absolute; top: 1px; left: 2px; width: 1rem; height: 1rem; border-radius: var(--ux4g-radius-full, 9999px); background: #fff; transition: transform 200ms ease; box-shadow: 0 1px 2px rgb(0 0 0 / 0.15); }
+.ux4g-a11y-toggle--on .ux4g-a11y-toggle-thumb { transform: translateX(1.125rem); }
+
+/* ── Stepper Control ── */
+.ux4g-a11y-stepper { display: flex; align-items: center; gap: 0.25rem; flex-shrink: 0; }
+.ux4g-a11y-stepper-btn { display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border: 1px solid var(--border, #cbd5e1); border-radius: var(--ux4g-radius-md, 0.375rem); background: var(--card, #fff); color: var(--card-foreground, #1a1a2e); cursor: pointer; transition: background 150ms ease, border-color 150ms ease; padding: 0; }
+.ux4g-a11y-stepper-btn:hover { background: var(--muted, #f1f5f9); border-color: var(--primary, #005196); }
+.ux4g-a11y-stepper-btn:focus-visible { outline: 2px solid var(--ring, #005196); outline-offset: 2px; }
+.ux4g-a11y-stepper-btn--reset { border-style: dashed; color: var(--muted-foreground, #64748b); }
+.ux4g-a11y-stepper-value { min-width: 3rem; text-align: center; font-size: 0.8rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--card-foreground, #1a1a2e); }
+
+/* ── Reading Guide ── */
+.ux4g-a11y-reading-guide { position: fixed; left: 0; right: 0; height: 4px; background: var(--primary, #005196); opacity: 0.6; pointer-events: none !important; z-index: calc(var(--ux4g-a11y-z, 1500) - 1); transition: top 50ms linear; }
+
+/* ── Reading Mask ── */
+.ux4g-a11y-reading-mask { position: fixed; inset: 0; pointer-events: none !important; z-index: calc(var(--ux4g-a11y-z, 1500) - 1); }
+.ux4g-a11y-reading-mask-overlay { position: fixed; left: 0; right: 0; background: rgba(0,0,0,0.55); pointer-events: none !important; transition: height 50ms linear, top 50ms linear; }
+
+/* ── Animations ── */
+@keyframes ux4g-a11y-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ux4g-a11y-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes ux4g-a11y-slide-right { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes ux4g-a11y-slide-right-out { from { transform: translateX(0); } to { transform: translateX(100%); } }
+@keyframes ux4g-a11y-slide-left { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes ux4g-a11y-slide-left-out { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+@keyframes ux4g-a11y-scale-in { from { opacity: 0; transform: translate(-50%,-50%) scale(0.95); } to { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+@keyframes ux4g-a11y-scale-out { from { opacity: 1; transform: translate(-50%,-50%) scale(1); } to { opacity: 0; transform: translate(-50%,-50%) scale(0.95); } }
+
+/* ── Close animations ── */
+.ux4g-a11y-backdrop--closing { animation: ux4g-a11y-fade-out 200ms ease forwards; }
+.ux4g-a11y-panel--right.ux4g-a11y-panel--closing { animation: ux4g-a11y-slide-right-out 200ms ease forwards; }
+.ux4g-a11y-panel--left.ux4g-a11y-panel--closing { animation: ux4g-a11y-slide-left-out 200ms ease forwards; }
+.ux4g-a11y-panel--modal.ux4g-a11y-panel--closing { animation: ux4g-a11y-scale-out 200ms ease forwards; }
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-a11y-launcher, .ux4g-a11y-panel, .ux4g-a11y-backdrop,
+  .ux4g-a11y-toggle, .ux4g-a11y-toggle-thumb, .ux4g-a11y-reading-guide {
+    animation: none !important; transition: none !important;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .ux4g-a11y-panel { width: 100vw; border-left: none; border-radius: 0; }
+  .ux4g-a11y-panel-grid { grid-template-columns: 1fr; }
+  .ux4g-a11y-launcher-wrap { bottom: 1rem; right: 1rem; }
+  .ux4g-a11y-launcher { width: 2.75rem; height: 2.75rem; }
+  .ux4g-a11y-launcher-wrap.ux4g-a11y-launcher--bl { left: 1rem; right: auto; }
+  .ux4g-a11y-launcher-tooltip { display: none; }
+}
+
+/* ── Tablet ── */
+@media (min-width: 481px) and (max-width: 768px) {
+  .ux4g-a11y-panel { width: min(100vw - 3rem, 38rem); }
+  .ux4g-a11y-panel-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Panel Footer ── */
+.ux4g-a11y-panel-footer {
+  display: flex; align-items: center; justify-content: center; gap: 0.375rem;
+  padding: 0.5rem 1rem; border-top: 1px solid var(--border, #e2e8f0);
+  flex-shrink: 0; font-size: 0.625rem; color: var(--muted-foreground, #94a3b8);
+}
+.ux4g-a11y-panel-footer-logo {
+  font-weight: 700; color: var(--primary, #005196);
+}

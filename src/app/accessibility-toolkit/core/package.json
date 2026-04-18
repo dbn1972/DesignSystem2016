@@ -1,0 +1,27 @@
+{
+  "name": "@ux4g/a11y-core",
+  "version": "1.0.0",
+  "description": "Framework-independent accessibility toolkit engine for UX4G Design System",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "styles"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles/a11y-global.css": "./styles/a11y-global.css",
+    "./styles/a11y-panel.css": "./styles/a11y-panel.css"
+  },
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts --clean"
+  },
+  "keywords": [
+    "accessibility", "a11y", "design-system", "ux4g",
+    "wcag", "toolkit", "framework-agnostic"
+  ],
+  "author": "UX4G Team",
+  "license": "MIT"
+}

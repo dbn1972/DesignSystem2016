@@ -1,0 +1,33 @@
+{
+  "name": "@ux4g/a11y-react",
+  "version": "1.0.0",
+  "description": "React binding for the UX4G accessibility toolkit",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "src"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@ux4g/a11y-core": "^1.0.0",
+    "clsx": "^2.1.0"
+  },
+  "keywords": [
+    "accessibility", "a11y", "react", "design-system",
+    "ux4g", "wcag", "toolkit"
+  ],
+  "author": "UX4G Team",
+  "license": "MIT"
+}

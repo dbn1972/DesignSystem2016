@@ -20,6 +20,7 @@ const AngularDocsPage = lazy(() => import("./pages/AngularDocsPage"));
 const AngularDocDetail = lazy(() => import("./pages/AngularDocDetail"));
 const WebComponentsDocsPage = lazy(() => import("./pages/WebComponentsDocsPage"));
 const WebComponentsDocDetail = lazy(() => import("./pages/WebComponentsDocDetail"));
+const LogoResources = lazy(() => import("./pages/LogoResources"));
 
 import { componentsRoutes } from "./routes/domains/componentsRoutes";
 import { foundationsRoutes } from "./routes/domains/foundationsRoutes";
@@ -59,6 +60,7 @@ export const router = createBrowserRouter([
       { path: "resources/component-specs", Component: ComponentCodeMapping },
       { path: "resources/service-code-downloads", Component: ServiceCodeDownloads },
       { path: "resources/figma", Component: FigmaDesignSystem },
+      { path: "resources/logos", Component: LogoResources },
       { path: "resources/migration-guides", Component: MigrationGuides },
       { path: "resources/migration-material-ui", Component: MigrationMaterialUI },
       { path: "api-reference", Component: ApiReference },

@@ -1,0 +1,926 @@
+{
+  "home": {
+    "name": "HomeIcon",
+    "displayName": "Home",
+    "category": "navigation",
+    "keywords": ["home", "house", "start"],
+    "nodes": [
+      ["path", { "d": "M3 10.75 12 3l9 7.75" }],
+      ["path", { "d": "M5.25 9.75V20a1 1 0 0 0 1 1h11.5a1 1 0 0 0 1-1V9.75" }],
+      ["path", { "d": "M9.5 21v-5.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V21" }]
+    ]
+  },
+  "menu": {
+    "name": "MenuIcon",
+    "displayName": "Menu",
+    "category": "navigation",
+    "keywords": ["menu", "navigation", "hamburger"],
+    "nodes": [
+      ["path", { "d": "M4 7h16" }],
+      ["path", { "d": "M4 12h16" }],
+      ["path", { "d": "M4 17h16" }]
+    ]
+  },
+  "close": {
+    "name": "CloseIcon",
+    "displayName": "Close",
+    "category": "navigation",
+    "keywords": ["close", "dismiss", "cancel"],
+    "nodes": [
+      ["path", { "d": "M6 6l12 12" }],
+      ["path", { "d": "M18 6 6 18" }]
+    ]
+  },
+  "chevron-right": {
+    "name": "ChevronRightIcon",
+    "displayName": "Chevron right",
+    "category": "navigation",
+    "keywords": ["chevron", "next", "right"],
+    "nodes": [
+      ["path", { "d": "m9 6 6 6-6 6" }]
+    ]
+  },
+  "chevron-down": {
+    "name": "ChevronDownIcon",
+    "displayName": "Chevron down",
+    "category": "navigation",
+    "keywords": ["chevron", "expand", "down"],
+    "nodes": [
+      ["path", { "d": "m6 9 6 6 6-6" }]
+    ]
+  },
+  "chevron-left": {
+    "name": "ChevronLeftIcon",
+    "displayName": "Chevron left",
+    "category": "navigation",
+    "keywords": ["chevron", "back", "left"],
+    "nodes": [
+      ["path", { "d": "m15 6-6 6 6 6" }]
+    ]
+  },
+  "chevron-up": {
+    "name": "ChevronUpIcon",
+    "displayName": "Chevron up",
+    "category": "navigation",
+    "keywords": ["chevron", "collapse", "up"],
+    "nodes": [
+      ["path", { "d": "m6 15 6-6 6 6" }]
+    ]
+  },
+  "arrow-left": {
+    "name": "ArrowLeftIcon",
+    "displayName": "Arrow left",
+    "category": "navigation",
+    "keywords": ["arrow", "back", "left"],
+    "nodes": [
+      ["path", { "d": "M19 12H5" }],
+      ["path", { "d": "m10 7-5 5 5 5" }]
+    ]
+  },
+  "arrow-right": {
+    "name": "ArrowRightIcon",
+    "displayName": "Arrow right",
+    "category": "navigation",
+    "keywords": ["arrow", "forward", "right"],
+    "nodes": [
+      ["path", { "d": "M5 12h14" }],
+      ["path", { "d": "m14 7 5 5-5 5" }]
+    ]
+  },
+  "arrow-up": {
+    "name": "ArrowUpIcon",
+    "displayName": "Arrow up",
+    "category": "navigation",
+    "keywords": ["arrow", "up", "move"],
+    "nodes": [
+      ["path", { "d": "M12 19V5" }],
+      ["path", { "d": "m7 10 5-5 5 5" }]
+    ]
+  },
+  "arrow-down": {
+    "name": "ArrowDownIcon",
+    "displayName": "Arrow down",
+    "category": "navigation",
+    "keywords": ["arrow", "down", "move"],
+    "nodes": [
+      ["path", { "d": "M12 5v14" }],
+      ["path", { "d": "m7 14 5 5 5-5" }]
+    ]
+  },
+  "sidebar-left": {
+    "name": "SidebarLeftIcon",
+    "displayName": "Sidebar left",
+    "category": "navigation",
+    "keywords": ["sidebar", "navigation", "panel"],
+    "nodes": [
+      ["rect", { "x": "4", "y": "5", "width": "16", "height": "14", "rx": "1.5" }],
+      ["path", { "d": "M9 5v14" }],
+      ["path", { "d": "m12.5 12 2-2-2-2" }]
+    ]
+  },
+  "search": {
+    "name": "SearchIcon",
+    "displayName": "Search",
+    "category": "actions",
+    "keywords": ["search", "find", "magnify"],
+    "nodes": [
+      ["circle", { "cx": "11", "cy": "11", "r": "6" }],
+      ["path", { "d": "m20 20-4.2-4.2" }]
+    ]
+  },
+  "filter": {
+    "name": "FilterIcon",
+    "displayName": "Filter",
+    "category": "actions",
+    "keywords": ["filter", "refine", "funnel"],
+    "nodes": [
+      ["path", { "d": "M4 6h16" }],
+      ["path", { "d": "M7 12h10" }],
+      ["path", { "d": "M10 18h4" }]
+    ]
+  },
+  "sort": {
+    "name": "SortIcon",
+    "displayName": "Sort",
+    "category": "actions",
+    "keywords": ["sort", "arrange", "order"],
+    "nodes": [
+      ["path", { "d": "M8 6v12" }],
+      ["path", { "d": "m5 9 3-3 3 3" }],
+      ["path", { "d": "M16 18V6" }],
+      ["path", { "d": "m13 15 3 3 3-3" }]
+    ]
+  },
+  "download": {
+    "name": "DownloadIcon",
+    "displayName": "Download",
+    "category": "actions",
+    "keywords": ["download", "save", "export"],
+    "nodes": [
+      ["path", { "d": "M12 4v10" }],
+      ["path", { "d": "m8 10 4 4 4-4" }],
+      ["path", { "d": "M5 20h14" }]
+    ]
+  },
+  "upload": {
+    "name": "UploadIcon",
+    "displayName": "Upload",
+    "category": "actions",
+    "keywords": ["upload", "send", "import"],
+    "nodes": [
+      ["path", { "d": "M12 20V10" }],
+      ["path", { "d": "m8 14 4-4 4 4" }],
+      ["path", { "d": "M5 4h14" }]
+    ]
+  },
+  "edit": {
+    "name": "EditIcon",
+    "displayName": "Edit",
+    "category": "actions",
+    "keywords": ["edit", "pencil", "update"],
+    "nodes": [
+      ["path", { "d": "M4 20.25h4.75L19 10 14 5 4 15v5.25Z" }],
+      ["path", { "d": "m13.75 5.25 5 5" }]
+    ]
+  },
+  "delete": {
+    "name": "DeleteIcon",
+    "displayName": "Delete",
+    "category": "actions",
+    "keywords": ["delete", "trash", "remove"],
+    "nodes": [
+      ["path", { "d": "M5.5 7.5h13" }],
+      ["path", { "d": "M9 7.5V5.75A.75.75 0 0 1 9.75 5h4.5a.75.75 0 0 1 .75.75V7.5" }],
+      ["path", { "d": "M7.25 7.5 8 19a1 1 0 0 0 1 .93h6a1 1 0 0 0 1-.93l.75-11.5" }],
+      ["path", { "d": "M10 11.25v5.5" }],
+      ["path", { "d": "M14 11.25v5.5" }]
+    ]
+  },
+  "save": {
+    "name": "SaveIcon",
+    "displayName": "Save",
+    "category": "actions",
+    "keywords": ["save", "disk", "store"],
+    "nodes": [
+      ["path", { "d": "M5 5.75A.75.75 0 0 1 5.75 5h9.94c.2 0 .39.08.53.22l2.56 2.56c.14.14.22.33.22.53v9.94a.75.75 0 0 1-.75.75H5.75A.75.75 0 0 1 5 18.25V5.75Z" }],
+      ["path", { "d": "M8 5v5h7V5" }],
+      ["path", { "d": "M8.5 19v-5.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75V19" }]
+    ]
+  },
+  "refresh": {
+    "name": "RefreshIcon",
+    "displayName": "Refresh",
+    "category": "actions",
+    "keywords": ["refresh", "reload", "sync"],
+    "nodes": [
+      ["path", { "d": "M19 7.5V4l-3.5 3.5" }],
+      ["path", { "d": "M19 4a8 8 0 0 0-13.63 3.2" }],
+      ["path", { "d": "M5 16.5V20l3.5-3.5" }],
+      ["path", { "d": "M5 20a8 8 0 0 0 13.63-3.2" }]
+    ]
+  },
+  "external-link": {
+    "name": "ExternalLinkIcon",
+    "displayName": "External link",
+    "category": "actions",
+    "keywords": ["external", "link", "open"],
+    "nodes": [
+      ["path", { "d": "M14 5h5v5" }],
+      ["path", { "d": "M10 14 19 5" }],
+      ["path", { "d": "M19 13.5V18a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4.5" }]
+    ]
+  },
+  "copy": {
+    "name": "CopyIcon",
+    "displayName": "Copy",
+    "category": "actions",
+    "keywords": ["copy", "duplicate", "clipboard"],
+    "nodes": [
+      ["rect", { "x": "8", "y": "8", "width": "11", "height": "12", "rx": "1.5" }],
+      ["path", { "d": "M6.5 16H6A1 1 0 0 1 5 15V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v.5" }]
+    ]
+  },
+  "link": {
+    "name": "LinkIcon",
+    "displayName": "Link",
+    "category": "actions",
+    "keywords": ["link", "url", "connect"],
+    "nodes": [
+      ["path", { "d": "M10 14 8.25 15.75a3 3 0 1 1-4.25-4.25L5.75 9.75A3 3 0 0 1 10 9" }],
+      ["path", { "d": "M14 10l1.75-1.75a3 3 0 1 1 4.25 4.25l-1.75 1.75A3 3 0 0 1 14 15" }],
+      ["path", { "d": "M9 15h6" }]
+    ]
+  },
+  "share": {
+    "name": "ShareIcon",
+    "displayName": "Share",
+    "category": "actions",
+    "keywords": ["share", "send", "forward"],
+    "nodes": [
+      ["circle", { "cx": "17.5", "cy": "6.5", "r": "2" }],
+      ["circle", { "cx": "6.5", "cy": "12", "r": "2" }],
+      ["circle", { "cx": "17.5", "cy": "17.5", "r": "2" }],
+      ["path", { "d": "m8.25 11 7.25-3.5" }],
+      ["path", { "d": "m8.25 13 7.25 3.5" }]
+    ]
+  },
+  "print": {
+    "name": "PrintIcon",
+    "displayName": "Print",
+    "category": "actions",
+    "keywords": ["print", "printer", "hardcopy"],
+    "nodes": [
+      ["path", { "d": "M7 9V5.75A.75.75 0 0 1 7.75 5h8.5a.75.75 0 0 1 .75.75V9" }],
+      ["rect", { "x": "5", "y": "9", "width": "14", "height": "7", "rx": "1.5" }],
+      ["path", { "d": "M7.5 14.5h9V19H7.5z" }],
+      ["circle", { "cx": "16.25", "cy": "12.25", "r": "0.75", "fill": "currentColor", "stroke": "none" }]
+    ]
+  },
+  "plus": {
+    "name": "PlusIcon",
+    "displayName": "Plus",
+    "category": "actions",
+    "keywords": ["plus", "add", "create"],
+    "nodes": [
+      ["path", { "d": "M12 5v14" }],
+      ["path", { "d": "M5 12h14" }]
+    ]
+  },
+  "minus": {
+    "name": "MinusIcon",
+    "displayName": "Minus",
+    "category": "actions",
+    "keywords": ["minus", "remove", "subtract"],
+    "nodes": [
+      ["path", { "d": "M5 12h14" }]
+    ]
+  },
+  "more-horizontal": {
+    "name": "MoreHorizontalIcon",
+    "displayName": "More horizontal",
+    "category": "actions",
+    "keywords": ["more", "ellipsis", "menu"],
+    "nodes": [
+      ["circle", { "cx": "6.5", "cy": "12", "r": "1.25", "fill": "currentColor", "stroke": "none" }],
+      ["circle", { "cx": "12", "cy": "12", "r": "1.25", "fill": "currentColor", "stroke": "none" }],
+      ["circle", { "cx": "17.5", "cy": "12", "r": "1.25", "fill": "currentColor", "stroke": "none" }]
+    ]
+  },
+  "undo": {
+    "name": "UndoIcon",
+    "displayName": "Undo",
+    "category": "actions",
+    "keywords": ["undo", "back", "revert"],
+    "nodes": [
+      ["path", { "d": "M9 8H5V4" }],
+      ["path", { "d": "M5 8c1.9-2.2 4.58-3.5 7.5-3.5 4.42 0 8 3.58 8 8S16.92 20.5 12.5 20.5c-3.1 0-5.8-1.77-7.13-4.35" }]
+    ]
+  },
+  "redo": {
+    "name": "RedoIcon",
+    "displayName": "Redo",
+    "category": "actions",
+    "keywords": ["redo", "forward", "repeat"],
+    "nodes": [
+      ["path", { "d": "M15 8h4V4" }],
+      ["path", { "d": "M19 8c-1.9-2.2-4.58-3.5-7.5-3.5-4.42 0-8 3.58-8 8s3.58 8 8 8c3.1 0 5.8-1.77 7.13-4.35" }]
+    ]
+  },
+  "more-vertical": {
+    "name": "MoreVerticalIcon",
+    "displayName": "More vertical",
+    "category": "actions",
+    "keywords": ["more", "ellipsis", "menu"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "6.5", "r": "1.25", "fill": "currentColor", "stroke": "none" }],
+      ["circle", { "cx": "12", "cy": "12", "r": "1.25", "fill": "currentColor", "stroke": "none" }],
+      ["circle", { "cx": "12", "cy": "17.5", "r": "1.25", "fill": "currentColor", "stroke": "none" }]
+    ]
+  },
+  "export": {
+    "name": "ExportIcon",
+    "displayName": "Export",
+    "category": "actions",
+    "keywords": ["export", "send", "outbound"],
+    "nodes": [
+      ["path", { "d": "M12 5h7v7" }],
+      ["path", { "d": "M19 5 10 14" }],
+      ["path", { "d": "M18 14.5V18a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3.5" }]
+    ]
+  },
+  "import": {
+    "name": "ImportIcon",
+    "displayName": "Import",
+    "category": "actions",
+    "keywords": ["import", "inbound", "receive"],
+    "nodes": [
+      ["path", { "d": "M12 19H5v-7" }],
+      ["path", { "d": "M5 19l9-9" }],
+      ["path", { "d": "M6 10V6a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-4" }]
+    ]
+  },
+  "plus-circle": {
+    "name": "PlusCircleIcon",
+    "displayName": "Plus circle",
+    "category": "actions",
+    "keywords": ["plus", "add", "create"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "M12 8.5v7" }],
+      ["path", { "d": "M8.5 12h7" }]
+    ]
+  },
+  "minus-circle": {
+    "name": "MinusCircleIcon",
+    "displayName": "Minus circle",
+    "category": "actions",
+    "keywords": ["minus", "remove", "subtract"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "M8.5 12h7" }]
+    ]
+  },
+  "check": {
+    "name": "CheckIcon",
+    "displayName": "Check",
+    "category": "status",
+    "keywords": ["check", "success", "done"],
+    "nodes": [
+      ["path", { "d": "m5 12.5 4.25 4.25L19 7" }]
+    ]
+  },
+  "info": {
+    "name": "InfoIcon",
+    "displayName": "Info",
+    "category": "status",
+    "keywords": ["info", "details", "help"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "M12 10.25v5" }],
+      ["circle", { "cx": "12", "cy": "7.5", "r": "0.75", "fill": "currentColor", "stroke": "none" }]
+    ]
+  },
+  "warning": {
+    "name": "WarningIcon",
+    "displayName": "Warning",
+    "category": "status",
+    "keywords": ["warning", "alert", "caution"],
+    "nodes": [
+      ["path", { "d": "M11.2 4.74 4.45 16.5A1.2 1.2 0 0 0 5.49 18.3h13.02a1.2 1.2 0 0 0 1.04-1.8L12.8 4.74a.92.92 0 0 0-1.6 0Z" }],
+      ["path", { "d": "M12 9v3.75" }],
+      ["circle", { "cx": "12", "cy": "15.6", "r": "0.75", "fill": "currentColor", "stroke": "none" }]
+    ]
+  },
+  "error": {
+    "name": "ErrorIcon",
+    "displayName": "Error",
+    "category": "status",
+    "keywords": ["error", "stop", "critical"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "m9 9 6 6" }],
+      ["path", { "d": "m15 9-6 6" }]
+    ]
+  },
+  "pending": {
+    "name": "PendingIcon",
+    "displayName": "Pending",
+    "category": "status",
+    "keywords": ["pending", "waiting", "clock"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "M12 7.5V12l3 2" }]
+    ]
+  },
+  "approval": {
+    "name": "ApprovalIcon",
+    "displayName": "Approval",
+    "category": "status",
+    "keywords": ["approval", "approved", "verified"],
+    "nodes": [
+      ["path", { "d": "M12 4.5 6.25 6.75v5c0 4.06 2.3 6.65 5.75 7.75 3.45-1.1 5.75-3.69 5.75-7.75v-5L12 4.5Z" }],
+      ["path", { "d": "m9.5 12.25 1.75 1.75 3.25-3.5" }]
+    ]
+  },
+  "rejection": {
+    "name": "RejectionIcon",
+    "displayName": "Rejection",
+    "category": "status",
+    "keywords": ["rejection", "rejected", "denied"],
+    "nodes": [
+      ["path", { "d": "M12 4.5 6.25 6.75v5c0 4.06 2.3 6.65 5.75 7.75 3.45-1.1 5.75-3.69 5.75-7.75v-5L12 4.5Z" }],
+      ["path", { "d": "m10 10 4 4" }],
+      ["path", { "d": "m14 10-4 4" }]
+    ]
+  },
+  "in-review": {
+    "name": "InReviewIcon",
+    "displayName": "In review",
+    "category": "status",
+    "keywords": ["review", "inspect", "assessment"],
+    "nodes": [
+      ["path", { "d": "M7 5.75h7.5L18 9.25v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-10.5a1 1 0 0 1 1-1Z" }],
+      ["path", { "d": "M14.5 5.75v3.5H18" }],
+      ["circle", { "cx": "11", "cy": "13", "r": "2.25" }],
+      ["path", { "d": "m14 16 2.25 2.25" }]
+    ]
+  },
+  "completed": {
+    "name": "CompletedIcon",
+    "displayName": "Completed",
+    "category": "status",
+    "keywords": ["completed", "done", "finished"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "m8.5 12 2.5 2.5 4.5-5" }]
+    ]
+  },
+  "flag": {
+    "name": "FlagIcon",
+    "displayName": "Flag",
+    "category": "status",
+    "keywords": ["flag", "mark", "attention"],
+    "nodes": [
+      ["path", { "d": "M7 20V5.5" }],
+      ["path", { "d": "M7 6c2-1.5 4-1.5 6 0s4 1.5 6 0v7c-2 1.5-4 1.5-6 0s-4-1.5-6 0" }]
+    ]
+  },
+  "pause-circle": {
+    "name": "PauseCircleIcon",
+    "displayName": "Pause circle",
+    "category": "status",
+    "keywords": ["pause", "hold", "stopped"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "M10 9.25v5.5" }],
+      ["path", { "d": "M14 9.25v5.5" }]
+    ]
+  },
+  "alert-octagon": {
+    "name": "AlertOctagonIcon",
+    "displayName": "Alert octagon",
+    "category": "status",
+    "keywords": ["alert", "stop", "warning"],
+    "nodes": [
+      ["path", { "d": "M9 3.75h6l5.25 5.25v6L15 20.25H9L3.75 15V9L9 3.75Z" }],
+      ["path", { "d": "M12 8.25v4.75" }],
+      ["circle", { "cx": "12", "cy": "16.2", "r": "0.75", "fill": "currentColor", "stroke": "none" }]
+    ]
+  },
+  "user": {
+    "name": "UserIcon",
+    "displayName": "User",
+    "category": "users",
+    "keywords": ["user", "person", "account"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "8", "r": "3.25" }],
+      ["path", { "d": "M5.5 18.5a6.5 6.5 0 0 1 13 0" }]
+    ]
+  },
+  "users": {
+    "name": "UsersIcon",
+    "displayName": "Users",
+    "category": "users",
+    "keywords": ["users", "group", "team"],
+    "nodes": [
+      ["circle", { "cx": "9", "cy": "8.5", "r": "2.5" }],
+      ["circle", { "cx": "15.5", "cy": "9.5", "r": "2" }],
+      ["path", { "d": "M4.75 18a4.75 4.75 0 0 1 8.5 0" }],
+      ["path", { "d": "M13.5 18a3.75 3.75 0 0 1 5.25-3.44" }]
+    ]
+  },
+  "add-user": {
+    "name": "AddUserIcon",
+    "displayName": "Add user",
+    "category": "users",
+    "keywords": ["user", "add", "invite"],
+    "nodes": [
+      ["circle", { "cx": "10", "cy": "8.5", "r": "3" }],
+      ["path", { "d": "M5.5 18a4.5 4.5 0 0 1 9 0" }],
+      ["path", { "d": "M18 9.5v5" }],
+      ["path", { "d": "M15.5 12h5" }]
+    ]
+  },
+  "remove-user": {
+    "name": "RemoveUserIcon",
+    "displayName": "Remove user",
+    "category": "users",
+    "keywords": ["user", "remove", "delete"],
+    "nodes": [
+      ["circle", { "cx": "10", "cy": "8.5", "r": "3" }],
+      ["path", { "d": "M5.5 18a4.5 4.5 0 0 1 9 0" }],
+      ["path", { "d": "M15.5 12h5" }]
+    ]
+  },
+  "user-check": {
+    "name": "UserCheckIcon",
+    "displayName": "User check",
+    "category": "users",
+    "keywords": ["user", "verified", "approved"],
+    "nodes": [
+      ["circle", { "cx": "10", "cy": "8.5", "r": "3" }],
+      ["path", { "d": "M5.5 18a4.5 4.5 0 0 1 9 0" }],
+      ["path", { "d": "m15.5 12.5 1.5 1.5 3-3" }]
+    ]
+  },
+  "admin": {
+    "name": "AdminIcon",
+    "displayName": "Admin",
+    "category": "users",
+    "keywords": ["admin", "authority", "moderator"],
+    "nodes": [
+      ["path", { "d": "M12 4.5 6.5 7v3.75c0 3.58 2.3 6.88 5.5 8.25 3.2-1.37 5.5-4.67 5.5-8.25V7L12 4.5Z" }],
+      ["circle", { "cx": "12", "cy": "11", "r": "1.75" }],
+      ["path", { "d": "M9.25 16.25a3.15 3.15 0 0 1 5.5 0" }]
+    ]
+  },
+  "lock": {
+    "name": "LockIcon",
+    "displayName": "Lock",
+    "category": "security",
+    "keywords": ["lock", "secure", "privacy"],
+    "nodes": [
+      ["rect", { "x": "5.75", "y": "11", "width": "12.5", "height": "9", "rx": "1.5" }],
+      ["path", { "d": "M8.5 11V8.25a3.5 3.5 0 0 1 7 0V11" }],
+      ["path", { "d": "M12 14.25v2.5" }]
+    ]
+  },
+  "shield": {
+    "name": "ShieldIcon",
+    "displayName": "Shield",
+    "category": "security",
+    "keywords": ["shield", "safety", "protection"],
+    "nodes": [
+      ["path", { "d": "M12 4.5 5.5 7v4.25c0 3.39 2.4 6.48 6.5 8.25 4.1-1.77 6.5-4.86 6.5-8.25V7L12 4.5Z" }],
+      ["path", { "d": "m9.25 12 1.75 1.75L14.75 10" }]
+    ]
+  },
+  "notification": {
+    "name": "NotificationIcon",
+    "displayName": "Notification",
+    "category": "communication",
+    "keywords": ["notification", "bell", "alert"],
+    "nodes": [
+      ["path", { "d": "M8.25 17h7.5c.83 0 1.5-.67 1.5-1.5-.87-.46-1.5-1.35-1.5-2.38V10a3.75 3.75 0 1 0-7.5 0v3.12c0 1.03-.63 1.92-1.5 2.38 0 .83.67 1.5 1.5 1.5Z" }],
+      ["path", { "d": "M10 18a2 2 0 0 0 4 0" }]
+    ]
+  },
+  "mail": {
+    "name": "MailIcon",
+    "displayName": "Mail",
+    "category": "communication",
+    "keywords": ["mail", "email", "message"],
+    "nodes": [
+      ["rect", { "x": "4.5", "y": "6", "width": "15", "height": "12", "rx": "1.5" }],
+      ["path", { "d": "m5.5 7 6.5 5 6.5-5" }]
+    ]
+  },
+  "phone": {
+    "name": "PhoneIcon",
+    "displayName": "Phone",
+    "category": "communication",
+    "keywords": ["phone", "call", "contact"],
+    "nodes": [
+      ["path", { "d": "M8.64 5.75h1.61c.42 0 .78.3.86.7l.46 2.32a1 1 0 0 1-.29.92l-1.22 1.2a13.52 13.52 0 0 0 3.05 3.05l1.2-1.22a1 1 0 0 1 .92-.29l2.32.46c.4.08.7.44.7.86v1.61a1 1 0 0 1-.89 1 10.97 10.97 0 0 1-9.72-9.72 1 1 0 0 1 1-.89Z" }]
+    ]
+  },
+  "calendar": {
+    "name": "CalendarIcon",
+    "displayName": "Calendar",
+    "category": "data",
+    "keywords": ["calendar", "date", "schedule"],
+    "nodes": [
+      ["rect", { "x": "4.5", "y": "5.75", "width": "15", "height": "13.75", "rx": "1.5" }],
+      ["path", { "d": "M8 4.5v3" }],
+      ["path", { "d": "M16 4.5v3" }],
+      ["path", { "d": "M4.5 9.5h15" }]
+    ]
+  },
+  "clock": {
+    "name": "ClockIcon",
+    "displayName": "Clock",
+    "category": "data",
+    "keywords": ["clock", "time", "schedule"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "M12 7.75v4.75l3 1.75" }]
+    ]
+  },
+  "location": {
+    "name": "LocationIcon",
+    "displayName": "Location",
+    "category": "data",
+    "keywords": ["location", "map", "pin"],
+    "nodes": [
+      ["path", { "d": "M12 20s5.25-4.88 5.25-9.12A5.25 5.25 0 1 0 6.75 10.88C6.75 15.12 12 20 12 20Z" }],
+      ["circle", { "cx": "12", "cy": "10.75", "r": "1.75" }]
+    ]
+  },
+  "document": {
+    "name": "DocumentIcon",
+    "displayName": "Document",
+    "category": "files",
+    "keywords": ["document", "file", "record"],
+    "nodes": [
+      ["path", { "d": "M7 4.75A.75.75 0 0 1 7.75 4h6.69c.2 0 .39.08.53.22l2.81 2.81c.14.14.22.33.22.53v11.69a.75.75 0 0 1-.75.75H7.75a.75.75 0 0 1-.75-.75V4.75Z" }],
+      ["path", { "d": "M14 4v4h4" }],
+      ["path", { "d": "M9.5 12h5" }],
+      ["path", { "d": "M9.5 15.5h5" }]
+    ]
+  },
+  "receipt": {
+    "name": "ReceiptIcon",
+    "displayName": "Receipt",
+    "category": "files",
+    "keywords": ["receipt", "invoice", "payment"],
+    "nodes": [
+      ["path", { "d": "M7 4.75A.75.75 0 0 1 7.75 4h8.5a.75.75 0 0 1 .75.75V20l-2.25-1.5L12.5 20 10 18.5 7.75 20 7 19.5V4.75Z" }],
+      ["path", { "d": "M9.5 8.5h5" }],
+      ["path", { "d": "M9.5 12h5" }],
+      ["path", { "d": "M9.5 15.5h3" }]
+    ]
+  },
+  "certificate": {
+    "name": "CertificateIcon",
+    "displayName": "Certificate",
+    "category": "government",
+    "keywords": ["certificate", "issued", "document"],
+    "nodes": [
+      ["rect", { "x": "5", "y": "4.75", "width": "14", "height": "11.5", "rx": "1.5" }],
+      ["path", { "d": "M8.5 9.5h7" }],
+      ["path", { "d": "M8.5 12.5h5" }],
+      ["path", { "d": "m10 16.25-.75 3.25L12 18l2.75 1.5-.75-3.25" }],
+      ["circle", { "cx": "12", "cy": "16.25", "r": "2" }]
+    ]
+  },
+  "folder": {
+    "name": "FolderIcon",
+    "displayName": "Folder",
+    "category": "files",
+    "keywords": ["folder", "directory", "documents"],
+    "nodes": [
+      ["path", { "d": "M4.75 7.5h5l1.25 1.5h8.25a1 1 0 0 1 1 1v7.25a1 1 0 0 1-1 1H4.75a1 1 0 0 1-1-1V8.5a1 1 0 0 1 1-1Z" }],
+      ["path", { "d": "M3.75 10h16.5" }]
+    ]
+  },
+  "attachment": {
+    "name": "AttachmentIcon",
+    "displayName": "Attachment",
+    "category": "files",
+    "keywords": ["attachment", "clip", "file"],
+    "nodes": [
+      ["path", { "d": "M9.5 12.5 14 8a3 3 0 1 1 4.25 4.25l-6.5 6.5a4.5 4.5 0 1 1-6.36-6.36l6-6" }]
+    ]
+  },
+  "accessibility": {
+    "name": "AccessibilityIcon",
+    "displayName": "Accessibility",
+    "category": "accessibility",
+    "keywords": ["accessibility", "inclusive", "assistive"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "5.5", "r": "1.5" }],
+      ["path", { "d": "M6 9h12" }],
+      ["path", { "d": "M12 7v11.5" }],
+      ["path", { "d": "m8 19 4-5 4 5" }],
+      ["path", { "d": "m8.25 9.5 3.75 4 3.75-4" }]
+    ]
+  },
+  "contrast": {
+    "name": "ContrastIcon",
+    "displayName": "Contrast",
+    "category": "accessibility",
+    "keywords": ["contrast", "theme", "light-dark"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "M12 3.5a8.5 8.5 0 0 1 0 17Z", "fill": "currentColor", "stroke": "none" }]
+    ]
+  },
+  "keyboard": {
+    "name": "KeyboardIcon",
+    "displayName": "Keyboard",
+    "category": "accessibility",
+    "keywords": ["keyboard", "input", "shortcuts"],
+    "nodes": [
+      ["rect", { "x": "3.75", "y": "7", "width": "16.5", "height": "10", "rx": "1.5" }],
+      ["path", { "d": "M7 10h.01" }],
+      ["path", { "d": "M10 10h.01" }],
+      ["path", { "d": "M13 10h.01" }],
+      ["path", { "d": "M16 10h.01" }],
+      ["path", { "d": "M7 13h6" }],
+      ["path", { "d": "M15.5 13h1.5" }]
+    ]
+  },
+  "screen-reader": {
+    "name": "ScreenReaderIcon",
+    "displayName": "Screen reader",
+    "category": "accessibility",
+    "keywords": ["screen-reader", "assistive", "audio"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "8", "r": "2.5" }],
+      ["path", { "d": "M6.5 19.5c.83-2.68 2.77-4.5 5.5-4.5s4.67 1.82 5.5 4.5" }],
+      ["path", { "d": "M18 8.5c1.58.72 2.5 2.01 2.5 3.5s-.92 2.78-2.5 3.5" }],
+      ["path", { "d": "M6 8.5c-1.58.72-2.5 2.01-2.5 3.5S4.42 14.78 6 15.5" }]
+    ]
+  },
+  "settings": {
+    "name": "SettingsIcon",
+    "displayName": "Settings",
+    "category": "system",
+    "keywords": ["settings", "gear", "preferences"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "2.75" }],
+      ["path", { "d": "M12 4.75v1.5" }],
+      ["path", { "d": "M12 17.75v1.5" }],
+      ["path", { "d": "M19.25 12h-1.5" }],
+      ["path", { "d": "M6.25 12h-1.5" }],
+      ["path", { "d": "m17.13 6.87-1.06 1.06" }],
+      ["path", { "d": "m7.93 16.07-1.06 1.06" }],
+      ["path", { "d": "m17.13 17.13-1.06-1.06" }],
+      ["path", { "d": "M7.93 7.93 6.87 6.87" }]
+    ]
+  },
+  "help": {
+    "name": "HelpIcon",
+    "displayName": "Help",
+    "category": "system",
+    "keywords": ["help", "question", "support"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "M9.75 9.25a2.25 2.25 0 1 1 3.87 1.58c-.74.74-1.62 1.24-1.62 2.42" }],
+      ["circle", { "cx": "12", "cy": "16.75", "r": "0.75", "fill": "currentColor", "stroke": "none" }]
+    ]
+  },
+  "dashboard": {
+    "name": "DashboardIcon",
+    "displayName": "Dashboard",
+    "category": "system",
+    "keywords": ["dashboard", "overview", "home"],
+    "nodes": [
+      ["rect", { "x": "4.25", "y": "4.25", "width": "6.5", "height": "6.5", "rx": "1.25" }],
+      ["rect", { "x": "13.25", "y": "4.25", "width": "6.5", "height": "10.5", "rx": "1.25" }],
+      ["rect", { "x": "4.25", "y": "13.25", "width": "6.5", "height": "6.5", "rx": "1.25" }],
+      ["rect", { "x": "13.25", "y": "17.25", "width": "6.5", "height": "2.5", "rx": "1.25" }]
+    ]
+  },
+  "chart": {
+    "name": "ChartIcon",
+    "displayName": "Chart",
+    "category": "system",
+    "keywords": ["chart", "analytics", "bar"],
+    "nodes": [
+      ["path", { "d": "M5 19.25h14" }],
+      ["rect", { "x": "6.25", "y": "12", "width": "2.5", "height": "6.25", "rx": "1" }],
+      ["rect", { "x": "10.75", "y": "8.75", "width": "2.5", "height": "9.5", "rx": "1" }],
+      ["rect", { "x": "15.25", "y": "5.5", "width": "2.5", "height": "12.75", "rx": "1" }]
+    ]
+  },
+  "table": {
+    "name": "TableIcon",
+    "displayName": "Table",
+    "category": "system",
+    "keywords": ["table", "grid", "data"],
+    "nodes": [
+      ["rect", { "x": "4.5", "y": "5", "width": "15", "height": "14", "rx": "1.5" }],
+      ["path", { "d": "M4.5 10h15" }],
+      ["path", { "d": "M9.5 5v14" }],
+      ["path", { "d": "M14.5 5v14" }]
+    ]
+  },
+  "list": {
+    "name": "ListIcon",
+    "displayName": "List",
+    "category": "system",
+    "keywords": ["list", "rows", "items"],
+    "nodes": [
+      ["path", { "d": "M9 7h10" }],
+      ["path", { "d": "M9 12h10" }],
+      ["path", { "d": "M9 17h10" }],
+      ["circle", { "cx": "5.5", "cy": "7", "r": "0.75", "fill": "currentColor", "stroke": "none" }],
+      ["circle", { "cx": "5.5", "cy": "12", "r": "0.75", "fill": "currentColor", "stroke": "none" }],
+      ["circle", { "cx": "5.5", "cy": "17", "r": "0.75", "fill": "currentColor", "stroke": "none" }]
+    ]
+  },
+  "grid": {
+    "name": "GridIcon",
+    "displayName": "Grid",
+    "category": "system",
+    "keywords": ["grid", "tiles", "layout"],
+    "nodes": [
+      ["rect", { "x": "4.5", "y": "4.5", "width": "6", "height": "6", "rx": "1.25" }],
+      ["rect", { "x": "13.5", "y": "4.5", "width": "6", "height": "6", "rx": "1.25" }],
+      ["rect", { "x": "4.5", "y": "13.5", "width": "6", "height": "6", "rx": "1.25" }],
+      ["rect", { "x": "13.5", "y": "13.5", "width": "6", "height": "6", "rx": "1.25" }]
+    ]
+  },
+  "visibility": {
+    "name": "VisibilityIcon",
+    "displayName": "Visibility",
+    "category": "system",
+    "keywords": ["visibility", "show", "view"],
+    "nodes": [
+      ["path", { "d": "M3.75 12s3-5.25 8.25-5.25S20.25 12 20.25 12 17.25 17.25 12 17.25 3.75 12 3.75 12Z" }],
+      ["circle", { "cx": "12", "cy": "12", "r": "2.25" }]
+    ]
+  },
+  "hide": {
+    "name": "HideIcon",
+    "displayName": "Hide",
+    "category": "system",
+    "keywords": ["hide", "hidden", "visibility-off"],
+    "nodes": [
+      ["path", { "d": "M4.5 4.5 19.5 19.5" }],
+      ["path", { "d": "M10.6 7.02A9.86 9.86 0 0 1 12 6.75c5.25 0 8.25 5.25 8.25 5.25a15.7 15.7 0 0 1-2.48 3.14" }],
+      ["path", { "d": "M8.1 8.1C5.79 9.33 4.5 12 4.5 12s3 5.25 8.25 5.25c1.34 0 2.54-.34 3.62-.87" }],
+      ["path", { "d": "M10.5 10.5a2.12 2.12 0 0 0 3 3" }]
+    ]
+  },
+  "language": {
+    "name": "LanguageIcon",
+    "displayName": "Language",
+    "category": "system",
+    "keywords": ["language", "translate", "globe"],
+    "nodes": [
+      ["circle", { "cx": "12", "cy": "12", "r": "8.5" }],
+      ["path", { "d": "M3.5 12h17" }],
+      ["path", { "d": "M12 3.5c2.67 2.25 4.25 5.36 4.25 8.5S14.67 18.25 12 20.5" }],
+      ["path", { "d": "M12 3.5C9.33 5.75 7.75 8.86 7.75 12S9.33 18.25 12 20.5" }]
+    ]
+  },
+  "service": {
+    "name": "ServiceIcon",
+    "displayName": "Service",
+    "category": "government",
+    "keywords": ["service", "workflow", "public service"],
+    "nodes": [
+      ["rect", { "x": "4.5", "y": "6", "width": "15", "height": "12", "rx": "1.5" }],
+      ["path", { "d": "M8 10h8" }],
+      ["path", { "d": "M8 14h5" }],
+      ["path", { "d": "m15.5 13 1.75 1.75L20 12" }]
+    ]
+  },
+  "case": {
+    "name": "CaseIcon",
+    "displayName": "Case",
+    "category": "government",
+    "keywords": ["case", "task", "workflow"],
+    "nodes": [
+      ["rect", { "x": "4.5", "y": "7", "width": "15", "height": "11.5", "rx": "1.5" }],
+      ["path", { "d": "M9 7V5.75A.75.75 0 0 1 9.75 5h4.5a.75.75 0 0 1 .75.75V7" }],
+      ["path", { "d": "M4.5 11.5h15" }],
+      ["path", { "d": "m10.5 14 1.25 1.25L14.5 12.5" }]
+    ]
+  },
+  "id-card": {
+    "name": "IdCardIcon",
+    "displayName": "ID card",
+    "category": "government",
+    "keywords": ["identity", "id", "verification"],
+    "nodes": [
+      ["rect", { "x": "3.75", "y": "6", "width": "16.5", "height": "12", "rx": "1.5" }],
+      ["circle", { "cx": "8.5", "cy": "12", "r": "2" }],
+      ["path", { "d": "M6.25 15.5a2.75 2.75 0 0 1 4.5 0" }],
+      ["path", { "d": "M13 10h4.5" }],
+      ["path", { "d": "M13 13h4.5" }]
+    ]
+  }
+}

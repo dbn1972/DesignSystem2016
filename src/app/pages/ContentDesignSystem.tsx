@@ -60,10 +60,10 @@ export default function ContentDesignSystem() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 dark:bg-green-950/30 border-2 border-green-300 dark:border-green-800 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 dark:border-blue-800 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 dark:text-blue-300 font-bold text-xs text-center uppercase">
                 Content<br/>Standard
               </div>
             </div>
@@ -146,7 +146,7 @@ function OverviewSection() {
         <h2 className="text-2xl font-bold text-foreground">System Overview</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950/30 dark:to-blue-950/30 border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
         <h3 className="font-bold text-foreground mb-4 text-lg">Why Content Design Matters</h3>
         <p className="text-muted-foreground mb-4">
           Inconsistent labels, confusing error messages, and unclear helper text create friction for users. 
@@ -722,7 +722,7 @@ function UsageGuideSection() {
         <h2 className="text-2xl font-bold text-foreground">Usage Guide</h2>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-50 to-green-50 border-2 border-border rounded-lg p-6">
+      <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-950/30 dark:to-green-950/30 border-2 border-border rounded-lg p-6">
         <h3 className="font-bold text-foreground mb-3">How to Use the Content Library</h3>
         <div className="space-y-4 text-sm text-muted-foreground">
           <div className="flex items-start gap-3">
@@ -833,7 +833,7 @@ function ContactForm() {
 function ContentLibrary() {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-br from-green-50 to-blue-50 border-b-2 border-border px-4 py-3">
+      <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950/30 dark:to-blue-950/30 border-b-2 border-border px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Content Library</h3>
       </div>
       <div className="p-4 text-xs space-y-3">
@@ -942,7 +942,7 @@ function PrincipleCard({ number, title, description, examples }: {
 }) {
   return (
     <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
-      <div className="bg-gradient-to-r from-green-50 to-blue-50 border-b-2 border-border px-6 py-4">
+      <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-950/30 dark:to-blue-950/30 border-b-2 border-border px-6 py-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
             {number}

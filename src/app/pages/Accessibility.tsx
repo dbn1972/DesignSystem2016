@@ -1,54 +1,75 @@
-import { Check, X, Info, AlertCircle, Eye, Keyboard, Monitor, Volume2, FileText } from "lucide-react";
+import { Check, X, Info, AlertCircle, Eye, Keyboard, Monitor, Volume2, FileText, Download, Copy, Package, Code2, Terminal, Shield } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import LegalPageLayout from "../components/LegalPageLayout";
+import { AccessibilityIllustration } from "../components/legal-illustrations";
 
 export default function Accessibility() {
   const copy = useAccessibilityCopy();
-  return (
-    <div className="min-h-screen bg-card">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#138808] to-[#0a5504] text-white py-16 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-6">
-            <div className="text-sm uppercase tracking-wide text-green-200 mb-2">{copy.hero.eyebrow}</div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">{copy.hero.title}</h1>
-            <p className="text-xl text-green-100 max-w-3xl mb-6">
-              {copy.hero.description}
-            </p>
-            <div className="flex items-center gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <Check size={20} />
-                <span>{copy.hero.pills.wcag}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check size={20} />
-                <span>{copy.hero.pills.builtIn}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check size={20} />
-                <span>{copy.hero.pills.tested}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Content */}
-      <div className="max-w-7xl mx-auto px-8 py-16 space-y-24">
-        <AccessibilityPrinciples />
-        <ColorContrast />
-        <FocusVisibility />
-        <KeyboardInteraction />
-        <ScreenReader />
-        <SemanticStructure />
-        <FormAccessibility />
-        <ErrorHandling />
-        <TableAccessibility />
-        <ModalAccessibility />
-        <StatusCommunication />
-        <KnownLimitations />
-        <ReviewChecklist />
-      </div>
-    </div>
+  const toc = [
+    { id: 'principles', label: 'Principles' },
+    { id: 'color-contrast', label: 'Color Contrast' },
+    { id: 'focus-visibility', label: 'Focus Visibility' },
+    { id: 'keyboard-interaction', label: 'Keyboard Interaction' },
+    { id: 'screen-reader', label: 'Screen Reader' },
+    { id: 'semantic-structure', label: 'Semantic Structure' },
+    { id: 'form-accessibility', label: 'Form Accessibility' },
+    { id: 'error-handling', label: 'Error Handling' },
+    { id: 'table-accessibility', label: 'Table Accessibility' },
+    { id: 'modal-accessibility', label: 'Modal Accessibility' },
+    { id: 'status-communication', label: 'Status Communication' },
+    { id: 'accessibility-toolkit', label: 'Accessibility Toolkit' },
+    { id: 'known-limitations', label: 'Known Limitations' },
+    { id: 'review-checklist', label: 'Review Checklist' },
+  ];
+
+  return (
+    <LegalPageLayout
+      badge={copy.hero.eyebrow}
+      badgeIcon={<Eye size={14} className="text-[#138808]" />}
+      heroIcon={<Eye size={30} />}
+      title={copy.hero.title}
+      description={copy.hero.description}
+      date="April 18, 2026"
+      dateLabel="Last Updated"
+      sidebarEyebrow="UX4G Standard"
+      sidebarTitle="Accessibility"
+      sidebarPill="WCAG 2.1 AA"
+      metrics={[
+        { value: '14', label: 'Sections' },
+        { value: 'AA', label: 'WCAG Level' },
+        { value: '25+', label: 'Toolkit Features' },
+        { value: '100%', label: 'Keyboard Operable' },
+      ]}
+      note={{
+        title: 'Important',
+        text: 'This page documents the accessibility standards, patterns, and toolkit built into the UX4G Design System. The accessibility toolkit provides user-facing controls but does not replace the need for proper semantic HTML, color contrast, and screen reader testing throughout your site.',
+      }}
+      breadcrumbTitle="Accessibility"
+      breadcrumbHome="Home"
+      breadcrumbGovernance="Foundations"
+      toc={toc}
+      footerQuestion="Questions about accessibility?"
+      footerDesc="Contact the UX4G accessibility team for guidance on implementing accessible government digital services."
+      illustration={<AccessibilityIllustration />}
+      accentColor="#138808"
+    >
+      <AccessibilityPrinciples />
+      <ColorContrast />
+      <FocusVisibility />
+      <KeyboardInteraction />
+      <ScreenReader />
+      <SemanticStructure />
+      <FormAccessibility />
+      <ErrorHandling />
+      <TableAccessibility />
+      <ModalAccessibility />
+      <StatusCommunication />
+      <AccessibilityToolkitSection />
+      <KnownLimitations />
+      <ReviewChecklist />
+    </LegalPageLayout>
   );
 }
 
@@ -1296,6 +1317,377 @@ function StatusCommunication() {
                 </code>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AccessibilityToolkitSection() {
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'react' | 'angular'>('react');
+
+  const copyToClipboard = (code: string, id: string) => {
+    navigator.clipboard.writeText(code);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  const downloadCode = (code: string, filename: string) => {
+    const blob = new Blob([code], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const reactInstall = `npm install @ux4g/a11y-core @ux4g/a11y-react`;
+  const reactUsage = `// App.tsx
+import { A11yToolkit } from '@ux4g/a11y-react';
+import '@ux4g/a11y-core/styles/a11y-global.css';
+import '@ux4g/a11y-core/styles/a11y-panel.css';
+
+function App() {
+  return (
+    <A11yToolkit config={{
+      launcherPosition: 'bottom-right',
+      storageKey: 'my-app-a11y',
+      skipToContentSelector: '#main-content',
+      respectReducedMotion: true,
+    }}>
+      <YourApp />
+    </A11yToolkit>
+  );
+}`;
+
+  const reactHookUsage = `// Any component
+import { useA11y } from '@ux4g/a11y-react';
+
+function MyComponent() {
+  const { fontSize, toggle, resetAll } = useA11y();
+  return (
+    <button onClick={() => toggle('highContrast')}>
+      Toggle High Contrast
+    </button>
+  );
+}`;
+
+  const angularInstall = `npm install @ux4g/a11y-core @ux4g/a11y-angular`;
+  const angularConfig = `// app.config.ts
+import { provideA11yToolkit } from '@ux4g/a11y-angular';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideA11yToolkit({
+      launcherPosition: 'bottom-right',
+      storageKey: 'my-app-a11y',
+      skipToContentSelector: '#main-content',
+    }),
+  ],
+};`;
+
+  const angularTemplate = `// app.component.ts
+import { A11yToolkitComponent } from '@ux4g/a11y-angular';
+
+@Component({
+  standalone: true,
+  imports: [RouterOutlet, A11yToolkitComponent],
+  template: \`
+    <ux4g-a11y-toolkit />
+    <router-outlet />
+  \`,
+})
+export class AppComponent {}`;
+
+  const angularService = `// Any component
+import { A11yService } from '@ux4g/a11y-angular';
+
+@Component({ ... })
+export class MyComponent {
+  private a11y = inject(A11yService);
+
+  toggleContrast() {
+    this.a11y.toggle('highContrast');
+  }
+}`;
+
+  const angularStyles = `// angular.json → styles array
+"styles": [
+  "node_modules/@ux4g/a11y-core/styles/a11y-global.css",
+  "node_modules/@ux4g/a11y-core/styles/a11y-panel.css"
+]`;
+
+  const features = [
+    'Increase / decrease / reset text size',
+    'Line height & letter spacing controls',
+    'Dyslexia-friendly font toggle',
+    'High / dark / light contrast modes',
+    'Invert colors, grayscale, desaturate',
+    'Highlight links & headings',
+    'Larger cursor',
+    'Reading guide & reading mask',
+    'Pause animations (respects prefers-reduced-motion)',
+    'Hide images',
+    'Strong focus indicator & keyboard nav',
+    'Skip to content',
+    'Persist settings across reloads',
+    'Reset all settings',
+    'Keyboard shortcut: Alt + A',
+    'Screen-reader announcements',
+    'Hindi label translations included',
+  ];
+
+  const CopyBtn = ({ code, id }: { code: string; id: string }) => (
+    <button
+      onClick={() => copyToClipboard(code, id)}
+      aria-label={copiedId === id ? 'Copied' : 'Copy code'}
+      className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground hover:bg-muted hover:text-foreground transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]"
+    >
+      {copiedId === id ? <Check size={14} /> : <Copy size={14} />}
+    </button>
+  );
+
+  return (
+    <section id="accessibility-toolkit">
+      <SectionHeader
+        title="Accessibility Toolkit"
+        description="A production-ready, plug-and-play accessibility widget for React and Angular applications. Drop it into your app to give users control over text size, contrast, spacing, animations, and more."
+      />
+
+      <div className="mt-8 space-y-8">
+        {/* Feature overview */}
+        <div className="bg-[#005196]/5 border-2 border-[#005196]/20 rounded-xl p-6 lg:p-8">
+          <div className="flex items-start gap-4 mb-6">
+            <div className="w-12 h-12 rounded-xl bg-[#005196] text-white flex items-center justify-center flex-shrink-0">
+              <Eye size={24} />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-1">25 Accessibility Features</h3>
+              <p className="text-muted-foreground text-sm">
+                Framework-independent core with React and Angular bindings. Shared CSS, shared state machine, shared persistence.
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+            {features.map((f, i) => (
+              <div key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Check size={14} className="text-green-600 mt-0.5 flex-shrink-0" />
+                <span>{f}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Architecture diagram */}
+        <div className="border-2 border-border rounded-xl p-6">
+          <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+            <Package size={20} className="text-[#005196]" />
+            Package Architecture
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-background border border-border rounded-lg p-4">
+              <div className="text-xs font-semibold text-[#005196] uppercase tracking-wide mb-2">@ux4g/a11y-core</div>
+              <p className="text-sm text-muted-foreground mb-3">Framework-independent engine</p>
+              <ul className="text-xs text-muted-foreground space-y-1">
+                <li>• Feature registry & definitions</li>
+                <li>• State machine (pure reducer)</li>
+                <li>• Persistence (localStorage)</li>
+                <li>• Style engine (DOM application)</li>
+                <li>• Config contracts & resolver</li>
+                <li>• CSS stylesheets</li>
+              </ul>
+            </div>
+            <div className="bg-background border border-[#005196]/30 rounded-lg p-4">
+              <div className="text-xs font-semibold text-[#005196] uppercase tracking-wide mb-2">@ux4g/a11y-react</div>
+              <p className="text-sm text-muted-foreground mb-3">React binding</p>
+              <ul className="text-xs text-muted-foreground space-y-1">
+                <li>• Context provider</li>
+                <li>• useA11y / useA11yConfig hooks</li>
+                <li>• A11yToolkit composition root</li>
+                <li>• Launcher, panel, toggle, stepper</li>
+                <li>• Reading guide & mask overlays</li>
+              </ul>
+            </div>
+            <div className="bg-background border border-orange-300/50 rounded-lg p-4">
+              <div className="text-xs font-semibold text-orange-600 uppercase tracking-wide mb-2">@ux4g/a11y-angular</div>
+              <p className="text-sm text-muted-foreground mb-3">Angular binding</p>
+              <ul className="text-xs text-muted-foreground space-y-1">
+                <li>• A11yService (signals-based)</li>
+                <li>• provideA11yToolkit() factory</li>
+                <li>• Standalone components</li>
+                <li>• InjectionToken configuration</li>
+                <li>• SSR-safe browser guards</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Framework tabs */}
+        <div className="border-2 border-border rounded-xl overflow-hidden">
+          <div className="flex border-b border-border">
+            <button
+              onClick={() => setActiveTab('react')}
+              className={`flex-1 px-4 py-3 text-sm font-semibold transition-colors ${
+                activeTab === 'react'
+                  ? 'bg-[#005196] text-white'
+                  : 'bg-background text-muted-foreground hover:bg-muted'
+              }`}
+            >
+              <Code2 size={16} className="inline mr-2" />
+              React Integration
+            </button>
+            <button
+              onClick={() => setActiveTab('angular')}
+              className={`flex-1 px-4 py-3 text-sm font-semibold transition-colors ${
+                activeTab === 'angular'
+                  ? 'bg-[#dd0031] text-white'
+                  : 'bg-background text-muted-foreground hover:bg-muted'
+              }`}
+            >
+              <Code2 size={16} className="inline mr-2" />
+              Angular Integration
+            </button>
+          </div>
+
+          <div className="p-6 space-y-6">
+            {activeTab === 'react' ? (
+              <>
+                {/* React: Install */}
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Terminal size={14} /> 1. Install
+                  </h4>
+                  <div className="relative bg-[#1e293b] rounded-lg p-4 text-sm font-mono text-green-300 overflow-x-auto">
+                    <code>{reactInstall}</code>
+                    <div className="absolute top-2 right-2"><CopyBtn code={reactInstall} id="react-install" /></div>
+                  </div>
+                </div>
+
+                {/* React: Wrap app */}
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Code2 size={14} /> 2. Wrap your app
+                  </h4>
+                  <div className="relative bg-[#1e293b] rounded-lg p-4 text-sm font-mono text-blue-200 overflow-x-auto">
+                    <pre className="whitespace-pre">{reactUsage}</pre>
+                    <div className="absolute top-2 right-2 flex gap-1">
+                      <CopyBtn code={reactUsage} id="react-usage" />
+                      <button onClick={() => downloadCode(reactUsage, 'a11y-react-setup.tsx')} aria-label="Download React setup" className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground hover:bg-muted hover:text-foreground transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                        <Download size={14} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* React: Hook usage */}
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Code2 size={14} /> 3. Use the hook (optional)
+                  </h4>
+                  <div className="relative bg-[#1e293b] rounded-lg p-4 text-sm font-mono text-blue-200 overflow-x-auto">
+                    <pre className="whitespace-pre">{reactHookUsage}</pre>
+                    <div className="absolute top-2 right-2"><CopyBtn code={reactHookUsage} id="react-hook" /></div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Angular: Install */}
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Terminal size={14} /> 1. Install
+                  </h4>
+                  <div className="relative bg-[#1e293b] rounded-lg p-4 text-sm font-mono text-green-300 overflow-x-auto">
+                    <code>{angularInstall}</code>
+                    <div className="absolute top-2 right-2"><CopyBtn code={angularInstall} id="ng-install" /></div>
+                  </div>
+                </div>
+
+                {/* Angular: Styles */}
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Code2 size={14} /> 2. Add styles (angular.json)
+                  </h4>
+                  <div className="relative bg-[#1e293b] rounded-lg p-4 text-sm font-mono text-blue-200 overflow-x-auto">
+                    <pre className="whitespace-pre">{angularStyles}</pre>
+                    <div className="absolute top-2 right-2"><CopyBtn code={angularStyles} id="ng-styles" /></div>
+                  </div>
+                </div>
+
+                {/* Angular: Provider */}
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Code2 size={14} /> 3. Provide at root level
+                  </h4>
+                  <div className="relative bg-[#1e293b] rounded-lg p-4 text-sm font-mono text-blue-200 overflow-x-auto">
+                    <pre className="whitespace-pre">{angularConfig}</pre>
+                    <div className="absolute top-2 right-2 flex gap-1">
+                      <CopyBtn code={angularConfig} id="ng-config" />
+                      <button onClick={() => downloadCode(angularConfig, 'a11y-angular-config.ts')} aria-label="Download Angular config" className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground hover:bg-muted hover:text-foreground transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                        <Download size={14} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Angular: Template */}
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Code2 size={14} /> 4. Add to app shell
+                  </h4>
+                  <div className="relative bg-[#1e293b] rounded-lg p-4 text-sm font-mono text-blue-200 overflow-x-auto">
+                    <pre className="whitespace-pre">{angularTemplate}</pre>
+                    <div className="absolute top-2 right-2 flex gap-1">
+                      <CopyBtn code={angularTemplate} id="ng-template" />
+                      <button onClick={() => downloadCode(angularTemplate, 'a11y-angular-app.ts')} aria-label="Download Angular app component" className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground hover:bg-muted hover:text-foreground transition-colors focus-visible:ring-2 focus-visible:ring-[#005196]">
+                        <Download size={14} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Angular: Service */}
+                <div>
+                  <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Code2 size={14} /> 5. Use the service (optional)
+                  </h4>
+                  <div className="relative bg-[#1e293b] rounded-lg p-4 text-sm font-mono text-blue-200 overflow-x-auto">
+                    <pre className="whitespace-pre">{angularService}</pre>
+                    <div className="absolute top-2 right-2"><CopyBtn code={angularService} id="ng-service" /></div>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Configuration options */}
+        <div className="border-2 border-border rounded-xl p-6">
+          <h3 className="text-lg font-bold text-foreground mb-4">Configuration Options</h3>
+          <div className="bg-background border border-border rounded-lg overflow-hidden">
+            <table className="w-full text-sm">
+              <thead className="bg-muted/50 border-b border-border">
+                <tr>
+                  <th className="text-left p-3 font-semibold">Option</th>
+                  <th className="text-left p-3 font-semibold">Type</th>
+                  <th className="text-left p-3 font-semibold">Default</th>
+                  <th className="text-left p-3 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border text-muted-foreground">
+                <tr><td className="p-3 font-mono text-xs">launcherPosition</td><td className="p-3 text-xs">string</td><td className="p-3 text-xs">'bottom-right'</td><td className="p-3 text-xs">Launcher button position</td></tr>
+                <tr><td className="p-3 font-mono text-xs">panelPlacement</td><td className="p-3 text-xs">string</td><td className="p-3 text-xs">'drawer-right'</td><td className="p-3 text-xs">Panel style: drawer-right, drawer-left, modal</td></tr>
+                <tr><td className="p-3 font-mono text-xs">storageKey</td><td className="p-3 text-xs">string</td><td className="p-3 text-xs">'ux4g-a11y'</td><td className="p-3 text-xs">localStorage namespace</td></tr>
+                <tr><td className="p-3 font-mono text-xs">skipToContentSelector</td><td className="p-3 text-xs">string</td><td className="p-3 text-xs">'#main-content'</td><td className="p-3 text-xs">Skip-link target selector</td></tr>
+                <tr><td className="p-3 font-mono text-xs">respectReducedMotion</td><td className="p-3 text-xs">boolean</td><td className="p-3 text-xs">true</td><td className="p-3 text-xs">Auto-enable pause-animations</td></tr>
+                <tr><td className="p-3 font-mono text-xs">disabledFeatures</td><td className="p-3 text-xs">string[]</td><td className="p-3 text-xs">[]</td><td className="p-3 text-xs">Features to hide from the panel</td></tr>
+                <tr><td className="p-3 font-mono text-xs">labels</td><td className="p-3 text-xs">Partial&lt;A11yLabels&gt;</td><td className="p-3 text-xs">English</td><td className="p-3 text-xs">i18n label overrides (Hindi included)</td></tr>
+                <tr><td className="p-3 font-mono text-xs">onSettingChange</td><td className="p-3 text-xs">function</td><td className="p-3 text-xs">—</td><td className="p-3 text-xs">Analytics callback: (key, value, state)</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
