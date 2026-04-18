@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { List, Grid, Calendar, Filter, Globe } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Segmented Control component for live preview
 const SegmentedControlPreview = ({
@@ -131,36 +132,26 @@ const SegmentedControlPreview = ({
   );
 };
 
-function SegmentedControlPlayground() {
-  const [size, setSize] = React.useState('sm');
-  const [disabled, setDisabled] = React.useState(false);
-  const [fullWidth, setFullWidth] = React.useState(false);
+const SEGMENTEDCONTROL_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'size', label: 'Size', type: 'text', defaultValue: 'sm' },
+  { name: 'disabled', label: 'Disabled', type: 'boolean', defaultValue: false },
+  { name: 'fullWidth', label: 'Full Width', type: 'boolean', defaultValue: false },
+];
 
+function SegmentedControlPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="SegmentedControl"
+      controls={SEGMENTEDCONTROL_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <SegmentedControlPreview options={[{ value: 'grid', label: 'Grid' }, { value: 'list', label: 'List' }, { value: 'calendar', label: 'Calendar' }]} value="grid" size={size} disabled={disabled} fullWidth={fullWidth} />
+          <SegmentedControlPreview options={[{ value: 'grid', label: 'Grid' }, { value: 'list', label: 'List' }, { value: 'calendar', label: 'Calendar' }]} value="grid" size={v.size} disabled={v.disabled} fullWidth={v.fullWidth} />
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <div>
-            <label className="block font-semibold text-foreground mb-1">Size</label>
-            <select value={size} onChange={e => setSize(e.target.value)} className="w-full border border-border rounded px-3 py-2 bg-card text-foreground">
-              <option value="sm">sm</option>
-              <option value="md">md</option>
-              <option value="lg">lg</option>
-            </select>
-          </div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={disabled} onChange={e => setDisabled(e.target.checked)} className="accent-primary" /><span className="text-foreground">Disabled</span></label>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={fullWidth} onChange={e => setFullWidth(e.target.checked)} className="accent-primary" /><span className="text-foreground">Full width</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<SegmentedControl ${size} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<SegmentedControl ${v.size} />`
+      }
+    />
   );
 }
 
@@ -646,11 +637,9 @@ export default function ComponentSegmentedControlPage() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different SegmentedControl configurations in real time.</p>
+          <div className="mb-8">
             <SegmentedControlPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">

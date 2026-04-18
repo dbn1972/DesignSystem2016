@@ -6,6 +6,7 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { TrendingUp, TrendingDown, Users, FileText, DollarSign, Activity } from 'lucide-react';
+import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
 
 // Import the actual Statistic component for live preview
 const StatisticPreview = ({
@@ -90,29 +91,26 @@ const StatisticPreview = ({
   );
 };
 
-function StatisticPlayground() {
-  const [showTrend, setShowTrend] = React.useState(false);
-  const [prefix, setPrefix] = React.useState('');
-  const [loading, setLoading] = React.useState(false);
+const STATISTIC_PLAYGROUND_CONTROLS: PlaygroundControl[] = [
+  { name: 'showTrend', label: 'Show Trend', type: 'boolean', defaultValue: false },
+  { name: 'prefix', label: 'Prefix', type: 'text', defaultValue: '' },
+  { name: 'loading', label: 'Loading', type: 'boolean', defaultValue: false },
+];
 
+function StatisticPlayground() {
   return (
-    <div className="grid lg:grid-cols-[1fr_300px] gap-6">
-      <div className="flex items-center justify-center min-h-[160px] rounded-xl border-2 border-dashed border-border bg-background p-4 sm:p-6 lg:p-8">
+    <ComponentPlayground
+      name="Statistic"
+      controls={STATISTIC_PLAYGROUND_CONTROLS}
+      renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <div className="flex gap-6"><div className="space-y-1"><p className="text-xs text-muted-foreground">{prefix}Pending Cases</p><p className="text-2xl font-bold text-foreground">{prefix}42</p>{showTrend && <span className="text-xs text-green-600">↑ +12%</span>}{loading && <div className="h-6 w-16 bg-muted rounded animate-pulse" />}</div></div>
+          <div className="flex gap-6"><div className="space-y-1"><p className="text-xs text-muted-foreground">{v.prefix}Pending Cases</p><p className="text-2xl font-bold text-foreground">{v.prefix}42</p>{showTrend && <span className="text-xs text-green-600">↑ +12%</span>}{loading && <div className="h-6 w-16 bg-muted rounded animate-pulse" />}</div></div>
         </div>
-      </div>
-      <div className="space-y-4 text-sm">
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={showTrend} onChange={e => setShowTrend(e.target.checked)} className="accent-primary" /><span className="text-foreground">Show Trend</span></label>
-          <div><label className="block font-semibold text-foreground mb-1">Prefix</label><input value={prefix} onChange={e => setPrefix(e.target.value)} placeholder="₹, #, etc." className="w-full border border-border rounded px-3 py-2 bg-card text-foreground" /></div>
-          <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={loading} onChange={e => setLoading(e.target.checked)} className="accent-primary" /><span className="text-foreground">Loading state</span></label>
-        <div className="p-3 rounded-lg bg-muted/50 border border-border">
-          <p className="font-mono text-xs text-muted-foreground break-all">
-            {`<Statistic${showTrend ? ' showTrend' : ''} />`}
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+      codeTemplate={(v) =>
+        `<Statistic${v.showTrend ? ' showTrend' : ''} />`
+      }
+    />
   );
 }
 
@@ -579,11 +577,9 @@ export default function ComponentStatisticPage() {
           </section>
 
           {/* Interactive Playground */}
-          <section className="bg-card rounded-lg border border-border p-6 mb-8">
-            <h2 className="text-2xl font-bold text-foreground mb-2">Interactive Playground</h2>
-            <p className="text-sm text-muted-foreground mb-6">Adjust the controls to preview different Statistic configurations in real time.</p>
+          <div className="mb-8">
             <StatisticPlayground />
-          </section>
+          </div>
 
           {/* Related components */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
