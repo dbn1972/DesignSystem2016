@@ -28,7 +28,7 @@ function GridPlayground() {
       controls={GRID_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <GridPreview cols={Number(columns)}><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">1</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">2</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">3</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">4</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">5</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">6</div></GridPreview>
+          <GridPreview cols={Number(v.columns)}><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">1</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">2</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">3</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">4</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">5</div><div className="p-3 bg-[#005196]/10 rounded text-xs text-center">6</div></GridPreview>
         </div>
       )}
       codeTemplate={(v) =>

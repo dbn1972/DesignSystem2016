@@ -52,7 +52,7 @@ function ShowHidePlayground() {
       controls={SHOWHIDE_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <div className="w-full max-w-sm space-y-2"><p className="text-sm text-foreground">Visible content above</p>{defaultVisible && <div className={`p-3 bg-muted/30 rounded text-sm text-muted-foreground ${v.animated ? "transition-all duration-300" : ""}`}>This content is toggled by ShowHide. It can contain any elements.</div>}{!defaultVisible && <button className="text-xs text-[#005196]">{v.label}</button>}</div>
+          <div className="w-full max-w-sm space-y-2"><p className="text-sm text-foreground">Visible content above</p>{v.defaultVisible && <div className={`p-3 bg-muted/30 rounded text-sm text-muted-foreground ${v.animated ? "transition-all duration-300" : ""}`}>This content is toggled by ShowHide. It can contain any elements.</div>}{!v.defaultVisible && <button className="text-xs text-[#005196]">{v.label}</button>}</div>
         </div>
       )}
       codeTemplate={(v) =>

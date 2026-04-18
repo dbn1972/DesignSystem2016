@@ -104,7 +104,7 @@ function StatisticPlayground() {
       controls={STATISTIC_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <div className="flex gap-6"><div className="space-y-1"><p className="text-xs text-muted-foreground">{v.prefix}Pending Cases</p><p className="text-2xl font-bold text-foreground">{v.prefix}42</p>{showTrend && <span className="text-xs text-green-600">↑ +12%</span>}{loading && <div className="h-6 w-16 bg-muted rounded animate-pulse" />}</div></div>
+          <div className="flex gap-6"><div className="space-y-1"><p className="text-xs text-muted-foreground">{v.prefix}Pending Cases</p><p className="text-2xl font-bold text-foreground">{v.prefix}42</p>{v.showTrend && <span className="text-xs text-green-600">↑ +12%</span>}{v.loading && <div className="h-6 w-16 bg-muted rounded animate-pulse" />}</div></div>
         </div>
       )}
       codeTemplate={(v) =>

@@ -52,7 +52,7 @@ function TablePlayground() {
       controls={TABLE_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <div className={`w-full overflow-hidden rounded-lg ${v.bordered ? "border border-border" : ""}`}><table className="w-full text-sm"><thead className="bg-muted"><tr><th className="px-4 py-2 text-left font-semibold">Application</th><th className="px-4 py-2 text-left font-semibold">Status</th><th className="px-4 py-2 text-left font-semibold">Date</th></tr></thead><tbody>{[["CERT-001","Pending","12 Apr"],["CERT-002","Approved","10 Apr"],["CERT-003","Rejected","8 Apr"]].map(([id,status,date], i) => <tr key={i} className={`border-t border-border ${striped && i % 2 === 1 ? "bg-muted/30" : ""}`}><td className="px-4 py-2">{id}</td><td className="px-4 py-2">{status}</td><td className="px-4 py-2">{date}</td></tr>)}</tbody></table></div>
+          <div className={`w-full overflow-hidden rounded-lg ${v.bordered ? "border border-border" : ""}`}><table className="w-full text-sm"><thead className="bg-muted"><tr><th className="px-4 py-2 text-left font-semibold">Application</th><th className="px-4 py-2 text-left font-semibold">Status</th><th className="px-4 py-2 text-left font-semibold">Date</th></tr></thead><tbody>{[["CERT-001","Pending","12 Apr"],["CERT-002","Approved","10 Apr"],["CERT-003","Rejected","8 Apr"]].map(([id,status,date], i) => <tr key={i} className={`border-t border-border ${v.striped && i % 2 === 1 ? "bg-muted/30" : ""}`}><td className="px-4 py-2">{id}</td><td className="px-4 py-2">{status}</td><td className="px-4 py-2">{date}</td></tr>)}</tbody></table></div>
         </div>
       )}
       codeTemplate={(v) =>
@@ -246,12 +246,12 @@ export const Table: React.FC<TableProps> = ({
           ))}
         </tr>
       </thead>
-      <tbody className={\`divide-y divide-border \${striped ? 'divide-y-0' : ''}\`}>
+      <tbody className={\`divide-y divide-border \${v.striped ? 'divide-y-0' : ''}\`}>
         {data.map((row, rowIndex) => (
           <tr
             key={rowIndex}
             className={\`
-              \${striped && rowIndex % 2 === 0 ? 'bg-background' : 'bg-card'}
+              \${v.striped && rowIndex % 2 === 0 ? 'bg-background' : 'bg-card'}
               \${hoverable ? 'hover:bg-muted' : ''}
             \`}
           >

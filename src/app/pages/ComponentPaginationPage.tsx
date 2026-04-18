@@ -89,7 +89,7 @@ function PaginationPlayground() {
       controls={PAGINATION_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <PaginationPreview totalPages={Math.ceil(50 / Number(pageSize))} showFirstLast={v.showFirstLast} showTotal={v.showTotal} pageSize={Number(pageSize)} />
+          <PaginationPreview totalPages={Math.ceil(50 / Number(v.pageSize))} showFirstLast={v.showFirstLast} showTotal={v.showTotal} pageSize={Number(v.pageSize)} />
         </div>
       )}
       codeTemplate={(v) =>

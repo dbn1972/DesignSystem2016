@@ -405,7 +405,7 @@ function SkeletonPlayground() {
       controls={SKELETON_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <SkeletonPreview variant={v.variant} animated={animation !== "none"} />
+          <SkeletonPreview variant={v.variant} animated={v.animation !== "none"} />
         </div>
       )}
       codeTemplate={(v) =>

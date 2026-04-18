@@ -13,11 +13,11 @@ const TextareaPreview = ({ placeholder, rows = 4, disabled = false, error = fals
   return (
     <div className="w-full max-w-md">
       <textarea
-        value={value}
+        value={v.value}
         onChange={(e) => setValue(e.target.value)}
         placeholder={placeholder}
-        rows={rows}
-        disabled={disabled}
+        rows={v.rows}
+        disabled={v.disabled}
         className={`w-full px-4 py-3 border rounded-lg resize-y focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${
           error 
             ? 'border-red-500 focus-visible:ring-red-500' 
@@ -48,15 +48,10 @@ function TextareaPlayground() {
             rows={v.rows}
             disabled={v.disabled}
             maxLength={v.maxLength}
-            value={v.value}
-            onChange={e => setValue(e.target.value)}
             placeholder="Enter additional remarks..."
             className={`w-full px-4 py-3 border rounded-lg resize-y focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${v.error ? 'border-red-500 focus-visible:ring-red-500' : 'border-border focus-visible:ring-[#005196]'} ${v.disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
           />
-          <div className="flex justify-between mt-1">
-            {error && <p className="text-sm text-red-600">This field is required</p>}
-            <p className="text-xs text-muted-foreground ml-auto">{value.length}/{v.maxLength}</p>
-          </div>
+          {v.error && <p className="mt-1 text-sm text-red-600">This field is required</p>}
         </div>
       )}
       codeTemplate={(v) =>
@@ -194,7 +189,7 @@ function Example() {
   return (
     <Textarea
       placeholder="Enter your comments..."
-      value={value}
+      value={v.value}
       onChange={(e) => setValue(e.target.value)}
       rows={4}
     />
@@ -412,9 +407,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             textareaVariants({ error, fullWidth, resize }),
             className
           )}
-          disabled={disabled}
-          maxLength={maxLength}
-          value={value}
+          disabled={v.disabled}
+          maxLength={v.maxLength}
+          value={v.value}
           onChange={handleChange}
           aria-invalid={error}
           aria-describedby={cn(
@@ -444,7 +439,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           {(showCharCount || maxLength) && (
             <p className="text-sm text-muted-foreground ml-4">
               {charCount}
-              {maxLength && \` / \${maxLength}\`}
+              {maxLength && \` / \${v.maxLength}\`}
             </p>
           )}
         </div>
