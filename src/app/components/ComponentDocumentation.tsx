@@ -334,183 +334,16 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Overview Tab */}
         {activeTab === 'overview' && (
-          <div className="lg:grid lg:grid-cols-[200px_1fr] lg:gap-10">
-            {/* Sticky left TOC */}
-            <aside className="hidden lg:block">
-              <nav className="sticky top-24 space-y-0.5" aria-label="On this page">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-3">On this page</p>
-                {[
-                  { id: 'section-playground', label: 'Playground' },
-                  { id: 'section-installation', label: 'Installation' },
-                  ...(additionalContent ? [{ id: 'section-guidance', label: 'Usage Guidance' }] : []),
-                  { id: 'section-accessibility', label: 'Accessibility' },
-                  ...(useCases && useCases.length > 0 ? [{ id: 'section-usecases', label: 'Use Cases' }] : []),
-                ].map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="block text-[13px] py-1.5 pl-3 border-l-2 border-transparent text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-            </aside>
-
-            {/* Main content */}
-            <div className="min-w-0 space-y-8">
-
-            {/* 1. PLAYGROUND — the hero of the page */}
-            <section id="section-playground">
-              {/* Show the preview inside the playground context */}
-              {preview && (
-                <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm mb-6">
-                  <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-muted/20">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Preview</span>
-                    <Link
-                      to={`/components/sandbox?source=${name.toLowerCase()}`}
-                      className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary/30 hover:text-primary"
-                    >
-                      <Play size={12} />
-                      Open in Sandbox
-                    </Link>
-                  </div>
-                  <div className="p-6 flex items-center justify-center min-h-[120px]">
-                    {preview}
-                  </div>
-                </div>
-              )}
-              {/* Interactive playground from additionalContent will render here via the page */}
-            </section>
-
-            {/* 2. ADDITIONAL CONTENT — When to Use, Do/Don't, Playground, Related, Changelog, Research */}
-            {additionalContent && (
-              <div id="section-guidance" className="space-y-0">
-                {additionalContent}
-              </div>
-            )}
-
-            {/* 3. INSTALLATION */}
-            <section id="section-installation" className="bg-card rounded-xl border border-border p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-foreground mb-4">Installation</h2>
-              <div className="space-y-4">
-                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  <InstallCard
-                    title="React"
-                    body="@ux4g/react-core"
-                    code="npm install @ux4g/react-core @ux4g/tokens @ux4g/styles react react-dom"
-                    copyId="install-react"
-                    copiedCode={copiedCode}
-                    onCopy={copyToClipboard}
-                  />
-                  <InstallCard
-                    title="Angular"
-                    body="@ux4g/angular-core"
-                    code="npm install @ux4g/angular-core @ux4g/tokens @ux4g/styles"
-                    copyId="install-angular"
-                    copiedCode={copiedCode}
-                    onCopy={copyToClipboard}
-                  />
-                  {webComponentsCode && (
-                    <InstallCard
-                      title="Web Components"
-                      body="@ux4g/web-components"
-                      code={webComponentsCode.package || "npm install @ux4g/web-components @ux4g/styles"}
-                      copyId="install-web"
-                      copiedCode={copiedCode}
-                      onCopy={copyToClipboard}
-                    />
-                  )}
-                </div>
-              </div>
-            </section>
-
-            {/* 4. ACCESSIBILITY */}
-            <section id="section-accessibility" className="bg-card rounded-xl border border-border p-6 shadow-sm">
-              <h2 className="text-xl font-bold text-foreground mb-4">Accessibility</h2>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-2">WCAG Compliance</h3>
-                  <p className="text-muted-foreground">{accessibility.wcagLevel}</p>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-3">Features</h3>
-                  <ul className="space-y-2">
-                    {accessibility.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                        <Check size={16} className="text-[#138808] mt-0.5 shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-3">Keyboard Support</h3>
-                  <div className="overflow-x-auto">
-                    <table className="min-w-full divide-y divide-border">
-                      <thead className="bg-background">
-                        <tr>
-                          <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Key</th>
-                          <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-border">
-                        {accessibility.keyboardSupport.map((item, idx) => (
-                          <tr key={idx}>
-                            <td className="px-4 py-3 text-sm font-mono bg-background">{item.key}</td>
-                            <td className="px-4 py-3 text-sm text-muted-foreground">{item.action}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-sm font-semibold text-muted-foreground mb-3">Screen Reader Support</h3>
-                  <ul className="space-y-2">
-                    {accessibility.screenReader.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                        <Info size={16} className="text-[#005196] mt-0.5 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* Use Cases */}
-            {useCases && useCases.length > 0 && (
-              <section id="section-usecases" className="bg-card rounded-xl border border-border p-6 shadow-sm">
-                <h2 className="text-xl font-bold text-foreground mb-4">Government Service Use Cases</h2>
-                <div className="grid gap-4 md:grid-cols-2">
-                  {useCases.map((useCase, idx) => (
-                    <div key={idx} className="group border border-border rounded-xl p-5 hover:border-[#005196] hover:shadow-md transition-all bg-gradient-to-br from-transparent to-[#005196]/[0.02]">
-                      <div className="flex items-start gap-3 mb-3">
-                        <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#005196]/10 text-[#005196] text-sm font-bold shrink-0">{idx + 1}</span>
-                        <h3 className="text-base font-semibold text-foreground group-hover:text-[#005196] transition-colors">{useCase.title}</h3>
-                      </div>
-                      <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{useCase.description}</p>
-                      <div className="space-y-2">
-                        <div className="flex gap-2">
-                          <span className="text-sm font-semibold text-muted-foreground min-w-[120px]">Scenario:</span>
-                          <span className="text-sm text-muted-foreground">{useCase.scenario}</span>
-                        </div>
-                        <div className="flex gap-2">
-                          <span className="text-sm font-semibold text-muted-foreground min-w-[120px]">Implementation:</span>
-                          <code className="text-sm text-[#005196] bg-background px-2 py-1 rounded">{useCase.implementation}</code>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-            </div>
-          </div>
+          <OverviewTab
+            name={name}
+            additionalContent={additionalContent}
+            preview={preview}
+            webComponentsCode={webComponentsCode}
+            copiedCode={copiedCode}
+            copyToClipboard={copyToClipboard}
+            accessibility={accessibility}
+            useCases={useCases}
+          />
         )}
 
         {/* Props API Tab */}
@@ -883,6 +716,194 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
     </div>
   );
 };
+
+/* ------------------------------------------------------------------ */
+/*  OverviewTab — 2-column layout with scroll-spy TOC                  */
+/* ------------------------------------------------------------------ */
+
+const OVERVIEW_SECTIONS = [
+  { id: 'section-guidance', label: 'Playground' },
+  { id: 'section-installation', label: 'Installation' },
+  { id: 'section-accessibility', label: 'Accessibility' },
+  { id: 'section-usecases', label: 'Use Cases' },
+];
+
+function OverviewTab({
+  name,
+  additionalContent,
+  preview,
+  webComponentsCode,
+  copiedCode,
+  copyToClipboard,
+  accessibility,
+  useCases,
+}: {
+  name: string;
+  additionalContent?: React.ReactNode;
+  preview?: React.ReactNode;
+  webComponentsCode?: { package?: string; component: string; html: string };
+  copiedCode: string | null;
+  copyToClipboard: (code: string, id: string) => void;
+  accessibility: { wcagLevel: string; features: string[]; keyboardSupport: { key: string; action: string }[]; screenReader: string[] };
+  useCases?: { title: string; description: string; scenario?: string; implementation?: string }[];
+}) {
+  const [activeId, setActiveId] = useState('');
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  // Build TOC items based on what content exists
+  const tocItems = [
+    ...(additionalContent ? [{ id: 'section-guidance', label: 'Playground' }] : []),
+    { id: 'section-installation', label: 'Installation' },
+    { id: 'section-accessibility', label: 'Accessibility' },
+    ...(useCases && useCases.length > 0 ? [{ id: 'section-usecases', label: 'Use Cases' }] : []),
+  ];
+
+  // Scroll-spy with IntersectionObserver
+  useEffect(() => {
+    observerRef.current?.disconnect();
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
+    );
+
+    tocItems.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observerRef.current!.observe(el);
+    });
+
+    return () => observerRef.current?.disconnect();
+  }, []);
+
+  return (
+    <div className="lg:grid lg:grid-cols-[200px_1fr] lg:gap-10">
+      {/* Sticky left TOC with scroll-spy */}
+      <aside className="hidden lg:block">
+        <nav className="sticky top-24 space-y-0.5" aria-label="On this page">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-3">On this page</p>
+          {tocItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={`block text-[13px] py-1.5 pl-3 border-l-2 transition-colors ${
+                activeId === item.id
+                  ? 'border-primary text-primary font-medium'
+                  : 'border-transparent text-muted-foreground hover:text-primary hover:border-border'
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </aside>
+
+      {/* Main content */}
+      <div className="min-w-0 space-y-8">
+        {/* 1. ADDITIONAL CONTENT — contains Playground, When to Use, Do/Don't, Related, Changelog, Research */}
+        {additionalContent && (
+          <div id="section-guidance" className="space-y-0">
+            {additionalContent}
+          </div>
+        )}
+
+        {/* 2. INSTALLATION */}
+        <section id="section-installation" className="bg-card rounded-xl border border-border p-6 shadow-sm">
+          <h2 className="text-xl font-bold text-foreground mb-4">Installation</h2>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            <InstallCard title="React" body="@ux4g/react-core" code="npm install @ux4g/react-core @ux4g/tokens @ux4g/styles react react-dom" copyId="install-react" copiedCode={copiedCode} onCopy={copyToClipboard} />
+            <InstallCard title="Angular" body="@ux4g/angular-core" code="npm install @ux4g/angular-core @ux4g/tokens @ux4g/styles" copyId="install-angular" copiedCode={copiedCode} onCopy={copyToClipboard} />
+            {webComponentsCode && (
+              <InstallCard title="Web Components" body="@ux4g/web-components" code={webComponentsCode.package || "npm install @ux4g/web-components @ux4g/styles"} copyId="install-web" copiedCode={copiedCode} onCopy={copyToClipboard} />
+            )}
+          </div>
+        </section>
+
+        {/* 3. ACCESSIBILITY */}
+        <section id="section-accessibility" className="bg-card rounded-xl border border-border p-6 shadow-sm">
+          <h2 className="text-xl font-bold text-foreground mb-4">Accessibility</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground mb-2">WCAG Compliance</h3>
+              <p className="text-muted-foreground">{accessibility.wcagLevel}</p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground mb-3">Features</h3>
+              <ul className="space-y-2">
+                {accessibility.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-muted-foreground">
+                    <Check size={16} className="text-[#138808] mt-0.5 shrink-0" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground mb-3">Keyboard Support</h3>
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-border">
+                  <thead className="bg-background">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Key</th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-muted-foreground uppercase">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {accessibility.keyboardSupport.map((item, idx) => (
+                      <tr key={idx}>
+                        <td className="px-4 py-3 text-sm font-mono bg-background">{item.key}</td>
+                        <td className="px-4 py-3 text-sm text-muted-foreground">{item.action}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-muted-foreground mb-3">Screen Reader Support</h3>
+              <ul className="space-y-2">
+                {accessibility.screenReader.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-muted-foreground">
+                    <Info size={16} className="text-[#005196] mt-0.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. USE CASES */}
+        {useCases && useCases.length > 0 && (
+          <section id="section-usecases" className="bg-card rounded-xl border border-border p-6 shadow-sm">
+            <h2 className="text-xl font-bold text-foreground mb-4">Government Service Use Cases</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              {useCases.map((useCase, idx) => (
+                <div key={idx} className="group border border-border rounded-xl p-5 hover:border-[#005196] hover:shadow-md transition-all">
+                  <div className="flex items-start gap-3 mb-3">
+                    <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#005196]/10 text-[#005196] text-sm font-bold shrink-0">{idx + 1}</span>
+                    <h3 className="text-base font-semibold text-foreground group-hover:text-[#005196] transition-colors">{useCase.title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{useCase.description}</p>
+                  <div className="space-y-2">
+                    {useCase.scenario && <div className="flex gap-2"><span className="text-sm font-semibold text-muted-foreground min-w-[120px]">Scenario:</span><span className="text-sm text-muted-foreground">{useCase.scenario}</span></div>}
+                    {useCase.implementation && <div className="flex gap-2"><span className="text-sm font-semibold text-muted-foreground min-w-[120px]">Implementation:</span><code className="text-sm text-[#005196] bg-background px-2 py-1 rounded">{useCase.implementation}</code></div>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    </div>
+  );
+}
 
 function InstallCard({
   title,
