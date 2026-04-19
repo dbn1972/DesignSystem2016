@@ -120,6 +120,27 @@ const MSMERegCertificate = lazy(() => import("../../pages/MSMERegCertificate"));
 const MSMERegHelp = lazy(() => import("../../pages/MSMERegHelp"));
 const MSMERegFeedback = lazy(() => import("../../pages/MSMERegFeedback"));
 
+// FSSAI Food License Service (FSSAI)
+const FSSAILicenseService = lazy(() => import("../../pages/FSSAILicenseService"));
+const FSSAILicenseStart = lazy(() => import("../../pages/FSSAILicenseStart"));
+const FSSAILicenseEligibility = lazy(() => import("../../pages/FSSAILicenseEligibility"));
+const FSSAILicenseFormEntityType = lazy(() => import("../../pages/FSSAILicenseFormEntityType"));
+const FSSAILicenseFormDetails = lazy(() => import("../../pages/FSSAILicenseFormDetails"));
+const FSSAILicenseFormAddress = lazy(() => import("../../pages/FSSAILicenseFormAddress"));
+const FSSAILicenseFormAdditional = lazy(() => import("../../pages/FSSAILicenseFormAdditional"));
+const FSSAILicenseDocumentUpload = lazy(() => import("../../pages/FSSAILicenseDocumentUpload"));
+const FSSAILicenseReviewSummary = lazy(() => import("../../pages/FSSAILicenseReviewSummary"));
+const FSSAILicenseDeclaration = lazy(() => import("../../pages/FSSAILicenseDeclaration"));
+const FSSAILicensePaymentSummary = lazy(() => import("../../pages/FSSAILicensePaymentSummary"));
+const FSSAILicensePaymentReceipt = lazy(() => import("../../pages/FSSAILicensePaymentReceipt"));
+const FSSAILicenseSubmission = lazy(() => import("../../pages/FSSAILicenseSubmission"));
+const FSSAILicenseStatusTracker = lazy(() => import("../../pages/FSSAILicenseStatusTracker"));
+const FSSAILicenseMyApplications = lazy(() => import("../../pages/FSSAILicenseMyApplications"));
+const FSSAILicenseOfficerDashboard = lazy(() => import("../../pages/FSSAILicenseOfficerDashboard"));
+const FSSAILicenseCertificate = lazy(() => import("../../pages/FSSAILicenseCertificate"));
+const FSSAILicenseHelp = lazy(() => import("../../pages/FSSAILicenseHelp"));
+const FSSAILicenseFeedback = lazy(() => import("../../pages/FSSAILicenseFeedback"));
+
 const CompanyRegService = lazy(() => import("../../pages/CompanyRegService"));
 const CompanyRegStart = lazy(() => import("../../pages/CompanyRegStart"));
 const CompanyRegEligibility = lazy(() => import("../../pages/CompanyRegEligibility"));
@@ -290,6 +311,27 @@ export const servicesRoutes: RouteObject[] = [
   { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.CERTIFICATE), Component: MSMERegCertificate },
   { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.HELP), Component: MSMERegHelp },
   { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.FEEDBACK), Component: MSMERegFeedback },
+
+  // FSSAI Food License Service (FSSAI)
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.ROOT), Component: FSSAILicenseService },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.START), Component: FSSAILicenseStart },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.ELIGIBILITY), Component: FSSAILicenseEligibility },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.FORM_ENTITY_TYPE), Component: FSSAILicenseFormEntityType },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.FORM_DETAILS), Component: FSSAILicenseFormDetails },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.FORM_ADDRESS), Component: FSSAILicenseFormAddress },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.FORM_ADDITIONAL), Component: FSSAILicenseFormAdditional },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.DOCUMENT_UPLOAD), Component: FSSAILicenseDocumentUpload },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.REVIEW_SUMMARY), Component: FSSAILicenseReviewSummary },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.DECLARATION), Component: FSSAILicenseDeclaration },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.PAYMENT_SUMMARY), Component: FSSAILicensePaymentSummary },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.PAYMENT_RECEIPT), Component: FSSAILicensePaymentReceipt },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.SUBMISSION_SUCCESS), Component: FSSAILicenseSubmission },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.STATUS_TRACKER), Component: FSSAILicenseStatusTracker },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.MY_APPLICATIONS), Component: FSSAILicenseMyApplications },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.OFFICER_DASHBOARD), Component: FSSAILicenseOfficerDashboard },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.CERTIFICATE), Component: FSSAILicenseCertificate },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.HELP), Component: FSSAILicenseHelp },
+  { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.FEEDBACK), Component: FSSAILicenseFeedback },
 
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_IN), Component: IdentitySignIn },
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_UP), Component: IdentitySignUp },
