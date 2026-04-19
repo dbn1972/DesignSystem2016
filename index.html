@@ -61,6 +61,8 @@
     }
     </script>
 
+    <!-- FOUC Prevention: apply stored theme before first paint -->
+    <script>(function(){try{var d=document.documentElement,s=localStorage.getItem('ux4g-theme-color-scheme'),m='light';if(s==='dark')m='dark';else if(s!=='light')m=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';d.setAttribute('data-theme',m);d.style.colorScheme=m;if(m==='dark')d.classList.add('dark');else d.classList.remove('dark');if(localStorage.getItem('ux4g-theme-contrast-mode')==='true')d.setAttribute('data-contrast','high');}catch(e){var d=document.documentElement;d.setAttribute('data-theme','light');d.style.colorScheme='light';}})()</script>
     <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
   </head>
   <body>
