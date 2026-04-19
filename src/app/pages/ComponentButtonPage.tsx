@@ -45,13 +45,25 @@ function ButtonPlayground() {
       name="Button"
       controls={BUTTON_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
-        <div className="w-full max-w-lg">
-          <ButtonPreview {...v} />
-        </div>
+        <ButtonPreview
+          variant={v.variant}
+          size={v.size}
+          disabled={v.disabled || v.loading}
+          style={v.fullWidth ? { width: '100%' } : undefined}
+        >
+          {v.loading && (
+            <span className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          )}
+          {v.label}
+        </ButtonPreview>
       )}
-      codeTemplate={(v) =>
-        `<Button variant="${v.variant}" size="${v.size}"${v.disabled ? ' disabled' : ''}${v.loading ? ' loading' : ''}${v.fullWidth ? ' fullWidth' : ''}>`
-      }
+      codeTemplate={(v) => {
+        const props = [`variant="${v.variant}"`, `size="${v.size}"`];
+        if (v.disabled) props.push('disabled');
+        if (v.loading) props.push('loading');
+        if (v.fullWidth) props.push('fullWidth');
+        return `<Button ${props.join(' ')}>${v.label}</Button>`;
+      }}
     />
   );
 }
