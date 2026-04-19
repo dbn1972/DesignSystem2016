@@ -472,7 +472,7 @@ export function CodeSandbox({
       <div className="grid gap-px bg-border xl:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)]">
         {/* Code panel */}
         <div className="bg-card">
-          <div className="flex items-center justify-between border-b border-border px-4 py-2">
+          <div className="flex items-center justify-between border-b border-border px-4 h-10">
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Editor</span>
             <div className="flex items-center gap-1.5">
               <button
@@ -532,7 +532,7 @@ export function CodeSandbox({
 
         {/* Preview panel */}
         <div className="bg-card">
-          <div className="flex items-center justify-between border-b border-border px-4 py-2">
+          <div className="flex items-center justify-between border-b border-border px-4 h-10">
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Preview</span>
             <span className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
               previewState.status === 'ready' ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400' :
