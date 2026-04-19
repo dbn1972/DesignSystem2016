@@ -6,6 +6,7 @@ export const ROUTE_PATHS = {
     ROOT: "/foundations",
     ACCESSIBILITY: "/accessibility",
     CONTENT_SYSTEM: "/content-system",
+    TOKENS: "/foundations/tokens",
   },
   COMPONENTS: {
     ROOT: "/components",
