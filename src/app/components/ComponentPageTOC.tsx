@@ -1,63 +1,86 @@
 /**
  * Right-side sticky TOC for component documentation pages.
- * Shows section anchors with scroll-spy highlighting.
- * Visible on 2xl+ screens only (when there's room for 3 columns).
+ * Auto-detects h2 headings and section[id] elements with scroll-spy.
  */
 
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
 
-const SECTIONS = [
-  { id: 'section-guidance', label: 'Playground' },
-  { id: 'section-installation', label: 'Installation' },
-  { id: 'section-accessibility', label: 'Accessibility' },
-  { id: 'section-usecases', label: 'Use Cases' },
-];
+interface TOCItem {
+  id: string;
+  label: string;
+}
 
 export default function ComponentPageTOC() {
+  const [items, setItems] = useState<TOCItem[]>([]);
   const [activeId, setActiveId] = useState('');
-  const [visibleIds, setVisibleIds] = useState<string[]>([]);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const { pathname } = useLocation();
 
+  // Scan for sections after page renders
   useEffect(() => {
+    setItems([]);
     setActiveId('');
-    setVisibleIds([]);
 
     const timer = setTimeout(() => {
-      observerRef.current?.disconnect();
+      const found: TOCItem[] = [];
+      const seen = new Set<string>();
 
-      // Find which sections actually exist on this page
-      const existing = SECTIONS.filter(s => document.getElementById(s.id));
-      setVisibleIds(existing.map(s => s.id));
-
-      if (existing.length === 0) return;
-
-      observerRef.current = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              setActiveId(entry.target.id);
-              break;
-            }
-          }
-        },
-        { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
-      );
-
-      existing.forEach(({ id }) => {
-        const el = document.getElementById(id);
-        if (el) observerRef.current!.observe(el);
+      // 1. section[id] elements
+      document.querySelectorAll<HTMLElement>('main section[id]').forEach((sec) => {
+        const h2 = sec.querySelector('h2');
+        const text = h2?.textContent?.trim() || sec.id.replace('section-', '').replace(/-/g, ' ');
+        if (text && text.length < 60 && !seen.has(sec.id)) {
+          found.push({ id: sec.id, label: text });
+          seen.add(sec.id);
+        }
       });
-    }, 500);
 
-    return () => {
-      clearTimeout(timer);
-      observerRef.current?.disconnect();
-    };
+      // 2. h2 elements with or without id
+      document.querySelectorAll<HTMLHeadingElement>('main h2').forEach((h) => {
+        const text = h.textContent?.trim();
+        if (!text || text.length > 60 || seen.has(text)) return;
+        if (!h.id) {
+          h.id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        }
+        if (!seen.has(h.id)) {
+          found.push({ id: h.id, label: text });
+          seen.add(h.id);
+        }
+      });
+
+      setItems(found);
+    }, 600);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
-  if (visibleIds.length === 0) return null;
+  // Scroll-spy
+  useEffect(() => {
+    if (items.length < 2) return;
+    observerRef.current?.disconnect();
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
+    );
+
+    items.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observerRef.current!.observe(el);
+    });
+
+    return () => observerRef.current?.disconnect();
+  }, [items]);
+
+  if (items.length < 2) return null;
 
   return (
     <nav className="hidden xl:block w-[160px] shrink-0 pt-6 pr-4" aria-label="On this page">
@@ -66,17 +89,17 @@ export default function ComponentPageTOC() {
           On this page
         </p>
         <ul className="space-y-0.5">
-          {SECTIONS.filter(s => visibleIds.includes(s.id)).map((section) => (
-            <li key={section.id}>
+          {items.map((item) => (
+            <li key={item.id}>
               <a
-                href={`#${section.id}`}
-                className={`block text-[12px] py-1 pl-3 border-l-2 transition-colors ${
-                  activeId === section.id
+                href={`#${item.id}`}
+                className={`block text-[12px] leading-snug py-1 pl-3 border-l-2 transition-colors ${
+                  activeId === item.id
                     ? 'border-primary text-primary font-medium'
                     : 'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
                 }`}
               >
-                {section.label}
+                {item.label}
               </a>
             </li>
           ))}
