@@ -57,6 +57,11 @@ function FooterSection({
 export default function Footer() {
   const { i18n } = useTranslation();
   const language = i18n.resolvedLanguage === "hi" ? "hi" : "en";
+  const storybookHref =
+    typeof window !== "undefined" &&
+    ["localhost", "127.0.0.1"].includes(window.location.hostname)
+      ? "/storybook-access"
+      : "/storybook/";
   const copy = {
     en: {
       title: "UX4G Design System",
@@ -155,7 +160,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/storybook"
+                  href={storybookHref}
                   className={`flex items-center gap-2 ${linkClass}`}
                 >
                   <FileText size={16} aria-hidden="true" />

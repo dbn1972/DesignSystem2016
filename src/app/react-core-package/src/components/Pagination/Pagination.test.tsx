@@ -187,3 +187,98 @@ describe('Pagination', () => {
     });
   });
 });
+
+
+describe('Pagination – additional coverage', () => {
+  it('renders ellipsis for large page counts', () => {
+    render(<Pagination totalPages={20} defaultValue={10} />);
+    const ellipses = screen.getAllByText('...');
+    expect(ellipses.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('renders left ellipsis when near the end', () => {
+    render(<Pagination totalPages={20} defaultValue={19} />);
+    expect(screen.getAllByText('...').length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('renders right ellipsis when near the start', () => {
+    render(<Pagination totalPages={20} defaultValue={2} />);
+    expect(screen.getAllByText('...').length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('hides first/last buttons when showFirstLast is false', () => {
+    render(<Pagination totalPages={5} showFirstLast={false} />);
+    expect(screen.queryByRole('button', { name: 'Go to first page' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Go to last page' })).not.toBeInTheDocument();
+  });
+
+  it('hides prev/next buttons when showPrevNext is false', () => {
+    render(<Pagination totalPages={5} showPrevNext={false} />);
+    expect(screen.queryByRole('button', { name: 'Go to previous page' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Go to next page' })).not.toBeInTheDocument();
+  });
+
+  it('uses custom labels', () => {
+    render(
+      <Pagination
+        totalPages={5}
+        labels={{ first: '<<', previous: '<', next: '>', last: '>>' }}
+      />
+    );
+    expect(screen.getByText('<<')).toBeInTheDocument();
+    expect(screen.getByText('<')).toBeInTheDocument();
+    expect(screen.getByText('>')).toBeInTheDocument();
+    expect(screen.getByText('>>')).toBeInTheDocument();
+  });
+
+  it('uses custom pageInfo label function', () => {
+    render(
+      <Pagination
+        totalPages={10}
+        defaultValue={3}
+        showPageInfo
+        labels={{ pageInfo: (c: number, t: number) => `${c}/${t}` }}
+      />
+    );
+    expect(screen.getByText('3/10')).toBeInTheDocument();
+  });
+
+  it('applies variant class', () => {
+    const { container } = render(<Pagination totalPages={5} variant="outlined" />);
+    expect(container.querySelector('.ux4g-pagination-outlined')).toBeInTheDocument();
+  });
+
+  it('applies custom className', () => {
+    const { container } = render(<Pagination totalPages={5} className="my-pagination" />);
+    expect(container.querySelector('.ux4g-pagination')).toHaveClass('my-pagination');
+  });
+
+  it('supports siblingCount for page range', () => {
+    render(<Pagination totalPages={20} defaultValue={10} siblingCount={2} />);
+    // With siblingCount=2, pages 8-12 should be visible
+    expect(screen.getByRole('button', { name: 'Go to page 8' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Go to page 12' })).toBeInTheDocument();
+  });
+
+  it('does not navigate below page 1', async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    render(<Pagination totalPages={5} defaultValue={1} onChange={onChange} />);
+    // Previous is disabled on page 1, but let's verify onChange is not called
+    await user.click(screen.getByRole('button', { name: 'Go to previous page' }));
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('does not navigate above totalPages', async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    render(<Pagination totalPages={5} defaultValue={5} onChange={onChange} />);
+    await user.click(screen.getByRole('button', { name: 'Go to next page' }));
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('spreads additional props to nav element', () => {
+    render(<Pagination totalPages={5} data-testid="pag-root" />);
+    expect(screen.getByTestId('pag-root')).toBeInTheDocument();
+  });
+});
