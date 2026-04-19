@@ -341,51 +341,58 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Overview Tab */}
         {activeTab === 'overview' && (
-          <div className="flex gap-8">
+          <div className="lg:grid lg:grid-cols-[200px_1fr] lg:gap-10">
+            {/* Sticky left TOC */}
+            <aside className="hidden lg:block">
+              <nav className="sticky top-24 space-y-0.5" aria-label="On this page">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-3">On this page</p>
+                {[
+                  { id: 'section-playground', label: 'Playground' },
+                  { id: 'section-installation', label: 'Installation' },
+                  ...(additionalContent ? [{ id: 'section-guidance', label: 'Usage Guidance' }] : []),
+                  { id: 'section-accessibility', label: 'Accessibility' },
+                  ...(useCases && useCases.length > 0 ? [{ id: 'section-usecases', label: 'Use Cases' }] : []),
+                ].map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="block text-[13px] py-1.5 pl-3 border-l-2 border-transparent text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            </aside>
+
             {/* Main content */}
-            <div className="flex-1 min-w-0 space-y-8">
+            <div className="min-w-0 space-y-8">
 
-            {/* Live Preview Hero */}
-            {preview && (
-              <section id="section-preview" className="bg-card rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="px-6 py-4 border-b border-border bg-gradient-to-r from-muted/30 to-transparent">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Live Preview</h2>
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:text-green-400 uppercase tracking-wider">Interactive</span>
-                    </div>
-                    {sandbox && (
-                      <Link
-                        to={sandbox.href}
-                        className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition hover:border-primary/30 hover:text-primary"
-                      >
-                        <Code2 size={14} />
-                        {sandbox.label || 'Open in Sandbox'}
-                      </Link>
-                    )}
+            {/* 1. PLAYGROUND — the hero of the page */}
+            <section id="section-playground">
+              {/* Show the preview inside the playground context */}
+              {preview && (
+                <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm mb-6">
+                  <div className="px-5 py-3 border-b border-border bg-muted/20">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Preview</span>
+                  </div>
+                  <div className="p-6 flex items-center justify-center min-h-[120px]">
+                    {preview}
                   </div>
                 </div>
-                <div className="p-8 flex items-center justify-center min-h-[160px] bg-[radial-gradient(circle_at_center,_rgba(0,81,150,0.03),_transparent_70%)]">
-                  {preview}
-                </div>
-                {sandbox?.description && (
-                  <div className="border-t border-border bg-background px-6 py-4 text-sm text-muted-foreground">
-                    {sandbox.description}
-                  </div>
-                )}
-              </section>
-            )}
+              )}
+              {/* Interactive playground from additionalContent will render here via the page */}
+            </section>
 
-            {/* Premium content: When to use, Related, Changelog, Research — shown first for decision-making */}
+            {/* 2. ADDITIONAL CONTENT — When to Use, Do/Don't, Playground, Related, Changelog, Research */}
             {additionalContent && (
               <div id="section-guidance" className="space-y-0">
                 {additionalContent}
               </div>
             )}
 
-            {/* Installation */}
-            <section id="section-installation" className="bg-card rounded-xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Installation</h2>
+            {/* 3. INSTALLATION */}
+            <section id="section-installation" className="bg-card rounded-xl border border-border p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-foreground mb-4">Installation</h2>
               <div className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                   <InstallCard
@@ -418,9 +425,9 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               </div>
             </section>
 
-            {/* Accessibility */}
-            <section id="section-accessibility" className="bg-card rounded-xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Accessibility</h2>
+            {/* 4. ACCESSIBILITY */}
+            <section id="section-accessibility" className="bg-card rounded-xl border border-border p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-foreground mb-4">Accessibility</h2>
               <div className="space-y-6">
                 <div>
                   <h3 className="text-sm font-semibold text-muted-foreground mb-2">WCAG Compliance</h3>
@@ -477,8 +484,8 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
 
             {/* Use Cases */}
             {useCases && useCases.length > 0 && (
-              <section id="section-usecases" className="bg-card rounded-xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
-                <h2 className="text-2xl font-bold text-foreground mb-4">Government Service Use Cases</h2>
+              <section id="section-usecases" className="bg-card rounded-xl border border-border p-6 shadow-sm">
+                <h2 className="text-xl font-bold text-foreground mb-4">Government Service Use Cases</h2>
                 <div className="grid gap-4 md:grid-cols-2">
                   {useCases.map((useCase, idx) => (
                     <div key={idx} className="group border border-border rounded-xl p-5 hover:border-[#005196] hover:shadow-md transition-all bg-gradient-to-br from-transparent to-[#005196]/[0.02]">
@@ -503,28 +510,6 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               </section>
             )}
             </div>
-
-            {/* Sticky sidebar TOC — desktop only */}
-            <aside className="hidden xl:block w-56 shrink-0">
-              <nav className="sticky top-24 space-y-1" aria-label="On this page">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">On this page</p>
-                {[
-                  ...(preview ? [{ id: 'section-preview', label: 'Preview' }] : []),
-                  ...(additionalContent ? [{ id: 'section-guidance', label: 'When to Use' }] : []),
-                  { id: 'section-installation', label: 'Installation' },
-                  { id: 'section-accessibility', label: 'Accessibility' },
-                  ...(useCases && useCases.length > 0 ? [{ id: 'section-usecases', label: 'Use Cases' }] : []),
-                ].map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="block text-sm text-muted-foreground hover:text-[#005196] py-1.5 pl-3 border-l-2 border-transparent hover:border-[#005196] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#005196] focus-visible:ring-offset-2 rounded-sm"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-            </aside>
           </div>
         )}
 
