@@ -21,7 +21,7 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
 
 const CATEGORY_COLORS: Record<string, string> = {
   Foundations: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
-  Components: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
+  Components: 'bg-green-100 text-green-700 dark:text-green-400 dark:bg-green-900/40 dark:text-green-300',
   Patterns: 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
   Archetypes: 'bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300',
   Systems: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300',

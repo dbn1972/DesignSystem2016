@@ -60,7 +60,7 @@ export default function ConsentDeclarationPatterns() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">
                     Pattern Family ID:{" "}
                     <span className="font-bold text-foreground">
@@ -90,10 +90,10 @@ export default function ConsentDeclarationPatterns() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Conformance
                 <br />
                 Mandatory
@@ -373,7 +373,7 @@ export default function ConsentDeclarationPatterns() {
         <section className="mt-16 bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-300 rounded-lg overflow-hidden">
           <div className="bg-gradient-to-r from-green-100 to-blue-100 border-b-2 border-green-300 px-8 py-4">
             <div className="flex items-center gap-3">
-              <Eye size={24} className="text-green-700" />
+              <Eye size={24} className="text-green-700 dark:text-green-400" />
               <h2 className="font-bold text-foreground text-xl">
                 Interactive Pattern Demonstrations
               </h2>
@@ -395,10 +395,10 @@ export default function ConsentDeclarationPatterns() {
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
                   <CheckSquare
                     size={24}
-                    className="text-green-700"
+                    className="text-green-700 dark:text-green-400"
                   />
                 </div>
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-green-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-green-700 dark:text-green-400 transition-colors">
                   Consent Capture Demo
                 </h3>
                 <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
@@ -406,7 +406,7 @@ export default function ConsentDeclarationPatterns() {
                   with granular options, clear explanations, and
                   decline paths.
                 </p>
-                <div className="flex items-center gap-2 text-xs text-green-700 font-bold">
+                <div className="flex items-center gap-2 text-xs text-green-700 dark:text-green-400 font-bold">
                   <span>View Interactive Demo</span>
                   <ArrowRight
                     size={14}
@@ -446,9 +446,9 @@ export default function ConsentDeclarationPatterns() {
                 className="bg-card border-2 border-border rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-200 transition-colors">
-                  <UserX size={24} className="text-red-700" />
+                  <UserX size={24} className="text-red-700 dark:text-red-400" />
                 </div>
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-red-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-red-700 dark:text-red-400 transition-colors">
                   Consent Withdrawal
                 </h3>
                 <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
@@ -456,7 +456,7 @@ export default function ConsentDeclarationPatterns() {
                   and withdrawal with impact explanations and
                   restricted scenarios.
                 </p>
-                <div className="flex items-center gap-2 text-xs text-red-700 font-bold">
+                <div className="flex items-center gap-2 text-xs text-red-700 dark:text-red-400 font-bold">
                   <span>View Interactive Demo</span>
                   <ArrowRight
                     size={14}
@@ -552,15 +552,15 @@ export default function ConsentDeclarationPatterns() {
                 className="bg-card border-2 border-border rounded-lg p-6 hover:border-green-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
-                  <CheckCircle size={24} className="text-green-700" />
+                  <CheckCircle size={24} className="text-green-700 dark:text-green-400" />
                 </div>
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-green-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-green-700 dark:text-green-400 transition-colors">
                   Declaration Before Submission
                 </h3>
                 <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Pre-submission declaration flow with review screen, declaration points, and submission confirmation.
                 </p>
-                <div className="flex items-center gap-2 text-xs text-green-700 font-bold">
+                <div className="flex items-center gap-2 text-xs text-green-700 dark:text-green-400 font-bold">
                   <span>View Interactive Demo</span>
                   <ArrowRight
                     size={14}
@@ -598,15 +598,15 @@ export default function ConsentDeclarationPatterns() {
                 className="bg-card border-2 border-border rounded-lg p-6 hover:border-red-600 hover:shadow-lg transition-all group"
               >
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-200 transition-colors">
-                  <XCircle size={24} className="text-red-700" />
+                  <XCircle size={24} className="text-red-700 dark:text-red-400" />
                 </div>
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-red-700 transition-colors">
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-red-700 dark:text-red-400 transition-colors">
                   Payment Failure & Retry
                 </h3>
                 <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   Recovery pattern for failed payments with retry flows, alternate methods, pending states, and support escalation.
                 </p>
-                <div className="flex items-center gap-2 text-xs text-red-700 font-bold">
+                <div className="flex items-center gap-2 text-xs text-red-700 dark:text-red-400 font-bold">
                   <span>View Interactive Demo</span>
                   <ArrowRight
                     size={14}
@@ -728,7 +728,7 @@ export default function ConsentDeclarationPatterns() {
                 </a>
                 <a
                   href="#"
-                  className="px-6 py-3 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 transition-colors"
+                  className="px-6 py-3 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 dark:bg-blue-900/20 transition-colors"
                 >
                   View Code Examples
                 </a>

@@ -25,7 +25,7 @@ export default function AssistedOfflineOnlinePattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-007</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -40,7 +40,7 @@ export default function AssistedOfflineOnlinePattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
               <div className="px-6 py-3 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded text-orange-700 font-bold text-xs text-center uppercase">
@@ -768,7 +768,7 @@ function PageDesigns() {
                   title="Bank Passbook (First Page)"
                   status="scanned"
                   actions={
-                    <div className="flex items-center gap-2 text-green-700">
+                    <div className="flex items-center gap-2 text-green-700 dark:text-green-400">
                       <CheckCircle size={16} />
                       <span className="font-bold text-sm">Scanned Successfully</span>
                       <button className="px-3 py-1 bg-card border border-border text-muted-foreground text-sm rounded hover:bg-background ml-4">
@@ -1682,7 +1682,7 @@ export function AssistedOfflineOnlinePage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Apply for Service</h1>
         <p className="text-sm text-muted-foreground mb-6">Choose how you want to apply</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {step === 'channel' && (
           <div className="space-y-3">
             {channels.map(c => (
@@ -1731,7 +1731,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
     <div class="min-h-screen flex items-center justify-center bg-background p-4">
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold mb-6">Apply for Service</h1>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="step === 'channel'" class="space-y-3">
           <button *ngFor="let c of channels" (click)="channel=c.id;step='form'" [class]="'w-full p-4 text-left rounded-xl border-2 flex items-center gap-4 '+(channel===c.id?'border-primary bg-primary/5':'border-border')">
             <span class="text-2xl">{{ c.icon }}</span>
@@ -1900,7 +1900,7 @@ function MetadataPanel() {
 
 function QuickRefPanel() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
@@ -1918,7 +1918,7 @@ function QuickRefPanel() {
 
 function DesignPrinciples() {
   return (
-    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50 dark:bg-green-900/20">
       <div className="bg-green-100 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Core Principles</h3>
       </div>
@@ -1934,9 +1934,9 @@ function DesignPrinciples() {
 
 function RiskIndicators() {
   return (
-    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50 dark:bg-red-900/20">
       <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3 flex items-center gap-2">
-        <AlertTriangle size={16} className="text-red-700" />
+        <AlertTriangle size={16} className="text-red-700 dark:text-red-400" />
         <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
       <div className="p-4 space-y-3 text-sm text-muted-foreground">
@@ -2096,7 +2096,7 @@ function PageSequenceRow({ number, title, description, mode, required }: any) {
             {mode}
           </span>
           {required ? (
-            <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">REQUIRED</span>
+            <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">REQUIRED</span>
           ) : (
             <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
@@ -2124,7 +2124,7 @@ function DashboardStat({ icon, label, value, detail }: any) {
 
 function ServiceButton({ icon, title, description }: any) {
   return (
-    <button className="border-2 border-border rounded-lg p-4 bg-card hover:border-primary hover:bg-blue-50 transition-colors text-left">
+    <button className="border-2 border-border rounded-lg p-4 bg-card hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-colors text-left">
       <div className="flex flex-col items-center text-center gap-2">
         {icon}
         <div>
@@ -2153,7 +2153,7 @@ function VerificationMethod({ icon, method, description, recommended, selected }
         <div className="font-bold text-sm text-foreground">{method}</div>
         <div className="text-xs text-muted-foreground">{description}</div>
         {recommended && (
-          <div className="mt-2 px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded inline-block">
+          <div className="mt-2 px-2 py-1 bg-green-100 text-green-700 dark:text-green-400 text-xs font-bold rounded inline-block">
             Recommended
           </div>
         )}
@@ -2209,7 +2209,7 @@ function DocumentCollectionItem({ title, status, actions }: any) {
         <div className="flex-1">
           <div className="font-bold text-sm text-foreground mb-1">{title}</div>
           {status === 'scanned' && (
-            <div className="text-xs text-green-700 flex items-center gap-1">
+            <div className="text-xs text-green-700 dark:text-green-400 flex items-center gap-1">
               <CheckCircle size={12} />
               Scanned and attached
             </div>
@@ -2237,8 +2237,8 @@ function HelpCard({ icon, title, titleEn, description }: any) {
 
 function ProgressItem({ title, status, description }: any) {
   const statusConfig: any = {
-    complete: { icon: <CheckCircle size={18} className="text-green-600" />, bg: 'bg-green-50' },
-    pending: { icon: <Clock size={18} className="text-orange-600" />, bg: 'bg-orange-50' },
+    complete: { icon: <CheckCircle size={18} className="text-green-600" />, bg: 'bg-green-50 dark:bg-green-900/20' },
+    pending: { icon: <Clock size={18} className="text-orange-600" />, bg: 'bg-orange-50 dark:bg-orange-900/20' },
     locked: { icon: <AlertCircle size={18} className="text-muted-foreground" />, bg: 'bg-background' }
   };
 
@@ -2262,7 +2262,7 @@ function PendingDocumentUpload({ title, required, status }: any) {
           {required && <span className="text-xs text-red-600">Required</span>}
         </div>
         {status === 'uploaded' ? (
-          <div className="flex items-center gap-2 text-green-700">
+          <div className="flex items-center gap-2 text-green-700 dark:text-green-400">
             <CheckCircle size={18} />
             <span className="text-sm font-bold">Uploaded</span>
           </div>
@@ -2397,14 +2397,14 @@ function ToneBlock({ context, tone, good, bad }: any) {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <CheckCircle size={14} className="text-green-600" />
-            <span className="text-xs font-bold text-green-700">Good</span>
+            <span className="text-xs font-bold text-green-700 dark:text-green-400">Good</span>
           </div>
           <div className="text-sm text-foreground bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <AlertCircle size={14} className="text-red-600" />
-            <span className="text-xs font-bold text-red-700">Bad</span>
+            <span className="text-xs font-bold text-red-700 dark:text-red-400">Bad</span>
           </div>
           <div className="text-sm text-foreground bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-2">"{bad}"</div>
         </div>
@@ -2492,7 +2492,7 @@ function RiskBlock({ risk, impact, solution }: any) {
 
 function MaturityBlock({ status, version, description }: any) {
   return (
-    <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50">
+    <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50 dark:bg-green-900/20">
       <div className="font-bold text-sm text-foreground mb-1">{status}</div>
       <div className="text-xs text-muted-foreground mb-3">{version}</div>
       <div className="text-sm text-muted-foreground">{description}</div>

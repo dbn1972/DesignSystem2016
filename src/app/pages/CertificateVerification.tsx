@@ -245,7 +245,7 @@ function VerifyField({ label, value, highlighted }: any) {
   return (
     <div>
       <div className="text-xs text-muted-foreground mb-1">{label}</div>
-      <div className={`text-sm font-bold ${highlighted ? 'text-green-700' : 'text-foreground'}`}>
+      <div className={`text-sm font-bold ${highlighted ? 'text-green-700 dark:text-green-400' : 'text-foreground'}`}>
         {value}
       </div>
     </div>

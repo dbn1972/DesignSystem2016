@@ -26,7 +26,7 @@ export default function SignInPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-009-02</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,10 +41,10 @@ export default function SignInPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -488,7 +488,7 @@ function ScreenMockup({ state }: { state: string }) {
         {state === "wrong" && (
           <div className="mb-4 p-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded flex items-start gap-2">
             <XCircle size={16} className="text-red-600 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-red-800">
+            <div className="text-sm text-red-800 dark:text-red-300">
               <div className="font-bold">Invalid username or password</div>
               <div className="text-xs mt-1">Attempts: 1 of 5</div>
             </div>
@@ -508,7 +508,7 @@ function ScreenMockup({ state }: { state: string }) {
         {state === "expired" && (
           <div className="mb-4 p-3 bg-yellow-50 dark:bg-yellow-950/30 border-2 border-yellow-200 dark:border-yellow-800 rounded flex items-start gap-2">
             <Clock size={16} className="text-yellow-600 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-yellow-800">
+            <div className="text-sm text-yellow-800 dark:text-yellow-300">
               <div className="font-bold">Session expired</div>
               <div className="text-xs mt-1">Sign in again to continue</div>
             </div>
@@ -518,7 +518,7 @@ function ScreenMockup({ state }: { state: string }) {
         {state === "unavailable" && (
           <div className="mb-4 p-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded flex items-start gap-2">
             <AlertTriangle size={16} className="text-red-600 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-red-800">
+            <div className="text-sm text-red-800 dark:text-red-300">
               <div className="font-bold">Service temporarily unavailable</div>
               <div className="text-xs mt-1">Try again in a few minutes</div>
             </div>
@@ -654,7 +654,7 @@ function FieldGuidance({ field, type, required, placeholder, helpText, maxLength
         <div>
           <div className="font-bold text-foreground flex items-center gap-2">
             {field}
-            {required && <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">Required</span>}
+            {required && <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">Required</span>}
           </div>
           <div className="text-sm text-muted-foreground mt-1">{type}</div>
         </div>
@@ -1231,8 +1231,8 @@ export function SignInPage() {
       <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Sign In</h1>
         <p className="text-sm text-muted-foreground mb-6">Access your government services account</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
-        {attempts >= 3 && <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-700">Warning: {5 - attempts} attempts remaining before account lock.</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
+        {attempts >= 3 && <div className="mb-4 p-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 rounded-lg text-sm text-yellow-700">Warning: {5 - attempts} attempts remaining before account lock.</div>}
         <form onSubmit={handleSubmit} noValidate>
           <div className="space-y-4">
             <div>
@@ -1272,7 +1272,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Sign In</h1>
         <p class="text-sm text-muted-foreground mb-6">Access your government services account</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="space-y-4">
             <div>
@@ -1624,7 +1624,7 @@ function QuickRefRow({ label, value }: { label: string; value: string }) {
 
 function InteractivePrototype() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Interactive Prototype</h3>
       </div>

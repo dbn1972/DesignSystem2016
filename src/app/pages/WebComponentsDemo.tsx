@@ -231,7 +231,7 @@ export default {
       {/* Header */}
       <div className="bg-card border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <Link to="/components" className="text-blue-600 hover:text-blue-800 mb-4 inline-block">
+          <Link to="/components" className="text-blue-600 hover:text-blue-800 dark:text-blue-300 mb-4 inline-block">
             ← Back to Components
           </Link>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Web Components Package</h1>
@@ -337,139 +337,139 @@ export default {
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-button&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Primary interactive element for user actions</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:text-green-300">✅ Stable</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-input&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Text input field for form data entry</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:text-green-300">✅ Stable</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-checkbox&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Checkbox for boolean selections</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:text-green-300">✅ Stable</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-radio&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Radio button for single selection from group</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:text-green-300">✅ Stable</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-select&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Dropdown selection component</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:text-green-300">✅ Stable</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-switch&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Toggle switch for on/off states</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-textarea&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Multi-line text input field</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-alert&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Alert notifications and messages</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">✅ Stable</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:text-green-300">✅ Stable</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-badge&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Status badges and labels</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-progress&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Progress bar for showing completion</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-spinner&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Loading spinner indicator</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-card&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Container for content with header/footer</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-tooltip&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Contextual help tooltips</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-avatar&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">User avatar with initials fallback</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-tabs&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Tabbed navigation interface</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-accordion&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Collapsible content sections</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-toast&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Toast notifications with auto-dismiss</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-modal&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Modal dialog overlay</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-drawer&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Slide-out drawer panel</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-pagination&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Page navigation for data lists</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-breadcrumb&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Navigation breadcrumb trail</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-tag&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Dismissible tags and chips</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-dropdown&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Dropdown menu with items</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-timeline&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Timeline with events and dates</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-skeleton&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Loading skeleton placeholder</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-mono text-foreground">&lt;ux4g-divider&gt;</td>
                   <td className="px-6 py-4 text-sm text-muted-foreground">Content divider/separator</td>
-                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">🔄 Beta</span></td>
+                  <td className="px-6 py-4 whitespace-nowrap"><span className="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 dark:text-blue-300">🔄 Beta</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
-            <p className="text-sm text-blue-800">
+            <p className="text-sm text-blue-800 dark:text-blue-300">
               <strong>Coming Soon:</strong> 57 additional components including Dialog, Drawer, Toast, Modal, Table, and many more advanced components!
             </p>
           </div>
@@ -571,7 +571,7 @@ export default {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-start">
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white text-2xl">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-50 dark:bg-blue-900/200 text-white text-2xl">
                   🌐
                 </div>
               </div>
@@ -583,7 +583,7 @@ export default {
 
             <div className="flex items-start">
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white text-2xl">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-green-50 dark:bg-green-900/200 text-white text-2xl">
                   ♿
                 </div>
               </div>
@@ -595,7 +595,7 @@ export default {
 
             <div className="flex items-start">
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white text-2xl">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-purple-50 dark:bg-purple-900/200 text-white text-2xl">
                   📦
                 </div>
               </div>
@@ -607,7 +607,7 @@ export default {
 
             <div className="flex items-start">
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white text-2xl">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-50 dark:bg-orange-900/200 text-white text-2xl">
                   🎨
                 </div>
               </div>
@@ -619,7 +619,7 @@ export default {
 
             <div className="flex items-start">
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white text-2xl">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-red-50 dark:bg-red-900/200 text-white text-2xl">
                   📝
                 </div>
               </div>
@@ -631,7 +631,7 @@ export default {
 
             <div className="flex items-start">
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-yellow-500 text-white text-2xl">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-yellow-50 dark:bg-yellow-900/200 text-white text-2xl">
                   ⚡
                 </div>
               </div>

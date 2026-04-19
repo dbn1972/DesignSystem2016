@@ -119,14 +119,14 @@ export default function FrameworkStatus() {
     switch (status) {
       case 'ready':
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
+          <span className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-800 dark:text-green-300 text-xs font-medium rounded-full">
             <Check size={12} />
             Ready
           </span>
         );
       case 'in-progress':
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
+          <span className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full">
             <Clock size={12} />
             In Progress
           </span>
@@ -181,7 +181,7 @@ export default function FrameworkStatus() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Status</span>
-                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 dark:text-green-300 text-sm font-medium rounded-full">
                     <Check size={14} />
                     100% Complete
                   </span>
@@ -216,7 +216,7 @@ export default function FrameworkStatus() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Status</span>
-                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 dark:text-green-300 text-sm font-medium rounded-full">
                     <Check size={14} />
                     100% Complete
                   </span>
@@ -251,7 +251,7 @@ export default function FrameworkStatus() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Status</span>
-                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 dark:text-green-300 text-sm font-medium rounded-full">
                     <Check size={14} />
                     100% Complete
                   </span>
@@ -263,7 +263,7 @@ export default function FrameworkStatus() {
                 </p>
                 <Link
                   to="/web-components"
-                  className="text-sm text-blue-600 hover:text-blue-800 font-medium hover:underline"
+                  className="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-300 font-medium hover:underline"
                 >
                   View →
                 </Link>
@@ -385,7 +385,7 @@ export default function FrameworkStatus() {
                 </p>
                 <Link
                   to="/resources/component-specs"
-                  className="inline-block px-4 py-2 bg-card text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
+                  className="inline-block px-4 py-2 bg-card text-blue-600 rounded-lg font-medium hover:bg-blue-50 dark:bg-blue-900/20 transition-colors"
                 >
                   View React Docs
                 </Link>
@@ -397,7 +397,7 @@ export default function FrameworkStatus() {
                 </p>
                 <Link
                   to="/resources/angular-core"
-                  className="inline-block px-4 py-2 bg-card text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors"
+                  className="inline-block px-4 py-2 bg-card text-blue-600 rounded-lg font-medium hover:bg-blue-50 dark:bg-blue-900/20 transition-colors"
                 >
                   View Angular Docs
                 </Link>

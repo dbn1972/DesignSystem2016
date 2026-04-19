@@ -35,7 +35,7 @@ export default function DashboardPatterns() {
                   <span className="text-muted-foreground">Pattern Family: <span className="font-bold text-foreground">Personalization</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-purple-50 dark:bg-purple-900/200 rounded-full"></div>
                   <span className="text-muted-foreground">Patterns: <span className="font-bold text-foreground">7 Interactive Flows</span></span>
                 </div>
                 <div className="flex items-center gap-2">

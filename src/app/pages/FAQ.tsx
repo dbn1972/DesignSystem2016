@@ -73,6 +73,11 @@ type FAQPageCopy = {
   helpfulMore: string;
   reviewedLabel: string;
   appliesToLabel: string;
+  topicLabel: string;
+  popularTitle: string;
+  popularText: string;
+  peopleAlsoReadTitle: string;
+  peopleAlsoReadText: string;
   copyLink: string;
   copiedLink: string;
   sidebarTitle: string;
@@ -141,6 +146,11 @@ const FAQ_COPY: Record<Language, FAQPageCopy> = {
     helpfulMore: "If the answer is still missing, go straight to support or contribution guidance.",
     reviewedLabel: "Last reviewed",
     appliesToLabel: "Applies to",
+    topicLabel: "Topic",
+    popularTitle: "Popular questions",
+    popularText: "Start with the questions most teams ask early in adoption.",
+    peopleAlsoReadTitle: "People also read",
+    peopleAlsoReadText: "Nearby questions and related guidance that usually help next.",
     copyLink: "Copy link to this answer",
     copiedLink: "Link copied",
     sidebarTitle: "Recommended Next Stops",
@@ -454,6 +464,11 @@ const FAQ_COPY: Record<Language, FAQPageCopy> = {
     helpfulMore: "यदि उत्तर अभी भी नहीं मिला है, तो सीधे support या contribution guidance पर जाएँ।",
     reviewedLabel: "अंतिम समीक्षा",
     appliesToLabel: "लागू होता है",
+    topicLabel: "विषय",
+    popularTitle: "लोकप्रिय प्रश्न",
+    popularText: "उन प्रश्नों से शुरू करें जो adoption के शुरुआती चरण में सबसे अधिक पूछे जाते हैं।",
+    peopleAlsoReadTitle: "लोग यह भी पढ़ते हैं",
+    peopleAlsoReadText: "पास के प्रश्न और संबंधित guidance जो आम तौर पर आगे मदद करते हैं।",
     copyLink: "इस उत्तर का लिंक कॉपी करें",
     copiedLink: "लिंक कॉपी हो गया",
     sidebarTitle: "आगे कहाँ जाएँ",
@@ -724,6 +739,13 @@ const FAQ_COPY: Record<Language, FAQPageCopy> = {
 
 const FAQ_REVIEW_DATE = "April 18, 2026";
 const FAQ_APPLIES_TO = "React, Angular, Web Components, foundations, patterns, and governance guidance";
+const POPULAR_QUESTION_REFS = [
+  { sectionId: "about", index: 0 },
+  { sectionId: "adoption", index: 1 },
+  { sectionId: "quality", index: 0 },
+  { sectionId: "governance", index: 0 },
+  { sectionId: "support", index: 3 },
+];
 
 function slugifyQuestion(sectionId: string, question: string) {
   return `${sectionId}-${question
@@ -750,6 +772,20 @@ export default function FAQ() {
   const [copiedQuestionId, setCopiedQuestionId] = useState<string | null>(null);
   const initialHash =
     typeof window !== "undefined" ? window.location.hash.replace(/^#/, "") : "";
+
+  const allQuestions = useMemo(
+    () =>
+      copy.sections.flatMap((section) =>
+        section.faqs.map((faq, index) => ({
+          sectionId: section.id,
+          sectionTitle: section.title,
+          index,
+          faq,
+          questionId: slugifyQuestion(section.id, faq.question),
+        })),
+      ),
+    [copy.sections],
+  );
 
   const filteredSections = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -785,6 +821,35 @@ export default function FAQ() {
     (count, section) => count + section.faqs.length,
     0,
   );
+  const popularQuestions = useMemo(
+    () =>
+      POPULAR_QUESTION_REFS.map((ref) =>
+        allQuestions.find(
+          (question) =>
+            question.sectionId === ref.sectionId && question.index === ref.index,
+        ),
+      ).filter(Boolean),
+    [allQuestions],
+  );
+  const peopleAlsoRead = useMemo(() => {
+    const sourceQuestions = query.trim()
+      ? filteredSections.flatMap((section) =>
+          section.faqs.map((faq, index) => ({
+            sectionId: section.id,
+            sectionTitle: section.title,
+            index,
+            faq,
+            questionId: slugifyQuestion(section.id, faq.question),
+          })),
+        )
+      : allQuestions;
+
+    const prioritized = sourceQuestions.filter(
+      (question) => !popularQuestions.some((popular) => popular?.questionId === question.questionId),
+    );
+
+    return prioritized.slice(0, 4);
+  }, [allQuestions, filteredSections, popularQuestions, query]);
 
   useEffect(() => {
     if (!query.trim()) return;
@@ -1005,6 +1070,14 @@ export default function FAQ() {
                           </AccordionTrigger>
                           <AccordionContent className="pb-6">
                             <div className="space-y-4">
+                              <div className="flex flex-wrap items-center gap-2">
+                                <span className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-foreground">
+                                  {copy.topicLabel}: {section.title}
+                                </span>
+                                <span className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
+                                  {copy.reviewedLabel}: {FAQ_REVIEW_DATE}
+                                </span>
+                              </div>
                               <p className="text-sm leading-7 text-muted-foreground sm:text-base">
                                 {faq.answer}
                               </p>
@@ -1079,6 +1152,40 @@ export default function FAQ() {
 
           <aside className="space-y-6 xl:sticky xl:top-24 xl:self-start">
             <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
+              <div className="mb-6">
+                <div className="flex items-center gap-3">
+                  <Sparkles className="h-5 w-5 text-primary" />
+                  <h2 className="text-lg font-semibold text-foreground">
+                    {copy.popularTitle}
+                  </h2>
+                </div>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  {copy.popularText}
+                </p>
+                <div className="mt-4 space-y-2">
+                  {popularQuestions.map((question) => (
+                    <a
+                      key={question.questionId}
+                      href={`#${question.questionId}`}
+                      onClick={() =>
+                        trackFaqEvent("faq_popular_question_open", {
+                          language,
+                          questionId: question.questionId,
+                        })
+                      }
+                      className="block rounded-2xl border border-border bg-background px-4 py-3 text-sm transition hover:border-primary/30"
+                    >
+                      <p className="font-semibold text-foreground">
+                        {question.faq.question}
+                      </p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {question.sectionTitle}
+                      </p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
               <div className="mb-5 rounded-2xl border border-border bg-background p-4">
                 <div className="flex items-center justify-between gap-4">
                   <div>
@@ -1115,6 +1222,41 @@ export default function FAQ() {
                     <span>{link.label}</span>
                     <ArrowRight className="h-4 w-4" />
                   </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
+              <div className="flex items-center gap-3">
+                <BookOpen className="h-5 w-5 text-primary" />
+                <h2 className="text-lg font-semibold text-foreground">
+                  {copy.peopleAlsoReadTitle}
+                </h2>
+              </div>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                {copy.peopleAlsoReadText}
+              </p>
+              <div className="mt-4 space-y-2">
+                {peopleAlsoRead.map((question) => (
+                  <a
+                    key={question.questionId}
+                    href={`#${question.questionId}`}
+                    onClick={() =>
+                      trackFaqEvent("faq_related_question_open", {
+                        language,
+                        questionId: question.questionId,
+                        sourceQuery: query.trim() || null,
+                      })
+                    }
+                    className="block rounded-2xl border border-border bg-background px-4 py-3 text-sm transition hover:border-primary/30"
+                  >
+                    <p className="font-semibold text-foreground">
+                      {question.faq.question}
+                    </p>
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {question.sectionTitle}
+                    </p>
+                  </a>
                 ))}
               </div>
             </div>

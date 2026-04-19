@@ -591,7 +591,7 @@ function ExpandedDetailScreen({
                 Terms and Conditions. I understand this is a legally binding agreement with the Government of India.
               </span>
               {attemptedProceed && !accepted && (
-                <p className="text-xs text-red-700 mt-2 font-bold">
+                <p className="text-xs text-red-700 dark:text-red-400 mt-2 font-bold">
                   ⚠ You must accept the terms to proceed with registration
                 </p>
               )}

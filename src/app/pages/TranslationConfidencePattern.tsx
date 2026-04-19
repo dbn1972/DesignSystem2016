@@ -168,7 +168,7 @@ export default function TranslationConfidencePattern() {
                   <div className="space-y-4">
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="font-bold text-green-700">90%+</span>
+                        <span className="font-bold text-green-700 dark:text-green-400">90%+</span>
                       </div>
                       <div>
                         <h3 className="font-bold text-foreground mb-1">High Confidence (Verified)</h3>
@@ -194,7 +194,7 @@ export default function TranslationConfidencePattern() {
 
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="font-bold text-red-700">&lt;60%</span>
+                        <span className="font-bold text-red-700 dark:text-red-400">&lt;60%</span>
                       </div>
                       <div>
                         <h3 className="font-bold text-foreground mb-1">Low Confidence (Warning)</h3>
@@ -334,7 +334,7 @@ export default function TranslationConfidencePage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Translation Confidence</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -367,7 +367,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Translation Confidence</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

@@ -26,7 +26,7 @@ export default function ForgotPasswordPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002-04</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,10 +41,10 @@ export default function ForgotPasswordPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -350,9 +350,9 @@ function ExampleScreens() {
             <input aria-label="text input" type="text" 
               defaultValue="abc123"
               readOnly
-              className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
+              className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"
             />
-            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 dark:text-red-300">
               <AlertCircle size={14} className="inline mr-2" />
               Enter valid email (e.g., user@example.com) or 10-digit mobile
             </div>
@@ -378,14 +378,14 @@ function ExampleScreens() {
             </p>
           </div>
           <div className="space-y-3">
-            <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 hover:border-blue-300 text-left flex items-center gap-3">
+            <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 text-left flex items-center gap-3">
               <Phone size={20} className="text-primary" />
               <div>
                 <p className="font-bold text-foreground text-sm">Mobile Number</p>
                 <p className="text-xs text-muted-foreground">Send code to +91 ******* 123</p>
               </div>
             </button>
-            <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 hover:border-blue-300 text-left flex items-center gap-3">
+            <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 text-left flex items-center gap-3">
               <Mail size={20} className="text-primary" />
               <div>
                 <p className="font-bold text-foreground text-sm">Email Address</p>
@@ -411,14 +411,14 @@ function ExampleScreens() {
           </div>
           <div className="flex gap-2 justify-center mb-3">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50"></div>
+              <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"></div>
             ))}
           </div>
-          <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 mb-3">
+          <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 dark:text-red-300 mb-3">
             <XCircle size={14} className="inline mr-2" />
             Invalid code. 2 attempts remaining.
           </div>
-          <button className="w-full px-4 py-3 border-2 border-primary bg-card text-primary font-bold rounded hover:bg-blue-50">
+          <button className="w-full px-4 py-3 border-2 border-primary bg-card text-primary font-bold rounded hover:bg-blue-50 dark:bg-blue-900/20">
             Resend Code
           </button>
         </ScreenExample>
@@ -460,11 +460,11 @@ function ExampleScreens() {
               <input aria-label="password input" type="password" 
                 defaultValue="abc123"
                 readOnly
-                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
+                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"
               />
             </div>
             <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4">
-              <p className="font-bold text-sm text-red-800 mb-2">Password too weak</p>
+              <p className="font-bold text-sm text-red-800 dark:text-red-300 mb-2">Password too weak</p>
               <div className="space-y-1 text-xs">
                 <Requirement label="At least 8 characters" met={false} />
                 <Requirement label="One uppercase letter" met={false} />
@@ -497,10 +497,10 @@ function ExampleScreens() {
               <input aria-label="password input" type="password" 
                 defaultValue="SecureP@ss124"
                 readOnly
-                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
+                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"
               />
             </div>
-            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 dark:text-red-300">
               <XCircle size={14} className="inline mr-2" />
               Passwords do not match. Please re-enter.
             </div>
@@ -523,7 +523,7 @@ function ExampleScreens() {
               Your password has been updated.<br/>
               Please sign in with your new password.
             </p>
-            <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800 mb-4">
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800 dark:text-green-300 mb-4">
               <CheckCircle size={14} className="inline mr-2" />
               Confirmation sent to your email/mobile
             </div>
@@ -1052,7 +1052,7 @@ export function ForgotPasswordPage() {
           {step === 'reset' && 'Create a new password for your account'}
           {step === 'done' && 'Your password has been reset successfully'}
         </p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {step === 'email' && (
           <div className="space-y-4">
             <div>
@@ -1111,7 +1111,7 @@ import { CommonModule } from '@angular/common';
     <div class="min-h-screen flex items-center justify-center bg-background p-4">
       <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Reset Password</h1>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="step === 'email'">
           <p class="text-sm text-muted-foreground mb-6">Enter your registered email or mobile number</p>
           <div class="space-y-4">
@@ -1383,7 +1383,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 font-bold">
+              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 dark:text-green-300 font-bold">
                 STABLE
               </div>
             </div>
@@ -1402,7 +1402,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-red-100 border-2 border-red-300 rounded text-red-800 font-bold text-sm">
+              <div className="inline-block px-6 py-3 bg-red-100 border-2 border-red-300 rounded text-red-800 dark:text-red-300 font-bold text-sm">
                 MANDATORY
               </div>
             </div>
@@ -1529,7 +1529,7 @@ function InteractiveDemo() {
       <div className="p-4">
         <Link 
           to="/patterns/identity/forgot-password"
-          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
             <Eye size={16} className="text-primary" />
@@ -1677,7 +1677,7 @@ function Requirement({ label, met }: { label: string; met: boolean }) {
       ) : (
         <XCircle size={14} className="text-red-600" />
       )}
-      <span className={met ? "text-green-700" : "text-red-700"}>{label}</span>
+      <span className={met ? "text-green-700 dark:text-green-400" : "text-red-700"}>{label}</span>
     </div>
   );
 }
@@ -1727,7 +1727,7 @@ function ImplementationItem({ category, requirements }: { category: string; requ
 
 function RelatedPatternLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
         <ArrowRight size={12} className="text-primary" />
         <span className="text-foreground">{text}</span>
@@ -1738,7 +1738,7 @@ function RelatedPatternLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground">
       <ArrowRight size={12} className="text-primary" />
       <span className="text-xs">{text}</span>
     </a>

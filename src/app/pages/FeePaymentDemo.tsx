@@ -956,7 +956,7 @@ function ReceiptViewScreen({
             <h3 className="text-xl font-bold text-foreground mb-2">Government of India</h3>
             <p className="text-sm text-muted-foreground">Ministry of External Affairs • Passport Seva</p>
             <div className="mt-4 inline-block px-4 py-2 bg-green-100 border-2 border-green-300 rounded">
-              <span className="text-sm font-bold text-green-800">PAYMENT SUCCESSFUL</span>
+              <span className="text-sm font-bold text-green-800 dark:text-green-300">PAYMENT SUCCESSFUL</span>
             </div>
           </div>
 
@@ -1037,7 +1037,7 @@ function ReceiptViewScreen({
 
 function ReceiptRow({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
-    <div className={`flex justify-between items-start py-2 ${highlight ? 'bg-blue-50 -mx-4 px-4 rounded' : ''}`}>
+    <div className={`flex justify-between items-start py-2 ${highlight ? 'bg-blue-50 dark:bg-blue-900/20 -mx-4 px-4 rounded' : ''}`}>
       <span className="text-sm text-muted-foreground">{label}:</span>
       <span className={`text-sm text-right ${highlight ? 'font-bold text-foreground font-mono' : 'font-bold text-foreground'}`}>
         {value}

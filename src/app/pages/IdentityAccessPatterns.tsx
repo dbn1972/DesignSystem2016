@@ -26,7 +26,7 @@ export default function IdentityAccessPatterns() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-009</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,10 +41,10 @@ export default function IdentityAccessPatterns() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -520,7 +520,7 @@ function InteractiveFlowsGrid() {
             className="border-2 border-border rounded-lg overflow-hidden bg-card hover:border-primary hover:shadow-lg transition-all group"
           >
             {/* Icon Header */}
-            <div className="bg-background border-b-2 border-border p-6 h-28 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+            <div className="bg-background border-b-2 border-border p-6 h-28 flex items-center justify-center group-hover:bg-blue-50 dark:bg-blue-900/20 transition-colors">
               {flow.icon}
             </div>
 
@@ -528,7 +528,7 @@ function InteractiveFlowsGrid() {
             <div className="p-4">
               <div className="flex items-start justify-between mb-2">
                 <h3 className="font-bold text-foreground text-sm flex-1">{flow.title}</h3>
-                <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded-full flex-shrink-0 ml-2">
+                <span className="px-2 py-0.5 bg-green-100 text-green-700 dark:text-green-400 text-xs font-bold rounded-full flex-shrink-0 ml-2">
                   {flow.status}
                 </span>
               </div>
@@ -1131,7 +1131,7 @@ function LifecycleRow({ pattern, status, version, updated, usage, conformance }:
     <tr className="border-b border-border hover:bg-background">
       <td className="py-3 px-4 font-medium text-foreground">{pattern}</td>
       <td className="py-3 px-4">
-        <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">
+        <span className="px-2 py-1 bg-green-100 text-green-700 dark:text-green-400 text-xs font-bold rounded-full">
           {status}
         </span>
       </td>
@@ -1191,7 +1191,7 @@ function QuickRefRow({ label, value }: { label: string; value: string }) {
 
 function KeyPrinciples() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Key Principles</h3>
       </div>
@@ -1216,7 +1216,7 @@ function PrincipleItem({ icon, text }: { icon: React.ReactNode; text: string }) 
 
 function UsageStats() {
   return (
-    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50 dark:bg-green-900/20">
       <div className="bg-green-100 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Adoption Stats</h3>
       </div>
@@ -1295,7 +1295,7 @@ export default function IdentityAccessPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Identity Access</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -1328,7 +1328,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Identity Access</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

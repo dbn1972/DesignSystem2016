@@ -586,7 +586,7 @@ function PersonDetailsScreen({
               }`}
             />
             {attemptedProceed && !personName.trim() && (
-              <p className="text-xs text-red-700 mt-1 font-bold">
+              <p className="text-xs text-red-700 dark:text-red-400 mt-1 font-bold">
                 ⚠ This field is required
               </p>
             )}
@@ -607,13 +607,13 @@ function PersonDetailsScreen({
               Gender <span className="text-red-600">*</span>
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50">
+              <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20">
                 Male
               </button>
-              <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50">
+              <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20">
                 Female
               </button>
-              <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50">
+              <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20">
                 Other
               </button>
             </div>
@@ -689,7 +689,7 @@ function AuthorizationScreen({
           <AlertCircle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
           <div>
             <h3 className="font-bold text-red-900 mb-1">Authorization Required</h3>
-            <p className="text-sm text-red-800">
+            <p className="text-sm text-red-800 dark:text-red-300">
               You must declare your legal authority to continue. Please review and check the declaration below.
             </p>
           </div>
@@ -742,7 +742,7 @@ function AuthorizationScreen({
                 that I have the legal authority to act on behalf of {personName || "the represented person"}.
               </span>
               {attemptedProceed && !authorizationChecked && (
-                <p className="text-xs text-red-700 mt-2 font-bold">
+                <p className="text-xs text-red-700 dark:text-red-400 mt-2 font-bold">
                   ⚠ You must check this box to proceed
                 </p>
               )}
@@ -871,7 +871,7 @@ function ConsentScreen({
                 through proper channels.
               </span>
               {attemptedProceed && !consentChecked && (
-                <p className="text-xs text-red-700 mt-2 font-bold">
+                <p className="text-xs text-red-700 dark:text-red-400 mt-2 font-bold">
                   ⚠ Consent is required to proceed
                 </p>
               )}
@@ -999,7 +999,7 @@ function ProofUploadScreen({
                 Supported formats: PDF, JPG, PNG • Maximum size: 5MB per file
               </p>
               {attemptedProceed && !proofUploaded && (
-                <p className="text-sm text-red-700 mt-3 font-bold">
+                <p className="text-sm text-red-700 dark:text-red-400 mt-3 font-bold">
                   ⚠ Please upload at least one supporting document
                 </p>
               )}

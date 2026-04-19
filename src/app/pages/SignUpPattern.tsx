@@ -26,7 +26,7 @@ export default function SignUpPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-009-03</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,10 +41,10 @@ export default function SignUpPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -445,7 +445,7 @@ function FlowBranch({ condition, yesPath, noPath }: { condition: string; yesPath
               <div className="text-sm text-muted-foreground">{yesPath}</div>
             </div>
             <div className="bg-card border border-orange-200 dark:border-orange-800 rounded p-3">
-              <div className="text-xs font-bold text-green-700 mb-1">NO</div>
+              <div className="text-xs font-bold text-green-700 dark:text-green-400 mb-1">NO</div>
               <div className="text-sm text-muted-foreground">{noPath}</div>
             </div>
           </div>
@@ -734,10 +734,10 @@ function SignUpFormExample({ state }: { state: string }) {
             )}
             {state !== "weak-password" && state !== "default" && state !== "password-mismatch" && state !== "invalid-email" && state !== "invalid-mobile" && (
               <div className="mt-2 flex items-center gap-1">
-                <div className="h-1 flex-1 bg-green-500 rounded"></div>
-                <div className="h-1 flex-1 bg-green-500 rounded"></div>
-                <div className="h-1 flex-1 bg-green-500 rounded"></div>
-                <div className="h-1 flex-1 bg-green-500 rounded"></div>
+                <div className="h-1 flex-1 bg-green-50 dark:bg-green-900/200 rounded"></div>
+                <div className="h-1 flex-1 bg-green-50 dark:bg-green-900/200 rounded"></div>
+                <div className="h-1 flex-1 bg-green-50 dark:bg-green-900/200 rounded"></div>
+                <div className="h-1 flex-1 bg-green-50 dark:bg-green-900/200 rounded"></div>
               </div>
             )}
           </div>
@@ -910,7 +910,7 @@ function FieldRow({ field, required, label, placeholder, help }: {
       <td className="px-6 py-4 text-sm text-foreground font-medium">{field}</td>
       <td className="px-6 py-4 text-sm">
         {required ? (
-          <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded">YES</span>
+          <span className="px-2 py-1 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">YES</span>
         ) : (
           <span className="px-2 py-1 bg-muted text-muted-foreground text-xs font-bold rounded">NO</span>
         )}
@@ -991,7 +991,7 @@ function PasswordGuidance() {
           <div className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-bold text-green-700 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
                   <Check size={16} />
                   DO
                 </h3>
@@ -1015,7 +1015,7 @@ function PasswordGuidance() {
                 </div>
               </div>
               <div>
-                <h3 className="font-bold text-red-700 mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
                   <X size={16} />
                   DON&apos;T
                 </h3>
@@ -1680,7 +1680,7 @@ export function SignUpPage() {
             <div key={s} className={\\\`flex-1 h-1 rounded \\\${s <= step ? 'bg-primary' : 'bg-muted'}\\\`} />
           ))}
         </div>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         <form onSubmit={handleSubmit} noValidate>
           {step === 1 && (
             <div className="space-y-4">
@@ -1749,7 +1749,7 @@ import { CommonModule } from '@angular/common';
         <div class="flex items-center gap-2 mb-6">
           <div *ngFor="let s of [1,2,3]" [class]="'flex-1 h-1 rounded ' + (s <= step ? 'bg-primary' : 'bg-muted')"></div>
         </div>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div *ngIf="step === 1" class="space-y-4">
             <div>
@@ -2045,7 +2045,7 @@ function GovernanceSection() {
           <div className="p-6">
             <div className="bg-red-100 border-2 border-red-300 rounded-lg p-4 mb-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-red-800 mb-2">MANDATORY</div>
+                <div className="text-2xl font-bold text-red-800 dark:text-red-300 mb-2">MANDATORY</div>
                 <p className="text-sm text-muted-foreground">
                   All government services requiring user accounts MUST implement this pattern
                 </p>
@@ -2072,7 +2072,7 @@ function GovernanceSection() {
           <div className="p-6">
             <div className="bg-green-100 border-2 border-green-300 rounded-lg p-4 mb-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-800 mb-2">STABLE</div>
+                <div className="text-2xl font-bold text-green-800 dark:text-green-300 mb-2">STABLE</div>
                 <p className="text-sm text-muted-foreground">
                   Production-ready, fully documented, breaking changes unlikely
                 </p>
@@ -2080,7 +2080,7 @@ function GovernanceSection() {
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                 <span className="text-muted-foreground">Version: <span className="font-bold">1.0.0</span></span>
               </div>
               <div className="flex items-center gap-2">

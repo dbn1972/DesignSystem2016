@@ -131,7 +131,7 @@ export default function LanguageSwitcherPattern() {
                         <button
                           key={lang.code}
                           onClick={() => handleLanguageSelect(lang)}
-                          className={`w-full px-4 py-3 text-left hover:bg-blue-50 flex items-center justify-between ${
+                          className={`w-full px-4 py-3 text-left hover:bg-blue-50 dark:bg-blue-900/20 flex items-center justify-between ${
                             selectedLanguage.code === lang.code ? "bg-blue-50 font-bold" : ""
                           }`}
                         >
@@ -187,7 +187,7 @@ export default function LanguageSwitcherPattern() {
                             <button
                               key={lang.code}
                               onClick={() => handleLanguageSelect(lang)}
-                              className={`p-4 border-2 rounded-lg text-left hover:border-primary hover:bg-blue-50 transition-all ${
+                              className={`p-4 border-2 rounded-lg text-left hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all ${
                                 selectedLanguage.code === lang.code
                                   ? "border-primary bg-blue-50"
                                   : "border-border"
@@ -234,7 +234,7 @@ export default function LanguageSwitcherPattern() {
                     <button
                       key={lang.code}
                       onClick={() => handleLanguageSelect(lang)}
-                      className={`p-4 border-2 rounded-lg text-center hover:border-primary hover:bg-blue-50 transition-all ${
+                      className={`p-4 border-2 rounded-lg text-center hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all ${
                         selectedLanguage.code === lang.code
                           ? "border-primary bg-blue-50"
                           : "border-border"
@@ -399,7 +399,7 @@ export default function LanguageSwitcherPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Language Switcher</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -432,7 +432,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Language Switcher</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

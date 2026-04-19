@@ -245,7 +245,7 @@ function PatternInfo() {
 
 function SecurityRationale() {
   return (
-    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50 dark:bg-red-900/20">
       <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Security Rationale</h3>
       </div>
@@ -278,7 +278,7 @@ function TimingConfiguration() {
 
 function ImplementationNotes() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Implementation</h3>
       </div>
@@ -310,7 +310,7 @@ function InfoRow({ label, value, badge }: { label: string; value: string; badge?
     <div className="flex items-center justify-between">
       <span className="text-muted-foreground">{label}</span>
       {badge ? (
-        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
+        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700 dark:text-green-400' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
           {value}
         </span>
       ) : (

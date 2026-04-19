@@ -27,7 +27,7 @@ export default function OperationalServicePatterns() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern Family ID: <span className="font-bold text-foreground">UX4G-PAT-011</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -42,7 +42,7 @@ export default function OperationalServicePatterns() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
               <div className="px-6 py-3 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded text-orange-700 font-bold text-xs text-center uppercase">
@@ -437,7 +437,7 @@ export default function OperationalServicePatterns() {
                 <a href="#" className="px-6 py-3 bg-primary text-white font-bold rounded text-sm hover:opacity-90 transition-colors">
                   Contact Support Team
                 </a>
-                <a href="#" className="px-6 py-3 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 transition-colors">
+                <a href="#" className="px-6 py-3 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 dark:bg-blue-900/20 transition-colors">
                   View Code Examples
                 </a>
                 <a href="#" className="text-sm text-primary font-bold hover:underline">
@@ -588,7 +588,7 @@ export default function OperationalServicePage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Operational Service</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -621,7 +621,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Operational Service</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

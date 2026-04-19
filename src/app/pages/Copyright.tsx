@@ -578,7 +578,7 @@ function DependencyRow({ package: pkg, license, copyright, link }: any) {
     <tr className="hover:bg-background">
       <td className="p-4 font-semibold text-foreground">{pkg}</td>
       <td className="p-4">
-        <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">
+        <span className="px-2 py-1 bg-green-100 text-green-700 dark:text-green-400 rounded text-xs font-semibold">
           {license}
         </span>
       </td>

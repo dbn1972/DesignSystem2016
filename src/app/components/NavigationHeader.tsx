@@ -411,19 +411,19 @@ function FoundationsMegaMenu({ onClose }: { onClose: () => void }) {
           <div className="col-span-2 bg-background/50 rounded-xl p-6">
             <div className="font-semibold text-sm text-foreground mb-5">Foundation Topics</div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-              <Link to="/foundations" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:hover:border-blue-800">
+              <Link to="/foundations" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:border-blue-800 dark:hover:border-blue-800">
                 <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Design Tokens</div>
                 <div className="text-muted-foreground">Color, typography, spacing, and more</div>
               </Link>
-              <Link to="/accessibility" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:hover:border-blue-800">
+              <Link to="/accessibility" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:border-blue-800 dark:hover:border-blue-800">
                 <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Accessibility</div>
                 <div className="text-muted-foreground">WCAG 2.1 Level AA compliance</div>
               </Link>
-              <Link to="/content-system" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:hover:border-blue-800">
+              <Link to="/content-system" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:border-blue-800 dark:hover:border-blue-800">
                 <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Content Guidelines</div>
                 <div className="text-muted-foreground">Voice, tone, and writing principles</div>
               </Link>
-              <Link to="/foundations" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:hover:border-blue-800">
+              <Link to="/foundations" className="group space-y-2 p-4 bg-card rounded-lg hover:shadow-md transition-all border border-border  hover:border-blue-200 dark:border-blue-800 dark:hover:border-blue-800">
                 <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Responsive Design</div>
                 <div className="text-muted-foreground">Mobile-first approach</div>
               </Link>
@@ -793,7 +793,7 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
               <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">Identity & Access</div>
               <div className="space-y-0">
                 <MegaMenuItem icon={<Users size={14} className="text-indigo-600" />} label="Sign In" href="/reference-service/sign-in" onClose={onClose} />
-                <MegaMenuItem icon={<UserCheck size={14} className="text-green-700" />} label="Sign Up" href="/reference-service/sign-up" onClose={onClose} />
+                <MegaMenuItem icon={<UserCheck size={14} className="text-green-700 dark:text-green-400" />} label="Sign Up" href="/reference-service/sign-up" onClose={onClose} />
                 <MegaMenuItem icon={<Shield size={14} className="text-purple-600" />} label="OTP Verification" href="/reference-service/verify-otp" onClose={onClose} />
                 <MegaMenuItem icon={<AlertCircle size={14} className="text-orange-600" />} label="Auth Status" href="/reference-service/auth-status" onClose={onClose} />
               </div>
@@ -922,7 +922,7 @@ function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
               <div className="space-y-0">
                 <MegaMenuItem icon={<GitBranch size={14} className="text-amber-600" />} label="Migration Guides" href="/resources/migration-guides" onClose={onClose} />
                 <MegaMenuItem icon={<RefreshCw size={14} className="text-cyan-600" />} label="Material UI Migration" href="/resources/migration-material-ui" onClose={onClose} />
-                <MegaMenuItem icon={<Accessibility size={14} className="text-green-700" />} label="Accessibility Toolkit" href="/accessibility" onClose={onClose} />
+                <MegaMenuItem icon={<Accessibility size={14} className="text-green-700 dark:text-green-400" />} label="Accessibility Toolkit" href="/accessibility" onClose={onClose} />
               </div>
             </div>
           </div>

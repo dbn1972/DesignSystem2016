@@ -781,7 +781,7 @@ function CookieCategory({
   examples: string[];
 }) {
   return (
-    <div className={`border-2 ${required ? 'border-orange-200 dark:border-orange-800 bg-orange-50' : 'border-border bg-background'} rounded-lg p-5`}>
+    <div className={`border-2 ${required ? 'border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-900/20' : 'border-border bg-background'} rounded-lg p-5`}>
       <div className="flex items-start justify-between mb-3">
         <h4 className="font-bold text-foreground">{title}</h4>
         <span className={`px-3 py-1 rounded-full text-xs font-bold ${

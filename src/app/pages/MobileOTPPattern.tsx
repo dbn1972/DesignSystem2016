@@ -26,7 +26,7 @@ export default function MobileOTPPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002-01</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,10 +41,10 @@ export default function MobileOTPPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -389,10 +389,10 @@ function ExampleScreens() {
                   />
                   <input aria-label="tel input" type="tel" 
                     value="123456"
-                    className="flex-1 px-4 py-3 border-2 border-red-400 rounded bg-red-50"
+                    className="flex-1 px-4 py-3 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"
                   />
                 </div>
-                <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 mt-2">
+                <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 dark:text-red-300 mt-2">
                   <XCircle size={14} className="inline mr-2" />
                   Mobile number must be 10 digits
                 </div>
@@ -425,7 +425,7 @@ function ExampleScreens() {
                   +91 ******* 123
                 </p>
               </div>
-              <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800">
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800 dark:text-green-300">
                 <CheckCircle size={14} className="inline mr-2" />
                 SMS sent successfully
               </div>
@@ -522,7 +522,7 @@ function ExampleScreens() {
                   <RefreshCw size={16} />
                   Resend OTP
                 </button>
-                <button className="w-full px-4 py-3 border-2 border-primary bg-card text-primary font-bold rounded hover:bg-blue-50">
+                <button className="w-full px-4 py-3 border-2 border-primary bg-card text-primary font-bold rounded hover:bg-blue-50 dark:bg-blue-900/20">
                   Change Mobile Number
                 </button>
                 <button className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background flex items-center justify-center gap-2">
@@ -606,7 +606,7 @@ function ExampleScreens() {
                 </p>
               </div>
               <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4 text-sm">
-                <p className="text-red-800 font-bold mb-2">What you can do:</p>
+                <p className="text-red-800 dark:text-red-300 font-bold mb-2">What you can do:</p>
                 <ul className="text-muted-foreground space-y-1 ml-4">
                   <li>• Check your internet connection</li>
                   <li>• Ensure you have network signal</li>
@@ -643,7 +643,7 @@ function ExampleScreens() {
                 </p>
               </div>
               <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-4 text-center">
-                <p className="text-sm text-green-800 font-bold mb-1">Verified Number</p>
+                <p className="text-sm text-green-800 dark:text-green-300 font-bold mb-1">Verified Number</p>
                 <p className="text-sm text-foreground font-mono">+91 9876543210</p>
               </div>
               <div className="text-center text-sm text-muted-foreground">
@@ -1342,7 +1342,7 @@ export function MobileOTPPage() {
             <p className="text-sm text-muted-foreground">Verify your Indian mobile number via SMS OTP</p>
           </div>
         </div>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {step === 'mobile' && (
           <div className="space-y-4">
             <div>
@@ -1396,7 +1396,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
       <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Mobile Verification</h1>
         <p class="text-sm text-muted-foreground mb-6">Verify your Indian mobile number via SMS OTP</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="step === 'mobile'" class="space-y-4">
           <div>
             <label for="mobile" class="block text-sm font-medium mb-1">Mobile Number <span class="text-red-500">*</span></label>
@@ -1643,7 +1643,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 font-bold">
+              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 dark:text-green-300 font-bold">
                 STABLE
               </div>
             </div>
@@ -1662,7 +1662,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-red-100 border-2 border-red-300 rounded text-red-800 font-bold text-sm">
+              <div className="inline-block px-6 py-3 bg-red-100 border-2 border-red-300 rounded text-red-800 dark:text-red-300 font-bold text-sm">
                 MANDATORY
               </div>
             </div>
@@ -1776,7 +1776,7 @@ function ParentPattern() {
       <div className="p-4">
         <Link 
           to="/patterns/identity/otp-verification"
-          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
             <Hash size={16} className="text-primary" />
@@ -1920,7 +1920,7 @@ function NetworkIssue({ issue, description, solution }: { issue: string; descrip
     <div className="bg-card border border-border rounded p-3">
       <p className="font-bold text-foreground mb-1">{issue}</p>
       <p className="text-muted-foreground text-xs mb-2">{description}</p>
-      <p className="text-xs text-green-700">
+      <p className="text-xs text-green-700 dark:text-green-400">
         <CheckCircle size={12} className="inline mr-1" />
         <span className="font-bold">Solution:</span> {solution}
       </p>
@@ -1988,7 +1988,7 @@ function ImplementationItem({ category, requirements }: { category: string; requ
 
 function RelatedPatternLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
         <ArrowRight size={12} className="text-primary" />
         <span className="text-foreground">{text}</span>
@@ -1999,7 +1999,7 @@ function RelatedPatternLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground">
       <span className="text-primary">{icon}</span>
       <span>{text}</span>
     </a>

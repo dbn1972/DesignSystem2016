@@ -26,7 +26,7 @@ export default function ConsentCapturePattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-010-01</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,10 +41,10 @@ export default function ConsentCapturePattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -472,11 +472,11 @@ function FlowBranch({ condition, leftPath, rightPath }: { condition: string; lef
           <h3 className="font-bold text-orange-800 mb-3">{condition}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-card border border-green-300 rounded p-3">
-              <div className="text-xs font-bold text-green-700 mb-1">GRANT CONSENT</div>
+              <div className="text-xs font-bold text-green-700 dark:text-green-400 mb-1">GRANT CONSENT</div>
               <div className="text-sm text-muted-foreground">{leftPath}</div>
             </div>
             <div className="bg-card border border-red-300 rounded p-3">
-              <div className="text-xs font-bold text-red-700 mb-1">DECLINE CONSENT</div>
+              <div className="text-xs font-bold text-red-700 dark:text-red-400 mb-1">DECLINE CONSENT</div>
               <div className="text-sm text-muted-foreground">{rightPath}</div>
             </div>
           </div>
@@ -895,7 +895,7 @@ function ContentGuidance() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-green-50 dark:bg-green-950/30 border-b-2 border-green-300 px-6 py-4">
-            <h3 className="font-bold text-green-800 flex items-center gap-2">
+            <h3 className="font-bold text-green-800 dark:text-green-300 flex items-center gap-2">
               <Check size={18} />
               Do Use
             </h3>
@@ -912,7 +912,7 @@ function ContentGuidance() {
 
         <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
           <div className="bg-red-50 dark:bg-red-950/30 border-b-2 border-red-300 px-6 py-4">
-            <h3 className="font-bold text-red-800 flex items-center gap-2">
+            <h3 className="font-bold text-red-800 dark:text-red-300 flex items-center gap-2">
               <X size={18} />
               Don&apos;t Use
             </h3>
@@ -943,7 +943,7 @@ function ContentElement({ title, required, description, example, tips }: {
       <div className="flex items-center gap-3 mb-2">
         <h3 className="font-bold text-foreground">{title}</h3>
         {required && (
-          <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded">REQUIRED</span>
+          <span className="px-2 py-1 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">REQUIRED</span>
         )}
       </div>
       <p className="text-sm text-muted-foreground mb-2">{description}</p>
@@ -1436,7 +1436,7 @@ export function ConsentCapturePage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Consent & Permissions</h1>
         <p className="text-sm text-muted-foreground mb-6">Review and provide your consent for data processing as required by this government service.</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         <div className="space-y-3 mb-6">
           {CONSENT_ITEMS.map(item => (
             <div key={item.id} className="border border-border rounded-xl overflow-hidden">
@@ -1445,7 +1445,7 @@ export function ConsentCapturePage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-sm text-foreground">{item.title}</span>
-                    {item.required && <span className="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-semibold">Required</span>}
+                    {item.required && <span className="text-xs bg-red-100 text-red-700 dark:text-red-400 px-2 py-0.5 rounded-full font-semibold">Required</span>}
                   </div>
                   {expanded === item.id && <p className="text-sm text-muted-foreground mt-2">{item.description}</p>}
                 </div>
@@ -1475,14 +1475,14 @@ interface ConsentItem { id: string; title: string; description: string; required
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Consent & Permissions</h1>
         <p class="text-sm text-muted-foreground mb-6">Review and provide your consent for data processing.</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="!submitted" class="space-y-3 mb-6">
           <div *ngFor="let item of items" class="border border-border rounded-xl overflow-hidden">
             <div class="flex items-start gap-3 p-4 cursor-pointer" (click)="toggle(item.id)">
               <input type="checkbox" [checked]="consents[item.id]" (change)="consents[item.id] = !consents[item.id]" (click)="$event.stopPropagation()" class="mt-1 accent-primary" />
               <div class="flex-1">
                 <span class="font-semibold text-sm">{{ item.title }}</span>
-                <span *ngIf="item.required" class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full ml-2">Required</span>
+                <span *ngIf="item.required" class="text-xs bg-red-100 text-red-700 dark:text-red-400 px-2 py-0.5 rounded-full ml-2">Required</span>
                 <p *ngIf="expanded === item.id" class="text-sm text-muted-foreground mt-2">{{ item.description }}</p>
               </div>
             </div>
@@ -1659,7 +1659,7 @@ function GovernanceSection() {
           <div className="p-6">
             <div className="bg-red-100 border-2 border-red-300 rounded-lg p-4 mb-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-red-800 mb-2">MANDATORY</div>
+                <div className="text-2xl font-bold text-red-800 dark:text-red-300 mb-2">MANDATORY</div>
                 <p className="text-sm text-muted-foreground">
                   All government services collecting personal data MUST implement consent capture
                 </p>

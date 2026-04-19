@@ -768,8 +768,8 @@ export type ProgressColor = 'primary' | 'success' | 'warning' | 'danger';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Progress when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -780,8 +780,8 @@ export type ProgressColor = 'primary' | 'success' | 'warning' | 'danger';`,
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use Progress when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -800,14 +800,14 @@ export type ProgressColor = 'primary' | 'success' | 'warning' | 'danger';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <div className="w-full mb-3"><div className="flex justify-between text-xs mb-1"><span className="text-muted-foreground">Uploading Aadhaar...</span><span className="text-muted-foreground">65%</span></div><div className="w-full h-2 bg-muted rounded-full overflow-hidden"><div className="h-full bg-[#005196] rounded-full" style={{width:"65%"}} /></div></div>
                   <p className="text-sm text-muted-foreground">Show progress bars for file uploads and known-duration operations.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="w-full mb-3"><div className="w-full h-2 bg-muted rounded-full overflow-hidden"><div className="h-full bg-[#005196] rounded-full" style={{width:"65%"}} /></div></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use progress bars for brief operations under 2 seconds — use Spinner.</p>

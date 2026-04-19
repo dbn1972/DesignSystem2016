@@ -26,7 +26,7 @@ export default function ComponentCodeMapping() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Components: <span className="font-bold text-foreground">15+</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,7 +41,7 @@ export default function ComponentCodeMapping() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 TYPE-SAFE
               </div>
               <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
@@ -878,7 +878,7 @@ function ComponentSpec({ name, description, reactProps, angularInputs, variants,
           <div className="space-y-2">
             {variants.map((v, i) => (
               <div key={i} className="flex items-start gap-3 p-3 bg-background border border-border rounded">
-                <code className="text-sm text-blue-700 bg-blue-50 px-2 py-0.5 rounded font-mono flex-shrink-0">
+                <code className="text-sm text-blue-700 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded font-mono flex-shrink-0">
                   {v.name}
                 </code>
                 <div className="flex-1">
@@ -897,7 +897,7 @@ function ComponentSpec({ name, description, reactProps, angularInputs, variants,
           <div className="space-y-2">
             {sizes.map((s, i) => (
               <div key={i} className="flex items-start gap-3 p-3 bg-background border border-border rounded">
-                <code className="text-sm text-purple-700 bg-purple-50 px-2 py-0.5 rounded font-mono flex-shrink-0">
+                <code className="text-sm text-purple-700 bg-purple-50 dark:bg-purple-900/20 px-2 py-0.5 rounded font-mono flex-shrink-0">
                   {s.name}
                 </code>
                 <p className="text-sm text-foreground">{s.desc}</p>
@@ -913,7 +913,7 @@ function ComponentSpec({ name, description, reactProps, angularInputs, variants,
           <div className="space-y-2">
             {states.map((s, i) => (
               <div key={i} className="flex items-start gap-3 p-3 bg-background border border-border rounded">
-                <code className="text-sm text-green-700 bg-green-50 px-2 py-0.5 rounded font-mono flex-shrink-0">
+                <code className="text-sm text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded font-mono flex-shrink-0">
                   {s.name}
                 </code>
                 <p className="text-sm text-foreground">{s.desc}</p>
@@ -994,7 +994,7 @@ function NavLink({ href, text }: { href: string; text: string }) {
   return (
     <a 
       href={href}
-      className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground"
+      className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground"
     >
       <ArrowRight size={12} className="text-primary" />
       <span>{text}</span>

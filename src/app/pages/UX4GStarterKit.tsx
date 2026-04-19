@@ -25,7 +25,7 @@ export default function UX4GStarterKit() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -40,7 +40,7 @@ export default function UX4GStarterKit() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 READY TO USE
               </div>
               <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
@@ -857,7 +857,7 @@ function ComponentCategory({ title, components }: {
           <div key={i} className="bg-background border border-border rounded p-3">
             <p className="font-bold text-foreground text-sm mb-1">{comp.name}</p>
             <p className="text-xs text-muted-foreground mb-2">{comp.desc}</p>
-            <code className="text-xs text-blue-700 bg-blue-50 px-2 py-0.5 rounded">{comp.path}</code>
+            <code className="text-xs text-blue-700 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded">{comp.path}</code>
           </div>
         ))}
       </div>
@@ -1056,7 +1056,7 @@ function ResourceLink({ to, text }: { to: string; text: string }) {
   return (
     <Link 
       to={to}
-      className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground"
+      className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground"
     >
       <ArrowRight size={12} className="text-primary" />
       <span>{text}</span>

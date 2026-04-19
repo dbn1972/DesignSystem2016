@@ -664,7 +664,7 @@ function SocialMediaLink({
   return (
     <a
       href={url}
-      className="flex items-center gap-3 p-3 border border-border rounded-lg hover:border-primary hover:bg-blue-50 transition-colors group"
+      className="flex items-center gap-3 p-3 border border-border rounded-lg hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-colors group"
       target="_blank"
       rel="noopener noreferrer"
     >

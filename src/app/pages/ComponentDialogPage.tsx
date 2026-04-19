@@ -715,8 +715,8 @@ export default function ComponentDialogPage() {
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Dialog when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -726,8 +726,8 @@ export default function ComponentDialogPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use Dialog when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -745,14 +745,14 @@ export default function ComponentDialogPage() {
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="flex justify-end gap-2"><button className="px-3 py-1.5 text-sm border border-border rounded">Keep Editing</button><button className="px-3 py-1.5 text-sm bg-red-600 text-white rounded">Discard Changes</button></div>
                   <p className="text-sm text-muted-foreground">Use specific labels that describe the action — &quot;Discard Changes&quot; is clearer than &quot;Yes&quot;.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4 space-y-3">
                   <div className="flex justify-end gap-2"><button className="px-3 py-1.5 text-sm border border-border rounded">No</button><button className="px-3 py-1.5 text-sm bg-[#005196] text-white rounded">Yes</button></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use &quot;Yes&quot; / &quot;No&quot; — users must re-read the question to understand what each button does.</p>

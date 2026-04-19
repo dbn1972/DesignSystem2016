@@ -444,7 +444,7 @@ export function AddressLookupPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Address</h1>
         <p className="text-sm text-muted-foreground mb-6">Enter PIN code for auto-fill of state, district, and city</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         <form onSubmit={handleSubmit} className="space-y-4" noValidate>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -499,7 +499,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
     <div class="min-h-screen flex items-center justify-center bg-background p-4">
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold mb-6">Address</h1>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <form [formGroup]="form" (ngSubmit)="save()" class="space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div><label class="block text-sm font-medium mb-1">PIN Code *</label><input formControlName="pincode" (input)="onPincode()" maxlength="6" class="w-full px-4 py-3 border border-border rounded-lg font-mono text-lg" /></div>

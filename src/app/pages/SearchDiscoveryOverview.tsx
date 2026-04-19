@@ -283,17 +283,17 @@ export default function SearchDiscoveryOverview() {
                           <li className="flex items-start gap-2">
                             <span className="font-mono bg-card px-2 py-1 rounded text-xs">Query:</span>
                             <span>"How to apply for voter ID"</span>
-                            <span className="ml-auto text-green-700 font-bold">→ Intent: Application</span>
+                            <span className="ml-auto text-green-700 dark:text-green-400 font-bold">→ Intent: Application</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="font-mono bg-card px-2 py-1 rounded text-xs">Query:</span>
                             <span>"Check passport status"</span>
-                            <span className="ml-auto text-green-700 font-bold">→ Intent: Tracking</span>
+                            <span className="ml-auto text-green-700 dark:text-green-400 font-bold">→ Intent: Tracking</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="font-mono bg-card px-2 py-1 rounded text-xs">Query:</span>
                             <span>"Renew driving license"</span>
-                            <span className="ml-auto text-green-700 font-bold">→ Intent: Renewal</span>
+                            <span className="ml-auto text-green-700 dark:text-green-400 font-bold">→ Intent: Renewal</span>
                           </li>
                         </ul>
                       </div>

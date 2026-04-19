@@ -195,7 +195,7 @@ export default function LocalizationPatterns() {
                     location, and previous choices. Supports dropdown, modal, and inline selector variants.
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-bold">UI COMPONENT</span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:text-blue-300 rounded-full font-bold">UI COMPONENT</span>
                     <span className="text-muted-foreground">Complexity: Medium</span>
                     <span className="text-muted-foreground">Required for all services</span>
                   </div>
@@ -249,7 +249,7 @@ export default function LocalizationPatterns() {
                     without breaking UI, truncating content, or causing layout shifts.
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full font-bold">LAYOUT</span>
+                    <span className="px-3 py-1 bg-green-100 text-green-800 dark:text-green-300 rounded-full font-bold">LAYOUT</span>
                     <span className="text-muted-foreground">Complexity: High</span>
                     <span className="text-muted-foreground">Critical for responsive design</span>
                   </div>
@@ -303,7 +303,7 @@ export default function LocalizationPatterns() {
                     user-contributed content with options to view original or report issues.
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full font-bold">TRANSPARENCY</span>
+                    <span className="px-3 py-1 bg-yellow-100 text-yellow-800 dark:text-yellow-300 rounded-full font-bold">TRANSPARENCY</span>
                     <span className="text-muted-foreground">Complexity: Low</span>
                     <span className="text-muted-foreground">Optional but recommended</span>
                   </div>
@@ -430,7 +430,7 @@ export default function LocalizationPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Localization</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -463,7 +463,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Localization</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

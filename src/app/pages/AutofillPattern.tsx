@@ -81,7 +81,7 @@ export default function AutofillPattern() {
 
                 <button
                   onClick={() => setMethod("aadhaar")}
-                  className="w-full bg-card border-2 border-border rounded-lg p-6 hover:border-primary hover:bg-blue-50 transition-all text-left"
+                  className="w-full bg-card border-2 border-border rounded-lg p-6 hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all text-left"
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -108,7 +108,7 @@ export default function AutofillPattern() {
 
                 <button
                   onClick={() => setMethod("digilocker")}
-                  className="w-full bg-card border-2 border-border rounded-lg p-6 hover:border-primary hover:bg-blue-50 transition-all text-left"
+                  className="w-full bg-card border-2 border-border rounded-lg p-6 hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all text-left"
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -190,7 +190,7 @@ export default function AutofillPattern() {
                   ) : (
                     <>
                       <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-4">
-                        <div className="flex items-center gap-2 text-sm text-green-700">
+                        <div className="flex items-center gap-2 text-sm text-green-700 dark:text-green-400">
                           <CheckCircle size={16} />
                           OTP sent to mobile number ending in ****7890
                         </div>
@@ -567,15 +567,15 @@ export function AutofillPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Auto-fill Form</h1>
         <p className="text-sm text-muted-foreground mb-6">Pre-fill from Aadhaar or DigiLocker to save time</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         <div className="flex gap-3 mb-6">
-          <button onClick={handleAadhaarFetch} disabled={loading} className="flex-1 py-3 border-2 border-orange-300 bg-orange-50 rounded-xl font-semibold text-sm text-orange-800 hover:bg-orange-100 disabled:opacity-60">🔐 Aadhaar eKYC</button>
-          <button onClick={handleDigiLockerFetch} disabled={loading} className="flex-1 py-3 border-2 border-blue-300 bg-blue-50 rounded-xl font-semibold text-sm text-blue-800 hover:bg-blue-100 disabled:opacity-60">📁 DigiLocker</button>
+          <button onClick={handleAadhaarFetch} disabled={loading} className="flex-1 py-3 border-2 border-orange-300 bg-orange-50 dark:bg-orange-900/20 rounded-xl font-semibold text-sm text-orange-800 hover:bg-orange-100 disabled:opacity-60">🔐 Aadhaar eKYC</button>
+          <button onClick={handleDigiLockerFetch} disabled={loading} className="flex-1 py-3 border-2 border-blue-300 bg-blue-50 dark:bg-blue-900/20 rounded-xl font-semibold text-sm text-blue-800 dark:text-blue-300 hover:bg-blue-100 disabled:opacity-60">📁 DigiLocker</button>
         </div>
-        {autoFilled && <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">✓ Auto-filled from {source === 'aadhaar' ? 'Aadhaar eKYC' : 'DigiLocker'}. Review and edit if needed.</div>}
+        {autoFilled && <div className="mb-4 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 rounded-lg text-sm text-green-700 dark:text-green-400">✓ Auto-filled from {source === 'aadhaar' ? 'Aadhaar eKYC' : 'DigiLocker'}. Review and edit if needed.</div>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div><label className="block text-sm font-medium mb-1">Full Name *</label><input value={form.fullName} onChange={e => update('fullName', e.target.value)} className={\`w-full px-4 py-3 border border-border rounded-lg \${autoFilled ? 'bg-green-50/50' : ''}\`} /></div>
+            <div><label className="block text-sm font-medium mb-1">Full Name *</label><input value={form.fullName} onChange={e => update('fullName', e.target.value)} className={\`w-full px-4 py-3 border border-border rounded-lg \${autoFilled ? 'bg-green-50 dark:bg-green-900/20/50' : ''}\`} /></div>
             <div><label className="block text-sm font-medium mb-1">Date of Birth</label><input type="date" value={form.dob} onChange={e => update('dob', e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
           </div>
           <div><label className="block text-sm font-medium mb-1">Address</label><textarea value={form.address} onChange={e => update('address', e.target.value)} rows={2} className="w-full px-4 py-3 border border-border rounded-lg" /></div>
@@ -604,12 +604,12 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
     <div class="min-h-screen flex items-center justify-center bg-background p-4">
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold mb-6">Auto-fill Form</h1>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div class="flex gap-3 mb-6">
-          <button (click)="fetchAadhaar()" [disabled]="loading" class="flex-1 py-3 border-2 border-orange-300 bg-orange-50 rounded-xl font-semibold text-sm">🔐 Aadhaar</button>
-          <button (click)="fetchDigiLocker()" [disabled]="loading" class="flex-1 py-3 border-2 border-blue-300 bg-blue-50 rounded-xl font-semibold text-sm">📁 DigiLocker</button>
+          <button (click)="fetchAadhaar()" [disabled]="loading" class="flex-1 py-3 border-2 border-orange-300 bg-orange-50 dark:bg-orange-900/20 rounded-xl font-semibold text-sm">🔐 Aadhaar</button>
+          <button (click)="fetchDigiLocker()" [disabled]="loading" class="flex-1 py-3 border-2 border-blue-300 bg-blue-50 dark:bg-blue-900/20 rounded-xl font-semibold text-sm">📁 DigiLocker</button>
         </div>
-        <div *ngIf="autoFilled" class="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">✓ Auto-filled. Review and edit.</div>
+        <div *ngIf="autoFilled" class="mb-4 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 rounded-lg text-sm text-green-700 dark:text-green-400">✓ Auto-filled. Review and edit.</div>
         <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div><label class="block text-sm font-medium mb-1">Name *</label><input formControlName="fullName" class="w-full px-4 py-3 border border-border rounded-lg" /></div>

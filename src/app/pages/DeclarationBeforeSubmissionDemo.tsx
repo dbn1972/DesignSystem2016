@@ -91,7 +91,7 @@ export default function DeclarationBeforeSubmissionDemo() {
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-16 h-16 bg-green-100 border-2 border-green-300 rounded flex items-center justify-center">
-                  <CheckCircle size={32} className="text-green-700" />
+                  <CheckCircle size={32} className="text-green-700 dark:text-green-400" />
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">UX4G Interactive Pattern Demo</div>

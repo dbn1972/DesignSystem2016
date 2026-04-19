@@ -319,8 +319,8 @@ function Example() {
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Select when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -330,8 +330,8 @@ function Example() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don&apos;t use Select when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">

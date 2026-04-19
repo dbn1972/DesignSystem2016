@@ -506,8 +506,8 @@ export default function ComponentCodeBlockPage() {
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use CodeBlock when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -518,8 +518,8 @@ export default function ComponentCodeBlockPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use CodeBlock when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -537,14 +537,14 @@ export default function ComponentCodeBlockPage() {
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <div className="relative rounded bg-gray-900 p-3 mb-3"><button className="absolute top-2 right-2 px-2 py-0.5 text-[10px] bg-gray-700 text-gray-300 rounded">Copy</button><pre className="text-xs text-green-400 font-mono">{"<Button variant=\"primary\">\n  Submit\n</Button>"}</pre></div>
                   <p className="text-sm text-muted-foreground">Include a copy button on code blocks — it increases code adoption by 70%.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="rounded bg-gray-900 p-3 mb-3"><pre className="text-xs text-muted-foreground font-mono overflow-x-auto">{"<Button variant=\"primary\">Submit</Button>"}</pre></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use code blocks for non-code preformatted text — use a styled div.</p>

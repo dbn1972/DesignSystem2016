@@ -459,7 +459,7 @@ function ExternalLinksSection() {
 
 function ExternalLinkNotice({ title, content }: any) {
   return (
-    <div className="border-l-4 border-blue-500 pl-4 py-2 bg-blue-50">
+    <div className="border-l-4 border-blue-500 pl-4 py-2 bg-blue-50 dark:bg-blue-900/20">
       <h4 className="font-semibold text-foreground mb-1">{title}</h4>
       <p className="text-sm text-muted-foreground">{content}</p>
     </div>

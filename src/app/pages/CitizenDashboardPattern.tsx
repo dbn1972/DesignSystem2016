@@ -59,7 +59,7 @@ export default function CitizenDashboardPattern() {
             <div className="flex items-center gap-4">
               <button aria-label="Notifications" className="relative p-2 hover:bg-muted rounded">
                 <Bell size={20} className="text-muted-foreground" />
-                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                <span className="absolute top-1 right-1 w-2 h-2 bg-red-50 dark:bg-red-900/200 rounded-full"></span>
               </button>
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">
@@ -120,7 +120,7 @@ export default function CitizenDashboardPattern() {
               }`}
             >
               Pending Tasks
-              <span className="ml-2 px-2 py-0.5 bg-red-500 text-white text-xs rounded-full">{PENDING_TASKS.length}</span>
+              <span className="ml-2 px-2 py-0.5 bg-red-50 dark:bg-red-900/200 text-white text-xs rounded-full">{PENDING_TASKS.length}</span>
             </button>
             <button
               onClick={() => setActiveTab('applications')}
@@ -250,7 +250,7 @@ export default function CitizenDashboardPattern() {
                     <Link
                       key={i}
                       to={action.link}
-                      className="p-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 transition-all text-center group"
+                      className="p-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all text-center group"
                     >
                       <div className="inline-block p-3 bg-muted rounded-lg mb-2 group-hover:bg-primary transition-colors">
                         <div className="text-muted-foreground group-hover:text-white transition-colors">
@@ -283,7 +283,7 @@ export default function CitizenDashboardPattern() {
                     <div key={notif.id} className={`p-3 rounded ${notif.unread ? 'bg-blue-50 dark:bg-blue-950/30 border-l-4 border-primary' : 'bg-background'}`}>
                       <div className="flex items-start justify-between mb-1">
                         <div className="text-sm font-bold text-foreground">{notif.title}</div>
-                        {notif.unread && <div className="w-2 h-2 bg-red-500 rounded-full"></div>}
+                        {notif.unread && <div className="w-2 h-2 bg-red-50 dark:bg-red-900/200 rounded-full"></div>}
                       </div>
                       <div className="text-xs text-muted-foreground mb-1">{notif.message}</div>
                       <div className="text-xs text-muted-foreground">{notif.time}</div>
@@ -305,7 +305,7 @@ export default function CitizenDashboardPattern() {
                     <Link
                       key={i}
                       to="#"
-                      className="block p-3 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
+                      className="block p-3 border-2 border-border rounded hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all"
                     >
                       <div className="text-sm font-bold text-foreground">{service.name}</div>
                       <div className="text-xs text-muted-foreground">{service.category}</div>
@@ -502,7 +502,7 @@ export function CitizenDashboardPage() {
           <div className="flex items-center gap-4">
             <button className="relative p-2 rounded-lg hover:bg-muted" aria-label="Notifications">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-              {unread > 0 && <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">{unread}</span>}
+              {unread > 0 && <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-50 dark:bg-red-900/200 text-white text-xs rounded-full flex items-center justify-center">{unread}</span>}
             </button>
           </div>
         </div>

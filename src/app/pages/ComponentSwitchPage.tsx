@@ -179,8 +179,8 @@ function Example() {
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Switch when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -192,8 +192,8 @@ function Example() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use Switch when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -211,14 +211,14 @@ function Example() {
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <div className="flex items-center gap-3 mb-3"><div className="w-10 h-5 bg-[#005196] rounded-full relative"><div className="absolute right-0.5 top-0.5 w-4 h-4 bg-card rounded-full shadow" /></div><span className="text-xs text-foreground">Dark mode</span></div>
                   <p className="text-sm text-muted-foreground">Use switches for settings that take effect immediately without a save button.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="flex items-center gap-3 mb-3"><input type="checkbox" className="accent-[#005196]" /><span className="text-xs text-foreground">Enable notifications</span><button className="ml-2 px-2 py-0.5 text-[10px] bg-[#005196] text-white rounded">Save</button></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use switches in forms that require submission — use Checkbox instead.</p>

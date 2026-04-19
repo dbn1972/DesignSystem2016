@@ -26,7 +26,7 @@ export default function AuthErrorLockoutPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002-09</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,10 +41,10 @@ export default function AuthErrorLockoutPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Security<br/>Critical
               </div>
             </div>
@@ -516,7 +516,7 @@ function ExampleScreens() {
               <label className="block text-sm font-bold text-foreground mb-2">Password</label>
               <input aria-label="Enter your password" type="password" 
                 placeholder="Enter your password"
-                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
+                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"
               />
             </div>
             <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
@@ -546,10 +546,10 @@ function ExampleScreens() {
             </div>
             <div className="flex gap-2 justify-center">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50"></div>
+                <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"></div>
               ))}
             </div>
-            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 text-center">
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 dark:text-red-300 text-center">
               <XCircle size={14} className="inline mr-2" />
               <strong>2 attempts remaining</strong> before lockout
             </div>
@@ -603,9 +603,9 @@ function ExampleScreens() {
               </p>
             </div>
             <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4 text-sm text-muted-foreground">
-              <p className="font-bold text-red-800 mb-2">For your security:</p>
+              <p className="font-bold text-red-800 dark:text-red-300 mb-2">For your security:</p>
               <p>Your account has been temporarily locked after 3 incorrect password attempts.</p>
-              <p className="mt-2">You can try again in <strong className="text-red-800">15 minutes</strong>, or reset your password now.</p>
+              <p className="mt-2">You can try again in <strong className="text-red-800 dark:text-red-300">15 minutes</strong>, or reset your password now.</p>
             </div>
             <div className="space-y-2">
               <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
@@ -1326,14 +1326,14 @@ export function AuthErrorLockoutPage() {
         <h1 className="text-2xl font-bold text-foreground mb-2">Sign In</h1>
         {state === 'locked' ? (
           <div className="space-y-4">
-            <div role="alert" className="p-4 bg-red-50 border border-red-200 rounded-xl">
+            <div role="alert" className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-xl">
               <div className="flex items-center gap-2 mb-2">
                 <svg className="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                <span className="font-bold text-red-700">Account Temporarily Locked</span>
+                <span className="font-bold text-red-700 dark:text-red-400">Account Temporarily Locked</span>
               </div>
               <p className="text-sm text-red-600">Too many failed sign-in attempts. Your account is locked for security.</p>
               <div className="mt-3 text-center">
-                <div className="text-2xl font-bold text-red-700" aria-live="polite">{mins}:{String(secs).padStart(2, '0')}</div>
+                <div className="text-2xl font-bold text-red-700 dark:text-red-400" aria-live="polite">{mins}:{String(secs).padStart(2, '0')}</div>
                 <p className="text-xs text-red-500 mt-1">Time until unlock</p>
               </div>
             </div>
@@ -1368,7 +1368,7 @@ function LoginForm({ onSubmit, error, state, attemptsLeft }: { onSubmit: (u: str
   };
   return (
     <form onSubmit={handleSubmit} className="space-y-4 mt-4" noValidate>
-      {error && <div role="alert" className={\`p-3 rounded-lg text-sm \${state === 'warning' ? 'bg-yellow-50 border border-yellow-200 text-yellow-700' : 'bg-red-50 border border-red-200 text-red-700'}\`}>{error}</div>}
+      {error && <div role="alert" className={\`p-3 rounded-lg text-sm \${state === 'warning' ? 'bg-yellow-50 border border-yellow-200 text-yellow-700' : 'bg-red-50 dark:bg-red-900/20 border border-red-200 text-red-700 dark:text-red-400'}\`}>{error}</div>}
       <div>
         <label htmlFor="username" className="block text-sm font-medium mb-1">Email or Mobile <span className="text-red-500">*</span></label>
         <input id="username" type="text" value={username} onChange={e => setUsername(e.target.value)} className="w-full px-4 py-3 border border-border rounded-lg" aria-required="true" />
@@ -1397,9 +1397,9 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
         <h1 class="text-2xl font-bold text-foreground mb-2">Sign In</h1>
         <div *ngIf="error" role="alert" [class]="'mb-4 p-3 rounded-lg text-sm ' + (state === 'warning' ? 'bg-yellow-50 border border-yellow-200 text-yellow-700' : 'bg-red-50 border border-red-200 text-red-700')">{{ error }}</div>
         <div *ngIf="state === 'locked'" class="space-y-4">
-          <div class="p-4 bg-red-50 border border-red-200 rounded-xl text-center">
-            <p class="font-bold text-red-700 mb-2">Account Temporarily Locked</p>
-            <div class="text-2xl font-bold text-red-700" aria-live="polite">{{ formatTime() }}</div>
+          <div class="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-xl text-center">
+            <p class="font-bold text-red-700 dark:text-red-400 mb-2">Account Temporarily Locked</p>
+            <div class="text-2xl font-bold text-red-700 dark:text-red-400" aria-live="polite">{{ formatTime() }}</div>
             <p class="text-xs text-red-500 mt-1">Time until unlock</p>
           </div>
           <a href="/forgot-password" class="block w-full py-3 text-center border border-border rounded-lg font-semibold">Reset Password</a>
@@ -1584,7 +1584,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 font-bold">
+              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 dark:text-green-300 font-bold">
                 STABLE
               </div>
             </div>
@@ -1603,7 +1603,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-red-100 border-2 border-red-300 rounded text-red-800 font-bold text-sm">
+              <div className="inline-block px-6 py-3 bg-red-100 border-2 border-red-300 rounded text-red-800 dark:text-red-300 font-bold text-sm">
                 SECURITY CRITICAL
               </div>
             </div>
@@ -1755,7 +1755,7 @@ function InteractiveDemo() {
       <div className="p-4">
         <Link 
           to="/patterns/identity/auth-error"
-          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
             <Eye size={16} className="text-primary" />
@@ -2023,7 +2023,7 @@ function ImplementationItem({ category, requirements }: { category: string; requ
 
 function RelatedPatternLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
         <ArrowRight size={12} className="text-primary" />
         <span className="text-foreground">{text}</span>
@@ -2034,7 +2034,7 @@ function RelatedPatternLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground">
       <ArrowRight size={12} className="text-primary" />
       <span className="text-xs">{text}</span>
     </a>

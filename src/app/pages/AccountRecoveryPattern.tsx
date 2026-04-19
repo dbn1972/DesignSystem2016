@@ -26,7 +26,7 @@ export default function AccountRecoveryPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002-07</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,7 +41,7 @@ export default function AccountRecoveryPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
               <div className="px-6 py-3 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded text-orange-700 font-bold text-xs text-center uppercase">
@@ -332,7 +332,7 @@ function ExampleScreens() {
                 { icon: User, text: "Identity details mismatch" },
                 { icon: XCircle, text: "Account locked after failed attempts" }
               ].map((item, i) => (
-                <button key={i} className="w-full px-4 py-3 border-2 border-border rounded hover:bg-blue-50 hover:border-blue-300 text-left flex items-center gap-3">
+                <button key={i} className="w-full px-4 py-3 border-2 border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 text-left flex items-center gap-3">
                   <item.icon size={20} className="text-primary" />
                   <span className="text-sm text-foreground">{item.text}</span>
                 </button>
@@ -393,15 +393,15 @@ function ExampleScreens() {
               <p className="text-muted-foreground">Registered: June 2024</p>
             </div>
             <div className="space-y-2">
-              <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 text-left">
+              <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 text-left">
                 <p className="font-bold text-sm text-foreground">Send OTP to alternate mobile</p>
                 <p className="text-xs text-muted-foreground">If you have access to: +91 ******* 456</p>
               </button>
-              <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 text-left">
+              <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 text-left">
                 <p className="font-bold text-sm text-foreground">Upload identity document</p>
                 <p className="text-xs text-muted-foreground">Aadhaar, PAN, Driving License, or Passport</p>
               </button>
-              <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 text-left">
+              <button className="w-full px-4 py-4 border-2 border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 text-left">
                 <p className="font-bold text-sm text-foreground">Contact support team</p>
                 <p className="text-xs text-muted-foreground">Get help from our recovery specialists</p>
               </button>
@@ -461,7 +461,7 @@ function ExampleScreens() {
               </p>
             </div>
             <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-4 text-sm text-muted-foreground space-y-2">
-              <p className="font-bold text-red-800">Why this happened:</p>
+              <p className="font-bold text-red-800 dark:text-red-300">Why this happened:</p>
               <ul className="ml-4 space-y-1">
                 <li>• No access to any registered contact methods</li>
                 <li>• Identity details couldn't be verified</li>
@@ -1042,7 +1042,7 @@ export function AccountRecoveryPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Account Recovery</h1>
         <p className="text-sm text-muted-foreground mb-6">Recover access to your government services account</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {step === 'method' && (
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -1106,7 +1106,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Account Recovery</h1>
         <p class="text-sm text-muted-foreground mb-6">Recover access to your government services account</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="step === 'method'" class="space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <button *ngFor="let m of methods" (click)="method = m.id; identifier.reset()" [class]="'p-4 rounded-xl border-2 text-left ' + (method === m.id ? 'border-primary bg-primary/5' : 'border-border')">
@@ -1338,7 +1338,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 font-bold">
+              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 dark:text-green-300 font-bold">
                 STABLE
               </div>
             </div>
@@ -1480,7 +1480,7 @@ function InteractiveDemo() {
       <div className="p-4">
         <Link 
           to="/patterns/identity/account-recovery"
-          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
             <Eye size={16} className="text-primary" />
@@ -1711,7 +1711,7 @@ function ImplementationItem({ category, requirements }: { category: string; requ
 
 function RelatedPatternLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
         <ArrowRight size={12} className="text-primary" />
         <span className="text-foreground">{text}</span>
@@ -1722,7 +1722,7 @@ function RelatedPatternLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground">
       <ArrowRight size={12} className="text-primary" />
       <span className="text-xs">{text}</span>
     </a>

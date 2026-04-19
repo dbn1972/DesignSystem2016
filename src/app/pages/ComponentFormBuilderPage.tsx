@@ -289,7 +289,7 @@ function Example() {
           preview: (
             <FormBuilderPreview layout="vertical">
               <FormFieldPreview label="Application Type" type="select" required />
-              <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-4 text-sm text-blue-800">
+              <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-4 text-sm text-blue-800 dark:text-blue-300">
                 Additional fields will appear based on your selection
               </div>
             </FormBuilderPreview>
@@ -478,7 +478,7 @@ function Example() {
 }`,
           preview: (
             <div className="relative">
-              <div className="absolute top-0 right-0 flex items-center gap-2 text-xs text-muted-foreground bg-green-50 px-3 py-1 rounded border border-green-200 dark:border-green-800">
+              <div className="absolute top-0 right-0 flex items-center gap-2 text-xs text-muted-foreground bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded border border-green-200 dark:border-green-800">
                 <Save size={14} className="text-green-600" />
                 <span>Auto-saved 2 minutes ago</span>
               </div>
@@ -1190,8 +1190,8 @@ export type FormLayout = 'vertical' | 'horizontal' | 'grid';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use FormBuilder when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -1202,8 +1202,8 @@ export type FormLayout = 'vertical' | 'horizontal' | 'grid';`,
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don&apos;t use FormBuilder when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -1222,13 +1222,13 @@ export type FormLayout = 'vertical' | 'horizontal' | 'grid';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Use JSON-schema-driven forms to reduce development time by 60%.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t use FormBuilder for simple static forms — build them directly.</p>
                 </div>

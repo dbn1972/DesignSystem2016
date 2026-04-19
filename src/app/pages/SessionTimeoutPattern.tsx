@@ -26,7 +26,7 @@ export default function SessionTimeoutPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002-08</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,7 +41,7 @@ export default function SessionTimeoutPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
               <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
@@ -414,7 +414,7 @@ function ExampleScreens() {
                 Your session has been extended.
               </p>
             </div>
-            <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800">
+            <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800 dark:text-green-300">
               <CheckCircle size={14} className="inline mr-2" />
               Session will expire after 15 minutes of inactivity
             </div>
@@ -505,7 +505,7 @@ function ExampleScreens() {
               </p>
             </div>
             <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4 text-sm text-muted-foreground">
-              <p className="font-bold text-red-800 mb-2">What you can do:</p>
+              <p className="font-bold text-red-800 dark:text-red-300 mb-2">What you can do:</p>
               <ul className="space-y-1 ml-4">
                 <li>• Try entering your password again</li>
                 <li>• Use "Forgot password" to reset it</li>
@@ -516,7 +516,7 @@ function ExampleScreens() {
               <label className="block text-sm font-bold text-foreground mb-2">Password</label>
               <input aria-label="Enter your password" type="password" 
                 placeholder="Enter your password"
-                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
+                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"
               />
             </div>
             <button className="w-full px-4 py-3 bg-primary text-white font-bold rounded">
@@ -1367,7 +1367,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 font-bold">
+              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 dark:text-green-300 font-bold">
                 STABLE
               </div>
             </div>
@@ -1386,7 +1386,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-blue-100 border-2 border-blue-300 rounded text-blue-800 font-bold text-sm">
+              <div className="inline-block px-6 py-3 bg-blue-100 border-2 border-blue-300 rounded text-blue-800 dark:text-blue-300 font-bold text-sm">
                 SECURITY CRITICAL
               </div>
             </div>
@@ -1535,7 +1535,7 @@ function InteractiveDemo() {
       <div className="p-4">
         <Link 
           to="/patterns/identity/session-timeout"
-          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
             <Eye size={16} className="text-primary" />
@@ -1739,7 +1739,7 @@ function ImplementationItem({ category, requirements }: { category: string; requ
 
 function RelatedPatternLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
         <ArrowRight size={12} className="text-primary" />
         <span className="text-foreground">{text}</span>
@@ -1750,7 +1750,7 @@ function RelatedPatternLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground">
       <ArrowRight size={12} className="text-primary" />
       <span className="text-xs">{text}</span>
     </a>

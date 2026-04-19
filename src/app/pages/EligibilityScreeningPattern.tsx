@@ -24,7 +24,7 @@ export default function EligibilityScreeningPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -39,7 +39,7 @@ export default function EligibilityScreeningPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
               <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
@@ -165,7 +165,7 @@ export function EligibilityScreeningPage() {
           <div>
             <div className="flex gap-1 mb-6">{questions.map((_, i) => (<div key={i} className={\`h-1 flex-1 rounded \${i <= step ? 'bg-primary' : 'bg-muted'}\`} />))}</div>
             <p className="font-semibold mb-4">Q{step + 1}. {q.text}</p>
-            {q.type === 'yesno' && <div className="flex gap-3"><button onClick={() => handleAnswer('yes')} className="flex-1 py-3 border border-border rounded-lg font-semibold hover:bg-green-50 hover:border-green-300">Yes</button><button onClick={() => handleAnswer('no')} className="flex-1 py-3 border border-border rounded-lg font-semibold hover:bg-red-50 hover:border-red-300">No</button></div>}
+            {q.type === 'yesno' && <div className="flex gap-3"><button onClick={() => handleAnswer('yes')} className="flex-1 py-3 border border-border rounded-lg font-semibold hover:bg-green-50 dark:bg-green-900/20 hover:border-green-300">Yes</button><button onClick={() => handleAnswer('no')} className="flex-1 py-3 border border-border rounded-lg font-semibold hover:bg-red-50 hover:border-red-300">No</button></div>}
             {q.type === 'number' && <div><input type="number" placeholder="Enter value" className="w-full px-4 py-3 border border-border rounded-lg mb-3" id="num-input" /><button onClick={() => handleAnswer((document.getElementById('num-input') as HTMLInputElement).value)} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div>}
             {q.type === 'select' && <div className="space-y-2">{q.options?.map(o => (<button key={o} onClick={() => handleAnswer(o)} className="w-full py-3 border border-border rounded-lg text-left px-4 hover:bg-muted">{o}</button>))}</div>}
           </div>
@@ -1778,7 +1778,7 @@ function MetadataPanel() {
 
 function QuickRefPanel() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
@@ -1796,7 +1796,7 @@ function QuickRefPanel() {
 
 function DesignPrinciples() {
   return (
-    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50 dark:bg-green-900/20">
       <div className="bg-green-100 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Core Principles</h3>
       </div>
@@ -1812,9 +1812,9 @@ function DesignPrinciples() {
 
 function RiskIndicators() {
   return (
-    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50 dark:bg-red-900/20">
       <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3 flex items-center gap-2">
-        <AlertTriangle size={16} className="text-red-700" />
+        <AlertTriangle size={16} className="text-red-700 dark:text-red-400" />
         <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
       <div className="p-4 space-y-3 text-sm text-muted-foreground">
@@ -1937,7 +1937,7 @@ function LogicRule({ condition, operator, value, required }: any) {
         <div className="text-muted-foreground">{operator} {value}</div>
       </div>
       {required ? (
-        <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded flex-shrink-0">REQUIRED</span>
+        <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded flex-shrink-0">REQUIRED</span>
       ) : (
         <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded flex-shrink-0">OPTIONAL</span>
       )}
@@ -2142,7 +2142,7 @@ function ContactOption({ icon, title, detail }: any) {
 
 function DecisionNode({ question, yesPath, noPath, critical }: any) {
   return (
-    <div className={`border-2 rounded-lg p-6 ${critical ? 'border-red-400 bg-red-50' : 'border-blue-400 bg-blue-50'}`}>
+    <div className={`border-2 rounded-lg p-6 ${critical ? 'border-red-400 bg-red-50 dark:bg-red-900/20' : 'border-blue-400 bg-blue-50'}`}>
       <div className="flex items-start gap-3 mb-4">
         <GitBranch size={20} className={critical ? 'text-red-600' : 'text-blue-600'} />
         <div className="font-bold text-sm text-foreground">{question}</div>
@@ -2164,7 +2164,7 @@ function DecisionNode({ question, yesPath, noPath, critical }: any) {
         )}
       </div>
       {critical && (
-        <div className="mt-3 text-xs text-red-700 font-bold">⚠️ CRITICAL DECISION POINT</div>
+        <div className="mt-3 text-xs text-red-700 dark:text-red-400 font-bold">⚠️ CRITICAL DECISION POINT</div>
       )}
     </div>
   );
@@ -2279,14 +2279,14 @@ function QuestionGuideline({ principle, bad, good }: any) {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
-            <span className="text-xs font-bold text-red-700">Bad</span>
+            <span className="text-xs font-bold text-red-700 dark:text-red-400">Bad</span>
           </div>
           <div className="text-sm text-foreground bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-2">"{bad}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <CheckCircle size={14} className="text-green-600" />
-            <span className="text-xs font-bold text-green-700">Good</span>
+            <span className="text-xs font-bold text-green-700 dark:text-green-400">Good</span>
           </div>
           <div className="text-sm text-foreground bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-2">"{good}"</div>
         </div>
@@ -2390,7 +2390,7 @@ function RiskBlock({ risk, impact, solution }: any) {
 
 function MaturityCard({ status, version, description }: any) {
   return (
-    <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50">
+    <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50 dark:bg-green-900/20">
       <div className="font-bold text-sm text-foreground mb-1">{status}</div>
       <div className="text-xs text-muted-foreground mb-3">{version}</div>
       <div className="text-sm text-muted-foreground">{description}</div>

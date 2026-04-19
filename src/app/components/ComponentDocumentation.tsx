@@ -155,8 +155,8 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
   const maturityConfig = {
     draft: { label: 'Draft', color: 'bg-blue-100 text-blue-800', icon: '🔵' },
     beta: { label: 'Beta', color: 'bg-yellow-100 text-yellow-800', icon: '🟡' },
-    stable: { label: 'Stable', color: 'bg-green-100 text-green-800', icon: '🟢' },
-    deprecated: { label: 'Deprecated', color: 'bg-red-100 text-red-800', icon: '🔴' },
+    stable: { label: 'Stable', color: 'bg-green-100 text-green-800 dark:text-green-300', icon: '🟢' },
+    deprecated: { label: 'Deprecated', color: 'bg-red-100 text-red-800 dark:text-red-300', icon: '🔴' },
   };
 
   const currentMaturity = maturityConfig[maturity];
@@ -205,8 +205,8 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       description: '@ux4g/react-core with typed variants and token-driven styles.',
       downloadLabel: 'Download React code',
       downloadFilename: `${name}.tsx`,
-      accent: 'bg-blue-500',
-      accentSoft: 'bg-blue-500/10',
+      accent: 'bg-blue-50 dark:bg-blue-900/200',
+      accentSoft: 'bg-blue-50 dark:bg-blue-900/200/10',
       accentText: 'text-blue-600',
       blocks: [
         { title: `Component (${name}.tsx)`, code: reactCode.component, copyId: 'react-component' },
@@ -334,7 +334,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                 <div className="px-6 py-4 border-b border-border bg-gradient-to-r from-muted/30 to-transparent">
                   <div className="flex items-center justify-between">
                     <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Live Preview</h2>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 uppercase tracking-wider">Interactive</span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:text-green-400 uppercase tracking-wider">Interactive</span>
                   </div>
                 </div>
                 <div className="p-8 flex items-center justify-center min-h-[160px] bg-[radial-gradient(circle_at_center,_rgba(0,81,150,0.03),_transparent_70%)]">
@@ -517,7 +517,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                       <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{prop.default || '-'}</td>
                       <td className="px-6 py-4 text-sm">
                         {prop.required ? (
-                          <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-red-100 text-red-800">
+                          <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-red-100 text-red-800 dark:text-red-300">
                             Required
                           </span>
                         ) : (
@@ -760,7 +760,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                     <td className="px-6 py-4 text-sm font-medium text-foreground">{props.find(p => p.name === 'variant')?.type || 'N/A'}</td>
                     <td className="px-6 py-4 text-sm font-medium text-foreground">{accessibility.wcagLevel}</td>
                     <td className="px-6 py-4 text-sm">
-                      <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800">
+                      <span className="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800 dark:text-green-300">
                         Comprehensive
                       </span>
                     </td>
@@ -776,7 +776,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                       <td className="px-6 py-4 text-sm text-muted-foreground">{comp.accessibility}</td>
                       <td className="px-6 py-4 text-sm">
                         <span className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium ${
-                          comp.documentation === 'Comprehensive' ? 'bg-green-100 text-green-800' :
+                          comp.documentation === 'Comprehensive' ? 'bg-green-100 text-green-800 dark:text-green-300' :
                           comp.documentation === 'Good' ? 'bg-blue-100 text-blue-800' :
                           'bg-muted text-muted-foreground'
                         }`}>

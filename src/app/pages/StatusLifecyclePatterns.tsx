@@ -31,11 +31,11 @@ export default function StatusLifecyclePatterns() {
               </p>
               <div className="flex items-center gap-8 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-blue-50 dark:bg-blue-900/200 rounded-full"></div>
                   <span className="text-muted-foreground">Pattern Family: <span className="font-bold text-foreground">Lifecycle Intelligence</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-50 dark:bg-green-900/200 rounded-full"></div>
                   <span className="text-muted-foreground">Patterns: <span className="font-bold text-foreground">7 Interactive Flows</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -45,7 +45,7 @@ export default function StatusLifecyclePatterns() {
               </div>
             </div>
             <div className="flex flex-col gap-3">
-              <div className="px-8 py-4 bg-blue-500 text-white rounded-lg font-bold text-center shadow-lg">
+              <div className="px-8 py-4 bg-blue-50 dark:bg-blue-900/200 text-white rounded-lg font-bold text-center shadow-lg">
                 LIFECYCLE AWARE
               </div>
               <div className="px-8 py-4 bg-card border-2 border-[#138808] text-[#138808] rounded-lg font-bold text-center">
@@ -559,7 +559,7 @@ export default function StatusLifecyclePage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Status Lifecycle</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -592,7 +592,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Status Lifecycle</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

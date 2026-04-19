@@ -20,7 +20,7 @@ function ListPlayground() {
       controls={LIST_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <div className="w-full max-w-sm border border-border rounded-lg overflow-hidden">{["Aadhaar Card","Address Proof","Photo","Income Certificate"].map((item,i) => <div key={i} className={`flex items-center gap-2 px-3 py-2 text-xs ${v.variant === "striped" && i%2===1 ? "bg-muted/30" : ""} ${v.variant === "bordered" ? "border-b border-border" : ""}`}>{v.showIcons && <span className="w-1.5 h-1.5 rounded-full bg-green-500" />}<span className="text-foreground">{item}</span>{v.interactive && <span className="ml-auto text-muted-foreground">→</span>}</div>)}</div>
+          <div className="w-full max-w-sm border border-border rounded-lg overflow-hidden">{["Aadhaar Card","Address Proof","Photo","Income Certificate"].map((item,i) => <div key={i} className={`flex items-center gap-2 px-3 py-2 text-xs ${v.variant === "striped" && i%2===1 ? "bg-muted/30" : ""} ${v.variant === "bordered" ? "border-b border-border" : ""}`}>{v.showIcons && <span className="w-1.5 h-1.5 rounded-full bg-green-50 dark:bg-green-900/200" />}<span className="text-foreground">{item}</span>{v.interactive && <span className="ml-auto text-muted-foreground">→</span>}</div>)}</div>
         </div>
       )}
       codeTemplate={(v) =>
@@ -41,7 +41,7 @@ export default function ComponentListPage() {
       since="v1.0.0"
 
       preview={
-        <div className="w-full max-w-sm border border-border rounded-lg overflow-hidden"><div className="flex items-center gap-3 px-4 py-3 border-b border-border"><span className="w-2 h-2 rounded-full bg-green-500" /><span className="text-sm text-foreground">Aadhaar Card</span><span className="ml-auto text-xs text-green-600">Verified</span></div><div className="flex items-center gap-3 px-4 py-3 border-b border-border"><span className="w-2 h-2 rounded-full bg-green-500" /><span className="text-sm text-foreground">Address Proof</span><span className="ml-auto text-xs text-green-600">Verified</span></div><div className="flex items-center gap-3 px-4 py-3"><span className="w-2 h-2 rounded-full bg-yellow-500" /><span className="text-sm text-foreground">Photo</span><span className="ml-auto text-xs text-yellow-600">Pending</span></div></div>
+        <div className="w-full max-w-sm border border-border rounded-lg overflow-hidden"><div className="flex items-center gap-3 px-4 py-3 border-b border-border"><span className="w-2 h-2 rounded-full bg-green-50 dark:bg-green-900/200" /><span className="text-sm text-foreground">Aadhaar Card</span><span className="ml-auto text-xs text-green-600">Verified</span></div><div className="flex items-center gap-3 px-4 py-3 border-b border-border"><span className="w-2 h-2 rounded-full bg-green-50 dark:bg-green-900/200" /><span className="text-sm text-foreground">Address Proof</span><span className="ml-auto text-xs text-green-600">Verified</span></div><div className="flex items-center gap-3 px-4 py-3"><span className="w-2 h-2 rounded-full bg-yellow-500" /><span className="text-sm text-foreground">Photo</span><span className="ml-auto text-xs text-yellow-600">Pending</span></div></div>
       }
       
       props={[
@@ -279,8 +279,8 @@ export type ListSpacing = 'compact' | 'normal' | 'relaxed';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use List when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -291,8 +291,8 @@ export type ListSpacing = 'compact' | 'normal' | 'relaxed';`,
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use List when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -311,14 +311,14 @@ export type ListSpacing = 'compact' | 'normal' | 'relaxed';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
-                  <div className="border border-border rounded overflow-hidden mb-3"><div className="flex items-center gap-2 px-3 py-2 border-b border-border text-xs"><span className="w-1.5 h-1.5 rounded-full bg-green-500" /><span>Aadhaar Card</span><span className="ml-auto text-green-600">✓</span></div><div className="flex items-center gap-2 px-3 py-2 text-xs"><span className="w-1.5 h-1.5 rounded-full bg-yellow-500" /><span>Photo</span><span className="ml-auto text-yellow-600">Pending</span></div></div>
+                  <div className="border border-border rounded overflow-hidden mb-3"><div className="flex items-center gap-2 px-3 py-2 border-b border-border text-xs"><span className="w-1.5 h-1.5 rounded-full bg-green-50 dark:bg-green-900/200" /><span>Aadhaar Card</span><span className="ml-auto text-green-600">✓</span></div><div className="flex items-center gap-2 px-3 py-2 text-xs"><span className="w-1.5 h-1.5 rounded-full bg-yellow-500" /><span>Photo</span><span className="ml-auto text-yellow-600">Pending</span></div></div>
                   <p className="text-sm text-muted-foreground">Use consistent left-aligned structure for list items — users scan 20% faster.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="text-xs space-y-0.5 mb-3"><p>• Aadhaar Card - Verified</p><p>• Photo - Pending</p></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use lists for structured multi-column data — use Table instead.</p>

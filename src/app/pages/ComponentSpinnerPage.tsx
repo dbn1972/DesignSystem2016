@@ -570,8 +570,8 @@ export interface SpinnerConfig {
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Spinner when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -582,8 +582,8 @@ export interface SpinnerConfig {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use Spinner when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -602,14 +602,14 @@ export interface SpinnerConfig {
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <div className="flex items-center gap-3 mb-3"><div className="w-5 h-5 border-2 border-[#005196]/30 border-t-[#005196] rounded-full animate-spin" /><span className="text-xs text-muted-foreground">Loading status...</span></div>
                   <p className="text-sm text-muted-foreground">Use spinners for brief loading states under 3 seconds.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="flex items-center justify-center mb-3"><div className="w-12 h-12 border-4 border-[#005196]/30 border-t-[#005196] rounded-full animate-spin" /></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use spinners for long operations — add a message or use Progress bar.</p>

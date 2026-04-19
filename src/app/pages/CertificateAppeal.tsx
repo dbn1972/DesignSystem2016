@@ -126,7 +126,7 @@ export default function CertificateAppeal() {
                   } focus:outline-none focus:border-primary`}
                 />
                 {errors.reason && (
-                  <div className="mt-2 flex items-start gap-2 text-sm text-red-700">
+                  <div className="mt-2 flex items-start gap-2 text-sm text-red-700 dark:text-red-400">
                     <AlertCircle size={16} className="flex-shrink-0 mt-0.5" />
                     <span>{errors.reason}</span>
                   </div>

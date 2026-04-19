@@ -470,7 +470,7 @@ export default function ComponentPopoverPage() {
         {
           title: 'Action Menu',
           description: 'Popover displaying a list of contextual actions for a specific item.',
-          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { MoreVertical } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      placement="left"\n      size="sm"\n      content={\n        <div className="py-2">\n          <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">\n            Edit\n          </button>\n          <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">\n            Duplicate\n          </button>\n          <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">\n            Archive\n          </button>\n          <div className="border-t border-border my-1"></div>\n          <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">\n            Delete\n          </button>\n        </div>\n      }\n    >\n      <button className="p-2 text-muted-foreground hover:text-muted-foreground hover:bg-muted rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]">\n        <MoreVertical size={18} />\n      </button>\n    </Popover>\n  );\n}',
+          code: 'import { Popover } from \'@ux4g/react-core\';\nimport { MoreVertical } from \'lucide-react\';\n\nfunction Example() {\n  return (\n    <Popover\n      placement="left"\n      size="sm"\n      content={\n        <div className="py-2">\n          <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">\n            Edit\n          </button>\n          <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">\n            Duplicate\n          </button>\n          <button className="w-full text-left px-4 py-2 text-sm text-muted-foreground hover:bg-muted">\n            Archive\n          </button>\n          <div className="border-t border-border my-1"></div>\n          <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 dark:bg-red-900/20">\n            Delete\n          </button>\n        </div>\n      }\n    >\n      <button className="p-2 text-muted-foreground hover:text-muted-foreground hover:bg-muted rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005196]">\n        <MoreVertical size={18} />\n      </button>\n    </Popover>\n  );\n}',
           preview: (
             <PopoverPreview
               placement="left"
@@ -487,7 +487,7 @@ export default function ComponentPopoverPage() {
                     Archive
                   </button>
                   <div className="border-t border-border my-1"></div>
-                  <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                  <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 dark:bg-red-900/20">
                     Delete
                   </button>
                 </div>
@@ -774,8 +774,8 @@ export default function ComponentPopoverPage() {
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Popover when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -786,8 +786,8 @@ export default function ComponentPopoverPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use Popover when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -806,14 +806,14 @@ export default function ComponentPopoverPage() {
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <div className="inline-flex flex-col items-start mb-3"><div className="px-3 py-2 bg-card border border-border rounded-lg shadow-lg text-xs mb-1"><p className="font-semibold">Help</p><p className="text-muted-foreground">Enter your 12-digit Aadhaar number.</p><a href="#" className="text-[#005196] underline">Learn more</a></div><button className="text-xs text-[#005196]">ⓘ</button></div>
                   <p className="text-sm text-muted-foreground">Use popovers for interactive content (links, buttons) on hover or click.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="inline-flex flex-col items-start mb-3"><div className="px-2 py-1 bg-gray-900 text-white text-xs rounded">Enter your 12-digit Aadhaar number without spaces or dashes. <a href="#" className="underline">Learn more</a></div></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use popovers for simple text labels — use Tooltip instead.</p>

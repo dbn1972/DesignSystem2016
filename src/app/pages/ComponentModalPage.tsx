@@ -398,8 +398,8 @@ export class ModalModule { }`,
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Modal when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -410,8 +410,8 @@ export class ModalModule { }`,
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use Modal when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -429,14 +429,14 @@ export class ModalModule { }`,
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4 space-y-3">
                   <div className="flex justify-end gap-2"><button className="px-3 py-1.5 text-sm border border-border rounded">Cancel</button><button className="px-3 py-1.5 text-sm bg-red-600 text-white rounded">Delete Application</button></div>
                   <p className="text-sm text-muted-foreground">Use specific action labels in modal footers — &quot;Delete Application&quot; is clearer than &quot;OK&quot;.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4 space-y-3">
                   <div className="flex justify-end gap-2"><button className="px-3 py-1.5 text-sm border border-border rounded">No</button><button className="px-3 py-1.5 text-sm bg-[#005196] text-white rounded">OK</button></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t use generic labels like &quot;OK&quot; / &quot;No&quot; — users should know what each button does without reading the modal body.</p>

@@ -869,7 +869,7 @@ function ErrorMessageLocalization() {
               <div className="space-y-3">
                 <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-3 text-sm">
                   <div className="font-semibold text-red-900 mb-1">आयु सीमा से बाहर</div>
-                  <div className="text-red-700">इस सेवा के लिए आपकी आयु 18 वर्ष या उससे अधिक होनी चाहिए। कृपया अपनी जन्म तिथि जांचें।</div>
+                  <div className="text-red-700 dark:text-red-400">इस सेवा के लिए आपकी आयु 18 वर्ष या उससे अधिक होनी चाहिए। कृपया अपनी जन्म तिथि जांचें।</div>
                 </div>
               </div>
             }
@@ -882,7 +882,7 @@ function ErrorMessageLocalization() {
               <div className="space-y-3">
                 <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-3 text-sm">
                   <div className="font-semibold text-red-900 mb-1">त्रुटि</div>
-                  <div className="text-red-700">अमान्य इनपुट। कृपया पुनः प्रयास करें।</div>
+                  <div className="text-red-700 dark:text-red-400">अमान्य इनपुट। कृपया पुनः प्रयास करें।</div>
                 </div>
               </div>
             }
@@ -1433,7 +1433,7 @@ function TruncationOverflow() {
               <div className="space-y-4">
                 <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4">
                   <div className="font-semibold text-red-900 mb-2">त्रुटि</div>
-                  <div className="text-sm text-red-700 truncate">
+                  <div className="text-sm text-red-700 dark:text-red-400 truncate">
                     आपकी फ़ाइल बहुत बड़ी है। अधिकतम आकार 5MB है। कृपया...
                   </div>
                 </div>
@@ -1634,12 +1634,12 @@ function DoCard({ title, example, reason }: any) {
   return (
     <div className="border-2 border-green-300 bg-green-50 dark:bg-green-900/20 rounded-lg overflow-hidden">
       <div className="bg-green-100 border-b-2 border-green-300 p-4 flex items-center gap-2">
-        <CheckCircle className="text-green-700" size={20} />
+        <CheckCircle className="text-green-700 dark:text-green-400" size={20} />
         <h4 className="font-bold text-green-900">{title}</h4>
       </div>
       <div className="p-6">
         <div className="mb-4">{example}</div>
-        <div className="text-sm text-green-800 bg-green-100 border border-green-300 rounded p-3">
+        <div className="text-sm text-green-800 dark:text-green-300 bg-green-100 border border-green-300 rounded p-3">
           <strong>Why:</strong> {reason}
         </div>
       </div>
@@ -1651,12 +1651,12 @@ function DontCard({ title, example, reason }: any) {
   return (
     <div className="border-2 border-red-300 bg-red-50 dark:bg-red-950/30 rounded-lg overflow-hidden">
       <div className="bg-red-100 border-b-2 border-red-300 p-4 flex items-center gap-2">
-        <X className="text-red-700" size={20} />
+        <X className="text-red-700 dark:text-red-400" size={20} />
         <h4 className="font-bold text-red-900">{title}</h4>
       </div>
       <div className="p-6">
         <div className="mb-4">{example}</div>
-        <div className="text-sm text-red-800 bg-red-100 border border-red-300 rounded p-3">
+        <div className="text-sm text-red-800 dark:text-red-300 bg-red-100 border border-red-300 rounded p-3">
           <strong>Why not:</strong> {reason}
         </div>
       </div>

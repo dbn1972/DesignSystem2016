@@ -23,7 +23,7 @@ export default function Adoption() {
             </p>
 
             <div className="flex gap-4">
-              <a href="#checklist" className="px-6 py-3 bg-card text-primary rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              <a href="#checklist" className="px-6 py-3 bg-card text-primary rounded-lg font-semibold hover:bg-blue-50 dark:bg-blue-900/20 transition-colors">
                 View Onboarding Checklist
               </a>
               <a href="#support" className="px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-card/10 transition-colors">
@@ -1445,7 +1445,7 @@ function ResourceCard({ title, resources }: any) {
       <h3 className="font-bold text-foreground mb-4">{title}</h3>
       <div className="space-y-3">
         {resources.map((resource: any, index: number) => (
-          <a key={index} href={resource.url} className="flex items-center justify-between p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-200 dark:border-blue-800 transition-colors">
+          <a key={index} href={resource.url} className="flex items-center justify-between p-3 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-200 dark:border-blue-800 transition-colors">
             <div>
               <div className="font-semibold text-foreground text-sm">{resource.name}</div>
               <div className="text-xs text-muted-foreground">{resource.type}</div>

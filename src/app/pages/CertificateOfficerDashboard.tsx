@@ -163,7 +163,7 @@ export default function CertificateOfficerDashboard() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Link
                     to="/reference-service/certificate/officer/cases"
-                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
+                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all"
                   >
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                       <Briefcase size={24} className="text-blue-700" />
@@ -176,7 +176,7 @@ export default function CertificateOfficerDashboard() {
 
                   <Link
                     to="/reference-service/certificate/officer/cases"
-                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
+                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all"
                   >
                     <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                       <Clock size={24} className="text-orange-700" />
@@ -189,10 +189,10 @@ export default function CertificateOfficerDashboard() {
 
                   <Link
                     to="/reference-service/certificate/officer/cases"
-                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
+                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all"
                   >
                     <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
-                      <AlertCircle size={24} className="text-red-700" />
+                      <AlertCircle size={24} className="text-red-700 dark:text-red-400" />
                     </div>
                     <div>
                       <div className="font-bold text-foreground">Clarifications</div>
@@ -202,10 +202,10 @@ export default function CertificateOfficerDashboard() {
 
                   <Link
                     to="/reference-service/certificate/officer/cases"
-                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 transition-all"
+                    className="flex items-center gap-3 p-4 border-2 border-border rounded hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all"
                   >
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                      <CheckCircle size={24} className="text-green-700" />
+                      <CheckCircle size={24} className="text-green-700 dark:text-green-400" />
                     </div>
                     <div>
                       <div className="font-bold text-foreground">Completed Cases</div>

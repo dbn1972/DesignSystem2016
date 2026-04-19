@@ -219,7 +219,7 @@ export function ComponentPlayground({
           <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
             Playground
           </h2>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400 uppercase tracking-wider">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:text-green-400 dark:bg-green-900/40 dark:text-green-400 uppercase tracking-wider">
             Interactive
           </span>
         </div>

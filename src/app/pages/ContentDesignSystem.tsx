@@ -36,7 +36,7 @@ export default function ContentDesignSystem() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">System ID: <span className="font-bold text-foreground">UX4G-SYS-CONTENT-001</span></span>
                 </div>
                 <div className="flex items-center gap-2">

@@ -312,8 +312,8 @@ export class CardModule { }`,
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Card when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -324,8 +324,8 @@ export class CardModule { }`,
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use Card when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -344,14 +344,14 @@ export class CardModule { }`,
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <div className="w-full max-w-[200px] bg-card border border-border rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer mb-3"><h4 className="font-semibold text-foreground text-sm mb-1">Birth Certificate</h4><p className="text-xs text-muted-foreground">Apply online</p></div>
                   <p className="text-sm text-muted-foreground">Use cards to group related content. Make the entire card clickable for navigation.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="w-full max-w-[200px] bg-card border border-border rounded-xl p-4 shadow-sm mb-3"><h4 className="font-semibold text-foreground text-sm mb-1">Certificate</h4><div className="flex gap-1 mt-2"><button className="px-1.5 py-0.5 text-[10px] bg-[#005196] text-white rounded">Apply</button><button className="px-1.5 py-0.5 text-[10px] border border-border rounded">Details</button><button className="px-1.5 py-0.5 text-[10px] border border-border rounded">Share</button><button className="px-1.5 py-0.5 text-[10px] border border-border rounded">Save</button></div></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t nest too many interactive elements inside a card — it creates confusing click targets.</p>

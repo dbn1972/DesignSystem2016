@@ -50,7 +50,7 @@ export default function NoResultsPattern() {
             <input aria-label="text input" type="text"
               value={query}
               readOnly
-              className="w-full pl-12 pr-4 py-3 border-2 border-red-300 rounded-lg bg-red-50"
+              className="w-full pl-12 pr-4 py-3 border-2 border-red-300 rounded-lg bg-red-50 dark:bg-red-900/20"
             />
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function NoResultsPattern() {
                 <Link
                   key={i}
                   to={`/service/${service.name.toLowerCase().replace(/ /g, '-')}`}
-                  className="block p-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 transition-all group"
+                  className="block p-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all group"
                 >
                   <div className="flex items-center justify-between">
                     <div>
@@ -191,7 +191,7 @@ export default function NoResultsPattern() {
                 <Link
                   key={i}
                   to={`/services/category/${category.toLowerCase()}`}
-                  className="px-4 py-3 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 text-center font-bold text-foreground hover:text-primary transition-all"
+                  className="px-4 py-3 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 text-center font-bold text-foreground hover:text-primary transition-all"
                 >
                   {category}
                 </Link>
@@ -297,7 +297,7 @@ export default function NoResultsPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">No Results</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -330,7 +330,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">No Results</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

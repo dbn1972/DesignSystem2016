@@ -90,7 +90,7 @@ function StepperPlayground() {
       name="Stepper"
       controls={STEPPER_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
-        <div className="flex items-center gap-2 w-full">{[1,2,3,4].map(s => <React.Fragment key={s}><div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${s < Number(v.currentStep) ? "bg-green-100 text-green-700" : s === Number(v.currentStep) ? "bg-[#005196] text-white" : "bg-muted text-muted-foreground"}`}>{s < Number(v.currentStep) ? "✓" : s}</div>{s < 4 && <div className={`flex-1 h-1 rounded ${s < Number(v.currentStep) ? "bg-green-500" : "bg-muted"}`} />}</React.Fragment>)}</div>
+        <div className="flex items-center gap-2 w-full">{[1,2,3,4].map(s => <React.Fragment key={s}><div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${s < Number(v.currentStep) ? "bg-green-100 text-green-700 dark:text-green-400" : s === Number(v.currentStep) ? "bg-[#005196] text-white" : "bg-muted text-muted-foreground"}`}>{s < Number(v.currentStep) ? "✓" : s}</div>{s < 4 && <div className={`flex-1 h-1 rounded ${s < Number(v.currentStep) ? "bg-green-50 dark:bg-green-900/200" : "bg-muted"}`} />}</React.Fragment>)}</div>
       )}
       codeTemplate={(v) =>
         `<Stepper ${v.orientation} />`
@@ -438,8 +438,8 @@ export class StepperModule { }`,
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Stepper when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -450,8 +450,8 @@ export class StepperModule { }`,
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don&apos;t use Stepper when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -470,13 +470,13 @@ export class StepperModule { }`,
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Use 3-5 visible steps for best completion rates. Show current step clearly.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t use more than 7 steps — it causes anxiety. Break into sub-flows.</p>
                 </div>

@@ -24,7 +24,7 @@ export default function ApplicationSubmissionPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-001</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -39,10 +39,10 @@ export default function ApplicationSubmissionPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -1425,7 +1425,7 @@ export function ApplicationSubmissionPage() {
         <h1 className="text-2xl font-bold text-foreground mb-2">Application Submission</h1>
         <p className="text-sm text-muted-foreground mb-6">Government service application form</p>
         <div className="flex gap-1 mb-6">{['personal','documents','review','submitted'].map((s,i) => (<div key={s} className={\`flex-1 h-1.5 rounded \${['personal','documents','review','submitted'].indexOf(step) >= i ? 'bg-primary' : 'bg-muted'}\`} />))}</div>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {step === 'personal' && (
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1497,7 +1497,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
     <div class="min-h-screen flex items-center justify-center bg-background p-4">
       <div class="w-full max-w-2xl bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold mb-6">Application Submission</h1>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <form *ngIf="step !== 'submitted'" [formGroup]="form" (ngSubmit)="submit()">
           <div *ngIf="step === 'personal'" class="space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1711,7 +1711,7 @@ function MetadataPanel() {
 
 function QuickRefPanel() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Quick Reference</h3>
       </div>
@@ -1729,9 +1729,9 @@ function QuickRefPanel() {
 
 function RiskIndicators() {
   return (
-    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50 dark:bg-red-900/20">
       <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3 flex items-center gap-2">
-        <AlertTriangle size={16} className="text-red-700" />
+        <AlertTriangle size={16} className="text-red-700 dark:text-red-400" />
         <h3 className="font-bold text-foreground text-sm">Risk Indicators</h3>
       </div>
       <div className="p-4 space-y-3 text-sm text-muted-foreground">
@@ -1853,7 +1853,7 @@ function PageSequenceRow({ number, title, description, required }: any) {
         <div className="flex items-center gap-2 mb-1">
           <div className="font-bold text-sm text-foreground">{title}</div>
           {required ? (
-            <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded">REQUIRED</span>
+            <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">REQUIRED</span>
           ) : (
             <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
@@ -1932,7 +1932,7 @@ function DocumentUploadBox({ title, required, formats, maxSize, status }: any) {
           </div>
         </div>
         {status === 'uploaded' && (
-          <div className="flex items-center gap-1 text-green-700">
+          <div className="flex items-center gap-1 text-green-700 dark:text-green-400">
             <CheckCircle size={16} />
             <span className="text-xs font-bold">Uploaded</span>
           </div>
@@ -2083,14 +2083,14 @@ function PrincipleBlock({ title, good, bad }: any) {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <CheckCircle size={14} className="text-green-600" />
-            <span className="text-xs font-bold text-green-700">Good</span>
+            <span className="text-xs font-bold text-green-700 dark:text-green-400">Good</span>
           </div>
           <div className="text-sm text-foreground bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-2">"{good}"</div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <XCircle size={14} className="text-red-600" />
-            <span className="text-xs font-bold text-red-700">Bad</span>
+            <span className="text-xs font-bold text-red-700 dark:text-red-400">Bad</span>
           </div>
           <div className="text-sm text-foreground bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded p-2">"{bad}"</div>
         </div>
@@ -2219,7 +2219,7 @@ function PerformanceGuideline({ metric, target, strategies }: any) {
     <div className="border-2 border-border rounded-lg p-4 bg-background">
       <div className="flex items-center justify-between mb-3">
         <div className="font-bold text-sm text-foreground">{metric}</div>
-        <div className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">{target}</div>
+        <div className="px-3 py-1 bg-green-100 text-green-700 dark:text-green-400 text-xs font-bold rounded">{target}</div>
       </div>
       <ul className="space-y-2">
         {strategies.map((strategy: string, idx: number) => (
@@ -2236,7 +2236,7 @@ function PerformanceGuideline({ metric, target, strategies }: any) {
 function ConformanceChecklistItem({ checked, label }: any) {
   return (
     <div className="flex items-start gap-3 p-3 bg-background border-2 border-border rounded-lg">
-      <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${checked ? 'bg-green-500 border-green-600' : 'bg-card border-gray-400'}`}>
+      <div className={`w-5 h-5 border-2 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${checked ? 'bg-green-50 dark:bg-green-900/200 border-green-600' : 'bg-card border-gray-400'}`}>
         {checked && <Check size={14} className="text-white" />}
       </div>
       <div className="text-sm text-muted-foreground">{label}</div>
@@ -2268,7 +2268,7 @@ function MistakeBlock({ mistake, impact, solution }: any) {
 
 function MaturityBlock({ status, version, description, usedBy }: any) {
   return (
-    <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50">
+    <div className="border-2 border-green-300 rounded-lg p-4 bg-green-50 dark:bg-green-900/20">
       <div className="font-bold text-sm text-foreground mb-1">{status}</div>
       {version !== '—' && <div className="text-xs text-muted-foreground mb-3">{version}</div>}
       <div className="text-sm text-muted-foreground mb-3">{description}</div>

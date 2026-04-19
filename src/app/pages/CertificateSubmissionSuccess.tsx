@@ -41,7 +41,7 @@ export default function CertificateSubmissionSuccess() {
             </button>
             <Link
               to="/reference-service/certificate/status-tracker"
-              className="inline-flex items-center justify-center px-4 py-2 border-2 border-primary text-primary rounded font-bold text-sm hover:bg-blue-50"
+              className="inline-flex items-center justify-center px-4 py-2 border-2 border-primary text-primary rounded font-bold text-sm hover:bg-blue-50 dark:bg-blue-900/20"
             >
               Track Status
             </Link>

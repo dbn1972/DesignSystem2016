@@ -172,7 +172,7 @@ export default function FeedbackRatingPatterns() {
                     (Excellent, Good, Average, Poor, Very Poor).
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full font-bold">RATING</span>
+                    <span className="px-3 py-1 bg-yellow-100 text-yellow-800 dark:text-yellow-300 rounded-full font-bold">RATING</span>
                     <span className="text-muted-foreground">Complexity: Low</span>
                     <span className="text-muted-foreground">Time: 30 seconds</span>
                   </div>
@@ -199,7 +199,7 @@ export default function FeedbackRatingPatterns() {
                     pain points, ease of use, and satisfaction with outcome.
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-bold">FEEDBACK</span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:text-blue-300 rounded-full font-bold">FEEDBACK</span>
                     <span className="text-muted-foreground">Complexity: Medium</span>
                     <span className="text-muted-foreground">Time: 2-3 minutes</span>
                   </div>
@@ -226,7 +226,7 @@ export default function FeedbackRatingPatterns() {
                     severity levels, and screenshot/file attachment support.
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full font-bold">ISSUE</span>
+                    <span className="px-3 py-1 bg-red-100 text-red-800 dark:text-red-300 rounded-full font-bold">ISSUE</span>
                     <span className="text-muted-foreground">Complexity: Medium</span>
                     <span className="text-muted-foreground">Time: 3-5 minutes</span>
                   </div>
@@ -253,7 +253,7 @@ export default function FeedbackRatingPatterns() {
                     with impact assessment and voting capability.
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full font-bold">SUGGESTION</span>
+                    <span className="px-3 py-1 bg-green-100 text-green-800 dark:text-green-300 rounded-full font-bold">SUGGESTION</span>
                     <span className="text-muted-foreground">Complexity: Low</span>
                     <span className="text-muted-foreground">Time: 2-3 minutes</span>
                   </div>

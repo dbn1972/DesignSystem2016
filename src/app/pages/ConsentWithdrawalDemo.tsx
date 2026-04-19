@@ -102,7 +102,7 @@ export default function ConsentWithdrawalDemo() {
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-16 h-16 bg-green-100 border-2 border-green-300 rounded flex items-center justify-center">
-                  <Settings size={32} className="text-green-700" />
+                  <Settings size={32} className="text-green-700 dark:text-green-400" />
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">UX4G Interactive Pattern Demo</div>
@@ -467,7 +467,7 @@ function DetailsScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onChangeOptions}
-            className="flex-1 px-6 py-4 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
+            className="flex-1 px-6 py-4 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 dark:bg-blue-900/20 transition-colors flex items-center justify-center gap-2"
           >
             <Edit size={18} />
             Modify Preferences
@@ -697,7 +697,7 @@ function WithdrawImpactScreen({
             <AlertTriangle size={24} className="text-red-600 flex-shrink-0" />
             <div>
               <h3 className="font-bold text-red-900 mb-2">Important: Read Before Proceeding</h3>
-              <p className="text-sm text-red-800 leading-relaxed">
+              <p className="text-sm text-red-800 dark:text-red-300 leading-relaxed">
                 Withdrawing consent will have significant impacts on your access to this service. 
                 Please review all consequences carefully before making your decision.
               </p>
@@ -867,7 +867,7 @@ function WithdrawConfirmScreen({
             <AlertCircle size={24} className="text-red-600 flex-shrink-0" />
             <div>
               <h3 className="font-bold text-red-900 mb-2">Final Warning</h3>
-              <p className="text-sm text-red-800 leading-relaxed">
+              <p className="text-sm text-red-800 dark:text-red-300 leading-relaxed">
                 Once you confirm, your consent for <span className="font-bold">{consent.service}</span> will 
                 be immediately withdrawn. This action cannot be undone. You will need to re-apply and provide 
                 consent again to use this service in the future.

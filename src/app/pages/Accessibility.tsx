@@ -187,8 +187,8 @@ function ColorContrast() {
               <div className="font-semibold text-foreground mb-2">Deuteranopia</div>
               <div className="text-sm text-muted-foreground mb-3">{copy.deuteranopia}</div>
               <div className="flex gap-2">
-                <div className="w-8 h-8 bg-red-500 rounded"></div>
-                <div className="w-8 h-8 bg-green-500 rounded"></div>
+                <div className="w-8 h-8 bg-red-50 dark:bg-red-900/200 rounded"></div>
+                <div className="w-8 h-8 bg-green-50 dark:bg-green-900/200 rounded"></div>
                 <div className="text-xs text-muted-foreground self-center">{copy.mayAppearSimilar}</div>
               </div>
             </div>
@@ -197,7 +197,7 @@ function ColorContrast() {
               <div className="font-semibold text-foreground mb-2">Protanopia</div>
               <div className="text-sm text-muted-foreground mb-3">{copy.protanopia}</div>
               <div className="flex gap-2">
-                <div className="w-8 h-8 bg-red-500 rounded"></div>
+                <div className="w-8 h-8 bg-red-50 dark:bg-red-900/200 rounded"></div>
                 <div className="w-8 h-8 bg-background0 rounded"></div>
                 <div className="text-xs text-muted-foreground self-center">{copy.redAppearsMuted}</div>
               </div>
@@ -207,8 +207,8 @@ function ColorContrast() {
               <div className="font-semibold text-foreground mb-2">Tritanopia</div>
               <div className="text-sm text-muted-foreground mb-3">{copy.tritanopia}</div>
               <div className="flex gap-2">
-                <div className="w-8 h-8 bg-blue-500 rounded"></div>
-                <div className="w-8 h-8 bg-yellow-500 rounded"></div>
+                <div className="w-8 h-8 bg-blue-50 dark:bg-blue-900/200 rounded"></div>
+                <div className="w-8 h-8 bg-yellow-50 dark:bg-yellow-900/200 rounded"></div>
                 <div className="text-xs text-muted-foreground self-center">{copy.mayAppearSimilar}</div>
               </div>
             </div>
@@ -406,7 +406,7 @@ function FocusVisibility() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 rounded-lg p-4">
+              <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 rounded-lg p-4">
                 <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                   <Check className="text-[#138808]" size={20} />
                   {copy.doLabel}
@@ -419,7 +419,7 @@ function FocusVisibility() {
                 </ul>
               </div>
 
-              <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 rounded-lg p-4">
+              <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 rounded-lg p-4">
                 <h4 className="font-semibold text-foreground mb-3 flex items-center gap-2">
                   <X className="text-red-600" size={20} />
                   {copy.dontLabel}
@@ -963,7 +963,7 @@ function ErrorHandling() {
           </div>
 
           <div className="space-y-4">
-            <div className="border-2 border-red-500 rounded-lg p-4 bg-red-50">
+            <div className="border-2 border-red-500 rounded-lg p-4 bg-red-50 dark:bg-red-900/20">
               <h4 className="font-semibold text-foreground mb-3">{copy.exampleTitle}</h4>
               <div>
                 <label htmlFor="error-email" className="block text-sm font-semibold text-foreground mb-2">
@@ -1006,19 +1006,19 @@ function ErrorHandling() {
           </div>
           
           <div className="p-8">
-            <div className="border-l-4 border-red-500 bg-red-50 p-6 rounded-r mb-4">
+            <div className="border-l-4 border-red-500 bg-red-50 dark:bg-red-900/20 p-6 rounded-r mb-4">
               <div className="flex items-start gap-3">
                 <AlertCircle className="text-red-600 flex-shrink-0" size={24} />
                 <div>
                   <h4 className="font-bold text-red-900 mb-2">{copy.summaryHeading}</h4>
                   <ul className="space-y-2 text-sm">
                     <li>
-                      <a href="#email" className="text-red-700 underline hover:text-red-800">
+                      <a href="#email" className="text-red-700 underline hover:text-red-800 dark:text-red-300">
                         {copy.summaryLinks[0]}
                       </a>
                     </li>
                     <li>
-                      <a href="#phone" className="text-red-700 underline hover:text-red-800">
+                      <a href="#phone" className="text-red-700 underline hover:text-red-800 dark:text-red-300">
                         {copy.summaryLinks[1]}
                       </a>
                     </li>
@@ -1088,7 +1088,7 @@ function TableAccessibility() {
                   <td className="p-4 font-mono text-sm">APP-001</td>
                   <td className="p-4">Rajesh Kumar</td>
                   <td className="p-4">
-                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
+                    <span className="px-2 py-1 bg-green-100 text-green-700 dark:text-green-400 rounded-full text-xs font-semibold">
                       {copy.approved}
                     </span>
                   </td>
@@ -1285,7 +1285,7 @@ function StatusCommunication() {
           </div>
 
           <div className="space-y-6">
-            <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 rounded-lg p-6">
+            <div className="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 rounded-lg p-6">
               <h3 className="text-xl font-bold text-foreground mb-4">{copy.formSubmissionTitle}</h3>
               <div className="space-y-4">
                 <button className="px-6 py-3 bg-primary text-white rounded-lg font-semibold">
@@ -1303,7 +1303,7 @@ function StatusCommunication() {
               </div>
             </div>
 
-            <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 rounded-lg p-6">
+            <div className="border-2 border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 rounded-lg p-6">
               <h3 className="text-xl font-bold text-foreground mb-4">{copy.criticalErrorTitle}</h3>
               <div className="space-y-4">
                 <div className="border-l-4 border-red-500 bg-card p-4 rounded-r" role="alert">
@@ -1752,7 +1752,7 @@ function KnownLimitations() {
                   <td className="p-4">{copy.rows[2].limitation}</td>
                   <td className="p-4">{copy.rows[2].workaround}</td>
                   <td className="p-4">
-                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">
+                    <span className="px-2 py-1 bg-green-100 text-green-700 dark:text-green-400 rounded text-xs font-semibold">
                       {copy.rows[2].status}
                     </span>
                   </td>

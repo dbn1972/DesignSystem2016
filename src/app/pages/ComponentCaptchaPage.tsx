@@ -40,7 +40,7 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
                 <div
                   key={`${refreshKey}-${i}`}
                   className={`flex items-center justify-center text-2xl cursor-pointer border border-gray-300 rounded transition-colors ${
-                    hasTarget ? 'bg-amber-50 hover:bg-amber-100' : 'bg-gray-100 hover:bg-gray-200'
+                    hasTarget ? 'bg-amber-50 hover:bg-amber-100' : 'bg-muted hover:bg-gray-200'
                   }`}
                 >
                   {hasTarget ? '🚦' : ['🏠', '🚗', '🌳', '🏢', '🛣️', '🚶'][i % 6]}
@@ -863,8 +863,8 @@ export type CaptchaProvider = 'recaptcha' | 'hcaptcha' | 'turnstile';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Captcha when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -875,8 +875,8 @@ export type CaptchaProvider = 'recaptcha' | 'hcaptcha' | 'turnstile';`,
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don&apos;t use Captcha when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -895,13 +895,13 @@ export type CaptchaProvider = 'recaptcha' | 'hcaptcha' | 'turnstile';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Provide audio CAPTCHA alternative for accessibility (WCAG 1.1.1).</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t use CAPTCHA on authenticated user actions — they are already verified.</p>
                 </div>

@@ -25,7 +25,7 @@ export default function StateResilienceSystem() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">System ID: <span className="font-bold text-foreground">UX4G-SYS-RES-001</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -40,10 +40,10 @@ export default function StateResilienceSystem() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Mission<br/>Critical
               </div>
             </div>
@@ -1339,7 +1339,7 @@ function IntegrationStep({ number, title, description, before, after }: {
 
 function AppliedLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="flex items-center gap-2 p-2 bg-card border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="flex items-center gap-2 p-2 bg-card border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors">
       <ArrowRight size={14} className="text-primary" />
       <span className="text-foreground">{text}</span>
     </Link>
@@ -1426,7 +1426,7 @@ function ChecklistItem({ text }: { text: string }) {
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground">
       <ArrowRight size={12} className="text-primary" />
       <span>{text}</span>
     </a>

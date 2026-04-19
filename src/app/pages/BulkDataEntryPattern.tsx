@@ -110,7 +110,7 @@ export default function BulkDataEntryPattern() {
                   </thead>
                   <tbody>
                     {rows.map((row, idx) => (
-                      <tr key={row.id} className={`border-b border-border ${idx % 2 === 0 ? 'bg-card' : 'bg-background'} hover:bg-blue-50`}>
+                      <tr key={row.id} className={`border-b border-border ${idx % 2 === 0 ? 'bg-card' : 'bg-background'} hover:bg-blue-50 dark:bg-blue-900/20`}>
                         <td className="px-4 py-2 text-sm text-muted-foreground">{idx + 1}</td>
                         <td className="px-4 py-2">
                           <input aria-label="text input" type="text"
@@ -151,7 +151,7 @@ export default function BulkDataEntryPattern() {
                         <td className="px-4 py-2">
                           <button
                             onClick={() => deleteRow(row.id)}
-                            className="text-red-600 hover:text-red-800"
+                            className="text-red-600 hover:text-red-800 dark:text-red-300"
                             title="Delete row"
                           >
                             <Trash2 size={16} />
@@ -513,7 +513,7 @@ export function BulkDataEntryPage() {
             <button onClick={addRow} className="px-4 py-2 border border-border rounded-lg text-sm font-semibold hover:bg-muted">+ Add Row</button>
           </div>
         </div>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         <div className="bg-card border border-border rounded-2xl overflow-hidden">
           <table className="w-full text-sm">
             <thead><tr className="bg-muted"><th className="px-4 py-3 text-left font-semibold">#</th><th className="px-4 py-3 text-left font-semibold">Name *</th><th className="px-4 py-3 text-left font-semibold">Aadhaar</th><th className="px-4 py-3 text-left font-semibold">Mobile</th><th className="px-4 py-3 text-left font-semibold">Service</th><th className="px-4 py-3 text-left font-semibold">Status</th><th className="px-4 py-3"></th></tr></thead>
@@ -525,7 +525,7 @@ export function BulkDataEntryPage() {
                 <td className="px-4 py-2"><input value={r.mobile} onChange={e => updateRow(r.id, 'mobile', e.target.value)} className="w-full px-2 py-1 border border-border rounded" placeholder="10 digits" maxLength={10} /></td>
                 <td className="px-4 py-2"><select value={r.service} onChange={e => updateRow(r.id, 'service', e.target.value)} className="w-full px-2 py-1 border border-border rounded"><option value="">Select</option><option>Birth Cert</option><option>Caste Cert</option><option>Income Cert</option></select></td>
                 <td className="px-4 py-2">{r.status === 'valid' ? <span className="text-green-600 font-semibold">✓</span> : r.status === 'error' ? <span className="text-red-600 text-xs" title={r.error}>✗ {r.error}</span> : <span className="text-muted-foreground">—</span>}</td>
-                <td className="px-4 py-2"><button onClick={() => removeRow(r.id)} className="text-red-500 hover:text-red-700" aria-label="Remove row">✕</button></td>
+                <td className="px-4 py-2"><button onClick={() => removeRow(r.id)} className="text-red-500 hover:text-red-700 dark:text-red-400" aria-label="Remove row">✕</button></td>
               </tr>
             ))}</tbody>
           </table>

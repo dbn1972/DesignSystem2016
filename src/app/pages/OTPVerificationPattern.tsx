@@ -26,7 +26,7 @@ export default function OTPVerificationPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-002-00</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,10 +41,10 @@ export default function OTPVerificationPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
-              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 font-bold text-xs text-center uppercase">
+              <div className="px-6 py-3 bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded text-red-700 dark:text-red-400 font-bold text-xs text-center uppercase">
                 Conformance<br/>Mandatory
               </div>
             </div>
@@ -376,10 +376,10 @@ function ExampleStates() {
               </div>
               <div className="flex gap-2 justify-center">
                 {[...Array(6)].map((_, i) => (
-                  <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50"></div>
+                  <div key={i} className="w-12 h-12 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"></div>
                 ))}
               </div>
-              <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800">
+              <div className="bg-red-50 dark:bg-red-950/30 border border-red-300 rounded p-3 text-sm text-red-800 dark:text-red-300">
                 <XCircle size={14} className="inline mr-2" />
                 Invalid code. 2 attempts remaining.
               </div>
@@ -476,7 +476,7 @@ function ExampleStates() {
                 </p>
               </div>
               <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-300 rounded p-4 text-sm">
-                <p className="text-red-800 font-bold mb-2">Account temporarily locked</p>
+                <p className="text-red-800 dark:text-red-300 font-bold mb-2">Account temporarily locked</p>
                 <p className="text-muted-foreground">Try again after <span className="font-bold">14 minutes</span></p>
               </div>
               <button className="w-full px-4 py-3 border-2 border-border bg-card text-muted-foreground font-bold rounded hover:bg-background flex items-center justify-center gap-2">
@@ -510,10 +510,10 @@ function ExampleStates() {
               </div>
               <div className="flex gap-2 justify-center">
                 {[1,2,3,4,5,6].map((num) => (
-                  <div key={num} className="w-12 h-12 border-2 border-green-500 rounded bg-green-50 flex items-center justify-center font-bold text-green-700">{num}</div>
+                  <div key={num} className="w-12 h-12 border-2 border-green-500 rounded bg-green-50 dark:bg-green-900/20 flex items-center justify-center font-bold text-green-700 dark:text-green-400">{num}</div>
                 ))}
               </div>
-              <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800">
+              <div className="bg-green-50 dark:bg-green-950/30 border border-green-300 rounded p-3 text-sm text-green-800 dark:text-green-300">
                 <CheckCircle size={14} className="inline mr-2" />
                 Proceeding to your account...
               </div>
@@ -933,7 +933,7 @@ function ResendLogic() {
               <button className="w-full px-4 py-2 bg-gray-300 text-muted-foreground font-bold rounded cursor-not-allowed mb-2">
                 Resend OTP
               </button>
-              <p className="text-xs text-green-700"><CheckCircle size={12} className="inline mr-1" />New code sent!</p>
+              <p className="text-xs text-green-700 dark:text-green-400"><CheckCircle size={12} className="inline mr-1" />New code sent!</p>
               <div className="mt-2 pt-2 border-t border-border">
                 <p className="text-xs text-muted-foreground"><strong>State:</strong> Just sent</p>
                 <p className="text-xs text-muted-foreground"><strong>Timer:</strong> Reset to 5:00</p>
@@ -1354,7 +1354,7 @@ export function OTPVerificationPage({ length = 6, onComplete, contactInfo = '+91
       <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Verify OTP</h1>
         <p className="text-sm text-muted-foreground mb-6">Enter the {length}-digit code sent to {contactInfo}</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         <div className="flex justify-center gap-3 mb-6" onPaste={handlePaste}>
           {otp.map((digit, i) => (
             <input key={i} ref={el => { inputRefs.current[i] = el; }} type="text" inputMode="numeric" maxLength={1} value={digit} onChange={e => handleChange(i, e.target.value)} onKeyDown={e => handleKeyDown(i, e)} className="w-12 h-14 text-center text-xl font-bold border-2 border-border rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-colors" aria-label={\`Digit \${i + 1} of \${length}\`} />
@@ -1385,7 +1385,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-md bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Verify OTP</h1>
         <p class="text-sm text-muted-foreground mb-6">Enter the 6-digit code sent to your registered contact</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="!verified">
           <div class="flex justify-center gap-3 mb-6">
             <input *ngFor="let d of digits; let i = index" [id]="'otp-'+i" type="text" inputMode="numeric" maxlength="1" (input)="onInput(i, $event)" (keydown)="onKeyDown(i, $event)" class="w-12 h-14 text-center text-xl font-bold border-2 border-border rounded-xl focus:border-primary" [attr.aria-label]="'Digit '+(i+1)+' of 6'" />
@@ -1641,7 +1641,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 font-bold">
+              <div className="inline-block px-6 py-3 bg-green-100 border-2 border-green-400 rounded text-green-800 dark:text-green-300 font-bold">
                 STABLE
               </div>
             </div>
@@ -1660,7 +1660,7 @@ function GovernanceSection() {
           </div>
           <div className="p-6">
             <div className="text-center mb-4">
-              <div className="inline-block px-6 py-3 bg-red-100 border-2 border-red-300 rounded text-red-800 font-bold text-sm">
+              <div className="inline-block px-6 py-3 bg-red-100 border-2 border-red-300 rounded text-red-800 dark:text-red-300 font-bold text-sm">
                 MANDATORY
               </div>
             </div>
@@ -1800,7 +1800,7 @@ function ChildPatterns() {
       <div className="p-4 space-y-2">
         <Link 
           to="/patterns/identity/mobile-otp"
-          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
             <Smartphone size={16} className="text-primary" />
@@ -1810,7 +1810,7 @@ function ChildPatterns() {
         </Link>
         <Link 
           to="/patterns/identity/otp-verification"
-          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors"
+          className="block p-3 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors"
         >
           <div className="flex items-center gap-2 mb-1">
             <Mail size={16} className="text-primary" />
@@ -2021,7 +2021,7 @@ function ImplementationItem({ category, requirements }: { category: string; requ
 
 function RelatedPatternLink({ to, text }: { to: string; text: string }) {
   return (
-    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <Link to={to} className="block p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
         <ArrowRight size={12} className="text-primary" />
         <span className="text-foreground">{text}</span>
@@ -2032,7 +2032,7 @@ function RelatedPatternLink({ to, text }: { to: string; text: string }) {
 
 function ResourceLink({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground">
       <span className="text-primary">{icon}</span>
       <span>{text}</span>
     </a>

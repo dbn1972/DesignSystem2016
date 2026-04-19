@@ -32,15 +32,15 @@ export default function AadhaarVideoKYCPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Complexity: <span className="font-bold text-foreground">High</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-orange-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-orange-50 dark:bg-orange-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Type: <span className="font-bold text-foreground">Hybrid</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-red-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-red-50 dark:bg-red-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Security: <span className="font-bold text-foreground">Maximum</span></span>
                 </div>
               </div>
@@ -713,9 +713,9 @@ export function AadhaarVideoKYCPage() {
           </div>
         </div>
         <div className="flex gap-1 mb-6">{['aadhaar','consent','otp','video','done'].map((s,i) => (<div key={s} className={\`flex-1 h-1.5 rounded \${['aadhaar','consent','otp','video','review','done'].indexOf(step) >= i ? 'bg-primary' : 'bg-muted'}\`} />))}</div>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {step === 'aadhaar' && (<div className="space-y-4"><div><label htmlFor="aadhaar" className="block text-sm font-medium mb-1">Aadhaar Number <span className="text-red-500">*</span></label><input id="aadhaar" value={aadhaar} onChange={e => setAadhaar(formatAadhaar(e.target.value))} placeholder="XXXX XXXX XXXX" maxLength={14} className="w-full px-4 py-3 border border-border rounded-lg text-lg tracking-wider font-mono" aria-required="true" /></div><button onClick={handleAadhaarSubmit} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Proceed</button></div>)}
-        {step === 'consent' && (<div className="space-y-4"><div className="p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-700"><p className="font-bold mb-1">UIDAI Consent Required</p><p className="text-xs">I authorize Aadhaar eKYC and video verification for identity confirmation as per UIDAI guidelines and RBI KYC norms.</p></div><div className="flex gap-3"><button onClick={() => setStep('aadhaar')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={handleConsent} disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Processing...' : 'I Consent'}</button></div></div>)}
+        {step === 'consent' && (<div className="space-y-4"><div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-xl text-sm text-yellow-700"><p className="font-bold mb-1">UIDAI Consent Required</p><p className="text-xs">I authorize Aadhaar eKYC and video verification for identity confirmation as per UIDAI guidelines and RBI KYC norms.</p></div><div className="flex gap-3"><button onClick={() => setStep('aadhaar')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={handleConsent} disabled={loading} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Processing...' : 'I Consent'}</button></div></div>)}
         {step === 'otp' && (<div className="space-y-4"><p className="text-sm text-muted-foreground">Enter OTP sent to Aadhaar-registered mobile</p><input value={otp} onChange={e => setOtp(e.target.value.replace(/\\D/g,'').slice(0,6))} placeholder="6-digit OTP" maxLength={6} className="w-full px-4 py-3 border border-border rounded-lg text-center text-lg font-bold tracking-widest" /><button onClick={handleOtpVerify} disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Verifying...' : 'Verify OTP'}</button></div>)}
         {step === 'video' && (<div className="space-y-4"><div className="relative rounded-xl overflow-hidden bg-black aspect-video"><video ref={videoRef} className="w-full h-full object-cover" muted playsInline />{recording && <div className="absolute top-3 right-3 flex items-center gap-2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold"><div className="w-2 h-2 bg-white rounded-full animate-pulse" />Recording...</div>}</div><p className="text-xs text-muted-foreground text-center">Look directly at the camera. Recording will last 10 seconds.</p>{!recorded ? <button onClick={handleRecord} disabled={recording} className="w-full py-3 bg-red-600 text-white rounded-lg font-semibold disabled:opacity-60">{recording ? 'Recording...' : 'Start Recording'}</button> : <button onClick={handleSubmitVideo} disabled={loading} className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{loading ? 'Submitting...' : 'Submit Video KYC'}</button>}</div>)}
         {step === 'done' && (<div className="text-center py-6 space-y-4"><div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto"><svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div><h2 className="text-xl font-bold text-foreground">KYC Verified</h2><p className="text-muted-foreground">Aadhaar + Video verification complete.</p></div>)}
@@ -736,14 +736,14 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
     <div class="min-h-screen flex items-center justify-center bg-background p-4">
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-6">Aadhaar Video KYC</h1>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="step === 'aadhaar'" class="space-y-4">
           <label class="block text-sm font-medium mb-1">Aadhaar Number</label>
           <input [formControl]="aadhaarCtrl" placeholder="XXXX XXXX XXXX" maxlength="14" class="w-full px-4 py-3 border border-border rounded-lg text-lg tracking-wider font-mono" />
           <button (click)="submitAadhaar()" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Proceed</button>
         </div>
         <div *ngIf="step === 'consent'" class="space-y-4">
-          <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-xl text-sm text-yellow-700">UIDAI consent required for Aadhaar eKYC + video verification.</div>
+          <div class="p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-xl text-sm text-yellow-700">UIDAI consent required for Aadhaar eKYC + video verification.</div>
           <button (click)="initiate()" [disabled]="loading" class="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold disabled:opacity-60">{{ loading ? 'Processing...' : 'I Consent' }}</button>
         </div>
         <div *ngIf="step === 'otp'" class="space-y-4">

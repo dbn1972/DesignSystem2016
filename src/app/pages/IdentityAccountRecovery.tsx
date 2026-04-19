@@ -56,11 +56,11 @@ export default function IdentityAccountRecovery() {
               <div className="bg-muted border-b-2 border-border px-4 sm:px-8 lg:px-12 py-4">
                 <div className="flex items-center justify-between max-w-3xl mx-auto">
                   <RecoveryStep number={1} label="Account Status" active={step === "locked"} completed={step !== "locked"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step !== "locked" ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step !== "locked" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
                   <RecoveryStep number={2} label="Verify Identity" active={step === "identity" || step === "verify"} completed={step === "documents" || step === "review" || step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "documents" || step === "review" || step === "success" ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "documents" || step === "review" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
                   <RecoveryStep number={3} label="Submit Proof" active={step === "documents"} completed={step === "review" || step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "review" || step === "success" ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "review" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
                   <RecoveryStep number={4} label="Review" active={step === "review"} completed={step === "success"} />
                 </div>
               </div>
@@ -237,7 +237,7 @@ export default function IdentityAccountRecovery() {
                         </label>
                         <div className="space-y-3">
                           {["Aadhaar Card", "PAN Card", "Voter ID", "Driving License", "Passport"].map((doc) => (
-                            <label key={doc} className="flex items-center gap-3 p-4 border-2 border-border rounded-lg cursor-pointer hover:border-primary hover:bg-blue-50 transition-colors">
+                            <label key={doc} className="flex items-center gap-3 p-4 border-2 border-border rounded-lg cursor-pointer hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-colors">
                               <input
                                 type="radio"
                                 name="documentType"
@@ -273,7 +273,7 @@ export default function IdentityAccountRecovery() {
                             <label className="block text-sm font-bold text-foreground mb-2">
                               Upload Document <span className="text-red-600">*</span>
                             </label>
-                            <div className="border-2 border-dashed border-border rounded-lg p-12 text-center bg-background hover:border-primary hover:bg-blue-50 transition-colors cursor-pointer">
+                            <div className="border-2 border-dashed border-border rounded-lg p-12 text-center bg-background hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-colors cursor-pointer">
                               <FileText size={48} className="text-muted-foreground mx-auto mb-4" />
                               <div className="font-bold text-foreground mb-2">Click to upload or drag and drop</div>
                               <div className="text-sm text-muted-foreground">PNG, JPG or PDF (max 5MB)</div>
@@ -461,7 +461,7 @@ function PatternInfo() {
 
 function WhenToUse() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground">When to Use</h3>
       </div>
@@ -478,7 +478,7 @@ function WhenToUse() {
 
 function SecurityNotes() {
   return (
-    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50 dark:bg-red-900/20">
       <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Security</h3>
       </div>
@@ -515,7 +515,7 @@ function InfoRow({ label, value, badge }: { label: string; value: string; badge?
     <div className="flex items-center justify-between">
       <span className="text-muted-foreground">{label}</span>
       {badge ? (
-        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
+        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700 dark:text-green-400' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
           {value}
         </span>
       ) : (

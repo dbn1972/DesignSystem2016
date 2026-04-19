@@ -383,13 +383,13 @@ function StateTransition({ from, to, description }: {
   return (
     <div className="border-l-4 border-blue-500 pl-4">
       <div className="flex items-center gap-3 mb-2">
-        <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-bold rounded border-2 border-blue-300">
+        <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:text-blue-300 text-sm font-bold rounded border-2 border-blue-300">
           {from}
         </span>
         <ArrowRight size={16} className="text-muted-foreground" />
         <div className="flex flex-wrap gap-2">
           {to.map((state, i) => (
-            <span key={i} className="px-3 py-1 bg-green-100 text-green-800 text-sm font-bold rounded border-2 border-green-300">
+            <span key={i} className="px-3 py-1 bg-green-100 text-green-800 dark:text-green-300 text-sm font-bold rounded border-2 border-green-300">
               {state}
             </span>
           ))}

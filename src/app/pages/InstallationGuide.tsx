@@ -462,7 +462,7 @@ npm start`}
           
           <div className="mt-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-4 text-sm flex items-start gap-2">
             <AlertCircle className="text-red-600 flex-shrink-0 mt-0.5" size={16} />
-            <div className="text-red-800">
+            <div className="text-red-800 dark:text-red-300">
               <strong>Warning:</strong> CDN usage is not recommended for production government services. 
               Use NPM packages for better security, versioning, and offline resilience.
             </div>

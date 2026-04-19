@@ -207,13 +207,13 @@ export default function SmartSuggestionsPattern() {
                       RECENTLY USED
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      <button className="px-3 py-1.5 bg-muted border border-border rounded text-sm hover:bg-blue-50 hover:border-primary">
+                      <button className="px-3 py-1.5 bg-muted border border-border rounded text-sm hover:bg-blue-50 dark:bg-blue-900/20 hover:border-primary">
                         Income Certificate
                       </button>
-                      <button className="px-3 py-1.5 bg-muted border border-border rounded text-sm hover:bg-blue-50 hover:border-primary">
+                      <button className="px-3 py-1.5 bg-muted border border-border rounded text-sm hover:bg-blue-50 dark:bg-blue-900/20 hover:border-primary">
                         Domicile Certificate
                       </button>
-                      <button className="px-3 py-1.5 bg-muted border border-border rounded text-sm hover:bg-blue-50 hover:border-primary">
+                      <button className="px-3 py-1.5 bg-muted border border-border rounded text-sm hover:bg-blue-50 dark:bg-blue-900/20 hover:border-primary">
                         Birth Certificate
                       </button>
                     </div>
@@ -443,7 +443,7 @@ export default function SmartSuggestionsPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Smart Suggestions</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -476,7 +476,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Smart Suggestions</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

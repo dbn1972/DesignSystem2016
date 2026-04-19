@@ -85,11 +85,11 @@ export default function IdentityForgotPassword() {
               <div className="bg-muted border-b-2 border-border px-4 sm:px-8 lg:px-12 py-4">
                 <div className="flex items-center justify-between max-w-2xl mx-auto">
                   <ProgressStep number={1} label="Identify" active={step === "identify"} completed={step !== "identify"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step !== "identify" ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step !== "identify" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
                   <ProgressStep number={2} label="Verify OTP" active={step === "verify"} completed={step === "reset" || step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "reset" || step === "success" ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "reset" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
                   <ProgressStep number={3} label="Reset Password" active={step === "reset"} completed={step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "success" ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
                   <ProgressStep number={4} label="Complete" active={step === "success"} completed={false} />
                 </div>
               </div>
@@ -262,7 +262,7 @@ export default function IdentityForgotPassword() {
                               ) : (
                                 <X size={14} className="text-muted-foreground" />
                               )}
-                              <span className={req.met ? "text-green-700" : "text-muted-foreground"}>{req.label}</span>
+                              <span className={req.met ? "text-green-700 dark:text-green-400" : "text-muted-foreground"}>{req.label}</span>
                             </div>
                           ))}
                         </div>
@@ -425,7 +425,7 @@ function PatternInfo() {
 
 function UserJourney() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground">User Journey</h3>
       </div>
@@ -442,7 +442,7 @@ function UserJourney() {
 
 function SecurityConsiderations() {
   return (
-    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50">
+    <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden bg-red-50 dark:bg-red-900/20">
       <div className="bg-red-100 border-b-2 border-red-200 dark:border-red-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Security</h3>
       </div>
@@ -459,7 +459,7 @@ function SecurityConsiderations() {
 
 function AccessibilityNotes() {
   return (
-    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50">
+    <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden bg-green-50 dark:bg-green-900/20">
       <div className="bg-green-100 border-b-2 border-green-200 dark:border-green-800 px-4 py-3">
         <h3 className="font-bold text-foreground">Accessibility</h3>
       </div>
@@ -504,7 +504,7 @@ function InfoRow({ label, value, badge }: { label: string; value: string; badge?
     <div className="flex items-center justify-between">
       <span className="text-muted-foreground">{label}</span>
       {badge ? (
-        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
+        <span className={`px-2 py-0.5 ${badge === 'green' ? 'bg-green-100 text-green-700 dark:text-green-400' : 'bg-muted text-muted-foreground'} text-xs font-bold rounded-full`}>
           {value}
         </span>
       ) : (

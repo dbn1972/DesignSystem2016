@@ -202,7 +202,7 @@ export default function ActionableNotificationsPattern() {
                       <div className="font-bold text-foreground mb-1">{notif.title}</div>
                       <div className="text-sm text-muted-foreground">Action completed successfully</div>
                     </div>
-                    <span className="px-3 py-1 bg-green-500 text-white text-sm font-bold rounded">
+                    <span className="px-3 py-1 bg-green-50 dark:bg-green-900/200 text-white text-sm font-bold rounded">
                       COMPLETED
                     </span>
                   </div>
@@ -688,7 +688,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
             </button>
             <button
               onClick={onCancel}
-              className="flex-1 px-6 py-3 bg-red-500 text-white rounded font-bold hover:bg-red-600 flex items-center gap-2 justify-center"
+              className="flex-1 px-6 py-3 bg-red-50 dark:bg-red-900/200 text-white rounded font-bold hover:bg-red-600 flex items-center gap-2 justify-center"
             >
               <ThumbsDown size={20} />
               <span>Decline</span>

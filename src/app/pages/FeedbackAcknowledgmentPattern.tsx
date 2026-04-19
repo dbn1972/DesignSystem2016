@@ -304,7 +304,7 @@ export function FeedbackAcknowledgmentPage() {
             <div className="mb-4">
               <label className="block text-sm font-medium mb-2">How was your experience?</label>
               <div className="flex gap-2">{[1,2,3,4,5].map(n => (
-                <button key={n} onClick={() => setFeedback(f => ({...f, rating: n}))} className={\`w-10 h-10 rounded-lg border-2 text-lg \${feedback.rating >= n ? 'border-yellow-400 bg-yellow-50' : 'border-border'}\`}>⭐</button>
+                <button key={n} onClick={() => setFeedback(f => ({...f, rating: n}))} className={\`w-10 h-10 rounded-lg border-2 text-lg \${feedback.rating >= n ? 'border-yellow-400 bg-yellow-50 dark:bg-yellow-900/20' : 'border-border'}\`}>⭐</button>
               ))}</div>
             </div>
             <div className="mb-4">

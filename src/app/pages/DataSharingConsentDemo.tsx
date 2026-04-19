@@ -937,7 +937,7 @@ function ConsentDeclinedScreen({
         <div className="flex items-center gap-4 pt-4">
           <button
             onClick={onReconsider}
-            className="flex-1 px-6 py-4 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50"
+            className="flex-1 px-6 py-4 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 dark:bg-blue-900/20"
           >
             Reconsider and Provide Consent
           </button>

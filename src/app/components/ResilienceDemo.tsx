@@ -13,17 +13,17 @@ export function AutoSaveIndicator({ status, lastSaved }: {
     saving: {
       icon: <Loader size={14} className="animate-spin" />,
       text: 'Saving...',
-      className: 'bg-blue-50 border-blue-300 text-blue-700'
+      className: 'bg-blue-50 dark:bg-blue-900/20 border-blue-300 text-blue-700'
     },
     saved: {
       icon: <CheckCircle size={14} />,
       text: lastSaved ? `Saved at ${lastSaved.toLocaleTimeString()}` : 'Saved',
-      className: 'bg-green-50 border-green-300 text-green-700'
+      className: 'bg-green-50 dark:bg-green-900/20 border-green-300 text-green-700 dark:text-green-400'
     },
     error: {
       icon: <XCircle size={14} />,
       text: 'Save failed - Retry',
-      className: 'bg-red-50 border-red-300 text-red-700'
+      className: 'bg-red-50 dark:bg-red-900/20 border-red-300 text-red-700 dark:text-red-400'
     },
     offline: {
       icon: <WifiOff size={14} />,
@@ -83,7 +83,7 @@ export function ErrorBanner({ error, onRetry, onDismiss }: {
   if (!error) return null;
   
   return (
-    <div className="bg-red-50 border-b-2 border-red-300">
+    <div className="bg-red-50 dark:bg-red-900/20 border-b-2 border-red-300">
       <div className="max-w-[1400px] mx-auto px-12 py-4">
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-3 flex-1">
@@ -194,7 +194,7 @@ export function TimeoutWarning({ visible, secondsRemaining, onExtend, onSignOut 
             {minutes}:{seconds.toString().padStart(2, '0')}
           </p>
         </div>
-        <div className="bg-yellow-50 border border-yellow-300 rounded p-4 mb-6 text-sm text-muted-foreground">
+        <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-300 rounded p-4 mb-6 text-sm text-muted-foreground">
           <p className="mb-2"><strong>To protect your information</strong>, we'll sign you out if there's no activity.</p>
           <p>Click "Continue Session" to keep working.</p>
         </div>
@@ -260,7 +260,7 @@ export function PartialSuccessIndicator({ total, successful, failed, onRetryFail
   if (failed === 0) return null;
   
   return (
-    <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+    <div className="bg-yellow-50 dark:bg-yellow-900/20 border-2 border-yellow-300 rounded-lg p-6">
       <div className="flex items-start gap-4">
         <AlertCircle size={24} className="text-yellow-600 flex-shrink-0" />
         <div className="flex-1">
@@ -269,9 +269,9 @@ export function PartialSuccessIndicator({ total, successful, failed, onRetryFail
             {successful} of {total} items processed successfully. {failed} failed.
           </p>
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
               <div 
-                className="h-full bg-green-500" 
+                className="h-full bg-green-50 dark:bg-green-900/200" 
                 style={{ width: `${(successful / total) * 100}%` }}
               />
             </div>
@@ -308,7 +308,7 @@ export function SlowNetworkWarning({ onContinue, onCancel }: {
             You're on a slow network. Uploading large files may take longer than usual.
           </p>
         </div>
-        <div className="bg-blue-50 border border-blue-300 rounded p-4 mb-6 text-sm text-muted-foreground">
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-300 rounded p-4 mb-6 text-sm text-muted-foreground">
           <p className="mb-2"><strong>Recommendations:</strong></p>
           <ul className="list-disc ml-5 space-y-1">
             <li>Connect to Wi-Fi if available</li>

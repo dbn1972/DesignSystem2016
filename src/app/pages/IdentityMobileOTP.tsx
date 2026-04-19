@@ -153,7 +153,7 @@ export default function IdentityMobileOTP() {
                         <p className="text-sm text-muted-foreground mb-3">Didn't receive the OTP?</p>
                         <button
                           onClick={handleResend}
-                          className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-blue-50 transition-colors"
+                          className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-blue-50 dark:bg-blue-900/20 transition-colors"
                         >
                           <RefreshCw size={18} />
                           Resend OTP
@@ -236,7 +236,7 @@ export default function IdentityMobileOTP() {
 
 function AnnotationPanel() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Design Annotations</h3>
       </div>

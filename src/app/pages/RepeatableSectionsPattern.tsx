@@ -86,7 +86,7 @@ export default function RepeatableSectionsPattern() {
                       {dependents.length > 1 && (
                         <button
                           onClick={() => removeDependent(dependent.id)}
-                          className="text-red-600 hover:text-red-800 flex items-center gap-1 text-sm"
+                          className="text-red-600 hover:text-red-800 dark:text-red-300 flex items-center gap-1 text-sm"
                         >
                           <Trash2 size={16} />
                           Remove
@@ -134,7 +134,7 @@ export default function RepeatableSectionsPattern() {
 
               <button
                 onClick={addDependent}
-                className="mt-4 px-4 py-2 border-2 border-dashed border-border rounded-lg text-primary font-bold hover:bg-blue-50 hover:border-primary w-full flex items-center justify-center gap-2"
+                className="mt-4 px-4 py-2 border-2 border-dashed border-border rounded-lg text-primary font-bold hover:bg-blue-50 dark:bg-blue-900/20 hover:border-primary w-full flex items-center justify-center gap-2"
               >
                 <Plus size={18} />
                 Add Another Dependent
@@ -159,7 +159,7 @@ export default function RepeatableSectionsPattern() {
                       {education.length > 1 && (
                         <button
                           onClick={() => removeEducation(edu.id)}
-                          className="text-red-600 hover:text-red-800 flex items-center gap-1 text-sm"
+                          className="text-red-600 hover:text-red-800 dark:text-red-300 flex items-center gap-1 text-sm"
                         >
                           <Trash2 size={16} />
                           Remove
@@ -216,7 +216,7 @@ export default function RepeatableSectionsPattern() {
 
               <button
                 onClick={addEducation}
-                className="mt-4 px-4 py-2 border-2 border-dashed border-blue-300 rounded-lg text-primary font-bold hover:bg-blue-50 hover:border-primary w-full flex items-center justify-center gap-2"
+                className="mt-4 px-4 py-2 border-2 border-dashed border-blue-300 rounded-lg text-primary font-bold hover:bg-blue-50 dark:bg-blue-900/20 hover:border-primary w-full flex items-center justify-center gap-2"
               >
                 <Plus size={18} />
                 Add Another Qualification
@@ -236,12 +236,12 @@ export default function RepeatableSectionsPattern() {
                       <div className="flex items-center gap-2 text-sm">
                         <span>1.</span>
                         <input aria-label="text input" type="text" value="rajesh@example.com" className="flex-1 px-3 py-1.5 border border-border rounded text-sm" readOnly />
-                        <button aria-label="Action" className="text-red-600 hover:text-red-800"><Trash2 size={16} /></button>
+                        <button aria-label="Action" className="text-red-600 hover:text-red-800 dark:text-red-300"><Trash2 size={16} /></button>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
                         <span>2.</span>
                         <input aria-label="text input" type="text" value="priya@example.com" className="flex-1 px-3 py-1.5 border border-border rounded text-sm" readOnly />
-                        <button aria-label="Action" className="text-red-600 hover:text-red-800"><Trash2 size={16} /></button>
+                        <button aria-label="Action" className="text-red-600 hover:text-red-800 dark:text-red-300"><Trash2 size={16} /></button>
                       </div>
                       <button className="text-sm text-primary hover:underline flex items-center gap-1">
                         <Plus size={14} />
@@ -487,7 +487,7 @@ export default function RepeatableSectionsPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Repeatable Sections</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -520,7 +520,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Repeatable Sections</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

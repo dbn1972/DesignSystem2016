@@ -26,7 +26,7 @@ export default function AppointmentBookingPattern() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-011-01</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,7 +41,7 @@ export default function AppointmentBookingPattern() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
               <div className="px-6 py-3 bg-orange-50 dark:bg-orange-950/30 border-2 border-orange-200 dark:border-orange-800 rounded text-orange-700 font-bold text-xs text-center uppercase">
@@ -567,7 +567,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
           <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded text-xs">
             <div className="flex items-center gap-2 mb-2">
               <Info size={14} className="text-blue-600" />
-              <span className="font-bold text-blue-800">Legend</span>
+              <span className="font-bold text-blue-800 dark:text-blue-300">Legend</span>
             </div>
             <div className="space-y-1 text-muted-foreground">
               <div className="flex items-center gap-2">
@@ -594,13 +594,13 @@ function AppointmentScreenExample({ type }: { type: string }) {
             <div>
               <h3 className="text-sm font-bold text-muted-foreground mb-2">Morning</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50">
+                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20">
                   09:00 AM
                 </button>
-                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50">
+                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20">
                   10:00 AM
                 </button>
-                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50">
+                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20">
                   11:00 AM
                 </button>
                 <button disabled className="px-4 py-3 border-2 border-border bg-muted rounded text-sm font-medium text-muted-foreground cursor-not-allowed">
@@ -617,10 +617,10 @@ function AppointmentScreenExample({ type }: { type: string }) {
                   02:00 PM<br/>
                   <span className="text-xs">Selected</span>
                 </button>
-                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50">
+                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20">
                   03:00 PM
                 </button>
-                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50">
+                <button className="px-4 py-3 border-2 border-border bg-card rounded text-sm font-medium hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20">
                   04:00 PM
                 </button>
                 <button disabled className="px-4 py-3 border-2 border-border bg-muted rounded text-sm font-medium text-muted-foreground cursor-not-allowed">
@@ -705,7 +705,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
             <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-300 rounded-lg p-4">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <div className="text-xs font-bold text-green-700 mb-1">UPCOMING</div>
+                  <div className="text-xs font-bold text-green-700 dark:text-green-400 mb-1">UPCOMING</div>
                   <div className="font-bold text-foreground">Document Verification</div>
                 </div>
                 <Calendar size={20} className="text-green-600" />
@@ -719,7 +719,7 @@ function AppointmentScreenExample({ type }: { type: string }) {
                 <button className="flex-1 px-3 py-2 border-2 border-border bg-card text-muted-foreground font-bold rounded text-xs">
                   Reschedule
                 </button>
-                <button className="flex-1 px-3 py-2 border-2 border-red-300 bg-card text-red-700 font-bold rounded text-xs">
+                <button className="flex-1 px-3 py-2 border-2 border-red-300 bg-card text-red-700 dark:text-red-400 font-bold rounded text-xs">
                   Cancel
                 </button>
               </div>
@@ -1226,7 +1226,7 @@ export function AppointmentBookingPage() {
         <h1 className="text-2xl font-bold text-foreground mb-2">Book Appointment</h1>
         <p className="text-sm text-muted-foreground mb-6">Schedule a visit to a government service center</p>
         <div className="flex gap-1 mb-6">{['service','date','slot','details','confirmed'].map((s,i) => (<div key={s} className={\`flex-1 h-1.5 rounded \${['service','date','slot','details','confirmed'].indexOf(step) >= i ? 'bg-primary' : 'bg-muted'}\`} />))}</div>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {step === 'service' && (<div className="space-y-3">{services.map(s => (<button key={s} onClick={() => { setService(s); setStep('date'); }} className={\`w-full p-4 text-left rounded-xl border-2 transition-colors \${service === s ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}\`}><div className="font-semibold text-sm">{s}</div></button>))}</div>)}
         {step === 'date' && (<div className="space-y-4"><label className="block text-sm font-medium mb-1">Select Date</label><input type="date" value={date} onChange={e => setDate(e.target.value)} min={new Date().toISOString().split('T')[0]} className="w-full px-4 py-3 border border-border rounded-lg" /><div className="flex gap-3"><button onClick={() => setStep('service')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={() => { if (!date) { setError('Select a date'); return; } setError(''); setStep('slot'); }} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div></div>)}
         {step === 'slot' && (<div className="space-y-4"><p className="text-sm text-muted-foreground">Available slots for {date}</p><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">{MOCK_SLOTS.map(s => (<button key={s.id} disabled={!s.available} onClick={() => setSlot(s.time)} className={\`p-3 rounded-lg text-sm font-semibold transition-colors \${!s.available ? 'bg-muted text-muted-foreground cursor-not-allowed' : slot === s.time ? 'bg-primary text-primary-foreground' : 'border border-border hover:border-primary'}\`}>{s.time}</button>))}</div><div className="flex gap-3"><button onClick={() => setStep('date')} className="flex-1 py-3 border border-border rounded-lg font-semibold">Back</button><button onClick={() => { if (!slot) { setError('Select a slot'); return; } setError(''); setStep('details'); }} className="flex-1 py-3 bg-primary text-primary-foreground rounded-lg font-semibold">Next</button></div></div>)}
@@ -1249,7 +1249,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
     <div class="min-h-screen flex items-center justify-center bg-background p-4">
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold mb-6">Book Appointment</h1>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="step === 'service'" class="space-y-3">
           <button *ngFor="let s of services" (click)="service=s;step='date'" [class]="'w-full p-4 text-left rounded-xl border-2 '+(service===s?'border-primary bg-primary/5':'border-border')">{{ s }}</button>
         </div>

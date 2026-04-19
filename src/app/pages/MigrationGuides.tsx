@@ -513,7 +513,7 @@ interface StrategyCardProps {
 
 function StrategyCard({ title, recommended, timeline, effort, description, pros, cons }: StrategyCardProps) {
   return (
-    <div className={`border-2 rounded-lg p-6 ${recommended ? 'border-green-500 bg-green-50' : 'border-border bg-card'}`}>
+    <div className={`border-2 rounded-lg p-6 ${recommended ? 'border-green-500 bg-green-50 dark:bg-green-900/20' : 'border-border bg-card'}`}>
       <div className="flex items-start justify-between mb-3">
         <h3 className="font-bold text-foreground">{title}</h3>
         {recommended && (
@@ -536,7 +536,7 @@ function StrategyCard({ title, recommended, timeline, effort, description, pros,
 
       <div className="space-y-3">
         <div>
-          <div className="text-xs font-semibold text-green-700 mb-2">Pros</div>
+          <div className="text-xs font-semibold text-green-700 dark:text-green-400 mb-2">Pros</div>
           <ul className="space-y-1">
             {pros.map((pro, index) => (
               <li key={index} className="text-xs text-muted-foreground flex items-start gap-1">
@@ -548,7 +548,7 @@ function StrategyCard({ title, recommended, timeline, effort, description, pros,
         </div>
 
         <div>
-          <div className="text-xs font-semibold text-red-700 mb-2">Cons</div>
+          <div className="text-xs font-semibold text-red-700 dark:text-red-400 mb-2">Cons</div>
           <ul className="space-y-1">
             {cons.map((con, index) => (
               <li key={index} className="text-xs text-muted-foreground flex items-start gap-1">
@@ -621,7 +621,7 @@ function LibraryMigrationCard({
 
         <div className="space-y-4 mb-6">
           <div>
-            <div className="text-sm font-semibold text-green-700 mb-2">Highlights</div>
+            <div className="text-sm font-semibold text-green-700 dark:text-green-400 mb-2">Highlights</div>
             <ul className="space-y-1">
               {highlights.map((highlight, index) => (
                 <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -677,7 +677,7 @@ function VersionMigrationCard({ from, to, breaking, releaseDate, summary, link }
           <p className="text-sm text-muted-foreground">{releaseDate}</p>
         </div>
         {breaking && (
-          <span className="bg-red-100 text-red-700 border-2 border-red-300 px-3 py-1 rounded-full text-xs font-semibold">
+          <span className="bg-red-100 text-red-700 dark:text-red-400 border-2 border-red-300 px-3 py-1 rounded-full text-xs font-semibold">
             BREAKING CHANGES
           </span>
         )}

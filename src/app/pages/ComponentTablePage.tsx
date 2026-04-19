@@ -20,7 +20,7 @@ const TablePreview = () => (
         <tr className="hover:bg-background">
           <td className="px-6 py-4 text-sm text-foreground">Application #001</td>
           <td className="px-6 py-4 text-sm">
-            <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+            <span className="px-2 py-1 bg-green-100 text-green-800 dark:text-green-300 rounded-full text-xs font-semibold">
               Approved
             </span>
           </td>
@@ -29,7 +29,7 @@ const TablePreview = () => (
         <tr className="hover:bg-background">
           <td className="px-6 py-4 text-sm text-foreground">Application #002</td>
           <td className="px-6 py-4 text-sm">
-            <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold">
+            <span className="px-2 py-1 bg-yellow-100 text-yellow-800 dark:text-yellow-300 rounded-full text-xs font-semibold">
               Pending
             </span>
           </td>
@@ -456,8 +456,8 @@ export class TableModule { }`,
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use Table when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -468,8 +468,8 @@ export class TableModule { }`,
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don't use Table when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -488,14 +488,14 @@ export class TableModule { }`,
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
-                  <div className="overflow-hidden rounded border border-border text-sm mb-3"><table className="w-full"><thead className="bg-muted"><tr><th className="px-3 py-2 text-left text-xs font-semibold">Name</th><th className="px-3 py-2 text-left text-xs font-semibold">Status</th></tr></thead><tbody><tr className="border-t"><td className="px-3 py-2">Rajesh Kumar</td><td className="px-3 py-2"><span className="px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-800">Approved</span></td></tr><tr className="border-t bg-muted/30"><td className="px-3 py-2">Suresh Mehta</td><td className="px-3 py-2"><span className="px-2 py-0.5 rounded-full text-xs bg-yellow-100 text-yellow-800">Pending</span></td></tr></tbody></table></div>
+                  <div className="overflow-hidden rounded border border-border text-sm mb-3"><table className="w-full"><thead className="bg-muted"><tr><th className="px-3 py-2 text-left text-xs font-semibold">Name</th><th className="px-3 py-2 text-left text-xs font-semibold">Status</th></tr></thead><tbody><tr className="border-t"><td className="px-3 py-2">Rajesh Kumar</td><td className="px-3 py-2"><span className="px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-800 dark:text-green-300">Approved</span></td></tr><tr className="border-t bg-muted/30"><td className="px-3 py-2">Suresh Mehta</td><td className="px-3 py-2"><span className="px-2 py-0.5 rounded-full text-xs bg-yellow-100 text-yellow-800">Pending</span></td></tr></tbody></table></div>
                   <p className="text-sm text-muted-foreground">Use zebra striping and column headers for data tables with 5+ rows.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <div className="text-sm space-y-1 mb-3"><p className="text-muted-foreground">Rajesh Kumar - Approved - 12 Apr</p><p className="text-muted-foreground">Suresh Mehta - Pending - 10 Apr</p></div>
                   <p className="text-sm text-muted-foreground">Don&apos;t display tabular data as plain text — use a proper Table for structured data.</p>

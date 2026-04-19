@@ -247,13 +247,13 @@ export function ContentExpansionPage() {
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="p-6 border-2 border-red-200 rounded-xl bg-red-50">
-            <h3 className="font-bold mb-4 text-red-700">❌ Fixed Width</h3>
+          <div className="p-6 border-2 border-red-200 dark:border-red-800 rounded-xl bg-red-50 dark:bg-red-900/20">
+            <h3 className="font-bold mb-4 text-red-700 dark:text-red-400">❌ Fixed Width</h3>
             <button className="w-32 px-4 py-3 bg-red-100 border border-red-300 rounded font-bold overflow-hidden text-ellipsis whitespace-nowrap">{content[language].text}</button>
             <p className="text-xs text-red-600 mt-2">Text gets truncated</p>
           </div>
-          <div className="p-6 border-2 border-green-200 rounded-xl bg-green-50">
-            <h3 className="font-bold mb-4 text-green-700">✓ Flexible Width</h3>
+          <div className="p-6 border-2 border-green-200 rounded-xl bg-green-50 dark:bg-green-900/20">
+            <h3 className="font-bold mb-4 text-green-700 dark:text-green-400">✓ Flexible Width</h3>
             <button className="px-6 py-3 bg-green-600 text-white rounded font-bold">{content[language].text}</button>
             <p className="text-xs text-green-600 mt-2">Adapts to content</p>
           </div>
@@ -291,12 +291,12 @@ import { CommonModule } from '@angular/common';
           </button>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div class="p-6 border-2 border-red-200 rounded-xl bg-red-50">
-            <h3 class="font-bold mb-4 text-red-700">❌ Fixed Width</h3>
+          <div class="p-6 border-2 border-red-200 dark:border-red-800 rounded-xl bg-red-50 dark:bg-red-900/20">
+            <h3 class="font-bold mb-4 text-red-700 dark:text-red-400">❌ Fixed Width</h3>
             <button class="w-32 px-4 py-3 bg-red-100 border border-red-300 rounded font-bold overflow-hidden text-ellipsis whitespace-nowrap">{{content[language].text}}</button>
           </div>
-          <div class="p-6 border-2 border-green-200 rounded-xl bg-green-50">
-            <h3 class="font-bold mb-4 text-green-700">✓ Flexible Width</h3>
+          <div class="p-6 border-2 border-green-200 rounded-xl bg-green-50 dark:bg-green-900/20">
+            <h3 class="font-bold mb-4 text-green-700 dark:text-green-400">✓ Flexible Width</h3>
             <button class="px-6 py-3 bg-green-600 text-white rounded font-bold">{{content[language].text}}</button>
           </div>
         </div>

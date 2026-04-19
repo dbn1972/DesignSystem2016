@@ -42,14 +42,14 @@ export default function Governance() {
               <div className="flex items-center gap-3">
                 <span className="relative flex h-3 w-3">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500" />
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-green-50 dark:bg-green-900/200" />
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-foreground">All systems operational</p>
                   <p className="text-xs text-muted-foreground">Design system platform</p>
                 </div>
               </div>
-              <span className="rounded-full bg-green-500/10 border border-green-500/20 px-3 py-1 text-xs font-semibold text-green-700 dark:text-green-400">Live</span>
+              <span className="rounded-full bg-green-50 dark:bg-green-900/200/10 border border-green-500/20 px-3 py-1 text-xs font-semibold text-green-700 dark:text-green-400">Live</span>
             </div>
 
             {/* Key metrics */}
@@ -76,7 +76,7 @@ export default function Governance() {
             <div className="py-5 border-b border-border">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground mb-3">Compliance</p>
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-green-500/10 border border-green-500/20 px-3 py-1.5 text-xs font-semibold text-green-700 dark:text-green-400">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 dark:bg-green-900/200/10 border border-green-500/20 px-3 py-1.5 text-xs font-semibold text-green-700 dark:text-green-400">
                   <CheckCircle size={12} /> WCAG 2.1 AA
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-3 py-1.5 text-xs font-semibold text-primary">

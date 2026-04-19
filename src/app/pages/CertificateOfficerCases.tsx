@@ -170,7 +170,7 @@ export default function CertificateOfficerCases() {
               </thead>
               <tbody>
                 {filteredCases.map((caseItem, idx) => (
-                  <tr key={idx} className="border-b border-border hover:bg-blue-50 transition-colors">
+                  <tr key={idx} className="border-b border-border hover:bg-blue-50 dark:bg-blue-900/20 transition-colors">
                     <td className="px-6 py-4">
                       <div className="font-mono text-sm font-bold text-foreground">{caseItem.refNumber}</div>
                       <div className="text-xs text-muted-foreground">{caseItem.daysWaiting} days ago</div>

@@ -102,7 +102,7 @@ export default function PaymentFailureRetryDemo() {
             <div className="max-w-4xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-16 h-16 bg-red-100 border-2 border-red-300 rounded flex items-center justify-center">
-                  <XCircle size={32} className="text-red-700" />
+                  <XCircle size={32} className="text-red-700 dark:text-red-400" />
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">UX4G Interactive Pattern Demo</div>
@@ -431,7 +431,7 @@ function PaymentFailedScreen({
 
           <button
             onClick={onChooseAnotherMethod}
-            className="w-full px-6 py-4 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
+            className="w-full px-6 py-4 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 dark:bg-blue-900/20 transition-colors flex items-center justify-center gap-2"
           >
             <CreditCard size={18} />
             Try Another Payment Method
@@ -440,7 +440,7 @@ function PaymentFailedScreen({
           {failureDetails.showPending && (
             <button
               onClick={onViewPending}
-              className="w-full px-6 py-4 border-2 border-blue-300 bg-blue-50 text-blue-900 font-bold rounded text-sm hover:bg-blue-100 transition-colors flex items-center justify-center gap-2"
+              className="w-full px-6 py-4 border-2 border-blue-300 bg-blue-50 dark:bg-blue-900/20 text-blue-900 font-bold rounded text-sm hover:bg-blue-100 transition-colors flex items-center justify-center gap-2"
             >
               <Clock size={18} />
               Check Pending Status
@@ -923,7 +923,7 @@ function PaymentPendingScreen({
           </button>
           <button
             onClick={onContactSupport}
-            className="w-full px-6 py-4 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
+            className="w-full px-6 py-4 border-2 border-primary bg-card text-primary font-bold rounded text-sm hover:bg-blue-50 dark:bg-blue-900/20 transition-colors flex items-center justify-center gap-2"
           >
             <HelpCircle size={18} />
             Contact Support
@@ -1181,7 +1181,7 @@ function SupportScreen({
               <div className="flex-1">
                 <h4 className="font-bold text-foreground mb-1">Helpline</h4>
                 <p className="text-sm text-muted-foreground mb-2">24x7 payment support helpline</p>
-                <a href="tel:1800-111-1111" className="font-bold text-green-700 text-lg hover:underline">
+                <a href="tel:1800-111-1111" className="font-bold text-green-700 dark:text-green-400 text-lg hover:underline">
                   1800-111-1111
                 </a>
                 <p className="text-xs text-muted-foreground mt-1">Toll-free from all networks</p>

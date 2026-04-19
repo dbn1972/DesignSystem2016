@@ -180,7 +180,7 @@ export default function DataInputPatterns() {
                     Reduces typing and ensures standardized addresses.
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-bold">LOOKUP</span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 dark:text-blue-300 rounded-full font-bold">LOOKUP</span>
                     <span className="text-muted-foreground">Complexity: Low</span>
                     <span className="text-muted-foreground">Reduces errors by 80%</span>
                   </div>
@@ -207,7 +207,7 @@ export default function DataInputPatterns() {
                     Requires user consent and OTP verification.
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full font-bold">INTEGRATION</span>
+                    <span className="px-3 py-1 bg-green-100 text-green-800 dark:text-green-300 rounded-full font-bold">INTEGRATION</span>
                     <span className="text-muted-foreground">Complexity: High</span>
                     <span className="text-muted-foreground">Saves 5-7 minutes per form</span>
                   </div>
@@ -342,7 +342,7 @@ export default function DataInputPatterns() {
                     qualifications, work experience, or dependents with Add/Remove controls.
                   </p>
                   <div className="flex items-center gap-4 text-xs">
-                    <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full font-bold">DYNAMIC</span>
+                    <span className="px-3 py-1 bg-yellow-100 text-yellow-800 dark:text-yellow-300 rounded-full font-bold">DYNAMIC</span>
                     <span className="text-muted-foreground">Complexity: Low</span>
                     <span className="text-muted-foreground">Flexible for variable data</span>
                   </div>
@@ -499,7 +499,7 @@ export function DataInputPage() {
           {fields.map(f => (
             <div key={f.id}>
               <label className="block text-sm font-medium mb-1">{f.label}{f.required && <span className="text-red-500 ml-1">*</span>}</label>
-              <input type={f.type} value={f.value} onChange={e => updateField(f.id, e.target.value)} className={\`w-full px-4 py-3 border rounded-lg \${f.error ? 'border-red-300 bg-red-50' : 'border-border'}\`} />
+              <input type={f.type} value={f.value} onChange={e => updateField(f.id, e.target.value)} className={\`w-full px-4 py-3 border rounded-lg \${f.error ? 'border-red-300 bg-red-50 dark:bg-red-900/20' : 'border-border'}\`} />
               {f.error && <p className="text-xs text-red-600 mt-1">{f.error}</p>}
             </div>
           ))}

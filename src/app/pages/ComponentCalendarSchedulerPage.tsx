@@ -41,7 +41,7 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
             <div key={i} className="bg-card p-2 min-h-[80px] hover:bg-background cursor-pointer">
               <div className="text-sm text-muted-foreground">{((i % 30) + 1)}</div>
               {events.filter((e: any) => e.day === i).map((event: any, idx: number) => (
-                <div key={idx} className={`text-xs mt-1 p-1 rounded ${event.color || 'bg-blue-100 text-blue-800'}`}>
+                <div key={idx} className={`text-xs mt-1 p-1 rounded ${event.color || 'bg-blue-100 text-blue-800 dark:text-blue-300'}`}>
                   {event.title}
                 </div>
               ))}
@@ -432,7 +432,7 @@ function Example() {
 }`,
           preview: (
             <div className="space-y-4">
-              <div className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded text-red-800 text-sm">
+              <div className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded text-red-800 dark:text-red-300 text-sm">
                 <AlertCircle size={16} />
                 <span>Government offices closed on highlighted dates</span>
               </div>
@@ -1251,8 +1251,8 @@ export type CalendarView = 'month' | 'week' | 'day';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use CalendarScheduler when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -1263,8 +1263,8 @@ export type CalendarView = 'month' | 'week' | 'day';`,
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don&apos;t use CalendarScheduler when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -1283,13 +1283,13 @@ export type CalendarView = 'month' | 'week' | 'day';`,
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Show available time slots clearly and disable unavailable dates.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t use a calendar for simple date selection — use DatePicker instead.</p>
                 </div>

@@ -538,7 +538,7 @@ export default function Components() {
 
             {showAlert && (
               <div className="flex items-start gap-4 rounded-[1.5rem] border border-red-200 dark:border-red-800/70 bg-red-50 dark:bg-red-950/30 p-5 shadow-sm">
-                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-700" />
+                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-700 dark:text-red-400" />
                 <div className="min-w-0 flex-1">
                   <h3 className="font-semibold text-foreground">{copy.feedbackSection.error}</h3>
                   <p className="mt-1 text-sm leading-6 text-muted-foreground">{copy.feedbackSection.errorMessage}</p>

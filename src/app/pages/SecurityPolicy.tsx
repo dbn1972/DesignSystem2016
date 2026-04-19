@@ -122,7 +122,7 @@ function SecurityStandard({ title, description, compliance, details }: any) {
         <h3 className="font-bold text-foreground text-lg mb-1">{title}</h3>
         <p className="text-sm text-muted-foreground">{description}</p>
         <div className="mt-3">
-          <span className="px-3 py-1 bg-green-100 text-green-700 border border-green-300 rounded-full font-semibold text-xs">
+          <span className="px-3 py-1 bg-green-100 text-green-700 dark:text-green-400 border border-green-300 rounded-full font-semibold text-xs">
             {compliance}
           </span>
         </div>
@@ -710,7 +710,7 @@ function IncidentStep({ step, title, description, actions, timeline }: any) {
 
         <div className="flex gap-2 mt-3 flex-wrap">
           {actions.map((action: string, index: number) => (
-            <span key={index} className="px-2 py-1 bg-red-100 text-red-700 rounded text-xs">
+            <span key={index} className="px-2 py-1 bg-red-100 text-red-700 dark:text-red-400 rounded text-xs">
               {action}
             </span>
           ))}

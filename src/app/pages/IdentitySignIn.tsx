@@ -152,14 +152,14 @@ export default function IdentitySignIn() {
                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                       <Link
                         to="/patterns/identity/mobile-otp"
-                        className="flex items-center justify-center gap-3 px-6 py-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 transition-colors"
+                        className="flex items-center justify-center gap-3 px-6 py-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-colors"
                       >
                         <Smartphone size={20} className="text-primary" />
                         <span className="font-bold text-foreground">Mobile OTP</span>
                       </Link>
                       <Link
                         to="/patterns/identity/aadhaar-auth"
-                        className="flex items-center justify-center gap-3 px-6 py-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 transition-colors"
+                        className="flex items-center justify-center gap-3 px-6 py-4 border-2 border-border rounded-lg hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-colors"
                       >
                         <Shield size={20} className="text-primary" />
                         <span className="font-bold text-foreground">Aadhaar</span>
@@ -204,7 +204,7 @@ export default function IdentitySignIn() {
 
 function AnnotationPanel() {
   return (
-    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50">
+    <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg overflow-hidden bg-blue-50 dark:bg-blue-900/20">
       <div className="bg-blue-100 border-b-2 border-blue-200 dark:border-blue-800 px-4 py-3">
         <h3 className="font-bold text-foreground text-sm">Design Annotations</h3>
       </div>

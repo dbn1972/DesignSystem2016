@@ -2188,8 +2188,8 @@ function DeprecatedFeatureRow({ feature, affectedServices, deprecatedDate, endOf
 
 function LifecycleWarningRow({ service, version, warning, action, severity }: any) {
   const severityConfig: any = {
-    critical: { icon: <AlertCircle className="text-red-600" size={16} />, bg: 'bg-red-50', border: 'border-red-200 dark:border-red-800' },
-    high: { icon: <AlertTriangle className="text-orange-600" size={16} />, bg: 'bg-orange-50', border: 'border-orange-200 dark:border-orange-800' }
+    critical: { icon: <AlertCircle className="text-red-600" size={16} />, bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800' },
+    high: { icon: <AlertTriangle className="text-orange-600" size={16} />, bg: 'bg-orange-50 dark:bg-orange-900/20', border: 'border-orange-200 dark:border-orange-800' }
   };
 
   return (

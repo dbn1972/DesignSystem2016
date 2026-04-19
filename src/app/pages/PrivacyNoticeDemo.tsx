@@ -537,7 +537,7 @@ function FullNoticeScreen({
                 personal information. This is not a consent for data processing.
               </span>
               {attemptedProceed && !acknowledged && (
-                <p className="text-xs text-red-700 mt-2 font-bold">
+                <p className="text-xs text-red-700 dark:text-red-400 mt-2 font-bold">
                   ⚠ You must acknowledge the privacy notice to proceed
                 </p>
               )}
@@ -1005,14 +1005,14 @@ function KeyDifference() {
       <div className="p-4 space-y-4">
         <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded p-3">
           <div className="font-bold text-blue-900 text-xs mb-1">ACKNOWLEDGMENT</div>
-          <div className="text-xs text-blue-800">
+          <div className="text-xs text-blue-800 dark:text-blue-300">
             "I have read and understood the privacy notice"
           </div>
         </div>
         <div className="text-xs text-center text-muted-foreground font-bold">≠ NOT THE SAME AS ≠</div>
         <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded p-3">
           <div className="font-bold text-green-900 text-xs mb-1">CONSENT</div>
-          <div className="text-xs text-green-800">
+          <div className="text-xs text-green-800 dark:text-green-300">
             "I give permission for specific data processing"
           </div>
         </div>

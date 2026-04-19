@@ -84,7 +84,7 @@ export default function UploadExtractPattern() {
               <div className="bg-card border-2 border-border rounded-lg p-4 sm:p-6 lg:p-8">
                 <h3 className="font-bold text-foreground mb-4">Upload Document for Auto-extraction</h3>
 
-                <div className="border-2 border-dashed border-border rounded-lg p-12 text-center hover:border-primary hover:bg-blue-50 transition-all">
+                <div className="border-2 border-dashed border-border rounded-lg p-12 text-center hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all">
                   <input
                     type="file"
                     id="file-upload"
@@ -235,7 +235,7 @@ export default function UploadExtractPattern() {
                     <div>
                       <label className="block font-bold text-foreground mb-2 flex items-center justify-between">
                         <span>Father's Name</span>
-                        <span className="text-xs px-2 py-1 rounded bg-green-100 text-green-700">
+                        <span className="text-xs px-2 py-1 rounded bg-green-100 text-green-700 dark:text-green-400">
                           {extractedData.confidence.fatherName}% confident
                         </span>
                       </label>
@@ -253,7 +253,7 @@ export default function UploadExtractPattern() {
                       <div>
                         <label className="block font-bold text-foreground mb-2 flex items-center justify-between">
                           <span>Date of Birth</span>
-                          <span className="text-xs px-2 py-1 rounded bg-green-100 text-green-700">
+                          <span className="text-xs px-2 py-1 rounded bg-green-100 text-green-700 dark:text-green-400">
                             {extractedData.confidence.dob}%
                           </span>
                         </label>
@@ -269,7 +269,7 @@ export default function UploadExtractPattern() {
                       <div>
                         <label className="block font-bold text-foreground mb-2 flex items-center justify-between">
                           <span>PAN Number</span>
-                          <span className="text-xs px-2 py-1 rounded bg-green-100 text-green-700">
+                          <span className="text-xs px-2 py-1 rounded bg-green-100 text-green-700 dark:text-green-400">
                             {extractedData.confidence.panNumber}%
                           </span>
                         </label>
@@ -521,7 +521,7 @@ export default function UploadExtractPage() {
       <div className="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-foreground mb-2">Upload Extract</h1>
         <p className="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        {error && <div role="alert" className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{error}</div>}
+        {error && <div role="alert" className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{error}</div>}
         {submitted ? (
           <div className="text-center py-6">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -554,7 +554,7 @@ import { CommonModule } from '@angular/common';
       <div class="w-full max-w-lg bg-card border border-border rounded-2xl p-8 shadow-sm">
         <h1 class="text-2xl font-bold text-foreground mb-2">Upload Extract</h1>
         <p class="text-sm text-muted-foreground mb-6">Government digital service pattern</p>
-        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">{{ error }}</div>
+        <div *ngIf="error" role="alert" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">{{ error }}</div>
         <div *ngIf="submitted" class="text-center py-6">
           <h2 class="text-xl font-bold">Success</h2>
           <p class="text-muted-foreground mt-2">Your request has been processed.</p>

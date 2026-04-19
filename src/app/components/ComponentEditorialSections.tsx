@@ -47,8 +47,8 @@ export function ComponentEditorialSections({
         <h2 className="text-2xl font-bold text-foreground mb-6">When to use {componentName}</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-              <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+            <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+              <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
               Do use {componentName} when
             </h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -61,8 +61,8 @@ export function ComponentEditorialSections({
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-              <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+            <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+              <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
               Don't use {componentName} when
             </h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -80,8 +80,8 @@ export function ComponentEditorialSections({
       <section className="bg-card rounded-lg border border-border p-6 mb-8">
         <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don't</h2>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="border-2 border-green-200 rounded-lg overflow-hidden">
-            <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+          <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
+            <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
             <div className="p-4 space-y-3">
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {doExamples.map((item) => (
@@ -93,8 +93,8 @@ export function ComponentEditorialSections({
               </ul>
             </div>
           </div>
-          <div className="border-2 border-red-200 rounded-lg overflow-hidden">
-            <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don't</div>
+          <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
+            <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don't</div>
             <div className="p-4 space-y-3">
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {dontExamples.map((item) => (

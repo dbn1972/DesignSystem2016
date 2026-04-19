@@ -69,7 +69,7 @@ function ApplicationTrackerPlayground() {
       controls={APPLICATIONTRACKER_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <div className="w-full max-w-md"><div className="flex items-center gap-3 mb-3"><div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 text-xs font-bold">✓</div><div className="flex-1 h-1 bg-green-500 rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 text-xs font-bold">✓</div><div className="flex-1 h-1 bg-yellow-400 rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-yellow-100 text-yellow-700 text-xs font-bold">⏳</div><div className="flex-1 h-1 bg-muted rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground text-xs">4</div></div><div className="flex justify-between text-xs text-muted-foreground"><span>Submitted</span><span>Verified</span><span>Processing</span><span>Complete</span></div></div>
+          <div className="w-full max-w-md"><div className="flex items-center gap-3 mb-3"><div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 dark:text-green-400 text-xs font-bold">✓</div><div className="flex-1 h-1 bg-green-50 dark:bg-green-900/200 rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-700 dark:text-green-400 text-xs font-bold">✓</div><div className="flex-1 h-1 bg-yellow-400 rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-yellow-100 text-yellow-700 text-xs font-bold">⏳</div><div className="flex-1 h-1 bg-muted rounded" /><div className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground text-xs">4</div></div><div className="flex justify-between text-xs text-muted-foreground"><span>Submitted</span><span>Verified</span><span>Processing</span><span>Complete</span></div></div>
         </div>
       )}
       codeTemplate={(v) =>
@@ -90,7 +90,7 @@ export default function ComponentApplicationTrackerPage() {
       since="v2.0.0"
 
       preview={
-        <div className="w-full max-w-md"><div className="flex items-center gap-4 mb-4"><div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 text-sm font-bold">✓</div><div className="flex-1 h-1 bg-green-500 rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 text-sm font-bold">✓</div><div className="flex-1 h-1 bg-yellow-400 rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-100 text-yellow-700 text-sm font-bold">⏳</div><div className="flex-1 h-1 bg-muted rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-muted text-muted-foreground text-sm font-bold">4</div></div><div className="flex justify-between text-xs text-muted-foreground"><span>Submitted</span><span>Verified</span><span>Processing</span><span>Complete</span></div></div>
+        <div className="w-full max-w-md"><div className="flex items-center gap-4 mb-4"><div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 dark:text-green-400 text-sm font-bold">✓</div><div className="flex-1 h-1 bg-green-50 dark:bg-green-900/200 rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 dark:text-green-400 text-sm font-bold">✓</div><div className="flex-1 h-1 bg-yellow-400 rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-100 text-yellow-700 text-sm font-bold">⏳</div><div className="flex-1 h-1 bg-muted rounded" /><div className="flex items-center justify-center w-10 h-10 rounded-full bg-muted text-muted-foreground text-sm font-bold">4</div></div><div className="flex justify-between text-xs text-muted-foreground"><span>Submitted</span><span>Verified</span><span>Processing</span><span>Complete</span></div></div>
       }
       
             props={[
@@ -437,8 +437,8 @@ export interface ApplicationStage {
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 text-sm">✓</span>
+                <h3 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-700 dark:text-green-400 text-sm">✓</span>
                   Do use ApplicationTracker when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -449,8 +449,8 @@ export interface ApplicationStage {
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 text-sm">✗</span>
+                <h3 className="text-lg font-semibold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
+                  <span className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center text-red-700 dark:text-red-400 text-sm">✗</span>
                   Don&apos;t use ApplicationTracker when
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -469,13 +469,13 @@ export interface ApplicationStage {
             <h2 className="text-2xl font-bold text-foreground mb-6">Do / Don&apos;t</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
-                <div className="bg-green-50 px-4 py-2 text-sm font-bold text-green-800">✓ Do</div>
+                <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Show estimated completion dates alongside status to set expectations.</p>
                 </div>
               </div>
               <div className="border-2 border-red-200 dark:border-red-800 rounded-lg overflow-hidden">
-                <div className="bg-red-50 px-4 py-2 text-sm font-bold text-red-800">✗ Don&apos;t</div>
+                <div className="bg-red-50 dark:bg-red-900/20 px-4 py-2 text-sm font-bold text-red-800 dark:text-red-300">✗ Don&apos;t</div>
                 <div className="p-4">
                   <p className="text-sm text-muted-foreground">Don&apos;t show status without context — include dates and next steps.</p>
                 </div>

@@ -90,7 +90,7 @@ export default function CertificateHelp() {
 
           <div className="bg-card border-2 border-border rounded-lg p-6">
             <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-              <Mail size={24} className="text-green-700" />
+              <Mail size={24} className="text-green-700 dark:text-green-400" />
             </div>
             <h3 className="font-bold text-foreground mb-2">Email Support</h3>
             <p className="text-sm text-muted-foreground mb-3">
@@ -245,7 +245,7 @@ function QuickLink({ to, text }: { to: string; text: string }) {
   return (
     <Link
       to={to}
-      className="flex items-center gap-2 px-4 py-3 border-2 border-border bg-card rounded hover:border-primary hover:bg-blue-50 transition-all group"
+      className="flex items-center gap-2 px-4 py-3 border-2 border-border bg-card rounded hover:border-primary hover:bg-blue-50 dark:bg-blue-900/20 transition-all group"
     >
       <ChevronRight size={16} className="text-muted-foreground group-hover:text-primary" />
       <span className="text-sm text-muted-foreground group-hover:text-foreground">{text}</span>

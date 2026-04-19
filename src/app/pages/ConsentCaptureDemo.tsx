@@ -238,7 +238,7 @@ function ConsentRequestScreen({
           <AlertCircle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
           <div className="flex-1">
             <h3 className="font-bold text-red-900 mb-1">Consent Required</h3>
-            <p className="text-sm text-red-800">
+            <p className="text-sm text-red-800 dark:text-red-300">
               You must provide consent to continue with this service. Please review the information below 
               and check the consent box if you agree.
             </p>
@@ -348,7 +348,7 @@ function ConsentRequestScreen({
         </div>
 
         {/* Consent Checkbox */}
-        <div className={`border-2 ${attemptedProceed && !consentChecked ? 'border-red-300 bg-red-50' : 'border-border bg-background'} rounded-lg p-6`}>
+        <div className={`border-2 ${attemptedProceed && !consentChecked ? 'border-red-300 bg-red-50 dark:bg-red-900/20' : 'border-border bg-background'} rounded-lg p-6`}>
           <label className="flex items-start gap-4 cursor-pointer group">
             <input
               type="checkbox"
@@ -363,7 +363,7 @@ function ConsentRequestScreen({
                 I understand that I can withdraw this consent at any time from my account settings.
               </span>
               {attemptedProceed && !consentChecked && (
-                <p className="text-xs text-red-700 mt-2 font-bold">
+                <p className="text-xs text-red-700 dark:text-red-400 mt-2 font-bold">
                   ⚠ Please check this box to provide your consent
                 </p>
               )}

@@ -26,7 +26,7 @@ export default function FormIntelligenceSystem() {
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-green-50 dark:bg-green-900/200 rounded-sm"></div>
                   <span className="text-muted-foreground">System ID: <span className="font-bold text-foreground">UX4G-SYS-FORM-001</span></span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -41,7 +41,7 @@ export default function FormIntelligenceSystem() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 font-bold text-sm text-center">
+              <div className="px-6 py-3 bg-green-100 border-2 border-green-300 rounded text-green-800 dark:text-green-300 font-bold text-sm text-center">
                 STABLE
               </div>
               <div className="px-6 py-3 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded text-blue-700 font-bold text-xs text-center uppercase">
@@ -441,9 +441,9 @@ function ComponentsSection() {
               <input 
                 type="text" 
                 defaultValue="Priya Sharma"
-                className="w-full px-4 py-3 border-2 border-green-400 rounded bg-green-50"
+                className="w-full px-4 py-3 border-2 border-green-400 rounded bg-green-50 dark:bg-green-900/20"
               />
-              <p className="text-xs text-green-700 mt-1 flex items-center gap-1">
+              <p className="text-xs text-green-700 dark:text-green-400 mt-1 flex items-center gap-1">
                 <CheckCircle size={12} />
                 Valid name
               </p>
@@ -455,9 +455,9 @@ function ComponentsSection() {
               <input 
                 type="email" 
                 defaultValue="priya@invalid"
-                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50"
+                className="w-full px-4 py-3 border-2 border-red-400 rounded bg-red-50 dark:bg-red-900/20"
               />
-              <p className="text-xs text-red-700 mt-1 flex items-center gap-1">
+              <p className="text-xs text-red-700 dark:text-red-400 mt-1 flex items-center gap-1">
                 <AlertCircle size={12} />
                 Enter a valid email address
               </p>
@@ -580,7 +580,7 @@ function ComponentsSection() {
                 <p className="font-bold text-foreground">aadhaar_front.jpg</p>
                 <p className="text-muted-foreground">2.3 MB • Uploaded</p>
               </div>
-              <button className="text-red-600 hover:text-red-800">
+              <button className="text-red-600 hover:text-red-800 dark:text-red-300">
                 <X size={18} />
               </button>
             </div>
@@ -1576,13 +1576,13 @@ function ValidationExample() {
           placeholder="you@example.com"
         />
         {isValid === true && (
-          <p className="text-xs text-green-700 mt-1 flex items-center gap-1">
+          <p className="text-xs text-green-700 dark:text-green-400 mt-1 flex items-center gap-1">
             <CheckCircle size={12} />
             Valid email address
           </p>
         )}
         {isValid === false && (
-          <p className="text-xs text-red-700 mt-1 flex items-center gap-1">
+          <p className="text-xs text-red-700 dark:text-red-400 mt-1 flex items-center gap-1">
             <AlertCircle size={12} />
             Enter a valid email address
           </p>
@@ -1604,7 +1604,7 @@ function SaveResumeExample() {
       <div className="flex items-center justify-between mb-4">
         <h4 className="font-bold text-foreground">Application Form</h4>
         {lastSaved && (
-          <span className="text-xs text-green-700 flex items-center gap-1">
+          <span className="text-xs text-green-700 dark:text-green-400 flex items-center gap-1">
             <CheckCircle size={12} />
             Saved at {lastSaved.toLocaleTimeString()}
           </span>
@@ -1863,7 +1863,7 @@ function ImplementationStep({ number, title, description, details }: {
 
 function QuickStartLink({ step, text }: { step: string; text: string }) {
   return (
-    <a href="#implementation" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <a href="#implementation" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors">
       <div className="w-5 h-5 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
         {step}
       </div>
@@ -1874,7 +1874,7 @@ function QuickStartLink({ step, text }: { step: string; text: string }) {
 
 function PatternLink({ text }: { text: string }) {
   return (
-    <a href="#patterns" className="block p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors">
+    <a href="#patterns" className="block p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors">
       <div className="flex items-center gap-2">
         <Layers size={12} className="text-primary" />
         <span className="text-foreground">{text}</span>
@@ -1885,7 +1885,7 @@ function PatternLink({ text }: { text: string }) {
 
 function ResourceLink({ text }: { text: string }) {
   return (
-    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 hover:border-blue-300 transition-colors text-foreground">
+    <a href="#" className="flex items-center gap-2 p-2 bg-background border border-border rounded hover:bg-blue-50 dark:bg-blue-900/20 hover:border-blue-300 transition-colors text-foreground">
       <ArrowRight size={12} className="text-primary" />
       <span>{text}</span>
     </a>
