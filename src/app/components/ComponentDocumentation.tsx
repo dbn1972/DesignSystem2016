@@ -269,7 +269,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       />
       {/* Header */}
       <div className="bg-gradient-to-br from-card via-card to-[#005196]/5 border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8">
           {/* Title and badges */}
           <div className="flex items-start justify-between mb-5">
             <div>
@@ -302,7 +302,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         </div>
 
         {/* Tabs */}
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
           <div className="flex gap-1 border-b border-border overflow-x-auto scrollbar-none">
             {tabs.map((tab) => {
               const TabIcon = tab.icon;
@@ -331,7 +331,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8">
         {/* Overview Tab */}
         {activeTab === 'overview' && (
           <OverviewTab
