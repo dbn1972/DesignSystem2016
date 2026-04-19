@@ -244,8 +244,8 @@ describe('Pagination – additional coverage', () => {
   });
 
   it('applies variant class', () => {
-    const { container } = render(<Pagination totalPages={5} variant="outlined" />);
-    expect(container.querySelector('.ux4g-pagination-outlined')).toBeInTheDocument();
+    const { container } = render(<Pagination totalPages={5} variant="compact" />);
+    expect(container.querySelector('.ux4g-pagination-compact')).toBeInTheDocument();
   });
 
   it('applies custom className', () => {

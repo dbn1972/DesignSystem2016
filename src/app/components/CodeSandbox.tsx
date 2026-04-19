@@ -302,6 +302,9 @@ export function CodeSandbox({
     presets.find((preset) => preset.id === selectedPresetId) ?? presets[0];
   const presetPreview = selectedPreset ? presetPreviews?.[selectedPreset.id] : null;
 
+  // Detect site dark mode for Monaco editor theme
+  const previewDark = typeof document !== 'undefined' && document.documentElement.classList.contains('dark');
+
   useEffect(() => {
     const nextPresetId = resolvePresetId(initialPresetId);
     setSelectedPresetId(nextPresetId);

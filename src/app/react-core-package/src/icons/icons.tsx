@@ -13,7 +13,7 @@ type DefinitionRecord = Record<
   }
 >;
 
-const definitions = iconDefinitions as DefinitionRecord;
+const definitions = iconDefinitions as unknown as DefinitionRecord;
 
 export const HomeIcon = createIconComponent(definitions.home.name, definitions.home.nodes);
 export const MenuIcon = createIconComponent(definitions.menu.name, definitions.menu.nodes);

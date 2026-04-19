@@ -252,7 +252,7 @@ describe('Autocomplete – additional coverage', () => {
   });
 
   it('sets aria-invalid from prop', () => {
-    render(<Autocomplete options={options} aria-label="State" aria-invalid="true" />);
+    render(<Autocomplete options={options} aria-label="State" aria-invalid={true} />);
     expect(screen.getByRole('combobox')).toHaveAttribute('aria-invalid', 'true');
   });
 });

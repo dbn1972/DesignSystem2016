@@ -111,7 +111,7 @@ describe('Dialog', () => {
 
 describe('Dialog – additional coverage', () => {
   it('does not render when open is false', () => {
-    render(<Dialog open={false} onClose={() => {}} title="Hidden" />);
+    render(<Dialog open={false} onClose={() => {}} title="Hidden"><p>Content</p></Dialog>);
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
