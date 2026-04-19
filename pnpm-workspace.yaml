@@ -3,3 +3,7 @@ packages:
   - 'src/app/tokens-package'
   - 'src/app/styles-package'
   - 'src/app/react-core-package'
+  - 'src/app/angular-core-package'
+  - 'src/app/angular-patterns-package'
+  - 'src/app/react-patterns-package'
+  - 'src/app/web-components-package'
