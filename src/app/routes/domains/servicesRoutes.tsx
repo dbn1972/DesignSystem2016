@@ -57,6 +57,69 @@ const CertificateAppeal = lazy(() => import("../../pages/CertificateAppeal"));
 const CertificateOfficerDashboard = lazy(() => import("../../pages/CertificateOfficerDashboard"));
 const CertificateOfficerCases = lazy(() => import("../../pages/CertificateOfficerCases"));
 const CertificateOfficerReview = lazy(() => import("../../pages/CertificateOfficerReview"));
+// GST Registration Service (CBIC)
+const GSTRegService = lazy(() => import("../../pages/GSTRegService"));
+const GSTRegStart = lazy(() => import("../../pages/GSTRegStart"));
+const GSTRegEligibility = lazy(() => import("../../pages/GSTRegEligibility"));
+const GSTRegFormEntityType = lazy(() => import("../../pages/GSTRegFormEntityType"));
+const GSTRegFormDetails = lazy(() => import("../../pages/GSTRegFormDetails"));
+const GSTRegFormAddress = lazy(() => import("../../pages/GSTRegFormAddress"));
+const GSTRegFormAdditional = lazy(() => import("../../pages/GSTRegFormAdditional"));
+const GSTRegDocumentUpload = lazy(() => import("../../pages/GSTRegDocumentUpload"));
+const GSTRegReviewSummary = lazy(() => import("../../pages/GSTRegReviewSummary"));
+const GSTRegDeclaration = lazy(() => import("../../pages/GSTRegDeclaration"));
+const GSTRegPaymentSummary = lazy(() => import("../../pages/GSTRegPaymentSummary"));
+const GSTRegPaymentReceipt = lazy(() => import("../../pages/GSTRegPaymentReceipt"));
+const GSTRegSubmission = lazy(() => import("../../pages/GSTRegSubmission"));
+const GSTRegStatusTracker = lazy(() => import("../../pages/GSTRegStatusTracker"));
+const GSTRegMyApplications = lazy(() => import("../../pages/GSTRegMyApplications"));
+const GSTRegOfficerDashboard = lazy(() => import("../../pages/GSTRegOfficerDashboard"));
+const GSTRegCertificate = lazy(() => import("../../pages/GSTRegCertificate"));
+const GSTRegHelp = lazy(() => import("../../pages/GSTRegHelp"));
+const GSTRegFeedback = lazy(() => import("../../pages/GSTRegFeedback"));
+
+// Trade License Service (Municipal Corporation)
+const TradeLicenseService = lazy(() => import("../../pages/TradeLicenseService"));
+const TradeLicenseStart = lazy(() => import("../../pages/TradeLicenseStart"));
+const TradeLicenseEligibility = lazy(() => import("../../pages/TradeLicenseEligibility"));
+const TradeLicenseFormEntityType = lazy(() => import("../../pages/TradeLicenseFormEntityType"));
+const TradeLicenseFormDetails = lazy(() => import("../../pages/TradeLicenseFormDetails"));
+const TradeLicenseFormAddress = lazy(() => import("../../pages/TradeLicenseFormAddress"));
+const TradeLicenseFormAdditional = lazy(() => import("../../pages/TradeLicenseFormAdditional"));
+const TradeLicenseDocumentUpload = lazy(() => import("../../pages/TradeLicenseDocumentUpload"));
+const TradeLicenseReviewSummary = lazy(() => import("../../pages/TradeLicenseReviewSummary"));
+const TradeLicenseDeclaration = lazy(() => import("../../pages/TradeLicenseDeclaration"));
+const TradeLicensePaymentSummary = lazy(() => import("../../pages/TradeLicensePaymentSummary"));
+const TradeLicensePaymentReceipt = lazy(() => import("../../pages/TradeLicensePaymentReceipt"));
+const TradeLicenseSubmission = lazy(() => import("../../pages/TradeLicenseSubmission"));
+const TradeLicenseStatusTracker = lazy(() => import("../../pages/TradeLicenseStatusTracker"));
+const TradeLicenseMyApplications = lazy(() => import("../../pages/TradeLicenseMyApplications"));
+const TradeLicenseOfficerDashboard = lazy(() => import("../../pages/TradeLicenseOfficerDashboard"));
+const TradeLicenseCertificate = lazy(() => import("../../pages/TradeLicenseCertificate"));
+const TradeLicenseHelp = lazy(() => import("../../pages/TradeLicenseHelp"));
+const TradeLicenseFeedback = lazy(() => import("../../pages/TradeLicenseFeedback"));
+
+// MSME/Udyam Registration Service (Ministry of MSME)
+const MSMERegService = lazy(() => import("../../pages/MSMERegService"));
+const MSMERegStart = lazy(() => import("../../pages/MSMERegStart"));
+const MSMERegEligibility = lazy(() => import("../../pages/MSMERegEligibility"));
+const MSMERegFormEntityType = lazy(() => import("../../pages/MSMERegFormEntityType"));
+const MSMERegFormDetails = lazy(() => import("../../pages/MSMERegFormDetails"));
+const MSMERegFormAddress = lazy(() => import("../../pages/MSMERegFormAddress"));
+const MSMERegFormAdditional = lazy(() => import("../../pages/MSMERegFormAdditional"));
+const MSMERegDocumentUpload = lazy(() => import("../../pages/MSMERegDocumentUpload"));
+const MSMERegReviewSummary = lazy(() => import("../../pages/MSMERegReviewSummary"));
+const MSMERegDeclaration = lazy(() => import("../../pages/MSMERegDeclaration"));
+const MSMERegPaymentSummary = lazy(() => import("../../pages/MSMERegPaymentSummary"));
+const MSMERegPaymentReceipt = lazy(() => import("../../pages/MSMERegPaymentReceipt"));
+const MSMERegSubmission = lazy(() => import("../../pages/MSMERegSubmission"));
+const MSMERegStatusTracker = lazy(() => import("../../pages/MSMERegStatusTracker"));
+const MSMERegMyApplications = lazy(() => import("../../pages/MSMERegMyApplications"));
+const MSMERegOfficerDashboard = lazy(() => import("../../pages/MSMERegOfficerDashboard"));
+const MSMERegCertificate = lazy(() => import("../../pages/MSMERegCertificate"));
+const MSMERegHelp = lazy(() => import("../../pages/MSMERegHelp"));
+const MSMERegFeedback = lazy(() => import("../../pages/MSMERegFeedback"));
+
 const CompanyRegService = lazy(() => import("../../pages/CompanyRegService"));
 const CompanyRegStart = lazy(() => import("../../pages/CompanyRegStart"));
 const CompanyRegEligibility = lazy(() => import("../../pages/CompanyRegEligibility"));
@@ -164,6 +227,69 @@ export const servicesRoutes: RouteObject[] = [
   { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.CERTIFICATE), Component: CompanyRegCertificate },
   { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.HELP), Component: CompanyRegHelp },
   { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.FEEDBACK), Component: CompanyRegFeedback },
+
+  // GST Registration Service (CBIC)
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.ROOT), Component: GSTRegService },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.START), Component: GSTRegStart },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.ELIGIBILITY), Component: GSTRegEligibility },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.FORM_ENTITY_TYPE), Component: GSTRegFormEntityType },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.FORM_DETAILS), Component: GSTRegFormDetails },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.FORM_ADDRESS), Component: GSTRegFormAddress },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.FORM_ADDITIONAL), Component: GSTRegFormAdditional },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.DOCUMENT_UPLOAD), Component: GSTRegDocumentUpload },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.REVIEW_SUMMARY), Component: GSTRegReviewSummary },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.DECLARATION), Component: GSTRegDeclaration },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.PAYMENT_SUMMARY), Component: GSTRegPaymentSummary },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.PAYMENT_RECEIPT), Component: GSTRegPaymentReceipt },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.SUBMISSION_SUCCESS), Component: GSTRegSubmission },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.STATUS_TRACKER), Component: GSTRegStatusTracker },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.MY_APPLICATIONS), Component: GSTRegMyApplications },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.OFFICER_DASHBOARD), Component: GSTRegOfficerDashboard },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.CERTIFICATE), Component: GSTRegCertificate },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.HELP), Component: GSTRegHelp },
+  { path: toChildPath(ROUTE_PATHS.GST_REGISTRATION.FEEDBACK), Component: GSTRegFeedback },
+
+  // Trade License Service (Municipal Corporation)
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.ROOT), Component: TradeLicenseService },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.START), Component: TradeLicenseStart },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.ELIGIBILITY), Component: TradeLicenseEligibility },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.FORM_ENTITY_TYPE), Component: TradeLicenseFormEntityType },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.FORM_DETAILS), Component: TradeLicenseFormDetails },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.FORM_ADDRESS), Component: TradeLicenseFormAddress },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.FORM_ADDITIONAL), Component: TradeLicenseFormAdditional },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.DOCUMENT_UPLOAD), Component: TradeLicenseDocumentUpload },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.REVIEW_SUMMARY), Component: TradeLicenseReviewSummary },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.DECLARATION), Component: TradeLicenseDeclaration },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.PAYMENT_SUMMARY), Component: TradeLicensePaymentSummary },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.PAYMENT_RECEIPT), Component: TradeLicensePaymentReceipt },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.SUBMISSION_SUCCESS), Component: TradeLicenseSubmission },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.STATUS_TRACKER), Component: TradeLicenseStatusTracker },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.MY_APPLICATIONS), Component: TradeLicenseMyApplications },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.OFFICER_DASHBOARD), Component: TradeLicenseOfficerDashboard },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.CERTIFICATE), Component: TradeLicenseCertificate },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.HELP), Component: TradeLicenseHelp },
+  { path: toChildPath(ROUTE_PATHS.TRADE_LICENSE.FEEDBACK), Component: TradeLicenseFeedback },
+
+  // MSME/Udyam Registration Service (Ministry of MSME)
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.ROOT), Component: MSMERegService },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.START), Component: MSMERegStart },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.ELIGIBILITY), Component: MSMERegEligibility },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.FORM_ENTITY_TYPE), Component: MSMERegFormEntityType },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.FORM_DETAILS), Component: MSMERegFormDetails },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.FORM_ADDRESS), Component: MSMERegFormAddress },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.FORM_ADDITIONAL), Component: MSMERegFormAdditional },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.DOCUMENT_UPLOAD), Component: MSMERegDocumentUpload },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.REVIEW_SUMMARY), Component: MSMERegReviewSummary },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.DECLARATION), Component: MSMERegDeclaration },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.PAYMENT_SUMMARY), Component: MSMERegPaymentSummary },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.PAYMENT_RECEIPT), Component: MSMERegPaymentReceipt },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.SUBMISSION_SUCCESS), Component: MSMERegSubmission },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.STATUS_TRACKER), Component: MSMERegStatusTracker },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.MY_APPLICATIONS), Component: MSMERegMyApplications },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.OFFICER_DASHBOARD), Component: MSMERegOfficerDashboard },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.CERTIFICATE), Component: MSMERegCertificate },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.HELP), Component: MSMERegHelp },
+  { path: toChildPath(ROUTE_PATHS.MSME_REGISTRATION.FEEDBACK), Component: MSMERegFeedback },
 
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_IN), Component: IdentitySignIn },
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_UP), Component: IdentitySignUp },
