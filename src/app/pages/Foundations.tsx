@@ -101,21 +101,6 @@ export default function Foundations() {
         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#FF9933] via-white to-[#138808]" />
 
         <PageContainer className="py-16 sm:py-20 lg:py-28">
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center gap-2 text-sm text-muted-foreground">
-              <li>
-                <Link to="/" className="hover:text-foreground transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true" className="select-none">&gt;</li>
-              <li className="font-medium text-foreground dark:text-gray-100" aria-current="page">
-                {copy.hero.title}
-              </li>
-            </ol>
-          </nav>
-
           <div className="grid gap-12 lg:grid-cols-[1fr_minmax(340px,420px)] items-start">
             {/* Left column */}
             <div>
