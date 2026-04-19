@@ -419,32 +419,32 @@ export function CodeSandbox({
   const EditorComponent = editorComponent;
 
   return (
-    <section className="overflow-hidden rounded-[28px] border border-border bg-card shadow-sm">
-      <div className="flex items-center justify-between border-b border-border bg-muted/30 px-5 py-3 sm:px-6">
-        <div className="flex items-center gap-3">
-          <div className="inline-flex rounded-lg bg-primary/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.15em] text-primary">
+    <section className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+      {/* ── Top toolbar ── */}
+      <div className="flex items-center justify-between border-b border-border px-4 py-2.5 bg-muted/20">
+        <div className="flex items-center gap-2.5">
+          <span className="inline-flex rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-primary">
             Sandbox
-          </div>
-          <h2 className="text-sm font-semibold text-foreground">{title}</h2>
+          </span>
+          <span className="text-sm font-semibold text-foreground">{title}</span>
         </div>
 
-        <div className="flex items-center gap-3">
-          <label className="flex items-center gap-2 text-sm">
-            <span className="text-xs font-medium text-muted-foreground">Preset</span>
-            <select
-              value={selectedPresetId}
-              onChange={(event) => setSelectedPresetId(event.target.value)}
-              className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground outline-none transition focus:border-primary"
-            >
-              {presets.map((preset) => (
-                <option key={preset.id} value={preset.id}>
-                  {preset.label}
-                </option>
-              ))}
-            </select>
-          </label>
+        <div className="flex items-center gap-2.5">
+          <select
+            value={selectedPresetId}
+            onChange={(event) => setSelectedPresetId(event.target.value)}
+            className="rounded-md border border-border bg-background px-2.5 py-1.5 text-xs font-medium text-foreground outline-none transition focus:border-primary"
+          >
+            {presets.map((preset) => (
+              <option key={preset.id} value={preset.id}>
+                {preset.label}
+              </option>
+            ))}
+          </select>
 
-          <div className="flex items-center gap-0.5 rounded-lg border border-border bg-background p-0.5">
+          <div className="h-4 w-px bg-border" />
+
+          <div className="flex items-center gap-0.5 rounded-md border border-border bg-background p-0.5">
             {([
               ["desktop", Laptop],
               ["tablet", Tablet],
@@ -454,7 +454,7 @@ export function CodeSandbox({
                 key={value}
                 type="button"
                 onClick={() => setViewport(value)}
-                className={`inline-flex items-center justify-center rounded-md px-2 py-1.5 transition ${
+                className={`inline-flex items-center justify-center rounded px-1.5 py-1 transition ${
                   viewport === value
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:bg-muted"
@@ -468,31 +468,27 @@ export function CodeSandbox({
         </div>
       </div>
 
+      {/* ── Editor + Preview ── */}
       <div className="grid gap-px bg-border xl:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)]">
+        {/* Code panel */}
         <div className="bg-card">
-          <div className="flex items-center justify-between border-b border-border px-5 py-3 sm:px-6">
-            <div>
-              <p className="text-sm font-semibold text-foreground">Code</p>
-              <p className="text-xs text-muted-foreground">
-                Supported scope: {AVAILABLE_SCOPE_NAMES.join(", ")}
-              </p>
-            </div>
-
-            <div className="flex items-center gap-2">
+          <div className="flex items-center justify-between border-b border-border px-4 py-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Editor</span>
+            <div className="flex items-center gap-1.5">
               <button
                 type="button"
                 onClick={resetToPreset}
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-sm font-medium text-foreground transition hover:border-primary/30 hover:text-primary"
+                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1.5 text-xs font-medium text-foreground transition hover:border-primary/30 hover:text-primary"
               >
-                <RefreshCw className="h-4 w-4" />
+                <RefreshCw className="h-3 w-3" />
                 Reset
               </button>
               <button
                 type="button"
                 onClick={copyCode}
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-95"
+                className="inline-flex items-center gap-1.5 rounded-md bg-primary px-2.5 py-1.5 text-xs font-semibold text-primary-foreground transition hover:opacity-95"
               >
-                {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
                 {copied ? "Copied" : "Copy"}
               </button>
             </div>
@@ -534,15 +530,11 @@ export function CodeSandbox({
           )}
         </div>
 
+        {/* Preview panel */}
         <div className="bg-card">
-          <div className="flex items-center justify-between border-b border-border px-5 py-3 sm:px-6">
-            <div>
-              <p className="text-sm font-semibold text-foreground">Live preview</p>
-              <p className="text-xs text-muted-foreground">
-                {compiler ? 'Live — edits compile and render automatically' : 'Loading TypeScript compiler…'}
-              </p>
-            </div>
-            <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${
+          <div className="flex items-center justify-between border-b border-border px-4 py-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Preview</span>
+            <span className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
               previewState.status === 'ready' ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400' :
               previewState.status === 'error' ? 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400' :
               'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400'
