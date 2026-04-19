@@ -372,7 +372,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                       className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary/30 hover:text-primary"
                     >
                       <Play size={12} />
-                      Sandbox
+                      Open in Sandbox
                     </Link>
                   </div>
                   <div className="p-6 flex items-center justify-center min-h-[120px]">
