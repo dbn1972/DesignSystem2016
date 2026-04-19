@@ -40,7 +40,7 @@ const TrackerPreview = () => {
                   <Icon size={20} />
                 </div>
                 {index < statuses.length - 1 && (
-                  <div className={`w-0.5 h-12 mt-2 ${status.completed ? 'bg-green-700' : 'bg-gray-200'}`} />
+                  <div className={`w-0.5 h-12 mt-2 ${status.completed ? 'bg-green-700' : 'bg-muted'}`} />
                 )}
               </div>
               
@@ -193,7 +193,7 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
                     \${isCompleted ? 'bg-green-700 text-white' : ''}
                     \${isActive ? 'bg-[#005196] text-white' : ''}
                     \${isRejected ? 'bg-red-600 text-white' : ''}
-                    \${!isCompleted && !isActive && !isRejected ? 'bg-gray-200 text-muted-foreground' : ''}
+                    \${!isCompleted && !isActive && !isRejected ? 'bg-muted text-muted-foreground' : ''}
                   \`}
                 >
                   <Icon size={20} />
@@ -202,7 +202,7 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
                 {index < stages.length - 1 && (
                   <div
                     className={\`w-0.5 h-12 mt-2 transition-colors \${
-                      isCompleted ? 'bg-green-700' : 'bg-gray-200'
+                      isCompleted ? 'bg-green-700' : 'bg-muted'
                     }\`}
                   />
                 )}

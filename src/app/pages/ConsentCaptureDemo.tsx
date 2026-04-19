@@ -311,7 +311,7 @@ function ConsentRequestScreen({
         <div className="border-2 border-border rounded-lg overflow-hidden">
           <button
             onClick={onExpandDetails}
-            className="w-full px-6 py-4 bg-muted hover:bg-gray-200 transition-colors flex items-center justify-between text-left"
+            className="w-full px-6 py-4 bg-muted hover:bg-muted transition-colors flex items-center justify-between text-left"
           >
             <span className="font-bold text-foreground">View Detailed Privacy Policy</span>
             {showDetails ? (

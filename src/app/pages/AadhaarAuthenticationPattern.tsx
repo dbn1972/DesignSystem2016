@@ -472,7 +472,7 @@ function ExampleScreens() {
                 </div>
               </label>
             </div>
-            <button className="w-full px-4 py-3 bg-gray-300 text-muted-foreground font-bold rounded cursor-not-allowed">
+            <button className="w-full px-4 py-3 bg-muted text-muted-foreground font-bold rounded cursor-not-allowed">
               Continue (consent required)
             </button>
           </div>

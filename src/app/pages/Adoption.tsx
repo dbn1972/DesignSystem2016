@@ -1050,7 +1050,7 @@ function ConformanceExpectationsSection() {
 function ConformanceLevel({ level, percentage, requirements, badge }: any) {
   const badgeColors = {
     bronze: 'bg-orange-100 text-orange-700 border-orange-300',
-    silver: 'bg-gray-200 text-muted-foreground border-gray-400',
+    silver: 'bg-muted text-muted-foreground border-gray-400',
     gold: 'bg-yellow-100 text-yellow-700 border-yellow-400'
   };
 

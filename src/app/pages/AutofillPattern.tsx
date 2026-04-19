@@ -183,7 +183,7 @@ export default function AutofillPattern() {
                     <button
                       onClick={() => setOtpSent(true)}
                       disabled={aadhaarNumber.length !== 12}
-                      className="w-full px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                      className="w-full px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed"
                     >
                       Send OTP
                     </button>
@@ -212,7 +212,7 @@ export default function AutofillPattern() {
                       <button
                         onClick={handleAadhaarVerify}
                         disabled={otp.length !== 6}
-                        className="w-full px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                        className="w-full px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed"
                       >
                         Verify & Auto-fill
                       </button>

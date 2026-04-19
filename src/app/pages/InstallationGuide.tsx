@@ -1635,7 +1635,7 @@ function CodeBlock({ language, code }: any) {
           <Terminal size={16} />
           <span className="text-xs font-mono">{language}</span>
         </div>
-        <button className="text-xs text-slate-400 hover:text-white flex items-center gap-1">
+        <button className="text-xs text-muted-foreground hover:text-white flex items-center gap-1">
           <Copy size={12} />
           Copy
         </button>

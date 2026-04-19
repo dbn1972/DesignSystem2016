@@ -312,7 +312,7 @@ function Example() {
                       placeholder="Type or speak your message..."
                       className="flex-1 px-4 py-2 border border-border rounded-lg"
                     />
-                    <button className="w-10 h-10 bg-muted text-muted-foreground rounded-lg hover:bg-gray-200 flex items-center justify-center">
+                    <button className="w-10 h-10 bg-muted text-muted-foreground rounded-lg hover:bg-muted flex items-center justify-center">
                       <Mic size={18} />
                     </button>
                     <button className="w-10 h-10 bg-[#005196] text-white rounded-lg hover:bg-[#004178] flex items-center justify-center">
@@ -381,7 +381,7 @@ function Example() {
                 </div>
                 <div className="p-4 border-t border-border">
                   <div className="flex gap-2">
-                    <button className="w-10 h-10 bg-muted text-muted-foreground rounded-lg hover:bg-gray-200 flex items-center justify-center">
+                    <button className="w-10 h-10 bg-muted text-muted-foreground rounded-lg hover:bg-muted flex items-center justify-center">
                       <Paperclip size={18} />
                     </button>
                     <input
@@ -497,8 +497,8 @@ function Example() {
             <div className="relative h-[600px] bg-muted rounded-lg overflow-hidden">
               <div className="absolute top-4 right-4 flex gap-2">
                 <button className="px-3 py-1 text-sm bg-card rounded shadow">EN</button>
-                <button className="px-3 py-1 text-sm bg-gray-200 rounded">ES</button>
-                <button className="px-3 py-1 text-sm bg-gray-200 rounded">FR</button>
+                <button className="px-3 py-1 text-sm bg-muted rounded">ES</button>
+                <button className="px-3 py-1 text-sm bg-muted rounded">FR</button>
               </div>
               <ChatbotPreview
                 position="bottom-right"

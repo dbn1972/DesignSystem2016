@@ -84,6 +84,7 @@ const ComponentAspectRatioPage = lazy(() => import("../../pages/ComponentAspectR
 const ComponentShowHidePage = lazy(() => import("../../pages/ComponentShowHidePage"));
 const ComponentSectionPage = lazy(() => import("../../pages/ComponentSectionPage"));
 const ComponentIconPage = lazy(() => import("../../pages/ComponentIconPage"));
+const ComponentSandboxPage = lazy(() => import("../../pages/ComponentSandboxPage"));
 
 export const componentsRoutes: RouteObject[] = [
   { path: toChildPath(ROUTE_PATHS.COMPONENTS.ROOT), Component: Components },
@@ -167,4 +168,5 @@ export const componentsRoutes: RouteObject[] = [
   { path: "components/show-hide", Component: ComponentShowHidePage },
   { path: "components/section", Component: ComponentSectionPage },
   { path: "components/icons", Component: ComponentIconPage },
+  { path: "components/sandbox", Component: ComponentSandboxPage },
 ];

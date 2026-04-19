@@ -57,11 +57,11 @@ export default function IdentityAadhaar() {
               <div className="bg-muted border-b-2 border-border px-4 sm:px-8 lg:px-12 py-4">
                 <div className="flex items-center justify-between max-w-2xl mx-auto">
                   <ProgressStep number={1} label="Consent" active={step === "consent"} completed={step !== "consent"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step !== "consent" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step !== "consent" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-muted'}`}></div>
                   <ProgressStep number={2} label="Enter Aadhaar" active={step === "enter"} completed={step === "otp" || step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "otp" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "otp" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-muted'}`}></div>
                   <ProgressStep number={3} label="Verify OTP" active={step === "otp"} completed={step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-muted'}`}></div>
                   <ProgressStep number={4} label="Complete" active={step === "success"} completed={false} />
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function IdentityAadhaar() {
                       <button
                         onClick={() => setStep("enter")}
                         disabled={!consentGiven}
-                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed transition-colors"
                       >
                         Proceed to Authentication
                       </button>
@@ -172,7 +172,7 @@ export default function IdentityAadhaar() {
                       <button
                         onClick={() => setStep("otp")}
                         disabled={aadhaarNumber.length !== 12}
-                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed transition-colors"
                       >
                         Send OTP
                       </button>
@@ -214,7 +214,7 @@ export default function IdentityAadhaar() {
                       <button
                         onClick={() => setStep("success")}
                         disabled={otp.length !== 6}
-                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed transition-colors"
                       >
                         Verify and Authenticate
                       </button>

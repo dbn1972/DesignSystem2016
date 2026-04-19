@@ -812,7 +812,7 @@ function PageDesigns() {
                 <button className="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors">
                   Start Eligibility Check
                 </button>
-                <button className="px-8 py-4 bg-muted text-foreground font-bold rounded-lg hover:bg-gray-200 transition-colors">
+                <button className="px-8 py-4 bg-muted text-foreground font-bold rounded-lg hover:bg-muted transition-colors">
                   Skip and Apply Directly
                 </button>
               </div>
@@ -1939,7 +1939,7 @@ function LogicRule({ condition, operator, value, required }: any) {
       {required ? (
         <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded flex-shrink-0">REQUIRED</span>
       ) : (
-        <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded flex-shrink-0">OPTIONAL</span>
+        <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-bold rounded flex-shrink-0">OPTIONAL</span>
       )}
     </div>
   );
@@ -2031,7 +2031,7 @@ function ProgressBar({ steps, current }: any) {
       {Array.from({ length: steps }).map((_, idx) => (
         <div
           key={idx}
-          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-gray-300'}`}
+          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-muted'}`}
         ></div>
       ))}
     </div>

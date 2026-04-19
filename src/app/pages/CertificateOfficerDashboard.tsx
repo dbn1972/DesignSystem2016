@@ -376,7 +376,7 @@ function GoalItem({ label, current, target }: any) {
         <span className="text-muted-foreground">{label}</span>
         <span className="font-bold text-foreground">{current}/{target}</span>
       </div>
-      <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+      <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
         <div
           className="h-full bg-primary transition-all duration-300"
           style={{ width: `${percentage}%` }}

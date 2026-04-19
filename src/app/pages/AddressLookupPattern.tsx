@@ -111,7 +111,7 @@ export default function AddressLookupPattern() {
                     <button
                       onClick={handlePincodeLookup}
                       disabled={loading || pincode.length !== 6}
-                      className="px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center gap-2"
+                      className="px-6 py-3 bg-primary text-white rounded font-bold hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed flex items-center gap-2"
                     >
                       {loading ? (
                         <>

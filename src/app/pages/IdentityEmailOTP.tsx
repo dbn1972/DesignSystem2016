@@ -178,7 +178,7 @@ export default function IdentityEmailOTP() {
                   <button
                     onClick={handleVerify}
                     disabled={!isComplete || isVerifying}
-                    className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors mb-6"
+                    className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed transition-colors mb-6"
                   >
                     {isVerifying ? "Verifying..." : "Verify Email"}
                   </button>

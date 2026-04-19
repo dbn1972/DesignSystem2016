@@ -211,7 +211,7 @@ export default function TimelineViewPattern() {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-[30px] top-0 bottom-0 w-0.5 bg-gray-300"></div>
+          <div className="absolute left-[30px] top-0 bottom-0 w-0.5 bg-muted"></div>
 
           {/* Events */}
           <div className="space-y-6">

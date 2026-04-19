@@ -238,7 +238,7 @@ function Example() {
             <nav className="flex items-center justify-between p-4 bg-background border border-border rounded">
               <span className="font-semibold text-foreground">Logo</span>
               <ShowHidePreview below="lg">
-                <button className="p-2 hover:bg-gray-200 rounded" aria-label="Open menu">
+                <button className="p-2 hover:bg-muted rounded" aria-label="Open menu">
                   <Menu size={24} />
                 </button>
               </ShowHidePreview>
@@ -322,7 +322,7 @@ function Example() {
           preview: (
             <div className="space-y-4">
               <ShowHidePreview className="print:hidden">
-                <button className="flex items-center gap-2 px-4 py-2 bg-muted border border-border rounded hover:bg-gray-200">
+                <button className="flex items-center gap-2 px-4 py-2 bg-muted border border-border rounded hover:bg-muted">
                   <Printer size={16} />
                   <span>Print Document</span>
                 </button>

@@ -1583,7 +1583,7 @@ function PageSequenceRow({ number, title, description, required }: any) {
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
+            <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
         </div>
         <div className="text-xs text-muted-foreground">{description}</div>

@@ -204,14 +204,14 @@ export default function SearchResultsPattern() {
                 <div className="flex border-2 border-border rounded">
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-2 ${viewMode === 'list' ? 'bg-gray-200' : 'bg-card'}`}
+                    className={`p-2 ${viewMode === 'list' ? 'bg-muted' : 'bg-card'}`}
                     aria-label="List view"
                   >
                     <ListIcon size={20} />
                   </button>
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-2 border-l-2 border-border ${viewMode === 'grid' ? 'bg-gray-200' : 'bg-card'}`}
+                    className={`p-2 border-l-2 border-border ${viewMode === 'grid' ? 'bg-muted' : 'bg-card'}`}
                     aria-label="Grid view"
                   >
                     <Grid size={20} />

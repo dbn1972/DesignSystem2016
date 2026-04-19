@@ -11,7 +11,7 @@ const DividerPreview = ({ orientation = 'horizontal', variant = 'solid' }: any) 
     return (
       <div className="flex items-center h-24">
         <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Left</div>
-        <div className={`mx-4 h-full w-px ${variant === 'dashed' ? 'border-l border-dashed border-border' : 'bg-gray-300'}`} />
+        <div className={`mx-4 h-full w-px ${variant === 'dashed' ? 'border-l border-dashed border-border' : 'bg-muted'}`} />
         <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Right</div>
       </div>
     );
@@ -20,7 +20,7 @@ const DividerPreview = ({ orientation = 'horizontal', variant = 'solid' }: any) 
   return (
     <div className="space-y-4">
       <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Content Above</div>
-      <div className={`h-px ${variant === 'dashed' ? 'border-t border-dashed border-border' : 'bg-gray-300'}`} />
+      <div className={`h-px ${variant === 'dashed' ? 'border-t border-dashed border-border' : 'bg-muted'}`} />
       <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Content Below</div>
     </div>
   );
@@ -144,9 +144,9 @@ function Example() {
             <div className="space-y-4">
               <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Section 1</div>
               <div className="flex items-center gap-4">
-                <div className="flex-1 h-px bg-gray-300" />
+                <div className="flex-1 h-px bg-muted" />
                 <span className="text-sm font-semibold text-muted-foreground">OR</span>
-                <div className="flex-1 h-px bg-gray-300" />
+                <div className="flex-1 h-px bg-muted" />
               </div>
               <div className="bg-purple-100 border-2 border-purple-300 rounded-lg p-4">Section 2</div>
             </div>

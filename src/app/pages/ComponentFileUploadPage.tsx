@@ -68,7 +68,7 @@ const FileUploadPreview = () => {
               <Check size={20} className="text-[#138808]" />
               <button
                 onClick={() => setFiles(files.filter((_, i) => i !== idx))}
-                className="p-1 hover:bg-gray-200 rounded transition-colors"
+                className="p-1 hover:bg-muted rounded transition-colors"
               >
                 <X size={16} className="text-muted-foreground" />
               </button>
@@ -597,7 +597,7 @@ interface UploadedFile {
             <p class="text-sm font-semibold">{{ file.name }}</p>
             <p class="text-xs text-muted-foreground">{{ formatFileSize(file.size) }}</p>
           </div>
-          <button (click)="removeFile(i)" class="p-1 hover:bg-gray-200 rounded">×</button>
+          <button (click)="removeFile(i)" class="p-1 hover:bg-muted rounded">×</button>
         </div>
       </div>
     </div>

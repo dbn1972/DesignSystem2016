@@ -226,7 +226,7 @@ function Example() {
                 <FormFieldPreview label="Last Name" type="text" required />
                 <FormFieldPreview label="Date of Birth" type="date" required />
                 <div className="flex justify-between pt-4">
-                  <button className="bg-gray-200 text-muted-foreground px-6 py-2 rounded hover:bg-gray-300 min-h-[44px]" disabled>
+                  <button className="bg-muted text-muted-foreground px-6 py-2 rounded hover:bg-muted min-h-[44px]" disabled>
                     Previous
                   </button>
                   <button className="bg-[#005196] text-white px-6 py-2 rounded hover:bg-[#004178] min-h-[44px]">
@@ -495,7 +495,7 @@ function Example() {
                   </label>
                 </div>
                 <div className="flex gap-3 pt-4">
-                  <button className="bg-gray-200 text-muted-foreground px-6 py-2 rounded hover:bg-gray-300 min-h-[44px] flex items-center gap-2">
+                  <button className="bg-muted text-muted-foreground px-6 py-2 rounded hover:bg-muted min-h-[44px] flex items-center gap-2">
                     <Eye size={16} />
                     Preview
                   </button>
@@ -932,7 +932,7 @@ interface FieldDefinition {
           *ngIf="multiStep && currentStep > 0"
           type="button"
           (click)="previousStep()"
-          class="px-6 py-2 bg-gray-200 text-muted-foreground rounded hover:bg-gray-300 min-h-[44px]"
+          class="px-6 py-2 bg-muted text-muted-foreground rounded hover:bg-muted min-h-[44px]"
         >
           Previous
         </button>

@@ -402,7 +402,7 @@ function PageDesigns() {
                 <button className="px-8 py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-colors">
                   Start New Application
                 </button>
-                <button className="px-8 py-4 bg-muted text-foreground font-bold rounded-lg hover:bg-gray-200 transition-colors">
+                <button className="px-8 py-4 bg-muted text-foreground font-bold rounded-lg hover:bg-muted transition-colors">
                   Resume Saved Application
                 </button>
               </div>
@@ -445,7 +445,7 @@ function PageDesigns() {
                   Save & Continue Later
                 </button>
                 <div className="flex items-center gap-3">
-                  <button className="px-6 py-3 bg-muted text-muted-foreground font-medium rounded-lg hover:bg-gray-200">
+                  <button className="px-6 py-3 bg-muted text-muted-foreground font-medium rounded-lg hover:bg-muted">
                     Previous
                   </button>
                   <button className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:opacity-90">
@@ -691,7 +691,7 @@ function PageDesigns() {
               <div className="bg-background border-2 border-border rounded-lg p-4">
                 <div className="text-sm text-muted-foreground">Enter the characters shown below</div>
                 <div className="flex items-center gap-4 mt-3">
-                  <div className="bg-gray-200 px-6 py-3 rounded font-mono text-xl font-bold text-foreground">
+                  <div className="bg-muted px-6 py-3 rounded font-mono text-xl font-bold text-foreground">
                     A3K9P
                   </div>
                   <input aria-label="Enter CAPTCHA" type="text"
@@ -1855,7 +1855,7 @@ function PageSequenceRow({ number, title, description, required }: any) {
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
+            <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
         </div>
         <div className="text-xs text-muted-foreground">{description}</div>
@@ -1882,7 +1882,7 @@ function ProgressBar({ steps, current }: any) {
       {Array.from({ length: steps }).map((_, idx) => (
         <div
           key={idx}
-          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-gray-300'}`}
+          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-muted'}`}
         ></div>
       ))}
     </div>
@@ -2159,7 +2159,7 @@ function KeyboardAction({ action, behavior }: any) {
   return (
     <div className="flex items-start gap-4">
       <div className="w-32 flex-shrink-0">
-        <kbd className="px-3 py-1 bg-gray-200 border border-gray-400 rounded text-xs font-bold text-foreground shadow-sm">
+        <kbd className="px-3 py-1 bg-muted border border-gray-400 rounded text-xs font-bold text-foreground shadow-sm">
           {action}
         </kbd>
       </div>

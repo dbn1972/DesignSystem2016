@@ -9,7 +9,7 @@ import { ComponentPlayground, PlaygroundControl } from '../components/ComponentP
 
 // Import the actual Skeleton component for live preview
 const SkeletonPreview = ({ variant, width, height, count, animated, className, ...props }: any) => {
-  const baseClasses = 'bg-gray-200';
+  const baseClasses = 'bg-muted';
 
   const animationClasses = animated
     ? animated === 'pulse'

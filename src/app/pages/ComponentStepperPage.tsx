@@ -200,7 +200,7 @@ export const Stepper: React.FC<StepperProps> = ({
                   w-10 h-10 rounded-full flex items-center justify-center font-semibold
                   \${step.id < currentStep ? 'bg-green-700 text-white' : ''}
                   \${step.id === currentStep ? 'bg-[#005196] text-white' : ''}
-                  \${step.id > currentStep ? 'bg-gray-200 text-muted-foreground' : ''}
+                  \${step.id > currentStep ? 'bg-muted text-muted-foreground' : ''}
                   \${clickable && step.id < currentStep ? 'cursor-pointer' : ''}
                 \`}
                 onClick={() => handleStepClick(step.id)}
@@ -233,7 +233,7 @@ export const Stepper: React.FC<StepperProps> = ({
                 w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-colors
                 \${step.id < currentStep ? 'bg-green-700 text-white' : ''}
                 \${step.id === currentStep ? 'bg-[#005196] text-white' : ''}
-                \${step.id > currentStep ? 'bg-gray-200 text-muted-foreground' : ''}
+                \${step.id > currentStep ? 'bg-muted text-muted-foreground' : ''}
                 \${clickable && step.id < currentStep ? 'cursor-pointer hover:opacity-80' : ''}
               \`}
               onClick={() => handleStepClick(step.id)}
@@ -253,7 +253,7 @@ export const Stepper: React.FC<StepperProps> = ({
           {index < steps.length - 1 && (
             <div
               className={\`flex-1 h-1 mx-4 transition-colors \${
-                step.id < currentStep ? 'bg-green-700' : 'bg-gray-200'
+                step.id < currentStep ? 'bg-green-700' : 'bg-muted'
               }\`}
             />
           )}

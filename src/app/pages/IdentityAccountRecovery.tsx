@@ -56,11 +56,11 @@ export default function IdentityAccountRecovery() {
               <div className="bg-muted border-b-2 border-border px-4 sm:px-8 lg:px-12 py-4">
                 <div className="flex items-center justify-between max-w-3xl mx-auto">
                   <RecoveryStep number={1} label="Account Status" active={step === "locked"} completed={step !== "locked"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step !== "locked" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step !== "locked" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-muted'}`}></div>
                   <RecoveryStep number={2} label="Verify Identity" active={step === "identity" || step === "verify"} completed={step === "documents" || step === "review" || step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "documents" || step === "review" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "documents" || step === "review" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-muted'}`}></div>
                   <RecoveryStep number={3} label="Submit Proof" active={step === "documents"} completed={step === "review" || step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "review" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "review" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-muted'}`}></div>
                   <RecoveryStep number={4} label="Review" active={step === "review"} completed={step === "success"} />
                 </div>
               </div>
@@ -285,7 +285,7 @@ export default function IdentityAccountRecovery() {
                       <button
                         onClick={() => setStep("review")}
                         disabled={!recoveryData.documentType || !recoveryData.documentNumber}
-                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed transition-colors"
                       >
                         Submit for Review
                       </button>
@@ -546,7 +546,7 @@ function SecurityItem({ text }: { text: string }) {
 function TimelineItem({ step, label, time }: { step: string; label: string; time: string }) {
   return (
     <div className="flex items-start gap-3">
-      <div className="w-6 h-6 rounded-full bg-gray-200 text-muted-foreground flex items-center justify-center flex-shrink-0 font-bold text-xs">
+      <div className="w-6 h-6 rounded-full bg-muted text-muted-foreground flex items-center justify-center flex-shrink-0 font-bold text-xs">
         {step}
       </div>
       <div className="flex-1">

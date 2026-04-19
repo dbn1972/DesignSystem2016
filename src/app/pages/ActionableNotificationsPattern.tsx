@@ -577,7 +577,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
         ) : (
           <div className="p-6 bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
             <div className="text-sm font-bold text-foreground mb-2">Uploading...</div>
-            <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+            <div className="w-full h-3 bg-muted rounded-full overflow-hidden">
               <div
                 className="h-full bg-green-700 transition-all"
                 style={{ width: `${uploadProgress}%` }}

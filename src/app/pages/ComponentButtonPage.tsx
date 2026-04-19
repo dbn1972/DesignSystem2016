@@ -6,8 +6,8 @@
 import React from 'react';
 import { ComponentDocumentation } from '../components/ComponentDocumentation';
 import { ComponentPlayground, PlaygroundControl } from '../components/ComponentPlayground';
-import { Save, Send, Trash2 } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowRight, Code2, Save, Send, Trash2 } from 'lucide-react';
+import { Link } from 'react-router';
 
 // Import the actual Button component for live preview
 const ButtonPreview = ({ variant, size, children, ...props }: any) => (
@@ -609,6 +609,39 @@ export type ButtonType = 'button' | 'submit' | 'reset';`,
 
       additionalContent={
         <>
+          <section className="bg-[linear-gradient(135deg,rgba(0,81,150,0.08),rgba(255,153,51,0.08))] rounded-lg border border-border p-6 mb-8">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                  <Code2 size={14} />
+                  Sandbox ready
+                </div>
+                <h2 className="mt-4 text-2xl font-bold text-foreground">Open Button in Sandbox</h2>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Start from the primary action preset, tweak variants and labels, and
+                  validate how Button behaves across viewport sizes before you move back
+                  into implementation.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  to="/components/sandbox?preset=button-actions&source=button"
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-95"
+                >
+                  Open in Sandbox
+                  <ArrowRight size={16} />
+                </Link>
+                <Link
+                  to="/components/sandbox?preset=button-actions&source=button"
+                  className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition hover:border-primary/30 hover:text-primary"
+                >
+                  Edit primary actions
+                </Link>
+              </div>
+            </div>
+          </section>
+
           {/* ── When to use / When not to use ── */}
           <section className="bg-card rounded-lg border border-border p-6 mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-6">When to use this component</h2>

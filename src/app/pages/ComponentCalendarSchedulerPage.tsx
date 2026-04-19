@@ -31,7 +31,7 @@ const CalendarSchedulerPreview = ({ view = 'month', events = [], minTime = '08:0
       </div>
 
       {view === 'month' && (
-        <div className="grid grid-cols-7 gap-px bg-gray-200">
+        <div className="grid grid-cols-7 gap-px bg-muted">
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
             <div key={day} className="bg-background p-2 text-center text-xs font-semibold text-muted-foreground">
               {day}

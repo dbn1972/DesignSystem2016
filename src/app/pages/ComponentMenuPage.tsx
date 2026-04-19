@@ -34,7 +34,7 @@ const MenuPreview = ({ variant, items, trigger, placement, offset, ...props }: a
             {items.map((item: any, index: number) => (
               <React.Fragment key={index}>
                 {item.divider ? (
-                  <div className="h-px bg-gray-200 my-1" />
+                  <div className="h-px bg-muted my-1" />
                 ) : (
                   <button
                     className={`w-full flex items-center gap-2 px-4 py-2 text-left text-sm hover:bg-muted transition-colors ${
@@ -609,7 +609,7 @@ type MenuPlacement = 'bottom-start' | 'bottom-end' | 'top-start' | 'top-end' | '
         <ng-container *ngFor="let item of items; let i = index">
           <div
             *ngIf="item.divider"
-            class="h-px bg-gray-200 my-1"
+            class="h-px bg-muted my-1"
             role="separator"
           ></div>
 

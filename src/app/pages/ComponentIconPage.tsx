@@ -147,7 +147,7 @@ function IconTile({
     previewTheme === "dark"
       ? "border-slate-700 bg-slate-950 text-slate-100"
       : previewTheme === "high-contrast"
-        ? "border-black bg-white text-black"
+        ? "border-black bg-card text-black"
         : "border-border bg-muted text-foreground";
 
   const copyValue = async (value: string, kind: "import" | "named" | "dynamic" | "name" | "svg") => {
@@ -713,15 +713,15 @@ export default function ComponentIconPage() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-2.5 text-sm">
                   <span className="flex items-center gap-2 text-foreground"><ContrastIcon size="md" decorative /> High contrast</span>
-                  <div className="w-9 h-5 rounded-full bg-primary relative"><div className="absolute right-0.5 top-0.5 w-4 h-4 rounded-full bg-white shadow-sm" /></div>
+                  <div className="w-9 h-5 rounded-full bg-primary relative"><div className="absolute right-0.5 top-0.5 w-4 h-4 rounded-full bg-card shadow-sm" /></div>
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-2.5 text-sm">
                   <span className="flex items-center gap-2 text-foreground"><KeyboardIcon size="md" decorative /> Keyboard navigation</span>
-                  <div className="w-9 h-5 rounded-full bg-muted relative"><div className="absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-white shadow-sm" /></div>
+                  <div className="w-9 h-5 rounded-full bg-muted relative"><div className="absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-card shadow-sm" /></div>
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-2.5 text-sm">
                   <span className="flex items-center gap-2 text-foreground"><VisibilityIcon size="md" decorative /> Reading guide</span>
-                  <div className="w-9 h-5 rounded-full bg-muted relative"><div className="absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-white shadow-sm" /></div>
+                  <div className="w-9 h-5 rounded-full bg-muted relative"><div className="absolute left-0.5 top-0.5 w-4 h-4 rounded-full bg-card shadow-sm" /></div>
                 </div>
               </div>
             </div>

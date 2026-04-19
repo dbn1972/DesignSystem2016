@@ -41,7 +41,7 @@ const TimelinePreview = ({ items, variant = 'default', ...props }: any) => (
             )}
           </div>
           {index < items.length - 1 && (
-            <div className="w-0.5 h-full min-h-[60px] bg-gray-300 mt-2" />
+            <div className="w-0.5 h-full min-h-[60px] bg-muted mt-2" />
           )}
         </div>
         <div className="flex-1 pb-8">

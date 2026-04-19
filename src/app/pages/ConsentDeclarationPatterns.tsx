@@ -351,7 +351,7 @@ export default function ConsentDeclarationPatterns() {
           {/* Placeholder for future pattern */}
           <div className="bg-muted border-2 border-dashed border-border rounded-lg p-8 flex items-center justify-center">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <div className="w-16 h-16 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center">
                 <HelpCircle
                   size={32}
                   className="text-muted-foreground"

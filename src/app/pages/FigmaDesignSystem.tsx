@@ -601,7 +601,7 @@ function CoreComponentsPage() {
                 <button className="px-6 py-3 bg-green-700 text-white rounded-lg font-semibold">
                   Success Button
                 </button>
-                <button className="px-6 py-3 bg-gray-200 text-muted-foreground rounded-lg font-semibold">
+                <button className="px-6 py-3 bg-muted text-muted-foreground rounded-lg font-semibold">
                   Disabled Button
                 </button>
               </div>
@@ -741,7 +741,7 @@ function ComponentVariantsPage() {
                     <button className="px-4 py-2 bg-[#000040] text-white rounded-lg text-sm">Button</button>
                   </td>
                   <td className="p-4">
-                    <button className="px-4 py-2 bg-gray-200 text-muted-foreground rounded-lg text-sm">Button</button>
+                    <button className="px-4 py-2 bg-muted text-muted-foreground rounded-lg text-sm">Button</button>
                   </td>
                 </tr>
                 <tr className="border-b border-border">
@@ -1190,7 +1190,7 @@ function GovernancePage() {
                     <div className="text-xs text-muted-foreground">{phase.desc}</div>
                   </div>
                   {index < 4 && (
-                    <div className="w-16 h-0.5 bg-gray-300 mx-4"></div>
+                    <div className="w-16 h-0.5 bg-muted mx-4"></div>
                   )}
                 </div>
               ))}
@@ -1366,7 +1366,7 @@ function ServiceBlueprintsPage() {
                       <div className="text-xs text-muted-foreground">{item.screen}</div>
                     </div>
                     {index < 5 && (
-                      <div className="w-8 h-0.5 bg-gray-300 mx-2 flex-shrink-0"></div>
+                      <div className="w-8 h-0.5 bg-muted mx-2 flex-shrink-0"></div>
                     )}
                   </div>
                 ))}
@@ -1410,7 +1410,7 @@ function ServiceBlueprintsPage() {
                       <div className="text-xs text-muted-foreground">{item.screen}</div>
                     </div>
                     {index < 4 && (
-                      <div className="w-8 h-0.5 bg-gray-300 mx-2 flex-shrink-0"></div>
+                      <div className="w-8 h-0.5 bg-muted mx-2 flex-shrink-0"></div>
                     )}
                   </div>
                 ))}
@@ -1453,7 +1453,7 @@ function ServiceBlueprintsPage() {
                       <div className="text-xs text-muted-foreground">{item.screen}</div>
                     </div>
                     {index < 3 && (
-                      <div className="w-8 h-0.5 bg-gray-300 mx-2 flex-shrink-0"></div>
+                      <div className="w-8 h-0.5 bg-muted mx-2 flex-shrink-0"></div>
                     )}
                   </div>
                 ))}

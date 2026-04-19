@@ -73,7 +73,7 @@ const DropdownPreview = ({
           <div className={'py-1 ' + sizeClasses}>
             {items.map((item: any, index: number) => {
               if (item.type === 'divider') {
-                return <div key={index} className="my-1 h-px bg-gray-200" role="separator" />;
+                return <div key={index} className="my-1 h-px bg-muted" role="separator" />;
               }
 
               if (item.type === 'header') {

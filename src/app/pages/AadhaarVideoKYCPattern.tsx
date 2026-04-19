@@ -365,7 +365,7 @@ export default function AadhaarVideoKYCPattern() {
               <div className="bg-card border-2 border-border rounded-lg overflow-hidden">
                 <div className="bg-muted border-b-2 border-border px-6 py-4 flex items-center justify-between">
                   <h3 className="font-bold text-foreground">Aadhaar Authentication Flow</h3>
-                  <span className="text-xs text-muted-foreground bg-gray-200 px-3 py-1 rounded">TypeScript</span>
+                  <span className="text-xs text-muted-foreground bg-muted px-3 py-1 rounded">TypeScript</span>
                 </div>
                 <div className="p-6">
                   <pre className="bg-gray-900 text-green-400 p-6 rounded text-sm overflow-x-auto">

@@ -726,9 +726,9 @@ function SignUpFormExample({ state }: { state: string }) {
                 </div>
                 <div className="mt-2 flex items-center gap-1">
                   <div className="h-1 flex-1 bg-orange-300 rounded"></div>
-                  <div className="h-1 flex-1 bg-gray-200 rounded"></div>
-                  <div className="h-1 flex-1 bg-gray-200 rounded"></div>
-                  <div className="h-1 flex-1 bg-gray-200 rounded"></div>
+                  <div className="h-1 flex-1 bg-muted rounded"></div>
+                  <div className="h-1 flex-1 bg-muted rounded"></div>
+                  <div className="h-1 flex-1 bg-muted rounded"></div>
                 </div>
               </>
             )}
@@ -1080,7 +1080,7 @@ function StrengthLevel({ level, color, bars, description }: {
           {[1, 2, 3, 4].map(i => (
             <div 
               key={i}
-              className={`w-8 h-1 rounded ${i <= bars ? colorMap[color].bg : 'bg-gray-200'}`}
+              className={`w-8 h-1 rounded ${i <= bars ? colorMap[color].bg : 'bg-muted'}`}
             ></div>
           ))}
         </div>

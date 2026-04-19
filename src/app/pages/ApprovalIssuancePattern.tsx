@@ -801,7 +801,7 @@ function PageDesigns() {
                         </div>
                       </div>
                       <div className="flex flex-col items-center justify-between">
-                        <div className="w-32 h-40 bg-gray-200 border-2 border-border rounded flex items-center justify-center mb-4">
+                        <div className="w-32 h-40 bg-muted border-2 border-border rounded flex items-center justify-center mb-4">
                           <div className="text-xs text-muted-foreground text-center">Photo</div>
                         </div>
                         <div className="w-32 h-32 bg-card border-2 border-border rounded flex items-center justify-center">
@@ -1965,7 +1965,7 @@ function PageSequenceRow({ number, title, description, required }: any) {
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
+            <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
         </div>
         <div className="text-xs text-muted-foreground">{description}</div>
@@ -1996,7 +1996,7 @@ function TimelineItem({ date, status, description, active, icon }: any) {
         <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${active ? 'bg-blue-600 border-blue-600' : 'bg-card border-border'}`}>
           {active ? <div className="text-white">{icon}</div> : icon}
         </div>
-        {!active && <div className="w-0.5 h-12 bg-gray-300"></div>}
+        {!active && <div className="w-0.5 h-12 bg-muted"></div>}
       </div>
       <div className="flex-1">
         <div className="text-xs text-muted-foreground">{date}</div>

@@ -71,7 +71,7 @@ export default function MapInputPattern() {
                 <button
                   onClick={handleUseCurrentLocation}
                   disabled={useCurrentLocation}
-                  className="px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90 disabled:bg-gray-300 flex items-center gap-2 text-sm"
+                  className="px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90 disabled:bg-muted flex items-center gap-2 text-sm"
                 >
                   {useCurrentLocation ? (
                     <>

@@ -164,7 +164,7 @@ export default function StepProgressPattern() {
               {/* Vertical Progress Tracker */}
               <div className="relative">
                 {/* Progress Line */}
-                <div className="absolute left-[19px] top-[20px] bottom-[20px] w-1 bg-gray-200"></div>
+                <div className="absolute left-[19px] top-[20px] bottom-[20px] w-1 bg-muted"></div>
                 <div 
                   className="absolute left-[19px] top-[20px] w-1 bg-green-700 transition-all duration-500"
                   style={{ 

@@ -1,0 +1,496 @@
+import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
+import type * as Monaco from "monaco-editor";
+import * as React from "react";
+import {
+  AlertCircle,
+  Check,
+  Copy,
+  Laptop,
+  Moon,
+  RefreshCw,
+  Smartphone,
+  Sun,
+  Tablet,
+} from "lucide-react";
+
+import {
+  Alert,
+  Badge,
+  Button,
+  Card,
+  Checkbox,
+  Field,
+  HintText,
+  Input,
+  Select,
+  Textarea,
+} from "../react-core-package/src";
+
+type Viewport = "desktop" | "tablet" | "mobile";
+
+type SandboxPreset = {
+  id: string;
+  label: string;
+  description: string;
+  code: string;
+  note?: string;
+};
+
+type CodeSandboxProps = {
+  title: string;
+  description: string;
+  presets: SandboxPreset[];
+  initialPresetId?: string;
+};
+
+type PreviewState =
+  | { status: "ready"; node: ReactNode }
+  | { status: "loading" }
+  | { status: "error"; message: string };
+
+type TypeScriptModule = typeof import("typescript");
+type MonacoEditorModule = typeof import("@monaco-editor/react");
+type MonacoEditorComponent = MonacoEditorModule["default"];
+
+const VIEWPORT_WIDTHS: Record<Viewport, string> = {
+  desktop: "100%",
+  tablet: "768px",
+  mobile: "375px",
+};
+
+const SANDBOX_SCOPE = {
+  React,
+  Alert,
+  Badge,
+  Button,
+  Card,
+  Checkbox,
+  Field,
+  HintText,
+  Input,
+  Select,
+  Textarea,
+};
+
+const AVAILABLE_SCOPE_NAMES = Object.keys(SANDBOX_SCOPE).sort();
+
+const SANDBOX_THEME_LIGHT = "ux4g-light";
+const SANDBOX_THEME_DARK = "ux4g-dark";
+
+function formatErrorMessage(error: unknown) {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  return "The sandbox could not render this example.";
+}
+
+function evaluateSandboxCode(
+  code: string,
+  ts: TypeScriptModule,
+): PreviewState {
+  try {
+    const compiled = ts.transpileModule(code, {
+      compilerOptions: {
+        jsx: ts.JsxEmit.React,
+        target: ts.ScriptTarget.ES2020,
+        module: ts.ModuleKind.None,
+      },
+      reportDiagnostics: true,
+    });
+
+    const diagnostics = compiled.diagnostics ?? [];
+    if (diagnostics.length > 0) {
+      const message =
+        diagnostics
+          .map((diagnostic) =>
+            ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n"),
+          )
+          .join("\n") || "The sandbox could not compile this example.";
+      return { status: "error", message };
+    }
+
+    const runner = new Function(
+      ...Object.keys(SANDBOX_SCOPE),
+      `"use strict";
+${compiled.outputText}
+if (typeof Example !== "undefined") {
+  return React.createElement(Example);
+}
+throw new Error("Define a function named Example to render the preview.");
+`,
+    );
+
+    const node = runner(...Object.values(SANDBOX_SCOPE));
+    return { status: "ready", node };
+  } catch (error) {
+    return { status: "error", message: formatErrorMessage(error) };
+  }
+}
+
+function PreviewError({ message }: { message: string }) {
+  return (
+    <div className="w-full rounded-2xl border border-red-300 bg-red-50 p-4 text-left text-red-900 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-100">
+      <div className="flex items-start gap-3">
+        <AlertCircle className="mt-0.5 h-5 w-5 shrink-0" />
+        <div>
+          <p className="font-semibold">Preview error</p>
+          <pre className="mt-2 whitespace-pre-wrap text-sm leading-6">
+            {message}
+          </pre>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type PreviewRenderBoundaryProps = {
+  children: ReactNode;
+};
+
+type PreviewRenderBoundaryState = {
+  message: string | null;
+};
+
+class PreviewRenderBoundary extends React.Component<
+  PreviewRenderBoundaryProps,
+  PreviewRenderBoundaryState
+> {
+  state: PreviewRenderBoundaryState = { message: null };
+
+  static getDerivedStateFromError(error: unknown): PreviewRenderBoundaryState {
+    return { message: formatErrorMessage(error) };
+  }
+
+  componentDidUpdate(prevProps: PreviewRenderBoundaryProps) {
+    if (prevProps.children !== this.props.children && this.state.message) {
+      this.setState({ message: null });
+    }
+  }
+
+  render() {
+    if (this.state.message) {
+      return <PreviewError message={this.state.message} />;
+    }
+
+    return this.props.children;
+  }
+}
+
+export function CodeSandbox({
+  title,
+  description,
+  presets,
+  initialPresetId,
+}: CodeSandboxProps) {
+  const resolvePresetId = (candidate?: string) =>
+    presets.some((preset) => preset.id === candidate)
+      ? candidate ?? presets[0]?.id ?? ""
+      : presets[0]?.id ?? "";
+
+  const [selectedPresetId, setSelectedPresetId] = useState(
+    resolvePresetId(initialPresetId),
+  );
+  const [code, setCode] = useState(
+    presets.find((preset) => preset.id === resolvePresetId(initialPresetId))?.code ??
+      presets[0]?.code ??
+      "",
+  );
+  const [viewport, setViewport] = useState<Viewport>("desktop");
+  const [previewDark, setPreviewDark] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [compiler, setCompiler] = useState<TypeScriptModule | null>(null);
+  const [editorComponent, setEditorComponent] =
+    useState<MonacoEditorComponent | null>(null);
+  const [editorError, setEditorError] = useState<string | null>(null);
+  const [previewState, setPreviewState] = useState<PreviewState>({
+    status: "loading",
+  });
+
+  const selectedPreset =
+    presets.find((preset) => preset.id === selectedPresetId) ?? presets[0];
+
+  useEffect(() => {
+    const nextPresetId = resolvePresetId(initialPresetId);
+    setSelectedPresetId(nextPresetId);
+  }, [initialPresetId, presets]);
+
+  useEffect(() => {
+    setCode(selectedPreset?.code ?? "");
+  }, [selectedPreset?.id]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    import("@monaco-editor/react")
+      .then((module) => {
+        if (!cancelled) {
+          setEditorComponent(() => module.default);
+        }
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setEditorError(formatErrorMessage(error));
+        }
+      });
+
+    import("typescript")
+      .then((module) => {
+        if (!cancelled) {
+          setCompiler(module.default ?? module);
+        }
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setPreviewState({ status: "error", message: formatErrorMessage(error) });
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!compiler) {
+      setPreviewState({ status: "loading" });
+      return;
+    }
+
+    setPreviewState(evaluateSandboxCode(code, compiler));
+  }, [code, compiler]);
+
+  const resetToPreset = () => {
+    setCode(selectedPreset?.code ?? "");
+  };
+
+  const copyCode = async () => {
+    await navigator.clipboard.writeText(code);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1600);
+  };
+
+  const handleEditorBeforeMount = (monaco: typeof Monaco) => {
+    monaco.editor.defineTheme(SANDBOX_THEME_LIGHT, {
+      base: "vs",
+      inherit: true,
+      rules: [],
+      colors: {
+        "editor.background": "#f8fafc",
+        "editor.lineHighlightBackground": "#e2e8f022",
+        "editorLineNumber.foreground": "#64748b",
+        "editorLineNumber.activeForeground": "#0f172a",
+      },
+    });
+
+    monaco.editor.defineTheme(SANDBOX_THEME_DARK, {
+      base: "vs-dark",
+      inherit: true,
+      rules: [],
+      colors: {
+        "editor.background": "#0f172a",
+        "editor.lineHighlightBackground": "#1e293b66",
+        "editorLineNumber.foreground": "#94a3b8",
+        "editorLineNumber.activeForeground": "#f8fafc",
+      },
+    });
+  };
+
+  const EditorComponent = editorComponent;
+
+  return (
+    <section className="overflow-hidden rounded-[28px] border border-border bg-card shadow-sm">
+      <div className="border-b border-border bg-[linear-gradient(180deg,rgba(0,81,150,0.08),transparent)] px-5 py-5 sm:px-6">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+          <div className="max-w-3xl">
+            <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Monaco Sandbox
+            </div>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground">
+              {title}
+            </h2>
+            <p className="mt-2 text-sm leading-7 text-muted-foreground sm:text-base">
+              {description}
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[360px]">
+            <label className="space-y-2 text-sm font-medium text-foreground">
+              <span>Preset</span>
+              <select
+                value={selectedPresetId}
+                onChange={(event) => setSelectedPresetId(event.target.value)}
+                className="w-full rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary"
+              >
+                {presets.map((preset) => (
+                  <option key={preset.id} value={preset.id}>
+                    {preset.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <div className="space-y-2 text-sm font-medium text-foreground">
+              <span>Preview</span>
+              <div className="flex items-center gap-1 rounded-xl border border-border bg-background p-1">
+                {([
+                  ["desktop", Laptop],
+                  ["tablet", Tablet],
+                  ["mobile", Smartphone],
+                ] as const).map(([value, Icon]) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => setViewport(value)}
+                    className={`inline-flex flex-1 items-center justify-center rounded-lg px-3 py-2 transition ${
+                      viewport === value
+                        ? "bg-primary text-primary-foreground"
+                        : "text-muted-foreground hover:bg-muted"
+                    }`}
+                    aria-label={`${value} preview`}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {selectedPreset?.note ? (
+          <p className="mt-4 text-sm text-muted-foreground">
+            {selectedPreset.note}
+          </p>
+        ) : null}
+      </div>
+
+      <div className="grid gap-px bg-border xl:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)]">
+        <div className="bg-card">
+          <div className="flex items-center justify-between border-b border-border px-5 py-3 sm:px-6">
+            <div>
+              <p className="text-sm font-semibold text-foreground">Code</p>
+              <p className="text-xs text-muted-foreground">
+                Supported scope: {AVAILABLE_SCOPE_NAMES.join(", ")}
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setPreviewDark((current) => !current)}
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-sm font-medium text-foreground transition hover:border-primary/30 hover:text-primary"
+              >
+                {previewDark ? (
+                  <>
+                    <Sun className="h-4 w-4" />
+                    Light preview
+                  </>
+                ) : (
+                  <>
+                    <Moon className="h-4 w-4" />
+                    Dark preview
+                  </>
+                )}
+              </button>
+              <button
+                type="button"
+                onClick={resetToPreset}
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-sm font-medium text-foreground transition hover:border-primary/30 hover:text-primary"
+              >
+                <RefreshCw className="h-4 w-4" />
+                Reset
+              </button>
+              <button
+                type="button"
+                onClick={copyCode}
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-95"
+              >
+                {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                {copied ? "Copied" : "Copy"}
+              </button>
+            </div>
+          </div>
+
+          {EditorComponent ? (
+            <EditorComponent
+              height="520px"
+              defaultLanguage="typescript"
+              language="typescript"
+              value={code}
+              onChange={(value) => setCode(value ?? "")}
+              beforeMount={handleEditorBeforeMount}
+              theme={previewDark ? SANDBOX_THEME_DARK : SANDBOX_THEME_LIGHT}
+              options={{
+                fontSize: 14,
+                minimap: { enabled: false },
+                scrollBeyondLastLine: false,
+                wordWrap: "on",
+                padding: { top: 16, bottom: 16 },
+                tabSize: 2,
+                automaticLayout: true,
+              }}
+            />
+          ) : editorError ? (
+            <div className="space-y-3 p-5">
+              <div className="rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-100">
+                Monaco could not load, so the sandbox is using a plain editor fallback.
+              </div>
+              <textarea
+                value={code}
+                onChange={(event) => setCode(event.target.value)}
+                className="h-[420px] w-full rounded-2xl border border-border bg-background p-4 font-mono text-sm leading-6 text-foreground outline-none transition focus:border-primary"
+                spellCheck={false}
+                aria-label="Sandbox code editor fallback"
+              />
+            </div>
+          ) : (
+            <div className="flex h-[520px] items-center justify-center bg-muted/30 text-sm text-muted-foreground">
+              Loading Monaco editor…
+            </div>
+          )}
+        </div>
+
+        <div className="bg-card">
+          <div className="flex items-center justify-between border-b border-border px-5 py-3 sm:px-6">
+            <div>
+              <p className="text-sm font-semibold text-foreground">Live preview</p>
+              <p className="text-xs text-muted-foreground">
+                Rendered in a constrained surface so mobile and tablet states are visible.
+              </p>
+            </div>
+          </div>
+
+          <div
+            className={`flex min-h-[520px] items-start justify-center overflow-auto p-6 ${
+              previewDark
+                ? "bg-slate-950 text-slate-50"
+                : "bg-[linear-gradient(180deg,#f8fafc,#eef2ff)] text-foreground"
+            }`}
+          >
+            <div
+              className={`w-full rounded-[24px] border p-5 shadow-sm transition-all ${
+                previewDark
+                  ? "border-slate-800 bg-slate-900"
+                  : "border-border bg-card"
+              }`}
+              style={{ width: VIEWPORT_WIDTHS[viewport], maxWidth: "100%" }}
+            >
+              {previewState.status === "ready" ? (
+                <PreviewRenderBoundary>
+                  <div className="min-h-[420px]">{previewState.node}</div>
+                </PreviewRenderBoundary>
+              ) : previewState.status === "loading" ? (
+                <div className="flex min-h-[420px] items-center justify-center text-sm text-muted-foreground">
+                  Preparing preview runtime…
+                </div>
+              ) : (
+                <PreviewError message={previewState.message} />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

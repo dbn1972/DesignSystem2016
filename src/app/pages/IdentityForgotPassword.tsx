@@ -85,11 +85,11 @@ export default function IdentityForgotPassword() {
               <div className="bg-muted border-b-2 border-border px-4 sm:px-8 lg:px-12 py-4">
                 <div className="flex items-center justify-between max-w-2xl mx-auto">
                   <ProgressStep number={1} label="Identify" active={step === "identify"} completed={step !== "identify"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step !== "identify" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step !== "identify" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-muted'}`}></div>
                   <ProgressStep number={2} label="Verify OTP" active={step === "verify"} completed={step === "reset" || step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "reset" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "reset" || step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-muted'}`}></div>
                   <ProgressStep number={3} label="Reset Password" active={step === "reset"} completed={step === "success"} />
-                  <div className={`flex-1 h-0.5 mx-2 ${step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-gray-300'}`}></div>
+                  <div className={`flex-1 h-0.5 mx-2 ${step === "success" ? 'bg-green-50 dark:bg-green-900/200' : 'bg-muted'}`}></div>
                   <ProgressStep number={4} label="Complete" active={step === "success"} completed={false} />
                 </div>
               </div>
@@ -166,7 +166,7 @@ export default function IdentityForgotPassword() {
                       <button
                         onClick={handleSendOTP}
                         disabled={!identifier}
-                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed transition-colors"
                       >
                         Send Verification Code
                       </button>
@@ -208,7 +208,7 @@ export default function IdentityForgotPassword() {
                       <button
                         onClick={handleVerifyOTP}
                         disabled={otp.length !== 6}
-                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed transition-colors"
                       >
                         Verify Code
                       </button>
@@ -308,7 +308,7 @@ export default function IdentityForgotPassword() {
                       <button
                         onClick={handleResetPassword}
                         disabled={!allRequirementsMet || !passwordsMatch}
-                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:bg-muted disabled:cursor-not-allowed transition-colors"
                       >
                         Reset Password
                       </button>

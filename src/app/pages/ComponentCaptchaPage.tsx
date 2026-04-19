@@ -99,7 +99,7 @@ const CaptchaPreview = ({ type, difficulty, theme, children, ...props }: any) =>
           <p className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-muted-foreground'}`}>
             Slide to verify
           </p>
-          <div className="relative w-full h-12 bg-gray-200 rounded overflow-hidden">
+          <div className="relative w-full h-12 bg-muted rounded overflow-hidden">
             <div className="absolute inset-y-0 left-0 w-12 bg-blue-500 flex items-center justify-center cursor-move">
               <Shield size={20} className="text-white" />
             </div>

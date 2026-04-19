@@ -84,15 +84,15 @@ export default function GeneralContactPattern() {
         <div className="max-w-[1200px] mx-auto px-8 py-4">
           <div className="flex items-center justify-between">
             <ProgressStep number={1} label="Select Intent" active={step === 'intent'} completed={step !== 'intent'} />
-            <div className="flex-1 h-0.5 bg-gray-300 mx-2">
+            <div className="flex-1 h-0.5 bg-muted mx-2">
               <div className={`h-full bg-green-700 transition-all ${step !== 'intent' ? 'w-full' : 'w-0'}`}></div>
             </div>
             <ProgressStep number={2} label="Fill Form" active={step === 'form'} completed={step === 'review' || step === 'success'} />
-            <div className="flex-1 h-0.5 bg-gray-300 mx-2">
+            <div className="flex-1 h-0.5 bg-muted mx-2">
               <div className={`h-full bg-green-700 transition-all ${step === 'review' || step === 'success' ? 'w-full' : 'w-0'}`}></div>
             </div>
             <ProgressStep number={3} label="Review" active={step === 'review'} completed={step === 'success'} />
-            <div className="flex-1 h-0.5 bg-gray-300 mx-2">
+            <div className="flex-1 h-0.5 bg-muted mx-2">
               <div className={`h-full bg-green-700 transition-all ${step === 'success' ? 'w-full' : 'w-0'}`}></div>
             </div>
             <ProgressStep number={4} label="Confirmation" active={step === 'success'} completed={false} />

@@ -89,7 +89,7 @@ const ProgressPreview = ({ variant, size, value, indeterminate, label, showPerce
         </div>
       )}
       <div
-        className={`w-full bg-gray-200 rounded-full overflow-hidden ${heightMap[size || 'md']}`}
+        className={`w-full bg-muted rounded-full overflow-hidden ${heightMap[size || 'md']}`}
         role="progressbar"
         aria-valuenow={indeterminate ? undefined : value}
         aria-valuemin={0}

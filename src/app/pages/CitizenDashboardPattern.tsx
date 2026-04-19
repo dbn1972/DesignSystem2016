@@ -222,7 +222,7 @@ export default function CitizenDashboardPattern() {
                           <span className="text-muted-foreground">Progress</span>
                           <span className="font-bold text-foreground">{app.progress}%</span>
                         </div>
-                        <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
                           <div
                             className="h-full bg-green-700 transition-all"
                             style={{ width: `${app.progress}%` }}
@@ -391,7 +391,7 @@ export default function CitizenDashboardPattern() {
                       <span className="text-muted-foreground">Completion Progress</span>
                       <span className="font-bold text-foreground">{app.progress}%</span>
                     </div>
-                    <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="w-full h-3 bg-muted rounded-full overflow-hidden">
                       <div
                         className="h-full bg-green-700"
                         style={{ width: `${app.progress}%` }}

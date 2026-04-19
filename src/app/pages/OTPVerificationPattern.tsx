@@ -906,7 +906,7 @@ function ResendLogic() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Disabled State */}
             <div className="bg-background border-2 border-border rounded p-4 text-center">
-              <button className="w-full px-4 py-2 bg-gray-300 text-muted-foreground font-bold rounded cursor-not-allowed mb-2">
+              <button className="w-full px-4 py-2 bg-muted text-muted-foreground font-bold rounded cursor-not-allowed mb-2">
                 Resend OTP
               </button>
               <p className="text-xs text-muted-foreground">Available in 0:23</p>
@@ -930,7 +930,7 @@ function ResendLogic() {
 
             {/* Success State */}
             <div className="bg-background border-2 border-green-300 rounded p-4 text-center">
-              <button className="w-full px-4 py-2 bg-gray-300 text-muted-foreground font-bold rounded cursor-not-allowed mb-2">
+              <button className="w-full px-4 py-2 bg-muted text-muted-foreground font-bold rounded cursor-not-allowed mb-2">
                 Resend OTP
               </button>
               <p className="text-xs text-green-700 dark:text-green-400"><CheckCircle size={12} className="inline mr-1" />New code sent!</p>

@@ -31,32 +31,32 @@ const RichTextEditorPreview = ({
       {!readOnly && toolbar.length > 0 && (
         <div className="flex gap-1 p-2 border-b border-border bg-background">
           {toolbar.includes('bold') && (
-            <button className="p-1.5 hover:bg-gray-200 rounded" title="Bold">
+            <button className="p-1.5 hover:bg-muted rounded" title="Bold">
               <Bold size={16} />
             </button>
           )}
           {toolbar.includes('italic') && (
-            <button className="p-1.5 hover:bg-gray-200 rounded" title="Italic">
+            <button className="p-1.5 hover:bg-muted rounded" title="Italic">
               <Italic size={16} />
             </button>
           )}
           {toolbar.includes('list') && (
-            <button className="p-1.5 hover:bg-gray-200 rounded" title="List">
+            <button className="p-1.5 hover:bg-muted rounded" title="List">
               <List size={16} />
             </button>
           )}
           {toolbar.includes('align') && (
-            <button className="p-1.5 hover:bg-gray-200 rounded" title="Align">
+            <button className="p-1.5 hover:bg-muted rounded" title="Align">
               <AlignLeft size={16} />
             </button>
           )}
           {enableImages && (
-            <button className="p-1.5 hover:bg-gray-200 rounded" title="Image">
+            <button className="p-1.5 hover:bg-muted rounded" title="Image">
               <Image size={16} />
             </button>
           )}
           {enableTables && (
-            <button className="p-1.5 hover:bg-gray-200 rounded" title="Table">
+            <button className="p-1.5 hover:bg-muted rounded" title="Table">
               <Table size={16} />
             </button>
           )}

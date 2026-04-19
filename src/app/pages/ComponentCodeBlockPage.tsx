@@ -55,7 +55,7 @@ const CodeBlockPreview = ({
           {showCopyButton && (
             <button
               onClick={handleCopy}
-              className="inline-flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium text-muted-foreground hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="inline-flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium text-muted-foreground hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               aria-label={copied ? 'Copied' : 'Copy code'}
             >
               {copied ? (
@@ -539,7 +539,7 @@ export default function ComponentCodeBlockPage() {
               <div className="border-2 border-green-200 dark:border-green-800 rounded-lg overflow-hidden">
                 <div className="bg-green-50 dark:bg-green-900/20 px-4 py-2 text-sm font-bold text-green-800 dark:text-green-300">✓ Do</div>
                 <div className="p-4">
-                  <div className="relative rounded bg-gray-900 p-3 mb-3"><button className="absolute top-2 right-2 px-2 py-0.5 text-[10px] bg-gray-700 text-gray-300 rounded">Copy</button><pre className="text-xs text-green-400 font-mono">{"<Button variant=\"primary\">\n  Submit\n</Button>"}</pre></div>
+                  <div className="relative rounded bg-gray-900 p-3 mb-3"><button className="absolute top-2 right-2 px-2 py-0.5 text-[10px] bg-gray-700 text-muted-foreground rounded">Copy</button><pre className="text-xs text-green-400 font-mono">{"<Button variant=\"primary\">\n  Submit\n</Button>"}</pre></div>
                   <p className="text-sm text-muted-foreground">Include a copy button on code blocks — it increases code adoption by 70%.</p>
                 </div>
               </div>

@@ -1994,7 +1994,7 @@ function PageSequenceRow({ number, title, description, required }: any) {
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
+            <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
         </div>
         <div className="text-xs text-muted-foreground">{description}</div>
@@ -2051,7 +2051,7 @@ function ProgressBar({ steps, current }: any) {
       {Array.from({ length: steps }).map((_, idx) => (
         <div
           key={idx}
-          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-gray-300'}`}
+          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-muted'}`}
         ></div>
       ))}
     </div>
@@ -2105,7 +2105,7 @@ function TimelineItem({ date, status, description, active }: any) {
     <div className="flex items-start gap-4">
       <div className="flex flex-col items-center">
         <div className={`w-3 h-3 rounded-full ${active ? 'bg-blue-600' : 'bg-gray-400'}`}></div>
-        {!active && <div className="w-0.5 h-12 bg-gray-300"></div>}
+        {!active && <div className="w-0.5 h-12 bg-muted"></div>}
       </div>
       <div className="flex-1">
         <div className="text-xs text-muted-foreground">{date}</div>

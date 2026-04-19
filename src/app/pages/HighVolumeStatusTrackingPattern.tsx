@@ -517,7 +517,7 @@ function PageDesigns() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="flex-1 h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="flex-1 h-3 bg-muted rounded-full overflow-hidden">
                       <div className="h-full bg-blue-600 rounded-full" style={{ width: '60%' }}></div>
                     </div>
                     <div className="text-sm font-bold text-foreground">60% Complete</div>
@@ -1735,7 +1735,7 @@ function PageSequenceRow({ number, title, description, required }: any) {
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">CONDITIONAL</span>
+            <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-bold rounded">CONDITIONAL</span>
           )}
         </div>
         <div className="text-xs text-muted-foreground">{description}</div>
@@ -1789,9 +1789,9 @@ function ProgressStage({ label, status }: any) {
 
 function TimelineItem({ date, stage, description, status, icon, progress }: any) {
   const progressStyles: any = {
-    current: { bg: 'bg-blue-600', border: 'border-blue-600', line: 'bg-gray-300' },
+    current: { bg: 'bg-blue-600', border: 'border-blue-600', line: 'bg-muted' },
     past: { bg: 'bg-green-600', border: 'border-green-600', line: 'bg-green-300' },
-    future: { bg: 'bg-card', border: 'border-border', line: 'bg-gray-200' }
+    future: { bg: 'bg-card', border: 'border-border', line: 'bg-muted' }
   };
 
   return (

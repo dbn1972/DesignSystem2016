@@ -621,7 +621,7 @@ type RenderAs = 'canvas' | 'svg';
       <button
         *ngIf="downloadable && !enableScanner"
         (click)="handleDownload()"
-        class="mt-2 px-3 py-1 text-sm bg-muted hover:bg-gray-200 rounded"
+        class="mt-2 px-3 py-1 text-sm bg-muted hover:bg-muted rounded"
         aria-label="Download QR code"
       >
         Download QR Code

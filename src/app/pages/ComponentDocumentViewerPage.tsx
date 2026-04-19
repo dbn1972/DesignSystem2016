@@ -14,37 +14,37 @@ const DocumentViewerPreview = ({ fileType, zoom = 100, page = 1, showToolbar = t
     {showToolbar && (
       <div className="flex items-center justify-between px-4 py-2 bg-background border-b border-border">
         <div className="flex items-center gap-2">
-          <button className="p-2 hover:bg-gray-200 rounded" aria-label="Zoom out">
+          <button className="p-2 hover:bg-muted rounded" aria-label="Zoom out">
             <ZoomOut size={16} />
           </button>
           <span className="text-sm font-medium min-w-[60px] text-center">{zoom}%</span>
-          <button className="p-2 hover:bg-gray-200 rounded" aria-label="Zoom in">
+          <button className="p-2 hover:bg-muted rounded" aria-label="Zoom in">
             <ZoomIn size={16} />
           </button>
-          <button className="p-2 hover:bg-gray-200 rounded ml-2" aria-label="Rotate">
+          <button className="p-2 hover:bg-muted rounded ml-2" aria-label="Rotate">
             <RotateCw size={16} />
           </button>
         </div>
         <div className="flex items-center gap-2">
           {fileType === 'pdf' && (
             <>
-              <button className="p-2 hover:bg-gray-200 rounded" aria-label="Previous page">
+              <button className="p-2 hover:bg-muted rounded" aria-label="Previous page">
                 <ChevronLeft size={16} />
               </button>
               <span className="text-sm min-w-[80px] text-center">
                 Page {page} of 5
               </span>
-              <button className="p-2 hover:bg-gray-200 rounded" aria-label="Next page">
+              <button className="p-2 hover:bg-muted rounded" aria-label="Next page">
                 <ChevronRight size={16} />
               </button>
             </>
           )}
         </div>
         <div className="flex items-center gap-2">
-          <button className="p-2 hover:bg-gray-200 rounded" aria-label="Download">
+          <button className="p-2 hover:bg-muted rounded" aria-label="Download">
             <Download size={16} />
           </button>
-          <button className="p-2 hover:bg-gray-200 rounded" aria-label="Print">
+          <button className="p-2 hover:bg-muted rounded" aria-label="Print">
             <Printer size={16} />
           </button>
         </div>

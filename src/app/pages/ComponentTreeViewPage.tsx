@@ -127,7 +127,7 @@ const TreeViewPreview = ({
           }}
         >
           {showLine && level > 0 && (
-            <div className="absolute left-0 w-px h-full bg-gray-300" style={{ left: ((level - 1) * 24 + 12) + 'px' }}></div>
+            <div className="absolute left-0 w-px h-full bg-muted" style={{ left: ((level - 1) * 24 + 12) + 'px' }}></div>
           )}
 
           {hasChildren ? (

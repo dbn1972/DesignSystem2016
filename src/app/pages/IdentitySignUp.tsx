@@ -335,7 +335,7 @@ function FlowNavigation() {
 function FlowStep({ number, label, active = false }: { number: string; label: string; active?: boolean }) {
   return (
     <div className={`flex items-center gap-3 p-3 rounded ${active ? 'bg-blue-100 border-2 border-blue-300' : 'bg-background border-2 border-border'}`}>
-      <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${active ? 'bg-primary text-white' : 'bg-gray-300 text-muted-foreground'}`}>
+      <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${active ? 'bg-primary text-white' : 'bg-muted text-muted-foreground'}`}>
         {number}
       </div>
       <span className={`font-medium ${active ? 'text-foreground' : 'text-muted-foreground'}`}>{label}</span>

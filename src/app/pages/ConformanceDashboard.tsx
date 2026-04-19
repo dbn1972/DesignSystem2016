@@ -1637,7 +1637,7 @@ function MaturityBar({ label, count, total, color }: any) {
 
 function SectorPerformanceRow({ sector, score, services }: any) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+    <div className="flex items-center justify-between py-2 border-b border-border last:border-0">
       <div>
         <div className="font-medium text-foreground text-sm">{sector}</div>
         <div className="text-xs text-muted-foreground">{services} services</div>
@@ -1871,7 +1871,7 @@ function ComponentUsageBar({ component, usage, implementations, trend }: any) {
 
 function UnderutilizedComponentRow({ component, usage, potential }: any) {
   return (
-    <div className="flex items-start justify-between py-2 border-b border-gray-100 last:border-0">
+    <div className="flex items-start justify-between py-2 border-b border-border last:border-0">
       <div className="flex-1">
         <div className="font-medium text-foreground">{component}</div>
         <div className="text-xs text-muted-foreground">{potential}</div>
@@ -1883,7 +1883,7 @@ function UnderutilizedComponentRow({ component, usage, potential }: any) {
 
 function GrowingComponentRow({ component, growth, quarter }: any) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+    <div className="flex items-center justify-between py-2 border-b border-border last:border-0">
       <div className="font-medium text-foreground">{component}</div>
       <div className="flex items-center gap-2">
         <span className="text-sm text-muted-foreground">{quarter}</span>
@@ -1971,7 +1971,7 @@ function VersionAdoptionRow({ version, services, percentage, status }: any) {
 
 function DocPageRow({ page, visits, avgTime, bounce }: any) {
   return (
-    <div className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0">
+    <div className="flex items-center justify-between py-3 border-b border-border last:border-0">
       <div className="flex-1 font-medium text-foreground text-sm">{page}</div>
       <div className="flex items-center gap-6 text-sm">
         <div className="text-muted-foreground">{visits} visits</div>
@@ -1984,7 +1984,7 @@ function DocPageRow({ page, visits, avgTime, bounce }: any) {
 
 function ResourceDownloadRow({ resource, downloads }: any) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+    <div className="flex items-center justify-between py-2 border-b border-border last:border-0">
       <span className="text-muted-foreground">{resource}</span>
       <span className="font-bold text-foreground">{downloads}</span>
     </div>
@@ -1999,7 +1999,7 @@ function DocGapRow({ gap, tickets, priority }: any) {
   };
 
   return (
-    <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+    <div className="flex items-center justify-between py-2 border-b border-border last:border-0">
       <span className="text-muted-foreground">{gap}</span>
       <div className="flex items-center gap-2">
         <span className="text-foreground font-bold">{tickets}</span>
@@ -2089,7 +2089,7 @@ function MigrationStatusBar({ status, count, percentage, color }: any) {
 
 function DeprecatedServiceRow({ service, version, endOfLife }: any) {
   return (
-    <div className="flex items-start justify-between py-2 border-b border-gray-100 last:border-0">
+    <div className="flex items-start justify-between py-2 border-b border-border last:border-0">
       <div className="flex-1">
         <div className="font-medium text-foreground">{service}</div>
         <code className="text-xs text-muted-foreground">{version}</code>
@@ -2278,7 +2278,7 @@ function ResolutionMetricRow({ metric, count, total, percentage }: any) {
 
 function SupportVolumeBar({ department, tickets, avgTime, satisfaction }: any) {
   return (
-    <div className="flex items-center gap-4 py-2 border-b border-gray-100 last:border-0">
+    <div className="flex items-center gap-4 py-2 border-b border-border last:border-0">
       <div className="flex-1 text-sm text-foreground">{department}</div>
       <div className="w-20 text-sm font-bold text-foreground">{tickets} tickets</div>
       <div className="w-20 text-sm text-muted-foreground">{avgTime}</div>
@@ -2298,7 +2298,7 @@ function SupportTopicRow({ topic, tickets, trend }: any) {
   };
 
   return (
-    <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+    <div className="flex items-center justify-between py-2 border-b border-border last:border-0">
       <span className="text-muted-foreground flex-1">{topic}</span>
       <div className="flex items-center gap-2">
         <span className="font-bold text-foreground">{tickets}</span>

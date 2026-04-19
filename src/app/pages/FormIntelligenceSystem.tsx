@@ -1403,7 +1403,7 @@ function MultiStepFormExample() {
           <span className="text-sm font-bold text-foreground">Step {step} of 3</span>
           <span className="text-xs text-muted-foreground">Personal Info</span>
         </div>
-        <div className="h-2 bg-gray-300 rounded-full overflow-hidden">
+        <div className="h-2 bg-muted rounded-full overflow-hidden">
           <div 
             className="h-full bg-primary transition-all duration-300"
             style={{ width: `${(step / 3) * 100}%` }}

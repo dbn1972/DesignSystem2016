@@ -595,7 +595,7 @@ export default function ComponentDrawerPage() {
                       Step 3
                     </span>
                   </div>
-                  <div className="h-2 bg-gray-200 rounded-full">
+                  <div className="h-2 bg-muted rounded-full">
                     <div
                       className="h-full bg-[#005196] rounded-full transition-all duration-300"
                       style={{ width: (wizardStep * 33.33) + '%' }}

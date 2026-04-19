@@ -743,7 +743,7 @@ function PageDesigns() {
                         <Camera size={16} />
                         Scan Now
                       </button>
-                      <button className="px-4 py-2 bg-gray-200 text-muted-foreground font-bold rounded hover:bg-gray-300">
+                      <button className="px-4 py-2 bg-muted text-muted-foreground font-bold rounded hover:bg-muted">
                         Defer to Citizen
                       </button>
                     </div>
@@ -758,7 +758,7 @@ function PageDesigns() {
                         <Camera size={16} />
                         Scan Now
                       </button>
-                      <button className="px-4 py-2 bg-gray-200 text-muted-foreground font-bold rounded hover:bg-gray-300">
+                      <button className="px-4 py-2 bg-muted text-muted-foreground font-bold rounded hover:bg-muted">
                         Defer to Citizen
                       </button>
                     </div>
@@ -2098,7 +2098,7 @@ function PageSequenceRow({ number, title, description, mode, required }: any) {
           {required ? (
             <span className="px-2 py-0.5 bg-red-100 text-red-700 dark:text-red-400 text-xs font-bold rounded">REQUIRED</span>
           ) : (
-            <span className="px-2 py-0.5 bg-gray-200 text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
+            <span className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-bold rounded">OPTIONAL</span>
           )}
         </div>
         <div className="text-xs text-muted-foreground">{description}</div>
@@ -2177,7 +2177,7 @@ function ProgressBar({ steps, current }: any) {
       {Array.from({ length: steps }).map((_, idx) => (
         <div
           key={idx}
-          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-gray-300'}`}
+          className={`flex-1 h-2 rounded ${idx < current ? 'bg-primary' : 'bg-muted'}`}
         ></div>
       ))}
     </div>

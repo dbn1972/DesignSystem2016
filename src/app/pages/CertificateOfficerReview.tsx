@@ -64,7 +64,7 @@ export default function CertificateOfficerReview() {
           <button
             onClick={submitDecision}
             disabled={!decision || !comments.trim()}
-            className="px-5 py-2 bg-primary text-white rounded font-bold text-sm hover:opacity-90 disabled:bg-gray-300 disabled:text-muted-foreground"
+            className="px-5 py-2 bg-primary text-white rounded font-bold text-sm hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground"
           >
             Submit Decision
           </button>

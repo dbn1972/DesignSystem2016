@@ -247,7 +247,7 @@ export function LogoDetailView({ logo }: { logo: LogoEntry }) {
                   Recommended surfaces
                 </div>
                 <div className="grid gap-3">
-                  <div className="flex min-h-[112px] items-center justify-center rounded-2xl border border-border bg-white">
+                  <div className="flex min-h-[112px] items-center justify-center rounded-2xl border border-border bg-card">
                     {logo.thumbnailUrl ? (
                       <img
                         src={logo.thumbnailUrl}

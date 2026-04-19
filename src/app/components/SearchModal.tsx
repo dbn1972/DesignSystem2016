@@ -28,7 +28,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   Services: 'bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300',
   Resources: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
   Governance: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
-  Legal: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
+  Legal: 'bg-muted text-foreground dark:bg-gray-800 dark:text-gray-300',
 };
 
 interface SearchModalProps {
