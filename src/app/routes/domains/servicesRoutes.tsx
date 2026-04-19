@@ -57,6 +57,26 @@ const CertificateAppeal = lazy(() => import("../../pages/CertificateAppeal"));
 const CertificateOfficerDashboard = lazy(() => import("../../pages/CertificateOfficerDashboard"));
 const CertificateOfficerCases = lazy(() => import("../../pages/CertificateOfficerCases"));
 const CertificateOfficerReview = lazy(() => import("../../pages/CertificateOfficerReview"));
+const CompanyRegService = lazy(() => import("../../pages/CompanyRegService"));
+const CompanyRegStart = lazy(() => import("../../pages/CompanyRegStart"));
+const CompanyRegEligibility = lazy(() => import("../../pages/CompanyRegEligibility"));
+const CompanyRegFormEntityType = lazy(() => import("../../pages/CompanyRegFormEntityType"));
+const CompanyRegFormDirectors = lazy(() => import("../../pages/CompanyRegFormDirectors"));
+const CompanyRegFormAddress = lazy(() => import("../../pages/CompanyRegFormAddress"));
+const CompanyRegFormAdditional = lazy(() => import("../../pages/CompanyRegFormAdditional"));
+const CompanyRegDocumentUpload = lazy(() => import("../../pages/CompanyRegDocumentUpload"));
+const CompanyRegReviewSummary = lazy(() => import("../../pages/CompanyRegReviewSummary"));
+const CompanyRegDeclaration = lazy(() => import("../../pages/CompanyRegDeclaration"));
+const CompanyRegPaymentSummary = lazy(() => import("../../pages/CompanyRegPaymentSummary"));
+const CompanyRegPaymentReceipt = lazy(() => import("../../pages/CompanyRegPaymentReceipt"));
+const CompanyRegSubmission = lazy(() => import("../../pages/CompanyRegSubmission"));
+const CompanyRegStatusTracker = lazy(() => import("../../pages/CompanyRegStatusTracker"));
+const CompanyRegMyApplications = lazy(() => import("../../pages/CompanyRegMyApplications"));
+const CompanyRegOfficerDashboard = lazy(() => import("../../pages/CompanyRegOfficerDashboard"));
+const CompanyRegCertificate = lazy(() => import("../../pages/CompanyRegCertificate"));
+const CompanyRegHelp = lazy(() => import("../../pages/CompanyRegHelp"));
+const CompanyRegFeedback = lazy(() => import("../../pages/CompanyRegFeedback"));
+
 const IdentitySignIn = lazy(() => import("../../pages/IdentitySignIn"));
 const IdentitySignUp = lazy(() => import("../../pages/IdentitySignUp"));
 const IdentityMobileOTP = lazy(() => import("../../pages/IdentityMobileOTP"));
@@ -123,6 +143,27 @@ export const servicesRoutes: RouteObject[] = [
   { path: toChildPath(ROUTE_PATHS.CERTIFICATE.OFFICER_DASHBOARD), Component: CertificateOfficerDashboard },
   { path: toChildPath(ROUTE_PATHS.CERTIFICATE.OFFICER_CASES), Component: CertificateOfficerCases },
   { path: toChildPath(ROUTE_PATHS.CERTIFICATE.OFFICER_REVIEW), Component: CertificateOfficerReview },
+
+  // Company Registration Service (MCA/ROC)
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.ROOT), Component: CompanyRegService },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.START), Component: CompanyRegStart },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.ELIGIBILITY), Component: CompanyRegEligibility },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.FORM_ENTITY_TYPE), Component: CompanyRegFormEntityType },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.FORM_DIRECTORS), Component: CompanyRegFormDirectors },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.FORM_ADDRESS), Component: CompanyRegFormAddress },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.FORM_ADDITIONAL), Component: CompanyRegFormAdditional },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.DOCUMENT_UPLOAD), Component: CompanyRegDocumentUpload },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.REVIEW_SUMMARY), Component: CompanyRegReviewSummary },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.DECLARATION), Component: CompanyRegDeclaration },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.PAYMENT_SUMMARY), Component: CompanyRegPaymentSummary },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.PAYMENT_RECEIPT), Component: CompanyRegPaymentReceipt },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.SUBMISSION_SUCCESS), Component: CompanyRegSubmission },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.STATUS_TRACKER), Component: CompanyRegStatusTracker },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.MY_APPLICATIONS), Component: CompanyRegMyApplications },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.OFFICER_DASHBOARD), Component: CompanyRegOfficerDashboard },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.CERTIFICATE), Component: CompanyRegCertificate },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.HELP), Component: CompanyRegHelp },
+  { path: toChildPath(ROUTE_PATHS.COMPANY_REGISTRATION.FEEDBACK), Component: CompanyRegFeedback },
 
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_IN), Component: IdentitySignIn },
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_UP), Component: IdentitySignUp },
