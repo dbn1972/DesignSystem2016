@@ -85,7 +85,7 @@ export default function ComponentPageTOC() {
   return (
     <nav className="hidden xl:block w-[160px] shrink-0 pt-6 pr-6" aria-label="On this page">
       <div className="sticky top-24">
-        <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-3">
+        <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-3 pl-3">
           On this page
         </p>
         <ul className="space-y-0.5">
