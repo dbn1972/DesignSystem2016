@@ -363,7 +363,7 @@ function ResultCard({ result, viewMode, query }: {
         <button className="flex-1 px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90">
           Apply Now
         </button>
-        <button className="px-4 py-2 border-2 border-border text-muted-foreground rounded font-bold hover:border-gray-400 flex items-center gap-2">
+        <button className="px-4 py-2 border-2 border-border text-muted-foreground rounded font-bold hover:border-border flex items-center gap-2">
           <span>Learn More</span>
           <ArrowRight size={16} />
         </button>

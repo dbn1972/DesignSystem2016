@@ -29,6 +29,8 @@ interface CodeExample {
   description: string;
   code: string;
   preview?: React.ReactNode;
+  sandboxHref?: string;
+  sandboxLabel?: string;
   [key: string]: unknown;
 }
 
@@ -125,6 +127,13 @@ interface ComponentDocumentationProps {
     wcagNotes?: string;
     [key: string]: string | undefined;
   };
+
+  sandbox?: {
+    href: string;
+    label?: string;
+    description?: string;
+    exampleLabel?: string;
+  };
 }
 
 export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
@@ -147,6 +156,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
   additionalContent,
   preview,
   governmentContext,
+  sandbox,
 }) => {
   const [activeTab, setActiveTab] = useState<'overview' | 'props' | 'examples' | 'code' | 'comparison' | 'tokens'>('overview');
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -333,13 +343,29 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               <section id="section-preview" className="bg-card rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="px-6 py-4 border-b border-border bg-gradient-to-r from-muted/30 to-transparent">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Live Preview</h2>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:text-green-400 uppercase tracking-wider">Interactive</span>
+                    <div className="flex items-center gap-3">
+                      <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Live Preview</h2>
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-100 text-green-700 dark:text-green-400 uppercase tracking-wider">Interactive</span>
+                    </div>
+                    {sandbox && (
+                      <Link
+                        to={sandbox.href}
+                        className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition hover:border-primary/30 hover:text-primary"
+                      >
+                        <Code2 size={14} />
+                        {sandbox.label || 'Open in Sandbox'}
+                      </Link>
+                    )}
                   </div>
                 </div>
                 <div className="p-8 flex items-center justify-center min-h-[160px] bg-[radial-gradient(circle_at_center,_rgba(0,81,150,0.03),_transparent_70%)]">
                   {preview}
                 </div>
+                {sandbox?.description && (
+                  <div className="border-t border-border bg-background px-6 py-4 text-sm text-muted-foreground">
+                    {sandbox.description}
+                  </div>
+                )}
               </section>
             )}
 
@@ -541,8 +567,21 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
             {examples.map((example, idx) => (
               <div key={idx} className="bg-card rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="p-6 border-b border-border">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{example.title}</h3>
-                  <p className="text-sm text-muted-foreground">{example.description}</p>
+                  <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">{example.title}</h3>
+                      <p className="text-sm text-muted-foreground">{example.description}</p>
+                    </div>
+                    {(example.sandboxHref || sandbox?.href) && (
+                      <Link
+                        to={example.sandboxHref || sandbox!.href}
+                        className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground transition hover:border-primary/30 hover:text-primary"
+                      >
+                        <Code2 size={14} />
+                        {example.sandboxLabel || sandbox?.exampleLabel || 'Open in Sandbox'}
+                      </Link>
+                    )}
+                  </div>
                 </div>
                 {example.preview && (
                   <div className="p-6 border-b border-border bg-background">
@@ -552,7 +591,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
                   </div>
                 )}
                 <div className="relative">
-                  <div className="bg-gray-900 text-gray-100 p-6 overflow-x-auto">
+                  <div className="bg-gray-900 text-gray-100 dark:text-gray-200 p-6 overflow-x-auto">
                     <pre className="text-sm font-mono">
                       <code>{example.code}</code>
                     </pre>

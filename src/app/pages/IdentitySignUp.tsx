@@ -225,7 +225,7 @@ export default function IdentitySignUp() {
                           id="consent"
                           checked={formData.consent}
                           onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                          className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+                          className="mt-1 w-5 h-5 border-2 border-border rounded"
                           required
                         />
                         <label htmlFor="consent" className="text-sm text-muted-foreground flex-1">

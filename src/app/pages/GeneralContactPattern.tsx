@@ -183,7 +183,7 @@ export default function GeneralContactPattern() {
               <button
                 onClick={() => setStep('form')}
                 disabled={!intent}
-                className="px-8 py-3 bg-primary text-white rounded font-bold disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-8 py-3 bg-primary text-white rounded font-bold disabled:bg-gray-400 dark:bg-gray-600 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 <span>Continue</span>
                 <ArrowRight size={20} />
@@ -318,7 +318,7 @@ export default function GeneralContactPattern() {
             <div className="flex justify-between">
               <button
                 onClick={() => setStep('intent')}
-                className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold flex items-center gap-2 hover:border-gray-400"
+                className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold flex items-center gap-2 hover:border-border"
               >
                 <ArrowLeft size={20} />
                 <span>Back</span>
@@ -368,7 +368,7 @@ export default function GeneralContactPattern() {
             <div className="flex justify-between">
               <button
                 onClick={() => setStep('form')}
-                className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold flex items-center gap-2 hover:border-gray-400"
+                className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold flex items-center gap-2 hover:border-border"
               >
                 <ArrowLeft size={20} />
                 <span>Edit Information</span>
@@ -443,7 +443,7 @@ export default function GeneralContactPattern() {
                     });
                     setErrors({});
                   }}
-                  className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold hover:border-gray-400"
+                  className="px-6 py-3 border-2 border-border text-muted-foreground rounded font-bold hover:border-border"
                 >
                   Submit Another Request
                 </button>

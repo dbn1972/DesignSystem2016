@@ -357,7 +357,7 @@ function GoalItem({ text }: { text: string }) {
 function RuleItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2">
-      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0 mt-1.5"></div>
+      <div className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-600 rounded-full flex-shrink-0 mt-1.5"></div>
       <span className="text-muted-foreground">{text}</span>
     </div>
   );

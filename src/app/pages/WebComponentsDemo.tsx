@@ -293,7 +293,7 @@ export default {
             <div>
               <h3 className="font-semibold text-foreground mb-2">NPM</h3>
               <div className="relative">
-                <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
+                <pre className="bg-gray-900 text-gray-100 dark:text-gray-200 p-4 rounded-lg overflow-x-auto">
                   <code>npm install @ux4g/web-components @ux4g/styles</code>
                 </pre>
                 <button
@@ -308,7 +308,7 @@ export default {
             <div>
               <h3 className="font-semibold text-foreground mb-2">CDN (Vanilla HTML)</h3>
               <div className="relative">
-                <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+                <pre className="bg-gray-900 text-gray-100 dark:text-gray-200 p-4 rounded-lg overflow-x-auto text-sm">
                   <code>{`<!-- UX4G Styles -->
 <link rel="stylesheet" href="https://cdn.ux4g.gov.in/styles/v1.0.0/ux4g.css">
 
@@ -487,7 +487,7 @@ export default {
             </div>
             <div className="p-6">
               <div className="relative">
-                <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm max-h-96 overflow-y-auto">
+                <pre className="bg-gray-900 text-gray-100 dark:text-gray-200 p-4 rounded-lg overflow-x-auto text-sm max-h-96 overflow-y-auto">
                   <code>{vanillaHTMLExample}</code>
                 </pre>
                 <button
@@ -508,7 +508,7 @@ export default {
             </div>
             <div className="p-6">
               <div className="relative">
-                <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+                <pre className="bg-gray-900 text-gray-100 dark:text-gray-200 p-4 rounded-lg overflow-x-auto text-sm">
                   <code>{reactExample}</code>
                 </pre>
                 <button
@@ -529,7 +529,7 @@ export default {
             </div>
             <div className="p-6">
               <div className="relative">
-                <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+                <pre className="bg-gray-900 text-gray-100 dark:text-gray-200 p-4 rounded-lg overflow-x-auto text-sm">
                   <code>{angularExample}</code>
                 </pre>
                 <button
@@ -550,7 +550,7 @@ export default {
             </div>
             <div className="p-6">
               <div className="relative">
-                <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+                <pre className="bg-gray-900 text-gray-100 dark:text-gray-200 p-4 rounded-lg overflow-x-auto text-sm">
                   <code>{vueExample}</code>
                 </pre>
                 <button

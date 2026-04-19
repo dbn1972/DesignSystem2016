@@ -832,14 +832,14 @@ function CodeExample({ title, before, after, notes }: CodeExampleProps) {
       <div className="grid md:grid-cols-2 gap-0 divide-x divide-border">
         <div className="p-4">
           <div className="text-xs font-semibold text-muted-foreground mb-2">Material-UI (Before)</div>
-          <pre className="bg-gray-900 text-gray-100 p-4 rounded text-xs overflow-x-auto">
+          <pre className="bg-gray-900 text-gray-100 dark:text-gray-200 p-4 rounded text-xs overflow-x-auto">
             <code>{before}</code>
           </pre>
         </div>
 
         <div className="p-4">
           <div className="text-xs font-semibold text-saffron-700 mb-2">UX4G (After)</div>
-          <pre className="bg-saffron-900 text-gray-100 p-4 rounded text-xs overflow-x-auto">
+          <pre className="bg-saffron-900 text-gray-100 dark:text-gray-200 p-4 rounded text-xs overflow-x-auto">
             <code>{after}</code>
           </pre>
         </div>
@@ -872,14 +872,14 @@ function StylingExample({ title, muiCode, ux4gCode, notes }: StylingExampleProps
       <div className="space-y-4">
         <div>
           <div className="text-xs font-semibold text-muted-foreground mb-2">Material-UI Approach</div>
-          <pre className="bg-gray-900 text-gray-100 p-4 rounded text-xs overflow-x-auto">
+          <pre className="bg-gray-900 text-gray-100 dark:text-gray-200 p-4 rounded text-xs overflow-x-auto">
             <code>{muiCode}</code>
           </pre>
         </div>
 
         <div>
           <div className="text-xs font-semibold text-saffron-700 mb-2">UX4G Approach</div>
-          <pre className="bg-saffron-900 text-gray-100 p-4 rounded text-xs overflow-x-auto">
+          <pre className="bg-saffron-900 text-gray-100 dark:text-gray-200 p-4 rounded text-xs overflow-x-auto">
             <code>{ux4gCode}</code>
           </pre>
         </div>
@@ -910,7 +910,7 @@ function MigrationStep({ step, title, description, commands }: MigrationStepProp
           <h3 className="font-bold text-foreground mb-1">{title}</h3>
           <p className="text-muted-foreground mb-3">{description}</p>
 
-          <pre className="bg-gray-900 text-gray-100 p-4 rounded text-xs overflow-x-auto">
+          <pre className="bg-gray-900 text-gray-100 dark:text-gray-200 p-4 rounded text-xs overflow-x-auto">
             <code>{commands.join('\n')}</code>
           </pre>
         </div>

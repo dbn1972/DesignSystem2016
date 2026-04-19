@@ -109,7 +109,7 @@ export default function ServiceSupportPattern() {
             <div className="bg-card border-2 border-border rounded-lg p-8 mb-6">
               <h2 className="font-bold text-foreground mb-4">Do you have an existing application or reference ID?</h2>
               <div className="space-y-3">
-                <label className="flex items-start gap-3 p-4 border-2 rounded-lg cursor-pointer hover:border-gray-400 transition-all"
+                <label className="flex items-start gap-3 p-4 border-2 rounded-lg cursor-pointer hover:border-border transition-all"
                   style={{ borderColor: hasReference === true ? '#000080' : undefined, backgroundColor: hasReference === true ? '#f0f4ff' : undefined }}>
                   <input
                     type="radio"
@@ -123,7 +123,7 @@ export default function ServiceSupportPattern() {
                     <div className="text-sm text-muted-foreground">For existing applications or previous requests</div>
                   </div>
                 </label>
-                <label className="flex items-start gap-3 p-4 border-2 rounded-lg cursor-pointer hover:border-gray-400 transition-all"
+                <label className="flex items-start gap-3 p-4 border-2 rounded-lg cursor-pointer hover:border-border transition-all"
                   style={{ borderColor: hasReference === false ? '#000080' : undefined, backgroundColor: hasReference === false ? '#f0f4ff' : undefined }}>
                   <input
                     type="radio"
@@ -144,7 +144,7 @@ export default function ServiceSupportPattern() {
               <button
                 onClick={() => setStep('details')}
                 disabled={hasReference === null}
-                className="px-8 py-3 bg-primary text-white rounded font-bold disabled:bg-gray-400 flex items-center gap-2"
+                className="px-8 py-3 bg-primary text-white rounded font-bold disabled:bg-gray-400 dark:bg-gray-600 flex items-center gap-2"
               >
                 Continue <ArrowRight size={20} />
               </button>

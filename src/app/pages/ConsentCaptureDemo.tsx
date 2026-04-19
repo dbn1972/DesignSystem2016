@@ -354,7 +354,7 @@ function ConsentRequestScreen({
               type="checkbox"
               checked={consentChecked}
               onChange={(e) => onConsentChange(e.target.checked)}
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded cursor-pointer"
+              className="mt-1 w-5 h-5 border-2 border-border rounded cursor-pointer"
             />
             <div className="flex-1">
               <span className="text-sm text-foreground leading-relaxed">

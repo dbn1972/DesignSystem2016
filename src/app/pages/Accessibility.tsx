@@ -617,7 +617,7 @@ function ScreenReader() {
             <p className="text-sm text-muted-foreground mb-4">
               {copy.visuallyHiddenDescription}
             </p>
-            <div className="bg-gray-900 text-gray-100 rounded p-4 text-xs font-mono mb-4">
+            <div className="bg-gray-900 text-gray-100 dark:text-gray-200 rounded p-4 text-xs font-mono mb-4">
 {`.sr-only {
   position: absolute;
   width: 1px;
@@ -1215,7 +1215,7 @@ function ModalAccessibility() {
               ))}
             </div>
 
-            <div className="bg-gray-900 text-gray-100 rounded-lg p-6">
+            <div className="bg-gray-900 text-gray-100 dark:text-gray-200 rounded-lg p-6">
               <div className="text-sm font-mono whitespace-pre text-xs overflow-x-auto">
 {`<div 
   role="dialog" 
@@ -1297,7 +1297,7 @@ function StatusCommunication() {
                     <span className="font-semibold">{copy.applicationSubmitted}</span>
                   </div>
                 </div>
-                <code className="text-xs bg-gray-900 text-gray-100 p-2 rounded block font-mono">
+                <code className="text-xs bg-gray-900 text-gray-100 dark:text-gray-200 p-2 rounded block font-mono">
                   {'<div role="status">Success message</div>'}
                 </code>
               </div>
@@ -1312,7 +1312,7 @@ function StatusCommunication() {
                     <span className="font-semibold">{copy.sessionExpired}</span>
                   </div>
                 </div>
-                <code className="text-xs bg-gray-900 text-gray-100 p-2 rounded block font-mono">
+                <code className="text-xs bg-gray-900 text-gray-100 dark:text-gray-200 p-2 rounded block font-mono">
                   {'<div role="alert">Error message</div>'}
                 </code>
               </div>

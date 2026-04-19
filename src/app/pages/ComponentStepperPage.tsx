@@ -208,7 +208,7 @@ export const Stepper: React.FC<StepperProps> = ({
                 {step.id < currentStep ? <Check size={20} /> : step.id}
               </div>
               {index < steps.length - 1 && (
-                <div className={\`w-1 flex-1 mt-2 \${step.id < currentStep ? 'bg-green-700' : 'bg-gray-200'}\`} />
+                <div className={\`w-1 flex-1 mt-2 \${step.id < currentStep ? 'bg-green-700' : 'bg-muted'}\`} />
               )}
             </div>
             <div className="flex-1 pb-8">
@@ -331,7 +331,7 @@ export class StepperComponent {
     const baseClasses = 'flex-1 h-1 mx-4 transition-colors';
     return step.id < this.currentStep 
       ? \`\${baseClasses} bg-green-600\`
-      : \`\${baseClasses} bg-gray-200\`;
+      : \`\${baseClasses} bg-muted\`;
   }
   
   handleStepClick(stepId: number) {

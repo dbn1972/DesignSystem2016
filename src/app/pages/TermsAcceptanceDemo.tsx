@@ -580,7 +580,7 @@ function ExpandedDetailScreen({
               type="checkbox"
               checked={accepted}
               onChange={(e) => onAcceptChange(e.target.checked)}
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+              className="mt-1 w-5 h-5 border-2 border-border rounded"
             />
             <div className="flex-1">
               <span className="text-sm text-foreground font-bold block mb-2">
@@ -940,7 +940,7 @@ function DeclineScreen({
               type="checkbox"
               checked={understandDecline}
               onChange={(e) => onUnderstandChange(e.target.checked)}
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+              className="mt-1 w-5 h-5 border-2 border-border rounded"
             />
             <span className="text-sm text-foreground">
               I understand that I cannot use this service without accepting the Terms and Conditions

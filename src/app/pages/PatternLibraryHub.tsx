@@ -15,7 +15,7 @@ export default function PatternLibraryHub() {
               </div>
               <div>
                 <div className="text-sm text-muted-foreground dark:text-muted-foreground mb-1">Live Demonstrations</div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground dark:text-gray-100">Pattern Library</h1>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200">Pattern Library</h1>
               </div>
             </div>
             <p className="text-lg text-muted-foreground dark:text-muted-foreground leading-relaxed">
@@ -390,7 +390,7 @@ export default function PatternLibraryHub() {
 
         {/* CTA Section */}
         <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 border-2 border-border dark:border-gray-700 rounded-lg p-12 mt-12 text-center">
-          <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-4">See Patterns in Action</h2>
+          <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-4">See Patterns in Action</h2>
           <p className="text-lg text-muted-foreground dark:text-muted-foreground mb-8 max-w-2xl mx-auto">
             Explore our complete reference service - a certificate application with 51 pages
             demonstrating all these patterns in a real government service context.
@@ -456,7 +456,7 @@ function PatternCategory({ icon, title, description, color, patterns }: {
         <div className="flex items-center gap-4">
           <div>{icon}</div>
           <div>
-            <h2 className="text-2xl font-bold text-foreground dark:text-gray-100">{title}</h2>
+            <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200">{title}</h2>
             <p className="text-muted-foreground dark:text-muted-foreground mt-1">{description}</p>
           </div>
         </div>
@@ -481,7 +481,7 @@ function PatternCategory({ icon, title, description, color, patterns }: {
             >
               <div className="flex items-start justify-between mb-2">
                 <h3
-                  className="font-bold text-foreground dark:text-gray-100 transition-colors"
+                  className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200 transition-colors"
                   onMouseOver={(e) => {
                     e.currentTarget.style.color = 'var(--ux4g-color-brand-primary)';
                   }}

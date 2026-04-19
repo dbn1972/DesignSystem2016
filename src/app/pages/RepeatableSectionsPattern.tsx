@@ -290,7 +290,7 @@ export default function RepeatableSectionsPattern() {
                 <h2 className="text-2xl font-bold text-foreground mb-4">Implementation Pattern</h2>
                 <div className="bg-card border-2 border-border rounded-lg p-6">
                   <h3 className="font-bold text-foreground mb-3">React State Management</h3>
-                  <div className="bg-gray-900 text-gray-100 rounded-lg p-4 text-sm font-mono overflow-x-auto">
+                  <div className="bg-gray-900 text-gray-100 dark:text-gray-200 rounded-lg p-4 text-sm font-mono overflow-x-auto">
                     <pre>{`const [items, setItems] = useState([
   { id: 1, name: "", email: "" }
 ]);

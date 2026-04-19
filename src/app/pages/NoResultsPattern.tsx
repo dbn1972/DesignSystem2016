@@ -217,7 +217,7 @@ export default function NoResultsPattern() {
                   </Link>
                   <Link
                     to="/help"
-                    className="px-4 py-2 border-2 border-border rounded font-bold hover:border-gray-400"
+                    className="px-4 py-2 border-2 border-border rounded font-bold hover:border-border"
                   >
                     View Help Center
                   </Link>

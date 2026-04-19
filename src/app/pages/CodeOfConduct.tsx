@@ -812,7 +812,7 @@ function ConsequenceLevel({ level, title, color, description }: any) {
     yellow: 'bg-yellow-50 dark:bg-yellow-950/30 border-yellow-300',
     orange: 'bg-orange-50 dark:bg-orange-950/30 border-orange-300',
     red: 'bg-red-50 dark:bg-red-950/30 border-red-300',
-    black: 'bg-muted border-gray-400'
+    black: 'bg-muted border-border'
   };
 
   return (

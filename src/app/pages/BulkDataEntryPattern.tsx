@@ -197,7 +197,7 @@ export default function BulkDataEntryPattern() {
                 Download the template or format your CSV file with these columns:
               </p>
 
-              <div className="bg-gray-900 text-gray-100 rounded-lg p-4 text-xs font-mono overflow-x-auto mb-4">
+              <div className="bg-gray-900 text-gray-100 dark:text-gray-200 rounded-lg p-4 text-xs font-mono overflow-x-auto mb-4">
                 <pre>{`Name,Email,Phone,Department
 Rajesh Kumar,rajesh@example.com,9876543210,IT
 Priya Sharma,priya@example.com,9876543211,HR
@@ -264,7 +264,7 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
                     <p className="text-muted-foreground mb-2">
                       Professional-grade data grid with Excel-like features, inline editing, CSV export.
                     </p>
-                    <div className="bg-gray-900 text-gray-100 rounded p-3 text-xs font-mono">
+                    <div className="bg-gray-900 text-gray-100 dark:text-gray-200 rounded p-3 text-xs font-mono">
                       {`npm install ag-grid-react ag-grid-community`}
                     </div>
                   </div>
@@ -274,7 +274,7 @@ Amit Patel,amit@example.com,9876543212,Finance`}</pre>
                     <p className="text-muted-foreground mb-2">
                       Lightweight, headless table library for custom bulk entry interfaces.
                     </p>
-                    <div className="bg-gray-900 text-gray-100 rounded p-3 text-xs font-mono">
+                    <div className="bg-gray-900 text-gray-100 dark:text-gray-200 rounded p-3 text-xs font-mono">
                       {`npm install @tanstack/react-table`}
                     </div>
                   </div>

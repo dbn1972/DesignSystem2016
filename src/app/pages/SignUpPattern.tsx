@@ -30,11 +30,11 @@ export default function SignUpPattern() {
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-009-03</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
@@ -372,7 +372,7 @@ function FlowDiagram() {
         <div className="mt-8 pt-6 border-t-2 border-border">
           <div className="flex items-center gap-8 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-gray-400 rounded-sm"></div>
+              <div className="w-3 h-3 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
               <span className="text-muted-foreground">Entry Point</span>
             </div>
             <div className="flex items-center gap-2">
@@ -2084,7 +2084,7 @@ function GovernanceSection() {
                 <span className="text-muted-foreground">Version: <span className="font-bold">1.0.0</span></span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                 <span className="text-muted-foreground">Last Updated: <span className="font-bold">April 2026</span></span>
               </div>
             </div>
@@ -2154,7 +2154,7 @@ function GovernanceSection() {
 function ChecklistItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2 text-sm">
-      <div className="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+      <div className="w-4 h-4 border-2 border-border rounded flex items-center justify-center flex-shrink-0 mt-0.5">
         <Check size={12} className="text-muted-foreground" />
       </div>
       <span className="text-muted-foreground">{text}</span>

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import type * as Monaco from "monaco-editor";
 import * as React from "react";
+import { createPortal } from "react-dom";
 import {
   AlertCircle,
   Check,
@@ -26,6 +27,11 @@ import {
   Select,
   Textarea,
 } from "../react-core-package/src";
+import appStyles from "../../styles/index.css?inline";
+import tokensStyles from "../tokens-package/dist/tokens.css?inline";
+import ux4gBaseStyles from "../styles-package/src/base/index.css?inline";
+import ux4gUtilityStyles from "../styles-package/src/utilities/index.css?inline";
+import ux4gComponentStyles from "../styles-package/src/components/index.css?inline";
 
 type Viewport = "desktop" | "tablet" | "mobile";
 
@@ -42,6 +48,7 @@ type CodeSandboxProps = {
   description: string;
   presets: SandboxPreset[];
   initialPresetId?: string;
+  presetPreviews?: Record<string, ReactNode>;
 };
 
 type PreviewState =
@@ -89,13 +96,14 @@ function formatErrorMessage(error: unknown) {
 function evaluateSandboxCode(
   code: string,
   ts: TypeScriptModule,
-): PreviewState {
+): Promise<PreviewState> {
+  return (async () => {
   try {
     const compiled = ts.transpileModule(code, {
       compilerOptions: {
         jsx: ts.JsxEmit.React,
         target: ts.ScriptTarget.ES2020,
-        module: ts.ModuleKind.None,
+        module: ts.ModuleKind.ES2020,
       },
       reportDiagnostics: true,
     });
@@ -111,22 +119,39 @@ function evaluateSandboxCode(
       return { status: "error", message };
     }
 
-    const runner = new Function(
-      ...Object.keys(SANDBOX_SCOPE),
-      `"use strict";
+    const scopeKey = "__ux4gSandboxScope";
+    (globalThis as Record<string, unknown>)[scopeKey] = SANDBOX_SCOPE;
+
+    const moduleSource = `
+const { ${Object.keys(SANDBOX_SCOPE).join(", ")} } = globalThis.${scopeKey};
 ${compiled.outputText}
-if (typeof Example !== "undefined") {
-  return React.createElement(Example);
+
+const __Example = typeof Example !== "undefined" ? Example : null;
+
+if (!__Example) {
+  throw new Error("Define a function named Example to render the preview.");
 }
-throw new Error("Define a function named Example to render the preview.");
-`,
+
+export default __Example;
+`;
+
+    const blobUrl = URL.createObjectURL(
+      new Blob([moduleSource], { type: "text/javascript" }),
     );
 
-    const node = runner(...Object.values(SANDBOX_SCOPE));
-    return { status: "ready", node };
+    try {
+      const module = (await import(/* @vite-ignore */ blobUrl)) as {
+        default: React.ComponentType;
+      };
+      const node = React.createElement(module.default);
+      return { status: "ready", node };
+    } finally {
+      URL.revokeObjectURL(blobUrl);
+    }
   } catch (error) {
     return { status: "error", message: formatErrorMessage(error) };
   }
+  })();
 }
 
 function PreviewError({ message }: { message: string }) {
@@ -178,11 +203,83 @@ class PreviewRenderBoundary extends React.Component<
   }
 }
 
+type SandboxPreviewFrameProps = {
+  children: ReactNode;
+  dark: boolean;
+};
+
+function SandboxPreviewFrame({ children, dark }: SandboxPreviewFrameProps) {
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
+
+  const combinedStyles = useMemo(
+    () =>
+      [
+        tokensStyles,
+        appStyles,
+        ux4gBaseStyles,
+        ux4gUtilityStyles,
+        ux4gComponentStyles,
+        `
+          :root {
+            color-scheme: ${dark ? "dark" : "light"};
+          }
+
+          html,
+          body {
+            margin: 0;
+            min-height: 100%;
+            background: ${dark ? "#0f172a" : "#ffffff"};
+            color: ${dark ? "#f8fafc" : "#0f172a"};
+          }
+
+          body {
+            padding: 0;
+          }
+
+          #sandbox-preview-root {
+            min-height: 100%;
+            box-sizing: border-box;
+            padding: 0;
+          }
+        `,
+      ].join("\n"),
+    [dark],
+  );
+
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    const doc = iframe.contentDocument;
+    if (!doc) return;
+
+    doc.open();
+    doc.write(`<!doctype html><html><head><style>${combinedStyles}</style></head><body><div id="sandbox-preview-root"></div></body></html>`);
+    doc.close();
+
+    setMountNode(doc.getElementById("sandbox-preview-root"));
+  }, [combinedStyles]);
+
+  return (
+    <>
+      <iframe
+        ref={iframeRef}
+        title="Sandbox preview frame"
+        className="block h-[420px] w-full rounded-[18px] border-0 bg-transparent"
+        sandbox="allow-same-origin"
+      />
+      {mountNode ? createPortal(children, mountNode) : null}
+    </>
+  );
+}
+
 export function CodeSandbox({
   title,
   description,
   presets,
   initialPresetId,
+  presetPreviews,
 }: CodeSandboxProps) {
   const resolvePresetId = (candidate?: string) =>
     presets.some((preset) => preset.id === candidate)
@@ -204,12 +301,15 @@ export function CodeSandbox({
   const [editorComponent, setEditorComponent] =
     useState<MonacoEditorComponent | null>(null);
   const [editorError, setEditorError] = useState<string | null>(null);
+  const [editorTimedOut, setEditorTimedOut] = useState(false);
+  const [preferPlainEditor, setPreferPlainEditor] = useState(false);
   const [previewState, setPreviewState] = useState<PreviewState>({
     status: "loading",
   });
 
   const selectedPreset =
     presets.find((preset) => preset.id === selectedPresetId) ?? presets[0];
+  const presetPreview = selectedPreset ? presetPreviews?.[selectedPreset.id] : null;
 
   useEffect(() => {
     const nextPresetId = resolvePresetId(initialPresetId);
@@ -221,16 +321,31 @@ export function CodeSandbox({
   }, [selectedPreset?.id]);
 
   useEffect(() => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    const isFirefox = userAgent.includes("firefox");
+
+    if (isFirefox) {
+      setPreferPlainEditor(true);
+      return;
+    }
+
     let cancelled = false;
+    const timeoutId = window.setTimeout(() => {
+      if (!cancelled) {
+        setEditorTimedOut(true);
+      }
+    }, 2500);
 
     import("@monaco-editor/react")
       .then((module) => {
         if (!cancelled) {
+          window.clearTimeout(timeoutId);
           setEditorComponent(() => module.default);
         }
       })
       .catch((error) => {
         if (!cancelled) {
+          window.clearTimeout(timeoutId);
           setEditorError(formatErrorMessage(error));
         }
       });
@@ -249,6 +364,7 @@ export function CodeSandbox({
 
     return () => {
       cancelled = true;
+      window.clearTimeout(timeoutId);
     };
   }, []);
 
@@ -258,7 +374,18 @@ export function CodeSandbox({
       return;
     }
 
-    setPreviewState(evaluateSandboxCode(code, compiler));
+    let cancelled = false;
+    setPreviewState({ status: "loading" });
+
+    evaluateSandboxCode(code, compiler).then((nextState) => {
+      if (!cancelled) {
+        setPreviewState(nextState);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [code, compiler]);
 
   const resetToPreset = () => {
@@ -412,7 +539,7 @@ export function CodeSandbox({
             </div>
           </div>
 
-          {EditorComponent ? (
+          {EditorComponent && !editorTimedOut && !preferPlainEditor ? (
             <EditorComponent
               height="520px"
               defaultLanguage="typescript"
@@ -431,10 +558,12 @@ export function CodeSandbox({
                 automaticLayout: true,
               }}
             />
-          ) : editorError ? (
+          ) : editorError || editorTimedOut || preferPlainEditor ? (
             <div className="space-y-3 p-5">
               <div className="rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-100">
-                Monaco could not load, so the sandbox is using a plain editor fallback.
+                {preferPlainEditor
+                  ? "This browser is using the plain editor fallback for better reliability."
+                  : "Monaco could not finish loading in this browser, so the sandbox is using a plain editor fallback."}
               </div>
               <textarea
                 value={code}
@@ -476,9 +605,22 @@ export function CodeSandbox({
               }`}
               style={{ width: VIEWPORT_WIDTHS[viewport], maxWidth: "100%" }}
             >
-              {previewState.status === "ready" ? (
+              {presetPreview ? (
+                <div className="min-h-[420px] space-y-4">
+                  <PreviewRenderBoundary>
+                    <SandboxPreviewFrame dark={previewDark}>
+                      <div>{presetPreview}</div>
+                    </SandboxPreviewFrame>
+                  </PreviewRenderBoundary>
+                  <div className="rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-100">
+                    Live preview is running in secure preset mode because this browser blocks sandbox code execution. The preset preview is accurate, but code edits will not change the preview in this mode.
+                  </div>
+                </div>
+              ) : previewState.status === "ready" ? (
                 <PreviewRenderBoundary>
-                  <div className="min-h-[420px]">{previewState.node}</div>
+                  <SandboxPreviewFrame dark={previewDark}>
+                    <div className="min-h-[420px]">{previewState.node}</div>
+                  </SandboxPreviewFrame>
                 </PreviewRenderBoundary>
               ) : previewState.status === "loading" ? (
                 <div className="flex min-h-[420px] items-center justify-center text-sm text-muted-foreground">

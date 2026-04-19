@@ -189,7 +189,7 @@ export default function ScriptLayoutPattern() {
 
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">CSS Implementation</h2>
-                <div className="bg-gray-900 text-gray-100 rounded-lg p-6 text-sm font-mono overflow-x-auto">
+                <div className="bg-gray-900 text-gray-100 dark:text-gray-200 rounded-lg p-6 text-sm font-mono overflow-x-auto">
                   <pre>{`/* RTL Support */
 [dir="rtl"] {
   direction: rtl;

@@ -230,7 +230,7 @@ export default function CitizenDashboardPattern() {
                         </div>
                       </div>
                       <div className="flex gap-2">
-                        <button className="flex-1 px-4 py-2 border-2 border-border rounded font-bold hover:border-gray-400 text-sm">
+                        <button className="flex-1 px-4 py-2 border-2 border-border rounded font-bold hover:border-border text-sm">
                           View Details
                         </button>
                         <button className="px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90 text-sm">
@@ -399,7 +399,7 @@ export default function CitizenDashboardPattern() {
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <button className="flex-1 px-4 py-2 border-2 border-border rounded font-bold hover:border-gray-400">
+                    <button className="flex-1 px-4 py-2 border-2 border-border rounded font-bold hover:border-border">
                       View Details
                     </button>
                     <button className="flex-1 px-4 py-2 bg-primary text-white rounded font-bold hover:opacity-90">

@@ -361,7 +361,7 @@ export default function StepProgressPattern() {
                     <button
                       onClick={() => setSelectedStep(Math.max(1, selectedStep - 1))}
                       disabled={selectedStep === 1}
-                      className="px-4 py-2 border-2 border-border rounded font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:border-gray-400"
+                      className="px-4 py-2 border-2 border-border rounded font-bold disabled:opacity-30 disabled:cursor-not-allowed hover:border-border"
                     >
                       ← Previous Step
                     </button>

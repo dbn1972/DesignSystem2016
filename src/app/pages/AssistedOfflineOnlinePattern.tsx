@@ -29,11 +29,11 @@ export default function AssistedOfflineOnlinePattern() {
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-007</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
@@ -2063,7 +2063,7 @@ function ChannelPhaseBlock({ phase, icon, activities, outcome }: any) {
 
 function FlowStep({ number, label, status, channel }: any) {
   const statusConfig: any = {
-    entry: { bg: 'bg-muted', border: 'border-gray-400', text: 'text-muted-foreground' },
+    entry: { bg: 'bg-muted', border: 'border-border', text: 'text-muted-foreground' },
     active: { bg: 'bg-blue-50', border: 'border-blue-400', text: 'text-blue-700' },
     success: { bg: 'bg-green-50', border: 'border-green-400', text: 'text-green-700' },
     info: { bg: 'bg-purple-50', border: 'border-purple-400', text: 'text-purple-700' }
@@ -2447,7 +2447,7 @@ function ImplementationItem({ category, requirement, priority }: any) {
 function AnalyticsEvent({ event, description }: any) {
   return (
     <div className="flex items-start gap-4 p-3 bg-background border-2 border-border rounded-lg">
-      <code className="px-2 py-1 bg-card border border-gray-400 rounded text-xs font-mono text-foreground flex-shrink-0">
+      <code className="px-2 py-1 bg-card border border-border rounded text-xs font-mono text-foreground flex-shrink-0">
         {event}
       </code>
       <div className="flex-1 text-sm text-muted-foreground">{description}</div>

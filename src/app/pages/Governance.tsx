@@ -241,18 +241,18 @@ function OwnershipModelSection() {
         {/* Responsibility Matrix */}
         <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
           <div className="bg-background dark:bg-gray-800 p-6 border-b-2 border-border dark:border-gray-700">
-            <h3 className="font-bold text-foreground dark:text-gray-100">Responsibility Matrix (RACI)</h3>
+            <h3 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200">Responsibility Matrix (RACI)</h3>
           </div>
 
           <div className="overflow-x-auto -mx-6 px-6 sm:-mx-0 sm:px-0">
             <table className="w-full text-sm">
               <thead className="bg-background dark:bg-gray-800 border-b-2 border-border dark:border-gray-700">
                 <tr>
-                  <th className="text-left p-4 font-semibold text-foreground dark:text-gray-100">Activity</th>
-                  <th className="text-center p-4 font-semibold text-foreground dark:text-gray-100">Design Lead</th>
-                  <th className="text-center p-4 font-semibold text-foreground dark:text-gray-100">Eng Lead</th>
-                  <th className="text-center p-4 font-semibold text-foreground dark:text-gray-100">Product Lead</th>
-                  <th className="text-center p-4 font-semibold text-foreground dark:text-gray-100">Contributors</th>
+                  <th className="text-left p-4 font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">Activity</th>
+                  <th className="text-center p-4 font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">Design Lead</th>
+                  <th className="text-center p-4 font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">Eng Lead</th>
+                  <th className="text-center p-4 font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">Product Lead</th>
+                  <th className="text-center p-4 font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">Contributors</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border dark:divide-gray-700">
@@ -283,19 +283,19 @@ function OwnershipModelSection() {
           <div className="p-6 bg-background dark:bg-gray-800 border-t-2 border-border dark:border-gray-700">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
               <div>
-                <strong className="text-foreground dark:text-gray-100">R - Responsible:</strong>
+                <strong className="text-foreground dark:text-gray-100 dark:text-gray-200">R - Responsible:</strong>
                 <span className="text-muted-foreground dark:text-muted-foreground ml-1">Does the work</span>
               </div>
               <div>
-                <strong className="text-foreground dark:text-gray-100">A - Accountable:</strong>
+                <strong className="text-foreground dark:text-gray-100 dark:text-gray-200">A - Accountable:</strong>
                 <span className="text-muted-foreground dark:text-muted-foreground ml-1">Final approval</span>
               </div>
               <div>
-                <strong className="text-foreground dark:text-gray-100">C - Consulted:</strong>
+                <strong className="text-foreground dark:text-gray-100 dark:text-gray-200">C - Consulted:</strong>
                 <span className="text-muted-foreground dark:text-muted-foreground ml-1">Provides input</span>
               </div>
               <div>
-                <strong className="text-foreground dark:text-gray-100">I - Informed:</strong>
+                <strong className="text-foreground dark:text-gray-100 dark:text-gray-200">I - Informed:</strong>
                 <span className="text-muted-foreground dark:text-muted-foreground ml-1">Kept updated</span>
               </div>
             </div>
@@ -823,7 +823,7 @@ function ReleaseGovernanceSection() {
         {/* Release Process */}
         <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
           <div className="bg-background dark:bg-gray-800 p-6 border-b-2 border-border dark:border-gray-700">
-            <h3 className="font-bold text-foreground dark:text-gray-100">Release Process</h3>
+            <h3 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200">Release Process</h3>
           </div>
           
           <div className="p-8">
@@ -1167,7 +1167,7 @@ function PromotionRulesSection() {
           <div className="flex items-start gap-3">
             <Zap className="text-orange-600 dark:text-orange-500 flex-shrink-0 mt-1" size={24} />
             <div>
-              <h3 className="font-bold text-foreground dark:text-gray-100 mb-2">Fast-Track Promotion</h3>
+              <h3 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-2">Fast-Track Promotion</h3>
               <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">
                 Critical bug fixes and minor variants can be fast-tracked through lifecycle stages with
                 approval from both Design and Engineering Leads.
@@ -1551,7 +1551,7 @@ function ConformanceExpectationsSection() {
         {/* Verification Process */}
         <div className="border-2 border-border dark:border-gray-700 rounded-lg overflow-hidden">
           <div className="bg-background dark:bg-gray-800 p-6 border-b-2 border-border dark:border-gray-700">
-            <h3 className="font-bold text-foreground dark:text-gray-100">Conformance Verification</h3>
+            <h3 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200">Conformance Verification</h3>
             <p className="text-sm text-muted-foreground dark:text-muted-foreground mt-1">How conformance is measured and verified</p>
           </div>
           
@@ -1581,14 +1581,14 @@ function ConformanceExpectationsSection() {
 
         {/* Non-Conformance */}
         <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
-          <h3 className="font-bold text-foreground dark:text-gray-100 mb-4 flex items-center gap-2">
+          <h3 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-4 flex items-center gap-2">
             <XCircle className="text-red-600 dark:text-red-500" size={20} />
             Non-Conformance Consequences
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
-              <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3">For Government Departments:</h4>
+              <h4 className="font-semibold text-foreground dark:text-gray-100 dark:text-gray-200 mb-3">For Government Departments:</h4>
               <ul className="space-y-2 text-muted-foreground dark:text-muted-foreground">
                 <li>• Reduced support priority</li>
                 <li>• Excluded from beta testing programs</li>
@@ -1598,7 +1598,7 @@ function ConformanceExpectationsSection() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-foreground dark:text-gray-100 mb-3">For Vendor Partners:</h4>
+              <h4 className="font-semibold text-foreground dark:text-gray-100 dark:text-gray-200 mb-3">For Vendor Partners:</h4>
               <ul className="space-y-2 text-muted-foreground dark:text-muted-foreground">
                 <li>• Application may be rejected in acceptance testing</li>
                 <li>• Remediation work required before go-live</li>

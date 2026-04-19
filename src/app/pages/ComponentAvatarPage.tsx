@@ -31,7 +31,7 @@ const AvatarPreview = ({ src, alt, name, size, shape, status, fallback, ...props
 
   const statusColors = {
     online: 'bg-green-500',
-    offline: 'bg-gray-400',
+    offline: 'bg-gray-400 dark:bg-gray-600',
     away: 'bg-yellow-500',
     busy: 'bg-red-500',
   };

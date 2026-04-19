@@ -120,7 +120,7 @@ export default function IdentitySignIn() {
                         id="rememberMe"
                         checked={formData.rememberMe}
                         onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
-                        className="w-5 h-5 border-2 border-gray-400 rounded"
+                        className="w-5 h-5 border-2 border-border rounded"
                       />
                       <label htmlFor="rememberMe" className="text-sm text-muted-foreground">
                         Keep me signed in on this device

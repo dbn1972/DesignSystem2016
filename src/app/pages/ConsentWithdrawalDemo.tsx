@@ -648,7 +648,7 @@ function PreferenceToggle({
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+        className="mt-1 w-5 h-5 border-2 border-border rounded"
       />
       <div className="flex-1">
         <div className="font-bold text-foreground text-sm mb-1">{label}</div>
@@ -779,7 +779,7 @@ function WithdrawImpactScreen({
               type="checkbox"
               checked={understandImpact}
               onChange={(e) => onUnderstandChange(e.target.checked)}
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+              className="mt-1 w-5 h-5 border-2 border-border rounded"
             />
             <span className="text-sm text-foreground font-bold">
               I understand the consequences of withdrawing my consent and wish to proceed
@@ -906,7 +906,7 @@ function WithdrawConfirmScreen({
               type="checkbox"
               checked={confirmWithdrawal}
               onChange={(e) => onConfirmChange(e.target.checked)}
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+              className="mt-1 w-5 h-5 border-2 border-border rounded"
             />
             <div className="flex-1">
               <span className="text-sm text-foreground font-bold block mb-2">

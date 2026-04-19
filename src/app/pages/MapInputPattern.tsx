@@ -96,7 +96,7 @@ export default function MapInputPattern() {
                 <div className="absolute inset-0 opacity-20">
                   <div className="grid grid-cols-8 grid-rows-6 h-full">
                     {Array.from({length: 48}).map((_, i) => (
-                      <div key={i} className="border border-gray-400"></div>
+                      <div key={i} className="border border-border"></div>
                     ))}
                   </div>
                 </div>
@@ -254,7 +254,7 @@ export default function MapInputPattern() {
                     <p className="text-muted-foreground mb-2">
                       Most comprehensive with geocoding, reverse geocoding, and rich India coverage.
                     </p>
-                    <div className="bg-gray-900 text-gray-100 rounded p-3 text-xs font-mono overflow-x-auto">
+                    <div className="bg-gray-900 text-gray-100 dark:text-gray-200 rounded p-3 text-xs font-mono overflow-x-auto">
                       <pre>{`// Initialize map
 const map = new google.maps.Map(element, {
   center: { lat: 20.5937, lng: 78.9629 },

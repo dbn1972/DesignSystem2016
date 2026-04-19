@@ -30,11 +30,11 @@ export default function SignInPattern() {
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-009-02</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
@@ -961,7 +961,7 @@ function ErrorStateCard({ title, severity, message, attemptCounter, lockDuration
           </ul>
         </div>
 
-        <div className="text-xs text-muted-foreground italic p-3 bg-background border-l-4 border-gray-400 rounded-r">
+        <div className="text-xs text-muted-foreground italic p-3 bg-background border-l-4 border-border rounded-r">
           <span className="font-bold">Implementation Note:</span> {notes}
         </div>
       </div>
@@ -1169,7 +1169,7 @@ function ImplementationCard({ icon, title, items }: { icon: React.ReactNode; tit
       <ul className="space-y-2">
         {items.map((item, idx) => (
           <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0 mt-1.5"></div>
+            <div className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-600 rounded-full flex-shrink-0 mt-1.5"></div>
             <span>{item}</span>
           </li>
         ))}

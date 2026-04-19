@@ -244,7 +244,7 @@ export default function TaskListPattern() {
                       <CheckCircle size={16} />
                       <span>Complete Task</span>
                     </button>
-                    <button className="px-6 py-2 border-2 border-border text-muted-foreground rounded font-bold hover:border-gray-400">
+                    <button className="px-6 py-2 border-2 border-border text-muted-foreground rounded font-bold hover:border-border">
                       View Application
                     </button>
                   </div>

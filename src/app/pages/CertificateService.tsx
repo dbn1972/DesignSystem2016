@@ -16,7 +16,7 @@ export default function CertificateService() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground dark:text-muted-foreground mb-1">Government of India</div>
-                    <h1 className="text-3xl font-bold text-foreground dark:text-gray-100">Certificate Application Service</h1>
+                    <h1 className="text-3xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200">Certificate Application Service</h1>
                   </div>
                 </div>
                 <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed">
@@ -46,7 +46,7 @@ export default function CertificateService() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground dark:text-muted-foreground">Processing Time</div>
-                <div className="font-bold text-foreground dark:text-gray-100">7-10 Days</div>
+                <div className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200">7-10 Days</div>
               </div>
             </div>
 
@@ -56,7 +56,7 @@ export default function CertificateService() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground dark:text-muted-foreground">Application Mode</div>
-                <div className="font-bold text-foreground dark:text-gray-100">100% Online</div>
+                <div className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200">100% Online</div>
               </div>
             </div>
 
@@ -66,7 +66,7 @@ export default function CertificateService() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground dark:text-muted-foreground">Eligibility</div>
-                <div className="font-bold text-foreground dark:text-gray-100">All Citizens</div>
+                <div className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200">All Citizens</div>
               </div>
             </div>
 
@@ -76,7 +76,7 @@ export default function CertificateService() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground dark:text-muted-foreground">Certificate Type</div>
-                <div className="font-bold text-foreground dark:text-gray-100">Digital + Print</div>
+                <div className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200">Digital + Print</div>
               </div>
             </div>
 
@@ -89,7 +89,7 @@ export default function CertificateService() {
         
         {/* Service Description */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">About This Service</h2>
+          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-6">About This Service</h2>
           <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4 sm:p-6 lg:p-8">
             <p className="text-muted-foreground dark:text-muted-foreground leading-relaxed mb-4">
               This is a generic government certificate application service that can be used for various types 
@@ -105,7 +105,7 @@ export default function CertificateService() {
 
         {/* Eligibility */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">Eligibility Criteria</h2>
+          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-6">Eligibility Criteria</h2>
           <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="space-y-3">
               <EligibilityItem text="Must be an Indian citizen" />
@@ -128,11 +128,11 @@ export default function CertificateService() {
 
         {/* Required Documents */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">Required Documents</h2>
+          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-6">Required Documents</h2>
           <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Mandatory Documents</h3>
+                <h3 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-3">Mandatory Documents</h3>
                 <div className="space-y-2">
                   <DocumentItem text="Identity Proof (Aadhaar / Voter ID / Passport)" />
                   <DocumentItem text="Address Proof (Utility Bill / Rent Agreement)" />
@@ -141,7 +141,7 @@ export default function CertificateService() {
                 </div>
               </div>
               <div>
-                <h3 className="font-bold text-foreground dark:text-gray-100 mb-3">Additional Documents (If Applicable)</h3>
+                <h3 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-3">Additional Documents (If Applicable)</h3>
                 <div className="space-y-2">
                   <DocumentItem text="Income Proof (for income certificate)" optional />
                   <DocumentItem text="Caste Certificate (for caste certificate renewal)" optional />
@@ -154,7 +154,7 @@ export default function CertificateService() {
               <div className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-300 dark:border-blue-800 rounded-lg p-4 flex items-start gap-3">
                 <Info size={20} className="text-primary flex-shrink-0 mt-0.5" />
                 <div className="text-sm text-muted-foreground dark:text-muted-foreground">
-                  <p className="font-bold text-foreground dark:text-gray-100 mb-1">Document Upload Guidelines</p>
+                  <p className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-1">Document Upload Guidelines</p>
                   <p>All documents must be uploaded in PDF, JPEG, or PNG format. Maximum file size: 2MB per document. 
                   Ensure all documents are clear and readable.</p>
                 </div>
@@ -165,7 +165,7 @@ export default function CertificateService() {
 
         {/* Application Process */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">Application Process</h2>
+          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-6">Application Process</h2>
           <div className="bg-card dark:bg-gray-900 border-2 border-border dark:border-gray-700 rounded-lg p-4 sm:p-6 lg:p-8">
             <div className="space-y-6">
               
@@ -223,11 +223,11 @@ export default function CertificateService() {
 
         {/* Important Information */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 mb-6">Important Information</h2>
+          <h2 className="text-2xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-6">Important Information</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <div className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-300 rounded-lg p-6">
-              <h3 className="font-bold text-foreground dark:text-gray-100 mb-4 flex items-center gap-2">
+              <h3 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-4 flex items-center gap-2">
                 <AlertCircle size={20} className="text-orange-600" />
                 Before You Apply
               </h3>
@@ -240,7 +240,7 @@ export default function CertificateService() {
             </div>
 
             <div className="bg-green-50 dark:bg-green-900/20 border-2 border-green-300 dark:border-green-800 rounded-lg p-6">
-              <h3 className="font-bold text-foreground dark:text-gray-100 mb-4 flex items-center gap-2">
+              <h3 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-4 flex items-center gap-2">
                 <CheckCircle size={20} className="text-green-600" />
                 After Submission
               </h3>
@@ -258,7 +258,7 @@ export default function CertificateService() {
         {/* Call to Action */}
         <section className="bg-gradient-to-r from-[#FF9933] via-white to-[#138808] p-1 rounded-lg">
           <div className="bg-card dark:bg-gray-900 rounded p-12 text-center">
-            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 mb-4">Ready to Apply?</h2>
+            <h2 className="text-3xl font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-4">Ready to Apply?</h2>
             <p className="text-muted-foreground dark:text-muted-foreground mb-8 max-w-2xl mx-auto">
               Start your certificate application now. The entire process takes approximately 15-20 minutes 
               to complete online.
@@ -273,7 +273,7 @@ export default function CertificateService() {
               </Link>
               <Link
                 to="/reference-service/certificate/help"
-                className="px-8 py-4 border-2 border-border dark:border-gray-700 bg-card dark:bg-gray-900 text-muted-foreground dark:text-gray-300 font-bold rounded text-sm hover:bg-background dark:bg-gray-800 flex items-center gap-2"
+                className="px-8 py-4 border-2 border-border dark:border-gray-700 bg-card dark:bg-gray-900 text-muted-foreground dark:text-muted-foreground font-bold rounded text-sm hover:bg-background dark:bg-gray-800 flex items-center gap-2"
               >
                 <HelpCircle size={18} />
                 Need Help?
@@ -338,7 +338,7 @@ function ProcessStep({ number, title, description }: { number: number; title: st
         {number}
       </div>
       <div className="flex-1">
-        <h4 className="font-bold text-foreground dark:text-gray-100 mb-1">{title}</h4>
+        <h4 className="font-bold text-foreground dark:text-gray-100 dark:text-gray-200 mb-1">{title}</h4>
         <p className="text-sm text-muted-foreground dark:text-muted-foreground">{description}</p>
       </div>
     </div>

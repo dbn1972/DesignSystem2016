@@ -69,7 +69,7 @@ export default function ConsentDeclarationPatterns() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">
                     Version:{" "}
                     <span className="font-bold text-foreground">
@@ -78,7 +78,7 @@ export default function ConsentDeclarationPatterns() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">
                     Updated:{" "}
                     <span className="font-bold text-foreground">

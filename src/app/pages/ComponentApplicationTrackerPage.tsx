@@ -338,7 +338,7 @@ export class ApplicationTrackerComponent {
     const baseClasses = 'w-0.5 h-12 mt-2 transition-colors';
     return stage.status === 'completed'
       ? \`\${baseClasses} bg-green-600\`
-      : \`\${baseClasses} bg-gray-200\`;
+      : \`\${baseClasses} bg-muted\`;
   }
   
   handleRefresh() {

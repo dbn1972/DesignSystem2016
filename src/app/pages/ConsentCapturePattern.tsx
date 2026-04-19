@@ -30,11 +30,11 @@ export default function ConsentCapturePattern() {
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-010-01</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
@@ -403,7 +403,7 @@ function FlowDiagram() {
         <div className="mt-8 pt-6 border-t-2 border-border">
           <div className="flex items-center gap-8 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-gray-400 rounded-sm"></div>
+              <div className="w-3 h-3 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
               <span className="text-muted-foreground">Entry Point</span>
             </div>
             <div className="flex items-center gap-2">
@@ -623,7 +623,7 @@ function ConsentScreenExample({ type }: { type: string }) {
           {/* Consent Checkbox */}
           <div className="bg-background border-2 border-border rounded-lg p-4 mb-4">
             <label className="flex items-start gap-3 cursor-pointer">
-              <input aria-label="Checkbox" type="checkbox" className="mt-1 w-4 h-4 border-2 border-gray-400 rounded" />
+              <input aria-label="Checkbox" type="checkbox" className="mt-1 w-4 h-4 border-2 border-border rounded" />
               <span className="text-sm text-muted-foreground">
                 I understand and consent to the collection, processing, and storage of my personal data 
                 as described above for the stated purpose.
@@ -688,7 +688,7 @@ function ConsentScreenExample({ type }: { type: string }) {
                     Send SMS and email updates about your application
                   </p>
                 </div>
-                <input aria-label="Checkbox" type="checkbox" defaultChecked className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
+                <input aria-label="Checkbox" type="checkbox" defaultChecked className="mt-1 w-5 h-5 border-2 border-border rounded" />
               </label>
             </div>
 
@@ -700,7 +700,7 @@ function ConsentScreenExample({ type }: { type: string }) {
                     Help us improve the service by sharing usage data
                   </p>
                 </div>
-                <input aria-label="Checkbox" type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
+                <input aria-label="Checkbox" type="checkbox" className="mt-1 w-5 h-5 border-2 border-border rounded" />
               </label>
             </div>
 
@@ -712,7 +712,7 @@ function ConsentScreenExample({ type }: { type: string }) {
                     Receive newsletters and policy updates
                   </p>
                 </div>
-                <input aria-label="Checkbox" type="checkbox" className="mt-1 w-5 h-5 border-2 border-gray-400 rounded" />
+                <input aria-label="Checkbox" type="checkbox" className="mt-1 w-5 h-5 border-2 border-border rounded" />
               </label>
             </div>
           </div>
@@ -1762,7 +1762,7 @@ function ComplianceItem({ text }: { text: string }) {
 function ChecklistItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-2 text-sm">
-      <div className="w-4 h-4 border-2 border-gray-400 rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+      <div className="w-4 h-4 border-2 border-border rounded flex items-center justify-center flex-shrink-0 mt-0.5">
         <Check size={12} className="text-muted-foreground" />
       </div>
       <span className="text-muted-foreground">{text}</span>

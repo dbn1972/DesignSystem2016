@@ -567,7 +567,7 @@ function DeclarationScreen({
               type="checkbox"
               checked={declarationAccepted}
               onChange={(e) => onDeclarationChange(e.target.checked)}
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+              className="mt-1 w-5 h-5 border-2 border-border rounded"
               aria-describedby="declaration-description"
             />
             <div className="flex-1">

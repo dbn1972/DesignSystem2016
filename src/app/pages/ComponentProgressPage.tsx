@@ -594,7 +594,7 @@ export class ProgressComponent {
       lg: 'h-3'
     };
 
-    return \`w-full bg-gray-200 rounded-full overflow-hidden \${sizeClasses[this.size]}\`;
+    return \`w-full bg-muted rounded-full overflow-hidden \${sizeClasses[this.size]}\`;
   }
 
   getBarClasses(): string {

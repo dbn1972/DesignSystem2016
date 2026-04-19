@@ -30,11 +30,11 @@ export default function AppointmentBookingPattern() {
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-011-01</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
@@ -373,7 +373,7 @@ function BookingFlow() {
         <div className="mt-8 pt-6 border-t-2 border-border">
           <div className="flex items-center gap-8 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-gray-400 rounded-sm"></div>
+              <div className="w-3 h-3 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
               <span className="text-muted-foreground">Entry Point</span>
             </div>
             <div className="flex items-center gap-2">

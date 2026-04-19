@@ -1,6 +1,127 @@
 /**
  * UX4G Button Styles Entry Point
- * Keeps per-component imports stable while shared button rules live in forms.css.
+ * Shared button styles aligned with the React core class contract.
  */
 
-@import './forms.css';
+.ux4g-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  min-height: 44px;
+  padding: 0 var(--ux4g-spacing-4, 1rem);
+  border: 1px solid transparent;
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  background-color: var(--ux4g-color-primary, #005196);
+  color: var(--ux4g-color-text-on-brand, #ffffff);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.ux4g-button:hover {
+  background-color: var(--ux4g-color-primary-hover, #004178);
+}
+
+.ux4g-button:active {
+  transform: translateY(1px);
+}
+
+.ux4g-button:disabled,
+.ux4g-button[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ux4g-button-primary {
+  background-color: var(--ux4g-color-primary, #005196);
+  border-color: var(--ux4g-color-primary, #005196);
+  color: var(--ux4g-color-text-on-brand, #ffffff);
+}
+
+.ux4g-button-primary:hover {
+  background-color: var(--ux4g-color-primary-hover, #004178);
+  border-color: var(--ux4g-color-primary-hover, #004178);
+}
+
+.ux4g-button-secondary {
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  border-color: var(--ux4g-color-primary, #005196);
+  color: var(--ux4g-color-primary, #005196);
+}
+
+.ux4g-button-secondary:hover {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-button-tertiary,
+.ux4g-button-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--ux4g-color-primary, #005196);
+}
+
+.ux4g-button-tertiary:hover,
+.ux4g-button-ghost:hover {
+  background-color: rgba(0, 81, 150, 0.08);
+}
+
+.ux4g-button-destructive {
+  background-color: var(--ux4g-color-error, #dc2626);
+  border-color: var(--ux4g-color-error, #dc2626);
+  color: #ffffff;
+}
+
+.ux4g-button-destructive:hover {
+  background-color: #b91c1c;
+  border-color: #b91c1c;
+}
+
+.ux4g-button-success {
+  background-color: var(--ux4g-color-success, #15803d);
+  border-color: var(--ux4g-color-success, #15803d);
+  color: #ffffff;
+}
+
+.ux4g-button-success:hover {
+  background-color: #166534;
+  border-color: #166534;
+}
+
+.ux4g-button-sm {
+  min-height: 32px;
+  padding: 0 var(--ux4g-spacing-3, 0.75rem);
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+}
+
+.ux4g-button-md {
+  min-height: 40px;
+  padding: 0 var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-button-lg {
+  min-height: 48px;
+  padding: 0 var(--ux4g-spacing-5, 1.25rem);
+  font-size: var(--ux4g-font-size-base, 1rem);
+}
+
+.ux4g-button-loading {
+  pointer-events: none;
+}
+
+.ux4g-button-text,
+.ux4g-button-icon-before,
+.ux4g-button-icon-after {
+  display: inline-flex;
+  align-items: center;
+}

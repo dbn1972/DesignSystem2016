@@ -455,7 +455,7 @@ export class DividerComponent {
       md: 'mx-4',
       lg: 'mx-6',
     };
-    return \`self-stretch w-px bg-gray-300 \${spacingClasses[this.spacing]}\`;
+    return \`self-stretch w-px bg-muted \${spacingClasses[this.spacing]}\`;
   }
 }`,
         module: `import { NgModule } from '@angular/core';

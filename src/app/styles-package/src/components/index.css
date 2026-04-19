@@ -1,8 +1,30 @@
 /**
  * UX4G Component Baseline Styles
- * Forms, status indicators, and navigation patterns
+ * Shared component rules used by React, Angular, and docs previews.
  */
 
+@import './buttons.css';
+@import './card.css';
 @import './forms.css';
 @import './status.css';
+@import './feedback.css';
 @import './navigation.css';
+@import './checkbox.css';
+@import './radio.css';
+@import './select.css';
+@import './textarea.css';
+@import './dialog.css';
+@import './table.css';
+@import './tabs.css';
+@import './menu.css';
+@import './pagination.css';
+@import './progress.css';
+@import './spinner.css';
+@import './switch.css';
+@import './toast.css';
+@import './tooltip.css';
+@import './avatar.css';
+@import './breadcrumb.css';
+@import './divider.css';
+@import './tag.css';
+@import './status-tag.css';

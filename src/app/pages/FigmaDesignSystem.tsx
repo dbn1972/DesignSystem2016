@@ -27,7 +27,7 @@ export default function FigmaDesignSystem() {
                   <div className="w-7 h-7 rounded" style={{ backgroundColor: 'var(--ux4g-color-brand-primary)' }}></div>
                 </div>
                 <div>
-                  <div className="text-base font-semibold text-foreground dark:text-gray-100">UX4G Design System</div>
+                  <div className="text-base font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">UX4G Design System</div>
                   <div className="text-xs text-muted-foreground dark:text-muted-foreground">Figma MVP File v1.0</div>
                 </div>
               </div>

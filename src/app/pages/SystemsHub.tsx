@@ -46,13 +46,13 @@ export default function SystemsHub() {
                 </Link>
                 <Link
                   to="/systems/form-intelligence"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200 dark:hover:border-blue-500"
                 >
                   View form intelligence
                 </Link>
                 <Link
                   to="/systems/state-resilience"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200 dark:hover:border-blue-500"
                 >
                   View state resilience
                 </Link>
@@ -101,7 +101,7 @@ export default function SystemsHub() {
                 </div>
 
                 <div className="mt-6 rounded-2xl border border-border bg-gradient-to-br from-blue-50 to-emerald-50 p-5 dark:from-blue-950/30 dark:to-emerald-950/20">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-100">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">
                     <Shield size={16} className="text-blue-700 dark:text-blue-300" />
                     Enterprise-ready foundation
                   </div>
@@ -215,7 +215,7 @@ export default function SystemsHub() {
             </ul>
 
             <div className="mt-6 rounded-2xl bg-card p-5 border border-border dark:bg-gray-900">
-              <p className="text-sm font-semibold text-foreground dark:text-gray-100">
+              <p className="text-sm font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">
                 Recommended starting point
               </p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
@@ -321,7 +321,7 @@ function SystemCard({
 
       <div className="mt-6 space-y-3">
         {points.map((point) => (
-          <div key={point} className="flex items-start gap-3 text-sm text-foreground dark:text-gray-100">
+          <div key={point} className="flex items-start gap-3 text-sm text-foreground dark:text-gray-100 dark:text-gray-200">
             <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />
             <span>{point}</span>
           </div>
@@ -352,7 +352,7 @@ function FeaturePanel({ title, description }: { title: string; description: stri
 
 function ChecklistItem({ text }: { text: string }) {
   return (
-    <li className="flex items-start gap-3 text-sm text-foreground dark:text-gray-100">
+    <li className="flex items-start gap-3 text-sm text-foreground dark:text-gray-100 dark:text-gray-200">
       <CheckCircle size={16} className="mt-0.5 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />
       <span>{text}</span>
     </li>

@@ -132,14 +132,14 @@ export default function Patterns() {
                 </Link>
                 <Link
                   to="/systems/form-intelligence"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200 dark:hover:border-blue-500"
                 >
                   <Workflow size={16} />
                   {copy.hero.viewFormIntelligence}
                 </Link>
                 <Link
                   to="/systems/multilingual"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200 dark:hover:border-blue-500"
                 >
                   <Globe2 size={16} />
                   {copy.hero.viewMultilingualGuidance}
@@ -177,7 +177,7 @@ export default function Patterns() {
                 </div>
 
                 <div className="mt-5 rounded-2xl border border-border bg-gradient-to-br from-blue-50 to-emerald-50 p-4 dark:from-blue-950/30 dark:to-emerald-950/20">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-100">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">
                     <Shield size={16} className="text-emerald-600 dark:text-emerald-400" />
                     {copy.summary.governmentGradeConsistency}
                   </div>
@@ -217,7 +217,7 @@ export default function Patterns() {
                     <a
                       key={pattern.title}
                       href={pattern.link}
-                      className="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary dark:bg-gray-900 dark:text-gray-100"
+                      className="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary dark:bg-gray-900 dark:text-gray-100 dark:text-gray-200"
                     >
                       {pattern.title}
                     </a>
@@ -317,7 +317,7 @@ export default function Patterns() {
                           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
                             {idx + 1}
                           </div>
-                          <span className="text-sm font-medium text-foreground dark:text-gray-100">{step}</span>
+                          <span className="text-sm font-medium text-foreground dark:text-gray-100 dark:text-gray-200">{step}</span>
                         </div>
                         {idx < flow.steps.length - 1 && (
                           <ArrowRight size={16} className="hidden text-muted-foreground md:block" />
@@ -870,7 +870,7 @@ function Field({
         {label}
       </label>
       {select ? (
-        <select aria-label={selectAriaLabel ?? label} className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100" style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as CSSProperties}>
+        <select aria-label={selectAriaLabel ?? label} className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100 dark:text-gray-200" style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as CSSProperties}>
           {options.map((option) => (
             <option key={option}>{option}</option>
           ))}
@@ -878,7 +878,7 @@ function Field({
       ) : (
         <input aria-label={label} type={type}
           placeholder={placeholder}
-          className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100"
+          className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:border-transparent dark:bg-gray-900 dark:text-gray-100 dark:text-gray-200"
           style={{ '--tw-ring-color': 'var(--ux4g-color-brand-primary)' } as CSSProperties}
         />
       )}

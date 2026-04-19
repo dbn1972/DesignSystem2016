@@ -537,14 +537,14 @@ function EligibilityScreening() {
               <div className="flex items-start gap-2">
                 <Code size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="font-medium text-foreground dark:text-gray-100">Rule Engine</div>
+                  <div className="font-medium text-foreground dark:text-gray-100 dark:text-gray-200">Rule Engine</div>
                   <div className="text-xs text-muted-foreground dark:text-muted-foreground">Implement conditional logic for question branching</div>
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <Code size={14} className="text-orange-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="font-medium text-foreground dark:text-gray-100">Policy Alignment</div>
+                  <div className="font-medium text-foreground dark:text-gray-100 dark:text-gray-200">Policy Alignment</div>
                   <div className="text-xs text-muted-foreground dark:text-muted-foreground">Work with policy team to define criteria</div>
                 </div>
               </div>

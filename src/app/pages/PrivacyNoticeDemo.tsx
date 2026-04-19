@@ -526,7 +526,7 @@ function FullNoticeScreen({
               type="checkbox"
               checked={acknowledged}
               onChange={(e) => onAcknowledgeChange(e.target.checked)}
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+              className="mt-1 w-5 h-5 border-2 border-border rounded"
             />
             <div className="flex-1">
               <span className="text-sm text-foreground font-bold block mb-2">

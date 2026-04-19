@@ -600,7 +600,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
               </button>
               <button
                 onClick={onCancel}
-                className="px-6 py-3 border-2 border-border rounded font-bold hover:border-gray-400 flex items-center gap-2"
+                className="px-6 py-3 border-2 border-border rounded font-bold hover:border-border flex items-center gap-2"
               >
                 <X size={20} />
                 <span>Cancel</span>
@@ -643,7 +643,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
             </button>
             <button
               onClick={onCancel}
-              className="px-6 py-3 border-2 border-border rounded font-bold hover:border-gray-400 flex items-center gap-2"
+              className="px-6 py-3 border-2 border-border rounded font-bold hover:border-border flex items-center gap-2"
             >
               <X size={20} />
               <span>Cancel</span>
@@ -750,7 +750,7 @@ function ActionPanel({ notification, onComplete, onCancel, simulateUpload, uploa
             </button>
             <button
               onClick={onCancel}
-              className="px-6 py-3 border-2 border-border rounded font-bold hover:border-gray-400 flex items-center gap-2"
+              className="px-6 py-3 border-2 border-border rounded font-bold hover:border-border flex items-center gap-2"
             >
               <X size={20} />
               <span>Skip</span>

@@ -370,7 +370,7 @@ function StartScreen({ onProceed }: { onProceed: () => void }) {
           <label className="flex items-start gap-4 cursor-pointer">
             <input
               type="checkbox"
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+              className="mt-1 w-5 h-5 border-2 border-border rounded"
             />
             <span className="text-sm text-foreground">
               I understand that I am acting on behalf of another person and I have the legal authority 
@@ -734,7 +734,7 @@ function AuthorizationScreen({
               type="checkbox"
               checked={authorizationChecked}
               onChange={(e) => onAuthorizationChange(e.target.checked)}
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+              className="mt-1 w-5 h-5 border-2 border-border rounded"
             />
             <div className="flex-1">
               <span className="text-sm text-foreground font-bold leading-relaxed">
@@ -861,7 +861,7 @@ function ConsentScreen({
               type="checkbox"
               checked={consentChecked}
               onChange={(e) => onConsentChange(e.target.checked)}
-              className="mt-1 w-5 h-5 border-2 border-gray-400 rounded"
+              className="mt-1 w-5 h-5 border-2 border-border rounded"
             />
             <div className="flex-1">
               <span className="text-sm text-foreground leading-relaxed">

@@ -473,7 +473,7 @@ function NotificationCard({ notification, isSelected, onToggleSelect, onMarkAsRe
             {notification.unread && (
               <button
                 onClick={onMarkAsRead}
-                className="px-4 py-2 border-2 border-border rounded font-bold hover:border-gray-400 text-sm flex items-center gap-2"
+                className="px-4 py-2 border-2 border-border rounded font-bold hover:border-border text-sm flex items-center gap-2"
               >
                 <Check size={16} />
                 <span>Mark as Read</span>

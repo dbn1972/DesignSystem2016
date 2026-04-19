@@ -1017,7 +1017,7 @@ export class FormBuilderComponent implements OnInit {
     } else if (index === this.currentStep) {
       return \`\${baseClass} bg-blue-600 text-white\`;
     }
-    return \`\${baseClass} bg-gray-200 text-muted-foreground\`;
+    return \`\${baseClass} bg-muted text-muted-foreground\`;
   }
 
   previousStep(): void {

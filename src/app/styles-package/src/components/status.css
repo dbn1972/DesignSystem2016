@@ -84,6 +84,11 @@
   color: var(--ux4g-color-text-primary, #1C1C1C);
 }
 
+.ux4g-badge-neutral {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+}
+
 .ux4g-badge-primary {
   background-color: var(--ux4g-color-primary, #005A9C);
   color: var(--ux4g-color-text-on-brand, #FFFFFF);
@@ -109,6 +114,24 @@
   color: var(--ux4g-color-text-on-info, #FFFFFF);
 }
 
+.ux4g-badge-sm {
+  min-height: 20px;
+  padding: 0 var(--ux4g-spacing-2, 0.5rem);
+  font-size: 0.6875rem;
+}
+
+.ux4g-badge-md {
+  min-height: 24px;
+  padding: 0 var(--ux4g-spacing-2, 0.5rem);
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+}
+
+.ux4g-badge-lg {
+  min-height: 28px;
+  padding: 0 var(--ux4g-spacing-3, 0.75rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+}
+
 /* Badge with dot indicator */
 .ux4g-badge-dot::before {
   content: "";
@@ -116,6 +139,15 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
+  background-color: currentColor;
+  margin-right: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-badge-dot-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
   background-color: currentColor;
   margin-right: var(--ux4g-spacing-1, 0.25rem);
 }

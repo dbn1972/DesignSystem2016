@@ -28,11 +28,11 @@ export default function CorrectionResubmissionPattern() {
                   <span className="text-muted-foreground">Pattern ID: <span className="font-bold text-foreground">UX4G-PAT-004</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">1.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
@@ -1055,7 +1055,7 @@ function PageDesigns() {
 
               <div className="bg-blue-50 dark:bg-blue-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-6">
                 <div className="flex items-start gap-3">
-                  <input aria-label="Checkbox" type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-gray-400 rounded" />
+                  <input aria-label="Checkbox" type="checkbox" className="w-5 h-5 mt-0.5 border-2 border-border rounded" />
                   <div className="text-sm text-muted-foreground">
                     <p className="font-bold mb-2">Declaration</p>
                     <p className="leading-relaxed">
@@ -1967,7 +1967,7 @@ function EntryPointCard({ method, description, example }: any) {
 
 function FlowStep({ number, label, status }: any) {
   const statusConfig: any = {
-    entry: { bg: 'bg-muted', border: 'border-gray-400', text: 'text-muted-foreground' },
+    entry: { bg: 'bg-muted', border: 'border-border', text: 'text-muted-foreground' },
     active: { bg: 'bg-blue-50', border: 'border-blue-400', text: 'text-blue-700' },
     optional: { bg: 'bg-purple-50', border: 'border-purple-400', text: 'text-purple-700' },
     success: { bg: 'bg-green-50', border: 'border-green-400', text: 'text-green-700' },
@@ -2298,7 +2298,7 @@ function ImplementationItem({ category, requirement, priority }: any) {
 function AnalyticsEvent({ event, description }: any) {
   return (
     <div className="flex items-start gap-4 p-3 bg-background border-2 border-border rounded-lg">
-      <code className="px-2 py-1 bg-card border border-gray-400 rounded text-xs font-mono text-foreground flex-shrink-0">
+      <code className="px-2 py-1 bg-card border border-border rounded text-xs font-mono text-foreground flex-shrink-0">
         {event}
       </code>
       <div className="flex-1 text-sm text-muted-foreground">{description}</div>

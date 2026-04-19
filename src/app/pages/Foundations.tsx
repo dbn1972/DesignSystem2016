@@ -91,14 +91,14 @@ export default function Foundations() {
                 </Link>
                 <Link
                   to="/accessibility"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200 dark:hover:border-blue-500"
                 >
                   <Shield size={16} />
                   {copy.hero.viewAccessibility}
                 </Link>
                 <Link
                   to="/content-system"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:hover:border-blue-500"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200 dark:hover:border-blue-500"
                 >
                   <Type size={16} />
                   {copy.hero.viewContent}
@@ -136,7 +136,7 @@ export default function Foundations() {
                 </div>
 
                 <div className="mt-5 rounded-2xl border border-border bg-gradient-to-br from-blue-50 to-emerald-50 p-4 dark:from-blue-950/30 dark:to-emerald-950/20">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-100">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">
                     <CheckCircle size={16} className="text-emerald-600 dark:text-emerald-400" />
                     {copy.summary.foundationFirst}
                   </div>
@@ -290,12 +290,12 @@ export default function Foundations() {
                   <tbody className="divide-y divide-border dark:divide-gray-700">
                     {typography.map((type, index) => (
                       <tr key={index} className="transition-colors hover:bg-background dark:hover:bg-gray-700">
-                        <td className="px-6 py-4 font-medium text-foreground dark:text-gray-100">{type.name}</td>
+                        <td className="px-6 py-4 font-medium text-foreground dark:text-gray-100 dark:text-gray-200">{type.name}</td>
                         <td className="px-6 py-4 text-muted-foreground dark:text-muted-foreground">{type.size}</td>
                         <td className="px-6 py-4 text-muted-foreground dark:text-muted-foreground">{type.weight}</td>
                         <td className="px-6 py-4 text-muted-foreground dark:text-muted-foreground">{type.usage}</td>
                         <td className="px-6 py-4">
-                          <span style={{ fontSize: type.size, fontWeight: type.weight }} className="text-foreground dark:text-gray-100">
+                          <span style={{ fontSize: type.size, fontWeight: type.weight }} className="text-foreground dark:text-gray-100 dark:text-gray-200">
                             Aa
                           </span>
                         </td>
@@ -328,7 +328,7 @@ export default function Foundations() {
                 <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">
                   {copy.spacingSection.implementationDescription}
                 </p>
-                <code className="block rounded-lg border border-border bg-background px-4 py-3 text-sm font-mono text-foreground dark:bg-gray-800 dark:text-gray-100">
+                <code className="block rounded-lg border border-border bg-background px-4 py-3 text-sm font-mono text-foreground dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200">
                   className="p-spacing-4 m-spacing-2"
                 </code>
               </div>

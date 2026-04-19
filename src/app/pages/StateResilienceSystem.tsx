@@ -29,11 +29,11 @@ export default function StateResilienceSystem() {
                   <span className="text-muted-foreground">System ID: <span className="font-bold text-foreground">UX4G-SYS-RES-001</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Version: <span className="font-bold text-foreground">2.0.0</span></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-sm"></div>
                   <span className="text-muted-foreground">Updated: <span className="font-bold text-foreground">April 2026</span></span>
                 </div>
               </div>
@@ -705,7 +705,7 @@ function PartialStatesSection() {
               <h4 className="font-bold text-foreground mb-2 text-sm">Visual Indicator States</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2 p-2 bg-background rounded">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-gray-400 dark:bg-gray-600 rounded-full animate-pulse"></div>
                   <span className="text-muted-foreground">Saving...</span>
                 </div>
                 <div className="flex items-center gap-2 p-2 bg-green-50 dark:bg-green-950/30 rounded">
