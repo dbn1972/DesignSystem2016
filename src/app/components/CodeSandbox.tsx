@@ -552,7 +552,7 @@ export function CodeSandbox({
           </div>
 
           <div
-            className="flex min-h-[520px] items-center justify-center overflow-auto p-6 bg-muted/30"
+            className="flex min-h-[520px] items-center justify-center overflow-auto p-6 bg-background"
           >
             <div
               className="w-full rounded-[24px] border border-border bg-card p-8 shadow-sm transition-all"
