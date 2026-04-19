@@ -1,0 +1,201 @@
+/**
+ * Auto-generate prop table data from TypeScript type definitions.
+ * 
+ * Reads all .types.ts files, resolves interface inheritance,
+ * and outputs a JSON file that doc pages can import.
+ * 
+ * Usage: node scripts/generate-prop-tables.mjs
+ * Output: src/app/content/generated-props.ts
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+
+const root = process.cwd();
+const typesDir = path.join(root, 'src/app/react-core-package/src/components');
+const commonTypesPath = path.join(root, 'src/app/react-core-package/src/types/common.ts');
+const outputPath = path.join(root, 'src/app/content/generated-props.ts');
+
+// ── Parse common types first ──
+
+function parseInterface(content, interfaceName) {
+  const props = [];
+  
+  // Find the interface block
+  const regex = new RegExp(
+    `(?:export\\s+)?interface\\s+${interfaceName}[^{]*\\{([^}]+(?:\\{[^}]*\\}[^}]*)*)\\}`,
+    's'
+  );
+  const match = content.match(regex);
+  if (!match) return props;
+  
+  const body = match[1];
+  
+  // Parse each property
+  const propRegex = /(?:\/\*\*\s*([\s\S]*?)\s*\*\/\s*)?['"]?([\w-]+)['"]?\s*(\?)?\s*:\s*([^;]+);/g;
+  let propMatch;
+  
+  while ((propMatch = propRegex.exec(body)) !== null) {
+    const jsdoc = propMatch[1] || '';
+    const name = propMatch[2];
+    let type = propMatch[3] ? propMatch[4].trim() : propMatch[4].trim();
+    const required = !propMatch[3];
+    
+    // Extract description from JSDoc
+    let description = jsdoc
+      .replace(/\*\s*/g, '')
+      .replace(/@default\s+.*/g, '')
+      .replace(/@example\s+.*/g, '')
+      .trim()
+      .split('\n')
+      .map(l => l.trim())
+      .filter(Boolean)
+      .join(' ');
+    
+    // Extract @default value
+    const defaultMatch = jsdoc.match(/@default\s+(.+)/);
+    const defaultValue = defaultMatch ? defaultMatch[1].trim().replace(/^['"]|['"]$/g, '') : undefined;
+    
+    // Clean up type
+    type = type.replace(/\s+/g, ' ').trim();
+    
+    // Skip internal/inherited HTML attributes
+    if (['ref', 'key', 'dangerouslySetInnerHTML'].includes(name)) continue;
+    
+    props.push({
+      name,
+      type,
+      required,
+      description: description || `The ${name} prop.`,
+      ...(defaultValue !== undefined ? { default: defaultValue } : {}),
+    });
+  }
+  
+  return props;
+}
+
+function getExtendsInterfaces(content, interfaceName) {
+  const regex = new RegExp(
+    `interface\\s+${interfaceName}\\s+extends\\s+([^{]+)\\{`
+  );
+  const match = content.match(regex);
+  if (!match) return [];
+  
+  return match[1]
+    .split(',')
+    .map(s => s.trim())
+    .map(s => s.replace(/<[^>]+>/g, '').trim()) // Remove generics
+    .map(s => s.replace(/^Omit<([^,]+).*$/, '$1').trim()) // Handle Omit<X, ...>
+    .filter(s => s && !s.startsWith("'") && !s.includes('HTML'));
+}
+
+// Parse common types
+const commonContent = fs.readFileSync(commonTypesPath, 'utf8');
+const commonInterfaces = {};
+
+for (const name of [
+  'BaseComponentProps', 'InteractiveComponentProps', 'FormFieldProps',
+  'ControlledValueProps', 'ChildrenProp', 'LoadingStateProps', 'DescribableProps'
+]) {
+  commonInterfaces[name] = parseInterface(commonContent, name);
+}
+
+// Resolve inheritance for common types
+function resolveProps(content, interfaceName, allContent) {
+  const ownProps = parseInterface(content, interfaceName);
+  const extends_ = getExtendsInterfaces(content, interfaceName);
+  
+  const inherited = [];
+  for (const parent of extends_) {
+    if (commonInterfaces[parent]) {
+      inherited.push(...commonInterfaces[parent]);
+    }
+    // Also check parent's parents
+    const parentExtends = getExtendsInterfaces(commonContent, parent);
+    for (const grandparent of parentExtends) {
+      if (commonInterfaces[grandparent]) {
+        inherited.push(...commonInterfaces[grandparent]);
+      }
+    }
+  }
+  
+  // Merge: own props override inherited
+  const propMap = new Map();
+  for (const p of inherited) propMap.set(p.name, p);
+  for (const p of ownProps) propMap.set(p.name, p);
+  
+  return Array.from(propMap.values());
+}
+
+// ── Process all components ──
+
+const components = fs.readdirSync(typesDir, { withFileTypes: true })
+  .filter(d => d.isDirectory())
+  .map(d => d.name)
+  .sort();
+
+const allProps = {};
+let totalComponents = 0;
+let totalProps = 0;
+
+for (const comp of components) {
+  const typesFile = path.join(typesDir, comp, `${comp}.types.ts`);
+  if (!fs.existsSync(typesFile)) continue;
+  
+  const content = fs.readFileSync(typesFile, 'utf8');
+  
+  // Find the main Props interface (e.g., ButtonProps, AlertProps)
+  const propsInterfaceName = `${comp}Props`;
+  const props = resolveProps(content, propsInterfaceName, content);
+  
+  if (props.length === 0) continue;
+  
+  // Filter out noisy internal props
+  const filtered = props.filter(p => 
+    !['style', 'data-testid', 'ref', 'key'].includes(p.name)
+  );
+  
+  allProps[comp] = filtered;
+  totalComponents++;
+  totalProps += filtered.length;
+}
+
+// ── Generate output ──
+
+const output = `/**
+ * Auto-generated prop table data.
+ * Generated by: node scripts/generate-prop-tables.mjs
+ * Generated at: ${new Date().toISOString()}
+ * 
+ * DO NOT EDIT MANUALLY — regenerate from TypeScript types.
+ * Components: ${totalComponents}
+ * Total props: ${totalProps}
+ */
+
+export interface GeneratedProp {
+  name: string;
+  type: string;
+  required: boolean;
+  description: string;
+  default?: string;
+}
+
+export const generatedProps: Record<string, GeneratedProp[]> = ${JSON.stringify(allProps, null, 2)};
+`;
+
+fs.writeFileSync(outputPath, output);
+
+console.log('Generated prop tables:');
+console.log('  Components: %d', totalComponents);
+console.log('  Total props: %d', totalProps);
+console.log('  Output: %s', outputPath);
+console.log('');
+
+// Show a sample
+const sample = Object.keys(allProps)[0];
+if (sample) {
+  console.log('Sample (%s):', sample);
+  for (const p of allProps[sample].slice(0, 5)) {
+    console.log('  %s%s: %s — %s', p.name, p.required ? '' : '?', p.type, p.description.slice(0, 50));
+  }
+}
