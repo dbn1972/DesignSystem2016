@@ -1,0 +1,14 @@
+{
+  "projectId": "",
+  "autoAcceptChanges": "main",
+  "exitZeroOnChanges": true,
+  "onlyChanged": true,
+  "externals": [
+    "src/app/tokens-package/**",
+    "src/app/styles-package/**"
+  ],
+  "buildScriptName": "build-storybook",
+  "storybookBuildDir": "storybook-static",
+  "skip": false,
+  "zip": true
+}
