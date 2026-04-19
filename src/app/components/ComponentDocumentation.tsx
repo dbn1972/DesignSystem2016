@@ -192,8 +192,8 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
     { id: 'props', label: 'Props API', icon: List, badge: props.length },
     { id: 'examples', label: 'Examples', icon: BookOpen },
     { id: 'code', label: 'Code Downloads', icon: Code2 },
-    { id: 'comparison', label: 'Comparison', icon: GitCompare },
     ...(tokens ? [{ id: 'tokens', label: 'Tokens', icon: Palette }] : []),
+    { id: 'comparison', label: 'Comparison', icon: GitCompare },
   ];
 
   const codeSections: Array<{
@@ -269,7 +269,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       />
       {/* Header */}
       <div className="bg-gradient-to-br from-card via-card to-[#005196]/5 border-b border-border">
-        <div className="py-8">
+        <div className="py-8 pl-2">
           {/* Title and badges */}
           <div className="flex items-start justify-between mb-5">
             <div>
@@ -302,7 +302,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
         </div>
 
         {/* Tabs */}
-        <div>
+        <div className="pl-2">
           <div className="flex gap-1 border-b border-border overflow-x-auto scrollbar-none">
             {tabs.map((tab) => {
               const TabIcon = tab.icon;
@@ -331,7 +331,7 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
       </div>
 
       {/* Content */}
-      <div className="py-8">
+      <div className="py-8 pl-2">
         {/* Overview Tab */}
         {activeTab === 'overview' && (
           <OverviewTab
