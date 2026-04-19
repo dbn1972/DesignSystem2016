@@ -428,68 +428,52 @@ export function CodeSandbox({
 
   return (
     <section className="overflow-hidden rounded-[28px] border border-border bg-card shadow-sm">
-      <div className="border-b border-border bg-[linear-gradient(180deg,rgba(0,81,150,0.08),transparent)] px-5 py-5 sm:px-6">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-3xl">
-            <div className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Monaco Sandbox
-            </div>
-            <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground">
-              {title}
-            </h2>
-            <p className="mt-2 text-sm leading-7 text-muted-foreground sm:text-base">
-              {description}
-            </p>
+      <div className="flex items-center justify-between border-b border-border bg-muted/30 px-5 py-3 sm:px-6">
+        <div className="flex items-center gap-3">
+          <div className="inline-flex rounded-lg bg-primary/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.15em] text-primary">
+            Sandbox
           </div>
-
-          <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[360px]">
-            <label className="space-y-2 text-sm font-medium text-foreground">
-              <span>Preset</span>
-              <select
-                value={selectedPresetId}
-                onChange={(event) => setSelectedPresetId(event.target.value)}
-                className="w-full rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary"
-              >
-                {presets.map((preset) => (
-                  <option key={preset.id} value={preset.id}>
-                    {preset.label}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <div className="space-y-2 text-sm font-medium text-foreground">
-              <span>Preview</span>
-              <div className="flex items-center gap-1 rounded-xl border border-border bg-background p-1">
-                {([
-                  ["desktop", Laptop],
-                  ["tablet", Tablet],
-                  ["mobile", Smartphone],
-                ] as const).map(([value, Icon]) => (
-                  <button
-                    key={value}
-                    type="button"
-                    onClick={() => setViewport(value)}
-                    className={`inline-flex flex-1 items-center justify-center rounded-lg px-3 py-2 transition ${
-                      viewport === value
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:bg-muted"
-                    }`}
-                    aria-label={`${value} preview`}
-                  >
-                    <Icon className="h-4 w-4" />
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          <h2 className="text-sm font-semibold text-foreground">{title}</h2>
         </div>
 
-        {selectedPreset?.note ? (
-          <p className="mt-4 text-sm text-muted-foreground">
-            {selectedPreset.note}
-          </p>
-        ) : null}
+        <div className="flex items-center gap-3">
+          <label className="flex items-center gap-2 text-sm">
+            <span className="text-xs font-medium text-muted-foreground">Preset</span>
+            <select
+              value={selectedPresetId}
+              onChange={(event) => setSelectedPresetId(event.target.value)}
+              className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground outline-none transition focus:border-primary"
+            >
+              {presets.map((preset) => (
+                <option key={preset.id} value={preset.id}>
+                  {preset.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <div className="flex items-center gap-0.5 rounded-lg border border-border bg-background p-0.5">
+            {([
+              ["desktop", Laptop],
+              ["tablet", Tablet],
+              ["mobile", Smartphone],
+            ] as const).map(([value, Icon]) => (
+              <button
+                key={value}
+                type="button"
+                onClick={() => setViewport(value)}
+                className={`inline-flex items-center justify-center rounded-md px-2 py-1.5 transition ${
+                  viewport === value
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-muted"
+                }`}
+                aria-label={`${value} preview`}
+              >
+                <Icon className="h-3.5 w-3.5" />
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="grid gap-px bg-border xl:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)]">

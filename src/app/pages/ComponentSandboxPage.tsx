@@ -1,6 +1,5 @@
-import { Code2, ExternalLink, FileCode2, LayoutTemplate, MonitorSmartphone } from "lucide-react";
 import * as React from "react";
-import { Link, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 
 import { CodeSandbox } from "../components/CodeSandbox";
 import {
@@ -107,9 +106,7 @@ const SANDBOX_PREVIEWS = {
         <Input type="email" placeholder="name@gov.in" />
         <HintText>Use the email address tied to your service account.</HintText>
       </Field>
-
       <Checkbox label="Send status updates to this email" />
-
       <div className="flex gap-3">
         <Button variant="primary">Continue</Button>
         <Button variant="tertiary">Cancel</Button>
@@ -120,15 +117,13 @@ const SANDBOX_PREVIEWS = {
     <Card className="max-w-lg space-y-4 p-5">
       <div className="space-y-1">
         <p className="text-sm font-medium text-muted-foreground">Application status</p>
-        <h3 className="text-xl font-semibold text-slate-900">Pending review</h3>
+        <h3 className="text-xl font-semibold text-foreground">Pending review</h3>
       </div>
-
       <Alert
         variant="info"
         title="Documents received"
         description="The case is with a reviewing officer. No action is required right now."
       />
-
       <div className="flex gap-3">
         <Button variant="primary">Track application</Button>
         <Button variant="secondary">Download receipt</Button>
@@ -137,100 +132,22 @@ const SANDBOX_PREVIEWS = {
   ),
 } satisfies Record<string, React.ReactNode>;
 
-const TOOL_CAPABILITIES = [
-  {
-    icon: FileCode2,
-    title: "Preset-driven editing",
-    description: "Start from component-ready React examples instead of an empty editor.",
-  },
-  {
-    icon: MonitorSmartphone,
-    title: "Responsive preview states",
-    description: "Check the same example across desktop, tablet, and mobile widths.",
-  },
-  {
-    icon: LayoutTemplate,
-    title: "Docs-integrated workflow",
-    description: "Open from component pages and continue editing without leaving the system.",
-  },
-];
-
 export default function ComponentSandboxPage() {
   const [searchParams] = useSearchParams();
   const requestedPreset = searchParams.get("preset") ?? undefined;
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="border-b border-border bg-card/70">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-5">
-            <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px] xl:items-start">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                  <Code2 className="h-4 w-4" />
-                  Component Sandbox
-                </div>
-
-                <div className="max-w-4xl space-y-3">
-                  <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                    Edit and preview UX4G component code in a focused workspace.
-                  </h1>
-                  <p className="max-w-3xl text-base leading-7 text-muted-foreground">
-                    This sandbox is a working tool, not a showcase page. Start from curated
-                    presets, inspect component behavior across breakpoints, and move quickly
-                    between documentation and implementation.
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  <Link
-                    to="/components"
-                    className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground transition hover:border-primary/30 hover:text-primary"
-                  >
-                    Browse components
-                  </Link>
-                  <Link
-                    to="/documentation"
-                    className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground transition hover:border-primary/30 hover:text-primary"
-                  >
-                    Implementation guidance
-                    <ExternalLink className="h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-
-              <aside className="rounded-[24px] border border-border bg-background p-5 shadow-sm">
-                <p className="text-sm font-semibold text-foreground">Tool capabilities</p>
-                <div className="mt-4 space-y-4">
-                  {TOOL_CAPABILITIES.map(({ icon: Icon, title, description }) => (
-                    <div key={title} className="flex items-start gap-3">
-                      <div className="mt-0.5 rounded-xl border border-border bg-card p-2 text-primary">
-                        <Icon className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-foreground">{title}</p>
-                        <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                          {description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+      {/* No hero — straight to the sandbox */}
+      <div className="mx-auto max-w-[1600px] px-4 py-6 sm:px-6">
         <CodeSandbox
-          title="UX4G live sandbox"
-          description="Use curated presets, edit real JSX, and validate the result in a controlled preview surface."
+          title="UX4G Sandbox"
+          description="Edit real JSX with UX4G components. Changes compile and render live."
           presets={SANDBOX_PRESETS}
           initialPresetId={requestedPreset}
           presetPreviews={SANDBOX_PREVIEWS}
         />
-      </section>
+      </div>
     </div>
   );
 }
