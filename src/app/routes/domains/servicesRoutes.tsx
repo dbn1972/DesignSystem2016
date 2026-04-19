@@ -141,6 +141,27 @@ const FSSAILicenseCertificate = lazy(() => import("../../pages/FSSAILicenseCerti
 const FSSAILicenseHelp = lazy(() => import("../../pages/FSSAILicenseHelp"));
 const FSSAILicenseFeedback = lazy(() => import("../../pages/FSSAILicenseFeedback"));
 
+// Import Export Code (IEC) Registration Service (DGFT)
+const IECRegService = lazy(() => import("../../pages/IECRegService"));
+const IECRegStart = lazy(() => import("../../pages/IECRegStart"));
+const IECRegEligibility = lazy(() => import("../../pages/IECRegEligibility"));
+const IECRegFormEntityType = lazy(() => import("../../pages/IECRegFormEntityType"));
+const IECRegFormDetails = lazy(() => import("../../pages/IECRegFormDetails"));
+const IECRegFormAddress = lazy(() => import("../../pages/IECRegFormAddress"));
+const IECRegFormAdditional = lazy(() => import("../../pages/IECRegFormAdditional"));
+const IECRegDocumentUpload = lazy(() => import("../../pages/IECRegDocumentUpload"));
+const IECRegReviewSummary = lazy(() => import("../../pages/IECRegReviewSummary"));
+const IECRegDeclaration = lazy(() => import("../../pages/IECRegDeclaration"));
+const IECRegPaymentSummary = lazy(() => import("../../pages/IECRegPaymentSummary"));
+const IECRegPaymentReceipt = lazy(() => import("../../pages/IECRegPaymentReceipt"));
+const IECRegSubmission = lazy(() => import("../../pages/IECRegSubmission"));
+const IECRegStatusTracker = lazy(() => import("../../pages/IECRegStatusTracker"));
+const IECRegMyApplications = lazy(() => import("../../pages/IECRegMyApplications"));
+const IECRegOfficerDashboard = lazy(() => import("../../pages/IECRegOfficerDashboard"));
+const IECRegCertificate = lazy(() => import("../../pages/IECRegCertificate"));
+const IECRegHelp = lazy(() => import("../../pages/IECRegHelp"));
+const IECRegFeedback = lazy(() => import("../../pages/IECRegFeedback"));
+
 const CompanyRegService = lazy(() => import("../../pages/CompanyRegService"));
 const CompanyRegStart = lazy(() => import("../../pages/CompanyRegStart"));
 const CompanyRegEligibility = lazy(() => import("../../pages/CompanyRegEligibility"));
@@ -332,6 +353,27 @@ export const servicesRoutes: RouteObject[] = [
   { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.CERTIFICATE), Component: FSSAILicenseCertificate },
   { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.HELP), Component: FSSAILicenseHelp },
   { path: toChildPath(ROUTE_PATHS.FSSAI_LICENSE.FEEDBACK), Component: FSSAILicenseFeedback },
+
+  // Import Export Code (IEC) Registration Service (DGFT)
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.ROOT), Component: IECRegService },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.START), Component: IECRegStart },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.ELIGIBILITY), Component: IECRegEligibility },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.FORM_ENTITY_TYPE), Component: IECRegFormEntityType },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.FORM_DETAILS), Component: IECRegFormDetails },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.FORM_ADDRESS), Component: IECRegFormAddress },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.FORM_ADDITIONAL), Component: IECRegFormAdditional },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.DOCUMENT_UPLOAD), Component: IECRegDocumentUpload },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.REVIEW_SUMMARY), Component: IECRegReviewSummary },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.DECLARATION), Component: IECRegDeclaration },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.PAYMENT_SUMMARY), Component: IECRegPaymentSummary },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.PAYMENT_RECEIPT), Component: IECRegPaymentReceipt },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.SUBMISSION_SUCCESS), Component: IECRegSubmission },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.STATUS_TRACKER), Component: IECRegStatusTracker },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.MY_APPLICATIONS), Component: IECRegMyApplications },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.OFFICER_DASHBOARD), Component: IECRegOfficerDashboard },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.CERTIFICATE), Component: IECRegCertificate },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.HELP), Component: IECRegHelp },
+  { path: toChildPath(ROUTE_PATHS.IEC_REGISTRATION.FEEDBACK), Component: IECRegFeedback },
 
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_IN), Component: IdentitySignIn },
   { path: toChildPath(ROUTE_PATHS.SERVICES.IDENTITY_SIGN_UP), Component: IdentitySignUp },
