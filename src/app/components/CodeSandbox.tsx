@@ -103,7 +103,7 @@ function evaluateSandboxCode(
       compilerOptions: {
         jsx: ts.JsxEmit.React,
         target: ts.ScriptTarget.ES2020,
-        module: ts.ModuleKind.ES2020,
+        module: ts.ModuleKind.CommonJS,
       },
       reportDiagnostics: true,
     });
@@ -119,35 +119,24 @@ function evaluateSandboxCode(
       return { status: "error", message };
     }
 
-    const scopeKey = "__ux4gSandboxScope";
-    (globalThis as Record<string, unknown>)[scopeKey] = SANDBOX_SCOPE;
+    // Use Function constructor instead of blob URL to avoid CSP blob: restrictions
+    const scopeNames = Object.keys(SANDBOX_SCOPE);
+    const scopeValues = Object.values(SANDBOX_SCOPE);
 
-    const moduleSource = `
-const { ${Object.keys(SANDBOX_SCOPE).join(", ")} } = globalThis.${scopeKey};
-${compiled.outputText}
+    const wrappedCode = `
+      ${compiled.outputText}
+      return typeof Example !== "undefined" ? Example : null;
+    `;
 
-const __Example = typeof Example !== "undefined" ? Example : null;
+    const factory = new Function("React", ...scopeNames, wrappedCode);
+    const ExampleComponent = factory(React, ...scopeValues);
 
-if (!__Example) {
-  throw new Error("Define a function named Example to render the preview.");
-}
-
-export default __Example;
-`;
-
-    const blobUrl = URL.createObjectURL(
-      new Blob([moduleSource], { type: "text/javascript" }),
-    );
-
-    try {
-      const module = (await import(/* @vite-ignore */ blobUrl)) as {
-        default: React.ComponentType;
-      };
-      const node = React.createElement(module.default);
-      return { status: "ready", node };
-    } finally {
-      URL.revokeObjectURL(blobUrl);
+    if (!ExampleComponent) {
+      return { status: "error", message: "Define a function named Example to render the preview." };
     }
+
+    const node = React.createElement(ExampleComponent);
+    return { status: "ready", node };
   } catch (error) {
     return { status: "error", message: formatErrorMessage(error) };
   }
