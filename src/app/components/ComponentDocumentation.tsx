@@ -276,13 +276,6 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground mb-3">{name}</h1>
               <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">{description}</p>
             </div>
-            <Link
-              to={`/components/sandbox?preset=button-actions&source=${name.toLowerCase()}`}
-              className="hidden sm:inline-flex items-center gap-2 shrink-0 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
-            >
-              <Play size={15} />
-              Try in Sandbox
-            </Link>
           </div>
 
           {/* Metadata badges */}
@@ -372,8 +365,15 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               {/* Show the preview inside the playground context */}
               {preview && (
                 <div className="bg-card rounded-xl border border-border overflow-hidden shadow-sm mb-6">
-                  <div className="px-5 py-3 border-b border-border bg-muted/20">
+                  <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-muted/20">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Preview</span>
+                    <Link
+                      to={`/components/sandbox?source=${name.toLowerCase()}`}
+                      className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1.5 text-xs font-semibold text-foreground transition hover:border-primary/30 hover:text-primary"
+                    >
+                      <Play size={12} />
+                      Sandbox
+                    </Link>
                   </div>
                   <div className="p-6 flex items-center justify-center min-h-[120px]">
                     {preview}
