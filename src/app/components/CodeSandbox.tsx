@@ -321,35 +321,9 @@ export function CodeSandbox({
   }, [selectedPreset?.id]);
 
   useEffect(() => {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    const isFirefox = userAgent.includes("firefox");
-
-    if (isFirefox) {
-      setPreferPlainEditor(true);
-      return;
-    }
-
     let cancelled = false;
-    const timeoutId = window.setTimeout(() => {
-      if (!cancelled) {
-        setEditorTimedOut(true);
-      }
-    }, 2500);
 
-    import("@monaco-editor/react")
-      .then((module) => {
-        if (!cancelled) {
-          window.clearTimeout(timeoutId);
-          setEditorComponent(() => module.default);
-        }
-      })
-      .catch((error) => {
-        if (!cancelled) {
-          window.clearTimeout(timeoutId);
-          setEditorError(formatErrorMessage(error));
-        }
-      });
-
+    // Always load TypeScript compiler for live preview
     import("typescript")
       .then((module) => {
         if (!cancelled) {
@@ -362,9 +336,36 @@ export function CodeSandbox({
         }
       });
 
+    // Load Monaco editor (skip on Firefox for reliability)
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    const isFirefox = userAgent.includes("firefox");
+
+    if (isFirefox) {
+      setPreferPlainEditor(true);
+    } else {
+      const timeoutId = window.setTimeout(() => {
+        if (!cancelled) {
+          setEditorTimedOut(true);
+        }
+      }, 2500);
+
+      import("@monaco-editor/react")
+        .then((module) => {
+          if (!cancelled) {
+            window.clearTimeout(timeoutId);
+            setEditorComponent(() => module.default);
+          }
+        })
+        .catch((error) => {
+          if (!cancelled) {
+            window.clearTimeout(timeoutId);
+            setEditorError(formatErrorMessage(error));
+          }
+        });
+    }
+
     return () => {
       cancelled = true;
-      window.clearTimeout(timeoutId);
     };
   }, []);
 
@@ -589,23 +590,21 @@ export function CodeSandbox({
               }`}
               style={{ width: VIEWPORT_WIDTHS[viewport], maxWidth: "100%" }}
             >
-              {presetPreview ? (
+              {previewState.status === "ready" ? (
+                <PreviewRenderBoundary>
+                  <SandboxPreviewFrame dark={previewDark}>
+                    <div className="min-h-[420px]">{previewState.node}</div>
+                  </SandboxPreviewFrame>
+                </PreviewRenderBoundary>
+              ) : previewState.status === "loading" && presetPreview ? (
                 <div className="min-h-[420px] space-y-4">
                   <PreviewRenderBoundary>
                     <SandboxPreviewFrame dark={previewDark}>
                       <div>{presetPreview}</div>
                     </SandboxPreviewFrame>
                   </PreviewRenderBoundary>
-                  <div className="rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-100">
-                    Live preview is running in secure preset mode because this browser blocks sandbox code execution. The preset preview is accurate, but code edits will not change the preview in this mode.
-                  </div>
+                  <p className="text-xs text-muted-foreground text-center">Loading compiler…</p>
                 </div>
-              ) : previewState.status === "ready" ? (
-                <PreviewRenderBoundary>
-                  <SandboxPreviewFrame dark={previewDark}>
-                    <div className="min-h-[420px]">{previewState.node}</div>
-                  </SandboxPreviewFrame>
-                </PreviewRenderBoundary>
               ) : previewState.status === "loading" ? (
                 <div className="flex min-h-[420px] items-center justify-center text-sm text-muted-foreground">
                   Preparing preview runtime…
