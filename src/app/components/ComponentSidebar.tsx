@@ -124,8 +124,8 @@ export default function ComponentSidebar() {
   const currentSlug = pathname.split('/components/')[1] || '';
 
   return (
-    <nav className="hidden xl:block w-[200px] shrink-0" aria-label="Component navigation">
-      <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto pb-8 pr-2 -mr-2">
+    <nav className="hidden xl:block w-[200px] shrink-0 pl-4 pt-6" aria-label="Component navigation">
+      <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pb-8 pr-2 -mr-2">
         {COMPONENT_CATEGORIES.map((category) => (
           <div key={category.label} className="mb-4">
             <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-1.5 px-2">
