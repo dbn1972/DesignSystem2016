@@ -60,8 +60,8 @@ export default function ComponentPageTOC() {
   if (visibleIds.length === 0) return null;
 
   return (
-    <nav className="hidden 2xl:block w-[160px] shrink-0" aria-label="On this page">
-      <div className="sticky top-20">
+    <nav className="hidden xl:block w-[160px] shrink-0 pt-6 pr-4" aria-label="On this page">
+      <div className="sticky top-24">
         <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-3">
           On this page
         </p>
