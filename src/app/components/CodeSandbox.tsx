@@ -479,23 +479,6 @@ export function CodeSandbox({
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                onClick={() => setPreviewDark((current) => !current)}
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-sm font-medium text-foreground transition hover:border-primary/30 hover:text-primary"
-              >
-                {previewDark ? (
-                  <>
-                    <Sun className="h-4 w-4" />
-                    Light preview
-                  </>
-                ) : (
-                  <>
-                    <Moon className="h-4 w-4" />
-                    Dark preview
-                  </>
-                )}
-              </button>
-              <button
-                type="button"
                 onClick={resetToPreset}
                 className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-sm font-medium text-foreground transition hover:border-primary/30 hover:text-primary"
               >
