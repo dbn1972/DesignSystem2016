@@ -36,7 +36,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@ux4g/tokens": "^1.0.0"
+    "@ux4g/tokens": "workspace:*"
   },
   "devDependencies": {
     "postcss": "^8.4.38",

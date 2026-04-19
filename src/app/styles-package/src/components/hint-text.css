@@ -1,0 +1,13 @@
+/**
+ * UX4G HintText Styles
+ * Helper text displayed below form inputs for additional guidance
+ * Class contract: src/app/react-core-package/src/components/HintText/HintText.tsx
+ */
+
+/* ── Base ── */
+.ux4g-hint-text {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  line-height: var(--ux4g-line-height-base, 1.5);
+  color: var(--ux4g-color-text-secondary, #666666);
+  margin-top: var(--ux4g-spacing-1, 0.25rem);
+}

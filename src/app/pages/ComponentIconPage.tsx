@@ -1,4 +1,4 @@
-import { ComponentProps, useMemo, useState } from "react";
+import React, { ComponentProps, useMemo, useState } from "react";
 import {
   AccessibilityIcon,
   ArrowLeftIcon,
@@ -250,7 +250,7 @@ function IconButton({
   children,
   variant = "primary"
 }: {
-  icon: (props: ComponentProps<typeof SearchIcon>) => JSX.Element;
+  icon: React.ComponentType<ComponentProps<typeof SearchIcon>>;
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "danger";
 }) {

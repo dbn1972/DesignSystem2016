@@ -1,0 +1,23 @@
+/**
+ * UX4G ErrorText Styles
+ * Error message displayed below form inputs with icon indicator
+ * Class contract: src/app/react-core-package/src/components/ErrorText/ErrorText.tsx
+ */
+
+/* ── Base ── */
+.ux4g-error-text {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  line-height: var(--ux4g-line-height-base, 1.5);
+  color: var(--ux4g-color-error, #DC2626);
+  margin-top: var(--ux4g-spacing-1, 0.25rem);
+}
+
+/* ── Sub-elements ── */
+.ux4g-error-text::before {
+  content: "⚠";
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  flex-shrink: 0;
+}

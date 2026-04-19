@@ -1,5 +1,6 @@
 import { Users, GitBranch, CheckCircle, AlertCircle, Clock, XCircle, ChevronRight, Shield, FileText, Zap, TrendingUp, Archive, ArrowRight, CheckSquare, Circle } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import PageContainer from "@/app/components/PageContainer";
 
 export default function Governance() {
   const { i18n } = useTranslation();
@@ -8,7 +9,7 @@ export default function Governance() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.08),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
+        <PageContainer className="grid gap-12 py-16 sm:py-20 lg:py-24 xl:grid-cols-[1.05fr_0.95fr] xl:items-start">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
               <Shield size={14} className="text-primary" />
@@ -16,20 +17,20 @@ export default function Governance() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="max-w-3xl text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.hero.title}</h1>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">{c.hero.title}</h1>
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
                 {c.hero.description}
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <a href="#ownership" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
+              <a href="#ownership" className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
                 Review ownership
               </a>
-              <a href="#approval" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
+              <a href="#approval" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
                 {c.hero.qualityGates}
               </a>
-              <a href="#lifecycle" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
+              <a href="#lifecycle" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
                 {c.hero.lifecycleStates}
               </a>
             </div>
@@ -98,15 +99,15 @@ export default function Governance() {
                 <span className="text-muted-foreground">Next review</span>
                 <span className="font-semibold text-foreground">July 2026</span>
               </div>
-              <a href="#conformance" className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary/5 border border-primary/15 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/10 transition-colors">
+              <a href="#conformance" className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary/5 border border-primary/15 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/10 transition-colors">
                 View conformance dashboard <ArrowRight size={14} />
               </a>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </header>
 
-      <div className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-12">
+      <PageContainer className="space-y-20 py-12">
         <OwnershipModelSection />
         <ReviewLanesSection />
         <ApprovalGatesSection />
@@ -117,7 +118,7 @@ export default function Governance() {
         <DeprecationProcessSection />
         <ExceptionProcessSection />
         <ConformanceExpectationsSection />
-      </div>
+      </PageContainer>
     </div>
   );
 }

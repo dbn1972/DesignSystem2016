@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { Input } from './Input';
 import { Field } from '../Field';
 import { HintText } from '../HintText';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Input', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -152,5 +153,38 @@ describe('Input', () => {
     const ref = React.createRef<HTMLInputElement>();
     render(<Input aria-label="Name" ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Input aria-label="Name" />);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<Input aria-label="Name" disabled />);
+    });
+
+    it('has no axe violations in error state', async () => {
+      await assertA11y(<Input aria-label="Name" error />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<Input aria-label="Name" />);
+        await user.tab();
+        expect(screen.getByRole('textbox')).toHaveFocus();
+      });
+
+      it('accepts typed input', async () => {
+        const user = userEvent.setup();
+        render(<Input aria-label="Name" />);
+        await user.tab();
+        await user.keyboard('Hello');
+        expect(screen.getByRole('textbox')).toHaveValue('Hello');
+      });
+    });
   });
 });

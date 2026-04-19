@@ -1,6 +1,22 @@
 import { Link } from "react-router";
-import { ArrowRight, Building2, CheckCircle, Grid, Layers, Palette, Ruler, Shield, Sparkles, Type } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  CheckCircle,
+  Grid,
+  Layers,
+  Monitor,
+  Palette,
+  Ruler,
+  Shield,
+  Smartphone,
+  Sparkles,
+  Tablet,
+  Type,
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
+import PageContainer from "@/app/components/PageContainer";
+import SectionShell from "@/app/components/SectionShell";
 
 export default function Foundations() {
   const { i18n } = useTranslation();
@@ -13,7 +29,7 @@ export default function Foundations() {
     { name: copy.colors.green.name, hex: "#138808", desc: copy.colors.green.desc },
     { name: copy.colors.white.name, hex: "#FFFFFF", desc: copy.colors.white.desc },
     { name: copy.colors.gray50.name, hex: "#F9FAFB", desc: copy.colors.gray50.desc },
-    { name: copy.colors.gray900.name, hex: "#111827", desc: copy.colors.gray900.desc }
+    { name: copy.colors.gray900.name, hex: "#111827", desc: copy.colors.gray900.desc },
   ];
 
   const spacing = [
@@ -22,7 +38,7 @@ export default function Foundations() {
     { value: "16px", token: "spacing-4", usage: copy.spacing.medium },
     { value: "24px", token: "spacing-6", usage: copy.spacing.large },
     { value: "32px", token: "spacing-8", usage: copy.spacing.section },
-    { value: "48px", token: "spacing-12", usage: copy.spacing.major }
+    { value: "48px", token: "spacing-12", usage: copy.spacing.major },
   ];
 
   const typography = [
@@ -34,268 +50,391 @@ export default function Foundations() {
     { name: copy.typographyRows.bodyLarge.name, size: "18px", weight: "400", usage: copy.typographyRows.bodyLarge.usage },
     { name: copy.typographyRows.body.name, size: "16px", weight: "400", usage: copy.typographyRows.body.usage },
     { name: copy.typographyRows.bodySmall.name, size: "14px", weight: "400", usage: copy.typographyRows.bodySmall.usage },
-    { name: copy.typographyRows.caption.name, size: "12px", weight: "400", usage: copy.typographyRows.caption.usage }
+    { name: copy.typographyRows.caption.name, size: "12px", weight: "400", usage: copy.typographyRows.caption.usage },
   ];
 
   const principles = [
     {
       icon: Sparkles,
       title: copy.principles.accessibility.title,
-      description: copy.principles.accessibility.description
+      description: copy.principles.accessibility.description,
     },
     {
       icon: Grid,
       title: copy.principles.consistency.title,
-      description: copy.principles.consistency.description
+      description: copy.principles.consistency.description,
     },
     {
       icon: Layers,
       title: copy.principles.scalability.title,
-      description: copy.principles.scalability.description
+      description: copy.principles.scalability.description,
     },
     {
       icon: Ruler,
       title: copy.principles.clarity.title,
-      description: copy.principles.clarity.description
-    }
+      description: copy.principles.clarity.description,
+    },
+  ];
+
+  const foundationTopics = [
+    { icon: Palette, label: copy.summary.colorTitle, description: copy.summary.colorDescription },
+    { icon: Type, label: copy.summary.typographyTitle, description: copy.summary.typographyDescription },
+    { icon: Grid, label: copy.summary.spacingTitle, description: copy.summary.spacingDescription },
+    { icon: Shield, label: copy.principles.accessibility.title, description: "AA. Component, content, and structure compliance." },
+  ];
+
+  const swatchColors = [
+    { name: copy.colors.saffron.name, hex: "#FF9933", label: "Saffron" },
+    { name: copy.colors.navy.name, hex: "#000080", label: "Navy Blue" },
+    { name: copy.colors.green.name, hex: "#138808", label: "Indra Green" },
+    { name: copy.colors.white.name, hex: "#FFFFFF", label: "White" },
   ];
 
   return (
     <div className="min-h-screen bg-background text-foreground dark:bg-gray-900">
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-gray-900 dark:to-blue-950/30">
+      {/* ─── HERO SECTION ─── */}
+      <section
+        className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/60 dark:from-slate-950 dark:via-gray-900 dark:to-blue-950/30"
+        aria-labelledby="foundations-title"
+      >
+        {/* Tricolor accent */}
         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#FF9933] via-white to-[#138808]" />
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] items-start">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-card/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
-                <Sparkles size={14} />
-                {copy.hero.eyebrow}
-              </div>
 
-              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground dark:text-gray-50">
+        <PageContainer className="py-16 sm:py-20 lg:py-28">
+          <div className="grid gap-12 lg:grid-cols-[1fr_minmax(340px,420px)] items-start">
+            {/* Left column */}
+            <div>
+              <h1
+                id="foundations-title"
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground dark:text-gray-50"
+              >
                 {copy.hero.title}
               </h1>
 
-              <p className="mt-5 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground dark:text-muted-foreground">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
                 {copy.hero.description}
               </p>
 
+              {/* CTA buttons */}
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/components"
-                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700"
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-[#000066] dark:bg-blue-600 dark:hover:bg-blue-700"
                 >
-                  <Layers size={16} />
                   {copy.hero.viewComponents}
+                  <ArrowRight size={16} />
                 </Link>
                 <Link
                   to="/accessibility"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200 dark:hover:border-blue-500"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-card dark:text-gray-200 dark:hover:bg-gray-800"
                 >
-                  <Shield size={16} />
                   {copy.hero.viewAccessibility}
-                </Link>
-                <Link
-                  to="/content-system"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200 dark:hover:border-blue-500"
-                >
-                  <Type size={16} />
-                  {copy.hero.viewContent}
                 </Link>
               </div>
 
-              <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-3 sm:grid-cols-4">
+              {/* Stats row — 3 tiles */}
+              <div className="mt-12 grid grid-cols-3 gap-4" role="list" aria-label="Foundation statistics">
                 <StatTile value="4" label={copy.hero.stats.corePrinciples} />
                 <StatTile value="6" label={copy.hero.stats.paletteAnchors} />
-                <StatTile value="9" label={copy.hero.stats.typeStyles} />
-                <StatTile value="6" label={copy.hero.stats.spacingTokens} />
+                <StatTile value="5" label={copy.hero.stats.spacingTokens} />
               </div>
             </div>
 
-            <div className="lg:justify-self-end">
-              <div className="rounded-[32px] border border-border bg-card/95 p-7 shadow-xl backdrop-blur-sm dark:bg-gray-800/95">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                      {copy.summary.eyebrow}
-                    </p>
-                    <h2 className="mt-2 text-2xl font-bold text-foreground dark:text-gray-50">
-                      {copy.summary.title}
-                    </h2>
+            {/* Right column — Two stacked cards */}
+            <aside className="lg:justify-self-end w-full space-y-4" aria-label="Foundation overview">
+              {/* Top card — "Building the base for UX4G" with geometric illustration */}
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <div className="relative bg-gradient-to-br from-[#0a3d6b] to-[#1a5c99] dark:from-[#0a2d4b] dark:to-[#143d66] px-6 pt-6 pb-5">
+                  {/* Geometric illustration — overlapping rotated squares */}
+                  <div className="absolute top-3 right-4" aria-hidden="true">
+                    <svg width="120" height="100" viewBox="0 0 120 100" fill="none">
+                      <rect x="30" y="5" width="45" height="45" rx="6" transform="rotate(15 52 27)" fill="#FF9933" opacity="0.85" />
+                      <rect x="50" y="15" width="45" height="45" rx="6" transform="rotate(-10 72 37)" fill="#138808" opacity="0.75" />
+                      <rect x="40" y="30" width="40" height="40" rx="6" transform="rotate(5 60 50)" fill="#FFFFFF" opacity="0.6" />
+                      <rect x="55" y="40" width="35" height="35" rx="6" transform="rotate(-5 72 57)" fill="#000080" opacity="0.5" />
+                    </svg>
                   </div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm dark:bg-blue-600">
-                    <Building2 size={26} />
-                  </div>
-                </div>
-
-                <div className="mt-5 space-y-3">
-                  <SummaryRow title={copy.summary.colorTitle} description={copy.summary.colorDescription} />
-                  <SummaryRow title={copy.summary.typographyTitle} description={copy.summary.typographyDescription} />
-                  <SummaryRow title={copy.summary.spacingTitle} description={copy.summary.spacingDescription} />
-                </div>
-
-                <div className="mt-5 rounded-2xl border border-border bg-gradient-to-br from-blue-50 to-emerald-50 p-4 dark:from-blue-950/30 dark:to-emerald-950/20">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-foreground dark:text-gray-100 dark:text-gray-200">
-                    <CheckCircle size={16} className="text-emerald-600 dark:text-emerald-400" />
-                    {copy.summary.foundationFirst}
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
+                  <h2 className="text-xl font-bold text-white pr-28 leading-snug">
+                    Building the base<br />for UX4G
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-blue-100/80 pr-20">
                     {copy.summary.foundationFirstDescription}
                   </p>
                 </div>
               </div>
-            </div>
+
+              {/* Bottom card — Foundation topics list */}
+              <div className="rounded-2xl bg-card shadow-lg dark:bg-gray-800 p-5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4">
+                  What this page covers
+                </p>
+                <ul className="space-y-3" role="list">
+                  {foundationTopics.map((topic) => (
+                    <li
+                      key={topic.label}
+                      className="flex items-start gap-3"
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-400">
+                        <topic.icon size={16} />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground dark:text-gray-50">{topic.label}</p>
+                        <p className="text-xs text-muted-foreground leading-relaxed">{topic.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
-      {/* Design Principles */}
-      <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.78fr)_minmax(0,1.22fr)] items-start">
-            <div className="space-y-4 lg:sticky lg:top-24">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                {copy.designPrinciples.eyebrow}
-              </p>
-              <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
+      {/* ─── FOUR PRINCIPLES SECTION ─── */}
+      <section className="py-20 lg:py-28" aria-labelledby="principles-title">
+        <PageContainer>
+          {/* Section header with badges */}
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] items-start mb-14">
+            <div className="max-w-2xl">
+              <h2
+                id="principles-title"
+                className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground dark:text-gray-50"
+              >
                 {copy.designPrinciples.title}
               </h2>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 {copy.designPrinciples.description}
               </p>
             </div>
-
-            <div className="grid gap-5 md:grid-cols-2">
-              {principles.map((principle, index) => (
-                <div
-                  key={index}
-                  className="rounded-[28px] border border-border bg-card p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-gray-800"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-300">
-                      <principle.icon size={22} />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                        {copy.designPrinciples.principleLabel} {String(index + 1).padStart(2, "0")}
-                      </p>
-                      <h3 className="mt-1 text-xl font-bold text-foreground dark:text-gray-50">
-                        {principle.title}
-                      </h3>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
-                    {principle.description}
-                  </p>
-                </div>
-              ))}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">
+                <CheckCircle size={14} />
+                AA Compliant
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700 dark:bg-blue-950/40 dark:text-blue-300">
+                WCAG 2.1
+              </span>
+              <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700 dark:bg-amber-950/40 dark:text-amber-300">
+                Semantic palette
+              </span>
             </div>
           </div>
-        </div>
+
+          {/* Color swatches — 4 cards with rounded color block and dot indicator */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10" role="list" aria-label="Core color swatches">
+            {swatchColors.map((color) => (
+              <div
+                key={color.hex}
+                className="rounded-2xl overflow-hidden bg-card shadow-sm dark:bg-gray-800"
+                role="listitem"
+              >
+                <div className="p-3">
+                  <div
+                    className="h-14 w-full rounded-xl"
+                    style={{ backgroundColor: color.hex, border: color.hex === '#FFFFFF' ? '1px solid var(--border)' : undefined }}
+                    aria-label={`${color.name} color swatch`}
+                  />
+                </div>
+                <div className="flex items-center gap-2 px-4 pb-4">
+                  <span
+                    className="inline-block h-3 w-3 rounded-full shrink-0"
+                    style={{ backgroundColor: color.hex, border: color.hex === '#FFFFFF' ? '1px solid var(--border)' : undefined }}
+                    aria-hidden="true"
+                  />
+                  <p className="font-bold text-sm text-foreground dark:text-gray-50">{color.name}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Principle cards — clean text-only layout */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {principles.map((principle, index) => (
+              <div
+                key={index}
+                className="group rounded-2xl bg-muted/30 p-6 transition-all hover:bg-muted/50 dark:bg-gray-800/50 dark:hover:bg-gray-800/80"
+              >
+                <h3 className="text-lg font-bold text-foreground dark:text-gray-50 mb-3">
+                  {principle.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {principle.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </PageContainer>
       </section>
 
-      {/* Color System */}
-      <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
+      {/* ─── COLOR SECTION ─── */}
+      <section
+        className="bg-muted/20 py-20 lg:py-28 dark:bg-gray-800/40"
+        aria-labelledby="color-title"
+      >
+        <PageContainer>
+          <div className="grid gap-12 lg:grid-cols-[minmax(280px,0.45fr)_minmax(0,0.55fr)] items-start">
+            {/* Left — description */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground mb-2">
                 {copy.colorSystem.eyebrow}
               </p>
-              <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
+              <h2
+                id="color-title"
+                className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground dark:text-gray-50"
+              >
                 {copy.colorSystem.title}
               </h2>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 {copy.colorSystem.description}
               </p>
-              <div className="mt-6 rounded-[24px] border border-border bg-card p-5 shadow-sm dark:bg-gray-900">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+
+              {/* Accessibility badges */}
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">
+                  <Shield size={13} />
+                  Accessibility
+                </span>
+                <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-700 dark:bg-blue-950/40 dark:text-blue-300">
+                  6.4 Compliant
+                </span>
+                <span className="inline-flex items-center rounded-full bg-violet-50 px-3 py-1.5 text-xs font-semibold text-violet-700 dark:bg-violet-950/40 dark:text-violet-300">
+                  WCAG 2.1 AA
+                </span>
+              </div>
+
+              {/* Semantic tokens note */}
+              <div className="mt-8 rounded-2xl bg-card p-5 shadow-sm dark:bg-gray-800">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-2">
                   {copy.colorSystem.accessibilityNote}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {copy.colorSystem.accessibilityDescription}
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-              {colorPalette.map((color) => (
-                <div
-                  key={color.name}
-                  className="overflow-hidden rounded-[28px] border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-gray-900"
-                >
-                  <div className="h-32 flex items-center justify-center" style={{ backgroundColor: color.hex }}>
-                    <span
-                      className={`font-mono text-sm font-semibold px-3 py-1 rounded ${
-                        color.hex === "#FFFFFF" ? "bg-gray-900 text-white" : "bg-card text-foreground"
-                      }`}
-                    >
-                      {color.hex}
-                    </span>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-semibold text-foreground dark:text-gray-50 mb-1">{color.name}</h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">{color.desc}</p>
-                  </div>
-                </div>
-              ))}
+            {/* Right — Color table */}
+            <div className="rounded-2xl bg-card shadow-sm dark:bg-gray-800 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border/60 dark:border-gray-700">
+                      <th className="text-left px-5 py-4 font-semibold text-foreground dark:text-gray-50">
+                        {copy.typography.columns.style}
+                      </th>
+                      <th className="text-left px-5 py-4 font-semibold text-foreground dark:text-gray-50">
+                        Hex
+                      </th>
+                      <th className="text-left px-5 py-4 font-semibold text-foreground dark:text-gray-50">
+                        {copy.typography.columns.usage}
+                      </th>
+                      <th className="text-left px-5 py-4 font-semibold text-foreground dark:text-gray-50">
+                        Swatch
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border/40 dark:divide-gray-700/60">
+                    {colorPalette.map((color) => (
+                      <tr key={color.hex} className="transition-colors hover:bg-muted/30 dark:hover:bg-gray-700/40">
+                        <td className="px-5 py-3.5 font-medium text-foreground dark:text-gray-100">
+                          {color.name}
+                        </td>
+                        <td className="px-5 py-3.5 font-mono text-xs text-muted-foreground">
+                          {color.hex}
+                        </td>
+                        <td className="px-5 py-3.5 text-muted-foreground">
+                          {color.desc}
+                        </td>
+                        <td className="px-5 py-3.5">
+                          <div
+                            className="h-6 w-10 rounded border border-border/50"
+                            style={{ backgroundColor: color.hex }}
+                            aria-label={`${color.name} color preview`}
+                          />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
-      {/* Typography */}
-      <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
+      {/* ─── TYPOGRAPHY SECTION ─── */}
+      <section className="py-20 lg:py-28" aria-labelledby="typography-title">
+        <PageContainer>
+          <div className="grid gap-12 lg:grid-cols-[minmax(280px,0.4fr)_minmax(0,0.6fr)] items-start">
             <div>
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-300">
-                  <Type size={22} />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-300">
+                  <Type size={20} />
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                     {copy.typography.eyebrow}
                   </p>
-                  <h2 className="mt-1 text-3xl font-bold text-foreground dark:text-gray-50">
+                  <h2
+                    id="typography-title"
+                    className="mt-0.5 text-3xl font-bold text-foreground dark:text-gray-50"
+                  >
                     {copy.typography.title}
                   </h2>
                 </div>
               </div>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
+              <p className="text-base leading-relaxed text-muted-foreground">
                 {copy.typography.description}
               </p>
-              <div className="mt-6 rounded-[24px] border border-border bg-card p-5 shadow-sm dark:bg-gray-800">
-                <h3 className="font-semibold text-foreground dark:text-gray-50 mb-2">{copy.typography.fontFamily}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
+              <div className="mt-6 rounded-2xl bg-muted/30 p-5 dark:bg-gray-800/60">
+                <h3 className="font-semibold text-foreground dark:text-gray-50 mb-2">
+                  {copy.typography.fontFamily}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {copy.typography.fontFamilyDescription}: -apple-system, BlinkMacSystemFont,
-                  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+                  &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif
                 </p>
               </div>
             </div>
 
-            <div className="rounded-[28px] border border-border bg-card shadow-sm dark:bg-gray-800 overflow-hidden">
+            <div className="rounded-2xl bg-card shadow-sm dark:bg-gray-800 overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-background border-b border-border dark:bg-gray-900 dark:border-gray-700">
-                    <tr>
-                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">{copy.typography.columns.style}</th>
-                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">{copy.typography.columns.size}</th>
-                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">{copy.typography.columns.weight}</th>
-                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">{copy.typography.columns.usage}</th>
-                      <th className="text-left px-6 py-4 font-semibold text-foreground dark:text-gray-50">{copy.typography.columns.example}</th>
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border/60 dark:border-gray-700">
+                      <th className="text-left px-5 py-4 font-semibold text-foreground dark:text-gray-50">
+                        {copy.typography.columns.style}
+                      </th>
+                      <th className="text-left px-5 py-4 font-semibold text-foreground dark:text-gray-50">
+                        {copy.typography.columns.size}
+                      </th>
+                      <th className="text-left px-5 py-4 font-semibold text-foreground dark:text-gray-50">
+                        {copy.typography.columns.weight}
+                      </th>
+                      <th className="text-left px-5 py-4 font-semibold text-foreground dark:text-gray-50">
+                        {copy.typography.columns.usage}
+                      </th>
+                      <th className="text-left px-5 py-4 font-semibold text-foreground dark:text-gray-50">
+                        {copy.typography.columns.example}
+                      </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-border dark:divide-gray-700">
+                  <tbody className="divide-y divide-border/40 dark:divide-gray-700/60">
                     {typography.map((type, index) => (
-                      <tr key={index} className="transition-colors hover:bg-background dark:hover:bg-gray-700">
-                        <td className="px-6 py-4 font-medium text-foreground dark:text-gray-100 dark:text-gray-200">{type.name}</td>
-                        <td className="px-6 py-4 text-muted-foreground dark:text-muted-foreground">{type.size}</td>
-                        <td className="px-6 py-4 text-muted-foreground dark:text-muted-foreground">{type.weight}</td>
-                        <td className="px-6 py-4 text-muted-foreground dark:text-muted-foreground">{type.usage}</td>
-                        <td className="px-6 py-4">
-                          <span style={{ fontSize: type.size, fontWeight: type.weight }} className="text-foreground dark:text-gray-100 dark:text-gray-200">
+                      <tr key={index} className="transition-colors hover:bg-muted/30 dark:hover:bg-gray-700/40">
+                        <td className="px-5 py-3.5 font-medium text-foreground dark:text-gray-100">
+                          {type.name}
+                        </td>
+                        <td className="px-5 py-3.5 font-mono text-xs text-muted-foreground">
+                          {type.size}
+                        </td>
+                        <td className="px-5 py-3.5 text-muted-foreground">{type.weight}</td>
+                        <td className="px-5 py-3.5 text-muted-foreground">{type.usage}</td>
+                        <td className="px-5 py-3.5">
+                          <span
+                            style={{ fontSize: type.size, fontWeight: type.weight }}
+                            className="text-foreground dark:text-gray-100"
+                          >
                             Aa
                           </span>
                         </td>
@@ -306,102 +445,96 @@ export default function Foundations() {
               </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
-      {/* Spacing */}
-      <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
+      {/* ─── SPACING & GRID SECTION ─── */}
+      <section
+        className="bg-muted/20 py-20 lg:py-28 dark:bg-gray-800/40"
+        aria-labelledby="spacing-title"
+      >
+        <PageContainer>
+          <div className="grid gap-12 lg:grid-cols-[minmax(280px,0.45fr)_minmax(0,0.55fr)] items-start">
+            {/* Left — description */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground mb-2">
                 {copy.spacingSection.eyebrow}
               </p>
-              <h2 className="mt-3 text-3xl font-bold text-foreground dark:text-gray-50">
+              <h2
+                id="spacing-title"
+                className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground dark:text-gray-50"
+              >
                 {copy.spacingSection.title}
               </h2>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 {copy.spacingSection.description}
               </p>
-              <div className="mt-6 rounded-[24px] border border-border bg-card p-5 shadow-sm dark:bg-gray-900">
-                <h3 className="font-semibold text-foreground dark:text-gray-50 mb-2">{copy.spacingSection.implementation}</h3>
-                <p className="text-sm text-muted-foreground dark:text-muted-foreground mb-3">
+
+              {/* Implementation note */}
+              <div className="mt-8 rounded-2xl bg-card p-5 shadow-sm dark:bg-gray-800">
+                <h3 className="font-semibold text-foreground dark:text-gray-50 mb-2">
+                  {copy.spacingSection.implementation}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
                   {copy.spacingSection.implementationDescription}
                 </p>
-                <code className="block rounded-lg border border-border bg-background px-4 py-3 text-sm font-mono text-foreground dark:bg-gray-800 dark:text-gray-100 dark:text-gray-200">
-                  className="p-spacing-4 m-spacing-2"
+                <code className="block rounded-lg bg-muted/50 px-4 py-3 text-sm font-mono text-foreground dark:bg-gray-900 dark:text-gray-200">
+                  className=&quot;p-spacing-4 m-spacing-2&quot;
                 </code>
               </div>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {spacing.map((space) => (
-                <div key={space.token} className="rounded-[28px] border border-border bg-card p-5 shadow-sm dark:bg-gray-900">
-                  <div className="flex items-center gap-4 mb-4">
+            {/* Right — Responsive breakpoint cards */}
+            <div className="space-y-6">
+              {/* Breakpoint cards */}
+              <div className="grid gap-4 sm:grid-cols-3">
+                <LayoutCard
+                  icon={<Smartphone size={20} />}
+                  title={copy.gridSection.mobileTitle}
+                  range="320px – 767px"
+                  columns={4}
+                  description={copy.gridSection.mobileDescription}
+                />
+                <LayoutCard
+                  icon={<Tablet size={20} />}
+                  title={copy.gridSection.tabletTitle}
+                  range="768px – 1023px"
+                  columns={8}
+                  description={copy.gridSection.tabletDescription}
+                />
+                <LayoutCard
+                  icon={<Monitor size={20} />}
+                  title={copy.gridSection.desktopTitle}
+                  range="1024px+"
+                  columns={12}
+                  description={copy.gridSection.desktopDescription}
+                />
+              </div>
+
+              {/* Spacing tokens grid */}
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {spacing.map((space) => (
+                  <div
+                    key={space.token}
+                    className="flex items-center gap-4 rounded-xl bg-card p-4 shadow-sm dark:bg-gray-800"
+                  >
                     <div
-                      className="bg-primary rounded"
+                      className="shrink-0 rounded bg-primary dark:bg-blue-500"
                       style={{ width: space.value, height: space.value }}
+                      aria-hidden="true"
                     />
-                    <div>
-                      <div className="font-mono text-sm font-semibold text-foreground dark:text-gray-50">
+                    <div className="min-w-0">
+                      <p className="font-mono text-sm font-semibold text-foreground dark:text-gray-50">
                         {space.value}
-                      </div>
-                      <div className="text-xs text-muted-foreground dark:text-muted-foreground">{space.token}</div>
+                      </p>
+                      <p className="text-xs text-muted-foreground truncate">{space.usage}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground dark:text-muted-foreground">{space.usage}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Grid System */}
-      <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
-            <div>
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary dark:bg-blue-950/40 dark:text-blue-300">
-                  <Grid size={22} />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                    {copy.gridSection.eyebrow}
-                  </p>
-                  <h2 className="mt-1 text-3xl font-bold text-foreground dark:text-gray-50">
-                    {copy.gridSection.title}
-                  </h2>
-                </div>
-              </div>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground">
-                {copy.gridSection.description}
-              </p>
-            </div>
-
-            <div className="space-y-5">
-              <div className="rounded-[28px] border border-border bg-card p-6 shadow-sm dark:bg-gray-800">
-                <div className="grid grid-cols-12 gap-4">
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="flex h-16 items-center justify-center rounded-xl bg-primary text-sm font-semibold text-primary-foreground"
-                    >
-                      {i + 1}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid gap-5 md:grid-cols-3">
-                <LayoutCard title={copy.gridSection.mobileTitle} range="320px - 767px" description={copy.gridSection.mobileDescription} />
-                <LayoutCard title={copy.gridSection.tabletTitle} range="768px - 1023px" description={copy.gridSection.tabletDescription} />
-                <LayoutCard title={copy.gridSection.desktopTitle} range="1024px+" description={copy.gridSection.desktopDescription} />
+                ))}
               </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
     </div>
   );
@@ -672,8 +805,8 @@ const FOUNDATIONS_COPY = {
 
 function StatTile({ value, label }: { value: string; label: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-card px-4 py-4 shadow-sm dark:bg-gray-800">
-      <div className="text-2xl font-bold text-foreground dark:text-gray-50">{value}</div>
+    <div className="rounded-2xl bg-card/80 px-5 py-4 backdrop-blur-sm dark:bg-gray-800/80" role="listitem">
+      <div className="text-3xl font-bold text-foreground dark:text-gray-50">{value}</div>
       <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {label}
       </div>
@@ -683,9 +816,9 @@ function StatTile({ value, label }: { value: string; label: string }) {
 
 function SummaryRow({ title, description }: { title: string; description: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-background p-4 dark:bg-gray-900">
+    <div className="rounded-2xl bg-muted/30 p-4 dark:bg-gray-700/40">
       <p className="font-semibold text-foreground dark:text-gray-50">{title}</p>
-      <p className="mt-1 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
+      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
     </div>
@@ -693,21 +826,29 @@ function SummaryRow({ title, description }: { title: string; description: string
 }
 
 function LayoutCard({
+  icon,
   title,
   range,
+  columns,
   description,
 }: {
+  icon: React.ReactNode;
   title: string;
   range: string;
+  columns: number;
   description: string;
 }) {
   return (
-    <div className="rounded-[28px] border border-border bg-card p-6 shadow-sm dark:bg-gray-900">
-      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-        {title}
-      </p>
-      <p className="mt-2 text-lg font-bold text-foreground dark:text-gray-50">{range}</p>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground dark:text-muted-foreground">
+    <div className="rounded-2xl bg-card p-5 shadow-sm dark:bg-gray-800">
+      <div className="flex items-center gap-2 text-primary dark:text-blue-400 mb-3">
+        {icon}
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          {title}
+        </p>
+      </div>
+      <p className="text-lg font-bold text-foreground dark:text-gray-50">{range}</p>
+      <p className="mt-1 text-xs font-medium text-muted-foreground">{columns} columns</p>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
     </div>

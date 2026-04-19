@@ -1,0 +1,60 @@
+/**
+ * UX4G Grid Styles
+ * CSS Grid layout with column count modifiers.
+ * Class contract: src/app/react-core-package/src/components/Grid/Grid.tsx
+ */
+
+/* ── Base ── */
+.ux4g-grid {
+  display: grid;
+  gap: var(--ux4g-spacing-4, 1rem);
+}
+
+/* ── Column modifiers ── */
+.ux4g-grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.ux4g-grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ux4g-grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ux4g-grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.ux4g-grid-cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.ux4g-grid-cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.ux4g-grid-cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.ux4g-grid-cols-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.ux4g-grid-cols-9 {
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.ux4g-grid-cols-10 {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.ux4g-grid-cols-11 {
+  grid-template-columns: repeat(11, 1fr);
+}
+
+.ux4g-grid-cols-12 {
+  grid-template-columns: repeat(12, 1fr);
+}

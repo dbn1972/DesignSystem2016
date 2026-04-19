@@ -1,0 +1,104 @@
+/**
+ * UX4G Slider Styles
+ * Range slider with track, fill, thumb, and size variants
+ * Class contract: src/app/react-core-package/src/components/Slider/Slider.tsx
+ */
+
+/* ── Base ── */
+.ux4g-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+}
+
+/* ── Sub-elements ── */
+.ux4g-slider-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  border-radius: var(--ux4g-radius-full, 9999px);
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-slider-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: var(--ux4g-radius-full, 9999px);
+  background-color: var(--ux4g-color-primary, #005196);
+  transition: width var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-slider-thumb {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--ux4g-color-primary, #005196);
+  border-radius: var(--ux4g-radius-full, 9999px);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  cursor: pointer;
+  transition:
+    box-shadow var(--ux4g-motion-duration-base, 200ms) ease,
+    transform var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-slider-thumb:hover {
+  box-shadow: 0 0 0 4px rgba(0, 81, 150, 0.12);
+}
+
+.ux4g-slider-thumb:active {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.ux4g-slider-thumb:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── Sizes ── */
+.ux4g-slider-sm .ux4g-slider-track {
+  height: 4px;
+}
+
+.ux4g-slider-sm .ux4g-slider-thumb {
+  width: 16px;
+  height: 16px;
+}
+
+.ux4g-slider-md .ux4g-slider-track {
+  height: 6px;
+}
+
+.ux4g-slider-md .ux4g-slider-thumb {
+  width: 20px;
+  height: 20px;
+}
+
+.ux4g-slider-lg .ux4g-slider-track {
+  height: 8px;
+}
+
+.ux4g-slider-lg .ux4g-slider-thumb {
+  width: 24px;
+  height: 24px;
+}
+
+/* ── States ── */
+.ux4g-slider-disabled {
+  opacity: var(--ux4g-disabled-opacity, 0.6);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-slider-fill,
+  .ux4g-slider-thumb {
+    transition-duration: 0.01ms !important;
+  }
+}

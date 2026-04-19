@@ -1,0 +1,21 @@
+/**
+ * UX4G QRCode Styles
+ * Centered container with configurable size and label
+ * Class contract: src/app/react-core-package/src/components/QRCode/QRCode.tsx
+ */
+
+/* ── Base ── */
+.ux4g-qr-code {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+}
+
+/* ── Sub-elements ── */
+.ux4g-qr-code-label {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  line-height: var(--ux4g-line-height-normal, 1.5);
+  text-align: center;
+}

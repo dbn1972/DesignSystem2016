@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Stepper } from './Stepper';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 const STEPS = [
   { key: '1', label: 'Personal Info', description: 'Enter your details' },
@@ -167,5 +168,32 @@ describe('Stepper', () => {
     const { container } = render(<Stepper steps={STEPS} current={0} />);
     const connectors = container.querySelectorAll('.ux4g-step-connector');
     expect(connectors).toHaveLength(STEPS.length - 1);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Stepper steps={STEPS} current={0} />);
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'horizontal', ui: <Stepper steps={STEPS} current={1} orientation="horizontal" /> },
+        { name: 'vertical', ui: <Stepper steps={STEPS} current={1} orientation="vertical" /> },
+      ]);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('Tab focuses between clickable steps', async () => {
+        const user = userEvent.setup();
+        render(<Stepper steps={STEPS} current={1} clickable onStepClick={vi.fn()} />);
+        await user.tab();
+        const buttons = screen.getAllByRole('button');
+        expect(buttons[0]).toHaveFocus();
+        await user.tab();
+        expect(buttons[1]).toHaveFocus();
+      });
+    });
   });
 });

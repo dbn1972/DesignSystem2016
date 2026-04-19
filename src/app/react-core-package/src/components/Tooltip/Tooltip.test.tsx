@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen, act, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Tooltip } from './Tooltip';
+import { checkA11y } from '@/test/a11y-helpers';
 
 /** Show tooltip by firing mouseenter and advancing the delay timer */
 function showTooltip(element: HTMLElement, delay = 0) {
@@ -202,5 +203,52 @@ describe('Tooltip', () => {
     showTooltip(screen.getByRole('button'), 0);
     expect(screen.getByRole('tooltip').querySelector('strong')).toHaveTextContent('Bold tip');
     vi.useRealTimers();
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in visible state', async () => {
+      const { container } = render(
+        <Tooltip content="Accessible tooltip" delay={0}>
+          <button type="button">Hover me</button>
+        </Tooltip>
+      );
+      fireEvent.mouseEnter(container.querySelector('.ux4g-tooltip-wrapper')!);
+      // Wait for zero-delay tooltip to appear
+      await screen.findByRole('tooltip');
+      const results = await checkA11y(container);
+      (expect(results) as any).toHaveNoViolations();
+    });
+
+    describe('Keyboard navigation', () => {
+      it('shows tooltip when trigger receives focus via Tab', () => {
+        vi.useFakeTimers();
+        render(
+          <Tooltip content="Focus info" delay={0}>
+            <button type="button">Focus me</button>
+          </Tooltip>
+        );
+        fireEvent.focus(screen.getByRole('button'));
+        act(() => { vi.advanceTimersByTime(0); });
+        expect(screen.getByRole('tooltip')).toBeInTheDocument();
+        vi.useRealTimers();
+      });
+
+      it('hides tooltip on blur (Escape dismissal)', () => {
+        vi.useFakeTimers();
+        render(
+          <Tooltip content="Dismiss info" delay={0}>
+            <button type="button">Focus me</button>
+          </Tooltip>
+        );
+        fireEvent.focus(screen.getByRole('button'));
+        act(() => { vi.advanceTimersByTime(0); });
+        expect(screen.getByRole('tooltip')).toBeInTheDocument();
+        fireEvent.blur(screen.getByRole('button'));
+        expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+        vi.useRealTimers();
+      });
+    });
   });
 });

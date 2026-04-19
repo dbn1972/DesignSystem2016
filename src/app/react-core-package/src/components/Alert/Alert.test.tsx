@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Alert } from './Alert';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 describe('Alert', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -102,5 +103,49 @@ describe('Alert', () => {
     const ref = React.createRef<HTMLDivElement>();
     render(<Alert ref={ref}>Message</Alert>);
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Alert>Something happened</Alert>);
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'info', ui: <Alert variant="info">Info message</Alert> },
+        { name: 'success', ui: <Alert variant="success">Success message</Alert> },
+        { name: 'warning', ui: <Alert variant="warning">Warning message</Alert> },
+        { name: 'error', ui: <Alert variant="error">Error message</Alert> },
+      ]);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('Tab focuses close button when present', async () => {
+        const user = userEvent.setup();
+        render(<Alert onClose={vi.fn()}>Message</Alert>);
+        await user.tab();
+        expect(screen.getByRole('button', { name: 'Close alert' })).toHaveFocus();
+      });
+
+      it('Enter dismisses alert via close button', async () => {
+        const user = userEvent.setup();
+        const onClose = vi.fn();
+        render(<Alert onClose={onClose}>Message</Alert>);
+        await user.tab();
+        await user.keyboard('{Enter}');
+        expect(onClose).toHaveBeenCalledTimes(1);
+      });
+
+      it('Space dismisses alert via close button', async () => {
+        const user = userEvent.setup();
+        const onClose = vi.fn();
+        render(<Alert onClose={onClose}>Message</Alert>);
+        await user.tab();
+        await user.keyboard(' ');
+        expect(onClose).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });

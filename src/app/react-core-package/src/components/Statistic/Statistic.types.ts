@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import { BaseComponentProps } from '../../types/common';
 
-export interface StatisticProps extends HTMLAttributes<HTMLDivElement>, BaseComponentProps {
+export interface StatisticProps extends Omit<HTMLAttributes<HTMLDivElement>, 'prefix'>, BaseComponentProps {
   label: string;
   value: string | number;
   /** Prefix (e.g. ₹, $) */

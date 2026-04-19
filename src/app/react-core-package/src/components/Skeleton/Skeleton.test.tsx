@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Skeleton } from './Skeleton';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Skeleton', () => {
   // ── Rendering ─────────────────────────────────────────────────────
@@ -121,5 +122,13 @@ describe('Skeleton', () => {
   it('accepts custom className', () => {
     render(<Skeleton className="my-custom" />);
     expect(screen.getByRole('status')).toHaveClass('my-custom');
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Skeleton />);
+    });
   });
 });

@@ -1,0 +1,20 @@
+import{j as e}from"./jsx-runtime-Cf8x2fCZ.js";import{r as i}from"./index-G8LIXM5I.js";import{c}from"./cn-BaF2GUMg.js";import"./index-yBjzXJbu.js";import"./_commonjsHelpers-CqkleIqs.js";const m=i.forwardRef(({amount:N,merchantName:v,upiId:b,onSuccess:t,onFailure:r,currency:w="INR",className:I,...C},P)=>{const j=i.useCallback(()=>{try{t==null||t()}catch{r==null||r("Payment failed")}},[t,r]),o=new Intl.NumberFormat("en-IN",{style:"currency",currency:w}).format(N);return e.jsxs("div",{ref:P,className:c("ux4g-payment-gateway border rounded-lg p-6 max-w-sm",I),...C,children:[e.jsxs("div",{className:"ux4g-payment-gateway-header text-center mb-4",children:[e.jsx("p",{className:"ux4g-payment-gateway-merchant text-sm text-muted-foreground",children:"Pay to"}),e.jsx("p",{className:"text-lg font-semibold text-foreground",children:v})]}),e.jsx("div",{className:"ux4g-payment-gateway-amount text-center mb-4",children:e.jsx("p",{className:"text-3xl font-bold text-foreground",children:o})}),e.jsxs("div",{className:"ux4g-payment-gateway-upi text-center mb-6",children:[e.jsx("p",{className:"text-sm text-muted-foreground",children:"UPI ID"}),e.jsx("p",{className:"text-sm font-mono text-foreground",children:b})]}),e.jsxs("button",{type:"button",onClick:j,className:c("ux4g-payment-gateway-pay-btn","w-full py-3 px-4 rounded-md text-sm font-medium","bg-primary text-primary-foreground","hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"),children:["Pay ",o]})]})});m.displayName="PaymentGateway";m.__docgenInfo={description:"",methods:[],displayName:"PaymentGateway",props:{className:{required:!1,tsType:{name:"string"},description:"Additional CSS class names"},style:{required:!1,tsType:{name:"ReactCSSProperties",raw:"React.CSSProperties"},description:"Inline styles (use sparingly, prefer className with tokens)"},"data-testid":{required:!1,tsType:{name:"string"},description:"Test ID for testing frameworks"},amount:{required:!0,tsType:{name:"number"},description:"Payment amount"},merchantName:{required:!0,tsType:{name:"string"},description:"Merchant display name"},upiId:{required:!0,tsType:{name:"string"},description:"UPI ID for payment"},onSuccess:{required:!1,tsType:{name:"signature",type:"function",raw:"() => void",signature:{arguments:[],return:{name:"void"}}},description:"Called on successful payment"},onFailure:{required:!1,tsType:{name:"signature",type:"function",raw:"(error: string) => void",signature:{arguments:[{type:{name:"string"},name:"error"}],return:{name:"void"}}},description:"Called on payment failure"},currency:{required:!1,tsType:{name:"string"},description:"Currency code",defaultValue:{value:"'INR'",computed:!1}}}};const R={title:"Components/PaymentGateway",component:m,tags:["autodocs"]},a={args:{amount:500,merchantName:"Government Services",upiId:"gov@upi"}},n={args:{amount:25e3,merchantName:"Tax Department",upiId:"tax@gov.upi"}},s={args:{amount:100,merchantName:"Embassy Services",upiId:"embassy@upi",currency:"USD"}};var u,p,d;a.parameters={...a.parameters,docs:{...(u=a.parameters)==null?void 0:u.docs,source:{originalSource:`{
+  args: {
+    amount: 500,
+    merchantName: 'Government Services',
+    upiId: 'gov@upi'
+  }
+}`,...(d=(p=a.parameters)==null?void 0:p.docs)==null?void 0:d.source}}};var l,y,g;n.parameters={...n.parameters,docs:{...(l=n.parameters)==null?void 0:l.docs,source:{originalSource:`{
+  args: {
+    amount: 25000,
+    merchantName: 'Tax Department',
+    upiId: 'tax@gov.upi'
+  }
+}`,...(g=(y=n.parameters)==null?void 0:y.docs)==null?void 0:g.source}}};var x,f,h;s.parameters={...s.parameters,docs:{...(x=s.parameters)==null?void 0:x.docs,source:{originalSource:`{
+  args: {
+    amount: 100,
+    merchantName: 'Embassy Services',
+    upiId: 'embassy@upi',
+    currency: 'USD'
+  }
+}`,...(h=(f=s.parameters)==null?void 0:f.docs)==null?void 0:h.source}}};const E=["Default","LargeAmount","CustomCurrency"];export{s as CustomCurrency,a as Default,n as LargeAmount,E as __namedExportsOrder,R as default};

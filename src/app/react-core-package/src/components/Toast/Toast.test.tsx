@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Toast } from './Toast';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 describe('Toast', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -154,5 +155,40 @@ describe('Toast', () => {
     render(<Toast message="Done" duration={1000} />);
     vi.advanceTimersByTime(1000);
     vi.useRealTimers();
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Toast message="Notification" onClose={vi.fn()} />);
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'info', ui: <Toast message="Info message" variant="info" onClose={vi.fn()} /> },
+        { name: 'success', ui: <Toast message="Success message" variant="success" onClose={vi.fn()} /> },
+        { name: 'warning', ui: <Toast message="Warning message" variant="warning" onClose={vi.fn()} /> },
+        { name: 'error', ui: <Toast message="Error message" variant="error" onClose={vi.fn()} /> },
+      ]);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('Tab focuses the dismiss button', async () => {
+        const user = userEvent.setup();
+        render(<Toast message="Done" onClose={vi.fn()} />);
+        await user.tab();
+        expect(screen.getByRole('button', { name: 'Close notification' })).toHaveFocus();
+      });
+
+      it('dismisses via close button with keyboard', async () => {
+        const user = userEvent.setup();
+        const onClose = vi.fn();
+        render(<Toast message="Done" onClose={onClose} />);
+        screen.getByRole('button', { name: 'Close notification' }).focus();
+        await user.keyboard('{Enter}');
+        expect(onClose).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });

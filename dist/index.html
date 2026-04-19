@@ -35,7 +35,7 @@
     <!-- Security -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <!-- JSON-LD Structured Data -->
@@ -61,13 +61,15 @@
     }
     </script>
 
+    <!-- FOUC Prevention: apply stored theme before first paint -->
+    <script>(function(){try{var d=document.documentElement,s=localStorage.getItem('ux4g-theme-color-scheme'),m='light';if(s==='dark')m='dark';else if(s!=='light')m=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';d.setAttribute('data-theme',m);d.style.colorScheme=m;if(m==='dark')d.classList.add('dark');else d.classList.remove('dark');if(localStorage.getItem('ux4g-theme-contrast-mode')==='true')d.setAttribute('data-contrast','high');}catch(e){var d=document.documentElement;d.setAttribute('data-theme','light');d.style.colorScheme='light';}})()</script>
     <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-    <script type="module" crossorigin src="/assets/index-DXwBd4-b.js"></script>
+    <script type="module" crossorigin src="/assets/index-6iE2_nDr.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-react-TuGI6S8S.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-radix-COZ2sugX.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-i18n-CqdMIuQf.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor-ui-D8WJEOkq.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-BfO7QhfR.css">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-ui-BM41cUdz.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DmXad9CJ.css">
   </head>
   <body>
     <div id="root"></div>

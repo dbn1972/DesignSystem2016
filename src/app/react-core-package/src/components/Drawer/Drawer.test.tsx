@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Drawer } from './Drawer';
+import { assertA11y, checkA11y } from '@/test/a11y-helpers';
 
 describe('Drawer', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -211,5 +212,57 @@ describe('Drawer', () => {
       </Drawer>
     );
     expect(container.querySelector('.ux4g-drawer')).toHaveStyle({ height: '300px' });
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in open state', async () => {
+      const { container } = render(
+        <Drawer open onClose={() => {}} title="Accessible drawer">
+          <p>Drawer content</p>
+        </Drawer>
+      );
+      const results = await checkA11y(container);
+      (expect(results) as any).toHaveNoViolations();
+    });
+
+    describe('Keyboard navigation', () => {
+      it('traps focus inside the drawer via Tab', async () => {
+        const user = userEvent.setup();
+        render(
+          <Drawer
+            open
+            onClose={() => {}}
+            title="Focus trap test"
+            footer={<button type="button">Apply</button>}
+          >
+            <button type="button">Action</button>
+          </Drawer>
+        );
+
+        const closeBtn = screen.getByRole('button', { name: 'Close drawer' });
+        const actionBtn = screen.getByRole('button', { name: 'Action' });
+        const applyBtn = screen.getByRole('button', { name: 'Apply' });
+
+        closeBtn.focus();
+        await user.tab();
+        expect(actionBtn).toHaveFocus();
+        await user.tab();
+        expect(applyBtn).toHaveFocus();
+      });
+
+      it('closes on Escape key', async () => {
+        const user = userEvent.setup();
+        const onClose = vi.fn();
+        render(
+          <Drawer open onClose={onClose}>
+            <p>Content</p>
+          </Drawer>
+        );
+        await user.keyboard('{Escape}');
+        expect(onClose).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });

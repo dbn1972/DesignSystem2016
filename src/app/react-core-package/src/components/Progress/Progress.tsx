@@ -33,7 +33,7 @@ export function Progress({
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={indeterminate ? undefined : normalizedValue}
-        aria-label={indeterminate ? 'Loading' : undefined}
+        aria-label={indeterminate ? 'Loading' : `Progress: ${normalizedValue}%`}
         className={cn(
           'ux4g-progress',
           `ux4g-progress-${size}`,

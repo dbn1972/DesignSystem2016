@@ -1,0 +1,30 @@
+/**
+ * UX4G Container Styles
+ * Responsive width-constrained layout wrapper with auto-centering.
+ * Class contract: src/app/react-core-package/src/components/Container/Container.tsx
+ */
+
+/* ── Base ── */
+.ux4g-container {
+  width: 100%;
+  max-width: var(--ux4g-sizing-container-7xl, 80rem);
+  margin-inline: auto;
+  padding-inline: var(--ux4g-spacing-4, 1rem);
+}
+
+/* ── Sizes ── */
+.ux4g-container-sm {
+  max-width: var(--ux4g-sizing-container-sm, 40rem);
+}
+
+.ux4g-container-md {
+  max-width: var(--ux4g-sizing-container-md, 48rem);
+}
+
+.ux4g-container-lg {
+  max-width: var(--ux4g-sizing-container-lg, 64rem);
+}
+
+.ux4g-container-xl {
+  max-width: var(--ux4g-sizing-container-xl, 80rem);
+}

@@ -265,6 +265,36 @@ const FAQ_COPY: Record<Language, FAQPageCopy> = {
               { label: "Open contributing", href: "/contributing" },
             ],
           },
+          {
+            question: "How do I scaffold a new UX4G project quickly?",
+            answer:
+              "Use the create-ux4g-app CLI tool to scaffold a new project in seconds. Run npx create-ux4g-app my-app to create a React project, or npx create-ux4g-app my-app --template angular for Angular. The CLI generates a complete project with UX4G dependencies, TypeScript configuration, build tooling, and a sample app with Indian tricolor branding.",
+            keywords: ["cli", "scaffold", "create app", "npx", "starter", "new project"],
+            relatedLinks: [
+              { label: "Getting started guide", href: "/resources/getting-started" },
+              { label: "Starter kit", href: "/resources/starter-kit" },
+            ],
+          },
+          {
+            question: "How does the advanced theming system work?",
+            answer:
+              "UX4G includes a full-featured theming system with runtime theme switching, custom department themes, and high-contrast accessibility mode. Use the ThemeProvider component to wrap your app, then use the useTheme hook to access theme state and switching functions. Five built-in presets are available: default (navy), saffron-primary, green-primary, navy-primary, and high-contrast. Departments can create custom themes using the createTheme API, which deep-merges overrides onto any base preset while maintaining WCAG 2.1 AA compliance.",
+            keywords: ["theming", "theme provider", "dark mode", "custom theme", "department branding", "high contrast"],
+            relatedLinks: [
+              { label: "Foundations", href: "/foundations" },
+              { label: "Accessibility guidance", href: "/accessibility" },
+            ],
+          },
+          {
+            question: "What CSS styles are available for components?",
+            answer:
+              "All 87 UX4G components have corresponding CSS files in the @ux4g/styles package. Each CSS file follows a consistent template: base class, sub-elements, variants, states, sizes, pseudo-classes, and reduced-motion support. All visual values use CSS custom properties (var(--ux4g-*, fallback)) from the design tokens package, ensuring components are themeable and render correctly even without the tokens package loaded.",
+            keywords: ["css", "styles", "component styles", "tokens", "custom properties"],
+            relatedLinks: [
+              { label: "Foundations", href: "/foundations" },
+              { label: "Component library", href: "/components" },
+            ],
+          },
         ],
       },
       {
@@ -314,6 +344,36 @@ const FAQ_COPY: Record<Language, FAQPageCopy> = {
               { label: "Governance", href: "/governance" },
             ],
           },
+          {
+            question: "How is accessibility testing automated in UX4G?",
+            answer:
+              "UX4G has comprehensive automated accessibility testing using vitest-axe (axe-core) integrated into every component's test file. The a11y test helper module provides checkA11y, assertA11y, and assertA11yStates functions that scan components against WCAG 2.1 A and AA rules. All 54 tiered components have Accessibility describe blocks with axe scans for default, disabled, error, and variant states, plus keyboard navigation tests for interactive components. Run pnpm run test:a11y to execute the full accessibility test suite.",
+            keywords: ["accessibility testing", "axe", "wcag", "automated testing", "a11y"],
+            relatedLinks: [
+              { label: "Accessibility guidance", href: "/accessibility" },
+              { label: "Component library", href: "/components" },
+            ],
+          },
+          {
+            question: "What is the current test coverage?",
+            answer:
+              "UX4G maintains 95%+ test coverage across all 87 components: 95.4% statement coverage, 91.3% branch coverage, 96.9% function coverage, and 96.8% line coverage. The CI pipeline enforces an 80% minimum threshold on every pull request. Tests cover rendering, variants, states, interactions, keyboard navigation, accessibility (axe scans), and edge cases.",
+            keywords: ["test coverage", "unit tests", "vitest", "ci", "quality"],
+            relatedLinks: [
+              { label: "Contributing", href: "/contributing" },
+              { label: "Governance", href: "/governance" },
+            ],
+          },
+          {
+            question: "How does the theme validation system ensure accessibility?",
+            answer:
+              "The ThemeValidator module provides a validateTheme function that checks all color token pairs against WCAG 2.1 contrast requirements. It computes relative luminance using the WCAG formula and verifies text-to-background pairs meet 4.5:1 (AA normal text) and interactive-to-background pairs meet 3:1 (AA UI components). The high-contrast preset targets WCAG AAA (7:1 for text). Custom themes created with createTheme can be validated before deployment to ensure department branding maintains accessibility compliance.",
+            keywords: ["theme validation", "contrast ratio", "wcag", "color accessibility", "luminance"],
+            relatedLinks: [
+              { label: "Accessibility guidance", href: "/accessibility" },
+              { label: "Foundations", href: "/foundations" },
+            ],
+          },
         ],
       },
       {
@@ -361,6 +421,26 @@ const FAQ_COPY: Record<Language, FAQPageCopy> = {
             relatedLinks: [
               { label: "Migration guides", href: "/resources/migration-guides" },
               { label: "API reference", href: "/api-reference" },
+            ],
+          },
+          {
+            question: "What does the CI/CD pipeline include?",
+            answer:
+              "UX4G has a complete CI/CD pipeline with five GitHub Actions workflows: (1) CI Pipeline — TypeScript typecheck, unit tests with 80%+ coverage threshold, accessibility tests, production build verification, and validation checks (doc links, API drift, semantic colors). (2) Publish Pipeline — builds and publishes @ux4g/tokens, @ux4g/styles, and @ux4g/react-core to NPM with provenance, supporting dry-run mode. (3) Visual Regression — Playwright-based screenshot comparison at desktop, tablet, and mobile viewports. (4) Storybook Smoke — verifies Storybook builds successfully. (5) Deploy Docs — deploys the documentation site to GitHub Pages.",
+            keywords: ["ci", "cd", "pipeline", "github actions", "deployment", "npm publish"],
+            relatedLinks: [
+              { label: "Contributing", href: "/contributing" },
+              { label: "Governance", href: "/governance" },
+            ],
+          },
+          {
+            question: "How can departments share custom themes?",
+            answer:
+              "Custom themes can be exported and imported as JSON using the serializeTheme and deserializeTheme functions. The serialized format includes a version field, theme name, base theme reference, and token overrides for both light and dark variants. This allows departments to share branded themes across projects and teams while maintaining version compatibility.",
+            keywords: ["theme sharing", "json", "serialize", "department theme", "export import"],
+            relatedLinks: [
+              { label: "Foundations", href: "/foundations" },
+              { label: "Contributing", href: "/contributing" },
             ],
           },
         ],
@@ -583,6 +663,36 @@ const FAQ_COPY: Record<Language, FAQPageCopy> = {
               { label: "Contributing", href: "/contributing" },
             ],
           },
+          {
+            question: "नया UX4G प्रोजेक्ट जल्दी कैसे scaffold करें?",
+            answer:
+              "नया प्रोजेक्ट सेकंडों में scaffold करने के लिए create-ux4g-app CLI टूल का उपयोग करें। React प्रोजेक्ट बनाने के लिए npx create-ux4g-app my-app चलाएँ, या Angular के लिए npx create-ux4g-app my-app --template angular। CLI एक पूर्ण प्रोजेक्ट generate करता है जिसमें UX4G dependencies, TypeScript configuration, build tooling और Indian tricolor branding वाला sample app शामिल होता है।",
+            keywords: ["cli", "scaffold", "create app", "npx", "starter", "new project"],
+            relatedLinks: [
+              { label: "Getting started guide", href: "/resources/getting-started" },
+              { label: "Starter kit", href: "/resources/starter-kit" },
+            ],
+          },
+          {
+            question: "Advanced theming system कैसे काम करता है?",
+            answer:
+              "UX4G में एक पूर्ण theming system है जिसमें runtime theme switching, custom department themes और high-contrast accessibility mode शामिल हैं। अपने app को ThemeProvider component से wrap करें, फिर theme state और switching functions के लिए useTheme hook का उपयोग करें। पाँच built-in presets उपलब्ध हैं: default (navy), saffron-primary, green-primary, navy-primary और high-contrast। Departments createTheme API का उपयोग करके custom themes बना सकते हैं, जो किसी भी base preset पर overrides को deep-merge करता है और WCAG 2.1 AA compliance बनाए रखता है।",
+            keywords: ["theming", "theme provider", "dark mode", "custom theme", "department branding", "high contrast"],
+            relatedLinks: [
+              { label: "Foundations", href: "/foundations" },
+              { label: "Accessibility guidance", href: "/accessibility" },
+            ],
+          },
+          {
+            question: "Components के लिए कौन-सी CSS styles उपलब्ध हैं?",
+            answer:
+              "सभी 87 UX4G components की corresponding CSS files @ux4g/styles package में हैं। प्रत्येक CSS file एक consistent template का पालन करती है: base class, sub-elements, variants, states, sizes, pseudo-classes और reduced-motion support। सभी visual values design tokens package से CSS custom properties (var(--ux4g-*, fallback)) का उपयोग करती हैं, जिससे components themeable रहते हैं और tokens package लोड न होने पर भी सही render होते हैं।",
+            keywords: ["css", "styles", "component styles", "tokens", "custom properties"],
+            relatedLinks: [
+              { label: "Foundations", href: "/foundations" },
+              { label: "Component library", href: "/components" },
+            ],
+          },
         ],
       },
       {
@@ -632,6 +742,36 @@ const FAQ_COPY: Record<Language, FAQPageCopy> = {
               { label: "Governance", href: "/governance" },
             ],
           },
+          {
+            question: "UX4G में accessibility testing कैसे automated है?",
+            answer:
+              "UX4G में vitest-axe (axe-core) का उपयोग करके व्यापक automated accessibility testing है जो हर component की test file में integrated है। a11y test helper module checkA11y, assertA11y और assertA11yStates functions प्रदान करता है जो components को WCAG 2.1 A और AA rules के विरुद्ध scan करते हैं। सभी 54 tiered components में Accessibility describe blocks हैं जिनमें default, disabled, error और variant states के लिए axe scans हैं, साथ ही interactive components के लिए keyboard navigation tests भी हैं। पूरा accessibility test suite चलाने के लिए pnpm run test:a11y का उपयोग करें।",
+            keywords: ["accessibility testing", "axe", "wcag", "automated testing", "a11y"],
+            relatedLinks: [
+              { label: "Accessibility guidance", href: "/accessibility" },
+              { label: "Component library", href: "/components" },
+            ],
+          },
+          {
+            question: "वर्तमान test coverage कितनी है?",
+            answer:
+              "UX4G सभी 87 components में 95%+ test coverage बनाए रखता है: 95.4% statement coverage, 91.3% branch coverage, 96.9% function coverage और 96.8% line coverage। CI pipeline हर pull request पर 80% minimum threshold enforce करती है। Tests rendering, variants, states, interactions, keyboard navigation, accessibility (axe scans) और edge cases को cover करते हैं।",
+            keywords: ["test coverage", "unit tests", "vitest", "ci", "quality"],
+            relatedLinks: [
+              { label: "Contributing", href: "/contributing" },
+              { label: "Governance", href: "/governance" },
+            ],
+          },
+          {
+            question: "Theme validation system accessibility कैसे सुनिश्चित करता है?",
+            answer:
+              "ThemeValidator module एक validateTheme function प्रदान करता है जो सभी color token pairs को WCAG 2.1 contrast requirements के विरुद्ध जाँचता है। यह WCAG formula का उपयोग करके relative luminance compute करता है और verify करता है कि text-to-background pairs 4.5:1 (AA normal text) और interactive-to-background pairs 3:1 (AA UI components) को पूरा करते हैं। High-contrast preset WCAG AAA (text के लिए 7:1) को target करता है। createTheme से बनाई गई custom themes को deployment से पहले validate किया जा सकता है ताकि department branding accessibility compliance बनाए रखे।",
+            keywords: ["theme validation", "contrast ratio", "wcag", "color accessibility", "luminance"],
+            relatedLinks: [
+              { label: "Accessibility guidance", href: "/accessibility" },
+              { label: "Foundations", href: "/foundations" },
+            ],
+          },
         ],
       },
       {
@@ -679,6 +819,26 @@ const FAQ_COPY: Record<Language, FAQPageCopy> = {
             relatedLinks: [
               { label: "Migration guides", href: "/resources/migration-guides" },
               { label: "API reference", href: "/api-reference" },
+            ],
+          },
+          {
+            question: "CI/CD pipeline में क्या शामिल है?",
+            answer:
+              "UX4G में पाँच GitHub Actions workflows के साथ एक पूर्ण CI/CD pipeline है: (1) CI Pipeline — TypeScript typecheck, 80%+ coverage threshold के साथ unit tests, accessibility tests, production build verification और validation checks (doc links, API drift, semantic colors)। (2) Publish Pipeline — @ux4g/tokens, @ux4g/styles और @ux4g/react-core को provenance के साथ NPM पर build और publish करती है, dry-run mode support करती है। (3) Visual Regression — desktop, tablet और mobile viewports पर Playwright-based screenshot comparison। (4) Storybook Smoke — verify करती है कि Storybook सफलतापूर्वक build होता है। (5) Deploy Docs — documentation site को GitHub Pages पर deploy करती है।",
+            keywords: ["ci", "cd", "pipeline", "github actions", "deployment", "npm publish"],
+            relatedLinks: [
+              { label: "Contributing", href: "/contributing" },
+              { label: "Governance", href: "/governance" },
+            ],
+          },
+          {
+            question: "Departments custom themes कैसे share कर सकते हैं?",
+            answer:
+              "Custom themes को serializeTheme और deserializeTheme functions का उपयोग करके JSON के रूप में export और import किया जा सकता है। Serialized format में version field, theme name, base theme reference और light तथा dark दोनों variants के लिए token overrides शामिल हैं। इससे departments branded themes को projects और teams में share कर सकते हैं और version compatibility बनाए रख सकते हैं।",
+            keywords: ["theme sharing", "json", "serialize", "department theme", "export import"],
+            relatedLinks: [
+              { label: "Foundations", href: "/foundations" },
+              { label: "Contributing", href: "/contributing" },
             ],
           },
         ],

@@ -1,0 +1,32 @@
+{
+  "name": "create-ux4g-app",
+  "version": "1.0.0",
+  "description": "CLI to scaffold UX4G Government of India Design System projects",
+  "bin": {
+    "create-ux4g-app": "./bin/cli.mjs"
+  },
+  "type": "module",
+  "files": [
+    "bin",
+    "templates"
+  ],
+  "keywords": [
+    "ux4g",
+    "design-system",
+    "indian-government",
+    "react",
+    "angular",
+    "scaffold",
+    "cli",
+    "create-app"
+  ],
+  "author": "UX4G Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ux4g/create-ux4g-app"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

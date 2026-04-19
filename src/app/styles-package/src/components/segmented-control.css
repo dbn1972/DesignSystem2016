@@ -1,0 +1,62 @@
+/**
+ * UX4G SegmentedControl Styles
+ * Pill container with segment buttons and active indicator
+ * Class contract: src/app/react-core-package/src/components/SegmentedControl/SegmentedControl.tsx
+ */
+
+/* ── Base ── */
+.ux4g-segmented-control {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--ux4g-spacing-1, 0.25rem);
+  border-radius: var(--ux4g-radius-lg, 0.5rem);
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+  gap: var(--ux4g-spacing-1, 0.25rem);
+}
+
+/* ── Sub-elements ── */
+.ux4g-segmented-control-segment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-4, 1rem);
+  border: none;
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  background-color: transparent;
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  cursor: pointer;
+  transition: background-color var(--ux4g-motion-duration-base, 200ms) ease,
+    color var(--ux4g-motion-duration-base, 200ms) ease,
+    box-shadow var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+/* ── States ── */
+.ux4g-segmented-control-active {
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  color: var(--ux4g-color-text-primary, #111827);
+  box-shadow: var(--ux4g-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-segmented-control-segment:hover {
+  color: var(--ux4g-color-text-primary, #111827);
+}
+
+.ux4g-segmented-control-segment:active {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-segmented-control-segment:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-segmented-control-segment {
+    transition-duration: 0.01ms !important;
+  }
+}

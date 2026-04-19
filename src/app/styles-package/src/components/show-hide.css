@@ -1,0 +1,70 @@
+/**
+ * UX4G ShowHide Styles
+ * Trigger with expand/collapse indicator and content transition
+ * Class contract: src/app/react-core-package/src/components/ShowHide/ShowHide.tsx
+ */
+
+/* ── Base ── */
+.ux4g-show-hide {
+  width: 100%;
+}
+
+/* ── Sub-elements ── */
+.ux4g-show-hide-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  min-height: 44px;
+  padding: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-3, 0.75rem);
+  border: none;
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+  background: transparent;
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  color: var(--ux4g-color-primary, #005196);
+  cursor: pointer;
+  transition: background-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-show-hide-indicator {
+  display: inline-flex;
+  transition: transform var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-show-hide-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+/* ── States ── */
+.ux4g-show-hide-open .ux4g-show-hide-indicator {
+  transform: rotate(180deg);
+}
+
+.ux4g-show-hide-open .ux4g-show-hide-content {
+  max-height: 2000px;
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-show-hide-trigger:hover {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-show-hide-trigger:active {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-show-hide-trigger:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-show-hide-trigger,
+  .ux4g-show-hide-indicator,
+  .ux4g-show-hide-content {
+    transition-duration: 0.01ms !important;
+  }
+}

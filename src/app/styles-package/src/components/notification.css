@@ -1,0 +1,115 @@
+/**
+ * UX4G Notification Styles
+ * Fixed container with stacking, feedback variants, close button, and entry/exit transitions
+ * Class contract: src/app/react-core-package/src/components/Notification/Notification.tsx
+ */
+
+/* ── Keyframes ── */
+@keyframes ux4g-notification-enter {
+  from {
+    opacity: 0;
+    transform: translateX(var(--ux4g-spacing-6, 1.5rem));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ux4g-notification-exit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(var(--ux4g-spacing-6, 1.5rem));
+  }
+}
+
+/* ── Container ── */
+.ux4g-notification {
+  position: fixed;
+  top: var(--ux4g-spacing-4, 1rem);
+  right: var(--ux4g-spacing-4, 1rem);
+  z-index: var(--ux4g-z-popover, 1400);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  max-width: 24rem;
+}
+
+/* ── Sub-elements ── */
+.ux4g-notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+  padding: var(--ux4g-spacing-4, 1rem);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  border-left: 4px solid var(--ux4g-color-border-default, #D1D5DB);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  box-shadow: var(--ux4g-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #111827);
+  animation: ux4g-notification-enter var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-notification-item-exit {
+  animation: ux4g-notification-exit var(--ux4g-motion-duration-base, 200ms) ease forwards;
+}
+
+.ux4g-notification-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  min-width: 24px;
+  margin-left: auto;
+  border: none;
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+  background: transparent;
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  cursor: pointer;
+  transition: background-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+/* ── Variants ── */
+.ux4g-notification-info {
+  border-left-color: var(--ux4g-color-info, #2563EB);
+}
+
+.ux4g-notification-success {
+  border-left-color: var(--ux4g-color-success, #15803d);
+}
+
+.ux4g-notification-warning {
+  border-left-color: var(--ux4g-color-warning, #F59E0B);
+}
+
+.ux4g-notification-error {
+  border-left-color: var(--ux4g-color-error, #dc2626);
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-notification-close:hover {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-notification-close:active {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-notification-close:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-notification-item,
+  .ux4g-notification-item-exit,
+  .ux4g-notification-close {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Card } from './Card';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 describe('Card', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -104,5 +105,21 @@ describe('Card', () => {
     const ref = React.createRef<HTMLDivElement>();
     render(<Card ref={ref}>Content</Card>);
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Card><p>Application status</p></Card>);
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'elevated', ui: <Card variant="elevated"><p>Elevated card</p></Card> },
+        { name: 'outlined', ui: <Card variant="outlined"><p>Outlined card</p></Card> },
+        { name: 'filled', ui: <Card variant="filled"><p>Filled card</p></Card> },
+      ]);
+    });
   });
 });

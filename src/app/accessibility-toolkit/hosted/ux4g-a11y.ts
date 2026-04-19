@@ -47,7 +47,7 @@ function dispatch(action: Parameters<typeof a11yReducer>[1]) {
 }
 
 function toggle(feature: keyof A11yToggleState) {
-  const label = (config.labels as Record<string, string>)[feature] ?? feature;
+  const label = (config.labels as unknown as Record<string, string>)[feature] ?? feature;
   const wasOn = state[feature];
   dispatch({ type: 'TOGGLE', feature });
   announce(`${label} ${wasOn ? 'disabled' : 'enabled'}`);

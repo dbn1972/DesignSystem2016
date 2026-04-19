@@ -1,0 +1,79 @@
+/**
+ * UX4G TreeView Styles
+ * Nested tree with indentation, expand/collapse icons, and selected/focused states
+ * Class contract: src/app/react-core-package/src/components/TreeView/TreeView.tsx
+ */
+
+/* ── Base ── */
+.ux4g-tree-view {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #111827);
+}
+
+/* ── Sub-elements ── */
+.ux4g-tree-view-node {
+  display: flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  min-height: 44px;
+  padding: var(--ux4g-spacing-1, 0.25rem) var(--ux4g-spacing-2, 0.5rem);
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+  cursor: pointer;
+  transition: background-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-tree-view-children {
+  padding-left: var(--ux4g-spacing-6, 1.5rem);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-tree-view-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ux4g-spacing-5, 1.25rem);
+  height: var(--ux4g-spacing-5, 1.25rem);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  transition: transform var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+/* ── States ── */
+.ux4g-tree-view-node-expanded > .ux4g-tree-view-icon {
+  transform: rotate(90deg);
+}
+
+.ux4g-tree-view-node-expanded + .ux4g-tree-view-children {
+  max-height: 5000px;
+}
+
+.ux4g-tree-view-node-selected {
+  background-color: var(--ux4g-color-primary-subtle, #EFF6FF);
+  color: var(--ux4g-color-primary, #005196);
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-tree-view-node:hover {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-tree-view-node:active {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-tree-view-node:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-tree-view-node,
+  .ux4g-tree-view-children,
+  .ux4g-tree-view-icon {
+    transition-duration: 0.01ms !important;
+  }
+}

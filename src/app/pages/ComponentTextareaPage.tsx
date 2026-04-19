@@ -13,11 +13,11 @@ const TextareaPreview = ({ placeholder, rows = 4, disabled = false, error = fals
   return (
     <div className="w-full max-w-md">
       <textarea
-        value={v.value}
+        value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder={placeholder}
-        rows={v.rows}
-        disabled={v.disabled}
+        rows={rows}
+        disabled={disabled}
         className={`w-full px-4 py-3 border rounded-lg resize-y focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-all ${
           error 
             ? 'border-red-500 focus-visible:ring-red-500' 

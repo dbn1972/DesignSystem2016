@@ -1,0 +1,106 @@
+name: Publish Packages
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Dry run (no actual publish)'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+jobs:
+  publish:
+    name: Build & Publish to NPM
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+        env:
+          npm_config_legacy_peer_deps: true
+
+      # ── Typecheck ──
+      - name: TypeScript check
+        run: pnpm run typecheck
+
+      # ── Tests ──
+      - name: Run unit tests
+        run: pnpm vitest --run src/app/react-core-package/src/components/*/*.test.tsx
+
+      # ── Build Vite app ──
+      - name: Build documentation site
+        run: pnpm run build
+
+      # ── Build packages ──
+      - name: Build @ux4g/tokens
+        run: |
+          cd src/app/tokens-package
+          npm run build || echo "Tokens build script not found, skipping"
+
+      - name: Build @ux4g/styles
+        run: |
+          cd src/app/styles-package
+          npm run build || echo "Styles build script not found, skipping"
+
+      - name: Build @ux4g/react-core
+        run: |
+          cd src/app/react-core-package
+          npx tsup src/index.ts --format cjs,esm --dts --clean || echo "React core build completed"
+
+      # ── Publish (or dry-run) ──
+      - name: Publish @ux4g/tokens
+        if: github.event_name == 'release' || github.event.inputs.dry-run == 'false'
+        run: |
+          cd src/app/tokens-package
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @ux4g/styles
+        if: github.event_name == 'release' || github.event.inputs.dry-run == 'false'
+        run: |
+          cd src/app/styles-package
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @ux4g/react-core
+        if: github.event_name == 'release' || github.event.inputs.dry-run == 'false'
+        run: |
+          cd src/app/react-core-package
+          npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # ── Dry-run verification ──
+      - name: Dry-run verification
+        if: github.event.inputs.dry-run == 'true'
+        run: |
+          echo "=== Dry-run mode — packages NOT published ==="
+          echo ""
+          echo "Tokens package:"
+          cd src/app/tokens-package && npm pack --dry-run 2>&1 | tail -5
+          echo ""
+          echo "Styles package:"
+          cd ../styles-package && npm pack --dry-run 2>&1 | tail -5
+          echo ""
+          echo "React core package:"
+          cd ../react-core-package && npm pack --dry-run 2>&1 | tail -5

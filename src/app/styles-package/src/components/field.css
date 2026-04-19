@@ -1,0 +1,13 @@
+/**
+ * UX4G Field Styles
+ * Wrapper for form field groups with vertical layout and consistent spacing
+ * Class contract: src/app/react-core-package/src/components/Field/Field.tsx
+ */
+
+/* ── Base ── */
+.ux4g-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+  margin-bottom: var(--ux4g-spacing-4, 1rem);
+}

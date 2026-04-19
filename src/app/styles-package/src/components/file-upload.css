@@ -1,0 +1,114 @@
+/**
+ * UX4G FileUpload Styles
+ * File upload with drag-and-drop zone, file list, and remove controls
+ * Class contract: src/app/react-core-package/src/components/FileUpload/FileUpload.tsx
+ */
+
+/* ── Base ── */
+.ux4g-file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+}
+
+/* ── Sub-elements ── */
+.ux4g-file-upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  min-height: 160px;
+  padding: var(--ux4g-spacing-6, 1.5rem);
+  border: 2px dashed var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  background-color: var(--ux4g-color-surface-secondary, #F9FAFB);
+  color: var(--ux4g-color-text-secondary, #666666);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  cursor: pointer;
+  transition:
+    border-color var(--ux4g-motion-duration-base, 200ms) ease,
+    background-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-file-upload-area:hover {
+  border-color: var(--ux4g-color-primary, #005196);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+}
+
+.ux4g-file-upload-area:active {
+  border-color: var(--ux4g-color-primary-hover, #004178);
+}
+
+.ux4g-file-upload-area:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+.ux4g-file-upload-active {
+  border-color: var(--ux4g-color-primary, #005196);
+  background-color: rgba(0, 81, 150, 0.06);
+}
+
+.ux4g-file-upload-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-file-upload-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-3, 0.75rem);
+  border: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+}
+
+.ux4g-file-upload-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--ux4g-spacing-1, 0.25rem);
+  border: none;
+  background: transparent;
+  color: var(--ux4g-color-text-secondary, #666666);
+  cursor: pointer;
+}
+
+.ux4g-file-upload-remove:hover {
+  color: var(--ux4g-color-error, #DC2626);
+}
+
+.ux4g-file-upload-remove:active {
+  opacity: 0.8;
+}
+
+.ux4g-file-upload-remove:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── States ── */
+.ux4g-file-upload-disabled {
+  opacity: var(--ux4g-disabled-opacity, 0.6);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ux4g-file-upload-error .ux4g-file-upload-area {
+  border-color: var(--ux4g-color-error, #DC2626);
+  background-color: var(--ux4g-color-surface-error-subtle, #FEF2F2);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-file-upload-area {
+    transition-duration: 0.01ms !important;
+  }
+}

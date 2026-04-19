@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { DatePicker } from './DatePicker';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('DatePicker', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -113,5 +114,51 @@ describe('DatePicker', () => {
     const ref = React.createRef<HTMLInputElement>();
     render(<DatePicker aria-label="Date" ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<DatePicker aria-label="Date" />);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<DatePicker aria-label="Date" disabled />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<DatePicker aria-label="Date" />);
+        await user.tab();
+        expect(screen.getByLabelText('Date')).toHaveFocus();
+      });
+
+      it('accepts keyboard date entry', async () => {
+        const user = userEvent.setup();
+        const onChange = vi.fn();
+        render(<DatePicker aria-label="Date" onChange={onChange} />);
+        await user.tab();
+        await user.keyboard('2024-06-15');
+        expect(onChange).toHaveBeenCalled();
+      });
+
+      it('supports arrow key interaction on the date input', async () => {
+        const user = userEvent.setup();
+        render(<DatePicker aria-label="Date" value="2024-06-15" onChange={vi.fn()} />);
+        const input = screen.getByLabelText('Date');
+        input.focus();
+        await user.keyboard('{ArrowUp}');
+        expect(input).toHaveFocus();
+      });
+
+      it('does not receive focus when disabled', async () => {
+        const user = userEvent.setup();
+        render(<DatePicker aria-label="Date" disabled />);
+        await user.tab();
+        expect(screen.getByLabelText('Date')).not.toHaveFocus();
+      });
+    });
   });
 });

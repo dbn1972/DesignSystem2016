@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Breadcrumb } from './Breadcrumb';
+import { assertA11y } from '@/test/a11y-helpers';
 
 const ITEMS = [
   { label: 'Home', href: '/' },
@@ -120,5 +121,36 @@ describe('Breadcrumb', () => {
     render(<Breadcrumb items={items} />);
     await user.click(screen.getByRole('button', { name: 'Action' }));
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(
+        <Breadcrumb items={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: 'Current', current: true },
+        ]} />
+      );
+    });
+
+    describe('Keyboard navigation', () => {
+      it('Tab focuses between breadcrumb links', async () => {
+        const user = userEvent.setup();
+        render(
+          <Breadcrumb items={[
+            { label: 'Home', href: '/' },
+            { label: 'Services', href: '/services' },
+            { label: 'Current', current: true },
+          ]} />
+        );
+        await user.tab();
+        expect(screen.getByRole('link', { name: 'Home' })).toHaveFocus();
+        await user.tab();
+        expect(screen.getByRole('link', { name: 'Services' })).toHaveFocus();
+      });
+    });
   });
 });

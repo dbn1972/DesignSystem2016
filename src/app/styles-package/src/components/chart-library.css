@@ -1,0 +1,48 @@
+/**
+ * UX4G ChartLibrary Styles
+ * Responsive container with legend and tooltip
+ * Class contract: src/app/react-core-package/src/components/ChartLibrary/ChartLibrary.tsx
+ */
+
+/* ── Base ── */
+.ux4g-chart-library {
+  position: relative;
+  width: 100%;
+  min-height: 16rem;
+}
+
+/* ── Sub-elements ── */
+.ux4g-chart-library-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ux4g-spacing-4, 1rem);
+  padding: var(--ux4g-spacing-3, 0.75rem) 0;
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+}
+
+.ux4g-chart-library-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-chart-library-legend-swatch {
+  width: var(--ux4g-spacing-3, 0.75rem);
+  height: var(--ux4g-spacing-3, 0.75rem);
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+}
+
+.ux4g-chart-library-tooltip {
+  position: absolute;
+  z-index: var(--ux4g-z-popover, 1400);
+  padding: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-3, 0.75rem);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  background-color: var(--ux4g-color-text-primary, #111827);
+  color: var(--ux4g-color-text-on-brand, #ffffff);
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+  box-shadow: var(--ux4g-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  white-space: nowrap;
+}

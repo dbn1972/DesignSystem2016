@@ -40,7 +40,7 @@ function QRCodePlayground() {
       controls={QRCODE_PLAYGROUND_CONTROLS}
       renderPreview={(v) => (
         <div className="w-full flex items-center justify-center">
-          <QRCodePreview value="https://ux4g.gov.in/verify" size={Number(size)} level={v.level} />
+          <QRCodePreview value="https://ux4g.gov.in/verify" size={Number(v.size)} level={v.level} />
         </div>
       )}
       codeTemplate={(v) =>

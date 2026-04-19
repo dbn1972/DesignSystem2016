@@ -360,7 +360,7 @@ const HOME_COPY = {
   },
 } as const;
 
-function HeroCanvas({ copy }: { copy: typeof HOME_COPY.en }) {
+function HeroCanvas({ copy }: { copy: (typeof HOME_COPY)[keyof typeof HOME_COPY] }) {
   return (
     <div className="relative mx-auto max-w-xl">
       <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.72),transparent_55%)]" />

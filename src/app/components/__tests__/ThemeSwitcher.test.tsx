@@ -3,7 +3,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ThemeSwitcher from '../ThemeSwitcher';
-import { ThemeProvider } from '../../contexts/ThemeContext';
+import { ThemeProvider } from '../../contexts/theme';
 
 beforeEach(() => {
   localStorage.clear();

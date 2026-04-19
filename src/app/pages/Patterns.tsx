@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import {  FileText, User, CreditCard, Search as SearchIcon, FileCheck, AlertTriangle, CheckCircle, ArrowRight, Sparkles, Layers, Shield, Workflow, Building2, Globe2, Download, Copy, Check } from "lucide-react";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
+import PageContainer from "@/app/components/PageContainer";
 
 export default function Patterns() {
   const { i18n } = useTranslation();
@@ -106,8 +107,8 @@ export default function Patterns() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-gray-900 dark:to-blue-950/30">
         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#FF9933] via-white to-[#138808]" />
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.14fr)_minmax(320px,0.86fr)] items-start">
+        <PageContainer className="py-16 sm:py-20 lg:py-24">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] items-start">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-card/85 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
                 <Sparkles size={14} />
@@ -189,12 +190,12 @@ export default function Patterns() {
             </div>
           </div>
                     <CodeDownloads />
-          </div>
+          </PageContainer>
       </section>
 
       {/* Pattern Categories */}
       <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
             <div className="lg:sticky lg:top-24 space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
@@ -274,12 +275,12 @@ export default function Patterns() {
               ))}
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       {/* Service Flows */}
       <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
@@ -329,12 +330,12 @@ export default function Patterns() {
               ))}
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       {/* Form Pattern Example */}
       <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
             <div className="lg:sticky lg:top-24">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
@@ -412,12 +413,12 @@ export default function Patterns() {
               </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       {/* Best Practices */}
       <section className="border-y border-border bg-background py-16 lg:py-20 dark:bg-gray-800">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] items-start">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
@@ -454,12 +455,12 @@ export default function Patterns() {
               ))}
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       {/* Accessibility in Patterns */}
       <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="rounded-[32px] border border-border bg-gradient-to-br from-[#000080] via-[#000070] to-[#000050] p-8 text-white shadow-xl dark:from-blue-900 dark:via-blue-950 dark:to-blue-950">
             <div className="mx-auto max-w-4xl text-center">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-200">
@@ -478,7 +479,7 @@ export default function Patterns() {
               </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
     </div>
   );

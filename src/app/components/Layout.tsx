@@ -24,7 +24,7 @@ export default function Layout() {
       <Breadcrumbs />
 
       {isComponentPage ? (
-        <div className="flex-1 max-w-[1600px] mx-auto w-full flex">
+        <div className="flex-1 max-w-[1800px] mx-auto w-full flex">
           <ComponentSidebar />
           <main id="main-content" className="flex-1 min-w-0" tabIndex={-1}>
             <Outlet />

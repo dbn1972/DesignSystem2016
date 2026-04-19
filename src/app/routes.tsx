@@ -23,6 +23,7 @@ const WebComponentsDocDetail = lazy(() => import("./pages/WebComponentsDocDetail
 const LogoResources = lazy(() => import("./pages/LogoResources"));
 const LogoResourceDetail = lazy(() => import("./pages/LogoResourceDetail"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const StorybookAccess = lazy(() => import("./pages/StorybookAccess"));
 
 import { componentsRoutes } from "./routes/domains/componentsRoutes";
 import { foundationsRoutes } from "./routes/domains/foundationsRoutes";
@@ -63,6 +64,7 @@ export const router = createBrowserRouter([
       { path: "resources/service-code-downloads", Component: ServiceCodeDownloads },
       { path: "resources/figma", Component: FigmaDesignSystem },
       { path: "resources/faq", Component: FAQ },
+      { path: "storybook-access", Component: StorybookAccess },
       { path: "resources/logos", Component: LogoResources },
       { path: "resources/logos/:id", Component: LogoResourceDetail },
       { path: "resources/migration-guides", Component: MigrationGuides },

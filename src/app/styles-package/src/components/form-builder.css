@@ -1,0 +1,32 @@
+/**
+ * UX4G FormBuilder Styles
+ * Multi-section form layout with row-based field arrangement
+ * Class contract: src/app/react-core-package/src/components/FormBuilder/FormBuilder.tsx
+ */
+
+/* ── Base ── */
+.ux4g-form-builder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-6, 1.5rem);
+}
+
+/* ── Sub-elements ── */
+.ux4g-form-builder-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-4, 1rem);
+  padding-bottom: var(--ux4g-spacing-6, 1.5rem);
+  border-bottom: 1px solid var(--ux4g-color-border-subtle, #E5E7EB);
+}
+
+.ux4g-form-builder-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ux4g-form-builder-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--ux4g-spacing-4, 1rem);
+}

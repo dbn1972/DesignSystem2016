@@ -1,0 +1,11 @@
+/**
+ * UX4G Section Styles
+ * Semantic page section with vertical padding and background color.
+ * Class contract: src/app/react-core-package/src/components/Section/Section.tsx
+ */
+
+/* ── Base ── */
+.ux4g-section {
+  padding-block: var(--ux4g-spacing-8, 2rem);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+}

@@ -1,0 +1,24 @@
+/**
+ * UX4G AspectRatio Styles
+ * Constrains child content to a fixed aspect ratio.
+ * Class contract: src/app/react-core-package/src/components/AspectRatio/AspectRatio.tsx
+ */
+
+/* ── Base ── */
+.ux4g-aspect-ratio {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Variants ── */
+.ux4g-aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.ux4g-aspect-ratio-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.ux4g-aspect-ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}

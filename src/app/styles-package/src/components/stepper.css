@@ -1,0 +1,106 @@
+/**
+ * UX4G Stepper Styles
+ * Horizontal/vertical step indicators with connector lines and status states
+ * Class contract: src/app/react-core-package/src/components/Stepper/Stepper.tsx
+ */
+
+/* ── Base ── */
+.ux4g-stepper {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* ── Sub-elements ── */
+.ux4g-stepper-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+
+.ux4g-stepper-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ux4g-spacing-8, 2rem);
+  height: var(--ux4g-spacing-8, 2rem);
+  border-radius: var(--ux4g-radius-full, 9999px);
+  border: 2px solid var(--ux4g-color-border-default, #D1D5DB);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  z-index: 1;
+}
+
+.ux4g-stepper-connector {
+  position: absolute;
+  top: var(--ux4g-spacing-4, 1rem);
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--ux4g-color-border-default, #D1D5DB);
+}
+
+.ux4g-stepper-label {
+  margin-top: var(--ux4g-spacing-2, 0.5rem);
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+}
+
+/* ── Variants ── */
+.ux4g-stepper-horizontal {
+  flex-direction: row;
+}
+
+.ux4g-stepper-vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ux4g-stepper-vertical .ux4g-stepper-step {
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+}
+
+.ux4g-stepper-vertical .ux4g-stepper-connector {
+  position: absolute;
+  top: var(--ux4g-spacing-8, 2rem);
+  left: var(--ux4g-spacing-4, 1rem);
+  width: 2px;
+  height: 100%;
+}
+
+/* ── Status states ── */
+.ux4g-stepper-step-process .ux4g-stepper-indicator {
+  border-color: var(--ux4g-color-primary, #005196);
+  background-color: var(--ux4g-color-primary, #005196);
+  color: var(--ux4g-color-text-on-brand, #ffffff);
+}
+
+.ux4g-stepper-step-finish .ux4g-stepper-indicator {
+  border-color: var(--ux4g-color-success, #15803d);
+  background-color: var(--ux4g-color-success, #15803d);
+  color: var(--ux4g-color-text-on-brand, #ffffff);
+}
+
+.ux4g-stepper-step-finish .ux4g-stepper-connector {
+  background-color: var(--ux4g-color-success, #15803d);
+}
+
+.ux4g-stepper-step-wait .ux4g-stepper-indicator {
+  border-color: var(--ux4g-color-border-default, #D1D5DB);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+}
+
+.ux4g-stepper-step-error .ux4g-stepper-indicator {
+  border-color: var(--ux4g-color-error, #dc2626);
+  background-color: var(--ux4g-color-error, #dc2626);
+  color: var(--ux4g-color-text-on-brand, #ffffff);
+}

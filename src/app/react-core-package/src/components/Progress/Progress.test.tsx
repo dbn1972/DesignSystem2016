@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Progress } from './Progress';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Progress', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -84,5 +85,17 @@ describe('Progress', () => {
   it('does not show label when indeterminate even if showLabel is true', () => {
     render(<Progress value={50} indeterminate showLabel />);
     expect(screen.queryByText('50%')).not.toBeInTheDocument();
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Progress value={50} />);
+    });
+
+    it('has no axe violations in loading/indeterminate state', async () => {
+      await assertA11y(<Progress value={0} indeterminate />);
+    });
   });
 });

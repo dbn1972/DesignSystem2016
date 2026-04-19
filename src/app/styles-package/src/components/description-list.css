@@ -1,0 +1,36 @@
+/**
+ * UX4G DescriptionList Styles
+ * Term-description pairs with optional horizontal layout
+ * Class contract: src/app/react-core-package/src/components/DescriptionList/DescriptionList.tsx
+ */
+
+/* ── Base ── */
+.ux4g-description-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Sub-elements ── */
+.ux4g-description-list-term {
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #111827);
+  line-height: var(--ux4g-line-height-normal, 1.5);
+}
+
+.ux4g-description-list-detail {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  line-height: var(--ux4g-line-height-normal, 1.5);
+  margin: 0;
+}
+
+/* ── Variants ── */
+.ux4g-description-list-horizontal {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-6, 1.5rem);
+}

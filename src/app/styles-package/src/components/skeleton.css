@@ -1,0 +1,50 @@
+/**
+ * UX4G Skeleton Styles
+ * Pulse animation with text, circle, rect, and rounded shape variants
+ * Class contract: src/app/react-core-package/src/components/Skeleton/Skeleton.tsx
+ */
+
+/* ── Keyframes ── */
+@keyframes ux4g-skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── Base ── */
+.ux4g-skeleton {
+  display: block;
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+  animation: ux4g-skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Variants ── */
+.ux4g-skeleton-text {
+  width: 100%;
+  height: var(--ux4g-spacing-4, 1rem);
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+}
+
+.ux4g-skeleton-circle {
+  width: var(--ux4g-spacing-10, 2.5rem);
+  height: var(--ux4g-spacing-10, 2.5rem);
+  border-radius: var(--ux4g-radius-full, 9999px);
+}
+
+.ux4g-skeleton-rect {
+  width: 100%;
+  height: var(--ux4g-spacing-20, 5rem);
+  border-radius: 0;
+}
+
+.ux4g-skeleton-rounded {
+  width: 100%;
+  height: var(--ux4g-spacing-20, 5rem);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-skeleton {
+    animation-duration: 0.01ms !important;
+  }
+}

@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Radio } from './Radio';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Radio', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -122,5 +123,59 @@ describe('Radio', () => {
     const ref = React.createRef<HTMLInputElement>();
     render(<Radio id="opt1" name="choice" value="opt1" label="Option 1" ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(
+        <fieldset>
+          <legend>Choose an option</legend>
+          <Radio id="opt1" name="choice" value="opt1" label="Option 1" />
+          <Radio id="opt2" name="choice" value="opt2" label="Option 2" />
+        </fieldset>
+      );
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(
+        <fieldset>
+          <legend>Choose an option</legend>
+          <Radio id="opt1" name="choice" value="opt1" label="Option 1" disabled />
+          <Radio id="opt2" name="choice" value="opt2" label="Option 2" disabled />
+        </fieldset>
+      );
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(
+          <fieldset>
+            <legend>Choose an option</legend>
+            <Radio id="opt1" name="nav" value="opt1" label="Option 1" />
+            <Radio id="opt2" name="nav" value="opt2" label="Option 2" />
+          </fieldset>
+        );
+        await user.tab();
+        expect(screen.getByRole('radio', { name: 'Option 1' })).toHaveFocus();
+      });
+
+      it('navigates between options with Arrow keys', async () => {
+        const user = userEvent.setup();
+        render(
+          <fieldset>
+            <legend>Choose an option</legend>
+            <Radio id="opt1" name="arrow" value="opt1" label="Option 1" />
+            <Radio id="opt2" name="arrow" value="opt2" label="Option 2" />
+            <Radio id="opt3" name="arrow" value="opt3" label="Option 3" />
+          </fieldset>
+        );
+        await user.tab();
+        await user.keyboard('{ArrowDown}');
+        expect(screen.getByRole('radio', { name: 'Option 2' })).toBeChecked();
+      });
+    });
   });
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { Spacer } from './Spacer';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Spacer', () => {
   it('renders with aria-hidden', () => {
@@ -33,5 +34,13 @@ describe('Spacer', () => {
   it('applies custom className', () => {
     const { container } = render(<Spacer className="my-spacer" />);
     expect(container.firstChild).toHaveClass('my-spacer');
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Spacer size={24} />);
+    });
   });
 });
