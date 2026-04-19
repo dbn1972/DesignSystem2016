@@ -559,9 +559,16 @@ export function CodeSandbox({
             <div>
               <p className="text-sm font-semibold text-foreground">Live preview</p>
               <p className="text-xs text-muted-foreground">
-                Rendered in a constrained surface so mobile and tablet states are visible.
+                {compiler ? 'Live — edits compile and render automatically' : 'Loading TypeScript compiler…'}
               </p>
             </div>
+            <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${
+              previewState.status === 'ready' ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400' :
+              previewState.status === 'error' ? 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400' :
+              'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400'
+            }`}>
+              {previewState.status === 'ready' ? '● Live' : previewState.status === 'error' ? '● Error' : '○ Loading'}
+            </span>
           </div>
 
           <div
