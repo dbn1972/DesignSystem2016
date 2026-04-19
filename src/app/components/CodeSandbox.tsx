@@ -284,7 +284,6 @@ export function CodeSandbox({
       "",
   );
   const [viewport, setViewport] = useState<Viewport>("desktop");
-  const [previewDark, setPreviewDark] = useState(false);
   const [copied, setCopied] = useState(false);
   const [compiler, setCompiler] = useState<TypeScriptModule | null>(null);
   const [editorComponent, setEditorComponent] =
@@ -520,7 +519,7 @@ export function CodeSandbox({
               <textarea
                 value={code}
                 onChange={(event) => setCode(event.target.value)}
-                className="h-[520px] w-full rounded-2xl border border-border bg-background p-4 font-mono text-sm leading-6 text-foreground outline-none transition focus:border-primary"
+                className="h-[520px] w-full rounded-2xl border border-border bg-muted/30 p-4 font-mono text-sm leading-6 text-foreground outline-none transition focus:border-primary"
                 spellCheck={false}
                 aria-label="Sandbox code editor"
               />
@@ -550,30 +549,22 @@ export function CodeSandbox({
           </div>
 
           <div
-            className={`flex min-h-[520px] items-start justify-center overflow-auto p-6 ${
-              previewDark
-                ? "bg-slate-950 text-slate-50"
-                : "bg-[linear-gradient(180deg,#f8fafc,#eef2ff)] text-foreground"
-            }`}
+            className="flex min-h-[520px] items-start justify-center overflow-auto p-6 bg-muted/30"
           >
             <div
-              className={`w-full rounded-[24px] border p-5 shadow-sm transition-all ${
-                previewDark
-                  ? "border-slate-800 bg-slate-900"
-                  : "border-border bg-card"
-              }`}
+              className="w-full rounded-[24px] border border-border bg-card p-5 shadow-sm transition-all"
               style={{ width: VIEWPORT_WIDTHS[viewport], maxWidth: "100%" }}
             >
               {previewState.status === "ready" ? (
                 <PreviewRenderBoundary>
-                  <SandboxPreviewFrame dark={previewDark}>
+                  <SandboxPreviewFrame dark={false}>
                     <div className="min-h-[420px]">{previewState.node}</div>
                   </SandboxPreviewFrame>
                 </PreviewRenderBoundary>
               ) : previewState.status === "loading" && presetPreview ? (
                 <div className="min-h-[420px] space-y-4">
                   <PreviewRenderBoundary>
-                    <SandboxPreviewFrame dark={previewDark}>
+                    <SandboxPreviewFrame dark={false}>
                       <div>{presetPreview}</div>
                     </SandboxPreviewFrame>
                   </PreviewRenderBoundary>
