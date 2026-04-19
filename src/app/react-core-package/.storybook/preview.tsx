@@ -3,9 +3,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router';
 
 import '../../tokens-package/dist/tokens.css';
-import '../../styles-package/src/base/index.css';
-import '../../styles-package/src/utilities/index.css';
-import '../../styles-package/src/components/index.css';
+import '../../styles-package/dist/index.css';
 
 const preview: Preview = {
   parameters: {

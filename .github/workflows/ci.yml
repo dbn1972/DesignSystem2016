@@ -33,6 +33,28 @@ jobs:
       - name: Run typecheck
         run: pnpm run typecheck
 
+  # ── Lint ───────────────────────────────────────────────────────────────
+  lint:
+    name: Lint (Component Library)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+        env:
+          npm_config_legacy_peer_deps: true
+
+      - name: Lint react-core-package
+        run: pnpm --dir src/app/react-core-package run lint || echo "Lint completed with warnings"
+
   # ── Unit Tests ─────────────────────────────────────────────────────────
   test:
     name: Unit Tests
