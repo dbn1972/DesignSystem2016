@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Select } from './Select';
 import { Field } from '../Field';
+import { assertA11y } from '@/test/a11y-helpers';
 
 const OPTIONS = (
   <>
@@ -136,5 +137,40 @@ describe('Select', () => {
     const ref = React.createRef<HTMLSelectElement>();
     render(<Select aria-label="State" ref={ref}>{OPTIONS}</Select>);
     expect(ref.current).toBeInstanceOf(HTMLSelectElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Select aria-label="State">{OPTIONS}</Select>);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<Select aria-label="State" disabled>{OPTIONS}</Select>);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<Select aria-label="State">{OPTIONS}</Select>);
+        await user.tab();
+        expect(screen.getByRole('combobox')).toHaveFocus();
+      });
+
+      it('can select an option via keyboard interaction', async () => {
+        const user = userEvent.setup();
+        render(<Select aria-label="State">{OPTIONS}</Select>);
+        await user.selectOptions(screen.getByRole('combobox'), 'ka');
+        expect(screen.getByRole('combobox')).toHaveValue('ka');
+      });
+
+      it('does not respond to keyboard when disabled', async () => {
+        const user = userEvent.setup();
+        render(<Select aria-label="State" disabled>{OPTIONS}</Select>);
+        await user.tab();
+        expect(screen.getByRole('combobox')).not.toHaveFocus();
+      });
+    });
   });
 });

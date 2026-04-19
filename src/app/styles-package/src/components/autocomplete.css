@@ -1,0 +1,83 @@
+/**
+ * UX4G Autocomplete Styles
+ * Input with dropdown suggestion list and loading state
+ * Class contract: src/app/react-core-package/src/components/Autocomplete/Autocomplete.tsx
+ */
+
+/* ── Base ── */
+.ux4g-autocomplete {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Sub-elements ── */
+.ux4g-autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: var(--ux4g-z-dropdown, 1000);
+  max-height: 240px;
+  overflow-y: auto;
+  margin-top: var(--ux4g-spacing-1, 0.25rem);
+  padding: var(--ux4g-spacing-1, 0.25rem) 0;
+  border: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  box-shadow: var(--ux4g-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+  transition: opacity var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-autocomplete-item {
+  display: flex;
+  align-items: center;
+  padding: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-3, 0.75rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+  cursor: pointer;
+}
+
+.ux4g-autocomplete-item:hover {
+  background-color: var(--ux4g-color-surface-secondary, #F9FAFB);
+}
+
+.ux4g-autocomplete-item:active {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-autocomplete-item:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: -2px;
+}
+
+.ux4g-autocomplete-item-active {
+  background-color: var(--ux4g-color-surface-secondary, #F9FAFB);
+}
+
+.ux4g-autocomplete-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ux4g-spacing-3, 0.75rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #666666);
+}
+
+/* ── States ── */
+.ux4g-autocomplete-disabled {
+  opacity: var(--ux4g-disabled-opacity, 0.6);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ux4g-autocomplete-error {
+  border-color: var(--ux4g-color-error, #DC2626);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-autocomplete-list {
+    transition-duration: 0.01ms !important;
+  }
+}

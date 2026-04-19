@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Checkbox } from './Checkbox';
 import { Field } from '../Field';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Checkbox', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -134,5 +135,39 @@ describe('Checkbox', () => {
     const ref = React.createRef<HTMLInputElement>();
     render(<Checkbox id="terms" label="Accept" ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Checkbox id="terms" label="Accept terms" />);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<Checkbox id="terms" label="Accept terms" disabled />);
+    });
+
+    it('has no axe violations when error', async () => {
+      await assertA11y(<Checkbox id="terms" label="Accept terms" error />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<Checkbox id="terms" label="Accept terms" />);
+        await user.tab();
+        expect(screen.getByRole('checkbox')).toHaveFocus();
+      });
+
+      it('toggles via Space key', async () => {
+        const user = userEvent.setup();
+        const onChange = vi.fn();
+        render(<Checkbox id="terms" label="Accept terms" onChange={onChange} />);
+        await user.tab();
+        await user.keyboard(' ');
+        expect(onChange).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });

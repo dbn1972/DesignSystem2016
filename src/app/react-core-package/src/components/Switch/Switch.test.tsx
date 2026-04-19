@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Switch } from './Switch';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Switch', () => {
   // ── Rendering ─────────────────────────────────────────────────────
@@ -128,5 +129,44 @@ describe('Switch', () => {
   it('supports aria-describedby', () => {
     render(<Switch label="Toggle" aria-describedby="help-text" />);
     expect(screen.getByRole('switch')).toHaveAttribute('aria-describedby', 'help-text');
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Switch label="Toggle feature" />);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<Switch label="Toggle feature" disabled />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<Switch label="Toggle feature" />);
+        await user.tab();
+        expect(screen.getByRole('switch')).toHaveFocus();
+      });
+
+      it('toggles via Space key', async () => {
+        const user = userEvent.setup();
+        const onChange = vi.fn();
+        render(<Switch label="Toggle feature" onChange={onChange} />);
+        await user.tab();
+        await user.keyboard(' ');
+        expect(onChange).toHaveBeenCalledTimes(1);
+      });
+
+      it('does not toggle via Enter key (native checkbox behavior)', async () => {
+        const user = userEvent.setup();
+        const onChange = vi.fn();
+        render(<Switch label="Toggle feature" onChange={onChange} />);
+        await user.tab();
+        await user.keyboard('{Enter}');
+        expect(onChange).not.toHaveBeenCalled();
+      });
+    });
   });
 });

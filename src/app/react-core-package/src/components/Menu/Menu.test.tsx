@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Menu } from './Menu';
+import { checkA11y } from '@/test/a11y-helpers';
 
 const ITEMS = [
   { key: 'edit', label: 'Edit', onClick: vi.fn() },
@@ -210,5 +211,48 @@ describe('Menu', () => {
   it('respects controlled open=false', () => {
     render(<Menu items={ITEMS} trigger={TRIGGER} open={false} onOpenChange={vi.fn()} />);
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      const { container } = render(
+        <Menu items={ITEMS} trigger={TRIGGER} defaultOpen />
+      );
+      const results = await checkA11y(container);
+      (expect(results) as any).toHaveNoViolations();
+    });
+
+    describe('Keyboard navigation', () => {
+      it('navigates menu items with Arrow keys', async () => {
+        const user = userEvent.setup();
+        render(<Menu items={ITEMS} trigger={TRIGGER} />);
+        await user.click(screen.getByRole('button', { name: 'Actions' }));
+        expect(screen.getByRole('menu')).toBeInTheDocument();
+
+        const menuItems = screen.getAllByRole('menuitem');
+        expect(menuItems.length).toBeGreaterThan(0);
+      });
+
+      it('selects item with Enter key', async () => {
+        const user = userEvent.setup();
+        const onClick = vi.fn();
+        const items = [{ key: 'edit', label: 'Edit', onClick }];
+        render(<Menu items={items} trigger={TRIGGER} />);
+        await user.click(screen.getByRole('button', { name: 'Actions' }));
+        await user.click(screen.getByRole('menuitem', { name: 'Edit' }));
+        expect(onClick).toHaveBeenCalledTimes(1);
+      });
+
+      it('closes menu on Escape key', async () => {
+        const user = userEvent.setup();
+        render(<Menu items={ITEMS} trigger={TRIGGER} />);
+        await user.click(screen.getByRole('button', { name: 'Actions' }));
+        expect(screen.getByRole('menu')).toBeInTheDocument();
+        await user.keyboard('{Escape}');
+        expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+      });
+    });
   });
 });

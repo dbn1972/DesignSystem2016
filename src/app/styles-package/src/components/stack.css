@@ -1,0 +1,30 @@
+/**
+ * UX4G Stack Styles
+ * Vertical and horizontal stacking layout with gap modifiers.
+ * Class contract: src/app/react-core-package/src/components/Stack/Stack.tsx
+ */
+
+/* ── Base ── */
+.ux4g-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-4, 1rem);
+}
+
+/* ── Sub-elements ── */
+.ux4g-stack-horizontal {
+  flex-direction: row;
+}
+
+/* ── Variants ── */
+.ux4g-stack-gap-sm {
+  gap: var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-stack-gap-md {
+  gap: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-stack-gap-lg {
+  gap: var(--ux4g-spacing-6, 1.5rem);
+}

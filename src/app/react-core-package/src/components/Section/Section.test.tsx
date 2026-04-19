@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Section } from './Section';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Section', () => {
   it('renders children', () => { render(<Section>Content</Section>); expect(screen.getByText('Content')).toBeInTheDocument(); });
@@ -9,4 +10,12 @@ describe('Section', () => {
   it('renders title', () => { render(<Section title="Overview">C</Section>); expect(screen.getByRole('heading', { name: 'Overview' })).toBeInTheDocument(); });
   it('renders description', () => { render(<Section description="Details here">C</Section>); expect(screen.getByText('Details here')).toBeInTheDocument(); });
   it('forwards ref', () => { const ref = React.createRef<HTMLElement>(); render(<Section ref={ref}>C</Section>); expect(ref.current).toBeInstanceOf(HTMLElement); });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Section title="Overview"><p>Section content</p></Section>);
+    });
+  });
 });

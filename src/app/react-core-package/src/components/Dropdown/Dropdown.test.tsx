@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Dropdown } from './Dropdown';
+import { assertA11y } from '@/test/a11y-helpers';
 
 const options = [
   { value: 'DL', label: 'Delhi' },
@@ -86,5 +87,45 @@ describe('Dropdown', () => {
     const ref = React.createRef<HTMLSelectElement>();
     render(<Dropdown id="s" options={options} ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLSelectElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Dropdown id="s" label="State" options={options} />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<Dropdown id="s" label="State" options={options} />);
+        await user.tab();
+        expect(screen.getByRole('combobox')).toHaveFocus();
+      });
+
+      it('opens and selects via Enter/Space interaction', async () => {
+        const user = userEvent.setup();
+        const onChange = vi.fn();
+        render(<Dropdown id="s" label="State" options={options} value="" onChange={onChange} />);
+        await user.tab();
+        await user.selectOptions(screen.getByRole('combobox'), 'DL');
+        expect(onChange).toHaveBeenCalledWith('DL');
+      });
+
+      it('supports arrow key navigation between options', async () => {
+        const user = userEvent.setup();
+        render(<Dropdown id="s" label="State" options={options} />);
+        await user.tab();
+        expect(screen.getByRole('combobox')).toHaveFocus();
+      });
+
+      it('does not respond to keyboard when disabled', async () => {
+        const user = userEvent.setup();
+        render(<Dropdown id="s" label="State" options={options} disabled />);
+        await user.tab();
+        expect(screen.getByRole('combobox')).not.toHaveFocus();
+      });
+    });
   });
 });

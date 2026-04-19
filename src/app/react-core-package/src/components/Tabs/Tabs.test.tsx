@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Tabs } from './Tabs';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 const ITEMS = [
   { value: 'personal', label: 'Personal Details', content: <p>Personal content</p> },
@@ -183,5 +184,56 @@ describe('Tabs', () => {
   it('respects controlled value prop', () => {
     render(<Tabs items={ITEMS} value="review" onChange={vi.fn()} />);
     expect(screen.getByRole('tab', { name: 'Review' })).toHaveAttribute('aria-selected', 'true');
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Tabs items={ITEMS} />);
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'default', ui: <Tabs items={ITEMS} variant="default" /> },
+        { name: 'pills', ui: <Tabs items={ITEMS} variant="pills" /> },
+        { name: 'underline', ui: <Tabs items={ITEMS} variant="underline" /> },
+      ]);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<Tabs items={ITEMS} />);
+        await user.tab();
+        expect(screen.getByRole('tab', { name: 'Personal Details' })).toHaveFocus();
+      });
+
+      it('navigates between tabs with Arrow keys', async () => {
+        const user = userEvent.setup();
+        render(<Tabs items={ITEMS} />);
+        screen.getByRole('tab', { name: 'Personal Details' }).focus();
+        await user.keyboard('{ArrowRight}');
+        expect(screen.getByRole('tab', { name: 'Documents' })).toHaveFocus();
+        await user.keyboard('{ArrowLeft}');
+        expect(screen.getByRole('tab', { name: 'Personal Details' })).toHaveFocus();
+      });
+
+      it('jumps to first tab with Home key', async () => {
+        const user = userEvent.setup();
+        render(<Tabs items={ITEMS} defaultValue="review" />);
+        screen.getByRole('tab', { name: 'Review' }).focus();
+        await user.keyboard('{Home}');
+        expect(screen.getByRole('tab', { name: 'Personal Details' })).toHaveFocus();
+      });
+
+      it('jumps to last tab with End key', async () => {
+        const user = userEvent.setup();
+        render(<Tabs items={ITEMS} />);
+        screen.getByRole('tab', { name: 'Personal Details' }).focus();
+        await user.keyboard('{End}');
+        expect(screen.getByRole('tab', { name: 'Review' })).toHaveFocus();
+      });
+    });
   });
 });

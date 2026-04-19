@@ -28,3 +28,74 @@
 @import './divider.css';
 @import './tag.css';
 @import './status-tag.css';
+
+/* Wave 1 — Layout Primitives */
+@import './aspect-ratio.css';
+@import './center.css';
+@import './container.css';
+@import './flex.css';
+@import './grid.css';
+@import './section.css';
+@import './spacer.css';
+@import './stack.css';
+
+/* Wave 2 — Form Primitives */
+@import './autocomplete.css';
+@import './date-picker.css';
+@import './error-text.css';
+@import './field.css';
+@import './file-upload.css';
+@import './form-builder.css';
+@import './hint-text.css';
+@import './label.css';
+@import './otp-input.css';
+@import './search-bar.css';
+@import './slider.css';
+
+/* Wave 3 — Data Display */
+@import './accordion.css';
+@import './code-block.css';
+@import './data-grid.css';
+@import './description-list.css';
+@import './empty-state.css';
+@import './list.css';
+@import './qr-code.css';
+@import './rating.css';
+@import './skeleton.css';
+@import './statistic.css';
+@import './timeline.css';
+@import './tree-view.css';
+
+/* Wave 4 — Navigation + Overlays */
+@import './back-to-top.css';
+@import './drawer.css';
+@import './dropdown.css';
+@import './footer.css';
+@import './header.css';
+@import './language-selector.css';
+@import './modal.css';
+@import './navigation-menu.css';
+@import './notification.css';
+@import './popover.css';
+@import './segmented-control.css';
+@import './show-hide.css';
+@import './snackbar.css';
+@import './stepper.css';
+
+/* Wave 5 — India-Specific + Feedback */
+@import './aadhaar-input.css';
+@import './address-autocomplete-india.css';
+@import './application-tracker.css';
+@import './calendar-scheduler.css';
+@import './captcha.css';
+@import './chart-library.css';
+@import './chatbot.css';
+@import './digital-signature.css';
+@import './document-viewer.css';
+@import './feedback-rating-widget.css';
+@import './map-location-picker.css';
+@import './pan-card-input.css';
+@import './payment-gateway.css';
+@import './rich-text-editor.css';
+@import './video-player.css';
+

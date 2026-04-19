@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {  FileText, Users, RefreshCw, AlertCircle, CheckCircle, FileCheck, UserCheck, Activity, ArrowRight, Circle, ChevronRight, Info, AlertTriangle, Shield, Eye, Globe, Headphones, Code, GitBranch, CheckSquare, XCircle, Clock, Download, Search, Edit, Upload, MessageSquare, ThumbsUp, ThumbsDown, Zap, Target, Layers, BookOpen, Settings, Database, Lock, BarChart3, FileCode, Copy, Check } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import PageContainer from "@/app/components/PageContainer";
 
 export default function ServicePatternLibraries() {
   const { i18n } = useTranslation();
@@ -8,7 +9,7 @@ export default function ServicePatternLibraries() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.10),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14 xl:grid-cols-[1.2fr_0.8fr] xl:items-start">
+        <PageContainer className="grid gap-12 py-16 sm:py-20 lg:py-24 xl:grid-cols-[1.05fr_0.95fr] xl:items-start">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
               <Layers size={14} className="text-primary" />
@@ -16,20 +17,20 @@ export default function ServicePatternLibraries() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.title}</h1>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">{c.title}</h1>
               <p className="max-w-3xl text-lg leading-8 text-muted-foreground">
                 {c.description}
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <a href="#application" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
+              <a href="#application" className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
                 Explore archetypes
               </a>
-              <a href="#eligibility" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
+              <a href="#eligibility" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
                 Eligibility flow
               </a>
-              <a href="#tracking" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
+              <a href="#tracking" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary">
                 Status tracking
               </a>
             </div>
@@ -57,11 +58,11 @@ export default function ServicePatternLibraries() {
               <PatternNote title="Implementation-ready" text="Pattern guidance is written for teams building the real application, not a demo." />
             </div>
           </div>
-        </div>
+        </PageContainer>
       </header>
 
       <nav className="sticky top-4 z-20 border-b border-border bg-card/95 shadow-sm backdrop-blur">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12">
+        <PageContainer>
           <div className="flex items-center gap-1 overflow-x-auto py-3">
             {[
               { id: "application", label: "Application" },
@@ -82,10 +83,10 @@ export default function ServicePatternLibraries() {
               </a>
             ))}
           </div>
-        </div>
+        </PageContainer>
       </nav>
 
-      <div className="mx-auto max-w-[1440px] space-y-20 px-6 py-12 sm:px-8 lg:px-12">
+      <PageContainer className="space-y-20 py-12">
         <div className="space-y-20">
           <ApplicationSubmission />
           <EligibilityScreening />
@@ -96,15 +97,15 @@ export default function ServicePatternLibraries() {
           <AssistedOfflineToOnline />
           <HighVolumeStatusTracking />
         </div>
-      </div>
+      </PageContainer>
 
       <footer className="mt-20 border-t border-border bg-card">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-2 px-6 py-8 text-sm text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+        <PageContainer className="flex flex-col gap-2 py-8 text-sm text-muted-foreground lg:flex-row lg:items-center lg:justify-between">
           <div>
             <div>UX4G Design System Platform • Service Pattern Library v1.0</div>
           </div>
           <div>Government of India • Digital India Initiative</div>
-        </div>
+        </PageContainer>
       </footer>
     </div>
   );

@@ -1,0 +1,57 @@
+/**
+ * UX4G Statistic Styles
+ * Value, label, and trend display with size variants
+ * Class contract: src/app/react-core-package/src/components/Statistic/Statistic.tsx
+ */
+
+/* ── Base ── */
+.ux4g-statistic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+}
+
+/* ── Sub-elements ── */
+.ux4g-statistic-value {
+  font-size: var(--ux4g-font-size-2xl, 1.5rem);
+  font-weight: var(--ux4g-font-weight-bold, 700);
+  color: var(--ux4g-color-text-primary, #111827);
+  line-height: var(--ux4g-line-height-tight, 1.25);
+}
+
+.ux4g-statistic-label {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-normal, 400);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  line-height: var(--ux4g-line-height-normal, 1.5);
+}
+
+.ux4g-statistic-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  color: var(--ux4g-color-success, #15803d);
+}
+
+/* ── Sizes ── */
+.ux4g-statistic-sm .ux4g-statistic-value {
+  font-size: var(--ux4g-font-size-lg, 1.125rem);
+}
+
+.ux4g-statistic-sm .ux4g-statistic-label {
+  font-size: var(--ux4g-font-size-xs, 0.75rem);
+}
+
+.ux4g-statistic-md .ux4g-statistic-value {
+  font-size: var(--ux4g-font-size-2xl, 1.5rem);
+}
+
+.ux4g-statistic-lg .ux4g-statistic-value {
+  font-size: var(--ux4g-font-size-4xl, 2.25rem);
+}
+
+.ux4g-statistic-lg .ux4g-statistic-label {
+  font-size: var(--ux4g-font-size-base, 1rem);
+}

@@ -1,0 +1,49 @@
+name: Storybook Smoke Test
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/storybook-smoke.yml"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "src/app/tokens-package/**"
+      - "src/app/styles-package/**"
+      - "src/app/react-core-package/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/storybook-smoke.yml"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "src/app/tokens-package/**"
+      - "src/app/styles-package/**"
+      - "src/app/react-core-package/**"
+
+jobs:
+  build-storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+        env:
+          npm_config_legacy_peer_deps: true
+
+      - name: Build Storybook smoke output
+        run: pnpm --dir src/app/react-core-package exec storybook build --output-dir ../../../dist/storybook-smoke --quiet
+        env:
+          CI: "true"
+          STORYBOOK_DISABLE_TELEMETRY: "1"
+          HOME: /tmp/ux4g-storybook-home
+
+      - name: Verify Storybook output
+        run: test -f dist/storybook-smoke/index.html

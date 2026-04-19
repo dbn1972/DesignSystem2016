@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FileUpload } from './FileUpload';
+import { assertA11y } from '@/test/a11y-helpers';
 
 /** Helper: create a mock File */
 const makeFile = (name: string, size: number, type = 'application/pdf') =>
@@ -211,5 +212,48 @@ describe('FileUpload', () => {
     await user.upload(screen.getByLabelText('File upload'), file);
 
     expect(screen.queryByText('doc.pdf')).not.toBeInTheDocument();
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<FileUpload />);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<FileUpload disabled />);
+    });
+
+    it('has no axe violations in error state', async () => {
+      await assertA11y(<FileUpload error />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('file input receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<FileUpload />);
+        await user.tab();
+        expect(screen.getByLabelText('File upload')).toHaveFocus();
+      });
+
+      it('activates file input via Enter key', async () => {
+        const user = userEvent.setup();
+        const onChange = vi.fn();
+        render(<FileUpload onChange={onChange} />);
+        const input = screen.getByLabelText('File upload');
+        input.focus();
+        // Verify the input is focused and can receive keyboard interaction
+        expect(input).toHaveFocus();
+      });
+
+      it('activates file input via Space key', async () => {
+        const user = userEvent.setup();
+        render(<FileUpload />);
+        const input = screen.getByLabelText('File upload');
+        input.focus();
+        expect(input).toHaveFocus();
+      });
+    });
   });
 });

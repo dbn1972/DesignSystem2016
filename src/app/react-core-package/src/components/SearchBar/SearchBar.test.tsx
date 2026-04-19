@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { SearchBar } from './SearchBar';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('SearchBar', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -151,5 +152,34 @@ describe('SearchBar', () => {
     const ref = React.createRef<HTMLInputElement>();
     render(<SearchBar aria-label="Search" ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<SearchBar aria-label="Search" />);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<SearchBar aria-label="Search" disabled />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<SearchBar aria-label="Search" />);
+        await user.tab();
+        expect(screen.getByRole('searchbox')).toHaveFocus();
+      });
+
+      it('accepts typed input via keyboard', async () => {
+        const user = userEvent.setup();
+        render(<SearchBar aria-label="Search" />);
+        await user.tab();
+        await user.keyboard('certificate');
+        expect(screen.getByRole('searchbox')).toHaveValue('certificate');
+      });
+    });
   });
 });

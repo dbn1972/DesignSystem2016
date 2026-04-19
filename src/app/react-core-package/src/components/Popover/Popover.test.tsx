@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Popover } from './Popover';
+import { assertA11y, checkA11y } from '@/test/a11y-helpers';
 
 describe('Popover', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -212,5 +213,45 @@ describe('Popover', () => {
       </Popover>
     );
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in open state', async () => {
+      const { container } = render(
+        <Popover content={<p>Popover content</p>} defaultOpen>
+          <button type="button">Trigger</button>
+        </Popover>
+      );
+      const results = await checkA11y(container);
+      (expect(results) as any).toHaveNoViolations();
+    });
+
+    describe('Keyboard navigation', () => {
+      it('trigger receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(
+          <Popover content={<p>Content</p>} trigger="click">
+            <button type="button">Open</button>
+          </Popover>
+        );
+        await user.tab();
+        expect(screen.getByRole('button', { name: 'Open' })).toHaveFocus();
+      });
+
+      it('closes on Escape key', async () => {
+        const user = userEvent.setup();
+        const onOpenChange = vi.fn();
+        render(
+          <Popover content={<p>Content</p>} trigger="click" onOpenChange={onOpenChange}>
+            <button type="button">Open</button>
+          </Popover>
+        );
+        await user.click(screen.getByRole('button', { name: 'Open' }));
+        expect(screen.getByRole('dialog')).toBeInTheDocument();
+        await user.keyboard('{Escape}');
+      });
+    });
   });
 });

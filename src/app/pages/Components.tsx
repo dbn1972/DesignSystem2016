@@ -2,6 +2,7 @@ import React from 'react';
 import { AlertCircle, Bell, Calendar, CheckCircle, ChevronDown, Download, Info, Package, Search, Upload, X } from 'lucide-react';
 import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import PageContainer from "@/app/components/PageContainer";
 
 export default function Components() {
   const { i18n } = useTranslation();
@@ -100,13 +101,13 @@ export default function Components() {
     <div className="min-h-screen bg-background text-foreground">
       <section className="relative overflow-hidden border-b border-border/60 bg-gradient-to-b from-background via-background to-muted/30">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(5,81,150,0.12),transparent_35%),radial-gradient(circle_at_top_right,rgba(19,136,8,0.08),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(255,153,51,0.08),transparent_30%)]" />
-        <div className="mx-auto grid max-w-7xl items-start gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:px-8 lg:py-10">
+        <PageContainer className="grid items-start gap-12 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:py-24">
           <div>
             <div className="mb-2.5 inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur">
               <Package className="h-4 w-4 text-primary" />
               {copy.hero.eyebrow}
             </div>
-            <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            <h1 className="max-w-2xl text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
               {copy.hero.title}
             </h1>
             <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
@@ -116,20 +117,20 @@ export default function Components() {
             <div className="mt-6 flex flex-wrap gap-2.5">
               <Link
                 to="/components/button"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95"
               >
                 {copy.hero.exploreButton}
                 <Download className="h-4 w-4" />
               </Link>
               <Link
                 to="/framework-status"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground shadow-sm transition hover:bg-muted/60"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground shadow-sm transition hover:bg-muted/60"
               >
                 {copy.hero.frameworkSupport}
               </Link>
               <Link
                 to="/resources/getting-started"
-                className="inline-flex items-center gap-2 rounded-full border border-transparent px-4 py-2.5 text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+                className="inline-flex items-center gap-2 rounded-xl border border-transparent px-4 py-2.5 text-sm font-semibold text-muted-foreground transition hover:text-foreground"
               >
                 {copy.hero.gettingStarted}
               </Link>
@@ -175,22 +176,22 @@ export default function Components() {
               </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       <section className="border-b border-border/60 bg-background py-6">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="flex flex-wrap items-center gap-2.5 text-sm text-muted-foreground">
             <span className="rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 font-medium text-foreground">React</span>
             <span className="rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 font-medium text-foreground">Angular</span>
             <span className="rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 font-medium text-foreground">Web Components</span>
             <span className="ml-0 rounded-full border border-border/70 bg-muted/40 px-2.5 py-0.5 font-medium text-foreground">{copy.frameworkPills.documentedPages}</span>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       <section className="bg-background py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="mb-8 flex items-end justify-between gap-6">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.frameworkSection.eyebrow}</p>
@@ -199,7 +200,7 @@ export default function Components() {
                 {copy.frameworkSection.description}
               </p>
             </div>
-            <Link to="/framework-status" className="hidden rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-muted/60 lg:inline-flex">
+            <Link to="/framework-status" className="hidden rounded-xl border border-border px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-muted/60 lg:inline-flex">
               {copy.frameworkSection.openStatus}
             </Link>
           </div>
@@ -229,11 +230,11 @@ export default function Components() {
               </div>
             ))}
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       <section className="border-y border-border/60 bg-muted/20 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="mb-8 max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.categorySection.eyebrow}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{copy.categorySection.title}</h2>
@@ -281,11 +282,11 @@ export default function Components() {
               </div>
             ))}
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       <section className="bg-background py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="mb-8 max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.showcaseSection.eyebrow}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{copy.showcaseSection.title}</h2>
@@ -489,11 +490,11 @@ export default function Components() {
               </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       <section className="bg-muted/20 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="mb-8 max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.feedbackSection.eyebrow}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{copy.feedbackSection.title}</h2>
@@ -553,11 +554,11 @@ export default function Components() {
               </div>
             )}
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       <section className="bg-background py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="mb-8 max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">{copy.surfaceSection.eyebrow}</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">{copy.surfaceSection.title}</h2>
@@ -572,7 +573,7 @@ export default function Components() {
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
                 {copy.surfaceSection.cardDescription}
               </p>
-              <button className="mt-5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95">
+              <button className="mt-5 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-95">
                 {copy.surfaceSection.learnMore}
               </button>
             </div>
@@ -599,11 +600,11 @@ export default function Components() {
               <p className="mt-2 text-sm text-primary-foreground/80">{copy.surfaceSection.totalServices}</p>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
 
       <section className="border-y border-border/60 bg-muted/20 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <PageContainer>
           <div className="rounded-[1.75rem] border border-border/70 bg-card p-6 shadow-sm">
             <div className="flex items-start gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
@@ -617,7 +618,7 @@ export default function Components() {
               </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </section>
     </div>
   );

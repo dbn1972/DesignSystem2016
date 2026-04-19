@@ -1,0 +1,12 @@
+/**
+ * UX4G Center Styles
+ * Flex-based centering layout for content alignment.
+ * Class contract: src/app/react-core-package/src/components/Center/Center.tsx
+ */
+
+/* ── Base ── */
+.ux4g-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

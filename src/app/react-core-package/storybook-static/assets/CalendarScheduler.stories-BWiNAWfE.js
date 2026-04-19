@@ -1,0 +1,26 @@
+import{j as a}from"./jsx-runtime-Cf8x2fCZ.js";import{r as C}from"./index-G8LIXM5I.js";import{c as j}from"./cn-BaF2GUMg.js";import"./index-yBjzXJbu.js";import"./_commonjsHelpers-CqkleIqs.js";function K(t,r){return new Date(t,r+1,0).getDate()}function Q(t,r){return new Date(t,r,1).getDay()}function U(t,r,n){const l=String(r+1).padStart(2,"0"),o=String(n).padStart(2,"0");return`${t}-${l}-${o}`}const x=C.forwardRef(({selectedDate:t,onDateSelect:r,availableDates:n=[],minDate:l,maxDate:o,label:F="Calendar",disabled:B,className:P,...V},Y)=>{const g=t?new Date(t):new Date,f=g.getFullYear(),h=g.getMonth(),z=g.toLocaleString("default",{month:"long",year:"numeric"}),S=K(f,h),w=Q(f,h),G=C.useMemo(()=>new Set(n),[n]),H=s=>!!(B||n.length>0&&!G.has(s)||l&&s<l||o&&s>o),J=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];return a.jsxs("div",{ref:Y,className:j("ux4g-calendar-scheduler",P),role:"group","aria-label":F,...V,children:[a.jsx("div",{className:"ux4g-calendar-scheduler-header text-center font-semibold text-lg mb-2",children:z}),a.jsxs("table",{className:"ux4g-calendar-scheduler-grid w-full border-collapse",role:"grid",children:[a.jsx("thead",{children:a.jsx("tr",{children:J.map(s=>a.jsx("th",{className:"text-center text-sm font-medium p-1",scope:"col",children:s},s))})}),a.jsx("tbody",{children:(()=>{const s=[];let i=[];for(let e=0;e<w;e++)i.push(a.jsx("td",{className:"p-1"},`empty-${e}`));for(let e=1;e<=S;e++){const b=U(f,h,e),y=b===t,D=H(b);i.push(a.jsx("td",{className:"p-1 text-center",children:a.jsx("button",{type:"button",disabled:D,"aria-pressed":y,"aria-label":`${e}`,onClick:()=>r==null?void 0:r(b),className:j("ux4g-calendar-scheduler-cell w-8 h-8 rounded-full text-sm",y&&"bg-primary text-primary-foreground",D&&"opacity-40 cursor-not-allowed",!y&&!D&&"hover:bg-muted cursor-pointer"),children:e})},e)),((w+e)%7===0||e===S)&&(s.push(a.jsx("tr",{children:i},`row-${e}`)),i=[])}return s})()})]})]})});x.displayName="CalendarScheduler";x.__docgenInfo={description:"",methods:[],displayName:"CalendarScheduler",props:{className:{required:!1,tsType:{name:"string"},description:"Additional CSS class names"},style:{required:!1,tsType:{name:"ReactCSSProperties",raw:"React.CSSProperties"},description:"Inline styles (use sparingly, prefer className with tokens)"},"data-testid":{required:!1,tsType:{name:"string"},description:"Test ID for testing frameworks"},selectedDate:{required:!1,tsType:{name:"string"},description:'Currently selected date (ISO string, e.g. "2025-01-15")'},onDateSelect:{required:!1,tsType:{name:"signature",type:"function",raw:"(date: string) => void",signature:{arguments:[{type:{name:"string"},name:"date"}],return:{name:"void"}}},description:"Called when a date cell is clicked"},availableDates:{required:!1,tsType:{name:"Array",elements:[{name:"string"}],raw:"string[]"},description:"Array of available/bookable dates (ISO strings)",defaultValue:{value:"[]",computed:!1}},minDate:{required:!1,tsType:{name:"string"},description:"Earliest selectable date (ISO string)"},maxDate:{required:!1,tsType:{name:"string"},description:"Latest selectable date (ISO string)"},label:{required:!1,tsType:{name:"string"},description:"Accessible label for the calendar",defaultValue:{value:"'Calendar'",computed:!1}},disabled:{required:!1,tsType:{name:"boolean"},description:"Whether the calendar is disabled"}}};const se={title:"Components/CalendarScheduler",component:x,tags:["autodocs"]},d={args:{selectedDate:"2025-01-15"}},c={args:{selectedDate:"2025-01-15",availableDates:["2025-01-10","2025-01-15","2025-01-20"]}},u={args:{selectedDate:"2025-01-15",minDate:"2025-01-05",maxDate:"2025-01-25"}},m={args:{selectedDate:"2025-01-15",disabled:!0}},p={args:{selectedDate:"2025-01-15",label:"Book an appointment"}};var T,v,N;d.parameters={...d.parameters,docs:{...(T=d.parameters)==null?void 0:T.docs,source:{originalSource:`{
+  args: {
+    selectedDate: '2025-01-15'
+  }
+}`,...(N=(v=d.parameters)==null?void 0:v.docs)==null?void 0:N.source}}};var q,I,k;c.parameters={...c.parameters,docs:{...(q=c.parameters)==null?void 0:q.docs,source:{originalSource:`{
+  args: {
+    selectedDate: '2025-01-15',
+    availableDates: ['2025-01-10', '2025-01-15', '2025-01-20']
+  }
+}`,...(k=(I=c.parameters)==null?void 0:I.docs)==null?void 0:k.source}}};var M,O,W;u.parameters={...u.parameters,docs:{...(M=u.parameters)==null?void 0:M.docs,source:{originalSource:`{
+  args: {
+    selectedDate: '2025-01-15',
+    minDate: '2025-01-05',
+    maxDate: '2025-01-25'
+  }
+}`,...(W=(O=u.parameters)==null?void 0:O.docs)==null?void 0:W.source}}};var A,$,E;m.parameters={...m.parameters,docs:{...(A=m.parameters)==null?void 0:A.docs,source:{originalSource:`{
+  args: {
+    selectedDate: '2025-01-15',
+    disabled: true
+  }
+}`,...(E=($=m.parameters)==null?void 0:$.docs)==null?void 0:E.source}}};var L,R,_;p.parameters={...p.parameters,docs:{...(L=p.parameters)==null?void 0:L.docs,source:{originalSource:`{
+  args: {
+    selectedDate: '2025-01-15',
+    label: 'Book an appointment'
+  }
+}`,...(_=(R=p.parameters)==null?void 0:R.docs)==null?void 0:_.source}}};const ne=["Default","WithAvailableDates","WithMinMax","Disabled","CustomLabel"];export{p as CustomLabel,d as Default,m as Disabled,c as WithAvailableDates,u as WithMinMax,ne as __namedExportsOrder,se as default};

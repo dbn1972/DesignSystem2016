@@ -13,6 +13,7 @@ import {
   Languages,
   Activity,
 } from "lucide-react";
+import PageContainer from "@/app/components/PageContainer";
 
 export default function SystemsHub() {
   const { i18n } = useTranslation();
@@ -20,8 +21,8 @@ export default function SystemsHub() {
   return (
     <div className="min-h-screen bg-background text-foreground dark:bg-gray-900">
       <header className="border-b border-border bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-gray-900 dark:to-blue-950/40">
-        <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
-          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
+        <PageContainer className="py-16 sm:py-20 lg:py-24">
+          <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-card/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-blue-700 shadow-sm dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-300">
                 <Sparkles size={14} />
@@ -113,10 +114,10 @@ export default function SystemsHub() {
               </div>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </header>
 
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <PageContainer className="py-12 sm:py-16">
         <section className="grid gap-6 lg:grid-cols-3">
           <SystemCard
             icon={<Globe2 size={28} />}
@@ -232,7 +233,7 @@ export default function SystemsHub() {
             </div>
           </div>
         </section>
-      </div>
+      </PageContainer>
     </div>
   );
 }

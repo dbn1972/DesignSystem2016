@@ -1,0 +1,46 @@
+/**
+ * UX4G EmptyState Styles
+ * Centered layout with illustration, heading, description, and action
+ * Class contract: src/app/react-core-package/src/components/EmptyState/EmptyState.tsx
+ */
+
+/* ── Base ── */
+.ux4g-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ux4g-spacing-4, 1rem);
+  padding: var(--ux4g-spacing-10, 2.5rem) var(--ux4g-spacing-6, 1.5rem);
+  text-align: center;
+}
+
+/* ── Sub-elements ── */
+.ux4g-empty-state-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ux4g-spacing-20, 5rem);
+  height: var(--ux4g-spacing-20, 5rem);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+}
+
+.ux4g-empty-state-heading {
+  font-size: var(--ux4g-font-size-lg, 1.125rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: var(--ux4g-color-text-primary, #111827);
+  line-height: var(--ux4g-line-height-tight, 1.25);
+  margin: 0;
+}
+
+.ux4g-empty-state-description {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  line-height: var(--ux4g-line-height-normal, 1.5);
+  max-width: 24rem;
+  margin: 0;
+}
+
+.ux4g-empty-state-action {
+  margin-top: var(--ux4g-spacing-2, 0.5rem);
+}

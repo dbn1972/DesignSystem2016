@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Divider } from './Divider';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Divider', () => {
   it('renders horizontal separator by default', () => {
@@ -33,5 +34,13 @@ describe('Divider', () => {
   it('applies custom className', () => {
     render(<Divider className="my-divider" />);
     expect(screen.getByRole('separator')).toHaveClass('my-divider');
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Divider />);
+    });
   });
 });

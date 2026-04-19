@@ -1,0 +1,72 @@
+/**
+ * UX4G Timeline Styles
+ * Vertical line with nodes, content panels, and alternate layout
+ * Class contract: src/app/react-core-package/src/components/Timeline/Timeline.tsx
+ */
+
+/* ── Base ── */
+.ux4g-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-6, 1.5rem);
+  padding-left: var(--ux4g-spacing-8, 2rem);
+}
+
+/* Vertical line */
+.ux4g-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--ux4g-spacing-3, 0.75rem);
+  width: 2px;
+  height: 100%;
+  background-color: var(--ux4g-color-border-default, #D1D5DB);
+}
+
+/* ── Sub-elements ── */
+.ux4g-timeline-item {
+  position: relative;
+}
+
+.ux4g-timeline-node {
+  position: absolute;
+  left: calc(-1 * var(--ux4g-spacing-8, 2rem) + var(--ux4g-spacing-1, 0.25rem));
+  top: var(--ux4g-spacing-1, 0.25rem);
+  width: var(--ux4g-spacing-4, 1rem);
+  height: var(--ux4g-spacing-4, 1rem);
+  border-radius: var(--ux4g-radius-full, 9999px);
+  border: 2px solid var(--ux4g-color-primary, #005196);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+}
+
+.ux4g-timeline-content {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #111827);
+  line-height: var(--ux4g-line-height-normal, 1.5);
+}
+
+/* ── Variants ── */
+.ux4g-timeline-alternate {
+  padding-left: 0;
+}
+
+.ux4g-timeline-alternate::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ux4g-timeline-alternate .ux4g-timeline-node {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ux4g-timeline-alternate .ux4g-timeline-item:nth-child(odd) .ux4g-timeline-content {
+  text-align: right;
+  padding-right: var(--ux4g-spacing-10, 2.5rem);
+}
+
+.ux4g-timeline-alternate .ux4g-timeline-item:nth-child(even) .ux4g-timeline-content {
+  margin-left: 50%;
+  padding-left: var(--ux4g-spacing-10, 2.5rem);
+}

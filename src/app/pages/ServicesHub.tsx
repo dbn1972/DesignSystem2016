@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle, FileCode2, Layers, Map, Package, ShieldCheck, Sparkles, Building2, BookOpen, Download, RefreshCw } from "lucide-react";
 import { Link } from "react-router";
+import PageContainer from "@/app/components/PageContainer";
 
 const servicesHighlights = [
   "Reference service blueprint",
@@ -81,7 +82,7 @@ export default function ServicesHub() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.10),_transparent_25%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:px-4 sm:px-8 lg:px-12 lg:py-14">
+        <PageContainer className="grid gap-12 py-16 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:py-24">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
               <Sparkles size={14} className="text-primary" />
@@ -95,7 +96,7 @@ export default function ServicesHub() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Services</p>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight sm:text-5xl">Services</h1>
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">Services</h1>
                 </div>
               </div>
 
@@ -108,20 +109,20 @@ export default function ServicesHub() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/reference-service/overview"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
               >
                 Open reference overview
                 <ArrowRight size={16} />
               </Link>
               <Link
                 to="/resources/service-code-downloads"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
               >
                 View code downloads
               </Link>
               <Link
                 to="/archetypes"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
               >
                 Browse service archetypes
               </Link>
@@ -159,10 +160,10 @@ export default function ServicesHub() {
               <InfoRow icon={<RefreshCw size={16} />} title="Operational maturity" text="Systems and governance help teams move from demo to production." />
             </div>
           </div>
-        </div>
+        </PageContainer>
       </header>
 
-      <div className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 lg:px-4 sm:px-8 lg:px-12">
+      <PageContainer className="py-12">
         <section className="mb-8 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
           <div className="max-w-3xl space-y-2">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">How to use this hub</p>
@@ -242,7 +243,7 @@ export default function ServicesHub() {
             </p>
           </div>
         </section>
-      </div>
+      </PageContainer>
     </div>
   );
 }

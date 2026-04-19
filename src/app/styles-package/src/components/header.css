@@ -1,0 +1,136 @@
+/**
+ * UX4G Header Styles
+ * Sticky top bar with tricolor stripe, logo, nav, actions, and responsive collapse
+ * Class contract: src/app/react-core-package/src/components/Header/Header.tsx
+ */
+
+/* ── Base ── */
+.ux4g-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--ux4g-z-sticky, 1100);
+  width: 100%;
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  box-shadow: var(--ux4g-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+}
+
+/* ── Sub-elements ── */
+.ux4g-header-tricolor {
+  display: flex;
+  width: 100%;
+  height: 4px;
+}
+
+.ux4g-header-tricolor::before {
+  content: '';
+  flex: 1;
+  background-color: var(--ux4g-color-tricolor-saffron, #FF9933);
+}
+
+.ux4g-header-tricolor::after {
+  content: '';
+  flex: 1;
+  background-color: var(--ux4g-color-tricolor-green, #138808);
+}
+
+.ux4g-header-tricolor-white {
+  flex: 1;
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+}
+
+.ux4g-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--ux4g-sizing-container-7xl, 80rem);
+  margin-inline: auto;
+  padding: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-4, 1rem);
+  gap: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-header-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  flex-shrink: 0;
+}
+
+.ux4g-header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+}
+
+.ux4g-header-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-3, 0.75rem);
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  color: var(--ux4g-color-text-primary, #111827);
+  text-decoration: none;
+  transition: background-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  flex-shrink: 0;
+}
+
+.ux4g-header-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  border: none;
+  background: transparent;
+  color: var(--ux4g-color-text-primary, #111827);
+  cursor: pointer;
+}
+
+/* ── Responsive collapse ── */
+@media (max-width: 768px) {
+  .ux4g-header-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--ux4g-color-surface-primary, #ffffff);
+    box-shadow: var(--ux4g-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+    padding: var(--ux4g-spacing-2, 0.5rem);
+  }
+
+  .ux4g-header-nav-open {
+    display: flex;
+  }
+
+  .ux4g-header-toggle {
+    display: flex;
+  }
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-header-nav-link:hover {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-header-nav-link:active {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-header-nav-link:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+.ux4g-header-toggle:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}

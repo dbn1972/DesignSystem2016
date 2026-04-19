@@ -1,0 +1,138 @@
+/**
+ * UX4G Drawer Styles
+ * Fixed backdrop with side panel, placement variants, and slide transition
+ * Class contract: src/app/react-core-package/src/components/Drawer/Drawer.tsx
+ */
+
+/* ── Backdrop ── */
+.ux4g-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--ux4g-z-modal, 1300);
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-drawer-backdrop-open {
+  opacity: 1;
+}
+
+/* ── Base ── */
+.ux4g-drawer {
+  position: fixed;
+  z-index: var(--ux4g-z-modal, 1300);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  box-shadow: var(--ux4g-shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1));
+  transition: transform var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+/* ── Placement variants ── */
+.ux4g-drawer-left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 20rem;
+  max-width: 85vw;
+  transform: translateX(-100%);
+}
+
+.ux4g-drawer-right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 20rem;
+  max-width: 85vw;
+  transform: translateX(100%);
+}
+
+.ux4g-drawer-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16rem;
+  max-height: 85vh;
+  transform: translateY(-100%);
+}
+
+.ux4g-drawer-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 16rem;
+  max-height: 85vh;
+  transform: translateY(100%);
+}
+
+/* Open state resets transform */
+.ux4g-drawer-open {
+  transform: translate(0, 0);
+}
+
+/* ── Sub-elements ── */
+.ux4g-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-6, 1.5rem);
+  border-bottom: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  font-size: var(--ux4g-font-size-lg, 1.125rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: var(--ux4g-color-text-primary, #111827);
+}
+
+.ux4g-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--ux4g-spacing-6, 1.5rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #111827);
+}
+
+.ux4g-drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+  padding: var(--ux4g-spacing-4, 1rem) var(--ux4g-spacing-6, 1.5rem);
+  border-top: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+}
+
+.ux4g-drawer-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  min-width: 32px;
+  border: none;
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+  background: transparent;
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  cursor: pointer;
+  transition: background-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-drawer-close:hover {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-drawer-close:active {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-drawer-close:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-drawer-backdrop,
+  .ux4g-drawer,
+  .ux4g-drawer-close {
+    transition-duration: 0.01ms !important;
+  }
+}

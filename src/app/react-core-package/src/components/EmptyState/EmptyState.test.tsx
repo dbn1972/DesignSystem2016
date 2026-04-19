@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { EmptyState } from './EmptyState';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('EmptyState', () => {
   it('renders with role="status"', () => {
@@ -74,5 +75,13 @@ describe('EmptyState', () => {
     const ref = React.createRef<HTMLDivElement>();
     render(<EmptyState title="No data" ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<EmptyState title="No results found" description="Try a different search." />);
+    });
   });
 });

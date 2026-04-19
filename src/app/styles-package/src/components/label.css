@@ -1,0 +1,21 @@
+/**
+ * UX4G Label Styles
+ * Form label with required indicator support
+ * Class contract: src/app/react-core-package/src/components/Label/Label.tsx
+ */
+
+/* ── Base ── */
+.ux4g-label {
+  display: block;
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  color: var(--ux4g-color-text-primary, #1C1C1C);
+  line-height: var(--ux4g-line-height-base, 1.5);
+  margin-bottom: var(--ux4g-spacing-1, 0.25rem);
+}
+
+/* ── Sub-elements ── */
+.ux4g-label-required::after {
+  content: " *";
+  color: var(--ux4g-color-error, #DC2626);
+}

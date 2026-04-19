@@ -1,0 +1,52 @@
+/**
+ * UX4G Flex Styles
+ * Flexbox layout utility with direction, alignment, and wrapping modifiers.
+ * Class contract: src/app/react-core-package/src/components/Flex/Flex.tsx
+ */
+
+/* ── Base ── */
+.ux4g-flex {
+  display: flex;
+  gap: var(--ux4g-spacing-4, 1rem);
+}
+
+/* ── Variants ── */
+.ux4g-flex-row {
+  flex-direction: row;
+}
+
+.ux4g-flex-col {
+  flex-direction: column;
+}
+
+.ux4g-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.ux4g-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+/* ── Alignment ── */
+.ux4g-flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.ux4g-flex-start {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.ux4g-flex-end {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.ux4g-flex-between {
+  justify-content: space-between;
+}
+
+.ux4g-flex-around {
+  justify-content: space-around;
+}

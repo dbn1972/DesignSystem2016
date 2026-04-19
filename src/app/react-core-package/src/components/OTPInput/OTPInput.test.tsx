@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { OTPInput } from './OTPInput';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('OTPInput', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -213,5 +214,35 @@ describe('OTPInput', () => {
     expect(inputs[1]).toHaveValue('6');
     expect(inputs[2]).toHaveValue('7');
     expect(inputs[3]).toHaveValue('8');
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<OTPInput length={4} autoFocus={false} />);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<OTPInput length={4} autoFocus={false} disabled />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<OTPInput length={4} autoFocus={false} />);
+        await user.tab();
+        expect(screen.getAllByRole('textbox')[0]).toHaveFocus();
+      });
+
+      it('accepts typed input', async () => {
+        const user = userEvent.setup();
+        render(<OTPInput length={4} autoFocus={false} />);
+        const inputs = screen.getAllByRole('textbox');
+        inputs[0].focus();
+        await user.keyboard('7');
+        expect(inputs[0]).toHaveValue('7');
+      });
+    });
   });
 });

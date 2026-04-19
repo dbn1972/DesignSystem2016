@@ -83,7 +83,7 @@ export default function ComponentPageTOC() {
   if (items.length < 2) return null;
 
   return (
-    <nav className="hidden xl:block w-[160px] shrink-0 pt-6 pr-6" aria-label="On this page">
+    <nav className="hidden xl:block w-[180px] shrink-0 pt-6 pr-6" aria-label="On this page">
       <div className="sticky top-24">
         <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-3 pl-3">
           On this page
@@ -93,10 +93,10 @@ export default function ComponentPageTOC() {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className={`block text-[12px] leading-snug py-1 pl-3 border-l-2 transition-colors ${
+                className={`block text-[12px] leading-relaxed py-1.5 pl-3 border-l-2 transition-colors max-w-[160px] truncate ${
                   activeId === item.id
                     ? 'border-primary text-primary font-medium'
-                    : 'border-transparent text-muted-foreground hover:text-foreground hover:border-border'
+                    : 'border-transparent text-muted-foreground/70 hover:text-foreground hover:border-border'
                 }`}
               >
                 {item.label}

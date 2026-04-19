@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Rating } from './Rating';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Rating', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -154,5 +155,35 @@ describe('Rating', () => {
     render(<Rating icon="♥" max={3} />);
     const stars = screen.getAllByRole('button');
     stars.forEach((star) => expect(star).toHaveTextContent('♥'));
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Rating aria-label="Rating" />);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<Rating aria-label="Rating" disabled />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus on first star via Tab', async () => {
+        const user = userEvent.setup();
+        render(<Rating aria-label="Rating" />);
+        await user.tab();
+        expect(screen.getByRole('button', { name: 'Rate 1 out of 5' })).toHaveFocus();
+      });
+
+      it('navigates between stars via Arrow keys', async () => {
+        const user = userEvent.setup();
+        render(<Rating aria-label="Rating" />);
+        await user.tab();
+        expect(screen.getByRole('button', { name: 'Rate 1 out of 5' })).toHaveFocus();
+        await user.tab();
+        expect(screen.getByRole('button', { name: 'Rate 2 out of 5' })).toHaveFocus();
+      });
+    });
   });
 });

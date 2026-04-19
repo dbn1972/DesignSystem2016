@@ -1,2 +1,5 @@
 packages:
   - '.'
+  - 'src/app/tokens-package'
+  - 'src/app/styles-package'
+  - 'src/app/react-core-package'

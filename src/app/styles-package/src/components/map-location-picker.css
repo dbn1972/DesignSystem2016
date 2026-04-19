@@ -1,0 +1,38 @@
+/**
+ * UX4G MapLocationPicker Styles
+ * Map container with aspect ratio, pin indicator, and address display
+ * Class contract: src/app/react-core-package/src/components/MapLocationPicker/MapLocationPicker.tsx
+ */
+
+/* ── Base ── */
+.ux4g-map-location-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+}
+
+/* ── Sub-elements ── */
+.ux4g-map-location-picker-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  overflow: hidden;
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-map-location-picker-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  color: var(--ux4g-color-error, #dc2626);
+  font-size: var(--ux4g-font-size-2xl, 1.5rem);
+}
+
+.ux4g-map-location-picker-address {
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #111827);
+  line-height: var(--ux4g-line-height-normal, 1.5);
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Badge } from './Badge';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 describe('Badge', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -70,5 +71,23 @@ describe('Badge', () => {
     const ref = React.createRef<HTMLSpanElement>();
     render(<Badge ref={ref}>Status</Badge>);
     expect(ref.current).toBeInstanceOf(HTMLSpanElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Badge>Pending</Badge>);
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'neutral', ui: <Badge variant="neutral">Neutral</Badge> },
+        { name: 'info', ui: <Badge variant="info">Info</Badge> },
+        { name: 'success', ui: <Badge variant="success">Success</Badge> },
+        { name: 'warning', ui: <Badge variant="warning">Warning</Badge> },
+        { name: 'error', ui: <Badge variant="error">Error</Badge> },
+      ]);
+    });
   });
 });

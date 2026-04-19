@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import { ArrowRight, BookOpen, CheckCircle, Code, Download, Figma, Globe, Package, Rocket, Workflow } from "lucide-react";
+import PageContainer from "@/app/components/PageContainer";
 
 export default function ResourcesHub() {
   const { i18n } = useTranslation();
@@ -9,7 +10,7 @@ export default function ResourcesHub() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.12),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(249,115,22,0.10),_transparent_30%),linear-gradient(to_bottom,theme(colors.background),theme(colors.background))]">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12 xl:grid-cols-[1.15fr_0.85fr] xl:items-start">
+        <PageContainer className="grid gap-12 py-16 sm:py-20 lg:py-24 xl:grid-cols-[1.05fr_0.95fr] xl:items-start">
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-muted-foreground shadow-sm">
               <Package size={14} className="text-primary" />
@@ -23,7 +24,7 @@ export default function ResourcesHub() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">{c.hero.eyebrow}</p>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{c.hero.title}</h1>
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">{c.hero.title}</h1>
                 </div>
               </div>
 
@@ -35,19 +36,19 @@ export default function ResourcesHub() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/resources/getting-started"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
               >
                 Get started <ArrowRight size={16} />
               </Link>
               <Link
                 to="/resources/starter-kit"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
               >
                 {c.hero.viewStarterKit}
               </Link>
               <Link
                 to="/resources/component-specs"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:text-primary"
               >
                 {c.hero.viewSpecs}
               </Link>
@@ -75,10 +76,10 @@ export default function ResourcesHub() {
               <HubNote title={c.hubNotes.enterprise.title} text={c.hubNotes.enterprise.text} />
             </div>
           </div>
-        </div>
+        </PageContainer>
       </header>
 
-      <div className="mx-auto max-w-[1440px] space-y-10 px-6 py-12 sm:px-8 lg:px-12">
+      <PageContainer className="space-y-10 py-12">
         <section className="space-y-6">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl space-y-2">
@@ -225,7 +226,7 @@ export default function ResourcesHub() {
                 </div>
                 <Link
                   to="/resources/starter-kit"
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   View starter kit <ArrowRight size={16} />
                 </Link>
@@ -329,7 +330,7 @@ export default function ResourcesHub() {
             </div>
           </ResourceSection>
         </div>
-      </div>
+      </PageContainer>
     </div>
   );
 }

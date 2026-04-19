@@ -35,6 +35,13 @@ jobs:
       - name: Build Vite app
         run: pnpm run build
 
+      - name: Build public Storybook
+        run: pnpm --dir src/app/react-core-package exec storybook build --output-dir ../../../dist/storybook --quiet
+        env:
+          CI: "true"
+          STORYBOOK_DISABLE_TELEMETRY: "1"
+          HOME: /tmp/ux4g-storybook-home
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

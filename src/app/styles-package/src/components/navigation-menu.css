@@ -1,0 +1,97 @@
+/**
+ * UX4G NavigationMenu Styles
+ * Horizontal/vertical menu with submenu, active indicator, and transitions
+ * Class contract: src/app/react-core-package/src/components/NavigationMenu/NavigationMenu.tsx
+ */
+
+/* ── Base ── */
+.ux4g-navigation-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Sub-elements ── */
+.ux4g-navigation-menu-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-3, 0.75rem);
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-medium, 500);
+  color: var(--ux4g-color-text-primary, #111827);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-navigation-menu-submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  min-width: 12rem;
+  padding: var(--ux4g-spacing-1, 0.25rem);
+  border: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  box-shadow: var(--ux4g-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  z-index: var(--ux4g-z-dropdown, 1000);
+  opacity: 0;
+  transform: translateY(var(--ux4g-spacing-1, 0.25rem));
+  transition: opacity var(--ux4g-motion-duration-base, 200ms) ease,
+    transform var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-navigation-menu-item:hover > .ux4g-navigation-menu-submenu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Variants ── */
+.ux4g-navigation-menu-vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.ux4g-navigation-menu-vertical .ux4g-navigation-menu-submenu {
+  position: static;
+  box-shadow: none;
+  border: none;
+  padding-left: var(--ux4g-spacing-4, 1rem);
+}
+
+/* ── States ── */
+.ux4g-navigation-menu-item-active {
+  color: var(--ux4g-color-primary, #005196);
+  background-color: var(--ux4g-color-primary-subtle, #EFF6FF);
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-navigation-menu-item:hover {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-navigation-menu-item:active {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-navigation-menu-item:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-navigation-menu-item,
+  .ux4g-navigation-menu-submenu {
+    transition-duration: 0.01ms !important;
+  }
+}

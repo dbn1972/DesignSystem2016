@@ -1,0 +1,31 @@
+/**
+ * UX4G Spacer Styles
+ * Configurable blank space element for layout spacing.
+ * Class contract: src/app/react-core-package/src/components/Spacer/Spacer.tsx
+ */
+
+/* ── Base ── */
+.ux4g-spacer {
+  display: block;
+}
+
+/* ── Sizes ── */
+.ux4g-spacer-sm {
+  height: var(--ux4g-spacing-2, 0.5rem);
+  width: var(--ux4g-spacing-2, 0.5rem);
+}
+
+.ux4g-spacer-md {
+  height: var(--ux4g-spacing-4, 1rem);
+  width: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-spacer-lg {
+  height: var(--ux4g-spacing-6, 1.5rem);
+  width: var(--ux4g-spacing-6, 1.5rem);
+}
+
+.ux4g-spacer-xl {
+  height: var(--ux4g-spacing-12, 3rem);
+  width: var(--ux4g-spacing-12, 3rem);
+}

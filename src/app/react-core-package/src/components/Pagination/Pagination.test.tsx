@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Pagination } from './Pagination';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Pagination', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -143,5 +144,46 @@ describe('Pagination', () => {
       'aria-current',
       'page'
     );
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Pagination totalPages={5} />);
+    });
+
+    it('has no axe violations in disabled state', async () => {
+      await assertA11y(<Pagination totalPages={5} disabled />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('Tab focuses between page controls', async () => {
+        const user = userEvent.setup();
+        render(<Pagination totalPages={5} defaultValue={3} />);
+        await user.tab();
+        expect(screen.getByRole('button', { name: 'Go to first page' })).toHaveFocus();
+        await user.tab();
+        expect(screen.getByRole('button', { name: 'Go to previous page' })).toHaveFocus();
+      });
+
+      it('activates page control with Enter', async () => {
+        const user = userEvent.setup();
+        const onChange = vi.fn();
+        render(<Pagination totalPages={5} onChange={onChange} />);
+        screen.getByRole('button', { name: 'Go to next page' }).focus();
+        await user.keyboard('{Enter}');
+        expect(onChange).toHaveBeenCalledWith(2);
+      });
+
+      it('activates page control with Space', async () => {
+        const user = userEvent.setup();
+        const onChange = vi.fn();
+        render(<Pagination totalPages={5} onChange={onChange} />);
+        screen.getByRole('button', { name: 'Go to next page' }).focus();
+        await user.keyboard(' ');
+        expect(onChange).toHaveBeenCalledWith(2);
+      });
+    });
   });
 });

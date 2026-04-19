@@ -1,0 +1,81 @@
+/**
+ * UX4G DataGrid Styles
+ * Table layout with sortable columns, row hover/selection, and pagination
+ * Class contract: src/app/react-core-package/src/components/DataGrid/DataGrid.tsx
+ */
+
+/* ── Base ── */
+.ux4g-data-grid {
+  width: 100%;
+  border: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  overflow: auto;
+}
+
+/* ── Sub-elements ── */
+.ux4g-data-grid-header {
+  display: flex;
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+  border-bottom: 2px solid var(--ux4g-color-border-default, #D1D5DB);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #111827);
+}
+
+.ux4g-data-grid-row {
+  display: flex;
+  border-bottom: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #111827);
+  transition: background-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-data-grid-cell {
+  flex: 1;
+  padding: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-4, 1rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ux4g-data-grid-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.ux4g-data-grid-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--ux4g-spacing-2, 0.5rem);
+  padding: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-4, 1rem);
+  border-top: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+}
+
+/* ── States ── */
+.ux4g-data-grid-row-hover:hover {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-data-grid-row-selected {
+  background-color: var(--ux4g-color-primary-subtle, #EFF6FF);
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-data-grid-sortable:hover {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-data-grid-sortable:active {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-data-grid-sortable:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+.ux4g-data-grid-row:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: -2px;
+}

@@ -1,0 +1,76 @@
+/**
+ * UX4G AddressAutocompleteIndia Styles
+ * Input with suggestion dropdown, pincode/state fields, and validation states
+ * Class contract: src/app/react-core-package/src/components/AddressAutocompleteIndia/AddressAutocompleteIndia.tsx
+ */
+
+/* ── Base ── */
+.ux4g-address-autocomplete-india {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+}
+
+.ux4g-address-autocomplete-india input {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--ux4g-spacing-2, 0.5rem) var(--ux4g-spacing-3, 0.75rem);
+  border: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  color: var(--ux4g-color-text-primary, #111827);
+  transition: border-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+/* ── Sub-elements ── */
+.ux4g-address-autocomplete-india-suggestions {
+  position: absolute;
+  z-index: var(--ux4g-z-dropdown, 1000);
+  width: 100%;
+  max-height: 12rem;
+  overflow-y: auto;
+  border: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  background-color: var(--ux4g-color-surface-primary, #ffffff);
+  box-shadow: var(--ux4g-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  opacity: 0;
+  transition: opacity var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-address-autocomplete-india-suggestions-open {
+  opacity: 1;
+}
+
+.ux4g-address-autocomplete-india-pincode,
+.ux4g-address-autocomplete-india-state {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux4g-spacing-1, 0.25rem);
+}
+
+/* ── States ── */
+.ux4g-address-autocomplete-india-disabled input {
+  opacity: var(--ux4g-disabled-opacity, 0.6);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ux4g-address-autocomplete-india-has-error input {
+  border-color: var(--ux4g-color-error, #dc2626);
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-address-autocomplete-india input:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: -2px;
+  border-color: var(--ux4g-color-primary, #005196);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-address-autocomplete-india input,
+  .ux4g-address-autocomplete-india-suggestions {
+    transition-duration: 0.01ms !important;
+  }
+}

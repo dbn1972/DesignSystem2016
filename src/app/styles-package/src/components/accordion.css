@@ -1,0 +1,93 @@
+/**
+ * UX4G Accordion Styles
+ * Collapsible content panels with item borders, chevron indicator, and expand/collapse transitions
+ * Class contract: src/app/react-core-package/src/components/Accordion/Accordion.tsx
+ */
+
+/* ── Base ── */
+.ux4g-accordion {
+  width: 100%;
+  border-top: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+}
+
+/* ── Sub-elements ── */
+.ux4g-accordion-item {
+  border-bottom: 1px solid var(--ux4g-color-border-default, #D1D5DB);
+}
+
+.ux4g-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: var(--ux4g-spacing-4, 1rem);
+  border: none;
+  background: transparent;
+  color: var(--ux4g-color-text-primary, #111827);
+  font-size: var(--ux4g-font-size-base, 1rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  line-height: var(--ux4g-line-height-normal, 1.5);
+  cursor: pointer;
+  transition: background-color var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-accordion-header-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ux4g-spacing-5, 1.25rem);
+  height: var(--ux4g-spacing-5, 1.25rem);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  transition: transform var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  padding-inline: var(--ux4g-spacing-4, 1rem);
+  color: var(--ux4g-color-text-secondary, #6B7280);
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  line-height: var(--ux4g-line-height-relaxed, 1.625);
+  transition: max-height var(--ux4g-motion-duration-base, 200ms) ease,
+    padding var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+/* ── States ── */
+.ux4g-accordion-item-open .ux4g-accordion-header-chevron {
+  transform: rotate(180deg);
+}
+
+.ux4g-accordion-item-open .ux4g-accordion-content {
+  max-height: 1000px;
+  padding-bottom: var(--ux4g-spacing-4, 1rem);
+}
+
+.ux4g-accordion-disabled {
+  opacity: var(--ux4g-disabled-opacity, 0.6);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-accordion-header:hover {
+  background-color: var(--ux4g-color-surface-secondary, #f8fafc);
+}
+
+.ux4g-accordion-header:active {
+  background-color: var(--ux4g-color-surface-tertiary, #F3F4F6);
+}
+
+.ux4g-accordion-header:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-accordion-header,
+  .ux4g-accordion-header-chevron,
+  .ux4g-accordion-content {
+    transition-duration: 0.01ms !important;
+  }
+}

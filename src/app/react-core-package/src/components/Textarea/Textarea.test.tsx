@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Textarea } from './Textarea';
 import { Field } from '../Field';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Textarea', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -120,5 +121,38 @@ describe('Textarea', () => {
     const ref = React.createRef<HTMLTextAreaElement>();
     render(<Textarea aria-label="Description" ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLTextAreaElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Textarea aria-label="Description" />);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<Textarea aria-label="Description" disabled />);
+    });
+
+    it('has no axe violations in error state', async () => {
+      await assertA11y(<Textarea aria-label="Description" error />);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<Textarea aria-label="Description" />);
+        await user.tab();
+        expect(screen.getByRole('textbox')).toHaveFocus();
+      });
+
+      it('accepts typed input', async () => {
+        const user = userEvent.setup();
+        render(<Textarea aria-label="Description" />);
+        await user.tab();
+        await user.keyboard('Hello');
+        expect(screen.getByRole('textbox')).toHaveValue('Hello');
+      });
+    });
   });
 });

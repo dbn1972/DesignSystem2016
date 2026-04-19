@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Spinner } from './Spinner';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Spinner', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -65,5 +66,13 @@ describe('Spinner', () => {
   it('has aria-live="polite"', () => {
     render(<Spinner />);
     expect(screen.getByRole('status')).toHaveAttribute('aria-live', 'polite');
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Spinner />);
+    });
   });
 });

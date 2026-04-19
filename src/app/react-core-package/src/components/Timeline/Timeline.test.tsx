@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Timeline } from './Timeline';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 const ITEMS = [
   {
@@ -133,5 +134,26 @@ describe('Timeline', () => {
   it('renders nothing when items array is empty', () => {
     const { container } = render(<Timeline items={[]} />);
     expect(container.querySelector('.ux4g-timeline-item')).not.toBeInTheDocument();
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(
+        <Timeline items={[
+          { key: '1', title: 'Step 1', timestamp: '2026-01-01' },
+          { key: '2', title: 'Step 2', timestamp: '2026-01-02' },
+        ]} />
+      );
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'left mode', ui: <Timeline items={ITEMS} mode="left" /> },
+        { name: 'right mode', ui: <Timeline items={ITEMS} mode="right" /> },
+        { name: 'alternate mode', ui: <Timeline items={ITEMS} mode="alternate" /> },
+      ]);
+    });
   });
 });

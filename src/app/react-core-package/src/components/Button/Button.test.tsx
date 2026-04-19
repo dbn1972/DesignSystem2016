@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from './Button';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 describe('Button', () => {
   // ── Rendering ────────────────────────────────────────────────────────────
@@ -189,5 +190,59 @@ describe('Button', () => {
     const el = screen.getByText('Link').closest('a');
     expect(el).toHaveAttribute('aria-disabled', 'true');
     expect(el).not.toHaveAttribute('disabled'); // only aria-disabled for links
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Button>Submit</Button>);
+    });
+
+    it('has no axe violations when disabled', async () => {
+      await assertA11y(<Button disabled>Submit</Button>);
+    });
+
+    it('has no axe violations when loading', async () => {
+      await assertA11y(<Button loading>Submit</Button>);
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'primary', ui: <Button variant="primary">Action</Button> },
+        { name: 'secondary', ui: <Button variant="secondary">Action</Button> },
+        { name: 'tertiary', ui: <Button variant="tertiary">Action</Button> },
+        { name: 'destructive', ui: <Button variant="destructive">Action</Button> },
+        { name: 'ghost', ui: <Button variant="ghost">Action</Button> },
+        { name: 'success', ui: <Button variant="success">Action</Button> },
+      ]);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('receives focus via Tab', async () => {
+        const user = userEvent.setup();
+        render(<Button>Submit</Button>);
+        await user.tab();
+        expect(screen.getByRole('button')).toHaveFocus();
+      });
+
+      it('activates via Enter key', async () => {
+        const user = userEvent.setup();
+        const onClick = vi.fn();
+        render(<Button onClick={onClick}>Submit</Button>);
+        await user.tab();
+        await user.keyboard('{Enter}');
+        expect(onClick).toHaveBeenCalledTimes(1);
+      });
+
+      it('activates via Space key', async () => {
+        const user = userEvent.setup();
+        const onClick = vi.fn();
+        render(<Button onClick={onClick}>Submit</Button>);
+        await user.tab();
+        await user.keyboard(' ');
+        expect(onClick).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });

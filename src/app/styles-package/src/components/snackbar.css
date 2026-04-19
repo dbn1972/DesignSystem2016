@@ -1,0 +1,139 @@
+/**
+ * UX4G Snackbar Styles
+ * Fixed bottom container with content, action, close, and auto-dismiss animation
+ * Class contract: src/app/react-core-package/src/components/Snackbar/Snackbar.tsx
+ */
+
+/* ── Keyframes ── */
+@keyframes ux4g-snackbar-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--ux4g-spacing-4, 1rem));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ux4g-snackbar-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--ux4g-spacing-4, 1rem));
+  }
+}
+
+@keyframes ux4g-snackbar-dismiss {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+/* ── Base ── */
+.ux4g-snackbar {
+  position: fixed;
+  bottom: var(--ux4g-spacing-6, 1.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--ux4g-z-popover, 1400);
+  display: flex;
+  align-items: center;
+  gap: var(--ux4g-spacing-3, 0.75rem);
+  min-width: 18rem;
+  max-width: 32rem;
+  padding: var(--ux4g-spacing-3, 0.75rem) var(--ux4g-spacing-4, 1rem);
+  border-radius: var(--ux4g-radius-md, 0.375rem);
+  background-color: var(--ux4g-color-text-primary, #111827);
+  color: var(--ux4g-color-text-on-brand, #ffffff);
+  box-shadow: var(--ux4g-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  animation: ux4g-snackbar-enter var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-snackbar-exit {
+  animation: ux4g-snackbar-exit var(--ux4g-motion-duration-base, 200ms) ease forwards;
+}
+
+/* ── Sub-elements ── */
+.ux4g-snackbar-content {
+  flex: 1;
+  line-height: var(--ux4g-line-height-normal, 1.5);
+}
+
+.ux4g-snackbar-action {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  font-size: var(--ux4g-font-size-sm, 0.875rem);
+  font-weight: var(--ux4g-font-weight-semibold, 600);
+  color: var(--ux4g-color-primary-subtle, #EFF6FF);
+  cursor: pointer;
+  transition: opacity var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-snackbar-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  min-width: 24px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--ux4g-radius-sm, 0.25rem);
+  background: transparent;
+  color: var(--ux4g-color-text-on-brand, #ffffff);
+  cursor: pointer;
+  transition: opacity var(--ux4g-motion-duration-base, 200ms) ease;
+}
+
+.ux4g-snackbar-dismiss-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: var(--ux4g-color-primary-subtle, #EFF6FF);
+  border-radius: 0 0 var(--ux4g-radius-md, 0.375rem) var(--ux4g-radius-md, 0.375rem);
+  animation: ux4g-snackbar-dismiss 5s linear forwards;
+}
+
+/* ── Pseudo-classes ── */
+.ux4g-snackbar-action:hover {
+  opacity: 0.8;
+}
+
+.ux4g-snackbar-action:active {
+  opacity: 0.6;
+}
+
+.ux4g-snackbar-action:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+.ux4g-snackbar-close:hover {
+  opacity: 0.8;
+}
+
+.ux4g-snackbar-close:active {
+  opacity: 0.6;
+}
+
+.ux4g-snackbar-close:focus-visible {
+  outline: 2px solid var(--ux4g-color-focus-ring, #005A9C);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ux4g-snackbar,
+  .ux4g-snackbar-exit,
+  .ux4g-snackbar-dismiss-bar,
+  .ux4g-snackbar-action,
+  .ux4g-snackbar-close {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

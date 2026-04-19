@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Table } from './Table';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 const columns = [
   { key: 'name', header: 'Name', accessor: 'name', sortable: true },
@@ -43,5 +44,32 @@ describe('Table', () => {
     await user.keyboard('{Enter}');
 
     expect(onRowClick).toHaveBeenCalledWith(data[0], 0);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Table columns={columns} data={data} rowKey="id" />);
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'striped', ui: <Table columns={columns} data={data} rowKey="id" striped /> },
+        { name: 'bordered', ui: <Table columns={columns} data={data} rowKey="id" bordered /> },
+        { name: 'compact', ui: <Table columns={columns} data={data} rowKey="id" compact /> },
+        { name: 'hoverable', ui: <Table columns={columns} data={data} rowKey="id" hoverable /> },
+      ]);
+    });
+
+    describe('Keyboard navigation', () => {
+      it('Tab focuses interactive elements within table', async () => {
+        const user = userEvent.setup();
+        render(<Table columns={columns} data={data} rowKey="id" />);
+        await user.tab();
+        const sortButton = screen.getByRole('button', { name: /name/i });
+        expect(sortButton).toHaveFocus();
+      });
+    });
   });
 });

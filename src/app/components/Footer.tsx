@@ -66,6 +66,7 @@ export default function Footer() {
       resources: "Resources",
       legalSupport: "Legal & Support",
       documentation: "Documentation",
+      storybook: "Storybook",
       faq: "FAQ",
       accessibility: "Accessibility",
       contributing: "Contributing",
@@ -91,6 +92,7 @@ export default function Footer() {
       resources: "संसाधन",
       legalSupport: "कानूनी और सहायता",
       documentation: "दस्तावेज़ीकरण",
+      storybook: "Storybook",
       faq: "FAQ",
       accessibility: "सुगम्यता",
       contributing: "योगदान करें",
@@ -150,6 +152,15 @@ export default function Footer() {
                   <FileText size={16} aria-hidden="true" />
                   <span>{copy.documentation}</span>
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="/storybook"
+                  className={`flex items-center gap-2 ${linkClass}`}
+                >
+                  <FileText size={16} aria-hidden="true" />
+                  <span>{copy.storybook}</span>
+                </a>
               </li>
               <li>
                 <Link

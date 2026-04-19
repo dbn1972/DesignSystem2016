@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Stack } from './Stack';
+import { assertA11y } from '@/test/a11y-helpers';
 
 describe('Stack', () => {
   it('renders children', () => {
@@ -49,5 +50,13 @@ describe('Stack', () => {
     const ref = React.createRef<HTMLDivElement>();
     render(<Stack ref={ref}><span>A</span></Stack>);
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Stack><span>Item A</span><span>Item B</span></Stack>);
+    });
   });
 });

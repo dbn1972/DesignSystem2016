@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Avatar } from './Avatar';
+import { assertA11y, assertA11yStates } from '@/test/a11y-helpers';
 
 describe('Avatar', () => {
   // ── Rendering ─────────────────────────────────────────────────────────────
@@ -91,5 +92,21 @@ describe('Avatar', () => {
     const ref = React.createRef<HTMLDivElement>();
     render(<Avatar name="PS" ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
+  });
+
+  // ── Accessibility ───────────────────────────────────────────────────────
+
+  describe('Accessibility', () => {
+    it('has no axe violations in default state', async () => {
+      await assertA11y(<Avatar name="Priya Sharma" />);
+    });
+
+    it('has no axe violations across variants', async () => {
+      await assertA11yStates([
+        { name: 'with image', ui: <Avatar src="https://example.com/photo.jpg" alt="Priya Sharma" /> },
+        { name: 'with initials', ui: <Avatar name="Priya Sharma" /> },
+        { name: 'with fallback', ui: <Avatar /> },
+      ]);
+    });
   });
 });
