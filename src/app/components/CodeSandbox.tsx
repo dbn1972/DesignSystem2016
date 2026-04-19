@@ -201,6 +201,9 @@ function SandboxPreviewFrame({ children, dark }: SandboxPreviewFrameProps) {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
 
+  // Detect site dark mode from the html element
+  const isDark = typeof document !== 'undefined' && document.documentElement.classList.contains('dark');
+
   const combinedStyles = useMemo(
     () =>
       [
@@ -211,15 +214,15 @@ function SandboxPreviewFrame({ children, dark }: SandboxPreviewFrameProps) {
         ux4gComponentStyles,
         `
           :root {
-            color-scheme: ${dark ? "dark" : "light"};
+            color-scheme: ${isDark ? "dark" : "light"};
           }
 
           html,
           body {
             margin: 0;
             min-height: 100%;
-            background: ${dark ? "#0f172a" : "#ffffff"};
-            color: ${dark ? "#f8fafc" : "#0f172a"};
+            background: transparent;
+            color: inherit;
           }
 
           body {
@@ -233,7 +236,7 @@ function SandboxPreviewFrame({ children, dark }: SandboxPreviewFrameProps) {
           }
         `,
       ].join("\n"),
-    [dark],
+    [isDark],
   );
 
   useEffect(() => {
@@ -549,10 +552,10 @@ export function CodeSandbox({
           </div>
 
           <div
-            className="flex min-h-[520px] items-start justify-center overflow-auto p-6 bg-muted/30"
+            className="flex min-h-[520px] items-center justify-center overflow-auto p-6 bg-muted/30"
           >
             <div
-              className="w-full rounded-[24px] border border-border bg-card p-5 shadow-sm transition-all"
+              className="w-full rounded-[24px] border border-border bg-card p-8 shadow-sm transition-all"
               style={{ width: VIEWPORT_WIDTHS[viewport], maxWidth: "100%" }}
             >
               {previewState.status === "ready" ? (
