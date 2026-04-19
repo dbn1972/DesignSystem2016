@@ -83,7 +83,7 @@ export default function ComponentPageTOC() {
   if (items.length < 2) return null;
 
   return (
-    <nav className="hidden xl:block w-[160px] shrink-0 pt-6 pr-4" aria-label="On this page">
+    <nav className="hidden xl:block w-[160px] shrink-0 pt-6 pr-6" aria-label="On this page">
       <div className="sticky top-24">
         <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground mb-3">
           On this page
