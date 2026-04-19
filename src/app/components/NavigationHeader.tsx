@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router";
-import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, User, UserCheck, Shield, Upload, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, CreditCard } from "lucide-react";
+import { Menu, X, ChevronDown, Search, Grid, Layers, FileText, Map, Globe, CheckCircle, AlertCircle, RefreshCw, Users, User, UserCheck, Shield, Upload, Phone, Eye, Box, Palette, Type, Layout, Accessibility, Gauge, GitBranch, BookOpen, Download, Code, BarChart3, Settings, Building2, Globe2, MessageSquare, CreditCard, Receipt, Store, Factory, UtensilsCrossed } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSelector from './LanguageSelector';
@@ -869,13 +869,38 @@ function ReferenceServicesMegaMenu({ onClose }: { onClose: () => void }) {
             </div>
           </div>
 
+          {/* Business Services row */}
+          <div className="col-span-3 border-t border-border pt-4 mt-2">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Business Services</div>
+            <div className="grid grid-cols-5 gap-2">
+              <Link to="/services/company-registration" onClick={onClose} className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs hover:bg-accent transition-colors">
+                <Building2 size={14} className="text-blue-600 flex-shrink-0" />
+                <span className="font-semibold text-foreground">Company Registration</span>
+              </Link>
+              <Link to="/services/gst-registration" onClick={onClose} className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs hover:bg-accent transition-colors">
+                <Receipt size={14} className="text-green-600 flex-shrink-0" />
+                <span className="font-semibold text-foreground">GST Registration</span>
+              </Link>
+              <Link to="/services/trade-license" onClick={onClose} className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs hover:bg-accent transition-colors">
+                <Store size={14} className="text-orange-600 flex-shrink-0" />
+                <span className="font-semibold text-foreground">Trade License</span>
+              </Link>
+              <Link to="/services/msme-registration" onClick={onClose} className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs hover:bg-accent transition-colors">
+                <Factory size={14} className="text-violet-600 flex-shrink-0" />
+                <span className="font-semibold text-foreground">MSME/Udyam</span>
+              </Link>
+              <Link to="/services/fssai-license" onClick={onClose} className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs hover:bg-accent transition-colors">
+                <UtensilsCrossed size={14} className="text-teal-600 flex-shrink-0" />
+                <span className="font-semibold text-foreground">FSSAI License</span>
+              </Link>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   );
 }
-
-// ==================== RESOURCES MEGA MENU ====================
 
 function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
   return (
@@ -1157,6 +1182,11 @@ function MobileNavigation({ onClose, copy }: { onClose: () => void; copy: Record
           <MobileLink label={copy.servicesHub} href="/services" onClose={onClose} />
           <MobileLink label={copy.serviceBlueprint} href="/reference-service/overview" onClose={onClose} />
           <MobileLink label={copy.certificateServiceDemo} href="/reference-service/demo" onClose={onClose} />
+          <MobileLink label="Company Registration" href="/services/company-registration" onClose={onClose} small />
+          <MobileLink label="GST Registration" href="/services/gst-registration" onClose={onClose} small />
+          <MobileLink label="Trade License" href="/services/trade-license" onClose={onClose} small />
+          <MobileLink label="MSME/Udyam" href="/services/msme-registration" onClose={onClose} small />
+          <MobileLink label="FSSAI License" href="/services/fssai-license" onClose={onClose} small />
           <MobileLink label={copy.reusableSignIn} href="/reference-service/sign-in" onClose={onClose} />
           <MobileLink label={copy.reusableSignUp} href="/reference-service/sign-up" onClose={onClose} />
           <MobileLink label={copy.eligibilityService} href="/reference-service/eligibility" onClose={onClose} />

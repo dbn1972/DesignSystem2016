@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle, FileCode2, Layers, Map, Package, ShieldCheck, Sparkles, Building2, BookOpen, Download, RefreshCw } from "lucide-react";
+import { ArrowRight, CheckCircle, FileCode2, Layers, Map, Package, ShieldCheck, Sparkles, Building2, BookOpen, Download, RefreshCw, Receipt, Store, Factory, UtensilsCrossed } from "lucide-react";
 import { Link } from "react-router";
 import PageContainer from "@/app/components/PageContainer";
 
@@ -7,6 +7,7 @@ const servicesHighlights = [
   "Reusable service code downloads",
   "Service archetypes",
   "Shared systems and guidance",
+  "5 business service blueprints",
 ];
 
 const serviceCards = [
@@ -57,6 +58,46 @@ const serviceCards = [
     path: "/governance",
     accent: "slate",
     meta: "Operating model",
+  },
+  {
+    icon: <Building2 size={24} />,
+    title: "Company Registration (MCA)",
+    description: "Register Private Limited, Public Limited, OPC, LLP, or Section 8 companies through a fully digital process.",
+    path: "/services/company-registration",
+    accent: "blue",
+    meta: "Business service",
+  },
+  {
+    icon: <Receipt size={24} />,
+    title: "GST Registration",
+    description: "Apply for GSTIN — Regular, Composition, Casual, Non-Resident, ISD, or TDS/TCS registration.",
+    path: "/services/gst-registration",
+    accent: "green",
+    meta: "Business service",
+  },
+  {
+    icon: <Store size={24} />,
+    title: "Trade License",
+    description: "Apply for or renew your municipal trade license for food, retail, manufacturing, or services businesses.",
+    path: "/services/trade-license",
+    accent: "orange",
+    meta: "Business service",
+  },
+  {
+    icon: <Factory size={24} />,
+    title: "MSME/Udyam Registration",
+    description: "Register your micro, small, or medium enterprise and get your Udyam Registration Number instantly.",
+    path: "/services/msme-registration",
+    accent: "violet",
+    meta: "Business service",
+  },
+  {
+    icon: <UtensilsCrossed size={24} />,
+    title: "FSSAI Food License",
+    description: "Obtain Basic Registration, State License, or Central License for food business operations.",
+    path: "/services/fssai-license",
+    accent: "teal",
+    meta: "Business service",
   },
 ];
 
@@ -144,12 +185,12 @@ export default function ServicesHub() {
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Services at a glance</p>
                 <h2 className="mt-2 text-2xl font-bold">What&apos;s in this hub</h2>
               </div>
-              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">6 entry points</div>
+              <div className="rounded-2xl bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">11 entry points</div>
             </div>
 
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
-              <Metric value="1" label="featured blueprint" />
-              <Metric value="3" label="supporting routes" />
+              <Metric value="6" label="service blueprints" />
+              <Metric value="5" label="business services" />
               <Metric value="4" label="core journey areas" />
               <Metric value="100%" label="responsive" />
             </div>
