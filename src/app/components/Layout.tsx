@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import Breadcrumbs from "./Breadcrumbs";
 import ComponentSidebar from "./ComponentSidebar";
+import ComponentPageTOC from "./ComponentPageTOC";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ export default function Layout() {
           <main id="main-content" className="flex-1 min-w-0" tabIndex={-1}>
             <Outlet />
           </main>
+          <ComponentPageTOC />
         </div>
       ) : (
         <main id="main-content" className="flex-1" tabIndex={-1}>
