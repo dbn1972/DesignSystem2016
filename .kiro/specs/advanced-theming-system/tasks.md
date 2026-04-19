@@ -100,7 +100,7 @@ Extend the existing `ThemeContext.tsx` with a full-featured theming infrastructu
 - [x] 3. Checkpoint — Verify ThemeEngine
   - Ensure all tests pass with `pnpm vitest --run`, ask the user if questions arise.
 
-- [-] 4. Implement ThemeValidator
+- [x] 4. Implement ThemeValidator
   - [ ] 4.1 Create `src/app/contexts/theme/ThemeValidator.ts`
     - Implement `parseHex`: parse `#RGB` and `#RRGGBB` to `[r, g, b]`, throw on invalid format
     - Implement `relativeLuminance`: WCAG 2.1 formula (linearize sRGB channels, L = 0.2126R + 0.7152G + 0.0722B)
