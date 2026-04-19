@@ -533,18 +533,13 @@ export function CodeSandbox({
               }}
             />
           ) : editorError || editorTimedOut || preferPlainEditor ? (
-            <div className="space-y-3 p-5">
-              <div className="rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-100">
-                {preferPlainEditor
-                  ? "This browser is using the plain editor fallback for better reliability."
-                  : "Monaco could not finish loading in this browser, so the sandbox is using a plain editor fallback."}
-              </div>
+            <div className="p-5">
               <textarea
                 value={code}
                 onChange={(event) => setCode(event.target.value)}
-                className="h-[420px] w-full rounded-2xl border border-border bg-background p-4 font-mono text-sm leading-6 text-foreground outline-none transition focus:border-primary"
+                className="h-[520px] w-full rounded-2xl border border-border bg-background p-4 font-mono text-sm leading-6 text-foreground outline-none transition focus:border-primary"
                 spellCheck={false}
-                aria-label="Sandbox code editor fallback"
+                aria-label="Sandbox code editor"
               />
             </div>
           ) : (
