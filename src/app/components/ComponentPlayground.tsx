@@ -6,7 +6,7 @@
  * playground functions across component documentation pages.
  */
 
-import React, { useState, useCallback, useMemo, useId } from 'react';
+import React, { useState, useCallback, useMemo, useId, useRef } from 'react';
 import {
   Copy,
   Check,
@@ -16,6 +16,7 @@ import {
   Smartphone,
   Sun,
   Moon,
+  ExternalLink,
 } from 'lucide-react';
 
 /* ------------------------------------------------------------------ */
@@ -83,6 +84,77 @@ function buildDefaults(controls: PlaygroundControl[]): Record<string, any> {
   const out: Record<string, any> = {};
   for (const c of controls) out[c.name] = c.defaultValue;
   return out;
+}
+
+/** Open the generated code in StackBlitz via their POST API. */
+function openInStackBlitz(componentName: string, code: string) {
+  const appCode = `import React from 'react';
+import { createRoot } from 'react-dom/client';
+
+// UX4G Component Preview
+// In production, import from '@ux4g/react-core'
+// import { ${componentName} } from '@ux4g/react-core';
+
+function App() {
+  return (
+    <div style={{ padding: '2rem', fontFamily: 'system-ui, sans-serif' }}>
+      <h2 style={{ marginBottom: '1rem' }}>${componentName} Preview</h2>
+      ${code}
+    </div>
+  );
+}
+
+createRoot(document.getElementById('root')!).render(<App />);
+`;
+
+  const html = `<!DOCTYPE html>
+<html>
+<head><title>${componentName} — UX4G</title></head>
+<body><div id="root"></div></body>
+</html>`;
+
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = 'https://stackblitz.com/run';
+  form.target = '_blank';
+
+  const files: Record<string, string> = {
+    'src/main.tsx': appCode,
+    'index.html': html,
+    'package.json': JSON.stringify({
+      name: `ux4g-${componentName.toLowerCase()}-playground`,
+      private: true,
+      scripts: { dev: 'vite', build: 'vite build' },
+      dependencies: { react: '^18.3.0', 'react-dom': '^18.3.0' },
+      devDependencies: { '@types/react': '^18.3.0', '@types/react-dom': '^18.3.0', typescript: '^5.5.0', vite: '^6.0.0', '@vitejs/plugin-react': '^4.3.0' },
+    }, null, 2),
+    'vite.config.ts': `import { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\nexport default defineConfig({ plugins: [react()] });`,
+    'tsconfig.json': JSON.stringify({ compilerOptions: { target: 'ES2020', module: 'ESNext', moduleResolution: 'bundler', jsx: 'react-jsx', strict: true }, include: ['src'] }, null, 2),
+  };
+
+  Object.entries(files).forEach(([path, content]) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = `project[files][${path}]`;
+    input.value = content;
+    form.appendChild(input);
+  });
+
+  const titleInput = document.createElement('input');
+  titleInput.type = 'hidden';
+  titleInput.name = 'project[title]';
+  titleInput.value = `UX4G ${componentName} Playground`;
+  form.appendChild(titleInput);
+
+  const templateInput = document.createElement('input');
+  templateInput.type = 'hidden';
+  templateInput.name = 'project[template]';
+  templateInput.value = 'node';
+  form.appendChild(templateInput);
+
+  document.body.appendChild(form);
+  form.submit();
+  document.body.removeChild(form);
 }
 
 /* ------------------------------------------------------------------ */
@@ -271,13 +343,22 @@ export function ComponentPlayground({
           <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
             Generated code
           </span>
-          <button
-            onClick={copyCode}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-border bg-card text-foreground hover:border-primary hover:text-primary transition-colors"
-          >
-            {copied ? <Check size={13} className="text-green-600" /> : <Copy size={13} />}
-            {copied ? 'Copied' : 'Copy'}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => openInStackBlitz(name, code)}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-border bg-card text-foreground hover:border-primary hover:text-primary transition-colors"
+            >
+              <ExternalLink size={13} />
+              StackBlitz
+            </button>
+            <button
+              onClick={copyCode}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-border bg-card text-foreground hover:border-primary hover:text-primary transition-colors"
+            >
+              {copied ? <Check size={13} className="text-green-600" /> : <Copy size={13} />}
+              {copied ? 'Copied' : 'Copy'}
+            </button>
+          </div>
         </div>
         <div className="bg-slate-950 px-5 py-4 overflow-x-auto">
           <pre className="text-sm font-mono text-slate-100 leading-relaxed whitespace-pre-wrap">
