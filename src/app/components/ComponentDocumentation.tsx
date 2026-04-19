@@ -11,7 +11,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Download, Check, Copy, ExternalLink, Info, Eye, List, Code2, GitCompare, Palette, BookOpen } from 'lucide-react';
+import { Download, Check, Copy, ExternalLink, Info, Eye, List, Code2, GitCompare, Palette, BookOpen, Play } from 'lucide-react';
 import { Link } from 'react-router';
 import SEOHead from './SEOHead';
 
@@ -276,6 +276,13 @@ export const ComponentDocumentation: React.FC<ComponentDocumentationProps> = ({
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground mb-3">{name}</h1>
               <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">{description}</p>
             </div>
+            <Link
+              to={`/components/sandbox?preset=button-actions&source=${name.toLowerCase()}`}
+              className="hidden sm:inline-flex items-center gap-2 shrink-0 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
+            >
+              <Play size={15} />
+              Try in Sandbox
+            </Link>
           </div>
 
           {/* Metadata badges */}

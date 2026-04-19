@@ -923,6 +923,7 @@ function ResourcesMegaMenu({ onClose }: { onClose: () => void }) {
                 <MegaMenuItem icon={<GitBranch size={14} className="text-amber-600" />} label="Migration Guides" href="/resources/migration-guides" onClose={onClose} />
                 <MegaMenuItem icon={<RefreshCw size={14} className="text-cyan-600" />} label="Material UI Migration" href="/resources/migration-material-ui" onClose={onClose} />
                 <MegaMenuItem icon={<Accessibility size={14} className="text-green-700 dark:text-green-400" />} label="Accessibility Toolkit" href="/accessibility" onClose={onClose} />
+                <MegaMenuItem icon={<Code size={14} className="text-violet-600" />} label="Code Sandbox" href="/components/sandbox" onClose={onClose} />
               </div>
             </div>
           </div>

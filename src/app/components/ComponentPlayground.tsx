@@ -344,6 +344,13 @@ export function ComponentPlayground({
             Generated code
           </span>
           <div className="flex items-center gap-2">
+            <a
+              href={`/components/sandbox?source=${name.toLowerCase()}`}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-border bg-card text-foreground hover:border-primary hover:text-primary transition-colors"
+            >
+              <ExternalLink size={13} />
+              Sandbox
+            </a>
             <button
               onClick={() => openInStackBlitz(name, code)}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-border bg-card text-foreground hover:border-primary hover:text-primary transition-colors"
